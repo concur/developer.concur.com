@@ -1,7 +1,7 @@
 ---
 layout: page
 title: OAuth 2.0 Basic Concepts
-permalink: 
+permalink:
 ---
 
 # OAuth 2.0 Basic Concepts

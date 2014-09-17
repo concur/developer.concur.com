@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Core Concepts
-permalink: 
+permalink:
 ---
 
 # Core Concepts
