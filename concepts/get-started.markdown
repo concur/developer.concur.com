@@ -8,7 +8,9 @@ permalink:
 
 ##Code, Samples, etc
 We have [samples](https://github.com/concur-samples) and [client libraries](https://github.com/concur) on GitHub, go check them out, they are public and have corresponding documentation. We also have a Swagger page [here](https://www.concursolutions.com/api/docs/index.html) that you can use to interact with our APIs with an access token, see below on how to generate one. 
+
 ##Before you start
+
 1. Have a [registered sandbox](https://developer.concur.com/en-us/login) or sign up for one [here](https://developer.concur.com/register). 
 2. Have a [clientID](https://developer.concur.com/api-documentation/oauth-20/oauth-20-basic-concepts#consumer_key)
 3. Generate a token to call the APIs
