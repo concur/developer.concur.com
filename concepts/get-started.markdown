@@ -24,7 +24,7 @@ There are [APIs](https://developer.concur.com/docs-and-resources/documentation) 
 Example of how to get an [access token](https://developer.concur.com/api-documentation/oauth-20/oauth-20-basic-concepts#access_tokens) with JSON response
 	
 ####Request
-The username and password must be base 64 encoded separated by a colon. For exaple: sample@concur.com:samplepassword. 
+The username and password must be base 64 encoded separated by a colon. For exaple: sample@concur.com:samplepassword. We already have X-ConsumerKey (clientID) from number 2. To generate the Authorization: Basic value, you need to Base64-encode the login ID, colon and password such that john_developer@hotmail.com:Travel&Expense$2012 becomes am9obl9kZXZlbG90bWFpbC5jb206VHJhdmVsJkV4cGVuc2UkMjAxMg==. If you're not doing this programmatically yet, you can use this nifty web tool to generate that value (remember to choose Encode).
 	
 	curl https://www.concursolutions.com/net2/oauth2/accesstoken.ashx \
 	-H "Authorization: Basic <Base 64 encoded sample@concur.com:password>" \
@@ -72,7 +72,7 @@ Use [Itinerary](https://developer.concur.com/api-documentation/web-services/itin
 	]
 
 ##Expense
-The **Expense APIs (v3.0)** allows you to get (and push) a Concur user's expense information, including expense line items, their types (e.g. food, lodging), totals, and even receipt images.
+
 
 ###Use [QuickExpenses](https://www.concursolutions.com/api/docs/index.html#!/QuickExpenses) to get the list of quick expenses on the users account. 
 	
@@ -173,8 +173,8 @@ The **Expense APIs (v3.0)** allows you to get (and push) a Concur user's expense
 
 ####Request
 
-	curl https://www.concursolutions.com/api/user/v1.0/User/
-    -H "Authorization: OAuth <insert your access token here>"
+	curl https://www.concursolutions.com/api/user/v1.0/User/ \
+    -H "Authorization: OAuth <insert your access token here>" \
     -H "Accept: application/xml"
 
 ####Response
