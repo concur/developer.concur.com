@@ -3,8 +3,6 @@ title: Choosing an Authorization Flow
 layout: page
 ---
 
-# Choosing an Authorization Flow
-
 An authorization flow is the process used to obtain an OAuth access token. Concur implements the following authorization flows:
 
 *   [App Center Flow](https://developer.concur.com/node/712)

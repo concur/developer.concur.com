@@ -1,13 +1,8 @@
 ---
 title: Access Token Resource
+description: An access token is a long-lived token used to make authorized API calls.
 layout: page
 ---
-
-# Access Token Resource
-
-## Description
-
-An access token is a long-lived token used to make authorized API calls.
 
 ## URIs
 

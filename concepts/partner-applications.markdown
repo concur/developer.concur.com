@@ -4,8 +4,6 @@ title: Partner Applications
 permalink:
 ---
 
-# Partner Applications
-
 You can use the Concur Developer Platform to build a variety of applications, ranging from single-function apps to end-to-end solutions that address complex business problems. For example, you can use the [List Item](https://developer.concur.com/node/370) Web service to build a simple app for updating a project code list in Concur. Or, you can build an end-to-end solution using the [External Validation Callout](https://developer.concur.com/node/495) for validating a Concur expense with an external validation system. We refer generically to all these apps as *partner applications*.
 
 The Concur Developer Platform APIs implement [OAuth 2.0](https://developer.concur.com/node/491) to authenticate users and authorize access to their Concur data. Before you can deliver your application to end users, you must register your applicaiton with Concur to obtain the required authorization information. Partner applications that are intended for use by multiple companies must be [reviewed](https://developer.concur.com/node/624) by Concur. The applications will not be available to other companies until Concur and the developer have completed the review process.

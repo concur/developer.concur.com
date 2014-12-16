@@ -1,12 +1,8 @@
 ---
 title: App Center Flow
+description: The Concur App Center Flow is a simplified authorization mechanism optimized for App Center users who are already logged into Concur and want to connect their App Center app to their Concur account and authorize access to their personal information.
 layout: page
 ---
-
-# App Center Flow
-
-The Concur App Center Flow is a simplified authorization mechanism optimized for App Center users who are already logged into Concur and want to connect their App Center app to their Concur account and authorize access to their
-personal information.
 
 ## Preconditions
 

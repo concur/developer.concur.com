@@ -3,8 +3,6 @@ title: OAuth 2.0 Native Flow
 layout: page
 ---
 
-# OAuth 2.0 Native Flow
-
 ## Overview
 
 The Native Flow is a Concur implementation of the 2-legged OAuth authorization flow. When implementing the Native Flow, a partner application accesses the resources of a given user whithout user involvement. The partner application sends the user's Concur credentials to the Concur authorization server on behalf of the user. You want to implement the Native flow in the following situations:

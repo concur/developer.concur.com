@@ -1,0 +1,13 @@
+<div class="collapse navbar-collapse">
+	<ul class="nav pull-right navbar-nav">
+		{% for d in site.data.nav %}
+
+		<!-- TODO: determine whether d.href is an absolute or relative path -->
+		<li><a href="{{ site.baseurl }}{{ d.href }}">{{ d.title}}</a></li>
+
+		{% endfor %}
+
+	</ul>
+</div>
+
+

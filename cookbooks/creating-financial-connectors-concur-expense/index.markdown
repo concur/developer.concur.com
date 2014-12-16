@@ -4,8 +4,6 @@ title: Creating Financial Connectors for Concur Expense
 permalink:
 ---
 
-# Creating Financial Connectors for Concur Expense 
-
 ## Overview
 The Financial Integration Platform part of Concur Connect makes it easier for developers to create packaged connectors that integrate Concur Expense with financial systems. The process consists of completing the following five steps:
 

@@ -1,0 +1,48 @@
+- title: "API Documentation"
+  href: "/api"
+  children: 
+    - title: "v2"
+      href: "/api/v2"
+    - title: "v3"
+      href: "/api/v3"
+    - title: "Release Notes"
+      href: "/api/release-notes"
+
+- title: "Concepts"
+  href: "/concepts/overview.html"
+  children:
+    - title: "Get Started"
+      href: "/concepts/get-started"
+    - title: "Partner Applications"
+      href: "/concepts/partner-applications"
+    - title: "OAuth 2.0"
+      href: "/concepts/oauth2/overview"
+      children: 
+        - title: "OAuth 2.0 Basic Concepts"
+          href: "concepts/oauth2/basic-concepts"
+        - title: "Choosing an Authorization Flow"
+          href: "concepts/oauth2/choosing-a-flow"
+        - title: "Native Flow"
+          href: "concepts/oauth2/native-flow"
+        - title: "App Center Flow"
+          href: "concepts/oauth2/appcenter-flow"
+        - title: "Auto-Connect Flow"
+          href: "concepts/oauth2/auto-connect-flow"
+        - title: "Web Flow"
+          href: "concepts/oauth2/web-flow"
+        - title: "Access Token Resource"
+          href: "concepts/oauth2/access-token-resource"
+        - title: "Working with Access Tokens"
+          href: "concepts/oauth2/working-with-access-tokens"
+
+- title: "Cookbooks"
+  href: "/cookbooks/"
+  children: 
+    - title: "Creating Financial Connectors for Concur Expense"
+      href: "/cookbooks/creating-financial-connectors-for-concur-expense/"
+
+- title: "Blog"
+  href: "blog"
+
+- title: "Forum"
+  href: "http://some.external.local"

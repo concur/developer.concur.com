@@ -3,12 +3,9 @@ title: Auto-Connect Flow
 layout: page
 ---
 
-# Auto-Connect Flow
-
 ## Overview
 
-The Auto-Connect flow is an authorization flow Concur implemented to support authorized Connection Requests API calls from TripLink applications. During the
-Auto-Connect flow, the request token associated with a TripLink application is exchanged for an access token for the user who granted the TripLink application access to the user's Concur data.
+The Auto-Connect flow is an authorization flow Concur implemented to support authorized Connection Requests API calls from TripLink applications. During the Auto-Connect flow, the request token associated with a TripLink application is exchanged for an access token for the user who granted the TripLink application access to the user's Concur data.
 
 ### Preconditions
 

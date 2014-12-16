@@ -3,9 +3,6 @@ title: OAuth 2.0 Web Flow
 layout: page
 ---
 
-# OAuth 2.0 Web Flow
-
-
 ## Description
 Companies that partner with Concur can use the Concur Connect platform to link their partner application with Concur users. The Concur user sees a list of certified partners on the App Center page, and can choose to grant the application access to their Concur information. This process uses the OAuth 2.0 Web flow.
 

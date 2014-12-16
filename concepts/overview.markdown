@@ -1,12 +1,11 @@
 ---
 layout: page
-title: Concepts
+title: About the Concur Platform
+description: Our platform enables developers to build solutions that integrate with Concur’s T&E service. Data security and quality customer experiences are paramount.
 permalink:
 ---
 
-# About the Concur Platform
-
-Our platform enables developers to build solutions that integrate with Concur’s T&E service. Data security and quality customer experiences are paramount. To that end, our platform contains the following components:
+Our platform contains the following components:
 
 * *Core Services* feature OAuth authentication, content types in XML and JSON. 
 * *Web Services/APIs* are the endpoints that Concur exposes—which can be invoked by third-party applications. The majority of third-party applications will use web services. 

@@ -3,7 +3,6 @@ title: Working with Access Tokens
 layout: page
 ---
 
-# Working with Access Tokens
 There are three main operations you can perform with access tokens:
 
 ## Getting access tokens

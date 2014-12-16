@@ -1,14 +1,9 @@
 ---
 layout: page
 title: Core Concepts
+description: Concur's platform uses standard functionality across web services and callouts. This page includes links and information that all platform developers will find useful.
 permalink:
 ---
-
-# Core Concepts
-
-Concur's platform uses standard functionality across [web
-services](#ws) and [callouts](#co). This page includes links and
-information that all platform developers will find useful.
 
 ## Web Services
 

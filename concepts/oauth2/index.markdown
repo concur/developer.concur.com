@@ -3,7 +3,6 @@ title: OAuth 2.0
 layout: page
 ---
 
-# OAuth 2.0
 OAuth 2.0 is an authorization protocol designed to enable third-party applications (in Concur these are called partner apps) to obtain limited access to an HTTP service, either on behalf of a resource owner by orchestrating an approval interaction between the resource owner and the HTTP service, or by allowing a third-party application to obtain access on its own behalf.
 
 In traditional client-server authentication models, the resource owner provides access to its protected resources by sharing its credentials with a third-party application. This creates several security concerns:

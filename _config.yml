@@ -1,11 +1,11 @@
 # Site settings
 title: Concur Developer Portal
-email: your-email@domain.com
+email: devx@concur.com
 description: This is the fancy new placeholder text for the site description.
 baseurl: "/developer.concur.com" # the subpath of your site, e.g. /blog/
 url: "concur.github.io" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: concurapi
+github_username:  concur
 
 # Build settings
 markdown: kramdown

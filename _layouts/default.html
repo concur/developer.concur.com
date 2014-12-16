@@ -1,20 +1,39 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,300italic" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <title>{{ site.title }} | {{ page.title }}</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  {% include head.html %}
+  <!-- stylesheet references -->
+  <link href="{{ site.baseurl }}/animate.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/js/woothemes-FlexSlider-06b12f8/flexslider.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="{{ site.baseurl }}/js/prettyPhoto_3.1.5/prettyPhoto.css" type="text/css" media="screen">
+  <link href="{{ site.baseurl }}/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/fonts/font-awesome/css/font-awesome.min.css" media="screen">
 
-  <body>
+  <!-- modernizr -->
+  <script type="text/javascript" src="{{ site.baseurl }}/js/modernizr.custom.48287.js"></script>
 
-    {% include header.html %}
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ site.baseurl }}/apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ site.baseurl }}/apple-touch-icon-72x72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="{{ site.baseurl }}/apple-touch-fa-57x57-precomposed.png">
+  <link rel="shortcut icon" href="{{ site.baseurl }}/images/favicon.png">
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
+</head>
 
-    {% include footer.html %}
 
-  </body>
+<body>
+
+  {% include header.html %}
+
+  {{ content }}
+
+  {% include scripts.html %}
+  
+</body>
 
 </html>
