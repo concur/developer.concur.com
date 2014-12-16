@@ -42,12 +42,12 @@ request token for the user:
 		&client_secret={consumer_secret}
 		Accept: application/xml
 
-For example:
+	For example:
 
-	GET https://www.concursolutions.com/net2/oauth2/getaccesstoken.ashx
-	?code=0_XI1GL5BTe05Wr76W0bkK3hPg2sF7gcZ
-	&client_id=VDV5Y532NafpmDLtbve7Md
-	&client_secret=3ukkqMSIPORvMmXQqQ7QFJnDckLzmO5Z
-	Accept: application/xml
+		GET https://www.concursolutions.com/net2/oauth2/getaccesstoken.ashx
+		?code=0_XI1GL5BTe05Wr76W0bkK3hPg2sF7gcZ
+		&client_id=VDV5Y532NafpmDLtbve7Md
+		&client_secret=3ukkqMSIPORvMmXQqQ7QFJnDckLzmO5Z
+		Accept: application/xml
 
-If you encounter an error that makes it impossible to complete the connection process, revoke the access token to the user knows that the connection attempt failed and they can try again at a later time.
+	If you encounter an error that makes it impossible to complete the connection process, revoke the access token to the user knows that the connection attempt failed and they can try again at a later time.
