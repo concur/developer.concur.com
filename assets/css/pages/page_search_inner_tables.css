@@ -1,0 +1,15 @@
+/*Page_Search1_Block
+------------------------------------*/
+.search-block {
+	padding: 40px 0 50px;
+	border-bottom: 1px solid #eee;
+	background: url(../../img/breadcrumbs.png) repeat;
+}
+
+.search-block h1 {
+	font-size: 24px;
+	font-weight: 200;
+	text-align: center;
+	margin-bottom: 18px;
+	text-transform: uppercase;
+}
