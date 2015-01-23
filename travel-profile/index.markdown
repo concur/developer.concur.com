@@ -1,6 +1,6 @@
 ---
-title:Travel Profile Resource
-layout:default
+title: Travel Profile Resource
+layout: default
 ---
 
 ## Description
@@ -37,4 +37,3 @@ Works with these Concur products
 * Loyalty Program 
 * Company Notification 
 * User Notification 
-
