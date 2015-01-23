@@ -14,6 +14,10 @@
 	color: #0275BC;
 }
 
+.header .navbar-brand {
+	padding-bottom: 7px;
+}
+
 /*Responsive Navbar*/
 @media (max-width: 991px) {
 
