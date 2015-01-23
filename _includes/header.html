@@ -1,24 +1,142 @@
-  <header>
-   <div class="container">
-    <div class="navbar navbar-default" role="navigation">
-     <div class="navbar-header">
-      <a class="navbar-brand" href="{{ site.baseurl }}/index.html"> 
-        <img src="{{ site.baseurl }}/images/concur_logo_symbol.png" alt="optional logo" height="90" width="90"> 
-        <span class="logo_title">Concur</span> 
-        <span class="logo_subtitle">Developer Portal</span> 
-      </a>
-      <a class="btn btn-navbar btn-default navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="nb_left pull-left"> 
-          <span class="fa fa-reorder"></span>
-        </span> 
-        <span class="nb_right pull-right">menu</span> 
-      </a>
+    <!--=== Header ===-->    
+    <div class="header">
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="container">
+                <!-- Topbar Navigation -->
+                <ul class="loginbar pull-right">
+                    <!-- <li class="languagesSelector">
+                        <i class="fa fa-globe"></i>
+                        <a>Languages</a>
+                        <ul class="languages">
+                            <li class="active">
+                                <a href="#">English <i class="fa fa-check"></i></a> 
+                            </li>
+                            <li><a href="#">Spanish</a></li>
+                            <li><a href="#">Russian</a></li>
+                            <li><a href="#">German</a></li>
+                        </ul>
+                    </li> -->
+                    <!-- <li class="topbar-devider"></li>   
+                    <li><a href="page_faq.html">Help</a></li>  
+                    <li class="topbar-devider"></li>  -->  
+                    <li><a href="page_login.html">Login</a></li>   
+                </ul>
+                <!-- End Topbar Navigation -->
+            </div>
+        </div>
+        <!-- End Topbar -->
+    
+        <!-- Navbar -->
+        <div class="navbar navbar-default mega-menu" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img id="logo-header" src="concur_assets/img/Concur_Logo_VT_Color_40px.png" alt="Logo">
+                        Developer Portal
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+                        <!-- Home -->
+                        <li class="active">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Home
+                            </a>
+                        </li>
+                        <!-- End Home -->
+
+                        <!-- Why Concur -->                        
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Why Concur?
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Personal Apps</a></li>
+                              <li><a href="#">Enterprise Apps</a></li>
+                              <li><a href="#">Internal Apps</a></li>
+                              <li><a href="#">TripLink</a></li>
+                              <li><a href="#">Partner Program</a></li>
+                              <li><a href="#">Testimonials/Case Studies/Use Cases</a></li>
+                              <li><a href="#">App Center</a></li>
+                            </ul>
+                        </li>
+                        <!-- End Why Concur -->
+
+                        <!-- Docs & Resources -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Docs &amp; Resources
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Getting Started</a></li>
+                              <li><a href="#">API</a></li>
+                              <li><a href="#">SDK/Client Libraries</a></li>
+                              <li><a href="#">GitHub</a></li>
+                              <li><a href="#">Tools</a></li>
+                            </ul>
+                        </li>
+                        <!-- End Docs & Resources -->
+
+                        <!-- Manage Apps -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Manage Apps
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">My Apps</a></li>
+                              <li><a href="#">Create App</a></li>
+                              <li><a href="#">Submit App</a></li>
+                              <li><a href="#">Certification Process</a></li>
+                              <li><a href="#">Launch Tools &amp; Forms</a></li>
+                              <li><a href="#">Sandbox</a></li>
+                              <li><a href="#">Upgrade API Tier</a></li>
+                              <li><a href="#">App Center</a></li>
+                            </ul>
+                        </li>
+                        <!-- Ens Manage Apps -->
+
+                        <!-- Support & Community -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Support &amp; Community
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Help &amp; FAQs</a></li>
+                              <li><a href="#">Developer Forum</a></li>
+                              <li><a href="#">Contact Support</a></li>
+                              <li><a href="#">Community</a></li>
+                              <li><a href="#">Dev Blog</a></li>
+                              <li><a href="#">Events</a></li>
+                              <li><a href="#">Newsletter</a></li>
+                            </ul>
+                        </li>
+                        <!-- End Support & Community -->
+
+                        <!-- Search Block -->
+                        <li>
+                            <i class="search fa fa-search search-btn"></i>
+                            <div class="search-open">
+                                <div class="input-group animated fadeInDown">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn">
+                                        <button class="btn-u" type="button">Go</button>
+                                    </span>
+                                </div>
+                            </div>    
+                        </li>
+                        <!-- End Search Block -->
+                    </ul>
+                </div><!--/navbar-collapse-->
+            </div>    
+        </div>            
+        <!-- End Navbar -->
     </div>
-
-    {% include top-navigation.html %}
-
-  </div>
-  <div id="social_media_wrapper"> <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com/leonartgr"><i class="fa fa-twitter"></i></a> <a href="#googleplus"><i class="fa fa-google-plus"></i></a> </div>
-  <div id="sign"><a href="register.html"><i class="fa fa-user"></i><span>Register/Sign in</span></a></div>
-</div>
-</header>
+    <!--=== End Header ===-->    
