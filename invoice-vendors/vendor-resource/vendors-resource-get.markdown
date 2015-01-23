@@ -1,0 +1,126 @@
+
+        <div id="main" class="container">
+            <div>
+                            </div>
+            <div class="row">
+                <div class="span12">
+<div class="breadcrumbs"><a href="/">Home</a>Vendors Resource: GET</div>
+                </div>
+            </div>
+
+            <div id="content-wrapper">
+<!-- <div class="row"> -->
+                <div id="content" class="span9">
+			# Vendors Resource: GET
+                    <div class="section">
+                    <div id="node-679" class="node clear-block">
+
+
+	
+	<div class="content clear-block">
+				<style type="text/css">
+.overflow_box{
+border: 1px solid grey;
+padding: .5em;
+overflow: auto;
+background-color: #DBDBDB;
+font-family:"Courier New", Courier, monospace;
+font-size:11px;
+}
+.xml-attribute {color: #009900}
+.xml-value {color: #ce7b00}
+.ST0 {color: #00007c; font-family: Monospaced; font-weight: bold}
+.xml-tag {color: #0000e6}
+.STRING_LITERAL {color: #ce7b00}</style>This resource supports the following GET action:
+
+* 
+		<a href="#listofitins">Get Vendors </a>
+
+## 
+	<a id="listofitins" name="listofitins"></a>Get Vendors Request
+####
+	XML Example Request without Parameters
+<pre class="overflow_box">
+GET <a href="https://www.concursolutions.com/api/v3.0/invoice/vendors" title="https://www.concursolutions.com/api/v3.0/invoice/vendors">https://www.concursolutions.com/api/v3.0/invoice/vendors</a> HTTPS 1.1
+Authorization: OAuth {access token}
+...
+</pre>####
+	XML Example Request with SearchType and Country Parameters
+<pre class="overflow_box">
+GET https://www.concursolutions.com/api/v3.0/invoice/vendors/?SearchType=contains<span class="ST0">&amp;Country=US HTTPS 1.1
+Authorization: OAuth {access token}
+...
+</pre>####
+	XML Example Request with Approved Parameter
+<pre class="overflow_box">
+GET <a href="https://www.concursolutions.com/api/v3.0/invoice/vendors/?Approved=True" title="https://www.concursolutions.com/api/v3.0/invoice/vendors/?Approved=True">https://www.concursolutions.com/api/v3.0/invoice/vendors/?Approved=True</a> HTTPS 1.1
+Authorization: OAuth {access token}
+...
+</pre>## 
+	Get Vendors Response
+####
+	XML Example of Successful Response
+<pre class="overflow_box">
+HTTP 1.1 200 OK
+Content-Type: application/xml
+...
+
+<Vendors>
+    <Vendor>
+        <VendorCode>Vendor123</VendorCode>
+        <AddressCode>Address123</AddressCode>
+        <VendorName>VendorName</VendorName>
+        <Address1>123 Main Street</Address1>
+        <Address2>North</Address2>
+        <Address3>Ave</Address3>
+        <City>Eden Prairie</City>
+        <State>Mn</State>
+        <PostalCode>55344</PostalCode>
+        <CountryCode>US</CountryCode>
+        <BuyerAccountNumber>123</BuyerAccountNumber >
+        <TaxID>123</TaxID>
+        <CurrencyCode>USD</CurrencyCode>
+        <PaymentTermDays>30</PaymentTermDays>
+        <Shippingmethod>UPS</Shippingmethod>
+        <ShippingTerms>1</ShippingTerms>
+        <DiscountTemsDays>20</DiscountTemsDays>
+        <DiscountPercentage>10</DiscountPercentage>
+        <ContactFirstName>Chris</ContactFirstName>
+        <ContactLastName>Miller</ContactLastName>
+        <ContactPhoneNumber>2065556789</ContactPhoneNumber>
+        <ContactEmail>cm@example.com</ContactEmail>                          
+        <PurchaseOrderContactFirstName>Terry</PurchaseOrderContactFirstName>
+        <PurchaseOrderContactLastName>Brown</PurchaseOrderContactLastName>
+        <PurchaseOrderContactPhoneNumber>2065551234</PurchaseOrderContactPhoneNumber>
+        <PurchaseOrderContactEmail>poemail@poemail.com</PurchaseOrderContactEmail>
+        <DefaultEmployeeID>27</DefaultEmployeeID>
+        <DefaultExpenseTypeName>EXPW</DefaultExpenseTypeName>
+        <Custom1>Shipping></Custom1>
+        <Custom2/>
+        <Custom3/>
+        <Custom4/>
+        <Custom5/>
+        <Custom6/>
+        <Custom7/>
+        <Custom8/>
+        <Custom9/>
+        <Custom10/>
+        <Custom11/>
+        <Custom12/>
+        <Custom13/>
+        <Custom14/>
+        <Custom15>DepartmentA</Custom15>
+        <PaymentMethodType>CLIENT</PaymentMethodType>
+    </Vendor>
+</Vendors>
+</pre>####
+	XML Example of Failure Response
+<pre class="overflow_box">
+<VendorResult>
+    <Vendor>
+        <Status>FAILURE</Status>
+        <ErrorCode>6000</ErrorCode>
+        <ErrorMessage>The required field missing|Limit</ErrorMessage>
+    </Vendor>
+</VendorResult>
+</pre>
