@@ -1,6 +1,6 @@
 [Source](https://developer.concur.com/attendee "Permalink to Attendee Web Service | Developer Portal")
 
-# Attendee Web Service | Developer Portal
+# Attendee Web Service
 
 
 
@@ -91,7 +91,6 @@ When there are errors with batch items, the first ten errors are returned in the
 |  1305 |  Cannot update the attendee data for a non existing attendee. |
 
   
-Last Modified: 8/7/2013 2:12 PM PDT
 
 [1]: https://developer.concur.com/node/25
 [2]: https://developer.concur.com/forums/concur-connect
