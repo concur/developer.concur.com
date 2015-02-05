@@ -1,10 +1,8 @@
 ---
 title: Attendee Web Service
-layout: conceptual
+layout: default
 ---
 
-
-[Source](https://developer.concur.com/attendee "Permalink to Attendee Web Service | Developer Portal")
 
 # Attendee Web Service
 
