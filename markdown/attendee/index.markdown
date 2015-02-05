@@ -1,6 +1,6 @@
 ---
 title: Attendee Web Service
-layout: page
+layout: conceptual
 ---
 
 
