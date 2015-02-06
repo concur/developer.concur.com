@@ -24,6 +24,7 @@ The unique identifier for the notification.
 
 Example:  
 `https://www.concursolutions.com/api/platform/notifications/v1.0/notification/_{notificationID}_`
+
 URI Source: The URI is returned in the **NotificationUrl** element of the Response for the [Get Notifications by Status][1] function.
 
 ## Query Parameters - Optional
@@ -56,10 +57,10 @@ Authorization: OAuth {access token}
 
 The response returns an HTTP Status Code as follows:
 
-|  HTTP Code |  Description |
-|  200 Success |  Notification successfully deleted. |  
-|  400 Bad Request |  The request is malformed. Check the API document and verify the request uses the correct format. |
-|  403 Forbidden |  The OAuth Consumer doesn't have a required role. Check the API documentation to learn the required roles.|
+|HTTP Code|Description|
+|200 Success |Notification successfully deleted. |  
+|400 Bad Request|The request is malformed. Check the API document and verify the request uses the correct format.|
+|403 Forbidden|The OAuth Consumer doesn't have a required role. Check the API documentation to learn the required roles.|
 
 ####  Example of Successful Response
 
