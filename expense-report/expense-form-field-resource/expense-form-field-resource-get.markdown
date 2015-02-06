@@ -3,65 +3,33 @@ title: Expense Form Field Resource
 layout: operation
 ---
 
-
-
-
-This resource supports the following GET actions:
-
-##  Get Form Field Details Request
-
-| ----- |
-|  Description |  Supported Accept Types |
-|  Retrieves the details of the configured form fields for the specified form.
+## Description
+Retrieves the details of the configured form fields for the specified form.
 
 **NOTE**: When sending in requests using these fields, be sure to include the required fields from the form and any additional required fields specified in the request documentation.
 
- |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
-
-* **{_FormId_}/Fields**  
+## Request
+```
+GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/nAaT8$puKKO2$pEVlsXfSruLpDfZL0wVM$s7/Fields HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
+### Request parameters
+**{_FormId_}/Fields**  
 The unique identifier for the desired form and the Fields keyword.
 Example:  
 https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/_{FormId}_/Fields
 
 **URI Source**: The FormId is returned in the **FormId** element by the [Get Form Data][1] function.
 
- |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. |  None |
+### Content types
+application/xml
 
-####  XML Example Request
+### Authorization header
+Authorization header with OAuth token for valid Concur user.
 
-    GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/nAaT8$puKKO2$pEVlsXfSruLpDfZL0wVM$s7/Fields HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
-
-##  Get Form Field Details Response
-
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][2] |   |
-|  Content Body |   |
-|  This request will return a **FormFieldsList** parent element with a **FormField** parent element for each configured form field. The **FormField** element has the following child elements:
-
-|  Element |  Description |
-|  Id |  The form field ID. |   |
-|  Label |  The form field label. |
-|  ControlType |  The type of field. |
-|  DataType |  The type of data accepted by the field. |
-|  MaxLength |  The maximum length of the field value. |
-|  Required |  Whether the field is required. |
-|  Cols |  The number of columns the field contains. |
-|  Access |  The access level the specified user has to the field. |
-|  Width |  The width of the field. |
-|  Custom |  Whether the field is custom. |
-|  Sequence |  The field order on the form. |
-
- |
-
-####  XML Example of Successful Response
-
+## Response
+```
     200 OK
     Content-Type: application/xml
     <FormFieldsList xmlns="https://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -144,9 +112,23 @@ https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/_{For
             <Sequence>6</Sequence>
         </FormField>
     </FormFieldsList>
+```
+### Response root elements
+This request will return a **FormFieldsList** parent element with a **FormField** parent element for each configured form field. The **FormField** element has the following child elements:
 
-  
-
+|  Element |  Description |
+| -------- | ------------ |
+|  Id |  The form field ID. |
+|  Label |  The form field label. |
+|  ControlType |  The type of field. |
+|  DataType |  The type of data accepted by the field. |
+|  MaxLength |  The maximum length of the field value. |
+|  Required |  Whether the field is required. |
+|  Cols |  The number of columns the field contains. |
+|  Access |  The access level the specified user has to the field. |
+|  Width |  The width of the field. |
+|  Custom |  Whether the field is custom. |
+|  Sequence |  The field order on the form. |
 
 [1]: https://developer.concur.com/node/469#getformdata
 [2]: https://developer.concur.com/reference/http-codes
