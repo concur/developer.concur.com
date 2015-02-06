@@ -23,7 +23,7 @@ Refer to **Web Services > [Core Concepts][2]** for:
 Detailed descriptions of requests and responses are available in the documentation for each function.
 
 ## Product Restrictions
-This web service is designed for use by TripLink - Open Booking Suppliers. If you are a TripLink - Open Booking Supplier who would like to start using this web service, please visit: <http://www.concur.com/en-us/connect-platform/suppliers> or contact the [Concur Connect Platform Team](mailto:connect@concur.com).
+This web service is designed for use by TripLink - Open Booking Suppliers. If you are a TripLink - Open Booking Supplier who would like to start using this web service, please visit: <http://www.concur.com/en-us/connect-platform/suppliers> or contact the [Concur Connect Platform Team](mailto:[3]).
 
 Concur products are highly configurable, and not all clients will have access to all features.
 
