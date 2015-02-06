@@ -3,51 +3,30 @@ title: Location Resource
 layout: operation
 ---
 
+## Description
+Retrieves a list of valid city location codes.
 
-
-
-This resource supports the following GET actions:
-
-##  Get List of Locations Request
-
-| ----- |
-|  Description |  Supported Accept Types |
-|  Retrieves a list of valid city location codes. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
-
-* **city****={_searchstring_}**  
+## Request
+```
+GET https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city=Redmond HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
+### Request parameters
+**city****={_searchstring_}**  
 The city name. The system will return all values with city names that begin with the supplied name. The city name value is not case sensitive. The value can contain the * wildcard. This wildcard matches any number of characters.  Example: Locations?city=old*b_o will match the city name "Old Saybrook"
 Example:  
-https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city={_searchstring_} |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. |  None |
+https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city={_searchstring_}
 
-####  XML Example Request
+### Content types
+application/xml
 
-    GET https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city=Redmond HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+### Authorization header
+Authorization header with OAuth token for valid Concur user.
 
-##  Get List of Locations Response
-
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][1] |   |
-|  Content Body |   |
-|  This request will return a **LocationsList** parent element with a **Location** parent element for each location with a City Name that contains the search text. The **Location** parent element contains the following child elements:
-
-|  Element |  Description |
-|  Name |  The city name. |   |
-|  Country |  The country name for the location. |
-|  State |  The state/province name for the location. Empty if there is no corresponding state/province. |
-|  LocationID |  The unique key for the location. This value is required when posting data in the **City** element. |
-
- |
-
-####  XML Example of Successful Response
-
-    200 OK
+## Response
+```
+  200 OK
     Content-Type: application/xml
     <LocationList xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <Location>
@@ -69,8 +48,16 @@ https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city={_
             <State>Utah</State>
         </Location>
     </LocationList>
+```
+### Response root elements
+This request will return a **LocationsList** parent element with a **Location** parent element for each location with a City Name that contains the search text. The **Location** parent element contains the following child elements:
 
-  
+|  Element |  Description |
+| -------- | ------------ |
+|  Name |  The city name. |
+|  Country |  The country name for the location. |
+|  State |  The state/province name for the location. Empty if there is no corresponding state/province. |
+|  LocationID |  The unique key for the location. This value is required when posting data in the **City** element. |
 
 
 [1]: https://developer.concur.com/reference/http-codes
