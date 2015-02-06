@@ -19,20 +19,18 @@ Gets the travel profile information for the specified user. The travel profile i
 All request paramenters are optional. To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters:
 
 |  Parameter Name |  Parameter Type |  Data Type |  Description |
-|----------|
+| ----- | ----- | ----- |:-----|
 |  userid_type |  Path |  String |  The type of user identification to use. Possible values are: **login** and **xmlsyncid** |
 |  userid_value |  Path |  String |  The user's login ID or XMLSync ID, depending on which user type is selected. This parameter must be provided in conjunction with the **userid_type** parameter. |
 
-  
+##  Content type
+* application/xml
 
 ##  Authorization header
 
 `Authorization: OAuth {access_token}`
 
 Where access_token is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
-
-##  Content type
-* application/xml
 
 ##  Data model
 
@@ -177,7 +175,7 @@ The ProfileResponse root element contains the General, Telephones, Addresses, Dr
 The General parent element contains the following child elements:
 
 |  Element Name |  Data Type |  Description |
-|----------|
+| ----- | ----- | :----- |
 |  NamePrefix |  String |  The user's name prefix. Format: Varchar(60) |
 |  FirstName |  String |  The user's first name. Format: Varchar(32) |
 |  MiddleName |  String |  The user's middle name. Format: Varchar(32) |
@@ -199,7 +197,7 @@ The General parent element contains the following child elements:
 The Telephones parent element contains a Telephone child element for each included telephone. The Telephone element has the attributes shown in the Response Class section and contains the following child elements:
 
 |  Element Name |  Data Type |  Description |
-|----------|
+| ----- | ----- | :----- |
 |  ContactOptIn |  String |  Whether the user has opted in to being contacted on this phone. Only appears when the phone type is Cell or Primary Mobile Phone. Format: **True**\|**False** |
 |  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code][1] specification. Format: Char(2) |
 |  PhoneNumber |  String | The phone number as entered by the user, which may contain characters such as () or -. Format: Char(60) </br> **NOTE**: The user phone number may sometimes be incorrectly parsed if there are data input issues.|
@@ -214,7 +212,7 @@ The Addresses parent element contains an Address child element for each included
 **NOTE**: The values returned for the Address child elements are as entered by the user. The fields do not enforce formatting and may have a wide variety of values.
 
 |  Element Name |  Data Type |  Description |
-|----------|
+| ----- | ----- | :----- |
 |  AttentionLine |  String |  Attention Line in the address. Format: Nvarchar(Unlimited) |
 |  Line1 |  String |  Address line 1. Format: Nvarchar(Unlimited) |
 |  Line2 |  String |  Address line 2. Format: Nvarchar(Unlimited) |
@@ -234,7 +232,7 @@ The Addresses parent element contains an Address child element for each included
 The DriversLicenses parent element contains a DriversLicense child element for each each included licenses. The DriversLicense element contains the following child elements:
 
 |  Element Name |  Data Type |  Description |
-| ----- |
+| ----- | ----- | :----- |
 |  DriversLicenseNumber |  String |  The user's driver license identification number. Format: Varchar(30) |
 |  IssuingCountry |  String |  The country the license was issued in. Format: Char(2) |
 |  IssuingState |  String |  The state the license was issued in. Format: Varchar(2) |
@@ -247,7 +245,7 @@ The DriversLicenses parent element contains a DriversLicense child element for e
 The EmailAddresses parent element contains a EmailAddress child element for each included email address. It contains the following child element:
 
 |  Element Name |  Data Type |  Description |
-| ----- |
+| ----- | ----- | :----- |
 |  EmailAddress |  String | The the user's email address. The EmailAddress element has two attributes: Type and Contact. The Type attribute specifies the type of email address and the possible values are: **Business**, **Business2**, **Personal**. The Contact attribute specifies whether the email address should be used for travel notifications and the possible values are **True** or **False**. Format: Varchar(255)|
 
  
@@ -257,7 +255,7 @@ The EmailAddresses parent element contains a EmailAddress child element for each
 The RatePreferences parent element contains the following child element:
 
 |  Element Name |  Data Type |  Description |
-| ----- |
+| ----- | ----- | :----- |
 |  AAARate |  Boolean |  Whether the user is eligible for the AAA rate. Format: **true**\|**false** |
 |  AARPRate |  Boolean |  Whether the user is eligible for the AARP rate. Format: **true**\|**false** |
 |  GovtRate |  Boolean |  Whether the user is eligible for the Government rate. Format: **true**\|**false** |
@@ -270,7 +268,7 @@ The RatePreferences parent element contains the following child element:
 The DiscountCodes parent element contains a DiscountCode child element for each included discount code.
 
 |  Element Name |  Data Type |  Description |
-| ----- |
+| ----- | ----- | :----- |
 |  DiscountCode |  String | The discount code for the specified vendor.The DiscountCode element has a Vendor attribute that specifies the name of the vendor for the discount code. Possible values are **?**. Format: ?|
 
  
@@ -279,14 +277,25 @@ The DiscountCodes parent element contains a DiscountCode child element for each 
 
 The Air parent element contains the user's air travel preferences and contains the following child elements:
 
-| ----- |
 |  Element Name |  Data Type |  Description |
-|  AirSmokingCode |  String |  Whether the user wants a flight with smoking allowed. Legacy. Format:** S**, **N**, **D**. |
-|  AirMemberships |    |The AirMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains an AirMembership child element for each included membership and includes the following child elements: 
+| ----- | ----- | :----- |
+|  AirSmokingCode |  String |  Whether the user wants a flight with smoking allowed. Legacy. Format: **S**, **N**, **D**. |
 
+|  AirMemberships |    | The AirMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains an AirMembership child element for each included membership and includes the following child elements:  [Air Memberships elements] |
+
+|  Seat |    | This parent element contains the user's Car travel preferences. The **Car** element contains the following child elements:   [Seat elements]|
+
+|  Meals |    | This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are: </br> AVML = Vegetarian Hindu Meal </br> BBML = Baby Meal  </br> BLML = Bland Meal  </br> CHML = Child Meal  </br> DBML = Diabetic Meal  </br> FPML = Fruit Platter  </br> GFML = Gluten Intolerant Meal  </br> HNML = Hindu Meal  </br> KSML = Kosher Meal  </br> LCML = Low Calorie Meal  </br> LFML = Low Fat Meal  </br> LSML = Low Salt Meal  </br> MOML = Muslim Meal  </br> NLML = Low Lactose Meal  </br> NSML = No Salt Meal  </br> PFML = Peanut Free Meal  </br> SFML = Seafood Meal  </br> SPML = Special Request Meal </br>  VGML = Vegetarian  </br> RVML = Vegetarian Raw Vegan Meal  </br> VLML = Vegetarian Lacto-Ovo  </br> VJML = Vegetarian Jain Meal  </br> VOML = Vegetarian Oriental Meal </br> </br> **Note**: Regular Meal will not return a value for this preference. |
+
+|  HomeAirport |  String |  The user's home airport |
+|  DHSRedressNumber |  String |  TSA Redress Number |
+|  DHSKnownTravelerNumber |  String |  TSA Known Traveler Number |
+|  AirOther |  String |  Other Air related description |
+
+#### Air Memberships elements
 |  Element Name |  Data Type |  Description |
-| ----- |
-|  VendorCode |  String |  The code for the vendor that manages the loyalty program. |   | | |
+| ----- | ----- | :----- |
+|  VendorCode |  String |  The code for the vendor that manages the loyalty program.| 
 |  AccountNo |  String |  The user's account identifier in the loyalty program. |
 |  Status |  String |  Name of the user's current level in the loyalty program. |
 |  StatusBenefits |  String |  Description of a benefit of the loyalty program at the current status. |
@@ -296,60 +305,18 @@ The Air parent element contains the user's air travel preferences and contains t
 |  PointsUntilNextStatus |  String |  Loyalty points required to next status level. |
 |  SegmentsUntilNextStatus |  String |  Booking segment to next status level. |
 
- |
-|  Seat |    |
-
-This parent element contains the user's Car travel preferences. The **Car **element contains the following child elements:
-
+#### Seat elements
 |  Element Name |  Data Type |  Description |
-|  InterRowPositionCode |  String |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **Isolated**, **DontCare**. |   | | |
+| ----- | ----- | :----- |
+|  InterRowPositionCode |  String |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **Isolated**, **DontCare**. |
 |  SectionPositionCode |  String |  Preference for position in plane. Format: **F**, **B**, **R**, **D**. |
-
- |
-|  Meals |    |
-
-This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are:
-
-AVML = Vegetarian Hindu Meal  
-BBML = Baby Meal  
-BLML = Bland Meal  
-CHML = Child Meal  
-DBML = Diabetic Meal  
-FPML = Fruit Platter  
-GFML = Gluten Intolerant Meal  
-HNML = Hindu Meal  
-KSML = Kosher Meal  
-LCML = Low Calorie Meal  
-LFML = Low Fat Meal  
-LSML = Low Salt Meal  
-MOML = Muslim Meal    
-NLML = Low Lactose Meal  
-NSML = No Salt Meal  
-PFML = Peanut Free Meal  
-SFML = Seafood Meal  
-SPML = Special Request Meal  
-VGML = Vegetarian  
-RVML = Vegetarian Raw Vegan Meal  
-VLML = Vegetarian Lacto-Ovo  
-VJML = Vegetarian Jain Meal  
-VOML = Vegetarian Oriental Meal
-
-Note: Regular Meal will not return a value for this preference.
-
- |
-|  HomeAirport |  String |  The user's home airport |
-|  DHSRedressNumber |  String |  TSA Redress Number |
-|  DHSKnownTravelerNumber |  String |  TSA Known Traveler Number |
-|  AirOther |  String |  Other Air related description |
-
- 
 
 ###  Car elements
 
 The Car parent element contains the user's car travel preferences. It contains the following child elements:
 
-| ----- |
 |  Element Name |  Data Type |  Description |
+| ----- | ----- | :----- |
 |  CarSmokingCode |  String |  Smoking car preferred. Format: **S**, **N**, **O** |
 |  CarGPS |  String |  Car GPS preference. Format: **True**\|**False**. |
 |  CarOption |  String |  Car option preference. Format: Char(3) |
@@ -358,6 +325,7 @@ The Car parent element contains the user's car travel preferences. It contains t
 The CarMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains a CarMembership child element for each included membership. The CarMembership element has the following child elements:
 
 |  Element Name |  Data Type |  Description |
+| ----- | ----- | :----- |
 |  VendorCode |  String |  The code for the vendor that manages the loyalty program. |   | | |
 |  AccountNo |  String |  The user's account identifier in the loyalty program. |
 |  Status |  String |  Name of the user's current level in the loyalty program. |
@@ -378,14 +346,15 @@ The CarMemberships element only appears if the request came from a travel suppli
 
 The Hotel parent element contains the user's hotel travel preferences. It contains the following child elements:
 
-| ----- |
 |  Element Name |  Data Type |  Description |
+| ----- | ----- | :----- |
 |  SmokingCode |  String |  Smoking room preference. Format: **S**, **N**,**D** |
 |  HotelMemberships |    |
 
 This parent element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains a HotelMembership child element for each included membership. The HotelMembership element has the following child elements:
 
 |  Element Name |  Data Type |  Description |
+| ----- | ----- | :----- |
 |  VendorCode |  String |  The code for the vendor that manages the loyalty program. |   | | |
 |  AccountNo |  String |  The user's account identifier in the loyalty program. |
 |  Status |  String |  Name of the user's current level in the loyalty program. |
@@ -416,13 +385,14 @@ This parent element only appears if the request came from a travel supplier for 
 
 The CustomFields parent element contains child elements that specify custom fields in a travel profile.
 
-| ----- |
 |  Element Name |  Data Type |  Description |
+| ----- | ----- | :----- |
 |  CustomFields |    |
 
 This parent element only appears if the request came from a travel supplier for this travel type or from a TMC. This element contains a CustomField child element for each custom field with the following child elements:
 
 |  Element Name |  Data Type |  Description |
+| ----- | ----- | :----- |
 |  Name |  String |  The name of the custom field. For example, Employee, Cost Centre, Fund, PassportNumber, Visa, and Assistants. |   | | |
 |  Value |  String |  The value of the custom field. If the value is null, the Value child element is omitted. |
 

@@ -28,7 +28,6 @@ The External Validation sequence involves communication between the user, Concur
 
 ![][6]
 
-  
 
 
 [1]: https://developer.concur.com/callouts/event-notification
