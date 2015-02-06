@@ -97,11 +97,11 @@ Once a development partner has configured a application connector, it must be re
 
 #####  To register an application connector:
 
-1. On the **Application Connector Registration** page, click **New**.  
+ 1. On the **Application Connector Registration** page, click **New**.  
 
 ![ /][5]
 
-2. In the System area, complete all of the required fields.
+ 2. In the System area, complete all of the required fields.
 
 
 | Field | Description |
@@ -114,6 +114,7 @@ Once a development partner has configured a application connector, it must be re
 
 
 
+<<<<<<< HEAD
 3. Click **Test Connection**. Concur will attempt to connect to the test connection endpoint with the supplied credentials. If you have not configured the test connection endpoint, the test will fail. Refer to the _Required: To add the test connection endpoint_ section above for the test connection details.
  
  4. In the **Services** section, select an outbound message or callout that the connector will interact with.
@@ -127,6 +128,21 @@ Once a development partner has configured a application connector, it must be re
  8. Click **Save**. The service is configured for your host.
  
  9.	Repeat steps 4-8 for each service to configure.
+=======
+ 3. Click **Test Connection**. Concur will attempt to connect to the test connection endpoint with the supplied credentials. If you have not configured the test connection endpoint, the test will fail. Refer to the _Required: To add the test connection endpoint_ section above for the test connection details.
+ 
+ 4. In the **Services** section, select an outbound message or callout that the connector will interact with.
+ 
+ 5. Click **Configure**. The **Configure Service** window appears.
+ 
+ 6. Enter the endpoint that the Concur will connect to on the host. Example: /attendee/v1.0/find
+ 
+ 7. Select the **Enabled** check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.
+ 
+ 8. Click **Save**. The service is configured for your host.
+ 
+ 9. Repeat steps 4-8 for each service to configure.
+>>>>>>> FETCH_HEAD
  
  10. Click **Save**.
 
