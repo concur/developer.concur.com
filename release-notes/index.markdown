@@ -49,13 +49,13 @@ This page contains release notes for the Concur Developer Platform and the App C
 
 
 [1-1]:http:\\
-[1-2]:
-[1-3]:
-[1-4]:
-[1-5]:
-[1-6]:
-[1-7]:
-[1-8]:
+[1-2]:http:\\
+[1-3]:http:\\
+[1-4]:http:\\
+[1-5]:http:\\
+[1-6]:http:\\
+[1-7]:http:\\
+[1-8]:http:\\
 
 [2-1]:http:\\
 [2-2]:
