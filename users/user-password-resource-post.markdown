@@ -56,9 +56,11 @@ This function requires as its arguments a **UserBatch** element containing a **U
 
 |  Element |  Required/Optional |  Description |
 |----------|--------------------|--------------|
-
 |  LoginID |  Required |  The user's logon ID. The default value is the user's email address. |  
 |  Password |  Required |  The user's new password.  **NOTE**: This information is encrypted in the Concur database. |
+
+
+## **Response**
 
 
 ####  XML Example Request
