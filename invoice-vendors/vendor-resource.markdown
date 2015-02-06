@@ -26,8 +26,8 @@ A vendor that has sent an invoice.
 
 ## Supported Verbs
 * GET
-** For query parameters and element defintions, go [here][1].
-** For request and response examples with data, go [here][2].
+  * For query parameters and element defintions, go [here][1].
+  * For request and response examples with data, go [here][2].
 
 ## Related Resources
 * None
