@@ -1,6 +1,6 @@
 [Source](https://developer.concur.com/attendee/attendee-list-resource/attendee-list-resource-post "Permalink to Attendee List Resource: POST | Developer Portal")
 
-# Attendee List Resource: POST | Developer Portal
+# Attendee List Resource: POST
 
 This resource supports the following POST actions:
 
@@ -8,7 +8,7 @@ This resource supports the following POST actions:
 
 | ----- |
 |  Description |  Supported Content Types |
-|  Adds one or more attendees. This request creates attendees that are part of the Shared List, which are available to all users. This function requires the attendee resource version 1.0. |   |
+|  Adds one or more attendees. This request creates attendeesÂ that are part of the Shared List, which are available to all users. This function requires the attendee resource version 1.0. |   |
 |  Query Parameters - Required |  Query Parameters - Optional |
 |
 
@@ -118,7 +118,7 @@ Maximum 100 characters.
         <records-failed>1</records-failed>
         <errors>
             <error>
-                <code>1202</code> 
+                <code>1202</code>Â 
                 <external-id>444543345</external-id>
                 <message>Missing attendee type</message>
             </error>
@@ -129,7 +129,7 @@ Maximum 100 characters.
 
 | ----- |
 |  Description |  Supported Content Types |
-|  Updates existing attendees. This request updates attendees that are part of the Shared List, which are available to all users. This function requires the attendee resource version 1.0. |   |
+|  Updates existing attendees. This request updates attendeesÂ that are part of the Shared List, which are available to all users. This function requires the attendee resource version 1.0. |   |
 |  Query Parameters - Required |  Query Parameters - Optional |
 |
 
