@@ -8,6 +8,9 @@ layout: resource
 
 Concur users. Always managed as a batch of users, even if the batch contains only one user.
 
+## **Version**
+1.0
+
 ## **Works With These Concur Products**
 
 * **Expense** for Concur Professional/Premium
@@ -16,23 +19,24 @@ Concur users. Always managed as a batch of users, even if the batch contains onl
 * **Invoice** for Concur Standard
 * **Travel Request** for Concur Professional/Premium
 
-## **Resource URI**
+## **URI**
 
 https://www.concursolutions.com/api/user/v1.0/Users
 
-## **Supported Content Types** 
+## **Content type** 
 
 * application/xml
 
-## **Supported Accept Types**
+## **Accept type**
 
 * application/xml
 
-## **Supported Verbs**         
+## **Operations**         
 
-[GET][1] ,  [POST][2]
+[GET][1] 
+[POST][2] 
 
-## **Related Resources**
+## **See also**
 
 [User Password][3]
 [Employee Form Field][4]
