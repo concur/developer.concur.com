@@ -19,7 +19,7 @@ This page contains release notes for the Concur Developer Platform and the App C
 |[August 2014][1-4]	  |August 22 2014    |
 |[July 2014][1-3]    	|July 7 1014       |
 |[June 2014][1-2]	    |June 20 2014      |
-|[May 2014]	[1-1]     |May 16 2014       |
+|[May 2014][1-1]      |May 16 2014       |
 
 ###  Developer Platform Release Notes
 
