@@ -1,15 +1,9 @@
 ---
 title: Company Notification Subscription Resource 
 layout: resource
----
+--- 
 
-
-
-
-
-| ----- |
-|  Description |
-|
+##Description 
 
 A subscription to a notification when any user in the Concur company changes the specified features of their Concur account or data. Currently supports notifications for the following events: Itinerary change (create or update), Travel Profile basic information change.
 
@@ -17,33 +11,28 @@ This functionality requires that the partner complete the OAuth process with an 
 
 **NOTE**: This resource can only be accessed by partner applications that have selected the User API scope.
 
- |
-|  Works With These Concur Products |
-|
+##Version
+1.0
 
-* **Travel** for Concur Professional/Premium
-* **Travel** for Concur Standard
- |
-|  Resource URI |
-|  To subscribe:  
-<https://www.concursolutions.com/api/company/v1.0/subscribe>  
+##URI
+To subscribe:  
+`https://www.concursolutions.com/api/company/v1.0/subscribe`
+
 To unsubscribe:  
-https://www.concursolutions.com/api/company/v1.0/unsubscribe |
+`https://www.concursolutions.com/api/company/v1.0/unsubscribe`
 
-| Supported Content Types | Supported Accept Types |
-| ----------------------- | ---------------------- |
-| Supported Verbs         | Related Resources      |
-| [POST][1]               |
+##Content Type
+application/xml
+ 
+##Operations
+[POST][1]
 
+##See also
 [Booking][2]
 
 [Itinerary][3]
 
 [Travel Profile][4]
-
- |
-
-
 
 [1]: https://developer.concur.com/company-notification-subscription-resource/company-notification-subscription-resource-post
 [2]: https://developer.concur.com/itinerary-tmc-and-third-party-developers/booking-resource
