@@ -57,8 +57,8 @@ When there are errors with batch items, the first ten errors are returned in the
   
 **XML Response Error Codes**:
 
-| ----- |
 |  Error Code |  Message |
+|-------------|----------|
 |  1101 |  Could not find attendee-batch element. |
 |  1102 |  Error parsing attendee record X |
 |  1201 |  Missing external id for attendee record X |
