@@ -4,23 +4,23 @@ layout: resource
 ---
 
 
+##  **Description** 
 
+The user's Concur password.
 
-
-| ----- |
-|  Description |
-|  The user's Concur password. |
-|  Works With These Concur Products |
-|
+## **Works With These Concur Products**
 
 * **Expense** for Concur Professional/Premium
 * **Expense** for Concur Standard
 * **Invoice** for Concur Professional/Premium
 * **Invoice** for Concur Standard
 * **Travel Request** for Concur Professional/Premium
- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/user/v1.0/Users/password |
+
+## **URI**
+
+https://www.concursolutions.com/api/user/v1.0/Users/password 
+
+
 
 | Supported Content Types | Supported Accept Types |
 | ----------------------- | ---------------------- |
