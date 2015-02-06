@@ -13,6 +13,7 @@
             <ol class="pull-right breadcrumb">
               {% if num_parts == "0" or num_parts == "-1" %}
               <li><a href="{{site.baseurl}}/">home</a></li>
+              <li><a href="{{previous}}"></a>{{page.title}}</li>
               {% else %}
               <li><a href="{{site.baseurl}}/">home</a></li>
 
