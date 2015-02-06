@@ -34,7 +34,7 @@ Refer to the function documentation for more information.
 
 ##Supported Verbs     
 * [GET][1]
-* [POST][2]     |
+* [POST][2] 
 
 ##Related Resources 
 * [Expense Report Header ][3]
