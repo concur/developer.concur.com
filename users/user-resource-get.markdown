@@ -46,7 +46,7 @@ The loginID parameter can only be used if the OAuth consumer has one of the foll
 Example: https://www.concursolutions.com/api/user/v1.0/User/?loginID={loginID}
 
 
-## **Response** ##
+## **Response**
 
 This request will return a UserProfile child element for the specified user. The UserProfile elements will vary depending on the form configuration.
 
@@ -83,16 +83,16 @@ This request will return a UserProfile child element for the specified user. The
 
 ## **Examples** 
 
-### Example 1: Get User Information  ###
+### Example 1: Get User Information 
 
-#### Request #### 
+#### Request 
 
 ```
 GET https://www.concursolutions.com/api/user/v1.0/User HTTP/1.1
 Authorization: OAuth {access token}
 ```
 
-#### Response #### 
+#### Response 
 
 ```
 200 OK
