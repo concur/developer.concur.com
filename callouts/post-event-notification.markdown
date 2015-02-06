@@ -3,43 +3,35 @@ title: Post Event Notification
 layout: operation
 ---
 
-
-
-
-This callout supports the following POST actions:
-
 ##  Post Event Notification Request
 
-| ----- |
+### Supported Accept Types 
+* application/xml
 
-| Supported Accept Types |
-| ---------------------- |
-| Request URI            |
-
+### Request URI
 The Event Notificaiton callout sends the notification to a URI for the application connector, which can be in a custom location for each client. The standard location is:
 
     https://{servername}/concur/v1.0/notify
 
 The URI is configured on the **Register Application Connector** page in** Web Services** under **Administration**.
 
-Refer to [**Installation Process][1] ** for more information.
+Refer to [Installation Process][1] for more information.
 
- |
-|  Request Headers - Required |  Request Headers - Optional |
+| Request Headers - Required | Request Headers - Optional |
+| -------------------------- | -------------------------- |
 |  Authorization header with Basic authorization for endpoint. Refer to [**Authentication**][2] for more information. |  None |
-|  Request Body |   |
-|  The request will include a **Notification** parent element, with the following child elements:
 
-|  Element |  Description |
-|  EventType |  The event that triggered the callout. Format: Report Entered Expense Report Workflow Step - <workflow step name>. |   |
-|  ObjectType |  The type of object that triggered the notification. Currently supports Expense Report and Travel Request. Format: EXPRPT, TRAVELREQ |
-|  ObjectURI |  The URI for the object. The developer can use the appropriate GET endpoint for the Object Type. |
-|  EventDateTime |  When the event happened. Format: YYYY-MM-DD |
-|  Context |  Message that the callout can use to provide the developer some context for the callout. |
+### Request Body
+The request will include a **Notification** parent element, with the following child elements:
 
- |
+| Element | Description |
+| EventType | The event that triggered the callout. Format: Report Entered Expense Report Workflow Step - <workflow step name>. |
+| ObjectType | The type of object that triggered the notification. Currently supports Expense Report and Travel Request. Format: EXPRPT, TRAVELREQ |
+| ObjectURI | The URI for the object. The developer can use the appropriate GET endpoint for the Object Type. |
+| EventDateTime | When the event happened. Format: YYYY-MM-DD |
+| Context | Message that the callout can use to provide the developer some context for the callout. |
 
-####  XML Example Request
+###  XML Example Request
 
     POST /concur/v1.0/notify HTTPS /1.1
     Host: www.example.com
@@ -56,18 +48,16 @@ Refer to [**Installation Process][1] ** for more information.
 
 ##  Post Event Notification Response
 
-| ----- |
+### Supported Content Types
+* application/txt
 
-| Supported Content Types                                                                                  |
-| -------------------------------------------------------------------------------------------------------- |
-| Content Body                                                                                             |
-| The application connector responds with an HTTP 200 code when it successfully receives the notification. |
+### Content Body
+The application connector responds with an HTTP 200 code when it successfully receives the notification.
 
-####  Example of Successful Response
+###  Example of Successful Response
 
     HTTPS 200 Success
 
-  
 
 
 [1]: https://developer.concur.com/node/432#installproc
