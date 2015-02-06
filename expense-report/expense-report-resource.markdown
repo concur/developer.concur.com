@@ -10,7 +10,7 @@ layout: resource
 
 ##Description 
 The expense reports in Concur.
-Works With These Concur Products
+Works With These Concur Products:
 
 
 * **Expense** for Concur Professional/Premium
