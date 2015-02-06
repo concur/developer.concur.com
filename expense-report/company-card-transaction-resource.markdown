@@ -4,37 +4,30 @@ layout: resource
 ---
 
 
-
-
-
-| ----- |
-|  Description |
-|
+## Description
 
 The corporate or credit card charges that are available for use in expense reports for the OAuth consumer.
 
- |
-|  Works With These Concur Products |
-|
+## Version
 
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges |
+## URI
+https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges
 
-| Supported Content Types | Supported Accept Types |
-| ----------------------- | ---------------------- |
-| Supported Verbs         | Related Resources      |
-| [GET][1]                | [Expense Entry][2]
+## Content type
+application/xml
 
-[Expense Report ][3]
-
- |
-
-  
+## Operations
+[GET]
 
 
-[1]: https://developer.concur.com/expense-report/company-card-transaction-resource/company-card-transaction-resource-get
-[2]: https://developer.concur.com/expense-report/expense-entry-resource
-[3]: https://developer.concur.com/expense-report/expense-report-resource
+## See also
+https://developer.concur.com/expense-report/expense-entry-resource
+
+https://developer.concur.com/expense-report/expense-report-resource
+
+https://developer.concur.com/expense-report/company-card-transaction-resource/company-card-transaction-resource-get
+
+https://developer.concur.com/expense-report/expense-entry-resource
+
+https://developer.concur.com/expense-report/expense-report-resource
+
