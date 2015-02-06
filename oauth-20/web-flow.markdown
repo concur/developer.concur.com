@@ -1,15 +1,9 @@
 ---
-title: OAuth 2
+title: OAuth 2.0 Web Flow
 layout: conceptual
 ---
 
-
-
-
-
-| ----- |
-|  Description |
-|
+## Description
 
 Companies that partner with Concur can use the Concur Connect platform to link their partner application with Concur users. The Concur user sees a list of certified partners on the App Center page, and can choose to grant the application access to their Concur information. This process uses the OAuth 2.0 Web flow.
 
@@ -29,50 +23,25 @@ Partner Applications that need to access data for individual users must initiate
 
 **NOTE**: This process applies only to partners that are certified to appear on the App Center tab within Concur.
 
- |
-|  Concur App Center |
-|  The App Center tab appears on the primary menu in Concur.  The App Center tab is where Concur users enable Concur Connect Partners to share their data between their accounts with the partner and Concur. Concur administrators can begin the inquiry process for company-wide applications on this tab. Only Concur Connect partners with certified integrations can appear on this tab.
+## Concur App Center
 
- 
+The App Center tab appears on the primary menu in Concur.  The App Center tab is where Concur users enable Concur Connect Partners to share their data between their accounts with the partner and Concur. Concur administrators can begin the inquiry process for company-wide applications on this tab. Only Concur Connect partners with certified integrations can appear on this tab.
 
-![][1]
-
-**User Access Applications**
+### User Access Applications
 
 Applications that manage data for a single user can begin the connection process from the App Center tab. This process is detailed in User Level Authentication.
 
-**Company Access Applications**
+### Company Access Applications
 
 Company-wide applications require additional steps to connect. The application listing on the App Center allows the administrative user to learn more about the application, and initiate the sales process. Once the sales process is completed by the company and partner, the partner can direct the administrator to a page that begins the Company Level Authentication. This page is called the **Connect Integration** page.
 
 **Disclaimer**: Concur reserves the right to select and display partners as is deemed fit and application review does not guarantee a listing under the App Center tab. Listings can and will be removed if deemed necessary by Concur.
 
- |
-|  Application Review |
-|
+## Application Review
 
 Partners wishing to appear on the App Center tab work with Concur to have their application reviewed. Refer to the [Application Review Center][2] for more information.
 
- |
-|  Resources |  Additional Information |
-|
-
-[OAuth Access Token][3]
-
- |
-
-Company Level Authentication   
-    Company Level Authentication from the App Center  
- User Level Authentication   
-    Concur Integration Page
-
- OAuth Web Flow Step by Step  
- Company Level Authentication Example  
- User Level Authentication Example
-
- |
-
-##  Company Level Authentication
+## Company Level Authentication
 
 Partner Applications that require access to data for the entire company must receive authorization from a company user with a valid administration user role (Web Services Administrator for Professional, Can Administer for Standard). Concur recommends that clients create a separate user account that is not tied to an individual for this purpose. The administrative user grants access to their Concur company once the sales process for the application has been completed by their company and the partner. The partner then directs the administrative user to a page on their site (the Connect Integration page) that begins the OAuth Web flow. Company Level Authentication has the following steps:
 
@@ -133,41 +102,12 @@ Here's the format for the redirection URL:
 
     https://www.concursolutions.com/net2/oauth2/Login.aspx?client_id=APP_KEY&scope=REQUESTED_APIS&redirect_uri=YOUR_REDIRECT_URI&state=OPTIONAL_APP_DEFINED_STATE
 
-| ----- |
-|  Value |  Description |
+| Value | Description |
+| ----- | ----------- |
 |  client_id |  The Consumer Key associated with the partner application. Refer to [Partner Applications][4] for more information. |
-|  scope |
-
-The comma separated list of APIs to grant access to. The [partner application registration process][4] includes defining which APIs the application uses. This value can be used to limit the list of APIs the user sees to a subset of the APIs the partner application can access. This value cannot be used to expand the list of APIs the partner application accesses. Format: USER,EXPRPT
-
-Possible values are:
-
-ATTEND: Attendee List Web Service  
-CONFIG: Expense Configuration Web Service  
-ERECPT: E-Receipts Web Service  
-EXPRPT: Expense Report Web Service, Quick Expense Web Service  
-EXTRCT: Extract Web Service  
-IMAGE: Imaging Web Service  
-INSGHT: Insights Web Service  
-INVPO: Invoice Purchase Order Web Service  
-ITINER: Itinerary Web Service  
-LIST: List Item Web Service  
-MTNG: Meeting Web Service  
-PAYBAT: Payment Batch Web Service  
-TRVPRF: Travel Profile Web Service  
-TRVREQ: Travel Request Web Service  
-TWS: Trip Approval Web Service  
-USER: User Web Service
-
-**NOTE**: The Quick Expense Web Service requires the Expense Report Web Service scope. If the application wants to GET receipt images, it would use the Imaging Web Service, so it would also require the Imaging Web Service scope.
-
- |
+|  scope | The comma separated list of APIs to grant access to. The [partner application registration process][4] includes defining which APIs the application uses. This value can be used to limit the list of APIs the user sees to a subset of the APIs the partner application can access. This value cannot be used to expand the list of APIs the partner application accesses. Format: USER,EXPRPT.<br><br>Possible values are:<br>ATTEND: Attendee List Web Service<br>CONFIG: Expense Configuration Web Service<br>ERECPT: E-Receipts Web Service<br>EXPRPT: Expense Report Web Service, Quick Expense Web Service<br>EXTRCT: Extract Web Service<br>IMAGE: Imaging Web Service<br>INSGHT: Insights Web Service<br>INVPO: Invoice Purchase Order Web Service<br>ITINER: Itinerary Web Service<br>LIST: List Item Web Service<br>MTNG: Meeting Web Service<br>PAYBAT: Payment Batch Web Service<br>TRVPRF: Travel Profile Web Service<br>TRVREQ: Travel Request Web Service<br>TWS: Trip Approval Web Service<br>USER: User Web Service<br>**NOTE**: The Quick Expense Web Service requires the Expense Report Web Service scope. If the application wants to GET receipt images, it would use the Imaging Web Service, so it would also require the Imaging Web Service scope.
 |  redirect_uri |  The URL of the partner application where Concur will redirect the user after he/she has authenticated and approved access. |
-|  state |  Optional partner application-defined state variable. This variable is specified by the partner application and will be returned intact by the Concur's OAuth provider when the user is redirected to the redirect URL. Values are generally passed in this parameter when the state of the value cannot be maintained by the partner application, for instance when making calls between multiple, disparate web pages.
-
-Example: The state variable can contain the ID of the user in the partner application, so that the token returned in the callback can be associated to the specified user and subsequently saved in the database of the partner application.
-
- |
+|  state |  Optional partner application-defined state variable. This variable is specified by the partner application and will be returned intact by the Concur's OAuth provider when the user is redirected to the redirect URL. Values are generally passed in this parameter when the state of the value cannot be maintained by the partner application, for instance when making calls between multiple, disparate web pages.<br>Example: The state variable can contain the ID of the user in the partner application, so that the token returned in the callback can be associated to the specified user and subsequently saved in the database of the partner application.
 
 **Step Two**: If the user has an active session with Concur, the user won't need to re-authenticate with Concur.  Instead the Concur OAuth Login page will declare the user to be authenticated. After the user is authenticated, the Concur OAuth Login page will redirect to the Concur OAuth Confirmation page.
 
