@@ -4,8 +4,6 @@ layout: conceptual
 ---
 
 
-
-
 ##  Partner Applications
 
 You can use the Concur Developer Platform to build a variety of applications, ranging from single-function apps to end-to-end solutions that address complex business problems. For example, you can use the [List Item][1] Web service to build a simple app for updating a project code list in Concur. Or, you can build an end-to-end solution using the [External Validation Callout][2] for validating a Concur expense with an external validation system. We refer generically to all these apps as partner applications.
@@ -30,86 +28,31 @@ The first action all developers need to take is to register a partner applicatio
 **NOTE**: The **Administration** tab will not appear unless the employee has the appropriate role assigned. For more information, see User Permissions.  
 ![][5]
 
- 
-
 2. The **Web Services **page appears.  
 ![][6]
 
- 
 
 3. On the** Web Services **page, click **Register Partner Application**. The **Application Registration** page appears.
 
 ![][7]  
- 
 
 4. Click **New**. The **New Partner Application** page appears.
 
 ![][8]  
- 
 
 5. Fill in the fields using the following table:
 
-| ----- |
-|
-
-Field
-
- |
-
-Description
-
- |
-|
-
-Name
-
- |
-
-Enter the name that should appear in the list of applications.
-
- |
-|
-
-Description
-
- |
-
-Enter the description of the function of the application.
-
- |
-|
-
-Visibility
-
- |
-
-This field defaults to Private. It can only be modified by Concur Internal staff. It will not be set to anything other than Private until the [Concur Review Process][4] is complete.
-
- |
-|
-
-Active
-
- |
-
-Choose whether this application is active. Inactive applications will not appear in the list of available applications.
-
- |
-|
-
-APIs Used
-
- |
-
-Select the Concur Web Service APIs that this application will interface with. If the API includes sensitive data groups, they will appear as separate check boxes beneath the API. Select only the check boxes for the sensitive data that your application must have access to.  
-**NOTE**: The Quick Expense Web Service requires the Expense Report Web Service scope. If the application wants to GET receipt images, it would use the Imaging Web Service, so it would also require the Imaging Web Service scope.
-
- |
+| Field  | Description |
+|--------|-------------|
+| Name   | Enter the name that should appear in the list of applications.|
+| Description | Enter the description of the function of the application. |
+| Visibility | This field defaults to Private. It can only be modified by Concur Internal staff. It will not be set to anything other than Private until the [Concur Review Process][4] is complete.|
+| Active | Choose whether this application is active. Inactive applications will not appear in the list of available applications. |
+| APIs Used |Select the Concur Web Service APIs that this application will interface with. If the API includes sensitive data groups, they will appear as separate check boxes beneath the API. Select only the check boxes for the sensitive data that your application must have access to.  
+|         |**NOTE**: The Quick Expense Web Service requires the Expense Report Web Service scope. If the application wants to GET receipt images, it would use the Imaging Web Service, so it would also require the Imaging Web Service scope.|
 
 6. The **Application Authorization** section displays your company domain and automatically creates a **Key** and **Secret** to use with this application. NOTE: The key and secret allow access to any company that enables this application. You MUST keep this information secret (as specified in the Concur Legal Agreement) to maintain security.
 7. Click **OK**. The application will automatically be enabled for your company.
-
-Return to Top
 
 ##  Managing Partner Applications
 
