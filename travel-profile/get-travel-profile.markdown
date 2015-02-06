@@ -380,17 +380,15 @@ The CustomFields parent element contains child elements that specify custom fiel
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  CustomFields |    |
+|  CustomFields |    | This parent element only appears if the request came from a travel supplier for this travel type or from a TMC. This element contains a CustomField child element for each custom field with the following child elements:|
 
-This parent element only appears if the request came from a travel supplier for this travel type or from a TMC. This element contains a CustomField child element for each custom field with the following child elements:
-
+### CustomeFields child elements
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  Name |  String |  The name of the custom field. For example, Employee, Cost Centre, Fund, PassportNumber, Visa, and Assistants. |   | | |
+|  Name |  String |  The name of the custom field. For example, Employee, Cost Centre, Fund, PassportNumber, Visa, and Assistants. |
 |  Value |  String |  The value of the custom field. If the value is null, the Value child element is omitted. |
 
- |
-
+ 
  
 
 ##  Examples for Travel Suppliers
