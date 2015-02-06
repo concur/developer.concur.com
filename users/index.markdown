@@ -4,7 +4,7 @@ layout: conceptual
 ---
 
 
-##  Description 
+##  **Description** 
 
 The User web service allows third-party developers or clients to add, update or inactivate Concur users at any time of day. This web service provides access to the fields on the Employee Profile form.
 
@@ -12,7 +12,7 @@ The User web service provides a similar level of functionality to the [User Impo
 
 The Travel Profile information can be viewed using the [Travel Profile][3] web service. Travel Suppliers can update the loyalty program information only.
 
-##  Works With These Concur Products
+##  **Works With These Concur Products**
 
 * **Expense** for Concur Professional/Premium
 * **Expense** for Concur Standard
@@ -20,7 +20,7 @@ The Travel Profile information can be viewed using the [Travel Profile][3] web s
 * **Invoice** for Concur Standard
 * **Travel Request** for Concur Professional/Premium
 
-##  Concur Connect API Structure 
+##  **Concur Connect API Structure**
 
 Refer to **Web Services > [Core Concepts][4]** for:
 
@@ -28,7 +28,7 @@ Refer to **Web Services > [Core Concepts][4]** for:
 * Information on authentication and authorization for all Concur Web Services.
 * Information on registering and enabling partner applications to use Concur Web Services.
  
-## Product Restrictions
+## **Product Restrictions**
 
 Concur products are highly configurable, and not all clients will have access to all features.
 
@@ -36,7 +36,7 @@ Partner developers must determine which configurations are required for their so
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
-##  Resources 
+##  **Resources**
 
 [User][6]
 
@@ -45,7 +45,7 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 [Employee Form Field][8]
 
 
-##  Responses and Errors
+##  **Responses and Errors**
 
 Refer to the [HTTP Codes][9] page for details of the common responses and errors.
 
@@ -57,10 +57,10 @@ When there are errors with batch items, the first ten errors are returned in the
 
 ## **Error Messages**
  
-| Message | Description |
+| **Message** | **Description** |
 |---------------------------------------------|---------------------------------------------------------------------|
 |  Maximum User Records per Batch Exceeded | The batch request contains over 500 records. |
-|  Missing Required Parameters | This message will be returned if: Fields that are required are missing.|
+|  Missing Required Parameters | This message will be returned if: Fields that are required are missing. |
 |  The Request XML is invalid |  The request XML is not properly formatted. |
 |  User Creation Failed |  The user creation process failed to complete. |
 |  Invalid Input: _elementname _ |  The value for the specified element is invalid. |
