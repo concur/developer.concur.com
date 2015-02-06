@@ -5,16 +5,15 @@ layout: operation
 
 
 
-
 This callout supports the following GET actions:
 
-##  Get Notifications by Status Request
+##Get Notifications by Status Request
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Retrieves the list of event notifications that are in the supplied status. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
+
+##Description
+Retrieves the list of event notifications that are in the supplied status.
+
+##Request 
 
 * **status=_{status_}**  
 The desired status for the notification. Currently supports **failed**.
@@ -22,16 +21,22 @@ The desired status for the notification. Currently supports **failed**.
 Example:  
 https://www.concursolutions.com/api/platform/notifications/v1.0/notification?status=_status_
 
- |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
+
+##Request Headers - Required
+Authorization header with OAuth token for valid Concur user.
 
 The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
- |  **Accept** header with the desired format for the response. Options are:
+##Request Headers - Optional
+**Accept** header with the desired format for the response.  
+Options are:  
+
 * application/xml
 * application/json
- |
+
+##Content Type
+* application/xml
+
 
 ####  XML Example Request
 
@@ -41,25 +46,27 @@ The OAuth consumer must have one of the following user roles in Concur: Company 
 
 ##  Get Notifications by Status Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][1] |
+
+###HTTP Responses
+[HTTP Status Codes][1]
+##Supported Content Types
 
 * application/xml
 * application/json
- |
-|  Content Body |   |
-|  This request will return a **NotificationsList** parent element with a **Notification** child element for each failed notification. The **Notification** elements will have a **Failure** child element if the notification is failed. The **Failure** element has the following child elements:
+
+##Content Body
+This request will return a **NotificationsList** parent element with a **Notification** child element for each failed notification. The **Notification** elements will have a **Failure** child element if the notification is failed. The **Failure** element has the following child elements:
+
 
 |  Element |  Description |
-|  Context |  Message that the callout can use to provide the developer some context for the callout. |   |
+|
+|  Context |  Message that the callout can use to provide the developer some context for the callout. |
 |  EventDateTime |  When the event happened. Format: YYYY-MM-DD:HH:MM:SS |
 |  EventType |  The event that triggered the callout. |
 |  NotificationURL |  The URL the developer calls to delete a failed notification. |
 |  ObjectType |  The type of object that triggered the notification. |
 |  ObjectURI |  The URI for the object. The developer can use the appropriate GET function for the Object Type. |
 
- |
 
 ####  XML Example of Successful Response
 
