@@ -27,7 +27,7 @@ layout: resource
 * [POST][2]
 
 ## Related Resources
-* [Booking][3]           |
+* [Booking][3]
 
 
 
