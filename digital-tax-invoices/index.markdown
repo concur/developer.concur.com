@@ -1,39 +1,28 @@
 ---
 title: Digital Tax Invoices Web Service
-
-
-
 layout: conceptual
 ---
 
+# Digital Tax Invoices Web Service
 
-
-|  Description |
-|
-
+## Description
 The Digital Tax Invoice web service allows digital tax invoice validators to view tax invoices and update them with a validation status. This web service currently supports the Comprobante Fiscal Digital (CFD) digital tax invoice format used in Mexico. Other countries may be supported in future releases.
 
-###  Process
-
+##  Process
 The Digital Tax Invoice upload feature in Concur Expense allows users in the supported countries to attach the Digital Tax Invoice (CFD) to an expense. Once the tax invoice (in XML) has been added to an expense report, the Digital Tax Invoice web service will allow third-party validators to use the Concur Platform to view and validate the tax information. The validators send their results back to Concur using the web service. The results appear in the expense report for processors and workflow steps to evaluate. 
 
- |
-|  Works With These Concur Products |
-|
-
+## Works With These Concur Products
 * **Expense** for Concur Professional/Premium
 * **Invoice** Professional
- |
-|  Concur Connect API Structure |
-|
 
+## Concur Connect API Structure
 Refer to **Web Services > [Core Concepts][1]** for:
+
 * Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
 * Information on authentication and authorization for all Concur Web Services.
 * Information on registering and enabling partner applications to use Concur Web Services.
- |
-|  Product Restrictions |
-|
+
+## Product Restrictions
 
 This web service is designed for use by third-party tax invoice validators. The validators must create a partner application on the Concur Platform, then the Concur client must grant access to the partner application before the validator can view their data.
 
@@ -43,26 +32,18 @@ Partner developers must determine which configurations are required for their so
 
 Partner applications must complete the [Concur application review process][3] before they can access production user data.
 
- |
-|  Resources |  Additional Information |
-|  [Digital Tax Invoices ][4] |
+## Resources
+[Digital Tax Invoices ][4]
 
-Responses and Errors
-
+##Additional Information
+Responses and Errors  
 Expense Configuration
 
- 
-
- |
-
 ##  Responses and Errors
-
 Refer to the [HTTP Codes][5] page for details of the common responses and errors.
 
 ##  Concur Expense Configuration
-
 The Digital Tax Invoice feature must be activated in Concur Expense before clients can use this feature. The feature is activated in the Group Configuration.
-
 
 
 [1]: https://developer.concur.com/api-documentation/core-concepts
