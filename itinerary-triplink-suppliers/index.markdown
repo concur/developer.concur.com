@@ -3,68 +3,50 @@ title: Itinerary
 layout: conceptual
 ---
 
-
-
-
-
-| ----- |
-|  Description |
-|  The Concur Itinerary Web Service allows TripLink - Open Booking suppliers to view and create travel related events in the Concur Travel system. Suppliers can post bookings for their travel type, and get itinerary details.
+## Description
+The Concur Itinerary Web Service allows TripLink - Open Booking suppliers to view and create travel related events in the Concur Travel system. Suppliers can post bookings for their travel type, and get itinerary details.
 
 This documentation is designed for use by the TripLink - Open Booking Suppliers. TMCs and third party developers should use the [TMC Itinerary Web Service][1] documentation instead.
 
- |
-|  Works With These Concur Products |
-|
-
+## Works With These Concur Products
 * **Travel** for Concur Professional/Premium
 * **Travel** for Concur Standard
 * **Expense** for Concur Professional/Premium
 * **Expense** for Concur Standard
- |
-|  Concur Connect API Structure |
-|  Refer to **Web Services > [Core Concepts][2]** for:
+
+## Concur Connect API Structure
+Refer to **Web Services > [Core Concepts][2]** for:
 * Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
 * Information on authentication and authorization for all Concur Web Services.
 * Information on registering and enabling partner applications to use Concur Web Services.
 
 Detailed descriptions of requests and responses are available in the documentation for each function.
 
- |
-|  Product Restrictions |
-|  This web service is designed for use by TripLink - Open Booking Suppliers. If you are a TripLink - Open Booking Supplier who would like to start using this web service, please visit: <http://www.concur.com/en-us/connect-platform/suppliers> or contact the [Concur Connect Platform Team][3].
+## Product Restrictions
+This web service is designed for use by TripLink - Open Booking Suppliers. If you are a TripLink - Open Booking Supplier who would like to start using this web service, please visit: <http://www.concur.com/en-us/connect-platform/suppliers> or contact the [Concur Connect Platform Team](mailto:[3]).
 
 Concur products are highly configurable, and not all clients will have access to all features.
 
 Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][4] if you have questions about the configuration settings.
 
- |
-|  Authentication |
-|  The Itinerary web service supports [OAuth 2.0][5]. The supplier can request or send travel bookings using an OAuth token for the user the travel booking belongs to, generated with the user's involvement. |
-|  Resources |  Additional Information |
-|
+## Authentication
+The Itinerary web service supports [OAuth 2.0][5]. The supplier can request or send travel bookings using an OAuth token for the user the travel booking belongs to, generated with the user's involvement.
 
+## Resources
 [Booking][6]
 
 [Itinerary][7] (Trip)
 
 [Notification Subscription][8]
 
- |
-
-Responses and Errors
-
-Itinerary FAQ
-
+## Additional Information
 [Booking Object Elements][9]
-
- |
 
 ##  Responses and Errors
 
 Refer to the [HTTP Codes][10] page for details of the common responses and errors.
 
-###  Itinerary FAQ
+##  Itinerary FAQ
 
 This section includes answers to frequently asked questions about the Itinerary web service.
 
@@ -106,13 +88,12 @@ This section includes answers to frequently asked questions about the Itinerary 
 
 > No.
 
-> Return to Top
 
 
 
 [1]: https://developer.concur.com/itinerary-tmc-and-third-party-developers
 [2]: https://developer.concur.com/api-documentation/core-concepts
-[3]: mailto: connect@concur.com
+[3]: connect@concur.com
 [4]: https://developer.concur.com/forums/concur-connect
 [5]: https://developer.concur.com/oauth-20
 [6]: https://developer.concur.com/itinerary-triplink-suppliers/booking-resource-triplink

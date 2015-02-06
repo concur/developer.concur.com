@@ -18,9 +18,9 @@ There are two types of custom lists: Simple lists and Connected (multi-level) li
 
 Example: If your connected list uses Custom5 for the first level, Custom10 for the second level and Custom2 for the third level, you must send the XML elements for the custom fields in that order:
 
-<Custom5>FirstValueCode</Custom5>  
-<Custom10>SecondValueCode</Custom10>  
-<Custom2>ThirdValueCode</Custom2>
+	<Custom5>FirstValueCode</Custom5>  
+	<Custom10>SecondValueCode</Custom10>  
+	<Custom2>ThirdValueCode</Custom2>
 
 ####  Common Issues
 

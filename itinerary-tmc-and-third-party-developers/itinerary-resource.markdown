@@ -7,21 +7,27 @@ layout: resource
 
 
 
-| ----- |
-|  Description |
-|  The itineraries in Concur Travel. Also referred to as Trips. Can contain multiple bookings. |
-|  Works With These Concur Products |
-|
+## Description
+* The itineraries in Concur Travel. Also referred to as Trips. Can contain multiple bookings.
 
+## Works With These Concur Products
 * **Travel** for Concur Professional/Premium
- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/travel/trip/v1.1/ |
 
-| Supported Content Types | Supported Accept Types |
-| ----------------------- | ---------------------- |
-| Supported Verbs         | Related Resources      |
-| [GET][1] , [POST][2]    | [Booking][3]           |
+## Resource URI
+* https://www.concursolutions.com/api/travel/trip/v1.1/
+
+## Supported Content Types
+* application/xml
+
+## Supported Accept Types
+* application/xml
+
+## Supported Verbs
+* [GET][1]
+* [POST][2]
+
+## Related Resources
+* [Booking][3]
 
 
 
