@@ -1,7 +1,7 @@
 ---
 title: Expense Entry Attendee Resource
 layout: operation
----
+--- 
 
 ##Description
 Retrieves the expense entry attendees for the specified expense entry. This function requires the v2.0 expense entry attendee resource.

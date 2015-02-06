@@ -1,7 +1,7 @@
 ---
 title: Company Notification Subscription Resource 
 layout: resource
----
+--- 
 
 ##Description 
 

@@ -1,7 +1,7 @@
 ---
 title: Expense Entry Attendee Resource 
 layout: resource
----
+--- 
 
 ##Description
 The Expense Entry Attendees manages the relationship between the attendees and the expense report and entry, for the specified expense entry. This resource does not include the full attendee information, which can be accessed using the [Get Attendees][1] function.

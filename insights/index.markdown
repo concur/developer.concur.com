@@ -17,7 +17,7 @@ Concur TripLink partner suppliers can subscribe to notifications when Concur use
 * **Travel** for Concur Professional/Premium
 * **Travel** for Concur Standard
  
-##Concur Connect API Structure 
+##Concur Connect API Structure
 Refer to **Web Services > [Core Concepts][1]** for:
 
 * Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
