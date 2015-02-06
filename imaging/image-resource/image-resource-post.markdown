@@ -3,98 +3,21 @@ title: Image Resource
 layout: operation
 ---
 
-
-
-
-This resource supports the following POST actions:
-
+## Description
+Uploads a receipt image and associates it with the OAuth consumer. The user can view the image in the receipt management section of Concur.
 **NOTE**: The documentation for the version 3.0 Receipt Images resource can be found [here][1].
 
-##  Post Receipt Image Request
-
-| ----- |
-|  Description |  Supported Content Types |
-|  Uploads a receipt image and associates it with the OAuth consumer. The user can view the image in the receipt management section of Concur. |
-
-* application/pdf
-* image/jpg
-* image/jpeg
-* image/png
-**NOTE**: PDF images cannot be encrypted or password protected. |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
-
-* **receipt**  
-Keyword specifying this is a receipt image.
-Example: https://www.concursolutions.com/api/image/v1.0/receipt |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. |  None |
-|  Content Body |   |
-|  [Byte array][2] containing the image data. |
-
-####  XML Example Request
-
-    POST https://www.concursolutions.com/api/image/v1.0/receipt HTTP/1.1
-    Authorization: OAuth {access token}
-    Content-Length: 65536
-    Content-Type: image/jpeg
-    ... image ...
-
-##  Post Receipt Image Response
-
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][3] |   |
-|  Content Body |   |
-|  This request will return an **Image** parent element, with the following child elements:  
-
-|  Element |  Description |
-|  Id |  The unique identifier of the image. |   |
-|  Url |  The URL for the image. This element is empty when uploading images. |
-
- |
-
-####  XML Example of Successful Response
-
-    201 Created
-    Content-Type: application/xml
-
-    <Image xmlns="http://www.concursolutions.com/api/image/2011/02"
-           xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Id>aBcDeMwbl34xnwdkUw5ZjDsggDl2$pyoy31$pnGaHAywmPrpbAmE</Id>
-        <Url />
-    </Image>
-
-##  Post Image to Entry Request
-
-| ----- |
-|  Description |  Supported Content Types |
-|  Uploads a receipt image and associates it with the expense entry that matches the supplied entry ID. Once an image is attached to the entry, you cannot append additional images. |
-
-* application/pdf
-* image/jpg
-* image/jpeg
-* image/png
-**NOTE**: PDF images cannot be encrypted or password protected. |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
-
-* **expenseentry/{_entryID_}**  
-Unique identifier for the entry and **expenseentry** keyword.
-Example: https://www.concursolutions.com/api/image/v1.0/expenseentry/{_entryId_} |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
-
-The Concur user that authenticates during the OAuth process for this request must either be the user associated with this image, or have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
-
-These administrative roles allow the user to manage data for the entire company.
-
- |  None |
-|  Content Body |   |
-|  [Byte array][2] containing the image data. |
-
-####  Example Request
-
+## Request
+```
+POST https://www.concursolutions.com/api/image/v1.0/receipt HTTP/1.1
+Authorization: OAuth {access token}
+Content-Length: 65536
+Content-Type: image/jpeg
+... image ...
+```
+###  Post Image to Entry Request
+Uploads a receipt image and associates it with the expense entry that matches the supplied entry ID. Once an image is attached to the entry, you cannot append additional images.
+```
 Containing partial 64 bit encoded string representation of image
 
     POST https://www.concursolutions.com/api/image/v1.0/expenseentry/A2C40CEE415B43B2A0BE HTTP/1.1
@@ -122,23 +45,70 @@ Containing partial 64 bit encoded string representation of image
     c5B9QNzTZNSlt2bVLS0tp95Cpa3LTqVwOSzRoQc54x2HPPFyigAooooAKKKKACiiigAooooAKKKK
     ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACo4J4bq3iuL
     ......
+```
+###  Post Image to Payment Request Request
+Uploads an invoice image and associates it with the invoice that matches the supplied request ID. Each invoice is uniquely identified by the request ID value. Once an image is attached to the invoice, you cannot append additional images.
+**NOTE**: The Concur Invoice product is required to use this endpoint. Currently you must use the Invoice user interface to get the Request ID value.
+```
+POST https://www.concursolutions.com/api/image/v1.1/invoice/884E2WRE415B43B2A0BE HTTP/1.1
+Authorization: OAuth {access token}
+Content-Length: 65536
+Content-Type: image/jpeg
+... image ...
+```
 
-##  Post Image to Entry Response
+###  Post Image to Report Request
+Uploads a receipt image and associates it with the report that matches the supplied report ID. If a report image already exists for the report, the new image will be appended to the existing image.
+```
+    POST https://www.concursolutions.com/api/image/v1.0/report/A2C40CEE415B43B2A0BE HTTP/1.1
+    Authorization: OAuth {access token}
+    Content-Length: 65536
+    Content-Type: image/jpeg
+    ... image ...
+```
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][3] |   |
-|  Content Body |   |
-|  This request will return an **Image** parent element, with the following child elements:  
+### Request parameters
+* **receipt**  
+Keyword specifying this is a receipt image.
+Example: https://www.concursolutions.com/api/image/v1.0/receipt
+* **expenseentry/{_entryID_}**  
+Unique identifier for the entry and **expenseentry** keyword.
+Example: https://www.concursolutions.com/api/image/v1.0/expenseentry/{_entryId_}
+* **invoice/{_requestID_}**  
+The identifier for the invoice and the invoice keyword.
+Example: https://www.concursolutions.com/api/image/v1.0/invoice/{_requestId_}
+* **report/{_reportID_**}  
+The identifier for the report and the **report** keyword.
+Example: https://www.concursolutions.com/api/image/v1.0/report/{_reportId_}
 
-|  Element |  Description |
-|  Id |  The unique identifier of the image. |   |
-|  Url |  The URL for the image. This element is empty when uploading images. |
+### Content types
+* application/pdf
+* image/jpg
+* image/jpeg
+* image/png
+**NOTE**: PDF images cannot be encrypted or password protected.
+[Byte array][2] containing the image data.
 
- |
+### Authorization header
+Authorization header with OAuth token for valid Concur user.
+The Concur user that authenticates during the OAuth process for this request must either be the user associated with this image, or have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
-####  XML Example of Successful Response
+These administrative roles allow the user to manage data for the entire company.
 
+## Response
+### Post Receipt Image Response
+```
+    201 Created
+    Content-Type: application/xml
+
+    <Image xmlns="http://www.concursolutions.com/api/image/2011/02"
+           xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <Id>aBcDeMwbl34xnwdkUw5ZjDsggDl2$pyoy31$pnGaHAywmPrpbAmE</Id>
+        <Url />
+    </Image>
+```
+###  Post Image to Entry Response
+```
     201 Created
     Content-Type: application/xml
 
@@ -147,68 +117,10 @@ Containing partial 64 bit encoded string representation of image
         <Id>A2C40CEE415B43B2A0BE</Id>
         <Url />
     </Image>
-
-##  Post Image to Payment Request Request
-
-| ----- |
-|  Description |  Supported Content Types |
-|  Uploads an invoice image and associates it with the invoice that matches the supplied request ID. Each invoice is uniquely identified by the request ID value. Once an image is attached to the invoice, you cannot append additional images.
-
-**NOTE**: The Concur Invoice product is required to use this endpoint. Currently you must use the Invoice user interface to get the Request ID value.
-
- |
-
-* application/pdf
-* image/jpg
-* image/jpeg
-* image/png
-**NOTE**: PDF images cannot be encrypted or password protected. |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
-
-* **invoice/{_requestID_}**  
-The identifier for the invoice and the invoice keyword.
-Example: https://www.concursolutions.com/api/image/v1.0/invoice/{_requestId_} |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
-
-The Concur user that authenticates during the OAuth process for this request must either be the user associated with this image, or have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
-
-These administrative roles allow the user to manage data for the entire company.
-
- |  None |
-|  Content Body |   |
-|  [Byte array][2] containing the image data. |
-
-####  XML Example Request
-
-    POST https://www.concursolutions.com/api/image/v1.1/invoice/884E2WRE415B43B2A0BE HTTP/1.1
-    Authorization: OAuth {access token}
-    Content-Length: 65536
-    Content-Type: image/jpeg
-    ... image ...
-
-##  Post Image to Payment Request Response
-
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|
-
-[HTTP Status Codes][3]
-
- |   |
-|  Content Body |   |
-|  This request will return an **Image** parent element, with the following child elements:  
-
-|  Element |  Description |
-|  Id |  The unique identifier of the image. |   |
-|  Url |  The URL for the image. This element is empty when uploading images. |
-
- |
-
-####  XML Example of Successful Response
-
-    201 Created
+```
+###  Post Image to Payment Request Response
+```
+201 Created
     Content-Type: application/xml
 
     <Image xmlns="http://www.concursolutions.com/api/image/2011/02"
@@ -216,58 +128,10 @@ These administrative roles allow the user to manage data for the entire company.
         <Id>884E2WRE415B43B2A0BE</Id>
         <Url />
     </Image>
-
-##  Post Image to Report Request
-
-| ----- |
-|  Description |  Supported Content Types |
-|  Uploads a receipt image and associates it with the report that matches the supplied report ID. If a report image already exists for the report, the new image will be appended to the existing image. |
-
-* application/pdf
-* image/jpg
-* image/jpeg
-* image/png
-**NOTE**: PDF images cannot be encrypted or password protected. |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
-
-* **report/{_reportID_**}  
-The identifier for the report and the **report** keyword.
-Example: https://www.concursolutions.com/api/image/v1.0/report/{_reportId_} |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. The Concur user that authenticates during the OAuth process for this request must either be the user associated with this image, or have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These administrative roles allow the user to manage data for the entire company. |  None |
-|  Content Body |   |
-|  [Byte array][2] containing the image data. |
-
-####  XML Example Request
-
-    POST https://www.concursolutions.com/api/image/v1.0/report/A2C40CEE415B43B2A0BE HTTP/1.1
-    Authorization: OAuth {access token}
-    Content-Length: 65536
-    Content-Type: image/jpeg
-    ... image ...
-
-##  Post Image to Report Response
-
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|
-
-[HTTP Status Codes][3]
-
- |   |
-|  Content Body |   |
-|  This request will return an **Image** parent element, with the following child elements:  
-
-|  Element |  Description |
-|  Id |  The unique identifier of the image. |   |
-|  Url |  The URL for the image. This element is empty when uploading images. |
-
- |
-
-####  XML Example of Successful Response
-
-    201 Created
+```
+###  Post Image to Report Response
+```
+201 Created
     Content-Type: application/xml
 
     <Image xmlns="http://www.concursolutions.com/api/image/2011/02"
@@ -275,9 +139,14 @@ Example: https://www.concursolutions.com/api/image/v1.0/report/{_reportId_} |  N
         <Id>A2C40CEE415B43B2A0BE</Id>
         <Url />
     </Image>
+```
 
-  
+### Response root elements
 
+|  Element |  Description |
+| -------- | ------------ |
+|  Id |  The unique identifier of the image. |
+|  Url |  The URL for the image. This element is empty when uploading images. |
 
 [1]: https://www.concursolutions.com/api/docs/index.html#!/ReceiptImages
 [2]: https://developer.concur.com/node/388#imageformat
