@@ -3,9 +3,6 @@ title: Delete Notification
 layout: operation
 ---
 
-
-
-
 This callout supports the following DELETE actions:
 
 **Delete Notification Request**
@@ -58,7 +55,8 @@ Authorization: OAuth {access token}
 The response returns an HTTP Status Code as follows:
 
 |HTTP Code|Description|
-|200 Success |Notification successfully deleted. |  
+|---------|-----------|
+|200 Success |Notification successfully deleted.|  
 |400 Bad Request|The request is malformed. Check the API document and verify the request uses the correct format.|
 |403 Forbidden|The OAuth Consumer doesn't have a required role. Check the API documentation to learn the required roles.|
 
