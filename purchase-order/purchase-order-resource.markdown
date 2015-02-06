@@ -25,7 +25,7 @@ Works With These Concur Products
 ## Supported Accept Types
 * application/xml
 
-## Supported VerbsRelated Resources
+## Supported Verbs
 * [POST][2]
 
 ## Related Resources
