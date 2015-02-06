@@ -7,8 +7,15 @@ layout: operation
 
 
 
+##  Description
 
 Gets the list of travel profile summaries that have been updated since the specified date. The response is separated into pages.
+
+##  Request
+
+    GET {InstanceURI}/api/travelprofile/v1.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
+    Authorization: OAuth {access token}
+
 
 ##  Request parameters
 
@@ -128,4 +135,9 @@ The Paging parent element contains contains the paging information for the respo
             </ProfileSummary>
         </Data>
     </ConnectResponse>
-    
+
+ 
+
+ 
+
+ 
