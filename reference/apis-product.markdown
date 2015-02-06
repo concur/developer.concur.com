@@ -8,8 +8,6 @@ layout: conceptual
 
 The Concur Platform can be used with several Concur products. This page shows the available APIs by product.
 
-| ----- |
-|
 
 ##  Concur Expense
 
@@ -58,7 +56,6 @@ The Concur Platform can be used with several Concur products. This page shows th
 * Travel Request
 * List Item
 * User
- |
 
 ##  Concur TripLink
 
@@ -101,8 +98,3 @@ The Concur Platform can be used with several Concur products. This page shows th
 
 * Ground Transportation
 * Hotel
- |
-
-
-
- 
