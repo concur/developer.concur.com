@@ -6,30 +6,29 @@ layout: conceptual
 
 
 
-###  Description
+##  Description
 
 Validates sales tax amounts in invoces. You can use SalesTaxValidationRequest to:
 
 * Retrieve invoices for calculating taxes.
 * Update invoices with a calculated tax amount and tax rate based on specific invoice fields.
 
-###  Version
+##  Version
 
-Version 3
+3.0
 
-###  URIs
+##  URIs
 
 `https://{InstanceURL}/api/v3.0/invoice/salestaxvalidationrequest`
 
-###  Content types
+##  Content types
 
 * application/xml
 * application/json
 
-###  Operations
+##  Operations
 
-###  Works with these Concur products
+##  Works with these Concur products
 
 * **Invoice** for Concur Professional
 * **Invoice** for Concur Standard
-
