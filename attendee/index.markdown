@@ -30,6 +30,7 @@ Refer to **Web Services > [Core Concepts][1]** for:
 * Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
 * Information on authentication and authorization for all Concur Web Services.
 * Information on registering and enabling partner applications to use Concur Web Services.
+
  |
 |  Product Restrictions |
 |  Concur products are highly configurable, and not all clients will have access to all features.
