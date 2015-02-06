@@ -30,7 +30,7 @@ https://www.concursolutions.com/api/user/v1.0/Users
 
 ## **Supported Verbs**         
 
-[GET][1] , [POST][2]
+[GET][1] ,  [POST][2]
 
 ## **Related Resources**
 
