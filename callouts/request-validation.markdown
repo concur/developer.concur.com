@@ -40,16 +40,16 @@ In this step, you will enable the Event Notification functionality in your Concu
 4. Click **New**.
 5. Fill out the fields:
 
-| ----- |
-|  Field |  Description |
+
+	|  Field |  Description |
+| ----- |------|
 |  Name |  Enter the name that should appear in the list of connectors. |
 |  Description |  Enter the description of the function of the connector, such as what back-end system it connects to. |
-|  Host Name |  Enter the hostname for the connector.  
-Example: https://{servername} |
+|  Host Name |  Enter the hostname for the connector.  **Example:** https://{servername} |
 |  User Name |  Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth. |
 |  Password |  Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth. |
 
-![][5]
+	![][5]
 
 6. In the **Services** section, select **External Report Validation**.
 7. Click **Configure**. The **Configure Service** window appears.  
@@ -69,8 +69,9 @@ Example: https://{servername} |
 ![ /][8]
 3. Complete all of the required fields:
 
-| ----- |
-|  Field |  Description |
+
+	|  Field |  Description |
+| ----- |-------|
 |  Name |  Enter the name that should appear in the list of applications. |
 |  Description |  Enter the description of the function of the application. |
 |  Visibility |  This field is only editable by Concur Internal users. |
@@ -98,7 +99,7 @@ After receiving an event notification, the application connector should send an 
 After you receive the OAuth access token, you are ready to request the Request data. The event notification information that Concur sends includes an element named <ObjectURI>. The connector can send a GET request to the URI specified in this element, supplying the OAuth access token in the request header in the following format:
 
     GET api/travelrequest/v1.0/requests/nxxKgLlnROz3zHJBCRksaas23dsfs  HTTPS 1.1
-    Host: [www.concursolutions.com][11]
+    Host: www.concursolutions.com
     Authorization: OAuth {access token}
     ...
 
@@ -136,7 +137,6 @@ The application connector has now completed the process of validating a Request,
 [7]: https://developer.concur.com/sites/default/files/RegPartApp_crop.png
 [8]: https://developer.concur.com/sites/default/files/NewPartnerApp_0.png
 [9]: https://developer.concur.com/oauth-20
-[10]: https://developer.concur.com/node/492
-[11]: http://www.concursolutions.com "www.concursolutions.com"
+[10]: https://developer.concur.com/oauth-20/native-flow
 [12]: https://developer.concur.com/node/518#requestdetails
 [13]: https://developer.concur.com/node/519#requestworkflow
