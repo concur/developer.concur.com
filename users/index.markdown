@@ -23,6 +23,7 @@ The Travel Profile information can be viewed using the [Travel Profile][3] web s
 ##  Concur Connect API Structure 
 
 Refer to **Web Services > [Core Concepts][4]** for:
+
 * Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
 * Information on authentication and authorization for all Concur Web Services.
 * Information on registering and enabling partner applications to use Concur Web Services.
