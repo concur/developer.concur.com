@@ -200,7 +200,7 @@ The Telephones parent element contains a Telephone child element for each includ
 | :----- | :----- | :----- |
 |  ContactOptIn |  String |  Whether the user has opted in to being contacted on this phone. Only appears when the phone type is Cell or Primary Mobile Phone. Format: **True**\|**False** |
 |  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code][1] specification. Format: Char(2) |
-|  PhoneNumber |  String | The phone number as entered by the user, which may contain characters such as () or -. Format: Char(60) </br> **NOTE**: The user phone number may sometimes be incorrectly parsed if there are data input issues.|
+|  PhoneNumber |  String | The phone number as entered by the user, which may contain characters such as () or -. Format: Char(60) <br> **NOTE**: The user phone number may sometimes be incorrectly parsed if there are data input issues.|
 |  Extension |  String |  The phone extension. Format: Varchar(60) |
 
   
@@ -282,7 +282,7 @@ The Air parent element contains the user's air travel preferences and contains t
 |  AirSmokingCode |  String |  Whether the user wants a flight with smoking allowed. Legacy. Format: **S**, **N**, **D**. |
 |  AirMemberships |    | The AirMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains an AirMembership child element for each included membership and includes the following child elements: |
 |  Seat |    | This parent element contains the user's Car travel preferences. The **Car** element contains the following child elements: |
-|  Meals |    | This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are: </br> AVML = Vegetarian Hindu Meal </br> BBML = Baby Meal  </br> BLML = Bland Meal  </br> CHML = Child Meal  </br> DBML = Diabetic Meal  </br> FPML = Fruit Platter  </br> GFML = Gluten Intolerant Meal  </br> HNML = Hindu Meal  </br> KSML = Kosher Meal  </br> LCML = Low Calorie Meal  </br> LFML = Low Fat Meal  </br> LSML = Low Salt Meal  </br> MOML = Muslim Meal  </br> NLML = Low Lactose Meal  </br> NSML = No Salt Meal  </br> PFML = Peanut Free Meal  </br> SFML = Seafood Meal  </br> SPML = Special Request Meal </br>  VGML = Vegetarian  </br> RVML = Vegetarian Raw Vegan Meal  </br> VLML = Vegetarian Lacto-Ovo  </br> VJML = Vegetarian Jain Meal  </br> VOML = Vegetarian Oriental Meal </br> </br> **Note**: Regular Meal will not return a value for this preference. |
+|  Meals |    | This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are: <br> AVML = Vegetarian Hindu Meal <br> BBML = Baby Meal  <br> BLML = Bland Meal  <br> CHML = Child Meal  <br> DBML = Diabetic Meal  <br> FPML = Fruit Platter  <br> GFML = Gluten Intolerant Meal  <br> HNML = Hindu Meal  <br> KSML = Kosher Meal  <br> LCML = Low Calorie Meal  <br> LFML = Low Fat Meal  <br> LSML = Low Salt Meal  <br> MOML = Muslim Meal  <br> NLML = Low Lactose Meal  <br> NSML = No Salt Meal  <br> PFML = Peanut Free Meal  <br> SFML = Seafood Meal  <br> SPML = Special Request Meal <br>  VGML = Vegetarian  <br> RVML = Vegetarian Raw Vegan Meal  <br> VLML = Vegetarian Lacto-Ovo  <br> VJML = Vegetarian Jain Meal  <br> VOML = Vegetarian Oriental Meal <br> <br> **Note**: Regular Meal will not return a value for this preference. |
 |  HomeAirport |  String |  The user's home airport |
 |  DHSRedressNumber |  String |  TSA Redress Number |
 |  DHSKnownTravelerNumber |  String |  TSA Known Traveler Number |
@@ -382,7 +382,8 @@ The CustomFields parent element contains child elements that specify custom fiel
 | :----- | :----- | :----- |
 |  CustomFields |    | This parent element only appears if the request came from a travel supplier for this travel type or from a TMC. This element contains a CustomField child element for each custom field with the following child elements:|
 
-### CustomeFields child elements
+### CustomFields child elements
+
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
 |  Name |  String |  The name of the custom field. For example, Employee, Cost Centre, Fund, PassportNumber, Visa, and Assistants. |
