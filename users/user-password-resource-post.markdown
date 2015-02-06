@@ -62,6 +62,7 @@ This function requires as its arguments a **UserBatch** element containing a **U
 
 ## **Response**
 
+Description
 
 ####  XML Example Request
 
