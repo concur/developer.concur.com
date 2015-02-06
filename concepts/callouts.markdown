@@ -97,11 +97,11 @@ Once a development partner has configured a application connector, it must be re
 
 #####  To register an application connector:
 
-1. On the **Application Connector Registration** page, click **New**.  
+ 1. On the **Application Connector Registration** page, click **New**.  
 
 ![ /][5]
 
-2. In the System area, complete all of the required fields.
+ 2. In the System area, complete all of the required fields.
 
 
 
