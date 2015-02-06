@@ -11,14 +11,6 @@ Concur users. Always managed as a batch of users, even if the batch contains onl
 ## **Version**
 1.0
 
-## **Works With These Concur Products**
-
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
-* **Invoice** for Concur Professional/Premium
-* **Invoice** for Concur Standard
-* **Travel Request** for Concur Professional/Premium
-
 ## **URI**
 
 https://www.concursolutions.com/api/user/v1.0/Users
@@ -33,12 +25,14 @@ https://www.concursolutions.com/api/user/v1.0/Users
 
 ## **Operations**         
 
-[GET][1] 
+[GET][1]
+
 [POST][2] 
 
 ## **See also**
 
 [User Password][3]
+
 [Employee Form Field][4]
 
 
