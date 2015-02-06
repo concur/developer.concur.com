@@ -20,13 +20,13 @@ The expense transaction data for a closed payment batch. Each batch file repres
 ## Supported Content Types
 * application/xml
 
-## Supported Accept Types
-*application/xml
+##Supported Accept Types
+* application/xml
 
-## Supported Verbs
+##Supported Verbs
 * [GET][1]
 
-Related Resources
+##Related Resources
 * [Payment Batch][2]
 
 [1]: https://developer.concur.com/payment-batch-file/payment-batch-file-resource/get-payment-batch-file
