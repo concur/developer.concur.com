@@ -12,8 +12,8 @@ This page contains release notes for the Concur Developer Platform and the App C
 
 |Release Month	|Last Updated      |
 |-------------------|------------------|
-|December 2014[1-8]	|December 12 2014  |
-|November 2014[1-7] |November 14 2014  | 
+|December 2014 [1-8]	|December 12 2014  |
+|November 2014 [1-7] |November 14 2014  | 
 |October 2014[1-6]  |October 6 2014    |
 |September 2014[1-5]|September 12 2014 |
 |August 2014[1-4]	  |August 22 2014    |
