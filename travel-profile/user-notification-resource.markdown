@@ -20,7 +20,7 @@ A subscription to a notification when the Concur user changes the specified feat
 * To subscribe:  
 https://www.concursolutions.com/api/user/v1.0/subscribe  
 * To unsubscribe:  
-https://www.concursolutions.com/api/user/v1.0/unsubscribe |
+https://www.concursolutions.com/api/user/v1.0/unsubscribe
 
 ## Supported Content Types
 * application/xml
