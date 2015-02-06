@@ -7,30 +7,28 @@ layout: resource
 
 
 
-| ----- |
-|  Description |
-|  The extracted data for the specified extract job. Formatted according to the associated extract definition. |
-|  Works With These Concur Products |
-|
+## Description
+The extracted data for the specified extract job. Formatted according to the associated extract definition.
 
+## Works With These Concur Products
 * **Expense** for Concur Professional/Premium
 * **Invoice** for Concur Professional/Premium
- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_}/job/{_JobID_}/file |
 
-| Supported Content Types | Supported Accept Types |
-| ----------------------- | ---------------------- |
-| Supported Verbs         | Related Resources      |
-| [GET][1]                |
+## Resource URI
+* https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_}/job/{_JobID_}/file 
 
-[Extract Definition][2]
+## Supported Content Types
+* application/xml
 
-[Extract Job][3]
+## Supported Accept Types
+* application/xml
 
- |
+## Supported Verbs
+* [GET][1]
 
-  
+## Related Resources
+* [Extract Definition][2]
+* [Extract Job][3]
 
 
 [1]: https://developer.concur.com/extract/extract-file-resource/extract-file-resource-get
