@@ -20,7 +20,7 @@ Read the [TripLink Partner UX Design guide][1] to help you streamline the proces
 
 A user can enroll to connect his or her Concur account with select Concur travel partners from the App Center. When a user accesses a TripLink app from the Concur App Center:
 
-1. The user sees a dialog box with a **Learn More **button to find out the benefits of automatically connecting their Concur accounts with travel loyalty programs at selected Concur travel partners:  
+1. The user sees a dialog box with a **Learn More** button to find out the benefits of automatically connecting their Concur accounts with travel loyalty programs at selected Concur travel partners:  
 ![][2]  
  
 2. The user sees a dialog box where they can enroll to automatically connect their Concur accounts with travel loyalty programs at selected Concur travel partners:  
@@ -39,19 +39,12 @@ After a user enrolls, the user's Concur account is automatically connected to tr
 
 The following table lists some common scenarios where Connection Requests can be used:
 
-| ----- |
+
 |  Usage scenario |  Expected result |
-|  New connection |   |
-|  User enrolls to automatically connect to Concur travel partners. |
-
-Connection request is created for all users who enrolled to automatically connect to Concur travel partners.
-
- |
-|  New travel partner comes online. |
-
-Connection request created for existing travel suppliers.
-
- |
+|-----------------|------------------|
+|  New connection| |
+|  User enrolls to automatically connect to Concur travel partners.|Connection request is created for all users who enrolled to automatically connect to Concur travel partners.|
+|  New travel partner comes online. |Connection request created for existing travel suppliers.|
 |  Request to re-create the connection request. |  Create a connection request for a specific user. |
 |  Connection request failed for a given user. |  Create a connection request for a specific user. |
 |  Pending connections |   |

@@ -1,5 +1,5 @@
 ---
-title: OAuth 2
+title: OAuth 2 Native Flow
 layout: conceptual
 ---
 
@@ -25,30 +25,35 @@ In the native flow, the partner application sends the user's Concur credentials.
 
 The format of the call is:
 
-        GET https://www.concursolutions.com/net2/oauth2/accesstoken.ashx
-    Authorization: Basic {Base64 encoded LoginID:Password}
-    X-ConsumerKey: {Consumer Key}
+```
+GET https://www.concursolutions.com/net2/oauth2/accesstoken.ashx
+Authorization: Basic {Base64 encoded LoginID:Password}
+X-ConsumerKey: {Consumer Key}
+```
 
-For example, John obtained a Consumer Key of hj7683jslks93lalkjss93 when he registered his application. John has a login ID of john_developer@hotmail.com and a password of Travel&Expense$2012. John Base64-encoded his login ID, colon, and password such that john_developer@hotmail.com:Travel&Expense$2012 became GHJHDIU38JKSHJ==. John's call looks like this:
+For example, John obtained a Consumer Key of hj7683jslks93lalkjss93 when he registered his application. John has a login ID of `john_developer@hotmail.com` and a password of Travel&Expense$2012. John Base64-encoded his login ID, colon, and password such that `john_developer@hotmail.com`:Travel&Expense$2012 became GHJHDIU38JKSHJ==. John's call looks like this:
 
-        GET https://www.concursolutions.com/net2/oauth2/accesstoken.ashx
-    Authorization: Basic GHJHDIU38JKSHJ==
-    X-ConsumerKey: hj7683jslks93lalkjss93
-
+```
+GET https://www.concursolutions.com/net2/oauth2/accesstoken.ashx
+Authorization: Basic GHJHDIU38JKSHJ==
+X-ConsumerKey: hj7683jslks93lalkjss93
+```
 The response looks like this:
 
-        HTTP/1.1 200 OK
-    Content Length: 200
+```
+HTTP/1.1 200 OK
+Content Length: 200
 
-    <?xml version="1.0"?>
-    <Access_Token>
-        <Token>fdjhk2382kwkajsklwe8i3932kslswl</Token>
-        <Expiration_date>6/1/2014 8:00:00 AM</Expiration_date>
-        <Refresh_Token>8ew$sefhj7s62ns94376nsjd62s</Refresh_Token>
-    </Access_Token>
+<?xml version="1.0"?>
+<Access_Token>
+   <Token>fdjhk2382kwkajsklwe8i3932kslswl</Token>
+   <Expiration_date>6/1/2014 8:00:00 AM</Expiration_date>
+   <Refresh_Token>8ew$sefhj7s62ns94376nsjd62s</Refresh_Token>
+</Access_Token>
+```
 
-4. Retrieve the access token from the response and use it in all subsequent calls for the authenticated user. The access token is the value of the <Token> element.
-5. Delete any record of the login ID and password.
+4. Retrieve the access token from the response and use it in all subsequent calls for the authenticated user. The access token is the value of the &lt;Token&gt; element.
+5. Delete any record of the login ID and password.
 
 
 

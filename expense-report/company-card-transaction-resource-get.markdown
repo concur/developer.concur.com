@@ -8,15 +8,27 @@ layout: operation
 
 This resource supports the following GET actions:
 
-##  Get List of Available Transactions Request
+## Get List of Available Transactions Request
 
-| ----- |
-|  Description |  Supported Accept Types |
-|  Retrieves a list of unassigned company card charges for the user specified in the [OAuth][1] access token. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|  None |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. |  None |
+## Description
+Retrieves a list of unassigned company card charges for the user specified in the [OAuth][1] access token.
+
+## Request
+```
+some code to be added
+```
+
+### Request parameters
+
+### Content types
+application/xml
+
+### Authorization header
+Authorization header with OAuth token for valid Concur user.
+
+## Response
+
+### Response root elements
 
 ####  XML Example Request
 
@@ -26,13 +38,12 @@ This resource supports the following GET actions:
 
 ##  Get List of Available Transactions Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][2] |   |
-|  Content Body |   |
-|  This request will return a **CardCharges** parent element with a **CardCharge** child element for each transaction. The **CardCharge** elements will have the following child elements:  
+
+### Content Body
+This request will return a **CardCharges** parent element with a **CardCharge** child element for each transaction. The **CardCharge** elements will have the following child elements:  
 
 |  Element |  Description |
+| -------- | ------------ |
 |  CardNumber |  The number of the card, with all but the last four digits obscured. |   |
 |  ExpKey |  The code for the expense type of the transaction |
 |  Merchant |  The merchant name for the transaction. |
@@ -41,7 +52,6 @@ This resource supports the following GET actions:
 |  TransactionCrnCode |  The currency code of the transaction amount. |
 |  TransactionDate |  The date of the transaction. |
 
- |
 
 ####  XML Example of Successful Response
 
