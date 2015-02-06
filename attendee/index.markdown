@@ -4,42 +4,37 @@ layout: conceptual
 ---
 
 
-
-
-
-| ----- |
-|  Description |
-|
+##Description
 
 The Attendee Web service allows developers to manage attendees in Concur. The Attendee resource can be used to retrieve attendee information for private or shared attendees. In future releases, the Attendee resource will be updated with additional functionality for managing all attendees in Concur.
 
 The Attendee List resource manages attendees in batches, and can be used to add, update or inactivate attendees. This resource provides functionality similar to the Attendee List Import in Concur. Attendees added using this resource are added to the Shared Attendee List (owned by the system and available to all users).
 
- |
-|  Works With These Concur Products |
-|
+
+##Works With These Concur Products
 
 * **Expense** for Concur Professional/Premium
 
- |
-|  Concur Connect API Structure |
-|
+
+##Concur Connect API Structure
 
 Refer to **Web Services > [Core Concepts][1]** for:
+
 * Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
 * Information on authentication and authorization for all Concur Web Services.
 * Information on registering and enabling partner applications to use Concur Web Services.
- |
-|  Product Restrictions |
-|  Concur products are highly configurable, and not all clients will have access to all features.
+
+
+##Product Restrictions
+
+Concur products are highly configurable, and not all clients will have access to all features.
 
 Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
- |
-|  Resources |  Additional Information |
-|
+
+##Resources
 
 [Attendee][3]
 
@@ -47,15 +42,11 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 
 [Attendee Type][5]
 
- |
-
-Responses and Errors
-
- |
 
 ##  Responses and Errors
 
 Refer to the [HTTP Codes][6] page for details of the common responses and errors.
+
 
 ####  Attendee List Errors
 
