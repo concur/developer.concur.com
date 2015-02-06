@@ -7,23 +7,27 @@ layout: resource
 
 
 
-| ----- |
-|  Description |
-|  An approval or rejection message for the specified trip. |
-|  Works With These Concur Products |
-|
+## Description
+An approval or rejection message for the specified trip.
 
+## Works With These Concur Products
 * **Travel** for Concur Professional/Premium
 * **Travel** for Concur Standard
- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/tws/v1.0/TripApproval/DoApproval |
 
-| Supported Content Types | Supported Accept Types |
-| ----------------------- | ---------------------- |
-| Supported Verbs         | Related Resources      |
-| [POST][1]               | None                   |
+## Resource URI
+* https://www.concursolutions.com/api/tws/v1.0/TripApproval/DoApproval
 
+## Supported Content Types
+* application/xml
+
+## Supported Accept Types
+* application/xml
+
+## Supported Verbs
+* [POST][1]
+
+## Related Resources
+* None
   
 
 

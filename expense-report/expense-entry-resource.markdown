@@ -3,37 +3,31 @@ title: Expense Entry Resource
 layout: resource
 ---
 
+##Description
+An expense entry in an expense report.
 
+##Version
+1.1
 
+##URI
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}`
 
+##Content type
+application/xml
 
-| ----- |
-|  Description |
-|  An expense entry in an expense report. |
-|  Works With These Concur Products |
-|
+##Operations
+[GET][1] 
 
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/expense/expensereport/v1.1/report/_{reportId}_/entry/_{entryId}_ |
+[POST][2]
 
-| Supported Content Types | Supported Accept Types    |
-| ----------------------- | ------------------------- |
-| Supported Verbs         | Related Resources         |
-| [GET][1] , [POST][2]    | [Expense Entry Attendee][3]
+##See also
+[Expense Entry Attendee][3]
 
 [Expense Entry Itemization][4]
 
 [Expense Report][5]
 
 [Expense Report Header][6]
-
- |
-
-  
-
 
 [1]: https://developer.concur.com/expense-report/expense-entry-resource/get-expense-entry-details
 [2]: https://developer.concur.com/expense-report/expense-entry-resource/post-entries

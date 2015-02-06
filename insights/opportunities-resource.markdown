@@ -3,41 +3,27 @@ title: Opportunities Resource
 layout: resource
 ---
 
+##Description 
+A potential booking that a Concur user might be interested in adding to a trip, based on Concur analysis.
 
+##Version
+3.0
 
+##URI
+`https://www.concursolutions.com/api/v3.0/insights/opportunities`
 
+##Content type
+application/xml
 
-| ----- |
-|  Description |
-|  A potential booking that a Concur user might be interested in adding to a trip, based on Concur analysis. |
-|  Works With These Concur Products |
-|
+application/json
 
-* **Travel** for Concur Professional/Premium
-* **Travel** for Concur Standard
- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/v3.0/insights/opportunities |
-|  Supported Content Types |  Supported Accept Types |
-|
+##Operations
+[GET][1]
 
-* application/json
-* application/xml
- |
-
-* application/json
-* application/xml
- |
-|  Supported Verbs |  Related Resources |
-|  [GET][1] |
-
+##See also
 [LatestBookings][2]
 
 [Itinerary][3] (Trip)
-
- |
-
-
 
 [1]: https://www.concursolutions.com/api/docs/index.html#!/Opportunities
 [2]: https://www.concursolutions.com/api/docs/index.html#!/LatestBookings
