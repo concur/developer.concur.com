@@ -17,7 +17,7 @@ This resource supports the following GET actions:
 |
 
 * **city****={_searchstring_}**  
-The city name. The system will return all values with city names that begin with the supplied name. The city name value is not case sensitive. The value can contain the * wildcard. This wildcard matches any number of characters.  Example: Locations?city=old*b_o will match the city name "Old Saybrook"
+The city name. The system will return all values with city names that begin with the supplied name. The city name value is not case sensitive. The value can contain the * wildcard. This wildcard matches any number of characters.Â  Example: Locations?city=old*b_o will match the city name "Old Saybrook"
 Example:  
 https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city={_searchstring_} |  None |
 |  Request Headers - Required |  Request Headers - Optional |

@@ -27,7 +27,7 @@ Once you have the basic application connector functionality set up, you're ready
 
 In this step, you will enable the Event Notification functionality in your Concur company in order to receive information about submitted Requests. Then, you will enable the Request API in order to request Request details from Concur.
 
-**Before you begin**: 
+**Before you begin**:Â 
 
 * You must have a user login with administrative privileges in Concur.
 * You must know which Request workflows require the Event Notification functionality.

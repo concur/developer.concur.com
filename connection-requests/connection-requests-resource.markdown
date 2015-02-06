@@ -43,14 +43,14 @@ GET and PUT
 
 | ----- |
 |  Element |  Data Type |  Description |
-|  ConnectionRequests |    |  Parent element for all items in a connection request collection. |
+|  ConnectionRequests |  Â  |  Parent element for all items in a connection request collection. |
 |
 
 Items  
 optional
 
  |  array |  The results of the connection request collection. |
-|  ConnectionRequest |    |  Parent element for a connection request. |
+|  ConnectionRequest |  Â  |  Parent element for a connection request. |
 |
 
 DiscountCode  
@@ -96,7 +96,7 @@ optional |  string |  The status code representing the state of the connection r
 |  Connected |  User's travel loyalty program and Concur account are connected. |
 |  Failed |  Connection request is failed. |
 
- 
+Â 
 
  |
 |  URI  

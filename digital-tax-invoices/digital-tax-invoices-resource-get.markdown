@@ -77,5 +77,5 @@ This resource supports the following GET actions:
         </ReceiptData>
     </DigitalTaxInvoice>
 
- 
+Â 
 

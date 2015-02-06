@@ -20,8 +20,8 @@ In the native flow, the partner application sends the user's Concur credentials.
 1. Register your application following the steps in [Registering a Partner Application][1].
 2. Retrieve the Consumer Key from the **New Partner Application** page that appears when you're registering your application.
 3. Make an API call using the login ID and password or e-mail address and PIN for Concur user requesting access. The request must contain two headers:
-    * An authorization HTTP header that includes the Concur credentials (Login ID and password)  of the user requesting access in the HTTP Basic Authentication format. The LoginID:Password string must be Base-64 encoded.  It must be formatted as indicated below, starting with the word Basic. If no password is used, the user name must still end with a colon.
-    * A header specifying the  Consumer Key for the partner application.
+    * An authorization HTTP header that includes the Concur credentials (Login ID and password)Â  of the user requesting access in the HTTP Basic Authentication format. The LoginID:Password string must be Base-64 encoded.Â  It must be formatted as indicated below, starting with the word Basic. If no password is used, the user name must still end with a colon.
+    * A header specifying theÂ  Consumer Key for the partner application.
 
 The format of the call is:
 
@@ -48,7 +48,7 @@ The response looks like this:
     </Access_Token>
 
 4. Retrieve the access token from the response and use it in all subsequent calls for the authenticated user. The access token is the value of the <Token> element.
-5. Delete any record of the login ID and password.
+5. Delete any recordÂ of the login ID and password.
 
 
 

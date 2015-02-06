@@ -6,7 +6,7 @@ layout: operation
 
 
 
-##   Request
+##  Â Request
 
 The following request is sent when the Travel user cancels their reservation. The response includes the reservation cancellation code.
 

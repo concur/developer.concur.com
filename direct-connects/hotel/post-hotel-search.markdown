@@ -6,7 +6,7 @@ layout: operation
 
 
 
-##   Request
+##  Â Request
 
 The following request is sent when the Travel user searches for hotels. The response includes the list of matching hotels for the given coordinates and radius. Hotel suppliers should return properties only in this area.
 
@@ -57,7 +57,7 @@ The **Source** element has the following child element:
  |
 |  Address |  The address information for the hotel search. Optional. This element has the following child elements:
 
- 
+Â 
 
 |  CityName |  The name of the city the user is searching in. |
 |  CountryName |  This element has the **Code** attribute, containing the two character country code for the country the user is searching in. |   | |
@@ -131,7 +131,7 @@ The **OTA_HotelSearchRS** parent element contains the following child elements:
 
 |  Element |  Required (must contain value)? |  Description |
 |  Success |  N |  This element is returned if the request was successful. |   |
-|  Properties |    |  This element contains a **Property** parent element for each hotel property returned. The **Property** element has the following attributes:
+|  Properties |  Â  |  This element contains a **Property** parent element for each hotel property returned. The **Property** element has the following attributes:
 * **ChainCode**: Refer to the [Hotel Direct Connect Codes][4]. If ChainCode is unknown or not available, send: ZZ
 * **HotelCode**: This must be unique, and will be used in future requests.
 * **HotelName**: The name of the hotel.

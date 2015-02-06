@@ -31,7 +31,7 @@ This resource supports the following PUT action:
         <Status>INVLD</Status>
     </DigitalTaxInvoice>
 
-####   
+####  Â 
 
 ##  Put Digital Tax Invoice Status Response
 

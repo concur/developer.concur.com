@@ -24,13 +24,13 @@ Refer to [**Callouts and Application Connectors][1] **for more information.
 * **Expense** for Concur Professional/Premium
 * Concur's mobile app
 
- 
+Â 
 
- 
+Â 
 
- 
+Â 
 
- 
+Â 
 
  |
 |  Product Restrictions |   |
@@ -38,7 +38,7 @@ Refer to [**Callouts and Application Connectors][1] **for more information.
 
 Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
 
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+Existing clients can work with Concur Advantage Technical Services to create customÂ applications that work with their configuration.
 
  |
 |  Concur Connect Callout Details |
@@ -56,7 +56,7 @@ Refer to [**Callouts and Application Connectors][1] **for more information
 
 Once the configuration is complete, the callout uses the following process:
 
-1. The user selects the external source list field while creating an expense entry.
+1. The user selects the external sourceÂ list field while creating an expense entry.
 2. Expense sends the list field information and the item codes for the previously selected levels (for connected lists) to the application connector.
 3. The application connector queries the list system of record and returns the set of list items to Expense.
 4. Expense displays the list items in a drop down list.

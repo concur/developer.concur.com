@@ -21,7 +21,7 @@ All request paramenters are optional. To identify a specific user by login ID or
 | ----- |
 |  Parameter Name |  Parameter Type |  Data Type |  Description |
 |  userid_type |  Path |  String |  The type of user identification to use. Possible values are: **login** and **xmlsyncid** |
-|  userid_value |  Path |  String |  The user's login ID or XMLSync ID, depending on which user type is selected. This parameter must be provided in conjunction with the **userid_type** parameter. |
+|  userid_value |  Path |  String |  The user's login ID or XMLSync ID, depending on which user type is selected. This parameter must be provided in conjunction with theÂ **userid_type**Â parameter. |
 
   
 
@@ -195,7 +195,7 @@ The General parent element contains the following child elements:
 
 ####  Telephones elements
 
-The Telephones parent element contains a Telephone child element for each included telephone. The Telephone element has the attributes shown in the Response Class section and contains the following child elements:
+The Telephones parent element contains a Telephone child element for each included telephone. TheÂ TelephoneÂ element has the attributes shown in the Response Class section and contains the following child elements:
 
 | ----- |
 |  Element Name |  Data Type |  Description |
@@ -231,7 +231,7 @@ The Addresses parent element contains an Address child element for each included
 |  Longitude |  String |  Longitude value of Work Address. |
 |  Latitude |  String |  Latitude value of Work Address. |
 
- 
+Â 
 
 ####  DriversLicenses elements
 
@@ -244,7 +244,7 @@ The DriversLicenses parent element contains a DriversLicense child element for e
 |  IssuingState |  String |  The state the license was issued in. Format: Varchar(2) |
 |  Expiration |  String |  The expiration date of the license. Format: YYYY-MM-DD |
 
- 
+Â 
 
 ####  EmailAddresses elements
 
@@ -258,7 +258,7 @@ The the user's email address. The EmailAddress element has two attributes: Type 
 
  |
 
- 
+Â 
 
 ####  RatePreferences elements
 
@@ -271,7 +271,7 @@ The RatePreferences parent element contains the following child element:
 |  GovtRate |  Boolean |  Whether the user is eligible for the Government rate. Format: **true**|**false** |
 |  MilitaryRate |  Boolean |  Whether the user is eligible for the Military rate. Format: **true**|**false** |
 
- 
+Â 
 
 ####  DiscountCodes elements
 
@@ -285,7 +285,7 @@ The discount code for the specified vendor.The DiscountCode element has a Vendor
 
  |
 
- 
+Â 
 
 ####  Air elements
 
@@ -294,7 +294,7 @@ The Air parent element contains the user's air travel preferences and contains t
 | ----- |
 |  Element Name |  Data Type |  Description |
 |  AirSmokingCode |  String |  Whether the user wants a flight with smoking allowed. Legacy. Format:** S**, **N**, **D**. |
-|  AirMemberships |    |
+|  AirMemberships |  Â  |
 
 The AirMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains an AirMembership child element for each included membership and includes the following child elements:
 
@@ -305,21 +305,21 @@ The AirMemberships element only appears if the request came from a travel suppli
 |  StatusBenefits |  String |  Description of a benefit of the loyalty program at the current status. |
 |  PointTotal |  String |  The user's total number of points in the loyalty program. |
 |  SegmentTotal |  String |  The user's total segments in the loyalty program. |
-|  NextStatus |  String |  Name or description of next higher status level in the  loyalty program. |
+|  NextStatus |  String |  Name or description of next higher status level in theÂ  loyalty program. |
 |  PointsUntilNextStatus |  String |  Loyalty points required to next status level. |
 |  SegmentsUntilNextStatus |  String |  Booking segment to next status level. |
 
  |
-|  Seat |    |
+|  Seat |  Â  |
 
-This parent element contains the user's Car travel preferences. The **Car **element contains the following child elements:
+This parent element contains the user's Car travel preferences. TheÂ **Car **element contains the following child elements:
 
 |  Element Name |  Data Type |  Description |
 |  InterRowPositionCode |  String |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **Isolated**, **DontCare**. |   | | |
 |  SectionPositionCode |  String |  Preference for position in plane. Format: **F**, **B**, **R**, **D**. |
 
  |
-|  Meals |    |
+|  Meals |  Â  |
 
 This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are:
 
@@ -335,7 +335,7 @@ KSML = Kosher Meal
 LCML = Low Calorie Meal  
 LFML = Low Fat Meal  
 LSML = Low Salt Meal  
-MOML = Muslim Meal    
+MOML = Muslim MealÂ Â   
 NLML = Low Lactose Meal  
 NSML = No Salt Meal  
 PFML = Peanut Free Meal  
@@ -355,7 +355,7 @@ Note: Regular Meal will not return a value for this preference.
 |  DHSKnownTravelerNumber |  String |  TSA Known Traveler Number |
 |  AirOther |  String |  Other Air related description |
 
- 
+Â 
 
 ####  Car elements
 
@@ -366,7 +366,7 @@ The Car parent element contains the user's car travel preferences. It contains t
 |  CarSmokingCode |  String |  Smoking car preferred. Format: **S**, **N**, **O** |
 |  CarGPS |  String |  Car GPS preference. Format: **True**|**False**. |
 |  CarOption |  String |  Car option preference. Format: Char(3) |
-|  CarMemberships |    |
+|  CarMemberships |  Â  |
 
 The CarMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains a CarMembership child element for each included membership. The CarMembership element has the following child elements:
 
@@ -374,10 +374,10 @@ The CarMemberships element only appears if the request came from a travel suppli
 |  VendorCode |  String |  The code for the vendor that manages the loyalty program. |   | | |
 |  AccountNo |  String |  The user's account identifier in the loyalty program. |
 |  Status |  String |  Name of the user's current level in the loyalty program. |
-|  StatusBenefits |  String |  Description of a benefit of the loyalty program at the current status.  |
+|  StatusBenefits |  String |  Description of a benefit of the loyalty program at the current status.Â  |
 |  PointTotal |  String |  The user's total number of points in the loyalty program. |
 |  SegmentTotal |  String |  The user's total segments in the loyalty program. |
-|  NextStatus |  String |  Name or description of next higher status level in the  loyalty program. |
+|  NextStatus |  String |  Name or description of next higher status level in theÂ  loyalty program. |
 |  PointsUntilNextStatus |  String |  Loyalty points required to next status level. |
 |  SegmentsUntilNextStatus |  String |  Booking segment to next status level. |
 
@@ -385,7 +385,7 @@ The CarMemberships element only appears if the request came from a travel suppli
 |  CarOther |  String |  Other Car related description. Format: Char(30) |
 |  CarSkiRack |  String |  Car ski rack preference. Format: **True**|**False**. |
 
- 
+Â 
 
 ####  Hotel elements
 
@@ -394,9 +394,9 @@ The Hotel parent element contains the user's hotel travel preferences. It contai
 | ----- |
 |  Element Name |  Data Type |  Description |
 |  SmokingCode |  String |  Smoking room preference. Format: **S**, **N**,**D** |
-|  HotelMemberships |    |
+|  HotelMemberships |  Â  |
 
-This parent element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains a HotelMembership child element for each included membership. The HotelMembership element has the following child elements:
+This parent element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains a HotelMembershipÂ child element for each included membership. TheÂ HotelMembership element has the following child elements:
 
 |  Element Name |  Data Type |  Description |
 |  VendorCode |  String |  The code for the vendor that manages the loyalty program. |   | | |
@@ -405,7 +405,7 @@ This parent element only appears if the request came from a travel supplier for 
 |  StatusBenefits |  String |  Description of a benefit of the loyalty program at the current status. |
 |  PointTotal |  String |  The user's total number of points in the loyalty program. |
 |  SegmentTotal |  String |  The user's total segments in the loyalty program. |
-|  NextStatus |  String |  Name or description of next higher status level in the  loyalty program. |
+|  NextStatus |  String |  Name or description of next higher status level in theÂ  loyalty program. |
 |  PointsUntilNextStatus |  String |  Loyalty points required to next status level. |
 |  SegmentsUntilNextStatus |  String |  Booking segment to next status level. |
 
@@ -423,7 +423,7 @@ This parent element only appears if the request came from a travel supplier for 
 |  preferRoomService |  String |  Whether the user prefers a hotel with room service. Format:**True**|**False**. |
 |  preferEarlyCheckIn |  String |  Whether the user prefers a hotel with early check in. Format:**True**|**False**. |
 
- 
+Â 
 
 ####  CustomFields elements
 
@@ -431,9 +431,9 @@ The CustomFields parent element contains child elements that specify custom fiel
 
 | ----- |
 |  Element Name |  Data Type |  Description |
-|  CustomFields |    |
+|  CustomFields |  Â  |
 
-This parent element only appears if the request came from a travel supplier for this travel type or from a TMC. This element contains a CustomField child element for each custom field with the following child elements:
+This parent element only appears if the request came from a travel supplier for this travel type or from a TMC. This element contains a CustomFieldÂ child element for each custom field with the following child elements:
 
 |  Element Name |  Data Type |  Description |
 |  Name |  String |  The name of the custom field. For example, Employee, Cost Centre, Fund, PassportNumber, Visa, and Assistants. |   | | |
@@ -441,7 +441,7 @@ This parent element only appears if the request came from a travel supplier for 
 
  |
 
- 
+Â 
 
 ###  Examples for Travel Suppliers
 
@@ -635,7 +635,7 @@ This parent element only appears if the request came from a travel supplier for 
         </CustomFields>
     </ProfileResponse>
 
- 
+Â 
 
 ####  Example 2: Get the travel profile for a user with a specific login ID
 
@@ -650,7 +650,7 @@ This parent element only appears if the request came from a travel supplier for 
 
 The response is the same as in Example 1.
 
- 
+Â 
 
 ###  Examples for TMCs
 
@@ -845,7 +845,7 @@ The response is the same as in Example 1.
         </CustomFields>
     </ProfileResponse>
 
- 
+Â 
 
 ####  Example 4: Get the travel profile for a user with a specific login ID
 
@@ -860,7 +860,7 @@ The response is the same as in Example 1.
 
 The response is the same as in Example 3.
 
- 
+Â 
 
 
 

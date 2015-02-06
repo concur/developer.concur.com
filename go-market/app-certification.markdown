@@ -6,23 +6,23 @@ layout: conceptual
 
 
 
-Handling data with care and delivering a positive experience for our customers is paramount at Concur.  To ensure an appropriate level of data security and good customer experience, all apps that integrate and appear in the App Center go through our App Certification process.
+Handling data with care and delivering a positive experience for our customers is paramount at Concur.Â  To ensure an appropriate level of data security and good customer experience, all apps that integrate and appear in the App Center go through our AppÂ Certification process.
 
 **Getting Started on API Certification**
 
 1. [Register for a sandbox][1] and find [API documentation][2].
 2. As you build your app, complete our[ Application Review Information and Submission Form][3].
-3. Once you submit the form, your registered app will go through an evaluation process.  You may be asked for additional information or requested to make changes to you app depending on the outcome of the review.
+3. Once you submit the form, your registered app will go through an evaluation process.Â  You may be asked for additional information or requested to make changes to you app depending on the outcome of the review.
 
-After your app is approved, your app listing will be reviewed before publishing in the [Concur App Center][4]. 
+After your app is approved, your app listing will be reviewed before publishing in the [Concur App Center][4].Â 
 
 **How Does App Certification Work?**
 
-Concur conducts an initial application and security review in the sandbox environment.  For solutions that process, transmit or store sensitive information, an additional review may be conducted in our sandbox as well as your production environment. 
+Concur conducts an initial application and security review in the sandbox environment.Â  For solutions that process, transmit or store sensitive information, an additional review may be conducted in our sandbox as well as your production environment.Â 
 
 **Is There a Cost?**
 
-For apps for individual travelers, the fee for App Certification is currently being waived.  For apps requiring enterprise-level integration or access to corporate information, there are costs for App Certification and you will be asked to enter into a partnership agreement.  Our partner team at  [bizdev@concur.com][5] will work hand-in-hand with you, and looks forward to hearing from you.
+For apps for individual travelers, the fee for App Certification is currently being waived.Â  For apps requiring enterprise-level integration or access to corporate information, there are costs for App Certification and you will be asked to enter into a partnership agreement.Â  Our partner team at Â [bizdev@concur.com][5] will work hand-in-hand with you, and looks forward to hearing from you.
 
 **What does Concur Specifically Review?**
 

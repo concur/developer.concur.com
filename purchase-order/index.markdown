@@ -37,7 +37,7 @@ Concur products are highly configurable, and not all clients will have access to
 
 Partner developers must determine which configurations are required for their solution prior to the application review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
 
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+Existing clients can work with Concur Advantage Technical Services to create customÂ applications that work with their configuration.
 
  |
 |  Resources |
@@ -100,7 +100,7 @@ The web service will not return a 4xx HTTP response code for a batch operation e
 |  8006 |  A value was supplied for a field that is not part of the form. |
 |  9999 |  An unexpected error occurred. |
 
- 
+Â 
 
 **Field Codes**:
 

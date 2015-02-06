@@ -90,7 +90,7 @@ The Paging parent element contains contains the paging information for the respo
 |  XMLProfileSyncID |  String |  TThe user's XML Profile Sync ID, if available. |
 |  ProfileLastModifiedUTC |  String |  The date, in UTC, when the travel profile was last modified. Format: YYYY-MM-DDThh:mm:ss. |
 
- 
+Â 
 
 ###  Example: Gets the list of travel profile summaries modified after January 1 2015
 
@@ -130,9 +130,9 @@ The Paging parent element contains contains the paging information for the respo
         </Data>
     </ConnectResponse>
 
- 
+Â 
 
- 
+Â 
 
- 
+Â 
 

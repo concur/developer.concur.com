@@ -38,7 +38,7 @@ Refer to **Web Services > [Core Concepts][4]** for:
 
 Partner developers must determine which configurations are required for their solution prior to the application review process. Use the [Developer Forum][5] if you have questions about the configuration settings.
 
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+Existing clients can work with Concur Advantage Technical Services to create customÂ applications that work with their configuration.
 
  |
 |  Resources |  Additional Information |

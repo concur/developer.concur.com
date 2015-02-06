@@ -36,7 +36,7 @@ Refer to **Web Services > [Core Concepts][1]** for:
 
 Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
 
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+Existing clients can work with Concur Advantage Technical Services to create customÂ applications that work with their configuration.
 
  |
 |  Resources |  Additional Information |
@@ -60,7 +60,7 @@ Refer to the [HTTP Codes][5] page for details of the common responses and errors
 
 ####  List Item Errors
 
- 
+Â 
 
 The web service will not return a 4xx HTTP response code for a batch operation even when every item in the batch failed to be created, updated or deleted. The client must inspect the response to look for warnings or errors with individual batch items.
 
@@ -101,7 +101,7 @@ When there are errors with batch items, the first ten errors are returned in the
 |  2006 |  List item code error |
 |  2007 |  List item parent does not exist |
 
- 
+Â 
 
 Return to Top
 

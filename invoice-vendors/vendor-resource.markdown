@@ -39,7 +39,7 @@ GET
 * For query parameters and element defintions, go [here][1].
 * For request and response examples with data, go [here][2].
 
- 
+Â 
 
  |  None |
 

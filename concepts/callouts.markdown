@@ -23,9 +23,9 @@ layout: conceptual
 >
 >> The Launch External URL callout gives clients and developers a platform to extend the functionality of Concur, providing a means to deliver custom user interactions, or access functionality found in an external system.
 >>
->> The client can arrange to add an Expense Entry form field that is configured to use the Launch External URL callout to a Concur Expense Entry form. Concur Expense will display this field with an attached button that launches a separate window when clicked. The window is controlled by an application connector, created by the client, a third party developer, or Concur. The application connector is a web server that presents information in the window.
+>> The client can arrange to add an Expense Entry form field that is configured to use the Launch External URL callout to a Concur Expense Entry form.Â Concur Expense will display this field with an attached button that launches a separate window when clicked. The window is controlled by an application connector, created by the client, a third party developer, or Concur. The application connector is a web server that presents information in the window.
 >>
->> The application connector can access Concur data through the web services, or can access data in an external system. Once the user has completed their actions in the window (such as performing a search or completing a wizard), he/she clicks a button such as "Done" that indicates he/she has concluded their work in the window.  The application connector then closes the window. 
+>> The application connector can access Concur data through the web services, or can access data in an external system. Once the user has completed their actions in the window (such as performing a search or completing a wizard), he/she clicks a button such as "Done" that indicates he/she has concluded their work in the window. Â The application connector then closes the window.Â 
 >>
 >> The application connector can use web services to send information to Concur, to update field values on the expense entry form or other form types. The application connector may send the updates before or after the user closes the window. When the user returns to Concur, the page refreshes and the user sees the current values.
 
@@ -55,7 +55,7 @@ layout: conceptual
 >
 > **Authenticating to the application connector**
 >
-> Expense passes credentials using HTTP Basic Auth to authenticate with the application connector. By default, these credentials are stored in the appropriate web configuration file for your platform, such as web.xml or web.config. The steps to configure Expense with the credentials are detailed below. 
+> Expense passes credentials using HTTP Basic Auth to authenticate with the application connector. By default, these credentials are stored in the appropriate web configuration file for your platform, such as web.xml or web.config. The steps to configure Expense with the credentials are detailed below.Â 
 >
 > ###  Downloading the Sample Connector
 >
@@ -81,7 +81,7 @@ layout: conceptual
 
 ###  Accessing Application Connector Registration
 
-> The **Manage Application Connectors** link on the **Web Services **page is used to register, test and enable or disable application connectors. Only Concur Internal staff can access the **Manage Application Connectors**** **link. 
+> The **Manage Application Connectors** link on the **Web Services **page is used to register, test and enable or disable application connectors. Only Concur Internal staff can access the **Manage Application Connectors**** **link.Â 
 >
 > #####  To access Application Connector Registration:
 >

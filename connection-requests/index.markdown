@@ -22,7 +22,7 @@ A user can enroll to connect his or her Concur account with select Concur travel
 
 1. The user sees a dialog box with a **Learn More **button to find out the benefits of automatically connecting their Concur accounts with travel loyalty programs at selected Concur travel partners:  
 ![][2]  
- 
+Â 
 2. The user sees a dialog box where they can enroll to automatically connect their Concur accounts with travel loyalty programs at selected Concur travel partners:  
 ![][3]
 
@@ -67,9 +67,9 @@ Connection request created for existing travel suppliers.
 [Learn How to Implement the Auto-Connect Flow with Connection Requests][4]  
 [Learn How to Design a compelling TripLink user experience with Connection Requests][1]
 
- 
+Â 
 
- 
+Â 
 
 
 

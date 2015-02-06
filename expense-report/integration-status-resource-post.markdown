@@ -23,7 +23,7 @@ This resource allows developers to ensure that the necessary transactions to acc
 * **report/{_ReportID_}**  
 The report keyword and the ReportID for the report that has been successfully integrated into the financial system. The ReportID is returned in the **ReportID** element by the [Get List of Reports][1] and the [Get Report Details][2] responses.
 
- 
+Â 
 
  |  None |
 |  Request Headers - Required |  Request Headers - Optional |

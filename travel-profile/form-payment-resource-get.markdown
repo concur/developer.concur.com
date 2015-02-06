@@ -26,7 +26,7 @@ Form of Payment contains a variety of information about the user's preferred met
 
 **Travel Suppliers **
 
-This endpoint returns the OAuth consumer's preferred Form of Payment for the travel supplier's type of travel. For example, a rental car supplier may request the user's preferred form of payment for car rentals, and not hotel. 
+This endpoint returns the OAuth consumer's preferred Form of Payment for the travel supplier's type of travel. For example, a rental car supplier may request the user's preferred form of payment for car rentals, and not hotel.Â 
 
 **Travel Management Companies**
 

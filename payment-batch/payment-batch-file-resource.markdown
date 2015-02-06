@@ -9,7 +9,7 @@ layout: resource
 
 | ----- |
 |  Description |
-|  The expense transaction data for a closed payment batch. Each batch file represents a combination of a payee (employee or card issuer) and a reimbursement method (Company Check, ADP, etc). |
+|  The expense transaction data for a closed payment batch. Each batch fileÂ represents a combination of a payee (employee or card issuer) and a reimbursement method (Company Check, ADP, etc). |
 |  Works With These Concur Products |
 |
 

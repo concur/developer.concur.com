@@ -6,7 +6,7 @@ layout: operation
 
 
 
-[sign up][1]   [sign in][2]  
+[sign up][1] Â  [sign in][2] Â 
 
 [1]: /register
 [2]: /en-us/login

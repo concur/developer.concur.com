@@ -128,7 +128,7 @@ For the**ProposalSequenceIndex**: The index of the proposal in the batch of prop
 Refer to [Booking Object Elements][2] for more information about the child elements contained in the booking elements.
 
  |
-|  Delivery |  The method this booking was delivered.  |
+|  Delivery |  The method this booking was delivered.Â  |
 |  WaitListSegments |  The segments that the traveler is waitlisted for this booking. |
 |  Warning |  The warnings associated with the booking. |
 |  WebAddresses |  List of web addresses such as emails, pickup urls, etc.. associated with this booking. |

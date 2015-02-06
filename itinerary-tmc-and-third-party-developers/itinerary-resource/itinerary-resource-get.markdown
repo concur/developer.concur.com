@@ -226,9 +226,9 @@ Example:
 **To get trip details for the OAuth consumer:**  
 https://www.concursolutions.com/api/travel/trip/v1.1/{_tripId_}
 
-**URI Source**: This URI is returned in the **id** element by the Get List of Itineraries  function.
+**URI Source**: This URI is returned in the **id** element by the Get List of ItinerariesÂ  function.
 
- 
+Â 
 
  |
 |  Query Parameters - Optional |

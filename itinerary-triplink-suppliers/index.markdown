@@ -94,15 +94,15 @@ This section includes answers to frequently asked questions about the Itinerary 
 
 > Posted bookings are automatically merged with any existing trip with overlapping dates. Most likely, a trip exists with the same dates, and the booking has been added to it.
 
-####  Will posted bookings be overwritten by emailed or TripIt trips? 
+####  Will posted bookings be overwritten by emailed or TripIt trips?Â 
 
 > No.
 
-####  Will posted bookings merge with existing Cliqbook or TripIt trips? 
+####  Will posted bookings merge with existing Cliqbook or TripIt trips?Â 
 
 > Yes.
 
-####  Will posted trips merge with existing trips? 
+####  Will posted trips merge with existing trips?Â 
 
 > No.
 

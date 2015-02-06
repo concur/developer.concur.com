@@ -58,7 +58,7 @@ This resource supports the following GET actions:
 |  ListName |  The name of the list associated with the field. |
 |  HierLevel |  The list level of the field. If it is the second level field in a two-level list, the value would be 2.
 
- 
+Â 
 
  |
 

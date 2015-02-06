@@ -6,7 +6,7 @@ layout: operation
 
 
 
-##   Request
+##  Â Request
 
 **NOTE**: This function is not supported in the current version. Support may be returned in a future release.
 
@@ -46,7 +46,7 @@ The **OTA_HotelResModifyRQ** element contains the following child elements:
 >
 |  Source |  The source of the request. This element has the following attributes:
 >
->  
+> Â 
 >
 > The **Source** element has the following child element:
 >

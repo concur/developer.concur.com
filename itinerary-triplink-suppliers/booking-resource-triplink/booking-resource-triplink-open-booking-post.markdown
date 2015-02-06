@@ -101,7 +101,7 @@ The request contains a **Booking** parent element with the following child eleme
 |  Content Body |   |
 |  This function returns the full trip details, as documented in the **Response** of the [Get Itinerary Details][5] function.
 
-If the end user updates an existing reservation which results in a new confirmation number, the old booking must be explicitly cancelled in addition to posting the new booking to Concur.  If the previous booking is not cancelled, the user will see both bookings in their Concur trip list.
+If the end user updates an existing reservation which results in a new confirmation number, the old booking must be explicitly cancelled in addition to posting the new booking to Concur. Â If the previous booking is not cancelled, the user will see both bookings in their Concur trip list.
 
  |
 

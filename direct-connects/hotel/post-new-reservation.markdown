@@ -6,7 +6,7 @@ layout: operation
 
 
 
-##   Request
+##  Â Request
 
 The following request is sent when the Travel user creates a reservation for the supplied hotel. The response includes the reservation details.
 

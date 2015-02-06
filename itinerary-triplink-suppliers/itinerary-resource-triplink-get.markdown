@@ -44,7 +44,7 @@ Example:
 
 **To get the itinerary list:**  
 https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}  
- 
+Â 
 
  |
 |  Request Headers - Required |  Request Headers - Optional |
@@ -216,9 +216,9 @@ Example:
 **To get trip details for the OAuth consumer:**  
 https://www.concursolutions.com/api/travel/trip/v1.1/{_tripId_}
 
-**URI Source**: This URI is returned in the **id** element by the Get List of Itineraries  function.
+**URI Source**: This URI is returned in the **id** element by the Get List of ItinerariesÂ  function.
 
- 
+Â 
 
  |
 |  Query Parameters - Optional |

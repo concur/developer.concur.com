@@ -6,7 +6,7 @@ layout: operation
 
 
 
-##   Request
+##  Â Request
 
 The following request is sent when the Travel user requests the reservation details for the supplied reservation ID. The response includes the reservation details, and is identical to the [Post New Reservation][1] response.
 

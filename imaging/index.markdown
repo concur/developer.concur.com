@@ -28,7 +28,7 @@ layout: conceptual
 
 Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
 
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+Existing clients can work with Concur Advantage Technical Services to create customÂ applications that work with their configuration.
 
  |
 |  Image Format |

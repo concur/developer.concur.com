@@ -4,6 +4,7 @@ use LWP::UserAgent;
 use HTTP::Request;
 use strict;
 use warnings;
+use open qw/:std :utf8/;
 
 use Text::CSV;
 use File::Basename;

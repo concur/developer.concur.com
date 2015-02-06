@@ -45,7 +45,7 @@ Refer to [**Installation Process][1] ** for more information.
     Host: www.example.com
     Authorization: Basic Y29uY3VyOmNvbmN1cg==
     ...
-    <?xml version="1.0" encoding="UTF-8" ?>
+    <?xml version="1.0" encoding="UTF-8"Â ?>
     <Notification>
         <EventType>Report Entered Expense Report Workflow Step - SUBMIT</EventType>
         <ObjectType>EXPRPT</ObjectType>

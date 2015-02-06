@@ -52,7 +52,7 @@ Concur products are highly configurable, and not all clients will have access to
 
 Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][4] if you have questions about the configuration settings.
 
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+Existing clients can work with Concur Advantage Technical Services to create customÂ applications that work with their configuration.
 
  |
 |  Event Notification Process Overview |   |
@@ -138,13 +138,13 @@ Example: https://{servername} |
     12. Click **Test Connection**. Concur will attempt to access the configured endpoint with the provided user credentials.
     13. Click **Save**. The application connector is now registered with Concur and enabled.
 
-> >  
+> > Â 
 
 ###  Responses and Errors
 
 Refer to the [HTTP Codes][12] page for details of the common responses and errors.
 
- 
+Â 
 
   
 

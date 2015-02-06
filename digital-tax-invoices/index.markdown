@@ -15,7 +15,7 @@ The Digital Tax Invoice web service allows digital tax invoice validators to vie
 
 ###  Process
 
-The Digital Tax Invoice upload feature in Concur Expense allows users in the supported countries to attach the Digital Tax Invoice (CFD) to an expense. Once the tax invoice (in XML) has been added to an expense report, the Digital Tax Invoice web service will allow third-party validators to use the Concur Platform to view and validate the tax information. The validators send their results back to Concur using the web service. The results appear in the expense report for processors and workflow steps to evaluate. 
+The Digital Tax Invoice upload feature in Concur Expense allows users in the supported countries to attach the Digital Tax Invoice (CFD) to an expense. Once the tax invoice (in XML) has been added to an expense report, the Digital Tax Invoice web service will allow third-party validators to use the Concur Platform to view and validate the tax information. The validators send their results back to Concur using the web service. The results appear in the expense report for processors and workflow steps to evaluate.Â 
 
  |
 |  Works With These Concur Products |
@@ -51,7 +51,7 @@ Responses and Errors
 
 Expense Configuration
 
- 
+Â 
 
  |
 

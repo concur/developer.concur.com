@@ -10,10 +10,10 @@ This page contains release notes for the Concur Developer Platform and the App C
 
 ###  App Center Release Notes
 
- 
+Â 
 
 ###  Developer Platform Release Notes
 
- 
+Â 
 
 ###  Combined App Center and Developer Platform Release Notes

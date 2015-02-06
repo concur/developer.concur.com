@@ -38,20 +38,20 @@ Partner developers must determine which configurations are required for their so
 3. Concur creates a production company for the hotel supplier.
 4. The Hotel Supplier registers their application with Concur by logging in to their production company.
 5. Concur and the Hotel Supplier validate the application:
-    * The Hotel Supplier develops to the Concur API and provides a test system. 
+    * The Hotel Supplier develops to the Concur API and provides a test system.Â 
     * The Hotel Supplier provides the URIs and credentials for their test system to Concur.
     * Concur sets up the vendor in the certification systems and runs a series of tests to validate the interaction between the two systems.
     * Once certification passes, the Hotel supplier sends Concur the production URIs and credentials.
-    * Concur updates the production servers with the supplier's production data and does a test booking.  Upon successful completion, the supplier will be live in Concur for any customer to enable.
+    * Concur updates the production servers with the supplier's production data and does a test booking.Â  Upon successful completion, the supplier will be live in Concur for any customer to enable.
 6. The Travel client opts in to the Hotel callout (within the Travel Configuration) to allow their users to view and book the available inventory.
 Once the configuration is complete, the callout uses the following process:
 1. The user searches for hotels when creating an itinerary in Travel.
 2. Travel sends the search request to the endpoint, using the Post HotelSearch.
 3. The supplier returns the properties.
-4. Travel sends a request for rates for some of the properties using the Post HotelAvail request.  The number of properties is configurable with a current maximum of 25.  More than one property may be specified in each Post HotelAvail request.
+4. Travel sends a request for rates for some of the properties using the Post HotelAvail request.Â  The number of properties is configurable with a current maximum of 25.Â  More than one property may be specified in each Post HotelAvail request.
 5. If the user chooses to reserve a hotel room, Travel sends the Post HotelBookingRule and shows the booking and cancellation policies to the user.
 6. If the user accepts the policy, Travel sends the Post HotelRes.
-7. Travel will send Post HotelItin requests to show the user their reservation.  This will happen whenever the user views their itinerary.
+7. Travel will send Post HotelItin requests to show the user their reservation.Â  This will happen whenever the user views their itinerary.
 This callout can also be used to perform the following functions:
 * Get Hotel Availabililty on a Property that was not priced in the original request
 * Get the Reservation Details
@@ -113,7 +113,7 @@ o 84.14.175.224/27 and 62.23.83.128/25 (EU data center)
 
 [Post Reservation Query][9]
 
- 
+Â 
 
  |
 
@@ -129,7 +129,7 @@ General Requirements
 
 [Hotel Direct Connect Codes (PDF)][10]
 
- 
+Â 
 
  |
 
@@ -216,7 +216,7 @@ Please keep the Type compliant with  ID Type Codes. The supported codes for the 
   
 
 
- 
+Â 
 
 [1]: https://developer.concur.com/forums/concur-connect
 [2]: http://www.opentravel.org/Specifications/SchemaIndex.aspx?FolderName=2011B

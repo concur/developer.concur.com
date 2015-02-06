@@ -148,7 +148,7 @@ This parent element contains a **RoomStay** parent element for each hotel room r
 |  BasicPropertyInfo |  Y |  This element contains the **HotelCode** attribute, which contains the code for the hotel that this rate applies to. |
 |  TPA_Extensions |  N |
 
-This element contains the following child elements: 
+This element contains the following child elements:Â 
 
 |  RequireSeriesCode |
 
@@ -176,7 +176,7 @@ The room rate plan. This parent element contains the following child element:
 |  RatePlan |  This element has the RatePlanCode attribute, defining the code for the room rate. |
 
  |
-|  RoomRates |    |
+|  RoomRates |  Â  |
 
 This parent element has a **RoomRate** child element. The **RoomRate** element a **Rates** child element. The **Rates** element contains the following child element:
 

@@ -25,7 +25,7 @@ The URI is configured on the **Register Application Connector** page in** Web Se
 |  Request Body |   |
 |  The request will contain a** fetch-list-request** parent element, containing the following child elements.
 
- 
+Â 
 
 |  Element |  Description |
 |  long-code |  The long code is a concatenated string containing the parent list item keys separated by a hyphen (-). |   |
@@ -56,7 +56,7 @@ The example uses the Fetch List web service to search a connected list for all c
     Content-Type: application/xml; charset=utf-8
     Content-Length: {length of content body}
 
-    <?xml version="1.0" ?>
+    <?xml version="1.0"Â ?>
     <fetch-list-request>
         <long-code>US-W-CA</long-code>
         <short-code>CA</short-code>
@@ -77,7 +77,7 @@ The example uses the Fetch List web service to search a connected list for all c
 
 The response will include a **fetch-list-response** parent element, with an** item** child element for each search result. If there are no search results, the **fetch-list-response** element is empty. The **item** child element contains the following child elements:
 
- 
+Â 
 
 |  Element |  Description |
 |  code |  The long code for the list item, consisting of the long code from the request combined with the short code from the response, separated by a hyphen (-). |   |

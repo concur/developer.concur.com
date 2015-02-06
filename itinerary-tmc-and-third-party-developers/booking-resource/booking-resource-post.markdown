@@ -82,7 +82,7 @@ This parent element contains a **Passenger** child element for each booked passe
 |  PhoneNumbers |  List of Phone numbers associated with this booking. |
 |  RailPayments |  List of Rail payments associated with rail segments in this booking. |
 |  Segments |  List of Segments in this booking. This parent element contains one or more **Air**, **Car**, **Hotel**, **Dining**, **Ride**, **Rail**, **Parking**, or **Event** parent elements for the booking. Refer to [Booking Object Elements][1] for more information about the child elements contained in the booking elements. |
-|  Delivery |  The method this booking was delivered.  |
+|  Delivery |  The method this booking was delivered.Â  |
 |  WaitListSegments |  The segments that the traveler is waitlisted for this booking. |
 |  Warnings |  The warnings associated with the booking. |
 |  WebAddresses |  List of web addresses such as emails, pickup urls, etc.. associated with this bookings |
@@ -149,7 +149,7 @@ This parent element contains a **Passenger** child element for each booked passe
 |  Content Body |   |
 |  This function returns the full trip details, as documented in the **Response** of the [Get Itinerary Details][3] function.
 
-If the end user updates an existing reservation which results in a new confirmation number, the old booking must be explicitly cancelled in addition to posting the new booking to Concur.  If the previous booking is not cancelled, the user will see both bookings in their Concur trip list.
+If the end user updates an existing reservation which results in a new confirmation number, the old booking must be explicitly cancelled in addition to posting the new booking to Concur. Â If the previous booking is not cancelled, the user will see both bookings in their Concur trip list.
 
  |
 

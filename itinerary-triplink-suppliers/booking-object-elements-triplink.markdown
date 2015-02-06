@@ -147,15 +147,15 @@ layout: conceptual
 |  Pacific/Guadalcanal |  Pacific/Guam |  Pacific/Honolulu |  Pacific/Tongatapu |
 |  UTC |
 >
->  
+> Â 
 >
 >  |
 >
->  
+> Â 
 >
 >  |
 >
->  
+> Â 
 >
 >  |
 |  Windows Time Zones |   | | |
@@ -186,15 +186,15 @@ layout: conceptual
 |  Pacific/Guadalcanal |  Pacific/Guam |  Pacific/Honolulu |  Pacific/Tongatapu |
 |  UTC |
 >
->  
+> Â 
 >
 >  |
 >
->  
+> Â 
 >
 >  |
 >
->  
+> Â 
 >
 >  |
 

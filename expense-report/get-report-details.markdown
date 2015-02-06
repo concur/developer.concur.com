@@ -232,7 +232,7 @@ Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text
 |  AccountCode1 |  The primary accounting code assigned to the expense type associated with this allocation. Typically, expense types have only this primary account code. |
 |  AccountCode2 |
 
-The secondary or alternative  accounting code assigned to the expense type associated with this allocation. In rare cases some expense types include this accounting code to handle special cases. One example of these special cases is when using travel allowance, where one expense would use the primary account code for the allowed amount, and the alternative account code for the overage. Another example is personal use of a company car.
+The secondary or alternative Â accounting code assigned to the expense type associated with this allocation.Â In rare cases some expense types include this accounting code to handle special cases. One example of these special cases is when using travel allowance, where one expense would use the primary account code for the allowed amount, and the alternative account code for the overage. Another example is personal use of a company car.
 
 Refer to the _Expense__: Account Codes Setup Guide_ for more information on how Concur Expense determines which accounting codes to use.
 
@@ -267,9 +267,9 @@ Company = Company
 Employee = Employee  
 Payment Type for the Credit Card Payment Type |
 |  PayeePaymentCode |  Payment code name for the payee. Maximum 80 characters. |
-|  AccountCode |  The account code Concur Expense determines should apply to this journal entry.  For journal entries associated to an allocation, Concur Expense uses the business logic described in the _Expense: Account Codes Setup Guide_ to determine whether the primary or secondary account code should apply.  When there is no allocation associated to the journal entry, Concur Expense uses clearing account codes for Credit Card and Cash Advance for personal use of a company paid expense or a cash advance issued to an employee respectively. Maximum 48 characters.
+|  AccountCode |  The account code Concur Expense determines should apply to this journal entry.Â  For journal entries associated to an allocation, Concur Expense uses the business logic described in the _Expense: Account Codes Setup Guide_ to determine whether the primary or secondary account code should apply.Â  When there is no allocation associated to the journal entry, Concur Expense uses clearing account codes for Credit Card and Cash Advance for personal use of a company paid expense or a cash advance issued to an employee respectively. Maximum 48 characters.
 
-**NOTE**: The developer should almost always use this accounting code when creating financial transactions in financial systems.  In some situations a developer may need to use the accounting codes in the Allocation parent element. 
+**NOTE**: The developer should almost always use this accounting code when creating financial transactions in financial systems.Â  In some situations a developer may need to use the accounting codes in the Allocation parent element.Â 
 
  |
 |  DebitOrCredit |  Maximum 2 characters. Either:  

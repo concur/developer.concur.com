@@ -18,7 +18,7 @@ layout: operation
 |  ErrorSource |  The source of the error. |   | | |
 |  ErrorDescription |  The additional error information.
 
- 
+Â 
 
  |
 
@@ -167,7 +167,7 @@ zh-tw: Traditional Chinese
 |  ProviderFeedback |  N |  Any additional feedback from the supplier. |
 |  AccountingInfo |  N |  The accounting information for the reservation. This parent element contains the following child elements:
 
-|  AccountingField1  through AccountingField5 |  These fields contain detailed accounting information. |
+|  AccountingField1Â  through AccountingField5 |  These fields contain detailed accounting information. |
 
  |
 

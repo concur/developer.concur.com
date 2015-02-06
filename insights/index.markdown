@@ -11,9 +11,9 @@ layout: conceptual
 |  Description |
 |
 
-The Concur Insights Web service enhances the value to suppliers participating in TripLink by identifying the opportunity to market the supplier's services to users who have booked some but not all segments of a trip. Concur analyzes the trip data and provides actionable opportunities. This service eliminates the need for suppliers to collect and store trip data from Concur and eliminates the need for suppliers to do this analysis themselves. 
+The Concur Insights Web service enhances the value to suppliers participating in TripLink by identifying the opportunity to market the supplier's services to users who have booked some but not all segments of a trip. Concur analyzes the trip data and provides actionable opportunities. This service eliminates the need for suppliers to collect and store trip data from Concur and eliminates the need for suppliers to do this analysis themselves.Â 
 
-Concur analyzes trips to determine if each trip contains all the segments that are typical for a trip based on the existing bookings. In addition, the service identifies if a  travel services opportunity exists, such as dining. These are available as the Opportunity resource. Other resources will be added in future releases.
+Concur analyzes trips to determine if each trip contains all the segments that are typical for a trip based on the existing bookings.Â In addition, the service identifies if a Â travel services opportunity exists, such as dining. These are available as the Opportunity resource. Other resources will be added in future releases.
 
 Concur TripLink partner suppliers can subscribe to notifications when Concur users that have previously granted the suppliers access to their information create or update bookings that generate insights. Suppliers can also poll regularly for new insights for their opted-in users.
 

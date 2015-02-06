@@ -17,7 +17,7 @@ layout: operation
 * **Send Back to Employee**: The report is sent back to the employee for revision. When the user resubmits the report, it travels through the entire workflow again.
 * **Recall to Employee**: This workflow action is initiated by the employee, and is only available after the report has been submitted. This workflow action may not be available to some clients due to configuration.
 
-**WARNING:  **Prior to calling this endpoint the Caller _must_ check the Approval Status found in the **ApprovalStatusName** element in the response for [Get Report Details][1] to ensure the report is at the workflow step the Caller expects.  Under no circumstance should a Caller make a call to this endpoint without being certain the report is at the workflow step the Caller expects.
+**WARNING:Â  **Prior to calling this endpoint the Caller _must_ check the Approval Status found in the **ApprovalStatusName** element in the response for [Get Report Details][1] to ensure the report is at the workflow step the Caller expects.Â  Under no circumstance should a Caller make a call to this endpoint without being certain the report is at the workflow step the Caller expects.
 
  |
 |  Two Different Workflow Roles |

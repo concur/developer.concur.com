@@ -28,7 +28,7 @@ You can use this table to decide which OAuth 2.0 authorization flow to use for y
 |  Distribute your app in the App Center and are not a TripLink supplier. |  [App Center Flow][3] |
 |  Distribute your app in the App Center and are a TripLink supplier. |  [Auto-Connect Flow][4] |
 
- 
+Â 
 
 
 

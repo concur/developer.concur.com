@@ -91,7 +91,7 @@ A value that can be applied to a custom field of the same name that is part of t
 |  Line Item Elements |
 |  Element |  Required (must contain value)? |  Description |
 |  RequestedBy |  N |  The person that requests the goods associated to the line item of the purchase order. |
-|  ExpenseType |  Y, if AccountCode is not supplied |  Expense Type of the line item.  ExpenseType OR AccountCode must be supplied, but not both. |
+|  ExpenseType |  Y, if AccountCode is not supplied |  Expense Type of the line item.Â  ExpenseType OR AccountCode must be supplied, but not both. |
 |  AccountCode |  Y, if ExpenseType is not supplied |  Account Code of the line item. ExpenseType OR AccountCode must be supplied, but not both. |
 |  Description |  N |  A description of the line item. |
 |  Quantity |  Y |  The quantity associated to the line item. |

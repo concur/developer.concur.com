@@ -30,7 +30,7 @@ Before the App Center Web Flow can be implemented for end-users, the following p
 
 ##  App Center Flow Step-by-Step
 
-1. Register your application following the steps in [Registering a Partner Application][3].
+1. Register your application following the steps inÂ [Registering a Partner Application][3].
 2. Create a web page that listens for an HTTP GET request from Concur. This can be a servlet, MVC controller, ASHX or ASPX file, etc. This page must be hosted at the URI you specify in your App Center listing. The URI is specified in the redirect_url query parameter in step 3.
 3. When your application receives the redirect call, parse the value from the code query parameter which was passed from the App Center. This is the request token for the user:
 
@@ -54,7 +54,7 @@ For example:
 
 If you encounter an error that makes it impossible to complete the connection process, revoke the access token to the user knows that the connection attempt failed and they can try again at a later time.
 
- 
+Â 
 
 
 

@@ -46,14 +46,14 @@ layout: conceptual
 |  Class |  Character code to indicate the class of the car e.g. if it is economy, full size, compact, etc. Varies by Vendor |
 |  DiscountCode |  The discount code used by the company/TMC to get a discounted rate. |
 |  DropoffCollectionAddress1 |  The AddressLine1 for the dropoff address when the rental service offers dropoff. |
-|  DropoffCollectionAddressType |    |
-|  DropoffCollectionCategory |    |
+|  DropoffCollectionAddressType |  Â  |
+|  DropoffCollectionCategory |  Â  |
 |  DropoffCollectionCity |  City for the dropoff address when the rental service offers dropoff. |
 |  DropoffCollectionCityCode |  The [IATA airport code][2] for the dropoff address when the rental service offers dropoff. |
 |  DropoffCollectionCountry |  The country for the dropoff address when the rental service offers dropoff. |
 |  DropoffCollectionLatitude |  The latitude for the dropoff address when the rental service offers dropoff. |
 |  DropoffCollectionLongitude |  The longitude for the dropoff address when the rental service offers dropoff. |
-|  DropoffCollectionNumber |    |
+|  DropoffCollectionNumber |  Â  |
 |  DropoffCollectionPhoneNumber |  The phone number for the dropoff address when the rental service offers dropoff. |
 |  DropoffCollectionPostalCode |  The postal code for the dropoff address when the rental service offers dropoff. |
 |  DropoffCollectionState |  The state for the dropoff address when the rental service offers dropoff. |
@@ -72,14 +72,14 @@ layout: conceptual
 |  NumCars |  The number of cars rented. |
 |  NumPersons |  The number of people including the driver that the rental is for. |
 |  PickupDeliveryAddress1 |  The AddressLine1 for the pickup address when the rental service offers pickup. |
-|  PickupDeliveryAddressType |    |
-|  PickupDeliveryCategory |    |
+|  PickupDeliveryAddressType |  Â  |
+|  PickupDeliveryCategory |  Â  |
 |  PickupDeliveryCity |  The city for the pickup address when the rental service offers pickup. |
 |  PickupDeliveryCityCode |  The [IATA airport code][2] for the pickup address when the rental service offers pickup. |
 |  PickupDeliveryCountry |  The country for the pickup address when the rental service offers pickup. |
 |  PickupDeliveryLatitude |  The latitude for the pickup address when the rental service offers pickup. |
 |  PickupDeliveryLongitude |  The longitude for the pickup address when the rental service offers pickup. |
-|  PickupDeliveryNumber |    |
+|  PickupDeliveryNumber |  Â  |
 |  PickupDeliveryPhoneNumber |  The phone number for the pickup address when the rental service offers pickup. |
 |  PickupDeliveryPostalCode |  The postal code for the pickup address when the rental service offers pickup. |
 |  PickupDeliveryState |  The state for the pickup address when the rental service offers pickup. |

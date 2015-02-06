@@ -21,7 +21,7 @@ layout: resource
 
 https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{_reportID_}/entry/{_entryID_}/attendees
 
- 
+Â 
 
  |
 |  Supported Content Types |  Supported Accept Types |
@@ -41,7 +41,7 @@ https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{_reportID
 
 [PUT][3]
 
- 
+Â 
 
  |
 

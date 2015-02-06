@@ -41,7 +41,7 @@ These roles allow the user to manage data for the entire company.
 
  |   |
 |  Content Body |   |
-|  This request will return a** lists** parent element containing a **list** child element for each configured list. The **list** element will contain the following child elements:  
+|  This request will return a** lists** parent element containing a **list** child element for each configured list. TheÂ **list** element will contain the following child elements:  
 
 |  Element |  Description |
 |  id |  The list URI with encrypted ID. |   |
@@ -120,7 +120,7 @@ These roles allow the user to manage data for the entire company.
 
  |   |
 |  Content Body |   |
-|  This request will return a** list** parent element. The **list** element will contain the following child elements:  
+|  This request will return a** list** parent element. TheÂ **list** element will contain the following child elements:  
 
 |  Element |  Description |
 |  batch-link |  The batch URI associated with this list, with encrypted ID. |   |
@@ -147,7 +147,7 @@ These roles allow the user to manage data for the entire company.
 
 | ----- |
 |  Description |  Supported Content Types |
-|  Retrieves the list items for the specified list. A request sent without a specified parent list item code returns all level 1 list items. A request sent with a parent list item code returns all list items below that parent item. The result set can be filtered by passing in a filter string.  |   |
+|  Retrieves the list items for the specified list. A request sent without a specified parent list item code returns all level 1 list items. A request sent with a parent list item code returns all list items below that parent item. The result set can be filtered by passing in a filter string.Â  |   |
 |  Query Parameters - Required |  Query Parameters - Optional |
 |
 
@@ -200,7 +200,7 @@ These roles allow the user to manage data for the entire company.
 
  |   |
 |  Content Body |   |
-|  This request will return a **list-items** parent element, with a** list-item** child element for each item returned. The **list-item** elements will contain the following child elements:  
+|  This request will return a **list-items** parent element, with a** list-item** child element for each item returned.Â TheÂ **list-item** elements will contain the following child elements:  
 
 |  Element |  Description |
 |  name |  The list item name. |   |

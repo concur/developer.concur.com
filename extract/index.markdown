@@ -13,7 +13,7 @@ layout: conceptual
 
 * Files are difficult to manage: The service provides access to extract files using HTTPS to move or manage these files, providing an alternative to using a secure FTP site.
 * Need for multiple extract schedules: Clients with organizational units around the globe can create and receive extracts at the times useful for their respective time zones. To accomplish this, clients will need to arrange with Concur to create a unique Extract Definition for each organizational unit that requires an extract file.
-* Real-Time access to approved expense reports and payment requests: The service provides clients a way to receive extract files throughout the day including, but not limited to, outside the Overnight Processing Period (ONP).  To accomplish real-time access, the client can make requests for extracts every few minutes continuously throughout the day.
+* Real-Time access to approved expense reports and payment requests: The service provides clients a way to receive extract files throughout the day including, but not limited to, outside the Overnight Processing Period (ONP).Â  To accomplish real-time access, the client can make requests for extracts every few minutes continuously throughout the day.
 **Who should use this web service? **
 
 Developers and clients who use the Integration Administrator tool to manage their batch definitions and batch job schedules, and who use FTP to retrieve their batch files. This includes clients using Concur Professional or Premium.
@@ -44,7 +44,7 @@ Concur products are highly configurable, and not all clients will have access to
 
 Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][3] if you have questions about the configuration settings.
 
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+Existing clients can work with Concur Advantage Technical Services to create customÂ applications that work with their configuration.
 
  |
 |  Resources |  Additional Information |
@@ -60,7 +60,7 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 
 Responses and Errors
 
- 
+Â 
 
  |
 

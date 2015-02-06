@@ -119,7 +119,7 @@ The custom fields on the Expense Report Header form. May be required depending o
 
 Posts a batch of expense report headers. The expense report header contains classification information for the expense report. Use this endpoint to create a batch of reports, then use the [Post Expense Entry][2] function to send expense line items. All batch operations allow up to 1000 headers per batch. If a batch request with over 1000 headers is sent, only the first 1000 headers in the batch will be processed.
 
-**NOTE**: Posting expense report information is a multi-stage process. Refer to the [ Processes][3]  section of the Expense Report Web Service page for the steps required to post new expense reports and entries.
+**NOTE**: Posting expense report information is a multi-stage process. Refer to the [ Processes][3]Â  section of the Expense Report Web Service page for the steps required to post new expense reports and entries.
 
  |   |
 |  Query Parameters - Required |  Query Parameters - Optional |

@@ -30,7 +30,7 @@ Example:
 
 The request can include any number of the following query parameters to refine the search.
 
- 
+Â 
 
 Multiple Parameter Example:  
 https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?status={_status_}&loginid={_loginID_}
