@@ -28,7 +28,7 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 The Travel Request web service supports the OAuth 2.0 authentication model. This authentication model is covered in detail in** Web Services > [OAuth with Concur][3]**. Any additional required elements for the web service requests are covered in the function documentation.
 
 ## Resources
-[Version 3: Requests][4]
+[Version 3: Requests][4]  
 [Version 1: Travel Request][5]
 
 ##  Responses and Errors
