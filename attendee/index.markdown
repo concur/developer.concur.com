@@ -26,6 +26,7 @@ The Attendee List resource manages attendees in batches, and can be used to add,
 |
 
 Refer to **Web Services > [Core Concepts][1]** for:
+
 * Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
 * Information on authentication and authorization for all Concur Web Services.
 * Information on registering and enabling partner applications to use Concur Web Services.
