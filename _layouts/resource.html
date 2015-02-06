@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+{% include breadcrumb.html %}
+
+    <!--=== Content Part ===-->
+    <div class="container content">		
+    	<div class="row">
+        	<div class="col-md-3">
+                <!-- About Us -->
+                <div class="margin-bottom-30">
+                    <div class="headline"><h2>About Us</h2></div>
+                    <p>Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, conse cteturse adipiscing elit magna.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-check color-green"></i> Consectetur adipiscing elit</li>
+                        <li><i class="fa fa-check color-green"></i> Ipsum dolor sit amet</li>
+                        <li><i class="fa fa-check color-green"></i> Personal and effective approach</li>
+                        <li><i class="fa fa-check color-green"></i> Ut non libero magna sedot</li>
+                    </ul>                                    
+    			</div>            
+            
+                <!-- Posts -->
+                <div class="posts margin-bottom-30">
+                    <div class="headline"><h2>Recent Blog Entries</h2></div>
+                    <dl class="dl-horizontal">
+                        <dt><a href="#"><img src="{{ site.baseurl }}/assets/img/sliders/elastislide/10.jpg" alt="" /></a></dt>
+                        <dd>
+                            <p><a href="#">Lorem sequat ipsum dolor lorem sunt aliqua put</a></p> 
+                        </dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt><a href="#"><img src="{{ site.baseurl }}/assets/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
+                        <dd>
+                            <p><a href="#">It works on all major web browsers tablets</a></p> 
+                        </dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt><a href="#"><img src="{{ site.baseurl }}/assets/img/sliders/elastislide/9.jpg" alt="" /></a></dt>
+                        <dd>
+                            <p><a href="#">Brunch 3 wolf moon tempor sunt aliqua put.</a></p> 
+                        </dd>
+                    </dl>
+                </div><!--/posts-->
+
+            	<!-- Contact Us -->
+                <div class="who margin-bottom-30">
+                    <div class="headline"><h2>Contact Us</h2></div>
+                    <p>Vero facilis est etenim a feugiat cupiditate non quos etrerum facilis.</p>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><i class="fa fa-home"></i>5B amus ED554, New York, US</a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i>infp@example.com</a></li>
+                        <li><a href="#"><i class="fa fa-phone"></i>1(222) 5x86 x97x</a></li>
+                        <li><a href="#"><i class="fa fa-globe"></i>http://www.example.com</a></li>
+                    </ul>
+                </div>
+            </div><!--/col-md-3-->
+            
+        	<div class="col-md-9">
+            <!-- Our Services -->
+            {{ content }}  
+          </div><!--/col-md-9-->
+        </div><!--/row-->        
+
+    </div><!--/container-->		
+    <!--=== End Content Part ===-->
