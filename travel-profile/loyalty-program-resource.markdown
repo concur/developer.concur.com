@@ -33,7 +33,7 @@ Loyalty programs contain a variety of information about the user's loyalty membe
 ## Supported Content Types
 * application/xml
 
-Supported Accept Types
+## Supported Accept Types
 * application/xml
 
 ## Supported Verbs
