@@ -9,7 +9,7 @@ The Concur Fetch List callout allows clients to import list items from an intern
 This callout differs from the inbound Concur web services in the following ways:
 
 * It uses an **outbound** **message** where Expense calls a public facing API endpoint provided by the application connector.  
-Refer to [**Callouts and Application Connectors][1] **for more information.
+Refer to [**Callouts and Application Connectors**][1] for more information.
 * The third-party developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by Concur. This guide specifies the request and response format required by Concur.
 * Concur provides a sample connector application that the developer or client can install on their network and customize to interface with their system of record for list items. Concur can also customize the connector.
 * The developer or client can choose to create their own application connector using a different language, such as PHP, if preferred.
@@ -27,7 +27,7 @@ Partner developers must determine which configurations are required for their so
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
 ## Concur Connect Callout Details
-Information on how to download, install, and configure the application connector is included in [**Callouts and Application Connectors][1]**.
+Information on how to download, install, and configure the application connector is included in [**Callouts and Application Connectors**][1].
 
 ## Fetch List Process Overview
 The configuration process has the following steps:
