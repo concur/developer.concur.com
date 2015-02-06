@@ -3,13 +3,8 @@ title: Expense Report Web Service
 layout: conceptual
 ---
 
-
-
-
-
-| ----- |
-| Description |
-| The Concur Expense Report web service allows third-party developers and clients to send and request Expense data for specified users. Developers or clients can also request report data for the entire company. Developers or clients can send expense report information, and can request expense report and card transaction information. Developers or clients can use this data in a variety of ways, including:
+## Description
+The Concur Expense Report web service allows third-party developers and clients to send and request Expense data for specified users. Developers or clients can also request report data for the entire company. Developers or clients can send expense report information, and can request expense report and card transaction information. Developers or clients can use this data in a variety of ways, including:
 
 * Sending expense information from a third party application to Concur
 * Display on a corporate portal site
@@ -19,31 +14,29 @@ Developers or clients can also request expense configuration data such as expens
 
 Expense reports that are created using this web service are always assigned the default policy of the supplied user.
 
- |
-| Works With These Concur Products  |
-|
 
+## Works With These Concur Products
 * **Expense** for Concur Professional/Premium
 * **Expense** for Concur Standard
- |
-| Concur Connect API Structure  |
-| Refer to **Web Services > [Core Concepts][1]** for:
+
+## Concur Connect API Structure
+
+Refer to **Web Services > [Core Concepts][1]** for:
 * Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
 * Information on authentication and authorization for all Concur Web Services.
 * Information on registering and enabling partner applications to use Concur Web Services.
- |
-| Authentication |
-| The Expense Report web service supports the OAuth 2.0 authentication model. This authentication model is covered in detail in** Web Services > [OAuth with Concur][2]**. Any additional required elements for the web service requests are covered in the function documentation.  |
-| Product Restrictions |
-| Concur products are highly configurable, and not all clients will have access to all features.
+
+## Authentication
+The Expense Report web service supports the OAuth 2.0 authentication model. This authentication model is covered in detail in** Web Services > [OAuth with Concur][2]**. Any additional required elements for the web service requests are covered in the function documentation.
+
+## Product Restrictions
+Concur products are highly configurable, and not all clients will have access to all features.
 
 Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][3] if you have questions about the configuration settings.
 
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
- |
-| Resources |  Additional Information  |
-|
+## Resources
 
 [Company Card Transaction][4]
 
@@ -68,14 +61,6 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 [Integration Status][14]
 
 [Location][15]
-
- |
-
-Introduction to Expense Reports
-
-Responses and Errors
-
- |
 
 ## Introduction to Expense Reports
 
@@ -107,11 +92,9 @@ Refer to the [HTTP Codes][20] page for details of the common responses and error
 
 **Expense Report Specific Errors:**
 
-| ----- |
 |  Error  |  Description |
-| Unable to generate default report entry form |  The supplied expense type has a configuration issue. Review your expense type, form, and policy configuration. |
-
-  
+| ------ | ------------- |
+| Unable to generate default report entry form | The supplied expense type has a configuration issue. Review your expense type, form, and policy configuration. |
 
 
 [1]: https://developer.concur.com/api-documentation/core-concepts

@@ -1,5 +1,5 @@
 ---
-title: OAuth 2
+title: OAuth 2 Native Flow
 layout: conceptual
 ---
 
@@ -52,7 +52,7 @@ Content Length: 200
 </Access_Token>
 ```
 
-4. Retrieve the access token from the response and use it in all subsequent calls for the authenticated user. The access token is the value of the <Token> element.
+4. Retrieve the access token from the response and use it in all subsequent calls for the authenticated user. The access token is the value of the &lt;Token&gt; element.
 5. Delete any record of the login ID and password.
 
 
