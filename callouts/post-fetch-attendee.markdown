@@ -10,12 +10,13 @@ This callout supports the following POST actions:
 
 ##  Post Attendee Search Request
 
-| ----- |
 
-| Supported Accept Types                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Request URI                                                                                                                                                                    |
-| The Fetch Attendee version 2.0 callout sends the attendee information to a URI for the application connector, which can be in a custom location for each client. The default is:
+
+###Supported Accept Types                                                                                                                                                         
+###Request URI
+                                                                                                                                                                   
+
+The Fetch Attendee version 2.0 callout sends the attendee information to a URI for the application connector, which can be in a custom location for each client. The default is:
 
     https://{servername}/concur/attendee/v2.0/fetch
 
@@ -23,65 +24,32 @@ For backward compatibility, Fetch Attendee version 1.0 is used instead of versio
 
 The application connector responds to the Fetch Attendee request by returning all attendees that match the search criteria. The result is limited to the maximum number of records specified in the request. If more than the maximum number of records are sent, Concur Expense displays a message in the Attendee Search window asking the user to refine their search. The authorization functionality in version 2.0 is the same as version 1.0
 
- |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with Basic authorization for endpoint. Refer to [**Authentication**][2] for more information. |  None |
-|  Request Body |   |
-|  The request body contains an **AttendeeSearchRequest** parent element with an **Attendee** child element. The **Attendee** element contains the following elements. They contain the values entered on the search form.
+
+##Request Headers - Required
+
+|  Authorization header with Basic authorization for endpoint. Refer to [**Authentication**][2] for more information. |  
+
+##Request Headers - Optional
+None
+
+##Request Body
+
+The request body contains an **AttendeeSearchRequest** parent element with an **Attendee** child element. The **Attendee** element contains the following elements. They contain the values entered on the search form.
 
 |  Element |  Description |
+|-----|-----|
 |  AttendeeTypeCode |  Code for the attendee type assigned to this attendee. Maximum length is 8 characters. |   |
 |  Company |  Attendee's company. Also used for Institution Name for Healthcare Provider attendees. Maximum length is 150 characters. Required in the response. |
-|  Custom1 through Custom20 |
-
-Custom fields which vary for a given configuration. Maximum length is 100 characters. Required in the response.
-
-For clients who purchased the HCP Connector, Custom7, Custom8, and Custom9 are mapped to the HCP Attendee Form as follows:
-
- |
-|
-
-> Custom7
-
- |  License number |
-|
-
-> Custom8
-
- |  State of license |
-|
-
-> Custom9
-
- |  Healthcare specialty description |
-|  Custom 21 through Custom25 |
-
-Custom fields which vary for a given configuration. Maximum length is 100 characters. Required in the response.
-
-For clients who purchased the HCP Connector, Custom15, Custom21, Custom22, and Custom23 are mapped to the HCP Attendee Form as follows:
-
- |
-|
-
-> Custom15
-
- |  Healthcare practice address |
-|
-
-> Custom21
-
- |  Attendee taxonomy |
-|
-
-> Custom22
-
- |  Attendee tax ID |
-|
-
-> Custom23
-
- |  Covered recipient ID |
-|  ExternalID |  Attendee's unique identifier outside of Concur. Maximum length is 48 characters. |
+|  Custom1 through Custom20 |Custom fields which vary for a given configuration. Maximum length is 100 characters. Required in the response.<br><br>For clients who purchased the HCP Connector, Custom7, Custom8, and Custom9 are mapped to the HCP Attendee Form as follows:|
+|Custom7|  License number |
+|Custom8|  State of license |
+|Custom9|  Healthcare specialty description |
+|  Custom 21 through Custom25 |Custom fields which vary for a given configuration. Maximum length is 100 characters. Required in the response.<br>For clients who purchased the HCP Connector, Custom15, Custom21, Custom22, and Custom23 are mapped to the HCP Attendee Form as follows:|
+|Custom15|  Healthcare practice address |
+|Custom21|  Attendee taxonomy |
+|Custom22|  Attendee tax ID |
+|Custom23|  Covered recipient ID |
+|  ExternalID |  Attendee's unique identifier outside of Concur. Maximum length is 48 characters.|
 |  FirstName |  Attendee's first name. Maximum length is 50 characters. |
 |  LastName |  Attendee's last name. Maximum length is 132 characters. |
 |  MaximumNumberRecords |  Maximum number of records that will be returned to the user for the given search criteria. |
@@ -90,7 +58,6 @@ For clients who purchased the HCP Connector, Custom15, Custom21, Custom22, and C
 |  Suffix |  Attendee's name suffix. Maximum length is 32 characters. |
 |  Title |  Attendee's title. Maximum length is 32 characters. |
 
- |
 
 ####  XML Example Request
 
@@ -142,21 +109,29 @@ For clients who purchased the HCP Connector, Custom15, Custom21, Custom22, and C
 
 ##  Post Attendee Search Response
 
-| ----- |
 
-| Supported Content Types                                                                                                                                                                                                                                                                                                                                                                                  |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Content Body                                                                                                                                                                                                                                                                                                                                                                                             |
-| The response will include an **AttendeeSearchResponse** parent element, with an **Attendee** child element for each search result. The **Attendee** child element must contain all of the elements described below. The **FirstName**, **LastName**, and **ExternalID** elements must have values. All other elements must be returned in the response, however they can be empty if no data is available.
+
+###Supported Content Types                                                                                                                                                                                                                                                                                                                                                                                  
+* application/xml
+
+###Content Body
+
+The response will include an **AttendeeSearchResponse** parent element, with an **Attendee** child element for each search result. The **Attendee** child element must contain all of the elements described below. The **FirstName**, **LastName**, and **ExternalID** elements must have values. All other elements must be returned in the response, however they can be empty if no data is available.  
 
 If no attendees match the search criteria, return an empty **AttendeeSearchResponse**.
 
 |  Element |  Description |
-|  AttendeeTypeCode |  The attendee type code for the attendee type assigned to this attendee. Maximum length: 8 |   |
+|-------|--------|
+|  AttendeeTypeCode |  The attendee type code for the attendee type assigned to this attendee. Maximum length: 8 | 
 |  Company |  The attendee's company. Required in the response. Also used for Institution Name for Healthcare Provider attendees. Maximum length: 150 |
-|  Custom1 through Custom25 |  Varies depending on configuration. Required in the response. Maximum length of Custom1 through Custom20: 100 characters. Maximum length of Custom21 through Custom25: 48 characters.  
+
+####Custom1 through Custom25 
+
+Varies depending on configuration. Required in the response. Maximum length of Custom1 through Custom20: 100 characters. Maximum length of Custom21 through Custom25: 48 characters.  
 The following custom fields are used with the Healthcare Provider attendees:
 
+|Field | Description |
+|------|-------|
 |  Custom7 |  License Number |
 |  Custom8 |  State of License |   | |
 |  Custom9 |  Specialty Description |
@@ -172,7 +147,10 @@ The following custom fields are used with the Healthcare Provider attendees:
 |  Custom22 |  Tax ID. Max 48 characters. |
 |  Custom23 |  Covered Recipient ID. Max 48 characters. |
 
- |
+<br>
+
+|Element| Description | 
+|-------|---------|
 |  ExternalID |  The attendee's unique identifier outside of Concur. Maximum length: 32 |
 |  FirstName |  The attendee's first name. Maximum length: 50 |
 |  LastName |  The attendee's last name. Maximum length: 132 |

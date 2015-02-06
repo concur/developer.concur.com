@@ -4,19 +4,29 @@ layout: operation
 ---
 
 
+## **Description**
 
+Updates passwords for up to 500 users.
 
-This resource supports the following POST actions:
+## **Request**
 
-##  Post User Password Update Request
+This resource supports the following POST actions: Post User Password Update Request
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Updates passwords for up to 500 users. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|  None |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur:
+```
+GET {InstanceURI}/api/user/v1.0/Users/password HTTP/1.1
+Authorization: OAuth {access token}
+Content-Type: application/xml
+```
+
+### **Content type**
+
+* application/xml
+
+### **Authorization header**
+
+Authorization header with OAuth token for a valid Concur user.
+
+The OAuth consumer must have one of the following user roles in Concur:
 
 Professional:
 
@@ -29,16 +39,30 @@ Standard or Developer Sandbox:
 
 * Can Administer
 * Can Administer Expense and Travel
- |  None |
-|  Content Body |   |
-|  This function requires as its arguments a **UserBatch** element containing a **User** child element for each user. The **User** element must have the following elements:  
 
-|  Element |  Required (must contain value)? |  Description |
-|  LoginID |  Y |  The user's logon ID. The default value is the user's email address. |   |
-|  Password |  Y |  The user's new password.  
-**NOTE**: This information is encrypted in the Concur database. |
+### **Request Parameters**
 
- |
+#### **Required**
+
+None
+
+#### **Optional**
+
+None
+
+### Request body root elements
+
+This function requires as its arguments a **UserBatch** element containing a **User** child element for each user. The **User** element must have the following elements:  
+
+|  Element |  Required/Optional |  Description |
+|----------|--------------------|--------------|
+|  LoginID |  Required |  The user's logon ID. The default value is the user's email address. |  
+|  Password |  Required |  The user's new password.  **NOTE**: This information is encrypted in the Concur database. |
+
+
+## **Response**
+
+Description
 
 ####  XML Example Request
 
