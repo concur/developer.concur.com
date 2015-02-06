@@ -4,12 +4,9 @@ layout: resource
 ---
 
 
-
-
-
-
 ## Description
-The expense transaction data for a closed payment batch. Each batch file represents a combination of a payee (employee or card issuer) and a reimbursement method (Company Check, ADP, etc). Works With These Concur Products
+
+The expense transaction data for a closed payment batch. Each batch file represents a combination of a payee (employee or card issuer) and a reimbursement method (Company Check, ADP, etc). Works With These Concur Products
 
 * **Expense** for Concur Professional/Premium
 * **Expense** for Concur Standard
