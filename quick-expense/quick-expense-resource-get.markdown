@@ -1,86 +1,92 @@
 ---
-title: Quick Expense Resource
+title: Get a list of quick expenses
 layout: operation
 ---
 
 
 
 
-This resource supports the following GET actions:
+##  Description
+Retrieves the list of quick expenses for the supplied user or for the entire company. In order to view the company-wide expense list, the OAuth Consumer must have the Web Services Admin (Professional) or Can Administer (Standard) user role.
 
 **NOTE**: Documentation for the v3.0 resource is [here][1].
 
-##  Get List of Quick Expenses Request
+## Request
 
-| ----- |
-|  Description |  Supported Accept Types |
-|  Retrieves the list of quick expenses for the supplied user or for the entire company. In order to view the company-wide expense list, the OAuth Consumer must have the Web Services Admin (Professional) or Can Administer (Standard) user role. |
+### Request parameters
 
-* application/xml
-* application/json
- |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|  None |
+#### Query parameters
 
-* **loginID={_loginID_}**  
+Optional: 
+
+**loginID={_loginID_}**  
 The Concur login for the user that owns the quick expenses.
 
 Example:
 
-https://www.concursolutions.com/api/expense/expensereport/v1.0/quickexpense/?loginID={_loginID_}
+`https://www.concursolutions.com/api/expense/expensereport/v1.0/quickexpense/?loginID={_loginID_}`
 
- |
-|  Request Headers - Required |  Request Headers - Optional |
-|  **Authorization** header with OAuth token for valid Concur user.
+### Authorization header
+
+The authorization header must contain an OAuth token for a valid Concur user.
 
 To view company-wide data, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
- |  **Accept** header specifying which format the response should be in. Possible values are:
+### Content type
+
 * application/xml
 * application/json
- |
 
-####  XML Example Request with LoginID
+## Response
+
+This request will return a **QuickExpensesList** parent element with a **QuickExpense** child element for each quick expense.
+
+### QuickExpense child elements
+
+The QuickExpense child element contains details of the quick expense.
+
+    <QuickExpensesList>
+        <QuickExpense>
+            <OwnerLoginID></OwnerLoginID>
+            <OwnerName></OwnerName>
+            <QuickExpenseKey></QuickExpenseKey>
+            <ExpenseTypeKey></ExpenseTypeKey>
+            <ExpenseTypeName></ExpenseTypeName>
+            <TransactionDate></TransactionDate>
+            <TransactionAmount></TransactionAmount>
+            <CurrencyCode></CurrencyCode>
+            <LocationName></LocationName>
+            <VendorDescription></VendorDescription>
+            <Comment></Comment>
+        </QuickExpense>
+    </QuickExpensesList>
+
+|Element Name|Required/Optional|Data Type| Description|
+|-------------|-----------------|----------|-----------|
+|  OwnerLoginID |  |  |  The Concur login ID for the expense owner. Useful for system to system integration when there are expenses for multiple users.   |
+|  OwnerName |  |  |  The first and last name for the expense owner. Useful for system to system integration when there are expenses for multiple users. |
+|  QuickExpenseKey |  |  |  The unique identifier for the quick expense. |
+|  ExpenseTypeKey |  |  |  The unique identifier for the expense type associated with the quick expense. |
+|  ExpenseTypeName |  |  |  The name of the expense type associated with the quick expense. |
+|  TransactionDate |  |  |  The date the expense was incurred. Format: YYYY-MM-DD |
+|  TransactionAmount |  |  |  The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654 |
+|  CurrencyCode |  |  |  The [3-letter ISO 4217 currency code ][3]for the expense transaction amount. Example: USD. |
+|  LocationName |  |  |  The name of the location where the expense was incurred. |
+|  VendorDescription |  |  |  This element contains the descriptive text for the vendor for the expense. |
+|  Comment |  |  |  The comment for this expense. |
+
+## Examples
+
+### Example 1: XML
+
+#### Request with LoginID
 
     GET api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS 1.1
     Host: www.concursolutions.com
     Authorization: OAuth {access token}
     ...
 
-####  JSON Example Request
-
-    GET https:
-    Authorization: OAuth {access token}
-    Accept: application/json
-
-##  Get List of Quick Expenses Response
-
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][2] |
-
-* application/xml
-* application/json
- |
-|  Content Body |   |
-|  This request will return a **QuickExpensesList** parent element with a **QuickExpense** child element for each quick expense. The **QuickExpense** elements will have the following child elements:  
-
-|  Element |  Description |
-|  OwnerLoginID |  The Concur login ID for the expense owner. Useful for system to system integration when there are expenses for multiple users. |   |
-|  OwnerName |  The first and last name for the expense owner. Useful for system to system integration when there are expenses for multiple users. |
-|  QuickExpenseKey |  The unique identifier for the quick expense. |
-|  ExpenseTypeKey |  The unique identifier for the expense type associated with the quick expense. |
-|  ExpenseTypeName |  The name of the expense type associated with the quick expense. |
-|  TransactionDate |  The date the expense was incurred. Format: YYYY-MM-DD |
-|  TransactionAmount |  The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654 |
-|  CurrencyCode |  The [3-letter ISO 4217 currency code ][3]for the expense transaction amount. Example: USD. |
-|  LocationName |  The name of the location where the expense was incurred. |
-|  VendorDescription |  This element contains the descriptive text for the vendor for the expense. |
-|  Comment |  The comment for this expense. |
-
- |
-
-####  XML Example of Successful Response
+#### Response
 
     200 OK
     Content-Type: application/xml
@@ -113,8 +119,14 @@ To view company-wide data, the OAuth consumer must have one of the following use
         </QuickExpense>
     </QuickExpensesList>
 
-####  JSON Example of Successful Response
+### Example 2: JSON
 
+#### Request
+    GET https:
+    Authorization: OAuth {access token}
+    Accept: application/json
+
+#### Response
     [
         {
             "OwnerLoginID":"cm@example.com",
@@ -131,7 +143,7 @@ To view company-wide data, the OAuth consumer must have one of the following use
         }
     ]
 
-  
+
 
 
 [1]: https://www.concursolutions.com/api/docs/index.html#!/QuickExpenses

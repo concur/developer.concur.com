@@ -58,7 +58,7 @@ This request will return a FormFieldsList parent element containing a FormField 
 |  Width |  The width of the field, in pixels. |
 |  Custom |  Whether the field is custom. |
 |  Sequence |  The sequence of the field on the form. |
-|  **These elements are returned for Custom fields only: ** |   |
+|  **These elements are returned for Custom fields only:**  |
 |  ParentFormTypeCode |  This element is only populated for multi-level list fields. The type of form that the parent field (the field one level higher in the list hierarchy) is connected to. |
 |  ParentFieldId |  The identifier for the field one level higher in the list hierarchy. |
 |  IsCopyDownSourceForOtherForms |  Whether the field is used as a copy down source by other forms. |
