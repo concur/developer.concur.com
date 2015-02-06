@@ -3,8 +3,7 @@ title: Expense Report Resource
 layout: operation
 ---
 
-
-
+# Expense Report Digests
 
 ##  Description
 
@@ -23,33 +22,22 @@ To view company data, the user must have the **Web Services Administrator** role
 
 Returns all ReportDigests owned by the user based on the search criteria.
 
-| ----- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/v3.0/expense/reportdigests/ |
-|  Supported Content Types |
-|
+## Resource URI 
+https://www.concursolutions.com/api/v3.0/expense/reportdigests
 
+## Supported Content Types
 * application/xml
 * application/json
- |
-|  Supported Accept Types |
-|
-
+ 
+## Supported Accept Types
 * application/xml
 * application/json
- |
-|  Query Parameters |
-|
 
-For query parameters and element defintions, go [here.][2]
+## Query Parameters
+For query parameters and element defintions, go [here][2].
 
- |
-|  Request and Response Examples |
-|  For request and response examples, go here. |
-
- 
-
-
+##  Request and Response Examples 
+For request and response examples, go [here][2].
 
 [1]: https://developer.concur.com/api-documentation/deprecated-features/get-list-reports-v20
 [2]: https://www.concursolutions.com/api/docs/index.html#!/ReportDigests
