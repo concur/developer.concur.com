@@ -57,11 +57,11 @@ When there are errors with batch items, the first ten errors are returned in the
 
 ## **Error Messages**
  
-| Message | Description |
+| **Message** | **Description** |
 |---------------------------------------------|---------------------------------------------------------------------|
 |  Maximum User Records per Batch Exceeded | The batch request contains over 500 records. |
 |  Missing Required Parameters | This message will be returned if: 
-* Fields that are required are missing.|
+                                  * Fields that are required are missing.|
 |  The Request XML is invalid |  The request XML is not properly formatted. |
 |  User Creation Failed |  The user creation process failed to complete. |
 |  Invalid Input: _elementname _ |  The value for the specified element is invalid. |
