@@ -8,30 +8,30 @@ layout: resource
 
 The user's Concur password.
 
-## **Works With These Concur Products**
 
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
-* **Invoice** for Concur Professional/Premium
-* **Invoice** for Concur Standard
-* **Travel Request** for Concur Professional/Premium
+## **Version**
+1.0
 
 ## **URI**
 
 https://www.concursolutions.com/api/user/v1.0/Users/password 
 
 
+## **Content type** 
 
-| Supported Content Types | Supported Accept Types |
-| ----------------------- | ---------------------- |
-| Supported Verbs         | Related Resources      |
-| [POST][1]               |
+* application/xml
+
+## **Accept type**
+
+* application/xml
+
+## **Operations**         
+
+[POST][1] 
+
+## **See also**
 
 [User][2]
-
- |
-
-  
 
 
 [1]: https://developer.concur.com/users/user-password-resource/user-password-resource-post
