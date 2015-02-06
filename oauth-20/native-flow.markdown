@@ -1,5 +1,5 @@
 ---
-title: OAuth 2
+title: OAuth 2 Native Flow
 layout: conceptual
 ---
 

@@ -1,32 +1,20 @@
 ---
-title: Company Notification Subscription Resource
+title: Company Notification Subscription Resource: POST
 layout: operation
 ---
 
-
-
-
-This resource supports the following POST actions:
-
 ##  Post Company Notification Subscription for Itinerary Changes Request
 
-| ----- |
-|  Description |
-|  Subscribes or unsubcribes the partner from notifications when any users in the company add, modify, or cancel an itinerary. The partner must have received authorization using [OAuth][1] by an administrative user at the company to access the company's trip information. |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
+### Description
 
-* **type=itinerary**  
-The type of subscription.
+Subscribes or unsubcribes the partner from notifications when any users in the company add, modify, or cancel an itinerary. The partner must have received authorization using [OAuth][1] by an administrative user at the company to access the company's trip information. |
 
-**Examples**  
-To subscribe:  
-https://www.concursolutions.com/api/company/v1.0/subscribe?type=itinerary  
-To unsubscribe:  
-https://www.concursolutions.com/api/company/v1.0/unsubscribe?type=itinerary
+| Query Parameters - Required | Query Parameters - Optional |
+| --------------------------- | --------------------------- | 
+| * **type=itinerary** <br>The type of subscription.<br>**Examples**<br>To subscribe:<br>https://www.concursolutions.com/api/company/v1.0/subscribe?type=itinerary<br>To unsubscribe:<br>https://www.concursolutions.com/api/company/v1.0/unsubscribe?type=itinerary|  None |
 
- |  None |
-|  Request Headers - Required |  Request Headers - Optional |
+| Request Headers - Required | Request Headers - Optional |
+| -------------------------- | -------------------------- |
 |  Authorization header with OAuth token for an administrative user at the company. The user must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  None |
 
 ####  XML Example Request
@@ -37,19 +25,19 @@ https://www.concursolutions.com/api/company/v1.0/unsubscribe?type=itinerary
 
 ##  Post Company Notification Subscription for Itinerary Changes Response
 
-| ----- |
-|  HTTP Responses |
-|  [HTTP Status Codes][2] |
-|  Content Body |
-|  This request will return an HTTP code. Refer to [HTTP Codes][2] for more details. |
-|  Notification Format |
-|  The notification will be sent to the Postback URL that the partner has registered with Concur during application review. Partners can only have one postback URL for all notification types. The notification will include the **type**, **oauth_token_key**, **userid_type**, and **userid_value** query parameters, specifying the updated user:
+### HTTP Responses
+[HTTP Status Codes][2]
+### Content Body
+This request will return an HTTP code. Refer to [HTTP Codes][2] for more details. |
+### Notification Format
+The notification will be sent to the Postback URL that the partner has registered with Concur during application review. Partners can only have one postback URL for all notification types. The notification will include the **type**, **oauth_token_key**, **userid_type**, and **userid_value** query parameters, specifying the updated user:
 
-https://postbackurl.com?type=itinerary&oauth_token_key={oauthtoken}&userid_type=login&userid_value=cm@example.com
+    https://postbackurl.com?type=itinerary&oauth_token_key={oauthtoken}&userid_type=login&userid_value=cm@example.com
 
 The request body will include a **Notification** parent element, with the following child elements:
 
-|  Element |  Description |
+| Element | Description |
+| ------- | ----------- |
 |  ObjectType |  ITINERARY |   |
 |  ObjectURI |  The URI for the object. The developer can use the appropriate GET endpoint with the ObjectURI to get complete details for the trip. |
 |  EventDateTime |  When the event happened. Format: YYYY-MM-DDThh:mm:ss |
@@ -65,7 +53,7 @@ The request body will include a **Notification** parent element, with the follow
 
 ####  XML Example of Notification
 
-    POST  https://www.postbackurl.com?type=itinerary&oauth_token_key={oauthtoken}&userid_type=login&userid_value=cm@example.com HTTP/1.1
+    POST https://www.postbackurl.com?type=itinerary&oauth_token_key={oauthtoken}&userid_type=login&userid_value=cm@example.com HTTP/1.1
 
     <?xml version="1.0" encoding="utf-8"?>
     <Notification>
@@ -79,28 +67,18 @@ The request body will include a **Notification** parent element, with the follow
 
 ##  Post Company Notification Subscription for Travel Profile Changes Request
 
-| ----- |
-|  Description |
-|  Subscribes or unsubcribes the partner from notifications when the company's Travel Profile information changes. The partner must have received authorization using [OAuth][1] by an administrative user at the company to access the company's trip information.
+### Description
+Subscribes or unsubcribes the partner from notifications when the company's Travel Profile information changes. The partner must have received authorization using [OAuth][1] by an administrative user at the company to access the company's trip information.
 
 **NOTE**: Concur will send a notification when any area of the user's Travel Profile is updated. This may include fields that are not available through the Travel Profile web service.
 
- |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
+| Query Parameters - Required | Query Parameters - Optional |
+| --------------------------- | --------------------------- |
+|* **type=profile**<br>The type of subscription.<br>**Examples**<br>To subscribe:<br><https://www.concursolutions.com/api/company/v1.0/subscribe?type=profile><br>To unsubscribe:<br><https://www.concursolutions.com/api/company/v1.0/unsubscribe?type=profile>| None |
 
-* **type=profile**  
-The type of subscription.
-
-**Examples**  
-To subscribe:  
-<https://www.concursolutions.com/api/company/v1.0/subscribe?type=profile>  
-To unsubscribe:  
-<https://www.concursolutions.com/api/company/v1.0/unsubscribe?type=profile>
-
- |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for an administrative user at the company. The user must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  None |
+| Request Headers - Required | Request Headers - Optional |
+| -------------------------- | -------------------------- |
+| Authorization header with OAuth token for an administrative user at the company. The user must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  None |
 
 ####  XML Example Request
 
@@ -110,25 +88,22 @@ To unsubscribe:
 
 ##  Post Company Notification Subscription for Travel Profile Changes Response
 
-| ----- |
-|  HTTP Responses |
-|  [HTTP Status Codes][2] |
-|  Content Body |
-|  This request will return an HTTP code. Refer to [HTTP Codes][2] for more details. |
-|  Notification Format |
-|  The notification will be sent to the Postback URL that the partner has registered with Concur during application review. Partners can only have one postback URL for all notification types. The notification will include the **type**, **oauth_token_key**, **userid_type**, and **userid_value** query parameters, specifying the updated user:
+### HTTP Responses
+[HTTP Status Codes][2]
 
-https://postbackurl.com?type=profile&oauth_token_key={oauthtoken}&userid_type=login&userid_value=cm@example.com
+### Content Body
+This request will return an HTTP code. Refer to [HTTP Codes][2] for more details.
+
+### Notification Format
+The notification will be sent to the Postback URL that the partner has registered with Concur during application review. Partners can only have one postback URL for all notification types. The notification will include the **type**, **oauth_token_key**, **userid_type**, and **userid_value** query parameters, specifying the updated user:
+
+    https://postbackurl.com?type=profile&oauth_token_key={oauthtoken}&userid_type=login&userid_value=cm@example.com
 
 The partner can use this information to make a [Get Travel Profile][3] request.
-
- |
 
 ####  XML Example of Successful Response
 
     200 OK
-
-
 
 [1]: https://developer.concur.com/oauth-20
 [2]: https://developer.concur.com/reference/http-codes

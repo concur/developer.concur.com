@@ -3,27 +3,23 @@ title: Image URL Resource
 layout: resource
 ---
 
+## Description
+Retrieves the URL to the PDF for the receipt image. The URL is valid for 30 minutes after the request.
 
+## Version
+1.0
 
+## URI
+https://www.concursolutions.com/api/image/v1.0/
 
+## Content type
+application/xml
 
-| ----- |
-|  Description |
-|  Retrieves the URL to the PDF for the receipt image. The URL is valid for 30 minutes after the request. |
-|  Works With These Concur Products |
-|
+## Operations
+[GET][1]
 
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
-* **Invoice** for Concur Professional/Premium
- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/image/v1.0/ |
-
-| Supported Content Types | Supported Accept Types |
-| ----------------------- | ---------------------- |
-| Supported Verbs         | Related Resources      |
-| [GET][1]                | [Image][2]             |
+## See also
+[Image][2]
 
   
 
