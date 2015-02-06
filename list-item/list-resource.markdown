@@ -22,10 +22,12 @@ Works With These Concur Products
 * https://www.concursolutions.com/api/expense/list/v1.0/ 
 
 ## Supported Content Types
+* application/xml
 
-## Supported Accept Types |
+## Supported Accept Types
+* application/xml
 
-## Supported Verbs      |
+## Supported Verbs
 * [GET][1]
 * [POST][2]
 
