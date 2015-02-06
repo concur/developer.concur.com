@@ -3,44 +3,28 @@ title: Expense Form Resource
 layout: operation
 ---
 
+## Form Types - split into 2 pages
 
+## Description
+Retrieves the list of configured form types.
 
+## Request
+```
+GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
+### Request parameters
 
-This resource supports the following GET actions:
+### Content types
+application/xml
 
-##  Get Form Types Request
+### Authorization header
+Authorization header with OAuth token for valid Concur user.
 
-| ----- |
-|  Description |  Supported Accept Types |
-|  Retrieves the list of configured form types. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|  None |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. |  None |
-
-####  XML Example Request
-
-    GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
-
-##  Get Form Types Response
-
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][1] |   |
-|  Content Body |   |
-|  This request will return a **FormTypesList** parent element with a **FormType** parent element for each configured form. The FormType element has the following child elements:
-
-|  Element |  Description |
-|  Name |  The form type name. |   |
-|  FormCode |  The form type code. |
-
- |
-
-####  XML Example of Successful Response
-
-    200 OK
+## Response
+```
+200 OK
     Content-Type: application/xml
     <FormTypesList
         xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03"
@@ -82,51 +66,42 @@ This resource supports the following GET actions:
             <FormCode>CARINFO</FormCode>
         </FormType>
     </FormTypesList>
+```
 
-##  Get Form Data Request
+### Response root elements
+This request will return a **FormTypesList** parent element with a **FormType** parent element for each configured form. The FormType element has the following child elements:
 
-| ----- |
-|  Description |  Supported Accept Types |
-|  Retrieves the list of configured forms for the specified form type. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
+|  Element |  Description |
+| -------- | ------------ |
+|  Name |  The form type name. |
+|  FormCode |  The form type code. |
 
-* **{_FormCode_}**  
+## Form Data - split into 2 pages
+
+## Description
+Retrieves the list of configured forms for the specified form type.
+
+## Request
+```
+GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/RPTINFO HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
+### Request parameters
+**{_FormCode_}**  
 The identifier for the desired form.
 Example: https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/_{FormCode}_
 
 **URI Source**: The FormCode is returned in the **FormCode** element in the Get Form Types response.
 
- |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. |  None |
+### Content types
+application/xml
 
-####  XML Example Request
+### Authorization header
+Authorization header with OAuth token for valid Concur user.
 
-    GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/RPTINFO HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
-
-##  Get Form Data Response
-
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|
-
-[HTTP Status Codes][1]
-
- |   |
-|  Content Body |   |
-|  This request will return a **FormDataList** parent element with a **FormData** parent element for each configured form. The FormData element has the following child elements:
-
-|  Element |  Description |
-|  Name |  The form name. |   |
-|  FormId |  The form identifier. |
-
- |
-
-####  XML Example of Successful Response
-
+## Response
+```
     200 OK
     Content-Type: application/xml
     <FormDataList xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -143,8 +118,12 @@ Example: https://www.concursolutions.com/api/expense/expensereport/v1.1/report/F
             <FormId>nAaT8$puKKO2$pEVlsXfSruLpDfZL0wVM$s7</FormId>
         </FormData>
     </FormDataList>
+```
 
-  
+### Response root elements
+This request will return a **FormDataList** parent element with a **FormData** parent element for each configured form. The FormData element has the following child elements:
 
-
-[1]: https://developer.concur.com/reference/http-codes
+|  Element |  Description |
+| -------- | ------------ |
+|  Name |  The form name. |
+|  FormId |  The form identifier. |
