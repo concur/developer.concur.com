@@ -22,8 +22,8 @@ application/xml
 [GET][2]
 
 ## See also
-[Attendee List][3] 
-[Attendee Type ][4]
+* [Attendee List][3] 
+* [Attendee Type ][4]
 
 [1]: https://www.concursolutions.com/api/expense/v2.0/attendees
 [2]: https://developer.concur.com/attendee/attendee-resource/attendee-resource-get
