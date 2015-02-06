@@ -3,57 +3,31 @@ title: Expense Entry Attendee Resource
 layout: resource
 ---
 
+##Description
+The Expense Entry Attendees manages the relationship between the attendees and the expense report and entry, for the specified expense entry. This resource does not include the full attendee information, which can be accessed using the [Get Attendees][1] function.
 
+##Version
+2.0
 
+##URI
+`https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{reportID}/entry/{entryID}/attendees`
 
+##Content type
+application/xml
 
-| ----- |
-|  Description |
-|  The Expense Entry Attendees manages the relationship between the attendees and the expense report and entry, for the specified expense entry. This resource does not include the full attendee information, which can be accessed using the [Get Attendees][1] function. |
-|  Works With These Concur Products |
-|
+application/json
 
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
- |
-|  Resource URI |
-|
-
-https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{_reportID_}/entry/{_entryID_}/attendees
-
- 
-
- |
-|  Supported Content Types |  Supported Accept Types |
-|
-
-* application/json
-* application/xml
- |
-
-* application/json
-* application/xml
- |
-|  Supported Verbs |  Related Resources |
-|
-
+##Operations
 [GET][2]
 
 [PUT][3]
 
- 
-
- |
-
+##See also
 [Expense Entry][4]
 
 [Expense Report ][5]
 
-[Expense Report Header][6]
-
- |
-
-  
+[Expense Report Header][6]  
 
 
 [1]: https://developer.concur.com/node/585

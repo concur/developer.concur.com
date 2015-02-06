@@ -3,40 +3,27 @@ title: LatestBookings Resource
 layout: resource
 ---
 
+##Description
+Gets the latest hotel and air booking for a particular user.
 
+##Version
+3.0
 
+##URI
+`https://www.concursolutions.com/api/v3.0/insights/latestbookings`
 
+##Content type
+application/xml
 
-| ----- |
-|  Description |
-|  Gets the latest hotel and air booking for a particular user. |
-|  Works With These Concur Products |
-|
+application/json
 
-* **Travel** for Concur Professional/Premium
-* **Travel** for Concur Standard
- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/v3.0/insights/latestbookings |
-|  Supported Content Types |  Supported Accept Types |
-|
+##Operations
+[GET][1]
 
-* application/json
-* application/xml
- |
-
-* application/json
-* application/xml
- |
-|  Supported Verbs |  Related Resources |
-|  [GET][1] |
-
+##See also
 [Opportunities][2]
 
 [Itinerary][3] (Trip)
-
- |
-
 
 
 [1]: https://www.concursolutions.com/api/docs/index.html#!/LatestBookings
