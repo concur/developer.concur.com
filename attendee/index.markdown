@@ -20,6 +20,7 @@ The Attendee List resource manages attendees in batches, and can be used to add,
 |
 
 * **Expense** for Concur Professional/Premium
+
  |
 |  Concur Connect API Structure |
 |
