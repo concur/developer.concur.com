@@ -72,13 +72,13 @@ Authentication between Concur and the application connector is performed using H
 Refer to the [**Callouts and Application Connectors][1][8]** page for more information.
 
 ## Functions
-[Delete Notification][9]
-[Get Notifications by Status][10]
-[Post Event Notification Request ][11]
+[Delete Notification][9]  
+[Get Notifications by Status][10]  
+[Post Event Notification Request ][11]  
 
 ## Additional Information
-[Installation Process][12]
-[Responses and Errors][13]
+[Installation Process][12]  
+[Responses and Errors][13]  
 
 ### Installation Process
 The installation process includes installing the application connector, and registering it with Concur.
