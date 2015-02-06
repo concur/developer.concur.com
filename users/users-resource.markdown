@@ -4,9 +4,6 @@ layout: resource
 ---
 
 
-
-
-
 ## **Description**
 
 Concur users. Always managed as a batch of users, even if the batch contains only one user.
@@ -25,11 +22,11 @@ https://www.concursolutions.com/api/user/v1.0/Users
 
 ## **Supported Content Types** 
 
-* appcation/xml
+* application/xml
 
 ## **Supported Accept Types**
 
-* appcation/xml
+* application/xml
 
 ## **Supported Verbs**         
 
