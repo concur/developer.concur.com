@@ -3,28 +3,21 @@ title: Extract Definition Resource
 layout: operation
 ---
 
+## Get Extract Definition List Request
 
+| Description | Supported Accept Types |
+| ----------- | ---------------------- | 
+| Retrieves the list of extract definitions. |   |
 
+| Query Parameters - Required | Query Parameters - Optional |
+| --------------------------- | --------------------------- |
+| None | None |
 
-This resource supports the following GET actions:
+| Request Headers - Required | Request Headers - Optional |
+| -------------------------- | -------------------------- | 
+| Authorization header with OAuth token for valid Concur user.<br>The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.<br>These roles allow the user to manage data for the entire company.| None |
 
-##  Get Extract Definition List Request
-
-| ----- |
-|  Description |  Supported Accept Types |
-|  Retrieves the list of extract definitions. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|  None |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
-
-The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
-
-These roles allow the user to manage data for the entire company.
-
- |  None |
-
-####  XML Example Request
+###  XML Example Request
 
     GET https://www.concursolutions.com/api/expense/extract/v1.0/ HTTP/1.1
     Authorization: OAuth {access token}
@@ -32,20 +25,21 @@ These roles allow the user to manage data for the entire company.
 
 ##  Get Extract Definition List Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][1] |   |
-|  Content Body |   |
-|  This request will return a **definitions** parent element with a **definition** child element for each extract definition. Each **definition** element has the following child elements:  
+| HTTP Responses | Supported Content Types |
+| -------------- | ----------------------- | 
+|  [HTTP Status Codes][1] | application/xml |
 
-|  Element |  Description |
-|  id |  The extract definition ID URI with encrypted ID. |   |
+### Content Body
+
+This request will return a **definitions** parent element with a **definition** child element for each extract definition. Each **definition** element has the following child elements:  
+
+| Element | Description |
+| ------- | ----------- | 
+|  id |  The extract definition ID URI with encrypted ID. | 
 |  job-link |  The extract job URI with encrypted ID. The job-link value is used as the URI when creating the extract job data request. |
 |  name |  The extract definition name. |
 
- |
-
-####  XML Example of Successful Response
+###  XML Example of Successful Response
 
     200 OK
     Content-Type: application/xml
@@ -70,23 +64,19 @@ These roles allow the user to manage data for the entire company.
 
 ##  Get Extract Definition Details Request
 
-| ----- |
-|  Description |  Supported Accept Types |
-|  Retrieves the details of the specified extract definition. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
+| Description | Supported Accept Types |
+| ----------- | ---------------------- |
+|  Retrieves the details of the specified extract definition. | application/xml  |
 
-* **{_DefinitionID_**}  
-The identifier for the desired extract definition.
-Example: https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_} |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
+| Query Parameters - Required | Query Parameters - Optional |
+| --------------------------- | --------------------------- |
+| * **{_DefinitionID_**}<br>The identifier for the desired extract definition.<br>Example: https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_} |  None |
 
-These roles allow the user to manage data for the entire company.
+| Request Headers - Required | Request Headers - Optional |
+| -------------------------- | -------------------------- |  
+|  Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.<br>These roles allow the user to manage data for the entire company.|  None |
 
- |  None |
-
-####  XML Example Request
+###  XML Example Request
 
     GET https://www.concursolutions.com/api/expense/extract/v1.0/n59FpBJ8hN3qVWTFIrtxkOT5$pef6DmIj3 HTTP/1.1
     Authorization: OAuth {access token}
@@ -94,24 +84,20 @@ These roles allow the user to manage data for the entire company.
 
 ##  Get Extract Definition Details Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|
+| HTTP Responses | Supported Content Types |
+| -------------- | ----------------------- |
+|[HTTP Status Codes][1]| application/xml |
 
-[HTTP Status Codes][1]
+### Content Body
+This request will return a single **definition** element identified by the URI, with the following child elements:  
 
- |   |
-|  Content Body |   |
-|  This request will return a single **definition** element identified by the URI, with the following child elements:  
+| Element | Description |
+| ------- | ----------- |
+| id |  The extract definition ID URI with encrypted ID. |
+| name |  The extract definition name. |
+| job-link |  The extract job URI with encrypted ID. The **job-link** value is used as the URI when creating the extract job data request. |
 
-|  Element |  Description |
-|  id |  The extract definition ID URI with encrypted ID. |   |
-|  name |  The extract definition name. |
-|  job-link |  The extract job URI with encrypted ID. The **job-link** value is used as the URI when creating the extract job data request. |
-
- |
-
-####  XML Example of Successful Response
+###  XML Example of Successful Response
 
     200 OK
     Content-Type: application/xml
@@ -121,8 +107,6 @@ These roles allow the user to manage data for the entire company.
         <name>AMEX Remittance - US</name>
         <job-link>https://www.concursolutions.com/api/expense/extract/v1.0/n59FpBJ8hN3qVWTFIrtxkOT5$pef6DmIj3/job</job-link>
     </definition>
-
-  
 
 
 [1]: https://developer.concur.com/reference/http-codes
