@@ -8,7 +8,8 @@ layout: resource
 
 
 ## Description
-A travel request in Concur, detailing a proposed expense.** **The documentation for the version 3.0 Requests resource can be found [here][1].
+A travel request in Concur, detailing a proposed expense.** 
+**The documentation for the version 3.0 Requests resource can be found [here][1].
 
 ## Works With These Concur Products
 * **Travel Request** for Concur Professional/Premium
@@ -23,7 +24,7 @@ A travel request in Concur, detailing a proposed expense.** **The documentation 
 ## Supported Accept Types
 * application/xml
 
-## Supported Verbs## Related Resources
+## Supported Verbs
 * [GET][2]
 * [POST][3]
 
