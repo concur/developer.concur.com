@@ -7,9 +7,9 @@ layout: conceptual
 
 
 
-| ----- |
-|  Description |  Works With These Concur Products |
-|
+
+##Description
+
 
 The Ground Transportation Direct Connect from Concur Connect provides a method for Travel users to access the inventory of ground transportation service providers. This direct connect was originally designed for use by limo service providers, but can be used with all forms of ground transportation.
 
@@ -22,17 +22,17 @@ This callout differs from the inbound Concur web services in the following ways:
 
 **NOTE**: This direct connect was originally designed to work with Limo providers, but can support all types of ground transportation.
 
- |
 
+###Works With These Concur Products 
 * **Travel** for Concur Professional/Premium
 * **Travel** for Concur Standard
- |
-|  Concur Connect Callout Details |  Product Restrictions |
-|
+
+##Concur Connect Callout Details
 
 Information on how to register and configure the partner application is included in [**Partner Applications][1]**.
 
- |
+
+###Product Restrictions
 
 This direct connect is only available to Travel Suppliers with Ground Transportation inventory. This direct connect is not supported in the Concur mobile application.
 
@@ -40,9 +40,7 @@ Concur products are highly configurable, and not all clients will have access to
 
 Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
 
- |
-|  Ground Transportation Process Overview |   |
-|
+##Ground Transportation Process Overview 
 
 The configuration process has the following steps:
 
@@ -68,11 +66,10 @@ This callout can also be used to perform the following functions:
 * Cancel the Ground Transportation Reservation
 * Update the Ground Transportation Reservation with the Supplier
 * Update the Ground Transportation Reservation with Travel
- |
-|  Authentication |
-|  Authentication between Concur and the application connector is performed using OAuth. Refer to the OAuth documentation [here][3] for more information. |
-|  Functions |  Additional Information |
-|
+
+##Authentication
+Authentication between Concur and the application connector is performed using OAuth. Refer to the OAuth documentation [here][3] for more information.
+##Functions
 
 [Cancel Reservation][4]
 
@@ -86,15 +83,11 @@ This callout can also be used to perform the following functions:
 
 [Update Reservation with Travel][9]
 
- |
-
 Concur Travel Configuration
 
 Responses and Errors
 
 GDS Sell Formats
-
- |
 
 ###  Concur Travel Configuration
 
