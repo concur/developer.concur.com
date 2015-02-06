@@ -91,6 +91,7 @@ Expense types are labels used to classify expenses. A policy is a container for 
 Refer to the [HTTP Codes][20] page for details of the common responses and errors.
 
 **Expense Report Specific Errors:**
+
 |  Error  |  Description |
 | ------ | ------------- |
 | Unable to generate default report entry form | The supplied expense type has a configuration issue. Review your expense type, form, and policy configuration. |
