@@ -1,5 +1,5 @@
 ---
-title: Quick Expense Resource
+title: Get a list of quick expenses
 layout: operation
 ---
 
@@ -32,13 +32,6 @@ The authorization header must contain an OAuth token for a valid Concur user.
 
 To view company-wide data, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
-### Accept header
-
-The accept header specifies which format the response should be in. Possible values are:
-
-* application/xml
-* application/json
-
 ### Content type
 
 * application/xml
@@ -52,8 +45,6 @@ This request will return a **QuickExpensesList** parent element with a **QuickEx
 
 The QuickExpense child element contains details of the quick expense.
 
-    200 OK
-    Content-Type: application/xml
     <QuickExpensesList>
         <QuickExpense>
             <OwnerLoginID></OwnerLoginID>
