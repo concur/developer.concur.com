@@ -34,6 +34,7 @@ This request will return an attendee-types parent element containing an attendee
 | name | The attendee type name. |
 
 ## Examples
+
 ### Example 1: XML Example of Successful Response
 
     200 OK
