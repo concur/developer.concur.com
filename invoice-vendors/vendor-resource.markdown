@@ -7,41 +7,30 @@ layout: resource
 
 
 
-| ----- |
-|  Description |
-|  A vendor that has sent an invoice. |
-|  Works With These Concur Products |
-|
+## Description 
+A vendor that has sent an invoice.
 
+## Works With These Concur Products
 * **Invoice** for Concur Professional/Premium
- |
-|  Resource URI |
-|
 
-<https://www.concursolutions.com/api/v3.0/invoice/vendors>
+## Resource URI
+* <https://www.concursolutions.com/api/v3.0/invoice/vendors>
 
- |
-|  Supported Content Types |  Supported Accept Types |
-|
-
+## Supported Content Types
 * application/xml
 * application/json
- |
 
+## Supported Accept Types
 * application/xml
 * application/json
- |
-|  Supported Verbs |  Related Resources |
-|
 
-GET
+## Supported Verbs
+* GET
+** For query parameters and element defintions, go [here][1].
+** For request and response examples with data, go [here][2].
 
-* For query parameters and element defintions, go [here][1].
-* For request and response examples with data, go [here][2].
-
- 
-
- |  None |
+## Related Resources
+* None
 
 
 
