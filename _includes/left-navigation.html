@@ -1,6 +1,13 @@
 <ul class="list-group sidebar-nav-v1" id="sidebar-nav">
-    <!-- Typography -->
+    {% for p in site.pages %}
     <li class="list-group-item list-toggle">                   
+        <a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
+    </li>
+    {% endfor %}
+    
+
+    <!-- Typography -->
+<!--     <li class="list-group-item list-toggle">                   
         <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-typography">Typography</a>
         <ul id="collapse-typography" class="collapse">
             <li><a href="feature_typo_general.html"><i class="fa fa-sort-alpha-asc"></i> General Typography</a></li>
@@ -21,11 +28,11 @@
             <li><a href="feature_typo_tagline_boxes.html"><i class="fa fa-tasks"></i> Tagline Boxes</a></li>
             <li><a href="feature_typo_grid.html"><i class="fa fa-align-justify"></i> Grid Layout</a></li>
         </ul>
-    </li>
+    </li> -->
     <!-- End Typography -->
 
     <!-- Buttons UI -->
-    <li class="list-group-item list-toggle">                   
+<!--     <li class="list-group-item list-toggle">                   
         <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-buttons">Buttons UI</a>
         <ul id="collapse-buttons" class="collapse">
             <li><a href="feature_btn_general.html"><i class="fa fa-flask"></i> General Buttons</a></li>
@@ -38,11 +45,11 @@
                 <a href="feature_btn_effects.html"><i class="fa fa-bolt"></i> Loading &amp; Hover Effects</a>
             </li>
         </ul>
-    </li>
+    </li> -->
     <!-- End Buttons UI -->
 
     <!-- Icons -->
-    <li class="list-group-item list-toggle">                   
+<!--     <li class="list-group-item list-toggle">                   
         <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-icons">Icons</a>
         <ul id="collapse-icons" class="collapse">
             <li>
@@ -57,11 +64,11 @@
             <li><a href="feature_icon_glyph.html"><i class="fa fa-chevron-circle-right"></i> Glyphicons (Bootstrap)</a></li>
             <li><a href="feature_icon_glyph_pro.html"><i class="fa fa-chevron-circle-right"></i> Glyphicons Pro Icons</a></li>
         </ul>
-    </li>
+    </li> -->
     <!-- End Icons -->
 
     <!-- Content Boxes -->
-    <li class="list-group-item list-toggle">                   
+<!--     <li class="list-group-item list-toggle">                   
         <a class="accordion-toggle" href="#collapse-content-boxes" data-toggle="collapse">Content Boxes</a>
         <ul id="collapse-content-boxes" class="collapse">
             <li>
@@ -71,15 +78,15 @@
             <li><a href="feature_box_colored.html"><i class="fa fa-align-center"></i> Colored Boxes</a></li>
             <li><a href="feature_box_funny.html"><i class="fa fa-bars"></i> Funny Boxes</a></li>
         </ul>
-    </li>
+    </li> -->
     <!-- End Content Boxes -->
 
     <!-- Thumbails -->
-    <li class="list-group-item"><a href="feature_thumbails.html">Thumbails</a></li>
+    <!-- <li class="list-group-item"><a href="feature_thumbails.html">Thumbails</a></li> -->
     <!-- End Thumbails -->
 
     <!-- Components -->
-    <li class="list-group-item list-toggle">
+<!--     <li class="list-group-item list-toggle">
         <a class="accordion-toggle" href="#collapse-components" data-toggle="collapse">Components</a>
         <ul id="collapse-components" class="collapse">
             <li><a href="feature_compo_messages.html"><i class="fa fa-comment"></i> Alerts &amp; Messages</a></li>
@@ -98,15 +105,15 @@
             <li><a href="feature_compo_panels.html"><i class="fa fa-columns"></i> Panels</a></li>
             <li><a href="feature_compo_pagination.html"><i class="fa fa-arrows-h"></i> Pagination</a></li>
         </ul>
-    </li>
+    </li> -->
     <!-- End Components -->
 
     <!-- Accordion and Tabs -->
-    <li class="list-group-item active"><a href="feature_accordion_and_tabs.html">Accordion and Tabs</a></li>
+    <!-- <li class="list-group-item active"><a href="feature_accordion_and_tabs.html">Accordion and Tabs</a></li> -->
     <!-- End Accordion and Tabs -->
 
     <!-- Timeline -->                    
-    <li class="list-group-item list-toggle">                   
+<!--     <li class="list-group-item list-toggle">                   
         <a class="accordion-toggle" href="#collapse-timeline" data-toggle="collapse">Timeline</a>
         <ul id="collapse-timeline" class="collapse">
             <li>
@@ -118,18 +125,18 @@
                 <a href="feature_timeline2.html"><i class="fa fa-dot-circle-o"></i> Timeline 2</a>
             </li>
         </ul>
-    </li>
+    </li> -->
     <!-- End Timeline -->                    
 
     <!-- Carousel Exampls -->                    
-    <li class="list-group-item">
+<!--     <li class="list-group-item">
         <span class="badge badge-u">New</span>                    
         <a href="feature_carousels.html">Carousel Exampls</a>
-    </li>
+    </li> -->
     <!-- End Carousel Exampls -->                    
 
     <!-- Forms -->
-    <li class="list-group-item list-toggle">
+<!--     <li class="list-group-item list-toggle">
         <a class="accordion-toggle" href="#collapse-forms" data-toggle="collapse">Forms</a>
         <ul id="collapse-forms" class="collapse">
             <li><a href="feature_form_general.html"><i class="fa fa-bars"></i> Common Bootstrap Forms</a></li>
@@ -162,15 +169,15 @@
                 <a href="feature_form_modals.html"><i class="fa fa-bars"></i> Modals</a>
             </li>
         </ul>
-    </li>
+    </li> -->
     <!-- End Forms -->
 
     <!-- Tables -->
-    <li class="list-group-item"><a href="feature_table_general.html">Tables</a></li>
+    <!-- <li class="list-group-item"><a href="feature_table_general.html">Tables</a></li> -->
     <!-- End Tables -->
 
     <!-- Maps -->                    
-    <li class="list-group-item list-toggle">                   
+<!--     <li class="list-group-item list-toggle">                   
         <a class="accordion-toggle" href="#collapse-maps" data-toggle="collapse">Maps</a>
         <ul id="collapse-maps" class="collapse">
             <li>
@@ -182,13 +189,13 @@
                 <a href="feature_maps_vector.html"><i class="fa fa-align-center"></i> Vector Maps</a>
             </li>
         </ul>
-    </li>
+    </li> -->
     <!-- End Maps -->                    
 
     <!-- Charts -->
-    <li class="list-group-item">
+<!--     <li class="list-group-item">
         <span class="badge badge-u">New</span>                    
         <a href="feature_compo_charts.html">Charts &amp; Countdowns</a>
-    </li>
+    </li> -->
     <!-- End Charts -->
 </ul>

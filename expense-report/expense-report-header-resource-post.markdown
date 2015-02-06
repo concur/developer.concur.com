@@ -3,31 +3,27 @@ title: Expense Report Header Resource
 layout: operation
 ---
 
-
-
-
 This resource supports the following POST actions:
 
 ##  Post Expense Report Header Request
-
-| ----- |
-|  Description |
-|  Posts the expense report header information for a new or existing report for the user specified in the [OAuth][1] access token. If the OAuth consumer has the necessary roles, they can update reports that belong to other users. Use this function to create a report, then use the [Post Expense Entry][2] function to send expense line items.
+## Description
+Posts the expense report header information for a new or existing report for the user specified in the [OAuth][1] access token. If the OAuth consumer has the necessary roles, they can update reports that belong to other users. Use this function to create a report, then use the [Post Expense Entry][2] function to send expense line items.
 
 **NOTES**:
-
 * Posting expense report information is a multi-stage process. Refer to the [Processes][3] section of the Expense Report Web Service page for the steps required to post new expense reports and entries.
 * Reports with the following statuses can't be modified:
     * Processing Payment
     * Paid
     * Payment Confirmed
- |
-|  Query Parameters - Required |  Supported Content Types |
-|  None |   |
-|  Query Parameters - Optional |   |
-|
 
-* **{_reportId_}**  
+## Query Parameters - Required
+None
+
+## Supported Content Types
+application/xml
+
+## Query Parameters - Optional
+**{_reportId_}**  
 The unique identifier for the report. Only used when updating an existing report.
 
 Example:
@@ -36,38 +32,31 @@ https://www.concursolutions.com/api/expense/expensereport/v1.1/report/_{reportId
 
 **URI Source**: The reportId value is returned by the [Get List of Reports][4], and [Get Report Details][5] functions, and as part of the **Report-Details-Url** element returned by this function.
 
- |
-|  Request Headers - Required |
-|  Authorization header with OAuth token for valid Concur user.
+## Request Headers - Required
+Authorization header with OAuth token for valid Concur user.
 
 The Concur user must have one of the following roles in Expense:
 
 * Expense User: This role allows the user to create and modify their own reports.
 * Web Services Administrator (Professional/Premium): This role allows the user to modify reports for all users.
 * Can Administer (Standard): This role allows the user to modify reports for all users.
- |
-|  Request Headers - Optional |
-|  None |
-|  Content Body |
-|  This request should contain a **Report** parent element with the following child elements:  
 
-|  Element |  Required (must contain value)? |  Description |
+## Request Headers - Optional
+None
+
+## Content Body
+This request should contain a **Report** parent element with the following child elements:  
+
+|  Element | Required (must contain value)? | Description |
+| ---------| ------------------------------ | ----------- |
 |  Name |  Y |  The expense report name. |   |
 |  Purpose |  Depends on configuration |  The business purpose of the report. Maximum length: 500. |
 |  Comment |  Depends on configuration |  The report header comment. Maximum length: 500. |
 |  OrgUnit1 through OrgUnit6 |  Depends on configuration |  The custom Organization Unit fields. May be required depending on configuration. Refer to the [Processes][3] > **Post Expense Report Data** section of Expense Report for the steps necessary to gather required field information. |
-|  Custom1 through Custom20 |  Depends on configuration |
-
-The custom fields on the Expense Report Header form. May be required depending on configuration. Refer to the [Processes][3] > **Post Expense Report Data** section of Expense Report for the steps necessary to gather required field information.
-
-**NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][6] page for information on how to correctly submit list item values.
-
- |
+|  Custom1 through Custom20 |  Depends on configuration | The custom fields on the Expense Report Header form. May be required depending on configuration. Refer to the [Processes][3] > **Post Expense Report Data** section of Expense Report for the steps necessary to gather required field information. <br> **NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][6] page for information on how to correctly submit list item values. |
 |  UserDefinedDate |  Depends on configuration |  The date the user selected for the report. Format: YYYY-MM-DD hh:mm:ss.0 |
 
- |
-
-####  XML Example of New Report Request
+##  XML Example of New Report Request
 
     POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report HTTP/1.1
     Authorization: OAuth {access token}
@@ -87,20 +76,21 @@ The custom fields on the Expense Report Header form. May be required depending o
     </Report>
 
 ##  Post Expense Report Header Response
+### HTTP Responses
+[HTTP Status Codes][7]
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][7] |   |
-|  Content Body |   |
-|  The response will include a **ReportDetails** parent element. This element will contain a **ReportStatus** child element. The ReportStatus element will contain the following child elements:
+### Supported Content Types |
+application/xml
+
+### Content Body
+The response will include a **ReportDetails** parent element. This element will contain a **ReportStatus** child element. The ReportStatus element will contain the following child elements:
 
 |  Element |  Description |
+| ----- | ----- |
 |  Status |  The status of the request. |   |
 |  Report-Details-Url |  The URI to use when posting report details to this report. |
 
- |
-
-####  XML Example of Successful Response
+###  XML Example of Successful Response
 
     200 OK
     Content-Type: application/xml
@@ -112,51 +102,48 @@ The custom fields on the Expense Report Header form. May be required depending o
     </ReportDetails>
 
 ##  Post Report Header Batch Request
+###  Description
+Posts a batch of expense report headers. The expense report header contains classification information for the expense report. Use this endpoint to create a batch of reports, then use the [Post Expense Entry][2] function to send expense line items. All batch operations allow up to 1000 headers per batch. If a batch request with over 1000 headers is sent, only the first 1000 headers in the batch will be processed. <br>**NOTE**: Posting expense report information is a multi-stage process. Refer to the [ Processes][3]  section of the Expense Report Web Service page for the steps required to post new expense reports and entries.
 
-| ----- |
-|  Description |  Supported Content Types |
-|
+### Supported Content Types
+application/xml
 
-Posts a batch of expense report headers. The expense report header contains classification information for the expense report. Use this endpoint to create a batch of reports, then use the [Post Expense Entry][2] function to send expense line items. All batch operations allow up to 1000 headers per batch. If a batch request with over 1000 headers is sent, only the first 1000 headers in the batch will be processed.
-
-**NOTE**: Posting expense report information is a multi-stage process. Refer to the [ Processes][3]  section of the Expense Report Web Service page for the steps required to post new expense reports and entries.
-
- |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
-
+### Query Parameters - Required
+batch
+The batch keyword.
 Example: https://www.concursolutions.com/api/expense/expensereport/v1.1/report/batch
 
- |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  The Concur user must have one of the following roles in Expense:
+### Query Parameters - Required
+Example: https://www.concursolutions.com/api/expense/expensereport/v1.1/report/batch
+
+### Query Parameters - Optional
+None
+
+### Request Headers - Required 
+The Concur user must have one of the following roles in Expense:
 
 * Expense User: This role allows the user to create and modify their own reports.
 * Web Services Administrator (Professional/Premium): This role allows the user to create and modify reports for all users.
 * Can Administer (Standard): This role allows the user to create and modify reports for all users.
- |  None |
-|  Content Body |   |
-|  This request should contain a **batch** parent element with a **Report** parent element for each included report. The **Report** element contains the following child elements:  
 
-|  Element |  Required (must contain value)? |  Description |
+### Request Headers - Optional
+None
+
+### Content Body
+This request should contain a **batch** parent element with a **Report** parent element for each included report. The **Report** element contains the following child elements:  
+
+| Element | Required (must contain value)? | Description |
+| ------- | ------------------------------ | ----------- |
 |  Index |  Y |  The header's location in the batch. Should start at 1 and increment sequentially. This value is used to identify the record if there is an error. |   |
 |  LoginId |  Y |  The report owner's Concur login ID. |
 |  Name |  Y |  The expense report name. |
 |  Purpose |  Depends on configuration |  The business purpose of the report. Maximum length: 500. |
 |  Comment |  Depends on configuration |  The report header comment. Maximum length: 500. |
 |  OrgUnit1 through OrgUnit6 |  Depends on configuration |  The custom Organization Unit fields. May be required depending on configuration. Refer to the [Processes][3] > **Post Expense Report Data** section of Expense Report for the steps necessary to gather required field information. |
-|  Custom1 through Custom20 |  Depends on configuration |
-
-The custom fields on the Expense Report Header form. May be required depending on configuration. Refer to the [Processes][3] > **Post Expense Report Data** section of Expense Report for the steps necessary to gather required field information.
-
-**NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][6] page for information on how to correctly submit list item values.
-
- |
+|  Custom1 through Custom20 |  Depends on configuration | The custom fields on the Expense Report Header form. May be required depending on configuration. Refer to the [Processes][3] > **Post Expense Report Data** section of Expense Report for the steps necessary to gather required field information. <br> **NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][6] page for information on how to correctly submit list item values. |
 |  UserDefinedDate |  Depends on configuration |  The date the user selected for the report. Format: YYYY-MM-DD hh:mm:ss.0 |
 
- |
-
-####  XML Example Request
+###  XML Example Request
 
     POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/batch HTTP/1.1
     Authorization: OAuth {access token}
@@ -194,33 +181,27 @@ The custom fields on the Expense Report Header form. May be required depending o
 
 ##  Post Expense Report Header Batch Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][7] |   |
-|  Content Body |   |
-|  This request will return a **report-batch-result** parent element with the following child elements:  
+## HTTP Responses
+[HTTP Status Codes][7]
 
-|  Element |  Description |
+## Supported Content Types
+application/xml
+
+## Content Body
+This request will return a **report-batch-result** parent element with the following child elements:  
+
+| Element | Description |
+| ------- | ----------- |
 |  records-succeeded |  The number of records processed that were successfully added. |   |
 |  records-failed |  The number of records processed that were not successfully added. |
-|  errors |  This will contain an **error** parent element for each record failure. The **error** element will contain the following child elements:
+|  errors |  This will contain an **error** parent element for each record failure. The **error** element will contain the following child elements|
+|  errors - LoginID |  The user's Concur login ID. | 
+|  errors - message |  The error message. |
+|  ReportDetails |  This parent element will contain a **ReportStatus** child element for all report headers that did not cause an error. The **ReportStatus** element will contain the following child elements|
+|  ReportDetails - Status |  The status of the request. | 
+|  ReportDetails - Report-Details-Url |  The URI to use when posting report details to this report. |
 
-|  Index |  The header's location in the batch. |
-|  LoginID |  The user's Concur login ID. |   | |
-|  message |  The error message. |
-
- |
-|  ReportDetails |  This parent element will contain a **ReportStatus** child element for all report headers that did not cause an error. The **ReportStatus** element will contain the following child elements:
-
-|  Index |  The header's location in the batch. |
-|  Status |  The status of the request. |   | |
-|  Report-Details-Url |  The URI to use when posting report details to this report. |
-
- |
-
- |
-
-####  XML Example Response with Success and Failure
+###  XML Example Response with Success and Failure
 
     200 OK
     Content-Type: application/xml
@@ -242,9 +223,6 @@ The custom fields on the Expense Report Header form. May be required depending o
             </ReportStatus>
         </ReportDetails>
     </report-batch-result>
-
-  
-
 
 [1]: https://developer.concur.com/oauth-20
 [2]: https://developer.concur.com/expense-report/expense-entry-resource/post-entries
