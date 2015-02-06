@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>Sky Forms Pro</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+		
+		<link rel="stylesheet" href="css/demo.css">
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<link rel="stylesheet" href="css/sky-forms.css">
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" href="css/sky-forms-ie8.css">
+		<![endif]-->
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<!--[if lt IE 10]>
+			<script src="js/jquery.placeholder.min.js"></script>
+		<![endif]-->		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/sky-forms-ie8.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body class="bg-cyan">
+		<div class="body">		
+			<form action="" id="sky-form" class="sky-form">
+				<header>Datepicker</header>
+					
+				<fieldset>
+					<section>
+						<label class="label">Select single date</label>	
+						<label class="input">
+							<i class="icon-append fa fa-calendar"></i>
+							<input type="text" name="date" id="date">
+						</label>
+					</section>
+					
+					<label class="label">Select date range</label>	
+					<div class="row">	
+						<section class="col col-6">
+							<label class="input">
+								<i class="icon-append fa fa-calendar"></i>
+								<input type="text" name="start" id="start" placeholder="Start date">
+							</label>
+						</section>
+						<section class="col col-6">
+							<label class="input">
+								<i class="icon-append fa fa-calendar"></i>
+								<input type="text" name="finish" id="finish" placeholder="Expected finish date">
+							</label>
+						</section>
+					</div>					
+				</fieldset>
+					
+				<fieldset>
+					<section>
+						<label class="label">Select single date with inline datepicker</label>
+						<div id="inline"></div>
+					</section>
+					
+					<label class="label">Select date range with inline datepickers</label>	
+					<div class="row">	
+						<section class="col col-6">
+							<div id="inline-start"></div>
+						</section>
+						<section class="col col-6">
+							<div id="inline-finish"></div>
+						</section>
+					</div>					
+				</fieldset>
+				<footer>
+					<button type="submit" class="button">Send</button>
+					<button type="button" class="button button-secondary" onclick="window.history.back();">Back</button>
+				</footer>
+			</form>			
+		</div>
+		
+		<script type="text/javascript">
+			$(function()
+			{
+				// Regular datepicker
+				$('#date').datepicker({
+					dateFormat: 'dd.mm.yy',
+					prevText: '<i class="fa fa-chevron-left"></i>',
+					nextText: '<i class="fa fa-chevron-right"></i>'
+				});
+				
+				// Date range
+				$('#start').datepicker({
+					dateFormat: 'dd.mm.yy',
+					prevText: '<i class="fa fa-chevron-left"></i>',
+					nextText: '<i class="fa fa-chevron-right"></i>',
+					onSelect: function( selectedDate )
+					{
+						$('#finish').datepicker('option', 'minDate', selectedDate);
+					}
+				});
+				$('#finish').datepicker({
+					dateFormat: 'dd.mm.yy',
+					prevText: '<i class="fa fa-chevron-left"></i>',
+					nextText: '<i class="fa fa-chevron-right"></i>',
+					onSelect: function( selectedDate )
+					{
+						$('#start').datepicker('option', 'maxDate', selectedDate);
+					}
+				});
+				
+				// Inline datepicker
+				$('#inline').datepicker({
+					dateFormat: 'dd.mm.yy',
+					prevText: '<i class="fa fa-chevron-left"></i>',
+					nextText: '<i class="fa fa-chevron-right"></i>'
+				});
+				
+				// Inline date range
+				$('#inline-start').datepicker({
+					dateFormat: 'dd.mm.yy',
+					prevText: '<i class="fa fa-chevron-left"></i>',
+					nextText: '<i class="fa fa-chevron-right"></i>',
+					onSelect: function( selectedDate )
+					{
+						$('#inline-finish').datepicker('option', 'minDate', selectedDate);
+					}
+				});
+				$('#inline-finish').datepicker({
+					dateFormat: 'dd.mm.yy',
+					prevText: '<i class="fa fa-chevron-left"></i>',
+					nextText: '<i class="fa fa-chevron-right"></i>',
+					onSelect: function( selectedDate )
+					{
+						$('#inline-start').datepicker('option', 'maxDate', selectedDate);
+					}
+				});
+			});			
+		</script>
+	</body>
+</html>

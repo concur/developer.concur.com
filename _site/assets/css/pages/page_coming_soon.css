@@ -1,0 +1,56 @@
+/*Coming Soon Page
+------------------------------------*/
+.coming-soon-page {
+	background: #585f69;
+}
+
+.coming-soon-border {
+	border-top: solid 3px #72c02c;
+}
+
+.coming-soon,
+.coming-soon-plugin {
+	padding: 20px;
+	text-align: center;
+	margin-top: 20px;
+}  
+
+.coming-soon-plugin {
+	min-height: 330px;
+}
+
+.coming-soon h1,
+.coming-soon p {
+	color: #fff;
+}
+
+.coming-soon h1 {
+	font-size: 50px;
+	line-height: 50px;
+	margin-bottom: 15px;
+	text-shadow: none;
+}
+
+.coming-soon p {
+	font-size: 16px;
+	line-height: 22px;
+}
+
+.coming-soon-copyright {
+	padding: 5px 0;
+}
+
+.coming-soon-copyright p {
+	color: #fff;
+	text-align: right;
+}
+
+/* Small devices (tablets, 768px and less) */
+@media (max-width: 768px) { 
+	.coming-soon-copyright {
+		margin-top: 40px;
+	}
+	.coming-soon-copyright p {
+		text-align: left;
+	}
+}
