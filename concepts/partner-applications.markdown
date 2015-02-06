@@ -31,13 +31,10 @@ The first action all developers need to take is to register a partner applicatio
 2. The **Web Services **page appears.  
 ![][6]
 
-
 3. On the** Web Services **page, click **Register Partner Application**. The **Application Registration** page appears.
-
 ![][7]  
 
 4. Click **New**. The **New Partner Application** page appears.
-
 ![][8]  
 
 5. Fill in the fields using the following table:
