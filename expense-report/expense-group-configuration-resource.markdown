@@ -27,7 +27,7 @@ The Expense Group Configuration contains the list of Expense Polices, Expense Ty
 * [GET][2]
 
 ## Related Resources
-* [Expense Entry][3]     |
+* [Expense Entry][3]
 
   
 
