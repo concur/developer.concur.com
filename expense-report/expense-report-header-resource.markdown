@@ -15,7 +15,7 @@ The expense report header contains classification information for the expense re
 * **Expense** for Concur Standard
 
 ## Resource URI
-* https://www.concursolutions.com/api/expense/expensereport/v1.1/report/ |
+* https://www.concursolutions.com/api/expense/expensereport/v1.1/report/
 
 ## Supported Content Types
 * application/xml
