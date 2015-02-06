@@ -33,7 +33,9 @@ Refer to **Web Services > [Core Concepts][1]** for:
 
  |
 |  Product Restrictions |
-|  Concur products are highly configurable, and not all clients will have access to all features.
+|  
+
+Concur products are highly configurable, and not all clients will have access to all features.
 
 Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
 
