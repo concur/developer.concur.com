@@ -10,8 +10,9 @@ Spend Category Codes are used in web services calls in multiple Concur Connect A
 
 ####  Spend Category Code List:
 
-| ----- |
+
 |  Code |  Name |
+| ----- |------|
 |  ADVTG |  Advertising/Marketing |
 |  AIRFE |  Airline Fee |
 |  AIRFR |  Airfare |
@@ -38,4 +39,3 @@ Spend Category Codes are used in web services calls in multiple Concur Connect A
 |  TELEC |  Telecom |
 |  TRADE |  Trade/Convention |
 |  TRAIN |  Training |
-
