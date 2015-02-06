@@ -31,7 +31,7 @@ Authorization: Basic {Base64 encoded LoginID:Password}
 X-ConsumerKey: {Consumer Key}
 ```
 
-For example, John obtained a Consumer Key of hj7683jslks93lalkjss93 when he registered his application. John has a login ID of `john_developer@hotmail.com` and a password of Travel&Expense$2012. John Base64-encoded his login ID, colon, and password such that john_developer@hotmail.com:Travel&Expense$2012 became GHJHDIU38JKSHJ==. John's call looks like this:
+For example, John obtained a Consumer Key of hj7683jslks93lalkjss93 when he registered his application. John has a login ID of `john_developer@hotmail.com` and a password of Travel&Expense$2012. John Base64-encoded his login ID, colon, and password such that `john_developer@hotmail.com`:Travel&Expense$2012 became GHJHDIU38JKSHJ==. John's call looks like this:
 
 ```
 GET https://www.concursolutions.com/net2/oauth2/accesstoken.ashx
