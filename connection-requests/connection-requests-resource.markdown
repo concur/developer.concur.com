@@ -303,7 +303,10 @@ Expense for Concur Mobile
 |  503 |  Service unavailable or is down for maintenance |
 
 ##  See Also
-
+Access Token resource
+Connection Requests overview page for details on how to implement the Connections Request API.
+Connection Requests Swagger documentation.
+HTTP Codes page for details of the common responses and errors.
 
 
 [1]: https://developer.concur.com/travel-profile/profile-resource/get-travel-profile
