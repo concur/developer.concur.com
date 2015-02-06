@@ -19,11 +19,11 @@ application/xml
 application/xml
 
 ## Operations
-POST[2]
+[POST][2]
 
 ## See also
-[Attendee][3]
-[Attendee type][4] 
+* [Attendee][3]
+* [Attendee type][4] 
 
 
 [1]: https://www.concursolutions.com/api/expense/attendees/v1.0/
