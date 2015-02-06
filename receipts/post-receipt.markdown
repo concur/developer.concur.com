@@ -574,4 +574,4 @@ The response includes the ID of the receipt that was posted.
 [2]: http://en.wikipedia.org/wiki/ISO_4217
 [3]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 [4]: http://en.wikipedia.org/wiki/ISO_3166-2
-[5]: Receipts3.0_resource.html
+[5]: https://developer.concur.com/receipts
