@@ -4,34 +4,34 @@ layout: resource
 ---
 
 
+## **Description**
 
+The configured fields on the Global employee form in Concur.
 
+## **Version**
+1.0
 
-| ----- |
-|  Description |
-|  The configured fields on the Global employee form in Concur. |
-|  Works With These Concur Products |
-|
+## **URI**
 
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
-* **Invoice** for Concur Professional/Premium
-* **Invoice** for Concur Standard
-* **Travel Request** for Concur Professional/Premium
- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/user/v1.0/FormFields |
+https://www.concursolutions.com/api/user/v1.0/FormFields
 
-| Supported Content Types | Supported Accept Types |
-| ----------------------- | ---------------------- |
-| Supported Verbs         | Related Resources      |
-| [GET][1]                | [User][2]
+## **Content type** 
+
+* application/xml
+
+## **Accept type**
+
+* application/xml
+
+## **Operations**         
+
+[GET][1]
+
+## **See also**
+
+[User][2]
 
 [User Password][3]
-
- |
-
-  
 
 
 [1]: https://developer.concur.com/user-resource/employee-form-field-resource/employee-form-field-resource-get

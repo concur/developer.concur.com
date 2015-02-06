@@ -23,7 +23,7 @@ Authorization: OAuth {access token}
 
 ### **Authorization header**
 
-Authorization header with OAuth token for valid Concur user.
+Authorization header with OAuth token for a valid Concur user.
 
 ### **Request Parameters**
 
@@ -46,7 +46,7 @@ The loginID parameter can only be used if the OAuth consumer has one of the foll
 Example: https://www.concursolutions.com/api/user/v1.0/User/?loginID={loginID}
 
 
-## **Response** ##
+## **Response**
 
 This request will return a UserProfile child element for the specified user. The UserProfile elements will vary depending on the form configuration.
 
@@ -83,16 +83,82 @@ This request will return a UserProfile child element for the specified user. The
 
 ## **Examples** 
 
-### Example 1: Get User Information  ###
+### Example 1: Get User Information 
 
-#### Request #### 
+#### Request 
 
 ```
 GET https://www.concursolutions.com/api/user/v1.0/User HTTP/1.1
 Authorization: OAuth {access token}
 ```
 
-#### Response #### 
+#### Response 
+
+```
+200 OK
+Content-Type: application/xml
+
+<UserProfile xmlns="https://www.concursolutions.com/api/user/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <LoginId>cm@example.com</LoginId>
+    <FirstName>Chris</FirstName>
+    <LastName>Miller</LastName>
+    <Mi>T</Mi>
+    <EmailAddress>cm@example.com</EmailAddress>
+    <EmpId>cm@example.com</EmpId>
+    <Active>Y</Active>
+    <OrgUnit1>R&D</OrgUnit1>
+    <OrgUnit2 />
+    <OrgUnit3 />
+    <OrgUnit4 />
+    <OrgUnit5 />
+    <OrgUnit6 />
+    <Custom1>Redmond</Custom1>
+    <Custom2 />
+    <Custom3 />
+    <Custom4 />
+    <Custom5 />
+    <Custom6 />
+    <Custom7 />
+    <Custom8 />
+    <Custom9 />
+    <Custom10 />
+    <Custom11 />
+    <Custom12 />
+    <Custom13 />
+    <Custom14 />
+    <Custom15 />
+    <Custom16 />
+    <Custom17 />
+    <Custom18 />
+    <Custom19 />
+    <Custom20 />
+    <Custom21 />
+    <LedgerName>Default</LedgerName>
+    <LocaleName>en_US</LocaleName>
+    <CtryCode>US</CtryCode>
+    <CrnCode>USD</CrnCode>
+    <CtrySubCode>US-WA</CtrySubCode>
+    <ExpenseUser>Y</ExpenseUser>
+    <ExpenseApprover>N</ExpenseApprover>
+    <TripUser>Y</TripUser>
+    <InvoiceUser>N</InvoiceUser>
+    <InvoiceApprover>N</InvoiceApprover>
+    <ExpenseApproverEmployeeID>345678</ExpenseApproverEmployeeID>
+    <IsTestEmp>N</IsTestEmp>
+    <CashAdvanceAccountCode />
+</UserProfile>
+```
+
+### Example 2: Get User Information for loginID: cm@example.com
+
+#### Request 
+
+```
+GET https://www.concursolutions.com/api/user/v1.0/User?loginID=cm@example.com HTTP/1.1
+Authorization: OAuth {access token}
+```
+
+#### Response 
 
 ```
 200 OK

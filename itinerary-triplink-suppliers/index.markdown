@@ -23,7 +23,7 @@ Refer to **Web Services > [Core Concepts][2]** for:
 Detailed descriptions of requests and responses are available in the documentation for each function.
 
 ## Product Restrictions
-This web service is designed for use by TripLink - Open Booking Suppliers. If you are a TripLink - Open Booking Supplier who would like to start using this web service, please visit: <http://www.concur.com/en-us/connect-platform/suppliers> or contact the [Concur Connect Platform Team](mailto:[3]).
+This web service is designed for use by TripLink - Open Booking Suppliers. If you are a TripLink - Open Booking Supplier who would like to start using this web service, please visit: <http://www.concur.com/en-us/connect-platform/suppliers> or contact the [Concur Connect Platform Team](mailto:connect@concur.com).
 
 Concur products are highly configurable, and not all clients will have access to all features.
 
@@ -93,7 +93,7 @@ This section includes answers to frequently asked questions about the Itinerary 
 
 [1]: https://developer.concur.com/itinerary-tmc-and-third-party-developers
 [2]: https://developer.concur.com/api-documentation/core-concepts
-[3]: connect@concur.com
+[3]: mailto:connect@concur.com
 [4]: https://developer.concur.com/forums/concur-connect
 [5]: https://developer.concur.com/oauth-20
 [6]: https://developer.concur.com/itinerary-triplink-suppliers/booking-resource-triplink
