@@ -14,7 +14,7 @@ Works With These Concur Products
 * **Invoice** for Concur Professional/Premium
 
 ## Resource URI
-*https://www.concursolutions.com/api/v3.0.invoice/purchaseorderreceipts |
+* https://www.concursolutions.com/api/v3.0.invoice/purchaseorderreceipts |
 
 ## Supported Content Types
 * application/xml
