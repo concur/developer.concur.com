@@ -4,34 +4,29 @@ layout: resource
 ---
 
 
+## Description
+The type of attendee, as configured in Concur.
 
+## Version
+1.0
 
+## URI
+[https://www.concursolutions.com/api/expense/attendee/v1.0/type][1]
 
-| ----- |
-|  Description |
-|  The type of attendee, as configured in Concur. |
-|  Works With These Concur Products |
-|
+## Content types
+application/xml
 
-* **Expense** for Concur Professional/Premium
- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/expense/attendee/v1.0/type |
+## Accept types
+application/xml
 
-| Supported Content Types | Supported Accept Types |
-| ----------------------- | ---------------------- |
-| Supported Verbs         | Related Resources      |
-| [GET][1]                |
+## Operations
+[GET][2]
 
-[Attendee][2]
+## See also
+[Attendee][3]
+[Attendee List][4]
 
-[Attendee List][3]
-
- |
-
-  
-
-
-[1]: https://developer.concur.com/attendee/attendee-type-resource/attendee-type-resource-get
-[2]: https://developer.concur.com/attendee/attendee-resource
-[3]: https://developer.concur.com/attendee/attendee-list-resource
+[1]: https://www.concursolutions.com/api/expense/attendee/v1.0/type
+[2]: https://developer.concur.com/attendee/attendee-type-resource/attendee-type-resource-get
+[3]: https://developer.concur.com/attendee/attendee-resource
+[4]: https://developer.concur.com/attendee/attendee-list-resource
