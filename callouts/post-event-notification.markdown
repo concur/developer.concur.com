@@ -60,5 +60,5 @@ The application connector responds with an HTTP 200 code when it successfully re
 
 
 
-[1]: https://developer.concur.com/node/432#installproc
-[2]: https://developer.concur.com/node/432#auth
+[1]: https://developer.concur.com/callouts/event-notification#installproc
+[2]: https://developer.concur.com/callouts/event-notification#auth
