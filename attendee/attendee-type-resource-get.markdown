@@ -8,10 +8,8 @@ layout: operation
 Retrieves the list of attendee types for the company.
 
 ## Request
-...
-GET https://www.concursolutions.com/api/expense/attendee/v1.0/type HTTP/1.1 
-Authorization: OAuth {access token}
-...
+    GET https://www.concursolutions.com/api/expense/attendee/v1.0/type HTTP/1.1 
+    Authorization: OAuth {access token}
 
 ### Request parameters
 None
