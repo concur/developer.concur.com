@@ -22,8 +22,8 @@ The authorization header must have an OAuth token for a valid Concur user.
 The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
 ## Response
-[HTTP Status Codes][1]
-[Attendee List Errors][2]
+* [HTTP Status Codes][1]
+* [Attendee List Errors][2]
 
 ### Response root elements
 This request will return an attendee-types parent element containing an attendee-type child element for each attendee type. Each attendee-type element will contain the following child elements:
