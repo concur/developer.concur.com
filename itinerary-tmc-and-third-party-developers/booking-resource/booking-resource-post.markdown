@@ -7,7 +7,7 @@ layout: operation
 # Post Booking Details
 
 ## Description
-Creates a new booking or updates an existing booking. A new booking will be assigned to the specified trip, or if no trip is specified, the first itinerary that spans the booking dates. If no trip is specified and no itinerary exists that spans the booking dates, a new itinerary will be created.
+Creates a *new* booking or updates an existing booking. A new booking will be assigned to the specified trip, or if no trip is specified, the first itinerary that spans the booking dates. If no trip is specified and no itinerary exists that spans the booking dates, a new itinerary will be created.
 This endpoint can be used to create/update bookings for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to create/update a booking on behalf of a user. The supplier or TMC must be registered with Concur, and must have an account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
 
@@ -28,7 +28,7 @@ The Concur login ID of the user who owns the booking. Only provided when the boo
 
 Examples:
 
-https://www.concursolutions.com/api/travel/booking/v1.1?tripId=*{tripId}*
+https://www.concursolutions.com/api/travel/booking/v1.1?tripId={tripId}
 
 https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={loginID}
 
