@@ -80,16 +80,54 @@ This function requires as its arguments a **UserBatch** element containing a **U
 
 
 
-
+## **See also**
 
 To learn the required fields, use the [Employee Form Field][1] resource.
 
 To update user passwords, use the [User Password][2] resource.
 
+[HTTP Status Codes][7]
+
+[User Errors][8]
 
 
+## **Response**
 
+This request will return a user-batch-result parent element.
  
+
+### **Response body root elements**
+
+|  Element  |  Description |
+|-----------|--------------|
+|  records-succeeded |  The number of records processed that were successfully added or updated. |   
+|  records-failed |  The number of records processed that were not successfully added or updated. |
+
+#### **records-succeeded** child elements
+
+**When any users are successfully added or updated**:
+
+The request will return the **UserDetails** parent element with a **UserInfo** element for each successfully added or updated user. The **UserInfo** elements will contain the following child elements:
+
+|  Element |  Description |
+|----------|--------------|
+|  EmployeeID |  The employee ID of the user. |
+|  FeedRecordNumber |  The item number of the record in the feed. |
+|  Status |  The status of the attempt to add or update the user. Should always contain the word SUCCESS. |
+
+
+#### **records-failed** child elements
+
+**When any users fail**:
+
+The request will return the **errors** parent element with an **error** parent element for each record failure. The **error** element will contain the following child elements:
+
+|  Element |  Description |
+|----------|--------------|
+|  EmployeeID |  The ID of the user that failed. |
+|  FeedRecordNumber |  The item number of the record in the feed. |
+|  message |  The error message. |
+
 
 ####  XML Example Request
 
@@ -154,47 +192,6 @@ To update user passwords, use the [User Password][2] resource.
         </UserProfile>
     </batch>
 
-##  Post New or Updated Users Response
-
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|
-
-[HTTP Status Codes][7]
-
-[User Errors][8]
-
- |   |
-|  Content Body |   |
-|  This request will return a **user-batch-result** parent element with the following child elements:  
-
-|  Element |  Description |
-|  records-succeeded |  The number of records processed that were successfully added or updated. |   |
-|  records-failed |  The number of records processed that were not successfully added or updated. |
-
-  
-**When any users are successfully added or updated**:
-
-The request will return the **UserDetails** parent element with a **UserInfo** element for each successfully added or updated user. The **UserInfo** elements will contain the following child elements:
-
-| ----- |
-|  Element |  Description |
-|  EmployeeID |  The employee ID of the user. |
-|  FeedRecordNumber |  The item number of the record in the feed. |
-|  Status |  The status of the attempt to add or update the user. Should always contain the word SUCCESS. |
-
-  
-**When any users fail**:
-
-The request will return the **errors** parent element with an **error** parent element for each record failure. The **error** element will contain the following child elements:
-
-| ----- |
-|  Element |  Description |
-|  EmployeeID |  The ID of the user that failed. |
-|  FeedRecordNumber |  The item number of the record in the feed. |
-|  message |  The error message. |
-
- |
 
 ####  XML Example Response with Success and Failure
 
