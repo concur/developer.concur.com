@@ -6,8 +6,6 @@ layout: operation
 
 
 
-This resource supports the following POST actions:
-
 
 #  Post Travel Request Header Request
 
