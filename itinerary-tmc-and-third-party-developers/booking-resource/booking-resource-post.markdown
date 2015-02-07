@@ -28,9 +28,9 @@ The Concur login ID of the user who owns the booking. Only provided when the boo
 
 Examples:
 
-https://www.concursolutions.com/api/travel/booking/v1.1?tripId={*tripId*}
+https://www.concursolutions.com/api/travel/booking/v1.1?tripId=*{tripId}*
 
-https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={*loginID*}
+https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={loginID}
 
 
 ### Content type
