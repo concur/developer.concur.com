@@ -54,10 +54,10 @@ None
 
 This function requires as its arguments a **UserBatch** element containing a **User** child element for each user. The **User** element must have the following elements:  
 
-|  Element |  Required/Optional |  Description |
-|----------|--------------------|--------------|
-|  LoginID |  Required |  The user's logon ID. The default value is the user's email address. |  
-|  Password |  Required |  The user's new password.  **NOTE**: This information is encrypted in the Concur database. |
+|  Element |  Required/Optional | Data Type | Description |
+|----------|--------------------|-----------|-------------|
+|  LoginID |  Required | string | The user's logon ID. The default value is the user's email address. |  
+|  Password |  Required | string | The user's new password.  **NOTE**: This information is encrypted in the Concur database. |
 
 
 ## **Response**
