@@ -14,19 +14,14 @@ This resource supports the following POST actions:
 ## Description
 Posts the travel request header information for a new or existing travel request for the user specified in the OAuth access token. The travel request header contains classification information for the travel request.
 
-## Supported Content Types
+### Supported Content Types
 * application/xml
 
 ## Query Parameters - Required
-* **requests**  
-The requests keyword.
-
+* **requests**  The requests keyword.
 Example: <https://www.concursolutions.com/api/travelrequest/v1.0/requests>
 
- |
-|  Query Parameters - Optional |
-|
-
+## Query Parameters - Optional
 * **{_requestID_}**  
 The unique identifier for the desired travel request. Supplied when updating an existing travel request.
 
@@ -34,14 +29,15 @@ Example:
 https://www.concursolutions.com/api/travelrequest/v1.0/requests/{_requestID_}  
 **URI Source**: The requestId value is returned by [Get Request Details][1] function, and the **Request-Url** element in this function.
 
- |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
+## Request Headers - Required
+* Authorization header with OAuth token for valid Concur user.
 
 The OAuth consumer for this request must have the following role in Travel Request: Request User. This role allows the user to create travel requests.
 
- |  None |
-|  Content Body |   |
+## Request Headers - Optional
+* None
+
+## Content Body |   |
 |  This request should contain a **Request** parent element with the following child elements:
 
 |  Element |  Required (must contain value)? |  Description |
