@@ -149,18 +149,16 @@ Example: https://www.concursolutions.com/api/travelrequest/v1.0/requests/{_workf
 * **Authorization** header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  
 
 ## Request Headers - Optional
- *None
+* None
  
 ## Content Body
 This request should contain a **WorkflowAction** parent element with the following child elements:
 
 |  Element |  Required (must contain value)? |  Description |
-|  Action |  Y |  The name of the workflow action. Possible values are: **Approve**, ** Send Back to Employee**, or **Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Request Admin, Workflow to learn details. |   |
+|  Action |  Y |  The name of the workflow action. Possible values are: **Approve**, ** Send Back to Employee**, or **Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Request Admin, Workflow to learn details. | 
 |  Comment |  Y, for Send Back to Employee |  Must be used with the Send Back to Employee workflow action. This comment is visible wherever travel request comments are available to the employee, approver, and/or processor. |
 
- |
-
-####  XML Example Request
+##  XML Example Request
 
     POST api/travelrequest/v1.0/requests/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a4qQ/workflowaction HTTPS 1.1
     Host: [www.concursolutions.com][3]
@@ -172,21 +170,23 @@ This request should contain a **WorkflowAction** parent element with the followi
         <Comment>Approved via Concur Connect</Comment>
     </WorkflowAction>
 
-##  Post Request Workflow Action Response
+#  Post Request Workflow Action Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][4] |   |
-|  Content Body |   |
-|  This request will return an **ActionStatus** parent element with the following child elements:
+## HTTP Responses
+* [HTTP Status Codes][4]
+
+## Supported Content Types
+* application/xml
+
+## Content Body
+This request will return an **ActionStatus** parent element with the following child elements:
 
 |  Element |  Description |
-|  Message |  The error message. Only appears if a workflow action error was generated |   |
-|  Status |  The status of the travel request workflow action. |
+|----------|--------------|
+|  Message |  The error message. Only appears if a workflow action error was generated | 
+|  Status  |  The status of the travel request workflow action. |
 
- |
-
-####  XML Example of Successful Response
+##  XML Example of Successful Response
 
     <?xml version="1.0" encoding="utf-8"?>
     <ActionStatus xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -194,7 +194,7 @@ This request should contain a **WorkflowAction** parent element with the followi
         <Status>SUCCESS!</Status>
     </ActionStatus>
 
-####  XML Example of a Response with a Failure
+##  XML Example of a Response with a Failure
 
     <?xml version="1.0" encoding="utf-8"?>
     <ActionStatus xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
