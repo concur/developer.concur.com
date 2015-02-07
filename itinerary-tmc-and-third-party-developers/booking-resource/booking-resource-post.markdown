@@ -27,9 +27,9 @@ The Concur login ID of the user who owns the booking. Only provided when the boo
 
 Examples:
 
-https://www.concursolutions.com/api/travel/booking/v1.1?tripId={tripId}
+https://www.concursolutions.com/api/travel/booking/v1.1?tripId={*tripId*}
 
-https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={loginID}
+https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={*loginID*}
 
 
 ### Content type
@@ -229,7 +229,7 @@ Cancels an existing booking. By default, the OAuth consumer should be the owner 
 
 
 ## Request
-    POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431}
+    POST /api/travel/booking/v1.1/cancel?bookingSource={*FastTravel*}&confirmationNumber={*098765431*}
     Host: www.concursolutions.com
     Authorization: OAuth {access token} 
 
@@ -254,7 +254,7 @@ https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Su
 The Concur login ID of the user who owns the booking. Only provided when the booking owner is not the OAuth consumer. Can only be used when the OAuth consumer has the required user role.
 
 Example:
-https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}&userid_type=login_id&userid_value={loginID}
+https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={*Supplier*}&confirmationNumber={*confnum*}&userid_type=login_id&userid_value={*loginID*}
 
 
 ### Content type
@@ -278,7 +278,7 @@ If the booking is not found, the function returns a HTTP 404 error and the follo
 
 ### Examples 1: XML Example Request
 
-    POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431}
+    POST /api/travel/booking/v1.1/cancel?bookingSource={*FastTravel*}&confirmationNumber={*098765431*}
     Host: www.concursolutions.com
     Authorization: OAuth {access token} 
 
