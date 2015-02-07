@@ -43,8 +43,8 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 |CurrencyCode|Y| |The [3-letter ISO 4217 currency code][4] of the currency that is associated to the purchase order.|
 |VendorCode|Y| |The code that identifies the vendor that should be associated to the purchase order.|
 |VendorAddressCode|Y | |The code that identifies the vendors remit address that should be associated to the purchase order.|
-|ShipTo|Y| |The customer's shipping address, which is where the vendor should ship the goods. This parent element contains the following child elements%%%%%|
-|BillTo|Y| |The customer's billing address, which is where the vendor should send the bill. This parent element contains the following child elements%%%%%%|
+|ShipTo|Y| |The customer's shipping address, which is where the vendor should ship the goods. This parent element contains the following [child elements](#ShipTo)|
+|BillTo|Y| |The customer's billing address, which is where the vendor should send the bill. This parent element contains the following [child elements](#BillTo)|
 |OrderDate|Y| |The date goods were ordered. Format YYYY-MM-DD.|
 |Name|N| |A name to the overall purchase order.|
 |Description|N| |A description of the overall purchase order.|
@@ -64,7 +64,7 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 |Needed By|N| |The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD|
 |Account Number|N| |The vendor account number. |
 
-##### ShiptTo Child Elements
+##### ShipTo Child Elements<a name="ShipTo"></a>
 |Element Name|Required&Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |ExternalId| | |A unique value supplied by the customer to identify a particular shipping or billing address. Required. |
@@ -78,7 +78,7 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 |CountryCode |  |  | The code of the country associated to the shipping or billing address. Required. |
 
 
-#### BillTo Child Elements
+#### BillTo Child Elements<a name="BillTo"></a>
 |Element Name|Required&Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |ExternalId |  |  | A unique value supplied by the customer to identify a particular shipping or billing address. Required. |
@@ -102,7 +102,9 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 | UnitPrice | Y | | The price of each item of the line item. |
 | Tax | N | | Any tax that is associated to the line item. |
 | Custom1 through Custom20 | Depends on configuration | | A value that can be applied to a custom field of the same name that is part of the purchase order line item form. |
-| Allocation | N | | Details the allocations that are associated to the line item. Allocation elements can be repeated within the same line items to represent multiple allocations. This parent element contains the following child elements%%%%|
+| Allocation | N | | Details the allocations that are associated to the line item. Allocation elements can be repeated within the same line items to represent multiple allocations. This parent element contains the following [child elements](#Allocation)|
+
+#### Allocation Child Elements<a name="Allocation"></a>
 
 |Element Name|Required&Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -243,28 +245,30 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 ```
 ##  Post Purchase Order Response
 
+### HTTP Responses
+[HTTP Status Codes][6]
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][6] |   |
-|  Content Body |   |
-|  This request will return a** Response** parent element with the following child elements:  
+### Content Type
+application/xml
 
-|  Element |  Description |
-|  Processed |  The total number of purchase orders processed in the request. |   |
-|  Success |  The total number of successfully processed purchase orders in the request. |
-|  Failures |  The total number of unsuccessfully processed purchase orders in the request. |
-|  Results |  This will contain a **PurchaseOrderResult** parent element for each purchase order. The **PurchaseOrderResult** element will contain the following child elements:
+### Content Body
+This request will return a** Response** parent element with the following child elements:  
 
-|  PoNumber |  The purchase order number associated to the processed purchase order. |
-|  Status |  The result of processing the purchase order. Format is SUCCESS or FAILURE. |   | |
-|  ErrorCode |  The code to identify why the purchase order was not processed successfully. |
-|  LineItemExternalId |  Will display the line item external id of a line item that caused the error. If the error is related to an Allocation, this will indicate the external id of the line item that the allocation is associated with and which allocation was the cause of the error. Refer to [Responses and Errors][7] for more information. |
-|  FieldCode |  The code that indicates which field caused an issue. This typically only appears when a field is being validated against a field of a form type. The format of the code will be LEVEL|CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation. Refer to [Responses and Errors][7] for more information. |
+|Element Name|Required&Optional|Data Type|Description|
+|------------|-----------------|---------|-----------|
+|Processed | | | The total number of purchase orders processed in the request. |
+| Success | | | The total number of successfully processed purchase orders in the request. |
+| Failures | | | The total number of unsuccessfully processed purchase orders in the request. |
+| Results | | | This will contain a **PurchaseOrderResult** parent element for each purchase order. The **PurchaseOrderResult** element will contain the following [child elements](#Results)|
 
- |
-
- |
+### Results Child Elements <a name="Results"></a>
+|Element Name|Required&Optional|Data Type|Description|
+|------------|-----------------|---------|-----------|
+|PoNumber | | |The purchase order number associated to the processed purchase order.|
+|Status | | |The result of processing the purchase order. Format is SUCCESS or FAILURE.|
+|ErrorCode| | |The code to identify why the purchase order was not processed successfully.|
+|LineItemExternalId | | |Will display the line item external id of a line item that caused the error. If the error is related to an Allocation, this will indicate the external id of the line item that the allocation is associated with and which allocation was the cause of the error. Refer to [Responses and Errors][7] for more information.|
+|FieldCode| | |The code that indicates which field caused an issue. This typically only appears when a field is being validated against a field of a form type. The format of the code will be LEVEL|CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation. Refer to [Responses and Errors][7] for more information.|
 
 ####  XML Example Response with Success and Failure
 
