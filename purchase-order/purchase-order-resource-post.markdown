@@ -64,7 +64,7 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 |Needed By|N| |The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD|
 |Account Number|N| |The vendor account number. |
 
-##### ShipTo Child Elements<a name="ShipTo"></a>
+#### ShipTo Child Elements<a name="ShipTo"></a>
 |Element Name|Required&Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |ExternalId| | |A unique value supplied by the customer to identify a particular shipping or billing address. Required. |
