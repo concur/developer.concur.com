@@ -243,8 +243,7 @@ The cancel keyword and the unique identifier for the supplier, configured by Con
 
 The confirmation number for the booking to cancel.
 
-Example:
-
+Example: 
 https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}
 
 ####Query Parameters - Optional
