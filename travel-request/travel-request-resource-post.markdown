@@ -71,32 +71,35 @@ This request should contain a **Request** parent element with the following chil
         <EndTime>15:25</EndTime>
     </Request>
 
-##  Post Request Header Response
+#  Post Request Header Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][4] |   |
-|  Content Body |   |
-|  This request will return a **RequestStatus** parent element with the following child elements:
+## HTTP Responses
+* [HTTP Status Codes][4]
 
-|  Element |  Description |
-|  Status |  The status of the travel request. |   |
+Supported Content Types
+* application/xml
+
+Content Body
+This request will return a **RequestStatus** parent element with the following child elements:
+
+|  Element     |  Description |
+|--------------|--------------|
+|  Status      |  The status of the travel request. | 
 |  Request-Url |  The URI to use when posting travel request header details to this travel request. |
 
 If saving the travel request header triggers an exception, a **RequestExceptions** parent element will be provided, with a **RequestException** parent element for each exception. The **RequestException** element contains the following elements:
 
-| ----- |
-|  Element |  Description |
-|  EventCode |  The event that resulted in the exception. |
-|  ExceptionCode |  The company-defined exception code. |
+|  Element          |  Description |
+|-------------------|--------------|
+|  EventCode        |  The event that resulted in the exception. |
+|  ExceptionCod     |  The company-defined exception code. |
 |  ExceptionMessage |  The company-defined exception message. In the case of the system MISREQFLD exception the message will list the required fields that are missing values. |
 |  ExceptionVisibility |  Which users are able to see the exception. |
-|  IsCleared |  Whether the exception has been cleared by the Request Processor. |
-|  SeverityLevel |  A numeric value indicating the severity level of the exception. The value threshold is configurable. |
+|  IsCleared           |  Whether the exception has been cleared by the Request Processor. |
+|  SeverityLevel       |  A numeric value indicating the severity level of the exception. The value threshold is configurable. |
 
- |
 
-####  XML Example of Response with Successful Travel Request Creation and Exception
+## XML Example of Response with Successful Travel Request Creation and Exception
 
     <RequestStatus xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <Request-Details-Url>https://www.concursolutions.com/api/travelrequest/v1.0/requests/nf0ma53XrN$s6z5iKRRANn6eIsW89aTe3m</Request-Details-Url>
