@@ -16,6 +16,20 @@ This endpoint can be used to create/update bookings for a user that is not the O
     Host: www.concursolutions.com
     Authorization: OAuth {access token} 
 
+### Request Parameters
+
+#### Query Parameters - Optional
+
+* **tripId={tripId}**
+The unique identifier for the trip. Supplied in order to add a booking to an existing trip.
+* **userid_type=login_id&userid_value={loginID}**
+The Concur login ID of the user who owns the booking. Only provided when the booking owner is not the OAuth consumer. Can only be used when the OAuth consumer has the required user role.
+
+Examples:
+https://www.concursolutions.com/api/travel/booking/v1.1?tripId={tripId}
+
+https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={loginID}
+
 
 ### Content type
 application/xml
