@@ -8,14 +8,16 @@ layout: operation
 
 This resource supports the following POST actions:
 
+
 ##  Post Travel Request Header Request
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Posts the travel request header information for a new or existing travel request for the user specified in the OAuth access token. The travel request header contains classification information for the travel request. |   |
-|  Query Parameters - Required |   |
-|
+## Description
+Posts the travel request header information for a new or existing travel request for the user specified in the OAuth access token. The travel request header contains classification information for the travel request.
 
+## Supported Content Types
+* application/xml
+
+## Query Parameters - Required
 * **requests**  
 The requests keyword.
 
