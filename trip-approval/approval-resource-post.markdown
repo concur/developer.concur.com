@@ -16,7 +16,7 @@ Updates the specified trip as approved or rejected by the supplied approver. Can
 
 ## Content type
 application/xml
-
+ 
 
 ## Authorization header
 The Authorization header must have an OAuth token for valid Concur trip approver.
