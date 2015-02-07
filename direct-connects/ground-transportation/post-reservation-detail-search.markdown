@@ -1,59 +1,84 @@
 ---
-title: Ground Transportation 
+title: Ground Transportation - Post Reservation Detail Search
 layout: operation
 ---
 
+## Request
+The following request is sent to the supplier when the Travel user selects a ground transportation reservation to get additional details.
+
+## URI
+The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
+`https://{servername}/concur/groundtransportation`
+
+The URI is configured by the supplier when registering the partner application.
+
+## Request Headers - Required
+Authorization header with OAuth credentials. Refer to the OAuth documentation for more information.
+
+## Request Headers - Optional
+None
+
+## Request Body
+The request will contain a CC_LimoReservationDetailRequest parent element, containing the following child element:
+
+|Element Name|Required/Optional|Data Type|Description|
+| ---------- | --------------- |-------- |-----------|
+|ReservationID| | |The unique identifier for the reservation. Returned in the ReservationID element by the response of the Post Reservation Sell function.|
 
 
+####XML Example Request
 
+```
+POST /concur/groundtransportation HTTPS/1.1
+Host: example.com
+Authorization: Basic ...
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-| ----- |
-|  Element |  Required (must contain value)? |  Description |
-|  Error |  Y |  The error information, if an error occurred. This parent element contains the following child elements:
+<CC_LimoReservationDetailRequest>
+ <ReservationID>1234</ReservationID>
+</CC_LimoReservationDetailRequest>
+```
 
-|  ErrorCode |  The code for the error. Will contain one of the following values:  
-400: Credential related error  
-700: Reservation not available  
-900: Unknown error |
-|  ErrorSource |  The source of the error. |   | | |
-|  ErrorDescription |  The additional error information. |
+## Response
+The supplier responds to the request by supplying the full reservation details.
 
- |
-|  ReservationID |  N |  The identifier for the reservation. |
-|  Status |  N |  The status of the reservation. The value will be one of the following:
+### Content Type
+application/xml
 
+### Content Body
+The response will include a CC_LimoReservationDetailReply parent element, with the following child elements:
+
+|Element Name|Required/Optional|Data Type|Description|
+|------------|-----------------|---------|-----------|
+|Error |Y | |The error information, if an error occurred. This parent element contains the following [child elements](#error):
+|ReservationID |N | |  The identifier for the reservation. |
+|Status |N | |The status of the reservation. The value will be one of the following:
 RB: Reservation Pending  
 RA: Reservation Accepted (Reserved)  
 RD: Reservation Declined  
 XB: Cancellation Pending  
 XA: Cancellation Confirmed (Cancelled)  
-XD: Cancellation Declined
-
- |
-|  ConfNum |  N |  The confirmation number for the reservation. |
-|  CancelPolicy |  N |  The cancellation policy for the reservation. |
-|  CancelNum |  N |  The cancellation number for the reservation. |
-|  PrimaryPassenger |  Y |  The passenger contact name for the reservation. This parent element contains the following child elements:
-
-|  FirstName |  The contact's first name. |
-|  LastName |  The contact's last name. |   | | |
-|  Phone |  The contact's phone number. |
-|  Phone2 |  The contact's backup phone number. |
-|  CellPhone |  The contact's cell phone number. |
-|  EmailAddress |  The contact's email address. |
-
- |
-|  ServiceType |  Y |  The type of service requested. Will contain one of the following values:
-
+XD: Cancellation Declined|
+|ConfNum |N |  |The confirmation number for the reservation. |
+|CancelPolicy |N |  |The cancellation policy for the reservation. |
+|CancelNum |N |  |The cancellation number for the reservation. |
+|PrimaryPassenger |Y |  |The passenger contact name for the reservation. This parent element contains the following [child elements](#PrimaryPassenger)|
+|ServiceType | Y | |The type of service requested. Will contain one of the following values:
 100: Point to point  
 110: One way to airport  
 111: One way from airport  
 120: One way to train station  
 121: One way from train station  
 200: Hourly  
-300: Airport to airport
+300: Airport to airport|
 
- |
+
+
+
+
+
+
 |  ClassOfService |  N |  The requested service class. Will contain one of the following values:
 
 100: Normal  
@@ -166,6 +191,32 @@ zh-tw: Traditional Chinese
 |  RateDisclaimer |  N |  Disclaimer text about the rate. |
 |  ProviderFeedback |  N |  Any additional feedback from the supplier. |
 |  AccountingInfo |  N |  The accounting information for the reservation. This parent element contains the following child elements:
+
+#### Error Child Elements <a name="Error"></a>
+|Element Name|Required/Optional|Data Type|Description|
+| ---------- | --------------- |-------- |-----------|
+|  ErrorCode | | |The code for the error. Will contain one of the following values:  
+400: Credential related error  
+700: Reservation not available  
+900: Unknown error |
+|ErrorSource | | |The source of the error. |
+|ErrorDescription| | |The additional error information. |
+
+#### PrimaryPassenger Child Element <a name="PrimaryPassenger"></a>
+|Element Name|Required/Optional|Data Type|Description|
+|------------|-----------------|---------|-----------|
+|FirstName |  | |The contact's first name. |
+|LastName | | | The contact's last name. |
+|Phone | | |The contact's phone number. |
+|Phone2 | | |The contact's backup phone number. |
+|CellPhone | | |The contact's cell phone number.|
+|EmailAddress | | |The contact's email address. |
+
+
+
+
+
+
 
 |  AccountingField1  through AccountingField5 |  These fields contain detailed accounting information. |
 
