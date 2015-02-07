@@ -95,7 +95,7 @@ This function returns the full trip details, as documented in the Response of th
 
 If the end user updates an existing reservation which results in a new confirmation number, the old booking must be explicitly cancelled in addition to posting the new booking to Concur.  If the previous booking is not cancelled, the user will see both bookings in their Concur trip list.
 
-* [HTTp Status Codes][1]
+* [HTTP Status Codes][1]
 
 
 ## Examples
@@ -271,7 +271,7 @@ If the booking is not found, the function returns a HTTP 404 error and the follo
 
 **Status**: This element contains the value: NotFound.
 
-* [HTTp Status Codes][1]
+* [HTTP Status Codes][1]
 
 ## Examples
 
