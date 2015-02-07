@@ -53,7 +53,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |------------|-----------------|---------|-----------|
 |Error |Y | |The error information, if an error occurred. This parent element contains the following [child elements](#error):
 |ReservationID |N | |  The identifier for the reservation. |
-|Status |N | |The status of the reservation. The value will be one of the following: RB: Reservation Pending RA: Reservation Accepted (Reserved) RD: Reservation Declined XB: Cancellation Pending XA: Cancellation Confirmed (Cancelled) XD: Cancellation Declined|
+|Status |N | |The status of the reservation. The value will be one of the following: <br>RB: Reservation Pending <br>RA: Reservation Accepted (Reserved) <br>RD: Reservation Declined <br>XB: Cancellation Pending <br>XA: Cancellation Confirmed (Cancelled) <br>XD: Cancellation Declined|
 |ConfNum |N |  |The confirmation number for the reservation. |
 |CancelPolicy |N |  |The cancellation policy for the reservation. |
 |CancelNum |N |  |The cancellation number for the reservation. |
