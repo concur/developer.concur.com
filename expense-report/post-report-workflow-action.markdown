@@ -37,7 +37,7 @@ The Approver role is used when the workflow action should be completed by a part
 <dt>{workflowstepID}/workflowaction</dt>
 <dd>The identifier for the desired workflow step and the workflowaction keyword.</dd>
 <dt>Example</dt>
-<dd>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{workflowstepId}/workflowaction</dd>
+<dd>`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{workflowstepId}/workflowaction`</dd>
 <dt>URI Source<dt>
 <dd>The URI is returned in the WorkflowActionURL element of the Get Report Details response.<dd>
 </dl>
