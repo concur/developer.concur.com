@@ -72,25 +72,6 @@ This function requires as its arguments a **UserBatch** element containing a **U
 |  NewEmployeeID |  Optional | string | Use this element to change the Employee ID for an existing employee. Maximum 48 characters. |
 
 
-
-
-
-
-
-
-
-
-## **See also**
-
-To learn the required fields, use the [Employee Form Field][1] resource.
-
-To update user passwords, use the [User Password][2] resource.
-
-[HTTP Status Codes][7]
-
-[User Errors][8]
-
-
 ## **Response**
 
 This request will return a user-batch-result parent element.
@@ -214,7 +195,18 @@ The request will return the **errors** parent element with an **error** parent e
         </UserDetails>
     </user-batch-result>
 
-  
+ 
+ 
+ ## **See also**
+
+To learn the required fields, use the [Employee Form Field][1] resource.
+
+To update user passwords, use the [User Password][2] resource.
+
+[HTTP Status Codes][7]
+
+[User Errors][8]
+
 
 
 [1]: https://developer.concur.com/users/employee-form-field-resource
