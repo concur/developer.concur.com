@@ -110,94 +110,99 @@ The request will return the **errors** parent element with an **error** parent e
 |  message |  The error message. |
 
 
-####  XML Example Request
+## **Examples** 
 
-    POST /api/user/v1.0/Users HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    Content-Type: application/xml
-    ...
+### Example 1: Post users  
 
-    <batch xmlns="http://www.concursolutions.com/api/user/2011/02">
-        <UserProfile>
-            <EmpId>345678</EmpId>
-            <FeedRecordNumber>1</FeedRecordNumber>
-            <LoginId>tb@example.com</LoginId>
-            <LocaleName>en_US</LocaleName>
-            <Active>Y</Active>
-            <Password>password</Password>
-            <FirstName>Terry</FirstName>
-            <LastName>Brown</LastName>
-            <Mi>L</Mi>
-            <EmailAddress>tb@example.com</EmailAddress>
-            <LedgerKey>DEFAULT</LedgerKey>
-            <OrgUnit1>R&amp;D</OrgUnit1>
-            <OrgUnit2></OrgUnit2>
-            <OrgUnit3></OrgUnit3>
-            <Custom1>Redmond</Custom1>
-            <CtryCode>US</CtryCode>
-            <CrnKey>USD</CrnKey>
-            <CtrySubCode>US-WA</CtrySubCode>
-            <ExpenseUser>Y</ExpenseUser>
-            <ExpenseApprover>Y</ExpenseApprover>
-            <TripUser>Y</TripUser>
-            <InvoiceUser>N</InvoiceUser>
-            <InvoiceApprover>N</InvoiceApprover>
-            <ExpenseApproverEmployeeID>12345</ExpenseApproverEmployeeID>
-        </UserProfile>
-        <UserProfile>
-            <EmpId>456789</EmpId>
-            <FeedRecordNumber>2</FeedRecordNumber>
-            <LoginId>cm@example.com</LoginId>
-            <LocaleName>en_US</LocaleName>
-            <Active>Y</Active>
-            <Password>password</Password>
-            <FirstName>Chris</FirstName>
-            <LastName>Miller</LastName>
-            <Mi>T</Mi>
-            <EmailAddress>cm@example.com</EmailAddress>
-            <LedgerKey>Default</LedgerKey>
-            <OrgUnit1>R&amp;D</OrgUnit1>
-            <OrgUnit2></OrgUnit2>
-            <OrgUnit3></OrgUnit3>
-            <Custom1>Redmond</Custom1>
-            <CtryCode>US</CtryCode>
-            <CrnKey>USD</CrnKey>
-            <CtrySubCode>US-WA</CtrySubCode>
-            <ExpenseUser>Y</ExpenseUser>
-            <ExpenseApprover>N</ExpenseApprover>
-            <TripUser>Y</TripUser>
-            <InvoiceUser>N</InvoiceUser>
-            <InvoiceApprover>N</InvoiceApprover>
-            <ExpenseApproverEmployeeID>345678</ExpenseApproverEmployeeID>
-        </UserProfile>
-    </batch>
+#### **Request** 
 
+```
+POST https://www.concursolutions.com/api/user/v1.0/Users HTTP/1.1 
+Authorization: OAuth {access token}
+Content-Type: application/xml
+<batch xmlns="http://www.concursolutions.com/api/user/2011/02">
+    <UserProfile>
+        <EmpId>345678</EmpId> 
+        <FeedRecordNumber>1</FeedRecordNumber>
+        <LoginId>tb@example.com</LoginId>
+        <LocaleName>en_US</LocaleName> 
+        <Active>Y</Active> 
+        <Password>password</Password> 
+        <FirstName>Terry</FirstName>
+        <LastName>Brown</LastName> 
+        <Mi>L</Mi> 
+        <EmailAddress>tb@example.com</EmailAddress>
+        <LedgerKey>DEFAULT</LedgerKey>
+        <OrgUnit1>R&amp;D</OrgUnit1> 
+        <OrgUnit2></OrgUnit2> 
+        <OrgUnit3></OrgUnit3>
+        <Custom1>Redmond</Custom1> 
+        <CtryCode>US</CtryCode>
+        <CrnKey>USD</CrnKey>
+        <CtrySubCode>US-WA</CtrySubCode> 
+        <ExpenseUser>Y</ExpenseUser> 
+        <ExpenseApprover>Y</ExpenseApprover> 
+        <TripUser>Y</TripUser> 
+        <InvoiceUser>N</InvoiceUser> 
+        <InvoiceApprover>N</InvoiceApprover>
+        <ExpenseApproverEmployeeID>12345</ExpenseApproverEmployeeID> 
+    </UserProfile> 
+    <UserProfile> 
+        <EmpId>456789</EmpId> 
+        <FeedRecordNumber>2</FeedRecordNumber>
+        <LoginId>cm@example.com</LoginId>
+        <LocaleName>en_US</LocaleName> 
+        <Active>Y</Active> 
+        <Password>password</Password> 
+        <FirstName>Chris</FirstName>
+        <LastName>Miller</LastName> 
+        <Mi>T</Mi> 
+        <EmailAddress>cm@example.com</EmailAddress>
+        <LedgerKey>Default</LedgerKey>
+        <OrgUnit1>R&amp;D</OrgUnit1> 
+        <OrgUnit2></OrgUnit2> 
+        <OrgUnit3></OrgUnit3>
+        <Custom1>Redmond</Custom1> 
+        <CtryCode>US</CtryCode>
+        <CrnKey>USD</CrnKey>
+        <CtrySubCode>US-WA</CtrySubCode> 
+        <ExpenseUser>Y</ExpenseUser> 
+        <ExpenseApprover>N</ExpenseApprover> 
+        <TripUser>Y</TripUser> 
+        <InvoiceUser>N</InvoiceUser> 
+        <InvoiceApprover>N</InvoiceApprover>
+        <ExpenseApproverEmployeeID>345678</ExpenseApproverEmployeeID>
+    </UserProfile> 
+</batch>
+```
 
-####  XML Example Response with Success and Failure
+#### **Response**
 
-    <user-batch-result xmlns="http://www.concursolutions.com/api/user/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <records-succeeded>1</records-succeeded>
-        <records-failed>1</records-failed>
-        <errors>
-            <error>
-                <EmployeeID>456789</EmployeeID>
-                <FeedRecordNumber>2</FeedRecordNumber>
-                <message>MISSING_REQUIRED_FIELDS:Active</message>
-            </error>
-        </errors>
-        <UserDetails>
-            <UserInfo>
-                <EmployeeID>345678</EmployeeID>
-                <FeedRecordNumber>1</FeedRecordNumber>
-                <Status>SUCCESS</Status>
-            </UserInfo>
-        </UserDetails>
-    </user-batch-result>
+XML Example Response with Success and Failure
 
+```
+<user-batch-result xmlns="http://www.concursolutions.com/api/user/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"> 
+    <records-succeeded>1</records-succeeded> 
+    <records-failed>1</records-failed> 
+    <errors> 
+        <error> 
+            <EmployeeID>456789</EmployeeID> 
+            <FeedRecordNumber>2</FeedRecordNumber> 
+            <message>MISSING_REQUIRED_FIELDS:Active</message> 
+        </error> 
+    </errors> 
+    <UserDetails> 
+        <UserInfo> 
+            <EmployeeID>345678</EmployeeID> 
+            <FeedRecordNumber>1</FeedRecordNumber> 
+            <Status>SUCCESS</Status> 
+        </UserInfo> 
+    </UserDetails> 
+</user-batch-result> 
+```
  
- 
- ## **See also**
+
+## **See also**
 
 To learn the required fields, use the [Employee Form Field][1] resource.
 
