@@ -64,6 +64,7 @@ This request will return a TripApprovalRS parent element with a matching Transac
 |  ApproverLogin |  Y |  The Travel approver's login ID. |
 |  Action |  Y |  The workflow action to take. Supported values are approve, reject. |
 
+
 ## Examples
 
 ### Example 1: XML Example of Successful Response
