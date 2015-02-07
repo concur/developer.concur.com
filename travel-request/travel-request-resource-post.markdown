@@ -76,10 +76,10 @@ This request should contain a **Request** parent element with the following chil
 ## HTTP Responses
 * [HTTP Status Codes][4]
 
-Supported Content Types
+## Supported Content Types
 * application/xml
 
-Content Body
+## Content Body
 This request will return a **RequestStatus** parent element with the following child elements:
 
 |  Element     |  Description |
@@ -118,12 +118,10 @@ If saving the travel request header triggers an exception, a **RequestExceptions
         </RequestExceptions>
     </RequestStatus>
 
-##  Post Travel Request Workflow Action Request
+#  Post Travel Request Workflow Action Request
 
-| ----- |
-|  Description |
-|  Posts a workflow action for the supplied travel request. The workflow action moves the travel request through the workflow process. The available actions are:
-
+## Description
+Posts a workflow action for the supplied travel request. The workflow action moves the travel request through the workflow process. The available actions are:
 * **Approve**: The travel request is approved for the current workflow approver. The travel request will continue in the workflow, and may require additional approvals based on configuration.
 * **Send Back to Employee**: The travel request is sent back to the employee for revision. This workflow action is used by the approvers and processors when they discover an error that must be corrected by the user. When the user resubmits the travel request, it goes through the entire workflow again.
 * **Recall to Employee**: This workflow action is initiated by the employee, and is only available after the travel request has been submitted. This workflow action will rarely be used by developers, and may not be available to some clients due to configuration.
