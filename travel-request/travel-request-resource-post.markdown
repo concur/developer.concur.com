@@ -37,13 +37,14 @@ The OAuth consumer for this request must have the following role in Travel Reque
 ## Request Headers - Optional
 * None
 
-## Content Body |   |
-|  This request should contain a **Request** parent element with the following child elements:
+## Content Body
+This request should contain a **Request** parent element with the following child elements:
 
 |  Element |  Required (must contain value)? |  Description |
-|  Name |  Y |  The travel request name. |   |
-|  Purpose |  Depends on configuration |  The business purpose of the travel request. Maximum length: 2000. |
-|  Comment |  Depends on configuration |  The travel request header comment. |
+|----------|---------------------------------|--------------|
+|  Name    |  Y                              |  The travel request name. |
+|  Purpose |  Depends on configuration       |  The business purpose of the travel request. Maximum length: 2000. |
+|  Comment |  Depends on configuration       |  The travel request header comment. |
 |  Custom1 through Custom20 |  Depends on configuration |
 
 The custom fields on the travel request Header form. May be required depending on configuration.
