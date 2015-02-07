@@ -9,7 +9,7 @@ layout: operation
 * Retrieves the list of payment batches with an optional requested status. 
 
 ## Resource URI
-https://www.concursolutions.com/api/expense/paymentbatch/v1.1/batchlist 
+* https://www.concursolutions.com/api/expense/paymentbatch/v1.1/batchlist 
 
 ## Supported Accept Types 
 * application/xml
@@ -29,7 +29,7 @@ The OAuth consumer must have one of the following user roles in Concur: Company 
 
 These roles allow the user to manage data for the entire company.
 
-Request Headers - Optional
+## Request Headers - Optional
 * None
 
 ####  XML Example Request
