@@ -9,8 +9,6 @@ acconnect is a command-line tool that obtains a request token for the specified 
 
 ## Requirements
 
-The following are the system requirements for this tool:
-
 * Windows XP or later Windows operating system. If you're using Mac OS X, you will need to run a Windows VM such as Parallels Desktop in order to use the tool
 * You must be an administrator on the local computer.
 
@@ -19,15 +17,13 @@ The following are the system requirements for this tool:
 **acconnect.exe** [**environment**] **consumerKey** **consumerSecret** **scope** **username** **password** **redirectURL**
 
 **environment**
-
-   Optional. If the environment argument isn't specified, the environment will default to the production environment. The environment argument can also be one of the following:
+  Optional. If the environment argument isn't specified, the environment will default to the production environment. The environment argument can also be one of the following:
 * **PROD** – Production environment.
 * **RQA[n]** – Where [n] is the number of the RQA environment you want to use for authentication.
 * [custom-url] – A custom URL, for example to a development VM.
 
 **consumerKey**
-
-   Required. Specifies the consumer key for the application.
+  Required. Specifies the consumer key for the application.
 
 **consumerSecret**
 
