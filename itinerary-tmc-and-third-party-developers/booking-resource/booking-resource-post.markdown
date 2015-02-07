@@ -62,14 +62,6 @@ The request contains a Booking parent element with the following child elements:
 |-------------------|----------------|
 |  NameFirst |  The first name of the passenger. |  
 |  NameLast |  The last name of the passenger. |
-|  Optional Elements |   |
-|  NameMiddle |  The middle name of the passenger. |
-|  NamePrefix |  The name prefix of the passenger. |
-|  NameRemark |  Additional details about the passenger's name. |
-|  NameSuffix |  The name suffix of the passenger. |
-|  NameTitle |  The title of the passenger. |
-|  TextName |  The user's full name as entered in the booking tool if different from the name in the database. |
-|  FrequentTravelerProgram |  Passenger's loyalty programs |
 
 
 |  Optional Element |  Description   |
