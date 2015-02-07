@@ -51,6 +51,20 @@ The response contains a **BatchStatus** parent element with the following child 
 |  Status |  The status of the request to close the batch. |
 |  JobQueueKey |  The unique identifier for the batch job. |
 
+####  XML Example of Successful Response
+
+    200 OK
+    Content-Type: application/xml
+
+    <BatchStatus xmlns="http://www.concursolutions.com/api/expense/paymentbatch/2011/11" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <BatchStatus>CLOSED</BatchStatus>
+        <File-Url>http:// www.concursolutions.com/api/expense/paymentbatch/v1.1/batch/n$s4MtBKgvoJxAYcbggR7eD2jRU$sxYjePU/file</File-Url>
+        <Status>SUCCESS</Status>
+        <JobQueueKey>d$wIUEkl72LW299WTjTlskdy</JobQueueKey>
+    </BatchStatus>
+
+  
+
 
 [1]: https://developer.concur.com/payment-batch-file/payment-batch-resource/get-list-payment-batches
 [2]: https://developer.concur.com/reference/http-codes
