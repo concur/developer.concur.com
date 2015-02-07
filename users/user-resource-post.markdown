@@ -4,66 +4,92 @@ layout: operation
 ---
 
 
+## **Description**
+
+Adds or updates one or more users. The batch can contain up to 500 users.
+
+## **Request**
+
+This resource supports the following POST actions: Post New or Updated Users Request
+
+```
+GET {InstanceURI}/api/user/v1.0/Users HTTP/1.1
+Authorization: OAuth {access token}
+Content-Type: application/xml
+```
+
+### **Content type**
+
+* application/xml
+
+### **Authorization header**
+
+Authorization header with OAuth token for a valid Concur user.
+
+### **Request Parameters**
+
+#### **Required**
+
+None
+
+#### **Optional**
+
+None
+
+### Request body root elements
+
+This function requires as its arguments a batch element containing a UserProfile child element for each user to be added or updated. The UserProfile child elements will vary depending on the form configuration, and may contain the following elements:
 
 
-This resource supports the following POST actions:
+This function requires as its arguments a **UserBatch** element containing a **User** child element for each user. The **User** element must have the following elements:  
 
-##  Post New or Updated Users Request
+|  Element |  Required/Optional | Data Type | Description |
+|----------|--------------------|-----------|-------------|
+|  EmpId |  Required | string |  The unique identifier for the user. The default value is the user's email address. Maximum 48 characters. |  
+|  FeedRecordNumber |  Required | int32 | The record number in the current batch. |
+|  LoginId |  Required | string | The user's logon ID. The default value is the user's email address. Maximum 128 characters. |
+|  LocaleName |  Optional | string | The user's language locale code. Maximum 5 characters. One of the [Supported Locales][3]. Example: United States English is en_US. The supported languages vary by company but always include en_US. |
+|  Active |  Optional | string | Whether the user is currently active. Format: Y/N. |
+|  Password |  Required | string | The user's password. This element can be used to enter the password for a new user, but cannot be used to update the password for an existing user.  Maximum 255 characters.  **NOTE**: This information is encrypted in the Concur database. |
+|  FirstName |  Depends on configuration | string |  The user's first name. Maximum 32 characters. |
+|  LastName |  Depends on configuration | string | The user's last name. Maximum 32 characters. |
+|  Mi |  Optional | string | The user's middle initial. Maximum 1 character. |
+|  EmailAddress |  Depends on configuration | string | The user's email address. Maximum 255 characters. |
+|  LedgerKey |  Optional | string | The user's assigned account code ledger. Maximum 20 characters. Example: Default. |
+|  OrgUnit1 through OrgUnit6 |  Depends on configuration | string | The custom organizational unit fields on the Employee form. Varies depending on configuration. Use the [Employee Form Field][1] resource to get the list of configured fields. Maximum 48 characters for each field. |
+|  Custom1 through Custom21 |  Depends on configuration | string | The custom fields on the Employee form. Varies depending on configuration. Use the [Employee Form Field][1] resource to get the list of configured fields. Maximum 48 characters. **NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][4] page for information on how to correctly submit list item values.|
+|  CtryCode |  Depends on configuration | string | The[ ISO 3166-1 alpha-2][5] country code. Maximum 2 characters. Example: United States is US. |
+|  CashAdvanceAccountCode |  Depends on configuration | string | The user's account code for cash advances. Maximum 20 characters. |
+|  CrnKey |  Depends on configuration |  string | The [3-letter ISO 4217 currency code][6] for the user's reimbursement currency. Maximum 3 characters. Example: United States Dollar is USD. |
+|  CtrySubCode |  Depends on configuration |  string | The user's two-character country code and two-character state or province code. Maximum 2 characters. Example: Washington State, United States is US-WA. |
+|  ExpenseUser |  Optional | string | Whether the user has access to Expense. Format: Y/N. |
+|  ExpenseApprover |  Optional | string | Whether the user is an Expense approver. Format: Y/N. |
+|  TripUser |  Optional | string |  Whether the user has access to Travel. Format: Y/N. |
+|  InvoiceUser |  Optional | string | Whether the user has access to Invoice. Format: Y/N. |
+|  InvoiceApprover |  Optional | string | Whether the user is an Invoice approver. Format: Y/N. |
+|  ExpenseApproverEmployeeID |  Optional | string | The employee ID of the user's Expense approver. Maximum 48 characters.If you are importing both a user and their approver, the approver should be listed before the user in the batch. |
+|  NewLoginID |  Optional | string | Use this element to change the Login ID for an existing employee. Maximum 128 characters. |
+|  NewEmployeeID |  Optional | string | Use this element to change the Employee ID for an existing employee. Maximum 48 characters. |
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Adds or updates one or more users. The batch can contain up to 500 users.
+
+
+
+
+
+
+
+
+
+
 
 To learn the required fields, use the [Employee Form Field][1] resource.
 
 To update user passwords, use the [User Password][2] resource.
 
- |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|  None |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user at the company. |  None |
-|  Content Body |   |
-|  This function requires as its arguments a **batch** element containing a **UserProfile** child element for each user to be added or updated. The **UserProfile** child elements will vary depending on the form configuration, and may contain the following elements:  
 
-|  Element |  Required (must contain value)? |  Description |
-|  EmpId |  Y |  The unique identifier for the user. The default value is the user's email address. Maximum 48 characters. |   |
-|  FeedRecordNumber |  Y |  The record number in the current batch. |
-|  LoginId |  Y |  The user's logon ID. The default value is the user's email address. Maximum 128 characters. |
-|  LocaleName |  N |  The user's language locale code. Maximum 5 characters. One of the [Supported Locales][3]. Example: United States English is en_US. The supported languages vary by company but always include en_US. |
-|  Active |  N |  Whether the user is currently active. Format: Y/N. |
-|  Password |  Y |  The user's password. This element can be used to enter the password for a new user, but cannot be used to update the password for an existing user.  
-Maximum 255 characters.  
-**NOTE**: This information is encrypted in the Concur database. |
-|  FirstName |  Depends on configuration |  The user's first name. Maximum 32 characters. |
-|  LastName |  Depends on configuration |  The user's last name. Maximum 32 characters. |
-|  Mi |  N |  The user's middle initial. Maximum 1 character. |
-|  EmailAddress |  Depends on configuration |  The user's email address. Maximum 255 characters. |
-|  LedgerKey |  N |  The user's assigned account code ledger. Maximum 20 characters. Example: Default. |
-|  OrgUnit1 through OrgUnit6 |  Depends on configuration |  The custom organizational unit fields on the Employee form. Varies depending on configuration. Use the [Employee Form Field][1] resource to get the list of configured fields.  
-Maximum 48 characters for each field. |
-|  Custom1 through Custom21 |  Depends on configuration |
 
-The custom fields on the Employee form. Varies depending on configuration. Use the [Employee Form Field][1] resource to get the list of configured fields.  
-Maximum 48 characters.
 
-**NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][4] page for information on how to correctly submit list item values.
-
- |
-|  CtryCode |  Depends on configuration |  The[ ISO 3166-1 alpha-2][5] country code. Maximum 2 characters. Example: United States is US. |
-|  CashAdvanceAccountCode |  Depends on configuration |  The user's account code for cash advances. Maximum 20 characters. |
-|  CrnKey |  Depends on configuration |  The [3-letter ISO 4217 currency code][6] for the user's reimbursement currency. Maximum 3 characters. Example: United States Dollar is USD. |
-|  CtrySubCode |  Depends on configuration |  The user's two-character country code and two-character state or province code. Maximum 2 characters. Example: Washington State, United States is US-WA. |
-|  ExpenseUser |  N |  Whether the user has access to Expense. Format: Y/N. |
-|  ExpenseApprover |  N |  Whether the user is an Expense approver. Format: Y/N. |
-|  TripUser |  N |  Whether the user has access to Travel. Format: Y/N. |
-|  InvoiceUser |  N |  Whether the user has access to Invoice. Format: Y/N. |
-|  InvoiceApprover |  N |  Whether the user is an Invoice approver. Format: Y/N. |
-|  ExpenseApproverEmployeeID |  N |  The employee ID of the user's Expense approver. Maximum 48 characters.If you are importing both a user and their approver, the approver should be listed before the user in the batch. |
-|  NewLoginID |  N |  Use this element to change the Login ID for an existing employee. Maximum 128 characters. |
-|  NewEmployeeID |  N |  Use this element to change the Employee ID for an existing employee. Maximum 48 characters. |
-
- |
+ 
 
 ####  XML Example Request
 
