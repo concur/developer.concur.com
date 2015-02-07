@@ -87,10 +87,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 #### Error Child Elements <a name="Error"></a>
 |Element Name|Required/Optional|Data Type|Description|
 | ---------- | --------------- |-------- |-----------|
-|  ErrorCode | | |The code for the error. Will contain one of the following values:  
-400: Credential related error  
-700: Reservation not available  
-900: Unknown error |
+|  ErrorCode | | |The code for the error. Will contain one of the following values: <br>400: Credential related error <br>700: Reservation not available <br>900: Unknown error |
 |ErrorSource | | |The source of the error. |
 |ErrorDescription| | |The additional error information. |
 
