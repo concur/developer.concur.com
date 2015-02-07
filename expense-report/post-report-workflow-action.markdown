@@ -1,16 +1,14 @@
 ---
-title: Expense Report Resource
+title: Post an expense report workflow action
 layout: operation
 ---
 
+## Description
+Posts a workflow action for the supplied expense report. The workflow action moves the expense report through the workflow process. 
 
+### Workflow actions
 
-
-##  POST Report Workflow Action Request
-
-| ----- |
-|  Description |
-|  Posts a workflow action for the supplied expense report. The workflow action moves the expense report through the workflow process. The available actions are:
+The available actions are:
 
 * **Approve**: The report successfully completes the current workflow step. The report will continue in the workflow, and may require additional approvals based on configuration. If the report was in the Processing Payment status, it will be moved to the Paid status.  
 **NOTE**: Reports can't be moved from Processing Payment to Paid until all of their expense entries have been extracted or manually paid. Wait until the extract process completes for the report, then send the Approve workflow action.
@@ -19,34 +17,65 @@ layout: operation
 
 **WARNING:  **Prior to calling this endpoint the Caller _must_ check the Approval Status found in the **ApprovalStatusName** element in the response for [Get Report Details][1] to ensure the report is at the workflow step the Caller expects.  Under no circumstance should a Caller make a call to this endpoint without being certain the report is at the workflow step the Caller expects.
 
- |
-|  Two Different Workflow Roles |
-|  Each workflow step in a workflow is associated with a workflow role. Professional clients can configure workflow steps and roles in the Workflows area of Expense Admin. The OAuth consumer is evaluated to determine which role(s) the consumer has in Concur. There are two different types of workflow roles:
+### Workflow roles
+Each workflow step in a workflow is associated with a workflow role. Professional clients can configure workflow steps and roles in the Workflows area of Expense Admin. The OAuth consumer is evaluated to determine which role(s) the consumer has in Concur. There are two different types of workflow roles as described in the following sections.
 
-The System role is used when the workflow actions can be completed programatically. Any workflow action can be completed this way, depending on the client's business process. The workflow role can be configured while adding the report workflow step. Some steps may require the System role. When using this role, the OAuth consumer must have the following user role: Standard/Developer Sandbox: Can Administer, Professional: Company Admin or Web Services Administrator. The expense report owner must have an approver or processor assigned to them before the System role can make changes to their reports.
+#### System role
+The System role is used when the workflow actions can be completed programatically. Any workflow action can be completed this way, depending on the client's business process. The workflow role can be configured while adding the report workflow step. Some steps may require the System role. When using this role, the OAuth consumer must have the following user role:
+* Standard/Developer Sandbox: Can Administer
+* Professional: Company Admin or Web Services Administrator. 
+The expense report owner must have an approver or processor assigned to them before the System role can make changes to their reports.
 
-The Approver role is used when the workflow action should be completed by a particular user. Developers who want to present a list of reports to approve and send the workflow action when the reports have been evaluated by the approver use the Approver role. This role requires that a user with the correct Concur role (Expense Approver, Authorized Approver, Cost Object Approver, or Expense Processor for Professional, or the Can Administer or Can Approve Reports roles for Standard) authenticates using Standard OAuth before supplying the workflow action. The user must also have access (be a valid approver or processor) for the supplied report Id.
+#### Approver role
 
- |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
+The Approver role is used when the workflow action should be completed by a particular user. Developers who want to present a list of reports to approve and send the workflow action when the reports have been evaluated by the approver use the Approver role. This role requires that a user with the correct Concur role (Expense Approver, Authorized Approver, Cost Object Approver, or Expense Processor for Professional, or the Can Administer or Can Approve Reports roles for Standard) authenticates using Standard OAuth before supplying the workflow action. The user must also have access (be a valid approver or processor) for the supplied report ID.
 
-* **{_workflowstepID_}/workflowaction**  
-The identifier for the desired workflow step and the workflowaction keyword.
+## Request
 
-Example: <https://www.concursolutions.com/api/expense/expensereport/v1.1/report/>  
-{_workflowstepId_}/workflowaction
+### Query parameters
+<dl>
+<dt>{workflowstepID}/workflowaction</dt>
+<dd>The identifier for the desired workflow step and the workflowaction keyword.</dd>
+<dt>Example</dt>
+<dd>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{workflowstepId}/workflowaction</dd>
+<dt>URI Source<dt>
+<dd>The URI is returned in the WorkflowActionURL element of the Get Report Details response.<dd>
+</dl>
 
-**URI Source**: The URI is returned in the **WorkflowActionURL** element of the [Get Report Details][1] response.
+### Request headers
+Authorization header with OAuth token for valid Concur user. Required.
 
- |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. |  None |
 
-| Supported Content Types                                                                          |   |
-| ------------------------------------------------------------------------------------------------ |
-| Content Body                                                                                     |
-| This request should contain a **WorkflowAction** parent element with the following child elements:
+## Examples
+
+### Example 1:
+
+#### Request
+
+#### Response
+
+### Example 2:
+
+#### Request
+
+
+
+#### Response
+
+
+
+
+
+
+
+
+
+Supported Content Types
+
+Content Body
+
+
+This request should contain a **WorkflowAction** parent element with the following child elements:
 
 |  Element |  Required (must contain value)? |  Description |
 |  Action |  Y |  The name of the workflow action. Possible values are: **Approve**, ** Send Back to Employee**, or** Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Expense Admin >Workflow to learn details. |   |
