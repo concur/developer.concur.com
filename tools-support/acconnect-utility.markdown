@@ -14,7 +14,7 @@ acconnect is a command-line tool that obtains a request token for the specified 
 
 ## Syntax
 
-**acconnect.exe** [**environment**] **consumerKey** **consumerSecret** **scope** **username** **password** * *"*redirect_URL*"* *
+**acconnect.exe** [**environment**] **consumerKey** **consumerSecret** **scope** **username** **password** **"***redirect_URL***"**
 
 **environment**    
 Optional. If the environment argument isn't specified, the environment will default to the production environment. The environment argument can also be one of the following:
@@ -38,7 +38,7 @@ Required. The username of the specified user.
 **password**    
 Required. The password of the specified user.
 
-* *"*redirect_URL*"* *    
+**"***redirect_URL***"**    
 Required. The URL of the partner application page that receives the request token. The redirect URL must be enclosed in quotes.
 
 
