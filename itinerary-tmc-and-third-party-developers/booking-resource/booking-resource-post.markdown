@@ -48,8 +48,9 @@ The request contains a Booking parent element with the following child elements:
 |  BookingSource |  The supplier's name. |
 |  ItinSourceName |  The itinerary source. Format: TravelSupplier |
 |  RecordLocator |  Record locator for this booking. This is often six alphameric characters but can have other formats depending on the booking source |
-|  Core Elements - Optional |   |
-|  Element |  Description |
+
+|  Optional Element |  Description |
+|-------------------|--------------|
 |  DateBookedLocal |  The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 |  FormOfPaymentName |  The name of the form of payment for the booking. |
 |  FormOfPaymentType |  The type of the form of payment. |
