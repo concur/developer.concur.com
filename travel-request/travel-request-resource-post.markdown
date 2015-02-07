@@ -45,17 +45,11 @@ This request should contain a **Request** parent element with the following chil
 |  Name    |  Y                              |  The travel request name. |
 |  Purpose |  Depends on configuration       |  The business purpose of the travel request. Maximum length: 2000. |
 |  Comment |  Depends on configuration       |  The travel request header comment. |
-|  Custom1 through Custom20 |  Depends on configuration |
-
-The custom fields on the travel request Header form. May be required depending on configuration.
-
-**NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][2] page for information on how to correctly submit list item values.
-
- |
+|  Custom1 through Custom20 |  Depends on configuration | The custom fields on the travel request Header form. May be required depending on configuration.  **NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][2] page for information on how to correctly submit list item values.|
 |  StartDate |  Depends on configuration |  The start date for the travel request. Format: YYYY-MM-DD |
 |  StartTime |  Depends on configuration |  The start time for the travel request. Format: hh:mm:ss |
-|  EndDate |  Depends on configuration |  The end date for the travel request. Format: YYYY-MM-DD |
-|  EndTime |  Depends on configuration |  The end time for the travel request. Format: hh:mm:ss |
+|  EndDate   |  Depends on configuration |  The end date for the travel request. Format: YYYY-MM-DD |
+|  EndTime   |  Depends on configuration |  The end time for the travel request. Format: hh:mm:ss |
 
 **NOTE**:
 
