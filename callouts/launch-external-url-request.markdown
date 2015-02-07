@@ -1,4 +1,4 @@
----
+ ---
 title: Launch External URL Request 
 layout: conceptual
 ---
@@ -31,7 +31,7 @@ The full URI for the request includes the following query string values:
 
 
 | Value | Description |
-|
+|-------|-------------|
 |  xcompanydomain |  The company domain. |   |
 |  xuserid |  The Concur user ID of the logged-in user. This may be an expense delegate instead of the report owner. To get the report owner ID, use the itemurl to get the details of the expense entry, then use those details to get the associated report details, including the report owner ID. |
 |  itemurl |  The URL-encoded URI to access the item the field appears on. An example would be the expense entry URI used by the Expense Report web service. |
