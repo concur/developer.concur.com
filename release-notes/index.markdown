@@ -55,7 +55,7 @@ This page contains release notes for the Concur Developer Platform and the App C
 [1-5]:https://developer.concur.com/sites/default/files/App%20Center%20Release%20Notes_final_Sep2014.pdf
 [1-6]:https://developer.concur.com/sites/default/files/App%20Center%20Release%20Notes_final_Oct222014.pdf
 [1-7]:https://developer.concur.com/sites/default/files/App%20Center%20Release%20Notes_final_Nov142014.pdf
-[1-8]:https://developer.concur.com/sites/default/files/App%20Center%20Release%20Notes_DecFinal_Dec12_2014.pdf
+[1-8]:App%20Center%20Release%20Notes_DecFinal_Dec12_2014.pdf
 
 [2-1]:https://developer.concur.com/sites/default/files/Concur%20Platform%20Release%20Notes_final_October2014.pdf
 [2-2]:https://developer.concur.com/sites/default/files/Concur%20Platform%20Client%20Release%20Notes_draft_June2014.pdf
