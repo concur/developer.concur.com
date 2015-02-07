@@ -58,9 +58,8 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |CancelPolicy |N |  |The cancellation policy for the reservation. |
 |CancelNum |N |  |The cancellation number for the reservation. |
 |PrimaryPassenger |Y |  |The passenger contact name for the reservation. This parent element contains the following [child elements](#PrimaryPassenger)|
-|ServiceType | Y | |The type of service requested. Will contain one of the following values:
-100: Point to point  110: One way to airport  111: One way from airport  120: One way to train station  121: One way from train station  200: Hourly  300: Airport to airport|
-|ClassOfService |  N |  |The requested service class. Will contain one of the following values: 100: Normal 200: High 300: Highest If this value is not provided by the user, it will default to 100.|
+|ServiceType | Y | |The type of service requested. Will contain one of the following values: <br>100: Point to point  <br>110: One way to airport  <br>111: One way from airport  <br>120: One way to train station <br>121: One way from train station  <br>200: Hourly  <br>300: Airport to airport|
+|ClassOfService |  N |  |The requested service class. Will contain one of the following values: <br>100: Normal <br>200: High <br>300: Highest <br> If this value is not provided by the user, it will default to 100.|
 |PickupLocation |Y | |The pick up location. This parent element contains the following [child elements](#PickupLocation)|
 |DropoffLocation |  Y |  |The drop off location. This parent element contains the following [child elements](#DropoffLocation)|
 |StartDateTime |  Y |  |The time, in GMT, that the reservation must begin.  **Format**: 2015-05-19T18:00:00 |
