@@ -1,36 +1,41 @@
 ---
-title: Approval Resource
+title: Approval Resource - POST 
 layout: operation
 ---
 
 
+## Description
+Updates the specified trip as approved or rejected by the supplied approver. Can supply either the ItinLocator or the RecordLocator value.
 
 
-This resource supports the following POST actions:
+## Request
+    POST /api/tws/v1.0/TripApproval/DoApproval HTTPS 1.1
+    Host: www.concursolutions.com
+    Authorization: OAuth {access token}
 
-##  Post Trip Approval Request
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Updates the specified trip as approved or rejected by the supplied approver. Can supply either the ItinLocator or the RecordLocator value. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|  None |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur trip approver. |  None |
-|  Content Body |   |
-|  The request will contain a **TripApprovalRQ** parent element with a TransactionId attribute. The TransactionId value is used to identify request and response pairs, and can contain any alphanumeric string that does not contain special characters. The **TripApprovalRQ** element contains the following child elements:  
+## Content type
+application/xml
 
-|  Element |  Required (must contain value)? |  Description |
-|  Version |  Y |  The version of the web service. Currently 1.0. |   |
-|  ItinLocator |  N |  The Itinerary Services Record Locator (also known as Itin Locator or Trip Locator). NOT the GDS record locator. If value of ItinLocator is unknown, RecordLocator element should be passed instead. |
-|  RecordLocator |  Y, if the ItinLocator is not sent |  The GDS record locator. Should be passed only if the ItinLocator is unknown. |
-|  ApproverLogin |  Y |  The Travel approver's login ID. |
-|  Action |  Y |  The workflow action to take. Supported values are approve, reject. |
 
- |
+## Authorization header
+The Authorization header must have an OAuth token for valid Concur trip approver.
 
-####  XML Example Request
 
+## Request body root elements
+The request will contain a TripApprovalRQ parent element with a TransactionId attribute. The TransactionId value is used to identify request and response pairs, and can contain any alphanumeric string that does not contain special characters. The TripApprovalRQ element contains the following child elements:
+
+| Element | Required (must contain value)? | Description |
+|---------|--------------------------------|-------------|
+| Version |	Y |	The version of the web service. Currently 1.0. |
+| ItinLocator |	N |	The Itinerary Services Record Locator (also known as Itin Locator or Trip Locator). NOT the GDS record locator. If value of ItinLocator is unknown, RecordLocator element should be passed instead. |
+| RecordLocator |	Y, if the ItinLocator is not sent |	The GDS record locator. Should be passed only if the ItinLocator is unknown. |
+| ApproverLogin |	Y |	The Travel approver's login ID. |
+| Action |	Y	| The workflow action to take. Supported values are approve, reject. |
+
+## Examples
+
+### Example 1: XML Example Request
     POST /api/tws/v1.0/TripApproval/DoApproval HTTPS 1.1
     Host: www.concursolutions.com
     Authorization: OAuth {access token}
@@ -42,29 +47,27 @@ This resource supports the following POST actions:
             <Action>approve</Action>
         </TripApprovalRQ>
 
-##  Post Trip Approval Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|
+## Response
+* [HTTP Status Codes][1]
+* [Error Codes][2]
 
-[HTTP Status Codes][1]
 
-[Error Codes][2]
+### Response body root elements
+This request will return a TripApprovalRS parent element with a matching TransactionId attribute. The TripApprovalRS element will contain the following child elements:
 
- |   |
-|  Content Body |   |
-|  This request will return a **TripApprovalRS** parent element with a matching TransactionId attribute. The **TripApprovalRS** element will contain the following child elements:  
+|  Element |  Required (must contain value)? |  Description |
+|----------|---------------------------------|--------------|
+|  Version |  Y |  The version of the web service. Currently 1.0. |
+|  ItinLocator |  N |  The Itinerary Services Record Locator (also known as Itin Locator or Trip Locator). NOT the GDS record locator. If value of ItinLocator is unknown, RecordLocator element should be passed instead. |
+|  RecordLocator |  Y, if the ItinLocator is not sent |  The GDS record locator. Should be passed only if the ItinLocator is unknown. |
+|  ApproverLogin |  Y |  The Travel approver's login ID. |
+|  Action |  Y |  The workflow action to take. Supported values are approve, reject. |
 
-|  Element |  Description |
-|  Version |  The version of the web service. Currently 1.0. |   |
-|  Status |  The status of the trip approval. Returns either success or failure. |
-|  Error |  This element appears only when the approval failed. It contains a Code attribute that provides the error code, and a value that contains the error message. Refer to the [Error Code][2] table. |
 
- |
+## Examples
 
-####  XML Example of Successful Response
-
+### Example 1: XML Example of Successful Response
     200 OK
     Content-Type: application/xml
         <TripApprovalRS TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
@@ -72,8 +75,7 @@ This resource supports the following POST actions:
             <Status>success</Status>
         </TripApprovalRS>
 
-####  XML Example Response with Error
-
+### Example 2: XML Example Response with Error
     200 OK
     Content-Type: application/xml
 
@@ -82,9 +84,6 @@ This resource supports the following POST actions:
             <Status>failure</Status>
             <Error Code="506">No tripId found for this ItinLocator or RecordLocator.</Error>
         </TripApprovalRS>
-
-  
-
 
 [1]: https://developer.concur.com/reference/http-codes
 [2]: https://developer.concur.com/node/397#responses
