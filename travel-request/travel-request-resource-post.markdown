@@ -52,11 +52,9 @@ This request should contain a **Request** parent element with the following chil
 |  EndTime   |  Depends on configuration |  The end time for the travel request. Format: hh:mm:ss |
 
 **NOTE**:
-
 * Refer to the Travel Request Admin user interface for the list of required fields and formats.
- |
 
-####  XML Example Request
+## XML Example Request
 
     POST /api/travelrequest/v1.0/requests HTTPS 1.1
     Host: [www.concursolutions.com][3]
