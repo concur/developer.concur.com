@@ -4,7 +4,7 @@ layout: operation
 ---
 
 
-# Booking Details
+# Post Booking Details
 
 ## Description
 Creates a new booking or updates an existing booking. A new booking will be assigned to the specified trip, or if no trip is specified, the first itinerary that spans the booking dates. If no trip is specified and no itinerary exists that spans the booking dates, a new itinerary will be created.
@@ -58,7 +58,6 @@ The request contains a Booking parent element with the following child elements:
 
 ### **Passengers** child elements:
 
-|------------------------------------|
 |  Required Element |  Description   |
 |-------------------|----------------|
 |  NameFirst |  The first name of the passenger. |  
@@ -73,7 +72,6 @@ The request contains a Booking parent element with the following child elements:
 |  FrequentTravelerProgram |  Passenger's loyalty programs |
 
 
-|------------------------------------|
 |  Optional Element |  Description   |
 |-------------------|----------------|
 |  NameMiddle |  The middle name of the passenger. |
@@ -212,7 +210,7 @@ If the end user updates an existing reservation which results in a new confirmat
 
 
 
-# Booking Cancellation
+# Post Booking Cancellation
 
 ## Description
 Cancels an existing booking. By default, the OAuth consumer should be the owner of the booking. This endpoint can also be used to cancel bookings that the OAuth consumer does not own. This is most often done when a Travel Management Company needs to cancel bookings on behalf of a user. The TMC must be registered with Concur and have a Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
