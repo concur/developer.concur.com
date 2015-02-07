@@ -132,22 +132,27 @@ Each workflow action is associated with a workflow role. The System role is used
 
 The Approver role is used when the workflow step requires an individual to perform an action. Developers who want to present a list of travel requests to approve and send the workflow action when the travel requests have been evaluated by the approver use the Approver role. This role requires that a user with the correct Concur role (Request Approver, or Request Processor for Professional) authenticates using Standard OAuth before supplying the workflow action. The user must also have access (be a valid approver or processor) for the supplied Request Id.
 
- |
+## Supported Content Types
+* application/xml
 
-| Supported Content Types     |
-| --------------------------- |
-| Query Parameters - Required | Query Parameters - Optional |
-* **requests/{_workflowstepId_}/workflowaction**  
-The requests and workflowaction keywords and the unique identifier for the desired workflow step.
+## Query Parameters - Required
+
+* **requests/{_workflowstepId_}/workflowaction**   The requests and workflowaction keywords and the unique identifier for the desired workflow step.
 
 Example: https://www.concursolutions.com/api/travelrequest/v1.0/requests/{_workflowstepId_}/workflowaction  
 **URI Source**: The URI is the **WorkflowStepURL** element found in the response of the [Get Request Details][1] endpoint. The workflowstepId must match the current workflow step of the travel request. Use the [Get Requests Details][1] endpoint immediately prior to sending this request to guarantee that you have the current **WorkflowStepURL**.
 
- |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  **Authorization** header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  None |
-|  Content Body |   |
-|  This request should contain a **WorkflowAction** parent element with the following child elements:
+## Query Parameters - Optional
+* None
+
+## Request Headers - Required
+* **Authorization** header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  
+
+## Request Headers - Optional
+ *None
+ 
+## Content Body
+This request should contain a **WorkflowAction** parent element with the following child elements:
 
 |  Element |  Required (must contain value)? |  Description |
 |  Action |  Y |  The name of the workflow action. Possible values are: **Approve**, ** Send Back to Employee**, or **Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Request Admin, Workflow to learn details. |   |
