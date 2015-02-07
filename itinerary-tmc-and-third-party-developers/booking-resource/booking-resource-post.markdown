@@ -26,6 +26,7 @@ The unique identifier for the trip. Supplied in order to add a booking to an exi
 The Concur login ID of the user who owns the booking. Only provided when the booking owner is not the OAuth consumer. Can only be used when the OAuth consumer has the required user role.
 
 Examples:
+
 https://www.concursolutions.com/api/travel/booking/v1.1?tripId={tripId}
 
 https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={loginID}
@@ -243,6 +244,7 @@ The cancel keyword and the unique identifier for the supplier, configured by Con
 The confirmation number for the booking to cancel.
 
 Example:
+
 https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}
 
 ####Query Parameters - Optional
