@@ -10,46 +10,42 @@ This resource supports the following POST actions:
 
 ##  Post New List Item Request
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Adds list items to an existing list. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
+###Description
+Adds list items to an existing list.
 
+###Supported Content Types
+* application/xml
+
+###Query Parameters - Required
 * **{_listID_}**  
 The identifier for the desired list.
 * **batch?type**=**{_type_}**  
 The type of batch operation to complete. Should be **create**.
 
 Example: https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=create
+###Query Parameters - Optional
+None
 
- |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
+###Request Headers - Required
+Authorization header with OAuth token for valid Concur user.
 
 The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
 These roles allow the user to manage data for the entire company.
+###Request Headers - Optional
 
- |  None |
-|  Content Body |   |
-|  This function requires as its arguments a **list-item-batch** element containing a **list-item** child element for each item to be added. The **list-item** elements can contain the following child elements:  
+None
+
+###Content Body
+This function requires as its arguments a **list-item-batch** element containing a **list-item** child element for each item to be added. The **list-item** elements can contain the following child elements:  
 
 |  Element |  Required (must contain value)? |  Description |
-|  name |  Y |  The name of the list item as it appears in the user interface. Maximum 64 characters. |   |
-|  levelxcode |  Y, for each list level |
-
-There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.
-
-Maximum 32 characters for each level.
-
-**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][1] for more information.
-
- |
+|---|---|
+|  name |  Y |  The name of the list item as it appears in the user interface. Maximum 64 characters. |  
+|  levelxcode |  Y, for each list level |There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][1] for more information.|
 |  start-date |  N |  The effective date when the list item should be active. Format: YYYY-MM-DD. |
 |  end-date |  N |  The effective date when the list item should be inactive. Format: YYYY-MM-DD. |
 
- |
 
 ####  XML Example Request For Single Level List
 
@@ -126,30 +122,27 @@ Maximum 32 characters for each level.
 
 ##  Post New List Item Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|
+###HTTP Responses
+
 
 [HTTP Status Codes][2]
 
 [List Item Error Codes][3]
+##Supported Content Types
+* application/xml
 
- |   |
-|  Content Body |   |
-|  This request will return a **list-item-batch-result** parent element with the following child elements:  
+###Content Body
+This request will return a **list-item-batch-result** parent element with the following child elements:  
 
 |  Element |  Description |
-|  records-succeeded |  The number of records processed that were successfully added. |   |
+|--------|----------|
+|  records-succeeded |  The number of records processed that were successfully added.   |
 |  records-failed |  The number of records processed that were not successfully added. |
 |  errors |  This will contain an **error** parent element for each record failure. The **error** element will contain the following child elements:
-
 |  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes. |
-|  list-item-code |  The level code of the record that failed. |   | |
+|  list-item-code |  The level code of the record that failed. |
 |  message |  The error message. |
 
- |
-
- |
 
 ####  XML Example of Successful Response
 
@@ -162,11 +155,13 @@ Maximum 32 characters for each level.
 
 ##  Post List Item Update Request
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Updates existing list items for a specified list. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
+###Description
+Updates existing list items for a specified list. 
+
+###Supported Content Types
+* application/xml
+
+###Query Parameters - Required 
 
 * **{_listID_**}  
 The identifier for the desired list.
@@ -174,32 +169,27 @@ The identifier for the desired list.
 The type of batch operation to complete. Should be **update**.
 
 Example: https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=update
-
- |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
+###Query Parameters - Optional
+None
+###Request Headers - Required
+Authorization header with OAuth token for valid Concur user.
 
 The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
 These roles allow the user to manage data for the entire company.
+###Request Headers - Optional
+None
+###Content Body
 
- |  None |
-|  Content Body |   |
 |  The request includes a **list-item-batch** element containing a **list-item** child element for each item to be updated. The **list-item** elements can contain the following child elements:  
 
 |  Element |  Required (must contain value)? |  Description |
+|----|----|----|
 |  name |  Y |  The name of the list item as it appears in the user interface. Maximum 64 characters. |   |
-|  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.
+|  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][4] for more information.|
+|  start-date |  N |  The effective date when the list item should be active. Format: YYYY-MM-DD.|
+|  end-date |  N |  The effective date when the list item should be inactive. Format: YYYY-MM-DD.|
 
-Maximum 32 characters for each level.
-
-**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][4] for more information.
-
- |
-|  start-date |  N |  The effective date when the list item should be active. Format: YYYY-MM-DD. |
-|  end-date |  N |  The effective date when the list item should be inactive. Format: YYYY-MM-DD. |
-
- |
 
 ####  XML Example Request
 
@@ -224,30 +214,33 @@ Maximum 32 characters for each level.
 
 ##  Post List Item Update Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|
+###HTTP Responses
+
 
 [HTTP Status Codes][2]
 
 [List Item Error Codes][3]
 
- |   |
-|  Content Body |   |
-|  This request will return a **list-item-batch-result** parent element with the following child elements:  
+###Supported Content Types
+* application/xml
+
+### Content Body
+This request will return a **list-item-batch-result** parent element with the following child elements:  
 
 |  Element |  Description |
-|  records-succeeded |  The number of records processed that were successfully added. |   |
+|----|----|
+|  records-succeeded |  The number of records processed that were successfully added.  |
 |  records-failed |  The number of records processed that were not successfully added. |
-|  errors |  This will contain an **error** parent element for each record failure. The **error** element will contain the following child elements:
 
+####Errors 
+This will contain an **error** parent element for each record failure. The **error** element will contain the following child elements:
+
+|Element| Description|
+|-----|------|
 |  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes. |
-|  list-item-code |  The level code of the record that failed. |   | |
+|  list-item-code |  The level code of the record that failed. |
 |  message |  The error message. |
 
- |
-
- |
 
 ####  XML Example of Successful Response
 
@@ -276,39 +269,40 @@ Maximum 32 characters for each level.
 
 ##  Post List Item Deletion Request
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Deletes existing list items for a specified list. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
+###Description
+Deletes existing list items for a specified list.
+###Supported Content Types
+* application/xml
 
+###Query Parameters - Required
 * **{_listID_}**  
 The identifier for the desired list.
 * **batch?type={_type_}**  
 The type of batch operation to complete. Should be **delete**.
-Example: https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=delete |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
+Example: https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=delete
+
+###Query Parameters - Operational
+
+None
+
+###Request Headers - Required
+Authorization header with OAuth token for valid Concur user.
 
 The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
 These roles allow the user to manage data for the entire company.
 
- |  None |
-|  Content Body |   |
-|  The request includes a **list-item-batch** element containing a **list-item** child element for each item to be updated. The **list-item** elements can contain the following child elements:  
+###Query Parameters - Optional
+None 
+
+###Content Body
+The request includes a **list-item-batch** element containing a **list-item** child element for each item to be updated. The **list-item** elements can contain the following child elements:  
 
 |  Element |  Required (must contain value)? |  Description |
-|  name |  N |  The name of the list item as it appears in the user interface. Maximum 64 characters. |   |
-|  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.** **
+|--------|-----------|-----------|
+|  name |  N |  The name of the list item as it appears in the user interface. Maximum 64 characters. |
+|  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.** ** <br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][4] for more information.
 
-Maximum 32 characters for each level.
-
-**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][4] for more information.
-
- |
-
- |
 
 ####  XML Example Request
 
@@ -327,30 +321,30 @@ Maximum 32 characters for each level.
 
 ##  Post List Item Deletion Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|
+###HTTP Responses
 
 [HTTP Status Codes][2]
 
 [List Item Error Codes][3]
+###Supported Content Types
+* application/xml
 
- |   |
-|  Content Body |   |
-|  This request will return a **list-item-batch-result** parent element with the following child elements:  
+###Content Body
+This request will return a **list-item-batch-result** parent element with the following child elements:  
 
 |  Element |  Description |
-|  records-succeeded |  The number of records processed that were successfully added. |   |
+|-------|--------|
+|  records-succeeded |  The number of records processed that were successfully added. |
 |  records-failed |  The number of records processed that were not successfully added. |
-|  errors |  This will contain an **error** parent element for each record failure. The **error** element will contain the following child elements:
+####Errors
+This will contain an **error** parent element for each record failure. The **error** element will contain the following child elements:
 
+|  Element |  Description |
+|----------|-------------|
 |  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes. |
-|  list-item-code |  The level code of the record that failed. |   | |
+|  list-item-code |  The level code of the record that failed. |
 |  message |  The error message. |
 
- |
-
- |
 
 ####  XML Example of Successful Response
 
@@ -364,7 +358,7 @@ Maximum 32 characters for each level.
   
 
 
-[1]: https://developer.concur.com/node/370#changecode
+[1]: https://developer.concur.com/list-item#changecode
 [2]: https://developer.concur.com/reference/http-codes
-[3]: https://developer.concur.com/node/370#responses
-[4]: /node/370#changecode
+[3]: https://developer.concur.com/list-item#responses
+[4]: https://developer.concur.com/list-item#changecode

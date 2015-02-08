@@ -3,34 +3,96 @@ title: Vendors Resource
 layout: operation
 ---
 
+## Description
+Get Vendors
 
+## Request
 
+### Request parameters
+Querystrings, e.g., SearchType, Country, Approved
 
-This resource supports the following GET action:
+### Content type
+application/xml
 
-##  Get Vendors Request
+### Authorization header
+OAuth {access token}
 
-####  XML Example Request without Parameters
+## Response
+Array of Vendors
+
+### Response root elements
+| Element Name | Data Type | Description |
+|--------------|-----------|-------------|
+| VendorCode | String |  |
+| AddressCode | String |  |
+| VendorName | String |  |
+| Address1 | String |  |
+| Address2 | String |  |
+| Address3 | String |  |
+| City | String |  |
+| State | String |  |
+| PostalCode | String |  |
+| CountryCode | String |  |
+| BuyerAccountNumber | String |  |
+| TaxID | String |  |
+| CurrencyCode | String |  |
+| PaymentTermDays |  |  |
+| Shippingmethod | String |  |
+| ShippingTerms |  |  |
+| DiscountTemsDays |  |  |
+| DiscountPercentage |  |  |
+| ContactFirstName | String |  |
+| ContactLastName | String |  |
+| ContactPhoneNumber | String |  |
+| ContactEmail | String |  |
+| PurchaseOrderContactFirstName | String |  |
+| PurchaseOrderContactLastName | String |  |
+| PurchaseOrderContactPhoneNumber | String |  |
+| PurchaseOrderContactEmail | String |  |
+| DefaultEmployeeID |  |  |
+| DefaultExpenseTypeName | String |  |
+| Custom1 |  |  |
+| Custom2 |  |  |
+| Custom3 |  |  |
+| Custom4 |  |  |
+| Custom5 |  |  |
+| Custom6 |  |  |
+| Custom7 |  |  |
+| Custom8 |  |  |
+| Custom9 |  |  |
+| Custom10 |  |  |
+| Custom11 |  |  |
+| Custom12 |  |  |
+| Custom13 |  |  |
+| Custom14 |  |  |
+| Custom15 | String |  |
+| PaymentMethodType | String |  |
+
+## Examples
+
+### Request
+
+#### Example 1: XML Example Request without Parameters
 
     GET <https://www.concursolutions.com/api/v3.0/invoice/vendors> HTTPS 1.1
     Authorization: OAuth {access token}
     ...
 
-####  XML Example Request with SearchType and Country Parameters
+#### Example 2: XML Example Request with SearchType and Country Parameters
 
     GET https://www.concursolutions.com/api/v3.0/invoice/vendors/?SearchType=contains&Country=US HTTPS 1.1
     Authorization: OAuth {access token}
     ...
 
-####  XML Example Request with Approved Parameter
+#### Example 3: XML Example Request with Approved Parameter
 
     GET <https://www.concursolutions.com/api/v3.0/invoice/vendors/?Approved=True> HTTPS 1.1
     Authorization: OAuth {access token}
     ...
 
-##  Get Vendors Response
+### Response
 
-####  XML Example of Successful Response
+#### Example 1: XML Example of Successful Response
 
     HTTP 1.1 200 OK
     Content-Type: application/xml
@@ -85,7 +147,7 @@ This resource supports the following GET action:
         </Vendor>
     </Vendors>
 
-####  XML Example of Failure Response
+#### Example 2: XML Example of Failure Response
 
     <VendorResult>
         <Vendor>

@@ -3,16 +3,9 @@ title: Itinerary Resource
 layout: operation
 ---
 
+## Post Itinerary Details Request
 
-
-
-This resource supports the following POST actions:
-
-##  Post Itinerary Details Request
-
-| ----- |
-|  Description |
-|
+### Description 
 
 Creates a new trip or updates an existing trip. A new trip will be created if the trip dates span no existing trip and the request doesn't include a tripId. If a tripId is included in the uri it will update the specified trip. The full trip information is included in the update request, which replaces the existing trip.
 
@@ -22,11 +15,11 @@ This endpoint can be used to create trips for a user that is not the OAuth consu
 
 Travel Management Companies for Concur clients with the Agency Proposal feature of Travel Request can send proposed itineraries using the Itinerary web service. The TMC will indicate that the itinerary is a proposal using the **TripStatus** element. The request must also include the **CustomAttributes** element and its child elements.
 
- |
-|  Query Parameters - Required |  Supported Content Types |
-|  None |   |
-|  Query Parameters - Optional |   |
-|
+| Query Parameters - Required | Supported Content Types |
+| --------------------------- | ----------------------- |
+| None | application/xml |
+
+### Query Parameters - Optional
 
 * **{_tripId_}**  
 The identifier for the desired trip. Provided if the request is updating an existing trip.
@@ -43,41 +36,35 @@ https://www.concursolutions.com/api/travel/trip/v1.1?tripId={_tripId_}
 ****To post a trip for a user other than the OAuth consumer:****  
 https://www.concursolutions.com/api/travel/trip/v1.1?userid_type=login_id&userid_value={_loginID_}
 
- |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. To post trips for users other than the OAuth consumer, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  None |
-|  Content Body |   |
-|  This function requires as its arguments an **Itinerary** parent element. The parent element contains the following child elements:
+| Request Headers - Required | Request Headers - Optional |
+| -------------------------- | -------------------------- |
+| Authorization header with OAuth token for valid Concur user. To post trips for users other than the OAuth consumer, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  None |
 
-|  Element |  Description |
-|  Required Elements |   | |
+### Content Body
+This function requires as its arguments an **Itinerary** parent element. The parent element contains the following child elements:
+
+### Required Elements
+
+| Element | Description |
+| ------- | ----------- |
 |  TripName |  Name of the trip. Maximum length: 255 characters. |
-|  TripStatus |  The status of the itinerary. One of the following:  
-0 - Confirmed  
-1 - Ticketed  
-2 - Canceled  
-6 - Proposal  
-7 - Booked Proposal |
-|  Required Elements for Agency Proposal |   |
-|  ClientLocator |  The unique identifier for the batch of proposals. All proposals in the batch should have the same value. |
-|  TravelRequestId |  The identifier for the travel request that the proposal is associated with. |
-|  CustomAttributes |
+|  TripStatus |  The status of the itinerary. One of the following:<br>0 - Confirmed<br>1 - Ticketed<br>2 - Canceled<br>6 - Proposal<br>7 - Booked Proposal |
 
-This parent element has two **CustomAttribute** child elements, with the following child elements:
+### Required Elements for Agency Proposal
 
-|  DataType |  The value for this element is **Numeric**. |
-|  Name |  For the first CustomAttribute element: **ProposalBatchSize**. For the second CustomAttribute element: **ProposalSequenceIndex** |   | |
-|  Data |  For the **ProposalBatchSize**: The number of proposals in the batch. Maximum: 3  
-For the**ProposalSequenceIndex**: The index of the proposal in the batch of proposals. |
-|  DisplayOnItinerary |  The value for this element is **true**. |
-|  DisplayTitle |  This element should be empty. |
-|  ExternalId |  This element should be empty. |
+| Element | Description |
+| ------- | ----------- |
+| ClientLocator | The unique identifier for the batch of proposals. All proposals in the batch should have the same value. |
+| TravelRequestId | The identifier for the travel request that the proposal is associated with. |
+| CustomAttributes | This parent element has two **CustomAttribute** child elements, with the following child elements:<br>DataType - The value for this element is **Numeric**.<br> Name -  For the first CustomAttribute element: **ProposalBatchSize**. For the second CustomAttribute element: **ProposalSequenceIndex** <br> Data - For the **ProposalBatchSize**: The number of proposals in the batch. Maximum: 3 <br>For the**ProposalSequenceIndex**: The index of the proposal in the batch of proposals. <br> DisplayOnItinerary - The value for this element is **true**.<br> DisplayTitle - This element should be empty.<br> ExternalId - This element should be empty.|
 
- |
-|  Optional Elements |
-|  BookedByFirstName |  First name of the trip owner. |
-|  BookedByLastName |  Last name of the trip owner. |
-|  Bookings |  This parent element will contain a **Booking** child element for each booking associated with this itinerary. The **Booking** child elements are detailed in the Booking Elements table. |
+###  Optional Elements
+
+| Element | Description |
+| ------- | ----------- |
+| BookedByFirstName | First name of the trip owner. |
+| BookedByLastName | Last name of the trip owner. |
+| Bookings | This parent element will contain a **Booking** child element for each booking associated with this itinerary. The **Booking** child elements are detailed in the Booking Elements table. |
 |  CancelComments |  User supplied comments if the trip is cancelled. 256 Characters Maximum |
 |  Comments |  Comments on the itinerary. 512 Characters Maximum |
 |  DateBookedLocal |  The date the trip was booked, in the local time of the booking location. Format: YYYY-MM-DDThh:mm:ss |
@@ -86,13 +73,17 @@ For the**ProposalSequenceIndex**: The index of the proposal in the batch of prop
 |  ProjectName |  The associated project name for the trip. Maximum length: 255 characters. |
 |  RuleViolations |  The list of rule violations associated with the itinerary. This parent element contains a <RuleViolation> child element for each associated rule violation. |
 
-| ----- |
-|  Booking Elements |
-|  Element |  Description |
-|  Required Elements |   |
+### Booking Elements - Required
+
+| Element | Description |
+| ------- | ----------- |
 |  BookingSource |  The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place. This could be a GDS, OTA, Vendor code for Supplier website, or Supplier Direct Connect API. |
 |  RecordLocator |  The unique identifier for the booking. Send the value for an existing booking to update an existing trip. This value is returned in the RecordLocator element by the [Post Booking Details][1] function. |
-|  Optional Elements |   |
+
+### Booking Elements - Optional
+
+| Element | Description |
+| ------- | ----------- |
 |  BookingOwner |  Indicates the tool that supplied the booking to Concur Travel. |
 |  Source |  Obsolete, supported for backward compatibility. |
 |  DateBookedLocal |  The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
@@ -105,37 +96,17 @@ For the**ProposalSequenceIndex**: The index of the proposal in the batch of prop
 |  Airline Tickets |  List of airline tickets for this booking. |
 |  Charges |  List of charges for this booking. |
 |  MiscChargeOrders |  List of Miscellaneous AirCharges for this booking. |
-|  Passengers |  This parent element contains a **Passenger** child element for each booked passenger. The **Passenger** child element contains the following child elements:
-
-|  Required |
-|  NameFirst |  The first name of the passenger. |   |
-|  NameLast |  The last name of the passenger. |
-|  Optional |   |
-|  NameMiddle |  The middle name of the passenger. |
-|  NamePrefix |  The passenger's name prefix. |
-|  NameRemark |  Additional details about the passenger's name. |
-|  NameSuffix |  The passenger's name suffix. |
-|  NameTitle |  The passenger's name title. |
-|  TextName |  The user's full name as entered in the booking tool if different from the name in the database. |
-|  FrequentTravelerProgram |  Passenger's loyalty programs. |
-
- |
+|  Passengers |  This parent element contains a **Passenger** child element for each booked passenger. The **Passenger** child element contains the following child elements:<br>NameFirst -  The first name of the passenger.<br>NameLast (optional) -  The last name of the passenger.<br>NameMiddle -  The middle name of the passenger.<br>NamePrefix -  The passenger's name prefix.<br>NameRemark -  Additional details about the passenger's name.<br>NameSuffix -  The passenger's name suffix.<br>NameTitle -  The passenger's name title.<br>TextName - The user's full name as entered in the booking tool if different from the name in the database.<br>FrequentTravelerProgram -  Passenger's loyalty programs.|
 |  PassPrograms |  List of Pass Programs for this booking. |
 |  PhoneNumbers |  List of Phone numbers associated with this booking. |
 |  RailPayments |  List of Rail payments associated with rail segments in this booking. |
-|  Segments |  This parent element will contain at least one of the following child elements: **Air**, **Car**, **Hotel**, **Dining**, **Ride**, **Rail**, **Parking**, **Event**.
-
-Refer to [Booking Object Elements][2] for more information about the child elements contained in the booking elements.
-
- |
+|  Segments |  This parent element will contain at least one of the following child elements: **Air**, **Car**, **Hotel**, **Dining**, **Ride**, **Rail**, **Parking**, **Event**.<br>Refer to [Booking Object Elements][2] for more information about the child elements contained in the booking elements.|
 |  Delivery |  The method this booking was delivered.  |
 |  WaitListSegments |  The segments that the traveler is waitlisted for this booking. |
 |  Warning |  The warnings associated with the booking. |
 |  WebAddresses |  List of web addresses such as emails, pickup urls, etc.. associated with this booking. |
 
- |
-
-####  XML Example Request
+###  XML Example Request
 
     POST /api/travel/trip/v1.1?userid_type=login_id&userid_value=cm@example.com HTTPS 1.1
     Host: [www.concursolutions.com][3]
@@ -260,7 +231,7 @@ Refer to [Booking Object Elements][2] for more information about the child eleme
         </Bookings>
     </Itinerary>
 
-####  XML Example Request of Agency Proposal
+###  XML Example Request of Agency Proposal
 
     POST https://www.concursolutions.com/api/travel/trip/v1.1?userid_type=login_id&userid_value=cm@example.com HTTPS 1.1
     Authorization: OAuth {access token}
@@ -406,26 +377,26 @@ Refer to [Booking Object Elements][2] for more information about the child eleme
 
 ##  Post Itinerary Details Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][4] |   |
-|  Content Body |   |
-|  When the trip is created successfully, the request will return the full posted trip details with the following additional elements inside the **Itinerary** parent element:
+| HTTP Responses | Supported Content Types |
+| -------------- | ----------------------- |
+| [HTTP Status Codes][4] | application/xml |
 
-|  Element |  Description |
-|  id |  The URI containing the trip ID. |   |
-|  ItinLocator |  The Itinerary Locator value (trip ID without the URL). The **ItinLocator** value is used when updating an existing trip. |
-|  DateModifiedUtc |  The UTC formatted date that this booking was last modified. |
-|  BookedVia |  The GDS the itinerary was booked in. |
-|  DateBookedLocal |  The date, in the traveler's local time, that the booking was made. |
+### Content Body
+When the trip is created successfully, the request will return the full posted trip details with the following additional elements inside the **Itinerary** parent element:
 
-####  Agency Proposal
+| Element | Description |
+| ------- | ----------- |
+| id | The URI containing the trip ID. |
+| ItinLocator | The Itinerary Locator value (trip ID without the URL). The **ItinLocator** value is used when updating an existing trip. |
+| DateModifiedUtc | The UTC formatted date that this booking was last modified. |
+| BookedVia | The GDS the itinerary was booked in. |
+| DateBookedLocal | The date, in the traveler's local time, that the booking was made. |
+
+###  Agency Proposal
 
 The response will include the **CustomAttributes** element and its child elements if the request was an Agency Proposal.
 
- |
-
-####  XML Example of Successful Response
+###  XML Example of Successful Response
 
     <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
         <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
@@ -554,7 +525,7 @@ The response will include the **CustomAttributes** element and its child element
         </Bookings>
     </Itinerary>
 
-####  XML Example of Successful Response for Agency Proposal
+###  XML Example of Successful Response for Agency Proposal
 
     <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
         <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
@@ -701,17 +672,13 @@ The response will include the **CustomAttributes** element and its child element
         </CustomAttributes>
     </Itinerary>
 
-##  Post Itinerary Cancellation Request
+###  Post Itinerary Cancellation Request
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Cancels all segments in the supplied trip.
+| Description | Supported Content Types |
+| ----------- | ----------------------- |
+|  Cancels all segments in the supplied trip.<br>This endpoint can be used to cancel trips for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to cancel a trip on behalf of a user. The supplier or TMC must be registered with Concur and have a Concur account with one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.<br>| application/xml |
 
-This endpoint can be used to cancel trips for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to cancel a trip on behalf of a user. The supplier or TMC must be registered with Concur and have a Concur account with one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
-
- |   |
-|  Query Parameters - Required |   |
-|
+### Query Parameters - Required
 
 * **cancel?{_tripId_}**  
 The identifier for the desired trip and the cancel keyword.
@@ -719,9 +686,8 @@ The identifier for the desired trip and the cancel keyword.
 Example:  
 https://www.concursolutions.com/api/travel/trip/v1.1/cancel?tripId={_tripId_}
 
- |
-|  Query Parameters - Optional |
-|
+
+### Query Parameters - Optional
 
 * **userid_type=login_id&userid_value={_loginID_}**  
 The Concur loginID of the user that owns the trip. The userid_type and userid_value parameters can only be used if the OAuth consumer has the user role listed above.
@@ -729,11 +695,11 @@ The Concur loginID of the user that owns the trip. The userid_type and userid_va
 Example:  
 https://www.concursolutions.com/api/travel/trip/v1.1/cancel?tripId={_tripId_}&userid_type=login_id&userid_value={_loginID_}
 
- |
-|  Request Headers - Required |  Request Headers - Optional |
+| Request Headers - Required | Request Headers - Optional |
+| -------------------------- | -------------------------- |
 |  Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |  None |
 
-####  XML Example Request
+###  XML Example Request
 
     POST /api/travel/trip/v1.1/cancel?tripId=CNQR1234567890 HTTPS 1.1
     Host: [www.concursolutions.com][3]
@@ -742,23 +708,23 @@ https://www.concursolutions.com/api/travel/trip/v1.1/cancel?tripId={_tripId_}&us
 
 ##  Post Itinerary Cancellation Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][4] |   |
-|  Content Body |   |
-|  The request will return the full trip details for the cancelled trip. The trip will contain no segments, as those are all cancelled. The response includes the following additional elements inside the **Itinerary** parent element:
+| HTTP Responses | Supported Content Types |
+| -------------- | ----------------------- |
+| [HTTP Status Codes][4] | application/xml |
 
-|  Element |  Description |
-|  id |  The URI containing the trip ID. |   |
-|  ItinLocator |  The Itinerary Locator value (trip ID without the URL). |
-|  ClientLocator |  The identifier for the client. |
-|  DateModifiedUtc |  The UTC formatted date that this booking was last modified. |
-|  BookedVia |  The GDS the itinerary was booked in. |
-|  DateBookedLocal |  The date, in the traveler's local time, that the booking was made. |
+### Content Body
+The request will return the full trip details for the cancelled trip. The trip will contain no segments, as those are all cancelled. The response includes the following additional elements inside the **Itinerary** parent element:
 
- |
+| Element | Description |
+| ------- | ----------- |
+| id | The URI containing the trip ID. | 
+| ItinLocator | The Itinerary Locator value (trip ID without the URL). |
+| ClientLocator | The identifier for the client. |
+| DateModifiedUtc | The UTC formatted date that this booking was last modified. |
+| BookedVia | The GDS the itinerary was booked in. |
+| DateBookedLocal | The date, in the traveler's local time, that the booking was made. |
 
-####  XML Example of Successful Response
+###  XML Example of Successful Response
 
     <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
         <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
@@ -808,7 +774,6 @@ https://www.concursolutions.com/api/travel/trip/v1.1/cancel?tripId={_tripId_}&us
             </Booking>
         </Bookings>
     </Itinerary>
-
 
 
 [1]: https://developer.concur.com/itinerary-tmc-and-third-party-developers/booking-resource/booking-resource-post

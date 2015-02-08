@@ -10,19 +10,14 @@ This resource supports the following GET actions:
 
 ##  Get List of Lists Request
 
-| ----- |
+
 |  Description |  Supported Content Types |
+| ----- |------|
 |  Retrieves the list of configured lists. |   |
 |  Query Parameters - Required |  Query Parameters - Optional |
 |  None |  None |
 |  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
-
-The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
-
-These roles allow the user to manage data for the entire company.
-
- |  None |
+|  Authorization header with OAuth token for valid Concur user.<br><br>The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.<br><br>These roles allow the user to manage data for the entire company.|  None |
 
 ####  XML Example Request
 
@@ -33,25 +28,24 @@ These roles allow the user to manage data for the entire company.
 
 ##  Get List of Lists Response
 
-| ----- |
+
 |  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][1]
+| ----- |----|
+|  [HTTP Status Codes][1]<br><br>[List Item Error Codes][2]
 
-[List Item Error Codes][2]
 
- |   |
-|  Content Body |   |
-|  This request will return a** lists** parent element containing a **list** child element for each configured list. The **list** element will contain the following child elements:  
+##Content Body
+This request will return a** lists** parent element containing a **list** child element for each configured list. The **list** element will contain the following child elements:  
 
 |  Element |  Description |
-|  id |  The list URI with encrypted ID. |   |
+|---------|--------------|
+|  id |  The list URI with encrypted ID. | 
 |  items-link |  The list item URI with encrypted ID. |
 |  batch-link |  The batch URI associated with this list, with encrypted ID. |
 |  name |  The name of the list as it appears in the user interface. |
 |  is-vendor |  Whether this is a vendor list. Format: true/false |
 |  levels |  The number of levels the list contains. |
 
- |
 
 ####  XML Example of Successful Response
 
@@ -86,22 +80,32 @@ These roles allow the user to manage data for the entire company.
 
 ##  Get List Details Request
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Retrieves the list details for a specified list. Includes configuration information, not the list items. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
+
+###Description
+
+Retrieves the list details for a specified list. Includes configuration information, not the list items.
+
+###Supported Content Types
+* application/xml
+
+###Query Parameters - Required
 
 * **{_listID_}**  
 The identifier for the desired list.
 Example: https://www.concursolutions.com/api/expense/list/v1.0/_{listID}_  
-**URI Source**: This URI is returned in the **id** element by the Get List of Lists function. |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
+**URI Source**: This URI is returned in the **id** element by the Get List of Lists function. |  
+
+####Query Parameters - Optional
+* None
+
+####Request Headers - Required
+
+Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
 These roles allow the user to manage data for the entire company.
 
- |  None |
+####Request Headers - Optional
+* None
 
 ####  XML Example Request
 
@@ -112,25 +116,26 @@ These roles allow the user to manage data for the entire company.
 
 ##  Get List Details Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][1]
+###HTTP Responses
+
+[HTTP Status Codes][1]
 
 [List Item Error Codes][2]
 
- |   |
-|  Content Body |   |
-|  This request will return a** list** parent element. The **list** element will contain the following child elements:  
+###Supported Content Types
+* application/xml
+
+###Content Body
+This request will return a** list** parent element. The **list** element will contain the following child elements:  
 
 |  Element |  Description |
-|  batch-link |  The batch URI associated with this list, with encrypted ID. |   |
+|----------|------------|
+|  batch-link |  The batch URI associated with this list, with encrypted ID. |
 |  id |  The list URI with encrypted ID. |
 |  is-vendor |  Whether this is a vendor list. Format: true/false. |
 |  items-link |  The list item URI with encrypted ID. |
 |  levels |  The number of levels the list contains. |
 |  name |  The name of the list as it appears in the user interface. |
-
- |
 
 ####  XML Example of Successful Response
 
@@ -145,29 +150,34 @@ These roles allow the user to manage data for the entire company.
 
 ##  Get List Items Request
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Retrieves the list items for the specified list. A request sent without a specified parent list item code returns all level 1 list items. A request sent with a parent list item code returns all list items below that parent item. The result set can be filtered by passing in a filter string.  |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|
+###Description
+Retrieves the list items for the specified list. A request sent without a specified parent list item code returns all level 1 list items. A request sent with a parent list item code returns all list items below that parent item. The result set can be filtered by passing in a filter string.  
+
+###Supported Content Types
+* application/xml
+
+###Query Parameters - Required
 
 * **{_listID_}/items**  
 The identifier for the desired list, and the items keyword to indicate the request is for the list items.
 Example: https://www.concursolutions.com/api/expense/list/v1.0/_{listID}_/items |
 
+###Query Parameters - Optional
 * **{_parentCode_**}  
 The parent list item code. If this is included, the request will return all items below this list item. The parent code must be URL encoded.
 * **filter={_filter_}**  
 The result filter. The string value entered will be compared against the list item name and code fields, and only matching results will be returned.
 Example: https://www.concursolutions.com/api/expense/list/v1.0/{_listID_}/items?parentCode={_parentcode_}&filter={_filter_} |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
+
+###Request Headers - Required
+
+Authorization header with OAuth token for valid Concur user.
 
 The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
 These roles allow the user to manage data for the entire company.
-
- |  None |
+###Request Headers - Optional
+* None
 
 ####  XML Example Request
 
@@ -192,22 +202,21 @@ These roles allow the user to manage data for the entire company.
 
 ##  Get List Items Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][1]
+###HTTP Responses |  Supported Content Types |
+
+[HTTP Status Codes][1]
 
 [List Item Error Codes][2]
 
- |   |
-|  Content Body |   |
-|  This request will return a **list-items** parent element, with a** list-item** child element for each item returned. The **list-item** elements will contain the following child elements:  
+##Content Body
+This request will return a **list-items** parent element, with a** list-item** child element for each item returned. The **list-item** elements will contain the following child elements:  
 
 |  Element |  Description |
-|  name |  The list item name. |   |
+|-----|------|
+|  name |  The list item name. |
 |  levelxcode |  The item code for all specified levels, where x is replaced with the level number. If the request is for the children of a level 2 item, the** level1code**, **level2code**, and** level3code** elements will be returned. |
 |  items-link |  The URI, including the parent code value, to request the list items beneath this list item. |
 
- |
 
 ####  XML Example of Successful Response
 

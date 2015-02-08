@@ -1,73 +1,61 @@
 ---
 title: Get List of Payment Batches
-
-This resource supports the following GET actions
 layout: operation
 ---
 
+#  Get List of Payment Batches Request
 
+## Description
+* Retrieves the list of payment batches with an optional requested status. 
 
+## Resource URI
+* https://www.concursolutions.com/api/expense/paymentbatch/v1.1/batchlist 
 
-##  Get List of Payment Batches Request
+## Supported Accept Types 
+* application/xml
 
-| ----- |
-|  Description |  Supported Accept Types |
-|  Retrieves the list of payment batches with an optional requested status. |   |
-|  Query Parameters - Required |   |
-|
+## URI Parameters - Optional
 
-* **batchlist/**  
-The batchlist keyword.
-Example:  
-https://www.concursolutions.com/api/expense/paymentbatch/v1.1/batchlist/ |
-|  Query Parameters - Optional |
-|
-
-* **{_Status_}**  
+* Status  
 The status of the batches. Can be either OPEN or CLOSED.
   
 Example:  
-https://www.concursolutions.com/api/expense/paymentbatch/v1.1/batchlist/{_Status_} |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
+https://www.concursolutions.com/api/expense/paymentbatch/v1.1/batchlist/OPEN 
+
+## Request Headers - Required 
+* Authorization header with OAuth token for valid Concur user.
 
 The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
 These roles allow the user to manage data for the entire company.
 
- |  None |
+## Request Headers - Optional
+* None
 
 ####  XML Example Request
 
-    GET /api/expense/paymentbatch/v1.1/batchlist/OPEN HTTPS 1.1
+    GET /api/expense/paymentbatch/v1.1/batchlist/OPEN
     Host: www.concursolutions.com
     Authorization: OAuth {access token}
-    ...
+    
 
 ##  Get List of Payment Batches Response
+[HTTP Status Codes][1]
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][1] |   |
-|  Content Body |   |
-|  This request will return a **BatchList** parent element and a **BatchSummary** child element for each batch. The **BatchSummary** elements will have the following child elements:  
+This request will return a **BatchList** parent element and a **BatchSummary** child element for each batch. The **BatchSummary** elements will have the following child elements:  
 
-|  Element |  Description |
-|  BatchName |  The batch name, as it appears in Payment Manager. |   |
-|  BatchID |  The unique identifier for the batch. |
-|  BatchTotal |  The batch total amount. |
-|  Currency |  The [3-letter ISO 4217 currency code][2] for the batch. |
-|  Count |  The number of payment demands in the batch. |
-|  Type |  The payee of the batch. Either Employee or Card Program. |
-|  PaymentMethod |  The reimbursement method for the batch. Either Expense Pay by Concur, Company Check (via Accounts Payable), ADP (via EPIP file), or Other Reimbursement Methods. |
-|  Batch-URL |  The URL to use as a basis for other actions, such as closing the batch. |
-
- |
+Element | Description
+--- | ---
+BatchName |  The batch name, as it appears in Payment Manager.
+BatchID |  The unique identifier for the batch.
+BatchTotal |  The batch total amount.
+Currency |  The [3-letter ISO 4217 currency code][2] for the batch.
+Count |  The number of payment demands in the batch.
+Type |  The payee of the batch. Either Employee or Card Program. 
+PaymentMethod |  The reimbursement method for the batch. Either Expense Pay by Concur, Company Check (via Accounts Payable), ADP (via EPIP file), or Other Reimbursement Methods.
+Batch-URL |  The URL to use as a basis for other actions, such as closing the batch. 
 
 ####  XML Example of Successful Response
-
-    200 OK
-    Content-Type: application/xml
 
     <BatchList xmlns="http://www.concursolutions.com/api/expense/paymentbatch/2011/11">
         <BatchSummary>
