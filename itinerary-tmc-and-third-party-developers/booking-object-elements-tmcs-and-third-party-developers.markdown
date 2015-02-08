@@ -644,7 +644,6 @@ The booking elements contain many child elements. For ease of use, these element
 
 #### Olson Time Zones
 
-|       |       |          |           |
 |-------|-------|----------|-----------| 
 | Africa/Cairo |  Africa/Casablanca |  Africa/Harare |  Africa/Luanda |
 |  Africa/Nairobi |  Africa/Windhoek |  America/Anchorage |  America/Argentina/Buenos_Aires |
