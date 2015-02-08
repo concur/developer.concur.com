@@ -644,6 +644,7 @@ The booking elements contain many child elements. For ease of use, these element
 
 #### Olson Time Zones
 
+|       |       |          |           |
 |-------|-------|----------|-----------| 
 | Africa/Cairo |  Africa/Casablanca |  Africa/Harare |  Africa/Luanda |
 |  Africa/Nairobi |  Africa/Windhoek |  America/Anchorage |  America/Argentina/Buenos_Aires |
@@ -672,8 +673,10 @@ The booking elements contain many child elements. For ease of use, these element
 |  Pacific/Guadalcanal |  Pacific/Guam |  Pacific/Honolulu |  Pacific/Tongatapu |
 |  UTC | | |
 
-#### Windows Time Zones 
+#### Windows Time Zones
 
+|       |       |          |           |
+|-------|-------|----------|-----------| 
 |  Africa/Cairo |  Africa/Casablanca |  Africa/Harare |  Africa/Luanda |
 |  Africa/Nairobi |  Africa/Windhoek |  America/Anchorage |  America/Argentina/Buenos_Aires |
 |  America/Asuncion |  America/Bahia |  America/Bogota |  America/Buenos_Aires |
