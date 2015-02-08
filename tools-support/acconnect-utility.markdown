@@ -14,13 +14,7 @@ acconnect is a command-line tool that obtains a request token for the specified 
 
 ## Syntax
 
-**acconnect.exe** [**environment**] **consumerKey** **consumerSecret** **scope** **username** **password** **"***redirect_URL***"**
-
-**environment**    
-Optional. If the environment argument isn't specified, the environment will default to the production environment. The environment argument can also be one of the following:
-* **PROD** – Production environment.
-* **RQA**[*n*] – Where *n* is the number of the RQA environment you want to use for authentication.
-* [*custom-url*] – A custom URL, for example to a development VM.
+**acconnect.exe** **consumerKey** **consumerSecret** **scope** **username** **password** **"***redirect_URL***"**
 
 **consumerKey**    
 Required. Specifies the consumer key for the application.
