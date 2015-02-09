@@ -13,14 +13,7 @@ The Digital Tax Invoice upload feature in Concur Expense allows users in the sup
 
 ## Works With These Concur Products
 * **Expense** for Concur Professional/Premium
-* **Invoice** Professional
-
-## Concur Connect API Structure
-Refer to **Web Services > [Core Concepts][1]** for:
-
-* Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
-* Information on authentication and authorization for all Concur Web Services.
-* Information on registering and enabling partner applications to use Concur Web Services.
+* **Invoice** 
 
 ## Product Restrictions
 

@@ -1,56 +1,58 @@
 ---
-title: Booking Resource
+title: Booking Resource - POST
 layout: operation
 ---
 
 
+# Post Booking Details
 
-
-This resource supports the following POST actions:
-
-##  Post Booking Details Request
-
-| ----- |
-|  Description |
-|  Creates a new booking or updates an existing booking. A new booking will be assigned to the specified trip, or if no trip is specified, the first itinerary that spans the booking dates. If no trip is specified and no itinerary exists that spans the booking dates, a new itinerary will be created.
-
+## Description
+Creates a new booking or updates an existing booking. A new booking will be assigned to the specified trip, or if no trip is specified, the first itinerary that spans the booking dates. If no trip is specified and no itinerary exists that spans the booking dates, a new itinerary will be created.
 This endpoint can be used to create/update bookings for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to create/update a booking on behalf of a user. The supplier or TMC must be registered with Concur, and must have an account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
- |
-|  Query Parameters - Required |  Supported Content Types |
-|  None |  application/xml |
-|  Query Parameters - Optional |   |
-|
 
-* **tripId={_tripId_}**  
+## Request
+
+    POST /api/travel/booking/v1.0?tripId=12345678 HTTPS 1.1
+    Host: www.concursolutions.com
+    Authorization: OAuth {access token} 
+
+### Request Parameters
+
+#### Query Parameters - Optional
+
+* **tripId={tripId}**
 The unique identifier for the trip. Supplied in order to add a booking to an existing trip.
-* **userid_type=login_id&userid_value={_loginID_}**  
+* **userid_type=login_id&userid_value={loginID}**
 The Concur login ID of the user who owns the booking. Only provided when the booking owner is not the OAuth consumer. Can only be used when the OAuth consumer has the required user role.
 
-Examples:  
-https://www.concursolutions.com/api/travel/booking/v1.1?tripId={_tripId_}
+Examples:
 
-https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={_loginID_}
+https://www.concursolutions.com/api/travel/booking/v1.1?tripId={tripId}
 
- |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
+https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={loginID}
 
-In order to create or update booking for anyone other than the OAuth consumer, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
- |  None |
-|  Content Body |   |
-|
+### Content type
+application/xml
 
-The request contains a **Booking** parent element with the following child elements:
 
-|  Core Elements - Required |
-|  Element |  Description |
+### Authorization header
+Authorization header with OAuth token for valid Concur user. In order to create or update booking for anyone other than the OAuth consumer, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
+
+
+### Request body root elements
+The request contains a Booking parent element with the following child elements:
+
+|  Required Element |  Description |
+|-------------------|--------------|
 |  BookingSource |  The supplier's name. |
 |  ItinSourceName |  The itinerary source. Format: TravelSupplier |
 |  RecordLocator |  Record locator for this booking. This is often six alphameric characters but can have other formats depending on the booking source |
-|  Core Elements - Optional |   |
-|  Element |  Description |
+
+
+|  Optional Element |  Description |
+|-------------------|--------------|
 |  DateBookedLocal |  The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 |  FormOfPaymentName |  The name of the form of payment for the booking. |
 |  FormOfPaymentType |  The type of the form of payment. |
@@ -61,23 +63,7 @@ The request contains a **Booking** parent element with the following child eleme
 |  AirlineTickets |  List of Airline Tickets for this booking. |
 |  Charges |  List of Charges for this booking. |
 |  MiscChargeOrders |  List of Miscellaneous AirCharges for this booking. |
-|  Passengers |
-
-This parent element contains a **Passenger** child element for each booked passenger. The **Passenger** child element contains the following child elements:
-
-|  Required Elements |
-|  NameFirst |  The first name of the passenger. |   |
-|  NameLast |  The last name of the passenger. |
-|  Optional Elements |   |
-|  NameMiddle |  The middle name of the passenger. |
-|  NamePrefix |  The name prefix of the passenger. |
-|  NameRemark |  Additional details about the passenger's name. |
-|  NameSuffix |  The name suffix of the passenger. |
-|  NameTitle |  The title of the passenger. |
-|  TextName |  The user's full name as entered in the booking tool if different from the name in the database. |
-|  FrequentTravelerProgram |  Passenger's loyalty programs |
-
- |
+|  Passengers | The *Passengers* element contains child element for each booked passenger. The description of each child element can be seen in a subsequent table. |
 |  PassPrograms |  List of Pass Programs for this booking. |
 |  PhoneNumbers |  List of Phone numbers associated with this booking. |
 |  RailPayments |  List of Rail payments associated with rail segments in this booking. |
@@ -87,73 +73,90 @@ This parent element contains a **Passenger** child element for each booked passe
 |  Warnings |  The warnings associated with the booking. |
 |  WebAddresses |  List of web addresses such as emails, pickup urls, etc.. associated with this bookings |
 
- |
 
-####  XML Example Request
+### **Passengers** child elements:
+
+|  Required Element |  Description   |
+|-------------------|----------------|
+|  NameFirst |  The first name of the passenger. |  
+|  NameLast |  The last name of the passenger. |
+
+
+|  Optional Element |  Description   |
+|-------------------|----------------|
+|  NameMiddle |  The middle name of the passenger. |
+|  NamePrefix |  The name prefix of the passenger. |
+|  NameRemark |  Additional details about the passenger's name. |
+|  NameSuffix |  The name suffix of the passenger. |
+|  NameTitle |  The title of the passenger. |
+|  TextName |  The user's full name as entered in the booking tool if different from the name in the database. |
+|  FrequentTravelerProgram |  Passenger's loyalty programs |
+
+
+## Response
+This function returns the full trip details, as documented in the Response of the [Get Itinerary Details][3] function.
+
+If the end user updates an existing reservation which results in a new confirmation number, the old booking must be explicitly cancelled in addition to posting the new booking to Concur.  If the previous booking is not cancelled, the user will see both bookings in their Concur trip list.
+
+* [HTTP Status Codes][1]
+
+
+## Examples
+
+### Example 1: XML Example Request
 
     POST /api/travel/booking/v1.0?tripId=12345678 HTTPS 1.1
     Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    ...
-
+    Authorization: OAuth {access token} 
+    ... 
+        
     <Booking xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Segments>
             <Car>
-                <Vendor>AL</Vendor>
-                <VendorName>Alamo</VendorName>
-                <Status>HK</Status>
-                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                <EndDateLocal>2013-12-23T12:00:00</EndDateLocal>
-                <StartDateUtc>2013-12-21T20:00:00</StartDateUtc>
-                <EndDateUtc>2013-12-23T20:00:00</EndDateUtc>
-                <ConfirmationNumber>F16726AIUS</ConfirmationNumber>
-                <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
-                <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
-                <StartCityCode>SEA</StartCityCode>
-                <EndCityCode>SEA</EndCityCode>
-                <StartLocation>SEA</StartLocation>
-                <EndLocation>SEA</EndLocation>
-                <Class>E</Class>
-                <Body>C</Body>
-                <Transmission>A</Transmission>
-                <AirCondition>R</AirCondition>
-                <NumPersons>1</NumPersons>
-                <NumCars>1</NumCars>
-                <DiscountCode>4321</DiscountCode>
-                <DailyRate>35.0000</DailyRate>
-                <TotalRate>105.0000</TotalRate>
-                <RateType>D</RateType>
-                <Currency>USD</Currency>
+                <Vendor>AL</Vendor> 
+                <VendorName>Alamo</VendorName> 
+                <Status>HK</Status> 
+                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal> 
+                <EndDateLocal>2013-12-23T12:00:00</EndDateLocal> 
+                <StartDateUtc>2013-12-21T20:00:00</StartDateUtc> 
+                <EndDateUtc>2013-12-23T20:00:00</EndDateUtc> 
+                <ConfirmationNumber>F16726AIUS</ConfirmationNumber> 
+                <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
+                <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
+                <StartCityCode>SEA</StartCityCode> 
+                <EndCityCode>SEA</EndCityCode> 
+                <StartLocation>SEA</StartLocation> 
+                <EndLocation>SEA</EndLocation> 
+                <Class>E</Class> 
+                <Body>C</Body> 
+                <Transmission>A</Transmission> 
+                <AirCondition>R</AirCondition> 
+                <NumPersons>1</NumPersons> 
+                <NumCars>1</NumCars> 
+                <DiscountCode>4321</DiscountCode> 
+                <DailyRate>35.0000</DailyRate> 
+                <TotalRate>105.0000</TotalRate> 
+                <RateType>D</RateType> 
+                <Currency>USD</Currency> 
             </Car>
         </Segments>
-        <RecordLocator>PANAMA50</RecordLocator>
-        <BookingSource>Alamo</BookingSource>
-        <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
-        <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
-        <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-        <ItinSourceName>TravelSupplier</ItinSourceName>
+        <RecordLocator>PANAMA50</RecordLocator> 
+        <BookingSource>Alamo</BookingSource> 
+        <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
+        <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
+        <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal> 
+        <ItinSourceName>TravelSupplier</ItinSourceName> 
         <Passengers>
             <Passenger>
-                <PassengerKey>0</PassengerKey>
-                <NameFirst>Chris</NameFirst>
-                <NameLast>Miller</NameLast>
+                <PassengerKey>0</PassengerKey> 
+                <NameFirst>Chris</NameFirst> 
+                <NameLast>Miller</NameLast> 
             </Passenger>
         </Passengers>
     </Booking>
 
-##  Post Booking Details Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][2] |   |
-|  Content Body |   |
-|  This function returns the full trip details, as documented in the **Response** of the [Get Itinerary Details][3] function.
-
-If the end user updates an existing reservation which results in a new confirmation number, the old booking must be explicitly cancelled in addition to posting the new booking to Concur.  If the previous booking is not cancelled, the user will see both bookings in their Concur trip list.
-
- |
-
-####  XML Example of Successful Response
+### Example 2: XML Example of Successful Response
 
     <Itinerary xmlns="https://www.concursolutions.com/api/travel/trip/2010/06">
         <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
@@ -172,110 +175,117 @@ If the end user updates an existing reservation which results in a new confirmat
         <Booking>
             <Segments>
                 <Car>
-                    <Vendor>AL</Vendor>
-                    <VendorName>Alamo</VendorName>
-                    <Status>HK</Status>
-                    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                    <EndDateLocal>2013-12-23T12:00:00</EndDateLocal>
-                    <StartDateUtc>2013-12-21T20:00:00</StartDateUtc>
-                    <EndDateUtc>2013-12-23T20:00:00</EndDateUtc>
-                    <ConfirmationNumber>F16726AIUS</ConfirmationNumber>
-                    <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
-                    <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
-                    <StartCityCode>SEA</StartCityCode>
-                    <EndCityCode>SEA</EndCityCode>
-                    <StartLocation>SEA</StartLocation>
-                    <EndLocation>SEA</EndLocation>
-                    <Class>E</Class>
-                    <Body>C</Body>
-                    <Transmission>A</Transmission>
-                    <AirCondition>R</AirCondition>
-                    <NumPersons>1</NumPersons>
-                    <NumCars>1</NumCars>
-                    <DiscountCode>4321</DiscountCode>
-                    <DailyRate>35.0000</DailyRate>
-                    <TotalRate>105.0000</TotalRate>
-                    <RateType>D</RateType>
-                    <Currency>USD</Currency>
+                    <Vendor>AL</Vendor> 
+                    <VendorName>Alamo</VendorName> 
+                    <Status>HK</Status> 
+                    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal> 
+                    <EndDateLocal>2013-12-23T12:00:00</EndDateLocal> 
+                    <StartDateUtc>2013-12-21T20:00:00</StartDateUtc> 
+                    <EndDateUtc>2013-12-23T20:00:00</EndDateUtc> 
+                    <ConfirmationNumber>F16726AIUS</ConfirmationNumber> 
+                    <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
+                    <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
+                    <StartCityCode>SEA</StartCityCode> 
+                    <EndCityCode>SEA</EndCityCode> 
+                    <StartLocation>SEA</StartLocation> 
+                    <EndLocation>SEA</EndLocation> 
+                    <Class>E</Class> 
+                    <Body>C</Body> 
+                    <Transmission>A</Transmission> 
+                    <AirCondition>R</AirCondition> 
+                    <NumPersons>1</NumPersons> 
+                    <NumCars>1</NumCars> 
+                    <DiscountCode>4321</DiscountCode> 
+                    <DailyRate>35.0000</DailyRate> 
+                    <TotalRate>105.0000</TotalRate> 
+                    <RateType>D</RateType> 
+                    <Currency>USD</Currency> 
                 </Car>
             </Segments>
-            <RecordLocator>PANAMA50</RecordLocator>
-            <BookingSource>Alamo</BookingSource>
-            <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
-            <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
-            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-            <ItinSourceName>TravelSupplier</ItinSourceName>
+            <RecordLocator>PANAMA50</RecordLocator> 
+            <BookingSource>Alamo</BookingSource> 
+            <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
+            <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal> 
+            <ItinSourceName>TravelSupplier</ItinSourceName> 
             <Passengers>
                 <Passenger>
-                    <PassengerKey>0</PassengerKey>
-                    <NameFirst>Chris</NameFirst>
-                    <NameLast>Miller</NameLast>
+                    <PassengerKey>0</PassengerKey> 
+                    <NameFirst>Chris</NameFirst> 
+                    <NameLast>Miller</NameLast> 
                 </Passenger>
             </Passengers>
         </Booking>
     </Itinerary>
 
-##  Post Booking Cancellation Request
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Cancels an existing booking. By default, the OAuth consumer should be the owner of the booking. This endpoint can also be used to cancel bookings that the OAuth consumer does not own. This is most often done when a Travel Management Company needs to cancel bookings on behalf of a user. The TMC must be registered with Concur and have a Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
-**NOTE**:
+# Post Booking Cancellation
 
+## Description
+Cancels an existing booking. By default, the OAuth consumer should be the owner of the booking. This endpoint can also be used to cancel bookings that the OAuth consumer does not own. This is most often done when a Travel Management Company needs to cancel bookings on behalf of a user. The TMC must be registered with Concur and have a Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
+
+**NOTE:** 
 * Booking records can only be updated by the booking source that created them. Concur verifies the source information before processing the request.
- |   |
-|  Query Parameters - Required |   |
-|
 
-* **cancel?bookingSource={_Supplier_}**  
+
+## Request
+
+    POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431}
+    Host: www.concursolutions.com
+    Authorization: OAuth {access token} 
+
+
+### Request parameters
+
+####Query Parameters - Required
+* **cancel?bookingSource={Supplier}**
+
 The cancel keyword and the unique identifier for the supplier, configured by Concur during the application review. The bookingSource must match the Supplier Name associated with the booking.
-* **confirmationNumber=****{_confnum_}**  
+
+* **confirmationNumber={confnum}**
+
 The confirmation number for the booking to cancel.
 
-Example:  
-https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={_Supplier_}&confirmationNumber={_confnum_}
+Example: 
+https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}
 
- |
-|  Query Parameters - Optional |
-|
+####Query Parameters - Optional
+* **userid_type=login_id&userid_value={loginID}**
 
-* **userid_type=login_id&userid_value={_loginID_}**  
 The Concur login ID of the user who owns the booking. Only provided when the booking owner is not the OAuth consumer. Can only be used when the OAuth consumer has the required user role.
 
-Example:  
-https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={_Supplier_}&confirmationNumber={_confnum_}&userid_type=login_id&userid_value={_loginID_}
+Example:
+https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}&userid_type=login_id&userid_value={loginID}
 
- |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.
 
+### Content type
+application/xml
+
+
+### Authorization header
+The authorization header must have an OAuth token for valid Concur user.
 The OAuth consumer must be registered as a Supplier or TMC with Concur, and must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
- |  None |
 
-####  XML Example Request
-
-    POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={0987654321}
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    ...
-
-##  Post Booking Cancellation Response
-
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][2] |   |
-|  Content Body |   |
-|  This function returns the full booking details, as specified in [Booking Object Elements][1].
-
+## Response
+This function returns the full booking details, as specified in [Booking Object Elements][1].
 If the booking is not found, the function returns a HTTP 404 error and the following element:
 
 **Status**: This element contains the value: NotFound.
 
- |
+* [HTTP Status Codes][1]
 
-####  XML Example of Successful Response
+## Examples
+
+### Examples 1: XML Example Request
+
+    POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431}
+    Host: www.concursolutions.com
+    Authorization: OAuth {access token} 
+
+
+### Examples 2: XML Example of Successful Response
 
     <Car>
         <Vendor>ZE</Vendor>
@@ -334,9 +344,9 @@ If the booking is not found, the function returns a HTTP 404 error and the follo
         <PerDiemLocation/>
     </Car>
 
-  
-
 
 [1]: /node/510#bookingelements
 [2]: https://developer.concur.com/reference/http-codes
 [3]: https://developer.concur.com/node/514#getitindetails
+
+

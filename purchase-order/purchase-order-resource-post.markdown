@@ -3,112 +3,118 @@ title: Purchase Order Resource
 layout: operation
 ---
 
-
-
-
 This resource supports the following POST actions:
 
 ##  Post Purchase Order Request
 
-| ----- |
-|  Description |  Supported Content Types |
-|  Creates or updates one or more purchase orders. All purchase order requests are considered a batch operation, even if only one purchase order is created or updated.
+### Description
+Creates or updates one or more purchase orders. All purchase order requests are considered a batch operation, even if only one purchase order is created or updated.
 
 **NOTE**: Concur Invoice is vastly configurable. Use the following process to get the list of custom fields configured for the various forms:
-
 1. Use the [Get Available Form Types][1] function to get the form codes associated with the Invoice Purchase Order header, Line Item and Allocation forms.
 2. Use the [Get Form Data][2] function to get the FormId for the specific forms that you wish to use.
 3. Use the [Get Form Field Details][3] function to get the list of configured fields (including custom fields) for the forms.
- |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|  None |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user. |  None |
-|  Content Body |   |
-|  This request should contain a **Batch** parent element with a **PurchaseOrder** parent element for each included purchase order. The **PurchaseOrder** element contains the following child elements:  
 
-|  Element |  Required (must contain value)? |  Description |
-|  PoNumber |  Y |  The purchase order number. |   |
-|  PolicyExternalId |  Y |  This is the external identifier of the policy that should be associated to the purchase order. External id is a property of the policy within configurations. |
-|  ExternalId |  Y |  A customer supplied value that uniquely identifies the line item within a purchase order. |
-|  LineNumber |  Y |  The number of the line items within the purchase order. |
-|  SupplierPartId |  N |  Any number that might help to identify the line item, it may be values such as the supplier part number or even the manufacturer number. |
-|  CurrencyCode |  Y |  The [3-letter ISO 4217 currency code][4] of the currency that is associated to the purchase order. |
-|  VendorCode |  Y |  The code that identifies the vendor that should be associated to the purchase order. |
-|  VendorAddressCode |  Y |  The code that identifies the vendors remit address that should be associated to the purchase order. |
-|  ShipTo |  Y |  The customer's shipping address, which is where the vendor should ship the goods. This parent element contains the following child elements:
+### Content Types 
+application/xml
 
-|  ExternalId |  A unique value supplied by the customer to identify a particular shipping or billing address. Required. |
-|  Name |  An optional name that can be given to the shipping and billing address. |   | | |
-|  Address1 |  Address 1 of the shipping or billing address. Required. |
-|  Address2 |  Address 2 of the shipping or billing address. |
-|  Address3 |  Address 3 of the shipping or billing address. |
-|  City |  The city of the shipping or billing address. Required. |
-|  StateProvince |  The state or province of the shipping or billing address. Required. |
-|  PostalCode |  The postal code of the shipping or billing address. Required. |
-|  CountryCode |  The code of the country associated to the shipping or billing address. Required. |
+### Query Parameters - Required
+None 
 
- |
-|  BillTo |  Y |  The customer's billing address, which is where the vendor should send the bill. This parent element contains the following child elements:
+### Query Parameters - Optional
+None
 
-|  ExternalId |  A unique value supplied by the customer to identify a particular shipping or billing address. Required. |
-|  Name |  An optional name that can be given to the shipping and billing address. |   | | |
-|  Address1 |  Address 1 of the shipping or billing address. Required. |
-|  Address2 |  Address 2 of the shipping or billing address. |
-|  Address3 |  Address 3 of the shipping or billing address. |
-|  City |  The city of the shipping or billing address. Required. |
-|  StateProvince |  The state or province of the shipping or billing address. Required. |
-|  PostalCode |  The postal code of the shipping or billing address. Required. |
-|  CountryCode |  The code of the country associated to the shipping or billing address. Required. |
+### Request Headers - Required
+Authorization header with OAuth token for valid Concur user.
 
- |
-|  OrderDate |  Y |  The date goods were ordered. Format YYYY-MM-DD. |
-|  Name |  N |  A name to the overall purchase order. |
-|  Description |  N |  A description of the overall purchase order. |
-|  RequestedDeliveryDate |  N |  The date the purchase order instructed the vendor to deliver the goods. Format YYYY-MM-DD. |
-|  RequestedBy |  N |  The person that requests the goods associated to the purchase order. |
-|  PaymentTerms |  N |  The NET payment terms with a supplier. |
-|  DiscountTerms |  N |  The NET discount terms with a supplier when discounts apply. |
-|  DiscountPercentage |  N |  The discount from the supplier if the discount terms are met. |
-|  Tax |  N |  The overall tax of the purchase order. |
-|  RequestedDeliveryDate |  N |  The date the line item of the purchase order instructed the vendor to deliver the goods. Format YYYY-MM-DD |
-|  Shipping |  N |  The overall shipping cost of the purchase order. |
-|  ShippingDescription |  N |  Describes how the goods associated to the purchase order are going to be shipping, i.e. via FedEx. |
-|  Custom1 through Custom 24 |  Depends on configuration |
+### Request Headers - Optional
+None
 
-A value that can be applied to a custom field of the same name that is part of the purchase order header form.
+### Content Body
+This request should contain a **Batch** parent element with a **PurchaseOrder** parent element for each included purchase order. The **PurchaseOrder** element contains the following child elements:  
 
-**NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][5] page for information on how to correctly submit list item values.
+|Element Name|Required&Optional|Data Type|Description|
+|------------|-----------------|---------|-----------|
+|PoNumber|Y| |The purchase order number.| 
+|PolicyExternalId|Y| |This is the external identifier of the policy that should be associated to the purchase order. External id is a property of the policy within configurations.|
+|ExternalId|Y| |A customer supplied value that uniquely identifies the line item within a purchase order.|
+|LineNumber|Y| |The number of the line items within the purchase order.|
+|SupplierPartId|N| |Any number that might help to identify the line item, it may be values such as the supplier part number or even the manufacturer number.|
+|CurrencyCode|Y| |The [3-letter ISO 4217 currency code][4] of the currency that is associated to the purchase order.|
+|VendorCode|Y| |The code that identifies the vendor that should be associated to the purchase order.|
+|VendorAddressCode|Y | |The code that identifies the vendors remit address that should be associated to the purchase order.|
+|ShipTo|Y| |The customer's shipping address, which is where the vendor should ship the goods. This parent element contains the following [child elements](#ShipTo)|
+|BillTo|Y| |The customer's billing address, which is where the vendor should send the bill. This parent element contains the following [child elements](#BillTo)|
+|OrderDate|Y| |The date goods were ordered. Format YYYY-MM-DD.|
+|Name|N| |A name to the overall purchase order.|
+|Description|N| |A description of the overall purchase order.|
+|RequestedDeliveryDate|N | |The date the purchase order instructed the vendor to deliver the goods. Format YYYY-MM-DD.|
+|RequestedBy|N| |The person that requests the goods associated to the purchase order.|
+|PaymentTerms|N| |The NET payment terms with a supplier.|
+|DiscountTerms|N| |The NET discount terms with a supplier when discounts apply.|
+|DiscountPercentage|N| |The discount from the supplier if the discount terms are met.|
+|Tax|N| |The overall tax of the purchase order.|
+|RequestedDeliveryDate|N| |The date the line item of the purchase order instructed the vendor to deliver the goods. Format YYYY-MM-DD |
+|Shipping|N| |The overall shipping cost of the purchase order.|
+|ShippingDescription|N| |Describes how the goods associated to the purchase order are going to be shipping, i.e. via FedEx.|
+|Custom1 through Custom 24| |Depends on configuration|A value that can be applied to a custom field of the same name that is part of the purchase order header form.**NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][5] page for information on how to correctly submit list item values.|
+|LineItem|Y| |Details the line items that are associated to the purchase order. The request can contain one or more **LineItem** elements. Refer to the Line Item Elements table for the child elements.|
+|Shipping Terms|N| |The code representing shipping terms with a supplier. Maximum 10 characters.|
+|Shipping Method |N| |The code representing the shipping method used by the supplier. Maximum 10 characters.|
+|Needed By|N| |The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD|
+|Account Number|N| |The vendor account number. |
 
- |
-|  LineItem |  Y |  Details the line items that are associated to the purchase order. The request can contain one or more **LineItem** elements. Refer to the Line Item Elements table for the child elements. |
-|  Shipping Terms |  N |  The code representing shipping terms with a supplier. Maximum 10 characters. |
-|  Shipping Method |  N |  The code representing the shipping method used by the supplier. Maximum 10 characters. |
-|  Needed By |  N |  The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD |
-|  Account Number |  N |  The vendor account number. |
+#### ShipTo Child Elements<a name="ShipTo"></a>
+|Element Name|Required&Optional|Data Type|Description|
+|------------|-----------------|---------|-----------|
+|ExternalId| | |A unique value supplied by the customer to identify a particular shipping or billing address. Required. |
+|Name| | |An optional name that can be given to the shipping and billing address. |
+|Address1 |  |  | Address 1 of the shipping or billing address. Required. |
+|Address2 |  |  | Address 2 of the shipping or billing address. |
+|Address3 |  |  | Address 3 of the shipping or billing address. |
+|City |  |  | The city of the shipping or billing address. Required. |
+|StateProvince |  |  | The state or province of the shipping or billing address. Required. |
+|PostalCode |  |  | The postal code of the shipping or billing address. Required. |
+|CountryCode |  |  | The code of the country associated to the shipping or billing address. Required. |
 
-| ----- |
-|  Line Item Elements |
-|  Element |  Required (must contain value)? |  Description |
-|  RequestedBy |  N |  The person that requests the goods associated to the line item of the purchase order. |
-|  ExpenseType |  Y, if AccountCode is not supplied |  Expense Type of the line item.  ExpenseType OR AccountCode must be supplied, but not both. |
-|  AccountCode |  Y, if ExpenseType is not supplied |  Account Code of the line item. ExpenseType OR AccountCode must be supplied, but not both. |
-|  Description |  N |  A description of the line item. |
-|  Quantity |  Y |  The quantity associated to the line item. |
-|  UnitPrice |  Y |  The price of each item of the line item. |
-|  Tax |  N |  Any tax that is associated to the line item. |
-|  Custom1 through Custom20 |  Depends on configuration |  A value that can be applied to a custom field of the same name that is part of the purchase order line item form. |
-|  Allocation |  N |  Details the allocations that are associated to the line item. Allocation elements can be repeated within the same line items to represent multiple allocations. This parent element contains the following child elements:
 
-|  Amount |  The total amount of the allocation. Required. |
-|  Custom1 through Custom20 |  A value that can be applied to a custom field of the same name that is part of the allocation form. |   | | |
+#### BillTo Child Elements<a name="BillTo"></a>
+|Element Name|Required&Optional|Data Type|Description|
+|------------|-----------------|---------|-----------|
+|ExternalId |  |  | A unique value supplied by the customer to identify a particular shipping or billing address. Required. |
+|Name |  |  | An optional name that can be given to the shipping and billing address. |
+|Address1 |  |  | Address 1 of the shipping or billing address. Required. |
+|Address2 |  |  | Address 2 of the shipping or billing address. |
+|Address3 |  |  | Address 3 of the shipping or billing address. |
+|City |  |  | The city of the shipping or billing address. Required. |
+|StateProvince |  |  | The state or province of the shipping or billing address. Required. |
+|PostalCode |  |  | The postal code of the shipping or billing address. Required. |
+|CountryCode |  |  | The code of the country associated to the shipping or billing address. Required. |
 
- |
+### Line Item Elements
+|Element Name|Required&Optional|Data Type|Description|
+|------------|-----------------|---------|-----------|
+| RequestedBy | N | |The person that requests the goods associated to the line item of the purchase order. |
+| ExpenseType | Y, if AccountCode is not supplied | | Expense Type of the line item. ExpenseType OR AccountCode must be supplied, but not both. |
+| AccountCode | Y, if ExpenseType is not supplied | | Account Code of the line item. ExpenseType OR AccountCode must be supplied, but not both. |
+| Description | N | | A description of the line item. |
+| Quantity | Y | | The quantity associated to the line item. |
+| UnitPrice | Y | | The price of each item of the line item. |
+| Tax | N | | Any tax that is associated to the line item. |
+| Custom1 through Custom20 | Depends on configuration | | A value that can be applied to a custom field of the same name that is part of the purchase order line item form. |
+| Allocation | N | | Details the allocations that are associated to the line item. Allocation elements can be repeated within the same line items to represent multiple allocations. This parent element contains the following [child elements](#Allocation)|
 
- |
+#### Allocation Child Elements<a name="Allocation"></a>
+
+|Element Name|Required&Optional|Data Type|Description|
+|------------|-----------------|---------|-----------|
+| Amount | | |The total amount of the allocation. Required. |
+| Custom1 through Custom20 | | |A value that can be applied to a custom field of the same name that is part of the allocation form. |
+
 
 ####  XML Example Request
 
+```
     POST /api/invoice/purchaseorder/v1.0 HTTPS 1.1
     Host: www.concursolutions.com
     Authorization: OAuth {access token}
@@ -236,33 +242,37 @@ A value that can be applied to a custom field of the same name that is part of t
             </LineItem>
         </PurchaseOrder>
     </Batch>
-
+```
 ##  Post Purchase Order Response
 
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][6] |   |
-|  Content Body |   |
-|  This request will return a** Response** parent element with the following child elements:  
+### HTTP Responses
+[HTTP Status Codes][6]
 
-|  Element |  Description |
-|  Processed |  The total number of purchase orders processed in the request. |   |
-|  Success |  The total number of successfully processed purchase orders in the request. |
-|  Failures |  The total number of unsuccessfully processed purchase orders in the request. |
-|  Results |  This will contain a **PurchaseOrderResult** parent element for each purchase order. The **PurchaseOrderResult** element will contain the following child elements:
+### Content Type
+application/xml
 
-|  PoNumber |  The purchase order number associated to the processed purchase order. |
-|  Status |  The result of processing the purchase order. Format is SUCCESS or FAILURE. |   | |
-|  ErrorCode |  The code to identify why the purchase order was not processed successfully. |
-|  LineItemExternalId |  Will display the line item external id of a line item that caused the error. If the error is related to an Allocation, this will indicate the external id of the line item that the allocation is associated with and which allocation was the cause of the error. Refer to [Responses and Errors][7] for more information. |
-|  FieldCode |  The code that indicates which field caused an issue. This typically only appears when a field is being validated against a field of a form type. The format of the code will be LEVEL|CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation. Refer to [Responses and Errors][7] for more information. |
+### Content Body
+This request will return a** Response** parent element with the following child elements:  
 
- |
+|Element Name|Required&Optional|Data Type|Description|
+|------------|-----------------|---------|-----------|
+|Processed | | | The total number of purchase orders processed in the request. |
+| Success | | | The total number of successfully processed purchase orders in the request. |
+| Failures | | | The total number of unsuccessfully processed purchase orders in the request. |
+| Results | | | This will contain a **PurchaseOrderResult** parent element for each purchase order. The **PurchaseOrderResult** element will contain the following [child elements](#Results)|
 
- |
+### Results Child Elements <a name="Results"></a>
+|Element Name|Required&Optional|Data Type|Description|
+|------------|-----------------|---------|-----------|
+|PoNumber | | |The purchase order number associated to the processed purchase order.|
+|Status | | |The result of processing the purchase order. Format is SUCCESS or FAILURE.|
+|ErrorCode| | |The code to identify why the purchase order was not processed successfully.|
+|LineItemExternalId | | |Will display the line item external id of a line item that caused the error. If the error is related to an Allocation, this will indicate the external id of the line item that the allocation is associated with and which allocation was the cause of the error. Refer to [Responses and Errors][7] for more information.|
+|FieldCode| | |The code that indicates which field caused an issue. This typically only appears when a field is being validated against a field of a form type. The format of the code will be LEVEL|CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation. Refer to [Responses and Errors][7] for more information.|
 
 ####  XML Example Response with Success and Failure
 
+```
     200 OK
     Content-Type: application/xml
     <Response xmlns="http://www.concursolutions.com/api/invoice/purchaseorder/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -284,9 +294,7 @@ A value that can be applied to a custom field of the same name that is part of t
             </PurchaseOrderResult>
         </Results>
     </Response>
-
-  
-
+```
 
 [1]: https://developer.concur.com/expense-report/expense-form-resource/expense-form-resource-get
 [2]: https://developer.concur.com/node/469#getformdata
