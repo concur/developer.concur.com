@@ -1,14 +1,14 @@
 ---
-title: Employee Form Field Resource
+title: Get List of Employee Form Fields
 layout: operation
 ---
 
 
-## **Description**
+## Description
 
 Retrieves the list of fields for the Global employee form.
 
-## **Request**
+## Request
 
 This resource supports the following GET actions: Get List of Employee Form Fields Request
 
@@ -17,29 +17,29 @@ GET {InstanceURI}/api/user/v1.0/FormFields HTTP/1.1
 Authorization: OAuth {access token}
 ```
 
-### **Accept type**
+### Accept type
 
 * application/xml
 
-### **Authorization header**
+### Authorization header
 
 Authorization header with OAuth token for a valid Concur user.
 
-### **Request Parameters**
+### Request Parameters
 
-#### **Required**
-
-None
-
-#### **Optional**
+#### Required
 
 None
 
-## **Response**
+#### Optional
+
+None
+
+## Response
 
 This request will return a FormFieldsList parent element containing a FormField child element for each employee form field. 
 
-### **Content type**
+### Content type
 
 * application/xml
 
@@ -65,7 +65,7 @@ This request will return a FormFieldsList parent element containing a FormField 
 |  ListName |  The name of the list associated with the field. |
 |  HierLevel |  The list level of the field. If it is the second level field in a two-level list, the value would be 2.|
 
-## **Examples** 
+## Examples
 
 ### Example 1: Get List of Employee Form Fields 
 
@@ -525,7 +525,7 @@ Content-Type: application/xml
 </FormFieldsList> 
 ```
 
-## **See also**
+## See also
 
 [HTTP Status Codes][1]
 
