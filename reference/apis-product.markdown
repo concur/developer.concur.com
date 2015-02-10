@@ -3,15 +3,12 @@ title: APIs by Concur Product
 layout: conceptual
 ---
 
-
-
-
 The Concur Platform can be used with several Concur products. This page shows the available APIs by product.
 
 
 ##  Concur Expense
 
-####  Professional/Premium Web Services:
+###  Professional/Premium Web Services
 * Attendee
 * Digital Tax Invoice
 * Expense Report
@@ -21,13 +18,13 @@ The Concur Platform can be used with several Concur products. This page shows th
 * Quick Expense
 * User
 
-####  Professional/Premium Callouts:
+###  Professional/Premium Callouts
 * Attendee Fetch
 * Event Notification
 * Launch External URL
 * List Fetch
 
-####  Standard/Developer Sandbox Web Services:
+###  Standard/Developer Sandbox Web Services
 * Expense Report
 * Imaging
 * List Item
@@ -35,21 +32,21 @@ The Concur Platform can be used with several Concur products. This page shows th
 * Quick Expense
 * User
 
-####  Standard/Developer Sandbox Callouts:
+###  Standard/Developer Sandbox Callouts
 * Attendee Fetch
 * List Fetch
 
-####  Concur Small Business Web Services:
+###  Concur Small Business Web Services
 * Payment Batch File
 
-####  Concur Small Business Callouts:
+###  Concur Small Business Callouts
 * Not Available
 
 * * *
 
 ##  Concur Travel Request
 
-####  Professional/Premium Web Services:
+###  Professional/Premium Web Services
 * Travel Request
 * List Item
 * User
@@ -58,19 +55,19 @@ The Concur Platform can be used with several Concur products. This page shows th
 
 ##  Concur TripLink
 
-####  Professional/Premium Web Services:
+###  Professional/Premium Web Services
 * Itinerary
 * Travel Points
 * Travel Profile
 
-####  Professional/Premium Direct Connects:
+###  Professional/Premium Direct Connects
 * Not Available
 
 * * *
 
 ##  Concur Invoice
 
-####  Professional/Premium Web Services:
+###  Professional/Premium Web Services
 * Digital Tax Invoice
 * Extract
 * Imaging
@@ -79,7 +76,7 @@ The Concur Platform can be used with several Concur products. This page shows th
 * Purchase Order
 * User
 
-####  Standard/Developer Sandbox Web Services:
+###  Standard/Developer Sandbox Web Services
 * Imaging
 * List Item
 * User
@@ -88,12 +85,12 @@ The Concur Platform can be used with several Concur products. This page shows th
 
 ##  Concur Travel
 
-####  Professional/Premium Web Services:
+###  Professional/Premium Web Services
 * Travel Profile
 * Itinerary
 * Meeting
 * Trip Approval
 
-####  Professional/Premium Direct Connects:
+###  Professional/Premium Direct Connects
 * Ground Transportation
 * Hotel
