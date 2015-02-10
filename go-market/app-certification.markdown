@@ -5,7 +5,7 @@ layout: conceptual
 
 Handling data with care and delivering a positive experience for our customers is paramount at Concur.  To ensure an appropriate level of data security and good customer experience, all apps that integrate and appear in the App Center go through our App Certification process.
 
-### Getting Started on API Certification
+## Getting Started on API Certification
 
 1. [Register for a sandbox][1] and find [API documentation][2].
 2. As you build your app, complete our[ Application Review Information and Submission Form][3].
@@ -13,22 +13,22 @@ Handling data with care and delivering a positive experience for our customers i
 
 After your app is approved, your app listing will be reviewed before publishing in the [Concur App Center][4]. 
 
-### How Does App Certification Work?
+## How Does App Certification Work?
 
 Concur conducts an initial application and security review in the sandbox environment.  For solutions that process, transmit or store sensitive information, an additional review may be conducted in our sandbox as well as your production environment. 
 
-### Is There a Cost?
+## Is There a Cost?
 
 For apps for individual travelers, the fee for App Certification is currently being waived.  For apps requiring enterprise-level integration or access to corporate information, there are costs for App Certification and you will be asked to enter into a partnership agreement.  Our partner team at  [bizdev@concur.com][5] will work hand-in-hand with you, and looks forward to hearing from you.
 
-### What does Concur Specifically Review?
+## What does Concur Specifically Review?
 
 The App Certification process includes a review of:
 
-* Overall security, with [OWASP Top Ten Best Practices][6];
-* Application functionality, performance, and stability;
-* Information management practices;
-* Integration and connection flows; and
+* Overall security, with [OWASP Top Ten Best Practices][6].
+* Application functionality, performance, and stability.
+* Information management practices.
+* Integration and connection flows.
 * Set up and support processes.
 
 [1]: https://developer.concur.com/register
