@@ -27,6 +27,7 @@ None
 The request will include a **Notification** parent element, with the following child elements:
 
 | Element | Description |
+|------------|-------------------------------------|
 | EventType | The event that triggered the callout. Format: Report Entered Expense Report Workflow Step - <workflow step name>. |
 | ObjectType | The type of object that triggered the notification. Currently supports Expense Report and Travel Request. Format: EXPRPT, TRAVELREQ |
 | ObjectURI | The URI for the object. The developer can use the appropriate GET endpoint for the Object Type. |
