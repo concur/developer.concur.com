@@ -51,7 +51,7 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 
 
 
-|  Element |  Required (must contain value)? |  Description |
+|  Element |  Required? |  Description |
 |----------|---------------------------------|--------------|
 |  Error |  Y |  The error information, if an error occurred. This parent element contains the following child elements:<br>**ErrorCode:**  The code for the error. Will contain one of the following values:<br><br> 400: Credential related error <br> 800: Reservation cannot be cancelled <br>900: Unknown error  <br>**ErrorSource:** The source of the error.<br>**ErrorDescription:**The additional error information.|
 |  ReservationID |  N |  The identifier for the reservation. |
@@ -85,7 +85,7 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 |  AccountingInfo |  N |  The accounting information for the reservation. This parent element contains the following child elements:<br>AccountingField1  through AccountingField5<br>These fields contain detailed accounting information. |
 
 ##Rate Information Elements
-|Element	|Required (must contain value)?|	Description|
+|Element	|Required?|	Description|
 |---|---|---|
 |RateID	|Y	|The rate identifier.|
 |Rate|	Y	|The BasePrice + ServiceCharge + SurCharge + Tax|
@@ -105,7 +105,7 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 |OptionalExtraTimeCharge	|N|	The charge for each additional hour.|
 
 ##Reply Credit Card Elements
-|Element	|Required (must contain value)?	|Description|
+|Element	|Required?	|Description|
 |----|----|----|
 |Type	|Y	|The card type.|
 |Number	|Y	|The card number.|
