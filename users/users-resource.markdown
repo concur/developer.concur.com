@@ -25,9 +25,9 @@ https://www.concursolutions.com/api/user/v1.0/Users
 
 ## **Operations**         
 
-[Get the Concur profile information for the specified user][1]
+* [Get the Concur profile information for the specified user][1]
 
-[Add a new user or update information for existing users][2] 
+* [Add a new user or update information for existing users][2] 
 
 ## **See also**
 
