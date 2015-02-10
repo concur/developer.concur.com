@@ -67,7 +67,7 @@ This request will return a FormFieldsList parent element containing a FormField 
 
 ## Examples
 
-### Example 1: Get List of Employee Form Fields 
+### Example 1: Get list of employee form fields 
 
 #### Request 
 
