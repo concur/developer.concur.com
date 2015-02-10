@@ -3,7 +3,6 @@ title: Post Trip Approval Status
 layout: operation
 ---
 
-
 ## Description
 Updates the specified trip as approved or rejected by the supplied approver. Can supply either the ItinLocator or the RecordLocator value.
 
@@ -106,5 +105,6 @@ Authorization: OAuth {access token}
         </TripApprovalRS>
 ```
 
-[1]: https://developer.concur.com/reference/http-codes
-[2]: https://developer.concur.com/node/397#responses
+
+[1]:https://developer.concur.com/reference/http-codes
+[2]:https://developer.concur.com/node/397#responses
