@@ -1,4 +1,4 @@
- ---
+---
 title: Launch External URL Request 
 layout: conceptual
 ---
