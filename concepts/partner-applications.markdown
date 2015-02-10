@@ -40,10 +40,9 @@ The first action all developers need to take is to register a partner applicatio
 5. Fill in the fields using the following table:     
 saasdfasdf      
 asdfasdfsdf       
-6. sss
-7. sss
-8. sss
-9. sss
+6. The **Application Authorization** section displays your company domain and automatically creates a **Key** and **Secret** to use with this application. NOTE: The key and secret allow access to any company that enables this application. You MUST keep this information secret (as specified in the Concur Legal Agreement) to maintain security.
+7. Click **OK**. The application will automatically be enabled for your company.
+
 
 | Field  | Description |
 |--------|-------------|
@@ -53,9 +52,6 @@ asdfasdfsdf
 | Active | Choose whether this application is active. Inactive applications will not appear in the list of available applications. |
 | APIs Used |Select the Concur Web Service APIs that this application will interface with. If the API includes sensitive data groups, they will appear as separate check boxes beneath the API. Select only the check boxes for the sensitive data that your application must have access to.  
 |         |**NOTE**: The Quick Expense Web Service requires the Expense Report Web Service scope. If the application wants to GET receipt images, it would use the Imaging Web Service, so it would also require the Imaging Web Service scope.|    
-
-6. The **Application Authorization** section displays your company domain and automatically creates a **Key** and **Secret** to use with this application. NOTE: The key and secret allow access to any company that enables this application. You MUST keep this information secret (as specified in the Concur Legal Agreement) to maintain security.
-7. Click **OK**. The application will automatically be enabled for your company.
 
 ##  Managing Partner Applications
 
