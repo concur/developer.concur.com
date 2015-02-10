@@ -38,8 +38,10 @@ The first action all developers need to take is to register a partner applicatio
 ![][8]  
 
 5. Fill in the fields using the following table:     
-saasdfasdf      
-asdfasdfsdf       
+| Field | Description |
+|:-------|:-----------|
+|Name    | Enter the name that should appear in the list of applications. |
+       
 6. The **Application Authorization** section displays your company domain and automatically creates a **Key** and **Secret** to use with this application. NOTE: The key and secret allow access to any company that enables this application. You MUST keep this information secret (as specified in the Concur Legal Agreement) to maintain security.
 7. Click **OK**. The application will automatically be enabled for your company.
 
