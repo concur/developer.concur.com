@@ -10,7 +10,7 @@ The following request is sent to the supplier when the Travel user selects a gro
 The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 `https://{servername}/concur/groundtransportation`
 
-The URI is configured by the supplier when registering the partner application.
+The URI is configured by the supplier when registering the [partner application](https://developer.concur.com/overview/partner-applications).
 
 ## Request Headers - Required
 Authorization header with OAuth credentials. Refer to the OAuth documentation for more information.
