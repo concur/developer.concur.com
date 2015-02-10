@@ -6,29 +6,31 @@ layout: operation
 
 
 
-##   Request
+##  Request
 
 **NOTE**: This function is not supported in the current version. Support may be returned in a future release.
 
 The following request is sent when the Travel user updates their reservation. The response includes the new reservation identifier.
 
-| ----- |
-|  Supported Accept Types |  Encoding |
-|   |  UTF-8 |
-|  Request URI |   |
-|  The Hotel direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
+
+###Supported Accept Types
+application/XML
+
+###Encoding
+UTF-8
+
+###Request URI
+The Hotel direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
     https://{servername}/concur/hotel/v1/
 
 The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts >[ Partner Applications][1] **for more information.
 
- |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with Basic credentials. Refer to the [Security][2] documentation for more information. |  None |
-|  Request Body |   |
-|
-
+###Request Headers - Required
+Authorization header with Basic credentials. Refer to the [Security][2] documentation for more information.
+###Request Body
 The request will contain an **OTA_HotelResModifyRQ** parent element, with the following attributes:
+
 * xmlns
 * EchoToken
 * TimeStamp
@@ -39,39 +41,30 @@ The request will contain an **OTA_HotelResModifyRQ** parent element, with the fo
 
 The **OTA_HotelResModifyRQ** element contains the following child elements:
 
->
-|  Element |  Description |
-|  POS |  The point of sale information. This parent element contains the following child elements:
->
->
-|  Source |  The source of the request. This element has the following attributes:
->
->  
->
-> The **Source** element has the following child element:
->
->
-|  RequestorID |  The customer's identifiers. If necessary, multiple RequestorID elements can be sent.This element contains the following attributes:
->
-> * **Type**: The code for the customer type.
-> * **ID**: The identifier for the user.
->  |
->
->  |
->
->  |
-|  HotelResModifies |  This element has a **HotelResModify** child element with the following attributes:
->
-> * **RoomStayReservation**: Whether the reservation is for a room stay. Format: true/false.
-> * **CreateDateTime**: The time the reservation was originally created, in the hotel's local time zone.
-> * **CreatorID**: The source of the reservation.
->
-> The **HotelResModify** element contains the following child elements:
->
->
-|  RoomStays |  This parent element contains the **RoomStay** element. Refer to the RoomStay Request Child Elements table for information about child elements. |
-|  ResGuests |  This parent element contains the **ResGuest** element. The **ResGuest** element has the following attributes:
->
+####POS
+The point of sale information. This parent element contains the following child elements:
+
+* Source: The source of the request. This element has the following attributes:
+	* ISOCountry: The country code for the Travel user's home country.
+	* ISOCurrency: The 3-letter ISO 4217 currency code for the Travel user's currency.  
+	
+* The **Source** element has the following child element:
+	* RequestorID: The customer's identifiers. If necessary, multiple RequestorID elements can be sent.This element contains the following attributes:
+		* **Type**: The code for the customer type.
+		* **ID**: The identifier for the user.
+
+
+####HotelResModifies
+This element has a **HotelResModify** child element with the following attributes:
+
+* **RoomStayReservation**: Whether the reservation is for a room stay. Format: true/false.
+* **CreateDateTime**: The time the reservation was originally created, in the hotel's local time zone.
+* **CreatorID**: The source of the reservation.
+
+The **HotelResModify** element contains the following child elements:
+
+* RoomStays: This parent element contains the **RoomStay** element. Refer to the RoomStay Request Child Elements table for information about child elements.
+* ResGuests: This parent element contains the **ResGuest** element. The **ResGuest** element has the following attributes:
 > * **ResGuestRPH**: The unique identifier for the guest.
 > * **AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.
 >
