@@ -3,7 +3,7 @@ title: Hotel Direct Connect
 layout: conceptual
 ---
 
-##Description 
+## Description 
 The Hotel Services Direct Connect from Concur Connect provides a method for Travel users to access hotel inventory.
 
 Once the hotel supplier has developed and certified their interface with Concur, their inventory will begin appearing in hotel searches by opted-in Travel users.
@@ -13,11 +13,11 @@ This callout differs from the inbound Concur web services in the following ways:
 * It uses an outbound message where Travel calls a public facing API endpoint provided by the hotel supplier.
 * The supplier configures and maintains the public web service interface. This guide specifies the request and response format required by Concur.
 
-##Works With These Concur Products
+## Works With These Concur Products
 * **Travel** for Concur Professional/Premium
 * **Travel** for Concur Standard
 
-##Product Restrictions
+## Product Restrictions
 
 This direct connect is only available to Travel Suppliers with Hotel inventory. This direct connect is not supported in the Concur mobile application.
 
@@ -25,7 +25,7 @@ Concur products are highly configurable, and not all clients will have access to
 
 Partner developers must determine which configurations are required for their solution prior to the application review process. Use the [Developer Forum][1] if you have questions about the configuration settings.
 
-##Hotel Process Overview
+## Hotel Process Overview
 The configuration process has the following steps:
 
 1. The Hotel Supplier creates the application on their system that will accept the requests from Concur and return the appropriate responses.
@@ -39,7 +39,9 @@ The configuration process has the following steps:
     * Once certification passes, the Hotel supplier sends Concur the production URIs and credentials.
     * Concur updates the production servers with the supplier's production data and does a test booking.  Upon successful completion, the supplier will be live in Concur for any customer to enable.
 6. The Travel client opts in to the Hotel callout (within the Travel Configuration) to allow their users to view and book the available inventory.
+
 Once the configuration is complete, the callout uses the following process:
+
 1. The user searches for hotels when creating an itinerary in Travel.
 2. Travel sends the search request to the endpoint, using the Post HotelSearch.
 3. The supplier returns the properties.
@@ -47,13 +49,14 @@ Once the configuration is complete, the callout uses the following process:
 5. If the user chooses to reserve a hotel room, Travel sends the Post HotelBookingRule and shows the booking and cancellation policies to the user.
 6. If the user accepts the policy, Travel sends the Post HotelRes.
 7. Travel will send Post HotelItin requests to show the user their reservation.  This will happen whenever the user views their itinerary.
+
 This callout can also be used to perform the following functions:
 * Get Hotel Availabililty on a Property that was not priced in the original request
 * Get the Reservation Details
 * Modify the Hotel Reservation
 * Cancel the Hotel Reservation
 
-##Hotel URL Structure
+## Hotel URL Structure
 
 The hotel direct connect sends the relevant information to a URL that the travel supplier maintains.  
 A recommended URL structure is: https://{servername}/concur/hotel/v1/
@@ -70,7 +73,7 @@ The variable part doesn't need to be at the end:
 https://{servername}/concur/hotel/HotelSearch/v1/  
 https://{servername}/concur/hotel/HotelAvail/v1/
 
-##Security 
+## Security 
 Concur will make calls to the application connector's endpoint using SSL. During configuration, Concur will connect to the application connector to validate that its hostname and access credentials are valid.  
 Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before Concur can access the connector.  
 Concur will use Http Basic authentication. The hotel supplier will need to provide credentials that Concur will send to the supplier's system for each message. 
@@ -88,7 +91,7 @@ Please note the following general information about this format:
 o 12.129.29.0/24 and 12.129.32.0/22 (US data center)  
 o 84.14.175.224/27 and 62.23.83.128/25 (EU data center)
 
-##Functions 
+## Functions 
 [Post Availability Search][3]
 
 [Post Booking Rule Search][4]
@@ -104,7 +107,7 @@ o 84.14.175.224/27 and 62.23.83.128/25 (EU data center)
 [Post Reservation Query][9]
 
 
-##Additional Information
+## Additional Information
 Concur Travel Configuration
 
 Versioning
@@ -117,9 +120,6 @@ General Requirements
 
 [Hotel Direct Connect Codes (PDF)][10]
 
- 
-
- |
 
 ###  Concur Travel Configuration
 
@@ -205,7 +205,6 @@ Please keep the Type compliant with  ID Type Codes. The supported codes for the 
   
 
 
- 
 
 [1]: https://developer.concur.com/forums/concur-connect
 [2]: http://www.opentravel.org/Specifications/SchemaIndex.aspx?FolderName=2011B
