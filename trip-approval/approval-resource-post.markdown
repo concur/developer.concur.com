@@ -51,7 +51,6 @@ This request will return a TripApprovalRS parent element with a matching Transac
 ### Example 1: Update a trip as approved with successful response
 
 #### Request
-
 ```
 POST /api/tws/v1.0/TripApproval/DoApproval HTTPS 1.1
 Host: www.concursolutions.com
@@ -67,7 +66,6 @@ Authorization: OAuth {access token}
         </TripApprovalRQ>
 ```
 #### Response
-
     200 OK
     Content-Type: application/xml
 ```XML
