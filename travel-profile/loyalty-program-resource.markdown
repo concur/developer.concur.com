@@ -5,9 +5,6 @@ layout: resource
 
 
 
-
-
-
 ## Description
 The loyalty program information for the user, as entered in Concur.
 
@@ -22,24 +19,22 @@ Loyalty programs contain a variety of information about the user's loyalty membe
 * Unit to Next Status
 * Segments to Next Status
 
-## Works With These Concur Products
-* **Expense** for Concur Professional/Premium
-* **Travel** for Concur Professional/Premium
-* **Travel** for Concur Standard
+## Version
+1.0
 
-## Resource URI
-* https://www.concursolutions.com/api/travelprofile/v1.0/loyalty
+## URI
+`https://www.concursolutions.com/api/travelprofile/v1.0/loyalty`
 
-## Supported Content Types
+## Content types
 * application/xml
 
-## Supported Accept Types
+## Accept types
 * application/xml
 
-## Supported Verbs
-* [POST][1]
+## Operations
+* [Update loyalty program information][1]
 
-## Related Resources
+## See also
 * [Form of Payment][2]
 * [Travel Profile][3]
 
