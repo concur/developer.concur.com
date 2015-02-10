@@ -70,7 +70,7 @@ The response will include a **fetch-list-response** parent element, with an **it
 |  code |  The long code for the list item, consisting of the long code from the request combined with the short code from the response, separated by a hyphen (-). |
 |  short-code |  The short code for the list item. |
 |  text |  The list item text. |
-| match-value |  The value that matched the search term. |
+|  short-code |  The value that matched the search term. |
 
 ####  XML Example of Response with Results
 
