@@ -4,11 +4,7 @@ layout: conceptual
 ---
 
 
-
-
-Spend Category Codes are used in web services calls in multiple Concur Connect APIs.
-
-####  Spend Category Code List:
+The following table lists Spend Category codes that are used in several of the Concur APIs.
 
 
 |  Code |  Name |
