@@ -1,38 +1,38 @@
 ---
-title: User Resource
+title: Update or Add New Users
 layout: operation
 ---
 
 
-## **Description**
+## Description
 
 Adds or updates one or more users. The batch can contain up to 500 users.
 
-## **Request**
+## Request
 
 This resource supports the following POST actions: Post New or Updated Users Request
 
 ```
-GET {InstanceURI}/api/user/v1.0/Users HTTP/1.1
+POST {InstanceURI}/api/user/v1.0/Users HTTP/1.1
 Authorization: OAuth {access token}
 Content-Type: application/xml
 ```
 
-### **Content type**
+### Content type
 
 * application/xml
 
-### **Authorization header**
+### Authorization header
 
 Authorization header with OAuth token for a valid Concur user.
 
-### **Request Parameters**
+### Request Parameters
 
-#### **Required**
+#### Required
 
 None
 
-#### **Optional**
+#### Optional
 
 None
 
@@ -44,7 +44,7 @@ This function requires as its arguments a batch element containing a UserProfile
 This function requires as its arguments a **UserBatch** element containing a **User** child element for each user. The **User** element must have the following elements:  
 
 |  Element |  Required/Optional | Data Type | Description |
-|----------|--------------------|-----------|-------------|
+|:----------|:--------------------|:-----------|:-------------|
 |  EmpId |  Required | string |  The unique identifier for the user. The default value is the user's email address. Maximum 48 characters. |  
 |  FeedRecordNumber |  Required | int32 | The record number in the current batch. |
 |  LoginId |  Required | string | The user's logon ID. The default value is the user's email address. Maximum 128 characters. |
@@ -72,26 +72,26 @@ This function requires as its arguments a **UserBatch** element containing a **U
 |  NewEmployeeID |  Optional | string | Use this element to change the Employee ID for an existing employee. Maximum 48 characters. |
 
 
-## **Response**
+## Response
 
 This request will return a user-batch-result parent element.
  
 
-### **Response body root elements**
+### Response body root elements
 
 |  Element  |  Description |
-|-----------|--------------|
+|:-----------|:--------------|
 |  records-succeeded |  The number of records processed that were successfully added or updated. |   
 |  records-failed |  The number of records processed that were not successfully added or updated. |
 
-#### **records-succeeded** child elements
+#### Records-succeeded child elements
 
-**When any users are successfully added or updated**:
+When any users are successfully added or updated:
 
-The request will return the **UserDetails** parent element with a **UserInfo** element for each successfully added or updated user. The **UserInfo** elements will contain the following child elements:
+The request returns the **UserDetails** parent element with a **UserInfo** element for each successfully added or updated user. The **UserInfo** elements will contain the following child elements:
 
 |  Element |  Description |
-|----------|--------------|
+|:----------|:--------------|
 |  EmployeeID |  The employee ID of the user. |
 |  FeedRecordNumber |  The item number of the record in the feed. |
 |  Status |  The status of the attempt to add or update the user. Should always contain the word SUCCESS. |
@@ -104,7 +104,7 @@ The request will return the **UserDetails** parent element with a **UserInfo** e
 The request will return the **errors** parent element with an **error** parent element for each record failure. The **error** element will contain the following child elements:
 
 |  Element |  Description |
-|----------|--------------|
+|:----------|:--------------|
 |  EmployeeID |  The ID of the user that failed. |
 |  FeedRecordNumber |  The item number of the record in the feed. |
 |  message |  The error message. |
