@@ -89,9 +89,9 @@ The installation process includes installing the application connector, and regi
    2. Select **Administration** \> **Web Services**.
    3. Click **Manage Application Connectors**.
    4. Click **New**.
-   5. Fill out the fields:  
-
-
+   5. Fill out the fields:     
+   6. 
+   
 	|  Field       |  Description |
 	|--------------|--------------|
 	|  Name        |  Enter the name that should appear in the list of connectors.| 
