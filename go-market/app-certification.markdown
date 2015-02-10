@@ -33,7 +33,7 @@ The App Certification process includes a review of:
 
 [1]: https://developer.concur.com/register
 [2]: https://developer.concur.com/docs-and-resources/documentation
-[3]: https://developer.concur.com/sites/default/files/`Concur Application Submission Form.docx`
+[3]: https://developer.concur.com/sites/default/files/Concur%20Application%20Submission%20Form.docx
 [4]: https://www.concur.com/en-us/app-center
 [5]: mailto:bizdev@concur.com
 [6]: https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project#tab=How_Are_Companies-Projects-Vendors_Using_the_OWASP_Top_10
