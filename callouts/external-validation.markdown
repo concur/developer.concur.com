@@ -5,7 +5,6 @@ layout: conceptual
 
 
 
-
 Concur clients can perform validation of expense report data externally, and based on the validation results can update expense report data or send a message to the report owner. This functionality can be used to meet a variety of business needs:
 
 * You may need to confirm that the user entered a valid project code for the expense, and add an exception to the report if the code is incorrect.
