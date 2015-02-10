@@ -37,7 +37,8 @@ The first action all developers need to take is to register a partner applicatio
 4. Click **New**. The **New Partner Application** page appears.
 ![][8]  
 
-5. Fill in the fields using the following table:     
+5. Fill in the fields using the following table:
+
 | Field  | Description |
 |--------|-------------|
 | Name   | Enter the name that should appear in the list of applications.|
