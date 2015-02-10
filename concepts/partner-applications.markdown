@@ -40,7 +40,7 @@ The first action all developers need to take is to register a partner applicatio
 5. Fill in the fields using the following table:
 
    | Field  | Description |
-   |--------|-------------|
+   |:--------|:-------------|
    | Name   | Enter the name that should appear in the list of applications.|
    | Description | Enter the description of the function of the application. |
    | Visibility | This field defaults to Private. It can only be modified by Concur Internal staff. It will not be set to anything other than Private until the [Concur Review Process][4] is complete.|
