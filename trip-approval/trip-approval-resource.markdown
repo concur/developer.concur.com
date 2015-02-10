@@ -8,7 +8,7 @@ layout: resource
 
 
 ## Description
-An approval or rejection message for the specified trip.
+The Trip Approval resource represents an approval or rejection message for the specified trip.
 
 ## Works With These Concur Products
 * **Travel** for Concur Professional/Premium
@@ -23,8 +23,8 @@ An approval or rejection message for the specified trip.
 ## Supported Accept Types
 * application/xml
 
-## Supported Verbs
-* [POST][1]
+## Operations
+* [Update trip approval status][1]
 
 ## Related Resources
 * None
