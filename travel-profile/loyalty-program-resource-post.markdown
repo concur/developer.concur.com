@@ -1,5 +1,5 @@
 ---
-title: Loyalty Program Resource
+title: Update Loyalty Program
 layout: operation
 ---
 
@@ -41,7 +41,7 @@ If the request is sent by a TMC, the request can update any loyalty program for 
 This request contains the **LoyaltyMembershipUpdate** parent element with a **Membership** child element for each included loyalty program. The **Membership** element has a **UniqueID** attribute containing the loyalty program identifier, and the following child elements:  
 
 | Element | Description |
-| ------- | ----------- |
+| :------- | :----------- |
 | VendorCode | The code for the vendor that manages the loyalty program. This element is required when the request is sent by a TMC, and is ignored when the request is sent by a travel supplier. |
 | VendorType | The type of vendor that manages the loyalty program. Format: A, C or H<br>A – Air<br>C – Car<br>H – Hotel<br>This element is required when the request is sent by a TMC, and is ignored when the request is sent by a travel supplier. |
 | AccountNo | The user's account identifier in the loyalty program. |
@@ -58,7 +58,7 @@ This request contains the **LoyaltyMembershipUpdate** parent element with a **Me
     POST https://www.concursolutions.com/api/travelprofile/v1.0/loyalty HTTP/1.1
     Authorization: OAuth {access token}
     ...
-
+```xml
     <LoyaltyMembershipUpdate>
         <Membership UniqueID="Frequent Flier">
             <AccountNo>1234567890</AccountNo>
@@ -81,7 +81,7 @@ This request contains the **LoyaltyMembershipUpdate** parent element with a **Me
             <SegmentsUntilNextStatus>110</SegmentsUntilNextStatus>
         </Membership>
     </LoyaltyMembershipUpdate>
-
+```
 ###  XML Example Request From TMC
 
     POST https://www.concursolutions.com/api/travelprofile/v1.0/loyalty HTTP/1.1
