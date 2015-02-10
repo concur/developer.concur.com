@@ -97,9 +97,9 @@ The request returns the **UserDetails** parent element with a **UserInfo** eleme
 |  Status |  The status of the attempt to add or update the user. Should always contain the word SUCCESS. |
 
 
-#### **records-failed** child elements
+#### Records-failed child elements
 
-**When any users fail**:
+When any users fail:
 
 The request will return the **errors** parent element with an **error** parent element for each record failure. The **error** element will contain the following child elements:
 
@@ -110,7 +110,7 @@ The request will return the **errors** parent element with an **error** parent e
 |  message |  The error message. |
 
 
-## **Examples** 
+## Examples
 
 ### Example 1: Post users  
 
