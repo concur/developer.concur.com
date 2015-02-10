@@ -37,7 +37,13 @@ The first action all developers need to take is to register a partner applicatio
 4. Click **New**. The **New Partner Application** page appears.
 ![][8]  
 
-5. Fill in the fields using the following table:    
+5. Fill in the fields using the following table:     
+saasdfasdf      
+asdfasdfsdf       
+6. sss
+7. sss
+8. sss
+9. sss
 
 | Field  | Description |
 |--------|-------------|
