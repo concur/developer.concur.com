@@ -78,7 +78,7 @@ In this step, you will enable the Event Notification functionality in your Concu
 |  Active |  Select Active. |
 |  APIs Used |  Select the Request API. |
 
-4. The **Application Authorization** section displays your company domain and automatically creates a **Key** and **Secret** to use with this application. **NOTE: ****The key and secret allow access to any company that enables this application. You MUST keep this information secret (as specified in the Concur Legal Agreement) to maintain security. **
+4. The **Application Authorization** section displays your company domain and automatically creates a **Key** and **Secret** to use with this application. **NOTE: The key and secret allow access to any company that enables this application. You MUST keep this information secret (as specified in the Concur Legal Agreement) to maintain security. **
 5. Record the key and secret to use later.
 6. Click **OK**. The application will automatically be enabled for your company.
 
