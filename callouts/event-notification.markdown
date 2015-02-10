@@ -85,11 +85,12 @@ The installation process includes installing the application connector, and regi
 
 1. The third-party developer or client will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. A sample connector is available on the [Sample Code][14] page under Callouts, and details of the installation process are available at [**Callouts and Application Connectors][1][15]**. During installation, the developer or client will select and configure an externally available endpoint on the host server for Concur to send the event notification request to. Refer to Security for more information about the security requirements of the application connector.
 2. The client registers the application connector with Concur:
-	1. Log in to Concur as an administrative user.
-	2. Select **Administration** \> **Web Services**.
-	3. Click **Manage Application Connectors**.
-	4. Click **New**.
-	5. Fill out the fields:  
+   1. Log in to Concur as an administrative user.
+   2. Select **Administration** \> **Web Services**.
+   3. Click **Manage Application Connectors**.
+   4. Click **New**.
+   5. Fill out the fields:  
+
 
 	|  Field       |  Description |
 	|--------------|--------------|
