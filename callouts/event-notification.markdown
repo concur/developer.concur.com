@@ -90,7 +90,7 @@ The installation process includes installing the application connector, and regi
    3. Click **Manage Application Connectors**.
    4. Click **New**.
    5. Fill out the fields:     
-   6. 
+   
    
 	|  Field       |  Description |
 	|--------------|--------------|
