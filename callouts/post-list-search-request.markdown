@@ -25,7 +25,7 @@ None
 The request will contain a **fetch-list-request** parent element, containing the following child elements.
 
 |  Element |  Description |
-|----------|--------------|
+|--------------|--------------|
 |  long-code |  The long code is a concatenated string containing the parent list item keys separated by a hyphen (-). |
 |  short-code |  The short code is the key of the parent list item. |
 |  query |  It is possible that the asterisk wildcard will be passed from Expense to the application connector. <ul><li>Asterisk only (\*) - Return all items in the list represented by the long code.</li><li>Text followed by asterisk (West\*) - Return all items beginning with the text.</li><li>Asterisk followed by text - Return all items ending with the text.</li></ul> |
