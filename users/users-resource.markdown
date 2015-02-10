@@ -6,7 +6,7 @@ layout: resource
 
 ## **Description**
 
-Concur users. Always managed as a batch of users, even if the batch contains only one user.
+The Users resource represents a set of Concur users. It is always managed as a batch of users, even if the batch contains only one user.
 
 ## **Version**
 1.0
@@ -25,9 +25,9 @@ https://www.concursolutions.com/api/user/v1.0/Users
 
 ## **Operations**         
 
-[GET][1]
+[Get the Concur profile information for the specified user][1]
 
-[POST][2] 
+[Add a new user or update information for existing users][2] 
 
 ## **See also**
 
