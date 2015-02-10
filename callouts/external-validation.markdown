@@ -14,15 +14,15 @@ Concur clients can perform validation of expense report data externally, and bas
 
 Concur Connect provides the full set of tools you need to validate expense information and make any necessary changes. The following Callouts and Web Service endpoints can be used together:
 
-[**Event Notification Callout][1]**: This callout allows clients to choose to be notified through web services when certain actions take place in their Concur company. The notification provides the triggering event and the object that triggered the notification. The developer can use the object information for future web service requests.
+[**Event Notification Callout**][1]: This callout allows clients to choose to be notified through web services when certain actions take place in their Concur company. The notification provides the triggering event and the object that triggered the notification. The developer can use the object information for future web service requests.
 
-[**Get Report Details][2]**: This function retrieves the full set of information for the report. The developer can use the report header or entry detail information when validating report data.
+[**Get Report Details**][2]: This function retrieves the full set of information for the report. The developer can use the report header or entry detail information when validating report data.
 
-[**Post Expense Entry][3]**: This endpoint allows the developer to post an update to the expense entry information. For example, The validation may require that the entry amount is reduced to a specified limit. The developer would post the new amount to the Post Expense Entry Details endpoint to update the report.
+[**Post Expense Entry**][3]: This endpoint allows the developer to post an update to the expense entry information. For example, The validation may require that the entry amount is reduced to a specified limit. The developer would post the new amount to the Post Expense Entry Details endpoint to update the report.
 
-[**Post Expense Report Exceptions][4]**: This endpoint allows the developer to post an exception to the report, entry, itemization, or allocation levels. This endpoint can be used when the validation indicates that the report has an error. Depending on the severity of the exception, the report can stop moving through to workflow and return to the employee for review. The developer must be familiar with the exception configuration in the client's Expense company.
+[**Post Expense Report Exceptions**][4]: This endpoint allows the developer to post an exception to the report, entry, itemization, or allocation levels. This endpoint can be used when the validation indicates that the report has an error. Depending on the severity of the exception, the report can stop moving through to workflow and return to the employee for review. The developer must be familiar with the exception configuration in the client's Expense company.
 
-[**Post Report Workflow Action][5]**: This endpoint allows the developer to make an approval decision for the report, such as Approve or Send Back to Employee.
+[**Post Report Workflow Action**][5]: This endpoint allows the developer to make an approval decision for the report, such as Approve or Send Back to Employee.
 
 The External Validation sequence involves communication between the user, Concur, the application connector, and the system that will be validating the data(shown here as ERP):
 
