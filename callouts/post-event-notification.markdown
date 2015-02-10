@@ -17,9 +17,11 @@ The URI is configured on the **Register Application Connector** page in** Web Se
 
 Refer to [Installation Process][1] for more information.
 
-| Request Headers - Required | Request Headers - Optional |
-| -------------------------- | -------------------------- |
-|  Authorization header with Basic authorization for endpoint. Refer to [**Authentication**][2] for more information. |  None |
+### Request Headers - Required
+Authorization header with Basic authorization for endpoint. Refer to [**Authentication**][2] for more information. 
+
+### Request Headers - Optional
+None
 
 ### Request Body
 The request will include a **Notification** parent element, with the following child elements:
