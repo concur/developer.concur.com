@@ -24,7 +24,7 @@ The Authorization header must have an OAuth token for valid Concur trip approver
 ## Request body elements
 The request will contain a TripApprovalRQ parent element with a TransactionId attribute. The TransactionId value is used to identify request and response pairs, and can contain any alphanumeric string that does not contain special characters. The TripApprovalRQ element contains the following child elements:
 
-| Element | Required (must contain value)? | Description |
+| Element | Required? | Description |
 |:---------|:--------------------------------|:-------------|
 | Version |	Y |	The version of the web service. Currently 1.0. |
 | ItinLocator |	N |	The Itinerary Services Record Locator (also known as Itin Locator or Trip Locator). NOT the GDS record locator. If value of ItinLocator is unknown, RecordLocator element should be passed instead. |
@@ -39,7 +39,7 @@ The request will contain a TripApprovalRQ parent element with a TransactionId at
 ### Response body elements
 This request will return a TripApprovalRS parent element with a matching TransactionId attribute. The TripApprovalRS element will contain the following child elements:
 
-|  Element |  Required (must contain value)? |  Description |
+|  Element |  Required? |  Description |
 |:----------|:---------------------------------|:--------------|
 |  Version |  Y |  The version of the web service. Currently 1.0. |
 |  ItinLocator |  N |  The Itinerary Services Record Locator (also known as Itin Locator or Trip Locator). NOT the GDS record locator. If value of ItinLocator is unknown, RecordLocator element should be passed instead. |
@@ -67,8 +67,8 @@ Authorization: OAuth {access token}
             <Action>approve</Action>
         </TripApprovalRQ>
 ```
-
 #### Response
+
     200 OK
     Content-Type: application/xml
 ```XML
@@ -82,11 +82,10 @@ Authorization: OAuth {access token}
 #### Request
 
 ```
-POST /api/tws/v1.0/TripApproval/DoApproval HTTPS 1.1
-Host: www.concursolutions.com
-Authorization: OAuth {access token}
+    POST /api/tws/v1.0/TripApproval/DoApproval HTTPS 1.1
+    Host: www.concursolutions.com
+    Authorization: OAuth {access token}
 ...
-```
 ```XML
         <TripApprovalRQ TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
             <Version>1.0</Version>
@@ -99,7 +98,6 @@ Authorization: OAuth {access token}
 
     200 OK
     Content-Type: application/xml
-
 ```XML
         <TripApprovalRS TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
             <Version>1.0</Version>
