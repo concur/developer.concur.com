@@ -1,14 +1,14 @@
 ---
-title: User Resource
+title: Get User Information
 layout: operation
 ---
 
 
-## **Description**
+## Description
 
 Retrieves the profile information for the OAuth consumer or the user specified with the loginID query string.
 
-## **Request**
+## Request
 
 This resource supports the following GET actions: Get User Information Request
 
@@ -17,21 +17,21 @@ GET {InstanceURI}/api/user/v1.0/User HTTP/1.1
 Authorization: OAuth {access token}
 ```
 
-### **Accept type**
+### Accept type
 
 * application/xml
 
-### **Authorization header**
+### Authorization header
 
 Authorization header with OAuth token for a valid Concur user.
 
-### **Request Parameters**
+### Request Parameters
 
-#### **Required**
+#### Required
 
 None
 
-#### **Optional**
+#### Optional
 
 **{loginID}** - The URL-encoded Concur login of the user.
 
@@ -46,11 +46,11 @@ The loginID parameter can only be used if the OAuth consumer has one of the foll
 Example: https://www.concursolutions.com/api/user/v1.0/User/?loginID={loginID}
 
 
-## **Response**
+## Response
 
 This request will return a UserProfile child element for the specified user. The UserProfile elements will vary depending on the form configuration.
 
-### **Content type**
+### Content type
 
 * application/xml
 
@@ -81,7 +81,7 @@ This request will return a UserProfile child element for the specified user. The
 |  ExpenseApproverEmployeeID |  The employee ID of the user's Expense approver. If you are importing both a user and their approver, the approver should be listed before the user in the batch. |
 |  IsTestEmp |  Whether the user is a test user. Format: Y/N. |
 
-## **Examples** 
+## Examples
 
 ### Example 1: Get User Information 
 
@@ -215,8 +215,7 @@ Content-Type: application/xml
 </UserProfile>
 ```
 
-
-## **See also**
+## See also
 
 [HTTP Status Codes][1]
 
