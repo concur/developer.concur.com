@@ -79,12 +79,11 @@ Authorization: OAuth {access token}
 ### Example 2: Update a trip as approved with error
 
 #### Request
-
 ```
     POST /api/tws/v1.0/TripApproval/DoApproval HTTPS 1.1
     Host: www.concursolutions.com
     Authorization: OAuth {access token}
-...
+    ...
 ```XML
         <TripApprovalRQ TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
             <Version>1.0</Version>
@@ -94,7 +93,6 @@ Authorization: OAuth {access token}
         </TripApprovalRQ>
 ```
 #### Response
-
     200 OK
     Content-Type: application/xml
 ```XML
@@ -106,5 +104,6 @@ Authorization: OAuth {access token}
 ```
 
 
-[1]:https://developer.concur.com/reference/http-codes
-[2]:https://developer.concur.com/node/397#responses
+[1]: https://developer.concur.com/reference/http-codes
+[2]: https://developer.concur.com/node/397#responses
+
