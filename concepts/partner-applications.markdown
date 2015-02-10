@@ -22,7 +22,7 @@ To register and manage partner applications, the following permissions are requi
 
 The first action all developers need to take is to register a partner application with Concur. When you register an application, you receive the authorization keys that are necessary to make Web service calls. Refer to [OAuth 2.0][3] for more information about authorization.
 
-######  To register a partner application
+#####  To register a partner application
 
 1. On the home page, select **Administration** >** Web Services**.  
 **NOTE**: The **Administration** tab will not appear unless the employee has the appropriate role assigned. For more information, see User Permissions.  
@@ -38,6 +38,7 @@ The first action all developers need to take is to register a partner applicatio
 ![][8]  
 
 5. Fill in the fields using the following table:    
+
 | Field  | Description |
 |--------|-------------|
 | Name   | Enter the name that should appear in the list of applications.|
@@ -54,7 +55,7 @@ The first action all developers need to take is to register a partner applicatio
 
 To manage your app, use the **Administration** > **Web Services** page. Through this page, you can register your app with Concur, enable applications, and configure the scope of data the application can access on the user's behalf.
 
-######  To modify a partner application
+#####  To modify a partner application
 
 1. On the **Application Registration** page, select the desired application from the list. Click **Modify**. The **Modify Partner Application** page appears.
 2. Edit the fields as necessary.
@@ -67,7 +68,7 @@ To manage your app, use the **Administration** > **Web Services** page. Through 
 
 Applications are automatically enabled for your company when they are registered.
 
-######  To enable or disable an application
+#####  To enable or disable an application
 
 1. On the **Web Services ** page, click **Enable Partner Application**. The **Enable Applications** page appears, displaying a list of available applications. Select the desired application.  
 ![][9]
