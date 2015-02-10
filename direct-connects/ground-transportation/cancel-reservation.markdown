@@ -52,7 +52,7 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 
 
 |  Element |  Required? |  Description |
-|----------|---------------------------------|--------------|
+|----------|:---------------------------------:|--------------|
 |  Error |  Y |  The error information, if an error occurred. This parent element contains the following child elements:<br>**ErrorCode:**  The code for the error. Will contain one of the following values:<br><br> 400: Credential related error <br> 800: Reservation cannot be cancelled <br>900: Unknown error  <br>**ErrorSource:** The source of the error.<br>**ErrorDescription:**The additional error information.|
 |  ReservationID |  N |  The identifier for the reservation. |
 |  Status |  N |  The status of the reservation. The value will be one of the following:<br>XB: Cancellation Requested  <br>XA: Cancellation Accepted  <br>XD: Cancellation Declined|
