@@ -1,9 +1,7 @@
 ---
-title: Hotel 
+title: Post Hotel Reservation Update 
 layout: operation
 ---
-
-
 
 
 ##  Request
