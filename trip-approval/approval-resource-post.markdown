@@ -13,7 +13,6 @@ Updates the specified trip as approved or rejected by the supplied approver. Can
     Host: www.concursolutions.com
     Authorization: OAuth {access token}
 
-
 ## Content type
 application/xml
  
@@ -41,7 +40,7 @@ The request will contain a TripApprovalRQ parent element with a TransactionId at
 This request will return a TripApprovalRS parent element with a matching TransactionId attribute. The TripApprovalRS element will contain the following child elements:
 
 |  Element |  Required (must contain value)? |  Description |
-|----------|---------------------------------|--------------|
+|:----------|:---------------------------------|:--------------|
 |  Version |  Y |  The version of the web service. Currently 1.0. |
 |  ItinLocator |  N |  The Itinerary Services Record Locator (also known as Itin Locator or Trip Locator). NOT the GDS record locator. If value of ItinLocator is unknown, RecordLocator element should be passed instead. |
 |  RecordLocator |  Y, if the ItinLocator is not sent |  The GDS record locator. Should be passed only if the ItinLocator is unknown. |
@@ -72,12 +71,12 @@ Authorization: OAuth {access token}
 #### Response
     200 OK
     Content-Type: application/xml
-    
+```XML
         <TripApprovalRS TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
             <Version>1.0</Version>
             <Status>success</Status>
         </TripApprovalRS>
-
+```
 ### Example 2: Update a trip as approved with error
 
 #### Request
