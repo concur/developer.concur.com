@@ -86,7 +86,7 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 
 ##Rate Information Elements
 |Element	|Required?|	Description|
-|---|---|---|
+|---|:---:|---|
 |RateID	|Y	|The rate identifier.|
 |Rate|	Y	|The BasePrice + ServiceCharge + SurCharge + Tax|
 |RateTypeCode	|Y	|The code for the rate type. Will be one of the following options:<br>F: Flat rate<br>H: Hourly<br>E: Estimated amount<br>N: Currently not available|
@@ -106,7 +106,7 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 
 ##Reply Credit Card Elements
 |Element	|Required?	|Description|
-|----|----|----|
+|----|:----:|----|
 |Type	|Y	|The card type.|
 |Number	|Y	|The card number.|
 |Expiration	|Y	|The card expiration date. Format: 2013-02-19|
