@@ -92,6 +92,7 @@ The installation process includes installing the application connector, and regi
 	5. Fill out the fields:  
 
 	|  Field       |  Description |
+	|--------------|--------------|
 	|  Name        |  Enter the name that should appear in the list of connectors.| 
 	|  Description |  Enter the description of the function of the connector, such as what back-end system it might connect to. |
 	|  Host Name   |  Enter the hostname for the connector. Example: https://{servername} |
