@@ -56,7 +56,7 @@ POST /api/tws/v1.0/TripApproval/DoApproval HTTPS 1.1
 Host: www.concursolutions.com
 Authorization: OAuth {access token}
 ...
-```
+```  
 ```XML
         <TripApprovalRQ TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
             <Version>1.0</Version>
