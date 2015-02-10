@@ -32,7 +32,7 @@ Refer to the [HTTP Codes][4] page for details of the common responses and errors
 ####  Error Codes
 
 |  Code |  Description |
-|-------|--------------|
+|-------|:--------------|
 |  501 |  TripId or ItinLocator is missing. |
 |  503 |  ManagerId is required. This is sometimes returned when the ApproverLogin is invalid. |
 |  504 |  Action is required. |
