@@ -1,5 +1,5 @@
 ---
-title: Travel Request Resource
+title: Get Travel Requests
 layout: operation
 ---
 
@@ -18,26 +18,22 @@ This resource supports the following GET actions:
 
 * application/xml
 
-## Request: Get list of travel requests
+## Get a list of trave requests
 
-### Content type
-
-* application/xml
+## Request
 
 ### Query parameters
-
-Required:
-
-**requestslist**  
-The requestslist keyword.
+#### Required
+<dl>
+  <dt>**requestslist**</dt>
+  <dd>The requestslist keyword.</dd>
+</dl>
 
 Example:  
-`<https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/>`
+`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/`
 
-Optional:
-
-The request can include any number of the following query parameters to refine the search:
-
+#### Optiona
+The request can include any number of the following optional query parameters to refine the search:
 * status
 * loginid
 * modifiedafterdate
@@ -291,7 +287,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
 
 ###  Example 1: Get list of travel requests
 
-#### XML request
+#### Request
 
     GET api/travelrequest/v1.0/requestslist/?status=SUBMITTED  HTTPS 1.1
     Host: [www.concursolutions.com][2]
@@ -299,7 +295,8 @@ This request will return a **TravelRequestDetails** parent element with the foll
     ...
 
 ####  XML successful response
-
+Thhis is an example of a successful response.
+```XML
     <?xml version="1.0" encoding="utf-8"?>
     <RequestsWithCount xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <RequestsList>
@@ -320,7 +317,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
         </RequestsList>
         <TotalCount>1</TotalCount>
     </RequestsWithCount>
-
+```
 ###  Example 2: Get travel request details
 
 ####  XML request
