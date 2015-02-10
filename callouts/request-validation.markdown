@@ -41,7 +41,7 @@ In this step, you will enable the Event Notification functionality in your Concu
 5. Fill out the fields:
 
 
-	|  Field |  Description |
+|  Field |  Description |
 | ----- |------|
 |  Name |  Enter the name that should appear in the list of connectors. |
 |  Description |  Enter the description of the function of the connector, such as what back-end system it connects to. |
@@ -70,8 +70,8 @@ In this step, you will enable the Event Notification functionality in your Concu
 3. Complete all of the required fields:
 
 
-	|  Field |  Description |
-| ----- |-------|
+|  Field |  Description |
+|--------|-------|
 |  Name |  Enter the name that should appear in the list of applications. |
 |  Description |  Enter the description of the function of the application. |
 |  Visibility |  This field is only editable by Concur Internal users. |
