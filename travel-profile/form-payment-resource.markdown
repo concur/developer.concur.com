@@ -4,42 +4,32 @@ layout: resource
 ---
 
 
-
-
 ## Description
-The Concur user's default Forms of Payment for Travel expenses.
-
-Form of Payment contains a variety of information about the user's preferred method of payment including:
+The Form of Payment resource represents the form of payment a Concur user uses by default during travel. You can use this resource to obtain the following information associated with a user's preferred method of payment:
 
 * Card display name
 * Card vendor
 * Credit card number
 * Expiration date
-* Card Owner's Name
-* Billing Address
+* Card owner's Name
+* Billing address
 * Preferred usage
 
-## Works With These Concur Products 
-
-* **Expense** for Concur Professional/Premium
-* **Travel** for Concur Professional/Premium
-* **Travel** for Concur Standard
 
 ## Resource URI
-https://www.concursolutions.com/api/travelprofile/v1.0/fop/ |
+`https://www.concursolutions.com/api/travelprofile/v1.0/fop/`
 
 ## Content type
+application/xml
 
-Supported Content Types: application/xml
+## Accept Types
+application/xml
 
-Supported Accept Types: application/xml
-
-##Operations
- [GET][1]
+## Operations
+[Get preferred method of payment details][1]
 
 ## See also
 [Loyalty Program][2]
-
 [Travel Profile][3]
 
 [1]: https://developer.concur.com/travel-profile/form-payment-resource/form-payment-resource-get
