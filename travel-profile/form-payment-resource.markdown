@@ -30,6 +30,7 @@ application/xml
 
 ## See also
 [Loyalty Program][2]
+
 [Travel Profile][3]
 
 [1]: https://developer.concur.com/travel-profile/form-payment-resource/form-payment-resource-get
