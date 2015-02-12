@@ -1,5 +1,5 @@
 ---
-title: Expense Entry Itemization Resource
+title: Create an expense entry itemization
 layout: operation
 ---
 
@@ -13,7 +13,6 @@ Creates or updates an itemization record for the specified expense entry.
 POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz$sQ6SKJFjLNs4OWBErcJ8yX/entry/nE0avYnILNNi9qkVyS3lYPuv4Mop4QmVs/Itemization  HTTP/1.1
 Authorization: OAuth {access token}
  ...
-
     <ExpenseItemizations xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03">
         <Itemization>
             <ExpKey>DINNR</ExpKey>
