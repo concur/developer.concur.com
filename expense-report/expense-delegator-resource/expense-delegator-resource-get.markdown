@@ -1,5 +1,5 @@
 ---
-title: Expense Delegator Resource
+title: Get a list of expense delegators
 layout: operation
 ---
 
