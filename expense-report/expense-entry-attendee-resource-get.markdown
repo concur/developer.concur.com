@@ -1,5 +1,5 @@
 ---
-title: Expense Entry Attendee Resource
+title: Get a list of expense entry attendees
 layout: operation
 --- 
 
@@ -45,6 +45,7 @@ Authorization header with OAuth token for valid Concur user.
     </EntryAttendees>
 
 ###Response root elements
+
 |       Element Name      |   Required/Optional  | Data Type | Description |
 | ----------------------- | -------------------- | --------- | ----------- |
 | Amount                  |                      | decimal   | The portion of the Entry Transaction Amount assigned to this attendee.|
