@@ -1,5 +1,5 @@
 ---
-title: Expense Report Resource
+title: Report Digests Resource
 layout: operation
 ---
 
@@ -19,17 +19,21 @@ In contrast with Get List of Reports version 2.0, where searches are done at the
 To view company data, the user must have the **Web Services Administrator** role for Concur Professional/Premium or the **Can Administer** role for Concur Standard.
 
 ##  GET All Report Digests Resource
-
 Returns all ReportDigests owned by the user based on the search criteria.
+
+## Version
+3.0
 
 ## Resource URI 
 https://www.concursolutions.com/api/v3.0/expense/reportdigests
 
-## Supported Content Types
+## Headers
+
+### Content-Type header
 * application/xml
 * application/json
- 
-## Supported Accept Types
+
+### Accept header
 * application/xml
 * application/json
 
