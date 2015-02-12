@@ -32,7 +32,7 @@ This endpoint is intended for use by Travel Suppliers or Travel Management Compa
 ## Headers   
 
 ### Authorization header   
-`Authorization: OAuth *access_token*`
+`Authorization: OAuth {access_token}`
 
 ### Content-Type header   
 application/xml 
