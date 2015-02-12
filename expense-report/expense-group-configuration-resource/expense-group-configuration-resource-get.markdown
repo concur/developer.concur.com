@@ -1,5 +1,5 @@
 ---
-title: Expense Group Configuration Resource
+title: Get expense group configuration details
 layout: operation
 ---
 
