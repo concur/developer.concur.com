@@ -1,15 +1,16 @@
 ---
-title: Expense Report Header Resource
+title: Post an expense report header
 layout: operation
 ---
 
-This resource supports the following POST actions:
+## Post Expense Report Header Request
 
-##  Post Expense Report Header Request
 ## Description
+
 Posts the expense report header information for a new or existing report for the user specified in the [OAuth][1] access token. If the OAuth consumer has the necessary roles, they can update reports that belong to other users. Use this function to create a report, then use the [Post Expense Entry][2] function to send expense line items.
 
 **NOTES**:
+
 * Posting expense report information is a multi-stage process. Refer to the [Processes][3] section of the Expense Report Web Service page for the steps required to post new expense reports and entries.
 * Reports with the following statuses can't be modified:
     * Processing Payment
@@ -76,10 +77,11 @@ This request should contain a **Report** parent element with the following child
     </Report>
 
 ##  Post Expense Report Header Response
+
 ### HTTP Responses
 [HTTP Status Codes][7]
 
-### Supported Content Types |
+### Supported Content Types 
 application/xml
 
 ### Content Body
@@ -87,7 +89,7 @@ The response will include a **ReportDetails** parent element. This element will 
 
 |  Element |  Description |
 | ----- | ----- |
-|  Status |  The status of the request. |   |
+|  Status |  The status of the request.  |
 |  Report-Details-Url |  The URI to use when posting report details to this report. |
 
 ###  XML Example of Successful Response
@@ -102,6 +104,7 @@ The response will include a **ReportDetails** parent element. This element will 
     </ReportDetails>
 
 ##  Post Report Header Batch Request
+
 ###  Description
 Posts a batch of expense report headers. The expense report header contains classification information for the expense report. Use this endpoint to create a batch of reports, then use the [Post Expense Entry][2] function to send expense line items. All batch operations allow up to 1000 headers per batch. If a batch request with over 1000 headers is sent, only the first 1000 headers in the batch will be processed. <br>**NOTE**: Posting expense report information is a multi-stage process. Refer to the [ Processes][3]  section of the Expense Report Web Service page for the steps required to post new expense reports and entries.
 
@@ -109,12 +112,11 @@ Posts a batch of expense report headers. The expense report header contains clas
 application/xml
 
 ### Query Parameters - Required
-batch
-The batch keyword.
-Example: https://www.concursolutions.com/api/expense/expensereport/v1.1/report/batch
+**batch:** The batch keyword.
+Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/batch`
 
 ### Query Parameters - Required
-Example: https://www.concursolutions.com/api/expense/expensereport/v1.1/report/batch
+Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/batch`
 
 ### Query Parameters - Optional
 None
@@ -194,10 +196,21 @@ This request will return a **report-batch-result** parent element with the follo
 | ------- | ----------- |
 |  records-succeeded |  The number of records processed that were successfully added. |   |
 |  records-failed |  The number of records processed that were not successfully added. |
-|  errors |  This will contain an **error** parent element for each record failure. The **error** element will contain the following child elements|
-|  errors - LoginID |  The user's Concur login ID. | 
-|  errors - message |  The error message. |
-|  ReportDetails |  This parent element will contain a **ReportStatus** child element for all report headers that did not cause an error. The **ReportStatus** element will contain the following child elements|
+|  errors |  This will contain an **error** parent element for each record failure. For details about the **error** child elements, see the **error child elements** table below.|
+|  ReportDetails |  This parent element will contain a **ReportStatus** child element for all report headers that did not cause an error. For details about the **ReportStatus** child elements, see the **ReportStatus child elements** table below.|
+
+### error child elements
+
+| Element | Description |
+| --------| ----------- |
+| Index | The header's location in the batch |
+|  LoginID |  The user's Concur login ID. | 
+|  message |  The error message. |
+
+### ReportStatus child elements
+
+| Element | Description |
+| --------| ----------- |
 |  ReportDetails - Status |  The status of the request. | 
 |  ReportDetails - Report-Details-Url |  The URI to use when posting report details to this report. |
 
