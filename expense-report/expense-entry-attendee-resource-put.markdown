@@ -1,5 +1,5 @@
 ---
-title: Expense Entry Attendee Resource
+title: Update expense entry attendees
 layout: operation
 ---
 
@@ -33,6 +33,7 @@ application/json
 Authorization header with OAuth token for valid Concur user. 
 
 ###Request body elements
+
 |       Element Name      |   Required/Optional  | Data Type | Description |
 | ----------------------- | -------------------- | --------- | ----------- |
 | Amount                  |                      | decimal   | The portion of the Entry Transaction Amount assigned to this attendee.|
