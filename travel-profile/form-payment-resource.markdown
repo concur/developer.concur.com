@@ -15,20 +15,20 @@ The Form of Payment resource represents the form of payment a Concur user uses b
 * Billing address
 * Preferred usage
 
-## Version
+## Version   
 1.0
 
-## URI
+## URI   
 `https://www.concursolutions.com/api/travelprofile/v1.0/fop/`
 
-## Headers
+## Headers   
 
-### Authorization header
+### Authorization header   
 
-### Content-Type header
+### Content-Type header   
 application/xml 
 
-### Accept header
+### Accept header   
 application/xml
 
 ## Who can use this resource?
