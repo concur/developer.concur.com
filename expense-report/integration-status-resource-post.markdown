@@ -1,5 +1,5 @@
 ---
-title: Integration Status Resource
+title: Post integration status for a report
 layout: operation
 ---
 
@@ -21,11 +21,12 @@ The report keyword and the ReportID for the report that has been successfully in
 ### Content types
 * application/json
 * application/xml
-* 
+
 ### Authorization header
 Authorization header with OAuth token for valid Concur user. The OAuth consumer must have the following user role: Web Services Administrator
 
 ## Response
+
 ####  XML Example of Successful Response
 ```
     HTTP/1.1 200 OK
@@ -53,12 +54,14 @@ Authorization header with OAuth token for valid Concur user. The OAuth consumer 
     {"Status":"FAILURE","Message":"To use the POST Expense Journal Entry Job Key the
         report must be at the Processing Payment or Payment Confirmed Payment Status."}
 ```
+
 ### Response root elements
 The response will include:
 An **ActionStatus** parent element (XML), or an object (JSON) with the following child elements(XML) or name/value pairs(JSON):
+
 * Status: Whether the request was successful. Possible values: SUCCESS, FAILURE.
 * Message: Provides further details for errors.
 
-[1]: https://developer.concur.com/node/487#listofreports
-[2]: https://developer.concur.com/node/487#reportdetails
+[1]: https://developer.concur.com/node/487
+[2]: https://developer.concur.com/node/487
 [3]: https://developer.concur.com/reference/http-codes
