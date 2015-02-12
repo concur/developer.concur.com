@@ -15,15 +15,17 @@ The available actions are:
 * **Send Back to Employee**: The report is sent back to the employee for revision. When the user resubmits the report, it travels through the entire workflow again.
 * **Recall to Employee**: This workflow action is initiated by the employee, and is only available after the report has been submitted. This workflow action may not be available to some clients due to configuration.
 
-**WARNING:  **Prior to calling this endpoint the Caller _must_ check the Approval Status found in the **ApprovalStatusName** element in the response for [Get Report Details][1] to ensure the report is at the workflow step the Caller expects.  Under no circumstance should a Caller make a call to this endpoint without being certain the report is at the workflow step the Caller expects.
+**WARNING:** Prior to calling this endpoint the Caller _must_ check the Approval Status found in the **ApprovalStatusName** element in the response for [Get Report Details][1] to ensure the report is at the workflow step the Caller expects.  Under no circumstance should a Caller make a call to this endpoint without being certain the report is at the workflow step the Caller expects.
 
 ### Workflow roles
 Each workflow step in a workflow is associated with a workflow role. Professional clients can configure workflow steps and roles in the Workflows area of Expense Admin. The OAuth consumer is evaluated to determine which role(s) the consumer has in Concur. There are two different types of workflow roles as described in the following sections.
 
 #### System role
 The System role is used when the workflow actions can be completed programatically. Any workflow action can be completed this way, depending on the client's business process. The workflow role can be configured while adding the report workflow step. Some steps may require the System role. When using this role, the OAuth consumer must have the following user role:
+
 * Standard/Developer Sandbox: Can Administer
 * Professional: Company Admin or Web Services Administrator. 
+
 The expense report owner must have an approver or processor assigned to them before the System role can make changes to their reports.
 
 #### Approver role
@@ -33,55 +35,49 @@ The Approver role is used when the workflow action should be completed by a part
 ## Request
 
 ### Query parameters
-<dl>
-<dt>{workflowstepID}/workflowaction</dt>
-<dd>The identifier for the desired workflow step and the workflowaction keyword.</dd>
-<dt>Example</dt>
-<dd>`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{workflowstepId}/workflowaction`</dd>
-<dt>URI Source<dt>
-<dd>The URI is returned in the WorkflowActionURL element of the Get Report Details response.<dd>
-</dl>
+**{workflowstepID}/workflowaction** 
+The identifier for the desired workflow step and the workflowaction keyword.
 
-### Request headers
+**Example**
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{workflowstepId}/workflowaction`
+
+**URI Source:** The URI is returned in the WorkflowActionURL element of the Get Report Details response.
+
+### Headers
+
+#### Authorization header
+
 Authorization header with OAuth token for valid Concur user. Required.
 
+### Content-Type header
 
-## Examples
+application/xml
 
-### Example 1:
+### Request body
 
-#### Request
+#### Root elements
 
-#### Response
+This request should contain a **WorkflowAction** parent element with the following child elements.
 
-### Example 2:
+#### WorkflowAction child elements
 
-#### Request
+|  Element |  Required/optional |  Description |
+|----------|--------------------|--------------|
+|  Action |  required |  The name of the workflow action. Possible values are: **Approve**, ** Send Back to Employee**, or ** Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Expense Admin >Workflow to learn details. |
+|  Comment |  required, for Send Back to Employee |  Must be used with the Send Back to Employee workflow action. This comment is visible wherever report comments are available to the employee, approver, authorization request administrator, and/or processor. Max length: 2000 |
 
+### Response
 
+#### Root elements
 
-#### Response
+This request will return as **ActionStatus** parent element with the following child elements.
 
+#### ActionStatus child elements
 
-
-
-
-
-
-
-
-Supported Content Types
-
-Content Body
-
-
-This request should contain a **WorkflowAction** parent element with the following child elements:
-
-|  Element |  Required (must contain value)? |  Description |
-|  Action |  Y |  The name of the workflow action. Possible values are: **Approve**, ** Send Back to Employee**, or** Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Expense Admin >Workflow to learn details. |   |
-|  Comment |  Y, for Send Back to Employee |  Must be used with the Send Back to Employee workflow action. This comment is visible wherever report comments are available to the employee, approver, authorization request administrator, and/or processor. Max length: 2000 |
-
- |
+|  Element | Description |
+|----------|-------------|
+|  Message |  The error message. Only appears if a workflow action error was generated. |
+|  Status | The status of the report workflow action. |
 
 ####  XML Example Request
 
@@ -94,19 +90,6 @@ This request should contain a **WorkflowAction** parent element with the followi
         <Comment>Approved via Concur Connect</Comment>
     </WorkflowAction>
 
-##  POST Report Workflow Action Response
-
-| ----- |
-|  HTTP Responses |  Supported Content Types |
-|  [HTTP Status Codes][2] |   |
-|  Content Body |   |
-|  This request will return an **ActionStatus** parent element with the following child elements:
-
-|  Element |  Description |
-|  Message |  The error message. Only appears if a workflow action error was generated. |   |
-|  Status |  The status of the report workflow action. |
-
- |
 
 ####  XML Example of Successful Response
 
@@ -126,5 +109,5 @@ This request should contain a **WorkflowAction** parent element with the followi
 
 
 
-[1]: https://developer.concur.com/node/487#reportdetails
+[1]: https://developer.concur.com/node/487
 [2]: https://developer.concur.com/reference/http-codes
