@@ -5,10 +5,10 @@ layout: conceptual
 
 ## Set up your Developer sandox
 
-1	Provision your developer sandbox
-1.	Register your sandbox.
-2.	Obtain your OAuth 2.0 credentials and access token.
-3.	Configure your sandbox as desired.
+1. Provision your developer sandbox
+2. Register your sandbox.
+3. Obtain your OAuth 2.0 credentials and access token.
+4. Configure your sandbox as desired.
 
 ## Make your first API call
 
