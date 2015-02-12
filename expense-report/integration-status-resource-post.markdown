@@ -28,7 +28,8 @@ Authorization header with OAuth token for valid Concur user. The OAuth consumer 
 ## Response
 
 ####  XML Example of Successful Response
-```xml
+
+```
     HTTP/1.1 200 OK
     Content-Type: application/xml
     <ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -38,14 +39,14 @@ Authorization header with OAuth token for valid Concur user. The OAuth consumer 
 ```
 
 ####  JSON Example of Successful Response
-```json
+```
     HTTP/1.1 200 OK
     Content-Type: application/json
     {"Status":"SUCCESS","Message":"SUCCESS"}
 ```
 
 ####  JSON Example of Response With Error
-```json
+```
     HTTP/1.1 200 OK
     Content-Type: application/json
     {"Status":"FAILURE","Message":"To use the POST Expense Journal Entry Job Key the
