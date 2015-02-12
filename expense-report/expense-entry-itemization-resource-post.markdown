@@ -88,6 +88,7 @@ This request contains an **ExpenseItemizations** parent element with an **Itemiz
 |  Comment |  Depends on configuration |  The itemization comment. |
 
 NOTES:
+
 * The update request must include the **ExpKey** and **TransactionAmount** fields. All other fields only need to be included if they were updated.
 * Update requests cannot change the **ExpKey** for an existing entry.
 * When handling foreign currency transactions, the **CrnCode** and **TransactionAmount** values should indicate the original transaction amount and currency. The **PostedAmount** value should contain the transaction amount converted into the posting currency (the user's reimbursement currency). Concur will calculate the exchange rate for the expense based on these two fields.
