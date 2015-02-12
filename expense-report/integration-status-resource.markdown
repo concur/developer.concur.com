@@ -14,21 +14,21 @@ The integration status of the supplied object. Currently supports expense report
 * **Expense** for Concur Professional/Premium
 
 ## Resource URI
-* https://www.concursolutions.com/api/expense/expensereport/v2.0/integrationstatus/
+`https://www.concursolutions.com/api/expense/expensereport/v2.0/integrationstatus/`
 
 ## Supported Content Types
-* application/json
-* application/xml
+application/json
+application/xml
 
 ## Supported Accept Types
-* application/json
-* application/xml
+application/json
+application/xml
 
 ## Supported Verbs
-* [POST][1]
+[POST][1]
 
 ## Related Resources
-* [Expense Report][2]
+[Expense Report][2]
 
 
 
