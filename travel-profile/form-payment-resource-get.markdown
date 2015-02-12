@@ -46,12 +46,6 @@ None
 ## Query Parameters - Optional
 None
 
-## Request Headers - Required 
-Authorization header with OAuth token for valid Concur user.
-
-## Request Headers - Optional |
-None
-
 ####  XML Example Request
 
 ```
