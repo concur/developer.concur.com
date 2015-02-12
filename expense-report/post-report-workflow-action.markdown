@@ -63,7 +63,7 @@ This request should contain a **WorkflowAction** parent element with the followi
 
 |  Element |  Required/optional |  Description |
 |----------|--------------------|--------------|
-|  Action |  required |  The name of the workflow action. Possible values are: **Approve**, ** Send Back to Employee**, or ** Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Expense Admin >Workflow to learn details. |
+|  Action |  required |  The name of the workflow action. Possible values are: **Approve** , ** Send Back to Employee** , or ** Recall to Employee** . Must be one of the workflow actions available for the workflow step. Consult Expense Admin >Workflow to learn details. |
 |  Comment |  required, for Send Back to Employee |  Must be used with the Send Back to Employee workflow action. This comment is visible wherever report comments are available to the employee, approver, authorization request administrator, and/or processor. Max length: 2000 |
 
 ### Response
