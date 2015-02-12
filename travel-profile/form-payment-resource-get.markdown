@@ -26,10 +26,18 @@ This endpoint returns the OAuth consumer's preferred Form of Payment for the tra
 **Travel Management Companies**
 This endpoint returns the OAuth consumer's full list of default Forms of Payment, regardless of type of travel. The user must have selected the form of payment as a default for at least one travel type for it to be returned in the response.
 
-## Restrictions 
+## Who can use this resource?
 This endpoint is intended for use by Travel Suppliers or Travel Management Companies, to make travel booking easier. This endpoint is only available to suppliers or TMCs who have completed the [Concur application review process][1]. Travel suppliers or TMCs must provide evidence of PCI compliance and meet other security related terms and conditions before accessing form of payment information. Compliance will be confirmed during the application review process.
 
-## Content type
+## Headers   
+
+### Authorization header   
+`Authorization: OAuth *access_token*`
+
+### Content-Type header   
+application/xml 
+
+### Accept header   
 application/xml
 
 ## Query Parameters - Required 
