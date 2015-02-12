@@ -15,16 +15,16 @@ Expense Entry Itemizations are children of an expense entry that subdivide the e
 * **Expense** for Concur Standard
 
 ## Resource URI
-* https://www.concursolutions.com/api/expense/expensereport/v1.1/report/_{reportId}_/entry/_{entryId}_/itemization/_{itemizationId}_ 
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/_{reportId}_/entry/_{entryId}_/itemization/_{itemizationId}_`
 
 ## Supported Content Types
-* application/xml
+application/xml
 
 ## Supported Accept Types
-* application/xml
+application/xml
 
-## Supported Verbs
-* [POST][1]
+## Operations
+[POST][1]
 
 ## Related Resources
 * [Expense Entry Attendee][2]
