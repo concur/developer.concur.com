@@ -1,9 +1,7 @@
 ---
 title: Report Digests Resource
-layout: operation
+layout: resource
 ---
-
-# Expense Report Digests
 
 ##  Description
 
