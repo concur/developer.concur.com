@@ -1,3 +1,5 @@
+.UlyssesRoot
+*.plist
 .idea
 _site
 .DS_Store
