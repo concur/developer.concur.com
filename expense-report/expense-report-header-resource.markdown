@@ -15,18 +15,18 @@ The expense report header contains classification information for the expense re
 1.1
 
 ## Resource URI
-* https://www.concursolutions.com/api/expense/expensereport/v1.1/report/
+https://www.concursolutions.com/api/expense/expensereport/v1.1/report/
 
 ## Headers
 
 ### Content-Type header
-* application/xml
+application/xml
 
 ### Accept header
-* application/xml
+application/xml
 
 ## Operations
-* [POST][1]
+[POST][1]
 
 ## Related Resources
 * [Expense Entry][2]
