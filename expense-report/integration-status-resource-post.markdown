@@ -27,7 +27,16 @@ Authorization header with OAuth token for valid Concur user. The OAuth consumer 
 
 ## Response
 
-####  XML Example of Successful Response
+### Response root elements
+The response will include:
+An **ActionStatus** parent element (XML), or an object (JSON) with the following child elements(XML) or name/value pairs(JSON):
+
+* Status: Whether the request was successful. Possible values: SUCCESS, FAILURE.
+* Message: Provides further details for errors.
+
+##  Examples
+
+### XML Example of Successful Response
 
 ```
     HTTP/1.1 200 OK
@@ -38,14 +47,14 @@ Authorization header with OAuth token for valid Concur user. The OAuth consumer 
     </ActionStatus>
 ```
 
-####  JSON Example of Successful Response
+###  JSON Example of Successful Response
 ```
     HTTP/1.1 200 OK
     Content-Type: application/json
     {"Status":"SUCCESS","Message":"SUCCESS"}
 ```
 
-####  JSON Example of Response With Error
+###  JSON Example of Response With Error
 ```
     HTTP/1.1 200 OK
     Content-Type: application/json
@@ -53,12 +62,6 @@ Authorization header with OAuth token for valid Concur user. The OAuth consumer 
         report must be at the Processing Payment or Payment Confirmed Payment Status."}
 ```
 
-### Response root elements
-The response will include:
-An **ActionStatus** parent element (XML), or an object (JSON) with the following child elements(XML) or name/value pairs(JSON):
-
-* Status: Whether the request was successful. Possible values: SUCCESS, FAILURE.
-* Message: Provides further details for errors.
 
 [1]: https://developer.concur.com/node/487
 [2]: https://developer.concur.com/node/487
