@@ -3,14 +3,8 @@ title: Form of Payment Resource - GET
 layout: operation
 ---
 
-This resource supports the following GET actions:
-
-##  Get List of Forms of Payment Request
-
 ## Description
-This endpoint can be used by travel suppliers or travel management companies (TMC). The scope of information returned varies depending on the entity making the request.
-
-Form of Payment contains a variety of information about the user's preferred method of payment including:
+This endpoint can be used by travel suppliers or travel management companies (TMC) to get the preferred method of payment details for the specified user. The scope of information returned varies depending on the entity making the request. I may include:
 
 * Card display name
 * Card vendor
