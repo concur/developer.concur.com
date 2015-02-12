@@ -42,7 +42,6 @@ Authorization header with OAuth token for valid Concur user. The OAuth consumer 
 ```
     HTTP/1.1 200 OK
     Content-Type: application/json
-
     {"Status":"SUCCESS","Message":"SUCCESS"}
 ```
 
@@ -50,7 +49,6 @@ Authorization header with OAuth token for valid Concur user. The OAuth consumer 
 ```
     HTTP/1.1 200 OK
     Content-Type: application/json
-
     {"Status":"FAILURE","Message":"To use the POST Expense Journal Entry Job Key the
         report must be at the Processing Payment or Payment Confirmed Payment Status."}
 ```
