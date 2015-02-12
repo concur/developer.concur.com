@@ -1,9 +1,9 @@
 ---
-title: Expense Report Resource
+title: Create an exception to a report
 layout: operation
 ---
 
-#  POST Report Exceptions
+##  Description
 
 Posts an exception to the report, and associates it with one of the following data levels: Report Header, Entry, Itemization, Allocation. This endpoint requires familiarity with the company's exception code configuration.
 
