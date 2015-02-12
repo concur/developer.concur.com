@@ -29,7 +29,7 @@ The unique identifier for the report. Only used when updating an existing report
 
 Example:
 
-https://www.concursolutions.com/api/expense/expensereport/v1.1/report/_{reportId}_
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/_{reportId}_`
 
 **URI Source**: The reportId value is returned by the [Get List of Reports][4], and [Get Report Details][5] functions, and as part of the **Report-Details-Url** element returned by this function.
 
@@ -211,8 +211,8 @@ This request will return a **report-batch-result** parent element with the follo
 
 | Element | Description |
 | --------| ----------- |
-|  ReportDetails - Status |  The status of the request. | 
-|  ReportDetails - Report-Details-Url |  The URI to use when posting report details to this report. |
+|  Status |  The status of the request. | 
+|  Report-Details-Url |  The URI to use when posting report details to this report. |
 
 ###  XML Example Response with Success and Failure
 
