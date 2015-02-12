@@ -1,5 +1,5 @@
 ---
-title: Expense Report Resource
+title: Submit an expense report
 layout: operation
 ---
 
@@ -46,7 +46,7 @@ This request will return a **ReportStatus** parent element with the following ch
 |  Status |  The status of the report submit action. |
 
 
-If the report submission triggered an exception, a **ReportExceptions** parent element will be provided, with a **ReportException **parent element for each exception. The **ReportException** element contains the following elements:
+If the report submission triggered an exception, a **ReportExceptions** parent element will be provided, with a **ReportException** parent element for each exception. The **ReportException** element contains the following elements:
 
 |  Element |  Description |
 | -------- | ------------ |
