@@ -1,5 +1,5 @@
 ---
-title: Expense Form Resource
+title: Get a list of form types
 layout: operation
 ---
 
