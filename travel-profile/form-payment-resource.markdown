@@ -21,16 +21,6 @@ The Form of Payment resource represents the form of payment a Concur user uses b
 ## URI   
 `https://www.concursolutions.com/api/travelprofile/v1.0/fop/`
 
-## Headers   
-
-### Authorization header   
-
-### Content-Type header   
-application/xml 
-
-### Accept header   
-application/xml
-
 ## Who can use this resource?
 This endpoint can be used by travel suppliers or travel management companies (TMC). The scope of information returned varies depending on who makes the request.
 
