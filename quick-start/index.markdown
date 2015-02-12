@@ -3,7 +3,7 @@ title: Concur APIs Quick Start
 layout: conceptual
 ---
 
-## Set up your Developer sandox
+## Set up your developer sandox
 
 1. Provision your developer sandbox
 2. Register your sandbox.
