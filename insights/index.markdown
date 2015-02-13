@@ -27,7 +27,7 @@ Partner developers must determine which configurations are required for their so
 ##Authentication 
 The Insights Web service implements [OAuth 2.0][4]. The supplier will only be able to access insights for a Concur user if the user has granted the supplier access to their Concur data. 
 
-##See also 
+##Resources 
 
 [Opportunities][5]
 
