@@ -28,14 +28,12 @@ application/xml
 
 ##  Response
 
+This request will return the extracted data in text/csv format if there was a single file produced or as a zip archive if the extract definition is configured to produce more than one file.
+
 ### Content types
 
 * text/csv
 * application/zip
-
-### Root elements
-
-This request will return the extracted data in text/csv format if there was a single file produced or as a zip archive if the extract definition is configured to produce more than one file.
 
 ###  XML Example of Response with Single Extract File
 
