@@ -39,3 +39,8 @@ Trips include all bookings in an itinerary whereas a booking includes only a spe
 | Bookings              | Array        | Y        | An array of bookings that contains a Booking child element for each included booking..                                                                                                                                                                                                                                                  |
 | Custom Attributes     | Array        |          |                                                                                                                                                                                                                                                                                                                                         |
 | RuleViolations        | Array        | N        | The list of rule violations associated with the itinerary. This parent element contains a RuleViolation child element for each associated rule violation.                                                                                                                                                                               |
+
+## Booking elements
+The Bookings parent element contains a Booking child element for each included booking. TripLink suppliers have access only to a subset of the Booking elements. The TripLink column indicates with a Y if a specific elment is available for a TripLink supplier. Each booking element contains the following child elements:
+
+
