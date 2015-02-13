@@ -54,6 +54,7 @@ using (FileStream fs = new FileStream(pathToImageFile, FileMode.Open, FileAccess
 		ds.Close();
 	}
 }
+
 HttpWebResponse webresponse = request.GetResponse();
 ```
 
