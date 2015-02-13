@@ -1,5 +1,5 @@
 ---
-title: Location Resource
+title: Get a list of locations
 layout: operation
 ---
 
@@ -12,11 +12,13 @@ GET https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?cit
 Authorization: OAuth {access token}
 ...
 ```
+
 ### Request parameters
-**city****={_searchstring_}**  
-The city name. The system will return all values with city names that begin with the supplied name. The city name value is not case sensitive. The value can contain the * wildcard. This wildcard matches any number of characters.  Example: Locations?city=old*b_o will match the city name "Old Saybrook"
+**city={_searchstring_}**  
+The city name. The system will return all values with city names that begin with the supplied name. The city name value is not case sensitive. The value can contain the `*` wildcard. This wildcard matches any number of characters. For example, `Locations?city=old*b_o` will match the city name "Old Saybrook"
+
 Example:  
-https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city={_searchstring_}
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city={_searchstring_}`
 
 ### Content types
 application/xml
@@ -48,7 +50,7 @@ Authorization header with OAuth token for valid Concur user.
             <State>Utah</State>
         </Location>
     </LocationList>
-```
+
 ### Response root elements
 This request will return a **LocationsList** parent element with a **Location** parent element for each location with a City Name that contains the search text. The **Location** parent element contains the following child elements:
 
