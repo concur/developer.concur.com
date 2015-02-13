@@ -10,7 +10,9 @@ layout: resource
 
 ## Description
 The configured lists in Concur. Can be single or multiple level lists.
-Works With These Concur Products
+
+
+## Works With These Concur Products
 
 * **Expense** for Concur Professional/Premium
 * **Expense** for Concur Standard
@@ -18,21 +20,24 @@ Works With These Concur Products
 * **Invoice** for Concur Standard
 * **Travel Request** for Concur Professional/Premium
 
-## Resource URI
-* https://www.concursolutions.com/api/expense/list/v1.0/ 
+## Version
+1.0
 
-## Supported Content Types
-* application/xml
+## URI
+`https://www.concursolutions.com/api/expense/list/v1.0/ `
 
-## Supported Accept Types
-* application/xml
+## Headers
 
-## Supported Verbs
+### Content-Type header
+application/xml
+
+### Accept header
+application/xml
+
+## Operations
 * [GET][1]
 * [POST][2]
 
-## Related Resources
-* None 
 
 [1]: https://developer.concur.com/list-item/list-resource/list-resource-get
 [2]: https://developer.concur.com/list-item/list-resource/list-resource-post
