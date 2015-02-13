@@ -16,12 +16,6 @@ The Concur List Item web service provides an automated solution to clients who w
 * **Invoice** for Concur Standard
 * **Travel Request** for Concur Professional/Premium
 
-## Concur Connect API Structure
-Refer to **Web Services > [Core Concepts][1]** for:
-* Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
-* Information on authentication and authorization for all Concur Web Services.
-* Information on registering and enabling partner applications to use Concur Web Services.
-
 ## Product Restrictions
 Concur products are highly configurable, and not all clients will have access to all features.
 
@@ -32,15 +26,8 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 ## Resources
 [List][3]
 
-Additional Information
-Responses and Errors
-Changing a List Item Level Code
-[Posting Custom List Items][4]
-
-##  Responses and Errors
-Refer to the [HTTP Codes][5] page for details of the common responses and errors.
-
-###  List Item Errors
+## Responses and errors
+###  List item errors
 The web service will not return a 4xx HTTP response code for a batch operation even when every item in the batch failed to be created, updated or deleted. The client must inspect the response to look for warnings or errors with individual batch items.
 
 When there are errors with batch items, the first ten errors are returned in the <errors> element in the request response, which includes their error code, the item that caused the error, and the error message. Any additional error messages are truncated. This prevents a large volume of error data in the event of a formatting mistake.
@@ -86,8 +73,10 @@ To change a list item's level code, the original list item must be deleted (usin
 
 **NOTE**: When you delete a list item, the system deactivates it, but keeps a copy in case the item has been used in any expense reports, invoices or requests. Existing reports, invoices or requests will still show the old list item. Any reports, invoices or requests created after the list item has been deleted will no longer show it in the list.
 
-[1]: https://developer.concur.com/api-documentation/core-concepts
+## See also
+[Posting Custom List Items][4]
+
 [2]: https://developer.concur.com/forums/concur-connect
 [3]: https://developer.concur.com/list-item/list-resource
 [4]: https://developer.concur.com/reference/custom-list-items
-[5]: https://developer.concur.com/reference/http-codes
+
