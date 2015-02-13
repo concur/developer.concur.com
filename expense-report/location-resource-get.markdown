@@ -27,6 +27,7 @@ application/xml
 Required. Authorization header with OAuth token for valid Concur user.
 
 ## Response
+
 ```
 200 OK
     Content-Type: application/xml
