@@ -4,7 +4,7 @@ layout: operation
 ---
 
 ## Description
-Get a list of vendors that have sent an invoice.
+Get a list of vendors that have sent invoices.
 
 ## Request
 
