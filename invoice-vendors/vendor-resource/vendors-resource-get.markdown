@@ -1,10 +1,10 @@
 ---
-title: Vendors Resource
+title: Get a list of vendors
 layout: operation
 ---
 
 ## Description
-Get Vendors
+Get a list of vendors that have sent an invoice.
 
 ## Request
 
@@ -21,6 +21,7 @@ OAuth {access token}
 Array of Vendors
 
 ### Response root elements
+
 | Element Name | Data Type | Description |
 |--------------|-----------|-------------|
 | VendorCode | String |  |
