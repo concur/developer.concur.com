@@ -53,7 +53,7 @@ The travel supplier can request or send travel bookings by using an OAuth token 
 * Posted bookings are merged with any existing trips if their dates overlap.
 * Posted trips are not merged even if a trip already exists with overlapping dates.
 
-** Can other suppliers see all the booking details of my bookings? [For TripLink Suppliers only]**
+** Can other suppliers see all the booking details of my bookings? (For TripLink Suppliers only)**
 
 The Itinerary Web service returns the full booking details to the supplier who will provide the booked service. Suppliers that are not the service provider will receive a subset of the possible fields. These vary by the type of booking relative to the type of supplier. For example, Air booking suppliers that are not the supplier will not see the following fields:
 
