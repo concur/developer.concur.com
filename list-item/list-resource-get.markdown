@@ -1,41 +1,49 @@
 ---
-title: List Resource
+title: Get a list of lists
 layout: operation
 ---
 
 
-
-
 This resource supports the following GET actions:
 
-##  Get List of Lists Request
+* Get List of Lists
+* Get List Details
+* Get List Items
 
+##  Get Lists
 
-|  Description |  Supported Content Types |
-| ----- |------|
-|  Retrieves the list of configured lists. |   |
-|  Query Parameters - Required |  Query Parameters - Optional |
-|  None |  None |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth token for valid Concur user.<br><br>The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.<br><br>These roles allow the user to manage data for the entire company.|  None |
+### Description
+Retrieves the list of configured lists.
 
-####  XML Example Request
+### Get Lists Request
 
     GET /api/expense/list/v1.0/ HTTPS 1.1
     Host: www.concursolutions.com
     Authorization: OAuth {access token}
     Content-Type: application/xml
 
-##  Get List of Lists Response
+#### Request parameters
+None.
 
+#### Headers
 
-|  HTTP Responses |  Supported Content Types |
-| ----- |----|
-|  [HTTP Status Codes][1]<br><br>[List Item Error Codes][2]
+##### Authorization header
+Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
+##### Accept header
+application/xml
 
-##Content Body
-This request will return a** lists** parent element containing a **list** child element for each configured list. The **list** element will contain the following child elements:  
+### Get Lists Response
+
+#### HTTP Responses
+
+* [HTTP Status Codes][1]
+* [List Item Error Codes][2]
+
+#### Root elements
+This request will return a **lists** parent element containing a **list** child element for each configured list. The **list** element will contain the following child elements.  
+
+##### list child elements
 
 |  Element |  Description |
 |---------|--------------|
@@ -78,55 +86,47 @@ This request will return a** lists** parent element containing a **list** child 
         </list>
     </lists>
 
-##  Get List Details Request
-
+##  Get List Details
 
 ###Description
 
 Retrieves the list details for a specified list. Includes configuration information, not the list items.
 
-###Supported Content Types
-* application/xml
+### Get List Details Request
 
-###Query Parameters - Required
-
-* **{_listID_}**  
-The identifier for the desired list.
-Example: https://www.concursolutions.com/api/expense/list/v1.0/_{listID}_  
-**URI Source**: This URI is returned in the **id** element by the Get List of Lists function. |  
-
-####Query Parameters - Optional
-* None
-
-####Request Headers - Required
-
-Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
-
-These roles allow the user to manage data for the entire company.
-
-####Request Headers - Optional
-* None
-
-####  XML Example Request
-
-    GET /api/expense/list/v1.0/nqd1YesaKhCWCFIhY8JeBJYf2UGdpwJ2r HTTPS 1.1
+    GET /api/expense/list/v1.0/_{listID}_ HTTPS 1.1
     Host: www.concursolutions.com
     Authorization: OAuth {access token}
     Content-Type: application/xml
 
-##  Get List Details Response
+#### Request parameters
 
-###HTTP Responses
+* **{_listID_}**<br>Required. The identifier for the desired list.<br>
+Example: `https://www.concursolutions.com/api/expense/list/v1.0/nqd1YesaKhCWCFIhY8JeBJYf2UGdpwJ2r`  
+* **URI Source**: This URI is returned in the **id** element by the Get List of Lists function.
 
-[HTTP Status Codes][1]
+#### Headers
 
-[List Item Error Codes][2]
+##### Authorization header
+Required. Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-###Supported Content Types
-* application/xml
+##### Accept header
+application/xml
 
-###Content Body
-This request will return a** list** parent element. The **list** element will contain the following child elements:  
+###  Get List Details Response
+
+####HTTP Responses
+
+* [HTTP Status Codes][1]
+* [List Item Error Codes][2]
+
+####Content types
+application/xml
+
+###Root elements
+This request will return a **list** parent element. The **list** element will contain the following child elements.
+
+#### list child elements
 
 |  Element |  Description |
 |----------|------------|
@@ -148,10 +148,20 @@ This request will return a** list** parent element. The **list** element will c
         <name>Travel Agents</name>
     </list>
 
-##  Get List Items Request
+##  Get List Items
 
 ###Description
-Retrieves the list items for the specified list. A request sent without a specified parent list item code returns all level 1 list items. A request sent with a parent list item code returns all list items below that parent item. The result set can be filtered by passing in a filter string.  
+Retrieves the list items for the specified list. A request sent without a specified parent list item code returns all level 1 list items. A request sent with a parent list item code returns all list items below that parent item. The result set can be filtered by passing in a filter string.
+
+### Get List Items Request
+
+### Request parameters
+
+### Headers
+
+#### Authorization header
+
+#### Accept header
 
 ###Supported Content Types
 * application/xml
