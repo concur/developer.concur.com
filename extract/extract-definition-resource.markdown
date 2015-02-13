@@ -5,22 +5,33 @@ layout: resource
 
 ##  Description
 
-Extract definitions determine the format and content of the extract files.  Works With These Concur Products
+Extract definitions determine the format and content of the extract files.  
+
+## Works With These Concur Products
 
 * **Expense** for Concur Professional/Premium
 * **Invoice** for Concur Professional/Premium
 
+## Version
+1.0
+
 ##  Resource URI
+`https://www.concursolutions.com/api/expense/extract/v1.0/`
 
-https://www.concursolutions.com/api/expense/extract/v1.0/
+## Headers
 
-| Supported Content Types | Supported Accept Types |
-| ----------------------- | ---------------------- |
-| application/xml         | application/xml        |
+### Content-Type header
+application/xml
 
-| Supported Verbs         | Related Resources      |
-| ----------------------- | ---------------------- |
-| [GET][1]                | [Extract Job][2]<br>[Extract File][3] |
+### Accept header
+application/xml
+
+## Operations
+[GET][1] 
+
+## See also
+[Extract Job][2]
+[Extract File][3]
 
 
 [1]: https://developer.concur.com/extract/extract-definition-resource/extract-definition-resource-get
