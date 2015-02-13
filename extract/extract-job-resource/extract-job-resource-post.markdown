@@ -1,33 +1,33 @@
 ---
-title: Extract Job Resource
+title: Initiate a new extract job
 layout: resource
 ---
 
-##  Post Extract Job Initiation Request
+##  Description
 
 Initiates a new extract job for the specified extract definition.
 
-## Query Parameters - Required
+## Request
 
-* **{_DefinitionID_}/job**  
-The definition identifier and the job keyword.
+### Request parameters
+**{_DefinitionID_}/job**<br/>Required. The definition identifier and the job keyword.
 
-##URI
-https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_}/job
+Example: `https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_}/job`
 
-## Content type
-* application/xml
+### Headers
 
+#### Authorization header
+Required. Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-## Request Headers - Required
-Authorization header with OAuth token for valid Concur user.
+#### Content-Type header
+application/xml
 
-The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
+### Request body
 
-These roles allow the user to manage data for the entire company.
+#### Root elements
+This request requires a **definition** parent element with the following child element.
 
-## Content Body
-This request requires a **definition** parent element with the following child element:  
+#### definition child element
 
 |  Element |  Required (must contain value)? |  Description |
 |--------------|-------------------------------------------|-------------------|
@@ -44,13 +44,12 @@ This request requires a **definition** parent element with the following child e
         <id>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd</id>
     </definition>
 
-##  Post Extract Job Initiation Response
+##  Response
 
-[HTTP Status Codes][1] 
+### Response body root elements
+This request will return a **job** parent element with the following child elements.
 
-
-### Content Body
-This request will return a **job** parent element with the following child elements:  
+#### job child elements
 
 |  Element |  Description |
 |-------------|------------------|
@@ -59,7 +58,6 @@ This request will return a **job** parent element with the following child eleme
 |  status-link |  A URI for retrieving the current status of the job, with encrypted ID. |
 |  status |  The current status of the job. |
 
-  
 If the job was successfully scheduled, the HTTP response code will be 201 Created and the Location response header will contain the URI of the newly scheduled job. The job will be scheduled to start as soon as possible. The  value will be Queued until the job begins.  |
 
 ####  XML Example of Successful Response
@@ -76,7 +74,3 @@ If the job was successfully scheduled, the HTTP response code will be 201 Create
         <status>Queued</status>
     </job>
 
-  
-
-
-[1]: https://developer.concur.com/reference/http-codes
