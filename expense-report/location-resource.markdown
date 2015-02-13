@@ -18,7 +18,7 @@ The valid city location codes in Concur. These location codes are used in the Po
 1.1
 
 ## Resource URI
-https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations`
 
 ## Headers
 
