@@ -25,13 +25,6 @@ The level of access to Concur Itinerary information depends on type of company t
 * [Trip][7]
 * [Booking][8]
 
-## Configuration
-Detailed descriptions of requests and responses are available in the documentation for each function. Developers can also view the [Public Itinerary XSD][3]. Internet Explorer users should right-click the link and choose **Save Target As...** to view the XSD.
-
-Concur products are highly configurable, and not all clients will have access to all features. Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][6] if you have questions about the configuration settings.
-
-If you would like to start using this Web service, please visit [Concur Connect for Suppliers][5] or contact the Concur Connect Platform Team.
-
 ## Authentication
 The Itinerary Web service supports [OAuth 2.0][4]. 
 
