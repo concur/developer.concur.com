@@ -27,10 +27,12 @@ application/xml
 Required. Authorization header with OAuth token for valid Concur user.
 
 ## Response
-
-    200 OK
+```
+200 OK
     Content-Type: application/xml
     <LocationList xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+```
+```xml
         <Location>
             <Country>UNITED STATES</Country>
             <LocationID>nXipdPDzr4oCPylSOd91NQqQ$sqmnQrQxR</LocationID>
@@ -50,6 +52,7 @@ Required. Authorization header with OAuth token for valid Concur user.
             <State>Utah</State>
         </Location>
     </LocationList>
+ ```
 
 ### Response root elements
 This request will return a **LocationsList** parent element with a **Location** parent element for each location with a City Name that contains the search text. The **Location** parent element contains the following child elements.
