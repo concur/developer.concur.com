@@ -12,11 +12,11 @@ This endpoint can be used to create/update bookings for a user that is not the O
 
 
 ## Request
-
+```
     POST /api/travel/booking/v1.0?tripId=12345678 HTTPS 1.1
     Host: www.concursolutions.com
     Authorization: OAuth {access token} 
-
+```
 ### Request Parameters
 
 #### Query Parameters - Optional
@@ -104,12 +104,13 @@ If the end user updates an existing reservation which results in a new confirmat
 ## Examples
 
 ### Example 1: XML Example Request
-
+```
     POST /api/travel/booking/v1.0?tripId=12345678 HTTPS 1.1
     Host: www.concursolutions.com
     Authorization: OAuth {access token} 
     ... 
-        
+```
+```XML
     <Booking xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Segments>
             <Car>
@@ -154,10 +155,11 @@ If the end user updates an existing reservation which results in a new confirmat
             </Passenger>
         </Passengers>
     </Booking>
-
+```
 
 ### Example 2: XML Example of Successful Response
 
+```XML
     <Itinerary xmlns="https://www.concursolutions.com/api/travel/trip/2010/06">
         <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
         <ItinLocator>CNQR1234567890</ItinLocator>
@@ -218,7 +220,7 @@ If the end user updates an existing reservation which results in a new confirmat
         </Booking>
     </Itinerary>
 
-
+```
 
 # Post Booking Cancellation
 
