@@ -8,7 +8,7 @@ Retrieves a list of valid city location codes.
 
 ## Request
 ```
-GET https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city=Redmond HTTP/1.1
+GET https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city={_searchstring_} HTTP/1.1
 Authorization: OAuth {access token}
 ...
 ```
@@ -18,7 +18,7 @@ Authorization: OAuth {access token}
 The city name. The system will return all values with city names that begin with the supplied name. The city name value is not case sensitive. The value can contain the `*` wildcard. This wildcard matches any number of characters. For example, `Locations?city=old*b_o` will match the city name "Old Saybrook"
 
 Example:  
-`https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city={_searchstring_}`
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city=Redmond`
 
 ### Content types
 application/xml
