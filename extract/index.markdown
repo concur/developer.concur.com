@@ -32,7 +32,7 @@ Partner developers must determine which configurations are required for their so
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
-## See Also
+## Resources
 
 * [Extract Definition][4]
 * [Extract File][5]
