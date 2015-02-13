@@ -34,7 +34,7 @@ Required. Authorization header with OAuth token for valid Concur user.
 ```
 ```XML
     <LocationList xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03"    
-   xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <Location>
             <Country>UNITED STATES</Country>
             <LocationID>nXipdPDzr4oCPylSOd91NQqQ$sqmnQrQxR</LocationID>
