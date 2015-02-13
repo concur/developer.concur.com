@@ -22,14 +22,6 @@ Clients using Concur Small Business, Concur Standard, and the Concur Connect Dev
 * **Expense** for Concur Professional/Premium
 * **Invoice** for Concur Professional/Premium
 
-### Concur Connect API Structure
-
-Refer to Web Services > [Core Concepts][2] for:
-
-* Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
-* Information on authentication and authorization for all Concur Web Services.
-* Information on registering and enabling partner applications to use Concur Web Services.
-
 ### Product Restrictions
 
 The Extract web service is not supported in the developer sandbox at this time.
@@ -40,13 +32,12 @@ Partner developers must determine which configurations are required for their so
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
-| Resources | Additional Information |
-| --------- | ---------------------- | 
-| [Extract Definition][4]<br>[Extract File][5]<br>[Extract Job][6]|[Responses and Errors](#errors)
+## See Also
 
-### <a href="errors"></a>Responses and Errors
+* [Extract Definition][4]
+* [Extract File][5]
+* [Extract Job][6]
 
-Refer to the [HTTP Codes][7] page for details of the common responses and errors.
 
 [1]: https://developer.concur.com/payment-batch
 [2]: https://developer.concur.com/api-documentation/core-concepts
@@ -54,4 +45,4 @@ Refer to the [HTTP Codes][7] page for details of the common responses and errors
 [4]: https://developer.concur.com/extract/extract-definition-resource
 [5]: https://developer.concur.com/extract/extract-file-resource
 [6]: https://developer.concur.com/extract/extract-job-resource
-[7]: https://developer.concur.com/reference/http-codes
+
