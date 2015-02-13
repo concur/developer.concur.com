@@ -1,5 +1,5 @@
 ---
-title: Image Resource
+title: Post image data
 layout: operation
 ---
 
