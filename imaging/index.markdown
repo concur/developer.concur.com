@@ -34,7 +34,7 @@ To post images, pass in the image binary data as a byte array. The following exa
 
 ####  C# Example
 
-```
+```csharp
 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 request.Method = "POST";
 request.ContentType = "application/pdf";
@@ -54,7 +54,6 @@ using (FileStream fs = new FileStream(pathToImageFile, FileMode.Open, FileAccess
 		ds.Close();
 	}
 }
-
 HttpWebResponse webresponse = request.GetResponse();
 ```
 
