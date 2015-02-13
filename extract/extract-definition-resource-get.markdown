@@ -4,12 +4,12 @@ layout: operation
 ---
 
 
-## Get extract definition list
-
 This resource supports the following GET actions:
 
 * Get extract definition list
 * Get extract definition details
+
+## Get extract definition list
 
 ### Description
 Retrieves the list of extract definitions. 
