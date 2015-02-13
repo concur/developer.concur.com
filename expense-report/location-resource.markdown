@@ -14,20 +14,25 @@ The valid city location codes in Concur. These location codes are used in the Po
 * **Expense** for Concur Professional/Premium
 * **Expense** for Concur Standard
 
+## Version
+1.1
+
 ## Resource URI
-* https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations
+https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations
 
-## Supported Content Types
-* application/xml
+## Headers
 
-## Supported Accept Types
-* application/xml
+### Content-Type header
+application/xml
 
-## Supported Verbs
-* [GET][1]
+### Accept header
+application/xml
+
+## Operations
+[GET][1]
 
 ## Related Resources
-* [Expense Entry][2]
+[Expense Entry][2]
 
 
 
