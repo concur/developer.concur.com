@@ -1,5 +1,5 @@
 ---
-title: Insights 
+title: Insights Web Service
 layout: conceptual
 ---
 
@@ -17,15 +17,6 @@ Concur TripLink partner suppliers can subscribe to notifications when Concur use
 * **Travel** for Concur Professional/Premium
 * **Travel** for Concur Standard
  
-##Concur Connect API Structure
-Refer to **Web Services > [Core Concepts][1]** for:
-
-* Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
-* Information on authentication and authorization for all Concur Web Services.
-* Information on registering and enabling partner applications to use Concur Web Services.
-
-Detailed descriptions of requests and responses are available in the documentation for each function.
-
 ##Product Restrictions
 This Web service is designed for use by travel suppliers. If you are a travel supplier who would like to start using this web service, please contact the [Concur Connect Platform Team][2].
 
@@ -36,23 +27,17 @@ Partner developers must determine which configurations are required for their so
 ##Authentication 
 The Insights Web service implements [OAuth 2.0][4]. The supplier will only be able to access insights for a Concur user if the user has granted the supplier access to their Concur data. 
 
-##Resources 
+##See also 
 
 [Opportunities][5]
 
 [LatestBookings][6]
 
 
-##  Responses and Errors
 
-Refer to the [HTTP Codes][7] page for details of the common responses and errors.
-
-
-
-[1]: https://developer.concur.com/api-documentation/core-concepts
 [2]: mailto:ConcurConnectTech@concur.com
 [3]: https://developer.concur.com/forums/concur-connect
 [4]: https://developer.concur.com/oauth-20
 [5]: https://developer.concur.com/insights/opportunities-resource
-[6]: https://www.concursolutions.com/api/docs/index.html#!/LatestBookings
-[7]: https://developer.concur.com/reference/http-codes
+[6]: https://www.concursolutions.com/api/docs/index.html
+
