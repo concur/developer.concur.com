@@ -27,6 +27,7 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 [List][3]
 
 ## Responses and errors
+
 ###  List item errors
 The web service will not return a 4xx HTTP response code for a batch operation even when every item in the batch failed to be created, updated or deleted. The client must inspect the response to look for warnings or errors with individual batch items.
 
