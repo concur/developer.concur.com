@@ -58,6 +58,7 @@ This request will return a **jobs** parent element containing a **job** child el
 200 OK
 Content-Type: application/xml
 ```
+
 ```xml
     <jobs xmlns="...">
         <job>
@@ -98,7 +99,7 @@ Retrieves the details of the specified extract definition.
 
 #### Request parameters
  * **{_DefinitionID_**}<br>The identifier for the desired extract definition.
- * **job/{_JobID_} **<br>The identifier for the job and the job keyword.
+ * **job/{_JobID_}**<br>The identifier for the job and the job keyword.
 
 Example: `https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd`
 
