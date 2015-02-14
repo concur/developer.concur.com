@@ -7,6 +7,7 @@ layout: resource
 Users that have granted delegate permissions to the another Expense user.
 
 ## Version
+1.1
 
 ## URI
 `https://www.concursolutions.com/api/expense/expensereport/v1.1/Delegators`
