@@ -5,39 +5,40 @@ layout: operation
 
 
 
-
 This resource supports the following POST actions:
 
-##  Post New List Item Request
+* Post new list item
+* Post list item update
+* Post list item deletion
+
+##  Post New List Item
 
 ###Description
 Adds list items to an existing list.
 
-###Supported Content Types
-* application/xml
+### Post New List Item Request
 
-###Query Parameters - Required
-* **{_listID_}**  
-The identifier for the desired list.
-* **batch?type**=**{_type_}**  
-The type of batch operation to complete. Should be **create**.
+#### Request parameters
 
-Example: https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=create
-###Query Parameters - Optional
-None
+* **{_listID_}**<br/>  
+Required. The identifier for the desired list.
+* **batch?type**=**{_type_}**<br/>
+Required. The type of batch operation to complete. Should be **create**.
 
-###Request Headers - Required
-Authorization header with OAuth token for valid Concur user.
+Example: `https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=create`
 
-The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
+#### Headers
 
-These roles allow the user to manage data for the entire company.
-###Request Headers - Optional
+##### Authorization header
+Required. Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-None
+##### Accept header
+application/xml
 
-###Content Body
-This function requires as its arguments a **list-item-batch** element containing a **list-item** child element for each item to be added. The **list-item** elements can contain the following child elements:  
+###Root elements
+This function requires as its arguments a **list-item-batch** element containing a **list-item** child element for each item to be added. The **list-item** elements can contain the following child elements.
+
+#### list-item child elements
 
 |  Element |  Required (must contain value)? |  Description |
 |---|---|
@@ -120,29 +121,34 @@ This function requires as its arguments a **list-item-batch** element containing
         </list-item>
     </list-item-batch>
 
-##  Post New List Item Response
+###  Post New List Item Response
 
-###HTTP Responses
+####HTTP Responses
 
+* [HTTP Status Codes][2]
+* [List Item Error Codes][3]
 
-[HTTP Status Codes][2]
+####Content Types
+application/xml
 
-[List Item Error Codes][3]
-##Supported Content Types
-* application/xml
+####Response body root elements
+This request will return a **list-item-batch-result** parent element with the following child elements.
 
-###Content Body
-This request will return a **list-item-batch-result** parent element with the following child elements:  
+#####list-item-batch-result child elements
 
 |  Element |  Description |
 |--------|----------|
 |  records-succeeded |  The number of records processed that were successfully added.   |
 |  records-failed |  The number of records processed that were not successfully added. |
-|  errors |  This will contain an **error** parent element for each record failure. The **error** element will contain the following child elements:
-|  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes. |
+|  errors |  This will contain an **error** parent element for each record failure. See the **error child elements** table below for information about the child elements|
+
+#####error child elements
+
+|  Element |  Description |
+|--------|----------|
+|  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes.|
 |  list-item-code |  The level code of the record that failed. |
 |  message |  The error message. |
-
 
 ####  XML Example of Successful Response
 
@@ -153,35 +159,35 @@ This request will return a **list-item-batch-result** parent element with the fo
         <records-failed>0</records-failed>
     </list-item-batch-result>
 
-##  Post List Item Update Request
+##  Post List Item Update
 
 ###Description
 Updates existing list items for a specified list. 
 
-###Supported Content Types
-* application/xml
+###Post List Item Update Request
 
-###Query Parameters - Required 
+#### Request parameters
 
-* **{_listID_**}  
-The identifier for the desired list.
-* **batch?type={_type_}**  
-The type of batch operation to complete. Should be **update**.
+* **{_listID_}**<br/>  
+Required. The identifier for the desired list.
+* **batch?type={_type_}**<br/>  
+Required. The type of batch operation to complete. Should be **update**.
 
-Example: https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=update
-###Query Parameters - Optional
-None
-###Request Headers - Required
-Authorization header with OAuth token for valid Concur user.
+Example: `https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=update`
 
-The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
+#### Headers
 
-These roles allow the user to manage data for the entire company.
-###Request Headers - Optional
-None
-###Content Body
+##### Authorization header
+Required. Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-|  The request includes a **list-item-batch** element containing a **list-item** child element for each item to be updated. The **list-item** elements can contain the following child elements:  
+##### Accept header
+application/xml
+
+####Root elements
+
+The request includes a **list-item-batch** element containing a **list-item** child element for each item to be updated. The **list-item** elements can contain the following child elements. 
+
+#####list-item child elements
 
 |  Element |  Required (must contain value)? |  Description |
 |----|----|----|
@@ -212,32 +218,31 @@ None
         </list-item>
     </list-item-batch>
 
-##  Post List Item Update Response
+###  Post List Item Update Response
 
-###HTTP Responses
+####HTTP Responses
 
+* [HTTP Status Codes][2]
+* [List Item Error Codes][3]
 
-[HTTP Status Codes][2]
+####Content Types
+application/xml
 
-[List Item Error Codes][3]
+####Response body root elements
+This request will return a **list-item-batch-result** parent element with the following child elements.
 
-###Supported Content Types
-* application/xml
-
-### Content Body
-This request will return a **list-item-batch-result** parent element with the following child elements:  
+#####list-item-batch-result child elements
 
 |  Element |  Description |
 |----|----|
 |  records-succeeded |  The number of records processed that were successfully added.  |
 |  records-failed |  The number of records processed that were not successfully added. |
+| errors| This will contain an **error** parent element for each record failure. See the **error child element** table below for information about the child elements.|
 
-####Errors 
-This will contain an **error** parent element for each record failure. The **error** element will contain the following child elements:
-
+#####error child elements
 |Element| Description|
 |-----|------|
-|  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes. |
+|  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes.|
 |  list-item-code |  The level code of the record that failed. |
 |  message |  The error message. |
 
@@ -267,42 +272,39 @@ This will contain an **error** parent element for each record failure. The **err
         </errors>
     </list-item-batch-result>
 
-##  Post List Item Deletion Request
+##  Post List Item Deletion
 
 ###Description
 Deletes existing list items for a specified list.
-###Supported Content Types
-* application/xml
 
-###Query Parameters - Required
-* **{_listID_}**  
-The identifier for the desired list.
-* **batch?type={_type_}**  
-The type of batch operation to complete. Should be **delete**.
-Example: https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=delete
+###Post List Item Deletion Request
 
-###Query Parameters - Operational
+#### Request parameters
 
-None
+* **{_listID_}**<br/>  
+Required. The identifier for the desired list.
+* **batch?type={_type_}** <br/> 
+Required. The type of batch operation to complete. Should be **delete**.
 
-###Request Headers - Required
-Authorization header with OAuth token for valid Concur user.
+Example: `https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=delete`
 
-The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
+#### Headers
 
-These roles allow the user to manage data for the entire company.
+##### Authorization header
+Required. Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-###Query Parameters - Optional
-None 
+##### Accept header
+application/xml
 
-###Content Body
-The request includes a **list-item-batch** element containing a **list-item** child element for each item to be updated. The **list-item** elements can contain the following child elements:  
+####Root elements
+The request includes a **list-item-batch** element containing a **list-item** child element for each item to be updated. The **list-item** elements can contain the following child elements. 
+
+#####list-item child elements
 
 |  Element |  Required (must contain value)? |  Description |
 |--------|-----------|-----------|
 |  name |  N |  The name of the list item as it appears in the user interface. Maximum 64 characters. |
-|  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.** ** <br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][4] for more information.
-
+|  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][4] for more information.
 
 ####  XML Example Request
 
@@ -319,29 +321,32 @@ The request includes a **list-item-batch** element containing a **list-item** ch
         </list-item>
     </list-item-batch>
 
-##  Post List Item Deletion Response
+###  Post List Item Deletion Response
 
-###HTTP Responses
+####HTTP Responses
 
-[HTTP Status Codes][2]
+* [HTTP Status Codes][2]
+* [List Item Error Codes][3]
 
-[List Item Error Codes][3]
-###Supported Content Types
+####Content Types
 * application/xml
 
-###Content Body
-This request will return a **list-item-batch-result** parent element with the following child elements:  
+####Response body root elements
+This request will return a **list-item-batch-result** parent element with the following child elements.  
+
+#####list-item-batch-result child elements
 
 |  Element |  Description |
 |-------|--------|
 |  records-succeeded |  The number of records processed that were successfully added. |
 |  records-failed |  The number of records processed that were not successfully added. |
-####Errors
-This will contain an **error** parent element for each record failure. The **error** element will contain the following child elements:
+| errors | This will contain an **error** parent element for each record failure. See the **error child element** table below for information about the child elements.|
+
+#####error child elements
 
 |  Element |  Description |
 |----------|-------------|
-|  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes. |
+|  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes.|
 |  list-item-code |  The level code of the record that failed. |
 |  message |  The error message. |
 
@@ -357,8 +362,7 @@ This will contain an **error** parent element for each record failure. The **err
 
   
 
-
-[1]: https://developer.concur.com/list-item#changecode
+[1]: https://developer.concur.com/list-item
 [2]: https://developer.concur.com/reference/http-codes
-[3]: https://developer.concur.com/list-item#responses
-[4]: https://developer.concur.com/list-item#changecode
+[3]: https://developer.concur.com/list-item
+[4]: https://developer.concur.com/list-item
