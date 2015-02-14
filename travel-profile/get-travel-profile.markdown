@@ -594,8 +594,8 @@ The response is the same as in Example 1.
 ####  Response
 
     200 OK
-    Content-Type: application/xml
-
+    Content-Type: application/xml    
+````XML
     <ProfileResponse Status="Active" Unique="CM12345678">
         <General>
             <NamePrefix />
@@ -773,7 +773,7 @@ The response is the same as in Example 1.
             </CustomField>
         </CustomFields>
     </ProfileResponse>
-
+````
  
 
 ###  Example 4: Get the travel profile for a user with a specific login ID
@@ -788,8 +788,6 @@ The response is the same as in Example 1.
 ####  Response
 
 The response is the same as in Example 3.
-
- 
 
 
 
