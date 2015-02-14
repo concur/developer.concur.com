@@ -3,7 +3,7 @@ title: go to market
 layout: conceptual
 ---
 
-## Concur App Center:  Your Solution — 25M Business Travelers
+### Concur App Center:  Your Solution — 25M Business Travelers
 
 Business travelers fly more than leisure travelers and spend more when they're on the road. Then they return with a heap of expenses. That's why our clients and partners asked for help building new solutions, and why we went to work with partners and ISVs to deliver:
 
@@ -12,7 +12,7 @@ Business travelers fly more than leisure travelers and spend more when they're o
 
 These are showcased in the new [Concur App Center][1], reaching 23K enterprises and 25M business travelers.
 
-## Get Your App Inside
+### Get Your App Inside
 
 The App Center launched in Spring 2013 and is accessible from inside our T&E cloud solution, used by 60% of Fortune 500 companies worldwide.  To participate:
 
