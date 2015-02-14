@@ -3,34 +3,34 @@ title: Extract Job Resource
 layout: resource
 ---
 
+## Description
+The job that runs the accounting extract.
 
-
-
-
-| ----- |
-|  Description |
-|  The job that runs the accounting extract. |
-|  Works With These Concur Products |
-|
+## Works With These Concur Products
 
 * **Expense** for Concur Professional/Premium
 * **Invoice** for Concur Professional/Premium
- |
-|  Resource URI |
-|  https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_}/job |
 
-| Supported Content Types | Supported Accept Types |
-| ----------------------- | ---------------------- |
-| Supported Verbs         | Related Resources      |
-| [GET][1] , [POST][2]    |
+## URI
+`https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_}/job `
 
-[Extract Definition][3]
+## Headers
 
-[Extract File][4]
+### Content-Type header
+application/xml
 
- |
+### Accept header
+application/xml
 
-  
+## Operations
+
+* [GET][1]
+* [POST][2] 
+
+## See also
+* [Extract Definition][3]
+* [Extract File][4]
+
 
 
 [1]: https://developer.concur.com/extract/extract-job-resource/extract-job-resource-get
