@@ -1,14 +1,12 @@
 ---
-title: Trip Approval Web Service 
+title: trip approval web service 
 layout: conceptual
 ---
 
-## Description
-The Trip Approval web service allows clients to approve or reject trips. Clients send the unique identifier for the trip, the approver email and the workflow action to be performed (either approve or reject).
+# Trip Approval Web Service
 
-## Works With These Concur Products
-* **Travel** for Concur Professional/Premium
-* **Travel** for Concur Standard
+## Description
+The Trip Approval Web service allows clients to approve or reject trips. Clients send the unique identifier for the trip, the approver email and the workflow action to be performed (either approve or reject).
 
 ## Concur Connect API Structure
 Refer to **Web Services > [Core Concepts][1]** for:
@@ -32,7 +30,7 @@ Refer to the [HTTP Codes][4] page for details of the common responses and errors
 ####  Error Codes
 
 |  Code |  Description |
-|-------|:--------------|
+:-------|:--------------|
 |  501 |  TripId or ItinLocator is missing. |
 |  503 |  ManagerId is required. This is sometimes returned when the ApproverLogin is invalid. |
 |  504 |  Action is required. |
