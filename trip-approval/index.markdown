@@ -3,9 +3,7 @@ title: trip approval web service
 layout: conceptual
 ---
 
-# Trip Approval Web Service
-
-## Description
+## Trip Approval Web Service
 The Trip Approval Web service allows clients to approve or reject trips. Clients send the unique identifier for the trip, the approver email and the workflow action to be performed (either approve or reject).
 
 ## Concur Connect API Structure
