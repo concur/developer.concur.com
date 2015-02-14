@@ -99,6 +99,7 @@ Array of Vendors
     Content-Type: application/xml
     ...
 
+```XML
     <Vendors>
         <Vendor>
             <VendorCode>Vendor123</VendorCode>
@@ -147,9 +148,9 @@ Array of Vendors
             <PaymentMethodType>CLIENT</PaymentMethodType>
         </Vendor>
     </Vendors>
-
+```
 #### Example 2: XML Example of Failure Response
-
+```XML
     <VendorResult>
         <Vendor>
             <Status>FAILURE</Status>
@@ -157,4 +158,4 @@ Array of Vendors
             <ErrorMessage>The required field missing|Limit</ErrorMessage>
         </Vendor>
     </VendorResult>
-
+```
