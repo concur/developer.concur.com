@@ -23,12 +23,13 @@ The App Center launched in Spring 2013 and is accessible from inside our T&E clo
 
 #### Partner Center
 
-Do you have enterprise-level services involving T&E?  Access new industries and revenue streams—[become a Partner today][5].  We work with partners on research, design, support and co-marketing, contact us at:  [platformbizdev@concur.com][6].   
+Do you have enterprise-level services involving T&E?  Access new industries and revenue streams — [become a Partner today][5].  We work with partners on research, design, support and co-marketing, contact us at:  [platformbizdev@concur.com][6].   
 
-Note that the App Review and App Center publishing process follow specific guidelines and criteria to ensure we deliver a high quality experience for users worldwide. _
+Note that the App Review and App Center publishing process follow specific guidelines and criteria to ensure we deliver a high quality experience for users worldwide.
 
 Source:  _U.S. Travel Association, U.S. Travel Fact Sheet, 2013_.  
 Source:  _GBTA Foundation's GBTA Outlook, 2013_.
 
-[1]: https://www.concur.com/en-us/app-center  
+[1]: https://www.concur.com/en-us/app-center 
+[5]: https://developer.concur.com/go-market/partner-center
 [6]: mailto:platformbizdev@concur.com
