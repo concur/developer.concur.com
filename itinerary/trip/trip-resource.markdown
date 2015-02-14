@@ -4,30 +4,24 @@ layout: resource
 ---
 
 
-
-
-
 ## Description
-* The itineraries in Concur Travel. Also referred to as Trips. Can contain multiple bookings.
+The trip resource represents trips in Concur Travel itineraries. A trip can contain one or more bookings.
 
-## Works With These Concur Products
-* **Travel** for Concur Professional/Premium
+## URI
+    https://www.concursolutions.com/api/travel/trip/v1.1/
 
-## Resource URI
-* https://www.concursolutions.com/api/travel/trip/v1.1/
+## Version
+1.1
 
-## Supported Content Types
-* application/xml
+## Operations
+[Get trip summaries][1]  
+[Get trip details][1]  
+[Create a new trip][2]
+[Update an existing trip][2]
+[Cancel a trip][2]
 
-## Supported Accept Types
-* application/xml
-
-## Supported Verbs
-* [GET][1]
-* [POST][2]
-
-## Related Resources
-* [Booking][3]
+## See also
+[Booking][3]
 
 
 
