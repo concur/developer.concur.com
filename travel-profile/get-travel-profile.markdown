@@ -23,19 +23,20 @@ All request paramenters are optional. To identify a specific user by login ID or
 |  userid_type |  Path |  String |  The type of user identification to use. Possible values are: **login** and **xmlsyncid** |
 |  userid_value |  Path |  String |  The user's login ID or XMLSync ID, depending on which user type is selected. This parameter must be provided in conjunction with the **userid_type** parameter. |
 
-##  Content type
-* application/xml
+## Headers
+###  Content-Type header
+application/xml
 
-##  Authorization header
-
+###  Authorization header
 `Authorization: OAuth {access_token}`
 
-Where access_token is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
+Where *access_token* is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
 ##  Data model
 
 The data model of the response for the GET operation.
 
+````XML
     <ProfileResponse Status="Active|Inactive" Unique="{unique identifier for the user}">
         <General>
             <NamePrefix />
@@ -165,6 +166,7 @@ The data model of the response for the GET operation.
             </CustomField>
         </CustomFields>
     </ProfileResponse>
+````
 
 ###  ProfileResponse root element
 
@@ -190,8 +192,6 @@ The General parent element contains the following child elements:
 |  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code][1] specification. Format: Char(2) |
 |  CompanyName |  String |  The user's company name. |
 
-  
-
 ###  Telephones elements
 
 The Telephones parent element contains a Telephone child element for each included telephone. The Telephone element has the attributes shown in the Response Class section and contains the following child elements:
@@ -202,8 +202,6 @@ The Telephones parent element contains a Telephone child element for each includ
 |  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code][1] specification. Format: Char(2) |
 |  PhoneNumber |  String | The phone number as entered by the user, which may contain characters such as () or -. Format: Char(60) <br> **NOTE**: The user phone number may sometimes be incorrectly parsed if there are data input issues.|
 |  Extension |  String |  The phone extension. Format: Varchar(60) |
-
-  
 
 ###  Addresses elements
 
@@ -220,12 +218,10 @@ The Addresses parent element contains an Address child element for each included
 |  MailStop |  String |  Address mail stop. Format: Nvarchar(Unlimited) |
 |  City |  String |  The city name. Format: Nvarchar(Unlimited) |
 |  StateProvince |  String |  The state or province. Format: Nvarchar(Unlimited) |
-|  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code][1] specification. Format: Char(2) |
+|  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code][1] specification. Format: Char(2)|
 |  ZipCode |  String |  The zip code. Format: Varchar(20) |
 |  Longitude |  String |  Longitude value of Work Address. |
 |  Latitude |  String |  Latitude value of Work Address. |
-
- 
 
 ###  DriversLicenses elements
 
@@ -238,8 +234,6 @@ The DriversLicenses parent element contains a DriversLicense child element for e
 |  IssuingState |  String |  The state the license was issued in. Format: Varchar(2) |
 |  Expiration |  String |  The expiration date of the license. Format: YYYY-MM-DD |
 
- 
-
 ###  EmailAddresses elements
 
 The EmailAddresses parent element contains a EmailAddress child element for each included email address. It contains the following child element:
@@ -248,10 +242,7 @@ The EmailAddresses parent element contains a EmailAddress child element for each
 | :----- | :----- | :----- |
 |  EmailAddress |  String | The the user's email address. The EmailAddress element has two attributes: Type and Contact. The Type attribute specifies the type of email address and the possible values are: **Business**, **Business2**, **Personal**. The Contact attribute specifies whether the email address should be used for travel notifications and the possible values are **True** or **False**. Format: Varchar(255)|
 
- 
-
 ###  RatePreferences elements
-
 The RatePreferences parent element contains the following child element:
 
 |  Element Name |  Data Type |  Description |
@@ -261,8 +252,6 @@ The RatePreferences parent element contains the following child element:
 |  GovtRate |  Boolean |  Whether the user is eligible for the Government rate. Format: **true**\|**false** |
 |  MilitaryRate |  Boolean |  Whether the user is eligible for the Military rate. Format: **true**\|**false** |
 
- 
-
 ###  DiscountCodes elements
 
 The DiscountCodes parent element contains a DiscountCode child element for each included discount code.
@@ -270,8 +259,6 @@ The DiscountCodes parent element contains a DiscountCode child element for each 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
 |  DiscountCode |  String | The discount code for the specified vendor.The DiscountCode element has a Vendor attribute that specifies the name of the vendor for the discount code. Possible values are **?**. Format: ?|
-
- 
 
 ###  Air elements
 
@@ -357,7 +344,6 @@ The Hotel parent element contains the user's hotel travel preferences. It contai
 |  preferRoomService |  String |  Whether the user prefers a hotel with room service. Format:**True**\|**False**. |
 |  preferEarlyCheckIn |  String |  Whether the user prefers a hotel with early check in. Format:**True**\|**False**. |
 
-
 #### Hotel Memberships elements
 
 |  Element Name |  Data Type |  Description |
@@ -372,17 +358,11 @@ The Hotel parent element contains the user's hotel travel preferences. It contai
 |  PointsUntilNextStatus |  String |  Loyalty points required to next status level. |
 |  SegmentsUntilNextStatus |  String |  Booking segment to next status level. |
 
-
-
 ###  CustomFields elements
+The CustomFields parent element contains child elements that specify custom fields in a travel profile. It contains a CustomField child element for each custom field. To retrieve this information, the **Travel Profile**, **Custom Fields** scope must be selected in the **Register Partner Application** page under **Web Services**.
 
-The CustomFields parent element contains child elements that specify custom fields in a travel profile.
-
-|  Element Name |  Data Type |  Description |
-| :----- | :----- | :----- |
-|  CustomFields |    | This parent element only appears if the request came from a travel supplier for this travel type or from a TMC. This element contains a CustomField child element for each custom field with the following child elements:|
-
-### CustomFields child elements
+### CustomField child elements
+For each custom field, the CustomField element has a Name and Value child element.
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
