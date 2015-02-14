@@ -155,39 +155,20 @@ Retrieves the list items for the specified list. A request sent without a specif
 
 ### Get List Items Request
 
-### Request parameters
+#### Request parameters
+* **{_listID_}/items**<br/>Required. The identifier for the desired list, and the items keyword to indicate the request is for the list items.<br/>
+Example: `https://www.concursolutions.com/api/expense/list/v1.0/_{listID}_/items`
+* **{_parentCode_}**<br/>Optional. The parent list item code. If this is included, the request will return all items below this list item. The parent code must be URL encoded.
+* **filter={_filter_}**<br/>Optional. The result filter. The string value entered will be compared against the list item name and code fields, and only matching results will be returned.<br/>
+Example: `https://www.concursolutions.com/api/expense/list/v1.0/{_listID_}/items?parentCode={_parentcode_}&filter={_filter_}`
 
-### Headers
+#### Headers
 
-#### Authorization header
+##### Authorization header
+Required. Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-#### Accept header
-
-###Supported Content Types
-* application/xml
-
-###Query Parameters - Required
-
-* **{_listID_}/items**  
-The identifier for the desired list, and the items keyword to indicate the request is for the list items.
-Example: https://www.concursolutions.com/api/expense/list/v1.0/_{listID}_/items |
-
-###Query Parameters - Optional
-* **{_parentCode_**}  
-The parent list item code. If this is included, the request will return all items below this list item. The parent code must be URL encoded.
-* **filter={_filter_}**  
-The result filter. The string value entered will be compared against the list item name and code fields, and only matching results will be returned.
-Example: https://www.concursolutions.com/api/expense/list/v1.0/{_listID_}/items?parentCode={_parentcode_}&filter={_filter_} |
-
-###Request Headers - Required
-
-Authorization header with OAuth token for valid Concur user.
-
-The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
-
-These roles allow the user to manage data for the entire company.
-###Request Headers - Optional
-* None
+##### Accept header
+application/xml
 
 ####  XML Example Request
 
@@ -210,21 +191,22 @@ These roles allow the user to manage data for the entire company.
     Authorization: OAuth {access token}
     Content-Type: application/xml
 
-##  Get List Items Response
+###  Get List Items Response
 
-###HTTP Responses |  Supported Content Types |
+####HTTP Responses
 
-[HTTP Status Codes][1]
+* [HTTP Status Codes][1]
+* [List Item Error Codes][2]
 
-[List Item Error Codes][2]
+####Response body root elements
+This request will return a **list-items** parent element, with a **list-item** child element for each item returned. The **list-item** elements will contain the following child elements.
 
-##Content Body
-This request will return a **list-items** parent element, with a** list-item** child element for each item returned. The **list-item** elements will contain the following child elements:  
+##### list-item child elements
 
 |  Element |  Description |
 |-----|------|
 |  name |  The list item name. |
-|  levelxcode |  The item code for all specified levels, where x is replaced with the level number. If the request is for the children of a level 2 item, the** level1code**, **level2code**, and** level3code** elements will be returned. |
+|  levelxcode |  The item code for all specified levels, where x is replaced with the level number. If the request is for the children of a level 2 item, the **level1code**, **level2code**, and **level3code** elements will be returned. |
 |  items-link |  The URI, including the parent code value, to request the list items beneath this list item. |
 
 
@@ -257,4 +239,4 @@ This request will return a **list-items** parent element, with a** list-item** c
 
 
 [1]: https://developer.concur.com/reference/http-codes
-[2]: https://developer.concur.com/node/370#responses
+[2]: https://developer.concur.com/node/370
