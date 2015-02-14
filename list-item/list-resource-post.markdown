@@ -20,9 +20,9 @@ Adds list items to an existing list.
 
 #### Request parameters
 
-* **{_listID_}**<br/>  
+* **{_listID_}**  
 Required. The identifier for the desired list.
-* **batch?type**=**{_type_}**<br/>
+* **batch?type**=**{_type_}**
 Required. The type of batch operation to complete. Should be **create**.
 
 Example: `https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=create`
@@ -168,9 +168,9 @@ Updates existing list items for a specified list.
 
 #### Request parameters
 
-* **{_listID_}**<br/>  
+* **{_listID_}**  
 Required. The identifier for the desired list.
-* **batch?type={_type_}**<br/>  
+* **batch?type={_type_}** 
 Required. The type of batch operation to complete. Should be **update**.
 
 Example: `https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=update`
@@ -240,6 +240,7 @@ This request will return a **list-item-batch-result** parent element with the fo
 | errors| This will contain an **error** parent element for each record failure. See the **error child element** table below for information about the child elements.|
 
 #####error child elements
+
 |Element| Description|
 |-----|------|
 |  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes.|
@@ -281,9 +282,9 @@ Deletes existing list items for a specified list.
 
 #### Request parameters
 
-* **{_listID_}**<br/>  
+* **{_listID_}**  
 Required. The identifier for the desired list.
-* **batch?type={_type_}** <br/> 
+* **batch?type={_type_}**
 Required. The type of batch operation to complete. Should be **delete**.
 
 Example: `https://www.concursolutions.com/api/expense/list/v1.0/_{listID_}/batch?type=delete`
