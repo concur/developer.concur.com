@@ -5,8 +5,6 @@ layout: resource
 
 
 
-
-
 ## Description
 The extracted data for the specified extract job. Formatted according to the associated extract definition.
 
@@ -14,19 +12,24 @@ The extracted data for the specified extract job. Formatted according to the ass
 * **Expense** for Concur Professional/Premium
 * **Invoice** for Concur Professional/Premium
 
-## Resource URI
-* https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_}/job/{_JobID_}/file 
+## Version
+1.0
 
-## Supported Content Types
-* application/xml
+## URI
+`https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_}/job/{_JobID_}/file `
 
-## Supported Accept Types
-* application/xml
+## Headers
 
-## Supported Verbs
-* [GET][1]
+### Content-Type header
+application/xml
 
-## Related Resources
+### Accept header
+application/xml
+
+## Operations
+[GET][1]
+
+## See also
 * [Extract Definition][2]
 * [Extract Job][3]
 
