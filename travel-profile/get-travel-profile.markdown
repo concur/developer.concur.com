@@ -305,7 +305,7 @@ The Car parent element contains the user's car travel preferences. It contains t
 |  CarSmokingCode |  String |  Smoking car preferred. Format: **S**, **N**, **O** |
 |  CarGPS |  String |  Car GPS preference. Format: **True**\|**False**. |
 |  CarOption |  String |  Car option preference. Format: Char(3) |
-|  CarMemberships |    | The CarMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains a CarMembership child element for each included membership. The CarMembership element has the following child elements: |
+|  CarMemberships | Membership   | The CarMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains a CarMembership child element for each included membership. The CarMembership element has the following child elements: |
 |  CarOther |  String |  Other Car related description. Format: Char(30) |
 |  CarSkiRack |  String |  Car ski rack preference. Format: **True**\|**False**. |
 
