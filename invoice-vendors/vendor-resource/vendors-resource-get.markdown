@@ -9,7 +9,8 @@ Get a list of vendors that have sent invoices.
 ## Request
 
 ### Request parameters
-Querystrings, e.g., SearchType, Country, Approved
+The following query strings: limit, offset, sortDirection, sortBy, searchType, vendorCode, vendorName, taxID, buyerAccountNumber,  addressCode, address1, address2, address3, city, state, postalCode, approved, country, and a custom fields in the range [custom1, custom20]. For details on these query strings, [go here][1].
+
 
 ### Headers
 #### Content-Type header
@@ -160,3 +161,4 @@ Array of Vendors
         </Vendor>
     </VendorResult>
 ```
+[1]: https://www.concursolutions.com/api/docs/index.html#!/Vendors/Get_limit_offset_sortDirection_sortBy_searchType_vendorCode_vendorName_taxID_buyerAccountNumber_addressCode_address1_address2_address3_city_state_postalCode_approved_country_custom1_custom2_custom3_custom4_custom5_custom6_custom7_custom8_custom9_custom10_custom11_custom12_custom13_custom14_custom15_custom16_custom17_custom18_custom19_custom20_get_0
