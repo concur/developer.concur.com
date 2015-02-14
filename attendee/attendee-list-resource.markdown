@@ -10,12 +10,14 @@ The Shared attendees in the Concur company. Attendees added using this web servi
 1.0
 
 ## URI
-[https://www.concursolutions.com/api/expense/attendees/v1.0/][1]
+`https://www.concursolutions.com/api/expense/attendees/v1.0/`
 
-## Content types
+## Headers
+
+### Content-Type header
 application/xml
 
-## Accept types
+### Accept header
 application/xml
 
 ## Operations
@@ -26,7 +28,6 @@ application/xml
 * [Attendee type][4] 
 
 
-[1]: https://www.concursolutions.com/api/expense/attendees/v1.0/
 [2]: https://developer.concur.com/node/591
 [3]: https://developer.concur.com/node/593
 [4]: https://developer.concur.com/node/375
