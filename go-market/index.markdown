@@ -3,7 +3,7 @@ title: go to market
 layout: conceptual
 ---
 
-### Concur App Center:  Your Solution — 25M Business Travelers
+#### Concur App Center:  Your Solution — 25M Business Travelers
 
 Business travelers fly more than leisure travelers and spend more when they're on the road. Then they return with a heap of expenses. That's why our clients and partners asked for help building new solutions, and why we went to work with partners and ISVs to deliver:
 
@@ -27,8 +27,8 @@ Do you have enterprise-level services involving T&E?  Access new industries and 
 
 Note that the App Review and App Center publishing process follow specific guidelines and criteria to ensure we deliver a high quality experience for users worldwide. _
 
-Source:  _U.S. Travel Association, U.S. Travel Fact Sheet, 2013_.
+Source:  _U.S. Travel Association, U.S. Travel Fact Sheet, 2013_.  
 Source:  _GBTA Foundation's GBTA Outlook, 2013_.
 
-[1]: https://www.concur.com/en-us/app-center
+[1]: https://www.concur.com/en-us/app-center  
 [6]: mailto:platformbizdev@concur.com
