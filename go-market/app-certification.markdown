@@ -1,11 +1,11 @@
 ---
-title: App Certification 
+title: app certification 
 layout: conceptual
 ---
-
+## Certifying your app
 Handling data with care and delivering a positive experience for our customers is paramount at Concur.  To ensure an appropriate level of data security and good customer experience, all apps that integrate and appear in the App Center go through our App Certification process.
 
-## Getting Started on API Certification
+## Get started
 
 1. [Register for a sandbox][1] and find [API documentation][2].
 2. As you build your app, complete our[ Application Review Information and Submission Form][3].
@@ -13,15 +13,15 @@ Handling data with care and delivering a positive experience for our customers i
 
 After your app is approved, your app listing will be reviewed before publishing in the [Concur App Center][4]. 
 
-## How Does App Certification Work?
+## How does app certification work?
 
 Concur conducts an initial application and security review in the sandbox environment.  For solutions that process, transmit or store sensitive information, an additional review may be conducted in our sandbox as well as your production environment. 
 
-## Is There a Cost?
+## Is there a cost?
 
 For apps for individual travelers, the fee for App Certification is currently being waived.  For apps requiring enterprise-level integration or access to corporate information, there are costs for App Certification and you will be asked to enter into a partnership agreement.  Our partner team at  [bizdev@concur.com][5] will work hand-in-hand with you, and looks forward to hearing from you.
 
-## What does Concur Specifically Review?
+## What does Concur review?
 
 The App Certification process includes a review of:
 
