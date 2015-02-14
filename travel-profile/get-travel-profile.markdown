@@ -3,9 +3,6 @@ title: Get a Travel Profile
 layout: operation
 ---
 
-
-
-
 ##  Description
 
 Gets the travel profile information for the specified user. The travel profile includes information such as the user's identity, contact information, rate preferences and discount codes, preferences by travel type, and custom fields. The travel profile information returned by this GET operation depends on whether the caller is a Travel Supplier, a TMC, or a mainstream developer:
@@ -385,8 +382,8 @@ For each custom field, the CustomField element has a Name and Value child elemen
 ####  Response
 
     200 OK
-    Content-Type: application/xml
-
+    Content-Type: application/xml    
+````XML
     <ProfileResponse Status="Active" Unique="CM12345678">
         <General>
             <NamePrefix />
@@ -563,8 +560,7 @@ For each custom field, the CustomField element has a Name and Value child elemen
             </CustomField>
         </CustomFields>
     </ProfileResponse>
-
- 
+````
 
 ###  Example 2: Get the travel profile for a user with a specific login ID
 
