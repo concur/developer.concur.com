@@ -11,7 +11,8 @@ Get a list of vendors that have sent invoices.
 ### Request parameters
 Querystrings, e.g., SearchType, Country, Approved
 
-### Content type
+### Headers
+#### Content-Type header
 application/xml
 
 ### Authorization header
