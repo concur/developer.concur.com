@@ -1,5 +1,5 @@
 ---
-title: List Resource
+title: Post new list items
 layout: operation
 ---
 
