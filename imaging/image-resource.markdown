@@ -12,11 +12,7 @@ A receipt or invoice image. The documentation for the version 3.0 Receipt Images
 ## URI
 `https://www.concursolutions.com/api/image/v1.0/`
 
-For v3.0 documentation, go [here][1].
-
 ## Headers
-
-### Authorization header
 
 ### Content-Type header
 * application/pdf
