@@ -7,7 +7,7 @@ layout: resource
 ## Description
 The trip resource represents trips in Concur Travel itineraries. A trip can contain one or more bookings.
 
-## URI
+## URI  
     https://www.concursolutions.com/api/travel/trip/v1.1/
 
 ## Version
