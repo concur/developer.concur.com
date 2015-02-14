@@ -1,8 +1,8 @@
 ---
-title: Go to Market 
+title: go to market 
 layout: conceptual
 ---
-
+# Go to Market
 
 **Concur App Center:  Your Solution _ _ 25M Business Travelers**
 
