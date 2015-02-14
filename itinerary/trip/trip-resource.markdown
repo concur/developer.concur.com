@@ -16,9 +16,9 @@ The trip resource represents trips in Concur Travel itineraries. A trip can cont
 ## Operations
 [Get trip summaries][1]  
 [Get trip details][1]  
-[Create a new trip][2]
-[Update an existing trip][2]
-[Cancel a trip][2]
+[Create a new trip][2]    
+[Update an existing trip][2]  
+[Cancel a trip][2]  
 
 ## See also
 [Booking][3]
