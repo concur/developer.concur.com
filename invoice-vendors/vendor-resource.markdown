@@ -5,8 +5,6 @@ layout: resource
 
 
 
-
-
 ## Description 
 A vendor that has sent an invoice.
 
@@ -14,24 +12,24 @@ A vendor that has sent an invoice.
 * **Invoice** for Concur Professional/Premium
 
 ## Resource URI
-* <https://www.concursolutions.com/api/v3.0/invoice/vendors>
+`https://www.concursolutions.com/api/v3.0/invoice/vendors`
 
-## Supported Content Types
+## Headers
+
+### Content-Type header
+
 * application/xml
 * application/json
 
-## Supported Accept Types
+### Accept header
+
 * application/xml
 * application/json
 
-## Supported Verbs
-* GET
-  * For query parameters and element defintions, go [here][1].
-  * For request and response examples with data, go [here][2].
-
-## Related Resources
-* None
-
+## Operations
+GET
+* For query parameters and element defintions, go [here][1].
+* For request and response examples with data, go [here][2].
 
 
 [1]: https://www.concursolutions.com/api/docs/index.html#!/Vendors
