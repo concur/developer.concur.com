@@ -56,14 +56,14 @@ These roles allow the user to manage data for the entire company.
 This request will return an** Attendees** parent element containing an **Attendee** child element for each attendee. Each **Attendee** element will contain the following child elements:
 
 | Element | Description |
-|-------------|-----------------|
-AttendeeType |  The type of attendee. Maximum 40 characters.
-FirstName |  The attendee's first name. Maximum 50 characters.
-LastName |  The attendee's last name. Maximum 132 characters.
-Company |  The attendee's company name. Maximum 150 characters.
-Title |  The attendee's title. Maximum 32 characters.
-ExternalID |  The unique identifier for the attendee, managed outside Concur. Maximum 48 characters.
-Custom1 through Custom20 |  The details from the Custom fields. These may not have data, depending on configuration. The custom fields may have the following child elements.  1. Type : The custom field type. Will be one of the following: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text. 2. Value - The value in the custom field. Maximum 100 characters.  3. Code - Custom list fields will include the list item code in this element
+|-----------------------|-------------------------------------|
+|AttendeeType |  The type of attendee. Maximum 40 characters.|
+|FirstName |  The attendee's first name. Maximum 50 characters.|
+|LastName |  The attendee's last name. Maximum 132 characters.|
+|Company |  The attendee's company name. Maximum 150 characters.|
+|Title |  The attendee's title. Maximum 32 characters.|
+|ExternalID |  The unique identifier for the attendee, managed outside Concur. Maximum 48 characters.|
+|Custom1 through Custom20 |  The details from the Custom fields. These may not have data, depending on configuration. The custom fields may have the following child elements.  1. Type : The custom field type. Will be one of the following: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text. 2. Value - The value in the custom field. Maximum 100 characters.  3. Code - Custom list fields will include the list item code in this element
 |  HasExceptionsPrevYear |  Whether the attendee has exceptions in the previous year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
 |  HasExceptionsYTD |  Whether the attendee has exceptions in the current year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
 |  IsDeleted |  Whether the attendee is marked as deleted. Maximum 1 character. Format: Y/N |
