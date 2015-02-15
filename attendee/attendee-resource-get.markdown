@@ -1,6 +1,6 @@
 ---
 title: Get attendees
-layout: operations
+layout: Operations
 ---
 
 ##  Get attendees
