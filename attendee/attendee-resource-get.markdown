@@ -1,7 +1,8 @@
-'---
-title: Get attendees
-layout: Operations
 ---
+title: Get attendees
+layout: operation
+---
+
 
 ##  Get attendees
 
