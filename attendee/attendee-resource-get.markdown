@@ -1,9 +1,9 @@
 ---
-title: Attendee Resource
-layout: resource
+title: Get attendees
+layout: operations
 ---
 
-##  Get Attendees
+##  Get attendees
 
 Retrieves the attendees matching the specified search criteria. Developers can specify one or more External IDs or the Attendee ID to search the Expense database.
 
@@ -16,14 +16,15 @@ application/json, application/xml
 
 * **attendeeID**  
 The unique identifier for the attendee in Concur. This information is returned in the **AttendeeID** element of the response of the [Get Report Details][1] function.
+
 * **externalid={_externalID_}**  
 The unique identifier for the attendee outside of Concur. This information is returned in the **ExternalID** element of the response of the [Get Report Details][1] function. Up to 10 external IDs can be supplied in a comma separated list.
 
-### Examples:
+### Examples
 
-https://www.concursolutions.com/api/expense/v2.0/attendees/_attendeeID_
+https://www.concursolutions.com/api/expense/v2.0/attendees/*attendeeID*
 
-https://www.concursolutions.com/api/expense/v2.0/attendees?externalid={_externalID_}
+https://www.concursolutions.com/api/expense/v2.0/attendees?externalid={*externalID*}
 
 https://www.concursolutions.com/api/expense/v2.0/attendees?externalid={_externalID1_},{_externalID2_},{_externalID3_}
 
@@ -80,7 +81,7 @@ Custom1 through Custom20 |  The details from the Custom fields. These may not ha
     200 OK
     Content-Type: application/xml
 
-```XML
+    ``` XML
 
     <Attendees xmlns="http://www.concursolutions.com/api/expense/expensereport/2012/07" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <Attendee>
@@ -123,8 +124,8 @@ Custom1 through Custom20 |  The details from the Custom fields. These may not ha
             <CurrencyCode>USD</CurrencyCode>
         </Attendee>
     </Attendees>
-
-```
+    
+    ```
 
 
 [1]: https://developer.concur.com/node/487#reportdetails
