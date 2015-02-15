@@ -1,4 +1,4 @@
-  ---
+---
 title: Attendee Type Resource - GET
 layout: operation
 ---
@@ -22,11 +22,13 @@ application/xml
 
 
 ### Authorization header
+
 The authorization header must have an OAuth token for a valid Concur user.
 The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
 
 ## Response
+
 * [HTTP Status Codes][1]
 * [Attendee List Errors][2]
 
@@ -44,7 +46,7 @@ This request will return an attendee-types parent element containing an attendee
 
 ### Example 1: XML Example of Successful Response
 
-```
+```XML
     200 OK
     Content-Type: application/xml
 
