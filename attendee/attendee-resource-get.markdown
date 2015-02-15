@@ -1,4 +1,4 @@
----
+'---
 title: Get attendees
 layout: Operations
 ---
@@ -81,7 +81,7 @@ This request will return an** Attendees** parent element containing an **Attende
     200 OK
     Content-Type: application/xml
 
-    ``` XML
+```XML
 
     <Attendees xmlns="http://www.concursolutions.com/api/expense/expensereport/2012/07" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <Attendee>
@@ -125,7 +125,7 @@ This request will return an** Attendees** parent element containing an **Attende
         </Attendee>
     </Attendees>
     
-    ```
+```
 
 
 [1]: https://developer.concur.com/node/487#reportdetails
