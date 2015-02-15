@@ -79,7 +79,9 @@ Custom1 through Custom20 |  The details from the Custom fields. These may not ha
 
     200 OK
     Content-Type: application/xml
+
 ```XML
+
     <Attendees xmlns="http://www.concursolutions.com/api/expense/expensereport/2012/07" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <Attendee>
             <AttendeeType>BUSGUEST</AttendeeType>
@@ -121,6 +123,7 @@ Custom1 through Custom20 |  The details from the Custom fields. These may not ha
             <CurrencyCode>USD</CurrencyCode>
         </Attendee>
     </Attendees>
+
 ```
 
 
