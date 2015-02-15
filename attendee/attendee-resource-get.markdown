@@ -27,14 +27,17 @@ expense/v2.0/attendees?externalid={_externalID1_},{_externalID2_},{_externalID3_
 
 ### Authorization header
 
-* Authorization header with OAuth 2.0 access token for valid Concur user. The Caller must have one of the following user roles in Concur: Web Services Administrator for Professional, or Can Administer for Standard. Required.
+Authorization header with OAuth 2.0 access token for a Concur user. Required.
 
-These roles allow the user to manage data for the entire company.
+To manage data for an entire conpany, the Concur account associated with the access token must have one of these roles:
+
+* Web Services Administrator for Professional
+* Can Administer for Standard.
 
 ### Content-Type header
 
-application/json       
-application/xml
+* application/json       
+* application/xml
 
 
 ## Examples
@@ -53,8 +56,6 @@ application/xml
     ...
 
 ##  Get Attendee Details Response
-
-[HTTP Status Codes][2]
 
 ### Content Body
 This request will return an** Attendees** parent element containing an **Attendee** child element for each attendee. Each **Attendee** element will contain the following child elements:
@@ -82,10 +83,9 @@ This request will return an** Attendees** parent element containing an **Attende
 
 ####  XML Example of Successful Response
 
+```xml
     200 OK
     Content-Type: application/xml
-
-```XML
 
     <Attendees xmlns="http://www.concursolutions.com/api/expense/expensereport/2012/07" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <Attendee>
@@ -127,11 +127,9 @@ This request will return an** Attendees** parent element containing an **Attende
             <AttendeeOwnerID>pd123456</AttendeeOwnerID>
             <CurrencyCode>USD</CurrencyCode>
         </Attendee>
-    </Attendees>
-    
+    </Attendees>  
 ```
 
 
 [1]: https://developer.concur.com/node/487#reportdetails
-[2]: https://developer.concur.com/reference/http-codes
-[3]: http://en.wikipedia.org/wiki/ISO_4217
+[2]: http://en.wikipedia.org/wiki/ISO_4217
