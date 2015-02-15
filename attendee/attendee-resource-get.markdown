@@ -8,34 +8,37 @@ layout: operation
 
 Retrieves the attendees matching the specified search criteria. Developers can specify one or more External IDs or the Attendee ID to search the Expense database.
 
-## Content type
+## Request
 
-application/json, application/xml
-
-
-## Query parameters - Optional
+### Query parameters
 
 * **attendeeID**  
-The unique identifier for the attendee in Concur. This information is returned in the **AttendeeID** element of the response of the [Get Report Details][1] function.
+The unique identifier for the attendee in Concur. This information is returned in the **AttendeeID** element of the response of the [Get Report Details][1] function. Optional.
+
+expense/v2.0/attendees/*attendeeID*
 
 * **externalid={_externalID_}**  
-The unique identifier for the attendee outside of Concur. This information is returned in the **ExternalID** element of the response of the [Get Report Details][1] function. Up to 10 external IDs can be supplied in a comma separated list.
+The unique identifier for the attendee outside of Concur. This information is returned in the **ExternalID** element of the response of the [Get Report Details][1] function. Up to 10 external IDs can be supplied in a comma separated list. Optional
 
-### Examples
+expense/v2.0/attendees?externalid={*externalID*}
+expense/v2.0/attendees?externalid={_externalID1_},{_externalID2_},{_externalID3_}
 
-https://www.concursolutions.com/api/expense/v2.0/attendees/*attendeeID*
+## Headers
 
-https://www.concursolutions.com/api/expense/v2.0/attendees?externalid={*externalID*}
+### Authorization header
 
-https://www.concursolutions.com/api/expense/v2.0/attendees?externalid={_externalID1_},{_externalID2_},{_externalID3_}
-
-
-## Request Headers - Required
-* Authorization header with OAuth token for valid Concur user.
-
-The OAuth consumer must have one of the following user roles in Concur: Web Services Administrator for Professional, or Can Administer for Standard.
+* Authorization header with OAuth 2.0 access token for valid Concur user. The Caller must have one of the following user roles in Concur: Web Services Administrator for Professional, or Can Administer for Standard. Required.
 
 These roles allow the user to manage data for the entire company.
+
+### Content-Type header
+
+application/json       
+application/xml
+
+
+## Examples
+
 
 ###  XML Example Request with Attendee ID
 
