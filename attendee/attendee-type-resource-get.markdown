@@ -1,4 +1,4 @@
----
+  ---
 title: Attendee Type Resource - GET
 layout: operation
 ---
@@ -35,7 +35,7 @@ The OAuth consumer must have one of the following user roles in Concur: Company 
 This request will return an attendee-types parent element containing an attendee-type child element for each attendee type. Each attendee-type element will contain the following child elements:
 
 | Element | Description |
-|---------|-------------|
+|:------------|:-----------------------|
 | type | The attendee type code. |
 | name | The attendee type name. |
 
@@ -44,6 +44,7 @@ This request will return an attendee-types parent element containing an attendee
 
 ### Example 1: XML Example of Successful Response
 
+```
     200 OK
     Content-Type: application/xml
 
@@ -56,7 +57,8 @@ This request will return an attendee-types parent element containing an attendee
         <type>EMPLOYEE</type>
         <name>Employee</name>
       </attendee-type>
-    </attendee-types> 
+    </attendee-types>
+```
 
 [1]: https://developer.concur.com/reference/http-codes
 [2]: https://developer.concur.com/node/374#responses
