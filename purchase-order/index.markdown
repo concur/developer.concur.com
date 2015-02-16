@@ -1,5 +1,5 @@
 ---
-title: Purchase Order 
+title: Purchase Order Web Service
 layout: conceptual
 ---
 
@@ -9,16 +9,10 @@ The Concur Invoice Purchase Order (PO) web service allows clients to send PO-rel
 * Configuring match rules that compare the PO to the invoice
 * Viewing the invoice and its associated PO side-by-side, to resolve exceptions
 * Make selected updates to the PO in Concur (such as a unit price or quantity), in order to resolve exceptions
-The client remains the PO system-of-record. Creation, routing, and approval of POs is done only in the client system, not within Concur. The web service provides real-time access to approved PO data. |
+The client remains the PO system-of-record. Creation, routing, and approval of POs is done only in the client system, not within Concur. The web service provides real-time access to approved PO data. 
 
 ## Works With These Concur Products
 * **Invoice** for Concur Professional/Premium
-
-## Concur Connect API Structure
-Refer to **Web Services > [Core Concepts][1]** for:
-* Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
-* Information on authentication and authorization for all Concur Web Services.
-* Information on registering and enabling partner applications to use Concur Web Services.
 
 ## Product Restrictions
 You must have the Concur Invoice product to use this web service.
@@ -30,10 +24,11 @@ Partner developers must determine which configurations are required for their so
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
 ## Resources
-The version 3.0 documentation includes the data model and tools to send test requests to your developer sandbox.
+The version 3.0 documentation includes the data model and tools to send test requests to your developer sandbox:
 [Version 3.0 Purchase Orders ][3]
 [Version 3.0 Purchase Order Receipts ][4]
-Version 1.0 documentation includes the data model and example requests and responses.
+
+Version 1.0 documentation includes the data model and example requests and responses:
 [Version 1.0 Purchase Order][5]
 
 ##  Responses and Errors
@@ -42,7 +37,7 @@ Refer to the [HTTP Codes][6] page for details of the common responses and errors
 ###  Invoice Purchase Order Errors
 The web service will not return a 4xx HTTP response code for a batch operation even when every item in the batch failed to be created, updated or deleted. The client must inspect the response to look for warnings or errors with individual batch items.
 
-### **XML Response Error Codes**:
+### XML Response Error Codes
 
 |  Error Code |  Message |
 | ----- | ----- |
@@ -73,7 +68,7 @@ The web service will not return a 4xx HTTP response code for a batch operation e
 |  8006 |  A value was supplied for a field that is not part of the form. |
 |  9999 |  An unexpected error occurred. |
 
-### **Field Codes**:
+### Field Codes
 The following field codes are used for error codes in the 8000 range, and identify which field is causing an error. Typically field codes are used when validating an XML element's value against a form field's configuration for the supplied policy.
 
 The table below lists all the field codes and at what level they are available. For example: Custom1 can point to an element at the purchase order or line item level where as PoNumber would only display for the purchase order level.
