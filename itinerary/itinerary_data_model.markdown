@@ -62,7 +62,7 @@ The Bookings parent element contains a Booking child element for each included b
 | TicketPickupLocation |   |  | The pickup location for the booked ticket, if available |
 | TicketPickupNumber |   |  | The confirmation number to pick up the booked ticket, if available. |
 | AirfareQuotes | Array |  | List of stored airfare quotes for this booking. For more information, see the AirFare Quotes table. |
-| ItinSourceName | String |  | The itinerary source. Format: TravelSupplier (<NOTE TO TECH REVIEWERS: This element is not in the xsd but appears in the Post booking details request for TMCs example) |
+| ItinSourceName | String |  | The itinerary source. Format: TravelSupplier (NOTE TO TECH REVIEWERS: This element is not in the xsd but appears in the Post booking details request for TMCs example) |
 | AirlineTickets | Array |  | List of airline tickets for this booking. See the AirLine Tickets Elements Table. |
 | Charges | Array |  | The charges for this booking. Refer to the Charges Child Elements table.     |
 | MiscChargeOrders | Array |  | An array of Miscellaneous for this booking.  |
@@ -78,7 +78,7 @@ The Bookings parent element contains a Booking child element for each included b
 
 ## MiscChargeOrders child elements
 
-| Element Name | Data Type | TripLink | Description |  |
+| Element Name | Data Type | TripLink | Description | 
 |---------------------------|-----------|----------|------------------|
 | DateCreatedUtc | dateTime |  | The date the charge order was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc | dateTime |  | The date the charge order was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
