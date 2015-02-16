@@ -11,7 +11,7 @@ Requests the expense transaction data for the specified payment batch.
 
 ### Request parameters
 
-**{_BatchID_}/file**
+**{_BatchID_}/file:** Required.
 
 **URI Source:** The URI is returned in the Batch-URL element of the [Get List of Payment Batches][1] function. Do **not** use the BatchID value from the [Get List of Payment Batches][1] function in the URI, as it contains the unencrypted batch ID.
 
