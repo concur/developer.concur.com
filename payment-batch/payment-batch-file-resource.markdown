@@ -13,23 +13,23 @@ The expense transaction data for a closed payment batch. Each batch file represe
 
 ## Resource URI
 
-* https://www.concursolutions.com/api/expense/paymentbatch/v1.1/batch/{_BatchID_}/file
+`https://www.concursolutions.com/api/expense/paymentbatch/v1.1/batch/{_BatchID_}/file`
 
-## Supported Content Types
+## Headers
 
-* application/xml
+### Content-Type header
+application/xml
 
-##Supported Accept Types
+### Accept header
+application/xml
 
-* application/xml
+##Operations
 
-##Supported Verbs
-
-* [GET][1]
+[GET][1]
 
 ##Related Resources
 
-* [Payment Batch][2]
+[Payment Batch][2]
 
 [1]: https://developer.concur.com/payment-batch-file/payment-batch-file-resource/get-payment-batch-file
 [2]: https://developer.concur.com/payment-batch/payment-batch-resource
