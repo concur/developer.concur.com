@@ -901,3 +901,52 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | Vendor | string |  | The two letter GDS vendor code. |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
 | Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
+
+### Charges child elements
+
+| Element  | Data Type | TripLink | Description |
+|-------------------|----------------|----------|--------------------------------------|
+| Percent | Parent Element |  | The percent of fixed charges. This parent element contains the following child elements:  |
+| Fixed | Parent Element |  | The fixed charges. This parent element contains the following child elements:  |
+| Rate | Parent Element |  | The rate for the booking.  This parent element contains the following child elements |
+| RateWithAllowance | Parent Element |  | The rate for the booking, including any travel allowances. This parent element contains the following child elements:  |
+
+#### Rate child elements
+
+| Element  | Data Type | Description |  |
+|---------------------|-----------|--------------|-------------------|
+| Amount | decimal |  |  The total amount for the rate for the booking.  |  
+| Currency | string |  |  The 3-letter ISO 4217 currency code for the total amount. |  
+| Description | string |  |  The description for the rate. |  
+| IsPaid | boolean |  |  Whether the rate has been paid. Format: true/false. |  
+| IsPrimary | boolean |  |  Whether the rate is primary. Format: true/false. |  
+| NumUnits | decimal |  |  The  number of units expected for the charge. For instance, 3 days |  
+| PerUnit | string |  |  The  unit of measure for the charge. Values represent rates like per DAY, WEEK, or  MONTH |  
+| SemanticsCode | string |  |  Indicates the charge category for the line item. Refer to the Semantics Codes table for more information. |  
+| SemanticsVendorType | string |  |  The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |  
+| StartDateLocal | dateTime |  |   The start date of the booking, in the user's local time.  Format: YYYY-MM-DDThh:mm:ss |  
+| Vendor | string |  |  The vendor for the booking charge. |  
+| VendorChargeCode | string |  |  The vendor's code for the charge. |  
+
+#### RateWithAllowance child elements
+
+| Element  | Data Type | TripLink | Description |
+|----------------------|-----------|----------|----------------------------|
+| AllowanceAmount | decimal |  | The cost of overage fees when the allowance is exceeded. For example,  if the allowance is 5000 miles, the cost could be $0.02 per mile. The overage  must be in the same currency as the basic rate. |
+| AllowanceIsUnlimited | boolean |  | Whether the allowance is unlimited. Format: true/false. |
+| AllowanceNumUnits | decimal |  | The number of units for the allowance associated with the charge. For example, 5000 miles. |
+| AllowanceUnit | string |  | The unit of measure for the allowance associated with the charge. For example, a car weekly rate might allow 5000 miles included in the rate. |
+| Amount | decimal |  | The total amount for the rate for the booking.  |
+| Currency | string |  | The 3-letter ISO 4217 currency code for the total amount. |
+| Description | string |  | The description for the rate. |
+| IsPaid | boolean |  | Whether the rate has been paid. Format: true/false. |
+| IsPrimary | boolean |  |  Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge in a set should be primary. Format: true/false. |
+| NumUnits | decimal |  | The  number of units expected for the charge. For instance, 3 days. |
+| PerUnit | string |  | The  unit of measure for the charge. Values represent rates like per DAY, WEEK, or MONTH |
+| SemanticsCode | string |  | Indicates the charge category for the line item. Refer to the Semantics Codes table for more information. |
+| SemanticsVendorType | string |  | The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |
+| StartDateLocal | dateTime |  | The start date of the booking, in the user's local time. Format: YYYY-MM-DDThh:mm:ss |
+| Vendor | string |  |  The vendor for the booking charge. |
+| VendorChargeCode | string |  | The vendor's code for the charge. |
+
+
