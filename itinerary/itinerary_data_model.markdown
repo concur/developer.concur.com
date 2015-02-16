@@ -76,7 +76,7 @@ The Bookings parent element contains a Booking child element for each included b
 | Warnings |   |  | The warnings associated with the booking. |
 | WebAddresses |   |  | List of web addresses such as emails and pickup URLs associated with this booking. |
 
-## MiscChargeOrders child elements
+## Miscellaneous child elements
 
 | Element Name | Data Type | TripLink | Description | 
 |---------------------------|-----------|----------|------------------|
@@ -87,6 +87,63 @@ The Bookings parent element contains a Booking child element for each included b
 | PlatingControlNumber | string |  | Part of the ticket number that indicates the ticket control number. Format: Ten digit number. |  
 | TotalAmount | decimal |  | The total amount of charge orders for the ticket. |  
 | TotalAmountCurrency | string |  | The 3-letter ISO 4217 currency code for the total charge order amount. |  
+
+## PassProgram child elements
+
+| Element Name | Data Type | TripLink | Description |
+|---------------------|-----------|----------|----------------------------------|
+| Amount   | decimal |  | The program amount. |
+| Name     | string |  | The program name. |
+| Type   | string |  | The program type. |
+| UserFirstName    | string |  | The first name of the passenger. |
+| UserLastName    | string |  | The last name of the passenger. |
+
+## PhoneNumberData child elements
+
+| Element Name | Data Type | TripLink | Description |
+|----------------------|-----------|----------|--------------------------------------------|
+| PassengerRPH     | integer |  | Indicates the passenger to whom this phone number belongs. |
+| PhoneNumber  | string |  | The passenger's phone number. |
+| Type   | string |  | The type of phone number. |
+| Description     | string |  | The description for the phone number. |
+
+## RailPayments child elements
+
+| Element Name | Data Type | TripLink | Description |
+|----------------|-----------|----------|-------------------------------------------|
+| RailAdjustment | Type |  |  The amount adjusted for a rail booking. |
+| RailPayment | Type |  |  The payment information for a rail booking.  |
+
+## RailAdjustment child elements
+
+| Element Name | Data Type | TripLink | Description |
+|-------------------|-----------|----------|------------------------------|
+| AdjustmentDateTime  | dateTime |  |   |
+| AdjustmentDateTimeUTC   | dateTime |  |   |
+| AdjustmentType     | string |  |   |
+| DateCreatedUtc    | dateTime |  |   |
+| DateModifiedUtc    | dateTime |  |   |
+| TicketDocumentIdentifier   | string |  |   |
+| TotalAdjustment    | decimal |  |   |
+| TotalAdjustmentCurrency  | string |  |   |
+| Taxes         | Array |  | This parent element contains a Tax child element for each rail adjustment tax. Refer to the Tax Elements for the Tax child element. |
+
+## RailPayment child elements
+
+| Element Name | Data Type | TripLink | Description |
+|------------------|-----------|----------|-------------------------|
+| BaseFare   | decimal |  | The base fare of the booking quote. |
+| BaseFareCurrency   | string |  | The 3-letter ISO 4217 currency code for the total fare. |
+| DateCreatedUtc   | dateTime |  | The date the quote was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateModifiedUtc    | dateTime |  | The date the quote was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| IssueByDate  | dateTime |  | The date the quote must be issued by. Format: YYYY-MM-DDThh:mm:ss |
+| IssueDateTime   | dateTime |  |   |
+| IssueDateTimeUTC  | dateTime |  |   |
+| TicketDocumentIdentifier     | string |  |   |
+| TicketType   | string |  |   |
+| TotalFare  | decimal |  | The total price of the booking. |
+| TotalFareCurrency   | string |  | The 3-letter ISO 4217 currency code for the total fare. |
+| RailCharges      | array |  | The charges applied by the airline. This parent element contains a Fixed and Tax child element for each fixed charge and tax from the airline. Refer to the Fixed Elements table for the Fixed child element  and the Tax Element table for the Tax child element. |
 
 
 ## AirfareQuotes elements
