@@ -346,5 +346,129 @@ This Tax element contains the following child elements.
 | TaxAmount | Decimal |  | The amount of the tax. |
 | TaxType | String |  | The type of the tax. |
 
-## Percent elements
+### Percent child elements
 
+| Element  | Data Type | TripLink | Description |
+|----------|----------------|----------|----------------------------|
+| Percent | Parent Element |  | The percent of fixed charges. This parent element contains the following child elements. |
+
+#### Percent child elements (need to disambiguate)
+
+| Element  | Data Type | TripLink | Description |
+|---------------------|-----------|----------|-----------------------------|
+| Amount | Decimal |  | The total amount for the rate for the booking.  |
+| Currency | string |  | The 3-letter ISO 4217 currency code for the total amount. |
+| Description | sring |  | The description for the rate.  |
+| IsPaid | boolean |  | Whether the rate has been paid. Format: true/false. |
+| IsPrimary | boolean |  | Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge  in a set should be primary. Format: true/false. |
+| SemanticsCode | string |  | Indicates the charge category for the line item. Refer to the Semantics Codes table for more information.  |
+| SemanticsVendorType | string |  | The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |
+| StartDateLocal | dateTime |  | The start date of the booking, in the user's local time. Format: YYYY-MM-DDThh:mm:ss |
+| Vendor | string |  |  The vendor for the booking charge. |
+| VendorChargeCode | string |  | The vendor's code for the charge |
+
+### CustomAttributes child elements
+
+The CustomAttributes parent element contains a CustomAttribute child element with the following child elements.
+
+| Element Name | Data Type | TripLink | Description |
+|--------------------|-----------|----------|-------------|
+| Data | String |  |   |
+| DisplayTitle | String |  |   |
+| DisplayValue | String |  |   |
+| Name | String |  |   |
+| DataType | String |  |   |
+| DisplayOnItinerary | Boolean |  |   |
+| ExternalId | Int |  |   |
+
+### RuleViolations elements
+
+The RuleViolations contains a list of rule violations associated with the itinerary. This parent element contains a RuleViolation child element for each associated rule violation.
+
+| Element Name | Data Type | TripLink | Description |
+|-------------------------|-----------|----------|-------------|
+| BestGdsPrice | Decimal |  |   |
+| BestGdsVendor | String |  |   |
+| BestInternetPrice | Decimal |  |   |
+| BestInternetVendor | String |  |   |
+| CompanyReasonCode | String |  |   |
+| CompanyRuleText | String |  |   |
+| Currency | String |  |   |
+| DateEntered | DateTime |  |   |
+| EndCity | String |  |   |
+| EndDate | DateTime |  |   |
+| NumberOfStops | Int |  |   |
+| QuotedPrice | Decimal |  |   |
+| RuleAction | String |  |   |
+| RuleName | String |  |   |
+| SegmentType | String |  |   |
+| SelectedOtherAmount | Decimal |  |   |
+| SelectedOtherAmountType | String |  |   |
+| StartCity | String |  |   |
+| StartDate | DateTime |  |   |
+| TariffPrice | Decimal |  |   |
+| TravelerComments | String |  |   |
+| VendorCode | String |  |   |
+| VendorName | String |  |   |
+
+## AirBooking elements
+
+The Air Booking parent element is the Air Element in the Segments Array in Booking Elements. This parent element contains an Air Booking child element for each booked flight.
+
+| Element  | Data Type | TripLink | Description |
+|--------------------|----------------|----------|------------------------------|
+| ClassOfService | string |  | The class of the booking. |
+| ConfirmationNumber | string |  | The record locator or confirmation number for the flight from the airline.  |
+| EndCityCode | string | Y | The IATA airport code for the end city of the booking.  |
+| EndDateLocal | dateTime | Y | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss. <br/>For  TripLink suppliers: The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
+| FlightNumber | string | Y | The flight number for the booking.  |
+| StartCityCode | string | Y | The IATA airport code for the starting address for the booking.  |
+| StartDateLocal | dateTime | Y | The booking starting time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss. <br/>For TripLink suppliers: The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
+| Vendor | string | Y |   |
+| CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
+| CancellationPolicy | string |  | The cancellation policy from the vendor.  |
+| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
+| DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| EndDateUtc | dateTime | Y | The booking ending time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss. <br/>For TripLink suppliers: The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
+| EndGate | string | Y | The arrival gate for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
+| EndTerminal | string | Y | The arrival terminal for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
+| LegId | string |  | The leg ID of the booking. Leg IDs do not change on a connection. For each  unique leg ID in the trip, all flights subsequent to the first segment with the  same leg ID are connections. |
+| Seats | Parent Element |  | The seats for the booking. This parent element contains an AirSeat element for each included seat. The AirSeat element contains the following child elements |
+| StartDateUtc | dateTime | Y | The booking starting time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss. <br/>For  TripLink suppliers:The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
+| StartGate | string | Y | The departure gate for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
+| StartTerminal | string | Y | The departure terminal for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
+| Status | string |  | The  GDS based booking status for the segment such as HK, HL, BK, etc. |
+| TimeZone | string | Y | The time zone of the booking. Format: One of the supported Olson or Windows Time Zones.  |
+| Element  | Data Type |  | Description |
+| AircraftCode | string |  | The code for the aircraft type. |
+| Bags | string |  | The number of bags included in the booking.  |
+| Cabin | string |  | The section of the airplane for the booking.  |
+| CarbonEmissionLbs | decimal |  | The pounds of carbon emission for this booking.  |
+| CarbonModel | integer |  | The model used to calculate the carbon emissions.  |
+| CheckedBaggage | string |  | Whether the booking includes checked baggage.  |
+| Duration | integer |  | The duration of the booked flight.  |
+| ETicket | string |  | Whether the booking has an  e-ticket. Format: Y/N  |
+| IsOpenSegment | boolean |  | Whether the segment is open. Format: True/False  |
+| IsPreferredVendor | integer |  | If the airline is marked as a preferred property by the company. Format: True/False  |
+| IsUpgradeAllowed | boolean |  | Whether the booking can be upgraded. Format: True/False  |
+| Meals | string |  | The meals included in the booking.  |
+| Miles | integer |  | The number of miles included in the booking.  |
+| Notes | string |  | Additional details about the booking.  |
+| OpenSegment | string |  | Additional information about the open segment.  |
+| OperatedByFlightNumber | string |  | Flight Number provided by the airline operating the flight on behalf of the booked airline.  |
+| OperatedByVendor | sring |  | The airline operating the flight on behalf of the booked airline. |
+| OperatedByVendorName | string |  | The name of the airline operating the flight on behalf of the booked airline. |
+| Services | string |  | The services included in the booking.  |
+| SpecialInstructions | string |  | Additional instructions regarding the booking.  |
+| UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
+
+### AirSeat child elements
+
+| Element | Data Type | Description |
+|--------------|-----------|---------------------------|
+| PassengerRph | integer | The passenger assigned to the seat. |
+| SeatNumber | string | The number of the seat. |
+
+## Car Booking elements
