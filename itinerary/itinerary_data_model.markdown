@@ -86,7 +86,7 @@ The Bookings parent element contains a Booking child element for each included b
 | PlatingCarrierNumericCode | string |  | Part of the ticket number that indicates the airline code. This is a three digit number. For example: 001=American, 005=Continental, 006=Delta, 012=Northwest |  
 | PlatingControlNumber | string |  | Part of the ticket number that indicates the ticket control number. Format: Ten digit number. |  
 | TotalAmount | decimal |  | The total amount of charge orders for the ticket. |  
-| TotalAmountCurrency | string |  | The 3-letter ISO 4217 currency code for the total charge order amount. |  
+| TotalAmountCurrency | string |  | The [3-letter ISO 4217 currency code][1] for the total charge order amount. |  
 
 ### PassProgram child elements
 
@@ -133,7 +133,7 @@ The Bookings parent element contains a Booking child element for each included b
 | Element Name | Data Type | TripLink | Description |
 |------------------|-----------|----------|-------------------------|
 | BaseFare   | decimal |  | The base fare of the booking quote. |
-| BaseFareCurrency   | string |  | The 3-letter ISO 4217 currency code for the total fare. |
+| BaseFareCurrency   | string |  | The [3-letter ISO 4217 currency code][1] for the total fare. |
 | DateCreatedUtc   | dateTime |  | The date the quote was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc    | dateTime |  | The date the quote was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | IssueByDate  | dateTime |  | The date the quote must be issued by. Format: YYYY-MM-DDThh:mm:ss |
@@ -142,7 +142,7 @@ The Bookings parent element contains a Booking child element for each included b
 | TicketDocumentIdentifier     | string |  |   |
 | TicketType   | string |  |   |
 | TotalFare  | decimal |  | The total price of the booking. |
-| TotalFareCurrency   | string |  | The 3-letter ISO 4217 currency code for the total fare. |
+| TotalFareCurrency   | string |  | The [3-letter ISO 4217 currency code][1] for the total fare. |
 | RailCharges      | array |  | The charges applied by the airline. This parent element contains a Fixed and Tax child element for each fixed charge and tax from the airline. Refer to the Fixed Elements table for the Fixed child element  and the Tax Element table for the Tax child element. |
 
 
@@ -327,7 +327,7 @@ This Fixed element contains the following child elements.
 | Element Name | Data Type | TripLink | Description |
 |------------------|-----------|----------|--------------------------------|
 | Amount | Decimal |  | The total amount for the rate for the booking.  |
-| Currency | String |  | The 3-letter ISO 4217 currency code for the total amount. |
+| Currency | String |  | The [3-letter ISO 4217 currency code][1] for the total amount. |
 | Description | String |  | The description for the rate.  |
 | IsPaid | Boolean |  | Whether the rate has been paid. Format: true/false. |
 | IsPrimary | Boolean |  | Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge  in a set should be primary. Format: true/false. |
@@ -357,7 +357,7 @@ This Tax element contains the following child elements.
 | Element  | Data Type | TripLink | Description |
 |---------------------|-----------|----------|-----------------------------|
 | Amount | Decimal |  | The total amount for the rate for the booking.  |
-| Currency | string |  | The 3-letter ISO 4217 currency code for the total amount. |
+| Currency | string |  | The [3-letter ISO 4217 currency code][1] for the total amount. |
 | Description | sring |  | The description for the rate.  |
 | IsPaid | boolean |  | Whether the rate has been paid. Format: true/false. |
 | IsPrimary | boolean |  | Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge  in a set should be primary. Format: true/false. |
@@ -419,10 +419,10 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 |--------------------|----------------|----------|------------------------------|
 | ClassOfService | string |  | The class of the booking. |
 | ConfirmationNumber | string |  | The record locator or confirmation number for the flight from the airline.  |
-| EndCityCode | string | Y | The IATA airport code for the end city of the booking.  |
+| EndCityCode | string | Y | The [IATA airport code][2] for the end city of the booking.  |
 | EndDateLocal | dateTime | Y | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss. <br/>For  TripLink suppliers: The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | FlightNumber | string | Y | The flight number for the booking.  |
-| StartCityCode | string | Y | The IATA airport code for the starting address for the booking.  |
+| StartCityCode | string | Y | The [IATA airport code][2] for the starting address for the booking.  |
 | StartDateLocal | dateTime | Y | The booking starting time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss. <br/>For TripLink suppliers: The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | Vendor | string | Y |   |
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
@@ -440,7 +440,7 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | StartGate | string | Y | The departure gate for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | StartTerminal | string | Y | The departure terminal for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | Status | string |  | The  GDS based booking status for the segment such as HK, HL, BK, etc. |
-| TimeZone | string | Y | The time zone of the booking. Format: One of the supported Olson or Windows Time Zones.  |
+| TimeZone | string | Y | The time zone of the booking. Format: One of the supported Olson or Windows Time Zones. (need link)  |
 | Element  | Data Type |  | Description |
 | AircraftCode | string |  | The code for the aircraft type. |
 | Bags | string |  | The number of bags included in the booking.  |
@@ -480,23 +480,23 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | ConfirmationNumber | string |  | The confirmation number from the vendor.  |
 | EndDateLocal | dateTime | Y | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 | StartDateLocal | dateTime | Y | The booking starting time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
-| Vendor | string |  | The two letter GDS vendor code. See the Car Vendor Codes table for  car vendor codes. |
+| Vendor | string |  | The two letter GDS vendor code. See the Car Vendor Codes table for  car vendor codes. (need link)|
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor. |
 | Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
-| Currency | string |  | The 3-letter ISO 4217 currency code for the booking. |
+| Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
 | DailyRate | decimal |  | The daily rate for the booking.  |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
-| EndCityCode | string | Y | The IATA airport code for the ending address for the booking.  |
+| EndCityCode | string | Y | The [IATA airport code][2] for the ending address for the booking.  |
 | EndDateUtc | dateTime | Y | The booking ending time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | EndLatitude | string |  | The latitude for the ending location of the booking.  |
 | EndLongitude | string |  | The longitude for the ending location of the booking.  |
 | Notes | string |  | Additional information about the booking. |
 | PhoneNumber | string |  | The phone number for the user.  |
 | RateCode | string |  | The rate code for the booking.  |
-| StartCityCode | string | Y | The IATA airport code for the starting address for the booking.  |
+| StartCityCode | string | Y | The [IATA airport code][2] for the starting address for the booking.  |
 | StartDateUtc | dateTime | Y | The booking starting time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | StartLatitude | string |  | The latitude for the starting location of the booking.  |
 | StartLongitude | string |  | The longitude for the starting location of the booking.  |
@@ -512,7 +512,7 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | DropoffCollectionAddressType | string |  |   |
 | DropoffCollectionCategory | string |  |   |
 | DropoffCollectionCity | string |  | City for the dropoff address when the rental service offers dropoff. |
-| DropoffCollectionCityCode | string |  | The IATA airport code for the  dropoff address when the rental service offers dropoff. |
+| DropoffCollectionCityCode | string |  | The [IATA airport code][2] for the  dropoff address when the rental service offers dropoff. |
 | DropoffCollectionCountry | string |  | The country for the dropoff address when the rental service offers dropoff. |
 | DropoffCollectionLatitude | string |  | The latitude for the dropoff address when the rental service offers dropoff. |
 | DropoffCollectionLongitude | string |  | The longitude for the dropoff address when the rental service offers dropoff. |
@@ -538,7 +538,7 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | PickupDeliveryAddressType | string |  |   |
 | PickupDeliveryCategory | string |  |   |
 | PickupDeliveryCity | string |  | The city for the pickup address when the rental service offers pickup. |
-| PickupDeliveryCityCode | string |  | The IATA airport code for the pickup address when the rental service offers pickup. |
+| PickupDeliveryCityCode | string |  | The [IATA airport code][2] for the pickup address when the rental service offers pickup. |
 | PickupDeliveryCountry | string |  | The country for the pickup address when the rental service offers pickup. |
 | PickupDeliveryLatitude | string |  | The latitude for the pickup address when the rental service offers pickup. |
 | PickupDeliveryLongitude | string |  | The longitude for the pickup address when the rental service offers pickup. |
@@ -570,16 +570,16 @@ The Hotel Booking parent element is the Hotel Element in the Segments Array in B
 | ConfirmationNumber | string |  | The confirmation number from the vendor.  |
 | EndDateLocal | dateTime | Y | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 | Name | string |  | The hotel name for the booking.  |
-| StartCityCode | string | Y | The IATA airport code for the starting address for the booking.  |
+| StartCityCode | string | Y | The [IATA airport code][2] for the starting address for the booking.  |
 | StartDateLocal | dateTime | Y | The booking starting time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 | Status | string | Y | The booking  status.  |
-| Vendor | string |  | The two letter GDS vendor code. See the Hotel Codes table for  hotel vendor codes. |
+| Vendor | string |  | The two letter GDS vendor code. See the Hotel Codes table for  hotel vendor codes. (need link)|
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor. |
 | Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
 | CheckinTime | string |  | The check in time for the hotel booking.  |
 | CheckoutTime | string |  | The check out time for the hotel booking.  |
-| Currency | string |  | The 3-letter ISO 4217 currency code for the booking. |
+| Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
 | DailyRate | decimal |  | Average per day rate for the hotel. If the rate varies over the duration, it can be specified using the charges model. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | dateTime | Y | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -605,7 +605,7 @@ The Hotel Booking parent element is the Hotel Element in the Segments Array in B
 | StartDateUtc | dateTime | Y | The booking starting time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | TimeZone | string | Y | The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.  |
 | TotalRate | string |  | The total rate amount of the booking.  |
-| EndCityCode | string |  | The IATA airport code for the ending address for the booking.  |
+| EndCityCode | string |  | The [IATA airport code][2] for the ending address for the booking.  |
 | DiscountCode | string |  | The discount code for the booking.  |
 | FrequentTravelerId | string |  | The traveler’s ID for the frequent traveler reward program. |
 | HadDeposit | boolean |  | Whether the booking had a deposit. Format: true/false  |
@@ -663,12 +663,12 @@ The Ride Booking parent element is the Ride Element in the Segments Array in Boo
 | Element  | Data Type | TripLink | Description |
 |---------------------|-----------|----------|------------------------------|
 | ConfirmationNumber | string |  | The confirmation number from the vendor.  |
-| EndCityCode | string |  | The ending IATA airport code of the booking. |
-| StartCityCode | string |  | The starting IATA airport code of the booking. |
-| Vendor | string |  | The two letter GDS vendor code. See the Ride Codes table for  ride vendor codes. For an unknown vendor, use the code value $$. |
+| EndCityCode | string |  | The ending [IATA airport code][2] of the booking. |
+| StartCityCode | string |  | The starting [IATA airport code][2] of the booking. |
+| Vendor | string |  | The two letter GDS vendor code. See the Ride Codes table (need link) for  ride vendor codes. For an unknown vendor, use the code value $$. |
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor.  |
-| Currency | string |  | The 3-letter ISO 4217 currency code for the booking. |
+| Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -738,14 +738,14 @@ The Rail Booking parent element is the Rail Element in the Segments Array in Boo
 | CarbonEmissionLbs | decimal |  | The pounds of carbon emission for this booking.  |
 | CarbonModel | integer |  | The model used to calculate the carbon emissions.  |
 | ClassOfService | string |  | The class of the booking. |
-| Currency | string |  | The 3-letter ISO 4217 currency code for the booking. |
+| Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DiscountCode | string |  | The discount code for the booking.  |
 | Duration | integer |  | The duration of the trip booked. |
 | EndCity | string |  | The end city for the rail trip.  |
-| EndCityCode | string |  | The IATA airport code for the end city of the trip.  |
+| EndCityCode | string |  | The [IATA airport code][2] for the end city of the trip.  |
 | EndCountry | string |  | The country code for the booking.  |
 | EndDateLocal | dateTime | Y | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 | EndDateUtc | dateTime | Y | The booking ending time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -770,7 +770,7 @@ The Rail Booking parent element is the Rail Element in the Segments Array in Boo
 | RouteRestrictCode | string |  | The code to restrict the route of the booking.  |
 | SpecialInstructions | string |  | The instructions for the booking. |
 | StartCity | string |  | The starting city of the booking. |
-| StartCityCode | string | Y | The IATA airport code for the starting city of the booking.  |
+| StartCityCode | string | Y | The [IATA airport code][2] for the starting city of the booking.  |
 | StartCountry | string |  | The starting country of the booking.  |
 | StartDateUtc | dateTime | Y | The starting date of travel for this segment, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | StartLatitude | string |  | The latitude of the starting location of the booking. |
@@ -819,7 +819,7 @@ The Parking Booking parent element is the Parking Element in the Segments Array 
 | StartDateLocal | dateTime |  | The starting date of travel for this segment, in the local time of to the starting point. Format: YYYY-MM-DDThh:mm:ss |
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | ClassOfService | string |  | The class of the booking. |
-| Currency | string |  | The 3-letter ISO 4217 currency code for the booking. |
+| Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -836,7 +836,7 @@ The Parking Booking parent element is the Parking Element in the Segments Array 
 | StartAddress | string |  | The starting address of the booking. |
 | StartAddress2 | string |  | The starting address of the booking. |
 | StartCity | string |  | The starting address of the booking. |
-| StartCityCode | string |  | The IATA airport code for the starting city of the booking.  |
+| StartCityCode | string |  | The [IATA airport code][2] for the starting city of the booking.  |
 | StartCountry | string |  | The starting address of the booking. |
 | StartDateUtc | dateTime |  | The starting date of travel for this segment, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | StartLocation | string |  | The parking location.  |
@@ -860,11 +860,11 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 |--------------------|--------------|----------|--------------------------------------|
 | EndDateLocal | dateTime |  | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 | StartCity | string |  | The starting address of the booking. |
-| StartCityCode | string |  | The IATA airport code for the starting city of the booking.  |
+| StartCityCode | string |  | The [IATA airport code][2] for the starting city of the booking.  |
 | StartDateLocal | dateTime |  | The starting date of travel for this segment, in the local time of to the starting point. Format: YYYY-MM-DDThh:mm:ss |
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | ConfirmationNumber | sring |  | The confirmation number from the vendor.  |
-| Currency | string |  | The 3-letter ISO 4217 currency code for the booking. |
+| Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
 | DailyRate | decimal |  | Average per day rate for the booking. If the rate varies over the duration, it can be specified using the charges model. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -888,7 +888,7 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | StartAddress | string |  | The starting address of the booking. |
 | StartAddress2 | string |  | The starting address of the booking. |
 | StartCity | sring |  | The starting address of the booking. |
-| StartCityCode | string |  | The IATA airport code for the starting city of the booking.  |
+| StartCityCode | string |  | The [IATA airport code][2] for the starting city of the booking.  |
 | StartCountry | string |  | The starting address of the booking. |
 | StartDateUtc | dateTime |  | The starting date of travel for this segment, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | StartLatitude | string |  | The latitude of the restaurant. |
@@ -916,7 +916,7 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | Element  | Data Type | Description |  |
 |---------------------|-----------|--------------|-------------------|
 | Amount | decimal |  |  The total amount for the rate for the booking.  |  
-| Currency | string |  |  The 3-letter ISO 4217 currency code for the total amount. |  
+| Currency | string |  |  The [3-letter ISO 4217 currency code][1] for the total amount. |  
 | Description | string |  |  The description for the rate. |  
 | IsPaid | boolean |  |  Whether the rate has been paid. Format: true/false. |  
 | IsPrimary | boolean |  |  Whether the rate is primary. Format: true/false. |  
@@ -937,7 +937,7 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | AllowanceNumUnits | decimal |  | The number of units for the allowance associated with the charge. For example, 5000 miles. |
 | AllowanceUnit | string |  | The unit of measure for the allowance associated with the charge. For example, a car weekly rate might allow 5000 miles included in the rate. |
 | Amount | decimal |  | The total amount for the rate for the booking.  |
-| Currency | string |  | The 3-letter ISO 4217 currency code for the total amount. |
+| Currency | string |  | The [3-letter ISO 4217 currency code][1] for the total amount. |
 | Description | string |  | The description for the rate. |
 | IsPaid | boolean |  | Whether the rate has been paid. Format: true/false. |
 | IsPrimary | boolean |  |  Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge in a set should be primary. Format: true/false. |
@@ -950,3 +950,5 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | VendorChargeCode | string |  | The vendor's code for the charge. |
 
 
+[1]: http://en.wikipedia.org/wiki/ISO_4217
+[2]: http://www.iata.org/publications/Pages/code-search.aspx
