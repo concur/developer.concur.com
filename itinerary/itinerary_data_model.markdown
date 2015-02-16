@@ -76,7 +76,7 @@ The Bookings parent element contains a Booking child element for each included b
 | Warnings |   |  | The warnings associated with the booking. |
 | WebAddresses |   |  | List of web addresses such as emails and pickup URLs associated with this booking. |
 
-## Miscellaneous child elements
+### Miscellaneous child elements
 
 | Element Name | Data Type | TripLink | Description | 
 |---------------------------|-----------|----------|------------------|
@@ -88,7 +88,7 @@ The Bookings parent element contains a Booking child element for each included b
 | TotalAmount | decimal |  | The total amount of charge orders for the ticket. |  
 | TotalAmountCurrency | string |  | The 3-letter ISO 4217 currency code for the total charge order amount. |  
 
-## PassProgram child elements
+### PassProgram child elements
 
 | Element Name | Data Type | TripLink | Description |
 |---------------------|-----------|----------|----------------------------------|
@@ -98,7 +98,7 @@ The Bookings parent element contains a Booking child element for each included b
 | UserFirstName    | string |  | The first name of the passenger. |
 | UserLastName    | string |  | The last name of the passenger. |
 
-## PhoneNumberData child elements
+### PhoneNumberData child elements
 
 | Element Name | Data Type | TripLink | Description |
 |----------------------|-----------|----------|--------------------------------------------|
@@ -107,14 +107,14 @@ The Bookings parent element contains a Booking child element for each included b
 | Type   | string |  | The type of phone number. |
 | Description     | string |  | The description for the phone number. |
 
-## RailPayments child elements
+### RailPayments child elements
 
 | Element Name | Data Type | TripLink | Description |
 |----------------|-----------|----------|-------------------------------------------|
 | RailAdjustment | Type |  |  The amount adjusted for a rail booking. |
 | RailPayment | Type |  |  The payment information for a rail booking.  |
 
-## RailAdjustment child elements
+### RailAdjustment child elements
 
 | Element Name | Data Type | TripLink | Description |
 |-------------------|-----------|----------|------------------------------|
@@ -128,7 +128,7 @@ The Bookings parent element contains a Booking child element for each included b
 | TotalAdjustmentCurrency  | string |  |   |
 | Taxes         | Array |  | This parent element contains a Tax child element for each rail adjustment tax. Refer to the Tax Elements for the Tax child element. |
 
-## RailPayment child elements
+### RailPayment child elements
 
 | Element Name | Data Type | TripLink | Description |
 |------------------|-----------|----------|-------------------------|
@@ -147,3 +147,175 @@ The Bookings parent element contains a Booking child element for each included b
 
 
 ## AirfareQuotes elements
+
+The AirfareQuotes parent element is an array that contains a Quote child element that contains the following child elements.
+
+| Element Name | Data Type | TripLink | Description |
+|---------------------|-----------|----------|-----------------|
+| BaseFare | Decimal |  |   |
+| BaseFareCurrency | String |  |   |
+| BaseFareNuc | Decimal |  |   |
+| BaseFareNucCurrency | String |  |   |
+| DateCreatedUtc | DateTime |  |   |
+| DateModifiedUtc | DateTime |  |   |
+| Endorsements | String |  |   |
+| IssueByDate | DateTime |  |   |
+| TotalFare | Decimal |  |   |
+| TotalFareCurrency | String |  |   |
+| AirlineCharges | Array |  | Child elements  |
+
+### AirlineCharges child elements
+
+| Element Name | Data Type | TripLink | Description |
+|--------------|-----------|----------|----------------------------------|
+| Fixed | type |   | This parent element contains a Fixed child element for each fixed charge from the airline. Refer to the Fixed Elements table for the Fixed child element. |
+| Percent | type |   | This parent element contains a Percent child element for each  charge from the airline. Refer to the Percent Element table for the Percent child element. |
+
+## Passengers elements
+
+The passenger parent element is the Passengers Element in Booking Elements. This parent element contains a Passenger child element for each booked passenger.
+
+| Element Name | Data Type | Required/Optional | TripLink | Description |
+|-------------------|-----------|-------------------|----------|---------------------------|
+| NameFirst | String | required | Y | The first name of the passenger.  |
+| NameLast | String | required | Y | The last name of the passenger. |
+| NameMiddle | String | optional | Y | The middle name of the passenger.  |
+| NamePrefix | String | optional | Y | The name prefix of the passenger. |
+| NameRemark | String | optional | Y | Additional details about the passenger's name. |
+| NameSuffix | String | optional | Y | The name suffix of the passenger.  |
+| NameTitle | String | optional | Y | The title of the passenger.  |
+| TextName | String | optional | Y | The user's full name as entered in the booking tool if different from the name in the database. |
+| FrequentTravelerProgram | String | optional | Y | Passenger's loyalty programs |
+
+## AirlineTickets
+
+The AirLineTickets parent element is an array that contains the following child elements.
+
+| Element Name | Data Type | TripLink | Description |
+|---------------------|-----------|----------|--------------------------------------------|
+| AirlineAdjustment | Type |  | Any adjustment made to the booking. |
+| ManualAirlineTicket | Type |  | The manual airline ticket for the booking. |
+| AirlineTicket | Type |  | The airline ticket for the booking |
+
+## AirlineAdjustment child elements
+
+| Element Name | Data Type | TripLink | Description |
+|----------------------|-----------|----------|-------------|
+| AddCollectAmount    | decimal |  |   |
+| AdjustmentDateTime    | dateTime |  |   |
+| AdjustmentDateTimeUTC  | dateTime |  |   |
+| AdjustmentType   | String |  |   |
+| DateCreatedUtc   | dateTime |  |   |
+| DateModifiedUtc   | dateTime |  |   |
+| PassengerName   | string |  |   |
+| PlatingCarrierNumericCode    | string |  |   |
+| PlatingControlNumber    | string |  |   |
+| RecordLocator   | string |  |   |
+| TotalAdjustment   | decimal |  |   |
+| TotalAdjustmentCurrency    | string |  |   |
+| Taxes | Array |  |   |
+
+## ManualAirlineTicket child elements
+
+| Element Name | Data Type | TripLink | Description |
+|------------------|-----------|----------|------------------------|
+| BaseFare   | decimal |  |   |
+| BaseFareCurrency  | string |  |   |
+| DateCreatedUtc  | dateTime |  |   |
+| DateModifiedUtc  | dateTime |  |   |
+| TotalFareTotalFareCurrency   | decimal |  |   |
+| AirlineCharges  | array |  | The charges applied by the airline. This parent element contains a Fixed and Tax child element for each fixed charge and tax from the airline. Refer to the Fixed Elements table for the Fixed child element  and the Tax Element table for the Tax child element. |
+
+## AirlineTicket child elements
+
+| Element Name | Data Type | TripLink | Description |
+|-----------------------|-----------|----------|----------------------|
+| AddCollectAmount | decimal |  |   |
+| AccountingLine   | string |  |   |
+| BaseFare  | decimal |  |   |
+| BaseFareCurrency   | string |  |   |
+| BaseFareNuc   | decimal |  |   |
+| BaseFareNucCurrency   | string |  |   |
+| DateCreatedUtc    | dateTime |  |   |
+| DateModifiedUtc  |  dateTime |  |   |
+| Endorsements   | string |  |   |
+| InvoiceNumber    | string |  |   |
+| IssueDateTime      |  dateTime |  |   |
+| IssueDateTimeUTC       |  dateTime |  |   |
+| IssuingIataAgencyNumber   | integer |  |   |
+| IssuingPseudoCity   | string |  |   |
+| LinearFareConstructor    | string |  |   |
+| MasterTicketNumber  | string |  |   |
+| NameReference   | string |  |   |
+| PassengerName  | string |  |   |
+| PlatingCarrierNumericCode    | string |  |   |
+| PlatingControlNumber    | string |  |   |
+| ProgramCarrierCode   | string |  |   |
+| ProgramMembershipNumber  | string |  |   |
+| RecordLocator      string | string |  |   |
+| SabreDkNumber      string | string |  |   |
+| Ticketless     | boolean |  |   |
+| TicketType     | string |  |   |
+| TotalFare    | decimal |  |   |
+| TotalFareCurrency    | string |  |   |
+| TourIdentifier     | string |  |   |
+| AirlineCharges    | array |  | An array of Fixed Types. This parent element contains a Fixed child element for each fixed charge from the airline. Refer to the Fixed Elements table for the Fixed child element. |
+| AirlineTicketCoupons  | array |  | An array of AirlineTicketCoupon types contiaining the following elements |
+| AirlineTicketExchanges  | array |  | An array of AirlineTickeExchange types contiaining the following elements: |
+| AirlineTicketFareBreakups  | array |  | An array of AirlineTicketFareBreakup types contiaining the following elements:  |
+
+## AirlineTicketCoupons child elements
+
+| Element Name | Data Type | TripLink | Description |
+|------------------|--------------|----------|-------------|
+| ClassOfService    | string |  |   |
+| CouponNumber   | unsignedByte |  |   |
+| CouponStatus  | string |  |   |
+| EndCityCode   | string |  |   |
+| FlightNumber   | string |  |   |
+| NotValidAfterDate   |  dateTime |  |   |
+| NotValidBeforeDate  | dateTime |  |   |
+| RateCode   | string |  |   |
+| StartCityCode  | sring |  |   |
+| StartDateLocal   |  dateTime |  |   |
+| Status    | string |  |   |
+| TicketDesignator   | string |  |  |
+| Vendor    | string |  |   |
+
+## AirlineTicketExchanges child elements
+
+| Element Name | Data Type | TripLink | Description |
+|----------------|--------------|----------|-----------------|
+| Amount     | decimal |  |   |
+| AppliedSegment1  | unsignedByte |  |   |
+| AppliedSegment10   | unsignedByte |  |   |
+| AppliedSegment2   | unsignedByte |  |   |
+| AppliedSegment3    | unsignedByte |  |   |
+| AppliedSegment4   | unsignedByte |  |   |
+| AppliedSegment5    | unsignedByte |  |   |
+| AppliedSegment6  | unsignedByte |  |   |
+| AppliedSegment7   | unsignedByte |  |   |
+| AppliedSegment8 | unsignedByte |  |   |
+| AppliedSegment9   | unsignedByte |  |   |
+| Currency   | string |  |   |
+| OldRecordLocator   | string |   |   |
+| DateModifiedUtc   | dateTime |   |   |
+| PlatingCarrierNumericCode  | string |   |   |
+| PlatingControlNumber   | string |   |   |
+
+## AirlineTicketFareBreakups child elements
+
+| Element Name | Data Type | TripLink | Description |
+|-----------------|-----------|----------|------------------------------|
+| BaseFare   | decimal |  |   |
+| BaseFareCurrency   | sring |  |   |
+| DateCreatedUtc   | dateTime |  |   |
+| DateModifiedUtc    | dateTime |  |   |
+| IssueByDate  | dateTime |  |   |
+| IssueDateTime   | dateTime |   |   |
+| IssueDateTimeUTC  | dateTime |  |   |
+| TicketDocumentIdentifier     | string |  |   |
+| TicketType   | string |  |   |
+| TotalFare  | decimal |  |   |
+| TotalFareCurrency   | string |  |   |
+| Taxes   | array |  | The charges applied by the airline. This parent element contains a Fixed and Tax child element for each fixed charge and tax from the airline. Refer to the Fixed Elements table for the Fixed child element  and the Tax Child Element table for the Tax child element. |
