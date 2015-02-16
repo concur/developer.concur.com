@@ -25,10 +25,13 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 
 ## Resources
 The version 3.0 documentation includes the data model and tools to send test requests to your developer sandbox:
+
 [Version 3.0 Purchase Orders ][3]
+
 [Version 3.0 Purchase Order Receipts ][4]
 
 Version 1.0 documentation includes the data model and example requests and responses:
+
 [Version 1.0 Purchase Order][5]
 
 ##  Responses and Errors
