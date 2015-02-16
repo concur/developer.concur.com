@@ -3,34 +3,30 @@ title: Get List of Payment Batches
 layout: operation
 ---
 
-#  Get List of Payment Batches Request
+
 
 ## Description
-* Retrieves the list of payment batches with an optional requested status. 
+Retrieves the list of payment batches with an optional requested status. 
 
-## Resource URI
-* https://www.concursolutions.com/api/expense/paymentbatch/v1.1/batchlist 
+##  Get List of Payment Batches Request
 
-## Supported Accept Types 
-* application/xml
+### Request parameters
 
-## URI Parameters - Optional
+**batchlist/:** Required. The batchlist keyword.
 
-* Status  
-The status of the batches. Can be either OPEN or CLOSED.
-  
+**{_Status_}:** Optional. The status of the batches. Can be either OPEN or CLOSED.
+
 Example:  
-https://www.concursolutions.com/api/expense/paymentbatch/v1.1/batchlist/OPEN 
+`https://www.concursolutions.com/api/expense/paymentbatch/v1.1/batchlist/OPEN `
 
-## Request Headers - Required 
-* Authorization header with OAuth token for valid Concur user.
+### Headers
 
-The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
+#### Authorization header
 
-These roles allow the user to manage data for the entire company.
+Required. Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-## Request Headers - Optional
-* None
+#### Accept header
+application/xml
 
 ####  XML Example Request
 
@@ -40,9 +36,11 @@ These roles allow the user to manage data for the entire company.
     
 
 ##  Get List of Payment Batches Response
-[HTTP Status Codes][1]
 
-This request will return a **BatchList** parent element and a **BatchSummary** child element for each batch. The **BatchSummary** elements will have the following child elements:  
+###Root elements
+This request will return a **BatchList** parent element and a **BatchSummary** child element for each batch. The **BatchSummary** elements will have the following child elements. 
+
+####BatchSummary child elements
 
 Element | Description
 --- | ---
