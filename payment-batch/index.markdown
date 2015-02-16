@@ -22,6 +22,7 @@ Depending on your product, you may not have access to all the features in this w
 ## Resources
 
 [Payment Batch][3]
+
 [Payment Batch File][4]
 
 
