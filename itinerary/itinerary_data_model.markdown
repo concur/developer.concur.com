@@ -8,8 +8,9 @@ The Itinerary data model defines data elements  that are returned or sent when g
 Trips include all bookings in an itinerary whereas a booking includes only a specific segment of an itinerary.
 
 ## Root elements
-| Element Name          | Data Type    | TripLink | Description                                                          |
-|:----------------------|:-------------|:---------|:---------------------------------------------------------------------|
+
+| Element Name          | Data Type    | TripLink | Description |
+|----------------------|-------------|---------|---------------------------------------------------------------------|
 | id                    | String       | Y        | The unique identifier for the trip URI with encrypted ID. Format:    |
 | ItineraryInfo         |              | Y        | Parent element with the information about an itinerary for the specified user. Format: <NOTE TO TECH REVIEWERS: This element is not in the xsd but appears in the Get List of Itineraries response example>                                                                                                                 |
 | TripId                | String       | Y        | Encrypted trip identifier value.                                     |
