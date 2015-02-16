@@ -472,3 +472,341 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | SeatNumber | string | The number of the seat. |
 
 ## Car Booking elements
+
+The Car Booking parent element is the Car Element in the Segments Array in Booking Elements. This parent element contains a Car Booking child element for each booked car.
+
+| Element  | Data Type | TripLink | Description |
+|--------------------|----------------|----------|-----------------------------|
+| ConfirmationNumber | string |  | The confirmation number from the vendor.  |
+| EndDateLocal | dateTime | Y | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
+| StartDateLocal | dateTime | Y | The booking starting time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
+| Vendor | string |  | The two letter GDS vendor code. See the Car Vendor Codes table for  car vendor codes. |
+| CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
+| CancellationPolicy | string |  | The cancellation policy from the vendor. |
+| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
+| Currency | string |  | The 3-letter ISO 4217 currency code for the booking. |
+| DailyRate | decimal |  | The daily rate for the booking.  |
+| DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| EndCityCode | string | Y | The IATA airport code for the ending address for the booking.  |
+| EndDateUtc | dateTime | Y | The booking ending time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| EndLatitude | string |  | The latitude for the ending location of the booking.  |
+| EndLongitude | string |  | The longitude for the ending location of the booking.  |
+| Notes | string |  | Additional information about the booking. |
+| PhoneNumber | string |  | The phone number for the user.  |
+| RateCode | string |  | The rate code for the booking.  |
+| StartCityCode | string | Y | The IATA airport code for the starting address for the booking.  |
+| StartDateUtc | dateTime | Y | The booking starting time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| StartLatitude | string |  | The latitude for the starting location of the booking.  |
+| StartLongitude | string |  | The longitude for the starting location of the booking.  |
+| Status | string |  | The booking  status.  |
+| TimeZone | string | Y | The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.  |
+| TotalRate | decimal |  | The total rate amount of the booking.  |
+| VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
+| AirCondition | string |  | The character code that indicates if car has air conditioner. R for AC, N for No AC |
+| Body | string |  | The character code to indicate how many passengers the car can seat.  |
+| Class | string |  | Character code to indicate the class of the car e.g. if it is economy, full size, compact, etc. Varies by Vendor |
+| DiscountCode | string |  | The discount code used by the company/TMC to get a discounted rate. |
+| DropoffCollectionAddress1 | string |  | The AddressLine1 for the dropoff address when the rental service offers dropoff. |
+| DropoffCollectionAddressType | string |  |   |
+| DropoffCollectionCategory | string |  |   |
+| DropoffCollectionCity | string |  | City for the dropoff address when the rental service offers dropoff. |
+| DropoffCollectionCityCode | string |  | The IATA airport code for the  dropoff address when the rental service offers dropoff. |
+| DropoffCollectionCountry | string |  | The country for the dropoff address when the rental service offers dropoff. |
+| DropoffCollectionLatitude | string |  | The latitude for the dropoff address when the rental service offers dropoff. |
+| DropoffCollectionLongitude | string |  | The longitude for the dropoff address when the rental service offers dropoff. |
+| DropoffCollectionNumber | string |  |   |
+| DropoffCollectionPhoneNumber | string |  | The phone number for the dropoff address when the rental service offers dropoff. |
+| DropoffCollectionPostalCode | string |  | The postal code for the dropoff address when the rental service offers dropoff. |
+| DropoffCollectionState | string |  | The state for the dropoff address when the rental service offers dropoff. |
+| EndAddress | string |  | The ending address for the booking.  |
+| EndAddress2 | string |  | The ending address for the booking.  |
+| EndCity | string | Y | The ending address for the booking.  |
+| EndCloseTime | string |  | The closing time for the dropoff location.  |
+| EndCountry | string | Y | The ending address for the booking.  |
+| EndLocation | string |  | The dropoff location.  |
+| EndOpenTime | string |  | The opening time of the dropoff location.  |
+| EndPhoneNumber | string |  | The phone number of the dropoff location.  |
+| EndPostalCode | string |  | The ending address for the booking. |
+| EndState | string | Y | The ending address for the booking. |
+| FrequentTravelerId | string |  | The loyalty program ID for the user.  |
+| IsUpgradeAllowed | boolean |  | Whether the booking can be upgraded. Format: True/False  |
+| NumCars | unsignedByte |  | The number of cars rented. |
+| NumPersons | unsignedByte |  | The number of people including the driver that the rental is for.  |
+| PickupDeliveryAddress1 | string |  | The AddressLine1 for the pickup address when the rental service offers pickup. |
+| PickupDeliveryAddressType | string |  |   |
+| PickupDeliveryCategory | string |  |   |
+| PickupDeliveryCity | string |  | The city for the pickup address when the rental service offers pickup. |
+| PickupDeliveryCityCode | string |  | The IATA airport code for the pickup address when the rental service offers pickup. |
+| PickupDeliveryCountry | string |  | The country for the pickup address when the rental service offers pickup. |
+| PickupDeliveryLatitude | string |  | The latitude for the pickup address when the rental service offers pickup. |
+| PickupDeliveryLongitude | string |  | The longitude for the pickup address when the rental service offers pickup. |
+| PickupDeliveryNumber | string |  |   |
+| PickupDeliveryPhoneNumber | string |  | The phone number for the pickup address when the rental service offers pickup. |
+| PickupDeliveryPostalCode | string |  | The postal code for the pickup address when the rental service offers pickup. |
+| PickupDeliveryState | string |  | The state for the pickup address when the rental service offers pickup. |
+| RateType | string |  | The rate type for the booking.  |
+| SpecialEquipment | string |  | Any special equipment required by the renter.  |
+| SpecialInstructions | string |  | Additional instructions regarding the booking.  |
+| StartAddress | string |  | The starting address of the booking.  |
+| StartAddress2 | string |  | The starting address for the booking.  |
+| StartCity | string | Y | The starting address for the booking.  |
+| StartCloseTime | string |  | The closing time for the pickup location.  |
+| StartCountry | string | Y | The starting address for the booking.  |
+| StartLocation | string |  | The starting location of the booking.  |
+| StartOpenTime | string |  | The opening time for the pickup location.  |
+| StartPostalCode | string |  | The starting address for the booking. |
+| StartState | string | Y | The starting address for the booking. |
+| Transmission | string |  | The character code that indicates if the car has auto-transmission. A for Auto, M for Manual |
+| UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
+
+## Hotel Booking elements
+
+The Hotel Booking parent element is the Hotel Element in the Segments Array in Booking Elements. This parent element contains a Hotel Booking child element for each booked hotel.
+
+| Element  | Data Type | TripLink | Description |
+|--------------------|----------------|----------|---------------------------------|
+| ConfirmationNumber | string |  | The confirmation number from the vendor.  |
+| EndDateLocal | dateTime | Y | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
+| Name | string |  | The hotel name for the booking.  |
+| StartCityCode | string | Y | The IATA airport code for the starting address for the booking.  |
+| StartDateLocal | dateTime | Y | The booking starting time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
+| Status | string | Y | The booking  status.  |
+| Vendor | string |  | The two letter GDS vendor code. See the Hotel Codes table for  hotel vendor codes. |
+| CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
+| CancellationPolicy | string |  | The cancellation policy from the vendor. |
+| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
+| CheckinTime | string |  | The check in time for the hotel booking.  |
+| CheckoutTime | string |  | The check out time for the hotel booking.  |
+| Currency | string |  | The 3-letter ISO 4217 currency code for the booking. |
+| DailyRate | decimal |  | Average per day rate for the hotel. If the rate varies over the duration, it can be specified using the charges model. |
+| DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateCreatedUtc | dateTime | Y | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateModifiedUtc | dateTime | Y | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| EndDateUtc | dateTime | Y | The booking ending time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| HotelPropertyId | string |  | The hotel's property ID.  |
+| Notes | string |  | Additional information about the booking.  |
+| NumPersons | unsignedByte |  | The number of people the booking is for.  |
+| NumRooms | unsignedByte |  | The number of rooms the booking is for.  |
+| PhoneNumber | string |  | The phone number for the booking.  |
+| RateCode | string |  | The rate code for the booking.  |
+| RoomDescription | string |  | The room description for the booking.  |
+| RoomType | string |  | The room type for the booking.  |
+| SpecialInstructions | string |  | Additional instructions regarding the booking.  |
+| StartAddress | string |  | The starting address of the booking.  |
+| StartAddress2 | string |  | The starting address for the booking.  |
+| StartCity | string | Y | The starting address for the booking.  |
+| StartCountry | string | Y | The starting address for the booking.  |
+| StartLatitude | string |  | The latitude for the starting location of the booking.  |
+| StartLongitude | string |  | The longitude for the starting location of the booking.  |
+| StartPostalCode | string |  | The starting address for the booking. |
+| StartState | string |  | The starting address for the booking. |
+| StartDateUtc | dateTime | Y | The booking starting time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| TimeZone | string | Y | The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.  |
+| TotalRate | string |  | The total rate amount of the booking.  |
+| EndCityCode | string |  | The IATA airport code for the ending address for the booking.  |
+| DiscountCode | string |  | The discount code for the booking.  |
+| FrequentTravelerId | string |  | The traveler’s ID for the frequent traveler reward program. |
+| HadDeposit | boolean |  | Whether the booking had a deposit. Format: true/false  |
+| IsUpgradeAllowed | boolean |  | Whether the booking can be upgraded. Format: true/false  |
+| ModificationCode | string |  | The code for the modification to the booking.  |
+| PartnerMembershipId | string |  | The membership ID of the partner associated with the booking.  |
+| PassiveType | string |  | The type of the booking.  |
+| RateAccess | string |  | The rate access for the booking.  |
+| RateType | string |  | The rate type for the booking.  |
+| UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
+| VendorFlags | string |  | Semi-colon-delimited list of flags for free hotel service flags. E.g. free breakfast (FB), internet (FI), Parking (FP), etc. If they were all present they can be concatenated as - FB;FI;FP;  |
+| VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
+
+## Dining Booking elements
+
+The Dining Booking parent element is the Dining Element in the Segments Array in Booking Elements. This parent element contains a Dining Booking child element for each booked meal.
+
+| Element  | Date Time | TripLink | Description |
+|--------------------|----------------|----------|---------------------------------|
+| ConfirmationNumber | string |  | The confirmation number from the vendor.  |
+| CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
+| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table.  |
+| DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| EndDateLocal | dateTime |  | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
+| EndDateUtc | dateTime |  | The booking ending time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| FrequentTravelerId | string |  | The loyalty program ID for the user.  |
+| IsUpgradeAllowed | boolean |  | Whether the booking can be upgraded. Format: true/false  |
+| Name | string |  | The name of the restaurant. Maximum length: 80  |
+| Notes | string |  | Additional information about the booking. |
+| NumPersons | unsignedByte |  | The number of persons for the booking. |
+| PhoneNumber | string |  | The restaurant phone number. |
+| RestaurantId | string |  | The booking vendor’s restaurant ID. Maximum length: 50  |
+| StartAddress | string |  | The restaurant address. Maximum length: 80  |
+| StartAddress2 | string |  | The restaurant address. Maximum length: 80  |
+| StartCity | string |  | The restaurant address. Maximum length: 50 |
+| StartCountry | string |  | The restaurant address. |
+| StartDateLocal | dateTime |  | The booking starting time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
+| StartDateUtc | dateTime |  | The booking starting time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| StartLatitude | string |  | The latitude of the restaurant. |
+| StartLongitude | string |  | The longitude of the restaurant. |
+| StartPostalCode | string |  | The restaurant address. Maximum length: 24  |
+| StartState | string |  | The restaurant address. Maximum length: 50  |
+| Status | string |  | The status of the segment.  |
+| TimeZone | string |  | The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.  |
+| UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
+| Vendor | string |  | The two letter GDS vendor code. |
+| VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
+
+## Ride Booking elements
+
+The Ride Booking parent element is the Ride Element in the Segments Array in Booking Elements. This parent element contains a Ride Booking child element for each booked ride.
+
+| Element  | Data Type | TripLink | Description |
+|---------------------|-----------|----------|------------------------------|
+| ConfirmationNumber | string |  | The confirmation number from the vendor.  |
+| EndCityCode | string |  | The ending IATA airport code of the booking. |
+| StartCityCode | string |  | The starting IATA airport code of the booking. |
+| Vendor | string |  | The two letter GDS vendor code. See the Ride Codes table for  ride vendor codes. For an unknown vendor, use the code value $$. |
+| CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
+| CancellationPolicy | string |  | The cancellation policy from the vendor.  |
+| Currency | string |  | The 3-letter ISO 4217 currency code for the booking. |
+| DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DropoffInstructions | string |  | Instructions regarding the booking. |
+| Duration | integer |  | The duration of the booking.  |
+| EndAddress | string |  | The ending address of the booking. |
+| EndAddress2 | string |  | The ending address of the booking. |
+| EndCity | string |  | The ending address of the booking. |
+| EndCountry | string |  | The ending address of the booking. |
+| EndDateLocal | dateTime |  | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
+| EndDateUtc | dateTime |  | The booking ending time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| EndLatitude | string |  | The latitude for the ending location of the booking.  |
+| EndLocation | string |  | The ending location of the booking.  |
+| EndLocationCode | string |  | The ending location code of the booking.  |
+| EndLocationName | string |  | The ending location name of the booking.  |
+| EndLongitude | string |  | The longitude of the ending point of the booking.  |
+| EndPostalCode | string |  | The ending address of the booking. |
+| EndState | string |  | The ending address of the booking. |
+| IsPersonal | boolean |  | Whether the segment is for personal travel. Format: true/false.  |
+| IsUpgradeAllowed | boolean |  | Whether the booking can be upgraded. Format: true/false  |
+| MeetingInstructions | string |  | The instructions for the meeting location of the booking.  |
+| Miles | integer |  | The number of miles for the booking.  |
+| Name | string |  | The name on the booking.  |
+| Notes | string |  | Additional information about the booking.  |
+| NumberOfHours | double |  | The number of hours of the booking.  |
+| NumPersons | unsignedByte |  | The number of people included in the booking.  |
+| OperatedByVendor | string |  | The operated by vendor for the booking.  |
+| PassiveCityCode | string |  | The passive city code of the booking.  |
+| PhoneNumber | string |  | The ride vendor phone number. |
+| PickupInstructions | string |  | Instructions regarding the booking. |
+| Rate | string |  | The rate for the booking.  |
+| RateDescription | string |  | The rate description for the booking.  |
+| RateNotes | string |  | The rate notes for the booking.  |
+| RateType | string |  | The rate type for the booking.  |
+| ReservationId | string |  | The booking vendor’s reservation ID. |
+| SpecialInstructions | string |  | The special instructions for the ride. |
+| StartAddress | string |  | The starting address of the booking. |
+| StartAddress2 | string |  | The starting address of the booking. |
+| StartCity | string |  | The starting address of the booking. |
+| StartCountry | string |  | The starting address of the booking. |
+| StartDateLocal | dateTime |  | The booking starting time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
+| StartDateUtc | dateTime |  | The booking starting time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| StartLatitude | string |  | The latitude of the booking start location. |
+| StartLocation | string |  | The starting location of the booking. |
+| StartLocationCode | string |  | The code of the starting location of the booking.  |
+| StartLocationName | string |  | The name of the starting location of the booking. |
+| StartLongitude | string |  | The longitude of the booking start location. |
+| StartPostalCode | string |  | The starting address of the booking. |
+| StartState | string |  | The starting address of the booking. |
+| Status | string |  | The status of the segment.  |
+| TimeZone | string |  | The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.  |
+| UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
+| VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
+| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table.  |
+
+## Rail Booking Elements
+
+The Rail Booking parent element is the Rail Element in the Segments Array in Booking Elements. This parent element contains a Ride Booking child element for each booked ride.
+
+| Element  | Data Type | TripLink | Description |
+|--------------------|-----------|----------|---------------------------------------|
+| ConfirmationNumber | string |  | The confirmation number from the vendor. |
+| StartDateLocal | dateTime | Y | The starting date of travel for this segment, in the local time of to the starting point. Format: YYYY-MM-DDThh:mm:ss |
+| Amenities | string |  | The booked amenities. |
+| Cabin | string |  | The cabin identifier. |
+| CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
+| CarbonEmissionLbs | decimal |  | The pounds of carbon emission for this booking.  |
+| CarbonModel | integer |  | The model used to calculate the carbon emissions.  |
+| ClassOfService | string |  | The class of the booking. |
+| Currency | string |  | The 3-letter ISO 4217 currency code for the booking. |
+| DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| DiscountCode | string |  | The discount code for the booking.  |
+| Duration | integer |  | The duration of the trip booked. |
+| EndCity | string |  | The end city for the rail trip.  |
+| EndCityCode | string |  | The IATA airport code for the end city of the trip.  |
+| EndCountry | string |  | The country code for the booking.  |
+| EndDateLocal | dateTime | Y | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
+| EndDateUtc | dateTime | Y | The booking ending time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| EndLatitude | string |  | The latitude of the ending point of the booking.  |
+| EndLongitude | integer |  | The longitude of the ending point of the booking.  |
+| EndPlatform | string |  | The ending platform location of the booking. |
+| EndRailStation | string | Y | The code for the ending station of the booking. |
+| EndRailStationName | string | Y | The name of the ending station of the booking. |
+| ETicket | integer |  | The e-ticket number.  |
+| FareType | string |  | The type of fare on the rail booking.  |
+| FrequentTravelerId | string |  | The traveler’s ID for the frequent traveler reward program. |
+| IsUpgradeAllowed | boolean |  | Whether the booking can be upgraded. Format: true/false  |
+| LegId | string |  | The trip leg ID. |
+| Meals | string |  | The booked meals. |
+| Miles | integer |  | The number of miles booked. |
+| Notes | string |  | Additional information about the booking. |
+| NumPersons | unsignedByte |  | The number of persons booked for the trip. |
+| NumStops | unsignedByte |  | The number of stops in the booking. |
+| OperatedByTrainNumber | string |  | The train identifier of the operating vendor of the booked trip. |
+| OperatedByVendor | string |  | The operating vendor of the booked trip. |
+| RateCode | string |  | The vendor's code for the rate of the booking.  |
+| RouteRestrictCode | string |  | The code to restrict the route of the booking.  |
+| SpecialInstructions | string |  | The instructions for the booking. |
+| StartCity | string |  | The starting city of the booking. |
+| StartCityCode | string | Y | The IATA airport code for the starting city of the booking.  |
+| StartCountry | string |  | The starting country of the booking.  |
+| StartDateUtc | dateTime | Y | The starting date of travel for this segment, in UTC. Format: YYYY-MM-DDThh:mm:ss |
+| StartLatitude | string |  | The latitude of the starting location of the booking. |
+| StartLongitude | string |  | The longitude of the starting location of the booking. |
+| StartPlatform | string |  | The starting platform location of the booking. |
+| StartRailStation | string | Y | The code of the starting station of the booking. |
+| StartRailStationName | string | Y | The name of the starting station of the booking. |
+| Status | string |  | The booking  status.  |
+| TimeZone | string |  | The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.  |
+| TotalRate | decimal |  | The total rate amount of the booking.  |
+| TrainNumber | string |  | The number for the booked train. |
+| TrainTypeCode | string |  | The code for the type of train used in the booking. |
+| TrainTypeName | string |  | The name of the type of train used in the booking. |
+| TransportMode | sring |  | The transport mode of the booking.  |
+| UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
+| Vendor | string |  | The two letter GDS vendor code. |
+| VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
+| WagonNumber | string |  | The wagon number of the train car. |
+| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
+| Seats | Parent Element |  | The booked seats. This parent element contains a RailSeat element for each included seat. The RailSeat element has the following child elements:  |
+
+### RailSeat child elements
+
+| Element | Data Type | TripLink | Description |
+|------------------|-----------|---|--------------------------------|
+| Amenities | string |  | The amenities for the seat. |
+| BerthPosition | string |  | The berth location of the seat. |
+| Deck | string |  | Which deck the seat is on. |
+| FacingForward | string |  | Whether the seat is facing forward. |
+| FareSpaceComfort | string |  | The space around the seat. |
+| PassengerRph | integer |  | Which passenger the seat is assigned to. |
+| SeatNumber | string |  | The number of the seat.  |
+| SeatPosition | string |  | The location of the seat. |
+| SpaceType | string |  | The type of space around the seat. |
+| Status | string |  | The status of the seat booking. |
+| WagonNumber | string |  | The number of the wagon the seat is on. |
+| WagonType | string |  | The type of wagon the seat is on. |
+
+## Parking Booking elements
