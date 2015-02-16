@@ -187,7 +187,7 @@ The passenger parent element is the Passengers Element in Booking Elements. This
 | TextName | String | optional | Y | The user's full name as entered in the booking tool if different from the name in the database. |
 | FrequentTravelerProgram | String | optional | Y | Passenger's loyalty programs |
 
-## AirlineTickets
+## AirlineTickets elements
 
 The AirLineTickets parent element is an array that contains the following child elements.
 
@@ -197,7 +197,7 @@ The AirLineTickets parent element is an array that contains the following child 
 | ManualAirlineTicket | Type |  | The manual airline ticket for the booking. |
 | AirlineTicket | Type |  | The airline ticket for the booking |
 
-## AirlineAdjustment child elements
+### AirlineAdjustment child elements
 
 | Element Name | Data Type | TripLink | Description |
 |----------------------|-----------|----------|-------------|
@@ -215,7 +215,7 @@ The AirLineTickets parent element is an array that contains the following child 
 | TotalAdjustmentCurrency    | string |  |   |
 | Taxes | Array |  |   |
 
-## ManualAirlineTicket child elements
+### ManualAirlineTicket child elements
 
 | Element Name | Data Type | TripLink | Description |
 |------------------|-----------|----------|------------------------|
@@ -226,7 +226,7 @@ The AirLineTickets parent element is an array that contains the following child 
 | TotalFareTotalFareCurrency   | decimal |  |   |
 | AirlineCharges  | array |  | The charges applied by the airline. This parent element contains a Fixed and Tax child element for each fixed charge and tax from the airline. Refer to the Fixed Elements table for the Fixed child element  and the Tax Element table for the Tax child element. |
 
-## AirlineTicket child elements
+### AirlineTicket child elements
 
 | Element Name | Data Type | TripLink | Description |
 |-----------------------|-----------|----------|----------------------|
@@ -264,7 +264,7 @@ The AirLineTickets parent element is an array that contains the following child 
 | AirlineTicketExchanges  | array |  | An array of AirlineTickeExchange types contiaining the following elements: |
 | AirlineTicketFareBreakups  | array |  | An array of AirlineTicketFareBreakup types contiaining the following elements:  |
 
-## AirlineTicketCoupons child elements
+#### AirlineTicketCoupons child elements
 
 | Element Name | Data Type | TripLink | Description |
 |------------------|--------------|----------|-------------|
@@ -282,7 +282,7 @@ The AirLineTickets parent element is an array that contains the following child 
 | TicketDesignator   | string |  |  |
 | Vendor    | string |  |   |
 
-## AirlineTicketExchanges child elements
+#### AirlineTicketExchanges child elements
 
 | Element Name | Data Type | TripLink | Description |
 |----------------|--------------|----------|-----------------|
@@ -303,7 +303,7 @@ The AirLineTickets parent element is an array that contains the following child 
 | PlatingCarrierNumericCode  | string |   |   |
 | PlatingControlNumber   | string |   |   |
 
-## AirlineTicketFareBreakups child elements
+#### AirlineTicketFareBreakups child elements
 
 | Element Name | Data Type | TripLink | Description |
 |-----------------|-----------|----------|------------------------------|
@@ -319,3 +319,32 @@ The AirLineTickets parent element is an array that contains the following child 
 | TotalFare  | decimal |  |   |
 | TotalFareCurrency   | string |  |   |
 | Taxes   | array |  | The charges applied by the airline. This parent element contains a Fixed and Tax child element for each fixed charge and tax from the airline. Refer to the Fixed Elements table for the Fixed child element  and the Tax Child Element table for the Tax child element. |
+
+### Fixed child elements
+
+This Fixed element contains the following child elements.
+
+| Element Name | Data Type | TripLink | Description |
+|------------------|-----------|----------|--------------------------------|
+| Amount | Decimal |  | The total amount for the rate for the booking.  |
+| Currency | String |  | The 3-letter ISO 4217 currency code for the total amount. |
+| Description | String |  | The description for the rate.  |
+| IsPaid | Boolean |  | Whether the rate has been paid. Format: true/false. |
+| IsPrimary | Boolean |  | Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge  in a set should be primary. Format: true/false. |
+| SemanticsCode | String |  | Indicates the charge category for the line item. Refer to the Semantics Codes table for more information.  |
+| SemanticsVendorType | String |  | The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |
+| StartDateLocal | DateTime |  | The start date of the booking, in the user's local time. Format: YYYY-MM-DDThh:mm:ss |
+| Vendor | String |  |  The vendor for the booking charge. |
+| VendorChargeCode | String |  | The vendor's code for the charge |
+
+### Tax child elements
+
+This Tax element contains the following child elements.
+
+| Element Name | Data Type | TripLink | Description |
+|--------------|-----------|----------|------------------------|
+| TaxAmount | Decimal |  | The amount of the tax. |
+| TaxType | String |  | The type of the tax. |
+
+## Percent elements
+
