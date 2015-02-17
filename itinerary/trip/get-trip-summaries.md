@@ -16,8 +16,8 @@ The response for this operation supports paging for easier processing.
 
 ## Request
 
-### Request paramenters
-All request paramenters are optional. 
+### Query paramenters
+All query paramenters are optional. 
 To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters:
 
 |Parameter Name	|Parameter Type	|Data Type	|Description|
