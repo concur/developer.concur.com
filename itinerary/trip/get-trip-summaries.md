@@ -23,7 +23,7 @@ All request paramenters are optional.
 To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters:
 
 |Parameter Name	|Parameter Type	|Data Type	|Description|
-|:--------------|:--------------|:----------|:----------|
+|:---------|:---------|:-------|:-----------------------------------------|
 |startDate	|date	|dateTime	|The URL-encoded start date (in Coordinated Universal Time, aka UTC) for the trip. Format: YYYY-MM-DD. If no query parameters are provided, the start date is set to today's date - 30 days. The request will only return trips that are ongoing during the provided dates, either starting on the date, or starting before the date and ongoing during the provided date.|
 |endDate	|date	|dateTime	|The URL-encoded UTC end date for the trip. Format: YYYY-MM-DD. If no query parameters are provided, the end date is set to today's date + 12 months. The request will only return trips that are ongoing during the provided dates, either ending on the date, or starting before the date and ongoing during the provided date.|
 |createdAfterDate	|date	|dateTime	|The URL-encoded UTC date for when the trip was created. The query string will return trips created on or after this date. Used with the createdbeforedate for finding trips created during a date range. Format: YYYY-MM-DD.|
