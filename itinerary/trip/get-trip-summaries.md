@@ -3,7 +3,7 @@ title: Get Trip Summaries
 layout: operation
 ---
 
-##  GET /api/travel/trip/v1.1
+##  Get trip summaries
 
 Travel Management Companies (TMCs) and third-party developers can use this endpoint to get a list of itineraries.
 An itinerary is also known as trip and it can containe multiple bookings. 
