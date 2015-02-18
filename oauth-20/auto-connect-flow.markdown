@@ -35,6 +35,7 @@ status=pending&offset={offset}&
 limit={maximum number of connection requests to return}
 Accept: {application/xml | application/json}
 ```
+
   You must use a token assigned to a user with the Web Service Administrator role to call the Connection Request resource.
 2. For each user in the connection request response, exchange the request token for an access token:
 
