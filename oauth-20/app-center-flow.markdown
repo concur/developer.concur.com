@@ -37,7 +37,7 @@ Before the App Center Web Flow can be implemented for end-users, the following p
 
 4. Make an API call from your application to exchange the request token for an access token:
 
-```
+```xml
     GET https://www.concursolutions.com/net2/oauth2/getaccesstoken.ashx
     ?code={request_token}
     &client_id={consumer_key}
