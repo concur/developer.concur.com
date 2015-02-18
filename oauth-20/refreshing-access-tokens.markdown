@@ -8,7 +8,7 @@ layout: operation
 
 To refresh a token, make this API call:
 
-``` xml
+```
 GET https://www.concursolutions.com/net2/oauth2/getaccesstoken.ashx
 ?refresh_token={Refresh Token}
 &client_id={Consumer Key}&client_secret={Consumer Secret}
