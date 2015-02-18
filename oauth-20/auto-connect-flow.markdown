@@ -10,18 +10,20 @@ layout: conceptual
 
 The Auto-Connect flow is an authorization flow Concur implemented to support authorized Connection Requests API calls from TripLink applications. During the Auto-Connect flow, the request token associated with a TripLink application is exchanged for an access token for the user who granted the TripLink application access to the user's Concur data.
 
-###  Preconditions
+##  Preconditions
 
 Before you can implement the Auto-Connect flow, you need to:
 
 * Obtain a request token by following the steps listed under [Registering a Partner Application][1]. 
 The **Application Authorization** section in the **New Partner Application** page includes a **Key** field and **Secret** field. This key-and-secret pair make up the request token. The value for the **Key** field is also known as the consumer key and it is the unique identifier for your application; the value for the **Secret** field is your application's client secret. The consumer key and client secret pair is the request token which is later exchanged for an access token . You must safeguard and keep this information confidential as required by the Concur Legal Agreement.
-* Configure your application with the Connection Request API scope:<br/>  
+* Configure your application with the Connection Request API scope:  
+
 ![][2]
 
-###  Auto-Connect Flow Step by Step
+##  Auto-Connect Flow Step by Step
 
 The following diagram illustrates the Auto-Connect flow implementation steps:
+
 ![][3]
 
 To implement the Auto-Connect flow, follow these steps:
@@ -34,11 +36,12 @@ status=pending&offset={offset}&
 limit={maximum number of connection requests to return}
 Accept: {application/xml | application/json}
 ```
+
 You must use a token assigned to a user with the Web Service Administrator role to call the Connection Request resource.
 
 2. For each user in the connection request response, exchange the request token for an access token:
 
-```
+```json
 GET https://www.concursolutions.com/net2/oauth2/getaccesstoken.ashx?
 code={Request Token}&client_id={consumer key}&
 client_secret={consumer secret}
