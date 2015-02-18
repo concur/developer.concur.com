@@ -28,17 +28,14 @@ The following diagram illustrates the Auto-Connect flow implementation steps:
 
 To implement the Auto-Connect flow, follow these steps:
 
-1. Build a service that periodically gets a list of connection requests:
-
+1. Build a service that periodically gets a list of connection requests:  
 ```
 GET {InstanceURI}/api/v3.0/common/connectionrequests?
 status=pending&offset={offset}&
 limit={maximum number of connection requests to return}
 Accept: {application/xml | application/json}
 ```
-
-You must use a token assigned to a user with the Web Service Administrator role to call the Connection Request resource.
-
+  You must use a token assigned to a user with the Web Service Administrator role to call the Connection Request resource.
 2. For each user in the connection request response, exchange the request token for an access token:
 
 ```
@@ -57,7 +54,8 @@ PUT {Instance URI}/api/v3.0/common/connectionrequests/{ID}
 Authorization: OAuth {user's access token with Web Services Administrator role}
 Content-Type: {application/xml | application/json}
 Accept: {application/xml | application/json}
-
+```
+```
 <ConnectionRequest>
         <Message>{Optional Message}</Message>
         <Status>{Status Code}</Status>
