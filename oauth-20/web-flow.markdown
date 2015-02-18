@@ -55,7 +55,8 @@ Partner Applications that require access to data for the entire company must rec
 
 ###  Connect Integration Page
 
-Partner Applications that require individual users to grant access to their Concur accounts must have a location on their server for this functionality. Certified Concur Connect Partners will host a private **Connect Integration** page on their website. Concur users can navigate to this page from the App Center tab within Concur.  The Connect Integration page provides users a way to link their accounts on the partners' sites to their Concur accounts. This page must have two functions:
+Partner Applications that require individual users to grant access to their Concur accounts must have a location on their server for this functionality. Certified Concur Connect Partners will host a private **Connect Integration** page on their website. Concur users can navigate to this page from the App Center tab within Concur. The Connect Integration page provides users a way to link their accounts on the partners' sites to their Concur accounts. This page must have two functions:
+
 * Allow the user to connect to Concur
 * Store the user's OAuth access token on the supplier's site
 
@@ -71,7 +72,7 @@ Once users arrive on the Connect Integration page, they will link to Concur.
 
 ###  Link to Concur
 
-The partner will design the **Connect**** Integration** page to work with their existing site. A key part of the **Connect Integration** page is a button or link users click to connect the user's account on the partner's site to the user's Concur account. Clicking the **Link to Concur** button initiates the OAuth 2.0 Web Flow process.  As part of the certification process Concur will provide the partner a Consumer Key and Consumer Secret that the partner will use in the OAuth 2.0 Web Flow.
+The partner will design the **Connect Integration** page to work with their existing site. A key part of the **Connect Integration** page is a button or link users click to connect the user's account on the partner's site to the user's Concur account. Clicking the **Link to Concur** button initiates the OAuth 2.0 Web Flow process. As part of the certification process Concur will provide the partner a Consumer Key and Consumer Secret that the partner will use in the OAuth 2.0 Web Flow.
 
 At the end of the OAuth 2.0 Web Flow, Concur provides an OAuth Access Token the partner must store with the user's account on the partner's site.
 
@@ -100,7 +101,7 @@ When the user or administrator clicks the **Link to Concur** button on the Conne
 
 Here's the format for the redirection URL:
 
-    https://www.concursolutions.com/net2/oauth2/Login.aspx?client_id=APP_KEY&scope=REQUESTED_APIS&redirect_uri=YOUR_REDIRECT_URI&state=OPTIONAL_APP_DEFINED_STATE
+`https://www.concursolutions.com/net2/oauth2/Login.aspx?client_id=APP_KEY&scope=REQUESTED_APIS&redirect_uri=YOUR_REDIRECT_URI&state=OPTIONAL_APP_DEFINED_STATE`
 
 | Value | Description |
 | ----- | ----------- |
@@ -115,27 +116,27 @@ If the user doesn't have an active session with Concur (because they went direct
 
 **Step Three**: The OAuth Confirmation page is where the user grants the partner application access to the user's data (User Level Authorization), or the company's data (Company Level Authorization).  The user can either Approve Access or Deny Access.  The page is organized in this fashion:
 
-> **Heading **– This is the name of the partner application. The partner works with Concur to settle on an appropriate name that makes clear to the Concur user the source and nature of the partner application.
->
-> **APIs Used** – This section makes clear what Concur data and functions the partner application will be able to access if given permission. Its purpose is to provide users the information they need to make their decision to either grant or deny access. It lists each Concur Connect API or Web Service the partner application uses along with a very brief description.
->
-> **What is this?** – Clicking this link displays further detail about the Web Service.
+* **Heading ** – This is the name of the partner application. The partner works with Concur to settle on an appropriate name that makes clear to the Concur user the source and nature of the partner application.
+
+* **APIs Used** – This section makes clear what Concur data and functions the partner application will be able to access if given permission. Its purpose is to provide users the information they need to make their decision to either grant or deny access. It lists each Concur Connect API or Web Service the partner application uses along with a very brief description.
+
+* **What is this?** – Clicking this link displays further detail about the Web Service.
 
 Here is a sample Concur OAuth Confirmation page for the Concur Salesforce Connector:
 
 ![img][5]
 
-**Step Four**: The user is redirected to the URL specified in Step One.  If the user approved access, it will include a code and the optional state variable.
+**Step Four**: The user is redirected to the URL specified in Step One. If the user approved access, it will include a code and the optional state variable.
 
-**Step Five**: The partner application makes the following call, passing the code, Consumer Key and Consumer Secret.  
+**Step Five**: The partner application makes the following call, passing the code, Consumer Key and Consumer Secret.
 
 Here's the format for the call:
 
-     GET https://www.concursolutions.com/net2/oauth2/GetAccessToken.ashx?code=0987654321&client_id=eZByXv2X41cJlC21pSVvRi&client_secret=4EW8e72wOCM2jKL12H5s2ss HTTP 1.1
+`GET https://www.concursolutions.com/net2/oauth2/GetAccessToken.ashx?code=0987654321&client_id=eZByXv2X41cJlC21pSVvRi&client_secret=4EW8e72wOCM2jKL12H5s2ss HTTP 1.1`
 
 **Step Six**: Concur returns the OAuth access token and expiration date to the partner application.
 
-**Step Seven**: The partner uses this OAuth Access Token in subsequent API calls. 
+**Step Seven**: The partner uses this OAuth Access Token in subsequent API calls.
 
 ##  Company Level Authorization Example
 
@@ -145,7 +146,8 @@ The AppThatSavesTheInternet application was registered to use the Payment Batch 
 
 The admin user has already completed the sales process to purchase the application, and is ready to connect it to their Concur company. The admin user logs in to the AppThatSavesTheInternet site, and navigates to the Connect Integration page the partner created. On this page, they click the **Connect** button. They are sent to the Concur OAuth login page URL:
 
-     https://www.concursolutions.com/net2/oauth2/Login.aspx?client_id=eZByXv2X41cJlC21pSVvRi&scope=PAYBAT&redirect_uri=http://concur2.appthatsavestheinternet.com
+`https://www.concursolutions.com/net2/oauth2/Login.aspx?client_id=eZByXv2X41cJlC21pSVvRi&scope=PAYBAT&redirect_uri=http://concur2.appthatsavestheinternet.com`
+
 
 The admin user is prompted to log in to Concur. The user logs in with a special user account created for this purpose. Then he/she is presented with a page asking if he/she wants to allow the AppThatSavesTheInternet to access their company's Payment Batch information and files.
 
@@ -153,26 +155,28 @@ The admin user is prompted to log in to Concur. The user logs in with a special 
 
 The user clicks **Deny**. Concur sends the user to the redirect uri, along with error details:
 
-     http://concur2.appthatsavestheinternet.com?error=access_denied&error_description=User+denied+access
+`http://concur2.appthatsavestheinternet.com?error=access_denied&error_description=User+denied+access`
 
 ####  Access Approved:
 
 The user clicks **Approve**. Concur sends the user to the redirect uri, with the additional code value:
 
-     http://concur2.appthatsavestheinternet.com?code=1029384756
+`http://concur2.appthatsavestheinternet.com?code=1029384756`
 
 The application makes this call:
 
-     GET https://www.concursolutions.com/net2/oauth2/GetAccessToken.ashx?code=1029384756&client_id=eZByXv2X41cJlC21pSVvRi&client_secret=4EW8e72wOCM2jKL12H5s2ss
+`GET https://www.concursolutions.com/net2/oauth2/GetAccessToken.ashx?code=1029384756&client_id=eZByXv2X41cJlC21pSVvRi&client_secret=4EW8e72wOCM2jKL12H5s2ss`
 
 The Response is:
 
-     HTTP/1.1 200 OK
-     ...
-     <Access_Token>
-         <Token>abcd1234hjkl0987qwer2468yuio1357</Token>
-         <Expiration_date>3/30/2013 1:11:11 PM</Expiration_date>
-     </Access_Token>
+```
+HTTP/1.1 200 OK
+...
+<Access_Token>
+    <Token>abcd1234hjkl0987qwer2468yuio1357</Token>
+    <Expiration_date>3/30/2013 1:11:11 PM</Expiration_date>
+</Access_Token>
+```
 
 The application saves the OAuth token and the company information together, and uses the OAuth token on all future web service requests.
 
@@ -186,7 +190,7 @@ The user logs in to Concur and selects the App Center tab. For the AppThatSavesT
 
 The application redirects the user to the Concur login page URL:
 
-     https://www.concursolutions.com/net2/oauth2/Login.aspx?client_id=eZByXv2X41cJlC21pSVvRi&scope=TRVPRF&redirect_uri=http://concur2.appthatsavestheinternet.com
+`https://www.concursolutions.com/net2/oauth2/Login.aspx?client_id=eZByXv2X41cJlC21pSVvRi&scope=TRVPRF&redirect_uri=http://concur2.appthatsavestheinternet.com`
 
 He/She is presented with a page asking if he/she wants to allow the partner application to access their Travel Profile information.
 
@@ -194,26 +198,28 @@ He/She is presented with a page asking if he/she wants to allow the partner appl
 
 The user clicks **Deny**. Concur sends the developer to the redirect uri, along with error details:
 
-     http://concur2.appthatsavestheinternet.com?error=access_denied&error_description=User+denied+access
+`http://concur2.appthatsavestheinternet.com?error=access_denied&error_description=User+denied+access`
 
 ####  Access Approved:
 
 The user clicks **Approve**. Concur sends the user to the redirect uri, with the additional code value:
 
-     http://concur2.appthatsavestheinternet.com?code=1029384756
+`http://concur2.appthatsavestheinternet.com?code=1029384756`
 
 The application calls the [Get Token Using Web Flow][6] function:
 
-     GET https://www.concursolutions.com/net2/oauth2/GetAccessToken.ashx?code=1029384756&client_id=eZByXv2X41cJlC21pSVvRi&client_secret=4EW8e72wOCM2jKL12H5s2ss
+`GET https://www.concursolutions.com/net2/oauth2/GetAccessToken.ashx?code=1029384756&client_id=eZByXv2X41cJlC21pSVvRi&client_secret=4EW8e72wOCM2jKL12H5s2ss`
 
 The Response is:
 
-     HTTP/1.1 200 OK
-     ...
-     <Access_Token>
-         <Token>abcd1234hjkl0987qwer2468yuio1357</Token>
-         <Expiration_date>3/30/2013 1:11:11 PM</Expiration_date>
-     </Access_Token>
+```
+HTTP/1.1 200 OK
+...
+<Access_Token>
+    <Token>abcd1234hjkl0987qwer2468yuio1357</Token>
+    <Expiration_date>3/30/2013 1:11:11 PM</Expiration_date>
+</Access_Token>
+```
 
 The application needs to store the OAuth token for the user. If the user does not have a user account with the application provider, they are prompted to create one. Once their user account is created, the application can store the OAuth token with it, and use it in subsequent API calls. If the user already has an account, they can log in, then the application can save the OAuth token in their account.
 
