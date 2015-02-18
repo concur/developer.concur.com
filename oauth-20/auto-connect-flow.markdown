@@ -58,7 +58,7 @@ Content-Type: {application/xml | application/json}
 Accept: {application/xml | application/json}
 ```
 
-```xml
+```
 <ConnectionRequest>
         <Message>{Optional Message}</Message>
         <Status>{Status Code}</Status>
