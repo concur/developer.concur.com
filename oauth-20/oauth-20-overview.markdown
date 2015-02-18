@@ -56,17 +56,17 @@ In the OAuth 2.0 model, a request token, termed _code_ in Concur, is a short-liv
 ##  Consumer Secret, Key, and Redirect URI<a name="a7"></a>
 At registration the partner app application is assigned a _key_ (called client ID in the OAuth 2.0 specification) and a _secret_ by the Concur authorization server. The key and secret is unique to the partner application on the Concur authorization server where it was registered. Whenever the partner app requests access to resources stored in Concur, the partner app needs to authenticate itself by sending along the key and the secret to the Concur authorization server.
 
-The consumer key and secret are provided by Concur when you register your application (see [Registering a Partner Application][2]) and are used to obtain an accesstoken. You must keep the consumer key and secret in a safe place as specified in the Concur Legal Agreement.
+The consumer key and secret are provided by Concur when you register your application (see [Registering a Partner Application][2]) and are used to obtain an access token. You must keep the consumer key and secret in a safe place as specified in the Concur Legal Agreement.
 
 The redirect URI is the the partner application URL where Concur redirects users after they have granted the partner application access to their resources with either the [Web Flow][3] or the [App Center Flow][4].
 
 ##  Access Levels<a name="a8"></a>
 The role of the resource owner determines what data a user can access. Currently, the Concur implementation of the OAuth access token can grant access to information (resources) of a given user or information for the entire company.
 
-####  User Authentication
+#####  User Authentication
 Resource owners without the required administrative roles can only access and update their own information.
 
-####  Company Authentication
+#####  Company Authentication
 Resource owners with one of the following administrative roles can manage data for the entire company:
 
 * Professional/Premium: Web Services Administrator
