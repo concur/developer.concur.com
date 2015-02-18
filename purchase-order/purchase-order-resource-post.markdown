@@ -242,6 +242,7 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
         </PurchaseOrder>
     </Batch>
 ```
+
 ###  Post Purchase Order Response
 
 #### Content Type
@@ -265,7 +266,7 @@ This request will return a **Response** parent element with the following child 
 |Status | | |The result of processing the purchase order. Format is SUCCESS or FAILURE.|
 |ErrorCode| | |The code to identify why the purchase order was not processed successfully.|
 |LineItemExternalId | | |Will display the line item external id of a line item that caused the error. If the error is related to an Allocation, this will indicate the external id of the line item that the allocation is associated with and which allocation was the cause of the error. Refer to [Responses and Errors][7] for more information.|
-|FieldCode| | |The code that indicates which field caused an issue. This typically only appears when a field is being validated against a field of a form type. The format of the code will be LEVEL|CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation. Refer to [Responses and Errors][7] for more information.|
+|FieldCode| | |The code that indicates which field caused an issue. This typically only appears when a field is being validated against a field of a form type. The format of the code will be `LEVEL|CODE`. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation. Refer to [Responses and Errors][7] for more information.|
 
 ####  XML Example Response with Success and Failure
 
