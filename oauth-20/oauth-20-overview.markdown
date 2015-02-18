@@ -1,9 +1,9 @@
 ---
-title: OAuth 2 Overview
+title: OAuth 2.0 Overview
 layout: conceptual
 ---
 
-# OAuth 2.0 Overview
+
 [What Is OAuth?](#a1)  
 [OAuth 2.0 Actors](#a2)  
 [Partner Applications](#a3)  
@@ -16,28 +16,30 @@ layout: conceptual
 [Authorization Endpoints](#a10)  
 [Making Authorized Concur API Calls](#a11)  
 
-<a name="a1"></a>
-## What Is OAuth?
-This topic describes fundamental OAuth2.0 concepts.  If you are already familiar with OAuth 2.0, you can skip this topic. If you are not familiar with OAuth 2.0 and don't have time to read the [OAuth 2.0 specification][1] in detail, this topic will give you the foundation you need for understanding how authorization and authentication is implemented in the Concur Platform APIs.
+
+## What Is OAuth?<a name="a1"></a>
+
+This topic describes fundamental OAuth2.0 concepts. If you are already familiar with OAuth 2.0, you can skip this topic. If you are not familiar with OAuth 2.0 and don't have time to read the [OAuth 2.0 specification][1] in detail, this topic will give you the foundation you need for understanding how authorization and authentication is implemented in the Concur Platform APIs.
 
 OAuth provides a simple mechanism for end-users to grant a third party access to their data (resources) without sharing their passwords. It also enables the user to grant limited access to their data in terms of scope, duration, and so on. For example, a user (resource owner) can grant a travel application access to their Concur travel profile information without sharing his or her user name and password with the travel application. Instead, the user authenticates directly with Concur which issues the travel application delegation-specific credentials for accessing the user's data.
 
-<a name="a2"></a>
-## OAuth 2.0 Actors
+
+## OAuth 2.0 Actors<a name="a2"></a>
+
 ######Client  
 An application making requests to access protected resources on behalf of the resource owner and with its authorization. This role is defined independently from how it is implemented. It has the same meaning whether is is implemented as an application that executes on a server computer, a desktop computer, or a mobile device). In Concur, the client is referred to as a [partner application][2]
 
 ######Resource owner  
-&nbsp;&nbsp;&nbsp;An entity capable of granting access to a protected resource. This is generally an end user.
+An entity capable of granting access to a protected resource. This is generally an end user.
 
 ######Resource server  
-&nbsp;&nbsp;&nbsp;A server hosting the protected resources of the resource owner, capable of accepting and responding to API requests using access tokens.
+A server hosting the protected resources of the resource owner, capable of accepting and responding to API requests using access tokens.
 
 ######Authorization server  
-&nbsp;&nbsp;&nbsp;A server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.
+A server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.
 
-<a name="a3"></a>
-##  Partner Applications
+
+##  Partner Applications<a name="a3"></a>
 You can use the Concur Developer Platform to build a variety of applications, ranging from single-function apps to end-to-end solutions that address complex business problems. For example, you can use the List Item web service to build a simple app for updating a project code list in Concur. Or, you can build an end-to-end solution using the External Validation callout for validating a Concur expense with an external validation system. We refer generically to all these apps as _partner applications_ or _partner app_ for short. For more information on partner applications, go to [Partner Applications][2].
 
 Before a partner application can request access to resources on a Concur resource server, the partner app must first register with the Concur authorization server. The registration is a one-time task. Once registered, the registration remains valid, unless Concur revokes the partner app registration.
