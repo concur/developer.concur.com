@@ -27,8 +27,6 @@ application/xml
 #### Request body
 This request should contain a **Batch** parent element with a **PurchaseOrder** parent element for each included purchase order. The **PurchaseOrder** element contains the following child elements.
 
-##### child elements
-
 #### Root elements
 
 |Element Name|Required/Optional|Data Type|Description|
@@ -62,7 +60,7 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 |Needed By|N| |The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD|
 |Account Number|N| |The vendor account number. |
 
-#### ShipTo Child Elements
+#### ShipTo child elements
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -77,7 +75,7 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 |CountryCode |  |  | The code of the country associated to the shipping or billing address. Required. |
 
 
-#### BillTo Child Elements
+#### BillTo child elements
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -91,7 +89,7 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 |PostalCode |  |  | The postal code of the shipping or billing address. Required. |
 |CountryCode |  |  | The code of the country associated to the shipping or billing address. Required. |
 
-### Line Item Elements
+### Line Item child elements
 
 |Element Name|Required&Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -105,7 +103,7 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 | Custom1 through Custom20 | Depends on configuration | | A value that can be applied to a custom field of the same name that is part of the purchase order line item form. |
 | Allocation | N | | Details the allocations that are associated to the line item. Allocation elements can be repeated within the same line items to represent multiple allocations. For information about the child elements of this parent element, see the **Allocation child elements** table below.|
 
-#### Allocation Child Elements
+#### Allocation child elements
 
 |Element Name|Required&Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -246,25 +244,22 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 ```
 ###  Post Purchase Order Response
 
-### HTTP Responses
-[HTTP Status Codes][6]
-
-### Content Type
+#### Content Type
 application/xml
 
-### Content Body
-This request will return a** Response** parent element with the following child elements:  
+#### Response body root elements
+This request will return a **Response** parent element with the following child elements.  
 
-|Element Name|Required&Optional|Data Type|Description|
+|Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |Processed | | | The total number of purchase orders processed in the request. |
 | Success | | | The total number of successfully processed purchase orders in the request. |
 | Failures | | | The total number of unsuccessfully processed purchase orders in the request. |
-| Results | | | This will contain a **PurchaseOrderResult** parent element for each purchase order. The **PurchaseOrderResult** element will contain the following [child elements](#Results)|
+| Results | | | This will contain a **PurchaseOrderResult** parent element for each purchase order. For more information about the child elements of this parent element, see the **PurchaseOrderResult child elements** table below.|
 
-### Results Child Elements <a name="Results"></a>
+#### PurchaseOrderResult child elements
 
-|Element Name|Required&Optional|Data Type|Description|
+|Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |PoNumber | | |The purchase order number associated to the processed purchase order.|
 |Status | | |The result of processing the purchase order. Format is SUCCESS or FAILURE.|
