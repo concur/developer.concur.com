@@ -37,6 +37,7 @@ Accept: {application/xml | application/json}
 ```
 
   You must use a token assigned to a user with the Web Service Administrator role to call the Connection Request resource.
+  
 2. For each user in the connection request response, exchange the request token for an access token:
 
 ```
@@ -56,7 +57,8 @@ Authorization: OAuth {user's access token with Web Services Administrator role}
 Content-Type: {application/xml | application/json}
 Accept: {application/xml | application/json}
 ```
-```
+
+```xml
 <ConnectionRequest>
         <Message>{Optional Message}</Message>
         <Status>{Status Code}</Status>
