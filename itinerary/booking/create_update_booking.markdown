@@ -1,10 +1,9 @@
 ---
-title: Create or Update a Booking
+title: Create or Update Bookings
 layout: operation
 ---
 
-
-# Post Booking Details
+## Create or update bookings
 
 ## Description
 Creates a new booking or updates an existing booking. A new booking will be assigned to the specified trip, or if no trip is specified, the first itinerary that spans the booking dates. If no trip is specified and no itinerary exists that spans the booking dates, a new itinerary will be created.
