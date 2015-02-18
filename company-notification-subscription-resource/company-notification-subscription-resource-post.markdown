@@ -1,5 +1,5 @@
 ---
-title: Company Notification Subscription Resource: POST
+title: Company Notification Subscription Resource POST
 layout: operation
 ---
 
