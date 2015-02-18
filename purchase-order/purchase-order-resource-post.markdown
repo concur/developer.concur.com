@@ -1,9 +1,8 @@
 ---
-title: Purchase Order Resource
+title: Create a purchase order
 layout: operation
 ---
 
-This resource supports the following POST actions:
 
 ##  Post Purchase Order Request
 
@@ -11,6 +10,7 @@ This resource supports the following POST actions:
 Creates or updates one or more purchase orders. All purchase order requests are considered a batch operation, even if only one purchase order is created or updated.
 
 **NOTE**: Concur Invoice is vastly configurable. Use the following process to get the list of custom fields configured for the various forms:
+
 1. Use the [Get Available Form Types][1] function to get the form codes associated with the Invoice Purchase Order header, Line Item and Allocation forms.
 2. Use the [Get Form Data][2] function to get the FormId for the specific forms that you wish to use.
 3. Use the [Get Form Field Details][3] function to get the list of configured fields (including custom fields) for the forms.
@@ -65,6 +65,7 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 |Account Number|N| |The vendor account number. |
 
 #### ShipTo Child Elements<a name="ShipTo"></a>
+
 |Element Name|Required&Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |ExternalId| | |A unique value supplied by the customer to identify a particular shipping or billing address. Required. |
@@ -79,6 +80,7 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 
 
 #### BillTo Child Elements<a name="BillTo"></a>
+
 |Element Name|Required&Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |ExternalId |  |  | A unique value supplied by the customer to identify a particular shipping or billing address. Required. |
@@ -92,6 +94,7 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 |CountryCode |  |  | The code of the country associated to the shipping or billing address. Required. |
 
 ### Line Item Elements
+
 |Element Name|Required&Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 | RequestedBy | N | |The person that requests the goods associated to the line item of the purchase order. |
@@ -262,6 +265,7 @@ This request will return a** Response** parent element with the following child 
 | Results | | | This will contain a **PurchaseOrderResult** parent element for each purchase order. The **PurchaseOrderResult** element will contain the following [child elements](#Results)|
 
 ### Results Child Elements <a name="Results"></a>
+
 |Element Name|Required&Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |PoNumber | | |The purchase order number associated to the processed purchase order.|
