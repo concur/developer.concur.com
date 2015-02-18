@@ -70,6 +70,7 @@ If you encounter an error that makes it impossible to complete the connection pr
 
 
 
+
 [1]: https://developer.concur.com/overview/partner-applications
 [2]: https://developer.concur.com/sites/default/files/APIScope_register_partner_app_ConnectionsRequest_APIScope_cropped.png
 [3]: https://developer.concur.com/sites/default/files/Connection_Request.png
