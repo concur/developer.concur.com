@@ -4,9 +4,8 @@ layout: operation
 ---
 
 
-##  Post Purchase Order Request
 
-### Description
+## Description
 Creates or updates one or more purchase orders. All purchase order requests are considered a batch operation, even if only one purchase order is created or updated.
 
 **NOTE**: Concur Invoice is vastly configurable. Use the following process to get the list of custom fields configured for the various forms:
@@ -15,25 +14,24 @@ Creates or updates one or more purchase orders. All purchase order requests are 
 2. Use the [Get Form Data][2] function to get the FormId for the specific forms that you wish to use.
 3. Use the [Get Form Field Details][3] function to get the list of configured fields (including custom fields) for the forms.
 
-### Content Types 
+###  Post Purchase Order Request
+
+#### Headers
+
+##### Authorization header
+Required. An authorization header with an OAuth token for a valid Concur user.
+
+##### Content-Type header
 application/xml
 
-### Query Parameters - Required
-None 
+#### Request body
+This request should contain a **Batch** parent element with a **PurchaseOrder** parent element for each included purchase order. The **PurchaseOrder** element contains the following child elements.
 
-### Query Parameters - Optional
-None
+##### child elements
 
-### Request Headers - Required
-Authorization header with OAuth token for valid Concur user.
+#### Root elements
 
-### Request Headers - Optional
-None
-
-### Content Body
-This request should contain a **Batch** parent element with a **PurchaseOrder** parent element for each included purchase order. The **PurchaseOrder** element contains the following child elements:  
-
-|Element Name|Required&Optional|Data Type|Description|
+|Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |PoNumber|Y| |The purchase order number.| 
 |PolicyExternalId|Y| |This is the external identifier of the policy that should be associated to the purchase order. External id is a property of the policy within configurations.|
@@ -43,8 +41,8 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 |CurrencyCode|Y| |The [3-letter ISO 4217 currency code][4] of the currency that is associated to the purchase order.|
 |VendorCode|Y| |The code that identifies the vendor that should be associated to the purchase order.|
 |VendorAddressCode|Y | |The code that identifies the vendors remit address that should be associated to the purchase order.|
-|ShipTo|Y| |The customer's shipping address, which is where the vendor should ship the goods. This parent element contains the following [child elements](#ShipTo)|
-|BillTo|Y| |The customer's billing address, which is where the vendor should send the bill. This parent element contains the following [child elements](#BillTo)|
+|ShipTo|Y| |The customer's shipping address, which is where the vendor should ship the goods. For information about the child elements of this parent element, see the **ShipTo child elements** table below.|
+|BillTo|Y| |The customer's billing address, which is where the vendor should send the bill. For information about the child elements of this parent element, see the **BillTo child elements** table below.|
 |OrderDate|Y| |The date goods were ordered. Format YYYY-MM-DD.|
 |Name|N| |A name to the overall purchase order.|
 |Description|N| |A description of the overall purchase order.|
@@ -57,16 +55,16 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 |RequestedDeliveryDate|N| |The date the line item of the purchase order instructed the vendor to deliver the goods. Format YYYY-MM-DD |
 |Shipping|N| |The overall shipping cost of the purchase order.|
 |ShippingDescription|N| |Describes how the goods associated to the purchase order are going to be shipping, i.e. via FedEx.|
-|Custom1 through Custom 24| |Depends on configuration|A value that can be applied to a custom field of the same name that is part of the purchase order header form.**NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][5] page for information on how to correctly submit list item values.|
-|LineItem|Y| |Details the line items that are associated to the purchase order. The request can contain one or more **LineItem** elements. Refer to the Line Item Elements table for the child elements.|
+|Custom1 through Custom 24| |Depends on configuration|A value that can be applied to a custom field of the same name that is part of the purchase order header form.<br/>**NOTE**: If any of the custom fields are configured to contain list values, see the [Posting Custom List Items][5] page for information on how to correctly submit list item values.|
+|LineItem|Y| |Details the line items that are associated to the purchase order. The request can contain one or more **LineItem** elements. For information about the child elements of this parent element, see the **LineItem child elements** table below..|
 |Shipping Terms|N| |The code representing shipping terms with a supplier. Maximum 10 characters.|
 |Shipping Method |N| |The code representing the shipping method used by the supplier. Maximum 10 characters.|
 |Needed By|N| |The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD|
 |Account Number|N| |The vendor account number. |
 
-#### ShipTo Child Elements<a name="ShipTo"></a>
+#### ShipTo Child Elements
 
-|Element Name|Required&Optional|Data Type|Description|
+|Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |ExternalId| | |A unique value supplied by the customer to identify a particular shipping or billing address. Required. |
 |Name| | |An optional name that can be given to the shipping and billing address. |
@@ -79,9 +77,9 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 |CountryCode |  |  | The code of the country associated to the shipping or billing address. Required. |
 
 
-#### BillTo Child Elements<a name="BillTo"></a>
+#### BillTo Child Elements
 
-|Element Name|Required&Optional|Data Type|Description|
+|Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |ExternalId |  |  | A unique value supplied by the customer to identify a particular shipping or billing address. Required. |
 |Name |  |  | An optional name that can be given to the shipping and billing address. |
@@ -105,9 +103,9 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
 | UnitPrice | Y | | The price of each item of the line item. |
 | Tax | N | | Any tax that is associated to the line item. |
 | Custom1 through Custom20 | Depends on configuration | | A value that can be applied to a custom field of the same name that is part of the purchase order line item form. |
-| Allocation | N | | Details the allocations that are associated to the line item. Allocation elements can be repeated within the same line items to represent multiple allocations. This parent element contains the following [child elements](#Allocation)|
+| Allocation | N | | Details the allocations that are associated to the line item. Allocation elements can be repeated within the same line items to represent multiple allocations. For information about the child elements of this parent element, see the **Allocation child elements** table below.|
 
-#### Allocation Child Elements<a name="Allocation"></a>
+#### Allocation Child Elements
 
 |Element Name|Required&Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -246,7 +244,7 @@ This request should contain a **Batch** parent element with a **PurchaseOrder** 
         </PurchaseOrder>
     </Batch>
 ```
-##  Post Purchase Order Response
+###  Post Purchase Order Response
 
 ### HTTP Responses
 [HTTP Status Codes][6]
