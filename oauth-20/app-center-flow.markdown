@@ -22,7 +22,7 @@ Before the App Center Web Flow can be implemented for end-users, the following p
 
 ###  Concur
 
-* To deploy the app in a production environment, Concur certifies the partner application. For more information on the Concur App Certification process, see [ App Certification][2]
+* To deploy the app in a production environment, Concur certifies the partner application. For more information on the Concur App Certification process, see [App Certification][2].
 * After the partner application is certified, Concur registers the partner application, creates a listing for the application in the Concur App Center, and enables the app listing.
 
 ##  App Center Flow Step-by-Step
@@ -33,7 +33,7 @@ Before the App Center Web Flow can be implemented for end-users, the following p
 
 3. When your application receives the redirect call, parse the value from the code query parameter which was passed from the App Center. This is the request token for the user:
 
-        GET {redirect_page_URI}?code={request_token}
+    GET {redirect_page_URI}?code={request_token}
 
 4. Make an API call from your application to exchange the request token for an access token:
 
@@ -54,6 +54,6 @@ For example:
 If you encounter an error that makes it impossible to complete the connection process, revoke the access token to the user knows that the connection attempt failed and they can try again at a later time.
 
 
-[1]: https://developer.concur.com/api-documentation/web-services/core-concepts/partner-applications#register
+[1]: https://developer.concur.com/overview/partner-applications
 [2]: https://developer.concur.com/go-market/app-certification
 [3]: https://developer.concur.com/overview/partner-applications
