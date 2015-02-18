@@ -116,7 +116,7 @@ If the user doesn't have an active session with Concur (because they went direct
 
 **Step Three**: The OAuth Confirmation page is where the user grants the partner application access to the user's data (User Level Authorization), or the company's data (Company Level Authorization).  The user can either Approve Access or Deny Access.  The page is organized in this fashion:
 
-* **Heading ** – This is the name of the partner application. The partner works with Concur to settle on an appropriate name that makes clear to the Concur user the source and nature of the partner application.
+* **Heading** – This is the name of the partner application. The partner works with Concur to settle on an appropriate name that makes clear to the Concur user the source and nature of the partner application.
 
 * **APIs Used** – This section makes clear what Concur data and functions the partner application will be able to access if given permission. Its purpose is to provide users the information they need to make their decision to either grant or deny access. It lists each Concur Connect API or Web Service the partner application uses along with a very brief description.
 
