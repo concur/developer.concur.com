@@ -4,28 +4,28 @@ layout: operation
 ---
 
 
-##  Get attendees
+##  Description
 
 Retrieves the attendees matching the specified search criteria. Developers can specify one or more External IDs or the Attendee ID to search the Expense database.
 
 ## Request
 
-### Query parameters
+### Request parameters
 
 * **attendeeID**  
 The unique identifier for the attendee in Concur. This information is returned in the **AttendeeID** element of the response of the [Get Report Details][1] function. Optional.
 
-expense/v2.0/attendees/*attendeeID*
+Example: `https://www.concursolutions.com/api/expense/v2.0/attendees/*attendeeID*`
 
 * **externalid={_externalID_}**  
-The unique identifier for the attendee outside of Concur. This information is returned in the **ExternalID** element of the response of the [Get Report Details][1] function. Up to 10 external IDs can be supplied in a comma separated list. Optional
+The unique identifier for the attendee outside of Concur. This information is returned in the **ExternalID** element of the response of the [Get Report Details][1] function. Up to 10 external IDs can be supplied in a comma separated list. Optional.
 
-expense/v2.0/attendees?externalid={*externalID*}
-expense/v2.0/attendees?externalid={_externalID1_},{_externalID2_},{_externalID3_}
+Example: `https://www.concursolutions.com/apiexpense/v2.0/attendees?externalid={*externalID*}`
+Example: `https://www.concursolutions.com/apiexpense/v2.0/attendees?externalid={_externalID1_},{_externalID2_},{_externalID3_}`
 
-## Headers
+### Headers
 
-### Authorization header
+#### Authorization header
 
 Authorization header with OAuth 2.0 access token for a Concur user. Required.
 
@@ -34,26 +34,29 @@ To manage data for an entire conpany, the Concur account associated with the acc
 * Web Services Administrator for Professional
 * Can Administer for Standard.
 
-### Content-Type header
+#### Content-Type header
 
 * application/json       
 * application/xml
-
 
 ## Examples
 
 
 ###  XML Example Request with Attendee ID
 
+```
     GET https://www.concursolutions.com/api/expense/v2.0/attendees/nFaAj0ncBsvkgnPMY5QWfBbbWyv$sQh2oW HTTP/1.1
     Authorization: OAuth {access token}
     ...
+```
 
 ###  XML Example Request with External ID
 
+```
     GET <https://www.concursolutions.com/api/expense/v2.0/attendees?externalid=234567> HTTP/1.1
     Authorization: OAuth {access token}
     ...
+```
 
 ##  Get Attendee Details Response
 
@@ -68,7 +71,7 @@ This request will return an** Attendees** parent element containing an **Attende
 |Company |  The attendee's company name. Maximum 150 characters.|
 |Title |  The attendee's title. Maximum 32 characters.|
 |ExternalID |  The unique identifier for the attendee, managed outside Concur. Maximum 48 characters.|
-|Custom1 through Custom20 |  The details from the Custom fields. These may not have data, depending on configuration. The custom fields may have the following child elements.  1. Type : The custom field type. Will be one of the following: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text. 2. Value - The value in the custom field. Maximum 100 characters.  3. Code - Custom list fields will include the list item code in this element
+|Custom1 through Custom20 |  The details from the Custom fields. These may not have data, depending on configuration. For information about the child elements of this parent element, see the **Custom child elements** table below. |
 |  HasExceptionsPrevYear |  Whether the attendee has exceptions in the previous year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
 |  HasExceptionsYTD |  Whether the attendee has exceptions in the current year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
 |  IsDeleted |  Whether the attendee is marked as deleted. Maximum 1 character. Format: Y/N |
@@ -80,6 +83,15 @@ This request will return an** Attendees** parent element containing an **Attende
 |  AttendeeTypeCode |  The unique identifier for the attendee type. |
 |  AttendeeOwnerID |  The unique identifier for the person or system that owns the attendee. |
 |  CurrencyCode |  The [3-letter ISO 4217 currency code][3] for attendee related amounts. |
+
+#### Custom child elements
+
+| Element | Description |
+|-----------------------|-------------------------------------|
+| Type | The custom field type. Will be one of the following: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text.  |
+|Value |  The value in the custom field. Maximum 100 characters.  |
+| Code |  Custom list fields will include the list item code in this element.  |
+
 
 ####  XML Example of Successful Response
 
