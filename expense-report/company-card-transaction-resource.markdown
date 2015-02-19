@@ -22,8 +22,8 @@ application/xml
 
 ## See also
 
-* Expense entries resource[2]
-* Expense report resource[3]
+* [Expense entries resource][2]
+* [Expense report resource][3]
 
 
 
