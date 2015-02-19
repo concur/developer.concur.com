@@ -28,13 +28,6 @@ Partner applications must complete the [Concur application review process][3] be
 ## Resources
 [Digital Tax Invoices ][4]
 
-##Additional Information
-Responses and Errors  
-Expense Configuration
-
-##  Responses and Errors
-Refer to the [HTTP Codes][5] page for details of the common responses and errors.
-
 ##  Concur Expense Configuration
 The Digital Tax Invoice feature must be activated in Concur Expense before clients can use this feature. The feature is activated in the Group Configuration.
 
@@ -43,4 +36,4 @@ The Digital Tax Invoice feature must be activated in Concur Expense before clien
 [2]: https://developer.concur.com/forums/concur-connect
 [3]: https://developer.concur.com/node/624/
 [4]: https://developer.concur.com/digital-tax-invoices/digital-tax-invoices-resource
-[5]: https://developer.concur.com/reference/http-codes
+
