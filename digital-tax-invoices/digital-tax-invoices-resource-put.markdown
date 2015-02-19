@@ -8,11 +8,6 @@ Updates the status of a specified digital tax invoice.
 
 ## Request
 
-### Request parameters
-
-* **content**={*content*}: A status update for the digital tax invoice. Required.
-* **id**={*id*}: The ID of the digital tax invoice to update. Required.
-
 ### Headers
 
 #### Authorization header
@@ -24,7 +19,15 @@ Required. Authorization header with an OAuth token for a valid Concur user. The 
 * application/json
 
 ### Request body
-The content body contains a **DigitalTaxInvoice** parent element that contains the following child elements.
+
+#### Root elements
+
+| Element | Description |
+|-----------------------|-------------------------------------|
+| content | A status update for the digital tax invoice. Required. The content body contains a **DigitalTaxInvoice** parent element. For information about the child elements of this parent element, see the **DigitalTaxInvoice child elements** table below. |
+| id | The ID of the digital tax invoice to update. Required.  |
+
+#### DigitalTaxInvoice child elements
 
 | Element | Description |
 |-----------------------|-------------------------------------|
