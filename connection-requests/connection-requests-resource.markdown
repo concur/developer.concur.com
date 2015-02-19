@@ -19,9 +19,10 @@ The Connection Requests resource is used to integrate TripLink partner applicati
 GET and PUT
 
 ##  Operations
-GET common/connectionrequests [2]
-GET common/connectionrequests/{id} [3]
-PUT common/connectionrequests/{id} [4]
+
+* [GET common/connectionrequests][2]
+* [GET common/connectionrequests/{id}][3]
+* [PUT common/connectionrequests/{id}][4]
 
 ##  Data Model
 
@@ -95,6 +96,7 @@ The status code representing the state of the connection request.
 Return a list of connection requests for users who wants to link their account with the TripLink partners. This example returns the default number of records which is 5.
 
 ####  Request
+
 ```
     GET https://www.concursolutions/api/v3.0/common/connectionrequests?
     Authorization: OAuth H+IumY5p1W3U1QQ/X9T4AlcboHU=
@@ -103,6 +105,7 @@ Return a list of connection requests for users who wants to link their account w
 ```
 
 ####  Response
+
 ```
     <ConnectionRequest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ID>nVkXk0j3Yzk4LosUofRwPOvndJDo</ID>
@@ -118,6 +121,7 @@ Return a list of connection requests for users who wants to link their account w
         <LastModified>2014-04-29T23:19:03</LastModified>
     </ConnectionRequest>
 ```
+
 ###  Example 2: Get a list of connection requests with two records
 
 ####  Request
@@ -128,6 +132,7 @@ Return a list with two connection requests.
     GET https://www.concursolutions.com/api/v3.0/Common/ConnectionRequests&limit=2
     ...
 ```
+
 ####  Response
 
 ```
@@ -145,6 +150,7 @@ Return a list with two connection requests.
         <LastModified>2014-04-29T23:19:03</LastModified>
     </ConnectionRequest>
 ```
+
 ###  Example 3: Get a list of connection requests that are in pending state
 
 Return a list of connection requests users who wants to link their account with the TripLink partners. This example returns the same results as example 1. The difference is in the request. Example 3 specifies explicity the value for the **status** query parameter as **pending**. Example 1 uses the default value for **status** which is **pending**.
@@ -155,6 +161,7 @@ Return a list of connection requests users who wants to link their account with 
     GET https://www.concursolutions.com/api/v3.0/Common/connectionrequests&status=pending
     ...
 ```
+
 ####  Response
 
 ```
@@ -172,6 +179,7 @@ Return a list of connection requests users who wants to link their account with 
         <LastModified>2014-04-29T23:19:03</LastModified>
     </ConnectionRequest>
 ```
+
 ###  Example 4: Get a list of connection requests that are in processing state
 
 Return a list of connection requests that are being processed. The status of a connection requests is set to **processing** after Concur has generated the request token for that connection request.
@@ -180,6 +188,7 @@ Return a list of connection requests that are being processed. The status of a c
     GET https://www.concursolutions.com/api/v3.0/Common/ConnectionRequests&status=processing
     ...
 ```
+
 ###  Example 5: Get a list of connection requests with a specific page offset
 
 Return a list of connection requests based on a specific page offset.
@@ -188,6 +197,7 @@ Return a list of connection requests based on a specific page offset.
     GET https://www.concursolutions.com/api/v3.0/Connectionrequest?offset=nQ4hRgi9Q9uLj32rQWtgN3Mw&limit=1
     ...
 ```
+
 ###  Example 6: Get a list of connection requests for a specific user
 
 Return a list of connection requests for a specific user. You can use this example when you want to find out if your application has exceeded the maximum retries for a particular user. The maximum number of retries is 5.
@@ -196,6 +206,7 @@ Return a list of connection requests for a specific user. You can use this examp
     GET https://www.concursolutions.com/api/v3.0/ConnectionRequests/zB7hRgi9Q9uLj32rQWtgN3Mw
     ...
 ```
+
 ###  Example 7: Send status indicating that connection request was successful
 
 This example illustrates how to send status to Concur to indicate that the connection request was successful and that the Concur travel partner has successfully recorded the access token, the refresh token, and the instance URL.
@@ -219,6 +230,7 @@ This example illustrates how to send status to Concur to indicate that the conne
         <LastModified>2014-04-29T23:19:03</LastModified>
     </ConnectionRequest>
 ```
+
 ####  Response
 
 ```
@@ -248,11 +260,13 @@ This example illustrates how to send status to Concur to indicate that the conne
         <LastModified>2014-04-29T23:19:03</LastModified>
     </ConnectionRequest>
 ```
+
 ####  Response
 
 ```
     HTTP/1.1 204 No Content - For Success
 ```
+
 ###  Example 9: Send status inidicating that the connection request was not successful and request a retry
 
 This example illustrates how to send status to Concur to indicate that the connection request was not successful and to request a new request token to retry the connection.
@@ -282,13 +296,15 @@ This example illustrates how to send status to Concur to indicate that the conne
 ```
 HTTP/1.1 204 No Content - For Success
 ```
+
 ### Compatible Concur Products
-Concur Developer Sandbox
-Travel for Concur Professional
-Travel for Concur Standard
-Expense for Concur Professional
-Expense for Concur Standard
-Expense for Concur Mobile
+
+*Concur Developer Sandbox
+*Travel for Concur Professional
+*Travel for Concur Standard
+*Expense for Concur Professional
+*Expense for Concur Standard
+*Expense for Concur Mobile
 
 ### HTTP Status Codes
 
@@ -303,6 +319,7 @@ Expense for Concur Mobile
 |  503 |  Service unavailable or is down for maintenance |
 
 ##  See Also
+
 Access Token resource
 Connection Requests overview page for details on how to implement the Connections Request API.
 Connection Requests Swagger documentation.
