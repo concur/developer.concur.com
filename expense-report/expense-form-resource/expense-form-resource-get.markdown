@@ -42,7 +42,7 @@ This request will return a **FormTypesList** parent element with a **FormType** 
 |  Name |  The form type name. |
 |  FormCode |  The form type code. |
 
-### XML example of successful response
+### XML example of successful Get Form Types response
 
 ```
 200 OK
@@ -121,7 +121,7 @@ This request will return a **FormDataList** parent element with a **FormData** p
 |  Name |  The form name. |
 |  FormId |  The form identifier. |
 
-### Examples
+### Get Form Data Examples
 
 #### XML example request
 
@@ -130,6 +130,7 @@ GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/
 Authorization: OAuth {access token}
 ...
 ```
+
 #### XML example of successful response
 
 ```
