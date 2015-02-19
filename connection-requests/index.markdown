@@ -37,7 +37,7 @@ After a user enrolls, the user's Concur account is automatically connected to tr
 
 ###  Connection Requests API Usage Scenarios
 
-The following table lists some common scenarios where Connection Requests can be used:
+The following tables list some common scenarios where Connection Requests can be used:
 
 **New connection**
 
@@ -49,16 +49,19 @@ The following table lists some common scenarios where Connection Requests can be
 |  Connection request failed for a given user. |  Create a connection request for a specific user. |
 
 **Pending connections**
+
 |  Usage scenario |  Expected result |
 |-----------------|------------------|
 |  Travel partner application requests a list of all connection requests |  List of pending connection requests that match the TripLink partner ID are returned. |
 
 **Successful connections**
+
 |  Usage scenario |  Expected result |
 |-----------------|------------------|
 |  Request token was successfully exchanged for the access token and the travel partner application makes a PUT call. |  Connection request status is marked as successful. |
 
 **Failed connections**
+
 |  Usage scenario |  Expected result |
 |-----------------|------------------|
 |  Connection failed because of an invalid travel loyalty number. |  Travel partner application updates the connection request with failure reason. |
