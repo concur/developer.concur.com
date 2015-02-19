@@ -10,6 +10,9 @@ layout: resource
 
 The Connection Requests resource is used to integrate TripLink partner applications with Concur. It can be used to create, update, and manage connections between a user's Concur account and a select travel loyalty program. With Connection Requests a TripLink partner application can retrieve new connection requests and provide status for pending connections, successful connections, and failed connections. When retrieving new connections, the results can be filtered by status, page offset, and a limit for the number of records to return.
 
+## Version
+3.0
+
 ##  URI
 
 `https://{InstanceURL}/api/v3.0/Common/ConnectionRequests`
@@ -59,6 +62,10 @@ GET and PUT
 
 |  Element Name | Required/Optional| Data Type |  Description |
 |---------------|------------------|-----------|--------------|
+|  ConnectionRequest | | |  Parent element for a connection request. |
+
+|  Element Name | Required/Optional| Data Type |  Description |
+|---------------|------------------|-----------|--------------|
 |DiscountCode |optional|  string |  The user's travel vendor discount code in Concur. This element will be removed in subsequent versions of the Connections Request API. Use the [Travel Profile Resource][1] API to obtain the discount code for the user. |
 |FirstName |optional |  string |  The user's first name. |
 |ID  |optional |  string |  The ID of the connection request. |
@@ -68,10 +75,10 @@ GET and PUT
 |  Message |optional |  string |  The message to post back to the user during the connection process. This element is not currently used and will be removed in subsequent versions of the Connections Request API. |
 |  MiddleName |optional |  string |  The user's middle name. |
 |  RequestToken |optional |  string |  The OAuth request token. |
-|  Status  |optional |  string |  The status code representing the state of the connection request.|
+|  Status  |optional |  string |  The status code representing the state of the connection request. For information about the child elements of this parent element, see the Status child elements table below.|
 |  URI  |optional |  string |  The resource URI. |
 
-#### Status
+#### Status child elements
 The status code representing the state of the connection request.
 
 |Code|Description|
@@ -83,7 +90,7 @@ The status code representing the state of the connection request.
 |  CRPA1 |  Request token has expired. The request token was issued more than 15 minutes ago and the partner application could not exchange the request token for the access token in time. |
 |  CRPA2 |  Network error occurred. The partner application could not process the API call due to a Concur network error. |
 |  CRRET |  Retry connection. The partner application is requesting a new request token. |
-|  **Pending** |  Connection requests are pending. Default. |
+| Pending |  Connection requests are pending. Default. |
 |  Processing |  Connection requests are being processed. |
 |  Connected |  User's travel loyalty program and Concur account are connected. |
 |  Failed |  Connection request is failed. |
@@ -299,12 +306,12 @@ HTTP/1.1 204 No Content - For Success
 
 ### Compatible Concur Products
 
-*Concur Developer Sandbox
-*Travel for Concur Professional
-*Travel for Concur Standard
-*Expense for Concur Professional
-*Expense for Concur Standard
-*Expense for Concur Mobile
+* Concur Developer Sandbox
+* Travel for Concur Professional
+* Travel for Concur Standard
+* Expense for Concur Professional
+* Expense for Concur Standard
+* Expense for Concur Mobile
 
 ### HTTP Status Codes
 
@@ -320,9 +327,9 @@ HTTP/1.1 204 No Content - For Success
 
 ##  See Also
 
-*[Access Token resource][6]
-*[Connection Requests overview page][5] for details on how to implement the Connections Request API
-*[Connection Requests Swagger documentation][2]
+* [Access Token resource][6]
+* [Connection Requests overview page][5] for details on how to implement the Connections Request API
+* [Connection Requests Swagger documentation][2]
 
 
 
