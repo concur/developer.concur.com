@@ -39,19 +39,28 @@ After a user enrolls, the user's Concur account is automatically connected to tr
 
 The following table lists some common scenarios where Connection Requests can be used:
 
+**New connection**
 
 |  Usage scenario |  Expected result |
 |-----------------|------------------|
-|  New connection| |
 |  User enrolls to automatically connect to Concur travel partners.|Connection request is created for all users who enrolled to automatically connect to Concur travel partners.|
 |  New travel partner comes online. |Connection request created for existing travel suppliers.|
 |  Request to re-create the connection request. |  Create a connection request for a specific user. |
 |  Connection request failed for a given user. |  Create a connection request for a specific user. |
-|  Pending connections |   |
+
+**Pending connections**
+|  Usage scenario |  Expected result |
+|-----------------|------------------|
 |  Travel partner application requests a list of all connection requests |  List of pending connection requests that match the TripLink partner ID are returned. |
-|  Successful connections |   |
+
+**Successful connections**
+|  Usage scenario |  Expected result |
+|-----------------|------------------|
 |  Request token was successfully exchanged for the access token and the travel partner application makes a PUT call. |  Connection request status is marked as successful. |
-|  Failed connections |   |
+
+**Failed connections**
+|  Usage scenario |  Expected result |
+|-----------------|------------------|
 |  Connection failed because of an invalid travel loyalty number. |  Travel partner application updates the connection request with failure reason. |
 |  Connection failed because of mismatched information between the user's travel loyalty information and the user's Concur profile. |  Travel partner application updates the connection request with failure reason. |
 
@@ -60,9 +69,6 @@ The following table lists some common scenarios where Connection Requests can be
 [Learn How to Implement the Auto-Connect Flow with Connection Requests][4]  
 [Learn How to Design a compelling TripLink user experience with Connection Requests][1]
 
- 
-
- 
 
 
 
