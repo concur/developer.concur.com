@@ -20,7 +20,7 @@ Example: https://www.concursolutions.com/api/expense/v2.0/attendees/*attendeeID*
 * **externalid={_externalID_}**  
 The unique identifier for the attendee outside of Concur. This information is returned in the **ExternalID** element of the response of the [Get Report Details][1] function. Up to 10 external IDs can be supplied in a comma separated list. Optional.
 
-Example: https://www.concursolutions.com/apiexpense/v2.0/attendees?externalid={*externalID*}
+Example: https://www.concursolutions.com/apiexpense/v2.0/attendees?externalid={*externalID*}<br/>
 Example: https://www.concursolutions.com/apiexpense/v2.0/attendees?externalid={_externalID1_},{_externalID2_},{_externalID3_}
 
 ### Headers
