@@ -15,8 +15,10 @@ The Auto-Connect flow is an authorization flow Concur implemented to support aut
 Before you can implement the Auto-Connect flow, you need to:
 
 * Obtain a request token by following the steps listed under [Registering a Partner Application][1]. 
-The **Application Authorization** section in the **New Partner Application** page includes a **Key** field and **Secret** field. This key-and-secret pair make up the request token. The value for the **Key** field is also known as the consumer key and it is the unique identifier for your application; the value for the **Secret** field is your application's client secret. The consumer key and client secret pair is the request token which is later exchanged for an access token . You must safeguard and keep this information confidential as required by the Concur Legal Agreement.
+The **Application Authorization** section in the **New Partner Application** page includes a **Key** field and **Secret** field. This key-and-secret pair make up the request token. The value for the **Key** field is also known as the consumer key and it is the unique identifier for your application; the value for the **Secret** field is your application's client secret. The consumer key and client secret pair is the request token which is later exchanged for an access token . You must safeguard and keep this information confidential as required by the Concur Legal Agreement.  
+
 * Configure your application with the Connection Request API scope:  
+  
 ![][2]
 
 ##  Auto-Connect Flow Step by Step
