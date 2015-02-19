@@ -36,13 +36,11 @@ Required. Authorization header with an OAuth token for a valid Concur user. The 
 
 ## Get List of Digital Tax Invoices Response
 
-The request will return a **DigitalTaxInvoices** parent element containing an **Items** child element. The Items element contains a **DigitalTaxInvoice** child element for each invoice. Each **DigitalTaxInvoice** element contains the following child elements.
-
-
+The request will return a **DigitalTaxInvoices** parent element containing an **Items** child element. The **Items** element contains a **DigitalTaxInvoice** child element for each invoice.
 
 ### Examples
 
-#### XML Example Request for All Invoices  
+#### XML example request for all invoices  
 
 ```
     GET <https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/> HTTP/1.1  
@@ -50,7 +48,7 @@ The request will return a **DigitalTaxInvoices** parent element containing an **
     ...
 ```
 
-#### XML Example Request with Offset
+#### XML example request with offset
 
 ```
     GET <https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/?offset=2> HTTP/1.1  
@@ -58,7 +56,7 @@ The request will return a **DigitalTaxInvoices** parent element containing an **
     ...
 ```
 
-#### XML Example Request with Last Modified Date (UTC)
+#### XML example request with last modified date (UTC)
 
 ```
     GET <https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/?modifiedafter=2013-10-24T01:00:00> HTTP/1.1  
@@ -66,7 +64,7 @@ The request will return a **DigitalTaxInvoices** parent element containing an **
     ...
 ```
 
-### XML Example Request with Limit
+### XML example request with limit
 
 ```
     GET <https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/?limit=50HTTP/1.1>
@@ -74,7 +72,7 @@ The request will return a **DigitalTaxInvoices** parent element containing an **
     ...
 ```
 
-#### XML Example Response  
+#### XML example response  
 ```
     200 OK
     Content-Type: application/xml
@@ -103,7 +101,7 @@ Get the details of a specified digital tax invoice.
 
 #### Request parameters
 
-**id**={*id*}: The ID of the digital tax invoice to retrieve.
+**id**={*id*}: The ID of the digital tax invoice to retrieve. Required.
 
 #### Headers
 
@@ -120,10 +118,14 @@ Required. Authorization header with an OAuth token for a valid Concur user. The 
 
 The request will return a **DigitalTaxInvoice** parent element containing the following child elements.
 
+| Element | Description |
+|-----------------------|-------------------------------------|
+| AccountID  |  The unique identifier assigned by the validation partner to the Concur client company that owns the digital tax invoices.  |
+| ReceiptData  |  The digital tax invoice data.   |
 
 ### Examples
 
-####  XML Example Request
+####  XML example request
 
 ```
     GET https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/3er$maDk$iw209eW9wo3WPekw9 HTTP/1.1
@@ -131,7 +133,7 @@ The request will return a **DigitalTaxInvoice** parent element containing the fo
     ...
 ```
 
-####  XML Example Response
+####  XML example response
 
 ```
     200 OK
