@@ -1,108 +1,81 @@
 ---
-title: Digital Tax Invoices Resource-GET
+title: Get digital tax invoices
 layout: operation
 ---
 
-# Get List of Digital Tax Invoices Request
 
-## Description
 This resource supports the following GET actions:
 
-* Get List of Digital Tax Invoices  
+* Get List of Digital Tax Invoices 
+* Get Digital Tax Invoice Details
 
-## Request
+## Get List of Digital Tax Invoices
 
-## Response
+### Description
 
-## Examples
+Get a list of digital tax invoices.
 
-### XML Example Request for all Invoices  
+### Get List of Digital Tax Invoices Request
 
-#### Request  
+#### Request parameters
+
+* **offset**={*offset*}: The page offset. Optional.
+* **limit**={*limit*}: The number of records to return. Required. Default value: 25.
+* **modifiedafter**={*YYYY-MM-DDThh:mm:ss*}: A modification date for the queue record; this parameter can be used to limit the results of the GET request to the queue items that have been added since the last time the validation company queried the queue. 
+
+#### Headers
+
+##### Authorization header
+
+Required. Authorization header with an OAuth token for a valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
+
+##### Accept header
+
+* application/xml
+* application/json
+
+## Get List of Digital Tax Invoices Response
+
+The request will return a **DigitalTaxInvoices** parent element containing an **Items** child element. The Items element contains a **DigitalTaxInvoice** child element for each invoice. Each **DigitalTaxInvoice** element contains the following child elements.
+
+
+
+### Examples
+
+#### XML Example Request for All Invoices  
+
+```
     GET <https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/> HTTP/1.1  
     Authorization: OAuth {access token}
     ...
+```
 
-#### Response  
-    200 OK
-    Content-Type: application/xml
+#### XML Example Request with Offset
 
-    <DigitalTaxInvoices>
-        <Items>
-            <DigitalTaxInvoice>
-                 <ID>3er$maDk$iw209eW9wo3WPekw9</ID>
-                 <URI>https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/3er$maDk$iw209eW9wo3WPekw9</URI>
-            </DigitalTaxInvoice>
-            <DigitalTaxInvoice>
-                <ID>K9d$sl2Q92$foU7Dwso12J73</ID>
-                <URI>https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/K9d$sl2Q92$foU7Dwso12J73</URI>
-            </DigitalTaxInvoice>
-        </Items>
-        <NextPage>2</NextPage>
-    </DigitalTaxInvoices>
-
-
-
-### XML Example Request with Offset
-
-#### Request  
+```
     GET <https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/?offset=2> HTTP/1.1  
     Authorization: OAuth {access token}
     ...
+```
 
-#### Response  
-    200 OK
-    Content-Type: application/xml
+#### XML Example Request with Last Modified Date (UTC)
 
-    <DigitalTaxInvoices>
-        <Items>
-            <DigitalTaxInvoice>
-                 <ID>3er$maDk$iw209eW9wo3WPekw9</ID>
-                 <URI>https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/3er$maDk$iw209eW9wo3WPekw9</URI>
-            </DigitalTaxInvoice>
-            <DigitalTaxInvoice>
-                <ID>K9d$sl2Q92$foU7Dwso12J73</ID>
-                <URI>https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/K9d$sl2Q92$foU7Dwso12J73</URI>
-            </DigitalTaxInvoice>
-        </Items>
-        <NextPage>2</NextPage>
-    </DigitalTaxInvoices>
-
-
-### XML Example Request with Last Modified Date (UTC)
-
-####Request  
+```
     GET <https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/?modifiedafter=2013-10-24T01:00:00> HTTP/1.1  
     Authorization: OAuth {access token}
     ...
-
-#### Response  
-    200 OK
-    Content-Type: application/xml
-
-    <DigitalTaxInvoices>
-        <Items>
-            <DigitalTaxInvoice>
-                 <ID>3er$maDk$iw209eW9wo3WPekw9</ID>
-                 <URI>https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/3er$maDk$iw209eW9wo3WPekw9</URI>
-            </DigitalTaxInvoice>
-            <DigitalTaxInvoice>
-                <ID>K9d$sl2Q92$foU7Dwso12J73</ID>
-                <URI>https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/K9d$sl2Q92$foU7Dwso12J73</URI>
-            </DigitalTaxInvoice>
-        </Items>
-        <NextPage>2</NextPage>
-    </DigitalTaxInvoices>
-
+```
 
 ### XML Example Request with Limit
 
-####Request  
+```
     GET <https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/?limit=50HTTP/1.1>
     Authorization: OAuth {access token}
     ...
+```
 
-#### Response  
+#### XML Example Response  
+```
     200 OK
     Content-Type: application/xml
 
@@ -119,31 +92,48 @@ This resource supports the following GET actions:
         </Items>
         <NextPage>2</NextPage>
     </DigitalTaxInvoices>
+```
 
-# Get Digital Tax Invoice Details
+## Get Digital Tax Invoice Details
 
-## Description
-This resource supports the following GET actions:
+### Description
+Get the details of a specified digital tax invoice.
 
-* Get Digital Tax Invoice Details
+### Get Digital Tax Invoice Details Request
 
-## Request
+#### Request parameters
 
-## Response
+**id**={*id*}: The ID of the digital tax invoice to retrieve.
 
-## Examples
+#### Headers
+
+##### Authorization header
+
+Required. Authorization header with an OAuth token for a valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
+
+##### Accept header
+
+* application/xml
+* application/json
+
+### Get Digital Tax Invoice Details Response
+
+The request will return a **DigitalTaxInvoice** parent element containing the following child elements.
 
 
-###  Get Digital Tax Invoice Details
+### Examples
 
-####  Request
+####  XML Example Request
 
+```
     GET https://www.concursolutions.com/api/v3.0/expense/DigitalTaxInvoices/3er$maDk$iw209eW9wo3WPekw9 HTTP/1.1
     Authorization: OAuth {access token}
     ...
+```
 
-###  Response
+####  XML Example Response
 
+```
     200 OK
     Content-Type: application/xml
 
@@ -153,6 +143,5 @@ This resource supports the following GET actions:
             ....Tax Invoice Fields will appear here...
         </ReceiptData>
     </DigitalTaxInvoice>
-
- 
+```
 
