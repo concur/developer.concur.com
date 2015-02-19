@@ -61,7 +61,7 @@ To manage data for an entire conpany, the Concur account associated with the acc
 ##  Get Attendee Details Response
 
 ### Content Body
-This request will return an** Attendees** parent element containing an **Attendee** child element for each attendee. Each **Attendee** element will contain the following child elements:
+This request will return an **Attendees** parent element containing an **Attendee** child element for each attendee. Each **Attendee** element will contain the following child elements:
 
 | Element | Description |
 |-----------------------|-------------------------------------|
