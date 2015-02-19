@@ -3,26 +3,47 @@ title: Get a list of form types
 layout: operation
 ---
 
-## Form Types - split into 2 pages
+This resource supports the following GET actions:
 
-## Description
+* Get Form Types
+* Get Form Data
+
+## Get Form Types
+
+### Description
 Retrieves the list of configured form types.
 
-## Request
+### Get Form Types Request
+
 ```
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms HTTP/1.1
 Authorization: OAuth {access token}
 ...
 ```
-### Request parameters
 
-### Content types
+### Request parameters
+None.
+
+#### Headers
+
+##### Authorization header
+Authorization header with OAuth token for valid Concur user. Required.
+
+##### Accept header
 application/xml
 
-### Authorization header
-Authorization header with OAuth token for valid Concur user.
+### Get Form Types Response
 
-## Response
+#### Response root elements
+This request will return a **FormTypesList** parent element with a **FormType** parent element for each configured form. The FormType element has the following child elements:
+
+|  Element |  Description |
+| -------- | ------------ |
+|  Name |  The form type name. |
+|  FormCode |  The form type code. |
+
+### XML example of successful response
+
 ```
 200 OK
     Content-Type: application/xml
@@ -68,39 +89,49 @@ Authorization header with OAuth token for valid Concur user.
     </FormTypesList>
 ```
 
-### Response root elements
-This request will return a **FormTypesList** parent element with a **FormType** parent element for each configured form. The FormType element has the following child elements:
+## Get Form Data
+
+### Description
+Retrieves the list of configured forms for the specified form type.
+
+### Get Form Data Request
+
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/{FormCode}`
+
+#### Request parameters
+**{_FormCode_}**: The identifier for the desired form. Required.
+
+**URI Source**: The FormCode is returned in the **FormCode** element in the Get Form Types response.
+
+#### Headers
+
+##### Authorization header
+Authorization header with OAuth token for valid Concur user.
+
+##### Accept header
+application/xml
+
+### Get Form Data Response
+
+#### Response root elements
+This request will return a **FormDataList** parent element with a **FormData** parent element for each configured form. The FormData element has the following child elements:
 
 |  Element |  Description |
 | -------- | ------------ |
-|  Name |  The form type name. |
-|  FormCode |  The form type code. |
+|  Name |  The form name. |
+|  FormId |  The form identifier. |
 
-## Form Data - split into 2 pages
+### Examples
 
-## Description
-Retrieves the list of configured forms for the specified form type.
+#### XML example request
 
-## Request
 ```
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/RPTINFO HTTP/1.1
 Authorization: OAuth {access token}
 ...
 ```
-### Request parameters
-**{_FormCode_}**  
-The identifier for the desired form.
-Example: https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/_{FormCode}_
+#### XML example of successful response
 
-**URI Source**: The FormCode is returned in the **FormCode** element in the Get Form Types response.
-
-### Content types
-application/xml
-
-### Authorization header
-Authorization header with OAuth token for valid Concur user.
-
-## Response
 ```
     200 OK
     Content-Type: application/xml
@@ -120,10 +151,3 @@ Authorization header with OAuth token for valid Concur user.
     </FormDataList>
 ```
 
-### Response root elements
-This request will return a **FormDataList** parent element with a **FormData** parent element for each configured form. The FormData element has the following child elements:
-
-|  Element |  Description |
-| -------- | ------------ |
-|  Name |  The form name. |
-|  FormId |  The form identifier. |
