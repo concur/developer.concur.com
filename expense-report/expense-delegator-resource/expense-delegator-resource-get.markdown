@@ -1,5 +1,5 @@
 ---
-title: Get a list of expense delegators
+title: Get expense delegators
 layout: operation
 ---
 
@@ -7,6 +7,7 @@ layout: operation
 Retrieves the list of users that have granted delegate permissions to the user specified in the [OAuth][1] access token.
 
 ## Request
+
 ```
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/Delegators HTTP/1.1
 Authorization: OAuth {access token}
@@ -14,14 +15,35 @@ Authorization: OAuth {access token}
 ```
 
 ### Request parameters
+None.
 
-### Content types
+### Headers
+
+#### Authorization header
+Authorization header with OAuth token for valid Concur user. Required.
+
+### Accept header
 application/xml
 
-### Authorization header
-Authorization header with OAuth token for valid Concur user.
-
 ## Response
+
+### Response root elements
+
+This request will return a **DelegatorsList** parent element with a **Delegator** parent element for each user that has granted delegate rights to the OAuth consumer. The **Delegator** element has the following child elements:
+
+|  Element |  Description |
+| -------- | ------------ |
+|  CanApprove |  Whether the delegate is granted the right to approve expense reports on behalf of the delegator. |
+|  CanPrepare |  Whether the delegate is granted the right to create expense reports on behalf of the delegator. |
+|  CanSubmit |  Whether the delegate is granted the right to submit expense reports on behalf of the delegator. |
+|  CanTemporaryApprove |  Whether the delegate is granted the same temporary approval rights as the delegator. |
+|  CanViewReceipts |  Whether the delegate is granted the right to view receipts on behalf of the delegator. |
+|  ReceiveApprovalEmails |  Whether the delegate also receives the approval emails sent to the delegator. |
+|  ReceivesEmails |  Whether the delegate also receives the Concur emails sent to the delegator. |
+|  DelegatorXUserID |  The user ID of the delegator. |
+
+## XML example of successful response
+
 ```
     200 OK
     Content-Type: application/xml
@@ -49,20 +71,6 @@ Authorization header with OAuth token for valid Concur user.
         </Delegator>
     </DelegatorsList>
 ```
-### Response root elements
-
-This request will return a **DelegatorsList** parent element with a **Delegator** parent element for each user that has granted delegate rights to the OAuth consumer. The **Delegator** element has the following child elements:
-
-|  Element |  Description |
-| -------- | ------------ |
-|  CanApprove |  Whether the delegate is granted the right to approve expense reports on behalf of the delegator. |
-|  CanPrepare |  Whether the delegate is granted the right to create expense reports on behalf of the delegator. |
-|  CanSubmit |  Whether the delegate is granted the right to submit expense reports on behalf of the delegator. |
-|  CanTemporaryApprove |  Whether the delegate is granted the same temporary approval rights as the delegator. |
-|  CanViewReceipts |  Whether the delegate is granted the right to view receipts on behalf of the delegator. |
-|  ReceiveApprovalEmails |  Whether the delegate also receives the approval emails sent to the delegator. |
-|  ReceivesEmails |  Whether the delegate also receives the Concur emails sent to the delegator. |
-|  DelegatorXUserID |  The user ID of the delegator. |
 
 [1]: https://developer.concur.com/oauth-20
 [2]: https://developer.concur.com/reference/http-codes
