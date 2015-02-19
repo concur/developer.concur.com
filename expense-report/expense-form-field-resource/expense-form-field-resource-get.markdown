@@ -9,16 +9,11 @@ Retrieves the details of the configured form fields for the specified form.
 **NOTE**: When sending in requests using these fields, be sure to include the required fields from the form and any additional required fields specified in the request documentation.
 
 ## Request
-```
-GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/nAaT8$puKKO2$pEVlsXfSruLpDfZL0wVM$s7/Fields HTTP/1.1
-Authorization: OAuth {access token}
-...
-```
+
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/{FormId}/Fields`
+
 ### Request parameters
-**{_FormId_}/Fields**  
-The unique identifier for the desired form and the Fields keyword.
-Example:  
-https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/_{FormId}_/Fields
+**{_FormId_}/Fields**: The unique identifier for the desired form and the Fields keyword. Required.
 
 **URI Source**: The FormId is returned in the **FormId** element by the [Get Form Data][1] function.
 
@@ -26,9 +21,39 @@ https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/_{For
 application/xml
 
 ### Authorization header
-Authorization header with OAuth token for valid Concur user.
+Authorization header with OAuth token for valid Concur user. Required.
 
 ## Response
+
+### Response root elements
+This request will return a **FormFieldsList** parent element with a **FormField** parent element for each configured form field. The **FormField** element has the following child elements:
+
+|  Element |  Description |
+| -------- | ------------ |
+|  Id |  The form field ID. |
+|  Label |  The form field label. |
+|  ControlType |  The type of field. |
+|  DataType |  The type of data accepted by the field. |
+|  MaxLength |  The maximum length of the field value. |
+|  Required |  Whether the field is required. |
+|  Cols |  The number of columns the field contains. |
+|  Access |  The access level the specified user has to the field. |
+|  Width |  The width of the field. |
+|  Custom |  Whether the field is custom. |
+|  Sequence |  The field order on the form. |
+
+## Examples
+
+### XML example request
+
+```
+GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/nAaT8$puKKO2$pEVlsXfSruLpDfZL0wVM$s7/Fields HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
+
+### XML example of successful response
+
 ```
     200 OK
     Content-Type: application/xml
@@ -113,22 +138,6 @@ Authorization header with OAuth token for valid Concur user.
         </FormField>
     </FormFieldsList>
 ```
-### Response root elements
-This request will return a **FormFieldsList** parent element with a **FormField** parent element for each configured form field. The **FormField** element has the following child elements:
-
-|  Element |  Description |
-| -------- | ------------ |
-|  Id |  The form field ID. |
-|  Label |  The form field label. |
-|  ControlType |  The type of field. |
-|  DataType |  The type of data accepted by the field. |
-|  MaxLength |  The maximum length of the field value. |
-|  Required |  Whether the field is required. |
-|  Cols |  The number of columns the field contains. |
-|  Access |  The access level the specified user has to the field. |
-|  Width |  The width of the field. |
-|  Custom |  Whether the field is custom. |
-|  Sequence |  The field order on the form. |
 
 [1]: https://developer.concur.com/node/469#getformdata
 [2]: https://developer.concur.com/reference/http-codes
