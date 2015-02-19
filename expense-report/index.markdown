@@ -14,20 +14,12 @@ Developers or clients can also request expense configuration data such as expens
 
 Expense reports that are created using this web service are always assigned the default policy of the supplied user.
 
-
 ## Works With These Concur Products
 * **Expense** for Concur Professional/Premium
 * **Expense** for Concur Standard
 
-## Concur Connect API Structure
-
-Refer to **Web Services > [Core Concepts][1]** for:
-* Detailed information regarding the format, structure and process of making calls to a Concur Web Service.
-* Information on authentication and authorization for all Concur Web Services.
-* Information on registering and enabling partner applications to use Concur Web Services.
-
 ## Authentication
-The Expense Report web service supports the OAuth 2.0 authentication model. This authentication model is covered in detail in** Web Services > [OAuth with Concur][2]**. Any additional required elements for the web service requests are covered in the function documentation.
+The Expense Report web service supports the OAuth 2.0 authentication model. This authentication model is covered in detail in **Web Services >** [OAuth with Concur][2]. Any additional required elements for the web service requests are covered in the function documentation.
 
 ## Product Restrictions
 Concur products are highly configurable, and not all clients will have access to all features.
@@ -90,7 +82,7 @@ Expense types are labels used to classify expenses. A policy is a container for 
 
 Refer to the [HTTP Codes][20] page for details of the common responses and errors.
 
-**Expense Report Specific Errors:**
+### Expense Report Specific Errors
 
 |  Error  |  Description |
 | ------ | ------------- |
@@ -102,7 +94,7 @@ Refer to the [HTTP Codes][20] page for details of the common responses and error
 [3]: https://developer.concur.com/forums/concur-connect
 [4]: https://developer.concur.com/expense-report/company-card-transaction-resource
 [5]: https://developer.concur.com/expense-report/expense-delegator-resource
-[6]: https://developer.concur.com/expense-report/expense-entry-resource
+[6]: https://developer.concur.com/expense-report/expense-entries-resource
 [7]: https://developer.concur.com/expense-report/expense-entry-attendee-resource
 [8]: https://developer.concur.com/expense-report/expense-entry-itemization-resource
 [9]: https://developer.concur.com/expense-report/expense-form-resource
