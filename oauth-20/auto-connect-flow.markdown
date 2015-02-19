@@ -22,8 +22,7 @@ The **Application Authorization** section in the **New Partner Application** pag
 
 ##  Auto-Connect Flow Step by Step
 
-The following diagram illustrates the Auto-Connect flow implementation steps:
-
+The following diagram illustrates the Auto-Connect flow implementation steps:  
 ![][3]
 
 To implement the Auto-Connect flow, follow these steps:
@@ -73,6 +72,6 @@ If you encounter an error that makes it impossible to complete the connection pr
 
 [1]: https://developer.concur.com/overview/partner-applications
 [2]: https://developer.concur.com/sites/default/files/APIScope_register_partner_app_ConnectionsRequest_APIScope_cropped.png
-[3]: https://developer.concur.com/sites/default/files/Connection_Request.png
+[3]: https://developer.concur.com/sites/default/files/Connection Request.png
 
 
