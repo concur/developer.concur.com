@@ -27,7 +27,7 @@ application/xml
 
 
 
-[]: https://developer.concur.com/expense-report/company-card-transaction-resource/company-card-transaction-resource-get
+[1]: https://developer.concur.com/expense-report/company-card-transaction-resource/company-card-transaction-resource-get
 [2]: https://developer.concur.com/expense-report/expense-entries-resource
 [3]: https://developer.concur.com/expense-report/expense-report-resource
 
