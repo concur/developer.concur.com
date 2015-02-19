@@ -320,13 +320,15 @@ HTTP/1.1 204 No Content - For Success
 
 ##  See Also
 
-Access Token resource
-Connection Requests overview page for details on how to implement the Connections Request API.
-Connection Requests Swagger documentation.
-HTTP Codes page for details of the common responses and errors.
+*[Access Token resource][6]
+*[Connection Requests overview page][5] for details on how to implement the Connections Request API
+*[Connection Requests Swagger documentation][2]
+
 
 
 [1]: https://developer.concur.com/travel-profile/profile-resource/get-travel-profile
 [2]: https://www.concursolutions.com/api/docs/index.html#!/ConnectionRequests/Get_offset_limit_status_get_0
 [3]: https://www.concursolutions.com/api/docs/index.html#!/ConnectionRequests/Get_id_get_1
 [4]: https://www.concursolutions.com/api/docs/index.html#!/ConnectionRequests/Put_id_content_put_2
+[5]: https://developer.concur.com/connection-requests
+[6]: https://developer.concur.com/access-token
