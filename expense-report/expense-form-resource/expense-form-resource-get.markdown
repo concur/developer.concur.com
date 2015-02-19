@@ -42,7 +42,9 @@ This request will return a **FormTypesList** parent element with a **FormType** 
 |  Name |  The form type name. |
 |  FormCode |  The form type code. |
 
-### XML example of successful Get Form Types response
+### Get Form Types Examples
+
+#### XML example of successful response
 
 ```
 200 OK
