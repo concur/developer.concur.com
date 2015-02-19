@@ -1,5 +1,5 @@
 ---
-title: Get a list of form types
+title: Get form types or form data
 layout: operation
 ---
 
