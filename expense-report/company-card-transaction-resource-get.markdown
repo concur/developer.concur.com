@@ -1,50 +1,41 @@
 ---
-title: Company Card Transaction Resource
+title: Get company card transactions
 layout: operation
 ---
 
 
 
-
-This resource supports the following GET actions:
-
-## Get List of Available Transactions Request
-
 ## Description
 Retrieves a list of unassigned company card charges for the user specified in the [OAuth][1] access token.
 
 ## Request
+
 ```
-some code to be added
+    GET https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges/ HTTP/1.1
+    Authorization: OAuth {access token}
+    ...
 ```
 
 ### Request parameters
+None.
 
 ### Content types
 application/xml
 
 ### Authorization header
-Authorization header with OAuth token for valid Concur user.
+Authorization header with OAuth token for valid Concur user. Required.
 
 ## Response
 
 ### Response root elements
 
-####  XML Example Request
+This request will return a **CardCharges** parent element with a **CardCharge** child element for each transaction. The **CardCharge** elements will have the following child elements.
 
-    GET https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges/ HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
-
-##  Get List of Available Transactions Response
-
-
-### Content Body
-This request will return a **CardCharges** parent element with a **CardCharge** child element for each transaction. The **CardCharge** elements will have the following child elements:  
+#### CardCharge child elements
 
 |  Element |  Description |
 | -------- | ------------ |
-|  CardNumber |  The number of the card, with all but the last four digits obscured. |   |
+|  CardNumber |  The number of the card, with all but the last four digits obscured.  |
 |  ExpKey |  The code for the expense type of the transaction |
 |  Merchant |  The merchant name for the transaction. |
 |  ExpName |  The name of the expense type of the transaction. |
@@ -53,8 +44,9 @@ This request will return a **CardCharges** parent element with a **CardCharge** 
 |  TransactionDate |  The date of the transaction. |
 
 
-####  XML Example of Successful Response
+####  XML example of successful response
 
+```
     200 OK
     Content-Type: application/xml
 
@@ -79,9 +71,9 @@ This request will return a **CardCharges** parent element with a **CardCharge** 
             <TransactionDate>2010-08-19T00:00:00</TransactionDate>
         </CardCharge>
     </CardCharges>
-
+```
   
 
 
 [1]: https://developer.concur.com/oauth-20
-[2]: https://developer.concur.com/reference/http-codes
+
