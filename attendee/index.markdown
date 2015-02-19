@@ -43,7 +43,7 @@ Refer to the [HTTP Codes][6] page for details of the common responses and errors
 
 The web service will not return a 4xx HTTP response code for a batch operation even when every item in the batch failed to be created or updated. The client must inspect the response to look for warnings or errors with individual batch items.
 
-When there are errors with batch items, the first ten errors are returned in the <errors> element in the request response, which includes their error code, the item that caused the error, and the error message. Any additional error messages are truncated. This prevents a large volume of error data in the event of a formatting mistake.
+When there are errors with batch items, the first ten errors are returned in the `<errors>` element in the request response, which includes their error code, the item that caused the error, and the error message. Any additional error messages are truncated. This prevents a large volume of error data in the event of a formatting mistake.
 
   
 **XML Response Error Codes**:
