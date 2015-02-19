@@ -16,6 +16,7 @@ Updates the status of a specified digital tax invoice.
 ### Headers
 
 #### Authorization header
+Required. Authorization header with an OAuth token for a valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
 #### Accept header
 
@@ -24,6 +25,11 @@ Updates the status of a specified digital tax invoice.
 
 ### Request body
 The content body contains a **DigitalTaxInvoice** parent element that contains the following child elements.
+
+| Element | Description |
+|-----------------------|-------------------------------------|
+| Comment | A comment that describes the digital tax invoice status. Maximum length: 2000 characters  |
+| Status | A status that describes the digital tax invoice. Format: VALID - Valid; INVLD - Invalid; WARNG - Valid with warnings  |
 
 ## Response
 The response returns the status of the request.
