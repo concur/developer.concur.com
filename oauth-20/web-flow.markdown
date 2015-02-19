@@ -169,9 +169,9 @@ The application makes this call:
 
 The Response is:
 
-```
+```XML
 HTTP/1.1 200 OK
-...
+
 <Access_Token>
     <Token>abcd1234hjkl0987qwer2468yuio1357</Token>
     <Expiration_date>3/30/2013 1:11:11 PM</Expiration_date>
