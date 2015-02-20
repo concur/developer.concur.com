@@ -32,7 +32,7 @@ For example:
 
 ```
 POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx
-?token=fdjhk2382kwkajsklwe8i3932kslswl HTTP/1.1
+?token=fdjhk2382kwkajsklwe8i3932kslswl
 ```
 
 ##  Revoking all access tokens for a user
@@ -56,5 +56,5 @@ For example:
 
 ```
 POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx
-?client_id=eZByXv2X41cJlC21pSVvRi&user=Vicky HTTP/1.1
+?client_id=eZByXv2X41cJlC21pSVvRi&user=Maria
 ```
