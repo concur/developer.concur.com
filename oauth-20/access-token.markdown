@@ -4,7 +4,6 @@ layout: resource
 ---
 
 
-
 ##  Description
 
 An access token is a long-lived token used to make authorized API calls.
@@ -12,10 +11,11 @@ An access token is a long-lived token used to make authorized API calls.
 ##  URIs
 
 Native Flow
-:  `https://{InstanceURL}/net2/oauth2/accesstoken.ashx`
+
+`https://{InstanceURL}/net2/oauth2/accesstoken.ashx`
 
 Web Flow and Auto-Connect Flow
-:  `https://{InstanceURL}/net2/oauth2/GetAccessToken.ashx`
+`https://{InstanceURL}/net2/oauth2/GetAccessToken.ashx`
 
 ##  Operations
 
