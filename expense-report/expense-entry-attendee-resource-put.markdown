@@ -7,6 +7,10 @@ layout: operation
 This allows the developer to specify which existing attendees are associated to the specified entry. It also gives the developer the option to provide the values for the Entry-Attendee association. The list of attendees in the request will replace any existing associated attendees, so the developer must include all attendees in the request. This function cannot be used to create new attendees.
 
 ##Request
+
+### XML request
+
+```xml
     PUT https://www.concursolutions.com/api/expense/expensereport/v2.0/report/9d8ea1kole$sis293mn38dh/entry/8sle90wikl3h$halwnk$lakdjw83/attendees HHTP/1.1
     Authorization: OAuth {access token}
     ...
@@ -23,16 +27,39 @@ This allows the developer to specify which existing attendees are associated to 
             <EntryAttendeeCustom5 i:nil="true"/>
         </Attendee>
     </EntryAttendees>
+```
 
-##Content type
-application/xml
+### Request parameters
 
-application/json
+* **{_reportId_}**: The unique identifier for the expense report. This value is returned in the ReportID element by the [Get Report Details][1] function. Required.
+* **{_entryId_}/attendees**: The unique identifier for the expense entry and the Attendees keyword. This value is returned in the ReportEntryID element by the [Get Report Details][1] function. Required.
 
-###Authorization header
-Authorization header with OAuth token for valid Concur user. 
+Example: `https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{reportId}/entry/{entryId}/attendees`
+
+### Headers
+
+####Accept header
+
+* application/xml
+* application/json
+
+####Authorization header
+Authorization header with OAuth token for valid Concur user. The OAuth user must have one of the following roles in Expense:
+
+**Expense User**: This role allows the user to modify their own reports.
+**Web Services Administrator (Professional/Premium)**: This role allows the user to modify reports for all users.
+**Can Administer (Standard/Sandbox)**: This role allows the user to modify reports for all users.
 
 ###Request body elements
+
+**XML**: The request will contain an **EntryAttendees** parent element with an **Attendee** child element for each attendee associated to the entry.
+
+**JSON**: The request string will contain an object for each attendee associated to the entry.
+
+The request must include all attendees associated to the entry. To detach a previously attached attendee, use a Put request excluding the attendee. The function always associates only the attendees specified in the Put. To not modify the element or name/value pair value, provide a nill (XML) or null (JSON) value, or use the same value as you received in the [Get Expense Entry Attendees][2] response.
+
+The **Attendee** element (XML) or **attendee** object (JSON) must contain all of the following elements(XML) or name/value pairs(JSON):
+
 
 |       Element Name      |   Required/Optional  | Data Type | Description |
 | ----------------------- | -------------------- | --------- | ----------- |
@@ -46,11 +73,14 @@ Authorization header with OAuth token for valid Concur user.
 | EntryAttendeeCustom5    |                      | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
 
 ##Response
-    200 OK
+
+`200 OK`
 
 ##Examples
 
-####Request
+### XML request
+
+```
     PUT https://www.concursolutions.com/api/expense/expensereport/v2.0/report/9d8ea1kole$sis293mn38dh/entry/8sle90wikl3h$halwnk$lakdjw83/attendees HHTP/1.1
     Authorization: OAuth {access token}
     ...
@@ -67,11 +97,28 @@ Authorization header with OAuth token for valid Concur user.
             <EntryAttendeeCustom5 i:nil="true"/>
         </Attendee>
     </EntryAttendees>
+```    
 
-####Response
-    200 OK
+### JSON request
+
+```json
+PUT https://www.concursolutions.com/api/expense/expensereport/v2.0/report/9d8ea1kole$sis293mn38dh/entry/8sle90wikl3h$halwnk$lakdjw83/attendees HHTP/1.1
+Authorization: OAuth {access token}
+...
+
+    [
+
+    {"AttendeeID":"nFaAj0ncBs$puDs5XxZfOc6L5go8EJIueY","Amount":"807.33000000","AttendeeCount":"0","Custom1":"dfg","Custom2":"7686","Custom3":"89080990-90-5464","Custom4":"56sdsd sf","Custom5":null} 
+    ,
+
+    {"AttendeeID":"nFaAj0ncBso0sBd8ejqrxLHz1FfmhJ69b","Amount":"707.33000000","AttendeeCount":"0","Custom1":"fg6rt","Custom2":"9808","Custom3":"64564drd","Cust om4":"352dsxcvs","Custom5":null} 
+]
+```
+###Response
+
+`200 OK`
 
 
 [1]: https://developer.concur.com/node/487#reportdetails
 [2]: https://developer.concur.com/expense-report/expense-entry-attendee-resource/expense-entry-attendee-resource-get
-[3]: https://developer.concur.com/reference/http-codes
+
