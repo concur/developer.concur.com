@@ -9,6 +9,7 @@ Retrieves the full set of information for the report. Includes the Report Header
 Some elements will appear only if the OAuth consumer has the Web Services Admin role. These include: The ReportKey element, the employee's credit card information, and the employee's bank account information, VAT information, Journal entries. Connectors that utilize this information go through a review process with Concur that includes verification of secure data handling.
 
 ## Request
+
 ```
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/n6ujbuLd1Arwe45lT7As3ThJYJf2dAsrrEW HTTP/1.1
 Authorization: OAuth {access token} 
@@ -16,11 +17,11 @@ Authorization: OAuth {access token}
 ```
 
 ### Request parameters
-{reportId}
-The identifier for the desired report.
-Example: https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{reportId}
 
-URI Source: The ReportId is returned in the ReportId element of the Get List of Reports function
+**{_reportId_}**: The identifier for the desired report.
+Example: `https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{reportId}`
+
+**URI Source**: The ReportId is returned in the **ReportId** element of the Get List of Reports function
 
 ### Content types
 application/xml
@@ -30,6 +31,7 @@ Authorization header with OAuth token for valid Concur user. The OAuth consumer 
 These roles allow the user to manage data for the entire company.
 
 ## Response
+
 ```
 200 OK
 Content-Type: application/xml
@@ -619,6 +621,7 @@ Format: YYYY-MM-DD |
 |  PostalAddressRegion |  The postal address region entered on the Bank Information page. Maximum 24 characters. |
 |  PostalAddressCode |  The postal address code entered on the Bank Information page. Maximum 20 characters. |
 |  PostalAddressCountry |  The postal address country entered on the Bank Information page. Maximum 2 characters. Format: The [The ISO 3166-1 alpha-2 country code][3]. Example: United States is US. |
+
 
 [1]: http://en.wikipedia.org/wiki/ISO_4217
 [2]: https://developer.concur.com/expense-report/expense-report-resource/post-report-exceptions
