@@ -5,9 +5,11 @@ layout: operation
 
 ## Description
 Uploads a receipt image and associates it with the OAuth consumer. The user can view the image in the receipt management section of Concur.
+
 **NOTE**: The documentation for the version 3.0 Receipt Images resource can be found [here][1].
 
 ## Request
+
 ```
 POST https://www.concursolutions.com/api/image/v1.0/receipt HTTP/1.1
 Authorization: OAuth {access token}
@@ -15,8 +17,10 @@ Content-Length: 65536
 Content-Type: image/jpeg
 ... image ...
 ```
+
 ###  Post Image to Entry Request
 Uploads a receipt image and associates it with the expense entry that matches the supplied entry ID. Once an image is attached to the entry, you cannot append additional images.
+
 ```
 Containing partial 64 bit encoded string representation of image
 
@@ -46,9 +50,12 @@ Containing partial 64 bit encoded string representation of image
     ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACo4J4bq3iuL
     ......
 ```
+
 ###  Post Image to Payment Request Request
 Uploads an invoice image and associates it with the invoice that matches the supplied request ID. Each invoice is uniquely identified by the request ID value. Once an image is attached to the invoice, you cannot append additional images.
+
 **NOTE**: The Concur Invoice product is required to use this endpoint. Currently you must use the Invoice user interface to get the Request ID value.
+
 ```
 POST https://www.concursolutions.com/api/image/v1.1/invoice/884E2WRE415B43B2A0BE HTTP/1.1
 Authorization: OAuth {access token}
@@ -59,6 +66,7 @@ Content-Type: image/jpeg
 
 ###  Post Image to Report Request
 Uploads a receipt image and associates it with the report that matches the supplied report ID. If a report image already exists for the report, the new image will be appended to the existing image.
+
 ```
     POST https://www.concursolutions.com/api/image/v1.0/report/A2C40CEE415B43B2A0BE HTTP/1.1
     Authorization: OAuth {access token}
@@ -68,6 +76,7 @@ Uploads a receipt image and associates it with the report that matches the suppl
 ```
 
 ### Request parameters
+
 * **receipt**  
 Keyword specifying this is a receipt image.
 Example: https://www.concursolutions.com/api/image/v1.0/receipt
@@ -82,10 +91,12 @@ The identifier for the report and the **report** keyword.
 Example: https://www.concursolutions.com/api/image/v1.0/report/{_reportId_}
 
 ### Content types
+
 * application/pdf
 * image/jpg
 * image/jpeg
 * image/png
+
 **NOTE**: PDF images cannot be encrypted or password protected.
 [Byte array][2] containing the image data.
 
@@ -96,7 +107,9 @@ The Concur user that authenticates during the OAuth process for this request mus
 These administrative roles allow the user to manage data for the entire company.
 
 ## Response
+
 ### Post Receipt Image Response
+
 ```
     201 Created
     Content-Type: application/xml
@@ -107,7 +120,9 @@ These administrative roles allow the user to manage data for the entire company.
         <Url />
     </Image>
 ```
+
 ###  Post Image to Entry Response
+
 ```
     201 Created
     Content-Type: application/xml
@@ -118,7 +133,9 @@ These administrative roles allow the user to manage data for the entire company.
         <Url />
     </Image>
 ```
+
 ###  Post Image to Payment Request Response
+
 ```
 201 Created
     Content-Type: application/xml
@@ -129,7 +146,9 @@ These administrative roles allow the user to manage data for the entire company.
         <Url />
     </Image>
 ```
+
 ###  Post Image to Report Response
+
 ```
 201 Created
     Content-Type: application/xml
