@@ -180,7 +180,8 @@ Format: YYYY-MM-DD |
 |  JournalEntriesList |  This parent element contains at least one **JournalEntry** child element. It contains multiple **JournalEntry** elements if the allocation has multiple journal entries. Refer to the **JournalEntry** Child Elements table for more information. |
 |  VATDataList |  This parent element contains one **VATData** element for each VAT line item. This element will be empty if there are no VAT line items. Refer to the **VATData** Child Elements table for more information. | 
 
-## The **JournalEntry** element contains the following child elements:
+## JournalEntry child elements
+
 |  Element |  Description |
 | -------- | ------------ |
 |  JournalID |  Unique identifier for the journal entry. |
@@ -193,7 +194,8 @@ Format: YYYY-MM-DD |
 |  Amount |  Value, as credit or debit, of the amount to be exchanged between the payer and payee for this expense account code (not an absolute value) Maximum 23 characters. EXAMPLES: Value of zero, credit, or debit, as the following:  <br> 0 (Zero) "0"  <br> \+ (Plus / Debit) "+50.00"  <br> \- (Minus / Credit) "-50.00" |
 |  JobRunKey |  Either the unique identifier for job run for the accounting extract that processed this journal, or a static value indicating the journal was processed by Manual Pay, Expense Pay, or some other system. |
 
-## The **VATData** parent element contains the following child elements:
+## VATData child elements
+
 |  Element |  Description |
 | -------- | ------------ |
 |  TaxName |  Tax authority name. Maximum 50 characters. |
@@ -231,14 +233,16 @@ Format: YYYY-MM-DD |
 |  ExchangeRateFromBillingToEmployeeCurrency |  Currency exchange rate used between the credit card billing currency and the employee's reimbursement currency. Maximum 23 characters. |
 |  BillingAmount |  Amount due to the company card from the employee or company (depending on who is responsible for the bill) for this detail row. Maximum 23 characters. |
 
-## The **Custom Fields** may have the following child elements:  
+## Custom Fields child elements  
+
 |  Element |  Description |
 | ----- | ----- |
 |  Type |  The custom field type. Will be one of the following: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text |
 |  Value |  The value in the custom field. Maximum 48 characters. |
 |  Code |  Custom list fields will include the list item code in this element. |
 
-## The **ReportOwner** parent element includes the following child elements:
+## ReportOwner child elements
+
 |  Element |  Description |
 | ----- | ----- |
 |  EmployeeCustom21 |  The report owner's group ID. Maximum 48 characters. |
@@ -249,7 +253,8 @@ Format: YYYY-MM-DD |
 |  MiddleInitial |  The report owner's middle initial. Maximum 1 character. |
 |  ReimbursementMethodCode |  The report owner's reimbursement method code, as defined in the employee's Profile. |
 
-## The **EmployeeBankAccount** parent element contains the following child elements:
+## EmployeeBankAccount child elements
+
 |  Element |  Description |
 | ----- | ----- |
 |  BankNumber |  The bank identification number entered on the Bank Information page. Maximum 11 characters. |
