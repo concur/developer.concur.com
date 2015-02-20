@@ -25,7 +25,7 @@ Partner Applications that need to access data for individual users must initiate
 
 ## Concur App Center
 
-The App Center tab appears on the primary menu in Concur.  The App Center tab is where Concur users enable Concur Connect Partners to share their data between their accounts with the partner and Concur. Concur administrators can begin the inquiry process for company-wide applications on this tab. Only Concur Connect partners with certified integrations can appear on this tab.
+The App Center tab appears on the primary menu in Concur. The App Center tab is where Concur users enable Concur Connect Partners to share their data between their accounts with the partner and Concur. Concur administrators can begin the inquiry process for company-wide applications on this tab. Only Concur Connect partners with certified integrations can appear on this tab.
 
 ### User Access Applications
 
@@ -39,7 +39,7 @@ Company-wide applications require additional steps to connect. The application l
 
 ## Application Review
 
-Partners wishing to appear on the App Center tab work with Concur to have their application reviewed. Refer to the [Application Review Center][2] for more information.
+Partners wishing to appear on the App Center tab work with Concur to have their application reviewed. Refer to the [Application Review Center][2] for more information.
 
 ## Company Level Authentication
 
@@ -169,9 +169,8 @@ The application makes this call:
 
 The Response is:
 
-```XML
+```xml
 HTTP/1.1 200 OK
-
 <Access_Token>
     <Token>abcd1234hjkl0987qwer2468yuio1357</Token>
     <Expiration_date>3/30/2013 1:11:11 PM</Expiration_date>
@@ -212,7 +211,7 @@ The application calls the [Get Token Using Web Flow][6] function:
 
 The Response is:
 
-```
+```xml
 HTTP/1.1 200 OK
 ...
 <Access_Token>
