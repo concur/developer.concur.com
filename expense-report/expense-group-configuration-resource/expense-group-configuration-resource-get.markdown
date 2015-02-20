@@ -101,5 +101,5 @@ Each ExpenseType element contains the following child elements:
 ```
 
 [1]: https://developer.concur.com/oauth-20
-[2]: https://developer.concur.com/expense-report/expense-entry-resource/post-entries
-[3]: https://developer.concur.com/reference/http-codes
+[2]: https://developer.concur.com/expense-report/expense-entries-resource/post-entries
+
