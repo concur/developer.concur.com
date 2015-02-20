@@ -162,6 +162,8 @@ These administrative roles allow the user to manage data for the entire company.
 
 ### Response root elements
 
+The response will contain an Image parent element, with the following child elements:
+
 |  Element |  Description |
 | -------- | ------------ |
 |  Id |  The unique identifier of the image. |
