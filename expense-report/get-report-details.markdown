@@ -1,5 +1,5 @@
 ---
-title: Expense Report Resource
+title: Get report details
 layout: operation
 ---
 
@@ -65,7 +65,7 @@ This request will return a **ReportDetails** parent element with the following c
 |  EverSentBack |  Whether the report has ever been sent back to the employee. Format: Y/N |
 |  HasException |  Whether the report has exceptions. Format: Y/N  |
 |  WorkflowActionURL |  The URL to post a workflow action to the report using the [Post Report Workflow Action][2] function. |
-|  ExpenseEntriesList |  This parent element has an **ExpenseEntry** child element for each entry. Refer to the Expense Entry Child Elements table for more information. |
+|  ExpenseEntriesList |  This parent element has an **ExpenseEntry** child element for each entry. Refer to the **ExpenseEntry Child Elements** table for more information. |
 |  ReportImageURL |  The URL to access the image associated with the report. This URL is valid for 30 minutes after the web service call. |
 |  Country |  The report country. Maximum 2 characters. Format: [The ISO 3166-1 alpha-2 country code][3]. Example: United States is US. |
 |  CountrySubdivision |  The report country subdivision. Format: [ISO 3166-2:2007 country subdivision][4]. |
@@ -75,7 +75,7 @@ Format: YYYY-MM-DD |
 |  ReportOwner |  This parent element includes details about the employee who is the report owner. It saves the caller from calling the [Get User Information][5] function to get employee information commonly used in accounting integration. The **ReportOwner** element includes the most recent information about the report owner, at the time the report is requested. |
 |  EmployeeBankAccount |  This parent element includes the bank account data found on the **Bank Information** page in Profile. This data is used in **Payment System** integrations where the payment system reimburses the employee via this bank account. | 
 
-##Expense Entry Child Elements
+###ExpenseEntry child elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -97,7 +97,7 @@ Format: YYYY-MM-DD |
 |  LocationSubdivision |  The location's State, Province, or Country Subdivision. Maximum 6 characters. |
 |  LocationCountry |  The location's Country. Maximum 2 characters. |
 |  OrgUnit1 through OrgUnit |  The details from the Org Unit custom fields. These may not have data, depending on configuration. Maximum 48 characters for each field. |
-|  Custom1 through Custom40 |  The details from the Custom fields. These may not have data, depending on configuration. Refer to the **Custom Fields** Child Elements table for more information.  |
+|  Custom1 through Custom40 |  The details from the Custom fields. These may not have data, depending on configuration. Refer to the **Custom Fields Child Elements** table for more information.  |
 |  FormID |  The ID for the expense entry form. |
 |  EntryImageID |  The unique identifier for the image associated with the entry. |
 |  HasVat |  Whether the entry contains VAT data. Maximum 1 character. Format: Y/N |
@@ -114,14 +114,14 @@ Format: YYYY-MM-DD |
 |  ImageRequired |  Whether a receipt image is required for the entry. Maximum 1 character. Format: Y/N |
 |  E-ReceiptID |  The ID for the attached e-receipt, if available. |
 |  LastModifiedDate |  The date the expense entry was last changed. Maximum 19 characters. Format: YYYY-MM-DDThh:mm:ss |
-|  ItemizationsList |  The list of itemizations for the expense entry. This parent element will have at least one **Itemization** child element. If the expense entry is not itemized, the **Itemization** will contain the same values as the entry. If the expense entry has itemizations, there will be one **Itemization** child element for each itemization. Refer to the Itemization Entry Details Child Elements table for more information. <br> **NOTE**: There are a few rare cases where the **ItemizationsList** will be null. This happens when a report entry has a payment type code that is not **IBCP with offsets** or **CBCP** and there is a Regular or Child expense entry with an Approved Amount equal to zero. The expense entry will have a Null **ItemizationsList**. |
+|  ItemizationsList |  The list of itemizations for the expense entry. This parent element will have at least one **Itemization** child element. If the expense entry is not itemized, the **Itemization** will contain the same values as the entry. If the expense entry has itemizations, there will be one **Itemization** child element for each itemization. Refer to the **Itemization Child Elements** table for more information. <br> **NOTE**: There are a few rare cases where the **ItemizationsList** will be null. This happens when a report entry has a payment type code that is not **IBCP with offsets** or **CBCP** and there is a Regular or Child expense entry with an Approved Amount equal to zero. The expense entry will have a Null **ItemizationsList**. |
 |  ReportEntryVendorName |  Vendor name the employee selected from the Vendor list field. Maximum 64 characters. |
 |  ReportEntryReceiptReceived |  If Y, then this entry has been marked as reviewed by a processor. Maximum 1 character. Format: Y/N |
 |  ReportEntryReceiptType |  Maximum 1 character. One of these: <br> T = tax receipt <br> R= regular receipt <br> N = no receipt |
-|  CardTransaction |  This parent element includes the card transaction data found in the card transaction associated to this expense entry. This data is used in **Payment System** integrations where the payment system reimburses the card issuer for the indicated card account. Refer to the Card Transaction Child Elements field. |
+|  CardTransaction |  This parent element includes the card transaction data found in the card transaction associated to this expense entry. This data is used in **Payment System** integrations where the payment system reimburses the card issuer for the indicated card account. Refer to the **CardTransaction child elements** table. |
 |  ExpensePay |  Whether the entry was paid using the Expense Pay service. This element have a value if the report has reached the Processing Payment workflow step. Format: Yes/No |
 
-## Itemization Entry Details Child Elements
+### Itemization child elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -135,17 +135,17 @@ Format: YYYY-MM-DD |
 |  ApprovedAmount |  The approved amount of the itemization in the user's reimbursement currency. The user's reimbursement currency is returned in the **CrnCode** element for the report. Maximum 23 characters. |
 |  BusinessPurpose |  The business purpose field from the report header. |
 |  OrgUnit1 through OrgUnit6 |  The details from the Org Unit custom fields. These may not have data, depending on configuration. Maximum 48 characters for each field. |
-|  Custom1 through Custom40 |  The custom fields associated with the itemization. These may not have data, depending on your configuration. Refer to the **Custom Fields** Child Elements table for more information.  |
+|  Custom1 through Custom40 |  The custom fields associated with the itemization. These may not have data, depending on your configuration. Refer to the **Custom Fields Child Elements** table for more information.  |
 |  Value |  The value in the custom field. Maximum 48 characters. |
 |  Code |  Custom list fields will include the list item code in this element. |
 |  HasComments |  Whether the itemization has comments. Maximum 1 character. Format: Y/N |
 |  CommentCount |  The number of comments associated with the itemization. |
 |  IsPersonal |  Whether the itemization is personal. Maximum 1 character. Format: Y/N |
 |  LastModified |  The UTC date when the itemization was last modified. Maximum 19 characters. Format: YYYY-MM-DDThh:mm:ss |
-|  AttendeesList |  This parent element contains one **Attendee** element for each associated attendee. Refer to the **Attendee** Child Elements table for more information. |  
-|  AllocationsList |  This parent element contains at least one **Allocation** element. It will contain multiple **Allocation** elements if there are multiple allocations for the itemization. Refer to the Allocations List Child Elements table. |
+|  AttendeesList |  This parent element contains one **Attendee** element for each associated attendee. Refer to the **Attendee Child Elements** table for more information. |  
+|  AllocationsList |  This parent element contains at least one **Allocation** element. It will contain multiple **Allocation** elements if there are multiple allocations for the itemization. Refer to the **Allocation child elements** table. |
 
-## The **Attendee** element contains the following child elements:
+### Attendee child elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -155,7 +155,7 @@ Format: YYYY-MM-DD |
 |  Company |  The attendee's company name. Maximum 150 characters. |
 |  Title |  The attendee's title. Maximum 32 characters. |
 |  ExternalID |  The unique identifier for the attendee, managed outside Concur. Maximum 48 characters. |
-|  Custom1 through Custom20 |  The details from the Custom fields. These may not have data, depending on configuration. Refer to the **Custom Fields** Child Elements table for more information. |
+|  Custom1 through Custom20 |  The details from the Custom fields. These may not have data, depending on configuration. Refer to the **Custom Fields Child Elements** table for more information. |
 |  HasExceptionsPrevYear |  Whether the attendee has exceptions in the previous year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
 |  HasExceptionsYTD |  Whether the attendee has exceptions in the current year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
 |  IsDeleted |  Whether the attendee is marked as deleted. Maximum 1 character. Format: Y/N |
@@ -168,19 +168,19 @@ Format: YYYY-MM-DD |
 |  AttendeeOwnerID |  The unique identifier for the person or system that owns the attendee. |
 |  CurrencyCode |  The [3-letter ISO 4217 currency code][1] for attendee related amounts. |
 
-## Allocations List Child Elements
+### Allocation child elements
 
 |  Element |  Description |
 | -------- | ------------ |
 |  AllocationID |  The unique alphanumeric identifier for the allocation. Maximum 13 characters. |
 |  Percentage |  The percentage of the expense that is included in this allocation. Maximum 11 characters. |
 |  AccountCode1 |  The primary accounting code assigned to the expense type associated with this allocation. Typically, expense types have only this primary account code. |
-|  AccountCode2 | The secondary or alternative  accounting code assigned to the expense type associated with this allocation. In rare cases some expense types include this accounting code to handle special cases. One example of these special cases is when using travel allowance, where one expense would use the primary account code for the allowed amount, and the alternative account code for the overage. Another example is personal use of a company car. <br> Refer to the _Expense__: Account Codes Setup Guide_ for more information on how Concur Expense determines which accounting codes to use.  |
-|  Custom1 through Custom20 |  The custom fields associated with the allocation. These may not have data, depending on your configuration. TRefer to the **Custom Fields** Child Elements table for more information. |  
-|  JournalEntriesList |  This parent element contains at least one **JournalEntry** child element. It contains multiple **JournalEntry** elements if the allocation has multiple journal entries. Refer to the **JournalEntry** Child Elements table for more information. |
-|  VATDataList |  This parent element contains one **VATData** element for each VAT line item. This element will be empty if there are no VAT line items. Refer to the **VATData** Child Elements table for more information. | 
+|  AccountCode2 | The secondary or alternative accounting code assigned to the expense type associated with this allocation. In rare cases some expense types include this accounting code to handle special cases. One example of these special cases is when using travel allowance, where one expense would use the primary account code for the allowed amount, and the alternative account code for the overage. Another example is personal use of a company car. <br> Refer to the _Expense: Account Codes Setup Guide_ for more information on how Concur Expense determines which accounting codes to use.  |
+|  Custom1 through Custom20 |  The custom fields associated with the allocation. These may not have data, depending on your configuration. TRefer to the **Custom Fields Child Elements** table for more information. |  
+|  JournalEntriesList |  This parent element contains at least one **JournalEntry** child element. It contains multiple **JournalEntry** elements if the allocation has multiple journal entries. Refer to the **JournalEntry Child Elements** table for more information. |
+|  VATDataList |  This parent element contains one **VATData** element for each VAT line item. This element will be empty if there are no VAT line items. Refer to the **VATData Child Elements** table for more information. | 
 
-## JournalEntry child elements
+### JournalEntry child elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -189,7 +189,7 @@ Format: YYYY-MM-DD |
 |  PayerPaymentTypeCode |  Payment code name for the payer. Maximum 80 characters. |
 |  PayeePaymentTypeName |  Payee payment type. Maximum 64 characters. One of these: <br> Company = Company <br> Employee = Employee <br> Payment Type for the Credit Card Payment Type |
 |  PayeePaymentCode |  Payment code name for the payee. Maximum 80 characters. |
-|  AccountCode |  The account code Concur Expense determines should apply to this journal entry.  For journal entries associated to an allocation, Concur Expense uses the business logic described in the _Expense: Account Codes Setup Guide_ to determine whether the primary or secondary account code should apply.  When there is no allocation associated to the journal entry, Concur Expense uses clearing account codes for Credit Card and Cash Advance for personal use of a company paid expense or a cash advance issued to an employee respectively. Maximum 48 characters. <br> **NOTE**: The developer should almost always use this accounting code when creating financial transactions in financial systems.  In some situations a developer may need to use the accounting codes in the Allocation parent element.|
+|  AccountCode |  The account code Concur Expense determines should apply to this journal entry. For journal entries associated to an allocation, Concur Expense uses the business logic described in the _Expense: Account Codes Setup Guide_ to determine whether the primary or secondary account code should apply.  When there is no allocation associated to the journal entry, Concur Expense uses clearing account codes for Credit Card and Cash Advance for personal use of a company paid expense or a cash advance issued to an employee respectively. Maximum 48 characters. <br> **NOTE**: The developer should almost always use this accounting code when creating financial transactions in financial systems. In some situations a developer may need to use the accounting codes in the Allocation parent element.|
 |  DebitOrCredit |  Maximum 2 characters. Either: <br> DR = Debit <br> CR = credit |
 |  Amount |  Value, as credit or debit, of the amount to be exchanged between the payer and payee for this expense account code (not an absolute value) Maximum 23 characters. EXAMPLES: Value of zero, credit, or debit, as the following:  <br> 0 (Zero) "0"  <br> \+ (Plus / Debit) "+50.00"  <br> \- (Minus / Credit) "-50.00" |
 |  JobRunKey |  Either the unique identifier for job run for the accounting extract that processed this journal, or a static value indicating the journal was processed by Manual Pay, Expense Pay, or some other system. |
@@ -206,7 +206,7 @@ Format: YYYY-MM-DD |
 |  TaxReclaimTransactionAmount |  Calculated amount of tax eligible for reclaim in the spend currency. Maximum 23 characters. |
 |  TaxReclaimPostedAmount |  Calculated amount of tax eligible for reclaim in the reimbursement currency. Maximum 23 characters. |
 
-##  Card Transaction Child Elements
+###  CardTransaction child elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -233,7 +233,7 @@ Format: YYYY-MM-DD |
 |  ExchangeRateFromBillingToEmployeeCurrency |  Currency exchange rate used between the credit card billing currency and the employee's reimbursement currency. Maximum 23 characters. |
 |  BillingAmount |  Amount due to the company card from the employee or company (depending on who is responsible for the bill) for this detail row. Maximum 23 characters. |
 
-## Custom Fields child elements  
+### Custom fields child elements  
 
 |  Element |  Description |
 | ----- | ----- |
@@ -241,7 +241,7 @@ Format: YYYY-MM-DD |
 |  Value |  The value in the custom field. Maximum 48 characters. |
 |  Code |  Custom list fields will include the list item code in this element. |
 
-## ReportOwner child elements
+### ReportOwner child elements
 
 |  Element |  Description |
 | ----- | ----- |
@@ -253,7 +253,7 @@ Format: YYYY-MM-DD |
 |  MiddleInitial |  The report owner's middle initial. Maximum 1 character. |
 |  ReimbursementMethodCode |  The report owner's reimbursement method code, as defined in the employee's Profile. |
 
-## EmployeeBankAccount child elements
+### EmployeeBankAccount child elements
 
 |  Element |  Description |
 | ----- | ----- |
@@ -267,11 +267,11 @@ Format: YYYY-MM-DD |
 |  PostalAddressCity |  The postal address city entered on the Bank Information page. Maximum 24 characters. |
 |  PostalAddressRegion |  The postal address region entered on the Bank Information page. Maximum 24 characters. |
 |  PostalAddressCode |  The postal address code entered on the Bank Information page. Maximum 20 characters. |
-|  PostalAddressCountry |  The postal address country entered on the Bank Information page. Maximum 2 characters. Format: The [The ISO 3166-1 alpha-2 country code][3]. Example: United States is US. |
+|  PostalAddressCountry |  The postal address country entered on the Bank Information page. Maximum 2 characters. Format: The [ISO 3166-1 alpha-2 country code][3]. Example: United States is US. |
 
 ## XML example of successful response
 
-```
+```xml
 200 OK
 Content-Type: application/xml
 
