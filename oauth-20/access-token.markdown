@@ -5,8 +5,6 @@ layout: resource
 
 
 
-## Access Token
-
 ##  Description
 
 An access token is a long-lived token used to make authorized API calls.
