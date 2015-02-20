@@ -8,26 +8,42 @@ Retrieves the expense entry attendees for the specified expense entry. This func
 
 ##Request
 
+### XML request
+
+```
     GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/nxxKgLlnROz3zHJBCRksaas23dsfs/entry/n7We3qWw99u1KoWTMaLhSC$pXBYzQ1UDhn/attendees HTTP/1.1
     Authorization: OAuth {access token}
     ...
-   
+```
+
+### JSON request
+
+```
+GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/nxxKgLlnROz3zHJBCRksaas23dsfs/entry/n7We3qWw99u1KoWTMaLhSC$pXBYzQ1UDhn/Attendees HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
+
 ###Request parameters
+
 * **{reportId}**  
 The unique identifier for the expense report. This value is returned in the **ReportID** element by the [Get Report Details][1] function.
 * **{entryId}/attendees**  
 The unique identifier for the expense entry and the Attendees keyword. This value is returned in the **ReportEntryID** element by the [Get Report Details][1] function.
 
-###Content type
-application/xml
+###Accept headers
 
-application/json
+* application/xml
+* application/json
 
 ###Authorization header
 Authorization header with OAuth token for valid Concur user.
 
 ##Response
 
+### XML response
+
+```xml
     200 OK
     Content-Type: application/xml
 
@@ -43,6 +59,22 @@ Authorization header with OAuth token for valid Concur user.
             <EntryAttendeeCustom5 i:nil="true"/>
         </Attendee>
     </EntryAttendees>
+```
+
+### JSON response
+
+```json
+200 OK
+Content-Type: application/json
+
+   [
+
+    {"AttendeeID":"nFaAj0ncBs$puDs5XxZfOc6L5go8EJIueY","Amount":"807.33000000","AttendeeCount":"0","Custom1":"Medical","Custom2":"North America","Custom3":"Canada","Custom4":"Vancouver","Custom5":null} 
+    ,
+
+    {"AttendeeID":"nFaAj0ncBso0sBd8ejqrxLHz1FfmhJ69b","Amount":"707.33000000","AttendeeCount":"0","Custom1":"Medical","Custom2":"North America","Custom3":"Canada","Custom4":"Vancouver","Custom5":null} 
+] 
+```
 
 ###Response root elements
 
