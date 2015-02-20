@@ -15,7 +15,7 @@ The Auto-Connect flow is an authorization flow Concur implemented to support aut
 Before you can implement the Auto-Connect flow, you need to:
 
 * Obtain a request token by following the steps listed under [Registering a Partner Application][1]. 
-The **Application Authorization** section in the **New Partner Application** page includes a **Key** field and **Secret** field. This key-and-secret pair make up the request token. The value for the **Key** field is also known as the consumer key and it is the unique identifier for your application; the value for the **Secret** field is your application's client secret. The consumer key and client secret pair is the request token which is later exchanged for an access token . You must safeguard and keep this information confidential as required by the Concur Legal Agreement.  
+The **Application Authorization** section in the **New Partner Application** page includes a **Key** field and **Secret** field. This key-and-secret pair make up the request token. The value for the **Key** field is also known as the consumer key and it is the unique identifier for your application; the value for the **Secret** field is your application's client secret. The consumer key and client secret pair is the request token which is later exchanged for an access token. You must safeguard and keep this information confidential as required by the Concur Legal Agreement.  
 
 * Configure your application with the Connection Request API scope:  
 ![][2]
@@ -46,7 +46,8 @@ To implement the Auto-Connect flow, follow these steps:
    code={Request Token}&client_id={consumer key}&
    client_secret={consumer secret}
    Accept: {application/xml | application/json}
-   ```
+   ```  
+   
    Request tokens expire after 15 minutes. Design your application to process all connection requests within this time limit.
    Each access token created in this step is applicable for a given user for your application only. These access tokens 
    cannot be used for other partner applications.  
@@ -63,8 +64,8 @@ To implement the Auto-Connect flow, follow these steps:
         <Status>{Status Code}</Status>
    <ConnectionRequest>
    ```
-
-If you encounter an error that makes it impossible to complete the connection process, revoke the access token to the user knows that the connection attempt failed and they can try again at a later time.
+   
+   If you encounter an error that makes it impossible to complete the connection process, revoke the access token to the user    knows that the connection attempt failed and they can try again at a later time.
 
 
 
