@@ -9,20 +9,54 @@ Retrieves the list of Expense Polices, Expense Types and Payment Types for the E
 **NOTE**: The Concur Expense product is highly configurable, and each client may have a unique set of payment types. If a payment type is not included in the response, it is not available for use with this client.
 
 ## Request
+
 ```
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/ExpenseGroupConfiguration/ HTTP/1.1
 Authorization: OAuth {access token}
 ...
 ```
+
 ### Request parameters
+None.
 
-### Content types
-application/xml
+### Headers
 
-### Authorization header
+#### Authorization header
 Authorization header with OAuth token for valid Concur user.
 
+#### Accept header
+application/xml
+
 ## Response
+
+### Response root elements
+This request will return an **ExpenseGroupConfiguration** parent element. The **ExpenseGroupConfiguration **has a **PaymentTypes** child element and a **PolicyAndExpenseTypesList** child element. The **PaymentTypes** child element has a **PaymentType** child element for each configured payment type. The PaymentType element has the following child elements:
+
+|  Element |  Description |
+| -------- | ------------ |
+|  PaymentTypeID |  The encrypted key for the payment type. This is the unique identifier for the payment type. |
+|  PaymentTypeName |  The name of the payment type. |
+
+The **PolicyAndExpenseTypesList** child element will have a **PolicyandExpenseTypes** child element for each policy configured for this expense group. The **PolicyAndExpenseTypes** element has the following child elements:
+
+|  Element |  Description |
+| -------- | ------------ |
+|  PolicyKey |  The ID value of the policy. |
+|  PolicyName |  The name of the policy. |
+|  ExpenseTypes |  The parent element for the list of expense types in the policy. It contains an **ExpenseType** child element for each expense type in the policy. |
+
+Each ExpenseType element contains the following child elements:
+
+|  Element |  Description |
+| -------- | ------------ |
+|  ExpKey |  The expense type key. |
+|  ExpName |  The label of the expense type. |
+|  ParentExpKey |  The code of the expense type's parent. |
+|  ParentExpName |  The label of the expense type's parent. |
+|  SpendCategory |  The spend category assigned to the expense type for reporting purposes. |
+
+## XML example of successful response
+
 ```
     200 OK
     Content-Type: application/xml
@@ -65,32 +99,6 @@ Authorization header with OAuth token for valid Concur user.
         </PolicyAndExpenseTypesList>
     </ExpenseGroupConfiguration>
 ```
-
-### Response root elements
-This request will return an **ExpenseGroupConfiguration** parent element. The **ExpenseGroupConfiguration **has a **PaymentTypes** child element and a **PolicyAndExpenseTypesList** child element. The **PaymentTypes** child element has a **PaymentType** child element for each configured payment type. The PaymentType element has the following child elements:
-
-|  Element |  Description |
-| -------- | ------------ |
-|  PaymentTypeID |  The encrypted key for the payment type. This is the unique identifier for the payment type. |
-|  PaymentTypeName |  The name of the payment type. |
-
-The **PolicyAndExpenseTypesList **child element will have a **PolicyandExpenseTypes** child element for each policy configured for this expense group. The **PolicyAndExpenseTypes** element has the following child elements:
-
-|  Element |  Description |
-| -------- | ------------ |
-|  PolicyKey |  The ID value of the policy. |
-|  PolicyName |  The name of the policy. |
-|  ExpenseTypes |  The parent element for the list of expense types in the policy. It contains an **ExpenseType** child element for each expense type in the policy. |
-
-Each ExpenseType element contains the following child elements:
-
-|  Element |  Description |
-| -------- | ------------ |
-|  ExpKey |  The expense type key. |
-|  ExpName |  The label of the expense type. |
-|  ParentExpKey |  The code of the expense type's parent. |
-|  ParentExpName |  The label of the expense type's parent. |
-|  SpendCategory |  The spend category assigned to the expense type for reporting purposes. |
 
 [1]: https://developer.concur.com/oauth-20
 [2]: https://developer.concur.com/expense-report/expense-entry-resource/post-entries
