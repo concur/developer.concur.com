@@ -27,9 +27,11 @@ Authorization: OAuth {access token}
 ###Request parameters
 
 * **{reportId}**  
-The unique identifier for the expense report. This value is returned in the **ReportID** element by the [Get Report Details][1] function.
+The unique identifier for the expense report. This value is returned in the **ReportID** element by the [Get Report Details][1] function. Required.
 * **{entryId}/attendees**  
-The unique identifier for the expense entry and the Attendees keyword. This value is returned in the **ReportEntryID** element by the [Get Report Details][1] function.
+The unique identifier for the expense entry and the Attendees keyword. This value is returned in the **ReportEntryID** element by the [Get Report Details][1] function. Required.
+
+Example: `https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{reportId}/entry{entryId}/attendees`
 
 ###Accept headers
 
