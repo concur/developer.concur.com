@@ -5,7 +5,7 @@ layout: resource
 
 
 ## Description
-The type of attendee, as configured in Concur.
+The Attendee Type resource represents the type of attendee as configured in Concur.
 
 ## Version
 1.0
@@ -13,10 +13,11 @@ The type of attendee, as configured in Concur.
 ## URI
 [https://www.concursolutions.com/api/expense/attendee/v1.0/type][1]
 
-## Content types
+### Headers
+## Content-Type header
 application/xml
 
-## Accept types
+## Accept header
 application/xml
 
 ## Operations
