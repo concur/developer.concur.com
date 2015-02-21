@@ -332,7 +332,7 @@ Data model shown in JSON:
 
 In this example, a customer makes purchases in a coffee shop and pays with a card that has funds loaded on it and is linked to a loyalty account. The request header contains the access token of the shop employee who processes the transaction; this value is used to retrieve the Provider ID for the business. Because the form of payment is cash, the PaymentCard element is not included in the request. The example includes several line items, for goods purchased and also for tax. The provider has the option of including line items for tax and subtotal, if desired. The matching fact that is used to match the customer (a Concur user) to the receipt is that user's login ID.
 
-###  Request - JSON
+####  Request - JSON
 
 ```json
     POST {InstanceURI}/api/v3.0/common/receipts HTTP/1.1
@@ -391,7 +391,7 @@ In this example, a customer makes purchases in a coffee shop and pays with a car
     }
 ```
 
-###  Response - JSON
+####  Response - JSON
 
 The response includes the ID of the receipt that was posted. The URI is not typically included in the response.
 
@@ -406,7 +406,7 @@ The response includes the ID of the receipt that was posted. The URI is not typi
 
 In this example, the provider company (Acme Hotels) posts a receipt for a hotel stay in which one guest stays for one night. The request header contains the access token of the hotel employee who processes the transaction; this value is used to retrieve the Provider ID for the hotel. Because the form of payment is credit card, the PaymentCard element is required to be included in the request. Several line items are also included in this example, as well as a custom field containing information about a special request. The matching fact that is used to match the guest (a Concur user) to the receipt is that user's access token value.
 
-###  Request - JSON
+####  Request - JSON
 
 ```json
     POST {InstanceURI}/api/v3.0/common/receipts HTTP/1.1
@@ -488,7 +488,7 @@ In this example, the provider company (Acme Hotels) posts a receipt for a hotel 
     }
 ```
 
-###  Response - JSON
+####  Response - JSON
 
 The response includes the ID of the receipt that was posted.
 
@@ -503,7 +503,7 @@ The response includes the ID of the receipt that was posted.
 
 In this example, a ride service provider posts a receipt for a ride. The receipt contains one line item for the fare, and one for the tip. A custom field contains information about a promotion code. Because the form of payment is credit card, the PaymentCard element is required to be included in the request. The matching fact that is used to match the customer (a Concur user) to the receipt is that user's access token value.
 
-###  Request - XML
+####  Request - XML
 
 ```xml
     POST {InstanceURI}/api/v3.0/common/receipts HTTP/1.1
@@ -574,7 +574,7 @@ In this example, a ride service provider posts a receipt for a ride. The receipt
     </Receipt>
 ```
 
-###  Response
+####  Response
 
 The response includes the ID of the receipt that was posted.
 
@@ -592,7 +592,7 @@ The response includes the ID of the receipt that was posted.
 
 
 
-[1]: https://developer.concur.com/node/808
+[1]: https://developer.concur.com/receipts
 [2]: http://en.wikipedia.org/wiki/ISO_4217
 [3]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 [4]: http://en.wikipedia.org/wiki/ISO_3166-2
