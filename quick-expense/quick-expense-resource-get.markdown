@@ -1,4 +1,4 @@
-.---
+---
 title: Get quick expenses
 layout: operation
 ---
