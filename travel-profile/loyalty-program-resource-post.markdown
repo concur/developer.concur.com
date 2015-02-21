@@ -1,12 +1,12 @@
 ---
-title: Update Loyalty Program
+title: Update a loyalty program
 layout: operation
 ---
 
-##  Post Loyalty Program Update Request
 
-### Description
-Updates the loyalty program information for the OAuth consumer. Loyalty contains a variety of information about the user's loyalty membership including
+
+## Description
+Updates the loyalty program information for the OAuth consumer. Loyalty contains a variety of information about the user's loyalty membership, including:
 
 * Vendor
 * Number
@@ -17,36 +17,44 @@ Updates the loyalty program information for the OAuth consumer. Loyalty contains
 * Unit to Next Status
 * Segments to Next Status
 
-### Travel Suppliers
+**Travel Suppliers**
 
 If the request is sent from a travel supplier with an [OAuth token][1] for the user, they can set a new loyalty program number. Travel suppliers can only update their own loyalty program information.
 
-### Travel Management Companies
+**Travel Management Companies**
 
 If the request is sent by a TMC, the request can update any loyalty program for the OAuth consumer.
 
-| Restrictions | Supported Content Types |
-| ------------ | ----------------------- |
-|  This function is only available to travel suppliers who have completed the [Concur application review process][2]. Suppliers may post loyalty membership information for their loyalty programs only. | application/xml |
+### Restrictions
 
-| Query Parameters - Required | Query Parameters - Optional |
-| --------------------------- | --------------------------- |
-| None | None |
+This function is only available to travel suppliers who have completed the [Concur application review process][2]. Suppliers may post loyalty membership information for their loyalty programs only.
 
-| Request Headers - Required | Request Headers - Optional |
-| -------------------------- | -------------------------- |
-|  Authorization header with OAuth token for valid Concur user. |  None |
+## Request
 
-### Content Body
-This request contains the **LoyaltyMembershipUpdate** parent element with a **Membership** child element for each included loyalty program. The **Membership** element has a **UniqueID** attribute containing the loyalty program identifier, and the following child elements:  
+### Headers
+
+####Authorization header
+
+Authorization header with OAuth token for valid Concur user. Required.
+
+####Accept header
+
+application/xml
+
+### Request body
+
+#### Root elements
+This request contains the **LoyaltyMembershipUpdate** parent element with a **Membership** child element for each included loyalty program. The **Membership** element has a **UniqueID** attribute containing the loyalty program identifier, and the following child elements.
+
+##### Membership element
 
 | Element | Description |
-| :------- | :----------- |
+| ------- | ----------- |
 | VendorCode | The code for the vendor that manages the loyalty program. This element is required when the request is sent by a TMC, and is ignored when the request is sent by a travel supplier. |
 | VendorType | The type of vendor that manages the loyalty program. Format: A, C or H<br>A – Air<br>C – Car<br>H – Hotel<br>This element is required when the request is sent by a TMC, and is ignored when the request is sent by a travel supplier. |
 | AccountNo | The user's account identifier in the loyalty program. |
 | Status | Name of the user's current level in the loyalty program.  Examples: Gold or Premier. |
-| StatusBenefits | Description of a benefit of the loyalty program at the at current status.  Example: You are entitled to free breakfast. |
+| StatusBenefits | Description of a benefit of the loyalty program at the at current status. Example: You are entitled to free breakfast. |
 | PointTotal | The user's total number of points in the loyalty program. |
 | SegmentTotal | The user's total segments in the loyalty program. |
 | NextStatus | Name or description of next higher status level in the  loyalty program. |
@@ -55,9 +63,12 @@ This request contains the **LoyaltyMembershipUpdate** parent element with a **Me
 
 ###  XML Example Request From Travel Supplier
 
+```
     POST https://www.concursolutions.com/api/travelprofile/v1.0/loyalty HTTP/1.1
     Authorization: OAuth {access token}
     ...
+```
+
 ```xml
     <LoyaltyMembershipUpdate>
         <Membership UniqueID="Frequent Flier">
@@ -82,12 +93,16 @@ This request contains the **LoyaltyMembershipUpdate** parent element with a **Me
         </Membership>
     </LoyaltyMembershipUpdate>
 ```
+
 ###  XML Example Request From TMC
 
+```
     POST https://www.concursolutions.com/api/travelprofile/v1.0/loyalty HTTP/1.1
     Authorization: OAuth {access token}
     ...
+```
 
+```xml
     <LoyaltyMembershipUpdate>
         <Membership UniqueID="Frequent Flier">
             <VendorCode>AA</VendorCode>
@@ -114,14 +129,16 @@ This request contains the **LoyaltyMembershipUpdate** parent element with a **Me
             <SegmentsUntilNextStatus>110</SegmentsUntilNextStatus>
         </Membership>
     </LoyaltyMembershipUpdate>
+```
 
-##  Post Loyalty Program Update Response
+##  Response
 
-| HTTP Responses | Supported Content Types |
-| -------------- | ----------------------- |
-| [HTTP Status Codes][3] | application/xml |
+### Content Types
 
-###  Content Body
+application/xml
+
+###  Response body root elements
+
 This request will return a **LoyaltyMembershipResponse** parent element with the following child elements:  
 
 | Element | Description |
@@ -131,6 +148,7 @@ This request will return a **LoyaltyMembershipResponse** parent element with the
 
 ###  XML Example of Successful Response
 
+```xml
     200 OK
     Content-Type: application/xml
 
@@ -138,8 +156,8 @@ This request will return a **LoyaltyMembershipResponse** parent element with the
         <Status>OK</Status>
         <ErrorDescription />
     </LoyaltyMembershipResponse>
-
+```
 
 [1]: https://developer.concur.com/oauth-20
 [2]: https://developer.concur.com/go-market/app-certification
-[3]: https://developer.concur.com/reference/http-codes
+
