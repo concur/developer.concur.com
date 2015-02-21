@@ -12,9 +12,15 @@ The Receipts POST operation is used by provider companies to post receipts for a
 
 Post a receipt in the Concur system for any of the following receipt types:
 
-**Note:** The Receipt service only accepts receipts that are up to 6 months old. Older receipts will not be accepted.
+* General receipt type
+* Hotel receipt type
+* Ride receipt type
 
-##  Authorization header
+**Note:** The Receipt service accepts only receipts that are up to 6 months old. Older receipts will not be accepted.
+
+## Headers
+
+###  Authorization header
 
 `Authorization: OAuth {access_token}`
 
@@ -26,6 +32,7 @@ The Receipt service maps the user's OAuth 2.0 access token to the Provider ID th
 
 Data model shown in XML:
 
+```xml
     <Receipt>
       <Amount>Decimal?</Amount>
       <CurrencyCode>string</CurrencyCode>
@@ -125,9 +132,11 @@ Data model shown in XML:
       <TransactionDateTime>DateTime?</TransactionDateTime>
       <Type>string</Type>
     </Receipt>
+```
 
 Data model shown in JSON:
 
+```json
     {
       "Amount": "Decimal?",
       "CurrencyCode": "string",
@@ -207,8 +216,9 @@ Data model shown in JSON:
       "TransactionDateTime": "DateTime?",
       "Type": "string"
     }
+```
 
-###  Receipt Root Element Descriptions
+###  Receipt element
 
 |  Element Name | Required/Optional | Data Type |  Description |
 | --------------- | ------------ |----------| -------------- |
@@ -226,20 +236,20 @@ Data model shown in JSON:
 |TransactionDateTime | Required| DateTime |The date and local time when the transaction happened. Format: YYYY-MM-DDThh:mm |
 |Type | Required | string |The type of receipt. Possible values: General, Ride, Hotel |
 
-###  CustomField Child Element Descriptions
+###  CustomField element
 
 |  Element Name | Required/Optional | Data Type |  Description |
 | --------------- | ------------ |----------| -------------- |
 |Name | Optional |  string |The name of the custom field. Maximum length: 128 characters. This element is required when the CustomField parent element is specified. |
 |Value |Optional |  string |The value of the custom field. Maximum length: 256 characters. This element is required when the CustomField parent element is specified. |
 
-###  GeneralDetail Child Element Descriptions
+###  GeneralDetail element
 
 |  Element Name | Required/Optional | Data Type |  Description |
 | --------------- | ------------ |----------| -------------- |
 |LineItems | Optional | array [LineItem] |The parent element for the line items in the receipt. There is a LineItem child element for each line item. |
 
-###  LineItem Child Element Descriptions
+###  LineItem element
 
 |  Element Name | Required/Optional | Data Type |  Description |
 | --------------- | ------------ |----------| -------------- |
@@ -253,7 +263,7 @@ Data model shown in JSON:
 |Reference | Optional |  string | The item's SKU, identifier, or some other attribute the provider uses to reference the item. Maximum length: 32 characters |
 |SequenceNumber | Optional |  Int32 | The order in which the item appears in the sequence of line items. This element is required when the LineItem parent element is specified. |
 
-### HotelDetail Child Element Descriptions
+### HotelDetail element
 
 |  Element Name | Required/Optional | Data Type |  Description |
 | --------------- | ------------ |----------| -------------- |
@@ -268,21 +278,21 @@ Data model shown in JSON:
 |RoomNumber | Optional |  string |The room number for the stay. Maximum length: 30 characters |
 |RoomType | Optional |  string |The type of room. Possible values are room types defined using hospitality industry standards, such as Single, Double, Suite, and so on. Maximum length: 50 characters |
 
-###  MatchingFact Child Element Descriptions
+###  MatchingFact element
 
 |  Element Name | Required/Optional | Data Type |  Description |
 | --------------- | ------------ |----------| -------------- |
 |Type | Optional |  string |The type of matching fact that is used to identify the Concur user who owns the receipt. Possible values: OAuth, Login. This element is required when the MatchingFact parent element is specified. |
 |Value | Optional |  string |The value of the matching fact. If the Type element is set to OAuth, this value must be the access token for the Concur user who owns the receipt. In this case, the access token must not be expired or revoked. If the Type element is set to Login, this value must be the login ID of the Concur user who owns the receipt. This element is required when the MatchingFact parent element is specified. |
 
-###  Merchant Child Element Descriptions
+###  Merchant element
 
 |  Element Name | Required/Optional | Data Type |  Description |
 | --------------- | ------------ |----------| -------------- |
 |Location |Optional |  Location |The parent element for the provider's location. This element is required when the Merchant parent element is specified. |
 |Name | Optional |  string |The name of the provider (merchant). Maximum length: 64 characters. This element is required when the Merchant parent element is specified. |
 
-###  Location Child Element Descriptions
+###  Location element
 
 |  Element Name | Required/Optional | Data Type |  Description |
 | --------------- | ------------ |----------| -------------- |
@@ -298,7 +308,7 @@ Data model shown in JSON:
 |PostalCode | Optional |  string |The provider's postal code. Maximum length: 20 characters |
 |TelephoneNumber | Optional |  string |The provider's telephone number. Maximum length: 100 characters |
 
-###  PaymentCard Child Element Descriptions
+###  PaymentCard element
 
 |  Element Name | Required/Optional | Data Type |  Description |
 | --------------- | ------------ |----------| -------------- |
@@ -306,7 +316,7 @@ Data model shown in JSON:
 |MaskedNumberoptional |Optional  |  string |The masked card number for the credit card. With the exception of the AX (American Express) card type, this is the last four digits of the card number. For American Express, the value can be one of these, in order of preference: a) The first six digits and the last four digits of the card number. b) The last five digits. c) The last four digits. This element is required when the PaymentCard parent element is specified. |
 |Typeoptional | Optional |  string |The card interchange for the credit card. Possible values: AX (American Express), DC (Diner's Club), DS (Discover), CA (MasterCard), VI (Visa), CB (Carte Blanche), ER (Enroute), TP (Universal Air Travel), JC (JCB), EC (EuroCard), OTHER (other types). This element is required when the PaymentCard parent element is specified. |
 
-###  RideDetail Child Element Descriptions
+###  RideDetail element
 
 |  Element Name | Required/Optional | Data Type |  Description |
 | --------------- | ------------ |----------| -------------- |
@@ -322,8 +332,9 @@ Data model shown in JSON:
 
 In this example, a customer makes purchases in a coffee shop and pays with a card that has funds loaded on it and is linked to a loyalty account. The request header contains the access token of the shop employee who processes the transaction; this value is used to retrieve the Provider ID for the business. Because the form of payment is cash, the PaymentCard element is not included in the request. The example includes several line items, for goods purchased and also for tax. The provider has the option of including line items for tax and subtotal, if desired. The matching fact that is used to match the customer (a Concur user) to the receipt is that user's login ID.
 
-###  Request
+###  Request - JSON
 
+```json
     POST {InstanceURI}/api/v3.0/common/receipts HTTP/1.1
     Content-Type: application/json
     Authorization: OAuth {access token}
@@ -378,22 +389,26 @@ In this example, a customer makes purchases in a coffee shop and pays with a car
       },
 
     }
+```
 
-###  Response
+###  Response - JSON
 
 The response includes the ID of the receipt that was posted. The URI is not typically included in the response.
 
+```json
     {
         "ID": "73014444355",
         "URI": ""
     }
+```
 
 ###  Hotel Receipt Example
 
 In this example, the provider company (Acme Hotels) posts a receipt for a hotel stay in which one guest stays for one night. The request header contains the access token of the hotel employee who processes the transaction; this value is used to retrieve the Provider ID for the hotel. Because the form of payment is credit card, the PaymentCard element is required to be included in the request. Several line items are also included in this example, as well as a custom field containing information about a special request. The matching fact that is used to match the guest (a Concur user) to the receipt is that user's access token value.
 
-###  Request
+###  Request - JSON
 
+```json
     POST {InstanceURI}/api/v3.0/common/receipts HTTP/1.1
     Content-Type: application/json
     Authorization: OAuth {access token}
@@ -471,22 +486,26 @@ In this example, the provider company (Acme Hotels) posts a receipt for a hotel 
         }
       ]
     }
+```
 
-###  Response
+###  Response - JSON
 
 The response includes the ID of the receipt that was posted.
 
+```json
     {
         "ID": "73014444355",
         "URI": ""
     }
+```
 
 ###  Ride Receipt Example
 
 In this example, a ride service provider posts a receipt for a ride. The receipt contains one line item for the fare, and one for the tip. A custom field contains information about a promotion code. Because the form of payment is credit card, the PaymentCard element is required to be included in the request. The matching fact that is used to match the customer (a Concur user) to the receipt is that user's access token value.
 
-###  Request
+###  Request - XML
 
+```xml
     POST {InstanceURI}/api/v3.0/common/receipts HTTP/1.1
     Content-Type: application/xml
     Authorization: OAuth {access token}
@@ -553,20 +572,23 @@ In this example, a ride service provider posts a receipt for a ride. The receipt
       <Type>Ride</Type>
       <ImageBase64>{image data}</ImageBase64>
     </Receipt>
+```
 
 ###  Response
 
 The response includes the ID of the receipt that was posted.
 
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <ID>73014444356</ID>
       <URI />
     </Response>
+```
 
 ###  See Also
 
-* [Receipts Resource][5]
+[Receipts Resource][5]
 
 
 
