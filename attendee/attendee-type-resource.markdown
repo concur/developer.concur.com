@@ -21,7 +21,7 @@ application/xml
 application/xml
 
 ## Operations
-[GET][2]
+[Get list of attendee types][2]
 
 ## See also
 * [Attendee][3]
