@@ -15,7 +15,7 @@ To revoke tokens, the OAuth consumer must have either the Web Services Administr
 
 ## Revoking a specific access token
 
-To revoke a specific access token for a user, make this API call:
+To revoke an access token on behalf of a user:
 
 ```
 POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx
@@ -26,18 +26,20 @@ Accept: application/xml
 
 Where:
 
-_token_ — Is a required parameter that specifies the access token to be revoked.
+*token* — Is a required parameter that specifies the access token to be revoked.
 
 For example:
 
 ```
 POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx
 ?token=fdjhk2382kwkajsklwe8i3932kslswl
+Authorization: OAuth fdjhk2382kwkajsklwe8i3932kslswl
+Accept: application/xml
 ```
 
 ##  Revoking all access tokens for a user
 
-To revoke all access tokens for a user for a given application, make this API call:
+To revoke all access tokens for a user for a given application:
 
 ```
 POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx
@@ -49,12 +51,15 @@ Accept: application/xml
 
 Where:
 
-_consumerKey_ — Is a required parameter that uniquely identifies this application. The consumerKey corresponds to the OAuth 2.0 client ID.  
-_user_ — Is a required parameter that specifies the user whose tokens will be revoked.
+*consumerKey* — Is a required parameter that uniquely identifies this application. The consumerKey corresponds to the OAuth 2.0 client ID.  
+*user* — Is a required parameter that specifies the user whose tokens will be revoked.
 
 For example:
 
 ```
 POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx
-?client_id=eZByXv2X41cJlC21pSVvRi&user=Maria
+?consumerKey=eZByXv2X41cJlC21pSVvRi&user=Maria
+Authorization: OAuth fdjhk2382kwkajsklwe8i3932kslswl
+Accept: application/xml
+```
 ```
