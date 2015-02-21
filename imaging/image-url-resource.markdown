@@ -12,7 +12,10 @@ Retrieves the URL to the PDF for the receipt image. The URL is valid for 30 minu
 ## URI
 https://www.concursolutions.com/api/image/v1.0/
 
-## Content type
+## Headers
+### Content-Type header
+application/xml
+### Accept header
 application/xml
 
 ## Operations
