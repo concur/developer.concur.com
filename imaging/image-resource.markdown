@@ -4,7 +4,7 @@ layout: resource
 ---
 
 ## Description
-A receipt or invoice image. The documentation for the version 3.0 Receipt Images resource can be found [here][1].
+The Image resource represents a receipt image or an invoice image. The [ReceiptImages][1] version 3 API supersedes the Image resource.
 
 ## Version
 1.0
@@ -15,6 +15,8 @@ A receipt or invoice image. The documentation for the version 3.0 Receipt Images
 ## Headers
 
 ### Content-Type header
+The Image resource supports the following content types:
+
 * application/pdf
 * image/jpg
 * image/jpeg
@@ -30,9 +32,10 @@ application/xml
 
 ## See also
 [Image URL][3]
+[ReceiptImages][1]
 
   
 
-[1]: https://www.concursolutions.com/api/docs/index.html
+[1]: https://www.concursolutions.com/api/docs/index.html#!/ReceiptImages
 [2]: https://developer.concur.com/imaging/image-resource/image-resource-post
 [3]: https://developer.concur.com/imaging/image-url-resource
