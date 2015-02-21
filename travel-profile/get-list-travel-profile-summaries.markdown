@@ -21,8 +21,8 @@ Gets the list of travel profile summaries that have been updated since the speci
 
 All request paramenters are optional. To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters:
 
-|  Parameter Name |  Required/Optional | Parameter Type |  Data Type |  Description |
-| :----- | :----- | :----- | :----- | :----- |
+|  Parameter Name |  Required? | Parameter Type |  Data Type |  Description |
+| :----- | :----- | :------------------ | :------------- | :----- |
 |  LastModifiedDate | Required |  path |  string |  The date and time, in UTC, that the profiles must be updated after to be included in the response. Format: YYYY-MM-DDThh:mm:ss |
 |  Page | Optional |  path |  string |  The number of pages to retrieve. If the page is outside the number of existing pages, the response elements will be empty |
 |  ItemsPerPage | Optional |  path |  string |  The number of travel profiles per page. The maximum value is 200. The default value is 200. |
