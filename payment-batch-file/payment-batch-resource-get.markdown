@@ -8,7 +8,7 @@ layout: operation
 ## Description
 Retrieves the list of payment batches with an optional requested status. 
 
-##  Get List of Payment Batches Request
+##  Request
 
 ### Request parameters
 
@@ -30,12 +30,13 @@ application/xml
 
 ####  XML Example Request
 
+```
     GET /api/expense/paymentbatch/v1.1/batchlist/OPEN
     Host: www.concursolutions.com
     Authorization: OAuth {access token}
-    
+```    
 
-##  Get List of Payment Batches Response
+##  Response
 
 ###Root elements
 This request will return a **BatchList** parent element and a **BatchSummary** child element for each batch. The **BatchSummary** elements will have the following child elements. 
@@ -55,6 +56,7 @@ Batch-URL |  The URL to use as a basis for other actions, such as closing the ba
 
 ####  XML Example of Successful Response
 
+```xml
     <BatchList xmlns="http://www.concursolutions.com/api/expense/paymentbatch/2011/11">
         <BatchSummary>
             <BatchName>USD: Employees Batch Paid by Expense Pay</BatchName>
@@ -87,7 +89,7 @@ Batch-URL |  The URL to use as a basis for other actions, such as closing the ba
             <Batch-URL>https://www.concursolutions.com/api/expense/paymentbatch/v1.1/batch/8873837365536353637</Batch-URL>
         </BatchSummary>
     </BatchList>
-
+```
   
 
 
