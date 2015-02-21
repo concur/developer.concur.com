@@ -31,7 +31,7 @@ application/xml
 [POST][2]
 
 ## See also
-[Image URL][3]
+[Image URL][3]    
 [ReceiptImages][1]
 
   
