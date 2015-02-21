@@ -1,5 +1,5 @@
----
-title: Get a list of quick expenses
+.---
+title: Get quick expenses
 layout: operation
 ---
 
@@ -15,24 +15,22 @@ Retrieves the list of quick expenses for the supplied user or for the entire com
 
 ### Request parameters
 
-#### Query parameters
-
-Optional: 
-
 **loginID={_loginID_}**  
-The Concur login for the user that owns the quick expenses.
+The Concur login for the user that owns the quick expenses. Optional.
 
 Example:
 
-`https://www.concursolutions.com/api/expense/expensereport/v1.0/quickexpense/?loginID={_loginID_}`
+`https://www.concursolutions.com/api/expense/expensereport/v1.0/quickexpense/?loginID={loginID}`
 
-### Authorization header
+### Headers
+
+#### Authorization header
 
 The authorization header must contain an OAuth token for a valid Concur user.
 
 To view company-wide data, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
-### Content type
+### Accept header
 
 * application/xml
 * application/json
@@ -41,25 +39,27 @@ To view company-wide data, the OAuth consumer must have one of the following use
 
 This request will return a **QuickExpensesList** parent element with a **QuickExpense** child element for each quick expense.
 
+```xml
+<QuickExpensesList>
+    <QuickExpense>
+        <OwnerLoginID></OwnerLoginID>
+        <OwnerName></OwnerName>
+        <QuickExpenseKey></QuickExpenseKey>
+        <ExpenseTypeKey></ExpenseTypeKey>
+        <ExpenseTypeName></ExpenseTypeName>
+        <TransactionDate></TransactionDate>
+        <TransactionAmount></TransactionAmount>
+        <CurrencyCode></CurrencyCode>
+        <LocationName></LocationName>
+        <VendorDescription></VendorDescription>
+        <Comment></Comment>
+    </QuickExpense>
+</QuickExpensesList>
+```
+
 ### QuickExpense child elements
 
 The QuickExpense child element contains details of the quick expense.
-
-    <QuickExpensesList>
-        <QuickExpense>
-            <OwnerLoginID></OwnerLoginID>
-            <OwnerName></OwnerName>
-            <QuickExpenseKey></QuickExpenseKey>
-            <ExpenseTypeKey></ExpenseTypeKey>
-            <ExpenseTypeName></ExpenseTypeName>
-            <TransactionDate></TransactionDate>
-            <TransactionAmount></TransactionAmount>
-            <CurrencyCode></CurrencyCode>
-            <LocationName></LocationName>
-            <VendorDescription></VendorDescription>
-            <Comment></Comment>
-        </QuickExpense>
-    </QuickExpensesList>
 
 |Element Name|Required/Optional|Data Type| Description|
 |-------------|-----------------|----------|-----------|
@@ -81,13 +81,16 @@ The QuickExpense child element contains details of the quick expense.
 
 #### Request with LoginID
 
+```
     GET api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS 1.1
     Host: www.concursolutions.com
     Authorization: OAuth {access token}
     ...
+```
 
 #### Response
 
+```xml
     200 OK
     Content-Type: application/xml
     <QuickExpensesList>
@@ -118,15 +121,21 @@ The QuickExpense child element contains details of the quick expense.
             <Comment>Trip to Seattle</Comment>
         </QuickExpense>
     </QuickExpensesList>
+```
 
 ### Example 2: JSON
 
 #### Request
+
+```
     GET https:
     Authorization: OAuth {access token}
     Accept: application/json
+```
 
 #### Response
+
+```json
     [
         {
             "OwnerLoginID":"cm@example.com",
@@ -142,7 +151,7 @@ The QuickExpense child element contains details of the quick expense.
             "Comment":"Trip to Seattle",
         }
     ]
-
+```
 
 
 
