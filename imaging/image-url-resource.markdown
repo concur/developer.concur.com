@@ -4,7 +4,7 @@ layout: resource
 ---
 
 ## Description
-Retrieves the URL to the PDF for the receipt image. The URL is valid for 30 minutes after the request.
+The Image URL resource represents the URL to the PDF for the receipt image. The URL is valid for 30 minutes after the request.
 
 ## Version
 1.0
