@@ -1,7 +1,5 @@
 ---
-title: Get List of Travel Profile Summaries
-
-
+title: Get travel profile summaries
 layout: operation
 ---
 
@@ -13,34 +11,37 @@ Gets the list of travel profile summaries that have been updated since the speci
 
 ##  Request
 
-    GET {InstanceURI}/api/travelprofile/v1.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
-    Authorization: OAuth {access token}
+```
+GET {InstanceURI}/api/travelprofile/v1.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
+Authorization: OAuth {access token}
+```
 
+###  Request parameters
 
-##  Request parameters
+All request paramenters are optional. To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters.
 
-All request paramenters are optional. To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters:
-
-|  Parameter Name |  Required? | Parameter Type |  Data Type |  Description |
-| :----- | :----- | :------------------ | :------------- | :----- |
+|  Parameter Name |  Required/Optional | Parameter Type |  Data Type |  Description |
+| :----- | :----- | :----- | :----- | :----- |
 |  LastModifiedDate | Required |  path |  string |  The date and time, in UTC, that the profiles must be updated after to be included in the response. Format: YYYY-MM-DDThh:mm:ss |
 |  Page | Optional |  path |  string |  The number of pages to retrieve. If the page is outside the number of existing pages, the response elements will be empty |
 |  ItemsPerPage | Optional |  path |  string |  The number of travel profiles per page. The maximum value is 200. The default value is 200. |
 
-##  Content type
-* application/xml
+### Headers
 
-##  Authorization header
+####  Accept header
+application/xml
+
+####  Authorization header
 
 `Authorization: OAuth {access_token}`
 
-Where access_token is the OAuth 2.0 access token of the user whose travel profile summaries you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
-
+Where _access_token_ is the OAuth 2.0 access token of the user whose travel profile summaries you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
 ##  Data model
 
 The data model of the response for the GET operation.
 
+```xml
     <ConnectResponse>
         <Metadata>
             <Paging>
@@ -60,6 +61,8 @@ The data model of the response for the GET operation.
             </ProfileSummary>
         </Data>
     </ConnectResponse>
+```
+## Response
 
 ###  ConnectResponse root element
 
@@ -96,18 +99,20 @@ The Paging parent element contains contains the paging information for the respo
 |  XMLProfileSyncID |  String |  TThe user's XML Profile Sync ID, if available. |
 |  ProfileLastModifiedUTC |  String |  The date, in UTC, when the travel profile was last modified. Format: YYYY-MM-DDThh:mm:ss. |
 
- 
+##  Example
+This example gets the list of travel profile summaries modified after January 1 2015.
 
-##  Example: Gets the list of travel profile summaries modified after January 1 2015
+###  Request
 
-####  Request
-
+```
     GET {InstanceURI}/api/travelprofile/v1.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
     Authorization: OAuth {access token}
     ...
+```
 
-####  Response
+###  Response
 
+```xml
     200 OK
     Content-Type: application/xml
 
@@ -135,7 +140,7 @@ The Paging parent element contains contains the paging information for the respo
             </ProfileSummary>
         </Data>
     </ConnectResponse>
-
+```
  
 
  
