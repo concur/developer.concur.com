@@ -4,12 +4,7 @@ layout: conceptual
 ---
 
 ## Description
-The Concur Imaging web service allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.
-
-## Works With These Concur Products
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
-* **Invoice** for Concur Professional/Premium
+The Concur Imaging Web service allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.
 
 ## Product Restrictions
 Concur products are highly configurable, and not all clients will have access to all features.
