@@ -1,5 +1,5 @@
 ---
-title: Get Travel Requests
+title: Get travel requests
 layout: operation
 ---
 
@@ -14,36 +14,28 @@ This resource supports the following GET actions:
 
 **NOTE**: The documentation for the version 3.0 Requests resource can be found [here][1].
 
-## Content types
+## Get a list of travel requests
 
-* application/xml
+### Request
 
-## Get a list of trave requests
+#### Request parameters
 
-## Request
-
-### Query parameters
-#### Required
-<dl>
-  <dt>**requestslist**</dt>
-  <dd>The requestslist keyword.</dd>
-</dl>
+**requestslist**: The requestslist keyword. Required.
 
 Example:  
 `https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/`
 
-#### Optiona
 The request can include any number of the following optional query parameters to refine the search:
-* status
-* loginid
-* modifiedafterdate
-* modifiedbeforedate
 
-Multiple Parameter Example:  
-`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?status={_status_}&loginid={_loginID_}`
+* **status**
+* **loginid**
+* **modifiedafterdate**
+* **modifiedbeforedate**
 
-**Status**:
-The Status search term specifies which travel request or approval status to return. If no Status value is sent, the default Status of Active will be used.
+Multiple parameter example:  
+`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?status={status}&loginid={loginID}`
+
+**Status**: The **Status** search term specifies which travel request or approval status to return. If no **Status** value is sent, the default status of Active will be used.
 
 |  Value |  Description |
 |--------|---------------|
@@ -58,40 +50,40 @@ The Status search term specifies which travel request or approval status to retu
 |  APPROVED |  Returns approved travel requests. If you use this search term with the Login ID search term, you should supply the approver's login ID. |
 
 Example:  
-`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?status={_status_}`
+`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?status={status}`
 
-**Login ID **:
-
-The LoginID is the Concur login for a travel request owner that is not the OAuth consumer. This limits the response to travel requests owned by the specified user. If you use this with the TOAPPROVE or APPROVED Status search term, you should send the travel request approver's login ID.
+**Login ID**: The LoginID is the Concur login for a travel request owner that is not the OAuth consumer. This limits the response to travel requests owned by the specified user. If you use this with the TOAPPROVE or APPROVED Status search term, you should send the travel request approver's login ID.
 
 Example:  
-`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?loginid={_loginID_}`
+`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?loginid={loginID}`
 
-**Modified After Date**:
-
-This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss
+**Modified After Date**: This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss
 
 Examples:  
-`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate={_date_} ` 
-`<https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate=2012-01-01T00:00:00>`
+`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate={date}` 
+`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate=2012-01-01T00:00:00`
 
-**Modified Before Date**:
-
-This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss
+**Modified Before Date**: This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss
 
 Examples:  
-`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedbeforedate={_date_} `
-`<https://www.concursolutions.com//api/travelrequest/v1.0/requestslist/?modifiedbeforedate=2012-01-01T00:00:00>`
+`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedbeforedate={date} `
+`https://www.concursolutions.com//api/travelrequest/v1.0/requestslist/?modifiedbeforedate=2012-01-01T00:00:00`
 
-## Authorization header
+### Headers
+
+#### Authorization header
 
 The authorization header must contain an OAuth token for a valid Concur user. The OAuth Consumer must have the following role: Web Services Administrator for Professional/Premium.
 
-## Response: Get list of travel requests
+#### Accept header
+
+application/xml
+
+### Response
 
 This request will return a **RequestsWithCount** parent element with the **RequestsList** and **TotalCount** child elements. The **RequestsList** parent element contains a **RequestSummary** child element for each travel request. The **RequestSummary** elements will have the following child elements.
 
-### RequestSummary child elements
+#### RequestSummary child elements
 
 |  Element Name | Required/Optional | Data Type |  Description |
 |---------------|-------------------|------------|--------------------|
@@ -110,30 +102,32 @@ This request will return a **RequestsWithCount** parent element with the **Reque
 |  EmployeeName | |  |  The name of the travel request owner. |
 |  ApprovalStatus | |  |  The travel request's approval status, in the OAuth consumer's language. |
 
-## Request: Get travel request details
+## Get travel request details
+
+### Request
 
 Retrieves the full set of information for the travel request. Includes the travel request Header, Segment, Entry, Allocation and Cash Advance details.
 
-### Content type
+### Request parameters
 
-* application/xml
-
-## Query parameters
-
-Required:
-
-**requests/{_requestKey_}**  
-The requests keyword and the identifier for the desired travel request.
+**requests/{_requestKey_}**: The requests keyword and the identifier for the desired travel request. Required.
 
 Example:  
-`https://www.concursolutions.com/api/travelrequest/v1.0/requests/{_requestKey_} `
+`https://www.concursolutions.com/api/travelrequest/v1.0/requests/{requestKey} `
+
 **URI Source**: The URI is provided in the **ObjectURI** element of the [Event Notification][5] request.
 
-### Authorization header
+### Headers
+
+#### Authorization header
 
 The authorization header must have an OAuth token for a valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-##  Response: Get travel request details
+#### Accept header
+
+application/xml
+
+### Response
 
 This request will return a **TravelRequestDetails** parent element with the following child elements.
 
@@ -179,7 +173,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
 |  EntriesList | |  | This parent element has a Count attribute indicating the number of travel request entries that are included in the travel request. It has a **RequestEntry** child element for each entry. Refer to the RequestEntry Child Elements table for the full list of child elements. |
 |  CashAdvancesList | |  | This parent element has a Count attribute indicating the number of cash advances that are included in the travel request. It has a **CashAdvance** child element for each cash advance. Refer to the CashAdvance Child Elements table for the full list of child elements. |
 
-### Comment child elements
+#### Comment child elements
 
 |  Element Name | Required/Optional | Data Type |  Description |
 |---------------|-------------------|------------|--------------------|
@@ -188,7 +182,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
 |  LastName | | |  The last name of the person who made the comment. |
 |  DateTime | | | Time, in GMT, when the user made the comment. |
 
-### Exception child elements
+#### Exception child elements
 
 |  Element Name | Required/Optional | Data Type |  Description |
 |---------------|-------------------|------------|--------------------|
@@ -196,7 +190,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
 |  ExceptionMessage | |  | The user-facing message defined for the exception. |
 |  ExceptionLevel | |  | The numeric level associated with the exception. Example: 99 |
 
-### RequestEntry child elements
+#### RequestEntry child elements
 
 |  Element Name | Required/Optional | Data Type |  Description |
 |---------------|-------------------|------------|--------------------|
@@ -224,15 +218,15 @@ This request will return a **TravelRequestDetails** parent element with the foll
 |  SegmentCount | |  | The number of segments associated with the travel request entry. |
 |  SegmentsList | |  | This parent element contains a **Segment** child element for each segment associated with the travel request. Refer to the Segment Child Elements table for the full list of child elements. |
 
-### Allocation child elements
+#### Allocation child elements
 
 |  Element Name | Required/Optional | Data Type |  Description |
 |---------------|-------------------|------------|--------------------|
 |  Custom1 through Custom20 | |  |   The custom fields associated with the allocation. These may not have data, depending on your configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: `<Custom1>(1234) Project 1234</Custom1>` |
-|  AllocationKey | |  |  The unique identifier for the allocation. |   | |
+|  AllocationKey | |  |  The unique identifier for the allocation. |
 |  Percentage | |  |  The percentage of the expense that is included in this allocation. |
 
-### Segment child elements
+#### Segment child elements
 
 |  Element Name | Required/Optional | Data Type |  Description |
 |---------------|-------------------|------------|--------------------|
@@ -287,15 +281,17 @@ This request will return a **TravelRequestDetails** parent element with the foll
 
 ###  Example 1: Get list of travel requests
 
-#### Request
+#### XML request
 
+```
     GET api/travelrequest/v1.0/requestslist/?status=SUBMITTED  HTTPS 1.1
     Host: [www.concursolutions.com][2]
     Authorization: OAuth {access token}
     ...
+```
 
 ####  XML successful response
-Thhis is an example of a successful response.
+
 ```XML
     <?xml version="1.0" encoding="utf-8"?>
     <RequestsWithCount xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -318,17 +314,21 @@ Thhis is an example of a successful response.
         <TotalCount>1</TotalCount>
     </RequestsWithCount>
 ```
+
 ###  Example 2: Get travel request details
 
 ####  XML request
 
+```xml
     GET api/travelrequest/v1.0/requests/nxxKgLlnROz3zHJBCRksaas23dsfs  HTTPS 1.1
     Host: [www.concursolutions.com][2]
     Authorization: OAuth {access token}
     ...
+```
 
 ####  XML successful response
 
+```xml
     <TravelRequestDetails xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <AgencyOfficeKey>1</AgencyOfficeKey>
         <AgencyOfficeName>Terrific Travel</AgencyOfficeName>
@@ -876,7 +876,7 @@ Thhis is an example of a successful response.
         <Custom19 />
         <Custom20 />
     </TravelRequestDetails>
-
+```
 
 
 [1]: https://www.concursolutions.com/api/docs/index.html#!/Requests
