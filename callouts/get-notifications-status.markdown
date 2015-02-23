@@ -31,7 +31,7 @@ The OAuth consumer must have one of the following user roles in Concur: Company 
 * application/xml
 * application/json
 
-##Content-Type header
+#### Content-Type header
 
 application/xml
 
@@ -43,17 +43,17 @@ application/xml
     Accept: application/xml
 ```
 
-##  Get Notifications by Status Response
+##  Response
 
-##Supported Content Types
+###Supported Content Types
 
 * application/xml
 * application/json
 
-##Response Body
+###Response Body
 This request will return a **NotificationsList** parent element with a **Notification** child element for each failed notification. The **Notification** elements will have a **Failure** child element if the notification is failed. 
 
-### Failure elements
+#### Failure elements
 
 |  Element |  Description |
 | --------| ------------- |
