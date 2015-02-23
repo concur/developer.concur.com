@@ -91,6 +91,7 @@ Once a development partner has configured a application connector, it must be re
 1. On the **Application Connector Registration** page, click **New**.  
 ![ /][5]
 2. In the System area, complete all of the required fields.  
+
    | Field | Description |
    |-------|-------------|
    |Name   | Enter the name that should appear in the list of connectors.|
