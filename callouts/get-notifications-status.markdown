@@ -1,13 +1,8 @@
 ---
-title: Get Notifications by Status 
+title: Get notifications by status 
 layout: operation
 ---
 
-
-
-This callout supports the following GET actions:
-
-##Get Notifications by Status Request
 
 
 ##Description
@@ -15,51 +10,53 @@ Retrieves the list of event notifications that are in the supplied status.
 
 ##Request 
 
-* **status=_{status_}**  
+### Request parameters
+
+**status={_status_}**  
 The desired status for the notification. Currently supports **failed**.
 
 Example:  
-https://www.concursolutions.com/api/platform/notifications/v1.0/notification?status=_status_
+`https://www.concursolutions.com/api/platform/notifications/v1.0/notification?status={status}`
 
+### Headers
 
-##Request Headers - Required
-Authorization header with OAuth token for valid Concur user.
+#### Authorization header
+
+Authorization header with OAuth token for valid Concur user. Required.
 
 The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
-##Request Headers - Optional
-**Accept** header with the desired format for the response.  
-Options are:  
+#### Accept header
 
 * application/xml
 * application/json
 
-##Content Type
-* application/xml
+##Content-Type header
 
+application/xml
 
 ####  XML Example Request
 
-    GET <https://www.concursolutions.com/api/platform/notifications/v1.0/notification?status=FAILED> HTTP/1.1
+```xml
+    GET https://www.concursolutions.com/api/platform/notifications/v1.0/notification?status=FAILED HTTP/1.1
     Authorization: OAuth {access token}
     Accept: application/xml
+```
 
 ##  Get Notifications by Status Response
 
-
-###HTTP Responses
-[HTTP Status Codes][1]
 ##Supported Content Types
 
 * application/xml
 * application/json
 
-##Content Body
-This request will return a **NotificationsList** parent element with a **Notification** child element for each failed notification. The **Notification** elements will have a **Failure** child element if the notification is failed. The **Failure** element has the following child elements:
+##Response Body
+This request will return a **NotificationsList** parent element with a **Notification** child element for each failed notification. The **Notification** elements will have a **Failure** child element if the notification is failed. 
 
+### Failure elements
 
 |  Element |  Description |
-|
+| --------| ------------- |
 |  Context |  Message that the callout can use to provide the developer some context for the callout. |
 |  EventDateTime |  When the event happened. Format: YYYY-MM-DD:HH:MM:SS |
 |  EventType |  The event that triggered the callout. |
@@ -70,6 +67,7 @@ This request will return a **NotificationsList** parent element with a **Notific
 
 ####  XML Example of Successful Response
 
+```xml
     HTTP/1.1 200 OK
     Content-Length: 626
     Content-Type: application/xml
@@ -85,9 +83,11 @@ This request will return a **NotificationsList** parent element with a **Notific
             <ObjectURI>https://www.concursolutions.com/api/expense/expensereport/v1.1/reportfulldetails/nxxKgLlnROzz$sHcpnRHQ$pALxamClaFfdC</ObjectURI>
         </Notification>
     </NotificationList>
+```
 
 ####  JSON Example of Successful Response
 
+```json
     HTTP/1.1 200 OK
     Content-Length: 388
     Content-Type: application/json; charset=utf-8
@@ -102,7 +102,5 @@ This request will return a **NotificationsList** parent element with a **Notific
             "ObjectURI":"https://www.concursolutions.com/api/expense/expensereport/v1.1/reportfulldetails/nxxKgLlnROzz$sHcpnRHQ$pALxamClaFfdC"
         }
     ]
+```
 
-
-
-[1]: https://developer.concur.com/reference/http-codes
