@@ -17,18 +17,9 @@ The available callouts are:
 
 * Fetch Attendee Data
 * Fetch List Item
-
-These callouts send information out from Concur to an application connector that interfaces with a external system. The connector runs a search on the external system. The results are then returned to Concur, which presents the results to the user.
-
+   These callouts send information out from Concur to an application connector that interfaces with a external system. The   connector runs a search on the external system. The results are then returned to Concur, which presents the results to the user.
 * The Launch External URL  
-
-The launch external URL callout gives clients and developers a platform to extend the functionality of Concur, providing a means to deliver custom user interactions, or access functionality found in an external system.
-
-The client can arrange to add an Expense Entry form field that is configured to use the Launch External URL callout to a Concur Expense Entry form. Concur Expense will display this field with an attached button that launches a separate window when clicked. The window is controlled by an application connector, created by the client, a third party developer, or Concur. The application connector is a web server that presents information in the window.
-
-The application connector can access Concur data through the web services, or can access data in an external system. Once the user has completed their actions in the window (such as performing a search or completing a wizard), he/she clicks a button such as "Done" that indicates he/she has concluded their work in the window.  The application connector then closes the window. 
-
-The application connector can use web services to send information to Concur, to update field values on the expense entry form or other form types. The application connector may send the updates before or after the user closes the window. When the user returns to Concur, the page refreshes and the user sees the current values.
+   The launch external URL callout gives clients and developers a platform to extend the functionality of Concur, providing a means to deliver custom user interactions, or access functionality found in an external system.<br/><br/>The client can arrange to add an Expense Entry form field that is configured to use the Launch External URL callout to a Concur Expense Entry form. Concur Expense will display this field with an attached button that launches a separate window when clicked. The window is controlled by an application connector, created by the client, a third party developer, or Concur. The application connector is a web server that presents information in the window.<br/><br/>The application connector can access Concur data through the web services, or can access data in an external system. Once the user has completed their actions in the window (such as performing a search or completing a wizard), he/she clicks a button such as "Done" that indicates he/she has concluded their work in the window. The application connector then closes the window.<br/><br/>The application connector can use web services to send information to Concur, to update field values on the expense entry form or other form types. The application connector may send the updates before or after the user closes the window. When the user returns to Concur, the page refreshes and the user sees the current values.
 
 ####  Application Connector Management
 
@@ -72,21 +63,21 @@ The **Web Services** links can be accessed by users with the following permissio
 
 **Developer Sandbox or Expense/Invoice/Travel/Travel Request Standard:**
 
-**Can Administer**: Users with this permission can register and modify application connectors.
+* **Can Administer**: Users with this permission can register and modify application connectors.
 
 **Expense/Invoice/Travel/Travel Request Professional:**
 
-**Web Services Administrator **: Users with this permission at companies that are Development Partners can register and modify application connectors.
+* **Web Services Administrator**: Users with this permission at companies that are Development Partners can register and modify application connectors.
 
-**All Admin roles**: Users with this permission at companies that are Development Partners can register and modify application connectors.
+* **All Admin roles**: Users with this permission at companies that are Development Partners can register and modify application connectors.
 
 ###  Accessing Application Connector Registration
 
-The **Manage Application Connectors** link on the **Web Services **page is used to register, test and enable or disable application connectors. Only Concur Internal staff can access the **Manage Application Connectors**** **link. 
+The **Manage Application Connectors** link on the **Web Services** page is used to register, test and enable or disable application connectors. Only Concur Internal staff can access the **Manage Application Connectors** link.
 
 #####  To access Application Connector Registration:
 
-1. On the home page, select **Administration** > **Web Services**. The** Web Services **page appears.  
+1. On the home page, select **Administration** > **Web Services**. The **Web Services** page appears.  
 ![ /][3]
 2. Click **Manage Application Connectors**. The **Application Connector Registration** page appears.  
 ![ /][4]
@@ -97,24 +88,16 @@ Once a development partner has configured a application connector, it must be re
 
 #####  To register an application connector:
 
- 1. On the **Application Connector Registration** page, click **New**.  
-
+1. On the **Application Connector Registration** page, click **New**.  
 ![ /][5]
-
- 2. In the System area, complete all of the required fields.
-
-
-| Field | Description |
-|-------|-------------|
-|Name   | Enter the name that should appear in the list of connectors.
-|Description|Enter the description of the function of the connector, such as what back-end system it might connect to.|
-|Host Name|Enter the hostname for the connector. Example: https://{servername}|
-|Username|Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector.|
-|Password|Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector.|
-
-
-
-<<<<<<< HEAD
+2. In the System area, complete all of the required fields.  
+   | Field | Description |
+   |-------|-------------|
+   |Name   | Enter the name that should appear in the list of connectors.
+   |Description|Enter the description of the function of the connector, such as what back-end system it might connect to.|
+   |Host Name|Enter the hostname for the connector. Example: `https://{servername}`|
+   |Username|Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector.|
+   |Password|Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector.|  
 3. Click **Test Connection**. Concur will attempt to connect to the test connection endpoint with the supplied credentials. If you have not configured the test connection endpoint, the test will fail. Refer to the _Required: To add the test connection endpoint_ section above for the test connection details.
  
  4. In the **Services** section, select an outbound message or callout that the connector will interact with.
