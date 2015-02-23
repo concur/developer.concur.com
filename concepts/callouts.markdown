@@ -101,19 +101,19 @@ Once a development partner has configured a application connector, it must be re
    |Password|Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector.|  
 3. Click **Test Connection**. Concur will attempt to connect to the test connection endpoint with the supplied credentials. If you have not configured the test connection endpoint, the test will fail. Refer to the _Required: To add the test connection endpoint_ section above for the test connection details.
  
- 4. In the **Services** section, select an outbound message or callout that the connector will interact with.
+4. In the **Services** section, select an outbound message or callout that the connector will interact with.
  
- 5. Click **Configure**. The **Configure Service** window appears.
+5. Click **Configure**. The **Configure Service** window appears.
  
- 6. Enter the endpoint that the Concur will connect to on the host. Example: `/attendee/v1.0/find`
+6. Enter the endpoint that the Concur will connect to on the host. Example: `/attendee/v1.0/find`
  
- 7. Select the **Enabled** check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.
+7. Select the **Enabled** check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.
   
- 8. Click **Save**. The service is configured for your host.
+8. Click **Save**. The service is configured for your host.
  
- 9. Repeat steps 4-8 for each service to configure.
+9. Repeat steps 4-8 for each service to configure.
 
- 10. Click **Save**.
+10. Click **Save**.
 
 ###  Modifying an Application Connector Registration
 
@@ -121,12 +121,12 @@ Once an application connector registration has been created, the fields can be m
 
  **To modify an application connector**
 
- 1. On the **Application Connector Registration** page, select the desired registration from the list.
- 2. Click **Modify**.
- 3. Edit the system fields as necessary.
- 4. Click **Test Connection** to verify your changes.
- 5. Edit the services configurations as necessary.
- 6. Click **Save** to return to the **Application Connector Registration** page.
+1. On the **Application Connector Registration** page, select the desired registration from the list.
+2. Click **Modify**.
+3. Edit the system fields as necessary.
+4. Click **Test Connection** to verify your changes.
+5. Edit the services configurations as necessary.
+6. Click **Save** to return to the **Application Connector Registration** page.
 
 ###  Deactivating an Application Connector Registration
 
@@ -134,13 +134,13 @@ Application connector registrations can't be removed, but can be deactivated. Co
 
 **To deactivate an application connector**
 
- 1. On the **Application Connector Registration** page, select the desired connector.
- 2. Click **Modify**.
- 3. Select the active Service.
- 4. Click **Configure**.
- 5. Clear the **Active** check box.
- 6. Click **OK**.
- 7. Click **Save**.
+1. On the **Application Connector Registration** page, select the desired connector.
+2. Click **Modify**.
+3. Select the active Service.
+4. Click **Configure**.
+5. Clear the **Active** check box.
+6. Click **OK**.
+7. Click **Save**.
 
 
 [1]: https://developer.concur.com/go-market/app-review
