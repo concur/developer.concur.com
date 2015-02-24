@@ -1,56 +1,54 @@
 ---
-title: Delete Notification 
+title: Delete notification requests
 layout: operation
 ---
 
-This callout supports the following DELETE actions:
 
-**Delete Notification Request**
-
-##  Delete Notification Request
-
-##  Content Type
-application/xml
+## Description
+Delete a notification.
 
 ## URI
-`<https://www.concursolutions.com/api/platform/notifications/v1.0/notification/>`
+`https://www.concursolutions.com/api/platform/notifications/v1.0/notification/`
 
-## Query Parameters - Required 
-* notificationID  
-The unique identifier for the notification.
+##  Request
+
+### Request parameters
+
+**notificationID**: The unique identifier for the notification. Required.
 
 Example:  
-`https://www.concursolutions.com/api/platform/notifications/v1.0/notification/_{notificationID}_`
+`https://www.concursolutions.com/api/platform/notifications/v1.0/notification/{notificationID}`
 
-URI Source: The URI is returned in the **NotificationUrl** element of the Response for the [Get Notifications by Status][1] function.
+**URI Source**: The URI is returned in the **NotificationUrl** element of the Response for the [Get Notifications by Status][1] function.
 
-## Query Parameters - Optional
-None
+### Headers
 
+#### Authorization header
 
-## Request Headers - Required
-**Authorization** header with OAuth token for valid Concur user.
+Authorization header with OAuth token for valid Concur user. Required.
+
 The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
-## Request Headers - Optional  
-**Accept** header with the desired format for the response. Options are:
+#### Accept header
+
 * application/xml
 * application/json
 
 ####  XML Example Request
 
-```
+```xml
 DELETE https://www.concursolutions.com/api/platform/notifications/v1.0/notification/nOB1KNTDSV0UqiYeTsy6su$praZSogRJB6 HTTP/1.1
 Authorization: OAuth {access token}
 ```
 
-##  Delete Notification Response
+##  Response
 
-##  Content Type
+##@  Content Types
+
 * application/xml
 * application/json
 
-##Content Body
+### Response Body
 
 The response returns an HTTP Status Code as follows:
 
