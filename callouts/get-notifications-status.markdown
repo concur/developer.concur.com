@@ -13,7 +13,7 @@ Retrieves the list of event notifications that are in the supplied status.
 ### Request parameters
 
 **status={_status_}**  
-The desired status for the notification. Currently supports **failed**.
+The desired status for the notification. Required. Currently supports **failed**.
 
 Example:  
 `https://www.concursolutions.com/api/platform/notifications/v1.0/notification?status={status}`
