@@ -4,12 +4,7 @@ layout: conceptual
 ---
 
 
-
-
-
-
-##Description
-
+## Description
 
 The Ground Transportation Direct Connect from Concur Connect provides a method for Travel users to access the inventory of ground transportation service providers. This direct connect was originally designed for use by limo service providers, but can be used with all forms of ground transportation.
 
@@ -22,17 +17,15 @@ This callout differs from the inbound Concur web services in the following ways:
 
 **NOTE**: This direct connect was originally designed to work with Limo providers, but can support all types of ground transportation.
 
+Information on how to register and configure the partner application is included in [**Partner Applications][1]**.
 
-###Works With These Concur Products 
+## Configuration
+
+### Works With These Concur Products 
 * **Travel** for Concur Professional/Premium
 * **Travel** for Concur Standard
 
-##Concur Connect Callout Details
-
-Information on how to register and configure the partner application is included in [**Partner Applications][1]**.
-
-
-###Product Restrictions
+### Product restrictions
 
 This direct connect is only available to Travel Suppliers with Ground Transportation inventory. This direct connect is not supported in the Concur mobile application.
 
@@ -40,7 +33,7 @@ Concur products are highly configurable, and not all clients will have access to
 
 Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
 
-##Ground Transportation Process Overview 
+### Configuration process
 
 The configuration process has the following steps:
 
@@ -49,8 +42,7 @@ The configuration process has the following steps:
 3. Concur creates a production company for the travel supplier.
 4. The Travel Supplier registers their application with Concur by logging in to their production company.
 5. Concur configures Travel to send requests to the endpoint.
-6. The Travel client opts in to the Ground Transportation callout (within the Travel Configuration) to allow their users to view and book the available inventory.  
- 
+6. The Travel client opts in to the Ground Transportation callout using the Travel Configuration UI to allow their users to view and book the available inventory. Clients must contact Concur to have this setting activated
 
 Once the configuration is complete, the callout uses the following process:
 
@@ -60,16 +52,17 @@ Once the configuration is complete, the callout uses the following process:
 4. If the user chooses to reserve the ride, Travel sends the Post Sell Request.
 5. The supplier returns the Post Sell Reply.
 
-This callout can also be used to perform the following functions:
+This callout can also be used to perform the following operations:
 
 * Get the Reservation Details
 * Cancel the Ground Transportation Reservation
 * Update the Ground Transportation Reservation with the Supplier
 * Update the Ground Transportation Reservation with Travel
 
-##Authentication
+## Authentication
 Authentication between Concur and the application connector is performed using OAuth. Refer to the OAuth documentation [here][3] for more information.
-##Functions
+
+## Operations
 
 [Cancel Reservation][4]
 
@@ -83,21 +76,8 @@ Authentication between Concur and the application connector is performed using O
 
 [Update Reservation with Travel][9]
 
-Concur Travel Configuration
 
-Responses and Errors
-
-GDS Sell Formats
-
-###  Concur Travel Configuration
-
-The Travel clients opt in to the Ground Transportation inventory using a setting in the Travel Configuration. Clients must contact Concur to have this setting activated.
-
-###  Responses and Errors
-
-Refer to the [HTTP Codes][10] page for details of the common responses and errors.
-
-###  GDS Sell Formats
+##  GDS Sell Formats
 
 **Sabre:**  
 1 OTH LM 14MAY M GK1 DCA/PCI QA TEST/TEL 201 555 1212/RATE-$0.00/CONF-/PICKUP-209 MADISON ST SUITE 400 ALEXANDRIAVA 22314 AT 0900/DROPOFF-DCA AIRPORT AT 0915/203121365/RESERVATION L1
