@@ -5,7 +5,7 @@ layout: operation
 
 
 ## Description
-Delete a notification.
+Delete an event notification.
 
 ## URI
 `https://www.concursolutions.com/api/platform/notifications/v1.0/notification/`
@@ -43,7 +43,7 @@ Authorization: OAuth {access token}
 
 ##  Response
 
-##@  Content Types
+##  Content Types
 
 * application/xml
 * application/json
@@ -60,9 +60,7 @@ The response returns an HTTP Status Code as follows:
 
 ####  Example of Successful Response
 
-```
-HTTPS 200 Success
-```
+`HTTPS 200 Success`
 
 
 [1]: https://developer.concur.com/callouts/event-notification/get-notifications-status
