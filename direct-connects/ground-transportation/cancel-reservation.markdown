@@ -3,15 +3,15 @@ title: Ground Transportation
 layout: operation
 ---
 
+## Description
 
-
-##Request
+## Request
 The following request is sent to the supplier when the Travel user cancels the reservation.
 
-###Supported Accept Types
+### Accept Types
 * application/xml  
 
-###Request URI
+### Request URI
 
 The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
@@ -39,7 +39,7 @@ ReservationID	The unique identifier for the reservation.
     	<ReservationID>1234</ReservationID>
 	</CC_LimoCancelRequest>
 
-##Response
+## Response
 The supplier responds to the request by supplying the full reservation details, with the updated status.
 
 ###Content Type
@@ -111,7 +111,8 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 |Number	|Y	|The card number.|
 |Expiration	|Y	|The card expiration date. Format: 2013-02-19|
 
-##XML Example of Successful Response
+## Example of Successful Response
+```XML
 	200 OK HTTPS/1.1
 	Content-Length: {length of content body}
 	
@@ -256,6 +257,6 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 	        <AccountingField5/>
 	    </AccountingInfo>
 	</CC_LimoCancelReply>
-
+```
 [1]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 [2]: http://en.wikipedia.org/wiki/ISO_4217
