@@ -6,8 +6,6 @@ layout: conceptual
 
 
 
-
-
 ##Description    
 
 
@@ -15,14 +13,15 @@ The Concur Fetch Attendee version 2.0 callout allows clients to import attendee 
 
 This callout differs from the standard Concur web services in the following ways:
 
-* It uses an **outbound** **message** where Expense calls a public facing API endpoint provided by the application connector.  
-Refer to **Callouts > [Core Concepts][1]** for more information.
+* It uses an **outbound message** where Expense calls a public facing API endpoint provided by the application connector.  
+Refer to **Callouts >** [Core Concepts][1] for more information.
 * The client or third-party developers can configure and maintain the public web service interface (the application connector), or the connector can be maintained by Concur. This documentation specifies the request and response format required by Concur.
 * Concur provides a sample connector application that the client can install on their network and customize to interface with their system of record for attendees. Concur can also customize the connector.
 * (Optional- Professional/Premium only) The client can choose to create their own application connector using a different language, such as PHP, if preferred.
 * The client Expense Administrator must select the attendee types that will use this functionality during application connector registration. Once the attendee types are selected, they will be automatically configured to not allow users to create new attendees manually.
  
 ###Works With These Concur Products
+
 * **Expense** for Concur Professional/Premium
 * **Expense** for Concur Standard
 * **Expense** for Mobile
@@ -37,15 +36,16 @@ Refer to **Callouts > [Core Concepts][1]** for more information.
 
  
 ##Concur Connect Callout Details 
-  Information on how to download, install, and configure the application connector is included in **Callouts > [Core Concepts][1]**. 
+Information on how to download, install, and configure the application connector is included in **Callouts >** [Core Concepts][1]. 
+
 ##Fetch Attendee Process Overview 
-  The configuration process has the following steps:
+The configuration process has the following steps:
 
 1. Client, third party developer, or Concur downloads, installs, configures, and customizes the application connector.
 2. (Optional- Professional/Premium only) Expense Admin creates a new attendee type to use with the connector.
 3. Client registers the application connector, selecting the attendee types that will use the connector.
 Once the configuration is complete, the callout uses the following process:
-	1. The user selects the appropriate attendee type in the **Search** **Attendees** window.
+	1. The user selects the appropriate attendee type in the **Search Attendees** window.
 	2. The user enters information into an attendee field and clicks **Search**.
 	3. Expense sends the attendee search field information to the application connector. This request includes all attendee fields, with any blank values formatted as an empty string.
 	4. The application connector queries the attendee system of record and returns a list of results to Expense.  
@@ -67,9 +67,9 @@ Expense will not be able to connect to the application connector until a certifi
 
  
 ###Authentication 
-  Authentication between Concur and the application connector is performed using HTTP Basic Auth. By default, these credentials are stored in the appropriate web configuration file for your platform, such as web.xml or web.config. These credentials are entered in Concur on the **Register Application Connector** page in** Web Services **under **Administration**.
+  Authentication between Concur and the application connector is performed using HTTP Basic Auth. By default, these credentials are stored in the appropriate web configuration file for your platform, such as web.xml or web.config. These credentials are entered in Concur on the **Register Application Connector** page in **Web Services** under **Administration**.
 
-Refer to the **Installation > Process ** for more information.
+Refer to the **Installation > Process** for more information.
 
 
 ###Functions
@@ -88,39 +88,46 @@ Responses and Errors
 ##Installation Process
 The installation process includes installing the application connector, and registering it with Concur.
 
-1. The client or third-party developer will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. A sample connector is available on the Sample Code page under Callouts, and details of the installation process are available at Callouts > Core Concepts > Sample Connector Procedures. During installation, the client or developer will select and configure an externally available endpoint on the host server for Concur to send the attendee search request to. Refer to Security for more information about the security requirements of the application connector.
-2. The client registers the application connector with Concur:  
-**1.**Log in to Concur as an administrative user.  
-**2.**Select Administration > Web Services.  
-**3.**Click Manage Application Connectors.  
-**4.**Click New.  
-**5.**Fill out the fields:
+Fist, the client or third-party developer will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. A sample connector is available on the Sample Code page under Callouts, and details of the installation process are available at **Callouts > Core Concepts > Sample Connector Procedures**. 
 
-	|Field	|Description|
-	|------|------------|
-	|Name	Enter the name that should appear in the list of connectors.
-	|Description	Enter the description of the function of the connector, such as what back-end 	|system it might connect to.
-	|Host Name	|Enter the hostname for the connector.Example: https://{servername}|
-	|User Name	|Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth.|
-	|Password	|Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth.1.0|
-	
-	![][6]  
-**6.**In the Services section, select Fetch Attendee.  
-**7.**Click Configure. The Configure Service window appears.  
-![][7]  
-**8.**Enter the endpoint that the Concur will connect to on your server. Example: /attendee/v2.0/fetch  
-**9.**Select the Active check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.  
-**10.**Select the attendee types that will use the application connector. These attendee types will be automatically configured to not allow users to create new attendees manually.  
-**11.**Click OK.
-**12.**Click Test Connection. Concur will attempt to access the configured endpoint with the provided user credentials.
-**13.**Click Save. The application connector is now registered with Concur and enabled.
-Concur Expense Configuration
+During installation, the client or developer will select and configure an externally available endpoint on the host server for Concur to send the attendee search request to. Refer to Security for more information about the security requirements of the application connector.
+
+The client then registers the application connector with Concur:  
+
+1. Log in to Concur as an administrative user.  
+2. Select Administration > Web Services.  
+3. Click Manage Application Connectors.  
+4. Click New.  
+5. Fill out the fields:  
+
+   |Field	|Description|
+   |------|------------|
+   |Name|Enter the name that should appear in the list of connectors.|
+   |Description|Enter the description of the function of the connector, such as what back-endsystem it might connect to.|
+   |Host Name|Enter the hostname for the connector. Example: `https://{servername}`|
+   |User Name|Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth.|
+   |Password|Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth.1.0|  
+
+   ![][6]  
+6. In the Services section, select Fetch Attendee.  
+7. Click Configure. The Configure Service window appears.  
+   ![][7]  
+8. Enter the endpoint that the Concur will connect to on your server. Example: /attendee/v2.0/fetch  
+9. Select the Active check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.  
+10. Select the attendee types that will use the application connector. These attendee types will be automatically configured to not allow users to create new attendees manually.  
+11. Click OK.
+12. Click Test Connection. Concur will attempt to access the configured endpoint with the provided user credentials.
+13. Click Save. The application connector is now registered with Concur and enabled.
+
+###Concur Expense Configuration
 The Expense administrator can select which attendee types use the connector when registering the application connector. These attendee types will be automatically configured to not allow users to create new attendees manually.
 
-	**Professional/Premium only:** If desired, the administrator can create a new attendee type specifically for use with the connector.
+**Professional/Premium only:** If desired, the administrator can create a new attendee type specifically for use with the connector.
 
 ### Responses and Errors
 Refer to the HTTP Codes page for details of the common responses and errors.
+
+
 [1]: https://developer.concur.com/node/25#co
 [2]: https://developer.concur.com/forums/concur-connect
 [3]: https://developer.concur.com/sites/default/files/fetchattendee_noresults.png
