@@ -38,22 +38,18 @@ In this step, you will enable the Event Notification functionality in your Concu
 2. Select **Administration** > **Web Services**.
 3. Click **Manage Application Connectors**.
 4. Click **New**.
-5. Fill out the fields:
-
-
-|  Field |  Description |
-| ----- |------|
-|  Name |  Enter the name that should appear in the list of connectors. |
-|  Description |  Enter the description of the function of the connector, such as what back-end system it connects to. |
-|  Host Name |  Enter the hostname for the connector.  **Example:** https://{servername} |
-|  User Name |  Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth. |
-|  Password |  Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth. |
-
-	![][5]
-
+5. Fill out the fields:  
+   |  Field |  Description |
+   | ----- |------|
+   |  Name |  Enter the name that should appear in the list of connectors. |
+   |  Description |  Enter the description of the function of the connector, such as what back-end system it connects to. |
+   |  Host Name |  Enter the hostname for the connector.  **Example:** `https://{servername}` |
+   |  User Name |  Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth. |
+   |  Password |  Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth. |  
+   ![][5]
 6. In the **Services** section, select **External Report Validation**.
 7. Click **Configure**. The **Configure Service** window appears.  
-![][6]
+   ![][6]
 8. Enter the endpoint that the Concur will connect to on your server. Example: /concur/v1.0/notify
 9. Select the **Enabled** check box.
 10. In the Workflows section, select the **Submit** check box for each Request workflow that requires notifications.
@@ -64,25 +60,18 @@ In this step, you will enable the Event Notification functionality in your Concu
 ###  Procedure: Create the Request Partner Application
 
 1. On the** Web Services **page, click **Register Partner Application**. The **Application Registration** page appears.  
-![ /][7]
+   ![ /][7]
 2. Click **New**. The **New Partner Application** page appears.  
-![ /][8]
-3. Complete all of the required fields:
-
-
-|Field |Description |
-|--------|-------|
-|  Name |  Enter the name that should appear in the list of applications. |
-|  Description |  Enter the description of the function of the application. |
-|  Visibility |  This field is only editable by Concur Internal users. |
-|  Active |  Select Active. |
-|  APIs Used |  Select the Request API. |
-
-4. The **Application Authorization** section displays your company domain and automatically creates a **Key** and **Secret** to use with this application. 
-
-
-    **NOTE: The key and secret allow access to any company that enables this application. You MUST keep this information secret (as specified in the Concur Legal Agreement) to maintain security.**
-
+   ![ /][8]
+3. Complete all of the required fields:  
+   |Field |Description |
+   |--------|-------|
+   |  Name |  Enter the name that should appear in the list of applications. |
+   |  Description |  Enter the description of the function of the application. |
+   |  Visibility |  This field is only editable by Concur Internal users. |
+   |  Active |  Select Active. |
+   |  APIs Used |  Select the Request API. |
+4. The **Application Authorization** section displays your company domain and automatically creates a **Key** and **Secret** to use with this application.<br/>**NOTE: The key and secret allow access to any company that enables this application. You MUST keep this information secret (as specified in the Concur Legal Agreement) to maintain security.**
 5. Record the key and secret to use later.
 6. Click **OK**. The application will automatically be enabled for your company.
 
@@ -102,10 +91,12 @@ After receiving an event notification, the application connector should send an 
 
 After you receive the OAuth access token, you are ready to request the Request data. The event notification information that Concur sends includes an element named <ObjectURI>. The connector can send a GET request to the URI specified in this element, supplying the OAuth access token in the request header in the following format:
 
+```
     GET api/travelrequest/v1.0/requests/nxxKgLlnROz3zHJBCRksaas23dsfs  HTTPS 1.1
     Host: www.concursolutions.com
     Authorization: OAuth {access token}
     ...
+```
 
 Concur responds with the full Request details, which are documented in [Get Request Details][12].
 
