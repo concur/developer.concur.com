@@ -1,12 +1,15 @@
 ---
-title: Ground Transportation 
+title: Cancel Reservation
 layout: operation
 ---
 
 ## Description
+The Cancel Reservation operation is sent to the supplier to cancel a travel reservation on behalf of a user.
 
 ## Request
-The following request is sent to the supplier when the Travel user cancels the reservation.
+
+### Endpoint
+POST 
 
 ### Accept Types
 * application/xml  
@@ -15,22 +18,28 @@ The following request is sent to the supplier when the Travel user cancels the r
 
 The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
-	https://{servername}/concur/groundtransportation
+`https://{servername}/concur/groundtransportation`
+	
 The URI is configured by the supplier when registering the partner application.
 ### Request Headers - Required	
 
 Authentication header with Base64 encoded basic authentication credentials (login ID and password) is required. The basic authentication credentials are established during the application review process.
 
-<code> Authorization: Basic {Base64 encoded LoginID:Password} </code>
+'Authorization: Basic {Base64 encoded LoginID:Password}'
 	
 ### Request Headers - Optional
+
 None
+
 ### Request Body
+
 The request will contain a CC_LimoCancelRequest parent element, containing the following child elements:
-###Element	
+
+### Element	
 ReservationID	The unique identifier for the reservation.
 
-####XML Example Request
+#### Example Request
+```XML
 	POST /concur/groundtransportation HTTPS/1.1
 	Host: example.com
 	Authorization: Basic ...
@@ -41,6 +50,7 @@ ReservationID	The unique identifier for the reservation.
 	<CC_LimoCancelRequest>
     	<ReservationID>1234</ReservationID>
 	</CC_LimoCancelRequest>
+```
 
 ## Response
 The supplier responds to the request by supplying the full reservation details, with the updated status.
