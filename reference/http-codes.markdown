@@ -12,7 +12,6 @@ The web services return a HTTP 2xx response code when the request was successful
 
 **HTTP Success Codes**:
 
-
 |  Success Code |  Message |  Description |
 |----|-----|----|
 |  200 |  OK |  The request was received successfully. |
@@ -22,30 +21,25 @@ The web services return a HTTP 2xx response code when the request was successful
 The web service should return a response within 60 seconds. If the request times out without a response, the application should wait for 5 minutes then retry the request. If the request continues to time out after a few retries, the developer should contact [concurconnecttech@concur.com][1].
 
 The web service returns a 4xx or 5xx HTTP response code when there are any errors and will include the following elements:  
- 
-
 
 |  Element |  Description |
 | ----- |----|
 |  StatusCode |  The HTTP error code. |
+| Content | A parent element that contains an **Error** child element.
 
-####Content 
-The parent element containing the following child elements:
+### Error elements
 
-#####Error
-This element contains the following child elements:
-
+|  Element |  Description |
+| ----- |----|
 |  Message |  The error message. |
-|------|------|
-|  Server-Time |  The time the error was generated, based on Concur's server's time zone. |   | | | |
+|  Server-Time |  The time the error was generated, based on Concur's server's time zone. | 
 |  Id |  The ID of the error within Concur. |
 
 Refer to the individual function documentation for function-specific error formats.
 
-###**HTTP Error Codes**:
-The full list of possible HTTP error codes can be found [here][2]. The table below provides additional details for commonly encountered error codes.  
- 
+### HTTP Error Codes
 
+The full list of possible HTTP error codes can be found [here][2]. The table below provides additional details for commonly encountered error codes.  
 
 |  Error Code |  Message |  Description |
 |-----|------|------|
