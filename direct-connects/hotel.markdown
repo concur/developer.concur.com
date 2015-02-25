@@ -33,11 +33,11 @@ The configuration process has the following steps:
 3. Concur creates a production company for the hotel supplier.
 4. The Hotel Supplier registers their application with Concur by logging in to their production company.
 5. Concur and the Hotel Supplier validate the application:
-    * The Hotel Supplier develops to the Concur API and provides a test system. 
+    * The Hotel Supplier develops to the Concur API and provides a test system.
     * The Hotel Supplier provides the URIs and credentials for their test system to Concur.
     * Concur sets up the vendor in the certification systems and runs a series of tests to validate the interaction between the two systems.
     * Once certification passes, the Hotel supplier sends Concur the production URIs and credentials.
-    * Concur updates the production servers with the supplier's production data and does a test booking.  Upon successful completion, the supplier will be live in Concur for any customer to enable.
+    * Concur updates the production servers with the supplier's production data and does a test booking. Upon successful completion, the supplier will be live in Concur for any customer to enable.
 6. The Travel client opts in to the Hotel callout (within the Travel Configuration) to allow their users to view and book the available inventory.
 
 Once the configuration is complete, the callout uses the following process:
@@ -45,12 +45,13 @@ Once the configuration is complete, the callout uses the following process:
 1. The user searches for hotels when creating an itinerary in Travel.
 2. Travel sends the search request to the endpoint, using the Post HotelSearch.
 3. The supplier returns the properties.
-4. Travel sends a request for rates for some of the properties using the Post HotelAvail request.  The number of properties is configurable with a current maximum of 25.  More than one property may be specified in each Post HotelAvail request.
+4. Travel sends a request for rates for some of the properties using the Post HotelAvail request. The number of properties is configurable with a current maximum of 25. More than one property may be specified in each Post HotelAvail request.
 5. If the user chooses to reserve a hotel room, Travel sends the Post HotelBookingRule and shows the booking and cancellation policies to the user.
 6. If the user accepts the policy, Travel sends the Post HotelRes.
-7. Travel will send Post HotelItin requests to show the user their reservation.  This will happen whenever the user views their itinerary.
+7. Travel will send Post HotelItin requests to show the user their reservation. This will happen whenever the user views their itinerary.
 
 This callout can also be used to perform the following functions:
+
 * Get Hotel Availabililty on a Property that was not priced in the original request
 * Get the Reservation Details
 * Modify the Hotel Reservation
@@ -59,24 +60,25 @@ This callout can also be used to perform the following functions:
 ## Hotel URL Structure
 
 The hotel direct connect sends the relevant information to a URL that the travel supplier maintains.  
-A recommended URL structure is: https://{servername}/concur/hotel/v1/
+A recommended URL structure is: `https://{servername}/concur/hotel/v1/`
 
 The URL is provided by the supplier when registering the partner application.
 
 You can use either one endpoint for all messages, or a dedicated one for each message type. In that case you have to follow these rules:
 
 The only allowed difference between the endpoint URLs can be the message name (without OTA_ and RQ/RS):  
-https://{servername}/concur/hotel/v1/HotelSearch  
-https://{servername}/concur/hotel/v1/HotelAvail
+`https://{servername}/concur/hotel/v1/HotelSearch `
+`https://{servername}/concur/hotel/v1/HotelAvail`
 
 The variable part doesn't need to be at the end:  
-https://{servername}/concur/hotel/HotelSearch/v1/  
-https://{servername}/concur/hotel/HotelAvail/v1/
+`https://{servername}/concur/hotel/HotelSearch/v1/ ` 
+`https://{servername}/concur/hotel/HotelAvail/v1/`
 
 ## Security 
 Concur will make calls to the application connector's endpoint using SSL. During configuration, Concur will connect to the application connector to validate that its hostname and access credentials are valid.  
 Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before Concur can access the connector.  
 Concur will use Http Basic authentication. The hotel supplier will need to provide credentials that Concur will send to the supplier's system for each message. 
+
 ##Outbound Messages
 The Concur outbound message format is based upon a subset of the [OTA2011B hotel standard][2]. Please refer to the Function links below for the details of the request and response format.
 
@@ -108,15 +110,6 @@ o 84.14.175.224/27 and 62.23.83.128/25 (EU data center)
 
 
 ## Additional Information
-Concur Travel Configuration
-
-Versioning
-
-Certification
-
-Responses and Errors
-
-General Requirements
 
 [Hotel Direct Connect Codes (PDF)][10]
 
@@ -149,26 +142,28 @@ All the codes used by the Hotel Direct Connect are documented in the [Hotel Dire
 
 The corporate identifier will be passed as RequestorID node. The values will be configured on setup. Please keep the Type compliant with  ID Type Codes.
 
+```xml
     <POS>
         <Source ISOCountry="US" ISOCurrency="USD">
             <RequestorID Type="4" ID="7777777" ID_Context="MyHotel" />
         </Source>
     </POS>
+```
 
 If a vendor requires additional identification of the client system (all calls to vendor will have the same value), you can provide a second RequestorID:
 
+```xml
     <POS>
         <Source ISOCountry="US" ISOCurrency="USD">
             <RequestorID Type="4" ID="7777777" ID_Context="MyHotel" />
             <RequestorID Type="7" ID="8172927" ID_Context="WholeTravel" />
         </Source>
     </POS>
+```
 
 Please keep the Type compliant with  ID Type Codes. The supported codes for the Requestor ID Type are: 1,2,3,4,5,7,9,13,18,21
 
 **ID Type Codes Table**
-
-
 
 |  Code |  Description |
 | ----- |-----|
