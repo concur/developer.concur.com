@@ -39,6 +39,7 @@ In this step, you will enable the Event Notification functionality in your Concu
 3. Click **Manage Application Connectors**.
 4. Click **New**.
 5. Fill out the fields:  
+   
    |  Field |  Description |
    | ----- |------|
    |  Name |  Enter the name that should appear in the list of connectors. |
