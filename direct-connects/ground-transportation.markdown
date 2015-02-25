@@ -17,7 +17,7 @@ This callout differs from the inbound Concur web services in the following ways:
 
 **NOTE**: This direct connect was originally designed to work with Limo providers, but can support all types of ground transportation.
 
-Information on how to register and configure the partner application is included in [**Partner Applications][1]**.
+Information on how to register and configure the partner application is included in [Partner Applications][1].
 
 ## Configuration
 
