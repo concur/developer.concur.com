@@ -6,12 +6,12 @@ layout: conceptual
 All Concur customers have the following locale set in their entities by default. This is the only locale that is available for all clients.
 
 ##Default Locale
+
 |  Locales |Code|
 |-----|-----|
 |English (United States)|en_US|
 
 Customers can request to have additional locales added to their entity if necessary. The following list includes all supported locales.
-
 
 |  All Supported Locales |Code|
 | ----- |-----|
