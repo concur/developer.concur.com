@@ -1,28 +1,32 @@
 ---
-title: Ground Transportation 
+title: Post reservation sell 
 layout: operation
 ---
 
 ##Description
-The following request is sent when a Travel user attempts to book a ground transportation reservation.
+A post reservation sell request is sent when a Travel user attempts to book a ground transportation reservation.
+
+## Request
 
 ###Supported Accept Types
-* application/xml
+application/xml
 
 ###Request URI
 The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
-###Request Headers - Required	Request Headers
-Authorization header with OAuth credentials. Refer to the OAuth documentation for more information.
+`https://{servername}/concur/groundtransportation`
 
-###Request Body
-The request will contain a CC_LimoSellRequest parent element, containing the following child elements:
-
-	https://{servername}/concur/groundtransportation
 The URI is configured by the supplier when registering the partner application.
 
+### Headers
+
+#### Authorization header
+Authentication header with Base64 encoded basic authentication credentials (login ID and password) is required. The basic authentication credentials are established during the application review process.
+
+Authorization: Basic {Base64 encoded LoginID:Password}
+
 ###Request Body
-The request will contain a CC_LimoSellRequest parent element, containing the following child elements:
+The request will contain a **CC_LimoSellRequest** parent element, containing the following child elements.
 
 ####CorporateClient
 The corporate client the booking is on behalf of. This parent element contains the following child element: 
@@ -100,7 +104,9 @@ The time, in GMT that the reservation will end. Provided for hourly reservations
 
 ####PickupInstructions	
 Additional instructions about the pick up request.
-DropoffInstructions	Additional instructions about the drop off request.
+
+####DropoffInstructions	
+Additional instructions about the drop off request.
 
 ####LanguageCode	
 The language of the traveler. Will be one of the following options:
@@ -134,9 +140,9 @@ The number of passengers.
 ####DiscountCode	
 The discount code information. This parent element contains the following child elements:
 
-* 	Corporate ID: The user's corporate ID.
-* VendorCode	The user's vendor code.
-* DiscountNumber	The user's discount numb
+* Corporate ID: The user's corporate ID.
+* VendorCode: The user's vendor code.
+* DiscountNumber: The user's discount number.
 
 ####RateInfo	
 The booked rate. This parent element contains the following child elements:
@@ -185,10 +191,13 @@ The form of payment for the reservation. This parent element contains one of the
 
 ####RequestedDriver	
 The name of the requested driver, if available.
+
 ####SpecialServiceRequest	
 The details of the special service request, if available.
+
 ####PickupServiceArrangement	
 The details of the pickup arrangement, if available.
+
 ####DropoffServiceArrangement	
 The details of the dropoff arrangement, if available.
 ExtraStopArrangement	The details of the extra stop arrangement, if available.
@@ -202,6 +211,7 @@ The name of the requested driver, if available.
 * ExtraStopArrangement:	The details of the extra stop arrangement, if available.
 
 ###Airport Elements
+
 ####AirportCode	
 The IATA code for the airport.
 
@@ -214,14 +224,19 @@ The IATA code for the airport.
 **Format:** 2015-05-19T18:00:00
 
 ###Train Station Elements
+
 ####StationCode	
 The station code.
+
 ####StationName	
 The name of the station.
+
 ####City	
 The city the station is located in.
+
 ####State	
 The state the station is located in. Preferably 2 characters, max 10 characters.
+
 ####Train	
 The train information. This parent element contains the following child elements:
 
@@ -238,24 +253,34 @@ The train information. This parent element contains the following child elements
 
 ####Type	
 The card type.
+
 ####Number	
 The card number.
+
 ####Expiration	
 The card expiration date. Format: 2013-02-19
+
 ####Name	
 The name on the card.
+
 ####Address
 The street information of the billing address of the car.
+
 ####City	
 The city of the billing address of the car.
+
 ####State	
 The state of the billing address of the car. Preferably 2 characters, max 10 characters.
+
 ####Country	
 The country of the billing address of the car.
+
 ####PostalCode	
 The postal code of the billing address of the car.
 
 ###XML Example Request
+
+```xml
 	POST /concur/groundtransportation HTTPS/1.1
 	Host: example.com
 	Authorization: Basic ...
@@ -326,22 +351,24 @@ The postal code of the billing address of the car.
         <AccountingField5/>
     </AccountingInfo>
 	</CC_LimoSellRequest>
-	
+```	
 	
 ##Response
 The supplier responds to the Sell request by returning the details of the booked reservation.
 
 ###Supported Content Types
 application/xml
+
 ###Content Body
-The response will include a CC_LimoSellReply parent element, with the following child elements:
+The response will include a **CC_LimoSellReply** parent element, with the following child elements:
 
-------
-Element	Required (must contain value)?	Description
+
+|Element |Required? |Description |
+|-------|-----------|-----------|
 Error	Y	The error information, if an error occurred. This parent element contains the following child elements:
-
 ErrorCode	The code for the error. Will contain one of the following values:
- 100: Pickup/dropoff location related error
+
+100: Pickup/dropoff location related error
 200: Pickup/dropoff time related error
 300: Other request parameters related error
 400: Credential related error
@@ -505,6 +532,8 @@ Expiration	Y	The card expiration date. Format: 2013-02-19
 ------
 
 ###XML Example of Successful Response
+
+```xml
 	200 OK HTTPS/1.1 
 	Content-Length: {length of content body}
 	
@@ -649,7 +678,7 @@ Expiration	Y	The card expiration date. Format: 2013-02-19
         <AccountingField5/>
     </AccountingInfo>
 	</CC_LimoSellReply> 
-
+```
 
 
 
