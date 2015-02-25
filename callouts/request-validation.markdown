@@ -47,6 +47,7 @@ In this step, you will enable the Event Notification functionality in your Concu
    |  Host Name |  Enter the hostname for the connector.  **Example:** `https://{servername}` |
    |  User Name |  Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth. |
    |  Password |  Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth. |  
+
    ![][5]
 6. In the **Services** section, select **External Report Validation**.
 7. Click **Configure**. The **Configure Service** window appears.  
@@ -90,7 +91,7 @@ After receiving an event notification, the application connector should send an 
 
 ###  Get Request Details
 
-After you receive the OAuth access token, you are ready to request the Request data. The event notification information that Concur sends includes an element named <ObjectURI>. The connector can send a GET request to the URI specified in this element, supplying the OAuth access token in the request header in the following format:
+After you receive the OAuth access token, you are ready to request the Request data. The event notification information that Concur sends includes an element named **ObjectURI**. The connector can send a GET request to the URI specified in this element, supplying the OAuth access token in the request header in the following format:
 
 ```
     GET api/travelrequest/v1.0/requests/nxxKgLlnROz3zHJBCRksaas23dsfs  HTTPS 1.1
@@ -116,7 +117,7 @@ In the next step, the application connector will update the Request with the val
 
 Once the Request has been validated, the application connector is ready to update it's workflow. If the Request passed validation, it should be approved, and will then travel forward in it's workflow. If the Request did not pass validation, it should be sent back to the employee, which moves it to the beginning of the workflow.
 
-The full Request details include an element named <WorkflowStepURL>. The application connector posts the workflow action (Approve or Send Back to Employee) to this url, using the same OAuth access token in the header. Refer to the [Post Request Workflow Action][13] documentation for the request format.
+The full Request details include an element named **WorkflowStepURL**. The application connector posts the workflow action (Approve or Send Back to Employee) to this url, using the same OAuth access token in the header. Refer to the [Post Request Workflow Action][13] documentation for the request format.
 
 Concur responds with a success or failure status, and provides additional information for failures.
 
