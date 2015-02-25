@@ -69,21 +69,12 @@ Expense will not be able to connect to the application connector until a certifi
 ###Authentication 
   Authentication between Concur and the application connector is performed using HTTP Basic Auth. By default, these credentials are stored in the appropriate web configuration file for your platform, such as web.xml or web.config. These credentials are entered in Concur on the **Register Application Connector** page in **Web Services** under **Administration**.
 
-Refer to the **Installation > Process** for more information.
+Refer to the **Installation Process** for more information.
 
 
 ###Functions
 
-[Version 2.0: Post Attendee Search Request ][5]
-
-###Additional Information 
-
-Installation Process
-
-
-Concur Expense Configuration
-
-Responses and Errors
+[Version 2.0: Post Attendee Search Request][5]
 
 ##Installation Process
 The installation process includes installing the application connector, and registering it with Concur.
