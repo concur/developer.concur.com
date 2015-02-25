@@ -10,41 +10,34 @@ Retrieves the profile information for the OAuth consumer or the user specified w
 
 ## Request
 
-This resource supports the following GET actions: Get User Information Request
-
 ```
 GET {InstanceURI}/api/user/v1.0/User HTTP/1.1
 Authorization: OAuth {access token}
 ```
 
-### Accept type
+### Headers
 
-* application/xml
+#### Accept type
 
-### Authorization header
+application/xml
 
-Authorization header with OAuth token for a valid Concur user.
+#### Authorization header
 
-### Request Parameters
+Authorization header with OAuth token for a valid Concur user. Required.
 
-#### Required
+### Request parameters
 
-None
+**{loginID}**: The URL-encoded Concur login of the user. Optional.
 
-#### Optional
-
-**{loginID}** - The URL-encoded Concur login of the user.
-
-Example: {InstanceURI}/api/user/v1.0/User/?loginID={loginID}
+Example: `{InstanceURI}/api/user/v1.0/User/?loginID={loginID}`
 
 The loginID parameter can only be used if the OAuth consumer has one of the following user roles:
 
-  Standard and the developer sandbox: Can Administer
+* Standard and the developer sandbox: Can Administer
 
-  Professional: User Admin, User Admin (Read Only), Employee Administrator, Employee Administrator (Read Only), Web Services Admin, Company Admin.
+* Professional: User Admin, User Admin (Read Only), Employee Administrator, Employee Administrator (Read Only), Web Services Admin, Company Admin.
 
-Example: https://www.concursolutions.com/api/user/v1.0/User/?loginID={loginID}
-
+Example: `https://www.concursolutions.com/api/user/v1.0/User/?loginID={loginID}`
 
 ## Response
 
@@ -52,12 +45,12 @@ This request will return a UserProfile child element for the specified user. The
 
 ### Content type
 
-* application/xml
+application/xml
 
 ### Response root elements
 
 |  Element Name |  Description |
-|-------------------------|----------------------------------------------------------------------------------------------------------------|
+|-------------------------|--------------------------------------|
 |  LoginId |  The user's logon ID. | 
 |  Active |  Whether the user is currently active. Format: Y/N. |
 |  FirstName |  The user's first name. |
@@ -94,7 +87,7 @@ Authorization: OAuth {access token}
 
 #### Response 
 
-```
+```xml
 200 OK
 Content-Type: application/xml
 
@@ -160,7 +153,7 @@ Authorization: OAuth {access token}
 
 #### Response 
 
-```
+```xml
 200 OK
 Content-Type: application/xml
 
@@ -216,8 +209,6 @@ Content-Type: application/xml
 ```
 
 ## See also
-
-[HTTP Status Codes][1]
 
 [User Errors][2]
 
