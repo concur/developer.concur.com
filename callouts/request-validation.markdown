@@ -61,11 +61,12 @@ In this step, you will enable the Event Notification functionality in your Concu
 
 ###  Procedure: Create the Request Partner Application
 
-1. On the** Web Services **page, click **Register Partner Application**. The **Application Registration** page appears.  
+1. On the **Web Services** page, click **Register Partner Application**. The **Application Registration** page appears.  
    ![ /][7]
 2. Click **New**. The **New Partner Application** page appears.  
    ![ /][8]
-3. Complete all of the required fields:  
+3. Complete all of the required fields:
+   
    |Field |Description |
    |--------|-------|
    |  Name |  Enter the name that should appear in the list of applications. |
@@ -73,6 +74,7 @@ In this step, you will enable the Event Notification functionality in your Concu
    |  Visibility |  This field is only editable by Concur Internal users. |
    |  Active |  Select Active. |
    |  APIs Used |  Select the Request API. |
+   
 4. The **Application Authorization** section displays your company domain and automatically creates a **Key** and **Secret** to use with this application.<br/>**NOTE: The key and secret allow access to any company that enables this application. You MUST keep this information secret (as specified in the Concur Legal Agreement) to maintain security.**
 5. Record the key and secret to use later.
 6. Click **OK**. The application will automatically be enabled for your company.
