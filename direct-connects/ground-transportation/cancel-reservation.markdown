@@ -9,17 +9,19 @@ The Cancel Reservation operation is sent to the supplier to cancel a travel rese
 ## Request
 
 ### URI
-
 `/concur/groundtransportation`
 
 ### Headers
 
-#### Accept header
+#### Content-Type header (optional)
 * application/xml  
 
-### Authorization header
+#### Accept header (optional)
+* application/xml  
 
-**Required**. It must include Base64 encoded basic authentication credentials (login ID and password). The login and password are established when the application connector is registered.
+#### Authorization header (required)
+
+The Authorization header must include Base64 encoded basic authentication credentials (login ID and password). The login and password are established when the application connector is registered.
 
 'Authorization: Basic {Base64 encoded LoginID:Password}'
 
