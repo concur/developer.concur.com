@@ -21,7 +21,7 @@ The URI is configured by the supplier when registering the partner application.
 
 Authentication header with Base64 encoded basic authentication credentials (login ID and password) is required. The basic authentication credentials are established during the application review process.
 
-<code> Authorization: Basic {Base64 encoded LoginID:Password} <\code>
+<code> Authorization: Basic {Base64 encoded LoginID:Password} </code>
 	
 ### Request Headers - Optional
 None
