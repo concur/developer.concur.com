@@ -17,12 +17,15 @@ The Ground Transportation direct connect sends the relevant information to a URI
 
 	https://{servername}/concur/groundtransportation
 The URI is configured by the supplier when registering the partner application.
-###Request Headers - Required	
+### Request Headers - Required	
 
-Authorization header with OAuth credentials. Refer to the OAuth documentation for more information.	
-###Request Headers - Optional
+Authentication header with Base64 encoded basic authentication credentials (login ID and password) is required. The basic authentication credentials are established during the application review process.
+
+<code> Authorization: Basic {Base64 encoded LoginID:Password} <\code>
+	
+### Request Headers - Optional
 None
-###Request Body
+### Request Body
 The request will contain a CC_LimoCancelRequest parent element, containing the following child elements:
 ###Element	
 ReservationID	The unique identifier for the reservation.
@@ -42,11 +45,11 @@ ReservationID	The unique identifier for the reservation.
 ## Response
 The supplier responds to the request by supplying the full reservation details, with the updated status.
 
-###Content Type
+### Content Type
 
 * application/xml
 
-###Content Body
+### Content Body
 The response will include a CC_LimoCancelReply parent element, with the following child elements:
 
 
