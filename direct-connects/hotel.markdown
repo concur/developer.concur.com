@@ -67,11 +67,13 @@ The URL is provided by the supplier when registering the partner application.
 You can use either one endpoint for all messages, or a dedicated one for each message type. In that case you have to follow these rules:
 
 The only allowed difference between the endpoint URLs can be the message name (without OTA_ and RQ/RS):  
-`https://{servername}/concur/hotel/v1/HotelSearch `
+
+`https://{servername}/concur/hotel/v1/HotelSearch `<br/>
 `https://{servername}/concur/hotel/v1/HotelAvail`
 
 The variable part doesn't need to be at the end:  
-`https://{servername}/concur/hotel/HotelSearch/v1/ ` 
+
+`https://{servername}/concur/hotel/HotelSearch/v1/ ` <br/>
 `https://{servername}/concur/hotel/HotelAvail/v1/`
 
 ## Security 
