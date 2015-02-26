@@ -33,7 +33,7 @@ An access token is a long-lived token used to make authorized API calls.
 ```
 
 | Element | Required/Optional | Data Type | Description  |
-| ------- | ----------------- | --------- | ------------ |
+| :------- | :----------------- | :--------- | :------------ |
 |  Instance_URL |  required | string |  Identifies the Concur datacenter where the user's data resides. For example, if the Instance_Url is <https://www.ea1.concursolutions.com>, then all API calls for this user should use this URL as a prefix in subsequent API calls |
 |  Token  | required |  string |  The access token value passed in the Authorization header when making API calls. It is a long-lived token which is currently set to expire after one year from creation. You shoud securely store the token and use it for all subsequent API requests until the token expires. Before it does, you should send a request to refresh the token prior to the expiration date. |
 |  Expiration_Date  | required |  string |  The date and time, in Coordinated Universal Time (UTC) when the access token expires. Format: 3/30/2013 2:19:10 PM. |
