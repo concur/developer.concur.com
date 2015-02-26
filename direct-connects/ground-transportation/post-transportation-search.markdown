@@ -14,7 +14,9 @@ A post transportation search request is sent when the Travel user searches for g
 
 application/xml
 
-## Request URI                                                                                
+## Request
+
+### URI                                                                                
 
 The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
@@ -22,12 +24,12 @@ The Ground Transportation direct connect sends the relevant information to a URI
 
 The URI is configured by the supplier when [registering the partner application][1]. 
 
-## Headers
+### Headers
 
-### Authorization header
+#### Authorization header
 Authorization header with OAuth credentials. Refer to the [OAuth][2] documentation for more information. 
 
-## Request Body
+### Request Body
 The request will contain a **CC_LimoSearchRequest** parent element, containing the following child elements.
 
 **ServiceType**: The type of service requested. Will contain one of the following values:
@@ -127,7 +129,7 @@ zh-tw: Traditional Chinese
 600: Shuttle  
 900: Any
 
-|  DiscountCode |  The discount code information. This parent element contains the following child elements:
+**DiscountCode**: The discount code information. This parent element contains the following child elements:
 
 |  Element    |  Description |
 |-----------|-----------|
@@ -135,12 +137,11 @@ zh-tw: Traditional Chinese
 |  VendorCode |  The user's vendor code. | 
 |  DiscountNumber |  The user's discount number. |
 
-## Airport Elements
+#### Airport Elements
 
-|  Element    |  Description |
-|-----------|-----------|
-|  AirportCode |  The [IATA code][5] for the airport. |
-|  Flight |  The flight information. This parent element contains the following child elements.|
+**AirportCode**: The [IATA code][5] for the airport.
+
+**Flight**: The flight information. This parent element contains the following child elements:
 
 |  Element    |  Description |
 |-----------|-----------|
@@ -149,19 +150,20 @@ zh-tw: Traditional Chinese
 |  ArrivalDateTime |  The flight arrival time. Only provided for the PickupLocation element. **Format**: 2015-05-19T18:00:00 |
 |  DepartureDateTime |  The flight departure time. Only provided for the DropoffLocation element. **Format**: 2015-05-19T18:00:00 |
 
+#### Train Station elements
 
-
-| ----- |
-|  Train Station Elements |
-|  Element |  Description |
+|  Element    |  Description |
+|-----------|-----------|
 |  StationCode |  The station code. |
 |  StationName |  The name of the station. |
 |  City |  The city the station is located in. |
 |  State |  The state the station is located in. Preferably 2 characters, max 10 characters. |
-|  Train |  The train information. This parent element contains the following child elements:
+|  Train |  The train information. This parent element contains the following child elements.
 
+|  Element    |  Description |
+|-----------|-----------|
 |  CarrierCode |  The code of the train carrier. |
-|  CarrierName |  The name of the train carrier. |   | |
+|  CarrierName |  The name of the train carrier. | 
 |  TrainNumber |  The train number. |
 |  ArrivalDateTime |  The train arrival time. Only provided for the PickupLocation element. **Format**: 2015-05-19T18:00:00 |
 |  DepartureDateTime |  The train arrival time. Only provided for the PickupLocation element. **Format**: 2015-05-19T18:00:00 |
@@ -217,42 +219,31 @@ zh-tw: Traditional Chinese
 
 The supplier responds to the Limo Search request by returning the details of an available reservation that matches the search criteria.
 
-| ----- |
+### Content Types
+application/xml
 
-| Supported Content Types                                                                                   |
-| --------------------------------------------------------------------------------------------------------- |
-| Content Body                                                                                              |
-| The response will include a **CC_LimoSearchReply** parent element, with the following child elements:  
+### Content Body                                                                                              |
+The response will include a **CC_LimoSearchReply** parent element, with the following child elements:  
 
-|  Element |  Required (must contain value)? |  Description |
-|  Error |  Y |  The error information, if an error occurred. This parent element contains the following child elements:
+**Error**: The error information, if an error occurred. Required. This parent element contains the following child elements:
 
-|  ErrorCode |
+|  Element    |  Description |
+|-----------|-----------|
+|  ErrorCode |  The code for the error. Will contain one of the following values:<br/>100: Pickup/dropoff location related error<br/>200: Pickup/dropoff time related error<br/>300: Other request parameters related error<br/>400: Credential related error<br/>500: No rate/service available<br/>900: Unknown error |
+| ErrorSource | The source of the error. |
+| ErrorDescription | The additional error information. |
 
-The code for the error. Will contain one of the following values:
+**RequestData**: This parent element contains a copy of the original request data. Only the **ServiceType**, **PickupLocation**, **DropoffLocation**, and **StartDateTime** elements are required. 
 
-> 100: Pickup/dropoff location related error  
-200: Pickup/dropoff time related error  
-300: Other request parameters related error  
-400: Credential related error  
-500: No rate/service available  
-900: Unknown error
+**Limos**: This parent element contains a **Limo** child element with the available reservation information. Refer to the Limo Elements table for the details of the child elements of the **Limo** element. 
 
- |
-|  ErrorSource |  The source of the error. |   | | |
-|  ErrorDescription |  The additional error information. |
+#### Limo Elements
 
- |
-|  RequestData |  Y |  This parent element contains a copy of the original request data. Only the **ServiceType**, **PickupLocation**, **DropoffLocation**, and **StartDateTime** elements are required. |
-|  Limos |  Y |  This parent element contains a **Limo** child element with the available reservation information. Refer to the Limo Elements table for the details of the child elements of the **Limo** element. |
+**RateInfo**: The rate information for the limo. Refer to the Rate Information Elements table for more information. Required.
 
-| ----- |
-|  Limo Elements |
-|  Element |  Required (must contain value)? |  Description |
-|  RateInfo |  Y |  The rate information for the limo. Refer to the Rate Information Elements table for more information. |
-|  Vehicle |  Y |  The type of vehicle. This parent element contains the following child elements:
+**Vehicle**: The type of vehicle. Required. This parent element contains the following child elements:
 
-|  VehicleType |  One of the following values:
+**VehicleType**: One of the following values:
 
 100: Sedan  
 200: Limo  
@@ -267,43 +258,35 @@ The code for the error. Will contain one of the following values:
 800: Carriage  
 900: Any
 
- |
-|  Description |  The detailed description of the vehicle. |   | | |
-|  MaxPassengers |  The maximum number of passengers allowed in the vehicle. Must be greater than zero. |
-|  VehicleID |  Information to identify the specific vehicle. |
+**Description**: The detailed description of the vehicle. 
 
- |
-|  Vendor |  Y |  The reservation vendor. This parent element contains the following child elements:
+**MaxPassengers**: The maximum number of passengers allowed in the vehicle. Must be greater than zero.
 
+**VehicleID**:  Information to identify the specific vehicle.
+
+**Vendor**: The reservation vendor. Required. This parent element contains the following child elements:
+
+|  Element    |  Description |
+|-----------|-----------|
 |  VendorCode |  The vendor code for the vendor. |
-|  VendorName |  The vendor's name. |   | | |
+|  VendorName |  The vendor's name. | 
 |  PhoneNumber: |  The vendor's phone number. |
 
- |
-|  AcceptedFops |  Y |  The accepted forms of payment. This parent element contains the **FormOfPayment** child element. The **FormOfPayment** element contains the allowed forms of payment. The possible child elements are:
+**AcceptedFops**: The accepted forms of payment. Required. This parent element contains the **FormOfPayment** child element. The **FormOfPayment** element contains the allowed forms of payment. The possible child elements are:
 
-|  CreditCard |  This element will appear if the Credit Card form of payment is accepted. Contains the <Type> child element with one of the following values: AX - American Express, CA - Master Card, VI - Visa, DS - Discover Card, DC - Diners Club |
-|  Cash |  This element will appear if the Cash form of payment is accepted. |   | | |
+|  Element    |  Description |
+|-----------|-----------|
+|  CreditCard |  This element will appear if the Credit Card form of payment is accepted. Contains the **Type** child element with one of the following values: AX - American Express, CA - Master Card, VI - Visa, DS - Discover Card, DC - Diners Club |
+|  Cash |  This element will appear if the Cash form of payment is accepted. | 
 |  Check |  This element will appear if the Check form of payment is accepted. |
 |  DirectBilling |  This element will appear if the Direct Billing form of payment is accepted. |
 
- |
+#### Rate Information Elements 
 
-  
-
-| ----- |
-|  Rate Information Elements |
-|  Element |  Required (must contain value)? |  Description |
+|  Element |  Required? |  Description |
 |  RateID |  Y |  The rate identifier. |
 |  Rate |  Y |  The BasePrice + ServiceCharge + SurCharge + Tax |
-|  RateTypeCode |  Y |  The code for the rate type. Will be one of the following options:
-
-> F: Flat rate  
-H: Hourly  
-E: Estimated amount  
-N: Currently not available
-
- |
+|  RateTypeCode |  Y |  The code for the rate type. Will be one of the following options:<br/>F: Flat rate<br/>H: Hourly<br/>E: Estimated amount<br/>N: Currently not available |
 |  CategoryCode |  N |  Extra information that will be passed back during sell request to help identify the rate. |
 |  Currency |  Y |  The [3-letter ISO 4217 currency code][4] for the rate amount. |
 |  NoRateText |  N |  Explanation of rate type. Provided if RateTypeCode = N |
@@ -311,17 +294,16 @@ N: Currently not available
 |  DiscountType |  N |  The type of discount applied. |
 |  BasePrice |  N |  The reservation price without taxes, surcharges or service charges. |
 |  ServiceCharge |  N |  The service charge for the reservation. |
-|  SurCharge |  N |  This element contains the desc attribute, with text describing the reason for the surcharge. Example: <SurCharge desc="fuel"> |
+|  SurCharge |  N |  This element contains the desc attribute, with text describing the reason for the surcharge. Example: `<SurCharge desc="fuel">` |
 |  Tax |  N |  The reservation tax. |
 |  ExtraPickupCharge |  N |  Any additional fees for the pickup service. |
 |  ExtraDropoffCharge |  N |  Any additional fees for the drop off service. |
 |  OptionalExtraStopCharge |  N |  The charge for any additional stops. |
 |  OptionalExtraTimeCharge |  N |  The charge for each additional hour. |
 
- |
-
 ####  XML Example of Successful Response
 
+```xml
     200 OK HTTPS/1.1
     Content-Length: {length of content body}
 
@@ -400,7 +382,7 @@ N: Currently not available
             </Limo>
         </Limos>
     </CC_LimoSearchReply>
-
+```
   
 
 
