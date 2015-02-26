@@ -172,6 +172,226 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |ArrivalDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
 |DepartureDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
 
+#### Rate Information elements
+
+|Element Name|Required?|Data Type|Description|
+|------------|-----------------|---------|-----------|
+|RateID	|Y| |The rate identifier.|
+|Rate	|Y| |The BasePrice + ServiceCharge + SurCharge + Tax|
+|RateTypeCode	|Y| |	The code for the rate type. Will be one of the following options: <br>F: Flat rate <br>H: Hourly <br>E: Estimated amount <br>N: Currently not available|
+|CategoryCode	|N|	|Extra information that will be passed back during sell request to help identify the rate.|
+|Currency	|Y|	|The 3-letter ISO 4217 currency code for the rate amount.|
+|NoRateText	|N|	|Explanation of rate type. Provided if RateTypeCode = N|
+|MinHours	|N|	|The minimum number of hours for the reservation.|
+|DiscountType	|N|	|The type of discount applied.|
+|BasePrice	|N|	|The reservation price without taxes, surcharges or service charges.|
+|ServiceCharge	|N|	|The service charge for the reservation.|
+|SurCharge	|N|	|This element contains the desc attribute, with text describing the reason for the surcharge. Example: `<SurCharge desc="fuel">`|
+|Tax	|N|	|The reservation tax.|
+|ExtraPickupCharge	|N|	|Any additional fees for the pickup service.|
+|ExtraDropoffCharge	|N|	|Any additional fees for the drop off service.|
+|OptionalExtraStopCharge	|N|	|The charge for any additional stops.|
+|OptionalExtraTimeCharge	|N|	|The charge for each additional hour.|
+
+#### Credit Card elements
+
+|Element Name|Required?|Data Type|Description|
+|------------|-----------------|---------|-----------|
+|Type|Y|The card type.|
+|Number|Y|The card number.|
+|Expiration|Y|The card expiration date. Format: 2013-02-19|
+
+### XML example request
+
+```xml
+POST /api/tws/v1.0/Limo/PostBack HTTPS/1.1
+Host: app2.outtask.com/
+Authorization: Basic ...
+Content-Type: application/xml
+Content-Length: {length of content body}
+
+<CC_LimoPostBackRequest>
+    <Error>
+        <ErrorCode />
+        <ErrorSource />
+        <ErrorDescription />
+    </Error>
+    <ReservationID>1234</ReservationID>
+    <Status>CB</Status>
+    <ConfNum/>
+    <CancelPolicy />
+    <CancelNum/>
+    <PrimaryPassenger>
+        <FirstName>Chris</FirstName>
+        <LastName>Miller</LastName>
+        <Phone>5551234567</Phone>
+        <Phone2>5551234568</Phone2>
+        <CellPhone>5551234555</CellPhone>
+        <EmailAddress>cmiller@example.com</EmailAddress>
+    </PrimaryPassenger>
+    <ServiceType>110</ServiceType>
+    <ClassOfService />
+    <PickupLocation>
+        <LocationType>100</LocationType>
+        <Airport>
+            <AirportCode />
+            <Flight>
+                <CarrierCode />
+                <FlightNumber />
+                <ArrivalDateTime />
+            </Flight>
+        </Airport>
+        <TrainStation>
+            <StationCode />
+            <StationName />
+            <City />
+            <State />
+            <Train>
+                <CarrierCode />
+                <CarrierName />
+                <TrainNumber />
+            </Train>
+        </TrainStation>
+        <Address>209 Madison St #400</Address>
+        <City>Alexandria</City>
+        <State>VA</State>
+        <Country>US</Country>
+        <PostalCode>22314</PostalCode>
+        <ExtraNotes />
+    </PickupLocation>
+    <DropoffLocation>
+        <LocationType>200</LocationType>
+        <Airport>
+            <AirportCode>DCA</AirportCode>
+            <Flight>
+                <CarrierCode>UA</CarrierCode>
+                <FlightNumber>333</FlightNumber>
+                <DepartureDateTime>2012-02-19T11:29:00</DepartureDateTime>
+            </Flight>
+        </Airport>
+        <TrainStation>
+            <StationCode />
+            <StationName />
+            <City />
+            <State />
+            <Train>
+                <CarrierCode />
+                <CarrierName />
+                <TrainNumber />
+                <DepartureDateTime />
+            </Train>
+        </TrainStation>
+        <Address />
+        <City />
+        <State />
+        <Country />
+        <PostalCode />
+        <ExtraNotes />
+    </DropoffLocation>
+    <StartDateTime>2012-02-19T09:00:00</StartDateTime>
+    <EndDateTime />
+    <PickupInstructions>pick me up</PickupInstructions>
+    <DropoffInstructions>None</DropoffInstructions>
+    <LanguageCode>en-us</LanguageCode>
+    <Currency>USD</Currency>
+    <NumPassengers>1</NumPassengers>
+    <RequestedDriver />
+    <SpecialServiceRequest />
+    <PickupServiceArrangement />
+    <DropoffServiceArrangement />
+    <ExtraStopArrangement />
+    <RateInfo>
+        <RateID>5</RateID>
+        <Rate>42.50</Rate>
+        <RateTypeCode>E</RateTypeCode>
+        <CategoryCode />
+        <MinHours />
+        <Currency>US</Currency>
+        <NoRateText />
+        <DiscountType />
+        <BasePrice>35.00</BasePrice>
+        <ServiceCharge>5.00</ServiceCharge>
+        <SurCharge desc="fuel">1.00</SurCharge>
+        <Tax>1.50</Tax>
+        <ExtraPickupCharge />
+        <ExtraDropoffCharge />
+        <OptionalExtraStopCharge />
+        <OptionalExtraTimeCharge />
+        <Message />
+    </RateInfo>
+    <RateDisclaimer />
+    <Vehicle>
+        <VehicleType>100</VehicleType>
+        <Description>This is a Sedan.</Description>
+        <MaxPassengers>1</MaxPassengers>
+        <VehicleID>12</VehicleID>
+    </Vehicle>
+    <Vendor>
+        <VendorCode>LML</VendorCode>
+        <VendorName>LimoVendor</VendorName>
+        <PhoneNumber>4354654654</PhoneNumber>
+    </Vendor>
+    <ProviderFeedback />
+    <FormOfPayment>
+        <Cash />
+        <Check />
+        <DirectBilling />
+        <CreditCard>
+            <Type>VI</Type>
+            <Number>XXXXXXXXXXXX1111</Number>
+            <Expiration>2013-02-19</Expiration>
+        </CreditCard>
+    </FormOfPayment>
+    <AccountingInfo>
+        <AccountingField1>715</AccountingField1>
+        <AccountingField2>temp@outtask.com</AccountingField2>
+        <AccountingField3>11</AccountingField3>
+        <AccountingField4>Development</AccountingField4>
+        <AccountingField5/>
+    </AccountingInfo>
+</CC_LimoPostBackRequest>
+```
+
+## Response
+
+Concur responds to the supplier request with a result message.
+
+### Content Types
+application/xml
+
+### Response body
+
+The response will include a **CC_LimoPostBackResponse** parent element, with the following child elements:
+
+**Successful post:**
+
+|Element Name|Description|
+|------------|--------------------------|
+|Success|This element contains the message detailing the change.|
+
+**Failed post:**
+|Element Name|Description|
+|------------|--------------------------|
+|Version|The API version, currently 1.0.|
+|Error|This element contains the error text.|
+
+### XML example of successful response
+
+```xml
+200 OK HTTPS/1.1 
+<CC_LimoPostBackResponse>
+    <Success>Updated Trip Status successfully.</Success>
+</CC_LimoPostBackResponse>
+```
+### XML example of response with error
+
+```xml
+<CC_LimoPostBackResponse>
+    <Version>1.0</Version>
+    <Error>This reservation does not exist in the Concur database.</Error>
+</CC_LimoPostBackResponse>
+```
+
 
 [1]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 [2]: http://en.wikipedia.org/wiki/ISO_4217
