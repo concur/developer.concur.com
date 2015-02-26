@@ -23,12 +23,14 @@ An access token is a long-lived token used to make authorized API calls.
 
 ##  Data Model
 
+```XML
     <Access_Token>
         <Instance_URL>https://www.concursolutions.com</Instance_Url>
         <Token>fdjhk2382kwkajsklwe8i3932kslswl</Token>
         <Expiration_Date>3/30/2013 2:19:10 PM</Expiration_date>
         <Refresh_Token>8ew$sefhj7s62ns94376nsjd62s</Refresh_Token>
     </Access_Token>
+```
 
 | Element | Required/Optional | Data Type | Description  |
 | ------- | ----------------- | --------- | ------------ |
