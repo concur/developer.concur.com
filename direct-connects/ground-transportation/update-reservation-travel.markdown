@@ -138,6 +138,40 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 
 #### Airport elements
 
+|Element Name|Description|
+|------------|--------------------|
+|AirportCode	 |The IATA code for the airport.|
+|Flight	 |The flight information. For information about the child elements of this parent element, see the **Flight elements** table below.|
+
+### Flight elements
+
+|Element Name|Description|
+|------------|----------------|
+|CarrierCode |The airline code.|
+|FlightNumber|	The flight number.|
+|ArrivalDateTime| The flight arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
+|DepartureDateTime| The flight departure time. Only provided for the DropoffLocation element. Format: 2015-05-19T18:00:00|
+
+### Train Station elements
+
+|Element Name|Required/Optional|Data Type|Description|
+|------------|-----------------|---------|-----------|
+|StationCode|	| |The station code.|
+|StationName|	| |The name of the station.|
+|City | | |The city the station is located in.|
+|State|	| |The state the station is located in. Preferably 2 characters, max 10 characters.|
+|Train|	| |The train information. For information about the child elements of this parent element, see the **Train elements** table below. |
+
+### Train Child Elements
+
+|Element Name|Description|
+|------------|--------------------------|
+|CarrierCode	 |The code of the train carrier.|
+|CarrierName	  |The name of the train carrier.|
+|TrainNumber |The train number.|
+|ArrivalDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
+|DepartureDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
+
 
 [1]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 [2]: http://en.wikipedia.org/wiki/ISO_4217
