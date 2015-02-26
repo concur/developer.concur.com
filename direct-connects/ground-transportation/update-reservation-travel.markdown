@@ -143,7 +143,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |AirportCode	 |The IATA code for the airport.|
 |Flight	 |The flight information. For information about the child elements of this parent element, see the **Flight elements** table below.|
 
-### Flight elements
+#### Flight elements
 
 |Element Name|Description|
 |------------|----------------|
@@ -152,7 +152,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |ArrivalDateTime| The flight arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
 |DepartureDateTime| The flight departure time. Only provided for the DropoffLocation element. Format: 2015-05-19T18:00:00|
 
-### Train Station elements
+#### Train Station elements
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
@@ -162,7 +162,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |State|	| |The state the station is located in. Preferably 2 characters, max 10 characters.|
 |Train|	| |The train information. For information about the child elements of this parent element, see the **Train elements** table below. |
 
-### Train Child Elements
+#### Train Child Elements
 
 |Element Name|Description|
 |------------|--------------------------|
@@ -370,6 +370,7 @@ The response will include a **CC_LimoPostBackResponse** parent element, with the
 |Success|This element contains the message detailing the change.|
 
 **Failed post:**
+
 |Element Name|Description|
 |------------|--------------------------|
 |Version|The API version, currently 1.0.|
@@ -383,6 +384,7 @@ The response will include a **CC_LimoPostBackResponse** parent element, with the
     <Success>Updated Trip Status successfully.</Success>
 </CC_LimoPostBackResponse>
 ```
+
 ### XML example of response with error
 
 ```xml
