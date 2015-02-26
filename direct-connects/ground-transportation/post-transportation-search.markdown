@@ -1,34 +1,38 @@
 ---
-title: Ground Transportation 
+title: Post a transportation search
 layout: operation
 ---
 
 
 
 
-##  Request
+##  Description
 
-The following request is sent when the Travel user searches for ground transportation.
+A post transportation search request is sent when the Travel user searches for ground transportation.
 
-| ----- |
+##Supported Accept Types 
 
-| Supported Accept Types                                                                                                                       |
-| -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Request URI                                                                                                                                  |
-| The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
+application/xml
 
-    https://{servername}/concur/groundtransportation
+## Request URI                                                                                
 
-The URI is configured by the supplier when [registering the partner application][1]. |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with OAuth credentials. Refer to the [OAuth][2] documentation for more information. |  None |
-|  Request Body |   |
-|  The request will contain a **CC_LimoSearchRequest** parent element, containing the following child elements:
+The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
-|  Element |  Description |
-|  ServiceType |  The type of service requested. Will contain one of the following values:
+`https://{servername}/concur/groundtransportation`
 
-> 100: Point to point  
+The URI is configured by the supplier when [registering the partner application][1]. 
+
+## Headers
+
+### Authorization header
+Authorization header with OAuth credentials. Refer to the [OAuth][2] documentation for more information. 
+
+## Request Body
+The request will contain a **CC_LimoSearchRequest** parent element, containing the following child elements.
+
+**ServiceType**: The type of service requested. Will contain one of the following values:
+
+100: Point to point  
 110: One way to airport  
 111: One way from airport  
 120: One way to train station  
@@ -36,18 +40,20 @@ The URI is configured by the supplier when [registering the partner application]
 200: Hourly  
 300: Airport to airport
 
- |   |
-|  ClassOfService |  The requested service class. Will contain one of the following values:
+**ClassOfService**: The requested service class. Will contain one of the following values:
 
-> 100: Normal  
+100: Normal  
 200: High  
 300: Highest
 
-If this value is not provided by the user, it will default to 100. |
-|  PickupLocation |  The pick up location. This parent element contains the following child elements:
+If this value is not provided by the user, it will default to 100. 
 
+**PickupLocation**: The pick up location. This parent element contains the following child elements:
+
+|  Element    |  Description |
+|-----------|-----------|
 |  LocationType |  One of the following: 100 - Address, 200 - Airport, 300 - Train station. |
-|  Airport |  Refer to the Airport Elements table. Provided if the LocationType = 200. |   | |
+|  Airport |  Refer to the Airport Elements table. Provided if the LocationType = 200. |
 |  TrainStation |  Refer to the Train Station Elements table. Provided if the LocationType = 300. |
 |  Address |  The street address of the location. Provided if the LocationType = 100. |
 |  City |  The location city. |
@@ -56,11 +62,12 @@ If this value is not provided by the user, it will default to 100. |
 |  PostalCode |  The location postal code. |
 |  ExtraNotes |  Additional notes about the location. Example: Ring doorbell, Holiday Inn, etc. |
 
- |
-|  DropoffLocation |  The drop off location. This parent element contains the following child elements:
+**DropoffLocation**: The drop off location. This parent element contains the following child elements:
 
+|  Element    |  Description |
+|-----------|-----------|
 |  LocationType |  One of the following: 100 - Address, 200 - Airport, 300 - Train station. |
-|  Airport |  Refer to the Airport Elements table. Provided if the LocationType = 200. |   | |
+|  Airport |  Refer to the Airport Elements table. Provided if the LocationType = 200. | 
 |  TrainStation |  Refer to the Train Station Elements table. Provided if the LocationType = 300. |
 |  Address |  The street address of the location. Provided if the LocationType = 100. |
 |  City |  The location city. |
@@ -69,13 +76,15 @@ If this value is not provided by the user, it will default to 100. |
 |  PostalCode |  The location postal code. |
 |  ExtraNotes |  Additional notes about the location. Example: Apartment building, gravel driveway, etc. |
 
- |
-|  StartDateTime |  The time, in GMT, that the reservation must begin.  
-**Format**: 2015-05-19T18:00:00 |
-|  EndDateTime |  The time, in GMT that the reservation will end. Provided for hourly reservations. **Format**: 2015-05-19T18:00:00 |
-|  PickupInstructions |  Additional instructions about the pick up request. |
-|  DropoffInstructions |  Additional instructions about the drop off request. |
-|  LanguageCode |  The language of the traveler. Will be one of the following options:
+**StartDateTime**:  The time, in GMT, that the reservation must begin.  **Format**: 2015-05-19T18:00:00 
+
+**EndDateTime**:  The time, in GMT that the reservation will end. Provided for hourly reservations. **Format**: 2015-05-19T18:00:00 
+
+**PickupInstructions**: Additional instructions about the pick up request. 
+
+**DropoffInstructions**: Additional instructions about the drop off request. 
+
+**LanguageCode**: The language of the traveler. Will be one of the following options:
 
 en: English  
 en-us: English (US)  
@@ -97,10 +106,11 @@ sv: Swedish
 zh-cn: Chinese  
 zh-tw: Traditional Chinese
 
- |
-|  Currency |  The [3-letter ISO 4217 currency code][4] for the reservation amount. |
-|  NumPassengers |  The number of passengers. |
-|  VehicleType |  The type of vehicle requested. Will be one of the following options:
+**Currency**: The [3-letter ISO 4217 currency code][4] for the reservation amount. 
+
+**NumPassengers**: The number of passengers. 
+
+**VehicleType**: The type of vehicle requested. Will be one of the following options:
 
 100: Sedan  
 200: Limo  
@@ -117,29 +127,29 @@ zh-tw: Traditional Chinese
 600: Shuttle  
 900: Any
 
- |
 |  DiscountCode |  The discount code information. This parent element contains the following child elements:
 
+|  Element    |  Description |
+|-----------|-----------|
 |  CorporateID |  The user's corporate ID. |
-|  VendorCode |  The user's vendor code. |   | |
+|  VendorCode |  The user's vendor code. | 
 |  DiscountNumber |  The user's discount number. |
 
- |
+## Airport Elements
 
-  
-
-| ----- |
-|  Airport Elements |
-|  Element |  Description |
+|  Element    |  Description |
+|-----------|-----------|
 |  AirportCode |  The [IATA code][5] for the airport. |
-|  Flight |  The flight information. This parent element contains the following child elements:
+|  Flight |  The flight information. This parent element contains the following child elements.|
 
+|  Element    |  Description |
+|-----------|-----------|
 |  CarrierCode |  The airline code. |
-|  FlightNumber |  The flight number. |   | |
+|  FlightNumber |  The flight number. |  
 |  ArrivalDateTime |  The flight arrival time. Only provided for the PickupLocation element. **Format**: 2015-05-19T18:00:00 |
 |  DepartureDateTime |  The flight departure time. Only provided for the DropoffLocation element. **Format**: 2015-05-19T18:00:00 |
 
- |
+
 
 | ----- |
 |  Train Station Elements |
@@ -156,12 +166,10 @@ zh-tw: Traditional Chinese
 |  ArrivalDateTime |  The train arrival time. Only provided for the PickupLocation element. **Format**: 2015-05-19T18:00:00 |
 |  DepartureDateTime |  The train arrival time. Only provided for the PickupLocation element. **Format**: 2015-05-19T18:00:00 |
 
- |
-
- |
 
 ####  XML Example Request
 
+```xml
     POST /concur/groundtransportation HTTPS/1.1
     Host: example.com
     Authorization: Basic ...
@@ -203,6 +211,7 @@ zh-tw: Traditional Chinese
         <DiscountCode />
         <VehicleType>100</VehicleType>
     </CC_LimoSearchRequest>
+```
 
 ##  Response
 
