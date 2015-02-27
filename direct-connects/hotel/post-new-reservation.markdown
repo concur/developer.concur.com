@@ -75,8 +75,8 @@ The **Source** element contains the following element:
 |  Element |  Description |
 |----------|---------------------------------------|
 |  RoomTypes |  This parent element contains the **RoomType** child element, with the NumberofUnits attribute indicating how many rooms of this type are included in the reservation. |
-|  RatePlans |  This parent element contains the **RatePlan **child element, with the RatePlanCode attribute, specifying the rate plan code for the reservation. |
-|  GuestCounts |  This parent element contains the **GuestCount **child element, with the following attributes:<br/>**AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.<br/>**Count**: The number of guests included in the request. |
+|  RatePlans |  This parent element contains the **RatePlan** child element, with the RatePlanCode attribute, specifying the rate plan code for the reservation. |
+|  GuestCounts |  This parent element contains the **GuestCount** child element, with the following attributes:<br/>**AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.<br/>**Count**: The number of guests included in the request. |
 |  TimeSpan |  This element has the following attributes:<br/>**Start**: The start date of the reservation.<br/>**End**: The end date of the reservation. |
 |  Guarantee |  This parent element contains the **GuaranteesAccepted** element. The **GuaranteesAccepted** element contains the **GuaranteeAccepted** element. This element has the GuaranteeTypeCode attribute, specifying the type of guarantee placed on the reservation. The **GuaranteeAccepted** parent element has a **PaymentCard** child element for card guarantees; for information about this child element, see the **PaymentCard elements** table below. |
 |  BasicPropertyInfo |  This element contains the HotelCode attribute. |
@@ -210,7 +210,7 @@ The supplier responds to the request by returning the details of the completed b
 application/xml
 
 ### Response body
-|
+
 The response will include a **OTA_HotelResRS** parent element, with the following attributes:
 
 * xmlns
