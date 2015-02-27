@@ -1,11 +1,37 @@
 ---
-title: Ground Transportation 
+title: Update reservation with supplier 
 layout: operation
 ---
 
 
+## Description
 
+This request is sent when the Travel user updates an existing ground transportation reservation.
 
+## Request
+
+### URI
+
+The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
+
+`https://{servername}/concur/groundtransportation`
+
+The URI is configured by the supplier when registering the partner application.
+
+### Headers
+
+#### Accept header
+application/xml
+
+#### Authorization header
+
+Authentication header with Base64 encoded basic authentication credentials (login ID and password) is required. The basic authentication credentials are established during the application review process.
+
+Authorization: Basic {Base64 encoded LoginID:Password}
+
+#### Request body
+
+The request will contain a **CC_LimoUpdateRequest** parent element, containing the following child elements: 
 
 | ----- |
 |  Element |  Required (must contain value)? |  Description |
