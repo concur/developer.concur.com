@@ -48,78 +48,6 @@ The **OTA_HotelResRQ** parent element contains the following child elements:
 |  POS |  The point of sale information. Contains a **Source** child element that specifies the source of the request. For information about **Source** element, see the **Source elements** table below. |
 | HotelReservations |  This element has a **HotelReservation** child element. For information about the **HotelReservation** element, see the **HotelReservation elements** table below. |
 
-#### HotelReservation elements
-
-|  Element |  Description |
-|----------|---------------------------------------|
-|  RoomStays |  This parent element contains the **RoomStay** child element. For information about the **RoomStay** element, see the **RoomStay elements** table below. |
-|  ResGuests |  This parent element contains the **ResGuest** element. The **ResGuest** element contains the **Profiles** element. The **Profiles** element contains the **ProfileInfo** element, which contains a **Profile** child element for each guest. The **Profile** child element contains the **Customer** parent element; for information about the **Customer** element, see the **Customer elements** table below. |
-|  ResGlobalInfo |  This parent element contains a **Memberships** child element. This element contains a **Membership** child element with the following attributes:<br/>**ProgramCode**: The name of the membership program.<br/>**AccountID**: The account number for the membership program. |
-
-|  PersonName |  This element contains the following child elements:
-
-**NamePrefix**: The user's name prefix.  
-**GivenName**: The user's given name.  
-**Surname**: The user' surname.
-
- |
-|  Telephone |  This element has a PhoneNumber attribute containing the guests' phone number. |   | |
-|  Email |  The guest's email address. |
-|  Address |  This parent element has the following child elements:
-
-**AddressLine**: The first address line.  
-**CityName**: The address city.  
-**PostalCode**: The address postal code.  
-**StateProv**: The address state/province.  
-**CountryName**: The 3-character address country name. Format: USA
-
-|  TPA_Extensions |
-
-This parent elements contains a **CustomFields** element that contains a **CustomField** element for each custom field in the request. The **CustomField** elements have the following attributes:
-* **Name**: The name of the custom field.
-* **Type**: The type of information the custom field contains.
-
-**NOTE**: Some of the regular profile fields can be included in the **CustomField** elements. Their Type = Profile. Supported fields are: Cost Center, Employee ID, Manager, Employee Title, Organization Unit and XML Sync ID. Sharing the profile item has to be enabled for the vendor (vendor requests these values), then it can be enabled in specific travel configurations (customer wants to share the items with the vendor).
-
-
-
-| ----- |
-|  RoomStay Request Child Elements |
-|  Element |  Description |
-|  RoomTypes |  This parent element contains the **RoomType** child element, with the NumberofUnits attribute indicating how many rooms of this type are included in the reservation. |
-|  RatePlans |  This parent element contains the **RatePlan **child element, with the RatePlanCode attribute, specifying the rate plan code for the reservation. |
-|  GuestCounts |  This parent element contains the **GuestCount **child element, with the following attributes:
-
-* **AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.
-* **Count**: The number of guests included in the request.
- |
-|  TimeSpan |  This element has the following attributes:
-
-* **Start**: The start date of the reservation.
-* **End**: The end date of the reservation.
- |
-|  Guarantee |  This parent element contains the **GuaranteesAccepted** element. The **GuaranteesAccepted** element contains the **GuaranteeAccepted** element. This element has the GuaranteeTypeCode attribute, specifying the type of guarantee placed on the reservation. The **GuaranteeAccepted** parent element has a **PaymentCard** child element for card guarantees, with the following attributes:
-* **CardCode**: The type of card. Refer to the [Hotel Direct Connect Codes][4].
-* **CardNumber**: The card number.
-* **ExpireDate**: The expiration date. Format: MMYY
-* **SeriesCode**: The CVV value, it should be queried and passed only if hotel requires it.
-
-The **PaymentCard** parent element has the following child elements:
-
-|  CardHolderName |  The card holder's name. |
-|  Address |  The billing address of the card. This parent element contains the following child elements:
-
-**AddressLine**: The first address line.  
-**CityName**: The address city.  
-**PostalCode**: The address postal code.  
-**StateProv**: The address state/province.  
-**CountryName**: The 2-character address country name. Format: US
-
-
- |
-|  BasicPropertyInfo |  This element contains the HotelCode attribute. |
-|  Comments |  The comments on the reservation. This parent element contains a **Comment** child element for each comment associated with the reservation. |
-
 #### Source elements
 
 The **Source** element has the following attributes:
@@ -131,7 +59,53 @@ The **Source** element contains the following element:
 
 |  Element |  Description |
 |----------|---------------------------------------|
-|  RequestorID | The corporate identifier. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:<br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes][3]. <br/>**ID**: The corporate identifier. <br/>**ID_Context**: The corporate identifier context.
+|  RequestorID | The corporate identifier. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:<br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes][3]. <br/>**ID**: The corporate identifier. <br/>**ID_Context**: The corporate identifier context.|
+
+#### HotelReservation elements
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  RoomStays |  This parent element contains the **RoomStay** child element. For information about the **RoomStay** element, see the **RoomStay elements** table below. |
+|  ResGuests |  This parent element contains the **ResGuest** element. The **ResGuest** element contains the **Profiles** element. The **Profiles** element contains the **ProfileInfo** element, which contains a **Profile** child element for each guest. The **Profile** child element contains the **Customer** parent element; for information about the **Customer** element, see the **Customer elements** table below. |
+|  ResGlobalInfo |  This parent element contains a **Memberships** child element. This element contains a **Membership** child element with the following attributes:<br/>**ProgramCode**: The name of the membership program.<br/>**AccountID**: The account number for the membership program. |
+|  TPA_Extensions |  This parent elements contains a **CustomFields** element that contains a **CustomField** element for each custom field in the request. The **CustomField** elements have the following attributes:<br/>**Name**: The name of the custom field.<br/>**Type**: The type of information the custom field contains.<br/><br/>**NOTE**: Some of the regular profile fields can be included in the **CustomField** elements. Their Type = Profile. Supported fields are: Cost Center, Employee ID, Manager, Employee Title, Organization Unit and XML Sync ID. Sharing the profile item has to be enabled for the vendor (vendor requests these values), then it can be enabled in specific travel configurations (customer wants to share the items with the vendor). |
+
+#### RoomStay Request elements
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  RoomTypes |  This parent element contains the **RoomType** child element, with the NumberofUnits attribute indicating how many rooms of this type are included in the reservation. |
+|  RatePlans |  This parent element contains the **RatePlan **child element, with the RatePlanCode attribute, specifying the rate plan code for the reservation. |
+|  GuestCounts |  This parent element contains the **GuestCount **child element, with the following attributes:<br/>**AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.<br/>**Count**: The number of guests included in the request. |
+|  TimeSpan |  This element has the following attributes:<br/>**Start**: The start date of the reservation.<br/>**End**: The end date of the reservation. |
+|  Guarantee |  This parent element contains the **GuaranteesAccepted** element. The **GuaranteesAccepted** element contains the **GuaranteeAccepted** element. This element has the GuaranteeTypeCode attribute, specifying the type of guarantee placed on the reservation. The **GuaranteeAccepted** parent element has a **PaymentCard** child element for card guarantees; for information about this child element, see the **PaymentCard elements** table below. |
+|  BasicPropertyInfo |  This element contains the HotelCode attribute. |
+|  Comments |  The comments on the reservation. This parent element contains a **Comment** child element for each comment associated with the reservation. |
+
+#### Customer elements
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  PersonName |  This element contains the following child elements:<br/>**NamePrefix**: The user's name prefix.<br/>**GivenName**: The user's given name. <br/>**Surname**: The user' surname. |
+|  Telephone |  This element has a PhoneNumber attribute containing the guests' phone number. |   | |
+|  Email |  The guest's email address. |
+|  Address |  This parent element has the following child elements:<br/>**AddressLine**: The first address line.<br/>**CityName**: The address city. <br/>**PostalCode**: The address postal code. <br/>**StateProv**: The address state/province. <br/>**CountryName**: The 3-character address country name. Format: USA |
+
+#### PaymentCard elements
+
+The **PaymentCard** element has the following attributes:
+
+* **CardCode**: The type of card. Refer to the [Hotel Direct Connect Codes][4].
+* **CardNumber**: The card number.
+* **ExpireDate**: The expiration date. Format: MMYY
+* **SeriesCode**: The CVV value, it should be queried and passed only if hotel requires it.
+
+The **PaymentCard** element has the following child elements:
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  CardHolderName |  The card holder's name. |
+|  Address |  The billing address of the card. This parent element contains the following child elements:<br/>**AddressLine**: The first address line.<br/>**CityName**: The address city. <br/>**PostalCode**: The address postal code. <br/>**StateProv**: The address state/province. <br/>**CountryName**: The 2-character address country name. Format: US |
 
 ####  XML Example Request
 
@@ -232,12 +206,13 @@ The **Source** element contains the following element:
 
 The supplier responds to the request by returning the details of the completed booking.
 
-| ----- |
+### Content Types
+application/xml
 
-| Supported Content Types                                                                     |
-| ------------------------------------------------------------------------------------------- |
-| Content Body                                                                                |
-| The response will include a **OTA_HotelResRS** parent element, with the following attributes:
+### Response body
+|
+The response will include a **OTA_HotelResRS** parent element, with the following attributes:
+
 * xmlns
 * EchoToken
 * ResResponseType: The reservation status. Refer to the [Hotel Direct Connect Codes][4] for the possible values.
@@ -245,27 +220,23 @@ The supplier responds to the request by returning the details of the completed b
 * xmlns:xsi
 * xsi:schemaLocation
 * Version
+
 The **OTA_HotelResRS** parent element contains the following child elements:  
 
-|  Element |  Required (must contain value)? |  Description |
-|  Success |  N |  This element is returned if the request was successful. |   |
-|  HotelReservations |  Y |  This element has a **HotelReservation** child element. The **HotelReservation** element contains the following child elements:
+|  Element |  Required? |  Description |
+|----------|---------------|-----------------------------------|
+|  Success |  N |  This element is returned if the request was successful. |  
+|  HotelReservations |  Y |  This element has a **HotelReservation** child element. For information about the **HotelReservation** element, see the **HotelReservation elements** table below. |
 
-|  RoomStays |  This parent element contains the **RoomStay** element. Refer to the RoomStay Response Child Elements table for more information. |
-|  ResGuests |  This parent element contains the **ResGues**t element. Refer to the ResGuest Response Child Elements table for more information. |   | | |
-|  ResGlobalInfo |  This parent element contains a **HotelReservationIDs** parent element, which contains a **HotelReservationID** child element with the ResID_Value attribute, identifying the reservation. |
-|  TPA_Extensions |  This parent element contains a **VoucherURL** child element. If you need to provide some voucher or certificate of purchase, please publish it on your server and provide the URL in the **VoucherURL** element. |
+#### RoomStay Response elements
 
-
-
-| ----- |
-|  RoomStay Response Child Elements |
 |  Element |  Description |
+|----------|---------------------------------------|
 |  RoomTypes |  This parent element contains the **RoomType** child element, with the NumberofUnits attribute indicating how many rooms of this type are included in the reservation. The **RoomType** parent element has the **RoomDescription** child element. The **RoomDescription** element contains the **Text** element describing the room. |
 |  RatePlans |  This parent element contains the **RatePlan** child element, with the RatePlanCode attribute, specifying the rate plan code for the reservation. The **RatePlan** parent element has the following child elements:
 
 |  CancelPenalties |  This element contains the **CancelPenalty** parent element. The **CancelPenalty** element contains the **PenaltyDescription** element, with a **Text** child element containing the cancellation penalty text. |
-|  RatePlanDescription |  This element contains a **Text** child element with the text description of the rate plan. |   | |
+|  RatePlanDescription |  This element contains a **Text** child element with the text description of the rate plan. |  
 
  |
 |  RoomRates |  This parent element contains the **RoomRate** element, with a RatePlanCode attribute. The **RoomRate** element contains a **Rates** parent element, with a **Rate** child element for each included rate. The **Rate** is for each day, not the total rate. The **Rate** element has the following attributes:
@@ -308,9 +279,15 @@ The **Tax** element contains a **TaxDescription** parent element, with a **Text*
 |  GivenName |  The guest's first name. |   | |
 |  Surname |  The guest's last name. |
 
- |
+#### HotelReservation elements
 
- |
+|  Element |  Description |
+|----------|---------------------------------------|
+|  RoomStays |  This parent element contains the **RoomStay** child element. For information about the **RoomStay** element, see the **RoomStay Response elements** table below. |
+|  ResGuests |  This parent element contains the **ResGuest** element. For information about the **ResGuest** element, see the **ResGuest Response elements** table below. |
+|  ResGlobalInfo |  This parent element contains a **HotelReservationIDs** parent element, which contains a **HotelReservationID** child element with the ResID_Value attribute, identifying the reservation. |
+|  TPA_Extensions |  This parent element contains a **VoucherURL** child element. If you need to provide some voucher or certificate of purchase, please publish it on your server and provide the URL in the **VoucherURL** element. |
+
 
 ###  XML Example of Successful Response
 
