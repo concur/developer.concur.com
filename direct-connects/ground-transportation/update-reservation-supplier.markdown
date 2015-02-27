@@ -50,7 +50,7 @@ The request will contain a **CC_LimoUpdateRequest** parent element, containing t
 |  LanguageCode |   |  The language of the traveler. Will be one of the following options: <br/>en: English  <br/>en-us: English (US)  <br/>en-gb: English (UK)  <br/>fr: French  <br/>fr-ca: French (Canadian)  <br/>de: German  <br/>pt: Portuguese  <br/>es: Spanish  <br/>nl: Dutch  <br/>it: Italian  <br/>ja: Japanese  <br/>pl: Polish  <br/>pt-br: Portuguese (Brazilian)  <br/>ru: Russian  <br/>hu: Hungarian  <br/>ko: Korean  <br/>sv: Swedish  <br/>zh-cn: Chinese  <br/>zh-tw: Traditional Chinese|
 |  Currency |   |  The [3-letter ISO 4217 currency code][2] for the reservation amount. |
 |  NumPassengers |   |  The number of passengers. |
-| DiscountCode |  |The discount code information. |The discount code information.For information about the child elements of this parent element, see the **DiscountCode elements** table below.  |
+| DiscountCode |  |The discount code information. For information about the child elements of this parent element, see the **DiscountCode elements** table below.  |
 |  FormOfPayment |   |  The form of payment for the reservation. For information about the child elements of this parent element, see the **FormOfPayment elements** table below. |
 |  AccountingInfo |   |  The accounting information for the reservation. This parent element contains one or more **AccountingField** elements: **AccountingField1** through **AccountingField5**. These fields contain detailed accounting information. |
 |  RequestedDriver |   |  The name of the requested driver, if available. |
@@ -299,27 +299,6 @@ The response will include a **CC_LimoUpdateReply** parent element, with the foll
 |TrainNumber |The train number.|
 |ArrivalDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
 |DepartureDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
-
-#### Rate Information elements
-
-|Element Name|Required?|Data Type|Description|
-|------------|-----------------|---------|-----------|
-|RateID	|Y| |The rate identifier.|
-|Rate	|Y| |The BasePrice + ServiceCharge + SurCharge + Tax|
-|RateTypeCode	|Y| |	The code for the rate type. Will be one of the following options: <br>F: Flat rate <br>H: Hourly <br>E: Estimated amount <br>N: Currently not available|
-|CategoryCode	|N|	|Extra information that will be passed back during sell request to help identify the rate.|
-|Currency	|Y|	|The 3-letter ISO 4217 currency code for the rate amount.|
-|NoRateText	|N|	|Explanation of rate type. Provided if RateTypeCode = N|
-|MinHours	|N|	|The minimum number of hours for the reservation.|
-|DiscountType	|N|	|The type of discount applied.|
-|BasePrice	|N|	|The reservation price without taxes, surcharges or service charges.|
-|ServiceCharge	|N|	|The service charge for the reservation.|
-|SurCharge	|N|	|This element contains the desc attribute, with text describing the reason for the surcharge. Example: `<SurCharge desc="fuel">`|
-|Tax	|N|	|The reservation tax.|
-|ExtraPickupCharge	|N|	|Any additional fees for the pickup service.|
-|ExtraDropoffCharge	|N|	|Any additional fees for the drop off service.|
-|OptionalExtraStopCharge	|N|	|The charge for any additional stops.|
-|OptionalExtraTimeCharge	|N|	|The charge for each additional hour.|
 
 #### Reply Credit Card elements
 
