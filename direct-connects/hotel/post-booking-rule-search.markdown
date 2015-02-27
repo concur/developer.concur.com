@@ -114,12 +114,11 @@ The **OTA_HotelBookingRuleRS** parent element contains a **Success** element if 
 |  Element |  Required (must contain value)? |  Description |
 
 |----------|---------|---------------------------------|
-|  StatusApplication |  Y | This element contains rate details. It has the following attributes:<br/>**Start**: The start date of the request. Format: YYYY-MM-DD<br/>**End**: The end date of the request. Format: YYYY-MM-DD<br/>**RatePlanCode**: The rate plan code for the requested rate.<br/><br/>The **StatusApplication** element contains one **RoomRates** child element for each rate returned. For information about this element, see the **RoomRates elements** table below. |
+|  StatusApplication |  Y | This element contains rate details. It has the following attributes:<br/>**Start**: The start date of the request. Format: YYYY-MM-DD<br/>**End**: The end date of the request. Format: YYYY-MM-DD<br/>**RatePlanCode**: The rate plan code for the requested rate.<br/><br/>The **StatusApplication** element contains a **RoomRates** element with one **RoomRate** child element for each rate returned. For information about this element, see the **RoomRate element** table below. |
 |  GuestCounts |  Y | This parent element contains a **GuestCount** element with the following attributes:<br/>**AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.<br/>**Count**: The number of guests included in the request. |
-|  BookingRules |  Y | This parent element contains a **BookingRule** element with the following child elements: |
+|  BookingRules |  Y | This parent element contains a **BookingRule** element. For information about this child element, see the **BookingRule element** table below. |
 
-
-#### RoomRates element
+#### RoomRate element
 
 The **RoomRate** element has the following attributes:
 
@@ -130,37 +129,25 @@ The **RoomRate** element has the following attributes:
 
 The **RoomRate** element has the following child element:
 
-|  RateDescription |
+|  Element |  Description |
+|----------|---------------------------------------|
+|  RateDescription | This parent element contains a **Text** child element with text details of the room rate.|
 
-This parent element contains the following child element:
+#### BookingRule element
 
-**Text**: The text details of the room rate.
+|  Element |  Description |
+|----------|---------------------------------------|
+|  AcceptableGuarantees | Information about acceptable guarantees. This element has an **AcceptableGuarantee** child element. For information about the **AcceptableGuarantee** element, see the **AcceptableGuarantee element** table below. |
+|  CancelPenalties | This element has the **CancelPenalty** child element. The **CancelPenalty** element has the **PenaltyDescription** child element, containing a **Text** child element with the penalty description text. |
+|  RequiredPaymts | This element contains the **GuaranteePayment** element, which has a PaymentCode attribute. The **GuaranteePayment** element contains the **Description** element, containing a **Text** child element with the required payment description text. |
 
- 
+#### AcceptableGuarantee element
 
+The **AcceptableGuarantee** element has the GuaranteeCode attribute and the following child element:
 
-
-|  AcceptableGuarantees |
-
-This element has an **AcceptableGuarantee** child element. This element has the GuaranteeCode attribute and the following child element:
-
+|  Element |  Description |
+|----------|---------------------------------------|
 |  GuaranteeDescription |  This element has the **Text** child element, containing the description of the guarantee. |
-
- |
-|  CancelPenalties |
-
-This element has the **CancelPenalty** child element. The **CancelPenalty** element has the **PenaltyDescription** child element with the following child element:
-
-|  Text |  The penalty description text. |
-
- |
-|  RequiredPaymts |
-
-This element contains the **GuaranteePayment** element, which has a PaymentCode attribute. The **GuaranteePayment** element contains the **Description** element, which contains the following child element:
-
-|  Text |  The required payment description text. |
-
-
 
 ####  XML Example of Successful Response
 
