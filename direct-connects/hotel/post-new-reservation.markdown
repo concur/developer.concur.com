@@ -1,28 +1,38 @@
 ---
-title: Hotel 
+title: Post a new reservation 
 layout: operation
 ---
 
 
+## Description
 
+This request is sent when the Travel user creates a reservation for the supplied hotel. The response includes the reservation details.
 
-##   Request
+##  Request
 
-The following request is sent when the Travel user creates a reservation for the supplied hotel. The response includes the reservation details.
+### Encoding
+UTF-8
 
-| ----- |
-|  Supported Accept Types |  Encoding |
-|   |  UTF-8 |
-|  Request URI |   |
-|  The Hotel direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
+### URI
 
-    https://{servername}/concur/hotel/v1/
+The Hotel direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts >[ Partner Applications][1] **for more information. |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with Basic credentials. Refer to the [Security][2] documentation for more information. |  None |
-|  Request Body |   |
-|  The request will contain a **OTA_HotelResRQ** parent element, containing the following attributes:
+`https://{servername}/concur/hotel/v1/`
+
+The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts** > [Partner Applications][1] for more information.
+
+### Headers
+
+#### Accept header
+application/xml
+
+#### Authorization header
+Authorization header with Basic credentials. Required. Refer to the [Security][2] documentation for more information. 
+
+### Request body
+
+The request will contain a **OTA_HotelResRQ** parent element, containing the following attributes:
+
 * xmlns
 * EchoToken
 * TimeStamp
@@ -30,32 +40,21 @@ The URI is configured by the supplier when registering the partner application. 
 * xmlns:xsi
 * xsi:schemaLocation
 * Version
-The** OTA_HotelResRQ **parent element contains the following child elements:
+
+The **OTA_HotelResRQ** parent element contains the following child elements:
 
 |  Element |  Description |
-|  POS |  The point of sale information. This parent element contains the following child element:
+|----------|---------------------------------------|
+|  POS |  The point of sale information. Contains a **Source** child element that specifies the source of the request. For information about **Source** element, see the **Source elements** table below. |
+| HotelReservations |  This element has a **HotelReservation** child element. For information about the **HotelReservation** element, see the **HotelReservation elements** table below. |
 
-|  Source |  The source of the request. This element has the following attributes:  |
+#### HotelReservation elements
 
-The **Source** element has the following child element:
-
-| ----- |
-|  RequestorID |  The corporate identifier. If necessary, multiple RequestorID elements can be sent. This element has the following attributes:
-
-* **Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes][3].
-* **ID**: The corporate identifier.
-* **ID_Context**: The corporate identifier context.
- |
-
- |
-|
-
-HotelReservations
-
- |  This element has a **HotelReservation** child element. The **HotelReservation** element contains the following child elements:
-
-|  RoomStays |  This parent element contains the **RoomStay** element. Refer to the RoomStay Request Child Elements table for more information. |
-|  ResGuests |  This parent element contains the **ResGuest** element. The **ResGuest** element contains the **Profiles** element. The **Profiles** element contains the **ProfileInfo** element, which contains a **Profile** child element for each guest. The **Profile** child element contains the **Customer** parent element, with the following child elements:
+|  Element |  Description |
+|----------|---------------------------------------|
+|  RoomStays |  This parent element contains the **RoomStay** child element. For information about the **RoomStay** element, see the **RoomStay elements** table below. |
+|  ResGuests |  This parent element contains the **ResGuest** element. The **ResGuest** element contains the **Profiles** element. The **Profiles** element contains the **ProfileInfo** element, which contains a **Profile** child element for each guest. The **Profile** child element contains the **Customer** parent element; for information about the **Customer** element, see the **Customer elements** table below. |
+|  ResGlobalInfo |  This parent element contains a **Memberships** child element. This element contains a **Membership** child element with the following attributes:<br/>**ProgramCode**: The name of the membership program.<br/>**AccountID**: The account number for the membership program. |
 
 |  PersonName |  This element contains the following child elements:
 
@@ -74,13 +73,6 @@ HotelReservations
 **StateProv**: The address state/province.  
 **CountryName**: The 3-character address country name. Format: USA
 
- |
-
- |
-|  ResGlobalInfo |  This parent element contains a **Memberships** child element. This element contains a **Membership** child element with the following attributes:
-* **ProgramCode**: The name of the membership program.
-* **AccountID**: The account number for the membership program.
- |
 |  TPA_Extensions |
 
 This parent elements contains a **CustomFields** element that contains a **CustomField** element for each custom field in the request. The **CustomField** elements have the following attributes:
@@ -89,9 +81,7 @@ This parent elements contains a **CustomFields** element that contains a **Custo
 
 **NOTE**: Some of the regular profile fields can be included in the **CustomField** elements. Their Type = Profile. Supported fields are: Cost Center, Employee ID, Manager, Employee Title, Organization Unit and XML Sync ID. Sharing the profile item has to be enabled for the vendor (vendor requests these values), then it can be enabled in specific travel configurations (customer wants to share the items with the vendor).
 
- |
 
-  
 
 | ----- |
 |  RoomStay Request Child Elements |
@@ -125,18 +115,27 @@ The **PaymentCard** parent element has the following child elements:
 **StateProv**: The address state/province.  
 **CountryName**: The 2-character address country name. Format: US
 
- |   | |
 
  |
 |  BasicPropertyInfo |  This element contains the HotelCode attribute. |
 |  Comments |  The comments on the reservation. This parent element contains a **Comment** child element for each comment associated with the reservation. |
 
- |
+#### Source elements
 
- |
+The **Source** element has the following attributes:
+
+* ISOCountry: The country code for the Travel user's home country.
+* ISOCurrency: The 3-letter ISO 4217 currency code for the Travel user's currency.
+
+The **Source** element contains the following element:
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  RequestorID | The corporate identifier. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:<br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes][3]. <br/>**ID**: The corporate identifier. <br/>**ID_Context**: The corporate identifier context.
 
 ####  XML Example Request
 
+```xml
     POST /concur/hotel/v1 HTTPS/1.1
     Host: example.com
     Authorization: Basic ...
@@ -227,6 +226,7 @@ The **PaymentCard** parent element has the following child elements:
             </HotelReservation>
         </HotelReservations>
     </OTA_HotelResRQ>
+```
 
 ##  Response
 
@@ -256,9 +256,7 @@ The **OTA_HotelResRS** parent element contains the following child elements:
 |  ResGlobalInfo |  This parent element contains a **HotelReservationIDs** parent element, which contains a **HotelReservationID** child element with the ResID_Value attribute, identifying the reservation. |
 |  TPA_Extensions |  This parent element contains a **VoucherURL** child element. If you need to provide some voucher or certificate of purchase, please publish it on your server and provide the URL in the **VoucherURL** element. |
 
- |
 
-  
 
 | ----- |
 |  RoomStay Response Child Elements |
@@ -282,7 +280,6 @@ The **Base** element contains the **Taxes** child element. The **Taxes** element
 
 The **Tax** element contains a **TaxDescription** parent element, with a **Text** child element containing the tax description text.
 
- |
 
  |
 |  GuestCounts |  This element contains a **GuestCount** element with the following attributes:
@@ -301,9 +298,6 @@ The **Tax** element contains a **TaxDescription** parent element, with a **Text*
 |  PostalCode |  The address postal code. |
 |  CountryName |  The 3-character address country name. Format: USA |
 
- |
-
-  
 
 | ----- |
 |  ResGuest Response Child Elements |
@@ -318,8 +312,9 @@ The **Tax** element contains a **TaxDescription** parent element, with a **Text*
 
  |
 
-####  XML Example of Successful Response
+###  XML Example of Successful Response
 
+```xml
     200 OK HTTPS/1.1
     Content-Length: {length of content body}
 
@@ -419,7 +414,7 @@ The **Tax** element contains a **TaxDescription** parent element, with a **Text*
             </HotelReservation>
         </HotelReservations>
     </OTA_HotelResRS>
-
+```
   
 
 
