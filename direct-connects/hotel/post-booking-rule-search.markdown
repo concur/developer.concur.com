@@ -1,30 +1,39 @@
 ---
-title: Hotel 
+title: Post a booking rule search
 layout: operation
 ---
 
 
+## Description
 
+This request is sent when the Travel user selects a rate for the hotel. The response includes the rules for the specified rate.
 
 ##  Request
 
-The following request is sent when the Travel user selects a rate for the hotel. The response includes the rules for the specified rate.
+### Encoding
+UTF-8 
 
-| ----- |
-|  Supported Accept Types |  Encoding |
-|   |  UTF-8 |
-|  Request URI |   |
-|  The Hotel direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
+### URI
 
-    https://{servername}/concur/hotel/v1/
+The Hotel direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts >[ Partner Applications][1] **for more information. |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with Basic credentials. Refer to the [Security][2] documentation for more information. |  None |
-|  Request Body |   |
-|
+`https://{servername}/concur/hotel/v1/`
+
+The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts** > [Partner Applications][1] for more information. 
+
+### Headers
+
+#### Accept header
+application/xml
+
+#### Authorization header
+
+Authorization header with Basic credentials. Required. Refer to the [Security][2] documentation for more information. 
+
+### Request body
 
 The request will contain a **OTA_HotelBookingRuleRQ** parent element, containing the following attributes:
+
 * xmlns
 * EchoToken
 * TimeStamp
@@ -33,46 +42,38 @@ The request will contain a **OTA_HotelBookingRuleRQ** parent element, containing
 * xsi:schemaLocation
 * Version
 
-The** OTA_HotelBookingRuleRQ **parent element contains the following child elements:
+The **OTA_HotelBookingRuleRQ** parent element contains the following child elements:
 
 |  Element |  Description |
-|  POS |  The point of sale information. This parent element contains the following child element:
+|----------|---------------------------------------|
+|  POS |  The point of sale information. Contains a **Source** child element that specifies the source of the request. For information about **Source** element, see the **Source elements** table below. |
+|  RuleMessage |  This element has the HotelCode attribute. For information about the child element of this parent element, see the **StatusApplication elements** table below. |
 
-|  Source |
+#### Source elements
 
-The source of the request. This element has the following attributes:
+The **Source** element has the following attributes:
 
- |
+* ISOCountry: The country code for the Travel user's home country.
+* ISOCurrency: The 3-letter ISO 4217 currency code for the Travel user's currency.
 
-The **Source** element has the following child element:
+The **Source** element contains the following element:
 
-| ----- |
-|  RequestorID |
+|  Element |  Description |
+|----------|---------------------------------------|
+|  RequestorID | The corporate identifier. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:<br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes][3]. <br/>**ID**: The corporate identifier. <br/>**ID_Context**: The corporate identifier context.
 
-The corporate identifier. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:
-* **Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes][3].
-* **ID**: The corporate identifier.
-* **ID_Context**: The corporate identifier context.
- |
-
- |
-|  RuleMessage |  This element has the HotelCode attribute and the following child element:
-
-|  StatusApplication |
+#### StatusApplication elements
 
 This element has the following attributes:
 
 * **Start**: The start date of the request. Format: YYYY-MM-DD
 * **End**: The end date of the request. Format: YYYY-MM-DD
 * **RatePlanCode**: The rate plan code associated with the request.
- |
 
- |
-
- |
 
 ####  XML Example Request
 
+```xml
     POST /concur/hotel/v1 HTTPS/1.1
     Host: example.com
     Authorization: Basic ...
@@ -90,40 +91,38 @@ This element has the following attributes:
             <StatusApplication Start="2012-08-15" End="2010-08-17" RatePlanCode="HTL1_1" />
         </RuleMessage>
     </OTA_HotelBookingRuleRQ>
+```
 
 ##  Response
 
 The supplier responds to the request by returning the details of the requested rate.
 
-| ----- |
-
-| Supported Content Types |
-| ----------------------- |
-| Content Body            |
+### Content Types
+application/xml
 
 The response will include a **OTA_HotelBookingRuleRS** parent element, with the following attributes:
+
 * xmlns
 * EchoToken
 * TimeStamp
 * xmlns:xsi
 * xsi:schemaLocation
 * Version
+
 The **OTA_HotelBookingRuleRS** parent element contains a **Success** element if the request was successful. It also contains a **RuleMessage** element with the HotelCode and HotelName attributes. The **RuleMessage** element contains the following child elements:  
 
 |  Element |  Required (must contain value)? |  Description |
-|  StatusApplication |  Y |
 
-This element contains rate details. It has the following attributes:
+|----------|---------|---------------------------------|
+|  StatusApplication |  Y | This element contains rate details. It has the following attributes:<br/>**Start**: The start date of the request. Format: YYYY-MM-DD<br/>**End**: The end date of the request. Format: YYYY-MM-DD<br/>**RatePlanCode**: The rate plan code for the requested rate.<br/><br/>The **StatusApplication** element contains one **RoomRates** child element for each rate returned. For information about this element, see the **RoomRates elements** table below. |
+|  GuestCounts |  Y | This parent element contains a **GuestCount** element with the following attributes:<br/>**AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.<br/>**Count**: The number of guests included in the request. |
+|  BookingRules |  Y | This parent element contains a **BookingRule** element with the following child elements: |
 
-* **Start**: The start date of the request. Format: YYYY-MM-DD
-* **End**: The end date of the request. Format: YYYY-MM-DD
-* **RatePlanCode**: The rate plan code for the requested rate.
 
-The **StatusApplication** element has the following child element:
+#### RoomRates element
 
-|  RoomRates |
+The **RoomRate** element has the following attributes:
 
-This parent element contains one **RoomRate** element for each rate returned. The **RoomRate** element has the following attributes:
 * **Amount**: The amount of the room rate. Provide the daily rate if you are sending multiple **RoomRate** elements. If you have a single rate for the entire period (one RoomRate element), send the full price of the stay including taxes. Format: 100.00
 * **CurrencyCode**: The [3-letter ISO 4217 currency code][4] for the rate amount.
 * **Start**: If there are multiple daily rates, provide the start date for this rate. Format: YYYY-MM-DD
@@ -137,20 +136,9 @@ This parent element contains the following child element:
 
 **Text**: The text details of the room rate.
 
- |
+ 
 
- |
 
- |
-|  GuestCounts |  Y |
-
-This parent element contains a **GuestCount** element with the following attributes:
-* **AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.
-* **Count**: The number of guests included in the request.
- |
-|  BookingRules |  Y |
-
-This parent element contains a **BookingRule** element with the following child elements:
 
 |  AcceptableGuarantees |
 
@@ -172,14 +160,11 @@ This element contains the **GuaranteePayment** element, which has a PaymentCode 
 
 |  Text |  The required payment description text. |
 
- |
 
- |
-
- |
 
 ####  XML Example of Successful Response
 
+```xml
     200 OK HTTPS/1.1
     Content-Length: {length of content body}
 
@@ -226,7 +211,7 @@ This element contains the **GuaranteePayment** element, which has a PaymentCode 
             </BookingRules>
         </RuleMessage>
     </OTA_HotelBookingRuleRS>
-
+```
   
 
 
