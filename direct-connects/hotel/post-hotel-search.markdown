@@ -1,28 +1,39 @@
 ---
-title: Hotel 
+title: Post a hotel search 
 layout: operation
 ---
 
 
+## Description
 
+This request is sent when the Travel user searches for hotels. The response includes the list of matching hotels for the given coordinates and radius. Hotel suppliers should return properties only in this area.
 
-##   Request
+##  Request
 
-The following request is sent when the Travel user searches for hotels. The response includes the list of matching hotels for the given coordinates and radius. Hotel suppliers should return properties only in this area.
+### Encoding
+UTF-8
 
-| ----- |
-|  Supported Accept Types |  Encoding |
-|   |  UTF-8 |
-|  Request URI |   |
-|  The Hotel direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
+### URI
 
-    https://{servername}/concur/hotel/v1/
+The Hotel direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts >[ Partner Applications][1] **for more information. |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with Basic credentials. Refer to the [Security][2] documentation for more information. |  None |
-|  Request Body |   |
-|  The request will contain a **OTA_HotelSearchRQ** parent element, containing the following attributes:
+`https://{servername}/concur/hotel/v1/`
+
+The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts > [Partner Applications][1]** for more information. 
+
+### Request headers
+
+#### Accept header
+application/xml
+
+#### Authorization header
+
+Authorization header with Basic credentials. Required. Refer to the [Security][2] documentation for more information. 
+
+### Request body
+
+The request will contain a **OTA_HotelSearchRQ** parent element, containing the following attributes:
+
 * xmlns
 * EchoToken
 * TimeStamp
@@ -30,7 +41,8 @@ The URI is configured by the supplier when registering the partner application. 
 * xmlns:xsi
 * xsi:schemaLocation
 * Version
-The **OTA_HotelSearchRQ **parent element contains the following child elements:
+
+The **OTA_HotelSearchRQ** parent element contains the following child elements:
 
 |  Element |  Description |
 |  POS |  The point of sale information. This parent element contains the following child element:
@@ -85,6 +97,7 @@ The **Source** element has the following child element:
 
 ####  XML Example Request
 
+```xml
     POST /concur/hotel/v1 HTTPS/1.1
     Host: example.com
     Authorization: Basic ...
@@ -110,6 +123,7 @@ The **Source** element has the following child element:
             </Criterion>
         </Criteria>
     </OTA_HotelSearchRQ>
+```
 
 ##  Response
 
@@ -138,9 +152,6 @@ The **OTA_HotelSearchRS** parent element contains the following child elements:
 
 Refer to the Property Child Elements table for information about the child elements.
 
- |
-
-  
 
 | ----- |
 |  Property Child Elements |
@@ -170,15 +181,12 @@ Refer to the Property Child Elements table for information about the child eleme
 * **GDS_Name**: The name of the associated GDS.
  |
 
- |
-
- |
 |  StarRating |  The number of stars the hotel is rated for. Optional. Possible values: 1-5 |
 
- |
 
 ####  XML Example of Successful Response
 
+```xml
     200 OK HTTPS/1.1
     Content-Length: {length of content body}
 
@@ -225,7 +233,7 @@ Refer to the Property Child Elements table for information about the child eleme
             </Property>
         </Properties>
     </OTA_HotelSearchRS>
-
+```
   
 
 
