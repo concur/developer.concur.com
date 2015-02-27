@@ -228,57 +228,6 @@ The **OTA_HotelResRS** parent element contains the following child elements:
 |  Success |  N |  This element is returned if the request was successful. |  
 |  HotelReservations |  Y |  This element has a **HotelReservation** child element. For information about the **HotelReservation** element, see the **HotelReservation elements** table below. |
 
-#### RoomStay Response elements
-
-|  Element |  Description |
-|----------|---------------------------------------|
-|  RoomTypes |  This parent element contains the **RoomType** child element, with the NumberofUnits attribute indicating how many rooms of this type are included in the reservation. The **RoomType** parent element has the **RoomDescription** child element. The **RoomDescription** element contains the **Text** element describing the room. |
-|  RatePlans |  This parent element contains the **RatePlan** child element, with the RatePlanCode attribute, specifying the rate plan code for the reservation. The **RatePlan** parent element has the following child elements:
-
-|  CancelPenalties |  This element contains the **CancelPenalty** parent element. The **CancelPenalty** element contains the **PenaltyDescription** element, with a **Text** child element containing the cancellation penalty text. |
-|  RatePlanDescription |  This element contains a **Text** child element with the text description of the rate plan. |  
-
- |
-|  RoomRates |  This parent element contains the **RoomRate** element, with a RatePlanCode attribute. The **RoomRate** element contains a **Rates** parent element, with a **Rate** child element for each included rate. The **Rate** is for each day, not the total rate. The **Rate** element has the following attributes:
-* EffectiveDate: The starting date for the rate.
-* ExpireDate: The ending date for the rate.
-
-The **Rate** element contains the following child elements:
-
-|  Base |  The base rate amount. This element contains the following attributes:
-
-The **Base** element contains the **Taxes** child element. The **Taxes** element contains a **Tax** element for each included tax, with the following attributes:
-
-The **Tax** element contains a **TaxDescription** parent element, with a **Text** child element containing the tax description text.
-
-
- |
-|  GuestCounts |  This element contains a **GuestCount** element with the following attributes:
-* AgeQualifyingCode: The value for this element should be 10, which represents an Adult guest.
-* Count: The number of guests included in the request.
- |
-|  TimeSpan |  This element has the following attributes:
-
-* Start: The start date of the reservation.
-* End: The end date of the reservation.
- |
-|  BasicPropertyInfo |  This element contains the HotelCode and HotelName attributes. The **BasicPropertyInfo** parent element has an **Address** child element. The **Address** element has the following child elements:
-
-|  AddressLine |  The first address line. |
-|  CityName |  The address city. |   | |
-|  PostalCode |  The address postal code. |
-|  CountryName |  The 3-character address country name. Format: USA |
-
-
-| ----- |
-|  ResGuest Response Child Elements |
-|  Element |  Description |
-|  Profiles |  This parent element contains the **ProfileInfo** child element. The **ProfileInfo** element has the **Profile** child element. The **Profile** element contains the **Customer** element. The **Customer** element contains the **PersonName** element. The **PersonName** element contains the following child elements:
-
-|  NamePrefix |  The guest's name prefix. |
-|  GivenName |  The guest's first name. |   | |
-|  Surname |  The guest's last name. |
-
 #### HotelReservation elements
 
 |  Element |  Description |
@@ -288,6 +237,55 @@ The **Tax** element contains a **TaxDescription** parent element, with a **Text*
 |  ResGlobalInfo |  This parent element contains a **HotelReservationIDs** parent element, which contains a **HotelReservationID** child element with the ResID_Value attribute, identifying the reservation. |
 |  TPA_Extensions |  This parent element contains a **VoucherURL** child element. If you need to provide some voucher or certificate of purchase, please publish it on your server and provide the URL in the **VoucherURL** element. |
 
+#### RoomStay Response elements
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  RoomTypes |  This parent element contains the **RoomType** child element, with the NumberofUnits attribute indicating how many rooms of this type are included in the reservation. The **RoomType** parent element has the **RoomDescription** child element. The **RoomDescription** element contains the **Text** element describing the room. |
+|  RatePlans |  This parent element contains the **RatePlan** child element, with the RatePlanCode attribute, specifying the rate plan code for the reservation. For information about the **RatePlan** element, see the **RatePlan elements** table below. |
+|  RoomRates |  This parent element contains the **RoomRate** element, with a RatePlanCode attribute. The **RoomRate** element contains a **Rates** parent element, with a **Rate** child element for each included rate. The **Rate** is for each day, not the total rate. For information about the **Rate** element, see the **Rate elements** table below. |
+|  GuestCounts |  This element contains a **GuestCount** element with the following attributes:<br/>**AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.<br/>**Count**: The number of guests included in the request. |
+|  TimeSpan |  This element has the following attributes:<br/>**Start**: The start date of the reservation.<br/>**End**: The end date of the reservation. |
+|  BasicPropertyInfo |  This element contains the HotelCode and HotelName attributes. The **BasicPropertyInfo** parent element has an **Address** child element. For information about the **Address** element, see the **Address elements** table below. |
+
+#### RatePlan elements
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  CancelPenalties |  This element contains the **CancelPenalty** parent element. The **CancelPenalty** element contains the **PenaltyDescription** element, with a **Text** child element containing the cancellation penalty text. |
+|  RatePlanDescription |  This element contains a **Text** child element with the text description of the rate plan. |
+
+#### Rate elements
+
+The **Rate** element has the following attributes:
+
+* EffectiveDate: The starting date for the rate.
+* ExpireDate: The ending date for the rate.
+
+The **Rate** element contains the following child elements:
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  Base |  The base rate amount. This element contains the following attributes:<br/>**AmountAfterTax**: The rate amount with all taxes included.<br/>**CurrencyCode**: The 3-letter ISO 4217 currency code for the rate amount.<br/><br/>The **Base** element contains the **Taxes** child element. The **Taxes** element contains a **Tax** element for each included tax, with the following attributes:<br/>**Amount**: The amount of the tax.<br/>**CurrencyCode**: The The 3-letter ISO 4217 currency code for the tax amount.<br/><br/>The **Tax** element contains a **TaxDescription** parent element, with a **Text** child element containing the tax description text. |
+
+#### Address elements
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  AddressLine |  The first address line. |
+|  CityName |  The address city. | 
+|  PostalCode |  The address postal code. |
+|  CountryName |  The 3-character address country name. Format: USA |
+
+#### ResGuest Response elements
+
+The *ResGuest* response parent element contains the **ProfileInfo** child element. The **ProfileInfo** element has the **Profile** child element. The **Profile** element contains the **Customer** element. The **Customer** element contains the **PersonName** element. The **PersonName** element contains the following child elements:
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  NamePrefix |  The guest's name prefix. |
+|  GivenName |  The guest's first name. | 
+|  Surname |  The guest's last name. |
 
 ###  XML Example of Successful Response
 
