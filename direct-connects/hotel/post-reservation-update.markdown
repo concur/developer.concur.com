@@ -1,18 +1,15 @@
 ---
-title: Post Hotel Reservation Update 
+title: Post a reservation update 
 layout: operation
 ---
 
-
-##  Request
+## Description
 
 **NOTE**: This function is not supported in the current version. Support may be returned in a future release.
 
-The following request is sent when the Travel user updates their reservation. The response includes the new reservation identifier.
+This request is sent when the Travel user updates their reservation. The response includes the new reservation identifier.
 
-
-###Supported Accept Types
-application/XML
+##  Request
 
 ###Encoding
 UTF-8
@@ -20,13 +17,20 @@ UTF-8
 ###Request URI
 The Hotel direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
-    https://{servername}/concur/hotel/v1/
+`https://{servername}/concur/hotel/v1/`
 
 The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts >[ Partner Applications][1] **for more information.
 
-###Request Headers - Required
+### Headers
+
+### Accept header
+application/XML
+
+#### Authorization header
+
 Authorization header with Basic credentials. Refer to the [Security][2] documentation for more information.
-###Request Body
+
+### Request Body
 The request will contain an **OTA_HotelResModifyRQ** parent element, with the following attributes:
 
 * xmlns
@@ -39,21 +43,27 @@ The request will contain an **OTA_HotelResModifyRQ** parent element, with the fo
 
 The **OTA_HotelResModifyRQ** element contains the following child elements:
 
-####POS
-The point of sale information. This parent element contains the following child elements:
+|  Element |  Description |
+|----------|---------------------------------------|
+|  POS |  The point of sale information. Contains a **Source** child element that specifies the source of the request. For information about **Source** element, see the **Source elements** table below. |
+| HotelResModifies | This element has a **HotelResModify** child element. For more information about this child element, see the **HotelResModify element** table below. |
 
-* Source: The source of the request. This element has the following attributes:
-	* ISOCountry: The country code for the Travel user's home country.
-	* ISOCurrency: The 3-letter ISO 4217 currency code for the Travel user's currency.  
-	
-* The **Source** element has the following child element:
-	* RequestorID: The customer's identifiers. If necessary, multiple RequestorID elements can be sent.This element contains the following attributes:
-		* **Type**: The code for the customer type.
-		* **ID**: The identifier for the user.
+#### Source elements
 
+The **Source** element has the following attributes:
 
-####HotelResModifies
-This element has a **HotelResModify** child element with the following attributes:
+* ISOCountry: The country code for the Travel user's home country.
+* ISOCurrency: The 3-letter ISO 4217 currency code for the Travel user's currency.
+
+The **Source** element contains the following element:
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  RequestorID | The customer's identifiers. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:<br/>**Type**: The code for the customer type. <br/>**ID**: The identifier for the user. |
+
+#### HotelResModify element
+
+The **HotelResModify** element with the following attributes:
 
 * **RoomStayReservation**: Whether the reservation is for a room stay. Format: true/false.
 * **CreateDateTime**: The time the reservation was originally created, in the hotel's local time zone.
@@ -61,94 +71,57 @@ This element has a **HotelResModify** child element with the following attribute
 
 The **HotelResModify** element contains the following child elements:
 
-* RoomStays: This parent element contains the **RoomStay** element. Refer to the RoomStay Request Child Elements table for information about child elements.
-* ResGuests: This parent element contains the **ResGuest** element. The **ResGuest** element has the following attributes:
-> * **ResGuestRPH**: The unique identifier for the guest.
-> * **AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.
->
-> Refer to the ResGuest Request Child Elements table for information about child elements.
->
->  |   | |
-|  ResGlobalInfo |  This parent element contains a **HotelReservationIDs** child element. This element contains a **HotelReservationID** child element with the following attribute:
->
-> * **ResID_Value**: The reservation ID.
->  |
->
->  |
->
->
-| ----- |
-|  RoomStay Request Child Elements |
 |  Element |  Description |
-|  RoomTypes |  This parent element contains the **RoomType** child element, with the **NumberofUnits** attribute indicating how many rooms of this type are included in the reservation. |
-|  RatePlans |  This parent element contains the **RatePlan** child element, with the **RatePlanCode** attribute, specifying the rate plan code for the reservation. |
-|  GuestCounts |  This parent element contains the **GuestCount** child element, with the following attributes:
->
-> * **AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.
-> * **Count**: The number of guests included in the request.
->  |
-|  TimeSpan |  This element has the following attributes:
->
-> * **Start**: The start date of the reservation.
-> * **End**: The end date of the reservation.
->  |
-|  Guarantee |  This parent element contains the **GuaranteesAccepted** element. The **GuaranteesAccepted** element contains the **GuaranteeAccepted** element. This element has the **GuaranteeTypeCode** attribute, specifying the type of guarantee placed on the reservation. The **GuaranteeAccepted** parent element has a **PaymentCard** child element for card guarantees, with the following attributes:
->
-> * **CardCode**: The type of card.
-> * **CardNumber**: The card number.
->
-> The **PaymentCard** parent element has the following child elements:
->
->
-|  CardHolderName |  The card holder's name. |
-|  Address |  The billing address of the card. This parent element contains the following child elements:
->
->
-|  AddressLine |  The first address line. |
-|  CityName |  The address city. |   | |
-|  PostalCode |  The address postal code. |
-|  StateProv |  The address state/province. |
-|  CountryName |  The 2-character address country name. Format: US |
->
->  |
->
->  |
-|  BasicPropertyInfo |  This element contains the **HotelCode** attribute. |
+|----------|---------------------------------------|
+| RoomStays | This parent element contains the **RoomStay** element. Refer to the **RoomStay Request elements** table for information about child elements. |
+|ResGuests | This parent element contains the **ResGuest** element. For more information about this child element, see the **ResGuest elements** table below. |
+|  ResGlobalInfo |  This parent element contains a **HotelReservationIDs** child element. This element contains a **HotelReservationID** child element with the following attribute:<br/>**ResID_Value**: The reservation ID. |
+
+#### RoomStay Request elements
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  RoomTypes |  This parent element contains the **RoomType** child element, with the NumberofUnits attribute indicating how many rooms of this type are included in the reservation. |
+|  RatePlans |  This parent element contains the **RatePlan** child element, with the RatePlanCode attribute, specifying the rate plan code for the reservation. |
+|  GuestCounts |  This parent element contains the **GuestCount** child element, with the following attributes:<br/>**AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.<br/>**Count**: The number of guests included in the request. |
+|  TimeSpan |  This element has the following attributes:<br/>**Start**: The start date of the reservation.<br/>**End**: The end date of the reservation. |
+|  Guarantee |  This parent element contains the **GuaranteesAccepted** element. The **GuaranteesAccepted** element contains the **GuaranteeAccepted** element. This element has the GuaranteeTypeCode attribute, specifying the type of guarantee placed on the reservation. The **GuaranteeAccepted** parent element has a **PaymentCard** child element for card guarantees; for information about this child element, see the **PaymentCard elements** table below. |
+|  BasicPropertyInfo |  This element contains the HotelCode attribute. |
 |  Comments |  The comments on the reservation. This parent element contains a **Comment** child element for each comment associated with the reservation. |
->
->
-| ----- |
-|  ResGuest Request Child Elements |
+
+#### ResGuest elements
+
+The **ResGuest** element has the following attributes:
+
+* **ResGuestRPH**: The unique identifier for the guest.
+* **AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.
+
+The **ResGuest** element contains a **Profiles** child element with information about the guest's profile. The **Profiles** element contains the **ProfileInfo** child element. The **ProfileInfo** element has the **Profile** child element. The **Profile** element contains the **Customer** element. The **Customer** element contains the following child elements:
+
 |  Element |  Description |
-|  Profiles |  This parent element contains the **ProfileInfo** child element. The **ProfileInfo** element has the **Profile** child element. The **Profile** element contains the **Customer** element. The Customer element contains the following child elements:
->
->
-|  PersonName |  The **PersonName** element contains the following child elements:
->
->
-|  GivenName |  The guest's first name. |
-|  Surname |  The guest's last name. |   | | | |
->
->  |
-|  Telephone |  This element has a **PhoneNumber** attribute containing the guest's phone number. |
+|----------|---------------------------------------|
+|  PersonName |  This element contains the following child elements:**GivenName**: The guest's given name. <br/>**Surname**: The guest's surname. |
+|  Telephone |  This element has a PhoneNumber attribute containing the guest's phone number. | 
 |  Email |  The guest's email address. |
-|  Address |  This parent element has the following child elements:
->
->
-|  AddressLine |  The first address line. |
-|  CityName |  The address city. |   | |
-|  PostalCode |  The address postal code. |
-|  StateProv |  The address state/province. |
-|  CountryName |  The 2-character address country name. Format: US |
->
->  |
->
->  |
+|  Address |  This parent element has the following child elements:<br/>**AddressLine**: The first address line.<br/>**CityName**: The address city. <br/>**PostalCode**: The address postal code. <br/>**StateProv**: The address state/province. <br/>**CountryName**: The 2-character address country name. Format: US |
 
- |
+#### PaymentCard elements
 
-####  XML Example Request
+The **PaymentCard** element has the following attributes:
 
+* **CardCode**: The type of card. Refer to the [Hotel Direct Connect Codes][4].
+* **CardNumber**: The card number.
+
+The **PaymentCard** element has the following child elements:
+
+|  Element |  Description |
+|----------|---------------------------------------|
+|  CardHolderName |  The card holder's name. |
+|  Address |  The billing address of the card. This parent element contains the following child elements:<br/>**AddressLine**: The first address line.<br/>**CityName**: The address city. <br/>**PostalCode**: The address postal code. <br/>**StateProv**: The address state/province. <br/>**CountryName**: The 2-character address country name. Format: US |
+
+###  XML Example Request
+
+```xml
     POST /concur/hotel/v1 HTTPS/1.1
     Host: example.com
     Authorization: Basic ...
@@ -229,18 +202,19 @@ The **HotelResModify** element contains the following child elements:
             </HotelResModify>
         </HotelResModifies>
     </OTA_HotelResModifyRQ>
+```
 
 ##  Response
 
 The supplier responds to the request by returning an updated booking identifier.
 
-| ----- |
+### Content Types
+application/xml
 
-| Supported Content Types |
-| ----------------------- |
-| Content Body            |
+### Response body
 
 The response includes an **OTA_HotelResModifyRS** parent element with the following attributes:
+
 * xmlns
 * EchoToken
 * TimeStamp
@@ -250,10 +224,9 @@ The response includes an **OTA_HotelResModifyRS** parent element with the follow
 
 The **OTA_HotelResModifyRS** parent element contains a **Success** element if the request was successful. It also contains a **HotelResModifies** element. The **HotelResModifies** element contains the **HotelResModify** element. The **HotelResModify** element contains the **ResGlobalInfo** child elements. The **ResGlobalInfo** element contains the **HotelReservationIDs** element. The **HotelReservationIDs** element contains two **HotelReservationID** child elements with the **ResID_Value** attribute containing the reservation ID. The first **HotelReservationID** element contains the original reservation identifier, and the second one contains the new reservation ID.
 
- |
+###  XML Example of Successful Response
 
-####  XML Example of Successful Response
-
+```xml
     200 OK HTTPS/1.1
     Content-Length: {length of content body}
 
@@ -271,7 +244,7 @@ The **OTA_HotelResModifyRS** parent element contains a **Success** element if th
             </HotelResModify>
         </HotelResModifies>
     </OTA_HotelResModifyRS>
-
+```
 
 
 [1]: https://developer.concur.com/overview/partner-applications
