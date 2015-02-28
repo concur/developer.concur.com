@@ -43,7 +43,7 @@ The request will contain a **OTA_CancelRQ** parent element, containing the follo
 * xsi:schemaLocation
 * Version
 
-The **OTA_CancelRQ **parent element contains the following child elements:
+The **OTA_CancelRQ** parent element contains the following child elements:
 
 |  Element |  Description |
 |----------|---------------------------------------|
