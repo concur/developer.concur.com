@@ -1,14 +1,15 @@
 ---
-title: Hotel 
+title: Post a reservation query
 layout: operation
 ---
 
+## Description
+
+This request is sent when the Travel user requests the reservation details for the supplied reservation ID. The response includes the reservation details, and is identical to the [Post New Reservation][1] response.
+
+##  Request
 
 
-
-##   Request
-
-The following request is sent when the Travel user requests the reservation details for the supplied reservation ID. The response includes the reservation details, and is identical to the [Post New Reservation][1] response.
 
 | ----- |
 |  Supported Accept Types |  Encoding |
@@ -21,8 +22,11 @@ The following request is sent when the Travel user requests the reservation deta
 The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts >[ Partner Applications][2] **for more information. |
 |  Request Headers - Required |  Request Headers - Optional |
 |  Authorization header with Basic credentials. Refer to the [Security][3] documentation for more information. |  None |
-|  Request Body |   |
-|  The request will contain a **OTA_ReadRQ** parent element, containing the following attributes:
+
+### Response body
+
+The request will contain a **OTA_ReadRQ** parent element, containing the following attributes:
+
 * xmlns
 * EchoToken
 * TimeStamp
@@ -30,7 +34,8 @@ The URI is configured by the supplier when registering the partner application. 
 * xmlns:xsi
 * xsi:schemaLocation
 * Version
-The **OTA_ReadRQ **parent element contains the following child elements:
+
+The **OTA_ReadRQ** parent element contains the following child elements:
 
 |  Element |  Description |
 |  POS |  The point of sale information. This parent element contains the following child element:
@@ -60,14 +65,11 @@ The **Source** element has the following child element:
 |  PersonName |  This parent element contains the **GivenName** and **SurName** child elements, which should match the reservation details. |
 |  TelephoneInfo |  This element has the **PhoneNumber** attribute, containins the guest telephone number. The number should match the reservation. |   | |
 
- |
 
- |
 
- |
+###  XML Example Request
 
-####  XML Example Request
-
+```xml
     POST /concur/hotel/v1 HTTPS/1.1
     Host: example.com
     Authorization: Basic ...
@@ -94,17 +96,18 @@ The **Source** element has the following child element:
             </ReadRequest>
         </ReadRequests>
     </OTA_ReadRQ>
+```
 
 ##  Response
 
 The supplier responds to the request by returning the details of the completed booking.
 
-| ----- |
+### Content Types
+application/xml
 
-| Supported Content Types                                                  |
-| ------------------------------------------------------------------------ |
-| Content Body                                                             |
-| The response is identical to the response for [Post New Reservation][1]. |
+### Response body
+
+The response is identical to the response for [Post New Reservation][1]. 
 
   
 
