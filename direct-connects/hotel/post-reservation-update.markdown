@@ -19,7 +19,7 @@ The Hotel direct connect sends the relevant information to a URI that the travel
 
 `https://{servername}/concur/hotel/v1/`
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts >[ Partner Applications][1] **for more information.
+The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts**> [Partner Applications][1] for more information.
 
 ### Headers
 
@@ -109,7 +109,7 @@ The **ResGuest** element contains a **Profiles** child element with information 
 
 The **PaymentCard** element has the following attributes:
 
-* **CardCode**: The type of card. Refer to the [Hotel Direct Connect Codes][4].
+* **CardCode**: The type of card. 
 * **CardNumber**: The card number.
 
 The **PaymentCard** element has the following child elements:
