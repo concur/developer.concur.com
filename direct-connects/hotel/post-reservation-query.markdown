@@ -9,21 +9,26 @@ This request is sent when the Travel user requests the reservation details for t
 
 ##  Request
 
+### Encoding
+UTF-8
 
+### URI
 
-| ----- |
-|  Supported Accept Types |  Encoding |
-|   |  UTF-8 |
-|  Request URI |   |
-|  The Hotel direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
+The Hotel direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
-    https://{servername}/concur/hotel/v1/
+`https://{servername}/concur/hotel/v1/`
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts >[ Partner Applications][2] **for more information. |
-|  Request Headers - Required |  Request Headers - Optional |
-|  Authorization header with Basic credentials. Refer to the [Security][3] documentation for more information. |  None |
+The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts** > [Partner Applications][1] for more information.
 
-### Response body
+### Headers
+
+#### Accept header
+application/xml
+
+#### Authorization header
+Authorization header with Basic credentials. Required. Refer to the [Security][2] documentation for more information. 
+
+### Request body
 
 The request will contain a **OTA_ReadRQ** parent element, containing the following attributes:
 
@@ -38,34 +43,36 @@ The request will contain a **OTA_ReadRQ** parent element, containing the followi
 The **OTA_ReadRQ** parent element contains the following child elements:
 
 |  Element |  Description |
-|  POS |  The point of sale information. This parent element contains the following child element:
+|----------|--------------------|
+|  POS |  The point of sale information. Contains a **Source** child element that specifies the source of the request. For information about **Source** element, see the **Source elements** table below. |
+|  ReadRequests |  This element has a **ReadRequest** child element. For information about the **ReadRequest** element, see the **ReadRequest elements** table below. |
 
-|  Source |  The source of the request. This element has the following attributes:  |
+#### Source elements
 
-The **Source** element has the following child element:
+The **Source** element has the following attributes:
 
-| ----- |
-|  RequestorID |  The corporate identifier. If necessary, multiple RequestorID elements can be sent. This element has the following attributes:
+* ISOCountry: The country code for the Travel user's home country.
+* ISOCurrency: The 3-letter ISO 4217 currency code for the Travel user's currency.
 
-* **Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes][4].
-* **ID:** The corporate identifier.
-* **ID_Context**: The corporate identifier context.
- |
+The **Source** element contains the following element:
 
- |
-|  ReadRequests |  This element has a **ReadRequest** child element. The **ReadRequest** element contains the following child elements:
+|  Element |  Description |
+|----------|---------------------------------------|
+|  RequestorID | The corporate identifier. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:<br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes][3]. <br/>**ID**: The corporate identifier. <br/>**ID_Context**: The corporate identifier context.|
 
-|  UniqueID |  This element has the following attributes:
+#### ReadRequest elements
 
-* **ID**: The reservation identification number.
-* **Type**: The type of reservation.
- |
-|  Verification |  This parent element contains the following child elements:
+|  Element |  Description |
+|----------|---------------------------------------|
+|  UniqueID |  This element has the following attributes:<br/>**ID**: The reservation identification number.<br/>**Type**: The type of reservation. |
+|  Verification |  This parent element contains information that can be used to verify the owner of the reservation. For information about the **Verification** element, see the **Verification elements** table below. |
 
+#### Verification elements
+
+|  Element |  Description |
+|----------|---------------------------------------|
 |  PersonName |  This parent element contains the **GivenName** and **SurName** child elements, which should match the reservation details. |
-|  TelephoneInfo |  This element has the **PhoneNumber** attribute, containins the guest telephone number. The number should match the reservation. |   | |
-
-
+|  TelephoneInfo |  This element has the **PhoneNumber** attribute, which contains the guest telephone number. The number should match the reservation. | 
 
 ###  XML Example Request
 
