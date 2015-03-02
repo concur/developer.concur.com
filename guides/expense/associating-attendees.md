@@ -3,7 +3,6 @@ title: Associating External Attendees to Expense Entries
 layout: conceptual
 ---
 
-_How do you identify people who attended an event in an expense report?_
 
 ## About this recipe
 
@@ -24,11 +23,11 @@ For certain types of expenses such as entertainment, business meals, and events,
 
 To successfully associate attendees to an expense entry, the attendees and the expense entry must already exist in Concur. Associating external attendees to an expense entry consists of these steps:
 
-1.	Identifying the expense entry where the attendees should be associated.
-2.	Determining if Concur Expense has a record of the external attendees.
-3.	Adding any necessary external attendees.
-4.	Getting the unique identifier Concur has for each attendee.
-5.	Associating the Concur attendees to the expense entry.
+1. Identifying the expense entry where the attendees should be associated.
+2. Determining if Concur Expense has a record of the external attendees.
+3. Adding any necessary external attendees.
+4. Getting the unique identifier Concur has for each attendee.
+5. Associating the Concur attendees to the expense entry.
 
 ## Solution details
 
@@ -42,15 +41,15 @@ In Figure 1, App refers to a partner application that makes calls to the Concur 
 
 The sequence of events is as follows:
 
-1.	The app sets up a loop that processes each attendee.
-2.	The app searches Concur using the External ID to determine whether it has a record for the external attendee.
-3.	The search result returns information that indicates whether or not Concur has a record for the attendee.
-4.	If Concur has it, the app gets the ID Concur assigned to the attendee from the search results.  Skip to Step 7.
-5.	If Concur doesn’t have it, the app needs to make an API call to the GET /expense/attendeetypes endpoint to obtain the ID for the attendee types. 
-6.	Make an API call to the POST /expense/attendees endpoint to create an attendee in the Concur system. Use the ID value obtained in step 5 for the AttendeeTypeID.
-7.	Concur responds with the just created attendee’s ID.
-8.	The app associates the attendee with the expense entry.
-9.	The loop repeats Step 2 through 7 for each attendee.
+1. The app sets up a loop that processes each attendee.
+2. The app searches Concur using the External ID to determine whether it has a record for the external attendee.
+3. The search result returns information that indicates whether or not Concur has a record for the attendee.
+4. If Concur has it, the app gets the ID Concur assigned to the attendee from the search results.  Skip to Step 7.
+5. If Concur doesn’t have it, the app needs to make an API call to the GET /expense/attendeetypes endpoint to obtain the ID for the attendee types. 
+6. Make an API call to the POST /expense/attendees endpoint to create an attendee in the Concur system. Use the ID value obtained in step 5 for the AttendeeTypeID.
+7. Concur responds with the just created attendee’s ID.
+8. The app associates the attendee with the expense entry.
+9. The loop repeats Step 2 through 7 for each attendee.
 
 The following sections provide the details for each API call.
 
