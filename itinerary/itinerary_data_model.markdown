@@ -324,7 +324,7 @@ The Fixed element contains the following child elements.
 | Description | String |  | The description for the rate.  |
 | IsPaid | Boolean |  | Whether the rate has been paid. Format: true/false. |
 | IsPrimary | Boolean |  | Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge  in a set should be primary. Format: true/false. |
-| SemanticsCode | String |  | Indicates the charge category for the line item. Refer to the Semantics Codes table for more information.  |
+| SemanticsCode | String |  | Indicates the charge category for the line item. Refer to the [Semantics Codes][3] table for more information.  |
 | SemanticsVendorType | String |  | The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |
 | StartDateLocal | DateTime |  | The start date of the booking, in the user's local time. Format: YYYY-MM-DDThh:mm:ss |
 | Vendor | String |  |  The vendor for the booking charge. |
@@ -350,7 +350,7 @@ The percent of fixed charges. This parent element contains the following child e
 | Description | sring |  | The description for the rate.  |
 | IsPaid | boolean |  | Whether the rate has been paid. Format: true/false. |
 | IsPrimary | boolean |  | Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge  in a set should be primary. Format: true/false. |
-| SemanticsCode | string |  | Indicates the charge category for the line item. Refer to the Semantics Codes table for more information.  |
+| SemanticsCode | string |  | Indicates the charge category for the line item. Refer to the [Semantics Codes][3] table for more information.  |
 | SemanticsVendorType | string |  | The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |
 | StartDateLocal | dateTime |  | The start date of the booking, in the user's local time. Format: YYYY-MM-DDThh:mm:ss |
 | Vendor | string |  |  The vendor for the booking charge. |
@@ -429,7 +429,7 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | StartGate | string | Y | The departure gate for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | StartTerminal | string | Y | The departure terminal for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | Status | string |  | The  GDS based booking status for the segment such as HK, HL, BK, etc. |
-| TimeZone | string | Y | The time zone of the booking. Format: One of the supported Olson or Windows Time Zones. (need link)  |
+| TimeZone | string | Y | The time zone of the booking. Format: One of the supported Olson or Windows Time Zones. (need link; may need to create a separate page to store the time zone formats.)  |
 | Element  | Data Type |  | Description |
 | AircraftCode | string |  | The code for the aircraft type. |
 | Bags | string |  | The number of bags included in the booking.  |
@@ -469,7 +469,7 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | ConfirmationNumber | string |  | The confirmation number from the vendor.  |
 | EndDateLocal | dateTime | Y | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 | StartDateLocal | dateTime | Y | The booking starting time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
-| Vendor | string |  | The two letter GDS vendor code. See the Car Vendor Codes table for  car vendor codes. (need link)|
+| Vendor | string |  | The two letter GDS vendor code. See the [Car Vendor Codes][3] table for  car vendor codes. (need link)|
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor. |
 | Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table. |
@@ -654,7 +654,7 @@ The Ride Booking parent element is the Ride Element in the Segments Array in Boo
 | ConfirmationNumber | string |  | The confirmation number from the vendor.  |
 | EndCityCode | string |  | The ending [IATA airport code][2] of the booking. |
 | StartCityCode | string |  | The starting [IATA airport code][2] of the booking. |
-| Vendor | string |  | The two letter GDS vendor code. See the Ride Codes table (need link) for  ride vendor codes. For an unknown vendor, use the code value $$. |
+| Vendor | string |  | The two letter GDS vendor code. See the Ride Codes table (need link; can we insert the "two-letter GDS vendor code" table from the Booking Object Elements - TMCs and Third-party Developers page?) for  ride vendor codes. For an unknown vendor, use the code value $$. |
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor.  |
 | Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
@@ -911,7 +911,7 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | IsPrimary | boolean |  |  Whether the rate is primary. Format: true/false. |  
 | NumUnits | decimal |  |  The  number of units expected for the charge. For instance, 3 days |  
 | PerUnit | string |  |  The  unit of measure for the charge. Values represent rates like per DAY, WEEK, or  MONTH |  
-| SemanticsCode | string |  |  Indicates the charge category for the line item. Refer to the Semantics Codes table for more information. |  
+| SemanticsCode | string |  |  Indicates the charge category for the line item. Refer to the [Semantics Codes][3] table for more information. |  
 | SemanticsVendorType | string |  |  The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |  
 | StartDateLocal | dateTime |  |   The start date of the booking, in the user's local time.  Format: YYYY-MM-DDThh:mm:ss |  
 | Vendor | string |  |  The vendor for the booking charge. |  
@@ -932,7 +932,7 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | IsPrimary | boolean |  |  Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge in a set should be primary. Format: true/false. |
 | NumUnits | decimal |  | The  number of units expected for the charge. For instance, 3 days. |
 | PerUnit | string |  | The  unit of measure for the charge. Values represent rates like per DAY, WEEK, or MONTH |
-| SemanticsCode | string |  | Indicates the charge category for the line item. Refer to the Semantics Codes table for more information. |
+| SemanticsCode | string |  | Indicates the charge category for the line item. Refer to the [Semantics Codes][3] table for more information. |
 | SemanticsVendorType | string |  | The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |
 | StartDateLocal | dateTime |  | The start date of the booking, in the user's local time. Format: YYYY-MM-DDThh:mm:ss |
 | Vendor | string |  |  The vendor for the booking charge. |
@@ -941,4 +941,5 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 
 [1]: http://en.wikipedia.org/wiki/ISO_4217
 [2]: http://www.iata.org/publications/Pages/code-search.aspx
+[3]: https://developer.concur.com/sites/default/files/SemanticsAndVendorCodes.pdf
 
