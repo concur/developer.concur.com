@@ -51,17 +51,17 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
-|Error |Y | |The error information, if an error occurred. This parent element contains the following [child elements](#error):
+|Error |Y | |The error information, if an error occurred. For information about the child elements of this parent element, see the **Error elements** table. |
 |ReservationID |N | |  The identifier for the reservation. |
 |Status |N | |The status of the reservation. The value will be one of the following: <br>RB: Reservation Pending <br>RA: Reservation Accepted (Reserved) <br>RD: Reservation Declined <br>XB: Cancellation Pending <br>XA: Cancellation Confirmed (Cancelled) <br>XD: Cancellation Declined|
 |ConfNum |N |  |The confirmation number for the reservation. |
 |CancelPolicy |N |  |The cancellation policy for the reservation. |
 |CancelNum |N |  |The cancellation number for the reservation. |
-|PrimaryPassenger |Y |  |The passenger contact name for the reservation. This parent element contains the following [child elements](#PrimaryPassenger)|
+|PrimaryPassenger |Y |  |The passenger contact name for the reservation. For information about the child elements of this parent element, see the **PrimaryPassenger elements** table. |
 |ServiceType | Y | |The type of service requested. Will contain one of the following values: <br>100: Point to point  <br>110: One way to airport  <br>111: One way from airport  <br>120: One way to train station <br>121: One way from train station  <br>200: Hourly  <br>300: Airport to airport|
 |ClassOfService |  N |  |The requested service class. Will contain one of the following values: <br>100: Normal <br>200: High <br>300: Highest <br> If this value is not provided by the user, it will default to 100.|
-|PickupLocation |Y | |The pick up location. This parent element contains the following [child elements](#PickupLocation)|
-|DropoffLocation |  Y |  |The drop off location. This parent element contains the following [child elements](#DropoffLocation)|
+|PickupLocation |Y | |The pick up location. For information about the child elements of this parent element, see the **PickupLocation elements** table. |
+|DropoffLocation |  Y |  |The drop off location. For information about the child elements of this parent element, see the **DropoffLocation elements** table. |
 |StartDateTime |  Y |  |The time, in GMT, that the reservation must begin.  **Format**: 2015-05-19T18:00:00 |
 |EndDateTime |  N |  |The time, in GMT that the reservation will end. Provided for hourly reservations. **Format**: 2015-05-19T18:00:00 |
 |PickupInstructions |  N |  |Additional instructions about the pick up request. |
@@ -75,9 +75,9 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | DropoffServiceArrangement |  N |  |The details of the dropoff arrangement, if available. |
 | ExtraStopArrangement |  N |  |The details of the extra stop arrangement, if available. |
 | RateInfo |  Y |  |The booked rate details. Refer to the Rate Information Elements table for more information. |
-| Vehicle |  Y |  |The vehicle details. This parent element contains the following [child elements](#vehicle)|
-| Vendor |  Y |  |The reservation vendor. This parent element contains the following [child elements](#vendor)|
-| FormOfPayment |  Y |  |The form of payment for the reservation. This parent element contains one of the following [child elements](#formofpayment)|
+| Vehicle |  Y |  |The vehicle details. For information about the child elements of this parent element, see the **Vehicle elements** table. |
+| Vendor |  Y |  |The reservation vendor. For information about the child elements of this parent element, see the **Vendor elements** table.|
+| FormOfPayment |  Y |  |The form of payment for the reservation. For information about the child elements of this parent element, see the **FormOfPayment elements** table.|
 | RateDisclaimer |  N |  |Disclaimer text about the rate. |
 | ProviderFeedback |  N |  |Any additional feedback from the supplier. |
 |  AccountingInfo |  N |  |The accounting information for the reservation. This parent element contains the following child elements: AccountingField1  through AccountingField5|
@@ -187,7 +187,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |AirportCode	| | |The IATA code for the airport.|
-|Flight	| | |The flight information. This parent element contains the following [child elements}(#flight)|
+|Flight	| | |The flight information. For information about the child elements of this parent element, see the **Flight elements** table.|
 
 ### Flight Child Elements
 |Element Name|Required/Optional|Data Type|Description|
@@ -205,7 +205,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |StationName|	| |The name of the station.|
 |City | | |The city the station is located in.|
 |State|	| |The state the station is located in. Preferably 2 characters, max 10 characters.|
-|Train|	| |The train information. This parent element contains the following [child elements](#train)|
+|Train|	| |The train information. For information about the child elements of this parent element, see the **Train elements** table. |
 
 ### Train Child Elements
 |Element Name|Required/Optional|Data Type|Description|
