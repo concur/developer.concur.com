@@ -184,7 +184,7 @@ The supplier responds to the Limo Search request by returning the details of an 
 ### Content Types
 application/xml
 
-### Content Body                                                                                              |
+### Content Body                                                                                              
 The response will include a **CC_LimoSearchReply** parent element, with the following child elements:  
 
 **Error**: The error information, if an error occurred. Required. This parent element contains the following child elements:
