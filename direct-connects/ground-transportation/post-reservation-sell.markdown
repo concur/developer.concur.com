@@ -30,7 +30,8 @@ The request will contain a **CC_LimoSellRequest** parent element, containing the
 
 ####CorporateClient
 The corporate client the booking is on behalf of. This parent element contains the following child element: 
-* CompanyCode	The code for the company of the client.
+
+* **CompanyCode:** The code for the company of the client.
 
 ####Booker
 The user booking the reservation. This parent element contains the following child elements:
@@ -365,7 +366,9 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 
 |Element |Required? |Description |
 |-------|-----------|-----------|
-Error	Y	The error information, if an error occurred. This parent element contains the following child elements:
+|Error | Y | The error information, if an error occurred. For information about the child elements of this parent element, see the Error elements table below. |
+
+
 ErrorCode	The code for the error. Will contain one of the following values:
 
 100: Pickup/dropoff location related error
