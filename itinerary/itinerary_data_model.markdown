@@ -62,22 +62,22 @@ The Bookings parent element contains a Booking child element for each included b
 | TicketMailingAddress |   |  | The mailing address for the booked ticket, if available. |
 | TicketPickupLocation |   |  | The pickup location for the booked ticket, if available |
 | TicketPickupNumber |   |  | The confirmation number to pick up the booked ticket, if available. |
-| AirfareQuotes | Array |  | List of stored airfare quotes for this booking. For more information, see the AirFare Quotes table. |
+| AirfareQuotes | Array |  | List of stored airfare quotes for this booking. For more information, see the **AirFareQuotes elements** table. |
 | ItinSourceName | String |  | The itinerary source. Format: TravelSupplier (NOTE TO TECH REVIEWERS: This element is not in the xsd but appears in the Post booking details request for TMCs example) |
-| AirlineTickets | Array |  | List of airline tickets for this booking. See the AirLine Tickets Elements Table. |
-| Charges | Array |  | The charges for this booking. Refer to the Charges Child Elements table.     |
-| MiscChargeOrders | Array |  | An array of miscellaneous charge orders for this booking. This parent element has a MiscellaneousChargeOrders child element for each miscellaneous charge order associated with this booking. For information about the child elements, see the MiscellaneousChargeOrders child elements table later on this page. |
-| Passengers | Array | Y | This parent element contains a Passenger child element for each booked passenger. See the Passengers table for more information about the child elements. |
-| PassPrograms |   |  | List of Pass Programs for this booking. This parent element has a PassProgram child element for each pass program associated with the booking. For information about the child elements, see the PassProgram child elements table later on this page. |
-| PhoneNumbers |   |  | List of Phone numbers associated with this booking.  This parent element has a PhoneNumberData child element for each phone number associated with the booking. For information about the child elements, see the PhoneNumberData child elements table later on this page.  |
-| RailPayments | Array |  | List of Rail payments associated with rail segments in this booking. For information about the child elements in the array, see the RailPayments child elements table later on this page. |
-| Segments |   | Y | List of Segments in this booking. This parent element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements for the booking. The segments are described in tables below, see Air Booking Elements, Car Booking Elements, Hotel Booking Elements, Dining Booking Elements, Ride Booking Elements, Parking Booking Elements, and Travel Booking Elements |
+| AirlineTickets | Array |  | List of airline tickets for this booking. For more information, see the **AirLine Tickets elements** table. |
+| Charges | Array |  | The charges for this booking. For more information, see the **Charges elements** table later on this page.  |
+| MiscChargeOrders | Array |  | An array of miscellaneous charge orders for this booking. This parent element has a **MiscellaneousChargeOrders** child element for each miscellaneous charge order associated with this booking. For information about the child elements, see the **MiscellaneousChargeOrders elements** table later on this page. |
+| Passengers | Array | Y | This parent element contains a **Passenger** child element for each booked passenger. See the **Passengers elements** table for more information about the child elements. |
+| PassPrograms |   |  | List of Pass Programs for this booking. This parent element has a **PassProgram** child element for each pass program associated with the booking. For information about the child elements, see the **PassProgram elements** table later on this page. |
+| PhoneNumbers |   |  | List of Phone numbers associated with this booking.  This parent element has a **PhoneNumberData** child element for each phone number associated with the booking. For information about the child elements, see the **PhoneNumberData elements** table later on this page.  |
+| RailPayments | Array |  | List of Rail payments associated with rail segments in this booking. For information about the child elements in the array, see the **RailPayments elements** table later on this page. |
+| Segments |   | Y | List of Segments in this booking. This parent element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements for the booking. The segments are described in the tables below, see **Air Booking elements**, **Car Booking elements**, **Hotel Booking elements**, **Dining Booking elements**, **Ride Booking elements**, **Parking Booking elements**, and **Travel Booking elements**. |
 | Delivery | String |  | The method this booking was delivered.  |
 | WaitListSegments |   |  | The segments that the traveler is waitlisted for this booking. |
 | Warnings |   |  | The warnings associated with the booking. |
 | WebAddresses |   |  | List of web addresses such as emails and pickup URLs associated with this booking. |
 
-### MiscellaneousChargeOrder child elements
+### MiscellaneousChargeOrder elements
 
 | Element Name | Data Type | TripLink | Description | 
 |---------------------------|-----------|----------|------------------|
@@ -89,7 +89,7 @@ The Bookings parent element contains a Booking child element for each included b
 | TotalAmount | decimal |  | The total amount of charge orders for the ticket. |  
 | TotalAmountCurrency | string |  | The [3-letter ISO 4217 currency code][1] for the total charge order amount. |  
 
-### PassProgram child elements
+### PassProgram elements
 
 | Element Name | Data Type | TripLink | Description |
 |---------------------|-----------|----------|----------------------------------|
@@ -99,7 +99,7 @@ The Bookings parent element contains a Booking child element for each included b
 | UserFirstName    | string |  | The first name of the passenger. |
 | UserLastName    | string |  | The last name of the passenger. |
 
-### PhoneNumberData child elements
+### PhoneNumberData elements
 
 | Element Name | Data Type | TripLink | Description |
 |----------------------|-----------|----------|--------------------------------------------|
@@ -108,14 +108,14 @@ The Bookings parent element contains a Booking child element for each included b
 | Type   | string |  | The type of phone number. |
 | Description     | string |  | The description for the phone number. |
 
-### RailPayments child elements
+### RailPayments elements
 
 | Element Name | Data Type | TripLink | Description |
 |----------------|-----------|----------|-------------------------------------------|
-| RailAdjustment | Type |  |  The amount adjusted for a rail booking. For information about the RailAdjustment child elements, see the RailAdjustment child elements table later on this page. |
-| RailPayment | Type |  |  The payment information for a rail booking. For information about the RailPayment child elements, see the RailPayment child elements table later on this page. |
+| RailAdjustment | Type |  |  The amount adjusted for a rail booking. For information about the RailAdjustment child elements, see the **RailAdjustment elements** table later on this page. |
+| RailPayment | Type |  |  The payment information for a rail booking. For information about the RailPayment child elements, see the **RailPayment elements** table later on this page. |
 
-### RailAdjustment child elements
+### RailAdjustment elements
 
 | Element Name | Data Type | TripLink | Description |
 |-------------------|-----------|----------|------------------------------|
@@ -127,9 +127,9 @@ The Bookings parent element contains a Booking child element for each included b
 | TicketDocumentIdentifier   | string |  |   |
 | TotalAdjustment    | decimal |  |   |
 | TotalAdjustmentCurrency  | string |  |   |
-| Taxes         | Array |  | This parent element contains a Tax child element for each rail adjustment tax. Refer to the Tax Elements for the Tax child element. |
+| Taxes         | Array |  | This parent element contains a Tax child element for each rail adjustment tax. For more information, see the **Tax elements** table later on this page. |
 
-### RailPayment child elements
+### RailPayment elements
 
 | Element Name | Data Type | TripLink | Description |
 |------------------|-----------|----------|-------------------------|
@@ -144,8 +144,7 @@ The Bookings parent element contains a Booking child element for each included b
 | TicketType   | string |  |   |
 | TotalFare  | decimal |  | The total price of the booking. |
 | TotalFareCurrency   | string |  | The [3-letter ISO 4217 currency code][1] for the total fare. |
-| RailCharges      | array |  | The charges applied by the airline. This parent element contains a Fixed and Tax child element for each fixed charge and tax from the airline. Refer to the Fixed Elements table for the Fixed child element  and the Tax Element table for the Tax child element. |
-
+| RailCharges      | array |  | The charges applied by the airline. This parent element contains a **Fixed** and a **Tax** child element for each fixed charge and tax from the airline. See the **Fixed elements** table and the **Tax elements** table. |
 
 ## AirfareQuotes elements
 
@@ -163,7 +162,7 @@ The AirfareQuotes parent element is an array that contains a Quote child element
 | IssueByDate | DateTime |  |   |
 | TotalFare | Decimal |  |   |
 | TotalFareCurrency | String |  |   |
-| AirlineCharges | Array |  | This parent element contains a Fixed and a Percent child element for each fixed charge and percent of fixed charge associated with this airfare quote. For information about these child elements, see the Fixed child elements table and the Percent child elements tables later on this page. |
+| AirlineCharges | Array |  | This parent element contains a **Fixed** and a **Percent** child element for each fixed charge and percent of fixed charge associated with this airfare quote. For information about these child elements, see the **Fixed elements** table and the **Percent elements** table later on this page. |
 
 ## Passengers elements
 
@@ -187,11 +186,11 @@ The AirLineTickets parent element is an array that contains the following child 
 
 | Element Name | Data Type | TripLink | Description |
 |---------------------|-----------|----------|--------------------------------------------|
-| AirlineAdjustmentType | Type |  | Any adjustment made to the booking. For information about the child elements of AirlineAdjustmentType, see the AirlineAdjustmentType child elements table later on this page. |
-| ManualAirlineTicket | Type |  | The manual airline ticket for the booking. For information about the child elements of ManualAirlineTicket, see the ManualAirlineTicket child elements table later on this page. |
-| AirlineTicket | Type |  | The airline ticket for the booking. For information about the child elements of AirlineTicket, see the AirlineTicket child elements table later on this page. |
+| AirlineAdjustmentType | Type |  | Any adjustment made to the booking. For information about the child elements of AirlineAdjustmentType, see the **AirlineAdjustmentType elements** table later on this page. |
+| ManualAirlineTicket | Type |  | The manual airline ticket for the booking. For information about the child elements of ManualAirlineTicket, see the **ManualAirlineTicket elements** table later on this page. |
+| AirlineTicket | Type |  | The airline ticket for the booking. For information about the child elements of AirlineTicket, see the **AirlineTicket elements** table later on this page. |
 
-### AirlineAdjustmentType child elements
+### AirlineAdjustmentType elements
 
 | Element Name | Data Type | TripLink | Description |
 |----------------------|-----------|----------|-------------|
@@ -209,7 +208,7 @@ The AirLineTickets parent element is an array that contains the following child 
 | TotalAdjustmentCurrency    | string |  |   |
 | Taxes | Array |  |   |
 
-### ManualAirlineTicket child elements
+### ManualAirlineTicket elements
 
 | Element Name | Data Type | TripLink | Description |
 |------------------|-----------|----------|------------------------|
@@ -218,9 +217,9 @@ The AirLineTickets parent element is an array that contains the following child 
 | DateCreatedUtc  | dateTime |  |   |
 | DateModifiedUtc  | dateTime |  |   |
 | TotalFareTotalFareCurrency   | decimal |  |   |
-| AirlineCharges  | array |  | The charges applied by the airline. This parent element contains a Fixed and a Tax child element for each fixed charge and tax from the airline. For information about these child elements, see the Fixed child elements table and the Tax child elements table later on this page. |
+| AirlineCharges  | array |  | The charges applied by the airline. This parent element contains a **Fixed** and a **Tax** child element for each fixed charge and tax from the airline. For information about these child elements, see the **Fixed elements** table and the **Tax elements** table later on this page. |
 
-### AirlineTicket child elements
+### AirlineTicket elements
 
 | Element Name | Data Type | TripLink | Description |
 |-----------------------|-----------|----------|----------------------|
@@ -253,12 +252,12 @@ The AirLineTickets parent element is an array that contains the following child 
 | TotalFare    | decimal |  |   |
 | TotalFareCurrency    | string |  |   |
 | TourIdentifier     | string |  |   |
-| AirlineCharges    | array |  | A list of airline charges for this ticket. This parent element contains a Fixed child element for each fixed charge from the airline. For information about these child elements, see the Fixed child elements table later on this page. |
-| AirlineTicketCoupons  | array |  | A list of coupons for this ticket. This parent element has an AirlineTicketCoupon child element for each coupon associated with this airline ticket. For information about these child elements, see the AirlineTicketCoupon child elements table later on this page. |
-| AirlineTicketExchanges  | array |  | A list of exchanges for this ticket. This parent element has an AirlineTicketExchange child element for each exchange associated with this airline ticket. For information about these child elements, see the AirlineTicketExchange child elements table later on this page.|
-| AirlineTicketFareBreakups  | array |  | A list of fare breakups for this ticket. This parent element has an AirlineTicketFareBreakup child element for each fare breakup associated with this airline ticket. For information about these child elements, see the AirlineTicketFareBreakup child elements table later on this page. |
+| AirlineCharges    | array |  | A list of airline charges for this ticket. This parent element contains a **Fixed** child element for each fixed charge from the airline. For information about these child elements, see the **Fixed elements** table later on this page. |
+| AirlineTicketCoupons  | array |  | A list of coupons for this ticket. This parent element has an **AirlineTicketCoupon** child element for each coupon associated with this airline ticket. For information about these child elements, see the **AirlineTicketCoupon elements** table later on this page. |
+| AirlineTicketExchanges  | array |  | A list of exchanges for this ticket. This parent element has an **AirlineTicketExchange** child element for each exchange associated with this airline ticket. For information about these child elements, see the **AirlineTicketExchange elements** table later on this page.|
+| AirlineTicketFareBreakups  | array |  | A list of fare breakups for this ticket. This parent element has an **AirlineTicketFareBreakup** child element for each fare breakup associated with this airline ticket. For information about these child elements, see the **AirlineTicketFareBreakup elements** table later on this page. |
 
-#### AirlineTicketCoupons child elements
+#### AirlineTicketCoupons elements
 
 | Element Name | Data Type | TripLink | Description |
 |------------------|--------------|----------|-------------|
@@ -276,7 +275,7 @@ The AirLineTickets parent element is an array that contains the following child 
 | TicketDesignator   | string |  |  |
 | Vendor    | string |  |   |
 
-#### AirlineTicketExchanges child elements
+#### AirlineTicketExchanges elements
 
 | Element Name | Data Type | TripLink | Description |
 |----------------|--------------|----------|-----------------|
@@ -297,7 +296,7 @@ The AirLineTickets parent element is an array that contains the following child 
 | PlatingCarrierNumericCode  | string |   |   |
 | PlatingControlNumber   | string |   |   |
 
-#### AirlineTicketFareBreakups child elements
+#### AirlineTicketFareBreakups elements
 
 | Element Name | Data Type | TripLink | Description |
 |-----------------|-----------|----------|------------------------------|
@@ -312,11 +311,11 @@ The AirLineTickets parent element is an array that contains the following child 
 | TicketType   | string |  |   |
 | TotalFare  | decimal |  |   |
 | TotalFareCurrency   | string |  |   |
-| Taxes   | array |  | The charges applied by the airline. This parent element contains a Fixed and Tax child element for each fixed charge and tax from the airline. Refer to the Fixed Elements table for the Fixed child element  and the Tax Child Element table for the Tax child element. |
+| Taxes   | array |  | The charges applied by the airline. This parent element contains a **Fixed** and a **Tax** child element for each fixed charge and tax from the airline. For more information, see the **Fixed elements** table and the **Tax elements** table later on this page. |
 
-### Fixed child elements
+### Fixed elements
 
-This Fixed element contains the following child elements.
+The Fixed element contains the following child elements.
 
 | Element Name | Data Type | TripLink | Description |
 |------------------|-----------|----------|--------------------------------|
@@ -331,7 +330,7 @@ This Fixed element contains the following child elements.
 | Vendor | String |  |  The vendor for the booking charge. |
 | VendorChargeCode | String |  | The vendor's code for the charge |
 
-### Tax child elements
+### Tax elements
 
 This Tax element contains the following child elements.
 
@@ -340,13 +339,9 @@ This Tax element contains the following child elements.
 | TaxAmount | Decimal |  | The amount of the tax. |
 | TaxType | String |  | The type of the tax. |
 
-### Percent child elements
+### Percent elements
 
-| Element  | Data Type | TripLink | Description |
-|----------|----------------|----------|----------------------------|
-| Percent | Parent Element |  | The percent of fixed charges. This parent element contains the following child elements. |
-
-#### Percent child elements (need to disambiguate)
+The percent of fixed charges. This parent element contains the following child elements:
 
 | Element  | Data Type | TripLink | Description |
 |---------------------|-----------|----------|-----------------------------|
@@ -361,7 +356,7 @@ This Tax element contains the following child elements.
 | Vendor | string |  |  The vendor for the booking charge. |
 | VendorChargeCode | string |  | The vendor's code for the charge |
 
-### CustomAttributes child elements
+### CustomAttributes elements
 
 The CustomAttributes parent element contains a CustomAttribute child element with the following child elements.
 
@@ -377,7 +372,7 @@ The CustomAttributes parent element contains a CustomAttribute child element wit
 
 ### RuleViolations elements
 
-The RuleViolations contains a list of rule violations associated with the itinerary. This parent element contains a RuleViolation child element for each associated rule violation.
+The RuleViolations element contains a list of rule violations associated with the itinerary. This parent element contains a RuleViolation child element for each associated rule violation. The RuleViolation element has the following child elements:
 
 | Element Name | Data Type | TripLink | Description |
 |-------------------------|-----------|----------|-------------|
@@ -421,7 +416,7 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | Vendor | string | Y |   |
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor.  |
-| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table later on this page. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -429,7 +424,7 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | EndGate | string | Y | The arrival gate for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | EndTerminal | string | Y | The arrival terminal for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | LegId | string |  | The leg ID of the booking. Leg IDs do not change on a connection. For each  unique leg ID in the trip, all flights subsequent to the first segment with the  same leg ID are connections. |
-| Seats | Parent Element |  | The seats for the booking. This parent element contains an AirSeat element for each included seat. The AirSeat element contains the following child elements |
+| Seats | Parent Element |  | The seats for the booking. This parent element contains an AirSeat element for each included seat. For more information, see the **AirSeat elements** table later on this page. |
 | StartDateUtc | dateTime | Y | The booking starting time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss. <br/>For  TripLink suppliers:The time portion of this value will be set to T00:00:00 if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | StartGate | string | Y | The departure gate for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | StartTerminal | string | Y | The departure terminal for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
@@ -458,7 +453,7 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | SpecialInstructions | string |  | Additional instructions regarding the booking.  |
 | UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
 
-### AirSeat child elements
+### AirSeat elements
 
 | Element | Data Type | Description |
 |--------------|-----------|---------------------------|
@@ -477,7 +472,7 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | Vendor | string |  | The two letter GDS vendor code. See the Car Vendor Codes table for  car vendor codes. (need link)|
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor. |
-| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table. |
 | Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
 | DailyRate | decimal |  | The daily rate for the booking.  |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -570,7 +565,7 @@ The Hotel Booking parent element is the Hotel Element in the Segments Array in B
 | Vendor | string |  | The two letter GDS vendor code. See the Hotel Codes table for  hotel vendor codes. (need link)|
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor. |
-| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table. |
 | CheckinTime | string |  | The check in time for the hotel booking.  |
 | CheckoutTime | string |  | The check out time for the hotel booking.  |
 | Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
@@ -621,7 +616,7 @@ The Dining Booking parent element is the Dining Element in the Segments Array in
 |--------------------|----------------|----------|---------------------------------|
 | ConfirmationNumber | string |  | The confirmation number from the vendor.  |
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
-| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table.  |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table later on this page.  |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc | dateTime |  | The date the booking was modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -716,11 +711,11 @@ The Ride Booking parent element is the Ride Element in the Segments Array in Boo
 | TimeZone | string |  | The time zone of the booking. Format: One of the supported Olson or Windows  Time Zones.  |
 | UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
-| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table.  |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table.  |
 
 ## Rail Booking Elements
 
-The Rail Booking parent element is the Rail Element in the Segments Array in Booking Elements. This parent element contains a Ride Booking child element for each booked ride.
+The Rail Booking parent element is the Rail Element in the Segments Array in Booking Elements. This parent element contains a Rail Booking child element for each booked rail segment.
 
 | Element  | Data Type | TripLink | Description |
 |--------------------|-----------|----------|---------------------------------------|
@@ -783,10 +778,10 @@ The Rail Booking parent element is the Rail Element in the Segments Array in Boo
 | Vendor | string |  | The two letter GDS vendor code. |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
 | WagonNumber | string |  | The wagon number of the train car. |
-| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
-| Seats | Parent Element |  | The booked seats. This parent element contains a RailSeat element for each included seat. The RailSeat element has the following child elements:  |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table. |
+| Seats | Parent Element |  | The booked seats. This parent element contains a RailSeat element for each included seat. For more information, see the **RailSeat elements** table later on this page.  |
 
-### RailSeat child elements
+### RailSeat elements
 
 | Element | Data Type | TripLink | Description |
 |------------------|-----------|---|--------------------------------|
@@ -842,7 +837,7 @@ The Parking Booking parent element is the Parking Element in the Segments Array 
 | UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
 | Vendor | string |  | The two letter GDS vendor code. |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
-| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table later on this page. |
 
 ## Travel Booking elements
 
@@ -894,18 +889,18 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | TotalRate | decimal |  | The total rate amount of the booking.  |
 | Vendor | string |  | The two letter GDS vendor code. |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
-| Charges | Parent Element |  | The charges for this booking. Refer to the Charges Child Elements table. |
+| Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table. |
 
-### Charges child elements
+### Charges elements
 
 | Element  | Data Type | TripLink | Description |
 |-------------------|----------------|----------|--------------------------------------|
-| Percent | Parent Element |  | The percent of fixed charges. This parent element contains the following child elements:  |
-| Fixed | Parent Element |  | The fixed charges. This parent element contains the following child elements:  |
-| Rate | Parent Element |  | The rate for the booking.  This parent element contains the following child elements |
-| RateWithAllowance | Parent Element |  | The rate for the booking, including any travel allowances. This parent element contains the following child elements:  |
+| Percent | Parent Element |  | The percent of fixed charges. For more information about the child elements of this parent element, see the **Percent elements** table.  |
+| Fixed | Parent Element |  | The fixed charges. For more information about the child elements of this parent element, see the **Fixed elements** table.  |
+| Rate | Parent Element |  | The rate for the booking.  For more information about the child elements of this parent element, see the **Rate elements** table. |
+| RateWithAllowance | Parent Element |  | The rate for the booking, including any travel allowances. For more information about the child elements of this parent element, see the **RateWithAllowance elements** table.  |
 
-#### Rate child elements
+#### Rate elements
 
 | Element  | Data Type | Description |  |
 |---------------------|-----------|--------------|-------------------|
@@ -922,7 +917,7 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | Vendor | string |  |  The vendor for the booking charge. |  
 | VendorChargeCode | string |  |  The vendor's code for the charge. |  
 
-#### RateWithAllowance child elements
+#### RateWithAllowance elements
 
 | Element  | Data Type | TripLink | Description |
 |----------------------|-----------|----------|----------------------------|
@@ -946,3 +941,4 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 
 [1]: http://en.wikipedia.org/wiki/ISO_4217
 [2]: http://www.iata.org/publications/Pages/code-search.aspx
+
