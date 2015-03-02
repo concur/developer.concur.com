@@ -217,6 +217,14 @@ The response will include a **CC_LimoUpdateReply** parent element, with the foll
 |  ProviderFeedback |  N |  Any additional feedback from the supplier. |
 |  AccountingInfo |  N |  The accounting information for the reservation. This parent element contains one or more **AccountingField** elements: **AccountingField1** through **AccountingField5**. These fields contain detailed accounting information. |
 
+#### Error elements
+
+|  Element |  Description |
+|-------------|----------------------|
+|ErrorCode  | The code for the error. Will contain one of the following values: <br/>100: Pickup/dropoff location related error<br/>200: Pickup/dropoff time related error<br/>300: Other request parameters related error<br/>400: Credential related error<br/>500: No rate/service available<br/>600: FOP related error<br/>900: Unknown error |
+| ErrorSource | The source of the error. |
+| ErrorDescription | The additional error information. |
+
 #### Vehicle elements
 
 |  Element |  Description |
