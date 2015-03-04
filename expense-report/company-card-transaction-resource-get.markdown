@@ -10,12 +10,6 @@ Retrieves a list of unassigned company card charges for the user specified in th
 
 ## Request
 
-```
-    GET https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges/ HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
-```
-
 ### Request parameters
 None.
 
@@ -27,9 +21,12 @@ Authorization header with OAuth token for valid Concur user. Required.
 
 ## Response
 
-### Response root elements
+### Content types
+application/xml
 
-This request will return a **CardCharges** parent element with a **CardCharge** child element for each transaction. The **CardCharge** elements will have the following child elements.
+### Content body
+
+This request will return a **CardCharges** parent element with a **CardCharge** child element for each transaction. 
 
 #### CardCharge child elements
 
@@ -43,10 +40,19 @@ This request will return a **CardCharges** parent element with a **CardCharge** 
 |  TransactionCrnCode |  The currency code of the transaction amount. |
 |  TransactionDate |  The date of the transaction. |
 
+## Examples
 
-####  XML example of successful response
+### XML example request
 
+```xml
+    GET https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges/ HTTP/1.1
+    Authorization: OAuth {access token}
+    ...
 ```
+
+###  XML example of successful response
+
+```xml
     200 OK
     Content-Type: application/xml
 
