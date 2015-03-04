@@ -99,7 +99,7 @@ This request will return an **Attendees** parent element containing an **Attende
 ###  XML Example Request with External ID
 
 ```
-    GET <https://www.concursolutions.com/api/expense/v2.0/attendees?externalid=234567> HTTP/1.1
+    GET https://www.concursolutions.com/api/expense/v2.0/attendees?externalid=234567 HTTP/1.1
     Authorization: OAuth {access token}
     ...
 ```
