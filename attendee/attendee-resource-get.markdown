@@ -12,13 +12,19 @@ Retrieves the attendees matching the specified search criteria. Developers can s
 
 ### Request parameters
 
-* **attendeeID**  
-The unique identifier for the attendee in Concur. This information is returned in the **AttendeeID** element of the response of the [Get Report Details][1] function. Optional.
+#### Path parameters
+
+| Parameter |Required/Optional| Description |
+|-----------------|--------|-----------------------------|
+|attendeeID  | optional  |The unique identifier for the attendee in Concur. This information is returned in the **AttendeeID** element of the response of the [Get Report Details][1] function.|
 
 Example: `https://www.concursolutions.com/api/expense/v2.0/attendees/{attendeeID}`
 
-* **externalid={_externalID_}**  
-The unique identifier for the attendee outside of Concur. This information is returned in the **ExternalID** element of the response of the [Get Report Details][1] function. Up to 10 external IDs can be supplied in a comma separated list. Optional.
+#### Query parameters
+
+| Parameter |Required/Optional| Description |
+|-----------------|--------|-----------------------------|
+| externalid  | optional |The unique identifier for the attendee outside of Concur. This information is returned in the **ExternalID** element of the response of the [Get Report Details][1] function. Up to 10 external IDs can be supplied in a comma separated list.|
 
 Example: `https://www.concursolutions.com/apiexpense/v2.0/attendees?externalid={externalID}`<br/>
 Example: `https://www.concursolutions.com/apiexpense/v2.0/attendees?externalid={externalID1},{externalID2},{externalID3}`
@@ -39,29 +45,17 @@ To manage data for an entire conpany, the Concur account associated with the acc
 * application/json       
 * application/xml
 
-## Examples
-
-
-###  XML Example Request with Attendee ID
-
-```
-    GET https://www.concursolutions.com/api/expense/v2.0/attendees/nFaAj0ncBsvkgnPMY5QWfBbbWyv$sQh2oW HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
-```
-
-###  XML Example Request with External ID
-
-```
-    GET <https://www.concursolutions.com/api/expense/v2.0/attendees?externalid=234567> HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
-```
-
 ##  Get Attendee Details Response
 
+### Content Types
+
+* application/json       
+* application/xml
+
 ### Content Body
-This request will return an **Attendees** parent element containing an **Attendee** child element for each attendee. Each **Attendee** element will contain the following child elements:
+This request will return an **Attendees** parent element containing an **Attendee** child element for each attendee. 
+
+#### Attendee elements
 
 | Element | Description |
 |-----------------------|-------------------------------------|
@@ -84,7 +78,7 @@ This request will return an **Attendees** parent element containing an **Attende
 |  AttendeeOwnerID |  The unique identifier for the person or system that owns the attendee. |
 |  CurrencyCode |  The [3-letter ISO 4217 currency code][3] for attendee related amounts. |
 
-#### Custom child elements
+#### Custom elements
 
 | Element | Description |
 |-----------------------|-------------------------------------|
@@ -92,6 +86,23 @@ This request will return an **Attendees** parent element containing an **Attende
 |Value |  The value in the custom field. Maximum 100 characters.  |
 | Code |  Custom list fields will include the list item code in this element.  |
 
+## Examples
+
+###  XML Example Request with Attendee ID
+
+```
+    GET https://www.concursolutions.com/api/expense/v2.0/attendees/nFaAj0ncBsvkgnPMY5QWfBbbWyv$sQh2oW HTTP/1.1
+    Authorization: OAuth {access token}
+    ...
+```
+
+###  XML Example Request with External ID
+
+```
+    GET <https://www.concursolutions.com/api/expense/v2.0/attendees?externalid=234567> HTTP/1.1
+    Authorization: OAuth {access token}
+    ...
+```
 
 ####  XML Example of Successful Response
 
