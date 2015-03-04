@@ -8,12 +8,6 @@ Retrieves the list of users that have granted delegate permissions to the user s
 
 ## Request
 
-```
-GET https://www.concursolutions.com/api/expense/expensereport/v1.1/Delegators HTTP/1.1
-Authorization: OAuth {access token}
-...
-```
-
 ### Request parameters
 None.
 
@@ -27,7 +21,10 @@ application/xml
 
 ## Response
 
-### Response root elements
+### Content Types
+application/xml
+
+### Content body
 
 This request will return a **DelegatorsList** parent element with a **Delegator** parent element for each user that has granted delegate rights to the OAuth consumer. The **Delegator** element has the following child elements:
 
@@ -42,9 +39,19 @@ This request will return a **DelegatorsList** parent element with a **Delegator*
 |  ReceivesEmails |  Whether the delegate also receives the Concur emails sent to the delegator. |
 |  DelegatorXUserID |  The user ID of the delegator. |
 
+## Examples
+
+### XML Example Request
+
+```xml
+GET https://www.concursolutions.com/api/expense/expensereport/v1.1/Delegators HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
+
 ## XML example of successful response
 
-```
+```xml
     200 OK
     Content-Type: application/xml
 
