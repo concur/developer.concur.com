@@ -15,10 +15,10 @@ None.
 
 ### Headers
 
-### Content type
+#### Content type
 application/xml
 
-### Authorization header
+#### Authorization header
 
 The authorization header must have an OAuth token for a valid Concur user.
 
@@ -30,7 +30,7 @@ The OAuth consumer must have one of the following user roles in Concur: Company 
 * [Attendee List Errors][2]
 
 ### Content body
-This request will return an attendee-types parent element containing an **attendee-type** child element for each attendee type. 
+This request will return an **attendee-types** parent element containing an **attendee-type** child element for each attendee type. 
 
 #### attendee-type elements
 
@@ -49,7 +49,7 @@ This request will return an attendee-types parent element containing an **attend
     Authorization: OAuth {access token}
 ```
 
-### Example 1: XML Example of Successful Response
+### XML Example of Successful Response
 
 ```XML
     200 OK
