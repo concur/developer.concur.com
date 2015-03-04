@@ -26,7 +26,9 @@ application/xml
 
 ### Content body
 
-This request will return a **DelegatorsList** parent element with a **Delegator** parent element for each user that has granted delegate rights to the OAuth consumer. The **Delegator** element has the following child elements:
+This request will return a **DelegatorsList** parent element with a **Delegator** parent element for each user that has granted delegate rights to the OAuth consumer. 
+
+#### Delegator elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -49,7 +51,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-## XML example of successful response
+### XML example of successful response
 
 ```xml
     200 OK
