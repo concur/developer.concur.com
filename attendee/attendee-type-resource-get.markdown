@@ -1,5 +1,5 @@
 ---
-title: Attendee Type Resource - GET
+title: Get attendee types
 layout: operation
 ---
 
@@ -7,34 +7,32 @@ layout: operation
 ## Description
 Retrieves the list of attendee types for the company.
 
-
 ## Request
-    GET https://www.concursolutions.com/api/expense/attendee/v1.0/type HTTP/1.1 
-    Authorization: OAuth {access token}
-
 
 ### Request parameters
-None
 
+None.
+
+### Headers
 
 ### Content type
 application/xml
 
-
 ### Authorization header
 
 The authorization header must have an OAuth token for a valid Concur user.
-The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
+The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
 ## Response
 
 * [HTTP Status Codes][1]
 * [Attendee List Errors][2]
 
+### Content body
+This request will return an attendee-types parent element containing an **attendee-type** child element for each attendee type. 
 
-### Response root elements
-This request will return an attendee-types parent element containing an attendee-type child element for each attendee type. Each attendee-type element will contain the following child elements:
+#### attendee-type elements
 
 | Element | Description |
 |:------------|:-----------------------|
@@ -43,6 +41,13 @@ This request will return an attendee-types parent element containing an attendee
 
 
 ## Examples
+
+### XML Example Request
+
+```xml
+    GET https://www.concursolutions.com/api/expense/attendee/v1.0/type HTTP/1.1 
+    Authorization: OAuth {access token}
+```
 
 ### Example 1: XML Example of Successful Response
 
