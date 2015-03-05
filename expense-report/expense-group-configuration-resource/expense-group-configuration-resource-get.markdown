@@ -10,12 +10,6 @@ Retrieves the list of Expense Polices, Expense Types and Payment Types for the E
 
 ## Request
 
-```
-GET https://www.concursolutions.com/api/expense/expensereport/v1.1/ExpenseGroupConfiguration/ HTTP/1.1
-Authorization: OAuth {access token}
-...
-```
-
 ### Request parameters
 None.
 
@@ -29,15 +23,19 @@ application/xml
 
 ## Response
 
-### Response root elements
-This request will return an **ExpenseGroupConfiguration** parent element. The **ExpenseGroupConfiguration **has a **PaymentTypes** child element and a **PolicyAndExpenseTypesList** child element. The **PaymentTypes** child element has a **PaymentType** child element for each configured payment type. The PaymentType element has the following child elements:
+### Content body
+This request will return an **ExpenseGroupConfiguration** parent element. The **ExpenseGroupConfiguration** has a **PaymentTypes** child element and a **PolicyAndExpenseTypesList** child element. 
+
+The **PaymentTypes** child element has a **PaymentType** child element for each configured payment type. The **PolicyAndExpenseTypesList** child element has a **PolicyandExpenseTypes** child element for each policy configured for this expense group. 
+
+#### PaymentType elements
 
 |  Element |  Description |
 | -------- | ------------ |
 |  PaymentTypeID |  The encrypted key for the payment type. This is the unique identifier for the payment type. |
 |  PaymentTypeName |  The name of the payment type. |
 
-The **PolicyAndExpenseTypesList** child element will have a **PolicyandExpenseTypes** child element for each policy configured for this expense group. The **PolicyAndExpenseTypes** element has the following child elements:
+#### PolicyandExpenseTypes elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -45,7 +43,7 @@ The **PolicyAndExpenseTypesList** child element will have a **PolicyandExpenseTy
 |  PolicyName |  The name of the policy. |
 |  ExpenseTypes |  The parent element for the list of expense types in the policy. It contains an **ExpenseType** child element for each expense type in the policy. |
 
-Each ExpenseType element contains the following child elements:
+#### ExpenseType elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -55,9 +53,19 @@ Each ExpenseType element contains the following child elements:
 |  ParentExpName |  The label of the expense type's parent. |
 |  SpendCategory |  The spend category assigned to the expense type for reporting purposes. |
 
-## XML example of successful response
+## Examples
 
+### XML example request
+
+```xml
+GET https://www.concursolutions.com/api/expense/expensereport/v1.1/ExpenseGroupConfiguration/ HTTP/1.1
+Authorization: OAuth {access token}
+...
 ```
+
+### XML example of successful response
+
+```xml
     200 OK
     Content-Type: application/xml
     <ExpenseGroupConfiguration xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
