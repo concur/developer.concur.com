@@ -26,7 +26,7 @@ This page contains release notes for the Concur Developer Platform and the App C
 
 |Release Month     	|Last Updated      |
 |-------------------|------------------|
-|[February 2015][1-11] |February 6 2015 |
+|[February 2015][2-4] |February 6 2015 |
 |[October 2014][2-3]|October 17 2014   |
 |[June 2014][2-2]   |June 10 2014      |
 |[May 2014][2-1]    |May 16 2014       |
@@ -61,11 +61,11 @@ This page contains release notes for the Concur Developer Platform and the App C
 [1-8]:App%20Center%20Release%20Notes_DecFinal_Dec12_2014.pdf
 [1-9]:App%20Center%20Release%20Notes_Feb13_2015.pdf
 [1-10]:App%20Center%20Release%20Notes_Feb27_2015.pdf
-[1-11]:App%20Center%20Release%20Notes_Final_February2015.pdf
 
 [2-1]:Concur%20Platform%20Release%20Notes_final_October2014.pdf
 [2-2]:Concur%20Platform%20Client%20Release%20Notes_draft_June2014.pdf
 [2-3]:Concur%20Platform%20Release%20Notes_final_October2014.pdf
+[2-4]:Concur%20Platform%20Release%20Notes_final_February2015.pdf
 
 [3-1]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20April%202013.pdf
 [3-2]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20May%202013.pdf
