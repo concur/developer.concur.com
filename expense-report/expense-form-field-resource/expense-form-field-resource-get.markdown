@@ -10,23 +10,32 @@ Retrieves the details of the configured form fields for the specified form.
 
 ## Request
 
-`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/{FormId}/Fields`
-
 ### Request parameters
-**{_FormId_}/Fields**: The unique identifier for the desired form and the Fields keyword. Required.
+
+#### Path parameters
+
+| Parameter |Required/Optional| Description |
+|-----------------|--------|-----------------------------|
+|{_FormId_}/Fields | required | The unique identifier for the desired form and the Fields keyword. |
+
+Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/{FormId}/Fields`
 
 **URI Source**: The FormId is returned in the **FormId** element by the [Get Form Data][1] function.
 
-### Content types
-application/xml
+### Headers
 
-### Authorization header
+#### Authorization header
 Authorization header with OAuth token for valid Concur user. Required.
+
+#### Accept header
+application/xml
 
 ## Response
 
-### Response root elements
-This request will return a **FormFieldsList** parent element with a **FormField** parent element for each configured form field. The **FormField** element has the following child elements:
+### Content body
+This request will return a **FormFieldsList** parent element with a **FormField** parent element for each configured form field. 
+
+#### FormField elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -46,7 +55,7 @@ This request will return a **FormFieldsList** parent element with a **FormField*
 
 ### XML example request
 
-```
+```xml
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/nAaT8$puKKO2$pEVlsXfSruLpDfZL0wVM$s7/Fields HTTP/1.1
 Authorization: OAuth {access token}
 ...
@@ -54,7 +63,7 @@ Authorization: OAuth {access token}
 
 ### XML example of successful response
 
-```
+```xml
     200 OK
     Content-Type: application/xml
     <FormFieldsList xmlns="https://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
