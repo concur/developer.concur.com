@@ -1,11 +1,91 @@
-<div class="collapse navbar-collapse">
-	<ul class="nav pull-right navbar-nav">
-		{% for d in site.data.nav %}
+        <!-- Navbar -->
+        <div class="navbar navbar-default mega-menu" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ site.baseurl }}/">
+                        <img id="logo-header" src="{{ site.baseurl }}/concur_assets/img/Concur_Logo_VT_Color_40px.png" alt="Logo">
+                        Developer Portal
+                    </a>
+                </div>
 
-		<!-- TODO: determine whether d.href is an absolute or relative path -->
-		<li><a href="{{ site.baseurl }}{{ d.href }}">{{ d.title}}</a></li>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+                        <!-- Home -->
+                        <li class="active">
+                            <a href="{{ site.baseurl }}/">
+                                Home
+                            </a>
+                        </li>
+                        <!-- End Home -->
 
-		{% endfor %}
+                        <!-- Why Concur -->                        
+                        <li>
+                            <a href="{{ site.baseurl }}/why-concur.html">
+                                Why Concur?
+                            </a>
+                        </li>
+                        <!-- End Why Concur -->
 
-	</ul>
-</div>
+                        <!-- Docs & Resources -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Docs
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="{{ site.baseurl }}/docs/get-started/">Get Started</a></li>
+                              <li><a href="{{ site.baseurl }}/docs/overviews/">Overviews</a></li>
+                              <li><a href="{{ site.baseurl }}/docs/guides/">Guides</a></li>
+                              <li><a href="{{ site.baseurl }}/docs/reference/">Reference</a></li>
+                            </ul>
+                        </li>
+                        <!-- End Docs & Resources -->
+
+                        <!-- API Reference -->
+                        <li>
+                            <a href="{{ site.baseurl }}/api-reference/">
+                                API Reference
+                            </a>
+                        </li>
+                        <!-- End API Reference -->
+
+                        <!-- Support & Community -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                Tools &amp; Support
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Help &amp; FAQs</a></li>
+                              <li><a href="#">Developer Forum</a></li>
+                              <li><a href="#">Contact Support</a></li>
+                              <li><a href="#">Community</a></li>
+                              <li><a href="#">Dev Blog</a></li>
+                              <li><a href="#">Events</a></li>
+                              <li><a href="#">Newsletter</a></li>
+                            </ul>
+                        </li>
+                        <!-- End Support & Community -->
+
+                        <!-- Search Block -->
+                        <li>
+                            <i class="search fa fa-search search-btn"></i>
+                            <div class="search-open">
+                                <div class="input-group animated fadeInDown">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn">
+                                        <button class="btn-u" type="button">Go</button>
+                                    </span>
+                                </div>
+                            </div>    
+                        </li>
+                        <!-- End Search Block -->
+                    </ul>
+                </div><!--/navbar-collapse-->
+            </div>    
+        </div>            
+        <!-- End Navbar -->

@@ -5,21 +5,6 @@
             <div class="container">
                 <!-- Topbar Navigation -->
                 <ul class="loginbar pull-right">
-                    <!-- <li class="languagesSelector">
-                        <i class="fa fa-globe"></i>
-                        <a>Languages</a>
-                        <ul class="languages">
-                            <li class="active">
-                                <a href="#">English <i class="fa fa-check"></i></a> 
-                            </li>
-                            <li><a href="#">Spanish</a></li>
-                            <li><a href="#">Russian</a></li>
-                            <li><a href="#">German</a></li>
-                        </ul>
-                    </li> -->
-                    <!-- <li class="topbar-devider"></li>   
-                    <li><a href="page_faq.html">Help</a></li>  
-                    <li class="topbar-devider"></li>  -->  
                     <li><a href="page_login.html">Login</a></li>   
                 </ul>
                 <!-- End Topbar Navigation -->
@@ -27,105 +12,6 @@
         </div>
         <!-- End Topbar -->
     
-        <!-- Navbar -->
-        <div class="navbar navbar-default mega-menu" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="fa fa-bars"></span>
-                    </button>
-                    <a class="navbar-brand" href="{{ site.baseurl }}/index.html">
-                        <img id="logo-header" src="{{ site.baseurl }}/concur_assets/img/Concur_Logo_VT_Color_40px.png" alt="Logo">
-                        Developer Portal
-                    </a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-responsive-collapse">
-                    <ul class="nav navbar-nav">
-                        <!-- Home -->
-                        <li class="active">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                Home
-                            </a>
-                        </li>
-                        <!-- End Home -->
-
-                        <!-- Why Concur -->                        
-                        <li>
-                            <a href="/whyconcur.html" class="dropdown-toggle" data-toggle="dropdown">
-                                Why Concur?
-                            </a>
-                            <!--<ul class="dropdown-menu">-->
-                              <!--<li><a href="#">Personal Apps</a></li>-->
-                              <!--<li><a href="#">Enterprise Apps</a></li>-->
-                              <!--<li><a href="#">Internal Apps</a></li>-->
-                              <!--<li><a href="#">TripLink</a></li>-->
-                              <!--<li><a href="#">Partner Program</a></li>-->
-                              <!--<li><a href="#">Testimonials/Case Studies/Use Cases</a></li>-->
-                              <!--<li><a href="#">App Center</a></li>-->
-                            <!--</ul>-->
-                        </li>
-                        <!-- End Why Concur -->
-
-                        <!-- Docs & Resources -->
-                        <li class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                Docs
-                            </a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#">Get Started</a></li>
-                              <li><a href="#">Overviews</a></li>
-                              <li><a href="#">Guides</a></li>
-                              <li><a href="#">Reference</a></li>
-                            </ul>
-                        </li>
-                        <!-- End Docs & Resources -->
-
-                        <!-- Manage Apps -->
-                        <li>
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                API Reference
-                            </a>
-                        </li>
-                        <!-- Ens Manage Apps -->
-
-                        <!-- Support & Community -->
-                        <li class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                Tools &amp; Support
-                            </a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#">Help &amp; FAQs</a></li>
-                              <li><a href="#">Developer Forum</a></li>
-                              <li><a href="#">Contact Support</a></li>
-                              <li><a href="#">Community</a></li>
-                              <li><a href="#">Dev Blog</a></li>
-                              <li><a href="#">Events</a></li>
-                              <li><a href="#">Newsletter</a></li>
-                            </ul>
-                        </li>
-                        <!-- End Support & Community -->
-
-                        <!-- Search Block -->
-                        <li>
-                            <i class="search fa fa-search search-btn"></i>
-                            <div class="search-open">
-                                <div class="input-group animated fadeInDown">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                    <span class="input-group-btn">
-                                        <button class="btn-u" type="button">Go</button>
-                                    </span>
-                                </div>
-                            </div>    
-                        </li>
-                        <!-- End Search Block -->
-                    </ul>
-                </div><!--/navbar-collapse-->
-            </div>    
-        </div>            
-        <!-- End Navbar -->
+        {% include top-navigation.html %}
     </div>
     <!--=== End Header ===-->    
