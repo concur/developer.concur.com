@@ -27,7 +27,7 @@ Posts the expense report header information for a new or existing report for the
 |-----------------|--------|-----------------------------|
 | {_reportId_} | optional | The unique identifier for the report. Only used when updating an existing report. |
 
-Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/_{reportId}_`
+Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}`
 
 **URI Source**: The reportId value is returned by the [Get List of Reports][4] and [Get Report Details][5] functions, and as part of the **Report-Details-Url** element returned by this function.
 
