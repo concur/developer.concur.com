@@ -34,14 +34,17 @@ The Approver role is used when the workflow action should be completed by a part
 
 ## Request
 
-### Query parameters
-**{workflowstepID}/workflowaction** 
-The identifier for the desired workflow step and the workflowaction keyword.
+### Request parameters
 
-**Example**
-`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{workflowstepId}/workflowaction`
+#### Path parameters
 
-**URI Source:** The URI is returned in the WorkflowActionURL element of the Get Report Details response.
+| Parameter |Required/Optional| Description |
+|-----------------|--------|-----------------------------|
+|{_workflowstepID_}/workflowaction | required | The identifier for the desired workflow step and the **workflowaction** keyword.|
+
+Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{workflowstepId}/workflowaction`
+
+**URI Source:** The URI is returned in the WorkflowActionURL element of the [Get Report Details][1] response.
 
 ### Headers
 
@@ -63,24 +66,27 @@ This request should contain a **WorkflowAction** parent element with the followi
 
 |  Element |  Required/optional |  Description |
 |----------|--------------------|--------------|
-|  Action |  required |  The name of the workflow action. Possible values are: **Approve** , ** Send Back to Employee** , or ** Recall to Employee** . Must be one of the workflow actions available for the workflow step. Consult Expense Admin >Workflow to learn details. |
+|  Action |  required |  The name of the workflow action. Possible values are: **Approve** , **Send Back to Employee** , or **Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Expense Admin >Workflow to learn details. |
 |  Comment |  required, for Send Back to Employee |  Must be used with the Send Back to Employee workflow action. This comment is visible wherever report comments are available to the employee, approver, authorization request administrator, and/or processor. Max length: 2000 |
 
 ### Response
 
-#### Root elements
+#### Response body
 
 This request will return as **ActionStatus** parent element with the following child elements.
 
-#### ActionStatus child elements
+#### ActionStatus elements
 
 |  Element | Description |
 |----------|-------------|
 |  Message |  The error message. Only appears if a workflow action error was generated. |
 |  Status | The status of the report workflow action. |
 
-####  XML Example Request
+## Examples
 
+###  XML example request
+
+```xml
     POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a454QitqQ/workflowaction HTTP/1.1
     Authorization: OAuth {access token}
     ...
@@ -89,24 +95,27 @@ This request will return as **ActionStatus** parent element with the following c
         <Action>Approve</Action>
         <Comment>Approved via Concur Connect</Comment>
     </WorkflowAction>
+```
 
+###  XML example of successful response
 
-####  XML Example of Successful Response
-
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <Message>SUCCESS!</Message>
         <Status>SUCCESS!</Status>
     </ActionStatus>
+```
 
-####  XML Example of Response With Error
+###  XML example of response With error
 
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <Message>The action cannot be executed because the item has recently been changed. Please refresh your list and try again.</Message>
         <Status>FAILURE</Status>
     </ActionStatus>
-
+```
 
 
 [1]: https://developer.concur.com/node/487
