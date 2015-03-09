@@ -25,9 +25,9 @@ Example: `https://www.concursolutions.com/api/expense/expensereport/v2.0/report/
 
 Authorization header with OAuth token for valid Concur user. The OAuth user must have one of the following roles in Expense:
 
-**Expense User**: This role allows the user to modify their own reports.
-**Web Services Administrator (Professional/Premium)**: This role allows the user to modify reports for all users.
-**Can Administer (Standard/Sandbox)**: This role allows the user to modify reports for all users.
+* **Expense User**: This role allows the user to modify their own reports.
+* **Web Services Administrator (Professional/Premium)**: This role allows the user to modify reports for all users.
+* **Can Administer (Standard/Sandbox)**: This role allows the user to modify reports for all users.
 
 #### Content-Type header
 
