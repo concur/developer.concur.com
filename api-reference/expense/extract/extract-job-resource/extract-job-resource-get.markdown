@@ -16,21 +16,22 @@ Requests a list of the last 100 extract jobs ran for the specified Extract Defin
 
 ### Get Extract Job List Request
 
-    GET https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
-
 #### Request parameters
-* **{_DefinitionID_}/job**<br>Required. The definition identifier and the job keyword.
 
-Example: `https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_}/job `
+#### Path parameters
+
+| Parameter |Required/Optional| Description |
+|-----------------|--------|-----------------------------|
+| {_DefinitionID_}/job | Required. | The definition identifier and the job keyword. |
+
+Example: `https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job `
 
 #### Headers
 
 ##### Authorization header
 Required. Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-##### Accept header
+##### Content-Type header
 application/xml
 
 ### Get Extract Job List Response
@@ -38,10 +39,10 @@ application/xml
 #### Content types
 application/xml
 
-#### Root elements
+#### Response body
 This request will return a **jobs** parent element containing a **job** child element for each of the past 100 extract jobs for the extract definition. Each **job** element will contain the following child elements.
 
-##### job child elements
+##### job elements
 
 | Element | Description |
 | ------- | ----------- |
@@ -52,14 +53,22 @@ This request will return a **jobs** parent element containing a **job** child el
 | status | The current status of the job. |
 | file-link | A URI for retrieving the file or files produced by the job run, with encrypted ID. Not included if the job is still running. The **file-link** value is used as the URI when retrieving the extract data. |
 
-####  XML Example of Successful Response
+### Examples
 
-```
-200 OK
-Content-Type: application/xml
-```
+#### XML example request
 
 ```xml
+    GET https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job HTTP/1.1
+    Authorization: OAuth {access token}
+    ...
+```
+
+####  XML example of successful response
+
+```xml
+200 OK
+Content-Type: application/xml
+
 <jobs xmlns="...">
     <job>
         <id>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd</id>
@@ -93,13 +102,20 @@ Retrieves the details of the specified extract definition.
 
 ### Get Extract Job Details Request
 
-    GET https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_}/job/{_JobID_} HTTP/1.1
+```xml
+    GET https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job/{JobID} HTTP/1.1
     Authorization: OAuth {access token}
     ...
+```
 
 #### Request parameters
- * **{_DefinitionID_**}<br>The identifier for the desired extract definition.
- * **job/{_JobID_}**<br>The identifier for the job and the job keyword.
+
+#### Path parameters
+
+| Parameter |Required/Optional| Description |
+|-----------------|--------|-----------------------------|
+ | {_DefinitionID_ | required | The identifier for the desired extract definition. |
+ | job/{_JobID_} | required | The identifier for the job and the job keyword. |
 
 Example: `https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd`
 
@@ -113,13 +129,13 @@ application/xml
 
 ### Get Extract Job Details Response
 
-#### Content types
+##### Content-Type header
 application/xml
 
 #### Root elements
 This request will return a **job** parent element with the following child elements.
 
-##### job child elements
+##### job elements
 
 | Element | Description |
 | ------- | ----------- |
@@ -130,8 +146,9 @@ This request will return a **job** parent element with the following child eleme
 | status | The current status of the extract job. |
 | file-link | A URI for retrieving the file or files produced by the job run, with encrypted ID. Not included if the job is still running. The **file-link** value is used as the URI when retrieving the extract data. |
 
-####  XML Example of Successful Response
+####  XML example of successful response
 
+```xml
     200 OK
     Content-Type: application/xml
     <job xmlns="...">
@@ -142,6 +159,7 @@ This request will return a **job** parent element with the following child eleme
         <status>Complete</status>
         <file-link> https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd/file</file-link>
     </job>
+```
 
 ##  Get Extract Job Status
 
@@ -150,14 +168,20 @@ Retrieves the details of the specified extract definition.
 
 ###  Get Extract Job Status Request
 
-    GET https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_}/job/{_JobID_}/status HTTP/1.1
+```xml
+    GET https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job/{JobID}/status HTTP/1.1
     Authorization: OAuth {access token}
     ...
+```
 
 #### Request parameters
 
-* **{_DefinitionID_}**<br>Required. The identifier for the desired extract definition.
-* **job/{_JobID_}/status**<br>The identifier for the job and the job and status keywords.
+#### Path parameters
+
+| Parameter |Required/Optional| Description |
+|-----------------|--------|-----------------------------|
+|{_DefinitionID_} | required | The identifier for the desired extract definition. |
+| job/{_JobID_}/status | required | The identifier for the job and the job and status keywords. |
 
 Example: `https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps/status`
 
@@ -166,7 +190,7 @@ Example: `https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJ
 ##### Authorization header
 Required. Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-##### Accept header
+##### Content-Type header
 application/xml
 
 ###  Get Extract Job Status Response
@@ -174,10 +198,10 @@ application/xml
 #### Content types
 application/xml
 
-#### Root element
+#### Response body
 This request will return a **job** parent element with the following child elements.
 
-##### job child elements
+##### job elements
 
 | Element | Description |
 | ------- | ----------- |
@@ -189,8 +213,9 @@ This request will return a **job** parent element with the following child eleme
 | file-link | The URI used to retrieve the file or files produced by this job run. Not included if the job is still running. |
 | id | The extract definition ID URI with encrypted ID. |
 
-####  XML Example of Successful Response
+####  XML example of successful response
 
+```xml
     200 OK
     Content-Type: application/xml
     <job xmlns="http://www.concursolutions.com/api/expense/extract/2010/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -201,4 +226,4 @@ This request will return a **job** parent element with the following child eleme
         <status>Completed</status>
         <file-link>https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps/file</file-link>
     </job>
-
+```
