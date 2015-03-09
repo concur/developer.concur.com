@@ -17,7 +17,7 @@ Creates or updates an itemization record for the specified expense entry.
 | Parameter |Required/Optional| Description |
 |-----------------|--------|-----------------------------|
 | {_reportId_} | required | The unique identifier for the expense report.|
-|{_entryId_}/Itemization | required | The unique identifier for the expense entry and the Attendees keyword.|
+|{_entryId_}/Itemization | required | The unique identifier for the expense entry and the Itemization keyword.|
 |{_itemizationID_} | optional | The unique identifier for the itemization. |
 
 Examples: <br/>
@@ -53,7 +53,7 @@ This request contains an **ExpenseItemizations** parent element with an **Itemiz
 |  Description |  Depends on configuration |  The description for the expense. |
 |  TransactionAmount |  Y |  The total amount of the itemization in the original currency, with up to three decimal places. Example: 123.654 |
 |  PostedAmount |  Depends on configuration |  The amount of the itemization in the user's reimbursement currency, with up to three decimal places. Example: 123.654. May vary from transaction amount if some of the expense is marked personal or if it has been converted to another currency. See **Notes** for more information. |
-|  Custom1 through Custom20 |  Depends on configuration | The Expense Entry Form custom fields. Itemizations are child entries to the expense entry, and they share the custom fields. May be required depending on configuration. Refer to the [Processes][1], **Post Expense Report Data** section of Expense Report for the steps necessary to gather required field information. **NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][6] page for information on how to correctly submit list item values.|
+|  Custom1 through Custom20 |  Depends on configuration | The Expense Entry Form custom fields. Itemizations are child entries to the expense entry, and they share the custom fields. May be required depending on configuration. Refer to the [Processes][1], **Post Expense Report Data** section of Expense Report for the steps necessary to gather required field information. <br/>**NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][6] page for information on how to correctly submit list item values.|
 |  IsPersonal |  N |  Whether the expense entry is a personal expense. Personal expenses are not reimbursed in Concur Expense. Personal expenses cannot be itemized. Format: N |
 |  Comment |  Depends on configuration |  The itemization comment. |
 
