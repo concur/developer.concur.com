@@ -73,7 +73,7 @@ This request should contain a **WorkflowAction** parent element with the followi
 
 #### Response body
 
-This request will return as **ActionStatus** parent element with the following child elements.
+This request will return an **ActionStatus** parent element with the following child elements.
 
 #### ActionStatus elements
 
