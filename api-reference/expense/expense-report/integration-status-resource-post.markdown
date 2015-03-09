@@ -27,9 +27,14 @@ Authorization header with OAuth token for valid Concur user. Required. The OAuth
 
 ## Response
 
+### Content types
+
+* application/xml
+* application/json
+
 ### Response body
 
-The response will include an **ActionStatus** parent element (XML), or an object (JSON) with the following child elements(XML) or name/value pairs(JSON).
+The response will include an **ActionStatus** parent element (XML), or an object (JSON) with the following child elements (XML) or name/value pairs (JSON).
 
 #### ActionStatus elements
 
