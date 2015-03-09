@@ -6,44 +6,73 @@ layout: operation
 ##Description
 Retrieves the expense entry attendees for the specified expense entry. This function requires the v2.0 expense entry attendee resource.
 
-##Request
+## Request
 
-### XML request
+### Request parameters
 
-```
+#### Path parameters
+
+| Parameter |Required/Optional| Description |
+|-----------------|--------|-----------------------------|
+| {_reportId_} | required | The unique identifier for the expense report. This value is returned in the **ReportID** element by the [Get Report Details][1] function. |
+| {_entryId_}/attendees | required | The unique identifier for the expense entry and the Attendees keyword. This value is returned in the **ReportEntryID** element by the [Get Report Details][1] function. |
+
+Example: `https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{reportId}/entry{entryId}/attendees`
+
+### Headers
+
+#### Authorization header
+
+Authorization header with OAuth token for valid Concur user. Required.
+
+#### Content-Type header
+
+* application/xml
+* application/json
+
+##Response
+
+### Content types
+
+* application/xml
+* application/json
+
+###Response body
+
+This request will return an **Attendees** parent element with an **Attendee** child element for each attendee. The **Attendee** element will have the following child elements.
+
+#### Attendee elements
+
+|       Element Name      | Data Type | Description |
+| ----------------------- | --------- | ----------- |
+| Amount                   | decimal   | The portion of the Entry Transaction Amount assigned to this attendee.|
+| AssociatedAttendeeCount  | int       | The count of attendees associated to this attendee. A count greater than 1 means there are unnamed attendees associated with this attendee.            |
+| AttendeeID               | string    | The unique identifier for the attendee.|
+| EntryAttendeeCustom1     | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
+| EntryAttendeeCustom2  | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
+| EntryAttendeeCustom3  | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
+| EntryAttendeeCustom4   | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
+| EntryAttendeeCustom5   | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
+
+## Examples
+
+### XML example request
+
+```xml
     GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/nxxKgLlnROz3zHJBCRksaas23dsfs/entry/n7We3qWw99u1KoWTMaLhSC$pXBYzQ1UDhn/attendees HTTP/1.1
     Authorization: OAuth {access token}
     ...
 ```
 
-### JSON request
+### JSON example request
 
-```
+```json
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/nxxKgLlnROz3zHJBCRksaas23dsfs/entry/n7We3qWw99u1KoWTMaLhSC$pXBYzQ1UDhn/Attendees HTTP/1.1
 Authorization: OAuth {access token}
 ...
 ```
 
-###Request parameters
-
-* **{reportId}**  
-The unique identifier for the expense report. This value is returned in the **ReportID** element by the [Get Report Details][1] function. Required.
-* **{entryId}/attendees**  
-The unique identifier for the expense entry and the Attendees keyword. This value is returned in the **ReportEntryID** element by the [Get Report Details][1] function. Required.
-
-Example: `https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{reportId}/entry{entryId}/attendees`
-
-###Accept headers
-
-* application/xml
-* application/json
-
-###Authorization header
-Authorization header with OAuth token for valid Concur user.
-
-##Response
-
-### XML response
+### XML example response
 
 ```xml
     200 OK
@@ -63,7 +92,7 @@ Authorization header with OAuth token for valid Concur user.
     </EntryAttendees>
 ```
 
-### JSON response
+### JSON example response
 
 ```json
 200 OK
@@ -78,18 +107,5 @@ Content-Type: application/json
 ] 
 ```
 
-###Response root elements
-
-|       Element Name      |   Required/Optional  | Data Type | Description |
-| ----------------------- | -------------------- | --------- | ----------- |
-| Amount                  |                      | decimal   | The portion of the Entry Transaction Amount assigned to this attendee.|
-| AssociatedAttendeeCount |                      | int       | The count of attendees associated to this attendee. A count greater than 1 means there are unnamed attendees associated with this attendee.            |
-| AttendeeID              |                      | string    | The unique identifier for the attendee.|
-| EntryAttendeeCustom1    |                      | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
-| EntryAttendeeCustom2    |                      | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
-| EntryAttendeeCustom3    |                      | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
-| EntryAttendeeCustom4    |                      | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
-| EntryAttendeeCustom5    |                      | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
-
 [1]: https://developer.concur.com/node/487#reportdetails
-[2]: https://developer.concur.com/reference/http-codes
+
