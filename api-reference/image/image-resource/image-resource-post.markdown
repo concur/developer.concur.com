@@ -87,7 +87,7 @@ Content-Type: image/jpeg
 ### Description
 Uploads a receipt image and associates it with the expense entry that matches the supplied entry ID. Once an image is attached to the entry, you cannot append additional images.
 
-### Request
+### Post Image to Entry Request
 
 #### Request parameters
 
@@ -170,6 +170,7 @@ Containing a partial 64-bit encoded string representation of the image:
     ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACo4J4bq3iuL
     ......
 ```
+
 #### XML example of successful response
 
 ```xml
@@ -224,7 +225,7 @@ These administrative roles allow the user to manage data for the entire company.
 
 A [byte array][2] containing the image data.
 
-### Post Image to Entry Response
+### Post Image to Payment Request Response
 
 #### Content types
 application/xml
