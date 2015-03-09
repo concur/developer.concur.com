@@ -7,38 +7,51 @@ layout: operation
 This resource allows developers to ensure that the necessary transactions to account for expenses and arrange payment for the expenses in a specified report were created in the financial system prior to committing the expense report in Concur Expense. If they were, the developer uses this function to indicate the report was successfully integrated and move the report forward in the workflow to the Paid step. In Concur Expense, when a report arrives at the Paid workflow step the report is committed, meaning its data can't be changed and it can't be sent back in the workflow.
 
 ## Request
-```
+
+### Request parameters
+
+#### Path parameters
+
+| Parameter |Required/Optional| Description |
+|-----------------|--------|-----------------------------|
+| report/{ReportID} | required | The report keyword and the ReportID for the report that has been successfully integrated into the financial system. The ReportID is returned in the **ReportID** element by the [Get List of Reports][1] and the [Get Report Details][2] responses.
+
+### Headers
+
+#### Authorization header
+Authorization header with OAuth token for valid Concur user. Required. The OAuth consumer must have the following user role: Web Services Administrator
+
+#### Content-Type header
+* application/json
+* application/xml
+
+## Response
+
+### Response body
+
+The response will include an **ActionStatus** parent element (XML), or an object (JSON) with the following child elements(XML) or name/value pairs(JSON).
+
+#### ActionStatus elements
+
+|Element | Description |
+|--- | --- |
+| Status | Whether the request was successful. Possible values: SUCCESS, FAILURE. |
+| Message | Provides further details for errors. |
+
+##  Examples
+
+### XML example request
+
+```xml
 POST https://www.concursolutions.com/api/expense/expensereport/v2.0/integrationstatus/report/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a454QitqQ HTTP/1.1
 Authorization: OAuth {access token}
 Accept: application/xml
 ...
 ```
 
-### Request parameters
-**report/{_ReportID_}**  
-The report keyword and the ReportID for the report that has been successfully integrated into the financial system. The ReportID is returned in the **ReportID** element by the [Get List of Reports][1] and the [Get Report Details][2] responses.
+### XML example of successful response
 
-### Content types
-* application/json
-* application/xml
-
-### Authorization header
-Authorization header with OAuth token for valid Concur user. The OAuth consumer must have the following user role: Web Services Administrator
-
-## Response
-
-### Response root elements
-The response will include:
-An **ActionStatus** parent element (XML), or an object (JSON) with the following child elements(XML) or name/value pairs(JSON):
-
-* Status: Whether the request was successful. Possible values: SUCCESS, FAILURE.
-* Message: Provides further details for errors.
-
-##  Examples
-
-### XML Example of Successful Response
-
-```
+```xml
     HTTP/1.1 200 OK
     Content-Type: application/xml
     <ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -47,15 +60,17 @@ An **ActionStatus** parent element (XML), or an object (JSON) with the following
     </ActionStatus>
 ```
 
-###  JSON Example of Successful Response
-```
+###  JSON example of successful response
+
+```json
     HTTP/1.1 200 OK
     Content-Type: application/json
     {"Status":"SUCCESS","Message":"SUCCESS"}
 ```
 
-###  JSON Example of Response With Error
-```
+###  JSON example of response With error
+
+```xml
     HTTP/1.1 200 OK
     Content-Type: application/json
     {"Status":"FAILURE","Message":"To use the POST Expense Journal Entry Job Key the
