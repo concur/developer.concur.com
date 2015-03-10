@@ -13,11 +13,19 @@
                     </a>
                 </div>
 
+<script>
+  console.log('page.url: {{ page.url }}; site.baseurl: {{ site.baseurl }}');
+</script>
+
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav">
                         <!-- Home -->
+                        {% if page.url == '/' or page.url == '/index.html' %}
                         <li class="active">
+                        {% else %}
+                        <li>
+                        {% endif %}
                             <a href="{{ site.baseurl }}/">
                                 Home
                             </a>
@@ -25,7 +33,11 @@
                         <!-- End Home -->
 
                         <!-- Why Concur -->                        
+                        {% if page.url == '/why-concur.html' %}
+                        <li class="active">
+                        {% else %}
                         <li>
+                        {% endif %}
                             <a href="{{ site.baseurl }}/why-concur.html">
                                 Why Concur?
                             </a>
@@ -33,7 +45,11 @@
                         <!-- End Why Concur -->
 
                         <!-- Docs & Resources -->
+                        {% if page.url contains '/docs/' %}
+                        <li class="active dropdown">
+                        {% else %}
                         <li class="dropdown">
+                        {% endif %}
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                                 Docs
                             </a>
@@ -47,7 +63,11 @@
                         <!-- End Docs & Resources -->
 
                         <!-- API Reference -->
+                        {% if page.url contains '/api-reference/' %}
+                        <li class="active">
+                        {% else %}
                         <li>
+                        {% endif %}
                             <a href="{{ site.baseurl }}/api-reference/">
                                 API Reference
                             </a>
