@@ -75,14 +75,18 @@
                         <!-- End API Reference -->
 
                         <!-- Support & Community -->
+                        {% if page.url contains '/tools-support/' %}
+                        <li class="active dropdown">
+                        {% else %}
                         <li class="dropdown">
+                        {% endif %}
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                                 Tools &amp; Support
                             </a>
                             <ul class="dropdown-menu">
                               <li><a href="{{ site.baseurl }}/tools-support/tools.html">Tools</a></li>
                               <li><a href="{{ site.baseurl }}/tools-support/support.html">Support</a></li>
-                              <li><a href="#">Go to Market</a></li>
+                              <li><a href="{{ site.baseurl }}/tools-support/go-to-market.html">Go to Market</a></li>
                               <li><a href="{{ site.baseurl }}/blog">Dev Blog</a></li>
                               <li><a href="#">Events</a></li>
                               <li><a href="#">Newsletter</a></li>
