@@ -16,9 +16,11 @@ Retrieves the list of extract definitions.
 
 ### Get extract definition list request
 
+```xml
     GET https://www.concursolutions.com/api/expense/extract/v1.0/ HTTP/1.1
     Authorization: OAuth {access token}
     ...
+    ```
 
 #### Request parameters
 None.
@@ -28,7 +30,7 @@ None.
 ##### Authorization header
 Required: Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-##### Accept header
+##### Content-Type header
 application/xml
 
 ###  Get extract definition list response
@@ -40,7 +42,7 @@ application/xml
 
 This request will return a **definitions** parent element with a **definition** child element for each extract definition. Each **definition** element has the following child elements.
 
-##### definition child elements
+##### definition elements
 
 | Element | Description |
 | ------- | ----------- | 
@@ -48,8 +50,9 @@ This request will return a **definitions** parent element with a **definition** 
 |  job-link |  The extract job URI with encrypted ID. The job-link value is used as the URI when creating the extract job data request. |
 |  name |  The extract definition name. |
 
-####  XML Example of Successful Response
+####  XML example of successful response
 
+```xml
     200 OK
     Content-Type: application/xml
 
@@ -70,6 +73,7 @@ This request will return a **definitions** parent element with a **definition** 
             <name>Asian Extract</name>
         </definition>
     </definitions>
+```
 
 ##  Get extract definition details 
 
@@ -78,13 +82,20 @@ Retrieves the details of the specified extract definition.
 
 ### Get extract definition details request
 
-    GET https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_} HTTP/1.1
+```xml
+    GET https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID} HTTP/1.1
     Authorization: OAuth {access token}
     ...
+```
 
 #### Request parameters
-**{_DefinitionID_]**<br>
-The identifier for the desired extract definition.
+
+#### Path parameters
+
+| Parameter |Required/Optional| Description |
+|-----------------|--------|-----------------------------|
+|{_DefinitionID_} | required | The identifier for the desired extract definition.
+
 Example: `https://www.concursolutions.com/api/expense/extract/v1.0/n59FpBJ8hN3qVWTFIrtxkOT5$pef6DmIj3 `
 
 #### Headers
@@ -92,7 +103,7 @@ Example: `https://www.concursolutions.com/api/expense/extract/v1.0/n59FpBJ8hN3qV
 ##### Authorization header
 Required: Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-##### Accept header
+##### Content-Type header
 application/xml
 
 ###  Get extract definition details response
@@ -100,10 +111,10 @@ application/xml
 #### Content types
 application/xml
 
-### Root elements
+### Response body
 This request will return a single **definition** element identified by the URI, with the following child elements.
 
-#### definition child elements
+#### definition elements
 
 | Element | Description |
 | ------- | ----------- |
@@ -111,8 +122,9 @@ This request will return a single **definition** element identified by the URI, 
 | name |  The extract definition name. |
 | job-link |  The extract job URI with encrypted ID. The **job-link** value is used as the URI when creating the extract job data request. |
 
-###  XML Example of Successful Response
+###  XML example of successful response
 
+```xml
     200 OK
     Content-Type: application/xml
 
@@ -121,4 +133,4 @@ This request will return a single **definition** element identified by the URI, 
         <name>AMEX Remittance - US</name>
         <job-link>https://www.concursolutions.com/api/expense/extract/v1.0/n59FpBJ8hN3qVWTFIrtxkOT5$pef6DmIj3/job</job-link>
     </definition>
-
+```
