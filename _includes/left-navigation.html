@@ -1,201 +1,77 @@
+{% assign page_parts = page.url | remove_first: '/' | split: '/' %}
+
+<script>
+  console.log('--- left nav ---');
+  console.log('page_parts: {{ page_parts }}');
+  console.log('----')
+</script>
+
+{% assign pages = site.pages | sort:"url" %}
+{% assign last_container = '' %}
+
 <ul class="list-group sidebar-nav-v1" id="sidebar-nav">
-    {% for p in site.pages %}
-    <li class="list-group-item list-toggle">                   
-        <a href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
-    </li>
-    {% endfor %}
-    
+{% for node in pages %}
+    {% assign node_parts = node.url | remove_first: '/' | split: '/'  %}
+    <!-- top level filter to only grab nodes that are under the same top-level path segment -->
+    {% if node_parts[0] == page_parts[0] %}
+        {% assign node_depth = node_parts | size %}
+        {% if node_depth > 2 %}
+            {% assign node_category = node_parts[1] %}
+        {% else %}
+            {% assign node_category = null %}
+        {% endif %}
 
-    <!-- Typography -->
-<!--     <li class="list-group-item list-toggle">                   
-        <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-typography">Typography</a>
-        <ul id="collapse-typography" class="collapse">
-            <li><a href="feature_typo_general.html"><i class="fa fa-sort-alpha-asc"></i> General Typography</a></li>
-            <li>
-                <span class="badge badge-u">New</span>
-                <a href="feature_typo_headings.html"><i class="fa fa-magic"></i> Heading Options</a>
-            </li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_typo_dividers.html"><i class="fa fa-ellipsis-h"></i> Dividers</a>
-            </li>
-            <li><a href="feature_typo_blockquote.html"><i class="fa fa-quote-left"></i> Blockquote Blocks</a></li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_typo_boxshadows.html"><i class="fa fa-asterisk"></i> Box Shadows</a>
-            </li>
-            <li><a href="feature_typo_testimonials.html"><i class="fa fa-comments"></i> Testimonials</a></li>                            
-            <li><a href="feature_typo_tagline_boxes.html"><i class="fa fa-tasks"></i> Tagline Boxes</a></li>
-            <li><a href="feature_typo_grid.html"><i class="fa fa-align-justify"></i> Grid Layout</a></li>
-        </ul>
-    </li> -->
-    <!-- End Typography -->
+        <!-- open sub-list if:
+            * previous_node doesn't exist and node_depth > 2
+            * previous_node_depth <= 2 and node_depth > 2
+            * previous_node_category != node_category -->
+        {% if previous_node == null and node_depth > 2 %}
+            {% assign sub_open = true %}
+        {% elsif previous_node_depth <= 2 and node_depth > 2 %}
+            {% assign sub_open = true %}
+        {% elsif previous_node_category != node_category %}
+            {% assign sub_open = true %}
+        {% else %}
+            {% assign sub_open = false %}
+        {% endif %}
 
-    <!-- Buttons UI -->
-<!--     <li class="list-group-item list-toggle">                   
-        <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-buttons">Buttons UI</a>
-        <ul id="collapse-buttons" class="collapse">
-            <li><a href="feature_btn_general.html"><i class="fa fa-flask"></i> General Buttons</a></li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_btn_brands.html"><i class="fa fa-html5"></i> Brand &amp; Social Buttons</a>
-            </li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_btn_effects.html"><i class="fa fa-bolt"></i> Loading &amp; Hover Effects</a>
-            </li>
-        </ul>
-    </li> -->
-    <!-- End Buttons UI -->
+        <!-- close sub list if 
+            * node_category != previous_node_category -->
+        {% if node_category == null or previous_node_category == null %}
+            {% assign sub_close = false %}
+        {% elsif node_category != previous_node_category %}
+            {% assign sub_close = true %}
+        {% else %}
+            {% assign sub_close = false %}
+        {% endif %}
 
-    <!-- Icons -->
-<!--     <li class="list-group-item list-toggle">                   
-        <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-icons">Icons</a>
-        <ul id="collapse-icons" class="collapse">
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_icon_general.html"><i class="fa fa-chevron-circle-right"></i> General Icons</a>
-            </li>
-            <li><a href="feature_icon_fa.html"><i class="fa fa-chevron-circle-right"></i> Font Awesome Icons</a></li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_icon_line.html"><i class="fa fa-chevron-circle-right"></i> Line Icons</a>
-            </li>
-            <li><a href="feature_icon_glyph.html"><i class="fa fa-chevron-circle-right"></i> Glyphicons (Bootstrap)</a></li>
-            <li><a href="feature_icon_glyph_pro.html"><i class="fa fa-chevron-circle-right"></i> Glyphicons Pro Icons</a></li>
-        </ul>
-    </li> -->
-    <!-- End Icons -->
+<script>
+if({{ sub_close }})
+    console.log('close category: {{ previous_node_category }}');    // note that you're closing the previous category
+if({{ sub_open }})
+    console.log('open category: {{ node_category }}');
+console.log('   node: {{ node.url }}; depth: {{ node_depth }}; category: {{ node_category }}');
+console.log('   previous node: {{ previous_node.url }}; depth: {{ previous_node_depth }}; category: {{ previous_node_category }}');
+</script>
 
-    <!-- Content Boxes -->
-<!--     <li class="list-group-item list-toggle">                   
-        <a class="accordion-toggle" href="#collapse-content-boxes" data-toggle="collapse">Content Boxes</a>
-        <ul id="collapse-content-boxes" class="collapse">
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_box_general.html"><i class="fa fa-cog"></i> General Content Boxes</a>
-            </li>
-            <li><a href="feature_box_colored.html"><i class="fa fa-align-center"></i> Colored Boxes</a></li>
-            <li><a href="feature_box_funny.html"><i class="fa fa-bars"></i> Funny Boxes</a></li>
-        </ul>
-    </li> -->
-    <!-- End Content Boxes -->
+        {% assign previous_node = node %}
+        {% assign previous_node_depth = node_depth %}
+        {% assign previous_node_category = node_category %}
 
-    <!-- Thumbails -->
-    <!-- <li class="list-group-item"><a href="feature_thumbails.html">Thumbails</a></li> -->
-    <!-- End Thumbails -->
 
-    <!-- Components -->
-<!--     <li class="list-group-item list-toggle">
-        <a class="accordion-toggle" href="#collapse-components" data-toggle="collapse">Components</a>
-        <ul id="collapse-components" class="collapse">
-            <li><a href="feature_compo_messages.html"><i class="fa fa-comment"></i> Alerts &amp; Messages</a></li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_compo_labels.html"><i class="fa fa-tags"></i> Labels &amp; Badges</a>
-            </li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_compo_progress_bars.html"><i class="fa fa-align-left"></i> Progress Bars</a>
-            </li>
-            <li>
-                <span class="badge badge-u">New</span>
-                <a href="feature_compo_media.html"><i class="fa fa-volume-down"></i> Audio/Videos &amp; Images</a>
-            </li>
-            <li><a href="feature_compo_panels.html"><i class="fa fa-columns"></i> Panels</a></li>
-            <li><a href="feature_compo_pagination.html"><i class="fa fa-arrows-h"></i> Pagination</a></li>
-        </ul>
-    </li> -->
-    <!-- End Components -->
+    {% endif %}
+{% endfor %}
 
-    <!-- Accordion and Tabs -->
-    <!-- <li class="list-group-item active"><a href="feature_accordion_and_tabs.html">Accordion and Tabs</a></li> -->
-    <!-- End Accordion and Tabs -->
+<!-- close the last category if node_category is not null -->
+{% if previous_node_category != null %}
+<script>
+    console.log('close category: {{ previous_node_category }}');
+</script>
+{% endif %}
 
-    <!-- Timeline -->                    
-<!--     <li class="list-group-item list-toggle">                   
-        <a class="accordion-toggle" href="#collapse-timeline" data-toggle="collapse">Timeline</a>
-        <ul id="collapse-timeline" class="collapse">
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_timeline1.html"><i class="fa fa-dot-circle-o"></i> Timeline 1</a>
-            </li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_timeline2.html"><i class="fa fa-dot-circle-o"></i> Timeline 2</a>
-            </li>
-        </ul>
-    </li> -->
-    <!-- End Timeline -->                    
+<script>
+  console.log('--- end left nav ---')
+</script>
 
-    <!-- Carousel Exampls -->                    
-<!--     <li class="list-group-item">
-        <span class="badge badge-u">New</span>                    
-        <a href="feature_carousels.html">Carousel Exampls</a>
-    </li> -->
-    <!-- End Carousel Exampls -->                    
 
-    <!-- Forms -->
-<!--     <li class="list-group-item list-toggle">
-        <a class="accordion-toggle" href="#collapse-forms" data-toggle="collapse">Forms</a>
-        <ul id="collapse-forms" class="collapse">
-            <li><a href="feature_form_general.html"><i class="fa fa-bars"></i> Common Bootstrap Forms</a></li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_form_general1.html"><i class="fa fa-bars"></i> General Unify Forms</a>
-            </li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_form_advanced.html"><i class="fa fa-bars"></i> Advanced Forms</a>
-            </li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_form_layouts.html"><i class="fa fa-bars"></i> Form Layouts</a>
-            </li>                            
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_form_layouts_advanced.html"><i class="fa fa-bars"></i> Advanced Form Layouts</a>
-            </li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_form_states.html"><i class="fa fa-bars"></i> Form States</a>
-            </li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_form_sliders.html"><i class="fa fa-bars"></i> Form Sliders</a>
-            </li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_form_modals.html"><i class="fa fa-bars"></i> Modals</a>
-            </li>
-        </ul>
-    </li> -->
-    <!-- End Forms -->
-
-    <!-- Tables -->
-    <!-- <li class="list-group-item"><a href="feature_table_general.html">Tables</a></li> -->
-    <!-- End Tables -->
-
-    <!-- Maps -->                    
-<!--     <li class="list-group-item list-toggle">                   
-        <a class="accordion-toggle" href="#collapse-maps" data-toggle="collapse">Maps</a>
-        <ul id="collapse-maps" class="collapse">
-            <li>
-                <span class="badge badge-u">New</span>
-                <a href="feature_maps_google.html"><i class="fa fa-map-marker"></i> Google Maps</a>
-            </li>
-            <li>
-                <span class="badge badge-u">New</span>                            
-                <a href="feature_maps_vector.html"><i class="fa fa-align-center"></i> Vector Maps</a>
-            </li>
-        </ul>
-    </li> -->
-    <!-- End Maps -->                    
-
-    <!-- Charts -->
-<!--     <li class="list-group-item">
-        <span class="badge badge-u">New</span>                    
-        <a href="feature_compo_charts.html">Charts &amp; Countdowns</a>
-    </li> -->
-    <!-- End Charts -->
 </ul>

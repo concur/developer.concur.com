@@ -7,27 +7,28 @@
                 <!--<li><a href="">Pages</a></li>-->
                 <!--<li class="active">Left Column</li>-->
             <!--</ul>-->
-            {% capture url_parts %}{{ page.url | remove: "/index.html" | replace:'/'," " }}{% endcapture %}
-            {% capture num_parts %}{{ url_parts | number_of_words | minus: 1 }}{% endcapture %}
-            {% assign previous="" %}
+
+            <!-- 
+            * get the URL parts
+            * remove the first and the last parts
+            * for each part, write it out
+              * replace hyphens with spaces
+              * capitalize the first letter of each word
+              * [advanced] for each of the levels, if the path at that level has a /index.html, make that breadcrumb a link
+             -->
+
+            {% assign allparts = page.url | remove_first:'/' | split: '/' %}
+
             <ol class="pull-right breadcrumb">
-              {% if num_parts == "0" or num_parts == "-1" %}
-              <li><a href="{{site.baseurl}}/">home</a></li>
-              <li><a href="{{previous}}"></a>{{page.title}}</li>
-              {% else %}
-              <li><a href="{{site.baseurl}}/">home</a></li>
-
-              {% for unused in page.content limit:num_parts %}
-              {% capture first_word %}{{ url_parts | truncatewords:1 | remove:"..."}}{% endcapture %}
-              {% capture previous %}{{ previous }}/{{ first_word }}{% endcapture %}
-
-              <li><a href="{{site.baseurl}}{{previous}}">{{ first_word }}</a></li>
-              <li><a href="{{previous}}"></a>{{page.title}}</li>
-
-              {% capture url_parts %}{{ url_parts | remove_first:first_word }}{% endcapture %}
-              {% endfor %}
-              {% endif %}
+            {% for p in allparts %}
+                {% if forloop.last %}
+                    <li class="active"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+                {% else %}
+                    <li><a href="#">{{ p | replace:'-',' ' | capitalize }}</a></li>
+                {% endif %}
+            {% endfor %}
             </ol>
+            
         </div>
     </div><!--/breadcrumbs-->
     <!--=== End Breadcrumbs ===-->
