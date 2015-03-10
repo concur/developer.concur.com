@@ -12,7 +12,6 @@
 <ul class="list-group sidebar-nav-v1" id="sidebar-nav">
 {% for node in pages %}
     {% assign node_parts = node.url | remove_first: '/' | split: '/'  %}
-    <!-- top level filter to only grab nodes that are under the same top-level path segment -->
     {% if node_parts[0] == page_parts[0] %}
         {% assign node_depth = node_parts | size %}
         {% if node_depth > 2 %}
@@ -29,7 +28,7 @@
             {% assign sub_open = true %}
         {% elsif previous_node_depth <= 2 and node_depth > 2 %}
             {% assign sub_open = true %}
-        {% elsif previous_node_category != node_category %}
+        {% elsif previous_node_category != node_category and node_category != null %}
             {% assign sub_open = true %}
         {% else %}
             {% assign sub_open = false %}
@@ -37,7 +36,7 @@
 
         <!-- close sub list if 
             * node_category != previous_node_category -->
-        {% if node_category == null or previous_node_category == null %}
+        {% if previous_node == null %}
             {% assign sub_close = false %}
         {% elsif node_category != previous_node_category %}
             {% assign sub_close = true %}
@@ -45,14 +44,40 @@
             {% assign sub_close = false %}
         {% endif %}
 
-<script>
-if({{ sub_close }})
+{% if sub_close == true %}
+    <script>
     console.log('close category: {{ previous_node_category }}');    // note that you're closing the previous category
-if({{ sub_open }})
+    </script>
+        </ul>
+    </li>
+{% endif %}
+
+{% if sub_open == true %}
+    <script>
     console.log('open category: {{ node_category }}');
-console.log('   node: {{ node.url }}; depth: {{ node_depth }}; category: {{ node_category }}');
-console.log('   previous node: {{ previous_node.url }}; depth: {{ previous_node_depth }}; category: {{ previous_node_category }}');
-</script>
+    console.log('   node: {{ node.url }}; depth: {{ node_depth }}; category: {{ node_category }}');
+    console.log('   previous node: {{ previous_node.url }}; depth: {{ previous_node_depth }}; category: {{ previous_node_category }}');
+    </script>
+
+    <li class="list-group-item list-toggle">
+        <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-{{ node_category }}">{{ node_category }}</a>
+        <ul id="collapse-{{ node_category }}" class="collapse">
+            <li>
+                <a href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a>
+            </li>
+{% else %}
+    <script>
+    console.log('   node: {{ node.url }}; depth: {{ node_depth }}; category: {{ node_category }}');
+    console.log('   previous node: {{ previous_node.url }}; depth: {{ previous_node_depth }}; category: {{ previous_node_category }}');
+    </script>
+
+         <li>
+            <a href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a>
+        </li>
+{% endif %}
+
+
+
 
         {% assign previous_node = node %}
         {% assign previous_node_depth = node_depth %}
@@ -67,6 +92,9 @@ console.log('   previous node: {{ previous_node.url }}; depth: {{ previous_node_
 <script>
     console.log('close category: {{ previous_node_category }}');
 </script>
+
+        </ul>
+    </li>
 {% endif %}
 
 <script>
