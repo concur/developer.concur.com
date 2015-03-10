@@ -38,7 +38,7 @@
             * node_category != previous_node_category -->
         {% if previous_node == null %}
             {% assign sub_close = false %}
-        {% elsif node_category != previous_node_category %}
+        {% elsif previous_node_category != null and node_category != previous_node_category %}
             {% assign sub_close = true %}
         {% else %}
             {% assign sub_close = false %}
@@ -70,8 +70,12 @@
     console.log('   node: {{ node.url }}; depth: {{ node_depth }}; category: {{ node_category }}');
     console.log('   previous node: {{ previous_node.url }}; depth: {{ previous_node_depth }}; category: {{ previous_node_category }}');
     </script>
-
-         <li>
+        {% if node_category == null %}
+        <li class="list-group-item">
+        {% else %}
+        <li>    
+        {% endif %}
+         
             <a href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a>
         </li>
 {% endif %}
