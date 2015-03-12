@@ -64,6 +64,7 @@ This parent element contains an AvailRequestSegment element for the requested av
 | RoomStayCandidates |  | Array | This parent element contains the **RoomStayCandidate** element. This element has a Quantity attribute indicating the number of guests. Currently only one guest is supported. The **RoomStayCandidate** element has a **GuestCounts** child element containing a **GuestCount** element. The **GuestCount** element has the following attributes: <br/>**AgeQualifyingCode**: The value for this element should be 10, which represents an Adult guest.<br/>**Count**: The number of guests included in the request. |
 
 ### HotelSearchCriteria child elements
+
 |  Element Name | Required/Optional | Data Type | Description |
 |---------------|-------------------|-----------|-------------|
 | Criterion |  | Object | This parent element contains a **HotelRef** element for each hotel criterion used. Multiple criterion are compared using an OR comparison. The **HotelRef** element has the following attributes: <br/>**ChainCode**: The hotel chain code. Refer to the [Hotel Direct Connect Codes.][5]<br/>**HotelCode**: The code for the hotel within the chain. |
@@ -134,6 +135,7 @@ The **OTA_HotelAvailRS** parent element has the following child elements:
 
 
 ### RoomStay child elements
+
 |  Element Name | Required (must contain value)? | Data Type | Description |
 |---------------|-------------------|-----------|-------------|
 |  RatePlans | Y |  | The room rate plan. This parent element contains the following child element: <br/>RatePlan: This element has the RatePlanCode attribute, defining the code for the room rate.  |
@@ -142,17 +144,20 @@ The **OTA_HotelAvailRS** parent element has the following child elements:
 |  TPA_Extensions | N |  | This element contains the **RequireSeriesCode** child element, which has a value of true or false. This element indicates whether CVV should be queried and sent. |
 
 ### Rates child elements
+
 |  Element Name | Required (must contain value)? | Data Type | Description |
 |---------------|-------------------|-----------|-------------|
 | Rate |  | Object | The supplied rate for the stay. If there are multiple rates for the stay, you can provide multiple Rate elements. The first one will be displayed to the user, with the rest available through the policy popup. This element has the following attributes: <br/>**EffectiveDate**: The date the rate begins.<br/>**ExpireDate**: The date that the rate expires. |
 
 ### Rate child elements
+
 |  Element Name | Required (must contain value)? | Data Type | Description |
 |---------------|-------------------|-----------|-------------|
 | Base |  |  | The rate details per day without tax. If the rate changes, provide the first day's rate. This element has the following attributes: <br/>**AmountBeforeTax**: The rate amount per night before tax.<br/>**AmountAfterTax**: The rate amount per night after tax.<br/>**CurrencyCode**: The [3-letter ISO 4217 currency code][4] for the room rate values. |
 | RateDescription |  |  | This parent element contains the **Text** child element, which contains the description of the rate. |
 
 ### TPA_Extensions child elements
+
 |  Element Name | Required (must contain value)? | Data Type | Description |
 |---------------|-------------------|-----------|-------------|
 | RequireSeriesCode |  |  | This element indicates whether CVV should be queried and sent. Format: true/false |
