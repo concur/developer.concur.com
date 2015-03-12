@@ -18,7 +18,7 @@ This topic walks you through the App Center user experience providing guidelines
 1. In the App Center, on the **Apps for me** tab, the user navigates to an app and clicks **Learn More**.  
 
 2. The **Listing Details** page appears:  
-   <img src="https://developer.concur.com/sites/default/files/Uber_Listing_appcenterflow_with_mobile.png" alt="App Center listing page" style="width:663px;height:377px">  
+   <img src="https://developer.concur.com/sites/default/files/Uber_Listing_appcenterflow_with_mobile.png" alt="App Center listing page" style="width:300px;height:160px">  
 
 3. The user authorizes access to their data and clicks **Connect**.  
 
