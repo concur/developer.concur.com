@@ -1,5 +1,5 @@
 ---
-title: User Password Resource
+title: Update user passwords
 layout: operation
 ---
 
