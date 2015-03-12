@@ -1,5 +1,5 @@
 ---
-title: Get User Information
+title: Get user information
 layout: operation
 ---
 
