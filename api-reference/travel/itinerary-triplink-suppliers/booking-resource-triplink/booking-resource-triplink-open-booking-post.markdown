@@ -1,5 +1,5 @@
 ---
-title: Booking Resource
+title: Post booking details or cancellation - TripLink
 layout: operation
 ---
 
