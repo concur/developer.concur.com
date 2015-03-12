@@ -1,5 +1,5 @@
 ---
-title: Get a Payment Batch File
+title: Get a payment batch file
 layout: operation
 ---
 
