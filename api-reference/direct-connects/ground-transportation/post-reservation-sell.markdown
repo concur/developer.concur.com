@@ -1,5 +1,5 @@
 ---
-title: Post reservation sell 
+title: Post a reservation sell request
 layout: operation
 ---
 
