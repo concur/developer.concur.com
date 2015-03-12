@@ -3,31 +3,29 @@ title: App Center Flow
 layout: conceptual
 ---
 
-The Concur App Center Flow is a simplified authorization mechanism optimized for App Center users who are already logged into Concur and want to connect their App Center app to their Concur account and authorize access to their personal information.
+## App Center Flow
+The Concur App Center flow is a simple mechanism that enables end users to easily connect their App Center app to their Concur account. It provides the following benefits:
 
-##  Preconditions
+* Provides a seamless and simple connection flow for users.
+* Is the foundation for standardizing the App Center user experience.
+* Is the supported flow for all apps in the upcoming Concur Mobile App Center.
+* Increases the success rate of completed connections.
 
-Before the App Center Web Flow can be implemented for end-users, the following preconditions must be in place:
+This topic walks you through the App Center user experience providing guidelines along the way and then provides step-by-step instructions for implementing it programmatically.
 
-###  Developer
+###  What the user sees
 
-* In a Concur Sandbox Company (developer sandbox), the developer registers the application and selects the required APIs. This determines the scope of the end-user's data that the application can access on behalf of the end user. For more information on how to register a partner application, see [Registering a Partner Application][1].
-* Once the developer has registered the application, a consumer key and a client secret are automatically generated and displayed in the Key and **Secret** fields of the **Modify** **Partner** page.
-* Because application listings are not published until after an application has been certified, complete end-to-end App Center Flow cannot be replicated in a sandbox environment. The developer may simulate the initial steps of App Center flow by obtaining a request token using the request URI documented in Step 1 below and continuing to step 4 below to obtain the access token.
+1. In the App Center, on the **Apps for me** tab, the user navigates to an app and clicks **Learn More**.
+2. The **Listing Details** page appears:
+3. The user authorizes access to their data and clicks **Connect**.
+4. The partner page for signing in or creating an account for their loyalty program appears:
+5. If the user already has an account, the user signs in; if the user doesn’t have an account, give the user the option to create one.
+6. A page acknowledging that the user’s Concur account and partner loyalty program account are now linked appears:
+7. The **App Center Listing Details** page for the partner app shows that the user is now connected with the partner app:
 
-###  End User
+###  Implementing the App Center flow programmatically
 
-* The end user is logged in to Concur.
-* End users can only access and update their own information.
-
-###  Concur
-
-* To deploy the app in a production environment, Concur certifies the partner application. For more information on the Concur App Certification process, see [App Certification][2].
-* After the partner application is certified, Concur registers the partner application, creates a listing for the application in the Concur App Center, and enables the app listing.
-
-##  App Center Flow Step-by-Step
-
-1. Register your application following the steps in [Registering a Partner Application][3].
+1. Register your application by following the steps in [Registering a Partner Application][3].
 
 2. Create a web page that listens for an HTTP GET request from Concur. This can be a servlet, MVC controller, ASHX or ASPX file, etc. This page must be hosted at the URI you specify in your App Center listing. The URI is specified in the redirect_url query parameter in step 3.
 
@@ -51,7 +49,7 @@ For example:
     &client_secret=3ukkqMSIPORvMmXQqQ7QFJnDckLzmO5Z
     Accept: application/xml
 
-If you encounter an error that makes it impossible to complete the connection process, revoke the access token to the user knows that the connection attempt failed and they can try again at a later time.
+
 
 
 [1]: https://developer.concur.com/overview/partner-applications
