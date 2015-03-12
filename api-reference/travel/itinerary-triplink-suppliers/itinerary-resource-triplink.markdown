@@ -1,5 +1,5 @@
 ---
-title: Itinerary Resource 
+title: Itinerary Resource - TripLink
 layout: resource
 ---
 
