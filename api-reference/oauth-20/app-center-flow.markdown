@@ -18,7 +18,7 @@ This topic walks you through the App Center user experience providing guidelines
 1. In the App Center, on the **Apps for me** tab, the user navigates to an app and clicks **Learn More**.  
 
 2. The **Listing Details** page appears:  
-   <img src="https://developer.concur.com/sites/default/files/Uber_Listing_appcenterflow_with_mobile.png" alt="App Center listing page" style="width:300px;height:160px">  
+   <img src="https://developer.concur.com/sites/default/files/Uber_Listing_appcenterflow_with_mobile.png" alt="App Center listing page" style="width:663px;height:377px">  
 
 3. The user authorizes access to their data and clicks **Connect**.  
 
@@ -28,10 +28,10 @@ This topic walks you through the App Center user experience providing guidelines
 5. If the user already has an account, the user signs in; if the user doesn’t have an account, give the user the option to create one.  
 
 6. A page acknowledging that the user’s Concur account and partner loyalty program account are now linked appears:  
-   ![][6]  
+   <img src="https://developer.concur.com/sites/default/files/Accounts_Linked.png" alt="accounts linked" style="width:651px;height:547px">  
 
 7. The **App Center Listing Details** page for the partner app shows that the user is now connected with the partner app:  
-   ![][7]  
+   <img src="https://developer.concur.com/sites/default/files/Connected_with_mobile.png" alt="connected" style="width:702px;height:456px">  
 
 
 ###  Implementing the App Center flow programmatically
