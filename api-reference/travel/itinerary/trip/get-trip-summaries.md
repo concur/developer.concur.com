@@ -1,5 +1,5 @@
 ---
-title: Get Trip Summaries 
+title: Get trip summaries 
 layout: operation
 ---
 
