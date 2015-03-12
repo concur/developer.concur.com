@@ -1,5 +1,5 @@
 ---
-title: Post reservation cancellation 
+title: Post a reservation cancellation 
 layout: operation
 ---
 
