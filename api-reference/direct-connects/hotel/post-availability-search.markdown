@@ -1,5 +1,5 @@
 ---
-title: Hotel 
+title: Post an availability search 
 layout: operation
 ---
 
