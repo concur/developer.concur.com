@@ -1,5 +1,5 @@
 ---
-title: Get List of Employee Form Fields
+title: Get a list of employee form fields
 layout: operation
 ---
 
