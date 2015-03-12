@@ -1,5 +1,5 @@
 ---
-title: Itinerary Resource 
+title: Get itineraries - TripLink 
 layout: operation
 ---
 
