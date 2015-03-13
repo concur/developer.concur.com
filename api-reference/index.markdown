@@ -4,54 +4,69 @@ layout: reference
 ---
 
 ## Concur OAuth 2.0 API
-Access token (native flow) | 
-Access token (web flow) | 
-Refresh token | 
-Revoke token
+[Access token (native flow)][1] | 
+[Access token (web flow)][2] | 
+[Refresh token][3] | 
+[Revoke token][4]
 
 ## Common API
-Connection requests | 
-Lists | 
-List items | 
-Locations | 
-Receipts | 
-Suppliers
+[Connection requests][5] | 
+[Lists][6] | 
+[List items][7] | 
+[Locations][8] | 
+[Receipts][9] | 
+[Suppliers][10]
 
 ## Expense API
-Allocations | 
-Attendee types | 
-Digital tax invoices | 
-Entries | 
-Exchange rates | 
-Expense group configurations  | 
-Itemizations | 
-Quick expenses | 
-Reports | 
+[Allocations][] | 
+[Attendee types][] | 
+[Digital tax invoices][] | 
+[Entries][] | 
+[Exchange rates][] | 
+[Expense group configurations][]  | 
+[Itemizations][] | 
+[Quick expenses][] | 
+[Reports][] | 
 
 ## Invoice API
-Purchase order receipts  | 
-Purchase orders | 
-Tax requests | 
-Vendors
+[Purchase order receipts][]  | 
+[Purchase orders][] | 
+[Tax requests][] | 
+[Vendors][]
 
 ## Travel API
-Requests | 
-Travel profile | 
-Trips | 
-Itineraries
+[Requests][] | 
+[Travel profile][] | 
+[Trips][] | 
+[Itineraries][]
 
 ## Direct Connect APIs
-Ground transportation | 
-Hotel
+[Ground transportation][] | 
+[Hotel][]
 
 ## Callouts APIs
-Event notification | 
-External validation | 
-Fetch attendee | 
-Fetch list | 
-Launch external URL
+[Event notification][] | 
+[External validation][] | 
+[Fetch attendee][] | 
+[Fetch list][] | 
+[Launch external URL][]
 
 
+[1]: api-reference/oauth-20/native-flow.markdown
+[2]: api-reference/oauth-20/web-flow.markdown
+[3]:
+[4]:
+[5]:
+[6]:
+[7]:
+[8]:
+[9]:
+[10]:
+[11]:
+[12]:
+[13]:
+[14]:
+[]:
 
 
 
