@@ -35,21 +35,21 @@ layout: reference
 [Vendors][23]
 
 ## Travel API
-[Requests][] | 
-[Travel profile][] | 
-[Trips][] | 
-[Itineraries][]
+[Requests][24] | 
+[Travel profile][25] | 
+[Trips][26] | 
+[Itineraries][27]
 
 ## Direct Connect APIs
-[Ground transportation][] | 
-[Hotel][]
+[Ground transportation][28] | 
+[Hotel][29]
 
 ## Callouts APIs
-[Event notification][] | 
-[External validation][] | 
-[Fetch attendee][] | 
-[Fetch list][] | 
-[Launch external URL][]
+[Event notification][30] | 
+[External validation][31] | 
+[Fetch attendee][32] | 
+[Fetch list][33] | 
+[Launch external URL][34]
 
 
 [1]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/native-flow
@@ -57,28 +57,29 @@ layout: reference
 [3]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/refreshing-access-tokens
 [4]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/revoking-access-tokens
 [5]: http://concur.github.io/developer.concur.com/api-reference/common/connection-requests/index
-[6]:
 [7]: http://concur.github.io/developer.concur.com/api-reference/common/list-item/index
-[8]:
 [9]: http://concur.github.io/developer.concur.com/api-reference/common/receipts/index
-[10]:
-[11]:
 [12]: http://concur.github.io/developer.concur.com/api-reference/expense/attendee/index
 [13]: http://concur.github.io/developer.concur.com/api-reference/expense/digital-tax-invoices/index
 [14]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-entry-resource
-[15]:
 [16]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-group-configuration-resource
-[17]:
-[18]:
-[19]:
-[20]:
-[21]:
-[22]:
-[23]:
-[24]:
-[25]:
-[26]:
-[27]:
+[17]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-entry-itemization-resource
+[18]: http://concur.github.io/developer.concur.com/api-reference/expense/quick-expense/index
+[19]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-report-resource
+[20]: http://concur.github.io/developer.concur.com/api-reference/invoice/purchase-order/purchase-order-receipt-resource
+[21]: http://concur.github.io/developer.concur.com/api-reference/invoice/purchase-order/purchase-order-resource
+[22]: http://concur.github.io/developer.concur.com/api-reference/invoice/sales-tax-validation/index
+[24]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-request/index
+[25]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/index
+[26]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/trip/trip-resource
+[27]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/index
+[28]: http://concur.github.io/developer.concur.com/api-reference/direct-connects/ground-transportation
+[29]: http://concur.github.io/developer.concur.com/api-reference/direct-connects/hotel
+[30]: http://concur.github.io/developer.concur.com/api-reference/callouts/event-notification
+[31]: http://concur.github.io/developer.concur.com/api-reference/callouts/external-validation
+[32]: http://concur.github.io/developer.concur.com/api-reference/callouts/fetch-attendee
+[33]: http://concur.github.io/developer.concur.com/api-reference/callouts/fetch-list
+[34]: http://concur.github.io/developer.concur.com/api-reference/callouts/launch-external-url
 
 
 
