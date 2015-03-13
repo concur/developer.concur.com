@@ -53,7 +53,7 @@ layout: reference
 
 
 [1]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/native-flow
-[2]: oauth-20/web-flow
+[2]: /oauth-20/web-flow
 [3]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/refreshing-access-tokens
 [4]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/revoking-access-tokens
 [5]:
