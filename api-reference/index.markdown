@@ -18,21 +18,21 @@ layout: reference
 [Suppliers][10]
 
 ## Expense API
-[Allocations][] | 
-[Attendee types][] | 
-[Digital tax invoices][] | 
-[Entries][] | 
-[Exchange rates][] | 
-[Expense group configurations][]  | 
-[Itemizations][] | 
-[Quick expenses][] | 
-[Reports][] | 
+[Allocations][11] | 
+[Attendee types][12] | 
+[Digital tax invoices][13] | 
+[Entries][14] | 
+[Exchange rates][15] | 
+[Expense group configurations][16]  | 
+[Itemizations][17] | 
+[Quick expenses][18] | 
+[Reports][19] | 
 
 ## Invoice API
-[Purchase order receipts][]  | 
-[Purchase orders][] | 
-[Tax requests][] | 
-[Vendors][]
+[Purchase order receipts][20]  | 
+[Purchase orders][21] | 
+[Tax requests][22] | 
+[Vendors][23]
 
 ## Travel API
 [Requests][] | 
@@ -56,17 +56,29 @@ layout: reference
 [2]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/web-flow
 [3]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/refreshing-access-tokens
 [4]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/revoking-access-tokens
-[5]:
+[5]: http://concur.github.io/developer.concur.com/api-reference/common/connection-requests/index
 [6]:
-[7]:
+[7]: http://concur.github.io/developer.concur.com/api-reference/common/list-item/index
 [8]:
-[9]:
+[9]: http://concur.github.io/developer.concur.com/api-reference/common/receipts/index
 [10]:
 [11]:
-[12]:
-[13]:
-[14]:
-[]:
+[12]: http://concur.github.io/developer.concur.com/api-reference/expense/attendee/index
+[13]: http://concur.github.io/developer.concur.com/api-reference/expense/digital-tax-invoices/index
+[14]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-entry-resource
+[15]:
+[16]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-group-configuration-resource
+[17]:
+[18]:
+[19]:
+[20]:
+[21]:
+[22]:
+[23]:
+[24]:
+[25]:
+[26]:
+[27]:
 
 
 
