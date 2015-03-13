@@ -52,9 +52,9 @@ layout: reference
 [Launch external URL][]
 
 
-[1]: api-reference/oauth-20/native-flow
+[1]: api-reference\oauth-20\native-flow
 [2]: api-reference/oauth-20/web-flow.markdown
-[3]:
+[3]: api-reference/oauth-20/web-flow
 [4]:
 [5]:
 [6]:
