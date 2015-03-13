@@ -29,26 +29,26 @@ Quick expenses |
 Reports | 
 
 ## Invoice API
-Purchase order receipts
-Purchase orders
-Tax requests
+Purchase order receipts  | 
+Purchase orders | 
+Tax requests | 
 Vendors
 
 ## Travel API
-Requests
-Travel profile
-Trips
+Requests | 
+Travel profile | 
+Trips | 
 Itineraries
 
 ## Direct Connect APIs
-Ground transportation
+Ground transportation | 
 Hotel
 
 ## Callouts APIs
-Event notification
-External validation
-Fetch attendee
-Fetch list
+Event notification | 
+External validation | 
+Fetch attendee | 
+Fetch list | 
 Launch external URL
 
 
