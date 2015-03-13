@@ -4,29 +4,29 @@ layout: reference
 ---
 
 ## Concur OAuth 2.0 API
-Access token (native flow)
-Access token (web flow)
-Refresh token
+Access token (native flow) | 
+Access token (web flow) | 
+Refresh token | 
 Revoke token
 
 ## Common API
-Connection requests
-Lists
-List items
-Locations
-Receipts
+Connection requests | 
+Lists | 
+List items | 
+Locations | 
+Receipts | 
 Suppliers
 
 ## Expense API
-Allocations
-Attendee types
-Digital tax invoices
-Entries
-Exchange rates
-Expense group configurations
-Itemizations
-Quick expenses
-Reports
+Allocations | 
+Attendee types | 
+Digital tax invoices | 
+Entries | 
+Exchange rates | 
+Expense group configurations  | 
+Itemizations | 
+Quick expenses | 
+Reports | 
 
 ## Invoice API
 Purchase order receipts
