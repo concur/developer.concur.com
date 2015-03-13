@@ -1,5 +1,5 @@
 ---
-title: Get List of Payment Batches
+title: Get a list of payment batches
 layout: operation
 ---
 

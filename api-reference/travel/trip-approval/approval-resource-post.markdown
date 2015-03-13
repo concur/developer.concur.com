@@ -1,5 +1,5 @@
 ---
-title: Post Trip Approval Status 
+title: Post trip approval status 
 layout: operation
 ---
 

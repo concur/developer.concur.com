@@ -1,10 +1,9 @@
 ---
-title: Booking Resource - POST
+title: Post booking details
 layout: operation
 ---
 
 
-# Post Booking Details
 
 ## Description
 Creates a new booking or updates an existing booking. A new booking will be assigned to the specified trip, or if no trip is specified, the first itinerary that spans the booking dates. If no trip is specified and no itinerary exists that spans the booking dates, a new itinerary will be created.

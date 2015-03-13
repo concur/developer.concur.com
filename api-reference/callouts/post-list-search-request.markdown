@@ -1,5 +1,5 @@
 ---
-title: Post List Search Request 
+title: Post a list search request 
 layout: conceptual
 ---
 

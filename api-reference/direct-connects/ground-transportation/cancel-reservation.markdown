@@ -1,5 +1,5 @@
 ---
-title: Cancel Reservation
+title: Cancel a reservation
 layout: operation
 ---
 

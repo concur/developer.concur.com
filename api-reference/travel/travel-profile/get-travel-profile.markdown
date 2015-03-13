@@ -1,5 +1,5 @@
 ---
-title: Get a Travel Profile 
+title: Get a travel profile 
 layout: operation
 ---
 

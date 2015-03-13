@@ -1,6 +1,6 @@
 ---
 layout: resource
-title: Booking Resource
+title: Booking Resource - TripLink
 ---
 
 ## Description

@@ -1,5 +1,5 @@
 ---
-title: Close a Payment Batch 
+title: Close a payment batch 
 layout: operation
 ---
 

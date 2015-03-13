@@ -1,5 +1,5 @@
 ---
-title: Post Event Notification 
+title: Post an event notification request
 layout: operation
 ---
 
@@ -9,7 +9,7 @@ layout: operation
 * application/xml
 
 ### Request URI
-The Event Notificaiton callout sends the notification to a URI for the application connector, which can be in a custom location for each client. The standard location is:
+The Event Notification callout sends the notification to a URI for the application connector, which can be in a custom location for each client. The standard location is:
 
     https://{servername}/concur/v1.0/notify
 

@@ -1,5 +1,5 @@
 ---
-title: Itinerary Resource
+title: Post itinerary details or cancellations
 layout: operation
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Post a Receipt 
+title: Post a receipt 
 layout: operation
 ---
 

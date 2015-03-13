@@ -1,5 +1,5 @@
 ---
-title: Ground Transportation - Post Reservation Detail Search
+title: Post a reservation detail search
 layout: operation
 ---
 

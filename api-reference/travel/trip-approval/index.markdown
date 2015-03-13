@@ -1,9 +1,9 @@
 ---
-title: trip approval web service 
+title: Trip Approval Web Service 
 layout: conceptual
 ---
 
-## Trip Approval Web Service
+## Description
 The Trip Approval Web service allows clients to approve or reject trips. Clients send the unique identifier for the trip, the approver email and the workflow action to be performed (either approve or reject).
 
 ## Resources
