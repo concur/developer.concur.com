@@ -3,13 +3,13 @@ title: API Reference
 layout: reference
 ---
 
-## Concur OAuth 2.0 API
+## Concur OAuth 2.0
 [Access token (native flow)][1] | 
 [Access token (web flow)][2] | 
 [Refresh token][3] | 
 [Revoke token][4]
 
-## Common API
+## Common
 [Connection requests][5] | 
 [Lists][6] | 
 [List items][7] | 
@@ -17,7 +17,7 @@ layout: reference
 [Receipts][9] | 
 [Suppliers][10]
 
-## Expense API
+## Expense
 [Allocations][11] | 
 [Attendee types][12] | 
 [Digital tax invoices][13] | 
@@ -28,23 +28,23 @@ layout: reference
 [Quick expenses][18] | 
 [Reports][19] | 
 
-## Invoice API
+## Invoice
 [Purchase order receipts][20]  | 
 [Purchase orders][21] | 
 [Tax requests][22] | 
 [Vendors][23]
 
-## Travel API
+## Travel
 [Requests][24] | 
 [Travel profile][25] | 
 [Trips][26] | 
 [Itineraries][27]
 
-## Direct Connect APIs
+## Direct Connect
 [Ground transportation][28] | 
 [Hotel][29]
 
-## Callouts APIs
+## Callouts
 [Event notification][30] | 
 [External validation][31] | 
 [Fetch attendee][32] | 
