@@ -4,10 +4,10 @@ layout: reference
 ---
 
 ## Concur OAuth 2.0 API
-[### Access token (native flow)][1] | 
-[### Access token (web flow)][2] | 
-[### Refresh token][3] | 
-[#### Revoke token][4]
+### [Access token (native flow)][1] | 
+[Access token (web flow)][2] | 
+[Refresh token][3] | 
+[Revoke token][4]
 
 ## Common API
 [Connection requests][5] | 
