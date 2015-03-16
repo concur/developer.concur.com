@@ -17,6 +17,7 @@ Gets details of locations that are used by Concur and that are valid at the user
 
 ## Operations
 
-* Get all locations
-* Get a location by ID
+* [Get all locations][1]
+* [Get a location by ID][1]
 
+[1]: http://concur.github.io/developer.concur.com/api-reference/common/locations/locations-resource-get
