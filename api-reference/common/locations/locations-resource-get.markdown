@@ -4,14 +4,21 @@ layout: operation
 ---
 
 
-## Description
+This resource supports the following operations:
+
+* Get all locations
+* Get a single location by ID
+
+## Get all locations
+
+### Description
 Gets details of locations that are used by Concur and that are valid at the user's company.
 
-## Request
+### Request
 
-### Request parameters
+#### Request parameters
 
-#### Query parameters
+##### Query parameters
 
 | Parameter | Required/Optional | Data Type | Description |
 |------------|------------------|--------------|--------------|
@@ -25,25 +32,25 @@ Gets details of locations that are used by Concur and that are valid at the user
 
 Example: `https://www.concursolutions.com/api/v3.0/common/locations?offset={offset}&limit=25&name={name}&city={city}&countrySubdivision={countrySubdivision}&country={country}&administrativeRegion={administrativeRegion}`
 
-### Headers
+#### Headers
 
-#### Content type
+##### Content type
 
 * application/xml
 * application/json
 
-#### Authorization header
+##### Authorization header
 
 The authorization header must have an OAuth token for a valid Concur user.
 
 The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-## Response
+### Response
 
-### Content body
+#### Content body
 This request will return a **locations** parent element containing an **items** child element. The **items** element contains a **location** child element for each location.
 
-#### location elements
+##### location elements
 
 | Element | Required/Optional | Data Type | Description |
 |------------|---------------|--------------|-----------------------|
@@ -59,16 +66,55 @@ This request will return a **locations** parent element containing an **items** 
 | Name | optional | string | A common name associated with the location. This name can be a location description such as a neighborhood (SoHo), a landmark (Statue of Liberty), or a city name (New York). |
 | URI | optional | string | The URI of the resource. |
 
-## Examples
+### Examples
 
-### XML example request
-
-
-
-### XML example of successful response
+#### XML example request
 
 
 
+#### XML example of successful response
+
+## Get a single location by ID
+
+### Description
+Gets details of a single location by ID.
+
+### Request
+
+#### Request parameters
+
+##### Path parameters
+
+| Parameter | Required/Optional | Data Type | Description |
+|------------|------------------|--------------|--------------|
+| ID | required | string | The location ID. |
+
+Example: `https://www.concursolutions.com/api/v3.0/common/locations/{ID}`
+
+#### Headers
+
+##### Content type
+
+* application/xml
+* application/json
+
+##### Authorization header
+
+The authorization header must have an OAuth token for a valid Concur user.
+
+The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
+
+### Response
+
+#### Content body
+This request will return a **location** element that contains details for the location. For more information about the **location** child elements, see the **location elements** table above.
+
+### Examples
+
+#### XML example request
+
+
+#### XML example of successful response
 
 
 [1]: http://en.wikipedia.org/wiki/ISO_3166-2
