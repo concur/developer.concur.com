@@ -18,7 +18,7 @@ This resource can be used to retrieve information about the allocations that are
 
 ## Operations
 
-* Get all allocations
-* Get a single allocation by ID
+* [Get all allocations][1]
+* [Get a single allocation by ID][1]
 
-
+[1]: http://concur.github.io/developer.concur.com/api-reference/expense/allocation/allocations-resource-get
