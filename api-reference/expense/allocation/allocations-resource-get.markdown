@@ -34,8 +34,9 @@ Example: `https://www.concursolutions.com/api/v3.0/expense/allocations?limit=25&
 #### Headers
 
 ##### Content type
-application/xml
-application/json
+
+* application/xml
+* application/json
 
 ##### Authorization header
 
