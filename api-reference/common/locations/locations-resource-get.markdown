@@ -28,8 +28,9 @@ Example: `https://www.concursolutions.com/api/v3.0/common/locations?offset={offs
 ### Headers
 
 #### Content type
-application/xml
-application/json
+
+* application/xml
+* application/json
 
 #### Authorization header
 
