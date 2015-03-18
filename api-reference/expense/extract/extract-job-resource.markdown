@@ -6,21 +6,8 @@ layout: resource
 ## Description
 The job that runs the accounting extract.
 
-## Works With These Concur Products
-
-* **Expense** for Concur Professional/Premium
-* **Invoice** for Concur Professional/Premium
-
 ## URI
-`https://www.concursolutions.com/api/expense/extract/v1.0/{_DefinitionID_}/job `
-
-## Headers
-
-### Content-Type header
-application/xml
-
-### Accept header
-application/xml
+`https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job `
 
 ## Operations
 
