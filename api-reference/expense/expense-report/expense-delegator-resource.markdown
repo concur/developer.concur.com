@@ -12,14 +12,6 @@ Users that have granted delegate permissions to the another Expense user.
 ## URI
 `https://www.concursolutions.com/api/expense/expensereport/v1.1/Delegators`
 
-## Headers
-
-### Content-Type header
-application/xml
-
-### Accept header
-application/xml
-
 ## Operations
 [GET][1]   
  
