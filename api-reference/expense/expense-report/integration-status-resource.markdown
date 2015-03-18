@@ -10,24 +10,14 @@ layout: resource
 ## Description
 The integration status of the supplied object. Currently supports expense reports.
 
-## Works With These Concur Products
-* **Expense** for Concur Professional/Premium
 
-## Resource URI
+## URI
 `https://www.concursolutions.com/api/expense/expensereport/v2.0/integrationstatus/`
 
-## Supported Content Types
-application/json
-application/xml
-
-## Supported Accept Types
-application/json
-application/xml
-
-## Supported Verbs
+## Operations
 [POST][1]
 
-## Related Resources
+## See also
 [Expense Report][2]
 
 
