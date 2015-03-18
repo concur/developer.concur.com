@@ -6,10 +6,10 @@ layout: resource
 
 
 
-##Description 
+## Description 
 The expense reports in Concur.
 
-## Resource URI 
+## URI 
 
 * For version 3:  
 `https://www.concursolutions.com/api/v3.0/expense/ReportDigests ` 
@@ -20,11 +20,11 @@ The expense reports in Concur.
 
 Refer to the function documentation for more information.
 
-##Supported Operations   
+## Operations   
 * [GET][1]
 * [POST][2] 
 
-##Related Resources 
+## See Also
 * [Expense Report Header ][3]
 * [Expense Entry][4]
 
