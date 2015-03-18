@@ -7,24 +7,11 @@ layout: resource
 
 Extract definitions determine the format and content of the extract files.  
 
-## Works With These Concur Products
-
-* **Expense** for Concur Professional/Premium
-* **Invoice** for Concur Professional/Premium
-
 ## Version
 1.0
 
 ##  URI
 `https://www.concursolutions.com/api/expense/extract/v1.0/`
-
-## Headers
-
-### Content-Type header
-application/xml
-
-### Accept header
-application/xml
 
 ## Operations
 [GET][1] 
