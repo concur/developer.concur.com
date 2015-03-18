@@ -13,13 +13,6 @@ The Attendee Type resource represents the type of attendee as configured in Conc
 ## URI
 `https://www.concursolutions.com/api/expense/attendee/v1.0/type`
 
-### Headers
-## Content-Type header
-application/xml
-
-## Accept header
-application/xml
-
 ## Operations
 [Get list of attendee types][2]
 
