@@ -12,14 +12,6 @@ The Shared attendees in the Concur company. Attendees added using this web servi
 ## URI
 `https://www.concursolutions.com/api/expense/attendees/v1.0/`
 
-## Headers
-
-### Content-Type header
-application/xml
-
-### Accept header
-application/xml
-
 ## Operations
 [POST][2]
 
