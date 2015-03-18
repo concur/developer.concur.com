@@ -12,12 +12,6 @@ The attendees in the Concur company. This resource can be used to retrieve atten
 ## URI
 [https://www.concursolutions.com/api/expense/v2.0/attendees][1]
 
-## Content types
-application/xml
-
-## Accept types
-application/xml
-
 ## Operations
 [GET][2]
 
