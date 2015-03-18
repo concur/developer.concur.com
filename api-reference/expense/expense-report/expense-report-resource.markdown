@@ -6,33 +6,21 @@ layout: resource
 
 
 
-
-
 ##Description 
 The expense reports in Concur.
-Works With These Concur Products:
-
-
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
 
 ## Resource URI 
+
 * For version 3:  
-https://www.concursolutions.com/api/v3.0/expense/ReportDigests  
+`https://www.concursolutions.com/api/v3.0/expense/ReportDigests ` 
 * For version 2.0:  
-https://www.concursolutions.com/api/expense/expensereport/v2.0/Report  
+`https://www.concursolutions.com/api/expense/expensereport/v2.0/Report ` 
 * For version 1.1:  
-https://www.concursolutions.com/api/expense/expensereport/v1.1/Report
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/Report`
 
 Refer to the function documentation for more information.
 
-##Supported Content Types
-* application/xml
-
-##Supported Accept Types
-* application/xml
-
-##Supported Verbs     
+##Supported Operations   
 * [GET][1]
 * [POST][2] 
 
