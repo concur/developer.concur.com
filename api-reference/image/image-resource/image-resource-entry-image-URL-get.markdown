@@ -70,3 +70,4 @@ Content-Type: application/xml
 ```
 
 [1]: https://developer.concur.com/expense-report/expense-report-resource/get-report-details
+
