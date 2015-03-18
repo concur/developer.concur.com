@@ -11,13 +11,11 @@ The configured fields for the specified expense form.
 ## URI
 `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/_{FormId}_/Fields`
 
-## Content types
-application/xml
-
 ## Operations
 [GET][1] 
 
 ## See also
+
 * [Expense Entry][2]
 * [Expense Form][3]
 * [Expense Report Header][4]
