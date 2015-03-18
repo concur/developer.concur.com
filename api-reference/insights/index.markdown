@@ -12,11 +12,6 @@ Concur analyzes trips to determine if each trip contains all the segments that a
 Concur TripLink partner suppliers can subscribe to notifications when Concur users that have previously granted the suppliers access to their information create or update bookings that generate insights. Suppliers can also poll regularly for new insights for their opted-in users.
 
 
-##Works With These Concur Products 
-
-* **Travel** for Concur Professional/Premium
-* **Travel** for Concur Standard
- 
 ##Product Restrictions
 This Web service is designed for use by travel suppliers. If you are a travel supplier who would like to start using this web service, please contact the [Concur Connect Platform Team][2].
 
