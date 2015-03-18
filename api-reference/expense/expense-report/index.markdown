@@ -14,10 +14,6 @@ Developers or clients can also request expense configuration data such as expens
 
 Expense reports that are created using this web service are always assigned the default policy of the supplied user.
 
-## Works With These Concur Products
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
-
 ## Authentication
 The Expense Report web service supports the OAuth 2.0 authentication model. This authentication model is covered in detail in **Web Services >** [OAuth with Concur][2]. Any additional required elements for the web service requests are covered in the function documentation.
 
