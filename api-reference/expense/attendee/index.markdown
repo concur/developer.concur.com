@@ -11,11 +11,6 @@ The Attendee Web service allows developers to manage attendees in Concur. The At
 The Attendee List resource manages attendees in batches, and can be used to add, update or inactivate attendees. This resource provides functionality similar to the Attendee List Import in Concur. Attendees added using this resource are added to the Shared Attendee List (owned by the system and available to all users).
 
 
-## Works With These Concur Products
-
-* **Expense** for Concur Professional/Premium
-
-
 ## Product Restrictions
 
 Concur products are highly configurable, and not all clients will have access to all features.
