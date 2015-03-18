@@ -17,11 +17,6 @@ Developers and clients who use the Integration Administrator tool to manage thei
 
 Clients using Concur Small Business, Concur Standard, and the Concur Connect Developer Sandbox should refer to the [Payment Batch File ][1] web service.
 
-### Works With These Concur Products
-
-* **Expense** for Concur Professional/Premium
-* **Invoice** for Concur Professional/Premium
-
 ### Product Restrictions
 
 The Extract web service is not supported in the developer sandbox at this time.
