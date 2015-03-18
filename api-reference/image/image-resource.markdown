@@ -12,21 +12,6 @@ The Image resource represents a receipt image or an invoice image. The [ReceiptI
 ## URI
 `https://www.concursolutions.com/api/image/v1.0/`
 
-## Headers
-
-### Content-Type header
-The Image resource supports the following content types:
-
-* application/pdf
-* image/jpg
-* image/jpeg
-* image/png
-
-**NOTE**: PDF images cannot be encrypted or password protected.
-
-### Accept header
-application/xml
-
 ## Operations
 [POST][2]
 
