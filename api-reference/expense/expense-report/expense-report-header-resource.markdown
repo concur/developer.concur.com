@@ -7,28 +7,16 @@ layout: resource
 ## Description
 The expense report header contains classification information for the expense report, and serves as the container for the expense entries.
 
-## Works With These Concur Products
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
-
 ## Version 
 1.1
 
 ## Resource URI
 https://www.concursolutions.com/api/expense/expensereport/v1.1/report/
 
-## Headers
-
-### Content-Type header
-application/xml
-
-### Accept header
-application/xml
-
 ## Operations
 [POST][1]
 
-## Related Resources
+## See also
 * [Expense Entry][2]
 * [Expense Report][3]
 
