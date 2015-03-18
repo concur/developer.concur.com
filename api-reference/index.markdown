@@ -31,7 +31,7 @@ layout: reference
 ## Invoice
 [Purchase order receipts][20]  | 
 [Purchase orders][21] | 
-[Tax requests][22] | 
+[Sales tax validation][22] | 
 [Vendors][23]
 
 ## Travel
