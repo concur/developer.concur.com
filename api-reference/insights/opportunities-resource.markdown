@@ -12,11 +12,6 @@ A potential booking that a Concur user might be interested in adding to a trip, 
 ##URI
 `https://www.concursolutions.com/api/v3.0/insights/opportunities`
 
-##Content type
-application/xml
-
-application/json
-
 ##Operations
 [GET][1]
 
