@@ -12,11 +12,6 @@ The Expense Entry Attendees manages the relationship between the attendees and t
 ##URI
 `https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{reportID}/entry/{entryID}/attendees`
 
-##Content type
-application/xml
-
-application/json
-
 ##Operations
 [GET][2]
 
