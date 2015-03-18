@@ -12,9 +12,6 @@ An expense entry in an expense report.
 ##URI
 `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}`
 
-##Content type
-application/xml
-
 ##Operations
 [GET][1] 
 
