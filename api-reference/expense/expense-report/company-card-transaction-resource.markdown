@@ -14,9 +14,6 @@ The corporate or credit card charges that are available for use in expense repor
 ## URI
 `https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges`
 
-## Content type
-application/xml
-
 ## Operations
 [GET][1]
 
