@@ -10,13 +10,7 @@ The Image URL resource represents the URL to the PDF for the receipt image. The 
 1.0
 
 ## URI
-https://www.concursolutions.com/api/image/v1.0/
-
-## Headers
-### Content-Type header
-application/xml
-### Accept header
-application/xml
+`https://www.concursolutions.com/api/image/v1.0/`
 
 ## Operations
 [GET][1]
