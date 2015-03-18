@@ -12,14 +12,6 @@ The configured expense forms in Concur. Clients can have multiple forms configur
 ## URI
 `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/ `
 
-## Headers
-
-### Content-Type header
-application/xml
-
-### Accept header
-application/xml
-
 ## Operations
 [GET][1]  
 
