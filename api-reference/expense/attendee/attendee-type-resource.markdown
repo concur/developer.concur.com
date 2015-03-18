@@ -11,7 +11,7 @@ The Attendee Type resource represents the type of attendee as configured in Conc
 1.0
 
 ## URI
-[https://www.concursolutions.com/api/expense/attendee/v1.0/type][1]
+`https://www.concursolutions.com/api/expense/attendee/v1.0/type`
 
 ### Headers
 ## Content-Type header
@@ -27,7 +27,7 @@ application/xml
 * [Attendee][3]
 * [Attendee List][4]
 
-[1]: https://www.concursolutions.com/api/expense/attendee/v1.0/type
+
 [2]: https://developer.concur.com/attendee/attendee-type-resource/attendee-type-resource-get
 [3]: https://developer.concur.com/attendee/attendee-resource
 [4]: https://developer.concur.com/attendee/attendee-list-resource
