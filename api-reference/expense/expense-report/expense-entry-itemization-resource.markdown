@@ -6,27 +6,16 @@ layout: resource
 
 
 
-
 ## Description
 Expense Entry Itemizations are children of an expense entry that subdivide the expense. A common use case for itemizations is on a hotel bill, which can have separate itemizations for room rate, room tax, and services such as laundry or minibar.
 
-## Works With These Concur Products
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
-
-## Resource URI
-`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/_{reportId}_/entry/_{entryId}_/itemization/_{itemizationId}_`
-
-## Supported Content Types
-application/xml
-
-## Supported Accept Types
-application/xml
+## URI
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}/itemization/{itemizationId}`
 
 ## Operations
 [POST][1]
 
-## Related Resources
+## See also
 * [Expense Entry Attendee][2]
 * [Expense Entry][3]
 * [Expense Report][4]
