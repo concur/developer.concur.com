@@ -1,3 +1,9 @@
+---
+title: Create a vendor
+layout: operation
+---
+
+
 ## Description
 Create a vendor
 
