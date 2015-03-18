@@ -12,11 +12,6 @@ Gets the latest hotel and air booking for a particular user.
 ##URI
 `https://www.concursolutions.com/api/v3.0/insights/latestbookings`
 
-##Content type
-application/xml
-
-application/json
-
 ##Operations
 [GET][1]
 
