@@ -1,5 +1,5 @@
 --- 
-title: Create or update attendee lists 
+title: Attendee List Resource Post
 layout: operation 
 --- 
 
