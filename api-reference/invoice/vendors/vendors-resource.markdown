@@ -17,8 +17,11 @@ A vendor sends an invoice for a purchase. The Vendors resource can be used to ma
 
 ## Operations
 
-* Get details for an existing vendor
-* Create a new vendor
+* [Get details for an existing vendor][1]
+* [Create a new vendor][2]
 * Update details for an existing vendor
-* Delete a vendor
+* [Delete a vendor][3]
 
+[1]: http://concur.github.io/developer.concur.com/api-reference/invoice/vendors/vendors-resource-get.markdown
+[2]: http://concur.github.io/developer.concur.com/api-reference/invoice/vendors/vendors-resource-post.markdown
+[3]: http://concur.github.io/developer.concur.com/api-reference/invoice/vendors/vendors-resource-delete.markdown
