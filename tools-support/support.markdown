@@ -11,7 +11,9 @@ We strive to make the API documentation as clear and helpful as possible. Howeve
 * **Visiting Forums**:  To ask Concur and other developers questions about the platform, use the [Forums][2].
 * **Requesting Partner Support**:  If the documentation and forums don't have the answers you need, you can submit a [partner support case][3].
 
-###  Concur Company Administrators and Individual Users:  Support Questions
+
+
+####  Concur Company Administrators and Individual Users:  Support Questions
 
 If you're a Concur Administrator, please open a support ticket at <https://concur.com/support>  to request assistance.  Individual users should request assistance from their company's internal help desk or their company's Concur administrator.  Please do not use the developer support tools to submit support requests from Concur administrators or individual users.
 
