@@ -5,7 +5,7 @@ layout: resource
 
 ## Description
 
-A vendor sends an invoice for a purchase. The Vendors resource can be used to manage information about vendors.
+A vendor sends an invoice for a purchase. The Vendors resource can be used to manage information about vendors. The client remains the system-of-record for vendors. 
 
 ## Version
 
