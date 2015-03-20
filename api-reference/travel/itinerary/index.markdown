@@ -1,6 +1,6 @@
 ---
 layout: conceptual
-title: Itinerary Web Service
+title: Itinerary
 ---
 
 ## Overview
