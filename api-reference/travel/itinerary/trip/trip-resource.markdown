@@ -5,26 +5,32 @@ layout: resource
 
 
 ## Description
-The trip resource represents trips in Concur Travel itineraries. A trip can contain one or more bookings.
-
-## URI  
-    https://www.concursolutions.com/api/travel/trip/v1.1/
+The Trip resource represents itineraries in the Concur Travel system. TripLink suppliers use this resource to display a subset of the full booking fields.
 
 ## Version
+
 1.1
 
+## URI  
+
+`/travel/trip/v1.1/{query_parameters}`
+
+## Scope
+
+In order to obtain itinerary data when making Itinerary API calls, the value of the [OAuth scope parameter][1] must be set to: `ITINER`
+
 ## Operations
-[Get trip summaries][1]  
-[Get trip details][1]  
-[Create a new trip][2]    
-[Update an existing trip][2]  
-[Cancel a trip][2]  
+
+* Get list of trips
+* Get trip details
+* Create a new trip
+* Update a trip
+* Cancel a trip
 
 ## See also
-[Booking][3]
+[Booking resource][2]
 
 
 
-[1]: https://developer.concur.com/itinerary-tmc-and-third-party-developers/itinerary-resource/itinerary-resource-get
-[2]: https://developer.concur.com/itinerary-tmc-and-third-party-developers/itinerary-resource/itinerary-resource-post
-[3]: https://developer.concur.com/itinerary-tmc-and-third-party-developers/booking-resource
+[1]: https://developer.concur.com/oauth-20/web-flow
+[2]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/booking/index.html
