@@ -5,7 +5,7 @@ layout: resource
 
 ## Description
 
-A vendor offers goods or services that are tracked via purchase orders. The Vendors resource can be used to manage information about vendors.
+A vendor sends an invoice for a purchase. The Vendors resource can be used to manage information about vendors.
 
 ## Version
 
