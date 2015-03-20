@@ -9,9 +9,9 @@ We strive to make the API documentation as clear and helpful as possible. Howeve
 * **Configuring Sandboxes**: You can get assistance for your developer sandbox configuration using the [Sandbox Configuration Assistance][1]page.
 * **Recovering Passwords**: To recover your developer sandbox user name or password, click on the applicable links: [Username][4] or [Password][5]
 * **Visiting Forums**:  To ask Concur and other developers questions about the platform, use the [Forums][2].
-* **Requesting Partner Support**:  If the documentation and forums don't have the answers you need, you can submit a [partner support case][3].
-
-
+* **Requesting Partner Support**:  If the documentation and forums don't have the answers you need, you can submit a [partner support case][3].    
+    
+- - -  
 
 ####  Concur Company Administrators and Individual Users:  Support Questions
 
