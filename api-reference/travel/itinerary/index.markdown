@@ -92,4 +92,4 @@ Itinerary Reference
 [1]: https://developer.concur.com/draft-documentation/itinerary/itinerary-faqs
 [2]: https://developer.concur.com/forums/concur-connect
 [3]: https://www.concur.com/en-us/connect-platform/suppliers
-[7]: ttp://concur.github.io/developer.concur.com/api-reference/common/connection-requests/connection-requests-resource
+[7]: http://concur.github.io/developer.concur.com/api-reference/common/connection-requests/connection-requests-resource
