@@ -5,7 +5,7 @@ layout: operation
 
 
 ## Description
-Create a vendor
+Create a vendor.
 
 ## Request
 
