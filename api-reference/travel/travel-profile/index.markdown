@@ -40,13 +40,6 @@ To develop an application that uses Travel Profile, you must register and enable
 
 Travel supplier or TMC partner applications must complete the [Concur application review process][8] before they can access production user data. Driver's License and Form of Payment scopes require an additional level of security review to confirm the security of sensitive data. Travel suppliers can only access Form of Payment information for the type of travel that they supply. Suppliers can only update Loyalty Program information for the programs that they manage. TMCs can access all the user's Travel Profile data, regardless of vendor.
 
-##  Works with these Concur products
-
-* **Travel** for Concur Professional/Premium
-* **Travel** for Concur Standard
-* **Expense** for Concur Professional/Premium
-
-
 
 [1]: https://developer.concur.com/oauth-20/web-flow
 [2]: https://developer.concur.com/node/502
