@@ -1,6 +1,6 @@
 ---
 title: API Reference
-layout: reference
+layout: conceptual
 ---
 
 ## Concur OAuth 2.0
