@@ -1,17 +1,19 @@
 ---
-title: Documentation Roadmap 
+title: Overviews
 layout: conceptual
 ---
 
 
 
 
-The Concur Developer documentation is organized as follows:
+These Overviews provide the foundational concepts you need to know so that you can use the Concur APIs more effectively. You can use them in conjunction with the API Reference topics as you implement the Concur APIs if you need to look up a concept or understand how something works. 
 
-**Concepts** Describes the foundational concepts you need to know so that you can use the Concur APIs more effectively.
+**Concur developer platform overview** 
+- Find out what the Concur developer platform is and what its main components are.
+- Understand how you can use the platform to build applications and solutions.
 
-**Web Services API Reference** includes the reference documentation for Concur Web Services APIs. Concur Web Services accept requests from an external partner application and reply with Concur data.
+**Concepts**
+- Learn the foundational concepts you need to know to make it easier for you to use the capabilities for the Concur developer platform.
 
-**Callouts Reference** includes the documentation for Concur Callouts. Callouts are partner applications that Concur sends data to at a pre-configured step (when a user submits an expense report, for instance). The partner application performs some action based on the data and either returns a response to Concur or uses the web services to modify Concur data.
-
-**Direct Connects Reference** includes documentation for Direct Connects. Direct Connects are partner applications that supply data to Concur. The application receives requests from Concur and returns a set of results for Concur to display to the user. The application can also send and receive updates.
+**Security overview**
+- Get an overview of the Concur developer platform security model and the foundation you need to understand how authorization and authentication are implemented in the Concur APIs.
