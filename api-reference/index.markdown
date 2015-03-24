@@ -57,7 +57,7 @@ layout: conceptual
 [Itineraries][27]
 
 ## User
-[User][37] |
+[User][37]
 
 
 
