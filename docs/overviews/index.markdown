@@ -3,9 +3,7 @@ title: Overviews
 layout: conceptual
 ---
 
-
-
-
+## Overviews
 These Overviews provide the foundational concepts you need to know so that you can use the Concur APIs more effectively. You can use them in conjunction with the API Reference topics as you implement the Concur APIs if you need to look up a concept or understand how something works. 
 
 **Concur developer platform overview** 
