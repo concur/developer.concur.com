@@ -62,7 +62,6 @@ layout: conceptual
 
 
 
-
 [1]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/native-flow
 [2]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/web-flow
 [3]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/refreshing-access-tokens
