@@ -3,11 +3,18 @@ title: API Reference
 layout: conceptual
 ---
 
-## Concur OAuth 2.0
+## Authentication
 [Access token (native flow)][1] | 
 [Access token (web flow)][2] | 
 [Refresh token][3] | 
 [Revoke token][4]
+
+## Callouts
+[Event notification][30] | 
+[External validation][31] | 
+[Fetch attendee][32] | 
+[Fetch list][33] | 
+[Launch external URL][34]
 
 ## Common
 [Connection requests][5] | 
@@ -16,6 +23,10 @@ layout: conceptual
 [Locations][8] | 
 [Receipts][9] | 
 [Suppliers][10]
+
+## Direct Connects
+[Ground transportation][28] | 
+[Hotel][29]
 
 ## Expense
 [Allocations][11] | 
@@ -26,7 +37,12 @@ layout: conceptual
 [Expense group configurations][16]  | 
 [Itemizations][17] | 
 [Quick expenses][18] | 
-[Reports][19] | 
+[Reports][19]
+
+## Image
+[Image URL][35] | 
+[Receipt images][36]
+
 
 ## Invoice
 [Purchase order receipts][20]  | 
@@ -40,16 +56,11 @@ layout: conceptual
 [Trips][26] | 
 [Itineraries][27]
 
-## Direct Connect
-[Ground transportation][28] | 
-[Hotel][29]
+## User
+[User][37] |
 
-## Callouts
-[Event notification][30] | 
-[External validation][31] | 
-[Fetch attendee][32] | 
-[Fetch list][33] | 
-[Launch external URL][34]
+
+
 
 
 [1]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/native-flow
@@ -85,7 +96,9 @@ layout: conceptual
 [32]: http://concur.github.io/developer.concur.com/api-reference/callouts/fetch-attendee
 [33]: http://concur.github.io/developer.concur.com/api-reference/callouts/fetch-list
 [34]: http://concur.github.io/developer.concur.com/api-reference/callouts/launch-external-url
-
+[35]: http://concur.github.io/developer.concur.com/api-reference/callouts/launch-external-url
+[36]: http://concur.github.io/developer.concur.com/api-reference/callouts/launch-external-url
+[37]: http://concur.github.io/developer.concur.com/api-reference/user/index
 
 
 
