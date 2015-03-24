@@ -25,5 +25,6 @@ layout: conceptual
 
 [1]: http://concur.github.io/developer.concur.com/docs/get-started/
 [2]: http://concur.github.io/developer.concur.com/docs/overviews/
-[3]: http://concur.github.io/developer.concur.com/docs/guides/
-[4]: http://concur.github.io/developer.concur.com/docs/reference/
+[3]: http://concur.github.io/developer.concur.com/api-reference/
+[4]: http://concur.github.io/developer.concur.com/docs/guides/
+[5]: http://concur.github.io/developer.concur.com/docs/reference/
