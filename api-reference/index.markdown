@@ -62,10 +62,10 @@ layout: conceptual
 
 
 
-[1]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/native-flow
-[2]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/web-flow
-[3]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/refreshing-access-tokens
-[4]: http://concur.github.io/developer.concur.com/api-reference/oauth-20/revoking-access-tokens
+[1]: http://concur.github.io/developer.concur.com/api-reference/authentication/native-flow
+[2]: http://concur.github.io/developer.concur.com/api-reference/authentication/web-flow
+[3]: http://concur.github.io/developer.concur.com/api-reference/authentication/refreshing-access-tokens
+[4]: http://concur.github.io/developer.concur.com/api-reference/authentication/revoking-access-tokens
 [5]: http://concur.github.io/developer.concur.com/api-reference/common/connection-requests/connection-requests-resource
 [6]: http://concur.github.io/developer.concur.com/api-reference/expense/attendee/attendee-resource
 [7]: http://concur.github.io/developer.concur.com/api-reference/common/list-item/index

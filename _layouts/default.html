@@ -72,7 +72,16 @@
         App.initParallaxBg();
         FancyBox.initFancybox();
         OwlCarousel.initOwlCarousel();        
-        RevolutionSlider.initRSfullWidth();
+        // RevolutionSlider.initRSfullWidth();
+        jQuery(document).ready(function() {
+             jQuery('.tp-banner').revolution(
+            {
+              delay:9000,
+              startwidth:1170,
+              startheight:400,
+              hideThumbs:10
+            });
+        });
     });
 </script>
 <!--[if lt IE 9]>
