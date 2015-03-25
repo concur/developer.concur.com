@@ -19,7 +19,7 @@ This resource can be used to retrieve information about the allocations that are
 ## Operations
 
 
-* <a href="#get_locations">Get all allocations per entry or report<a>
+* [Get all allocations per entry or report](#get_locations)
 * <a href="#get__single_location">Get a single allocation by ID<a>
 
 ## <a name="get_locations" id="get_locations">Get all allocations per entry or report</a>
