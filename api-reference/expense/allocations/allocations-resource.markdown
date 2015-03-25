@@ -1,5 +1,5 @@
 ---
-title: Allocations Resource 
+title: Allocations resource 
 layout: resource
 ---
 
@@ -93,7 +93,7 @@ This request will return an **Allocations** parent element containing an **Items
 #### XML example of successful response
 
 
-## Get a single allocation by ID
+## <a name="get__single_location" id="get__single_location">Get a single allocation by ID</a>
 
 ### Description
 <a name="get_locations" id="get_locations">Gets a single allocation by ID.<a>
