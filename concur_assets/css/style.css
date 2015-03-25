@@ -107,3 +107,7 @@ ul.blog-tags a:hover {
   color: #0275BC;
   border-color: #0275BC;
 }
+
+.col-md-9 li a{
+  color: #0275BC;
+}
