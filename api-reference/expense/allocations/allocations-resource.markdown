@@ -18,7 +18,6 @@ This resource can be used to retrieve information about the allocations that are
 
 ## Operations
 
-
 * [Get all allocations per entry or report](#get_locations)
 * [Get a single allocation by ID](#get__single_location)
 
