@@ -24,6 +24,7 @@ This resource can be used to retrieve information about the allocations that are
 
 ## <a name="get_locations" id="get_locations">Get all allocations per entry or report</a>
 
+### Description
 Gets all allocations per entry or per report.
 
 ### Request
@@ -32,10 +33,10 @@ Gets all allocations per entry or per report.
 
 ##### Query parameters
 
-| Parameter |   Required/Optional   |   Data Type   | Description |
-|------------|------------------------|--------------|--------------|
-|offset | optional | string | The starting point of the next set of results, after the limit specified in the limit field has been reached. |
-|limit | required | Int32 | The number of records to return. Default value: 25 |
+| Parameter | Required<br />/Optional | Data Type | Description |
+|------------|------------------|--------------|--------------|
+|offset | optional           | string | The starting point of the next set of results, after the limit specified in the limit field has been reached. |
+|limit | required           | Int32 | The number of records to return. Default value: 25 |
 |reportID | optional | string | The unique identifier for the report as it appears in the Concur Expense UI. Format: A variable-length string. Maximum length: 32 characters. |
 |entryID | optional | string | The unique identifier for the expense entry. |
 |itemizationID | optional | string | The unique identifier for the expense itemization. |
