@@ -79,17 +79,19 @@ Version 1.0
 
 ## See also
 
-Travel Profile
+[Travel Profile] [4]
 
 [Connection Requests][7]
 
-Itinerary Web Service FAQs
+[Itinerary Web Service FAQs] [1]
 
-Itinerary Reference
+[Itinerary Reference] [5]
 
 
 
-[1]: https://developer.concur.com/draft-documentation/itinerary/itinerary-faqs
+[1]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/reference/itinerary-FAQs.html
 [2]: https://developer.concur.com/forums/concur-connect
 [3]: https://www.concur.com/en-us/connect-platform/suppliers
+[4]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/index.html
+[5]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/reference/itinerary-reference.html
 [7]: http://concur.github.io/developer.concur.com/api-reference/common/connection-requests/connection-requests-resource
