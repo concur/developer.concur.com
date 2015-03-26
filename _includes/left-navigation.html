@@ -1,7 +1,7 @@
 {% assign page_parts = page.url | remove_first: '/' | split: '/' %}
 {% assign page_depth = page_parts | size %}
 {% if page_depth > 2 %}
-  {% assign page_category = page_parts[1] | capitalize | replace: '-', ' ' %}
+  {% assign page_category = page_parts[1] | capitalize %}
 {% else %}
   {% assign page_category = null %}
 {% endif %}
@@ -23,7 +23,7 @@
     {% if node_parts[0] == page_parts[0] and node_parts[1] != 'index.html' %}
         {% assign node_depth = node_parts | size %}
         {% if node_depth > 2 %}
-            {% assign node_category = node_parts[1] | capitalize | replace: '-', ' ' %}
+            {% assign node_category = node_parts[1] | capitalize %}
         {% else %}
             {% assign node_category = null %}
         {% endif %}
