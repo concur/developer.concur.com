@@ -112,8 +112,8 @@ This request will return an **Allocations** parent element containing an **Items
 ##### Query parameters
 
 | Parameter | Required/Optional | Data Type | Description |
-|------------|------------------|--------------|--------------|
-| user | optional | string | The login ID of the user who owns the allocation. <br />The user must have the Web Services Admin role to use this parameter. |
+|:------------|:------------------|:--------------|:--------------|
+| user | optional | string | The login ID of the user who owns the allocation. <br />The user must have the Web Services Admin role to use this parameter.|
 
 
 Example: `https://www.concursolutions.com/api/v3.0/expense/allocations/{id}?user={user}`
