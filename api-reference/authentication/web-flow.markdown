@@ -1,5 +1,5 @@
 ---
-title: Web flow
+title: Web Flow
 layout: conceptual
 ---
 
