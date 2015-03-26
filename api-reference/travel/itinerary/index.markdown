@@ -75,6 +75,7 @@ Version 1.0
 ## Resources
 
 [Trip] [6]
+
 [Booking] [8]
 
 ## See also
