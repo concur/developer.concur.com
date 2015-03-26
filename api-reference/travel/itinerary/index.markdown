@@ -74,8 +74,8 @@ Version 1.0
 
 ## Resources
 
-* Trip
-* Booking
+[Trip] [6]
+[Booking] [8]
 
 ## See also
 
@@ -94,4 +94,6 @@ Version 1.0
 [3]: https://www.concur.com/en-us/connect-platform/suppliers
 [4]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/index.html
 [5]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/reference/itinerary-reference.html
+[6]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/trip/trip-resource.html
 [7]: http://concur.github.io/developer.concur.com/api-reference/common/connection-requests/connection-requests-resource
+[8]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary-tmc-and-third-party-developers/booking-resource.html
