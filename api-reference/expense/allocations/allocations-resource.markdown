@@ -111,7 +111,7 @@ This request will return an **Allocations** parent element containing an **Items
 
 ##### Query parameters
 
-| Parameter | Requirement | Data Type | Description |
+| Parameter | Requirement | Data&nbspType | Description |
 |:------------|:------------------|:--------------|:--------------|
 | user | optional | string | The login ID of the user who owns the allocation. <br />The user must have the Web Services Admin role to use this parameter.|
 
