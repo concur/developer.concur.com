@@ -1,5 +1,5 @@
 ---
-title: OAuth 2
+title: OAuth 2.0
 layout: conceptual
 ---
 
