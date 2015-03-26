@@ -95,7 +95,6 @@ This request will return an **Allocations** parent element containing an **Items
 
 ## <a name="get__single_location" id="get__single_location">Get a single allocation by ID</a>
 
-### Description
 <a name="get_locations" id="get_locations">Gets a single allocation by ID.<a>
 
 ### Request
