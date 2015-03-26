@@ -14,7 +14,7 @@ This resource can be used to retrieve information about the allocations that are
 
 ## URI
 
-`https://www.concursolutions.com/api/v3.0/expense/allocations`
+<samp>https://www.concursolutions.com/api/v3.0/expense/allocations</samp>
 
 ## Operations
 
