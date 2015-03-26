@@ -67,7 +67,7 @@ layout: conceptual
 [3]: http://concur.github.io/developer.concur.com/api-reference/authentication/refreshing-access-tokens
 [4]: http://concur.github.io/developer.concur.com/api-reference/authentication/revoking-access-tokens
 [5]: http://concur.github.io/developer.concur.com/api-reference/common/connection-requests/connection-requests-resource
-[6]: http://concur.github.io/developer.concur.com/api-reference/expenses/attendee/attendee-resource
+[6]: http://concur.github.io/developer.concur.com/api-reference/expense/attendees/attendee-resource
 [7]: http://concur.github.io/developer.concur.com/api-reference/common/list-item/index
 [8]: http://concur.github.io/developer.concur.com/api-reference/common/locations/locations-resource
 [9]: http://concur.github.io/developer.concur.com/api-reference/common/receipts/index
