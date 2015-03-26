@@ -72,8 +72,8 @@ layout: conceptual
 [8]: http://concur.github.io/developer.concur.com/api-reference/common/locations/locations-resource
 [9]: http://concur.github.io/developer.concur.com/api-reference/common/receipts/index
 [10]: http://concur.github.io/developer.concur.com/api-reference/common/suppliers/suppliers-resource
-[11]: http://concur.github.io/developer.concur.com/api-reference/expense/allocations/allocations-resource.html
-[12]: http://concur.github.io/developer.concur.com/api-reference/expense/attendees/attendee-type-resource
+[11]: http://concur.github.io/developer.concur.com/api-reference/expense/allocations/allocations-resource
+[12]: http://concur.github.io/developer.concur.com/api-reference/expense/attendee-types/attendee-type-resource
 [13]: http://concur.github.io/developer.concur.com/api-reference/expense/digital-tax-invoices/digital-tax-invoices-resource
 [14]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-entry-resource
 [16]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-group-configuration-resource
