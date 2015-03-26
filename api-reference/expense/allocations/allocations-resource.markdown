@@ -23,7 +23,6 @@ This resource can be used to retrieve information about the allocations that are
 
 ##  <a name="get_locations" id="get_locations">Get all allocations per entry or report</a>
 
-### Description
 Gets all allocations per entry or per report.
 
 ### Request
