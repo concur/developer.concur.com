@@ -21,7 +21,7 @@ This resource can be used to retrieve information about the allocations that are
 * [Get all allocations per entry or report](#get_locations)
 * [Get a single allocation by ID](#get__single_location)
 
-## <a name="get_locations" id="get_locations">Get all allocations per entry or report</a>
+## [Get all allocations per entry or report]: #get_locations
 
 ### Description
 Gets all allocations per entry or per report.
@@ -106,12 +106,12 @@ This request will return an **Allocations** parent element containing an **Items
 ##### Path parameters
 
 | Parameter | Requirement | Data Type | Description |
-|------------|------------------|--------------|--------------|
+|-----------|-------------|-----------|-------------|
 | id | required | string | The unique identifier for the allocation. |
 
 ##### Query parameters
 
-| Parameter | Requirement | Data&nbspType | Description |
+| Parameter | Requirement | Data Type | Description |
 |:------------|:------------------|:--------------|:--------------|
 | user | optional | string | The login ID of the user who owns the allocation. <br />The user must have the Web Services Admin role to use this parameter.|
 
