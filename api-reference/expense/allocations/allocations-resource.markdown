@@ -33,13 +33,13 @@ Gets all allocations per entry or per report.
 
 ##### Query parameters
 
-| Parameter | Required<br />/Optional | Data Type | Description |
+| Parameter | Requirement | Data Type | Description |
 |------------|------------------|--------------|--------------|
 |offset | optional           | string | The starting point of the next set of results, after the limit specified in the limit field has been reached. |
 |limit | required           | Int32 | The number of records to return. Default value: 25 |
 |reportID | optional | string | The unique identifier for the report as it appears in the Concur Expense UI. Format: A variable-length string. Maximum length: 32 characters. |
 |entryID | optional | string | The unique identifier for the expense entry. |
-|itemizationID | optional | string | The unique identifier for the expense itemization. |
+| itemizationID | optional | string | The unique identifier for the expense itemization. |
 |user | optional | string | The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter. |
 
 Example: `https://www.concursolutions.com/api/v3.0/expense/allocations?limit=25&offset={offset}&reportID={reportID}&entryID={entryID}&itemizationID={itemizationID}&user={user}`
