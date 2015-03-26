@@ -42,6 +42,11 @@ Gets all allocations per entry or per report.
 | itemizationID | optional | string | The unique identifier for the expense itemization. |
 |user | optional | string | The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter. |
 
+^ Heading 1      ^ Heading 2       ^ Heading 3          ^
+| Row 1 Col 1    | Row 1 Col 2     | Row 1 Col 3        |
+| Row 2 Col 1    | some colspan (note the double pipe) ||
+| Row 3 Col 1    | Row 3 Col 2     | Row 3 Col 3        |
+
 Example: `https://www.concursolutions.com/api/v3.0/expense/allocations?limit=25&offset={offset}&reportID={reportID}&entryID={entryID}&itemizationID={itemizationID}&user={user}`
 
 #### Headers
