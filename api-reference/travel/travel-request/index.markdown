@@ -19,12 +19,9 @@ The Travel Request web service supports the OAuth 2.0 authentication model. This
 ## Resources
 [Requests v. 3.0][4]  
 
-##  Responses and Errors
-Refer to the [HTTP Codes][6] page for details of the common responses and errors.
 
 
 [2]: https://developer.concur.com/forums/concur-connect
 [3]: https://developer.concur.com/oauth-20
 [4]: https://www.concursolutions.com/api/docs/index.html#!/Requests
 [5]: https://developer.concur.com/travel-request/travel-request-resource
-[6]: https://developer.concur.com/reference/http-codes
