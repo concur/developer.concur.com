@@ -67,13 +67,13 @@ layout: conceptual
 [3]: http://concur.github.io/developer.concur.com/api-reference/authentication/refreshing-access-tokens
 [4]: http://concur.github.io/developer.concur.com/api-reference/authentication/revoking-access-tokens
 [5]: http://concur.github.io/developer.concur.com/api-reference/common/connection-requests/connection-requests-resource
-[6]: http://concur.github.io/developer.concur.com/api-reference/expense/attendee/attendee-resource
+[6]: http://concur.github.io/developer.concur.com/api-reference/expenses/attendee/attendee-resource
 [7]: http://concur.github.io/developer.concur.com/api-reference/common/list-item/index
 [8]: http://concur.github.io/developer.concur.com/api-reference/common/locations/locations-resource
 [9]: http://concur.github.io/developer.concur.com/api-reference/common/receipts/index
 [10]: http://concur.github.io/developer.concur.com/api-reference/common/suppliers/suppliers-resource
 [11]: http://concur.github.io/developer.concur.com/api-reference/expense/allocations/allocations-resource.html
-[12]: http://concur.github.io/developer.concur.com/api-reference/expense/attendee/attendee-type-resource
+[12]: http://concur.github.io/developer.concur.com/api-reference/expense/attendees/attendee-type-resource
 [13]: http://concur.github.io/developer.concur.com/api-reference/expense/digital-tax-invoices/digital-tax-invoices-resource
 [14]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-entry-resource
 [16]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-group-configuration-resource
