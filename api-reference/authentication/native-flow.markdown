@@ -1,5 +1,5 @@
 ---
-title: Native flow
+title: Native Flow
 layout: conceptual
 ---
 
