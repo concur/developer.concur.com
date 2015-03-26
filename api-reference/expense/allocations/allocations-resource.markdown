@@ -65,7 +65,7 @@ This request will return an **Allocations** parent element containing an **Items
 
 ##### Allocation elements
 
-| Element | Required/Optional | Data Type | Description |
+| Element | Requirement | Data Type | Description |
 |------------|---------------|--------------|-----------------------|
 | AccountCode1 | optional | string | The primary accounting code assigned to the expense type associated with this allocation. Typically, expense types have only a primary account code. |
 | AccountCode2 | optional | string | The secondary or alternative accounting code assigned to the expense type associated with this allocation. |
@@ -79,7 +79,7 @@ This request will return an **Allocations** parent element containing an **Items
 
 ##### CustomField elements
 
-| Element | Required/Optional | Data Type | Description |
+| Element | Requirement | Data Type | Description |
 |------------|---------------|--------------|-----------------------|
 | Code | optional | string  | For list fields, this is the list item code. |
 | ListItemID |optional | string  | For list fields, this is the list item ID. |
@@ -105,13 +105,13 @@ This request will return an **Allocations** parent element containing an **Items
 
 ##### Path parameters
 
-| Parameter | Required/Optional | Data Type | Description |
+| Parameter | Requirement | Data Type | Description |
 |------------|------------------|--------------|--------------|
 | id | required | string | The unique identifier for the allocation. |
 
 ##### Query parameters
 
-| Parameter | Required/Optional | Data Type | Description |
+| Parameter | Requirement | Data Type | Description |
 |:------------|:------------------|:--------------|:--------------|
 | user | optional | string | The login ID of the user who owns the allocation. <br />The user must have the Web Services Admin role to use this parameter.|
 
