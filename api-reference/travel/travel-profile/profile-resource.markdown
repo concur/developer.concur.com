@@ -59,7 +59,7 @@ The data model of the response for the GET operation.
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <style type="text/css">
 <!--
-pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Menlo,Monaco,Consolas,"Courier New";}
 .xml-attribute {color: #009900}
 .xml-value {color: #ce7b00}
 .xml-tag {color: #0000e6}
@@ -419,7 +419,7 @@ For each custom field, the CustomField element has a Name and Value child elemen
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <style type="text/css">
 <!--
-pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Menlo,Monaco,Consolas,"Courier New";}
 .xml-attribute {color: #009900}
 .xml-value {color: #ce7b00}
 .xml-tag {color: #0000e6}
