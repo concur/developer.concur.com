@@ -59,7 +59,6 @@ The data model of the response for the GET operation.
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <style type="text/css">
 <!--
-body {color: #000000; background-color: #ffffff; font-family: Monospaced}
 pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
 .xml-attribute {color: #009900}
 .xml-value {color: #ce7b00}
@@ -67,7 +66,6 @@ pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
 -->
 </style>
 </head>
-<body>
 <pre>
 <span class="xml-tag">&lt;ProfileResponse</span> <span class="xml-attribute">Status</span>=<span class="xml-value">&quot;Active|Inactive&quot;</span> <span class="xml-attribute">Unique</span>=<span class="xml-value">&quot;{unique identifier for the user}&quot;</span><span class="xml-tag">&gt;</span>
     <span class="xml-tag">&lt;General</span><span class="xml-tag">&gt;</span>
@@ -199,7 +197,7 @@ pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
     <span class="xml-tag">&lt;/CustomFields</span><span class="xml-tag">&gt;</span>
 <span class="xml-tag">&lt;/ProfileResponse</span><span class="xml-tag">&gt;</span>
 
-</pre></body>
+</pre>
 </html>
 
 ####  ProfileResponse root element
@@ -421,7 +419,6 @@ For each custom field, the CustomField element has a Name and Value child elemen
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <style type="text/css">
 <!--
-body {color: #000000; background-color: #ffffff; font-family: Monospaced}
 pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
 .xml-attribute {color: #009900}
 .xml-value {color: #ce7b00}
@@ -429,7 +426,6 @@ pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
 -->
 </style>
 </head>
-<body>
 <pre>
 200 OK
 Content-Type: application/xml    
@@ -611,7 +607,7 @@ Content-Type: application/xml
     <span class="xml-tag">&lt;/CustomFields</span><span class="xml-tag">&gt;</span>
 <span class="xml-tag">&lt;/ProfileResponse</span><span class="xml-tag">&gt;</span>
 
-</pre></body>
+</pre>
 </html>
 
 ####  Example 2: Get the travel profile for a user with a specific login ID
