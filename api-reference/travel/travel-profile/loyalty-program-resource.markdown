@@ -6,9 +6,7 @@ layout: resource
 
 
 ## Description
-The loyalty program information for the user, as entered in Concur.
-
-Loyalty programs contain a variety of information about the user's loyalty membership including:
+The loyalty program information for the user, as entered in Concur. Loyalty programs contain a variety of information about the user's loyalty membership including:
 
 * Vendor
 * Number
