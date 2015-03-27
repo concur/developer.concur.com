@@ -43,6 +43,7 @@ All request paramenters are optional. To identify a specific user by login ID or
 |  userid_value |  Path |  String |  The user's login ID or XMLSync ID, depending on which user type is selected. This parameter must be provided in conjunction with the **userid_type** parameter. |
 
 ### Headers
+
 ####  Content-Type header
 application/xml
 
@@ -62,7 +63,6 @@ The data model of the response for the GET operation.
 <!--
 body {color: #000000; background-color: #ffffff; font-family: Monospaced}
 pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
-table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
 .xml-attribute {color: #009900}
 .xml-value {color: #ce7b00}
 .xml-tag {color: #0000e6}
