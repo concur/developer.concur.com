@@ -192,9 +192,7 @@ pre {color: #000000; background-color: #ffffff; font-family: Menlo,Monaco,Consol
         <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
     <span class="xml-tag">&lt;/CustomFields</span><span class="xml-tag">&gt;</span>
 <span class="xml-tag">&lt;/ProfileResponse</span><span class="xml-tag">&gt;</span>
-
 </pre>
-</html>
 
 ####  ProfileResponse root element
 
