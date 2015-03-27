@@ -1211,7 +1211,71 @@ The semantics codes are used in the Charges child elements in Bookings.
 
 ## <a name="time_zones" id="time_zones">Time zones</a>
 
-Time Zone Formats
+Concur converts local date/time to UTC.  In order to do that we need to be able to determine where the local time is.
+
+###  Olson time zones
+
+* Best practice is providing **TimeZone** (Olson or Windows time zone format) in addition to the required **StartDateLocal** and **EndDateLocal**. 
+* If you cannot provide **TimeZone** (Olson or Windows time zone format), Concur recommends **StartDateUtc** and **EndDateUtc** in addition to the required **StartDateLocal** and **EndDateLocal**.
+* Least preferable is providing **StartCityCode** in addition to the required **StartDateLocal** and **EndDateLocal**, if you cannot provide **TimeZone** or **StartDateUtc** and **EndDateUtc**.
+
+|--------------|--------------|--------------|--------------|
+|  Africa/Cairo |  Africa/Casablanca |  Africa/Harare |  Africa/Luanda |
+|  Africa/Nairobi |  Africa/Windhoek |  America/Anchorage |  America/Argentina/Buenos_Aires |
+|  America/Asuncion |  America/Bahia |  America/Bogota |  America/Buenos_Aires |
+|  America/Caracas |  America/Chicago |  America/Chihuahua |  America/Denver |
+|  America/Godthab |  America/Guyana |  America/Halifax |  America/Indianapolis |
+|  America/Los_Angeles |  America/Manaus |  America/Mexico_City |  America/Montevideo |
+|  America/New_York |  America/Phoenix |  America/Regina |  America/Santiago |
+|  America/Sao_Paulo |  America/St_Johns |  America/Swift_Current |  America/Tijuana |
+|  Asia/Almaty |  Asia/Amman |  Asia/Baghdad |  Asia/Baku |
+|  Asia/Bangkok |  Asia/Beirut |  Asia/Calcutta |  Asia/Colombo |
+|  Asia/Damascus |  Asia/Dhaka |  Asia/Irkutsk |  Asia/Jerusalem |
+|  Asia/Kabul |  Asia/Kamchatka |  Asia/Karachi |  Asia/Karachi |
+|  Asia/Katmandu |  Asia/Krasnoyarsk |  Asia/Magadan |  Asia/Muscat |
+|  Asia/Novosibirsk |  Asia/Rangoon |  Asia/Riyadh |  Asia/Seoul |
+|  Asia/Shanghai |  Asia/Singapore |  Asia/Taipei |  Asia/Tbilisi |
+|  Asia/Tehran |  Asia/Tokyo |  Asia/Ulaanbaatar |  Asia/Vladivostok |
+|  Asia/Yakutsk |  Asia/Yekaterinburg |  Asia/Yerevan |  Atlantic/Azores |
+|  Atlantic/Cape_Verde |  Atlantic/South_Georgia |  Australia/Adelaide |  Australia/Brisbane |
+|  Australia/Darwin |  Australia/Hobart |  Australia/Perth |  Australia/Sydney |
+|  Etc/GMT+12 |  Etc/GMT-11 |  Etc/GMT-2 |  Europe/Athens |
+|  Europe/Berlin |  Europe/Helsinki |  Europe/Istanbul |  Europe/Kaliningrad |
+|  Europe/London |  Europe/Minsk |  Europe/Moscow |  Europe/Paris |
+|  Europe/Prague |  Europe/Sarajevo |  GMT |  GMT-1200 |
+|  Indian/Mauritius |  Pacific/Apia |  Pacific/Auckland |  Pacific/Fiji |
+|  Pacific/Guadalcanal |  Pacific/Guam |  Pacific/Honolulu |  Pacific/Tongatapu |
+|  UTC | | | |
+
+###  Windows time zones
+
+|--------------|--------------|--------------|--------------|
+|  Africa/Cairo |  Africa/Casablanca |  Africa/Harare |  Africa/Luanda |
+|  Africa/Nairobi |  Africa/Windhoek |  America/Anchorage |  America/Argentina/Buenos_Aires |
+|  America/Asuncion |  America/Bahia |  America/Bogota |  America/Buenos_Aires |
+|  America/Caracas |  America/Chicago |  America/Chihuahua |  America/Denver |
+|  America/Godthab |  America/Guyana |  America/Halifax |  America/Indianapolis |
+|  America/Los_Angeles |  America/Manaus |  America/Mexico_City |  America/Montevideo |
+|  America/New_York |  America/Phoenix |  America/Regina |  America/Santiago |
+|  America/Sao_Paulo |  America/St_Johns |  America/Swift_Current |  America/Tijuana |
+|  Asia/Almaty |  Asia/Amman |  Asia/Baghdad |  Asia/Baku |
+|  Asia/Bangkok |  Asia/Beirut |  Asia/Calcutta |  Asia/Colombo |
+|  Asia/Damascus |  Asia/Dhaka |  Asia/Irkutsk |  Asia/Jerusalem |
+|  Asia/Kabul |  Asia/Kamchatka |  Asia/Karachi |  Asia/Karachi |
+|  Asia/Katmandu |  Asia/Krasnoyarsk |  Asia/Magadan |  Asia/Muscat |
+|  Asia/Novosibirsk |  Asia/Rangoon |  Asia/Riyadh |  Asia/Seoul |
+|  Asia/Shanghai |  Asia/Singapore |  Asia/Taipei |  Asia/Tbilisi |
+|  Asia/Tehran |  Asia/Tokyo |  Asia/Ulaanbaatar |  Asia/Vladivostok |
+|  Asia/Yakutsk |  Asia/Yekaterinburg |  Asia/Yerevan |  Atlantic/Azores |
+|  Atlantic/Cape_Verde |  Atlantic/South_Georgia |  Australia/Adelaide |  Australia/Brisbane |
+|  Australia/Darwin |  Australia/Hobart |  Australia/Perth |  Australia/Sydney |
+|  Etc/GMT+12 |  Etc/GMT-11 |  Etc/GMT-2 |  Europe/Athens |
+|  Europe/Berlin |  Europe/Helsinki |  Europe/Istanbul |  Europe/Kaliningrad |
+|  Europe/London |  Europe/Minsk |  Europe/Moscow |  Europe/Paris |
+|  Europe/Prague |  Europe/Sarajevo |  GMT |  GMT-1200 |
+|  Indian/Mauritius |  Pacific/Apia |  Pacific/Auckland |  Pacific/Fiji |
+|  Pacific/Guadalcanal |  Pacific/Guam |  Pacific/Honolulu |  Pacific/Tongatapu |
+|  UTC | | | |
 
 
 
