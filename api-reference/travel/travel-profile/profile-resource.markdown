@@ -414,18 +414,6 @@ For each custom field, the CustomField element has a Name and Value child elemen
 
 #####  Response
 
-<html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<style type="text/css">
-<!--
-pre {color: #000000; background-color: #ffffff; font-family: Menlo,Monaco,Consolas,"Courier New";}
-.xml-attribute {color: #009900}
-.xml-value {color: #ce7b00}
-.xml-tag {color: #0000e6}
--->
-</style>
-</head>
 <pre>
 200 OK
 Content-Type: application/xml    
@@ -608,7 +596,6 @@ Content-Type: application/xml
 <span class="xml-tag">&lt;/ProfileResponse</span><span class="xml-tag">&gt;</span>
 
 </pre>
-</html>
 
 ####  Example 2: Get the travel profile for a user with a specific login ID
 
