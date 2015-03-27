@@ -57,7 +57,6 @@ The data model of the response for the GET operation.
 
 <html>
 <head>
-<title>TravelProfile_Resource_GET_data_model.xml</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <style type="text/css">
 <!--
@@ -71,7 +70,6 @@ table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
 </style>
 </head>
 <body>
-<table width="100%"><tr><td align="center">Z:\Current_releases\WebServices\2015.03.SU113\Travel Profile\TravelProfile_Resource_GET_data_model.xml</td></tr></table>
 <pre>
 <span class="xml-tag">&lt;ProfileResponse</span> <span class="xml-attribute">Status</span>=<span class="xml-value">&quot;Active|Inactive&quot;</span> <span class="xml-attribute">Unique</span>=<span class="xml-value">&quot;{unique identifier for the user}&quot;</span><span class="xml-tag">&gt;</span>
     <span class="xml-tag">&lt;General</span><span class="xml-tag">&gt;</span>
