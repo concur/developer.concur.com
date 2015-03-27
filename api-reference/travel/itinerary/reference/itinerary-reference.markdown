@@ -1099,7 +1099,19 @@ The following car vendor codes are used in the Car Booking Elements.
 
 ##  <a name="ride_vendor_codes" id="ride_vendor_codes">Ride vendor Codes</a>
 
-Ride Vendor Codes
+|  Vendor Code |  Vendor Name |
+|--------------|--------------|
+|  $R |  RideCharge |
+|  AL |  AddisonLee |
+|  DG |  DeemGroundLimo |
+|  GC |  GroundScope |
+|  GS |  GroundSpan |
+|  LC |  Limoscom |
+|  SQ |  SummitQwest |
+|  SW |  SummitQwest |
+|  TD |  Tandem |
+|  TV |  Transvip |
+
 
 ## <a name="ride_vendor_codes" id="semantics_codes">Semantics codes</a>
 
