@@ -7,7 +7,7 @@ title: Itinerary Web Service
 
 The Concur Itinerary web service can be used to programmatically access travel data such as trips and bookings in the Concur travel system. The Concur Travel system uses this data to match and consolidate bookings it receives from disparate sources and put these into consolidated travelers’ itineraries, providing travelers a convenient way to view their trips in a single itinerary view. Travelers can view their itineraries through mobile applications or other services. The following diagram provides a graphical overview of the Concur Itinerary web service:
 
-![itinerary web service overview][9]
+![Itinerary web service overview[9]
 
 ## Version
 
