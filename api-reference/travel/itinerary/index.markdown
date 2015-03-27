@@ -81,6 +81,7 @@ The travel supplier can request or send travel bookings by using an OAuth token 
 * Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
 
 ## FAQs
+
 ### When do I send trips versus bookings?
 
 * TMCs, OTA, or partners that own or manage the entire trip on behalf of the traveler should send trips. 
