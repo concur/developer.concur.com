@@ -145,13 +145,10 @@ No.
 
 [Connection Requests][7]
 
-[Itinerary Web Service FAQs] [1]
-
 [Itinerary Reference] [5]
 
 
 
-[1]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/reference/itinerary-FAQs.html
 [2]: https://developer.concur.com/forums/concur-connect
 [3]: https://www.concur.com/en-us/connect-platform/suppliers
 [4]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/index.html
