@@ -416,11 +416,6 @@ For each custom field, the CustomField element has a Name and Value child elemen
 
 #####  Response
 
-<body>
-<pre>
-    200 OK
-    Content-Type: application/xml    
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
@@ -438,7 +433,6 @@ table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
 </style>
 </head>
 <body>
-<table width="100%"><tr><td align="center">Z:\Current_releases\WebServices\2015.03.SU113\Travel Profile\newXMLDocument.xml</td></tr></table>
 <pre>
 200 OK
 Content-Type: application/xml    
@@ -622,9 +616,6 @@ Content-Type: application/xml
 
 </pre></body>
 </html>
-
-    
-</pre></body>
 
 ####  Example 2: Get the travel profile for a user with a specific login ID
 
