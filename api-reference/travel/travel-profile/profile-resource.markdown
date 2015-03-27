@@ -34,10 +34,10 @@ The Travel Profile resource represents a Concur travel profile which contains tr
 * [User Notification][7]
 * [Travel Profile XSD][3] for the complete profile schema definition.
 
-[1]: https://developer.concur.com/node/503
-[2]: https://developer.concur.com/node/809
+[1]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/get-travel-profile
+[2]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
 [3]: https://www.concursolutions.com/ns/PanamaUserProfile.xsd
-[4]: https://developer.concur.com/node/497
-[5]: https://developer.concur.com/node/499
-[6]: https://developer.concur.com/node/566
-[7]: https://developer.concur.com/node/504
+[4]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
+[5]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
+[6]: http://concur.github.io/developer.concur.com/api-reference/user/company-notification-subscription-resource
+[7]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/user-notification-resource
