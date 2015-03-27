@@ -22,10 +22,11 @@ application/xml
 
 ## Operations
 
-* [Post notification subscription for itinerary changes request](#a1)
-* [Post notification subscription for form of payment changes request](#a2)
+* [Suscribe for notifications for itinerary changes](#a1)
+* [Suscribe for notifications for payment changes](#a2)
+* [Suscribe for notifications for travel profile changes](#a3)
 
-## <a name="a1">Post notification subscription for itinerary changes request</a>
+## <a name="a1">Suscribe for notifications for itinerary changes</a>
 Subscribes or unsubcribes the travel supplier from notifications when the user adds, modifies, or cancels an itinerary. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their trip information. 
 
 ### Request parameters
@@ -90,7 +91,7 @@ The request will include a **Notification** parent element, with the following c
 
 `200 OK`
 
-##  <a name="a2">Post Notification Subscription for Form of Payment Changes</a>
+##  <a name="a2">Suscribe for notifications for payment changes</a>
 
 ### Description
 Subscribes or unsubcribes the travel supplier from notifications when the user's Form of Payment information changes. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their Form of Payment information.
@@ -117,23 +118,24 @@ Required. Authorization header with OAuth token for the desired Concur user. Thi
     Authorization: OAuth {access token}
 ```
 
-###  Post Notification Subscription for Form of Payment Changes Response
+###  Post notification subscription for form of payment changes response
 
 #### Notification Format
 The notification will be sent to the Postback URL that the supplier has registered with Concur during application review. Suppliers can only have one postback URL for all notification types. The notification will include the **type** and **oauth_token_key** query parameters, specifying the OAuth information for the updated user:
 
 `https://postbackurl.com?type=FOP&oauth_token_key={oauth_token}`
 
-###  XML Example of Successful Response
+###  XML Example of xuccessful response
 
 `200 OK`
 
-##  Post Notification Subscription for Travel Profile Changes Request
+##  <a name="a3">Suscribe for notifications for travel profile changes</a>
 
-### Description
 Subscribes or unsubcribes the travel supplier from notifications when the user's Travel Profile information changes. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their travel profile information.
 
 **NOTE**: Concur will send a notification when any area of the user's Travel Profile is updated. This may include fields that are not available through the Travel Profile web service.
+
+### Request
 
 #### Request parameters
 
@@ -146,19 +148,19 @@ Subscribes or unsubcribes the travel supplier from notifications when the user's
 ##### Authorization header
 Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth from the App Center][1] process.
 
-###  XML Example Request
+###  Request
 
 ```
     POST https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=profile HTTP/1.1
     Authorization: OAuth {access token}
 ```
 
-###  Post Notification Subscription for Travel Profile Changes Response
+###  Response
 
 #### Notification Format
 The notification will be sent to the Postback URL that the supplier has registered with Concur during application review. Suppliers can only have one postback URL for all notification types. The notification will include the **type** and **oauth_token_key** query parameters, specifying the OAuth information for the updated user:
 
-`https://postbackurl.com?type=Profile&oauth_token_key={oauth_token}`
+<samp>https://postbackurl.com?type=Profile&oauth_token_key={oauth_token}</samp>
 
 ####  XML Example of Successful Response
 
@@ -173,7 +175,7 @@ The notification will be sent to the Postback URL that the supplier has register
 
 
 
-[2]: https://developer.concur.com/itinerary-tmc-and-third-party-developers/booking-resource
-[3]: https://developer.concur.com/travel-profile/form-payment-resource
-[4]: https://developer.concur.com/itinerary-tmc-and-third-party-developers/itinerary-resource
-[5]: https://developer.concur.com/travel-profile/profile-resource
+[2]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/booking
+[3]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
+[4]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/index.html
+[5]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/profile-resource
