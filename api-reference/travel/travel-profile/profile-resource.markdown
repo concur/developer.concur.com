@@ -4,8 +4,6 @@ layout: resource
 ---
 
 
-
-
 ##  Description
 
 The Travel Profile resource represents a Concur travel profile which contains travel-relation information about a user, such as:
@@ -420,7 +418,6 @@ For each custom field, the CustomField element has a Name and Value child elemen
 
     200 OK
     Content-Type: application/xml    
-    
 ````XML
     <ProfileResponse Status="Active" Unique="CM12345678">
         <General>
