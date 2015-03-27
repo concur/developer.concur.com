@@ -4,7 +4,7 @@ layout: conceptual
 ---
 
 ## Description
-Concur Travel Request is designed to help businesses control expenses by requiring employees to obtain approval before incurring expenses.The Travel Request web service provides the ability to view requests and update the workflow for travel requests. 
+Concur Travel Request is designed to help businesses control expenses by requiring employees to obtain approval before incurring expenses.The Travel Request resource provides the ability to view requests and update the workflow for travel requests. 
 
 ## Product Restrictions
 Concur products are highly configurable, and not all clients will have access to all features.
