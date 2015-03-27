@@ -10,7 +10,7 @@ A subscription to a notification when the Concur user changes the specified feat
 
 ## Resource URI
 * To subscribe:  <samp>https://www.concursolutions.com/api/user/v1.0/subscribe</samp>
-* To unsubscribe: <samp>https://www.concursolutions.com/api/user/v1.0/unsubscribe</samp>
+* To unsubscribe:  <samp>https://www.concursolutions.com/api/user/v1.0/unsubscribe</samp>
 
 ## Headers
 
