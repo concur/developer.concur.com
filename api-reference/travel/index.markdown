@@ -10,6 +10,7 @@ The Travel web services consists of a set of APIs that provide programmatic acce
 * Itinerary
 * Travel profile
 * Travel requests
+* Trip approval
 
 
 ### [Itinerary] [1]
