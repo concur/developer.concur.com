@@ -91,5 +91,5 @@ application/xml
 
 
 
-[1]: https://developer.concur.com/oauth-20/web-flow
-[2]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/booking/index.html
+[1]: http://concur.github.io/developer.concur.com/api-reference/authentication/web-flow
+[2]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/booking/booking-resource
