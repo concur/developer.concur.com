@@ -19,18 +19,18 @@ The Travel Request web service supports the OAuth 2.0 authentication model. This
 ## Resources
 
 * [Requests v. 1.0](#a1)
-* [Requests v. 3.0][14]  
+* [Requests v. 3.0][1]  
 
 ## <a name="a1">Requests version 1.0</a>
 
-Requests version 1.0 retrieves a list of up to 1000 travel requests. The request can include one or multiple search terms. This resource supports the following GET actions:
+Requests version 1.0 retrieves a list of up to 1000 travel requests. The request can include one or multiple search terms. This resource supports the following operations:
 
-* Get a list of travel requests
-* Get travel request details
+* [Get a list of travel requests](#a2)
+* [Get travel request details](#a3)
+* [Post a travel request header](#a4)
+* [Post a travel Request Workflow Action](#a5)
 
-**NOTE**: The documentation for the version 3.0 Requests resource can be found [here][1].
-
-### Get a list of travel requests
+### <<a name="a2">Get a list of travel requests</a>
 
 #### Request
 
@@ -299,12 +299,12 @@ This request will return a **TravelRequestDetails** parent element with the foll
 
 ##### Request
 
-```
+<samp>
     GET api/travelrequest/v1.0/requestslist/?status=SUBMITTED  HTTPS 1.1
-    Host: [www.concursolutions.com][2]
+    Host: www.concursolutions.com
     Authorization: OAuth {access token}
     ...
-```
+<\samp>
 
 #####  Response
 
@@ -335,12 +335,12 @@ This request will return a **TravelRequestDetails** parent element with the foll
 
 #####  Request
 
-```xml
+<samp>
     GET api/travelrequest/v1.0/requests/nxxKgLlnROz3zHJBCRksaas23dsfs  HTTPS 1.1
-    Host: [www.concursolutions.com][2]
+    Host: www.concursolutions.com
     Authorization: OAuth {access token}
     ...
-```
+<\samp>
 
 ####  Response
 
@@ -896,11 +896,8 @@ This request will return a **TravelRequestDetails** parent element with the foll
 
 
 [1]: https://www.concursolutions.com/api/docs/index.html#!/Requests
-[2]: http://www.concursolutions.com "www.concursolutions.com"
 [3]: http://concur.github.io/developer.concur.com/docs/reference/http-codes
 [4]: http://en.wikipedia.org/wiki/ISO_4217
 [5]: http://concur.github.io/developer.concur.com/api-reference/callouts/event-notification
-[6]: https://developer.concur.com/node/519#requestworkflow
 [12]: https://developer.concur.com/forums/concur-connect
 [13]: http://concur.github.io/developer.concur.com/api-reference/authentication/oauth-20-overview
-[14]: https://www.concursolutions.com/api/docs/index.html#!/Requests
