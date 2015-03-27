@@ -5,15 +5,7 @@ layout: resource
 
 
 ## Description
-The Form of Payment resource represents the form of payment a Concur user uses by default during travel. You can use this resource to obtain the following information associated with a user's preferred method of payment:
-
-* Card display name
-* Card vendor
-* Credit card number
-* Expiration date
-* Card owner's Name
-* Billing address
-* Preferred usage
+The Form of Payment resource represents the form of payment a Concur user uses by default during travel. You can use this resource to obtain information associated with a user's preferred method of payment such as card display name, credit card number, expiration date, and billiting address.
 
 ## Version   
 1.0
