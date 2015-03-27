@@ -7,7 +7,7 @@ layout: resource
 ## Description
 A subscription to a notification when the Concur user changes the specified features of their Concur account or data. Currently supports notifications for the following events: Itinerary change (create or update), Travel Profile basic information change, or Travel Profile Form of Payment change. This functionality is restricted to Travel Suppliers or TMCs (Travel Management Companies) who have registered with Concur.
 
-**NOTE**: This resource can only be accessed by partner applications that have selected the 'User' API scope.
+**NOTE**: This resource can only be accessed by partner applications that have selected the `User` API scope.
 
 ## Resource URI
 * To subscribe:  <samp>https://www.concursolutions.com/api/user/v1.0/subscribe</samp>
