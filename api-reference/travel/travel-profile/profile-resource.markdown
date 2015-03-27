@@ -55,6 +55,159 @@ Where *access_token* is the OAuth 2.0 access token of the user whose travel prof
 
 The data model of the response for the GET operation.
 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>TravelProfile_Resource_GET_data_model.xml</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.xml-attribute {color: #009900}
+.xml-value {color: #ce7b00}
+.xml-tag {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">Z:\Current_releases\WebServices\2015.03.SU113\Travel Profile\TravelProfile_Resource_GET_data_model.xml</td></tr></table>
+<pre>
+<span class="xml-tag">&lt;ProfileResponse</span> <span class="xml-attribute">Status</span>=<span class="xml-value">&quot;Active|Inactive&quot;</span> <span class="xml-attribute">Unique</span>=<span class="xml-value">&quot;{unique identifier for the user}&quot;</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;General</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;NamePrefix</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;FirstName</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;MiddleName</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;LastName</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;NameSuffix</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;PreferredName</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;JobTitle</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;PreferredLanguage</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;EReceiptOptIn</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;MarketingOptIn</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;HasOpenBooking</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;CountryCode</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;CompanyName</span> <span class="xml-tag">/&gt;</span>
+    <span class="xml-tag">&lt;/General</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;Telephones</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;Telephone</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Cell|Other|Pager|Fax|Home|Work|Primary Mobile Phone&quot;</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;ContactOptIn</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;CountryCode</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;PhoneNumber</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;Extension</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;/Telephone</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;/Telephones</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;Addresses</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;Address</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Home|Work|Billing|Other&quot;</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;AttentionLine</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;Line1</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;Line2</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;Line3</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;MailStop</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;/Mailstop</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;City</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;StateProvince</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;CountryCode</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;ZipCode</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;Laditude</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;Longitude</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;/Address</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;/Addresses</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;DriversLicenses</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;DriversLicense</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;DriversLicenseNumber</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;IssuingCountry</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;IssuingState</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;Expiration</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;/DriversLicense</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;/DriversLicenses</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;EmailAddresses</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;EmailAddress</span> <span class="xml-tag">/&gt;</span>
+    <span class="xml-tag">&lt;/EmailAddresses</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;RatePreferences</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;AAARate</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;AARPRate</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;GovtRate</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;MilitaryRate</span> <span class="xml-tag">/&gt;</span>
+    <span class="xml-tag">&lt;/RatePreferences</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;DiscountCodes</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;DiscountCode</span> <span class="xml-tag">/&gt;</span>
+    <span class="xml-tag">&lt;/DiscountCodes</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;Air</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;AirSmokingCode</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;AirMemberships</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;AirMembership</span><span class="xml-tag">&gt;</span>
+                <span class="xml-tag">&lt;VendorCode</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;AccountNo</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;Status</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;StatusBenefits</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;PointTotal</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;SegmentTotal</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;NextStatus</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;PointsUntilNextStatus</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;SegmentsUntilNextStatus</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;/AirMembership</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;/AirMemberships</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;Seat</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;InterRowPositionCode</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;SectionPositionCode</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;/Seat</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;Meals</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;MealCode</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;/Meals</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;HomeAirport</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;AirOther</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;DHSRedressNumber</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;DHSKnownTravelerNumber</span> <span class="xml-tag">/&gt;</span>
+    <span class="xml-tag">&lt;/Air</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;Car</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;CarSmokingCode</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;CarGPS</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;CarOption</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;CarMemberships</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;CarMembership</span><span class="xml-tag">&gt;</span>
+                <span class="xml-tag">&lt;VendorCode</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;AccountNo</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;Status</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;StatusBenefits</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;PointTotal</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;SegmentTotal</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;NextStatus</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;PointsUntilNextStatus</span> <span class="xml-tag">/&gt;</span>
+                <span class="xml-tag">&lt;SegmentsUntilNextStatus</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;/CarMembership</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;CarOther</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;CarSkiRack</span> <span class="xml-tag">/&gt;</span>
+    <span class="xml-tag">&lt;/Car</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;Hotel</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;SmokingCode</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;HotelMemberships</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;RoomType</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;HotelOther</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;preferFoamPillows</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;preferCrib</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;preferRollawayBed</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;preferGym</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;preferPool</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;preferRestaurant</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;preferWheelchairAccess</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;preferAccessForBlind</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;preferRoomService</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;preferEarlyCheckIn</span> <span class="xml-tag">/&gt;</span>
+    <span class="xml-tag">&lt;/Hotel</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;CustomFields</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;Name</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;Value</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;/CustomFields</span><span class="xml-tag">&gt;</span>
+<span class="xml-tag">&lt;/ProfileResponse</span><span class="xml-tag">&gt;</span>
+
+</pre></body>
+</html>
+
+
 ````XML
     <ProfileResponse Status="Active|Inactive" Unique="{unique identifier for the user}">
         <General>
