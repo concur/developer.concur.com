@@ -54,9 +54,6 @@ Where *access_token* is the OAuth 2.0 access token of the user whose travel prof
 
 The data model of the response for the GET operation.
 
-<html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <style type="text/css">
 <!--
 pre {color: #000000; background-color: #ffffff; font-family: Menlo,Monaco,Consolas,"Courier New";}
@@ -65,7 +62,6 @@ pre {color: #000000; background-color: #ffffff; font-family: Menlo,Monaco,Consol
 .xml-tag {color: #0000e6}
 -->
 </style>
-</head>
 <pre>
 <span class="xml-tag">&lt;ProfileResponse</span> <span class="xml-attribute">Status</span>=<span class="xml-value">&quot;Active|Inactive&quot;</span> <span class="xml-attribute">Unique</span>=<span class="xml-value">&quot;{unique identifier for the user}&quot;</span><span class="xml-tag">&gt;</span>
     <span class="xml-tag">&lt;General</span><span class="xml-tag">&gt;</span>
