@@ -19,7 +19,7 @@ The Travel Profile resource represents a Concur travel profile which contains tr
 
 ##  URI
 
-`https://{InstanceURL}/api/travelprofile/v1.0/profile`
+<samp>https://{InstanceURL}/api/travelprofile/v1.0/profile<\samp>
 
 ##  Operations
 
