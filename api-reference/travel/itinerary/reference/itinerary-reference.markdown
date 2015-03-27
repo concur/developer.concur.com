@@ -1249,6 +1249,7 @@ Concur converts local date/time to UTC.  In order to do that we need to be able 
 
 ###  Windows time zones
 
+| | | | |
 |--------------|--------------|--------------|--------------|
 |  Africa/Cairo |  Africa/Casablanca |  Africa/Harare |  Africa/Luanda |
 |  Africa/Nairobi |  Africa/Windhoek |  America/Anchorage |  America/Argentina/Buenos_Aires |
