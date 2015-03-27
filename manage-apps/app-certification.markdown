@@ -5,7 +5,7 @@ layout: conceptual
 
 Handling data with care and delivering a positive experience for our customers is paramount at Concur.  To ensure an appropriate level of data security and good customer experience, all apps that integrate and appear in the App Center go through our App Review process.
 
-##### **Get Started on Your API Review**
+#### **Get Started on Your API Review**
 
 1. [Register for a sandbox](https://developer.concur.com/register) and find [API documentation]({{ site.baseurl }}/api-reference/).
 2. As you build your app, complete our[ Application Submission Form]({{ site.baseurl }}/manage-apps/go-market-docs/app_center_application_submission_form_021215.pdf).
@@ -13,15 +13,15 @@ Handling data with care and delivering a positive experience for our customers i
 
 After your app is approved, your app listing will be reviewed before publishing in the [Concur App Center](https://www.concur.com/en-us/app-center). 
 
-##### **How Does App Review Work?**
+#### **How Does App Review Work?**
 
 Concur conducts an initial application and security review in the sandbox environment.  For solutions that process, transmit or store sensitive information, an additional review may be conducted in our sandbox as well as your production environment. 
 
-##### **Is There a Cost?**
+#### **Is There a Cost?**
 
 For apps for individual travelers, the fee for App Review is currently being waived.  For apps requiring enterprise-level integration or access to corporate information, there are costs for App Review and you will be asked to enter into a partnership agreement.  Our partner team at  [bizdev@concur.com](mailto:bizdev@concur.com) will work hand-in-hand with you, and looks forward to hearing from you.
 
-##### **What does Concur Specifically Review?**
+#### **What does Concur Specifically Review?**
 
 The App Review process includes a review of:
 
