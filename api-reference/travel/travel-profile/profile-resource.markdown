@@ -23,7 +23,10 @@ The Travel Profile resource represents a Concur travel profile which contains tr
 
 ##  Operations
 
-## Get a travel profile
+* [Get a travel profile](#a1)
+* [Get a list of travel profile summaries](#a2)
+
+## <a name="a1">Get a travel profile</a>
 
 Gets the travel profile information for the specified user. The travel profile includes information such as the user's identity, contact information, rate preferences and discount codes, preferences by travel type, and custom fields. The travel profile information returned by this GET operation depends on whether the caller is a Travel Supplier, a TMC, or a mainstream developer:
 
@@ -819,7 +822,7 @@ The response is the same as in Example 1.
 
 The response is the same as in Example 3.
 
-## Get a list of travel profile summaries
+## <a name="a1">Get a list of travel profile summaries</a>
 
 Gets the list of travel profile summaries that have been updated since the specified date. The response is separated into pages.
 
