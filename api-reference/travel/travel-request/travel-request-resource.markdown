@@ -28,7 +28,7 @@ Requests version 1.0 retrieves a list of up to 1000 travel requests. The request
 * [Get a list of travel requests](#a2)
 * [Get travel request details](#a3)
 * [Post a travel request header](#a4)
-* [Post a travel Request Workflow Action](#a5)
+* [Post a travel request workflow action](#a5)
 
 ### <a name="a2">Get a list of travel requests</a>
 
