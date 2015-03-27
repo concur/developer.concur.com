@@ -10,8 +10,8 @@ A subscription to a notification when the Concur user changes the specified feat
 **NOTE**: This resource can only be accessed by partner applications that have selected the 'User' API scope.
 
 ## Resource URI
-* To subscribe:  `https://www.concursolutions.com/api/user/v1.0/subscribe`
-* To unsubscribe: `https://www.concursolutions.com/api/user/v1.0/unsubscribe`
+* To subscribe:  <samp>https://www.concursolutions.com/api/user/v1.0/subscribe</samp>
+* To unsubscribe: <samp>https://www.concursolutions.com/api/user/v1.0/unsubscribe</samp>
 
 ## Headers
 
@@ -51,11 +51,11 @@ Required. Authorization header with OAuth token for the desired Concur user. Thi
 
 ##  <a name="a2">Post notification subscription for itinerary changes response</a>
 
-### Notification Format
+### Notification format
 
 The notification will be sent to the Postback URL that the supplier has registered with Concur during application review. Suppliers can only have one postback URL for all notification types. The notification will include the **type** and **oauth_token_key** query parameters, specifying the OAuth information for the updated user:
 
-`https://postbackurl.com?type=Itinerary&oauth_token_key={oauth_token}`
+<samp>https://postbackurl.com?type=Itinerary&oauth_token_key={oauth_token}</samp>
 
 ### Response body root elements
 
