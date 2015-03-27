@@ -23,10 +23,10 @@ application/xml
 
 ## Operations
 
-* [Post Notification Subscription for Itinerary Changes Request](#a1)
-* [Post Notification Subscription for Form of Payment Changes Request](#a2)
+* [Post notification subscription for itinerary changes request](#a1)
+* [Post notification subscription for form of payment changes request](#a2)
 
-## <a name="a1">Post Notification Subscription for Itinerary Changes Request</a>
+## <a name="a1">Post notification subscription for itinerary changes request</a>
 Subscribes or unsubcribes the travel supplier from notifications when the user adds, modifies, or cancels an itinerary. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their trip information. 
 
 ### Request parameters
