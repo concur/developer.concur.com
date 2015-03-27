@@ -23,7 +23,7 @@ The Travel Profile resource represents a Concur travel profile which contains tr
 
 ##  Operations
 
-## [Get a travel profile][1]
+## Get a travel profile
 
 Gets the travel profile information for the specified user. The travel profile includes information such as the user's identity, contact information, rate preferences and discount codes, preferences by travel type, and custom fields. The travel profile information returned by this GET operation depends on whether the caller is a Travel Supplier, a TMC, or a mainstream developer:
 
@@ -818,8 +818,7 @@ The response is the same as in Example 1.
 
 The response is the same as in Example 3.
 
-
-## [Get a list of travel profile summaries][2]
+## Get a list of travel profile summaries
 
 Gets the list of travel profile summaries that have been updated since the specified date. The response is separated into pages.
 
@@ -966,8 +965,7 @@ This example gets the list of travel profile summaries modified after January 1 
 * [User Notification][7]
 * [Travel Profile XSD][3] for the complete profile schema definition.
 
-[1]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/get-travel-profile
-[2]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
+
 [3]: https://www.concursolutions.com/ns/PanamaUserProfile.xsd
 [4]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
 [5]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
