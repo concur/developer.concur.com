@@ -822,7 +822,7 @@ The response is the same as in Example 1.
 
 The response is the same as in Example 3.
 
-## <a name="a1">Get a list of travel profile summaries</a>
+## <a name="a2">Get a list of travel profile summaries</a>
 
 Gets the list of travel profile summaries that have been updated since the specified date. The response is separated into pages.
 
@@ -958,8 +958,6 @@ This example gets the list of travel profile summaries modified after January 1 
         </Data>
     </ConnectResponse>
 ```
- 
-
  
 
 ###  See Also
