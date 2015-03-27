@@ -46,8 +46,6 @@ The request will contain a TripApprovalRQ parent element with a TransactionId at
 | Action |	Y	| The workflow action to take. Supported values are approve, reject. |
 
 ### Response
-* [HTTP Status Codes][1]
-* [Error Codes][2]
 
 #### Response body elements
 This request will return a TripApprovalRS parent element with a matching TransactionId attribute. The TripApprovalRS element will contain the following child elements:
