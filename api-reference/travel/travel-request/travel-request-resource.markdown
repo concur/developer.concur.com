@@ -17,10 +17,11 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 The Travel Request web service supports the OAuth 2.0 authentication model. This authentication model is covered in detail in [OAuth 2.0 Overview][13] topic. Any additional required elements for the web service requests are covered in the function documentation.
 
 ## Resources
-[Requests v. 1.0](#a1)
-[Requests v. 3.0][14]  
 
-## Requests version 1.0
+* [Requests v. 1.0](#a1)
+* [Requests v. 3.0][14]  
+
+## <a name="a1">Requests version 1.0</a>
 
 Requests version 1.0 retrieves a list of up to 1000 travel requests. The request can include one or multiple search terms. This resource supports the following GET actions:
 
