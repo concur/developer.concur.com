@@ -277,7 +277,7 @@ The DiscountCodes parent element contains a DiscountCode child element for each 
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  DiscountCode |  String | The discount code for the specified vendor.The DiscountCode element has a Vendor attribute that specifies the name of the vendor for the discount code. Possible values are **?**. Format: ?|
+|  DiscountCode |  String | The discount code for the specified vendor.The DiscountCode element has a Vendor attribute that specifies the name of the vendor for the discount code.|
 
 ####  Air elements
 
