@@ -46,7 +46,7 @@ Updates the loyalty program information for the OAuth consumer. Loyalty contains
 
 **Travel Suppliers**
 
-If the request is sent from a travel supplier with an [OAuth token][1] for the user, they can set a new loyalty program number. Travel suppliers can only update their own loyalty program information.
+If the request is sent from a travel supplier with an [OAuth token][4] for the user, they can set a new loyalty program number. Travel suppliers can only update their own loyalty program information.
 
 **Travel Management Companies**
 
@@ -189,7 +189,7 @@ This request will return a **LoyaltyMembershipResponse** parent element with the
 * [Form of Payment][2]
 * [Travel Profile][3]
 
- 
-
+[1]: http://concur.github.io/developer.concur.com/api-reference/authentication/oauth-20-overview
+[4]: https://developer.concur.com/go-market/app-certification
 [2]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
-[3]:http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/profile-resource
+[3]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/profile-resource
