@@ -1115,7 +1115,99 @@ The following car vendor codes are used in the Car Booking Elements.
 
 ## <a name="ride_vendor_codes" id="semantics_codes">Semantics codes</a>
 
-Semantics Codes
+The semantics codes are used in the Charges child elements in Bookings.
+
+|  Vendor Type |  Semantics Code |  Description |
+|--------------|--------------|--------------|
+|  Hotel |  OTHER |  Other miscellaneous charges |
+|  Hotel |  BUSINESS |  Business center charges |
+|  Hotel |  CONFERENCE |  Conference charges |
+|  Hotel |  COUNTYTAX |  County tax |
+|  Hotel |  VAT |  VAT tax |
+|  Hotel |  GST |  GST tax |
+|  Hotel |  FEDERALTAX |  Federal tax |
+|  Hotel |  FOOD |  Food/beverage charges: hotel restaurant, room service |
+|  Hotel |  ALCOHOL |  Alcohol charges: beer, wine, and liquor at restaurant |
+|  Hotel |  FOODTAX |  Food/beverage taxes |
+|  Hotel |  GIFT |  Gift shop charges |
+|  Hotel |  GENERALTAX |  General taxes |
+|  Hotel |  HEALTH |  Health club, pool, court, golf, etc. |
+|  Hotel |  LAUNDRY |  Laundry |
+|  Hotel |  MINIBAR |  In room mini-bar |
+|  Hotel |  CITYTAX |  City tax |
+|  Hotel |  MOVIE |  Movie, in room entertainment |
+|  Hotel |  GAME |  Game, in room entertainment |
+|  Hotel |  PARKING |  Parking/Valet |
+|  Hotel |  PST |  PST tax |
+|  Hotel |  STATETAX |  State tax |
+|  Hotel |  PAYMENT |  Payment |
+|  Hotel |  DISCOUNT |  Discount |
+|  Hotel |  ROOMRATE |  Room rate |
+|  Hotel |  ROOMTAX |  Room tax |
+|  Hotel |  GRATUITY |  Gratutities, tips |
+|  Hotel |  PHONE |  Telephone charges |
+|  Hotel |  INTERNET |  Internet charges |
+|  Hotel |  NOSHOW |  No show fee |
+|  Hotel |  NEGOTIATEDRATE |  Negotiated room rate |
+|  Car |  DAYS |  DAYS |
+|  Car |  WEEKS |  WEEKS |
+|  Car |  MONTHS |  MONTHS |
+|  Car |  EXTRAHOURS |  EXTRA HOURS |
+|  Car |  EXTRADAYS |  EXTRA DAYS |
+|  Car |  EXTRAWEEKS |  EXTRA WEEKS |
+|  Car |  MILEAGEFEE |  MILEAGE FEE |
+|  Car |  UPGRADEFEE |  UPGRADE FEE |
+|  Car |  ADJUSTMENT |  ADJUSTMENT |
+|  Car |  DISCOUNT |  DISCOUNT |
+|  Car |  COLLECTION |  COLLECTION |
+|  Car |  DELIVERY |  DELIVERY |
+|  Car |  INTERCITY |  INTERCITY |
+|  Car |  ADDLDRIVER |  ADDITIONAL DRIVER |
+|  Car |  SERVICECHARGE |  SERVICE CHARGE |
+|  Car |  LDWCDW |  LDW/CDW |
+|  Car |  ALIAMOUNT |  ALI AMOUNT |
+|  Car |  PAIPECAMOUNT |  PAI/PEC AMOUNT |
+|  Car |  THEFTPROTECT |  THEFT PROTECTION |
+|  Car |  FUELSERVICE |  FUEL SERVICE |
+|  Car |  AIRPORTFEE |  AIRPORT FEE |
+|  Car |  AGEDIFFER |  AGE DIFFERENTIAL |
+|  Car |  CHILDSEAT |  CHILD SEAT |
+|  Car |  SKIRACK |  SKI RACK |
+|  Car |  ADDLSERVICE |  ADDITIONAL SERVICE |
+|  Car |  OTHERCHARGES |  OTHER CHARGES |
+|  Car |  TRANSACTIONFEE |  TRANSACTION FEE |
+|  Car |  SATELLITERADIO |  SATELLITE RADIO |
+|  Car |  NEVERLOST |  NEVERLOST |
+|  Car |  ACSURCHARGE |  A/C SURCHARGE |
+|  Car |  RESERVATIONFEE |  RESERVATION FEE |
+|  Car |  TAXDIFFER |  TAX DIFFERENTIAL |
+|  Car |  VOUCHERADJUST |  VOUCHER ADJUSTMENT |
+|  Car |  VATAMOUNT |  VAT AMOUNT |
+|  Car |  GSTAMOUNT |  GST AMOUNT |
+|  Car |  VEHICLELICENSE |  VEHICLE LICENSE FEE |
+|  Car |  CUSTFACILITY |  CUSTOMER FACILITY |
+|  Car |  VEHLEASETAX |  MOTOR VEHICLE LEASE TAX |
+|  Car |  ROADTAX |  ROAD TAX |
+|  Car |  OTHER |  OTHER |
+|  Car |  ACRECOVERYFEE |  AIR CONDITION RECOVERY FEE |
+|  Car |  CONCESSIONFEE |  CONCESSION PASS THRU FEE |
+|  Car |  CUSTRELATIONS |  CUSTOMER RELATIONS EXPENSE |
+|  Car |  TFFCORPVRT |  TFFC OR PVRT |
+|  Car |  IMPOUNDSTORAGE |  IMPOUND/STORAGE |
+|  Car |  LISAMOUNT |  LIS AMOUNT |
+|  Car |  SUPLIABILITY |  SUPPLEMENTAL LIABILITY PROTECTION |
+|  Car |  DROPOFFFEE |  DROPOFF FEE |
+|  Car |  WEEKEND |  WEEKEND DAILY RATE |
+|  Air |  OTHER |  Miscellaneous charge |
+|  Air |  SEGFEE |  Segment fee |
+|  Air |  SEGFEE_AS_FEE |  Segment fees as fee |
+|  Air |  SEGFEE_AS_FARE |  Segment fees as base fare |
+|  Air |  SEGFEE_AS_TAX |  Segment fee as tax |
+|  Air |  WIRELESS_FEE |  Wireless Fee |
+|  Rail |  OTHER |  Miscellaneous charge |
+|  Rail |  TICKET |  Price of ticket |
+|  Rail |  SEAT |  Price of seat |
+
 
 ## <a name="time_zones" id="time_zones">Time zones</a>
 
