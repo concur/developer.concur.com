@@ -943,7 +943,7 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | IsPrimary | boolean |  |  Indicates whether the charge is the Primary or  Main rate. For example, if one of the rates is the actual rate and the  rest are penalties, the actual rate should be set as IsPrimary. Only one charge in a set should be primary. Format: true/false. |
 | NumUnits | decimal |  | The  number of units expected for the charge. For instance, 3 days. |
 | PerUnit | string |  | The  unit of measure for the charge. Values represent rates like per DAY, WEEK, or MONTH |
-| SemanticsCode | string |  | Indicates the charge category for the line item. Refer to the [Semantics Codes][3] table for more information. |
+| SemanticsCode | string |  | Indicates the charge category for the line item. Refer to the [Semantics Codes](#semantics_codes) table for more information. |
 | SemanticsVendorType | string |  | The vendor type: H=Hotel, C=Car, A=Air, G=Ground, R=Rail |
 | StartDateLocal | dateTime |  | The start date of the booking, in the user's local time. Format: YYYY-MM-DDThh:mm:ss |
 | Vendor | string |  |  The vendor for the booking charge. |
@@ -1113,7 +1113,7 @@ The following car vendor codes are used in the Car Booking Elements.
 |  TV |  Transvip |
 
 
-## <a name="ride_vendor_codes" id="semantics_codes">Semantics codes</a>
+## <a name="semantics_codes" id="semantics_codes">Semantics codes</a>
 
 The semantics codes are used in the Charges child elements in Bookings.
 
@@ -1284,6 +1284,5 @@ Concur converts local date/time to UTC.  In order to do that we need to be able 
 
 [1]: http://en.wikipedia.org/wiki/ISO_4217
 [2]: http://www.iata.org/publications/Pages/code-search.aspx
-[3]: https://developer.concur.com/sites/default/files/SemanticsAndVendorCodes.pdf
 
 
