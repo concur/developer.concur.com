@@ -951,23 +951,23 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 
 ##  <a name="car_vendor_codes" id="car_vendor_codes">Car vendor codes</a>
 
-<Car vendor codes info here>
+Car vendor codes info here
 
 ##  <a name="hotel_vendor_codes" id="hotel_vendor_codes">Hotel vendor codes</a>
 
-<Hotel Vendor Codes>
+Hotel Vendor Codes
 
 ##  <a name="ride_vendor_codes" id="ride_vendor_codes">Ride vendor Codes</a>
 
-<Ride Vendor Codes>
+Ride Vendor Codes
 
 ## <a name="ride_vendor_codes" id="semantics_codes">Semantics codes</a>
 
-<Semantics Codes>
+Semantics Codes
 
 ## <a name="time_zones" id="time_zones">Time zones</a>
 
-<Time Zone Formats>
+Time Zone Formats
 
 
 
