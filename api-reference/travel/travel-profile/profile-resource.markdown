@@ -858,27 +858,29 @@ Where _access_token_ is the OAuth 2.0 access token of the user whose travel prof
 
 The data model of the response for the GET operation.
 
-```xml
-    <ConnectResponse>
-        <Metadata>
-            <Paging>
-                <TotalPages />
-                <TotalItems />
-                <Page />
-                <ItemsPerPage />
-                <PreviousPageURL />
-                <NextPageURL />
-            </Paging>
-        </Metadata>
-        <Data>
-            <ProfileSummary>
-                <LoginID />
-                <XmlProfileSyncID />
-                <ProfileLastModifiedUTC />
-            </ProfileSummary>
-        </Data>
-    </ConnectResponse>
-```
+<pre>
+<span class="xml-tag">&lt;ConnectResponse</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;Metadata</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;Paging</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;TotalPages</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;TotalItems</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;Page</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;ItemsPerPage</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;PreviousPageURL</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;NextPageURL</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;/Paging</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;/Metadata</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;Data</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;ProfileSummary</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;LoginID</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;XmlProfileSyncID</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;ProfileLastModifiedUTC</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;/ProfileSummary</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;/Data</span><span class="xml-tag">&gt;</span>
+<span class="xml-tag">&lt;/ConnectResponse</span><span class="xml-tag">&gt;</span>
+
+</pre>
+
 ### Response
 
 ####  ConnectResponse root element
