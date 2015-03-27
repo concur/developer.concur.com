@@ -1421,9 +1421,9 @@ Concur converts local date/time to UTC.  In order to do that we need to be able 
 
 ## See also
 
-[Travel Profile](api-reference/travel/travel-profile/index)
+[Travel Profile](/api-reference/travel/travel-profile/index)
 
-[Connection Requests](api-reference/common/connection-requests/connection-requests-resource)
+[Connection Requests](/api-reference/common/connection-requests/connection-requests-resource)
 
 
 
