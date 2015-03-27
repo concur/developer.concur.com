@@ -23,7 +23,7 @@ Loyalty programs contain a variety of information about the user's loyalty membe
 1.0
 
 ## URI
-`https://www.concursolutions.com/api/travelprofile/v1.0/loyalty`
+<samp>https://www.concursolutions.com/api/travelprofile/v1.0/loyalty</samp>
 
 ## Content types
 * application/xml
@@ -32,7 +32,7 @@ Loyalty programs contain a variety of information about the user's loyalty membe
 * application/xml
 
 ## Operations
-* [Update loyalty program information][1]
+* [Update loyalty program information](#a1)
 
 ## See also
 * [Form of Payment][2]
@@ -40,7 +40,5 @@ Loyalty programs contain a variety of information about the user's loyalty membe
 
  
 
-
-[1]: https://developer.concur.com/travel-profile/loyalty-program-resource/loyalty-program-resource-post
-[2]: https://developer.concur.com/travel-profile/form-payment-resource
-[3]: https://developer.concur.com/travel-profile/profile-resource
+[2]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
+[3]:http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/profile-resource
