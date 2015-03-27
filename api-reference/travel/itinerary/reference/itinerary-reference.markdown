@@ -7,11 +7,11 @@ layout: conceptual
 The Itinerary Reference documentation includes the following reference information that can be used in conjunction with the Trip Resource API and Booking Resource API documentation. It includes the following reference documents:
 
 * [Itinerary Data Model](#itinerary_data_model)
-* Car Vendor Codes
-* Hotel Vendor Codes
-* Ride Vendor Codes
-* Semantics Codes
-* Time Zone Formats
+* [Car Vendor Codes](#car_vendor_codes)
+* [Hotel Vendor Codes](#hotel_vendor_codes)
+* [Ride Vendor Codes](#ride_vendor_codes)
+* [Semantics Codes](#semantics_codes)
+* [Time Zone Formats](#time_zones)
 
 ##  <a name="itinerary_data_model" id="itinerary_data_model">Itinerary data model</a>
 
@@ -948,6 +948,27 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | StartDateLocal | dateTime |  | The start date of the booking, in the user's local time. Format: YYYY-MM-DDThh:mm:ss |
 | Vendor | string |  |  The vendor for the booking charge. |
 | VendorChargeCode | string |  | The vendor's code for the charge. |
+
+##  <a name="car_vendor_codes" id="car_vendor_codes">Car vendor codes</a>
+
+<Car vendor codes info here>
+
+##  <a name="hotel_vendor_codes" id="hotel_vendor_codes">Hotel vendor codes</a>
+
+<Hotel Vendor Codes>
+
+##  <a name="ride_vendor_codes" id="ride_vendor_codes">Ride vendor Codes</a>
+
+<Ride Vendor Codes>
+
+## <a name="ride_vendor_codes" id="semantics_codes">Semantics codes</a>
+
+<Semantics Codes>
+
+## <a name="time_zones" id="time_zones">Time zones</a>
+
+<Time Zone Formats>
+
 
 
 [1]: http://en.wikipedia.org/wiki/ISO_4217
