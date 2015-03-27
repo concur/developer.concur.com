@@ -828,10 +828,10 @@ Gets the list of travel profile summaries that have been updated since the speci
 
 ###  Request
 
-```
+<samp>
 GET {InstanceURI}/api/travelprofile/v1.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
 Authorization: OAuth {access token}
-```
+</samp>
 
 ####  Request parameters
 
