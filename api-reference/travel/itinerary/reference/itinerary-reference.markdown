@@ -4,7 +4,7 @@ layout: conceptual
 ---
 
 
-The Itinerary Reference documentation includes the following reference information that can be used in conjunction with the Trip Resource API and Booking Resource API documentation. It includes the following reference documents:
+The Itinerary Reference documentation includes the following reference information that can be used in conjunction with the Trip Resource API and Booking Resource API documentation. It includes the following reference topics:
 
 * [Itinerary Data Model](#itinerary_data_model)
 * [Car Vendor Codes](#car_vendor_codes)
