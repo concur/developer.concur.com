@@ -374,7 +374,7 @@ The Hotel parent element contains the user's hotel travel preferences. It contai
 |  preferPool |  String |  Whether the user prefers a hotel with a pool. Format:**True**\|**False**. |
 |  preferRestaraunt |  String |  Whether the user prefers a hotel with a restaurant. Format:**True**\|**False**. |
 |  preferWheelchairAccess |  String |  Whether the user requires wheelchair access. Format: **True**\|**False**. |
-|  preferAccessForBlind |  String |  Whether the user requires a room with access for blind guests. Format:**True**|**False**. |
+|  preferAccessForBlind |  String |  Whether the user requires a room with access for blind guests. Format:**True**\|**False**. |
 |  preferRoomService |  String |  Whether the user prefers a hotel with room service. Format:**True**\|**False**. |
 |  preferEarlyCheckIn |  String |  Whether the user prefers a hotel with early check in. Format:**True**\|**False**. |
 
