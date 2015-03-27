@@ -29,11 +29,15 @@ application/xml
 ## <a name="a1">Suscribe for notifications for itinerary changes</a>
 Subscribes or unsubcribes the travel supplier from notifications when the user adds, modifies, or cancels an itinerary. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their trip information. 
 
+
+## Request
+
+* To subscribe:<sample>https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=itinerary</sample>
+* To unsubscribe:<sample>https://www.concursolutions.com/api/travelprofile/v1.0/unsubscribe?type=itinerary</sample>
+
 ### Request parameters
 
 **type=itinerary**<br>The type of subscription. Required.
-
-**Examples**<br>To subscribe:<br>`https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=itinerary`<br>To unsubscribe:<br>`https://www.concursolutions.com/api/travelprofile/v1.0/unsubscribe?type=itinerary`
 
 ### Headers
 
