@@ -45,7 +45,7 @@ Subscribes or unsubcribes the travel supplier from notifications when the user a
 
 #### Authorization header
 
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth from the App Center][1] process.
+Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the OAuth 2.0 Web flow authorization process [OAuth2_0_webflow][1] process.
 
 ###  Example: Suscribe to itinerary changes
 
@@ -115,7 +115,7 @@ Subscribes or unsubcribes the travel supplier from notifications when the user's
 #### Headers
 
 ##### Authorization header
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth from the App Center][1] process.
+Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the OAuth 2.0 Web flow authorization process [OAuth2_0_webflow][1] process.
 
 ###  XML Example Request
 
@@ -152,7 +152,7 @@ Subscribes or unsubcribes the travel supplier from notifications when the user's
 #### Headers
 
 ##### Authorization header
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth from the App Center][1] process.
+Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the OAuth 2.0 Web flow authorization process [OAuth2_0_webflow][1] process.
 
 ###  Request
 
@@ -180,7 +180,7 @@ The notification will be sent to the Postback URL that the supplier has register
 * [Travel Profile][5]
 
 
-
+[1]: http://concur.github.io/developer.concur.com/api-reference/authentication/web-flow
 [2]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/booking
 [3]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
 [4]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/index.html
