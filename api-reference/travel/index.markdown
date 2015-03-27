@@ -1,6 +1,6 @@
 ---
 layout: conceptual
-title: Travel
+title: Travel Web Services
 ---
 
 ## Overview
