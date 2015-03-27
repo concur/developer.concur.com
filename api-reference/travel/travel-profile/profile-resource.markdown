@@ -416,9 +416,11 @@ For each custom field, the CustomField element has a Name and Value child elemen
 
 #####  Response
 
+<body>
+<pre>
     200 OK
     Content-Type: application/xml    
-````XML
+
     <ProfileResponse Status="Active" Unique="CM12345678">
         <General>
             <NamePrefix />
@@ -595,7 +597,8 @@ For each custom field, the CustomField element has a Name and Value child elemen
             </CustomField>
         </CustomFields>
     </ProfileResponse>
-````
+    
+</pre></body>
 
 ####  Example 2: Get the travel profile for a user with a specific login ID
 
