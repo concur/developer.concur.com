@@ -419,13 +419,11 @@ For each custom field, the CustomField element has a Name and Value child elemen
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>newXMLDocument.xml</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <style type="text/css">
 <!--
 body {color: #000000; background-color: #ffffff; font-family: Monospaced}
 pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
-table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
 .xml-attribute {color: #009900}
 .xml-value {color: #ce7b00}
 .xml-tag {color: #0000e6}
