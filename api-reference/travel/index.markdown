@@ -25,6 +25,6 @@ The Travel Profile web service consists of a set of resources that provide trave
 Concur Travel Request web service is designed to help businesses control expenses by requiring employees to obtain approval before incurring expenses. It provides the ability to view requests and update the workflow for travel requests.
 
 
-[1]: http: //{site.baseurl}/api-reference/travel/itinerary
+[1]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary
 [2]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile
 [3]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-request
