@@ -55,7 +55,6 @@ Where *access_token* is the OAuth 2.0 access token of the user whose travel prof
 
 The data model of the response for the GET operation.
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <title>TravelProfile_Resource_GET_data_model.xml</title>
