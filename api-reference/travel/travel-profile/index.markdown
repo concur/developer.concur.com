@@ -1,5 +1,5 @@
 ---
-title: Travel Profile 
+title: Travel Profile Web Service
 layout: conceptual
 ---
 
