@@ -923,43 +923,44 @@ This example gets the list of travel profile summaries modified after January 1 
 
 ####  Request
 
-```
+<samp>
     GET {InstanceURI}/api/travelprofile/v1.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
     Authorization: OAuth {access token}
     ...
-```
+</samp>
 
 ####  Response
 
-```xml
-    200 OK
-    Content-Type: application/xml
+<pre>
+200 OK
+Content-Type: application/xml
 
-    <ConnectResponse>
-        <Metadata>
-            <Paging>
-                <TotalPages>1</TotalPages>
-                <TotalItems>2</TotalItems>
-                <Page>1</Page>
-                <ItemsPerPage>200</ItemsPerPage>
-                <PreviousPageURL />
-                <NextPageURL />
-            </Paging>
-        </Metadata>
-        <Data>
-            <ProfileSummary>
-                <LoginID>mariab@company1.com</LoginID>
-                <XmlProfileSyncID>string123</XmlProfileSyncID>
-                <ProfileLastModifiedUTC>2015-01-01T01:00:00</ProfileLastModifiedUTC>
-            </ProfileSummary>
-            <ProfileSummary>
-                <LoginID>peterk@company1.com</LoginID>
-                <XmlProfileSyncID>string456</XmlProfileSyncID>
-                <ProfileLastModifiedUTC>2015-01-01T01:00:00</ProfileLastModifiedUTC>
-            </ProfileSummary>
-        </Data>
-    </ConnectResponse>
-```
+<span class="xml-tag">&lt;ConnectResponse</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;Metadata</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;Paging</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;TotalPages</span><span class="xml-tag">&gt;</span>1<span class="xml-tag">&lt;/TotalPages</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;TotalItems</span><span class="xml-tag">&gt;</span>2<span class="xml-tag">&lt;/TotalItems</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;Page</span><span class="xml-tag">&gt;</span>1<span class="xml-tag">&lt;/Page</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;ItemsPerPage</span><span class="xml-tag">&gt;</span>200<span class="xml-tag">&lt;/ItemsPerPage</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;PreviousPageURL</span> <span class="xml-tag">/&gt;</span>
+            <span class="xml-tag">&lt;NextPageURL</span> <span class="xml-tag">/&gt;</span>
+        <span class="xml-tag">&lt;/Paging</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;/Metadata</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;Data</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;ProfileSummary</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;LoginID</span><span class="xml-tag">&gt;</span>mariab@company1.com<span class="xml-tag">&lt;/LoginID</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;XmlProfileSyncID</span><span class="xml-tag">&gt;</span>string123<span class="xml-tag">&lt;/XmlProfileSyncID</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>2015-01-01T01:00:00<span class="xml-tag">&lt;/ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;/ProfileSummary</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;ProfileSummary</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;LoginID</span><span class="xml-tag">&gt;</span>peterk@company1.com<span class="xml-tag">&lt;/LoginID</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;XmlProfileSyncID</span><span class="xml-tag">&gt;</span>string456<span class="xml-tag">&lt;/XmlProfileSyncID</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>2015-01-01T01:00:00<span class="xml-tag">&lt;/ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>
+        <span class="xml-tag">&lt;/ProfileSummary</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;/Data</span><span class="xml-tag">&gt;</span>
+<span class="xml-tag">&lt;/ConnectResponse</span><span class="xml-tag">&gt;</span>
+
+</pre>
  
 
 ###  See Also
