@@ -30,7 +30,7 @@ Concur Travel Request web service is designed to help businesses control expense
 The Trip Approval resource allows clients to approve or reject trips. Clients send the unique identifier for the trip, the approver email and the workflow action to be performed (either approve or reject).
 
 
-[1]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary
+[1]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/itinerary
 [2]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile
-[3]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-request
+[3]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-request/travel-request-resource
 [4]: http://concur.github.io/developer.concur.com/api-reference/travel/trip-approval/trip-approval-resource
