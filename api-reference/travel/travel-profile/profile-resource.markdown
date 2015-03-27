@@ -55,7 +55,7 @@ Where *access_token* is the OAuth 2.0 access token of the user whose travel prof
 
 The data model of the response for the GET operation.
 
-````XML
+<pre>
     <ProfileResponse Status="Active|Inactive" Unique="{unique identifier for the user}">
         <General>
             <NamePrefix />
@@ -185,7 +185,7 @@ The data model of the response for the GET operation.
             </CustomField>
         </CustomFields>
     </ProfileResponse>
-````
+</pre>
 
 ####  ProfileResponse root element
 
