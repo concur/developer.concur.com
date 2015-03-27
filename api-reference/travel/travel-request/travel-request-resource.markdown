@@ -1010,7 +1010,7 @@ If saving the travel request header triggers an exception, a **RequestExceptions
     </RequestStatus>
 ```
 
-##  <a name="a4">Post Travel Request Workflow Action</a>
+##  <a name="a5">Post travel request workflow action</a>
 
 ### Description
 Posts a workflow action for the supplied travel request. The workflow action moves the travel request through the workflow process. The available actions are:
