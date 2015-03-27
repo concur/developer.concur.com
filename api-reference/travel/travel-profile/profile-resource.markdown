@@ -46,7 +46,7 @@ All request paramenters are optional. To identify a specific user by login ID or
 application/xml
 
 ####  Authorization header
-`<samp>uthorization: OAuth {access_token}</samp>
+<samp>uthorization: OAuth {access_token}</samp>
 
 Where *access_token* is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
