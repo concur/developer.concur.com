@@ -1219,6 +1219,7 @@ Concur converts local date/time to UTC.  In order to do that we need to be able 
 * If you cannot provide **TimeZone** (Olson or Windows time zone format), Concur recommends **StartDateUtc** and **EndDateUtc** in addition to the required **StartDateLocal** and **EndDateLocal**.
 * Least preferable is providing **StartCityCode** in addition to the required **StartDateLocal** and **EndDateLocal**, if you cannot provide **TimeZone** or **StartDateUtc** and **EndDateUtc**.
 
+| | | | |
 |--------------|--------------|--------------|--------------|
 |  Africa/Cairo |  Africa/Casablanca |  Africa/Harare |  Africa/Luanda |
 |  Africa/Nairobi |  Africa/Windhoek |  America/Anchorage |  America/Argentina/Buenos_Aires |
