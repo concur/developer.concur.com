@@ -953,7 +953,7 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 
 The following car vendor codes are used in the Car Booking Elements.
 
-| ----- |
+| ----- |----- |
 |  Vendor Code |  Vendor Name |
 |  FA |  Able |
 |  AC |  Ace |
