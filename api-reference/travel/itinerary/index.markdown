@@ -31,7 +31,7 @@ The terms itinerary and trip are synonyms. Trip is the name used for the Concur 
 
 ## Who can use this web service?
 
-TripLink suppliers, travel management companies (TMCs), and Concur partners can use the Concur Itinerary web service. The level of access to the data in the Concur Travel system on who is accessing it and the Concur products that have been purchased. This section lists the primary oprationss these API users can perform. For frequently-asked questions about using the Itinerary web service, see [Itinerary Web Service FAQs][1].
+TripLink suppliers, travel management companies (TMCs), and Concur partners can use the Concur Itinerary web service. The level of access to the data in the Concur Travel system on who is accessing it and the Concur products that have been purchased.
 
 ### Travel management companies (TMCs)
 
