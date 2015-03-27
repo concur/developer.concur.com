@@ -1026,7 +1026,76 @@ The following car vendor codes are used in the Car Booking Elements.
 
 ##  <a name="hotel_vendor_codes" id="hotel_vendor_codes">Hotel vendor codes</a>
 
-Hotel Vendor Codes
+|  Vendor Code |  Vendor Name |
+|--------------|--------------|
+|  FA |  Able |
+|  AC |  Ace |
+|  AD |  Advantage |
+|  AL |  Alamo |
+|  LV |  Allstate |
+|  AF |  Americar |
+|  ZU |  AutoEurope |
+|  ZI |  Avis |
+|  CH |  Charlie |
+|  CP |  Compass |
+|  CO |  Continental |
+|  DS |  Discount |
+|  ZR |  Dollar |
+|  ET |  Enterprise |
+|  ED |  Eurodollar |
+|  EP |  Europcar |
+|  FH |  Falles Hire Cars |
+|  FD |  Ford Dealer |
+|  HO |  Holiday Car |
+|  IM |  Imperial |
+|  IA |  Independent Auto |
+|  TS |  Intl Travel |
+|  KG |  Kemwel Holiday |
+|  KN |  Kenning |
+|  LL |  Localiza |
+|  ZW |  Montgomery Ward |
+|  NE |  Nationwide |
+|  ZA |  Payless |
+|  PI |  Pinellas |
+|  BL |  Red And Blue |
+|  RR |  Rent Rite |
+|  RS |  Resort |
+|  ZS |  Sears |
+|  SX |  Sixt |
+|  ZT |  Thrifty |
+|  CC |  Country Car |
+|  TR |  Triangle |
+|  CT |  TT/Key Services |
+|  SV |  U-Save |
+|  CY |  Carey International |
+|  CV |  Capps Vans |
+|  AB |  All American |
+|  EE |  Exoticar Express |
+|  LX |  Limo Service |
+|  MW |  Midway |
+|  NF |  New Frontier |
+|  SL |  SL I.T.S. |
+|  US |  US Rent a Car |
+|  VR |  Specialty Van |
+|  WC |  West Coast |
+|  ZH |  Simply Wheelz |
+|  NU |  Nu Car Rentals |
+|  EY |  Economy Rent a Car |
+|  $$ |  Unknown Car Vendor |
+|  ZM |  Zoom Rent a Car |
+|  ZD |  Budget |
+|  ZE |  Hertz |
+|  ZL |  National |
+|  AU |  Austrian |
+|  DR |  DER Travel Svcs |
+|  EN |  Vip Car Rental |
+|  ML |  Merlin |
+|  EZ |  Ez Rent A Car |
+|  FX |  Fox |
+|  LM |  L & M Car Rental |
+|  SW |  Southwest |
+|  NW |  New Frontier |
+
 
 ##  <a name="ride_vendor_codes" id="ride_vendor_codes">Ride vendor Codes</a>
 
