@@ -158,4 +158,4 @@ No.
 [6]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/trip/trip-resource
 [7]: http://concur.github.io/developer.concur.com/api-reference/common/connection-requests/connection-requests-resource
 [8]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary-tmc-and-third-party-developers/booking-resource.html
-[9]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/Itinerarywebserviceoverview_50%.png
+[9]: Itinerarywebserviceoverview_50%.png
