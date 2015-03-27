@@ -3,7 +3,6 @@ title: User Notification Resource
 layout: resource
 ---
 
-
 ## Description
 A subscription to a notification when the Concur user changes the specified features of their Concur account or data. Currently supports notifications for the following events: Itinerary change (create or update), Travel Profile basic information change, or Travel Profile Form of Payment change. This functionality is restricted to Travel Suppliers or TMCs (Travel Management Companies) who have registered with Concur.
 
@@ -49,7 +48,7 @@ Required. Authorization header with OAuth token for the desired Concur user. Thi
     ...
 ```
 
-##  <a name="a2">Post notification subscription for itinerary changes response</a>
+##  Post notification subscription for itinerary changes response
 
 ### Notification format
 
@@ -98,7 +97,7 @@ Subscribes or unsubcribes the travel supplier from notifications when the user's
 
 **NOTE**: Concur will send a notification when any area of the user's Form of Payment is updated. This may include fields that are not available through the Travel Profile web service.
 
-### Post Notification Subscription for Form of Payment Changes Request
+### <a name="a2">Post Notification Subscription for Form of Payment Changes Request</a>
 
 #### Request parameters
 
