@@ -17,9 +17,9 @@ The Trip Approval resource allows clients to approve or reject trips. Clients se
 * application/xml
 
 ## Operations
-* [Update trip approval status](#a1)
+* Update trip approval status
 
-## <a name="a1">Update trip approval status</a>
+## Update trip approval status
 
 Updates the specified trip as approved or rejected by the supplied approver. Can supply either the ItinLocator or the RecordLocator value.
 
