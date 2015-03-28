@@ -88,7 +88,7 @@ layout: conceptual
 [25]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/index
 [26]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/trip/trip-resource
 [27]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/itinerary
-[28]: http://concur.github.io/developer.concur.com/api-reference/direct-connects/ground-transportation
+[28]: http://concur.github.io/developer.concur.com/api-reference/direct-connects/ground-transportation.html
 [29]: http://concur.github.io/developer.concur.com/api-reference/direct-connects/hotel
 [30]: http://concur.github.io/developer.concur.com/api-reference/callouts/event-notification
 [31]: http://concur.github.io/developer.concur.com/api-reference/callouts/external-validation
