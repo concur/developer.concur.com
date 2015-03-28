@@ -76,7 +76,7 @@ layout: conceptual
 [12]: http://concur.github.io/developer.concur.com/api-reference/expense/attendee-types/attendee-type-resource
 [13]: http://concur.github.io/developer.concur.com/api-reference/expense/digital-tax-invoices/digital-tax-invoices-resource
 [14]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-entry-resource
-[16]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-group-configuration-resource
+[16]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-group-configuration-resource.html
 [17]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-entry-itemization-resource
 [18]: http://concur.github.io/developer.concur.com/api-reference/expense/quick-expense/quick-expense-resource
 [19]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-report-resource
