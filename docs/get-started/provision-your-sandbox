@@ -1,0 +1,10 @@
+---
+layout: conceptual
+title: Provision Your Developer Sandbox
+---
+
+## 1.1	Create a sandbox and obtain your credentials
+
+Before you build your first application that integrates with Concur, you need to create your own virtual Concur company so that you can develop and test your app. We call this a developer sandbox, or simply a sandbox.
+
+A sandbox is different from a Concur free trial. The free trial allows you to try Concur for 30 days and then expires. A sandbox does not expire, and has some features enabled that are specific to Concur Connect API developers
