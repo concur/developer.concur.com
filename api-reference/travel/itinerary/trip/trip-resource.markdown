@@ -29,16 +29,11 @@ In order to obtain itinerary data when making Itinerary API calls, the value of 
 
 ##  Get trip summaries
 
-Travel Management Companies (TMCs) and third-party developers can use this endpoint to get a list of itineraries.
-An itinerary is also known as trip and it can containe multiple bookings. 
-TMCs and third-party developers can perform several GET operations on this endpoint to obtain different levels of trip information, such as:
-
-* Getting lists of itineraries and trip details for a specific user.
-* Getting a list of itineraries for all users in an entire company.
-
-The response for this operation supports paging for easier processing.
+The Get Itinerary Summaries endpoint is used for retrieving trip summaries for the traveler whose account is associated with the OAuth access token used to make the API call. This endpoint can also be used to get trip summaries for a different user or the whole company. This is usually done when a Travel Management Company needs to get trip summaries on behalf of a user or company.
 
 ## Request
+
+<samp>GET /travel/trip/v1.1/{query_parameters}</samp>
 
 ### Query paramenters
 All query paramenters are optional. 
@@ -58,6 +53,26 @@ To identify a specific user by login ID or XMLSyncID, you can specify the follow
 |ItemsPerPage|number|integer|The includeMetadata query parameter combined with the ItemsPerPage and Page query parameters will cause the response to be divided into pages. The response will be wrapped in a ConcurResponse parent element, with both the response details and the paging metadata included. If the ItemsPerPage query parameter is not sent, the response will default to 200 if the Page query parameter is sent, or 1000 if the Page query parameter is not set. If the Page query parameter is not sent, the response will default to page 1.|
 |includeVirtualTrip|flag|integer	|Virtual trips are segments booked offline through the Travel Request product. Set the includeVirtualTrip query parameter to 1 to include those trips in the list.|
 |includeCanceledTrips	|true/false|string|The includeCanceledTrips query parameter will cause the request to also return trips with a status of Canceled. When this query parameter is set to true, the response will include the TripStatus element.|
+
+Here are some examples of how to format GET requests using a combination of these query parameters:
+
+* To get trip summaries for the entire company:
+
+https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}&userid_type=login&userid_value=ALL
+
+The access token used to make the API call must be associated with an account that has the Admin user role.
+
+* To get trip summaries for the account associated with the app making the call:
+
+https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}
+
+The access token used to make the API call is associated with the account for the app making the call.
+
+* To get trip summaries for a user with the specified login credentials:
+
+https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}&userid_type=login_id&userid_value={_loginID_}
+
+The access token used to make the API call is associated with the Concur account with the specified login credentials.
 
 
 ### Headers
@@ -82,6 +97,7 @@ application/xml
 ### Example 1: <Example 1 description>
 
 #### Request
+
 
 #### Response
 
