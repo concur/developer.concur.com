@@ -84,10 +84,10 @@ layout: conceptual
 [21]: http://concur.github.io/developer.concur.com/api-reference/invoice/purchase-order/purchase-order-resource
 [22]: http://concur.github.io/developer.concur.com/api-reference/invoice/sales-tax-validation/index
 [23]: http://concur.github.io/developer.concur.com/api-reference/invoice/vendors/vendors-resource
-[24]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-request/index
+[24]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-request/travel-request-resource
 [25]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/index
 [26]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/trip/trip-resource
-[27]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/index
+[27]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/itinerary
 [28]: http://concur.github.io/developer.concur.com/api-reference/direct-connects/ground-transportation
 [29]: http://concur.github.io/developer.concur.com/api-reference/direct-connects/hotel
 [30]: http://concur.github.io/developer.concur.com/api-reference/callouts/event-notification
