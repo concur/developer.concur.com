@@ -1,8 +1,7 @@
---
+---
 title: Set Up Developer Sandbox
 layout: conceptual
 ---
-
 
 ## Set up your developer sandbox
 
