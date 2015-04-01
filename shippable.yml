@@ -14,14 +14,12 @@ env:
 
 # install system dependencies (AWS CLI + jekyll)
 install:
-  - curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
-  - unzip awscli-bundle.zip
-  - sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+  - ./build/install_aws_cli.sh
   - gem install jekyll
 
   before-script:
   - mkdir ~/.aws
-  - ./build/setup_aws_cli.sh
+  - ./build/aws_cli_config.sh
 
 script:
   - ./build/write_commit.sh
