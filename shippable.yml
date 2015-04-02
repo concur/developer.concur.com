@@ -20,6 +20,7 @@ install:
 before-script:
   - mkdir ~/.aws
   - ./build/aws_cli_config.sh
+  - bundle install
 
 script:
   - ./build/write_commit.sh
