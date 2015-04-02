@@ -17,7 +17,7 @@ install:
   - ./build/install_aws_cli.sh
   - gem install jekyll
 
-before-script:
+before_script:
   - mkdir ~/.aws
   - ./build/aws_cli_config.sh
   - bundle install
