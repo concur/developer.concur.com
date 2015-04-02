@@ -30,5 +30,5 @@ after_failure:
   - python ./build/slack_notifier.py --project $PROJECT --org $SLACK_ORG --token $SLACK_TOKEN
 
 after_success:
-  - aws s3 sync ./site s3://preview.developer.concur.com --delete
+  - aws s3 sync ./_site s3://preview.developer.concur.com
   - python ./build/slack_notifier.py --project $PROJECT --org $SLACK_ORG --token $SLACK_TOKEN -s

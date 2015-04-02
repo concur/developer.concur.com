@@ -6,7 +6,8 @@ baseurl: "/" # the subpath of your site, /developer.concur.com
 url: "concur.github.io" # the base hostname & protocol for your site
 twitter_username: concurapi
 github_username:  concur
-exclude: build
+exclude:
+  - build
 
 # Build settings
 markdown: kramdown
