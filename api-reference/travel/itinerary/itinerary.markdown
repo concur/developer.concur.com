@@ -1427,10 +1427,10 @@ Concur converts local date/time to UTC.  In order to do that we need to be able 
 
 
 
-[2]: https://developer.concur.com/forums/concur-connect
+[2]: https://forum.developer.concur.com/
 [3]: https://www.concur.com/en-us/connect-platform/suppliers
 [4]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/index
 [6]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/trip/trip-resource
 [7]: http://concur.github.io/developer.concur.com/api-reference/common/connection-requests/connection-requests-resource
-[8]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/booking
+[8]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/booking/booking-resource
 [9]: Itinerarywebserviceoverview.png
