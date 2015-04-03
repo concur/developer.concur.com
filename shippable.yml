@@ -8,7 +8,7 @@ env:
   global:
     - secure: ZL5P4KACDJHWmhW2OSNhcse2/mjufb5hPu6iFbCWvNIGtLNju8ZtYRwa0lk6ii91xyDQXeeWEBr8pTJcti/KKbk1WQ/2iCGle2RYJSAAgjxDu9WJ/Z60hmaY5m8NYrhdwHqNSMk0Gay16y1vizKX7Su1MuJ1s7anbKHmvKm2tHWCHINdzCqFOy72Bq5dILIeK704S5jdB9vw2QyrzPSoet4gWhosEKiDZH/4UljXsJ38QisBmdkX5yGgSISApp9GUH0TV/HvbDpEGyVh+GNpvZsqecp0ixjyNE3NQlQagXTJDk9dFZyClf5XoLesh7DjR+63pvCWExSrjEMDI0b13w==
     - secure: MuiaqeSpKTDE5IvkmScp0tEkFQd7/FKT9ABg3FYjhq55tDp5CkslULtkziN7hzHPLYd0FyH4jX7J+XCd/yVjDdkKTLQbaX7bX8/IS8Tl7+myhd1ORzf1LqPxbKUpTaWGSWqpy+As/zz30FoD/gm27aMtRfohlpFcIEJlQdRDa27Y1KKMIzU19DJYl15L0TIPY8L3HR9ufG+5xN4RrfcO2cGlVORpGIuDLXqFJKtK8tRuZCY+zcV/GkqYRJGRBerEs87SVhwdoQYE5k+U1cu/fkWFIqw6V2/wwCdyle97auxKa2q9rqtiw5ww70nhnDDMsOxwY3PWLEQIDYkCxurDuA==
-    - secure: W2iN7si9B/UnyZzIN+hsPPUiZ9RLV70TU5pNTkraDaOghxi5FaaqR/sq7dfqKYZaGTllcSDsrcVTREIdS0hprffAhIgEM8j8N+sADRpyKOP157PgMdtvg+thLjkaTHi9gmzEgT7EQdIw7fTC0vzNVlH9FXdmwDIjQD4fDDme3o+baWQclLktRIWE7Qmx1Yq6r9ew32qAee6GmXfDbl9djS96zbN50CKlSPjcvAB8SdZ5MLJTSUSds9wq6788WZtgPI7ZOrW2rupTgK2OBJHCsM6tSECJkFP8QSTZLKmt0QQgo6nY+tgwMg83y1hCJiSWiZLv4gk4IVAElWC2vjsEbg== #aws
+    - secure: ehF5ZkTBkJdFGtbMZYkLL8vnpKh3nNcUru/dx2pzMeZTuSJaAiuLw3vo2jBkpWhSI4PDuSR/dzwZLy9hm2KddSyQ42wZGbBJQtwVtFlvRoQ8+s7I7zS3wcJhKgb0qGkjTFdq7JsyPHAPyhAAhPRe7fb9xLwT3pbJUl7zweF4sbGo9CEfwqOXm4GOLh+ArG76+yshgZCWJxmibNBn9G1gxmZTA9X6BkXniQtqU3B9+3gFE0P8DHZmIi7awQU1MeVdGI8RGLB62xxmazzeFvy9lluarIxGy528Qtn1Ie1Yoz+Trn0V6CCMoxLo8nxOmb1AOGN6m72BAQoxfyYcB7fNbQ== #aws
     - SLACK_ORG=ConcurCTO 
     - PROJECT=Developer-Portal
 
@@ -18,13 +18,13 @@ install:
   - gem install jekyll
 
 before_script:
-  - ./build/aws_cli_config.sh
+  # - ./build/aws_cli_config.sh
   - bundle install
 
 script:
   - ./build/write_commit.sh
   - bundle exec jekyll build
-  - aws s3 sync ./_site s3://preview.developer.concur.com
+  - aws s3 sync ./_site s3://preview.developer.concur.com --region us-west-2 --output text
 
 after_failure:
   - python ./build/slack_notifier.py --project $PROJECT --org $SLACK_ORG --token $SLACK_TOKEN
