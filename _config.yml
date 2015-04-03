@@ -8,6 +8,13 @@ twitter_username: concurapi
 github_username:  concur
 exclude:
   - build
+  - shippable.yml
+  - awscli-bundle.zip
+  - awscli-bundle
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
 
 # Build settings
 markdown: kramdown

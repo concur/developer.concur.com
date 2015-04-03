@@ -24,7 +24,7 @@ before_script:
 script:
   - ./build/write_commit.sh
   - bundle exec jekyll build
-  - aws s3 sync ./_site s3://preview.developer.concur.com --region us-west-2 --output text
+  - aws s3 sync ./_site s3://preview.developer.concur.com --region us-west-2 --output text --delete
 
 after_failure:
   - python ./build/slack_notifier.py --project $PROJECT --org $SLACK_ORG --token $SLACK_TOKEN
