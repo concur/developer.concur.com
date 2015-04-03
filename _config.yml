@@ -2,7 +2,7 @@
 title: Concur Developer Portal
 email: devx@concur.com
 description: Concur docs provides comprehensive information on working with the Concur platform
-baseurl: "/" # the subpath of your site, /developer.concur.com
+baseurl: "" # the subpath of your site, /developer.concur.com
 url: "concur.github.io" # the base hostname & protocol for your site
 twitter_username: concurapi
 github_username:  concur
