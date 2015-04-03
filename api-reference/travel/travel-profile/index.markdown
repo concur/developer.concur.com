@@ -1,5 +1,5 @@
 ---
-title: Travel Profile 
+title: Travel Profile Web Service
 layout: conceptual
 ---
 
@@ -41,11 +41,11 @@ To develop an application that uses Travel Profile, you must register and enable
 Travel supplier or TMC partner applications must complete the [Concur application review process][8] before they can access production user data. Driver's License and Form of Payment scopes require an additional level of security review to confirm the security of sensitive data. Travel suppliers can only access Form of Payment information for the type of travel that they supply. Suppliers can only update Loyalty Program information for the programs that they manage. TMCs can access all the user's Travel Profile data, regardless of vendor.
 
 
-[1]: https://developer.concur.com/oauth-20/web-flow
-[2]: https://developer.concur.com/node/502
-[3]: https://developer.concur.com/node/497
-[4]: https://developer.concur.com/node/499
-[5]: https://developer.concur.com/node/566
-[6]: https://developer.concur.com/node/504
+[1]: http://concur.github.io/developer.concur.com/api-reference/authentication/web-flow
+[2]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
+[3]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
+[4]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
+[5]: http://concur.github.io/developer.concur.com/api-reference/user/company-notification-subscription-resource
+[6]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/user-notification-resource
 [7]: mailto:ConcurConnectTech@concur.com
-[8]: https://developer.concur.com/node/624/
+[8]: http://concur.github.io/developer.concur.com/manage-apps/app-certification

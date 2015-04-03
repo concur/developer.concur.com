@@ -1,21 +1,40 @@
 ---
-title: Post booking details
-layout: operation
+layout: resource
+title: Booking Resource
 ---
 
-
-
 ## Description
+The Booking resource represents booking segments in the Concur Travel system. TripLink suppliers use this resource to display a subset of the full booking fields.
+
+## Version
+Version 1.1
+
+## URI
+`/travel/booking/v1.1/{query_parameters}`
+
+## Scope
+
+In order to obtain itinerary data when making Itinerary API calls, the value of the [OAuth scope parameter][1] must be set to: `ITINER`
+
+
+## Operations
+
+* Create a new booking
+* Update an existing booking
+* Cancel a booking
+
+## Create or update bookings
+
 Creates a new booking or updates an existing booking. A new booking will be assigned to the specified trip, or if no trip is specified, the first itinerary that spans the booking dates. If no trip is specified and no itinerary exists that spans the booking dates, a new itinerary will be created.
 This endpoint can be used to create/update bookings for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to create/update a booking on behalf of a user. The supplier or TMC must be registered with Concur, and must have an account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
 
 ## Request
-
+<samp>
     POST /api/travel/booking/v1.0?tripId=12345678 HTTPS 1.1
     Host: www.concursolutions.com
     Authorization: OAuth {access token} 
-
+</samp>
 ### Request Parameters
 
 #### Query Parameters - Optional
@@ -35,10 +54,8 @@ https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&use
 ### Content type
 application/xml
 
-
 ### Authorization header
 Authorization header with OAuth token for valid Concur user. In order to create or update booking for anyone other than the OAuth consumer, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
-
 
 ### Request body root elements
 The request contains a Booking parent element with the following child elements:
@@ -93,22 +110,21 @@ The request contains a Booking parent element with the following child elements:
 
 
 ## Response
-This function returns the full trip details, as documented in the Response of the [Get Itinerary Details][3] function.
+This function returns the full trip details, as documented in the Response of the [Get Itinerary Details][2] function.
 
 If the end user updates an existing reservation which results in a new confirmation number, the old booking must be explicitly cancelled in addition to posting the new booking to Concur.  If the previous booking is not cancelled, the user will see both bookings in their Concur trip list.
-
-* [HTTP Status Codes][1]
 
 
 ## Examples
 
 ### Example 1: XML Example Request
-
+```
     POST /api/travel/booking/v1.0?tripId=12345678 HTTPS 1.1
     Host: www.concursolutions.com
     Authorization: OAuth {access token} 
     ... 
-        
+```
+```XML
     <Booking xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Segments>
             <Car>
@@ -153,10 +169,11 @@ If the end user updates an existing reservation which results in a new confirmat
             </Passenger>
         </Passengers>
     </Booking>
-
+```
 
 ### Example 2: XML Example of Successful Response
 
+```XML
     <Itinerary xmlns="https://www.concursolutions.com/api/travel/trip/2010/06">
         <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
         <ItinLocator>CNQR1234567890</ItinLocator>
@@ -217,7 +234,7 @@ If the end user updates an existing reservation which results in a new confirmat
         </Booking>
     </Itinerary>
 
-
+```
 
 # Post Booking Cancellation
 
@@ -268,12 +285,11 @@ The OAuth consumer must be registered as a Supplier or TMC with Concur, and must
 
 
 ## Response
-This function returns the full booking details, as specified in [Booking Object Elements][1].
+This function returns the full booking details, as specified in the Booking Object Elements section.
 If the booking is not found, the function returns a HTTP 404 error and the following element:
 
 **Status**: This element contains the value: NotFound.
 
-* [HTTP Status Codes][1]
 
 ## Examples
 
@@ -343,9 +359,9 @@ If the booking is not found, the function returns a HTTP 404 error and the follo
         <PerDiemLocation/>
     </Car>
 
+## See Also
 
-[1]: /node/510#bookingelements
-[2]: https://developer.concur.com/reference/http-codes
-[3]: https://developer.concur.com/node/514#getitindetails
+[Trip resource][2]
 
-
+[1]: http://concur.github.io/developer.concur.com/api-reference/authentication/web-flow
+[2]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/trip/trip-resource

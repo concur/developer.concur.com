@@ -1,5 +1,5 @@
 ---
-title: OAuth 2.0 Web Flow
+title: Web Flow
 layout: conceptual
 ---
 
