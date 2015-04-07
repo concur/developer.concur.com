@@ -4,24 +4,19 @@ layout: resource
 ---
 
 
-## Description
+This resource can be used to retrieve information about the allocations that are associated with an entry in an expense report.  
+v. 3.0
 
-This resource can be used to retrieve information about the allocations that are associated with an entry in an expense report.
-
-## Version
-
-3.0
-
-## URI
+### URI
 
 <samp>https://www.concursolutions.com/api/v3.0/expense/allocations</samp>
 
-## Operations
+### Operations
 
 * [Get all allocations per entry or report](#get_locations)
 * [Get a single allocation by ID](#get__single_location)
 
-##  <a name="get_locations" id="get_locations">Get all allocations per entry or report</a>
+### Get all allocations per entry or report
 
 Gets all allocations per entry or per report.
 
@@ -93,9 +88,9 @@ This request will return an **Allocations** parent element containing an **Items
 #### XML example of successful response
 
 
-## <a name="get__single_location" id="get__single_location">Get a single allocation by ID</a>
+### Get a single allocation by ID
 
-<a name="get_locations" id="get_locations">Gets a single allocation by ID.<a>
+Gets a single allocation by ID.
 
 ### Request
 
