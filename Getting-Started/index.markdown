@@ -1,5 +1,5 @@
 ---
-title: Tools
+title: Getting Started
 layout: conceptual
 ---
 
@@ -9,7 +9,7 @@ layout: conceptual
 Concur is a travel and expense software solution that lets 25M business travelers book their travel, capture expense, submit expense reports, and more.  Concur processes over 55 million transactions every year, representing $50 billion spend on T&E.
 
 <center>
-<img src="{{ site.baseurl }}/getting-started/assets/getting-started1.png" /></center>
+<img src="{{ site.baseurl }}/Getting-Started/assets/getting-started1.png" /></center>
 
 
 ## What can I do with Concur APIs?
@@ -93,7 +93,7 @@ For more detailed information go to [Set Up Developer Sandbox]({{ site.baseurl }
 
  After logging in to http://concursolutions.com, go to Administration -> Register Partner Application -> Concur Partner Application (Modify).  We need the consumer key so we can call the endpoint that would return the access token.
 
-  <img src="{{ site.baseurl }}/getting-started/assets/getting-started3.png" width="600px" />
+  <img src="{{ site.baseurl }}/Getting-Started/assets/getting-started3.png" width="600px" />
 
   2.  **Call the access token request endpoint**
 
@@ -263,7 +263,7 @@ For more detailed information go to [Set Up Developer Sandbox]({{ site.baseurl }
    You can access the web version of Concur at http://concursolutions.com/ or get the mobile app from [App Store](https://itunes.apple.com/us/app/concur-travel-receipts-expense/id335023774?mt=8) or [Google Play](https://play.google.com/store/apps/details?id=com.concur.breeze).
 
    <center>
-<img src="{{ site.baseurl }}/getting-started/assets/getting-started1.png" /></center>
+<img src="{{ site.baseurl }}/Getting-Started/assets/getting-started1.png"/> </center>
 
    You can view/add new expenses (and even add a receipt image!) to have a variety of data to pull for your API calls. After adding expenses, you can create a report to associate it with by tapping the "Add to Report" button (in the last screenshot above).
 
