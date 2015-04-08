@@ -4,7 +4,8 @@ layout: conceptual
 ---
 
 
-This page contains release notes for the Concur Developer Platform and the App Center. Starting in May 2014, the release notes for the Concur Developer Platform and the App Center are delivered as separate documents; for months prior to May 2014, they are combined in a single document. The documentation on the Concur developer portal is refreshed on a monthly basis with detailed information for new enhancements and fixes released every month. The release notes are available in English only.
+This page contains release notes for the Concur Developer Platform.  
+Starting in May 2014, the release notes for the Concur Developer Platform and the App Center are delivered as separate documents; for months prior to May 2014, they are combined in a single document. The release notes are available in English only.
 
 ##  App Center Release Notes
 
@@ -67,7 +68,7 @@ This page contains release notes for the Concur Developer Platform and the App C
 [2-1]:Concur%20Platform%20Release%20Notes_final_October2014.pdf
 [2-2]:Concur%20Platform%20Client%20Release%20Notes_draft_June2014.pdf
 [2-3]:Concur%20Platform%20Release%20Notes_final_October2014.pdf
-[2-4]:Concur%20Platform%20Release%20Notes_final_February2015.pdf
+[2-4]:Concur%20Platform%20Client%20Release%20Notes_final_February2015.pdf
 
 [3-1]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20April%202013.pdf
 [3-2]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20May%202013.pdf
