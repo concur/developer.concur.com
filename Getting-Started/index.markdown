@@ -6,7 +6,7 @@ layout: conceptual
 
 ## What is Concur?
 
-Concur is a travel and expense software solution that lets 25M business travelers book their travel, capture expense, submit expense reports, and more.  Concur processes over 55 million transactions every year, representing $50 billion spend on T&E.
+Concur is a travel and expense software solution that lets 25M business travelers book their travel, capture expense, submit expense reports, and more.  Concur processes over 55 million transactions every year, representing $50 billion spend on T&E.  
 
 <center>
 <img src="{{ site.baseurl }}/Getting-Started/assets/getting-started1.png" /></center>
@@ -33,35 +33,31 @@ To get an expense summary by using the Expense Report Digest API:
 
 You can interact with the API using Swagger [here](https://www.concursolutions.com/api/docs/index.html)
 
-<a href="https://www.concursolutions.com/api/docs/index.html"><img src="{{ site.baseurl }}/getting-started/assets/getting-started2.png" width="610px" /></a>
+<a href="https://www.concursolutions.com/api/docs/index.html"><img src="{{ site.baseurl }}/Getting-Started/assets/getting-started2.png" width="610px" /></a>
 
 
 
 ## Sample code
------
 
 - [NodeJS SDK](https://github.com/concur/concur-platform-sdk-js)
 - [C# .NET SDK](https://github.com/concur/concur-platform-sdk-dotnet)
-
 - [Pebble SDK C/Javascript](https://developer.getpebble.com/blog/2014/09/03/Pebble-Concur-Mojio/)
 - [Windows 8 C#/XAML](https://github.com/ismaelc/Concur-Windows8-SampleCode)
 - [C#](https://gist.github.com/dberke711/c8d0c9e04c7e76220d4e) (Generate access token native flow)
 - [PHP/curl](http://runnable.com/UtWlKVi9ZnsnAABx/upload-receipts-to-concur-using-php-curl) (POST image receipts)
 - [Python](https://gist.github.com/Trudeaucj/09c25e79c332e93703a0) (Generate access token)
-
 - Java using [Maven](https://github.com/Trudeaucj/Concur-java-examples)
 
 
 ## Ideas for a Concur-powered business travel app:
------
 
-These are just example ideas from past external hackathons. We'd love for you to think beyond the ideas presented below :)  Find other ideas [here](#example).  
+These are just example ideas from past external hackathons. We'd love for you to think beyond the ideas presented below:  Find other ideas [here](#example).  
 
 [Challengepost](http://challengepost.com/software/built-with/concur) lists Concur API integrations from previous hackathons.  Definitely worth checking out!
 [GitHub GreenGuest](https://github.com/Trudeaucj/greenguest) A team we sent to the 2015 AT&T Developer Summit who took home the M2X IoT Challenge prize!
 
 ## Additional Information
------
+
 The subsections below provide a more detailed information on how to:
 
   - [Create a Concur sandbox](#sandbox)
@@ -89,13 +85,13 @@ For more detailed information go to [Set Up Developer Sandbox]({{ site.baseurl }
 <a name="token">**Generate an access token**</a>
 -----
 
-  1. **Get your Consumer Key**  
+1. **Get your Consumer Key**  
 
  After logging in to http://concursolutions.com, go to Administration -> Register Partner Application -> Concur Partner Application (Modify).  We need the consumer key so we can call the endpoint that would return the access token.
 
   <img src="{{ site.baseurl }}/Getting-Started/assets/getting-started3.png" width="600px" />
 
-  2.  **Call the access token request endpoint**
+2. **Call the access token request endpoint**
 
   Here's what the HTTP call looks like to request for an access token:
 
@@ -113,9 +109,9 @@ For more detailed information go to [Set Up Developer Sandbox]({{ site.baseurl }
 
   If the call is successful, you should get an XML response with a `<Token>` node.  That's your access token. We recommend that you use [Postman](http://www.getpostman.com/), a Chrome extension, to help you manage your API calls (not just Concur ones).  Here's what the API calls look like in Postman:
 
-  <img src="{{ site.baseurl }}/getting-started/assets/getting-started4.png" width="600px" />
+  <img src="{{ site.baseurl }}/Getting-Started/assets/getting-started4.png" width="600px" />
 
-  3.  **Call the APIs to pull expense report items**
+3. **Call the APIs to pull expense report items**
 
  After getting an access token, we can pull dummy data from the Expense Report Digest, like so (in Terminal):
 
@@ -124,7 +120,7 @@ For more detailed information go to [Set Up Developer Sandbox]({{ site.baseurl }
  
   This would return an Expense Report response, with a field called `ID`.  We need this ID to extract the expense line items we created in the app earlier.  To liven things up a bit, let's use the [Swagger](https://www.concursolutions.com/api/docs/index.html#!/Entries) documentation of the "Entries" API to get the individual expense line items:
 
-  <img src=img src="{{ site.baseurl }}/getting-started/assets/getting-started5.png" width="600px" />
+  <img src=img src="{{ site.baseurl }}/Getting-Started/assets/getting-started5.png" width="600px" />
 
   We highlighted two things here, the (oval) field where you put in your access token, and the (rectangle) field where you put in the `ID` we got from the previous API call.  Note that we can do this same call in curl, or in any fashion you want.  Swagger just provides us a consolidated way to make the API calls.
 
@@ -132,9 +128,8 @@ For more detailed information go to [Set Up Developer Sandbox]({{ site.baseurl }
 
   <img src="{{ site.baseurl }}/getting-started/assets/getting-started6.png" width="600px" />
 
- **Note: The steps demonstrated above follow the OAuth Native Flow.  If you prefer something similar to a Facebook login experience, you can check out the OAuth Web Flow [here](https://developer.concur.com/api-documentation/oauth-20-0)**
+ **Note: The steps demonstrated above follow the OAuth Native Flow.  If you prefer something similar to a Facebook login experience, you can check out the OAuth Web Flow [here]({{ site.baseurl }}/api-reference/authentication/web-flow.html)**
 
-[Back to Top](#addl)
 
 <a name="dummy">**POST/GET dummy data to/from Concur - the API or app**</a>
 ----
@@ -267,7 +262,6 @@ For more detailed information go to [Set Up Developer Sandbox]({{ site.baseurl }
 
    You can view/add new expenses (and even add a receipt image!) to have a variety of data to pull for your API calls. After adding expenses, you can create a report to associate it with by tapping the "Add to Report" button (in the last screenshot above).
 
-[Back to Top](#addl)
 
 <a name="example">Example apps</a>
 -----
