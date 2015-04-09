@@ -7,11 +7,6 @@ title: Travel Web Services
 
 The Travel web services consists of a set of APIs that provide programmatic access to travel data such as itineraries, travel profiles, travel form of payment information, travel requests, and travel loyalty program information. These APIs are categorized into three sets of web services:
 
-* Itinerary
-* Travel profile
-* Travel requests
-* Trip approval
-
 
 ### [Itinerary] [1]
 

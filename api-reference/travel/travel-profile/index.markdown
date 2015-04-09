@@ -42,7 +42,7 @@ Travel supplier or TMC partner applications must complete the [Concur applicatio
 
 
 [1]: http://concur.github.io/developer.concur.com/api-reference/authentication/web-flow
-[2]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
+[2]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/profile-resource
 [3]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
 [4]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
 [5]: http://concur.github.io/developer.concur.com/api-reference/user/company-notification-subscription-resource
