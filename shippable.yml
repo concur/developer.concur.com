@@ -4,6 +4,13 @@ branches:
     - preview
     - livesite
 
+# language setting
+language: ruby
+
+# version numbers
+rvm:
+  - ruby-head
+
 env:
   global:
     - secure: ZL5P4KACDJHWmhW2OSNhcse2/mjufb5hPu6iFbCWvNIGtLNju8ZtYRwa0lk6ii91xyDQXeeWEBr8pTJcti/KKbk1WQ/2iCGle2RYJSAAgjxDu9WJ/Z60hmaY5m8NYrhdwHqNSMk0Gay16y1vizKX7Su1MuJ1s7anbKHmvKm2tHWCHINdzCqFOy72Bq5dILIeK704S5jdB9vw2QyrzPSoet4gWhosEKiDZH/4UljXsJ38QisBmdkX5yGgSISApp9GUH0TV/HvbDpEGyVh+GNpvZsqecp0ixjyNE3NQlQagXTJDk9dFZyClf5XoLesh7DjR+63pvCWExSrjEMDI0b13w==
