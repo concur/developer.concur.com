@@ -9,7 +9,7 @@ language: ruby
 
 # version numbers
 rvm:
-  - ruby-head
+  - 2.2.0
 
 env:
   global:
@@ -21,6 +21,7 @@ env:
 
 # install system dependencies (AWS CLI + jekyll)
 install:
+  - ruby --version
   - ./build/install_aws_cli.sh
   - gem install jekyll
 
