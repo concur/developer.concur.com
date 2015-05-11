@@ -8,7 +8,7 @@ Handling data with care and delivering a positive experience for our customers i
 #### **Get Started on Your API Review**
 
 1. [Register for a sandbox](https://developer.concur.com/register) and find [API documentation]({{ site.baseurl }}/api-reference/).
-2. As you build your app, complete our[ Application Submission Form]({{ site.baseurl }}/manage-apps/go-market-docs/app_center_application_submission_form_021215.pdf).
+2. As you build your app, complete our[ Application Submission Form]({{ site.baseurl }}/manage-apps/go-market-docs/app_center_application_submission_form.pdf).
 3. Once you submit the form, your registered app will go through an evaluation process.  You may be asked for additional information or requested to make changes to you app depending on the outcome of the review.
 
 After your app is approved, your app listing will be reviewed before publishing in the [Concur App Center](https://www.concur.com/en-us/app-center). 

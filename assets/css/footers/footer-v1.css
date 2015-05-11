@@ -52,13 +52,13 @@
 }
 
 .footer-v1 .footer-socials {
-	margin-top: 16px;
+	margin-top: 4px;
 	text-align: right;
 }
 
 .footer-v1 .footer-socials li a {
 	color: #FFFFFF;
-	font-size: 16px;
+	font-size: 24px;
 }
 
 @media (max-width: 991px) {
