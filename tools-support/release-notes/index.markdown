@@ -11,6 +11,8 @@ Starting in May 2014, the release notes for the Concur Developer Platform and th
 
 |Release Month      	|Last Updated      |
 |---------------------|------------------|
+|[May 2015][1-13]   |May 1 2015     |
+|[April 2015][1-12] |March 27 2015  |
 |[March 2015][1-11] |March 13 2015  |
 |[February 2015][1-10] |February 26 2015  |
 |[February 2015][1-9]	|February 13 2015  |
@@ -28,6 +30,8 @@ Starting in May 2014, the release notes for the Concur Developer Platform and th
 
 |Release Month     	|Last Updated      |
 |-------------------|------------------|
+|[May 2015][2-6]    |April 22 2015     |
+|[April 2015][2-5]  |April 3 2015      |
 |[February 2015][2-4] |February 6 2015 |
 |[October 2014][2-3]|October 17 2014   |
 |[June 2014][2-2]   |June 10 2014      |
@@ -64,11 +68,15 @@ Starting in May 2014, the release notes for the Concur Developer Platform and th
 [1-9]:App%20Center%20Release%20Notes_Feb13_2015.pdf
 [1-10]:App%20Center%20Release%20Notes_Feb27_2015.pdf
 [1-11]:App%20Center%20Release%20Notes_Mar13_2015.pdf
+[1-12]:App_Center_ReleaseNotes_Mar27_2015.pdf
+[1-13]:AppCenter_ReleaseNotes_May2015DRAFT_0.pdf
 
 [2-1]:Concur%20Platform%20Release%20Notes_final_October2014.pdf
 [2-2]:Concur%20Platform%20Client%20Release%20Notes_draft_June2014.pdf
 [2-3]:Concur%20Platform%20Release%20Notes_final_October2014.pdf
 [2-4]:Concur%20Platform%20Client%20Release%20Notes_final_February2015.pdf
+[2-5]:Concur_Platform_ReleaseNotes_draft_April2015.pdf
+[2-6]:API_ReleaseNotes_May2015.pdf
 
 [3-1]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20April%202013.pdf
 [3-2]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20May%202013.pdf
