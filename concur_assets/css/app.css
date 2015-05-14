@@ -1,12 +1,12 @@
 .headline h2, 
-.headline h3, 
+.headline h3,
 .headline h4 {
   border-bottom: 2px solid #0275BC;
 }
 
-.title-v1 h1:after, 
+.title-v1 h1:after,
 .title-v1 h2:after {
-  background: #0275BC;  
+  background: #0275BC;
 }
 
 .headline-center h2:after {
@@ -19,18 +19,18 @@
 }
 
 
-.tab-v1 .nav-tabs { 
-  border-bottom: solid 2px #0275BC;   
+.tab-v1 .nav-tabs {
+  border-bottom: solid 2px #0275BC;
 }
 
-.tab-v1 .nav-tabs > .active > a, 
-.tab-v1 .nav-tabs > .active > a:hover, 
-.tab-v1 .nav-tabs > .active > a:focus { 
-  background: #0275BC; 
+.tab-v1 .nav-tabs > .active > a,
+.tab-v1 .nav-tabs > .active > a:hover,
+.tab-v1 .nav-tabs > .active > a:focus {
+  background: #0275BC;
 }
 
-.tab-v1 .nav-tabs > li > a:hover { 
-  background: #0275BC; 
+.tab-v1 .nav-tabs > li > a:hover {
+  background: #0275BC;
 }
 
 
@@ -45,11 +45,11 @@
 }
 
 
-.pagination > .active > a, 
-.pagination > .active > span, 
-.pagination > .active > a:hover, 
-.pagination > .active > span:hover, 
-.pagination > .active > a:focus, 
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
 .pagination > .active > span:focus {
    border-color: #0275BC;
    background-color: #0275BC;
@@ -136,7 +136,7 @@ i.icon-bg-u {
 ------------------------------------*/
 /*Text Dropcap*/
 .dropcap {
-  color: #0275BC; 
+  color: #0275BC;
 }
 
 .dropcap-bg {
@@ -144,7 +144,7 @@ i.icon-bg-u {
 }
 
 .text-highlights-green {
-   background: #0275BC;   
+   background: #0275BC;
 }
 .text-border-green {
    border-color: #0275BC;

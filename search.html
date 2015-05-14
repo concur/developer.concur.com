@@ -1,0 +1,25 @@
+---
+title: Sample search page
+layout: default
+---
+
+<div class="container content">
+  <div class="row">
+    <div class="col-md-12">
+      <script>
+        (function() {
+          var cx = '000165422556797149853:qlbg8re_3tu';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+              '//cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+
+      <gcse:searchresults-only></gcse:searchresults-only>
+    </div>
+  </div>
+</div>

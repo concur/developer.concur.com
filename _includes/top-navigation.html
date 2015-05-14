@@ -1,4 +1,4 @@
-        <!-- Navbar -->
+<form method="get" action="{{ site.baseurl }}/search.html" id="searchbox_000165422556797149853:qlbg8re_3tu" class="search-form">
         <div class="navbar navbar-default mega-menu" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -13,14 +13,10 @@
                     </a>
                 </div>
 
-<script>
-  console.log('page.url: {{ page.url }}; site.baseurl: {{ site.baseurl }}');
-</script>
-
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav">
-                        <!-- Why Concur -->                        
+                        <!-- Why Concur -->
                         {% if page.url == '/why-concur.html' %}
                         <li class="active">
                         {% else %}
@@ -104,16 +100,21 @@
                             <i class="search fa fa-search search-btn"></i>
                             <div class="search-open">
                                 <div class="input-group animated fadeInDown">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                    <span class="input-group-btn">
-                                        <button class="btn-u" type="button">Go</button>
-                                    </span>
+                                      <input value="000165422556797149853:qlbg8re_3tu" name="cx" type="hidden"/>
+                                      <input value="FORID:11" name="cof" type="hidden"/> <!-- FORID values configure ad positions -->
+
+                                      <input type="text" id="q" class="form-control" name="q" value="" placeholder="Search">
+                                      <span class="input-group-btn">
+                                        <button type="submit" class="btn-u">Go</button>
+                                      </span>
                                 </div>
-                            </div>    
+                            </div>
                         </li>
                         <!-- End Search Block -->
                     </ul>
                 </div><!--/navbar-collapse-->
-            </div>    
-        </div>            
+            </div>
+        </div>
         <!-- End Navbar -->
+
+</form>
