@@ -32,12 +32,12 @@ a:hover {
 	background: #0275BC;
 }
 
-.posts .dl-horizontal dd a:hover { 
-	color: #0275BC; 
+.posts .dl-horizontal dd a:hover {
+	color: #0275BC;
 }
 
 .posts .dl-horizontal:hover dt img,
-.posts .dl-horizontal:hover dd a { 
+.posts .dl-horizontal:hover dd a {
 	color: #0275BC;
 	border-color: #0275BC !important;
 }
@@ -64,21 +64,21 @@ ul.blog-tags a:hover {
 
 .blog-twitter .blog-twitter-inner:hover {
 	border-color: #0275BC;
-	border-top-color: #0275BC;	
+	border-top-color: #0275BC;
 }
 .blog-twitter .blog-twitter-inner:hover:after {
-	border-top-color: #0275BC;	
+	border-top-color: #0275BC;
 }
 
 .blog-twitter .blog-twitter-inner a {
 	color: #0275BC;
 }
 
-.who li i { 
-	color: #0275BC; 
+.who li i {
+	color: #0275BC;
 }
 
-.promo-box:hover strong, 
+.promo-box:hover strong,
 .promo-box:hover strong a {
 	color: #0275BC;
 }

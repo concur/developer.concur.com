@@ -5,7 +5,7 @@
 ------------------------------------*/
 
 .header .navbar-toggle,
-.header .navbar-default .navbar-toggle:hover, 
+.header .navbar-default .navbar-toggle:hover,
 .header .navbar-default .navbar-toggle:focus {
 	background: #0275BC;
 }
@@ -33,8 +33,8 @@
 
 }
 
-@media (min-width: 992px) {	
-	
+@media (min-width: 992px) {
+
 	.header .navbar-default .navbar-nav > li > a:hover,
 	.header .navbar-default .navbar-nav > .active > a {
 		border-bottom: solid 2px #0275BC;
@@ -51,8 +51,8 @@
     }
 
 	/*Dropdown Menu*/
-	.header .dropdown-menu { 
-		border-top: solid 2px #0275BC; 
+	.header .dropdown-menu {
+		border-top: solid 2px #0275BC;
 	}
 
 }
