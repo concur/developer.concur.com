@@ -3,8 +3,6 @@ title: Support
 layout: conceptual
 ---
 
-We strive to make the API documentation as clear and helpful as possible. However, sometimes you need a little extra help.  We offer the following support resources:
-
 #### Configuring Sandboxes:
 You can get assistance for your developer sandbox configuration using the [Sandbox Configuration Assistance][1] page.
 

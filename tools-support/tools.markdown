@@ -29,7 +29,7 @@ Web Test is a Windows command-line tool you can use to test your code against ou
 
 [Web Test Tool][4] (ZIP)
 
-[1]:http://developer.concur.com/tools-support/acconnect-utility.html
-[2]:http://developer.concur.com/tools-support/tools-files/acconnect.zip
-[3]:http://developer.concur.com/tools-support/tools-files/WebTestUtilityUserGuide.pdf
-[4]:http://developer.concur.com/tools-support/tools-files/webtest.zip
+[1]:{{ site.baseurl }}/tools-support/tools-files/aconnect-utility.html
+[2]:{{ site.baseurl }}/tools-support/tools-files/acconnect.zip
+[3]:{{ site.baseurl }}/tools-support/tools-files/WebTestUtilityUserGuide.pdf
+[4]:{{ site.baseurl }}/tools-support/tools-files/webtest.zip
