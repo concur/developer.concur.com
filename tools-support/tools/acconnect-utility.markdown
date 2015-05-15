@@ -3,18 +3,16 @@ title: acconnect Utility
 layout: conceptual
 ---
 
-## Description
-
 acconnect is a command-line tool that obtains a request token for the specified user by using the App Center flow.
 
-## Requirements
+**Requirements:**  
 
 * Windows XP or later Windows operating system. If you're using Mac OS X, you will need to run a Windows VM such as Parallels Desktop in order to use the tool
 * You must be an administrator on the local computer.
 
 [acconnect Utility][1] (ZIP)
 
-## Syntax
+####Syntax:
 
 **acconnect.exe** **consumerKey** **consumerSecret** **scope** **username** **password** **"***redirect_URL***"**
 
@@ -38,7 +36,7 @@ Required. The password of the specified user.
 Required. The URL of the partner application page that receives the request token. The redirect URL must be enclosed in quotes.
 
 
-## Example
+####Example:
 
 This example creates a request token in a production environment for the specified user. The token allows access to the Expense Report Web service.
 
