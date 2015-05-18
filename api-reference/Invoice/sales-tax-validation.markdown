@@ -3,7 +3,6 @@ title: Sales Tax Validation
 layout: conceptual
 ---
 
-
 # Sales Tax Validation
 * [Schema](#schema)
 * [Status schema](#schema-status)

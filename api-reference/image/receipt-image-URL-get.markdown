@@ -2,8 +2,6 @@
 title: Get a receipt image URL 
 layout: operation 
 --- 
-
-
  
 ## Description 
 Retrieves the URL for the specified receipt image. The URL is valid for 30 minutes after the request. 

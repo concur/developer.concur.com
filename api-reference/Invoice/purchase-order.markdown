@@ -3,7 +3,6 @@ title: Purchase Order Web Service
 layout: conceptual
 ---
 
-
 # Purchase Orders
 * [Schema](#schema)
 * [Response schema](#schema-response)

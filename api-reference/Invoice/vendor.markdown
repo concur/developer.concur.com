@@ -3,7 +3,6 @@ title: Vendors
 layout: conceptual
 ---
 
-
 # Vendors
 * [Schema](#schema)
 * [Retrieve an existing vendor](#get)
