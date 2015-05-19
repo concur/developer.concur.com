@@ -1,6 +1,6 @@
 --- 
 title: Get a payment request image URL 
-layout: operation 
+layout: conceptual
 --- 
 
 ## Description 

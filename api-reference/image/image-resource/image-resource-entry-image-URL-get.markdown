@@ -2,8 +2,6 @@
 title: Get an entry image URL 
 layout: operation 
 --- 
-
-
  
 ## Description 
 Retrieves the URL for the receipt image associated with the expense entry that matches the supplied entry ID. 

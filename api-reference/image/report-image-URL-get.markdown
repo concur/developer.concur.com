@@ -1,6 +1,6 @@
 --- 
 title: Get a report image URL 
-layout: operation 
+layout: conceptual
 --- 
  
 ## Description 

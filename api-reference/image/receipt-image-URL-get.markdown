@@ -1,6 +1,6 @@
 --- 
 title: Get a receipt image URL 
-layout: operation 
+layout: conceptual
 --- 
  
 ## Description 

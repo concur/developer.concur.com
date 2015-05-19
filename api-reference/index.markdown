@@ -45,7 +45,6 @@ layout: conceptual
 
 
 ## Invoice
-[Purchase order receipts][20]  | 
 [Purchase orders][21] | 
 [Sales tax validation][22] | 
 [Vendors][23]
@@ -80,10 +79,9 @@ layout: conceptual
 [17]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-entry-itemization-resource
 [18]: http://concur.github.io/developer.concur.com/api-reference/expense/quick-expense/quick-expense-resource
 [19]: http://concur.github.io/developer.concur.com/api-reference/expense/expense-report/expense-report-resource
-[20]: http://concur.github.io/developer.concur.com/api-reference/invoice/purchase-order/purchase-order-receipt-resource
-[21]: http://concur.github.io/developer.concur.com/api-reference/invoice/purchase-order/purchase-order-resource
-[22]: http://concur.github.io/developer.concur.com/api-reference/invoice/sales-tax-validation/index
-[23]: http://concur.github.io/developer.concur.com/api-reference/invoice/vendors/vendors-resource
+[21]: http://{{ site.baseurl }}/api-reference/invoice/purchase-order.html
+[22]: http://{{ site.baseurl }}/api-reference/invoice/sales-tax-validation.html
+[23]: http://{{ site.baseurl }}/api-reference/invoice/vendors.html
 [24]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-request/travel-request-resource
 [25]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/index
 [26]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/trip/trip-resource
