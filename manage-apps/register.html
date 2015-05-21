@@ -1,0 +1,212 @@
+---
+layout: page
+title: Sandbox Registration
+---
+
+<div class="col-md-12">
+    <h2>Concur Connect Partners and Developers</h2>
+    <p> As a Concur partner or developer, you can request assistance for your developer sandbox configuration by filling out and submitting this form.</p><br>
+    <form id="sandboxRegistration" class="sky-form" novalidate="novalidate">
+      <fieldset>
+        <div class="row">
+          <section class="col col-6">
+            <label class="label">First Name</label>
+            <label class="input">
+              <input type="text" name="firstName" id="firstName">
+            </label>
+          </section>
+          <section class="col col-6">
+            <label class="label">Last Name</label>
+            <label class="input">
+              <input type="text" name="lastName" id="lastName">
+            </label>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-6">
+            <label class="label">Email Address</label>
+            <label class="input">
+              <input type="text" name="email" id="email">
+            </label>
+          </section>
+          <section class="col col-6">
+            <label class="label">Company Name</label>
+            <label class="input">
+              <input type="text" name="company" id="company">
+            </label>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-6">
+            <label class="label">Password</label>
+            <label class="input">
+              <input type="text" name="password" id="password">
+            </label>
+          </section>
+          <section class="col col-6">
+            <label class="label">Verify Password</label>
+            <label class="input">
+              <input type="text" name="passwordVerify" id="passwordVerify">
+            </label>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-6">
+            <label class="label">Business Description</label>
+            <label class="input">
+              <input type="text" name="businessDescription" id="businessDescription">
+            </label>
+          </section>
+          <section class="col col-6">
+            <label class="label">Phone Number</label>
+            <label class="input">
+              <input type="text" name="phoneNumber" id="phoneNumber">
+            </label>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-6">
+            <label class="label">Country</label>
+            <label class="select">
+              <select name="country" id="country">
+                {% for country in site.data.countries %}
+                <option value="{{ country.code }}">{{ country.name }}</option>
+                {% endfor %}
+              </select>
+              <i></i>
+            </label>
+          </section>
+          <section class="col col-6">
+            <label class="label">Website</label>
+            <label class="input">
+              <input type="text" name="website" id="website">
+            </label>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-6">
+            <label class="label">Relationship with Concur</label>
+            <label class="select">
+              <select name="relationshipToConcur" id="relationshipToConcur">
+                {% for rel in site.data.concur_relationships %}
+                <option value="{{ rel.value }}">{{ rel.title }}</option>
+                {% endfor %}
+              </select>
+              <i></i>
+            </label>
+          </section>
+          <section class="col col-6">
+            <label class="label">How would you like to use Concur?</label>
+            <label class="input">
+              <input type="text" name="desiredUse" id="desiredUse">
+            </label>
+          </section>
+        </div>
+        <section>
+          <label class="checkbox">            
+            <input type="checkbox" name="termsOfUseAgreement">
+            <i></i>
+            I Agree to the <a href="{{ site.baseurl }}/Terms-of-Use.html">Terms of Use</a> and Privacy Policy
+          </label>
+        </section>
+      </fieldset>
+      <footer>
+        <button type="submit" class="button">Submit</button>
+      </footer>
+    </form><br>
+    <div>
+      <h3>Before You Start</h3>
+      <ul>
+          <li>Use an email that is not in use in any Concur products, or is an existing Concur email—the address must be unique.</li>
+          <li>See the Creating a Sandbox tutorial.</li>
+          <li>Learn how to prep your app for App Review.</li>
+          <li>Questions?  Contact Concur Support.</li>
+      </ul> 
+
+      <h3>About Creating a Sandbox</h3>
+      <div>
+        When you register, Concur will create a sandbox company for testing applications. This test company provides access to the Concur expense reporting experience by default, and can be configured to access additional services. In your test company, you can create two (2) more user accounts to test functionality at three different access levels: end user, expense report approver, and administrator.
+      </div>
+
+      <div>
+        The sandbox test company can be used with the following APIs:
+        <ul>
+          <li>Attendee</li>
+          <li>Expense</li>
+          <li>Imaging</li>
+          <li>Itinerary</li>
+          <li>List Item</li>
+          <li>Payment Batch File</li>
+          <li>Travel Profile</li>
+          <li>User</li>
+        </ul>
+
+        To configure your sandbox for additional products or APIs, contact Concur Support.
+      </div>
+
+      <h3>When You Login</h3>
+      <ul>
+        <li>Concur automatically creates a partner application for you, and generates an Access Token for your user account. Copy the Consumer Key, Consumer Secret, and Access Token and keep them in a safe place.</li>
+        <li>Once you close the initial window, you’ll reach the Setup wizard. Complete the Introduction page and click Next or Skip.</li>
+        <li>To add users, youlll need to create a payment method on the Employee Reimbursements page. On the Invite Users page, click Invite Now to activate your company.</li>
+        <li>You can now use your company to get familiar with the Concur experience.</li>
+        <li>Ready to test? Use the credentials you received to test out your app. If you’d like to enable more APIs for the app, go to Administration &gt; Web Services to modify  your application.</li>
+        <li>Prep your solution for App Review. </li>
+      </ul>
+    </div>
+  </div><!--/col-md-12-->
+</div>
+<script>
+  $("#sandboxRegistration").validate({
+    // Rules for form validation
+    rules: {
+      firstName: { required: true },
+      lastName: { required: true },
+      email: { 
+        required: true,
+        email: true
+      },
+      company: { required: true },
+      password: { required: true },
+      passwordVerify: { 
+        required: true,
+        equalTo: '#password'
+      },
+      country: { required: true },
+      website: { url: true },
+      termsOfUseAgreement: { required: true }
+    },
+
+    // Messages for form validation
+    messages: {
+      firstName: { required: 'Please enter your first name' },
+      lastName: { required: 'Please enter your last name' },
+      email: { required: 'Please enter a valid email address' },
+      company: { required: 'Please enter your company name' },
+      password: { required: 'Please enter your desired sandbox password' },
+      passwordVerify: { 
+        required: 'Please verify your desired sandbox password',
+        equalTo: 'Password and Verify Password must be equal'
+      },
+      country: { required: 'Please enter your country' },
+      termsOfUseAgreement: { required: 'Please accept the terms of use to create your sandbox' }
+    },
+
+    // Ajax form submition                  
+    submitHandler: function(form) {
+      $(form).ajaxSubmit({
+        beforeSend: function() {
+          $('#sandboxRegistration button[type="submit"]').attr('disabled', true);
+        },
+        success: function() {
+          $("#sandboxRegistration").addClass('submited');
+        }
+      });
+    },
+    
+    // Do not change code below
+    errorPlacement: function(error, element) {
+      error.insertAfter(element.parent());
+    }
+  });
+</script>
