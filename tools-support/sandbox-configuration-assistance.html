@@ -1,0 +1,105 @@
+---
+layout: page
+title: Sandbox Configuration Assistance
+---
+
+<div class="col-md-12">
+    <h2>Concur Connect Partners and Developers</h2>
+    <p> As a Concur partner or developer, you can request assistance for your developer sandbox configuration by filling out and submitting this form.</p><br>
+    <form id="sandboxAssistance" class="sky-form" novalidate="novalidate">
+      <fieldset>
+
+        <section>
+          <label class="label">First Name</label>
+          <label class="input">
+            <input type="text" name="firstName" id="firstName">
+          </label>
+        </section>
+
+        <section>
+          <label class="label">Last Name</label>
+          <label class="input">
+            <input type="text" name="lastName" id="lastName">
+          </label>
+        </section>
+
+        <section>
+          <label class="label">Email Address</label>
+          <label class="input">
+            <input type="text" name="email" id="email">
+          </label>
+        </section>
+
+        <section>
+          <label class="label">Company Name</label>
+          <label class="input">
+            <input type="text" name="company" id="company">
+          </label>
+        </section>
+
+        <section>
+          <label class="label">Phone Number</label>
+          <label class="input">
+            <input type="text" name="phoneNumber" id="phoneNumber">
+          </label>
+        </section>
+
+        <section>
+          <label class="label">Concur Partner or Developer Request Details (Do not use this form for customer or individual user requests)</label>
+          <label class="textarea">
+            <textarea name="details" id="details" rows="3"></textarea>
+            <i></i>
+          </label>
+        </section>
+
+      </fieldset>
+      <footer>
+        <button type="submit" class="button">Submit</button>
+      </footer>
+    </form>
+
+  </div><!--/col-md-12-->
+</div>
+<script>
+  $("#sandboxAssistance").validate({
+    // Rules for form validation
+    rules: {
+      firstName: { required: true },
+      lastName: { required: true },
+      email: { 
+        required: true,
+        email: true
+      },
+      company: { required: true },
+      phoneNumber: { required: true },
+      details: { required: true }
+    },
+
+    // Messages for form validation
+    messages: {
+      firstName: { required: 'Please enter your first name' },
+      lastName: { required: 'Please enter your last name' },
+      email: { required: 'Please enter a valid email address' },
+      company: { required: 'Please enter your company name' },
+      phoneNumber: { required: 'Please enter a valid phone number' },
+      details: { required: 'Please enter the details for this request' }
+    },
+
+    // Ajax form submition                  
+    submitHandler: function(form) {
+      $(form).ajaxSubmit({
+        beforeSend: function() {
+          $('#sandboxAssistance button[type="submit"]').attr('disabled', true);
+        },
+        success: function() {
+          $("#sandboxAssistance").addClass('submited');
+        }
+      });
+    },
+    
+    // Do not change code below
+    errorPlacement: function(error, element) {
+      error.insertAfter(element.parent());
+    }
+  });
+</script>

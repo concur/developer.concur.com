@@ -29,7 +29,7 @@ If you're a Concur Administrator, please open a support ticket at <https://concu
 
 
 
-[1]: https://developer.concur.com/node/533
+[1]: {{ site.baseurl }}/tools-support/sandbox-configuration-assistance.html
 [2]: https://developer.concur.com/docs-and-resources/forums
 [3]: https://na4.salesforce.com/secur/login_portal.jsp?orgId=00D600000007Dq3&portalId=06060000000PrEi
 [4]: https://www.concursolutions.com/profile/send_password_hint.asp?txtLoginID=&forgotName=1
