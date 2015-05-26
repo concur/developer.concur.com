@@ -6,38 +6,33 @@ layout: resource
 
 ##  Description
 
-**NOTE: Travel Profile resource version 1.0 has been deprecated.**
-
 The Travel Profile resource represents a Concur travel profile which contains travel-relation information about a user, such as:
 
-* Company Information (example: custom fields)
-* User Information
-* Contact Details
-* Rate Preferences and Discount Codes
+* Identity
+* Contact information
+* Rate preferences and discount codes
 * Preferences by travel type
-* Managers/Arrangers
-* Passports/Visas
-* TMC Specific Data
-* Unused Tickets
 
 ##  Version
 
-2.0
+1.0
 
 ##  URI
 
-<code>https://{InstanceURL}/api/travelprofile/v2.0/profile</code>
+<samp>https://{InstanceURL}/api/travelprofile/v1.0/profile</samp>
 
 ##  Operations
 
 * [Get a travel profile](#a1)
-
-Detailed descriptions of requests and responses are available in the documentation for each HTTP method. The complete schema definition is available here: [Travel Profile XSD][3]. If you're using Internet Explorer, right click the link and choose Save Target As... to view the XSD.
-
+* [Get a list of travel profile summaries](#a2)
 
 ## <a name="a1">Get a travel profile</a>
 
-This endpoint provides travel profile information for the specified user. The travel profile includes information such as the user's identity, contact information, rate preferences and discount codes, preferences by travel type, and custom fields. 
+Gets the travel profile information for the specified user. The travel profile includes information such as the user's identity, contact information, rate preferences and discount codes, preferences by travel type, and custom fields. The travel profile information returned by this GET operation depends on whether the caller is a Travel Supplier, a TMC, or a mainstream developer:
+
+* Travel Suppliers can get only the loyalty program information and discount codes for their own loyalty and discount programs.
+* TMCs can get all loyalty programs and discount codes for the specified user.
+* A mainstream developer cannot get any loyalty program or discount information.
 
 ###  Request parameters
 
@@ -56,7 +51,7 @@ application/xml
 ####  Authorization header
 <samp>Authorization: OAuth {access_token}</samp>
 
-Where access_token is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve.
+Where *access_token* is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
 ###  Data model
 
@@ -413,7 +408,7 @@ For each custom field, the CustomField element has a Name and Value child elemen
 
 #####  Request
 
-    GET {InstanceURI}/api/travelprofile/v2.0/profile HTTP/1.1
+    GET {InstanceURI}/api/travelprofile/v1.0/profile HTTP/1.1
     Authorization: OAuth {access token}
     ...
 
@@ -606,7 +601,7 @@ Content-Type: application/xml
 
 ####  Request
 
-    GET https://www.concursolutions.com/api/travelprofile/v2.0/profile?
+    GET https://www.concursolutions.com/api/travelprofile/v1.0/profile?
     userid_type=login&userid_value=cm@example.com HTTP/1.1
     Authorization: OAuth {access token}
     ...
@@ -623,7 +618,7 @@ The response is the same as in Example 1.
 
 #####  Request
 
-    GET {InstanceURI}/api/travelprofile/v2.0/profile HTTP/1.1
+    GET {InstanceURI}/api/travelprofile/v1.0/profile HTTP/1.1
     Authorization: OAuth {access token}
     ...
 
@@ -818,7 +813,7 @@ The response is the same as in Example 1.
 
 #####  Request
 
-    GET https://www.concursolutions.com/api/travelprofile/v2.0/profile?
+    GET https://www.concursolutions.com/api/travelprofile/v1.0/profile?
     userid_type=login&userid_value=cm@example.com HTTP/1.1
     Authorization: OAuth {access token}
     ...
@@ -829,18 +824,18 @@ The response is the same as in Example 3.
 
 ## <a name="a2">Get a list of travel profile summaries</a>
 
-This endpoint provides a list of travel profile summaries that have been updated since the specified date. The response is separated into pages.
+Gets the list of travel profile summaries that have been updated since the specified date. The response is separated into pages.
 
 ###  Request
 
-<code>
-GET {InstanceURI}/api/travelprofile/v2.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
+<samp>
+GET {InstanceURI}/api/travelprofile/v1.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
 Authorization: OAuth {access token}
-</code>
+</samp>
 
 ####  Request parameters
 
-All request paramenters are optional. Available request parameters are as follows:
+All request paramenters are optional. To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters.
 
 |  Parameter Name |  Required/Optional | Parameter Type |  Data Type |  Description |
 | :----- | :----- | :----- | :----- | :----- |
@@ -929,7 +924,7 @@ This example gets the list of travel profile summaries modified after January 1 
 ####  Request
 
 <samp>
-    GET {InstanceURI}/api/travelprofile/v2.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
+    GET {InstanceURI}/api/travelprofile/v1.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
     Authorization: OAuth {access token}
     ...
 </samp>
@@ -973,13 +968,12 @@ Content-Type: application/xml
 * [Loyalty Program][5]
 * [Company Notification][6]
 * [User Notification][7]
-* [Get a list of travel profile summaries](#a2)
 * [Travel Profile XSD][3] for the complete profile schema definition.
 
 
-[3]: https://www.concursolutions.com/ns/TravelUserProfile.xsd
-[4]: http://developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
-[5]: http://developer.concur.com/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
-[6]: http://developer.concur.com/developer.concur.com/api-reference/user/company-notification-subscription-resource
-[7]: http://developer.concur.com/developer.concur.com/api-reference/travel/travel-profile/user-notification-resource
+[3]: https://www.concursolutions.com/ns/PanamaUserProfile.xsd
+[4]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
+[5]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
+[6]: http://concur.github.io/developer.concur.com/api-reference/user/company-notification-subscription-resource
+[7]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/user-notification-resource
 [8]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-
