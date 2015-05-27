@@ -46,6 +46,6 @@ An access token is a long-lived token used to make authorized API calls.
 
 
 
-[1]: https://developer.concur.com/oauth-20/working-access-tokens/revoking-access-tokens
-[2]: https://developer.concur.com/oauth-20/native-flow
-[3]: https://developer.concur.com/oauth-20/web-flow
+[1]: /api-reference/authentication/revoking-access-tokens.html
+[2]: /api-reference/authentication/native-flow.html
+[3]: /api-reference/authentication/web-flow.html
