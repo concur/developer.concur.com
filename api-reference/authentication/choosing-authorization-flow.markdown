@@ -22,7 +22,7 @@ You can use this table to decide which OAuth 2.0 authorization flow to use for y
 |  Distribute your app in the App Center and are a TripLink supplier. |  [Auto-Connect Flow][4] |
 
 
-[1]: https://developer.concur.com/oauth-20/native-flow
-[2]: https://developer.concur.com/oauth-20/web-flow
-[3]: https://developer.concur.com/oauth-20/app-center-flow
-[4]: https://developer.concur.com/oauth-20/auto-connect-flow
+[1]: /api-reference/authentication/native-flow.html
+[2]: /api-reference/authentication/web-flow.html
+[3]: /api-reference/authentication/app-center-flow.html
+[4]: /api-reference/authentication/auto-connect-flow.html

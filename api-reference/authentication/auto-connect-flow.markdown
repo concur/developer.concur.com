@@ -70,7 +70,7 @@ To implement the Auto-Connect flow, follow these steps:
 
 
 
-[1]: https://developer.concur.com/overview/partner-applications
+[1]: /docs/overviews/partner-applications.html
 [2]: https://developer.concur.com/sites/default/files/APIScope_register_partner_app_ConnectionsRequest_APIScope_cropped.png
 [3]: https://developer.concur.com/sites/default/files/Connection%20Request.png
 

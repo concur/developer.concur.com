@@ -226,8 +226,8 @@ The application needs to store the OAuth token for the user. If the user does no
 
 
 [1]: https://developer.concur.com/sites/default/files/App_Center_Latest.png
-[2]: https://developer.concur.com/node/624/
+[2]: /manage-apps/app-certification.html
 [3]: https://developer.concur.com/node/493
-[4]: https://developer.concur.com/overview/partner-applications
+[4]: /docs/overviews/partner-applications.html
 [5]: https://developer.concur.com/sites/default/files/SalesforceConnectorOauthConf_crop.png
-[6]: https://developer.concur.com/node/491#gettokenweb
+[6]: /api-reference/authentication/web-flow.html

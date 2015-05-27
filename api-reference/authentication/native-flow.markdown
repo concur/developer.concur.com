@@ -57,4 +57,4 @@ In the native flow, the partner application sends the user's Concur credentials.
 
 
 
-[1]: https://developer.concur.com/overview/partner-applications
+[1]: /docs/overviews/partner-applications.html

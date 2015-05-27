@@ -36,7 +36,7 @@ This topic walks you through the App Center user experience providing guidelines
 
 ###  Implementing the App Center flow programmatically
 
-1. Register your application by following the steps in [Registering a Partner Application][3].
+1. Register your application by following the steps in [Registering a Partner Application][1].
 
 2. Create a web page that listens for an HTTP GET request from Concur. This can be a servlet, MVC controller, ASHX or ASPX file, etc. This page must be hosted at the URI you specify in your App Center listing. The URI is specified in the redirect_url query parameter in step 3.
 
@@ -63,9 +63,8 @@ For example:
 
 
 
-[1]: https://developer.concur.com/overview/partner-applications
-[2]: https://developer.concur.com/go-market/app-certification
-[3]: https://developer.concur.com/overview/partner-applications
+
+[1]: /docs/overviews/partner-applications.html
 [4]: Uber_Listing_appcenterflow_with_mobile.png
 [5]: partner_page_with_callouts.png
 [6]: Accounts_Linked.png
