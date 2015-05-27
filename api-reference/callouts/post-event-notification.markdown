@@ -1,6 +1,6 @@
 ---
 title: Post an event notification request
-layout: operation
+layout: reference
 ---
 
 ##  Post Event Notification Request

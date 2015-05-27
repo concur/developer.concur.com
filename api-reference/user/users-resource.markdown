@@ -1,6 +1,6 @@
 ---
 title: Users Resource 
-layout: resource
+layout: reference
 ---
 
 

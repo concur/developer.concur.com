@@ -1,6 +1,6 @@
 ---
 title: Report Digests Resource
-layout: resource
+layout: reference
 ---
 
 ##  Description

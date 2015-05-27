@@ -1,6 +1,6 @@
 ---
 title: Close a payment batch 
-layout: operation
+layout: reference
 ---
 
 

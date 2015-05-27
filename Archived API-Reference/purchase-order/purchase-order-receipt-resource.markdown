@@ -1,6 +1,6 @@
 ---
 title: Purchase Order Receipt Resource 
-layout: resource
+layout: reference
 ---
 
 

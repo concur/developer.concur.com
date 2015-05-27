@@ -1,6 +1,6 @@
 ---
 title: Callouts and Application Connectors 
-layout: conceptual
+layout: reference
 ---
 
 

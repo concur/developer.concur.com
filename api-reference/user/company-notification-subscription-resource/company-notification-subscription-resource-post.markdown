@@ -1,6 +1,6 @@
 ---
 title: Subscribe or unsubscribe from notifications
-layout: operation
+layout: reference
 ---
 
 This resource supports the following POST actions:

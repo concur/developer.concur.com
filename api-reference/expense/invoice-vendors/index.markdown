@@ -1,6 +1,6 @@
 ---
 title: Invoice Vendors Web Service 
-layout: conceptual
+layout: reference
 ---
 
 ## Description

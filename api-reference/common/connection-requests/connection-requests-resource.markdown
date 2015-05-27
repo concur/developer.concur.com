@@ -1,6 +1,6 @@
 ---
 title: Connection Requests Resource 
-layout: resource
+layout: reference
 ---
 
 

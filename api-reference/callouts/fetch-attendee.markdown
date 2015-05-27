@@ -1,6 +1,6 @@
 ---
 title: Fetch Attendee Version 2 Callout
-layout: conceptual
+layout: reference
 ---
 
 

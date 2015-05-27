@@ -1,6 +1,6 @@
 ---
 title: Booking Resource
-layout: resource
+layout: reference
 ---
 
 ## Description

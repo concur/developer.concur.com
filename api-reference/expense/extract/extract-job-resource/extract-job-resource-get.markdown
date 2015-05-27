@@ -1,6 +1,6 @@
 ---
 title: Get a list of extract jobs
-layout: operation
+layout: reference
 ---
 
 This resource supports the following GET actions:

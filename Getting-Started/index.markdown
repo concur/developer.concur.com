@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-layout: conceptual
+layout: reference
 ---
 
 

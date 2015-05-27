@@ -1,6 +1,6 @@
 ---
 title: App Center Flow 
-layout: conceptual
+layout: reference
 ---
 
 ## App Center Flow

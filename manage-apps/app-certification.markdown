@@ -1,6 +1,6 @@
 ---
 title: App Certification
-layout: conceptual
+layout: reference
 ---
 
 Handling data with care and delivering a positive experience for our customers is paramount at Concur.  To ensure an appropriate level of data security and good customer experience, all apps that integrate and appear in the App Center go through our App Review process.

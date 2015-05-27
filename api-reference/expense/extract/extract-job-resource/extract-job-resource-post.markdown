@@ -1,6 +1,6 @@
 ---
 title: Initiate a new extract job
-layout: resource
+layout: reference
 ---
 
 ##  Description

@@ -1,6 +1,6 @@
 ---
 title: Profile Resource 
-layout: resource
+layout: reference
 ---
 
 

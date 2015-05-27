@@ -1,6 +1,6 @@
 ---
 title: External Validation Callout 
-layout: conceptual
+layout: reference
 ---
 
 

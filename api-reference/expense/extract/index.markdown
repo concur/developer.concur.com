@@ -1,6 +1,6 @@
 ---
 title: Extract Web Service 
-layout: conceptual
+layout: reference
 ---
 
 ## Description

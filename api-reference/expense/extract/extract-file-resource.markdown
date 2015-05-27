@@ -1,6 +1,6 @@
 ---
 title: Extract File Resource 
-layout: resource
+layout: reference
 ---
 
 

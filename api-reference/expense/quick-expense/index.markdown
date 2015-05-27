@@ -1,6 +1,6 @@
 ---
 title: Quick Expense Web Service 
-layout: conceptual
+layout: reference
 ---
 
 ## Description

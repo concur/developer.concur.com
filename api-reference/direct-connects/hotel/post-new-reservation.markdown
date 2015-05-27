@@ -1,6 +1,6 @@
 ---
 title: Post a new reservation 
-layout: operation
+layout: reference
 ---
 
 

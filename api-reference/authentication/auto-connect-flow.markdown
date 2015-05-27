@@ -1,6 +1,6 @@
 ---
 title: Auto-Connect Flow
-layout: conceptual
+layout: reference
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Expense Report Header Resource 
-layout: resource
+layout: reference
 ---
 
 

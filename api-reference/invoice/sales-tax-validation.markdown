@@ -1,6 +1,6 @@
 ---
 title: Sales Tax Validation
-layout: resource
+layout: reference
 ---
 
 # Sales Tax Validation

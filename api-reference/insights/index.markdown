@@ -1,6 +1,6 @@
 ---
 title: Insights Web Service
-layout: conceptual
+layout: reference
 ---
 
 ##Description 

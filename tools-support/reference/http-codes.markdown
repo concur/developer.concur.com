@@ -1,6 +1,6 @@
 ---
 title: HTTP Codes 
-layout: conceptual
+layout: reference
 ---
 
 

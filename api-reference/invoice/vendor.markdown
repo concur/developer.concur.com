@@ -1,6 +1,6 @@
 ---
 title: Vendors
-layout: conceptual
+layout: reference
 ---
 
 # Vendors

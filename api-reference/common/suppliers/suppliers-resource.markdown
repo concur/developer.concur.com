@@ -1,6 +1,6 @@
 ---
 title: Suppliers Resource 
-layout: resource
+layout: reference
 ---
 
 

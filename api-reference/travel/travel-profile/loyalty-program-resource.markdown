@@ -1,6 +1,6 @@
 ---
 title: Loyalty Program Resource 
-layout: resource
+layout: reference
 ---
 
 

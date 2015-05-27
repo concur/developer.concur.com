@@ -1,6 +1,6 @@
 ---
 title: Get report details
-layout: operation
+layout: reference
 ---
 
 ## Description

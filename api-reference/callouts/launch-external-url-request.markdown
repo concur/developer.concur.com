@@ -1,6 +1,6 @@
 ---
 title: Launch an external URL request 
-layout: conceptual
+layout: reference
 ---
 
 

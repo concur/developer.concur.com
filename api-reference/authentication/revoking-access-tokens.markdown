@@ -1,6 +1,6 @@
 ---
 title: Revoking Access Tokens 
-layout: operation
+layout: reference
 ---
 
 

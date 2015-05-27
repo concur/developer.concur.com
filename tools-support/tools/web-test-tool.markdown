@@ -1,6 +1,6 @@
 ---
 title: Web Test Tool
-layout: conceptual
+layout: reference
 ---
 
 Web Test is a Windows command-line tool you can use to test your code against our APIs in a sandbox environment. It provides proper encoding of credentials, basic scripting capabilities, and color-coded responses.

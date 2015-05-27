@@ -1,6 +1,6 @@
 ---
 title: Post a receipt 
-layout: operation
+layout: reference
 ---
 
 

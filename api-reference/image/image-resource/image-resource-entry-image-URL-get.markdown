@@ -1,6 +1,6 @@
 --- 
 title: Get an entry image URL 
-layout: operation 
+layout: reference 
 --- 
  
 ## Description 

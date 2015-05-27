@@ -1,6 +1,6 @@
 ---
 title: Expense Group Configuration Resource 
-layout: resource
+layout: reference
 ---
 
 

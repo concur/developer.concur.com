@@ -1,6 +1,6 @@
 ---
 title: Spend Category Codes 
-layout: conceptual
+layout: reference
 ---
 
 

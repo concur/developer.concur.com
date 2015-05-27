@@ -1,6 +1,6 @@
 ---
 title: Get suppliers
-layout: operation
+layout: reference
 ---
 
 

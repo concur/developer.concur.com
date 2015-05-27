@@ -1,6 +1,6 @@
 ---
 title: Get a list of locations
-layout: operation
+layout: reference
 ---
 
 ## Description

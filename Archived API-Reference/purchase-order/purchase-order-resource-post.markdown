@@ -1,6 +1,6 @@
 ---
 title: Create a purchase order
-layout: operation
+layout: reference
 ---
 
 

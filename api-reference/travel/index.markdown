@@ -1,5 +1,5 @@
 ---
-layout: conceptual
+layout: reference
 title: Travel Web Services
 ---
 

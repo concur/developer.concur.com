@@ -1,6 +1,6 @@
 ---
 title: Expense Report Resource 
-layout: resource
+layout: reference
 ---
 
 

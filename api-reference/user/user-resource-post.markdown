@@ -1,6 +1,6 @@
 ---
 title: Add or update users
-layout: operation
+layout: reference
 ---
 
 

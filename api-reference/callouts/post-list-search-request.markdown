@@ -1,6 +1,6 @@
 ---
 title: Post a list search request 
-layout: conceptual
+layout: reference
 ---
 
 #Post List Search Request

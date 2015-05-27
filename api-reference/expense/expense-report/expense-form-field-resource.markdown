@@ -1,6 +1,6 @@
 ---
 title: Expense Form Field Resource 
-layout: resource
+layout: reference
 ---
 ## Description
 The configured fields for the specified expense form.

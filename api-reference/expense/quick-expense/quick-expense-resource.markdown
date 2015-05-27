@@ -1,6 +1,6 @@
 ---
 title: Quick Expense Resource 
-layout: resource
+layout: reference
 ---
 
 

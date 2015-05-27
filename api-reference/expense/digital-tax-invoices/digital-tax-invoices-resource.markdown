@@ -1,6 +1,6 @@
 ---
 title: Digital Tax Invoices Resource 
-layout: resource
+layout: reference
 ---
 
 ## Description

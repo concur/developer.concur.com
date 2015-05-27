@@ -1,6 +1,6 @@
 ---
 title: Create an expense entry itemization
-layout: operation
+layout: reference
 ---
 
 ## Description

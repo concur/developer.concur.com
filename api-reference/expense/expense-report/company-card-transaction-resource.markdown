@@ -1,6 +1,6 @@
 ---
 title: Company Card Transaction Resource 
-layout: resource
+layout: reference
 ---
 
 

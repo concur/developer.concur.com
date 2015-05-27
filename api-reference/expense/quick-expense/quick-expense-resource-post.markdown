@@ -1,6 +1,6 @@
 ---
 title: Post a quick expense
-layout: operation
+layout: reference
 ---
 
 

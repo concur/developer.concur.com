@@ -1,6 +1,6 @@
 ---
 title: Get expense group configuration details
-layout: operation
+layout: reference
 ---
 
 ## Description

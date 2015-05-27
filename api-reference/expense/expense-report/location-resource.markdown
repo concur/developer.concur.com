@@ -1,6 +1,6 @@
 ---
 title: Location Resource 
-layout: resource
+layout: reference
 ---
 
 

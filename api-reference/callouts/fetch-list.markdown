@@ -1,6 +1,6 @@
 ---
 title: Fetch List Callout 
-layout: conceptual
+layout: reference
 ---
 
 ## Description

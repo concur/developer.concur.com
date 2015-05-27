@@ -1,6 +1,6 @@
 ---
 title: Event Notification Callout 
-layout: resource
+layout: reference
 ---
 
 ## Description
@@ -9,7 +9,7 @@ The Event Notification callout allows clients to choose to be notified through w
 This callout differs from the standard Concur web services in the following ways:
 
 * It uses an **outbound** **callout** where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client.  
-	Refer to [**Callouts and Application Connectors][1][1] **for more information.
+  Refer to [**Callouts and Application Connectors][1][1] **for more information.
 * The application connector can also use the web services to retrieve or send Concur data.
 * The developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by Concur. This guide specifies the request and response format required by Concur.
 * Concur provides a sample connector application that the developer or client can install on their network and customize to interface with their system of record. Concur can also customize the connector.
@@ -50,9 +50,9 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 The configuration process has the following steps:
 
 1. Third-party developer, client or Concur downloads, installs, configures, and customizes the application connector. The application connector may make requests to the inbound web services.  
-	Refer to [**Callouts and Application Connectors][1][6]**, **Web Services \> [Core Concepts][7]**, and the reference guides for the individual web services for more information.
+  Refer to [**Callouts and Application Connectors][1][6]**, **Web Services \> [Core Concepts][7]**, and the reference guides for the individual web services for more information.
 2. The developer or the Concur clients registers the application connector.  
-	Refer to **Installation \> Process **for the detailed steps.
+  Refer to **Installation \> Process **for the detailed steps.
 
 Once the configuration is complete, the callout uses the following process:
 
@@ -92,28 +92,28 @@ The installation process includes installing the application connector, and regi
    5. Fill out the fields:     
    
    
-	|  Field       |  Description |
-	|--------------|--------------|
-	|  Name        |  Enter the name that should appear in the list of connectors.| 
-	|  Description |  Enter the description of the function of the connector, such as what back-end system it might connect to. |
-	|  Host Name   |  Enter the hostname for the connector. Example: https://{servername} |
-	|  User Name   |  Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth. |
-	|  Password    |  Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth. |
+  |  Field       |  Description |
+  |--------------|--------------|
+  |  Name        |  Enter the name that should appear in the list of connectors.| 
+  |  Description |  Enter the description of the function of the connector, such as what back-end system it might connect to. |
+  |  Host Name   |  Enter the hostname for the connector. Example: https://{servername} |
+  |  User Name   |  Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth. |
+  |  Password    |  Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth. |
 
 
-	![1][image-1]  
+  ![1][image-1]  
 
-	6. In the **Services** section, select **Send Notification**.
-	7. Click **Configure**. The **Configure Service** window appears.    
+  6. In the **Services** section, select **Send Notification**.
+  7. Click **Configure**. The **Configure Service** window appears.    
 
-	![1][image-2]  
+  ![1][image-2]  
 
-	8. Enter the endpoint that the Concur will connect to on your server. Example: /concur/v1.0/notify
-	9. Select the **Enabled** check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.
-	10. In the Workflows section, select the workflow step for each expense report or travel request workflow that requires notifications.
-	11. Click **OK**.
-	12. Click **Test Connection**. Concur will attempt to access the configured endpoint with the provided user credentials.
-	13. Click **Save**. The application connector is now registered with Concur and enabled.
+  8. Enter the endpoint that the Concur will connect to on your server. Example: /concur/v1.0/notify
+  9. Select the **Enabled** check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.
+  10. In the Workflows section, select the workflow step for each expense report or travel request workflow that requires notifications.
+  11. Click **OK**.
+  12. Click **Test Connection**. Concur will attempt to access the configured endpoint with the provided user credentials.
+  13. Click **Save**. The application connector is now registered with Concur and enabled.
 
 ### Responses and Errors
 Refer to the [HTTP Codes][16] page for details of the common responses and errors.
@@ -123,22 +123,22 @@ Refer to the [HTTP Codes][16] page for details of the common responses and error
   
 
 
-[1]:	https://developer.concur.com/callouts
-[2]:	https://developer.concur.com/expense-report/expense-report-resource/get-report-details
-[3]:	https://developer.concur.com/expense-report/expense-report-resource/post-report-exceptions
-[4]:	https://developer.concur.com/callouts
-[5]:	https://developer.concur.com/forums/concur-connect
-[6]:	https://developer.concur.com/callouts
-[7]:	https://developer.concur.com/api-documentation/core-concepts
-[8]:	https://developer.concur.com/callouts
-[9]:	https://developer.concur.com/callouts/event-notification/delete-notification
-[10]:	https://developer.concur.com/callouts/event-notification/get-notifications-status
-[11]:	https://developer.concur.com/callouts/event-notification/post-event-notification
-[12]:	/callouts/event-notification#installproc
-[13]:	/callouts/event-notification#responses
-[14]:	https://developer.concur.com/code-sample
-[15]:	https://developer.concur.com/callouts
-[16]:	https://developer.concur.com/reference/http-codes
+[1]:  https://developer.concur.com/callouts
+[2]:  https://developer.concur.com/expense-report/expense-report-resource/get-report-details
+[3]:  https://developer.concur.com/expense-report/expense-report-resource/post-report-exceptions
+[4]:  https://developer.concur.com/callouts
+[5]:  https://developer.concur.com/forums/concur-connect
+[6]:  https://developer.concur.com/callouts
+[7]:  https://developer.concur.com/api-documentation/core-concepts
+[8]:  https://developer.concur.com/callouts
+[9]:  https://developer.concur.com/callouts/event-notification/delete-notification
+[10]: https://developer.concur.com/callouts/event-notification/get-notifications-status
+[11]: https://developer.concur.com/callouts/event-notification/post-event-notification
+[12]: /callouts/event-notification#installproc
+[13]: /callouts/event-notification#responses
+[14]: https://developer.concur.com/code-sample
+[15]: https://developer.concur.com/callouts
+[16]: https://developer.concur.com/reference/http-codes
 
-[image-1]:	https://developer.concur.com/sites/default/files/EventNotify1.png
-[image-2]:	https://developer.concur.com/sites/default/files/SendNotification.png
+[image-1]:  https://developer.concur.com/sites/default/files/EventNotify1.png
+[image-2]:  https://developer.concur.com/sites/default/files/SendNotification.png

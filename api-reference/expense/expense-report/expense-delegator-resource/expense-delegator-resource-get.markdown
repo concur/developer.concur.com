@@ -1,6 +1,6 @@
 ---
 title: Get expense delegators
-layout: operation
+layout: reference
 ---
 
 ## Description

@@ -1,6 +1,6 @@
 ---
 title: Delete notification requests
-layout: operation
+layout: reference
 ---
 
 

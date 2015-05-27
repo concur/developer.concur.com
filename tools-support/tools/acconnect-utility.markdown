@@ -1,6 +1,6 @@
 ---
 title: acconnect Utility
-layout: conceptual
+layout: reference
 ---
 
 acconnect is a command-line tool that obtains a request token for the specified user by using the App Center flow.

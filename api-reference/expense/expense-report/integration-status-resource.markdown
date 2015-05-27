@@ -1,6 +1,6 @@
 ---
 title: Integration Status Resource 
-layout: resource
+layout: reference
 ---
 
 

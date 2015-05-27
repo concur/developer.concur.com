@@ -1,6 +1,6 @@
 ---
 title: Get notifications by status 
-layout: operation
+layout: reference
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: REST API Basics
-layout: conceptual
+layout: reference
 ---
 
 

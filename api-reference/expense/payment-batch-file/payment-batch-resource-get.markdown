@@ -1,6 +1,6 @@
 ---
 title: Get a list of payment batches
-layout: operation
+layout: reference
 ---
 
 

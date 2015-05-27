@@ -1,6 +1,6 @@
 ---
 title: Custom List Items 
-layout: conceptual
+layout: reference
 ---
 
 

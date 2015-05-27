@@ -1,6 +1,6 @@
 ---
 title: API Reference
-layout: conceptual
+layout: reference
 ---
 
 ## Authentication

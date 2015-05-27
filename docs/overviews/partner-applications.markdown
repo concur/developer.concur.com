@@ -1,6 +1,6 @@
 ---
 title: Partner Applications 
-layout: conceptual
+layout: reference
 ---
 
 

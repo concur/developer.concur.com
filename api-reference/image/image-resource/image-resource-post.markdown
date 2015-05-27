@@ -1,6 +1,6 @@
 ---
 title: Post image data
-layout: operation
+layout: reference
 ---
 
 ## Post Receipt Image 

@@ -1,6 +1,6 @@
 ---
 title: Create a vendor
-layout: operation
+layout: reference
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Post integration status for a report
-layout: operation
+layout: reference
 ---
 
 ## Description

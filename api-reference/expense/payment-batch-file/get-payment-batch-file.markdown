@@ -1,6 +1,6 @@
 ---
 title: Get a payment batch file
-layout: operation
+layout: reference
 ---
 
 

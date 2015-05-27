@@ -1,6 +1,6 @@
 ---
 title: Post a reservation update 
-layout: operation
+layout: reference
 ---
 
 ## Description

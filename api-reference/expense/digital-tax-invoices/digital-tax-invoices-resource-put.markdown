@@ -1,6 +1,6 @@
 ---
 title: Update digital tax invoice status
-layout: operation
+layout: reference
 ---
 
 ## Description

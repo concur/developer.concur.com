@@ -1,6 +1,6 @@
 ---
 title: Associating External Attendees to Expense Entries
-layout: conceptual
+layout: reference
 ---
 
 

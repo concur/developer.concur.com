@@ -1,6 +1,6 @@
 ---
 title: Travel Request Validation 
-layout: conceptual
+layout: reference
 ---
 
 

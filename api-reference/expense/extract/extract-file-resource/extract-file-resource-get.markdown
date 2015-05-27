@@ -1,6 +1,6 @@
 ---
 title: Get an extract file
-layout: operation
+layout: reference
 ---
 
 ##  Definition

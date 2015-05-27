@@ -1,6 +1,6 @@
 ---
 title: Get digital tax invoices
-layout: operation
+layout: reference
 ---
 
 

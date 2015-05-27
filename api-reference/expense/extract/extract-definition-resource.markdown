@@ -1,6 +1,6 @@
 ---
 title: Extract Definition Resource 
-layout: resource
+layout: reference
 ---
 
 ##  Description

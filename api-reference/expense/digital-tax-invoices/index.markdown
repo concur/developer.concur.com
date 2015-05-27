@@ -1,6 +1,6 @@
 ---
 title: Digital Tax Invoices Web Service
-layout: conceptual
+layout: reference
 ---
 
 ## Description

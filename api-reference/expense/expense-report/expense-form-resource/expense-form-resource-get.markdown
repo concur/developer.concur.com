@@ -1,6 +1,6 @@
 ---
 title: Get form types or form data
-layout: operation
+layout: reference
 ---
 
 This resource supports the following GET actions:

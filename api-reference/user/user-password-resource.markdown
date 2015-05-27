@@ -1,6 +1,6 @@
 ---
 title: User Password Resource 
-layout: resource
+layout: reference
 ---
 
 

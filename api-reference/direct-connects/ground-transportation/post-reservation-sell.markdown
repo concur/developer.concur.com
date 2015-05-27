@@ -1,6 +1,6 @@
 ---
 title: Post a reservation sell request
-layout: operation
+layout: reference
 ---
 
 ##Description

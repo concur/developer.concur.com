@@ -1,6 +1,6 @@
 ---
 title: Submit an expense report
-layout: operation
+layout: reference
 ---
 
 ## Description

@@ -1,6 +1,6 @@
 ---
 title: Connection Requests Overview 
-layout: conceptual
+layout: reference
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Imaging Web Service 
-layout: conceptual
+layout: reference
 ---
 
 ## Description

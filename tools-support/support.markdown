@@ -1,6 +1,6 @@
 ---
 title: Support
-layout: conceptual
+layout: reference
 ---
 
 #### Configuring Sandboxes:

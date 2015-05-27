@@ -1,6 +1,6 @@
 ---
 title: Get a list of employee form fields
-layout: operation
+layout: reference
 ---
 
 

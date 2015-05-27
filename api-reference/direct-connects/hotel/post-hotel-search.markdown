@@ -1,6 +1,6 @@
 ---
 title: Post a hotel search 
-layout: operation
+layout: reference
 ---
 
 

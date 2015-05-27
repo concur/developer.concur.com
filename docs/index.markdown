@@ -1,6 +1,6 @@
 ---
 title: Docs
-layout: conceptual
+layout: reference
 ---
 
 ## [Get started] [1]

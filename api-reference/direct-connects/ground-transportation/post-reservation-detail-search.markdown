@@ -1,6 +1,6 @@
 ---
 title: Post a reservation detail search
-layout: operation
+layout: reference
 ---
 
 ## Request

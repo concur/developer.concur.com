@@ -1,6 +1,6 @@
 ---
 title: Attendee List Resource
-layout: operation
+layout: reference
 ---
 
 ## Description

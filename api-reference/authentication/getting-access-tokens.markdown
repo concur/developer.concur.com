@@ -1,6 +1,6 @@
 ---
 title: Getting Access Tokens 
-layout: operation
+layout: reference
 ---
 
 ## Getting Access Tokens

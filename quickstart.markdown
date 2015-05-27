@@ -1,6 +1,6 @@
 ---
 title: Quickstart
-layout: conceptual
+layout: reference
 ---
 
 ## Provision your developer sandbox

@@ -1,6 +1,6 @@
 --- 
 title: Attendee List Resource Post
-layout: operation 
+layout: reference 
 --- 
 
 

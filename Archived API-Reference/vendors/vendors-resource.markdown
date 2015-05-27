@@ -1,6 +1,6 @@
 ---
 title: Vendors Resource 
-layout: resource
+layout: reference
 ---
 
 ## Description

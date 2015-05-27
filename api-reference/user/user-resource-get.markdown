@@ -1,6 +1,6 @@
 ---
 title: Get user information
-layout: operation
+layout: reference
 ---
 
 

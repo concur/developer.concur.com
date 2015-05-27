@@ -1,6 +1,6 @@
 ---
 title: Opportunities Resource 
-layout: resource
+layout: reference
 ---
 
 ##Description 

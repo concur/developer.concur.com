@@ -1,6 +1,6 @@
 ---
 title: Expense Entry Attendee Resource 
-layout: resource
+layout: reference
 --- 
 
 ##Description

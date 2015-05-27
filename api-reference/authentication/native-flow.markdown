@@ -1,6 +1,6 @@
 ---
 title: Native Flow
-layout: conceptual
+layout: reference
 ---
 
 

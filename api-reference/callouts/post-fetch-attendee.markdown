@@ -1,6 +1,6 @@
 ---
 title: Post an attendee search request 
-layout: operation
+layout: reference
 ---
 
 

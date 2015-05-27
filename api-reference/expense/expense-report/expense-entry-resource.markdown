@@ -1,6 +1,6 @@
 ---
 title: Expense Entry Resource 
-layout: resource
+layout: reference
 ---
 
 ##Description

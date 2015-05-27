@@ -1,6 +1,6 @@
 ---
 title: Get a list of lists
-layout: operation
+layout: reference
 ---
 
 

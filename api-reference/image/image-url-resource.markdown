@@ -1,6 +1,6 @@
 ---
 title: Image URL Resource 
-layout: resource
+layout: reference
 ---
 
 ## Description

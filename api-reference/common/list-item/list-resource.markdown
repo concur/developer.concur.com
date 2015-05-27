@@ -1,12 +1,7 @@
 ---
 title: List Resource 
-layout: resource
+layout: reference
 ---
-
-
-
-
-
 
 ## Description
 The configured lists in Concur. Can be single or multiple level lists.

@@ -1,6 +1,6 @@
 ---
 title: Sales Tax Validation 
-layout: conceptual
+layout: reference
 ---
 
 

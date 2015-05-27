@@ -1,6 +1,6 @@
 ---
 title: Travel Request Resource
-layout: conceptual
+layout: reference
 ---
 
 ## Description

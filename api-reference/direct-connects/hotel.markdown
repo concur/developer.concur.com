@@ -1,6 +1,6 @@
 ---
 title: Hotel Direct Connect 
-layout: conceptual
+layout: reference
 ---
 
 ## Description 

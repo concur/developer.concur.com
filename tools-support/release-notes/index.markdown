@@ -1,6 +1,6 @@
 ---
 title: Release Notes 
-layout: conceptual
+layout: reference
 ---
 
 

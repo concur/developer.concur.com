@@ -1,6 +1,6 @@
 ---
 title: Terms of Use
-layout: conceptual
+layout: reference
 ---
 
 

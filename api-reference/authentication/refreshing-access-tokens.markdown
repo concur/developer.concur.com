@@ -1,6 +1,6 @@
 ---
 title: Refreshing Access Tokens 
-layout: operation
+layout: reference
 ---
 
 

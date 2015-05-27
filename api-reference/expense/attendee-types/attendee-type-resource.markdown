@@ -1,6 +1,6 @@
 ---
 title: Attendee Type Resource 
-layout: resource
+layout: reference
 ---
 
 

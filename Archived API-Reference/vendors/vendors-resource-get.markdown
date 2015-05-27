@@ -1,6 +1,6 @@
 ---
 title: Get vendors
-layout: operation
+layout: reference
 ---
 
 

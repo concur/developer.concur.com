@@ -1,5 +1,5 @@
 ---
-layout: conceptual
+layout: reference
 title: Itinerary Web Service
 ---
 

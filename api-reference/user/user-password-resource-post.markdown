@@ -1,6 +1,6 @@
 ---
 title: Update user passwords
-layout: operation
+layout: reference
 ---
 
 

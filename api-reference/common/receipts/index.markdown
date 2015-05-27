@@ -1,6 +1,6 @@
 ---
 title: Receipts 
-layout: resource
+layout: reference
 ---
 
 

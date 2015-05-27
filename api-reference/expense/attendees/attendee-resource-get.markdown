@@ -1,6 +1,6 @@
 ---
 title: Get attendees
-layout: operation
+layout: reference
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Post a booking rule search
-layout: operation
+layout: reference
 ---
 
 

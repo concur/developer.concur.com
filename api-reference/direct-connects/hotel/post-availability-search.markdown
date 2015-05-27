@@ -1,6 +1,6 @@
 ---
 title: Post an availability search 
-layout: operation
+layout: reference
 ---
 
 ## Description

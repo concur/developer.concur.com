@@ -1,6 +1,6 @@
 ---
 title: Post a reservation cancellation 
-layout: operation
+layout: reference
 ---
 
 

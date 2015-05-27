@@ -1,6 +1,6 @@
 ---
 title: Ground Transportation Direct Connect 
-layout: conceptual
+layout: reference
 ---
 
 

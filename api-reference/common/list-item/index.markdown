@@ -1,6 +1,6 @@
 ---
 title: List Item Web Service 
-layout: conceptual
+layout: reference
 ---
 
 ## Description

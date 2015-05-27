@@ -1,6 +1,6 @@
 ---
 title: Get attendee types
-layout: operation
+layout: reference
 ---
 
 

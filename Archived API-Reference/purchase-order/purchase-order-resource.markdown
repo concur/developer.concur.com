@@ -1,6 +1,6 @@
 ---
 title: Purchase Order Resource 
-layout: resource
+layout: reference
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Expense Entry Itemization Resource 
-layout: resource
+layout: reference
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Delete vendors
-layout: operation
+layout: reference
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: OAuth 2.0
-layout: conceptual
+layout: reference
 ---
 
 

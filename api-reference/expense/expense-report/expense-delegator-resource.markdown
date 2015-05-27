@@ -1,6 +1,6 @@
 ---
 title: Expense Delegator Resource 
-layout: resource
+layout: reference
 ---
 
 ## Description

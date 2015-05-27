@@ -1,6 +1,6 @@
 ---
 title: Purchase Order Web Service
-layout: conceptual
+layout: reference
 ---
 
 ## Description

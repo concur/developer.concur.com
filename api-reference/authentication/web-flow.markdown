@@ -1,6 +1,6 @@
 ---
 title: Web Flow
-layout: conceptual
+layout: reference
 ---
 
 ## Description

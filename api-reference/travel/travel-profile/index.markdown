@@ -1,6 +1,6 @@
 ---
 title: Travel Profile Web Service
-layout: conceptual
+layout: reference
 ---
 
 

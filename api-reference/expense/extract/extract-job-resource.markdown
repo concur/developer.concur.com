@@ -1,6 +1,6 @@
 ---
 title: Extract Job Resource 
-layout: resource
+layout: reference
 ---
 
 ## Description

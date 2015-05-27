@@ -1,6 +1,6 @@
 ---
 title: Form of Payment Resource 
-layout: resource
+layout: reference
 ---
 
 

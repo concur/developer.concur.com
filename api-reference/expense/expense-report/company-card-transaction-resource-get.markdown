@@ -1,6 +1,6 @@
 ---
 title: Get company card transactions
-layout: operation
+layout: reference
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Access Token 
-layout: resource
+layout: reference
 ---
 
 

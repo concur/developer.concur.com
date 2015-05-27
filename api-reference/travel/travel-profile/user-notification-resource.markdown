@@ -1,6 +1,6 @@
 ---
 title: User Notification Resource 
-layout: resource
+layout: reference
 ---
 
 ## Description

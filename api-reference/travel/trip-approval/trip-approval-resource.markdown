@@ -1,6 +1,6 @@
 ---
 title: Trip Approval Resource 
-layout: resource
+layout: reference
 ---
 
 

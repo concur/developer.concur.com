@@ -1,6 +1,6 @@
 ---
 title: Update reservation with Travel 
-layout: operation
+layout: reference
 ---
 
 

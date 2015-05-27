@@ -1,6 +1,6 @@
 ---
 title: Payment Batch File Resource 
-layout: resource
+layout: reference
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Trip Resource 
-layout: resource
+layout: reference
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Payment Batch Resource
-layout: resource
+layout: reference
 ---
 
 ## Description

@@ -1,6 +1,6 @@
 ---
 title: Locale Codes 
-layout: conceptual
+layout: reference
 ---
 
 All Concur customers have the following locale set in their entities by default. This is the only locale that is available for all clients.

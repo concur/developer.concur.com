@@ -1,6 +1,6 @@
 ---
 title: Get a list of extract definitions
-layout: operation
+layout: reference
 ---
 
 

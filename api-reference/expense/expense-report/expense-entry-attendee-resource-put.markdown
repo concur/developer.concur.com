@@ -1,6 +1,6 @@
 ---
 title: Update expense entry attendees
-layout: operation
+layout: reference
 ---
 
 ##Description

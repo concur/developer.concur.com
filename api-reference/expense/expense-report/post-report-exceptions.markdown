@@ -1,6 +1,6 @@
 ---
 title: Create an exception to a report
-layout: operation
+layout: reference
 ---
 
 ##  Description

@@ -1,6 +1,6 @@
 ---
 title: Expense Form Resource 
-layout: resource
+layout: reference
 ---
 
 ## Description

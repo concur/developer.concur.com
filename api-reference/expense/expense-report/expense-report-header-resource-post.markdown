@@ -1,6 +1,6 @@
 ---
 title: Post an expense report header
-layout: operation
+layout: reference
 ---
 
 ## Post Expense Report Header

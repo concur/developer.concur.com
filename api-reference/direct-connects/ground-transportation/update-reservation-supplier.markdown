@@ -1,6 +1,6 @@
 ---
 title: Update reservation with supplier 
-layout: operation
+layout: reference
 ---
 
 

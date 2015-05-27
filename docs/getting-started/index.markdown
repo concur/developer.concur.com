@@ -1,6 +1,6 @@
 ---
 title: Checklist
-layout: conceptual
+layout: reference
 ---
 
 #### Set up your developer sandox

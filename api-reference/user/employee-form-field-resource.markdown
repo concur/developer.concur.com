@@ -1,6 +1,6 @@
 ---
 title: Employee Form Field Resource 
-layout: resource
+layout: reference
 ---
 
 

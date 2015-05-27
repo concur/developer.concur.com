@@ -1,6 +1,6 @@
 ---
 title: Post an expense report workflow action
-layout: operation
+layout: reference
 ---
 
 ## Description

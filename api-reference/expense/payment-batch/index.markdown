@@ -1,6 +1,6 @@
 ---
 title: Payment Batch Web Service 
-layout: conceptual
+layout: reference
 ---
 
 ##Description

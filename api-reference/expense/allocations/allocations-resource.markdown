@@ -1,6 +1,6 @@
 ---
 title: Allocations resource 
-layout: resource
+layout: reference
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Expense Report Web Service 
-layout: conceptual
+layout: reference
 ---
 
 ## Description

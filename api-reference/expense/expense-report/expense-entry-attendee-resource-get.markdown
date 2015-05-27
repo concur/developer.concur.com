@@ -1,6 +1,6 @@
 ---
 title: Get a list of expense entry attendees
-layout: operation
+layout: reference
 --- 
 
 ##Description

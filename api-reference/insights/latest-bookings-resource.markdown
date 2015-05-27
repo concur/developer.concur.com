@@ -1,6 +1,6 @@
 ---
 title: LatestBookings Resource 
-layout: resource
+layout: reference
 ---
 
 ##Description

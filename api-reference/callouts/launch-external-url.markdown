@@ -1,6 +1,6 @@
 ---
 title: Launch External URL Callout 
-layout: conceptual
+layout: reference
 ---
 
 ## Description
