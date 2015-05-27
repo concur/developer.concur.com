@@ -1,0 +1,99 @@
+---
+layout: page
+title: Receive Concur Newsletter
+---
+
+<div class="col-md-12">
+  <h2>Receive Concur's Newsletter</h2>
+  <p>Submit this form to receive updates on DevCon and the Concur Platform.</p><br>
+  <form id="sandboxAssistance" class="sky-form" novalidate="novalidate">
+    <fieldset>
+      <section>
+        <label class="label">First Name</label>
+        <label class="input">
+          <input type="text" name="firstName" id="firstName">
+        </label>
+      </section>
+
+      <section>
+        <label class="label">Last Name</label>
+        <label class="input">
+          <input type="text" name="lastName" id="lastName">
+        </label>
+      </section>
+
+      <section>
+        <label class="label">Email Address</label>
+        <label class="input">
+          <input type="text" name="email" id="email">
+        </label>
+      </section>
+
+      <section>
+        <label class="label">Country</label>
+        <label class="select">
+          <select name="country" id="country">
+            {% for country in site.data.countries %}
+            <option value="{{ country.code }}">{{ country.name }}</option>
+            {% endfor %}
+          </select>
+          <i></i>
+        </label>
+      </section>
+
+      <section>
+        <label class="label">State</label>
+        <label class="select">
+          <select name="state" id="state">
+            {% for state in site.data.states %}
+            <option value="{{ state.code }}">{{ state.name }}</option>
+            {% endfor %}
+          </select>
+          <i></i>
+        </label>
+      </section>
+
+    </fieldset>
+    <footer>
+      <button type="submit" class="button">Submit</button>
+    </footer>
+  </form>
+</div><!--/col-md-12-->
+
+<script>
+  $("#sandboxAssistance").validate({
+    // Rules for form validation
+    rules: {
+      firstName: { required: true },
+      lastName: { required: true },
+      email: { 
+        required: true,
+        email: true
+      }
+    },
+
+    // Messages for form validation
+    messages: {
+      firstName: { required: 'Please enter your first name' },
+      lastName: { required: 'Please enter your last name' },
+      email: { required: 'Please enter a valid email address' }
+    },
+
+    // Ajax form submition                  
+    submitHandler: function(form) {
+      $(form).ajaxSubmit({
+        beforeSend: function() {
+          $('#sandboxAssistance button[type="submit"]').attr('disabled', true);
+        },
+        success: function() {
+          $("#sandboxAssistance").addClass('submited');
+        }
+      });
+    },
+    
+    // Do not change code below
+    errorPlacement: function(error, element) {
+      error.insertAfter(element.parent());
+    }
+  });
+</script>
