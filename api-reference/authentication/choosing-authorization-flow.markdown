@@ -5,7 +5,6 @@ layout: reference
 
 An authorization flow is the process used to obtain an OAuth access token. Concur implements the following authorization flows:
 
-* [App Center Flow][3]
 * [Auto-Connect Flow][4]
 * [Native Flow][1]
 * [Web Flow][2]
@@ -16,13 +15,11 @@ You can use this table to decide which OAuth 2.0 authorization flow to use for y
 | ----------------- | ------------- |
 |  Get an access token quickly for prototyping. | [Native Flow][1] |
 |  Get an access token for a user with the Web Services Administrator role, and don't require the user to assent (usually for back-office integration apps). | [Native Flow][1] |
-|  Inform the end-user how your app will access their data. | [Web Flow][2]<br>[App Center Flow][3] |
+|  Inform the end-user how your app will access their data. | [Web Flow][2] |
 |  Have an end-user-facing app but do not intend to distribute it in the App Center. |  [Web Flow][2] |
-|  Distribute your app in the App Center and are not a TripLink supplier. |  [App Center Flow][3] |
 |  Distribute your app in the App Center and are a TripLink supplier. |  [Auto-Connect Flow][4] |
 
 
 [1]: /api-reference/authentication/native-flow.html
 [2]: /api-reference/authentication/web-flow.html
-[3]: /api-reference/authentication/app-center-flow.html
 [4]: /api-reference/authentication/auto-connect-flow.html

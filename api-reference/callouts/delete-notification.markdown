@@ -63,4 +63,4 @@ The response returns an HTTP Status Code as follows:
 `HTTPS 200 Success`
 
 
-[1]: https://developer.concur.com/callouts/event-notification/get-notifications-status
+[1]: /api-reference/callouts/get-notifications-status.html
