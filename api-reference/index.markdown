@@ -2,17 +2,24 @@
 title: Concur API Quick Start
 layout: reference
 ---
-If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs: ## 1. Provision your developer sandboxCreate a sandobx using our [Sandbox Setup Wizard][1].		## 2. Make your first API callConcur has several APIs you can call, depending on the data that you want to push/extract.
+If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs: ## 1. Provision your developer sandboxCreate a sandobx using our [Sandbox Setup Wizard][1] and follow these [instructions](#provision-sandbox).<br>
+</br>		## 2. Make your first API callConcur has several APIs you can call, depending on the data that you want to push/extract.
 Here are two main API examples:
 
 * **The Travel/Itinerary API (v1.1)** lets you access a Concur user/company's itinerary, including hotel/flight booking info. As an example, you can mash-up the Itinerary API with a restaurant database/API to provide recommendations of places to eat near a Concur user's hotel booking.
 
 * **The Expense API (v3.0)** allows you to get (and push) a Concur user's expense information, including expense line items, their types (e.g. food, lodging), totals, and even receipt images.
-Here's a [REST API Basics guide][2] if you're new to calling APIs.		## Addtional Helpful Info*	Generate an access token
+Here's a [REST API Basics guide][2] if you're new to calling APIs..<br>
+</br>## 3. Get your app certified
+After you have completed development and testing, submit your app for [certification][8]. <br>
+</br>		## Addtional Helpful Info*	[Generate an access token](#generate-access-token)
+*	[Associating External Attendees to Expense Entries][5]
+*	[Callouts and Application Connectors][6]
+*	[Partner Applications][7]
 
 
 
-### Provision your developer sandbox
+### <a name="provision-sandbox"></a>Provision your developer sandbox
 Before you build your first application that integrates with Concur, you should create your own virtual Concur company so that you can develop and test your app. We call this a developer sandbox, or simply a sandbox.  
 
 #### Create your sandbox
@@ -25,7 +32,8 @@ Before you build your first application that integrates with Concur, you should 
 3.	On the Reporting Configuration page, click **Done**.
 4.	Click **Get Started**. You are now on the My Concur page of your sandbox company.
 5.	To add users, create a payment method on the Employee Reimbursements page. On the Invite Users page, click **Invite Now** to activate your company.
-6.	The sandbox can be used with the following APIs:	*  Attendee
+6.	The sandbox can be used with the following APIs:  
+	*  Attendee
 	*  Expense
 	*  Imaging
 	*  Itinerary
@@ -34,9 +42,10 @@ Before you build your first application that integrates with Concur, you should 
 	*  Travel Profile
 	*  User
 
-To configure your sandbox with additional APIs, go to **Administration > Web Services** to and modify your application to add more APIs. If you need assistance, or contact [Concur Support][3] for assistance.
+To configure your sandbox with additional APIs, go to **Administration > Web Services** to and modify your application to add more APIs. If you need assistance, or contact [Concur Support][3] for assistance..<br>
+</br>
 
-### Generate An Acccess Token
+### <a name="generate-access-token""></a>Generate An Acccess Token
 All Concur APIs require an access token to be passed as a header. 
 There are several ways of generating a Concur access token, depending on your stage of development and integration scenario:
 
@@ -65,10 +74,13 @@ The App Center Flow is used for logging in Concur users coming from [http://conc
 
 
 
-
-
 [1]: /manage-apps/register.html
 [2]: /docs/guides/REST-API-Basics.html
 [3]: /tools-support/sandbox-configuration-assistance.html
 [4]: http://concursolutions.com/
+[5]: /docs/guides/index.html
+[6]: /docs/overviews/index.html
+[7]: /docs/overviews/partner-applications.html
+[8]: /manage-apps/app-certification.html
+
 
