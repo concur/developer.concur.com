@@ -17,7 +17,7 @@ After you have completed development and testing, submit your app for [certifica
     	## Addtional Helpful Info*	[Generate an access token](#generate-access-token)
 *	[Associating External Attendees to Expense Entries][5]
 *	[Callouts and Application Connectors][6]
-*	[Partner Applications][7]
+*	[App Registration & Management][7]
 
 
 ### <a name="provision-sandbox"></a>Provision your developer sandbox
@@ -80,7 +80,7 @@ The App Center Flow is used for logging in Concur users coming from [http://conc
 [4]: http://concursolutions.com/
 [5]: /docs/guides/index.html
 [6]: /docs/overviews/index.html
-[7]: /docs/overviews/partner-applications.html
+[7]: /manage-apps/partner-applications.html
 [8]: /manage-apps/app-certification.html
 
 

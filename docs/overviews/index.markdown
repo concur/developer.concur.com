@@ -77,10 +77,8 @@ The **Manage Application Connectors** link on the **Web Services** page is used 
 
 **To access Application Connector Registration**
 
-1. On the home page, select **Administration** > **Web Services**. The **Web Services** page appears.  
-![ /][3]
-2. Click **Manage Application Connectors**. The **Application Connector Registration** page appears.  
-![ /][4]
+1. On the home page, select **Administration** > **Web Services**.  
+2. Click **Manage Application Connectors**.  
 
 ###  Registering an Application Connector
 
@@ -89,7 +87,6 @@ Once a development partner has configured a application connector, it must be re
 **To register an application connector**
 
 1. On the **Application Connector Registration** page, click **New**.  
-![ /][5]
 2. In the System area, complete all of the required fields.  
 
    | Field | Description |
@@ -143,8 +140,6 @@ Application connector registrations can't be removed, but can be deactivated. Co
 7. Click **Save**.
 
 
-[1]: https://developer.concur.com/go-market/app-review
-[2]: https://github.com/concurtech
-[3]: https://developer.concur.com/sites/default/files/ManageAppConnectors_WSAdmin.png
-[4]: https://developer.concur.com/sites/default/files/AppConnectorReg.png
-[5]: https://developer.concur.com/sites/default/files/AppConnector_New.png
+[1]: /manage-apps/app-certification.html
+[2]: https://github.com/concur-samples/ConcurMHacks#sdks--sample-code
+
