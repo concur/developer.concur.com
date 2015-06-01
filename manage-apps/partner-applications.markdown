@@ -1,5 +1,5 @@
 ---
-title: Registering and Managing Apps
+title: App Registration & Management
 layout: reference
 ---
 
