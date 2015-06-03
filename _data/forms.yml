@@ -1,0 +1,2 @@
+# server: http://localhost:3000 
+server: http://FormHandlerService-ELB-1180828022.us-west-2.elb.amazonaws.com

@@ -6,7 +6,7 @@ title: Developer Newsletter Signup
 <div class="col-md-12">
   <h2>Developer Newsletter Signup</h2>
   <p>Submit this form to receive updates on DevCon and the Concur Platform.</p><br>
-  <form id="sandboxAssistance" class="sky-form" novalidate="novalidate">
+  <form action="{{ site.data.forms.server }}/newsletter-request" method="POST" id="newsletterRequest" class="sky-form" novalidate="novalidate">
     <fieldset>
       <section>
         <label class="label">First Name</label>
@@ -61,7 +61,7 @@ title: Developer Newsletter Signup
 </div><!--/col-md-12-->
 
 <script>
-  $("#sandboxAssistance").validate({
+  $("#newsletterRequest").validate({
     // Rules for form validation
     rules: {
       firstName: { required: true },
@@ -83,10 +83,10 @@ title: Developer Newsletter Signup
     submitHandler: function(form) {
       $(form).ajaxSubmit({
         beforeSend: function() {
-          $('#sandboxAssistance button[type="submit"]').attr('disabled', true);
+          $('#newsletterRequest button[type="submit"]').attr('disabled', true);
         },
         success: function() {
-          $("#sandboxAssistance").addClass('submited');
+          $("#newsletterRequest").addClass('submited');
         }
       });
     },
