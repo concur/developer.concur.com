@@ -26,7 +26,7 @@ Name | Type | Format | Description
 ### Parameters
 Name | Type | Format | Description
 -----|------|--------|------------
-`vendors`|`string`|`path`|**Required** The unique identifier for the allocation.
+`id`|`string`|`path`|**Required** The unique identifier for the allocation.
 `user`|`string`|`query`|The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter.
 
 
