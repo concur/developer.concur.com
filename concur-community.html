@@ -1,0 +1,96 @@
+---
+layout: page
+title: Concur Community
+---
+
+<div class="col-md-12">
+  <h2>Welcome to the Concur Community</h2>
+  <p> This is a community for developers building on the Concur platform to interact with the Concur team and other developers.</p>
+  <p> Our community uses a great tool called <a href="https://slack.com/">Slack</a>. If you're not familiar with Slack yet, check it out. Go ahead and complete the form below and we'll send you an invite.<br>
+    <ul>
+        <li>It's free.</li>
+        <li>We won't Spam you.</li>
+        <li>By joining the Concur Community, you agree to our <a href="{{ site.baseurl }}/Terms-of-Use.html">terms</a> and <a href="https://www.concur.com/en-us/privacy-policy">privacy policy</a>.
+    </ul> <br>
+
+  <!--=== Form ===-->
+
+  <form id="sandboxAssistance" class="sky-form" novalidate="novalidate">
+    <fieldset>
+      <section>
+        <label class="label">First Name</label>
+        <label class="input">
+          <input type="text" name="firstName" id="firstName">
+        </label>
+      </section>
+
+      <section>
+        <label class="label">Last Name</label>
+        <label class="input">
+          <input type="text" name="lastName" id="lastName">
+        </label>
+      </section>
+
+      <section>
+        <label class="label">Email Address</label>
+        <label class="input">
+          <input type="text" name="email" id="email">
+        </label>
+      </section>
+
+      <section>
+        <label class="label">Company Name</label>
+        <label class="input">
+          <input type="text" name="company" id="company">
+        </label>
+      </section
+    </fieldset>
+    <footer>
+      <button type="submit" class="button">Send Message</button>
+    </footer>
+  </form>
+</div><!--/col-md-12-->
+
+<script>
+  $("#sandboxAssistance").validate({
+    // Rules for form validation
+    rules: {
+      firstName: { required: true },
+      lastName: { required: true },
+      email: { 
+        required: true,
+        email: true
+      },
+      company: { required: true },
+      phoneNumber: { required: true },
+      message: { required: true }
+    },
+
+    // Messages for form validation
+    messages: {
+      firstName: { required: 'Please enter your first name' },
+      lastName: { required: 'Please enter your last name' },
+      email: { required: 'Please enter a valid email address' },
+      company: { required: 'Please enter your company name' },
+      phoneNumber: { required: 'Please enter a valid phone number' },
+      message: { required: 'Please enter the message details for this request' }
+    },
+
+    // Ajax form submition                  
+    submitHandler: function(form) {
+      $(form).ajaxSubmit({
+        beforeSend: function() {
+          $('#sandboxAssistance button[type="submit"]').attr('disabled', true);
+        },
+        success: function() {
+          $("#sandboxAssistance").addClass('submited');
+        }
+      });
+    },
+    
+    // Do not change code below
+    errorPlacement: function(error, element) {
+      error.insertAfter(element.parent());
+    }
+  });
+</script>
