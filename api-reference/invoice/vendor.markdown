@@ -11,14 +11,18 @@ layout: reference
 * [Delete vendors](#delete)
 
 ## <a name="schema"></a>Schema
-###<a name="vendors"></a>Vendors
+
+###<a name="vendors"></a>Vendors  
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `Items`|`array`|[`Vendor`](#vendor)|The result collection.
 `NextPage`|`string`|-|-|The URI of the next page of results, if any.
 `RequestRunSummary`|`string`|-|-|
 `Vendor`|`array`|[`Vendor`](#vendor)|**Required** Vendor
-###<a name="vendor"></a>Vendor
+
+###<a name="vendor"></a>Vendor  
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `AccountNumber`|`string`|-|The Buyer Account Number.
@@ -81,16 +85,22 @@ Name | Type | Format | Description
 `VendorFormName`|`string`|-|The vendor form name this vendor is associated with.
 `VendorName`|`string`|-|The name of the vendor.
 `VoucherNotes`|`string`|-|Notes sent to Vendor along with authorization to charge Card Voucher.
-###<a name="status"></a>Status
+
+###<a name="status"></a>Status  
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `Code`|`int`|-|Code of request result
 `Message`|`string`|-|Message of request result
 `RecordNumber`|`int`|-|Record Number for create/update request.
 `Type`|`string`|-|Type request result
-## <a name="get"></a>Retrieve an existing vendor
+
+## <a name="get"></a>Retrieve an existing vendor 
+
     GET /invoice/vendors
-### Parameters
+
+### Parameters  
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `limit`|`Int32`|`query`|The maximum number of items to be returned in a response. The default is 25 and cannot exceed 1000.
@@ -131,38 +141,67 @@ Name | Type | Format | Description
 `custom18`|`string`|`query`|Custom 18 to be searched
 `custom19`|`string`|`query`|Custom 19 to be searched
 `custom20`|`string`|`query`|Custom 20 to be searched
-### Input
+
+### Input  
+
 None.
-### Response
+
+### Response  
+
 [Vendors Schema](#schema)
-## <a name="post"></a>Create vendors
+
+## <a name="post"></a>Create vendors  
+
     POST /invoice/vendors
-### Parameters
+
+### Parameters  
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `vendors`|-|`body`|The vendor details.
-### Input
+  
+### Input  
+
+
 [Vendors Schema](#schema)
-### Response
+
+### Response  
+
 [Vendors Schema](#schema)
-## <a name="put"></a>Update existing vendors
+
+## <a name="put"></a>Update existing vendors  
+
     PUT /invoice/vendors
-### Parameters
+
+### Parameters  
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `vendors`|-|`body`|The vendor details.
-### Input
+
+### Input  
+
 [Vendors Schema](#schema)
-### Response
+
+### Response  
+
 [Vendors Schema](#schema)
-## <a name="delete"></a>Delete vendor
+
+## <a name="delete"></a>Delete vendor  
+
     DELETE /invoice/vendors
-### Parameters
+
+### Parameters  
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `vendorCode`|`string`|`query`|**Required** Vendor Code to be deleted
 `addressCode`|`string`|`query`|**Required** Address Code to be deleted
-### Input
+
+### Input  
+
 None.
-### Response
+
+### Response  
+
 [Vendors Schema](#schema)
