@@ -6,6 +6,7 @@ title: Contact Support
 <div class="col-md-12">
   <h2>Concur Connect Partners and Developers</h2>
   <p> As a Concur partner or developer, you can request marketing assistance by completing and submitting the form below.</p><br>
+  {% include form-success.html %}
   <form id="sandboxAssistance" class="sky-form" novalidate="novalidate">
     <fieldset>
       <section>
@@ -64,7 +65,7 @@ title: Contact Support
     rules: {
       firstName: { required: true },
       lastName: { required: true },
-      email: { 
+      email: {
         required: true,
         email: true
       },
@@ -83,7 +84,7 @@ title: Contact Support
       message: { required: 'Please enter the message details for this request' }
     },
 
-    // Ajax form submition                  
+    // Ajax form submition
     submitHandler: function(form) {
       $(form).ajaxSubmit({
         beforeSend: function() {
@@ -91,10 +92,11 @@ title: Contact Support
         },
         success: function() {
           $("#sandboxAssistance").addClass('submited');
+          $('#form-success').removeClass('form-success-hidden');
         }
       });
     },
-    
+
     // Do not change code below
     errorPlacement: function(error, element) {
       error.insertAfter(element.parent());
