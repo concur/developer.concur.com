@@ -1,9 +1,18 @@
 /* Write here your custom javascript codes */
 
 $(document).ready(function(){
-  console.log('Ready');
   $.get('https://www.concur.com/blog/category/en-us/feed', function(data){
+
     var blogs = $(data).find('item');
-    console.log(blogs);
-  })
+    var recentBlogs = [];
+
+    for(var i = 0; i < 3; i++){
+      recentBlogs.push(blogs[i]);
+    };
+
+    recentBlogs.forEach(function(elem){
+      $('.latest-list').append('<li><a href="' + elem.childNodes[3].innerHTML + '">' + elem.childNodes[1].innerHTML + '</a></li>');
+    });
+
+  });
 });
