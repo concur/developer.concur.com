@@ -6,6 +6,7 @@ title: Sandbox Registration
 <div class="col-md-12">
     <h2>Concur Connect Partners and Developers</h2>
     <p> As a Concur partner or developer, you can request assistance for your developer sandbox configuration by filling out and submitting this form.</p><br>
+    {% include form-success.html %}
     <form action="{{ site.data.forms.server }}/register" method="POST" id="sandboxRegistration" class="sky-form" novalidate="novalidate">
       <fieldset>
         <div class="row">
@@ -103,7 +104,7 @@ title: Sandbox Registration
           </section>
         </div>
         <section>
-          <label class="checkbox">            
+          <label class="checkbox">
             <input type="checkbox" name="termsOfUseAgreement">
             <i></i>
             I Agree to the <a href="{{ site.baseurl }}/Terms-of-Use.html">Terms of Use</a> and Privacy Policy
@@ -121,7 +122,7 @@ title: Sandbox Registration
           <li>See the Creating a Sandbox tutorial.</li>
           <li>Learn how to prep your app for App Review.</li>
           <li>Questions?  Contact Concur Support.</li>
-      </ul> 
+      </ul>
 
       <h3>About Creating a Sandbox</h3>
       <div>
@@ -162,13 +163,13 @@ title: Sandbox Registration
     rules: {
       firstName: { required: true },
       lastName: { required: true },
-      email: { 
+      email: {
         required: true,
         email: true
       },
       company: { required: true },
       password: { required: true },
-      passwordVerify: { 
+      passwordVerify: {
         required: true,
         equalTo: '#password'
       },
@@ -184,7 +185,7 @@ title: Sandbox Registration
       email: { required: 'Please enter a valid email address' },
       company: { required: 'Please enter your company name' },
       password: { required: 'Please enter your desired sandbox password' },
-      passwordVerify: { 
+      passwordVerify: {
         required: 'Please verify your desired sandbox password',
         equalTo: 'Password and Verify Password must be equal'
       },
@@ -192,7 +193,7 @@ title: Sandbox Registration
       termsOfUseAgreement: { required: 'Please accept the terms of use to create your sandbox' }
     },
 
-    // Ajax form submition                  
+    // Ajax form submition
     submitHandler: function(form) {
       $(form).ajaxSubmit({
         beforeSend: function() {
@@ -200,10 +201,11 @@ title: Sandbox Registration
         },
         success: function() {
           $("#sandboxRegistration").addClass('submited');
+          $('#form-success').removeClass('form-success-hidden');
         }
       });
     },
-    
+
     // Do not change code below
     errorPlacement: function(error, element) {
       error.insertAfter(element.parent());

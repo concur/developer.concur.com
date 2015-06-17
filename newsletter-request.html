@@ -6,6 +6,7 @@ title: Developer Newsletter Signup
 <div class="col-md-12">
   <h2>Developer Newsletter Signup</h2>
   <p>Submit this form to receive updates on DevCon and the Concur Platform.</p><br>
+  {% include form-success.html %}
   <form action="{{ site.data.forms.server }}/newsletter-request" method="POST" id="newsletterRequest" class="sky-form" novalidate="novalidate">
     <fieldset>
       <section>
@@ -66,7 +67,7 @@ title: Developer Newsletter Signup
     rules: {
       firstName: { required: true },
       lastName: { required: true },
-      email: { 
+      email: {
         required: true,
         email: true
       }
@@ -79,7 +80,7 @@ title: Developer Newsletter Signup
       email: { required: 'Please enter a valid email address' }
     },
 
-    // Ajax form submition                  
+    // Ajax form submition
     submitHandler: function(form) {
       $(form).ajaxSubmit({
         beforeSend: function() {
@@ -87,10 +88,11 @@ title: Developer Newsletter Signup
         },
         success: function() {
           $("#newsletterRequest").addClass('submited');
+          $('#form-success').removeClass('form-success-hidden');
         }
       });
     },
-    
+
     // Do not change code below
     errorPlacement: function(error, element) {
       error.insertAfter(element.parent());
