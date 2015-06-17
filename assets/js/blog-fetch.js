@@ -11,7 +11,7 @@ $(document).ready(function(){
     };
 
     recentBlogs.forEach(function(elem){
-      $('.latest-list').append('<li><a href="' + elem.childNodes[3].innerHTML + '">' + elem.childNodes[1].innerHTML + '</a></li>');
+      $('#blog-list').append('<li><a href="' + elem.childNodes[3].innerHTML + '" target="_blank">' + elem.childNodes[1].innerHTML + '</a></li>');
     });
 
   });
