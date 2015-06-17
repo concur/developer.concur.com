@@ -2,19 +2,19 @@
 title: Concur API Quick Start
 layout: reference
 ---
-If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs: ## 1. Provision your developer sandboxCreate a sandobx using our [Sandbox Setup Wizard][1] and follow these [instructions](#provision-sandbox).  
-  	## 2. Make your first API callConcur has several APIs you can call, depending on the data that you want to push/extract.
+If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs:## 1. Provision your developer sandboxCreate a sandobx using our [Sandbox Setup Wizard][1] and follow these [instructions](#provision-sandbox).  
+## 2. Make your first API callConcur has several APIs you can call, depending on the data that you want to push/extract.
 Here are two main API examples:
 
 * **The Travel/Itinerary API (v1.1)** lets you access a Concur user/company's itinerary, including hotel/flight booking info. As an example, you can mash-up the Itinerary API with a restaurant database/API to provide recommendations of places to eat near a Concur user's hotel booking.
 
 * **The Expense API (v3.0)** allows you to get (and push) a Concur user's expense information, including expense line items, their types (e.g. food, lodging), totals, and even receipt images.  
-  
-  
-  
-  Here's a [REST API Basics guide][2] if you're new to calling APIs.## 3. Get your app certified
+
+
+
+Here's a [REST API Basics guide][2] if you're new to calling APIs.## 3. Get your app certified
 After you have completed development and testing, submit your app for [certification][8].  
-    	## Addtional Helpful Info*	[Generate an access token](#generate-access-token)
+## Addtional Helpful Info*	[Generate an access token](#generate-access-token)
 *	[Associating External Attendees to Expense Entries][5]
 *	[Callouts and Application Connectors][6]
 *	[App Registration & Management][7]
@@ -46,7 +46,7 @@ Before you build your first application that integrates with Concur, you should 
 To configure your sandbox with additional APIs, go to **Administration > Web Services** to and modify your application to add more APIs. If you need assistance, or contact [Concur Support][3] for assistance.
 
 ### <a name="generate-access-token"></a>Generate An Acccess Token
-All Concur APIs require an access token to be passed as a header. 
+All Concur APIs require an access token to be passed as a header.
 There are several ways of generating a Concur access token, depending on your stage of development and integration scenario:
 
 *	If you're just starting with the API for quick prototyping, you will most likely use the Native Flow
@@ -82,5 +82,3 @@ The App Center Flow is used for logging in Concur users coming from [http://conc
 [6]: /docs/overviews/index.html
 [7]: /manage-apps/partner-applications.html
 [8]: /manage-apps/app-certification.html
-
-
