@@ -6,14 +6,6 @@
   {% assign page_category = null %}
 {% endif %}
 
-<script>
-  console.log('--- left nav ---');
-  console.log('page parts: {{ page_parts }}');
-  console.log('page depth: {{ page_depth }}');
-  console.log('page category: {{ page_category }}');
-  console.log('----')
-</script>
-
 {% assign pages = site.pages | sort:"url" %}
 {% assign last_container = '' %}
 
@@ -42,7 +34,7 @@
             {% assign sub_open = false %}
         {% endif %}
 
-        <!-- close sub list if 
+        <!-- close sub list if
             * node_category != previous_node_category -->
         {% if previous_node == null %}
             {% assign sub_close = false %}
@@ -66,19 +58,13 @@
         {% endif %}
 
 {% if sub_close == true %}
-    <script>
-    console.log('close category: {{ previous_node_category }}');    // note that you're closing the previous category
-    </script>
+
         </ul>
     </li>
+
 {% endif %}
 
 {% if sub_open == true %}
-    <script>
-    console.log('open category: {{ node_category }}; active: {{ category_status }}');
-    console.log('   node: {{ node.url }}; depth: {{ node_depth }}; category: {{ node_category }}');
-    console.log('   previous node: {{ previous_node.url }}; depth: {{ previous_node_depth }}; category: {{ previous_node_category }}');
-    </script>
 
     <li class="list-group-item list-toggle {{ category_status }}">
         <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-{{ node_category }}">{{ node_category }}</a>
@@ -87,22 +73,16 @@
                 <a href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a>
             </li>
 {% else %}
-    <script>
-    console.log('   node: {{ node.url }}; depth: {{ node_depth }}; category: {{ node_category }}');
-    console.log('   previous node: {{ previous_node.url }}; depth: {{ previous_node_depth }}; category: {{ previous_node_category }}');
-    </script>
+
         {% if node_category == null %}
         <li class="list-group-item">
         {% else %}
-        <li class="{{ node_status }}">    
+        <li class="{{ node_status }}">
         {% endif %}
-         
+
             <a href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a>
         </li>
 {% endif %}
-
-
-
 
         {% assign previous_node = node %}
         {% assign previous_node_depth = node_depth %}
@@ -114,17 +94,9 @@
 
 <!-- close the last category if node_category is not null -->
 {% if previous_node_category != null %}
-<script>
-    console.log('close category: {{ previous_node_category }}');
-</script>
 
         </ul>
     </li>
 {% endif %}
-
-<script>
-  console.log('--- end left nav ---')
-</script>
-
 
 </ul>
