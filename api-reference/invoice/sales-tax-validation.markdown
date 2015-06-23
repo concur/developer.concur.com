@@ -28,7 +28,7 @@ layout: reference
 |`CalculatedTaxRate`|`string`|-|The calculated tax rate for the invoice.
 |`Comments`|`string`|-|Comments for the invoice.
 |`CountryCode`|`string`|-|The country code for the line item.
-|`CurrencyCode`|`string`|-|The 3-letter ISO 4217 currency code for the invoice currency. |For example, USD or CAD.
+|`CurrencyCode`|`string`|-|The 3-letter ISO 4217 currency code for the invoice currency. For example, USD or CAD.
 |`ID`|`string`|-|The unique identifier of the resource.
 |`InvoiceAmount`|`string`|-|The invoice amount (the cost of the purchased items).
 |`InvoiceDate`|`string`|-|The invoice date.

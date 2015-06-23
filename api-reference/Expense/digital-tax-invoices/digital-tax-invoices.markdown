@@ -1,4 +1,12 @@
+---
+title: Digital Tax Invoices
+layout: reference
+---
+
 # Digital Tax Invoices
+
+The Digital Tax Invoice web service allows digital tax invoice validators to view tax invoices and update them with a validation status. This web service currently supports the Comprobante Fiscal Digital (CFD) digital tax invoice format used in Mexico. Other countries may be supported in future releases.
+
 * [Retrieve all digital tax invoices that can be validated by the user based on the search criteria](#get)
 * [Retrieve a single digital tax invoice by ID](#getID)
 * [Update a specified digital tax invoice](#put)

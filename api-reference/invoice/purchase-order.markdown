@@ -181,7 +181,7 @@ layout: reference
 |-----|------|--------|------------
 |`ErrorCode`|`string`|-|A code that indicates why the purchase order was not processed successfully.
 |`ErrorMessage`|`string`|-|A description of the error.
-|`FieldCode`|`string`|-|A code that indicates which field caused an issue. This code typically appears only when a field is being validated against a field of a form type. Format: LEVEL|CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation.
+|`FieldCode`|`string`|-|A code that indicates which field caused an issue. This code typically appears only when a field is being validated against a field of a form type. Format: LEVEL CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation.
 |`LineItemExternalID`|`string`|-|The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error.
 |`Message`|`string`|-|
 |`PurchaseOrderNumber`|`string`|-|The purchase order number.

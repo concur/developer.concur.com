@@ -1,4 +1,13 @@
+---
+title: Allocations
+layout: reference
+---
+
 # Allocations
+
+This resource can be used to retrieve information about the allocations that are associated with an entry in an expense report. v3.0
+
+
 * [Retrieve all allocations per entry or report](#get)
 * [Retrieve a single allocation by ID](#getID)
 * [Schema](#schema)
