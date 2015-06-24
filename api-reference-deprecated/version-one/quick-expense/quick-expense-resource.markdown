@@ -41,6 +41,6 @@ None
 
 
 
-[1]: https://www.concursolutions.com/api/docs/index.html#!/QuickExpenses
-[2]: https://developer.concur.com/quick-expense/quick-expense-resource/quick-expense-resource-get
-[3]: https://developer.concur.com/quick-expense/quick-expense-resource/quick-expense-resource-post
+[1]: /api-reference/expense/quick-expense/quick-expense-resource.html
+[2]: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource-get.html
+[3]: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource-post.html

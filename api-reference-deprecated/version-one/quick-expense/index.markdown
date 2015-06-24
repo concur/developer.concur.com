@@ -45,9 +45,6 @@ Version 1.0 documentation includes the data model and example requests and respo
 
 
 
-[1]: https://developer.concur.com/imaging
-[2]: https://developer.concur.com/node/25
-[3]: https://developer.concur.com/node/491
-[4]: https://www.concursolutions.com/api/docs/index.html#!/QuickExpenses
-[5]: https://developer.concur.com/node/507
-[6]: https://developer.concur.com/node/205
+
+[4]: /api-reference/expense/quick-expense/quick-expense-resource.html
+[5]: /api-reference-deprecated/version-one/quick-expense/index.html

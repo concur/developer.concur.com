@@ -1,3 +1,9 @@
+---
+title: Quick Expense 
+layout: reference
+---
+
+
 # Quick Expenses
 
 * [Retrieve quick expenses](#get)
@@ -10,13 +16,15 @@
 ###Version
 3.0
 
-1.0 documentation is available [here]
+1.0 documentation is available [here](/api-reference-deprecated/version-one/quick-expense/index.html)
 
 ## <a name="get"></a>Retrieve quick expenses
+
     GET /expense/quickexpenses
 
         
 ### Parameters
+
 Name | Type | Format | Description
 -----|------|--------|------------			
 `offset`	|	`string`	|	`query`	|	The start of the page offset.
@@ -26,10 +34,12 @@ Name | Type | Format | Description
 
 
 ## <a name="getID"></a>Retrieve quick expense by ID
+
     GET /expense/quickexpenses/{id}
 
 
 ### Parameters
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `id`	|	`string`	|	`path`	|	**Required** The ID of the quick expense.
@@ -37,20 +47,24 @@ Name | Type | Format | Description
 
 
 ## <a name="post"></a>Create a quick expense
+
     POST /expense/quickexpenses
 
 
 ### Parameters
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `content`	|	-	|	`body`	|	**Required** The quick expense object to be created
 
 
 ## <a name="put"></a>Update a quick expense
+
     PUT /expense/quickexpenses/{id}
 
 
 ### Parameters
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `id`	|	`string`	|	`path`	|	**Required** The ID of the quick expense
@@ -58,10 +72,12 @@ Name | Type | Format | Description
 
 
 ## <a name="delete"></a>Delete a quick expense
+
     DELETE /expense/quickexpenses/{id}
 
 
 ### Parameters
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `id`	|	`string`	|	`path`	|	**Required** The ID of the quick expense to be deleted
@@ -73,6 +89,7 @@ Name | Type | Format | Description
 
 
 ###Quick Expenses
+
 Name | Type | Format | Description
 -----|------|--------|------------
 Items	|	Array	|	[Quick Expense](#quickexpense)	|	The result collection.
@@ -80,6 +97,7 @@ NextPage	|	string	|	-	|	The URI of the next page of results, if any.
 
 
 ###<a name="quickexpense"></a>Quick Expense
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `Comment`	|	`string`	|	-	|	A comment that describes the expense. Max Length: 2000

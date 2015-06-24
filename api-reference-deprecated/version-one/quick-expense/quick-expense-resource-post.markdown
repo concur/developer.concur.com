@@ -201,10 +201,10 @@ The response returns a **QuickExpenseStatus** parent element with the following 
   
 
 
-[1]: https://www.concursolutions.com/api/docs/index.html#!/QuickExpenses
+[1]: /api-reference/expense/quick-expense/quick-expense-resource.html
 [2]: http://en.wikipedia.org/wiki/ISO_4217
-[3]: https://developer.concur.com/expense-report/expense-group-configuration-resource/expense-group-configuration-resource-get
-[4]: https://developer.concur.com/reference/spend-category-codes
+[3]: /api-reference/expense/expense-report/expense-group-configuration-resource/expense-group-configuration-resource-get.html
+[4]: /tools-support/reference/spend-category-codes.html
 [5]: http://en.wikipedia.org/wiki/ISO_3166-2:2007-04-17#I-8
 [6]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 [7]: https://developer.concur.com/reference/http-codes
