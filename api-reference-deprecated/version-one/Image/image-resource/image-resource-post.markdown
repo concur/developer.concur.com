@@ -348,6 +348,6 @@ The response will contain an **Image** parent element, with the following child 
 
 
 
-[1]: https://www.concursolutions.com/api/docs/index.html#!/ReceiptImages
-[2]: https://developer.concur.com/node/388#imageformat
-[3]: https://developer.concur.com/reference/http-codes
+[1]: /preview/api-reference/image/index.html
+[2]: /api-reference-deprecated/version-one/Image/index.html
+[3]: /tools-support/reference/http-codes.html

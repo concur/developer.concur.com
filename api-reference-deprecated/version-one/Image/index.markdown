@@ -66,9 +66,8 @@ Version 1.0 documentation includes the data model and example requests and respo
 [Version 1.0 Image URL][5]
 
 
-[1]: https://developer.concur.com/api-documentation/core-concepts
-[2]: https://developer.concur.com/forums/concur-connect
-[3]: https://www.concursolutions.com/api/docs/index.html
-[4]: https://developer.concur.com/imaging/image-resource
-[5]: https://developer.concur.com/imaging/image-url-resource
+
+[3]: /api-reference/expense/quick-expense/index.html
+[4]: /api-reference-deprecated/version-one/Image/index.html
+[5]: /api-reference-deprecated/version-one/Image/image-url-resource.html
 

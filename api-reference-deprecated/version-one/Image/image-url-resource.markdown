@@ -21,5 +21,5 @@ The Image URL resource represents the URL to the PDF for the receipt image. The 
   
 
 
-[1]: https://developer.concur.com/imaging/image-url-resource/image-url-resource-get
-[2]: https://developer.concur.com/imaging/image-resource
+[1]: /api-reference-deprecated/version-one/Image/receipt-image-URL-get.html
+[2]: /api-reference-deprecated/version-one/Image/image-resource.html

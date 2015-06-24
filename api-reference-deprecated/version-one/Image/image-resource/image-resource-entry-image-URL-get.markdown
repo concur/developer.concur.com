@@ -67,5 +67,5 @@ Content-Type: application/xml
 </Image>
 ```
 
-[1]: https://developer.concur.com/expense-report/expense-report-resource/get-report-details
+[1]: /api-reference/expense/expense-report/expense-form-resource/expense-form-resource-get.html
 

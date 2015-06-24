@@ -21,6 +21,6 @@ The Image resource represents a receipt image or an invoice image. The [ReceiptI
 
   
 
-[1]: https://www.concursolutions.com/api/docs/index.html#!/ReceiptImages
-[2]: https://developer.concur.com/imaging/image-resource/image-resource-post
-[3]: https://developer.concur.com/imaging/image-url-resource
+[1]: /api-reference/expense/quick-expense/index.html
+[2]: /api-reference-deprecated/version-one/Image/image-resource/image-resource-post.html
+[3]: /api-reference-deprecated/version-one/Image/image-url-resource.html

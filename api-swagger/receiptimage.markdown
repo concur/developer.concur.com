@@ -6,6 +6,11 @@
 * [Delete a receipt image](#delete)
 * [Schema](#schema)
 
+###Version
+3.0
+
+1.0 documentation is available [here](/api-reference-deprecated/version-one/Image/index.html)
+
 ## <a name="get"></a>Retrieve a list of all receipt images
     GET /expense/receiptimages
 
@@ -13,7 +18,9 @@
 ### Parameters
 Name | Type | Format | Description
 -----|------|--------|------------			
-`offset`	|	`string`	|	`query`	|	Starting page offset`limit`	|	`Int32`	|	`query`	|	Number of records to return (default 25)`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
+`offset`	|	`string`	|	`query`	|	Starting page offset
+`limit`	|	`Int32`	|	`query`	|	Number of records to return (default 25)
+`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
 
 
@@ -24,7 +31,8 @@ Name | Type | Format | Description
 ### Parameters
 Name | Type | Format | Description
 -----|------|--------|------------
-`id`	|	`string`	|	`path`	|	**Required** ReceiptImage ID`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
+`id`	|	`string`	|	`path`	|	**Required** ReceiptImage ID
+`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
 
 ## <a name="post"></a>Create a new receipt image
@@ -34,7 +42,8 @@ Name | Type | Format | Description
 ### Parameters
 Name | Type | Format | Description
 -----|------|--------|------------
-`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.`image`	|	`file`	|	`body`	|	**Required** Image data file
+`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
+`image`	|	`file`	|	`body`	|	**Required** Image data file
 
 
 ## <a name="put"></a>Update a connection request
@@ -44,7 +53,9 @@ Name | Type | Format | Description
 ### Parameters
 Name | Type | Format | Description
 -----|------|--------|------------
-`id`	|	`string`	|	`path`	|	**Required** ID of the receipt image to update`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.`image`	|	`file`	|	`body`	|	**Required** Image data file
+`id`	|	`string`	|	`path`	|	**Required** ID of the receipt image to update
+`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
+`image`	|	`file`	|	`body`	|	**Required** Image data file
 
 
 ## <a name="delete"></a>Delete a receipt image
@@ -54,7 +65,8 @@ Name | Type | Format | Description
 ### Parameters
 Name | Type | Format | Description
 -----|------|--------|------------
-`id`	|	`string`	|	`path`	|	**Required** ID of the receipt image to delete`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
+`id`	|	`string`	|	`path`	|	**Required** ID of the receipt image to delete
+`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
 
 
@@ -64,10 +76,14 @@ Name | Type | Format | Description
 ###Receipt Images
 Name | Type | Format | Description
 -----|------|--------|------------
-`Items`	|	Array	|	[Receipt Image](#receiptimage)	|	The result collection.`NextPage`	|	string	|	-	|	The URI of the next page of results, if any.
-###<a name="receiptimage"></a>Receipt Image
+`Items`	|	Array	|	[Receipt Image](#receiptimage)	|	The result collection.
+`NextPage`	|	string	|	-	|	The URI of the next page of results, if any.
+
+
+###<a name="receiptimage"></a>Receipt Image
 Name | Type | Format | Description
 -----|------|--------|------------
-`ID`	|	string	|	-	|	The unique identifier of the resource.`URI`	|	string	|	-	|	The URI to the resource.
+`ID`	|	string	|	-	|	The unique identifier of the resource.
+`URI`	|	string	|	-	|	The URI to the resource.
 
 
