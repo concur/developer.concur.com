@@ -16,6 +16,7 @@ This resource can be used to retrieve information about the allocations that are
     GET /expense/allocations
         
 ### Parameters
+
 |Name | Type | Format | Description|
 |-----|------|--------|------------|
 |`limit`|`Int32`|`query`|The number of records to return. The default is 25 and the maximum is 100.
@@ -27,12 +28,14 @@ This resource can be used to retrieve information about the allocations that are
 
 
 ### Response
+
 [Allocations Schema](#schema)
 ## <a name="getID"></a>Retrieve a single allocation by ID
     GET /expense/allocations{id}
 
 
 ### Parameters
+
 |Name | Type | Format | Description|
 |-----|------|--------|------------|
 |`id`|`string`|`path`|**Required** The unique identifier for the allocation.
@@ -41,13 +44,16 @@ This resource can be used to retrieve information about the allocations that are
 
 
 ## <a name="schema"></a>Schema
+
 ###<a name="vendors"></a>Allocations
+
 |Name | Type | Format | Description|
 |-----|------|--------|------------|
 |`Items`|`array`|[`Allocation`](#allocations)|The result collection.
 |`NextPage`|`string`|-|The URI of the next page of results, if any.|
 
 ###<a name="allocations"></a>Allocations
+
 |Name | Type | Format | Description|
 |-----|------|--------|------------ |
 |`AccountNumber`|`string`|-|The primary accounting code assigned to the expense type associated with this allocation. Typically, expense types have only a primary account code.
@@ -63,6 +69,7 @@ This resource can be used to retrieve information about the allocations that are
 
 
 ###<a name="status"></a>Custom Field
+
 |Name | Type | Format | Description|
 |-----|------|--------|------------|
 |`Code`|`string`|-|For list fields, this is the list item code.
