@@ -14,7 +14,8 @@ layout: reference
 ###Version
 3.0
 
-1.0 documentation is available [here][4]
+1.0 documentation is available [here][4]  
+
 1.0 Image URL documentation is available [here][5]
 
 
