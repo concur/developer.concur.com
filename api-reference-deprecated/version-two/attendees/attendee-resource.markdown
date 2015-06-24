@@ -20,6 +20,6 @@ The attendees in the Concur company. This resource can be used to retrieve atten
 * [Attendee Type ][4]
 
 [1]: https://www.concursolutions.com/api/expense/v2.0/attendees
-[2]: https://developer.concur.com/attendee/attendee-resource/attendee-resource-get
-[3]: https://developer.concur.com/attendee/attendee-list-resource
-[4]: https://developer.concur.com/attendee/attendee-type-resource
+[2]: /api-reference-deprecated/version-two/attendees/attendee-resource-get.html
+[3]: /api-reference-deprecated/version-one/attendees/attendee-list-resource.html
+[4]: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html

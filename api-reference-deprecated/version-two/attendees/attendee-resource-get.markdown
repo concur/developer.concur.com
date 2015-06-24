@@ -154,5 +154,5 @@ This request will return an **Attendees** parent element containing an **Attende
 ```
 
 
-[1]: https://developer.concur.com/node/487#reportdetails
+[1]: /api-reference/expense/expense-report/get-report-details.html
 [2]: http://en.wikipedia.org/wiki/ISO_4217
