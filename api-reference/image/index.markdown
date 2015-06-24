@@ -1,5 +1,5 @@
 ---
-title: Imaging Web Service 
+title: Receipt Image
 layout: reference
 ---
 
