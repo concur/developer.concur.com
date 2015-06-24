@@ -1,85 +1,152 @@
 ---
-title: Attendee Web Service 
+title: Attendees
 layout: reference
 ---
 
 
-## Description
+# Attendees
+* [Retrieve all attendees owned by the specified user](#get)
+* [Retrieve a single attendee by ID](#getID)
+* [Create a new attendee](#post)
+* [Update existing attendees](#put)
+* [Delete an attendee](#delete)
+* [Schema](#schema)
 
-The Attendee Web service allows developers to manage attendees in Concur. The Attendee resource can be used to retrieve attendee information for private or shared attendees. In future releases, the Attendee resource will be updated with additional functionality for managing all attendees in Concur.
+###Version
+3.0
 
-The Attendee List resource manages attendees in batches, and can be used to add, update or inactivate attendees. This resource provides functionality similar to the Attendee List Import in Concur. Attendees added using this resource are added to the Shared Attendee List (owned by the system and available to all users).
+2.0 documentation is available [here](/api-reference-deprecated/version-two/attendees/index.html)
 
+## <a name="get"></a>Retrieve all attendees owned by the specified user
 
-## Product Restrictions
+    GET /expense/attendees	
 
-Concur products are highly configurable, and not all clients will have access to all features.
+        
+### Parameters
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
-
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
-
-
-## Resources
-
-[Attendee][3]
-
-[Attendee List][4]
-
-[Attendee Type][5]
-
-
-## Responses and Errors
-
-Refer to the [HTTP Codes][6] page for details of the common responses and errors.
-
-
-#### Attendee List Errors
-
-The web service will not return a 4xx HTTP response code for a batch operation even when every item in the batch failed to be created or updated. The client must inspect the response to look for warnings or errors with individual batch items.
-
-When there are errors with batch items, the first ten errors are returned in the `<errors>` element in the request response, which includes their error code, the item that caused the error, and the error message. Any additional error messages are truncated. This prevents a large volume of error data in the event of a formatting mistake.
-
-  
-**XML Response Error Codes**:
-
-|  Error Code |  Message |
-|-------------|----------|
-|  1101 |  Could not find attendee-batch element. |
-|  1102 |  Error parsing attendee record X |
-|  1201 |  Missing external id for attendee record X |
-|  1202 |  Missing attendee type |
-|  1203 |  Missing currency code |
-|  1204 |  External id too long |
-|  1205 |  Attendee type too long |
-|  1206 |  Invalid inactive value. |
-|  1207 |  Attendee of type NOSHOWS ignored. |
-|  1208 |  Invalid currency code |
-|  1209 |  Missing required field X |
-|  1210 |  Invalid time stamp for field X |
-|  1211 |  Invalid money or money value for field X |
-|  1212 |  Invalid money or numeric value for field X |
-|  1213 |  Invalid integer for field X |
-|  1214 |  Invalid boolean value for field X |
-|  1215 |  Invalid char value for field X |
-|  1216 |  Invalid varchar value for field X |
-|  1217 |  Value too long for field X |
-|  1218 |  Invalid attendee type |
-|  1219 |  More than one value was specified for the X field in record X |
-|  1221 |  Invalid code for field X |
-|  1222 |  Missing code for field X |
-|  1301 |  Unexpected error creating attendee |
-|  1302 |  Unexpected error updating attendee |
-|  1303 |  Unexpected error getting attendee type list |
-|  1304 |  Unexpected error processing batch request. |
-|  1305 |  Cannot update the attendee data for a non existing attendee. |
-
-  
+Name | Type | Format | Description
+-----|------|--------|------------			
+`externalID`	|	``string``	|	`query`	|	The external ID of an attendee. By entering a value for this parameter, you can limit the results to the attendees who match the specified external ID. Up to 10 comma-separated external IDs may be specified.
+`attendeeTypeID`	|	``string``	|	`query`	|	The ID of an attendee type. By entering a value for this parameter, you can limit the results to the attendees who match the specified type.
+`offset`	|	``string``	|	`query`	|	The starting point of the next set of results, after the limit specified in the limit field has been reached.
+`limit`	|	`Int32`	|	`query`	|	The number of records to return. Default value: 25
+`user`	|	``string``	|	`query`	|	The login ID of the user who owns this attendee. The user must have the Web Services Admin role to use this parameter.
 
 
-[1]: https://developer.concur.com/api-documentation/core-concepts
-[2]: https://developer.concur.com/forums/concur-connect
-[3]: https://developer.concur.com/attendee/attendee-resource
-[4]: https://developer.concur.com/attendee/attendee-list-resource
-[5]: https://developer.concur.com/attendee/attendee-type-resource
-[6]: https://developer.concur.com/reference/http-codes
+
+## <a name="getID"></a>Retrieve a single attendee by ID
+
+    GET /expense/attendees{id}
+
+
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`id`|`string`|`path`|**Required** The attendee object to create.
+`user`|`string`|`query`|The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter.
+
+
+
+## <a name="post"></a>Create a new attendee
+
+    POST /expense/attendees
+
+
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`content`|`body`|-|**Required** The attendee object to create
+
+
+### Input
+[Attendee Schema](#schema)
+
+### Response
+[Attendee Schema](#schema)
+
+
+## <a name="put"></a>Update existing attendees
+
+    PUT /expense/attendees{id}
+
+
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`id`|`string`|`path`|**Required** The ID of the attendee to delete.
+`user`|``string``|`query`|**Required** The partial or complete Attendee object to update.
+
+### Input
+[Attendee Schema](#schema)
+
+### Response
+[Attendee Schema](#schema)
+
+
+## <a name="put"></a>Delete an attendee
+
+    DELETE /expense/attendees{id}
+
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`id`|`body`|`path`|**Required** The attendee ID
+`content`|``path``|-|**Required** The partial or complete Attendee object to update.
+
+### Input
+[Attendee Schema](#schema)
+
+### Response
+[Attendee Schema](#schema)
+
+
+
+## <a name="schema"></a>Schema
+
+###<a name="attendees"></a>Attendees
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`Items`|`array`|[`Attendee`](#attendee)|The result collection.
+`NextPage`|``string``|-|The URI of the next page of results, if any.
+
+###<a name="attendee"></a>Attendee
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`AttendeeTypeCode`	|	``string``	|	-	|	A code that indicates the type of attendee. Examples: EMPLOYEE, SPOUSE, BUSGUEST. Maximum length: 40 characters
+`AttendeeTypeID`	|	``string``	|	-	|	The ID of the attendee type. To obtain the attendee type ID value, use the GET /expense/attendeetypes endpoint. The value of the ID element in the response is the attendee type ID.
+`Company`	|	``string``	|	-	|	The name of the attendee's company. Maximum length: 150 characters
+`CurrencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for monetary amounts related to an attendee.
+`Custom1 through Custom25`	|	`CustomField`	|	-	|	A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.
+`ExternalID`	|	`string`	|	-	|	A unique identifier for the attendee, assigned outside of Concur. Maximum length: 48 characters
+`FirstName`	|	`string`	|	-	|	The attendee's first name. Maximum length: 50 characters
+`HasExceptionsPrevYear`	|	`Boolean`	|	-	|	Determines whether the attendee had exceptions in the previous year, based on yearly total limits for attendees. Format: true or false
+`HasExceptionsYTD`	|	`Boolean`	|	-	|	Determines whether the attendee has exceptions in the current year, based on yearly total limits for attendees. Format: true or false
+`ID`	|	`string`	|	-	|	The unique identifier of the resource.
+`LastName`	|	`string`	|	-	|	The attendee's last name. Maximum length: 132 characters
+`MiddleInitial`	|	`string`	|	-	|	The attendee's middle initial. Maximum length: 1 character
+`OwnerLoginID`	|	`string`	|	-	|	The login ID of the user who owns the attendee record.
+`OwnerName`	|	`string`	|	-	|	The name of the user who owns the attendee record.
+`Suffix`	|	`string`	|	-	|	The attendee's name suffix. Maximum length: 32 characters
+`Title`	|	`string`	|	-	|	The attendee's title. Maximum length: 32 characters
+`TotalAmountPrevYear`	|	`Decimal`	|	-	|	The total amount spent on the attendee in the previous calendar year.
+`otalAmountYTD`	|	`Decimal`	|	-	|	The total amount spent on the attendee in the current calendar year.
+`URI`	|	`string`	|	-	|	The URI to the resource.
+`VersionNumber`	|	`Int32`	|	-	|	The attendee's version number.
+
+###<a name="status"></a>Custom Field
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`Code`|``string``|-|For list fields, this is the list item code.
+`ListItemID`|``string``|-|For list fields, this is the list item ID.
+`Type`|``string``|-|The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text
+`Value`|``string``|-|The value in the Org Unit or Custom field. For list fields, this is the name of the list item. Maximum length: 48 characters
+
+
+

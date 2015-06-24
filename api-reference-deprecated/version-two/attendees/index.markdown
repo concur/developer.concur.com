@@ -77,9 +77,8 @@ When there are errors with batch items, the first ten errors are returned in the
   
 
 
-[1]: https://developer.concur.com/api-documentation/core-concepts
-[2]: https://developer.concur.com/forums/concur-connect
-[3]: https://developer.concur.com/attendee/attendee-resource
-[4]: https://developer.concur.com/attendee/attendee-list-resource
-[5]: https://developer.concur.com/attendee/attendee-type-resource
-[6]: https://developer.concur.com/reference/http-codes
+[2]: http://forum.developer.concur.com/
+[3]: /api-reference-deprecated/version-two/attendees/attendee-resource.html
+[4]: /api-reference-deprecated/version-one/attendees/attendee-list-resource.html
+[5]: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html
+[6]: /tools-support/reference/http-codes.html
