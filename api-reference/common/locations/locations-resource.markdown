@@ -1,5 +1,5 @@
 ---
-title: Locations Resource 
+title: Locations
 layout: reference
 ---
 
