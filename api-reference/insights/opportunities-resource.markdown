@@ -10,6 +10,9 @@ Retrieves a collection of opportunities for a specified trip or for all trips th
 * [Retrieve a collection of opportunities for a specified trip or for all trips that fall within a date range](#get)
 * [Schema](#schema)
 
+###Version
+3.0
+
 ## <a name="get"></a>Retrieve all connection requests tht match the TripLink supplier ID
 
     GET /insights/opportunities

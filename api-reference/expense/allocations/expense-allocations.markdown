@@ -12,6 +12,9 @@ This resource can be used to retrieve information about the allocations that are
 * [Retrieve a single allocation by ID](#getID)
 * [Schema](#schema)
 
+###Version
+3.0
+
 ## <a name="get"></a>Retrieve all allocations per entry or report
     GET /expense/allocations
         

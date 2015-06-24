@@ -14,6 +14,9 @@ The Connection Requests resource is used to integrate TripLink partner applicati
 * [Delete an connection request](#delete)
 * [Schema](#schema)
 
+###Version
+3.0
+
 ## <a name="get"></a>Retrieve all connection requests tht match the TripLink supplier ID
 
     GET /common/connectionrequests/

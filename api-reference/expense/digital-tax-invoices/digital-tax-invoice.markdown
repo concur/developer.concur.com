@@ -12,6 +12,9 @@ The Digital Tax Invoice web service allows digital tax invoice validators to vie
 * [Update a specified digital tax invoice](#put)
 * [Schema](#schema)
 
+###Version
+3.0
+
 ## <a name="get"></a>Retrieve all digital tax invoices that can be validated by the user based on the search criteria
 
     GET /expense/digitaltaxinvoices

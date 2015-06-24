@@ -11,6 +11,9 @@ Supplier companies provide travel services to users. The Suppliers resource can 
 * [Retrieve a single supplier by ID](#getID)
 * [Schema](#schema)
 
+###Version
+3.0
+
 ## <a name="get"></a>Retrieve all suppliers based on search criteria
 
     GET /common/suppliers/

@@ -10,6 +10,9 @@ Gets the latest hotel and air booking for a particular user.
 * [Retrieve the latest hotel and air booking for a particular user](#get)
 * [Schema](#schema)
 
+###Version
+3.0
+
 ## <a name="get"></a>Retrieve the latest hotel and air booking for a particular user
     GET  /insights/latestbookings/
 

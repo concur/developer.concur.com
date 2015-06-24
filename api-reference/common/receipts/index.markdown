@@ -17,6 +17,8 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 * [Create a new receipt](#post)
 * [Schema](#schema)
 
+###Version
+3.0
 
 
 ## <a name="post"></a>Create a new receipt

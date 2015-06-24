@@ -11,6 +11,9 @@ Gets details of locations that are used by Concur and that are valid at the user
 * [Retrieve details of a specified location](#getID)
 * [Schema](#schema)
 
+###Version
+3.0
+
 ## <a name="get"></a>Retrieve details of locations that are used by Concur and that are valid at the user's company
 
     GET /common/locations
