@@ -13,6 +13,7 @@ title: Concur Community
         <li>By joining the Concur Community, you agree to our <a href="{{ site.baseurl }}/Terms-of-Use.html">terms</a> and <a href="https://www.concur.com/en-us/privacy-policy">privacy policy</a>.
     </ul> <br>
 <h3>Request an invite</h3>
+{% include form-success.html %}
   <!--=== Form ===-->
 
   <form id="sandboxAssistance" class="sky-form" novalidate="novalidate">
@@ -57,7 +58,7 @@ title: Concur Community
     rules: {
       firstName: { required: true },
       lastName: { required: true },
-      email: { 
+      email: {
         required: true,
         email: true
       },
@@ -76,7 +77,7 @@ title: Concur Community
       message: { required: 'Please enter the message details for this request' }
     },
 
-    // Ajax form submition                  
+    // Ajax form submition
     submitHandler: function(form) {
       $(form).ajaxSubmit({
         beforeSend: function() {
@@ -84,10 +85,11 @@ title: Concur Community
         },
         success: function() {
           $("#sandboxAssistance").addClass('submited');
+          $('#form-success').removeClass('form-success-hidden');
         }
       });
     },
-    
+
     // Do not change code below
     errorPlacement: function(error, element) {
       error.insertAfter(element.parent());
