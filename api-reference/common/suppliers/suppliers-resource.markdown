@@ -1,5 +1,5 @@
 ---
-title: Suppliers Resource 
+title: Suppliers
 layout: reference
 ---
 
