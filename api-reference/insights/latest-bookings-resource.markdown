@@ -1,5 +1,5 @@
 ---
-title: LatestBookings Resource 
+title: Latest Bookings 
 layout: reference
 ---
 

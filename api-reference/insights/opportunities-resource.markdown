@@ -1,5 +1,5 @@
 ---
-title: Opportunities Resource 
+title: Opportunities 
 layout: reference
 ---
 
