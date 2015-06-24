@@ -1,5 +1,5 @@
 ---
-title: Connection Requests Resource 
+title: Connection Requests
 layout: reference
 ---
 
