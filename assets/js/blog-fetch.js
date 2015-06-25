@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     for(var i = 0; i < 3; i++){
       recentBlogs.push(blogs[i]);
-    }
+    };
 
     recentBlogs.forEach(function(elem){
       $('#blog-list').append('<li><a href="' + elem.childNodes[3].innerHTML + '" target="_blank">' + elem.childNodes[1].innerHTML + '</a></li>');
