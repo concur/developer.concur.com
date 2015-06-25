@@ -18,7 +18,7 @@ The Attendee Type resource represents the type of attendee as configured in Conc
 ###Version
 3.0
 
-1.0 documentation is availale [here](/api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html)
+1.0 documentation is available [here](/api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html)
 
 ## <a name="get"></a>Retrieve all attendees types
 
