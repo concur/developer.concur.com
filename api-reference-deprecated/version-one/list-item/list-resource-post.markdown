@@ -363,7 +363,7 @@ This request will return a **list-item-batch-result** parent element with the fo
 
   
 
-[1]: https://developer.concur.com/list-item
-[2]: https://developer.concur.com/reference/http-codes
-[3]: https://developer.concur.com/list-item
-[4]: https://developer.concur.com/list-item
+[1]: /api-reference-deprecated/version-one/list-item/index.html
+[2]: /tools-support/reference/http-codes.html
+[3]: /api-reference-deprecated/version-one/list-item/index.html
+[4]: /api-reference-deprecated/version-one/list-item/index.html

@@ -1,83 +1,134 @@
 ---
-title: List Item Web Service 
+title: List Item
 layout: reference
 ---
 
-## Description
-The Concur List Item web service provides an automated solution to clients who would like to add, update or delete list items. This web service solves several business problems:
 
-* Files are difficult to manage: The service allows clients to send the data programatically, without requiring files to be moved and managed.
-* Need to work outside the Overnight Processing Period (ONP): Clients that need to make updates outside the ONP can use the List Item web service to modify their list items at any time. This allows users to quickly submit expense reports using the new values.
+# List Items
 
-## Works With These Concur Products
-* **Expense** for Concur Professional/Premium
-* **Expense** for Concur Standard
-* **Invoice** for Concur Professional/Premium
-* **Invoice** for Concur Standard
-* **Travel Request** for Concur Professional/Premium
+The Concur List Item web service provides an automated solution to clients who would like to add, update or delete list items. 
 
-## Product Restrictions
-Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
+* [Retrieve all list items based on the search criteria](#get)
+* [Retrieve a list item by ID](#getID)
+* [Create a new list item](#post)
+* [Update a list item](#put)
+* [Delete a list item](#delete)
+* [Schema](#schema)
 
-Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
+###Version
+3.0
 
-## Resources
-[List][3]
+1.0 documentation is available [here](/api-reference-deprecated/version-one/list-item/index.html)
 
-## Responses and errors
+## <a name="get"></a>Retrieve all list items based on the search criteria.
 
-###  List item errors
-The web service will not return a 4xx HTTP response code for a batch operation even when every item in the batch failed to be created, updated or deleted. The client must inspect the response to look for warnings or errors with individual batch items.
+    GET  /common/listitems
 
-When there are errors with batch items, the first ten errors are returned in the <errors> element in the request response, which includes their error code, the item that caused the error, and the error message. Any additional error messages are truncated. This prevents a large volume of error data in the event of a formatting mistake.
+        
+### Parameters
 
-### XML Response Error Codes
+Name | Type | Format | Description
+-----|------|--------|------------			
+limit	|	`Int32`	|	`query`	|	The number of records to return. The default is 25 and the maximum is 100.
+offset	|	`string`	|	`query`	|	The start of the page offset. The default is from the beginning.
+listId	|	`string`	|	`query`	|	The unique identifier for the list this item is a member.
+name	|	`string`	|	`query`	|	The name of the listItem. Text Max length: 64.
+parentId	|	`string`	|	`query`	|	The unique identifier of this item's parent. Is empty when there is no parent.
+level1Code	|	`string`	|	`query`	|	The item code for the first level of the list. All lists have at least a Level1Code. Text maximum 32 characters
+level2Code	|	`string`	|	`query`	|	The item code for the second level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+level3Code	|	`string`	|	`query`	|	The item code for the third level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+level4Code	|	`string`	|	`query`	|	The item code for the fourth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+level5Code	|	`string`	|	`query`	|	The item code for the fifth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+level6Code	|	`string`	|	`query`	|	The item code for the sixth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+level7Code	|	`string`	|	`query`	|	The item code for the seventh level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+level8Code	|	`string`	|	`query`	|	The item code for the eighth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+level9Code	|	`string`	|	`query`	|	The item code for the ninth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+level10Code	|	`string`	|	`query`	|	The item code for the tenth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
 
-|  Error Code |  Message |
-| ----- | ----- |
-|  1001 |  Could not find list-item-batch element |
-|  1002 |  Error parsing list item {ITEM} |
-|  1003 |  Start and end dates must be specified in pairs |
-|  1004 |  List item name must be specified |
-|  1005 |  List item name cannot be empty |
-|  1006 |  List item name exceeds 64 characters |
-|  1010 |  At least one level code must be specified |
-|  1011 |  Only one level code is allowed |
-|  1012 |  One or more level codes were skipped |
-|  1013 |  Invalid level1Code |
-|  1014 |  Invalid level2Code |
-|  1015 |  Invalid level3Code |
-|  1016 |  Invalid level4Code |
-|  1017 |  Invalid level5Code |
-|  1018 |  Invalid level6Code |
-|  1019 |  Invalid level7Code |
-|  1020 |  Invalid level8Code |
-|  1021 |  Invalid level9Code |
-|  1022 |  Invalid level10Code |
-|  1023 |  Invalid start date |
-|  1024 |  Invalid end date |
-|  1025 |  Start date must come before end date |
-|  2001 |  Failed to create list item |
-|  2002 |  Failed to update list item |
-|  2003 |  Failed to delete list item |
-|  2004 |  List item already exists in the database |
-|  2005 |  List item already exists as a deleted item in the database |
-|  2006 |  List item code error |
-|  2007 |  List item parent does not exist |
 
-##  Changing a List Item Level Code
 
-The list item level code (levelxcode element) is the unique identifier for the list item. For multiple level lists, the combination of the level codes is the unique identifier. This value cannot be updated by a standard update request, as this will result in a new duplicate list value instead.  
-To change a list item's level code, the original list item must be deleted (using the Post List Item Deletion request), then the new item with the updated code must be added (using the Post New List Item request).
+## <a name="getID"></a>Retrieve a list item by ID
 
-**NOTE**: When you delete a list item, the system deactivates it, but keeps a copy in case the item has been used in any expense reports, invoices or requests. Existing reports, invoices or requests will still show the old list item. Any reports, invoices or requests created after the list item has been deleted will no longer show it in the list.
+    GET  /common/listitems/{id}
 
-## See also
-[Posting Custom List Items][4]
 
-[2]: https://developer.concur.com/forums/concur-connect
-[3]: https://developer.concur.com/list-item/list-resource
-[4]: https://developer.concur.com/reference/custom-list-items
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+id	|	`string`	|	`path`	|	**Required** The unique identifier for the listItem.
+listId	|	`string`	|	`query`	|	The unique identifier for the list this item is a member.
+
+
+## <a name="post"></a>Create a new list item
+
+    POST  /common/listitems
+
+
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`content`	|	-	|	`body`	|	**Required** List item object to create.
+
+
+## <a name="put"></a>Update a list item
+
+    PUT  /common/listitems/{id}
+
+
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`id`	|	`string`	|	`path`	|	**Required** The unique identifier for the list item.
+`content`	|	-	|	`body`	|	**Required** The list item object to update.
+
+
+## <a name="delete"></a>Delete a list item
+
+    DELETE  /common/listitems/{id}
+
+
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`id`	|	`string`	|	`path`	|	**Required** The unique identifier of the listitem to delete
+`listId`	|	`string`	|	`query`	|	**Required** The unique identifier of the list associated with a listitem to be deleted
+
+
+
+## <a name="schema"></a>Schema
+
+
+###<a name="listitems"></a>List Items
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`Items`	|	`array`	|	[List Item](#listitem)	|	The result collection.
+`NextPage`	|	`string`	|	-	|	The URI of the next page of results, if any.
+
+
+###<a name="listitem"></a>List Item
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`ID`	|	`string`	|	-	|	The unique identifier of the resource.
+`Level10Code`	|	`string`	|	-	|	The item code for the tenth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+`Level1Code`	|	`string`	|	-	|	The item code for the first level of the list. All lists have at least a Level1Code. Text maximum 32 characters
+`Level2Code`	|	`string`	|	-	|	The item code for the second level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+`Level3Code`	|	`string`	|	-	|	The item code for the third level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+`Level4Code`	|	`string`	|	-	|	The item code for the fourth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+`Level5Code`	|	`string`	|	-	|	The item code for the fifth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+`Level6Code`	|	`string`	|	-	|	The item code for the sixth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+`Level7Code`	|	`string`	|	-	|	The item code for the seventh level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+`Level8Code`	|	`string`	|	-	|	The item code for the eighth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+`Level9Code`	|	`string`	|	-	|	The item code for the ninth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters
+`ListID`	|	`string`	|	-	|	The unique identifier for the list this item is a member.
+`Name`	|	`string`	|	-	|	The name of item. Text maximum 64 characters
+`ParentID`	|	`string`	|	-	|	The unique identifier of this item's parent. Is empty when there is no parent.
+`URI`	|	`string`	|	-	|	The URI to the resource.
+
 

@@ -238,5 +238,5 @@ This request will return a **list-items** parent element, with a **list-item** c
   
 
 
-[1]: https://developer.concur.com/reference/http-codes
-[2]: https://developer.concur.com/node/370
+[1]: /tools-support/reference/http-codes.html
+[2]: /tools-support/reference/custom-list-items.html

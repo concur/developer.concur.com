@@ -77,7 +77,7 @@ To change a list item's level code, the original list item must be deleted (usin
 ## See also
 [Posting Custom List Items][4]
 
-[2]: https://developer.concur.com/forums/concur-connect
-[3]: https://developer.concur.com/list-item/list-resource
-[4]: https://developer.concur.com/reference/custom-list-items
+[2]: http://forum.developer.concur.com/
+[3]: /api-reference-deprecated/version-one/list-item/list-resource.html
+[4]: /tools-support/reference/custom-list-items.html
 

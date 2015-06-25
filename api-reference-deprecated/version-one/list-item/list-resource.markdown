@@ -34,5 +34,5 @@ application/xml
 * [POST][2]
 
 
-[1]: https://developer.concur.com/list-item/list-resource/list-resource-get
-[2]: https://developer.concur.com/list-item/list-resource/list-resource-post
+[1]: /api-reference-deprecated/version-one/list-item/list-resource-get.html
+[2]: /api-reference-deprecated/version-one/list-item/list-resource-post.html
