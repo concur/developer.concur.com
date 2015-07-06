@@ -1,6 +1,6 @@
 ---
 title: Trip Approval
-layout: conceptual
+layout: reference
 ---
 
 # Trip Approval
@@ -47,6 +47,3 @@ Code | Description|
 `510`|TripLocator ir RecordLocator was not found
 `600`|An error occured while approving the trip.
 `700`|An error occured while rejecting the trip.
-
-
-
