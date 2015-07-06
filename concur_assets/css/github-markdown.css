@@ -647,3 +647,11 @@
   position: relative;
   border-color: #4078c0;
 }
+
+table > tbody > tr > td > code {
+    color: #000;
+}
+
+table > tbody > tr > td > a > code {
+    color: #000;
+}
