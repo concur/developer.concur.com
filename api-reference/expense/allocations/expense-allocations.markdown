@@ -33,6 +33,8 @@ This resource can be used to retrieve information about the allocations that are
 ### Response
 
 [Allocations Schema](#schema)
+
+
 ## <a name="getID"></a>Retrieve a single allocation by ID
     GET /expense/allocations{id}
 

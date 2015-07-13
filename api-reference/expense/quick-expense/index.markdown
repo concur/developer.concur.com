@@ -92,8 +92,8 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-Items	|	Array	|	[Quick Expense](#quickexpense)	|	The result collection.
-NextPage	|	string	|	-	|	The URI of the next page of results, if any.
+`Items`	|	`Array`	|	[Quick Expense](#quickexpense)	|	The result collection.
+`NextPage`	|	`string`	|	-	|	The URI of the next page of results, if any.
 
 
 ###<a name="quickexpense"></a>Quick Expense

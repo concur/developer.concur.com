@@ -64,7 +64,7 @@ Name | Type | Format | Description
 `Country`	|	`string`	|	-	|	The 2-letter ISO 3166-1 country code for the location.
 `CountrySubdivision`	|	`string`	|	-	|	The ISO 3166-2:2007 country subdivision code for the location. Example: US-WA
 `IATACode`	|	`string`	|	-	|	The International Air Transport Association (IATA) airport code of the location.
-`ID	|	`string`	|	-	|	The unique identifier of the resource.
+`ID` |	`string`	|	-	|	The unique identifier of the resource.
 `IsAirport`	|	`boolean`	|	-	|	Indicates whether the location is an airport. Format: true or false
 `IsBookingTool`	|	`boolean`	|	-	|	Indicates whether the location is used by the booking tool. Format: true or false
 `Latitude`	|	`Decimal`	|	-	|	The latitude of the geocode for the location.

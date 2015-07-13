@@ -56,7 +56,7 @@ Name | Type | Format | Description
 ``HotelDetail``	|	`HotelDetail`	|	-	|	The details of a hospitality service. This element is required when the Type value is Hotel.
 `ImageBase64`	|	`string`	|	-	|	The binary receipt image in Base64 encoding. This API supports PNG, JPEG, JPG, and PDF file formats.
 ``MatchingFact``	|	`MatchingFact`	|	-	|	**Required** The parent element for information that is used to match the receipt to the Concur user who initiated the transaction. The `MatchingFact` object must contain either a valid access token or a Concur login ID.
-```Merchant``	|	``Merchant`	|	-	|	**Required** The parent element for information about the provider who is posting the receipt.
+`Merchant`	|	`Merchant`	|	-	|	**Required** The parent element for information about the provider who is posting the receipt.
 `PaymentCard`	|	`PaymentCard`	|	-	|	The parent element for the credit card used for payment. This element is required when the FormofPaymentCode value is CCARD.
 `RideDetail`	|	`RideDetail`	|	-	|	The details of a hired ride. This element is required when the Type value is Ride.
 `TransactionDateTime`	|	`DateTime`	|	-	|	**Required** The date and time when the transaction happened. Format: YYYY-MM-DDThh:mm
@@ -66,8 +66,8 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------							
-Name	`Name`	|	`string`	|	-	|	**Required** The name of the custom field. Maximum length: 128 characters
-Value	`Value`	|	`string`	|	-	|	**Required** The value of the custom field. Maximum length: 256 characters
+`Name`	|	`string`	|	-	|	**Required** The name of the custom field. Maximum length: 128 characters
+`Value`	|	`string`	|	-	|	**Required** The value of the custom field. Maximum length: 256 characters
 
 ###General Detail	
 

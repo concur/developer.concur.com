@@ -60,9 +60,11 @@ Name | Type | Format | Description
 
 
 ### Input
+
 [Attendee Schema](#schema)
 
 ### Response
+
 [Attendee Schema](#schema)
 
 
@@ -79,8 +81,11 @@ Name | Type | Format | Description
 `content`|-|`body`|**Required** The partial or complete Attendee object to update.
 
 ### Input
+
 [Attendee Schema](#schema)
+
 ### Response
+
 [Attendee Schema](#schema)
 
 
