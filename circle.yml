@@ -23,4 +23,6 @@ test:
 
 deployment:
   preview:
-    - aws s3 sync ./_site s3://preview.developer.concur.com --region us-west-2 --output text --delete
+    branch: preview
+    commands:
+      - aws s3 sync ./_site s3://preview.developer.concur.com --region us-west-2 --output text --delete
