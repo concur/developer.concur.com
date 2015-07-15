@@ -1,0 +1,26 @@
+machine:
+  timezone:
+    America/Los_Angeles
+  ruby:
+    version: 2.2.2
+
+general:
+  branches:
+    only:
+      - preview # branch whitelisting should be temporary; remove once we get the s3 bucket creation working
+      - livesite
+
+dependencies:
+  override:
+    - ./build/install_aws_cli.sh
+    - gem install jekyll
+    - bundle install  
+
+test:
+  override:
+    - ./build/write_commit.sh
+    - bundle exec jekyll build
+
+deployment:
+  preview:
+    - aws s3 sync ./_site s3://preview.developer.concur.com --region us-west-2 --output text --delete
