@@ -7,7 +7,7 @@ machine:
 general:
   branches:
     only:
-      - preview # branch whitelisting should be temporary; remove once we get the s3 bucket creation working
+      - preview
       - livesite
 
 dependencies:
