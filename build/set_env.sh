@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BRANCHNAME=$(git describe --contains --all HEAD)
+BRANCHNAME=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
 echo $BRANCHNAME
 
 if [ ${BRANCHNAME} == "meta-tag" ]
