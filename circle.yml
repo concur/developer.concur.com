@@ -18,7 +18,7 @@ dependencies:
 
 test:
   override:
-    - ./build/write_meta_tag.sh
+    - ./build/write_branch.sh
     - ./build/write_commit.sh
     - bundle exec jekyll build
 
