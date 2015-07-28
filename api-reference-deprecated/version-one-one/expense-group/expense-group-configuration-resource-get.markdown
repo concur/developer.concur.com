@@ -4,7 +4,7 @@ layout: reference
 ---
 
 ## Description
-Retrieves the list of Expense Polices, Expense Types and Payment Types for the Expense Group the user specified in the [OAuth][1] access token is assigned to. Each Expense Policy contains a list of valid Expense Types. The Payment Types are associated with the user's Expense Group and apply to all the returned policies. Only the payment types that are valid for the [Post Expense Entry][2] endpoint are returned.
+Retrieves the list of Expense Polices, Expense Types and Payment Types for the Expense Group the user specified in the OAuth access token is assigned to. Each Expense Policy contains a list of valid Expense Types. The Payment Types are associated with the user's Expense Group and apply to all the returned policies. Only the payment types that are valid for the [Post Expense Entry][2] endpoint are returned.
 
 **NOTE**: The Concur Expense product is highly configurable, and each client may have a unique set of payment types. If a payment type is not included in the response, it is not available for use with this client.
 
@@ -108,6 +108,5 @@ Authorization: OAuth {access token}
     </ExpenseGroupConfiguration>
 ```
 
-[1]: https://developer.concur.com/oauth-20
-[2]: https://developer.concur.com/expense-report/expense-entries-resource/post-entries
+[2]: /api-reference/expense/expense-report/expense-entry-itemization-resource-post.html
 
