@@ -15,12 +15,8 @@ The Shared attendees in the Concur company. Attendees added using this web servi
 ## Operations
 [POST][2]
 
-## See also
-* [Attendee][3]
-* [Attendee type][4] 
 
 
 [2]: https://developer.concur.com/node/591
-[3]: https://developer.concur.com/node/593
-[4]: https://developer.concur.com/node/375
+
 
