@@ -14,10 +14,11 @@ dependencies:
   override:
     - ./build/install_aws_cli.sh
     - gem install jekyll
-    - bundle install  
+    - bundle install
 
 test:
   override:
+    - ./build/write_branch.sh
     - ./build/write_commit.sh
     - bundle exec jekyll build
 
