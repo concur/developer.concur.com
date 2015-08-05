@@ -53,7 +53,7 @@ Name | Type | Format | Description
 
 None
 
-### <a name="access-token-response""></a>Response
+### <a name="access-token-response"></a>Response
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -82,7 +82,7 @@ TODO -- Do we get a response?
 
 	POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx
 
-<a name="revoke-roles""></a>**Note**: To revoke tokens, the caller must have one of the following roles:
+<a name="revoke-roles"></a>**Note**: To revoke tokens, the caller must have one of the following roles:
 
 * `Web Services Administrator` for Concur Professional/Premium
 * `Can Administrator` for Concur Standard.
