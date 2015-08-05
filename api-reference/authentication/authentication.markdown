@@ -10,7 +10,10 @@ layout: reference
 	* [Getting an access token](#getting-access-token)
 	* [Refreshing an access token](#refreshing-access-token)
 	* [Revoking a single access token for a given user](#revoke-single-access-token)
-	* [Revoking all access tokens for a user](#revoke-all-access-tokens)
+	* [Revoking all access tokens for a user](#revoke-all-access-tokens)  
+  
+  
+
 * [Choosing an authorization flow](#choosing-authorization-flow)
 	* [Native flow](#native)
 	* [Web flow](#web)
@@ -25,8 +28,8 @@ All authentication and auhtorization tasks use the `GET` verb and URI as noted h
 
 Type | Verb + URI
 -----|-----------
-<a name="native-uri""></a>Native|`GET https://{InstanceURL}/net2/oauth2/accesstoken.ashx`
-<a name="web-uri""></a>Web or Auto-Connect|`GET https://{InstanceURL}/net2/oauth2/GetAccessToken.ashx`
+Native|`GET https://{InstanceURL}/net2/oauth2/accesstoken.ashx`
+Web or Auto-Connect|`GET https://{InstanceURL}/net2/oauth2/GetAccessToken.ashx`
 
 ##<a name="keys-and-secrets"></a>Keys and Secrets
 The **Application Authorization** section in the **New Partner Application** page includes `Key` and `Secret` fields that are used to generate a request token which is later exchanged for an access token.
@@ -39,6 +42,7 @@ Field|URI Parameter|Description
 ##<a name="getting-access-token"></a>Getting an access token
 
 ### Parameters
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `code`|`string`|`{request_token}`|**Required** The request token.
@@ -46,9 +50,11 @@ Name | Type | Format | Description
 `client_secret`|`string`|[`{secret}`](#secret)|**Required** The application secret.
 
 ### Input
+
 None
 
 ### <a name="access-token-response""></a>Response
+
 Name | Type | Format | Description
 -----|------|--------|------------
 Instance_URL|`string`|-|Identifies the Concur datacenter where the user's data resides. For example, if the Instance_Url is `https://www.ea1.concursolutions.com`, then all API calls for this user should use this URL as a prefix in subsequent API calls
@@ -59,6 +65,7 @@ Expiration_Date|`string`|-|The Universal Coordinated Time (UTC) date and time wh
 ##<a name="refreshing-access-token"></a>Refreshing an access token
 
 ### Parameters
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `refresh_token`|`string`|[`Refresh_Token`](#refresh-token)|**Required** The refresh token.
@@ -81,19 +88,23 @@ TODO -- Do we get a response?
 * `Can Administrator` for Concur Standard.
 
 ### Headers
+
 Header|Format|Description
 ------|------|-----------
 `Authorization`|[http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8)|`OAuth {access_token}` of user with proper role.
 
 ### Parameters
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `token`|`string`|`{access_token}`|**Required** The token to be revoked.
 
 ### Response
+
 TODO -- Do we get a response?
 
 ### Example
+
 	POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx?token=fdjhk2382kwkajsklwe8i3932kslswl
 	Authorization: OAuth fdjhk2382kwkajsklwe8i3932kslswl
 
@@ -101,17 +112,20 @@ TODO -- Do we get a response?
 	POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx
 
 ### Headers
+
 Header|Format|Description
 ------|------|-----------
 `Authorization`|[http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8)|`OAuth {access_token}` of user with proper role.
 
 ### Parameters
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `consumerKey`|`string`|[`{key}`](#key)|**Required** The key of the appliation.
 `user`|`string`|`{user_LoginID}`|**Required** The LoginID of the user.
 
 ### Response
+
 TODO -- Do we get a response?
 
 ### Example
@@ -136,6 +150,7 @@ Distribute the app in the App Center and **are** a TripLink supplier.|[Auto-Conn
 The request must contain the following HTTP headers:
 
 ### Headers
+
 Header|Format|Description
 ------|------|-----------
 `Authorization`|[http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8)|The Base-64 encoded Concur credentials (LoginID:Password) of the user requesting access in the HTTP Basic Authentication format. If no password is used, the user name must still end with a colon.
@@ -148,6 +163,7 @@ Header|Format|Description
 	X-ConsumerKey: hj7683jslks93lalkjss93
 
 ### Response
+
 [Access token response](#access-token-response)
 
 ##<a name="web"></a>Web
@@ -171,6 +187,7 @@ The web flow is as follows:
 `https://www.concursolutions.com/net2/oauth2/Login.aspx?{parameters}`
  
 #### Parameters
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `client_id`|`string`|[`{key}`](#key)|**Required** The application key.
@@ -204,6 +221,7 @@ Name | Type | Format | Description
 * If access is granted the `code` parameter is used.
 
 ##### Parameters
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `error`|`string`|-|The name of the error.
