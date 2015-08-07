@@ -17,7 +17,7 @@ layout: reference
 
 
 3.0  
-1.1 documentation is available [here.](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource.html)  
+1.1 documentation is available [here.](/api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html)  
   
 
 
