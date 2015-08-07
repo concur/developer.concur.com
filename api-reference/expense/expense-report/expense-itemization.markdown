@@ -1,10 +1,10 @@
 ---
-title: Expense Itemizations
+title: Itemizations
 layout: reference
 ---
 
 
-# Expense Itemizations
+#  Itemizations
 
 * [Retrieve all expense itemizations owned by the user](#get)
 * [Retrieve an expense itemization by ID](#getID)
