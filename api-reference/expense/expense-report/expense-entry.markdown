@@ -1,5 +1,5 @@
 ---
-title: Expense Entries
+title: Expense Entry
 layout: reference
 ---
 
