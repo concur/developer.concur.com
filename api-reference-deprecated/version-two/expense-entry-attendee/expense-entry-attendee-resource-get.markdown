@@ -1,10 +1,16 @@
 ---
-title: Get a list of expense entry attendees
+title: Expense Entry Attendees 2.0
 layout: reference
 --- 
 
+
 ##Description
 Retrieves the expense entry attendees for the specified expense entry. This function requires the v2.0 expense entry attendee resource.
+
+**NOTE:** This version has been deprecated. Find the newer version 3.0 [here.](/api-reference/expense/expense-report/expense-entry-attendee.html)
+
+##Version
+2.0
 
 ## Request
 
@@ -14,8 +20,8 @@ Retrieves the expense entry attendees for the specified expense entry. This func
 
 | Parameter |Required/Optional| Description |
 |-----------------|--------|-----------------------------|
-| {_reportId_} | required | The unique identifier for the expense report. This value is returned in the **ReportID** element by the [Get Report Details][1] function. |
-| {_entryId_}/attendees | required | The unique identifier for the expense entry and the Attendees keyword. This value is returned in the **ReportEntryID** element by the [Get Report Details][1] function. |
+| {_reportId_} | required | The unique identifier for the expense report. This value is returned in the **ReportID** element by the Get Report Details function. |
+| {_entryId_}/attendees | required | The unique identifier for the expense entry and the Attendees keyword. This value is returned in the **ReportEntryID** element by the Get Report Details function. |
 
 Example: `https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{reportId}/entry{entryId}/attendees`
 
@@ -107,5 +113,4 @@ Content-Type: application/json
 ] 
 ```
 
-[1]: https://developer.concur.com/node/487#reportdetails
 
