@@ -4,7 +4,7 @@ layout: reference
 ---
 
 
-# Entries
+# Expense Entry
 
 * [Retrieve all expense entries](#get)
 * [Retrieve a single expense entry by ID](#getID)
