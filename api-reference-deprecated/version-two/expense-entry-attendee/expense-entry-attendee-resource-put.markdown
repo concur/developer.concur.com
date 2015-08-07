@@ -1,5 +1,5 @@
 ---
-title: Update expense entry attendees
+title: PUT Expense Entry Attendees
 layout: reference
 ---
 

@@ -21,6 +21,6 @@ An expense entry in an expense report.
 
 
 
-[1]: /api-reference-deprecated/version-one-one/expense-entry-attendee/expense-entry-attendee-resource.html)
-[2]: https://developer.concur.com/expense-report/expense-entry-resource/post-entries
+[1]: /api-reference-deprecated/version-one-one/expense-entry/get-expense-entry.html
+[2]: /api-reference-deprecated/version-one-one/expense-entry/post-expense-entry.html
 
