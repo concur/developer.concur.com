@@ -11,7 +11,7 @@ Expense Entry Itemizations are children of an expense entry that subdivide the e
 `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}/itemization/{itemizationId}`
 
 ## Operations
-[POST](url)
+[POST](/api-reference-deprecated/version-one-one/expense-entry/post-expense-entry.html)
 
 
 

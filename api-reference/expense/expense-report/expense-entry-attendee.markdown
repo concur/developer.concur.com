@@ -1,11 +1,11 @@
 ---
-title: Expense Entry Attendee
+title: Entry Attendee
 layout: reference
 ---
 
 
 
-# Expense Entry Attendee
+# Entry Attendee
 * [Retrieve all entry-attendee associations owned by the user](#get)
 * [Retrieve an entry-attendee association by ID](#getID)
 * [Create a new entry-attendee association](#post)
