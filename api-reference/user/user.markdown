@@ -1,3 +1,9 @@
+---
+title: User
+layout: reference
+---
+
+
 # User
 The Users resource represents a set of Concur users. It is always managed as a batch of users, even if the batch contains only one user.
 
@@ -25,6 +31,7 @@ Name | Type | Format | Description
 
 
 ### Response
+
 Name | Type | Format | Description
 -----|------| ------ | --------------
 `loginID`|`string` | | The user's logon ID.
@@ -92,6 +99,7 @@ Adds or updates one or more users. The batch can contain up to 500 users.
 This API requires as its arguments a batch element containing a UserProfile child element for each user to be added or updated. The UserProfile child elements will vary depending on the form configuration, and may contain the following elements.
 
 ### Request
+
 Name | Type | Format | Description
 -----|------| ------ | --------------
 `EmpId`|`string` | | Required. The unique identifier for the user. The default value is the user's email address. Maximum 48 characters.
