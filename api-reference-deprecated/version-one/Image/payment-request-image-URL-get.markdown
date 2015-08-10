@@ -1,5 +1,5 @@
---- 
-title: Get a payment request image URL 
+---
+title: Get a payment request image URL
 layout: reference
 ---
 
@@ -67,3 +67,4 @@ Content-Type: application/xml
     <Url>https://api.example.com/getImage?cid=able999999&amp;val=F9B35244G86</Url>
 </Image>
 ```
+

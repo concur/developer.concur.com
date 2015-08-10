@@ -1,5 +1,5 @@
---- 
-title: Get a report image URL 
+---
+title: Get a report image URL
 layout: reference
 ---
  
@@ -66,3 +66,5 @@ Content-Type: application/xml
 </Image>
  
 ```
+
+
