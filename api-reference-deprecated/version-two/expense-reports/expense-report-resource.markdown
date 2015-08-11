@@ -27,4 +27,4 @@ Refer to the function documentation for more information.
 
 
 [1]: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html
-[2]: https://developer.concur.com/expense-report/expense-report-resource/post-report-exceptions
+[2]: /api-reference/expense/expense-report/post-report-exceptions.html

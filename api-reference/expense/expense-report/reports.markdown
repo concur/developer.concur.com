@@ -1,9 +1,7 @@
-
 ---
 title: Reports
 layout: reference
 ---
-
 
 
 # Reports
@@ -16,8 +14,8 @@ layout: reference
 
 ## Version
 3.0  
-2.0 Retrieve (GET) Report can be found [here](url)  
-1.1 Create and update (POST) Report Header can be found [here](url)
+2.0 Retrieve (GET) Report can be found [here](/api-reference-deprecated/version-two/expense-reports/expense-report-resource.html)  
+1.1 Create and update (POST) Report Header can be found [here](/api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html)
 
 
 ## <a name="get"></a>Retrieve reports owned by the user based on search criteria
