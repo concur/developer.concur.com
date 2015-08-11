@@ -1,5 +1,8 @@
 ---
 title: Payment Request
+layout: reference
+---
+
 
 # Payment Request
 * [Retrieve a Payment Request](#get)
