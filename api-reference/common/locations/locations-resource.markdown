@@ -12,7 +12,10 @@ Gets details of locations that are used by Concur and that are valid at the user
 * [Schema](#schema)
 
 ###Version
-3.0
+3.0  
+
+1.1 has been deprecated and can be found [here.](/api-reference-deprecated/version-one-one/expense-report/location-resource.html)  
+
 
 ## <a name="get"></a>Retrieve details of locations that are used by Concur and that are valid at the user's company
 

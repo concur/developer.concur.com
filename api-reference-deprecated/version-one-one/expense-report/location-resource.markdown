@@ -9,7 +9,7 @@ layout: reference
 
 ## Description
 
-**NOTE:** This version has been deprecated. Find the newer version 3.0 [here](/api-reference/expense/expense-report/locations.html)
+**NOTE:** This version has been deprecated. Find the newer version 3.0 [here](/api-reference/common/locations/locations-resource.html)
 
 The valid city location codes in Concur. These location codes are used in the Post requests for the Expense Report service, when the City field is provided/required. The location codes vary by client, and cannot be used across multiple clients.
 
@@ -25,7 +25,7 @@ The valid city location codes in Concur. These location codes are used in the Po
 
 
 
-[1]: https://developer.concur.com/expense-report/location-resource/location-resource-get
+[1]: /api-reference-deprecated/version-one-one/expense-report/location-resource-get.html
 
 
 

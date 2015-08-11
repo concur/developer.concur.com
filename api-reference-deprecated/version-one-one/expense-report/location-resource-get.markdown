@@ -6,7 +6,7 @@ layout: reference
 # Get a list of locations (Deprecated)
 
 ## Description
-**NOTE:** This version has been deprecated. Find the newer version 3.0 [here](/api-reference/expense/expense-report/locations.html)  
+**NOTE:** This version has been deprecated. Find the newer version 3.0 [here](/api-reference/common/locations/locations-resource.html)  
 
 Retrieves a list of valid city location codes.
 
