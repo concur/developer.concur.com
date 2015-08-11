@@ -3,7 +3,11 @@ title: Get a list of locations
 layout: reference
 ---
 
+# Get a list of locations (Deprecated)
+
 ## Description
+**NOTE:** This version has been deprecated. Find the newer version 3.0 [here](/api-reference/expense/expense-report/locations.html)  
+
 Retrieves a list of valid city location codes.
 
 ## Request
@@ -48,7 +52,7 @@ This request will return a **LocationsList** parent element with a **Location** 
 
 ### XML example request
 
-```xml
+```
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city={_searchstring_} HTTP/1.1
 Authorization: OAuth {access token}
 ...
@@ -56,7 +60,7 @@ Authorization: OAuth {access token}
 
 ### XML example of successful response
 
-```xml
+```
 200 OK
     Content-Type: application/xml
 

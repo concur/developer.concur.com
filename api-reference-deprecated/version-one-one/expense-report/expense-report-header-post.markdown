@@ -3,9 +3,11 @@ title: Post an expense report header
 layout: reference
 ---
 
-## Post Expense Report Header
+## Post Expense Report Header (Deprecated)
 
 ### Description
+
+**NOTE:** This version has been deprecated. Find the newer version 3.0 [here.](/api-reference/expense/expense-report/reports.html)
 
 Posts the expense report header information for a new or existing report for the user specified in the OAuth access token. If the OAuth consumer has the necessary roles, they can update reports that belong to other users. Use this function to create a report, then use the Post Expense Entry function to send expense line items.
 
