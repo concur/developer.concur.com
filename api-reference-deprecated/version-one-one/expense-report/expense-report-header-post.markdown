@@ -80,7 +80,7 @@ The response will include a **ReportDetails** parent element. This element will 
 
 ####  XML example of new report request
 
-```xml
+```
     POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report HTTP/1.1
     Authorization: OAuth {access token}
     ...
@@ -101,7 +101,7 @@ The response will include a **ReportDetails** parent element. This element will 
 
 ####  XML example of successful response
 
-```xml
+```
     200 OK
     Content-Type: application/xml
     <ReportDetails>
@@ -193,7 +193,7 @@ This request will return a **report-batch-result** parent element with the follo
 
 ####  XML example request
 
-```xml
+```
     POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/batch HTTP/1.1
     Authorization: OAuth {access token}
     ...
@@ -231,7 +231,7 @@ This request will return a **report-batch-result** parent element with the follo
 
 ####  XML example response with success and failure
 
-```xml
+```
     200 OK
     Content-Type: application/xml
     <report-batch-result xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -254,10 +254,4 @@ This request will return a **report-batch-result** parent element with the follo
     </report-batch-result>
 ```
 
-[1]: https://developer.concur.com/oauth-20
-[2]: https://developer.concur.com/expense-report/expense-entries-resource/post-entries
-[3]: https://developer.concur.com/node/465#process
-[4]: https://developer.concur.com/expense-report/expense-report-resource/get-report-details
-[5]: https://developer.concur.com/node/487#reportdetails
-[6]: https://developer.concur.com/reference/custom-list-items
-[7]: https://developer.concur.com/reference/http-codes
+

@@ -23,13 +23,8 @@ Refer to the function documentation for more information.
 * [GET][1]
 * [POST][2] 
 
-## See Also
-* [Expense Report Header ][3]
-* [Expense Entry][4]
 
 
 
-[1]: https://developer.concur.com/expense-report/expense-report-resource/get-report-details
+[1]: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html
 [2]: https://developer.concur.com/expense-report/expense-report-resource/post-report-exceptions
-[3]: https://developer.concur.com/expense-report/expense-report-header-resource
-[4]: https://developer.concur.com/expense-report/expense-entry-resource

@@ -41,45 +41,45 @@ This request will return a **ReportDetails** parent element.
 
 #### ReportDetails elements
 
-|  Element |  Description |
-| ----- | ----- |
-|  UserLoginID |  The user ID of the report owner. Maximum 128 characters. |
-|  EmployeeName |  The name of the employee who created the report. Maximum 66 characters. |
-|  ReportID |  The unique identifier for the report, which appears in the Concur Expense UI. Maximum 32 character varchar. |
-|  ReportKey |  The unencrypted unique identifier for the report, that appears on the report header. The element appears only if the OAuth consumer has the Web Services Admin role in Concur. Maximum 48 characters. |
-|  ReportName |  The name of the report. Maximum 40 characters. |
-|  Purpose |  The information from the Business Purpose field. |
-|  ReportDate |  The date from the report header. Format: YYYY-MM-DDThh:mm:ss |
-|  CreationDate |  The date the report was created. Format: YYYY-MM-DDThh:mm:ss |
-|  SubmitDate |  The date the report was submitted. Maximum 10 characters. |
-|  PaidDate |  The date the report was extracted for payment. This element has an attribute named i:nil. If the value for this element is null, the i:nil attribute will be set to true. Format: YYYY-MM-DDThh:mm:ss |
-|  CurrencyCode |  The [3-letter ISO 4217 currency code][1] for the expense report currency. The expense report currency is defined as the report creator's default reimbursement currency. |
-|  ReportTotal |  The total amount of the report. Maximum 23 characters. |
-|  PersonalExpenses |  The total amount of expenses marked as personal. Maximum 23 characters. |
-|  AmountDueEmployee | The total amount due to the employee for the report. Maximum 23 characters. |
-|  AmountDueCompanyCard |  The total amount due to the company card for the report. Maximum 23 characters. |
-|  TotalClaimedAmount |  The total amount of all non-personal expenses in the report. Maximum 23 characters. |
-|  TotalApprovedAmount |  The total amount of approved expenses in the report. Maximum 23 characters. |
-|  ApprovalStatusCode |  The approval status code for the report. |
-|  ApprovalStatusName |  The approval status name for the report. |
-|  PaymentStatusCode |  The unique identifier for the payment status of the report. |
-|  PaymentStatusName |  The payment status of the report. |
-|  OrgUnit1 through OrgUnit6 |  The details from the Org Unit custom fields. These may not have data, depending on configuration. Maximum 48 characters for each field. |
-|  Custom1 through Custom20 |  The details from the Custom fields. These may not have data, depending on configuration. If report owner information is stored in these fields, it may be outdated. Refer to the **ReportOwner** parent element for the current owner information. Refer to the **Custom Fields** Child Elements table for more information. |
-|  LedgerName |  The name of the expense report ledger. Maximum 20 characters. |
-|  PolicyID |  The unique identifier of the policy that applies to this report. Maximum 64 characters. |
-|  EverSentBack |  Whether the report has ever been sent back to the employee. Format: Y/N |
-|  HasException |  Whether the report has exceptions. Format: Y/N  |
-|  WorkflowActionURL |  The URL to post a workflow action to the report using the Post Report Workflow Action function. |
-|  ExpenseEntriesList |  This parent element has an **ExpenseEntry** child element for each entry. Refer to the **ExpenseEntry elements** table for more information. |
-|  ReportImageURL |  The URL to access the image associated with the report. This URL is valid for 30 minutes after the web service call. |
-|  Country |  The report country. Maximum 2 characters. Format: [The ISO 3166-1 alpha-2 country code][3]. Example: United States is US. |
-|  CountrySubdivision |  The report country subdivision. Format: [ISO 3166-2:2007 country subdivision][4]. |
-|  ProcessingPaymentDate |  The date that the report completed all approvals and was ready to be extracted for payment  
+ Element |  Description
+ -----| ----- |
+  UserLoginID |  The user ID of the report owner. Maximum 128 characters. 
+  EmployeeName |  The name of the employee who created the report. Maximum 66 characters. |
+ ReportID |  The unique identifier for the report, which appears in the Concur Expense UI. Maximum 32 character varchar. |
+  ReportKey |  The unencrypted unique identifier for the report, that appears on the report header. The element appears only if the OAuth consumer has the Web Services Admin role in Concur. Maximum 48 characters. |
+  ReportName |  The name of the report. Maximum 40 characters. |
+  Purpose |  The information from the Business Purpose field. |
+  ReportDate |  The date from the report header. Format: YYYY-MM-DDThh:mm:ss |
+  CreationDate |  The date the report was created. Format: YYYY-MM-DDThh:mm:ss |
+  SubmitDate |  The date the report was submitted. Maximum 10 characters. |
+  PaidDate |  The date the report was extracted for payment. This element has an attribute named i:nil. If the value for this element is null, the i:nil attribute will be set to true. Format: YYYY-MM-DDThh:mm:ss |
+  CurrencyCode |  The [3-letter ISO 4217 currency code][1] for the expense report currency. The expense report currency is defined as the report creator's default reimbursement currency. 
+  ReportTotal |  The total amount of the report. Maximum 23 characters. |
+  PersonalExpenses |  The total amount of expenses marked as personal. Maximum 23 characters. 
+  AmountDueEmployee | The total amount due to the employee for the report. Maximum 23 characters. |
+  AmountDueCompanyCard |  The total amount due to the company card for the report. Maximum 23 characters. |
+  TotalClaimedAmount |  The total amount of all non-personal expenses in the report. Maximum 23 characters. |
+  TotalApprovedAmount |  The total amount of approved expenses in the report. Maximum 23 characters. |
+  ApprovalStatusCode |  The approval status code for the report. |
+  ApprovalStatusName |  The approval status name for the report. |
+  PaymentStatusCode |  The unique identifier for the payment status of the report. |
+  PaymentStatusName |  The payment status of the report. |
+  OrgUnit1 through OrgUnit6 |  The details from the Org Unit custom fields. These may not have data, depending on configuration. Maximum 48 characters for each field. |
+  Custom1 through Custom20 |  The details from the Custom fields. These may not have data, depending on configuration. If report owner information is stored in these fields, it may be outdated. Refer to the **ReportOwner** parent element for the current owner information. Refer to the **Custom Fields** Child Elements table for more information. |
+  LedgerName |  The name of the expense report ledger. Maximum 20 characters. |
+  PolicyID |  The unique identifier of the policy that applies to this report. Maximum 64 characters. |
+  EverSentBack |  Whether the report has ever been sent back to the employee. Format: Y/N |
+  HasException |  Whether the report has exceptions. Format: Y/N  |
+  WorkflowActionURL |  The URL to post a workflow action to the report using the Post Report Workflow Action function. |
+  ExpenseEntriesList |  This parent element has an **ExpenseEntry** child element for each entry. Refer to the **ExpenseEntry elements** table for more information. |
+  ReportImageURL |  The URL to access the image associated with the report. This URL is valid for 30 minutes after the web service call. |
+  Country |  The report country. Maximum 2 characters. Format: [The ISO 3166-1 alpha-2 country code][3]. Example: United States is US. |
+  CountrySubdivision |  The report country subdivision. Format: [ISO 3166-2:2007 country subdivision][4]. |
+  ProcessingPaymentDate |  The date that the report completed all approvals and was ready to be extracted for payment  
 Format: YYYY-MM-DD |
-|  ReceiptsReceived |  If Y, then this report has its receipt receipt confirmed by the Expense Processor. Format: Y/N |
-|  ReportOwner |  This parent element includes details about the employee who is the report owner. It saves the caller from calling the Get User Information function to get employee information commonly used in accounting integration. The **ReportOwner** element includes the most recent information about the report owner, at the time the report is requested. |
-|  EmployeeBankAccount |  This parent element includes the bank account data found on the **Bank Information** page in Profile. This data is used in **Payment System** integrations where the payment system reimburses the employee via this bank account. | 
+  ReceiptsReceived |  If Y, then this report has its receipt receipt confirmed by the Expense Processor. Format: Y/N |
+  ReportOwner |  This parent element includes details about the employee who is the report owner. It saves the caller from calling the Get User Information function to get employee information commonly used in accounting integration. The **ReportOwner** element includes the most recent information about the report owner, at the time the report is requested. |
+  EmployeeBankAccount |  This parent element includes the bank account data found on the **Bank Information** page in Profile. This data is used in **Payment System** integrations where the payment system reimburses the employee via this bank account.
 
 ###ExpenseEntry elements
 
@@ -279,7 +279,7 @@ Format: YYYY-MM-DD |
 
 ### XML example request
 
-```xml
+```
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/n6ujbuLd1Arwe45lT7As3ThJYJf2dAsrrEW HTTP/1.1
 Authorization: OAuth {access token} 
 ...
@@ -287,7 +287,7 @@ Authorization: OAuth {access token}
 
 ### XML example of successful response
 
-```xml
+```
 200 OK
 Content-Type: application/xml
 

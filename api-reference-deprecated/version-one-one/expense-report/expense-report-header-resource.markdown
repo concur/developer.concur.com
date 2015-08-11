@@ -16,11 +16,7 @@ The expense report header contains classification information for the expense re
 ## Operations
 [POST][1]
 
-## See also
-* [Expense Entry][2]
-* [Expense Report][3]
 
 
-[1]: https://developer.concur.com/expense-report/expense-report-header-resource/expense-report-header-resource-post
-[2]: https://developer.concur.com/expense-report/expense-entry-resource
-[3]: https://developer.concur.com/expense-report/expense-report-resource
+
+[1]: /api-reference-deprecated/version-one-one/expense-report/expense-report-header-post.html
