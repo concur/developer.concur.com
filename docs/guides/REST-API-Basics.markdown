@@ -13,7 +13,8 @@ layout: reference
 ##<a name="uri"></a>Uniform Resource Identifier (URI)
 [http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2](http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2)
 
-  http://phosiere.com
+[http://phosiere.com](http://phosiere.com)
+
 
 ##<a name="methods"></a>HTTP Methods
 [http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
@@ -27,19 +28,22 @@ DELETE|Requests the server to delete the resource identified by the URI.
 
 Others: OPTIONS, HEAD, TRACE, CONNECT
 
-  get http://phosiere.com
+  ``get http://phosiere.com``
 
 ##<a name="header"></a>HTTP Message Header
 [http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)
 ###Request
 
-  GET / HTTP/1.1
-  User-Agent: curl/7.37.1
-  Host: phosiere.com
+ ```
+ GET / HTTP/1.1  
+ 
+  User-Agent: curl/7.37.1  
+  Host: phosiere.com  
   Accept: */*
+  ```
 
 ###Response
-
+```
   HTTP/1.1 200 OK
   Cache-Control: private
   Content-Type: text/html; charset=utf-8
@@ -49,23 +53,28 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
   X-Powered-By: ASP.NET
   Date: Tue, 19 May 2015 22:45:47 GMT
   Content-Length: 83
+  ```
 
 ##<a name="entity"></a>HTTP Entity
 [http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7](http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7)
 
-  < 
-  <html>
-    <head>
-      <title>Phosière</title>
-    </head>
-    <body>
-    Coming soon...
-    </body>
+```  
+<html> 
+ 
+    <head>  
+      <title>Phosière</title>  
+    </head>  
+    <body>  
+    Coming soon...  
+    </body>  
   </html>
+  ```
 
 ##<a name="json"></a>JSON
 [http://json-schema.org/example1.html](http://json-schema.org/example1.html)
+
 ###Schema
+```
   {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Product set",
@@ -122,8 +131,10 @@ Resource located at http://json-schema.org/geo:
           "longitude": { "type": "number" }
       }
   }
+  ```
 
 ###Data
+```
   [
       {
           "id": 2,
@@ -155,8 +166,12 @@ Resource located at http://json-schema.org/geo:
           }
       }
   ]
+  ```
+  
 ###Documentation
+
 ####Product
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `id`|`number`|-|**Required** Unique identifier for a product
@@ -167,6 +182,7 @@ Name | Type | Format | Description
 `warehouseLocation`|`object`|[`warehouseLocation`](#warehouseLocation)|Coordinates of the warehouse with the product
 
 #####<a name="dimensions"></a>dimensions
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `length`|`number`|-|**Required** Length
@@ -174,12 +190,14 @@ Name | Type | Format | Description
 `height`|`number`|-|**Required** Height
 
 #####<a name="warehouseLocation"></a>warehouseLocation
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `latitude`|`number`|-|Latitude
 `longitude`|`number`|-|Longitude
 
 #####Common
+
 Name | Description
 -----|------------
 <a name="price"></a>`price`|"minimum": 0, "exclusiveMinimum": true
