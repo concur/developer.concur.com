@@ -119,11 +119,11 @@ Name | Type | Format | Description
 `CashAdvanceAccountCode`|`string` | | The user's account code for cash advances. Maximum 20 characters.
 `CrnKey`|`string` | | The 3-letter ISO 4217 currency code for the user's reimbursement currency. Maximum 3 characters. Example: United States Dollar is USD.
 `CtrySubCode`|`string` | | The user's two-character country code and two-character state or province code. Maximum 2 characters. Example: Washington State, United States is US-WA.
-`ExpenseUser`|`string` | `boolean` | Whether the user has access to Expense. Format: Y/N.
-`ExpenseApprover`|`string` | `boolean` | Whether the user is an Expense approver. Format: Y/N.
-`TripUser`|`string` | `boolean` | Whether the user has access to Travel. Format: Y/N.
-`InvoiceUser`|`string` | `boolean` | Whether the user has access to Invoice. Format: Y/N.
-`InvoiceApprover`|`string` | `boolean` | Whether the user is an Invoice approver. Format: Y/N.
+`ExpenseUser`|`boolean` | `Y/N` | Whether the user has access to Expense. 
+`ExpenseApprover`|`boolean` | `Y/N` | Whether the user is an Expense approver.
+`TripUser`|`boolean` | `Y/N`| Whether the user has access to Travel.
+`InvoiceUser`|`boolean` | `Y/N` | Whether the user has access to Invoice.
+`InvoiceApprover`|`boolean` | `Y/N` | Whether the user is an Invoice approver.
 `ExpenseApproverEmployeeID`|`string` | | The employee ID of the user's Expense approver. Maximum 48 characters.If you are importing both a user and their approver, the approver should be listed before the user in the batch.
 `NewLoginID`|`string` | | Use this element to change the Login ID for an existing employee. Maximum 128 characters.
 `NewEmployeeID`|`string` | | Use this element to change the Employee ID for an existing employee. Maximum 48 characters.
