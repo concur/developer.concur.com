@@ -4,12 +4,6 @@ machine:
   ruby:
     version: 2.2.2
 
-general:
-  branches:
-    only:
-      - preview
-      - livesite
-
 dependencies:
   override:
     - ./build/install_aws_cli.sh
@@ -27,3 +21,7 @@ deployment:
     branch: preview
     commands:
       - aws s3 sync ./_site s3://preview.developer.concur.com --region us-west-2 --output text --delete
+  livesite:
+    branch: livesite
+    commands:
+      - aws s3 sync ./_site s3://livesite.developer.concur.com --region us-west-2 --output text --delete
