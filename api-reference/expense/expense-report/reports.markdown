@@ -11,6 +11,7 @@ layout: reference
 * [Create a new report](#post)
 * [Update a report](#put)
 * [Schema](#schema)
+* [Make a test call using 3.0 Swagger](https://www.concursolutions.com/api/docs/index.html#!/Reports)
 
 ## Version
 3.0  

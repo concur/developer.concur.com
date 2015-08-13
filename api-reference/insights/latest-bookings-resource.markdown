@@ -9,6 +9,7 @@ Gets the latest hotel and air booking for a particular user.
 
 * [Retrieve the latest hotel and air booking for a particular user](#get)
 * [Schema](#schema)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/LatestBookings)
 
 ###Version
 3.0

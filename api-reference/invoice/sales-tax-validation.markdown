@@ -8,6 +8,7 @@ layout: reference
 * [Status schema](#schema-status)
 * [Get invoices for calculating tax](#1)
 * [Update invoices with the calcuated tax amount and tax rate](#2)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/SalesTaxValidationRequest)
 
 ##<a name="schema"></a>Invoices schema  
 

@@ -9,6 +9,7 @@ layout: reference
 * [Create vendors](#post)
 * [Update existing vendors](#put)
 * [Delete vendors](#delete)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/Vendors)
 
 ## <a name="schema"></a>Schema
 

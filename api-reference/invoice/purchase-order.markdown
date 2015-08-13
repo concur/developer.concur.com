@@ -1,5 +1,5 @@
 ---
-title: Purchase Order Web Service
+title: Purchase Orders
 layout: reference
 ---
 
@@ -12,6 +12,7 @@ layout: reference
 * [Update purchase order line item with receipt information](#put-receipts)
 * [Update an existing purchase order](#put)
 * [Get an existing purchase order](#get)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/PurchaseOrders)
 
 ## <a name="schema"></a>Schema  
 
@@ -20,30 +21,7 @@ layout: reference
 |`AmountWithoutVat`|`string`|-|PO_VAT_AMOUNT_WO_VAT
 |`BillToAddress`|`object`|[`BillToAddress`](#bill-to-address)|**Required** The customer's billing address, which is where the vendor should send the bill.
 |`CurrencyCode`|`string`|-|The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order.
-|`Custom1`|`string`|-|A value that can be applied to a custom field 1 that is part of the purchase order header form.
-|`Custom10`|`string`|-|A value that can be applied to a custom field 10 that is part of the purchase order header form.
-|`Custom11`|`string`|-|A value that can be applied to a custom field 11 that is part of the purchase order header form.
-|`Custom12`|`string`|-|A value that can be applied to a custom field 12 that is part of the purchase order header form.
-|`Custom13`|`string`|-|A value that can be applied to a custom field 13 that is part of the purchase order header form.
-|`Custom14`|`string`|-|A value that can be applied to a custom field 14 that is part of the purchase order header form.
-|`Custom15`|`string`|-|A value that can be applied to a custom field 15 that is part of the purchase order header form.
-|`Custom16`|`string`|-|A value that can be applied to a custom field 16 that is part of the purchase order header form.
-|`Custom17`|`string`|-|A value that can be applied to a custom field 17 that is part of the purchase order header form.
-|`Custom18`|`string`|-|A value that can be applied to a custom field 18 that is part of the purchase order header form.
-|`Custom19`|`string`|-|A value that can be applied to a custom field 19 that is part of the purchase order header form.
-|`Custom2`|`string`|-|A value that can be applied to a custom field 2 that is part of the purchase order header form.
-|`Custom20`|`string`|-|A value that can be applied to a custom field 20 that is part of the purchase order header form.
-|`Custom21`|`string`|-|A value that can be applied to a custom field 21 that is part of the purchase order header form.
-|`Custom22`|`string`|-|A value that can be applied to a custom field 22 that is part of the purchase order header form.
-|`Custom23`|`string`|-|A value that can be applied to a custom field 23 that is part of the purchase order header form.
-|`Custom24`|`string`|-|A value that can be applied to a custom field 24 that is part of the purchase order header form.
-|`Custom3`|`string`|-|A value that can be applied to a custom field 3 that is part of the purchase order header form.
-|`Custom4`|`string`|-|A value that can be applied to a custom field 4 that is part of the purchase order header form.
-|`Custom5`|`string`|-|A value that can be applied to a custom field 5 that is part of the purchase order header form.
-|`Custom6`|`string`|-|A value that can be applied to a custom field 6 that is part of the purchase order header form.
-|`Custom7`|`string`|-|A value that can be applied to a custom field 7 that is part of the purchase order header form.
-|`Custom8`|`string`|-|A value that can be applied to a custom field 8 that is part of the purchase order header form.
-|`Custom9`|`string`|-|A value that can be applied to a custom field 9 that is part of the purchase order header form.
+|`Custom1 through Custom24`|`string`|-|A value that can be applied to a custom field 1 that is part of the purchase order header form.
 |`Description`|`string`|-|A description of the purchase order.
 |`DiscountPercentage`|`string`|-|The discount from the vendor, if the discount terms are met.
 |`DiscountTerms`|`string`|-|The net discount terms that the vendor offers, when discounts apply.
@@ -98,26 +76,7 @@ layout: reference
 |`Allocation`|`array`|[`Allocation`](#allocation)|A list of the allocations that are associated with the line item. Allocation elements can be repeated within the same line items to represent multiple allocations.
 |`AmountWithoutVat`|`string`|-|PO_LI_AMOUNT_WO_VAT
 |`CreateDate`|`string`|-|The date the line item was created. Format: YYYY-MM-DD
-|`Custom1`|`string`|-|A value that can be applied to a custom field 1 that is part of the purchase order line item form.
-|`Custom10`|`string`|-|A value that can be applied to a custom field 10 that is part of the purchase order line item form.
-|`Custom11`|`string`|-|A value that can be applied to a custom field 11 that is part of the purchase order line item form.
-|`Custom12`|`string`|-|A value that can be applied to a custom field 12 that is part of the purchase order line item form.
-|`Custom13`|`string`|-|A value that can be applied to a custom field 13 that is part of the purchase order line item form.
-|`Custom14`|`string`|-|A value that can be applied to a custom field 14 that is part of the purchase order line item form.
-|`Custom15`|`string`|-|A value that can be applied to a custom field 15 that is part of the purchase order line item form.
-|`Custom16`|`string`|-|A value that can be applied to a custom field 16 that is part of the purchase order line item form.
-|`Custom17`|`string`|-|A value that can be applied to a custom field 17 that is part of the purchase order line item form.
-|`Custom18`|`string`|-|A value that can be applied to a custom field 18 that is part of the purchase order line item form.
-|`Custom19`|`string`|-|A value that can be applied to a custom field 19 that is part of the purchase order line item form.
-|`Custom2`|`string`|-|A value that can be applied to a custom field 2 that is part of the purchase order line item form.
-|`Custom20`|`string`|-|A value that can be applied to a custom field 20 that is part of the purchase order line item form.
-|`Custom3`|`string`|-|A value that can be applied to a custom field 3 that is part of the purchase order line item form.
-|`Custom4`|`string`|-|A value that can be applied to a custom field 4 that is part of the purchase order line item form.
-|`Custom5`|`string`|-|A value that can be applied to a custom field 5 that is part of the purchase order line item form.
-|`Custom6`|`string`|-|A value that can be applied to a custom field 6 that is part of the purchase order line item form.
-|`Custom7`|`string`|-|A value that can be applied to a custom field 7 that is part of the purchase order line item form.
-|`Custom8`|`string`|-|A value that can be applied to a custom field 8 that is part of the purchase order line item form.
-|`Custom9`|`string`|-|A value that can be applied to a custom field 9 that is part of the purchase order line item form.
+|`Custom1 through Custom20`|`string`|-|A value that can be applied to a custom field 1 that is part of the purchase order line item form.
 |`Description`|`string`|-|A description of the line item.
 |`ExpenseType`|`string`|-|The expense type of the line item. A value must be supplied for either ExpenseType or AccountCode, but not both. This field is required if an AccountCode value is not supplied.
 |`ExternalID`|`string`|-|A customer-supplied value that uniquely identifies the line item within the purchase order.
@@ -137,26 +96,7 @@ layout: reference
 |Name | Type | Format | Description
 |-----|------|--------|------------
 |`Amount`|`string`|-|**Required** The total amount of the allocation.
-|`Custom1`|`string`|-|A value that can be applied to a custom field 1 that is part of the allocation form.
-|`Custom10`|`string`|-|A value that can be applied to a custom field 10 that is part of the allocation form.
-|`Custom11`|`string`|-|A value that can be applied to a custom field 11 that is part of the allocation form.
-|`Custom12`|`string`|-|A value that can be applied to a custom field 12 that is part of the allocation form.
-|`Custom13`|`string`|-|A value that can be applied to a custom field 13 that is part of the allocation form.
-|`Custom14`|`string`|-|A value that can be applied to a custom field 14 that is part of the allocation form.
-|`Custom15`|`string`|-|A value that can be applied to a custom field 15 that is part of the allocation form.
-|`Custom16`|`string`|-|A value that can be applied to a custom field 16 that is part of the allocation form.
-|`Custom17`|`string`|-|A value that can be applied to a custom field 17 that is part of the allocation form.
-|`Custom18`|`string`|-|A value that can be applied to a custom field 18 that is part of the allocation form.
-|`Custom19`|`string`|-|A value that can be applied to a custom field 19 that is part of the allocation form.
-|`Custom2`|`string`|-|A value that can be applied to a custom field 2 that is part of the allocation form.
-|`Custom20`|`string`|-|A value that can be applied to a custom field 20 that is part of the allocation form.
-|`Custom3`|`string`|-|A value that can be applied to a custom field 3 that is part of the allocation form.
-|`Custom4`|`string`|-|A value that can be applied to a custom field 4 that is part of the allocation form.
-|`Custom5`|`string`|-|A value that can be applied to a custom field 5 that is part of the allocation form.
-|`Custom6`|`string`|-|A value that can be applied to a custom field 6 that is part of the allocation form.
-|`Custom7`|`string`|-|A value that can be applied to a custom field 7 that is part of the allocation form.
-|`Custom8`|`string`|-|A value that can be applied to a custom field 8 that is part of the allocation form.
-|`Custom9`|`string`|-|A value that can be applied to a custom field 9 that is part of the allocation form.
+|`Custom1 through Custom20`|`string`|-|A value that can be applied to a custom field 1 that is part of the allocation form.
 |`GrossAmount`|`string`|-|**Required** The allocation gross amount.
 |`Percentage`|`string`|-|**Required** The allocation percentage.
 

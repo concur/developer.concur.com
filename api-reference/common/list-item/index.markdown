@@ -15,6 +15,7 @@ The Concur List Item web service provides an automated solution to clients who w
 * [Update a list item](#put)
 * [Delete a list item](#delete)
 * [Schema](#schema)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/ListItems)
 
 ###Version
 3.0

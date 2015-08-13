@@ -8,7 +8,8 @@ layout: reference
 
 * [Retrieves all payment requests digests based on the search criteria](#get)
 * [Retrieves a payment request digest based on ID](#getID)
-* [Schema](#schema)  
+* [Schema](#schema)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/PaymentRequestDigest)
 
 ## Version
 3.0  

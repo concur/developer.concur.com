@@ -1,5 +1,5 @@
 ---
-title: Entry Attendee
+title: Entry Attendee Associations
 layout: reference
 ---
 
@@ -12,6 +12,7 @@ layout: reference
 * [Update a specified entry-attendee association](#put)
 * [Delete a specified entry-attendee association](#delete)
 * [Schema](#schema)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/EntryAttendeeAssociations)
 
 ##Version  
 
@@ -105,11 +106,7 @@ Name | Type | Format | Description
 `Amount`	|	`Decimal`	|	-	|	The portion of the entry transaction amount assigned to this attendee.
 `AssociatedAttendeeCount`	|	`Int32`	|	-	|	The count of additional attendees associated with this attendee. A count greater than 1 means there are unnamed attendees associated with this attendee.
 `AttendeeID`	|	`string`	|	-	|	The unique identifier of the associated attendee. To obtain the attendee ID value, use the GET /expense/attendees endpoint. The value of the ID element in the response is the attendee ID.
-`Custom1`	|	`string`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
-`Custom2`	|	`string`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
-`Custom3`	|	`string`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
-`Custom4`	|	`string`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
-`Custom5`	|	`string`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
+`Custom1 through Custom5`	|	`string`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
 `EntryID`	|	`string`	|	-	|	The unique identifier of the associated entry. To obtain the attendee ID value, use the GET /expense/entries endpoint. The value of the ID element in the response is the entry ID.
 `ID`	|	`string`	|	-	|	The unique identifier of the resource.
 `URI`	|	`string`	|	-	|	The URI to the resource.

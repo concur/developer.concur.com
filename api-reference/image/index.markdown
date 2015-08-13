@@ -10,6 +10,7 @@ layout: reference
 * [Append a receipt image](#put)
 * [Delete a receipt image](#delete)
 * [Schema](#schema)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/ReceiptImages)
 
 ###Version
 3.0

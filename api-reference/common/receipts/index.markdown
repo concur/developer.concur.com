@@ -16,6 +16,7 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 
 * [Create a new receipt](#post)
 * [Schema](#schema)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/Receipts)
 
 ###Version
 3.0
