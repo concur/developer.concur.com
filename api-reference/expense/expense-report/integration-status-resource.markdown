@@ -17,10 +17,9 @@ The integration status of the supplied object. Currently supports expense report
 ## Operations
 [POST][1]
 
-## See also
-[Expense Report][2]
 
 
 
-[1]: https://developer.concur.com/expense-report/integration-status-resource/integration-status-resource-post
-[2]: https://developer.concur.com/expense-report/expense-report-resource
+
+[1]: /api-reference/expense/expense-report/integration-status-resource-post.html
+

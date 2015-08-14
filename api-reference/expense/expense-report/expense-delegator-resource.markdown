@@ -16,4 +16,4 @@ Users that have granted delegate permissions to the another Expense user.
 [GET][1]   
  
 
-[1]: https://developer.concur.com/expense-report/expense-delegator-resource/expense-delegator-resource-get
+[1]: /api-reference/expense/expense-report/expense-delegator-resource/expense-delegator-resource-get.html

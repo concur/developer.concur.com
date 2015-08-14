@@ -16,12 +16,8 @@ Extract definitions determine the format and content of the extract files.
 ## Operations
 [GET][1] 
 
-## See also
-
-* [Extract Job][2]
-* [Extract File][3]
 
 
-[1]: https://developer.concur.com/extract/extract-definition-resource/extract-definition-resource-get
-[2]: https://developer.concur.com/extract/extract-job-resource
-[3]: https://developer.concur.com/extract/extract-file-resource
+
+[1]: /api-reference/expense/extract/extract-definition-resource-get.html
+

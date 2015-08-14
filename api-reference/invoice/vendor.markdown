@@ -11,6 +11,9 @@ layout: reference
 * [Delete vendors](#delete)
 * [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/Vendors)
 
+##Version
+3.0  
+
 ## <a name="schema"></a>Schema
 
 ###<a name="vendors"></a>Vendors  

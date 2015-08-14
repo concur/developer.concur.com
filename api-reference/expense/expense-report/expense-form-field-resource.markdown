@@ -14,13 +14,6 @@ The configured fields for the specified expense form.
 ## Operations
 [GET][1] 
 
-## See also
 
-* [Expense Entry][2]
-* [Expense Form][3]
-* [Expense Report Header][4]
 
-[1]: https://developer.concur.com/expense-report/expense-form-field-resource/expense-form-field-resource-get
-[2]: https://developer.concur.com/expense-report/expense-entry-resource
-[3]: https://developer.concur.com/expense-report/expense-form-resource
-[4]: https://developer.concur.com/expense-report/expense-report-header-resource
+[1]: /api-reference/expense/expense-report/expense-form-field-resource/expense-form-field-resource-get.html

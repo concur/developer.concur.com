@@ -17,15 +17,11 @@ The corporate or credit card charges that are available for use in expense repor
 ## Operations
 [GET][1]
 
-## See also
-
-* [Expense entries resource][2]
-* [Expense report resource][3]
 
 
 
-[1]: https://developer.concur.com/expense-report/company-card-transaction-resource/company-card-transaction-resource-get
-[2]: https://developer.concur.com/expense-report/expense-entries-resource
-[3]: https://developer.concur.com/expense-report/expense-report-resource
+
+[1]: /api-reference/expense/expense-report/company-card-transaction-resource-get.html
+
 
 

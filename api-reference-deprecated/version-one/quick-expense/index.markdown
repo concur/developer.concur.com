@@ -22,7 +22,7 @@ Concur Expense consumes quick expenses posted for OAuth Consumers that are Concu
 * Opening the Smart Expenses list by selecting the Import menu item on an existing report
 
 ### Who Should Use This Web Service?
-Developers who gather basic expense data and untrusted receipts (such as pictures of paper receipts or emails) can use this web service to create expenses in Concur. Quick expenses can be added to an expense report in Concur or any other Concur Connect partner application. The developers can send a receipt image using the [Imaging][1] web service, then use the identifier to attach it to the expense using Quick Expense.
+Developers who gather basic expense data and untrusted receipts (such as pictures of paper receipts or emails) can use this web service to create expenses in Concur. Quick expenses can be added to an expense report in Concur or any other Concur Connect partner application. The developers can send a receipt image using the Imaging web service, then use the identifier to attach it to the expense using Quick Expense.
 
 ## Works With These Concur Products
 
@@ -46,5 +46,5 @@ Version 1.0 documentation includes the data model and example requests and respo
 
 
 
-[4]: /api-reference/expense/quick-expense/quick-expense-resource.html
+[4]: /api-reference/expense/quick-expense/index.html
 [5]: /api-reference-deprecated/version-one/quick-expense/index.html

@@ -14,13 +14,10 @@ The job that runs the accounting extract.
 * [GET][1]
 * [POST][2] 
 
-## See also
-* [Extract Definition][3]
-* [Extract File][4]
 
 
 
-[1]: https://developer.concur.com/extract/extract-job-resource/extract-job-resource-get
-[2]: https://developer.concur.com/extract/extract-job-resource/extract-job-resource-post
-[3]: https://developer.concur.com/extract/extract-definition-resource
-[4]: https://developer.concur.com/extract/extract-file-resource
+
+[1]: /api-reference/expense/extract/extract-job-resource/extract-job-resource-get.html
+[2]: /api-reference/expense/extract/extract-job-resource/extract-job-resource-post.html
+

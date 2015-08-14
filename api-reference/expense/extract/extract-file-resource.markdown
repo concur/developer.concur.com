@@ -18,11 +18,8 @@ The extracted data for the specified extract job. Formatted according to the ass
 ## Operations
 [GET][1]
 
-## See also
-* [Extract Definition][2]
-* [Extract Job][3]
 
 
-[1]: https://developer.concur.com/extract/extract-file-resource/extract-file-resource-get
-[2]: https://developer.concur.com/extract/extract-definition-resource
-[3]: https://developer.concur.com/extract/extract-job-resource
+
+[1]: /api-reference/expense/extract/extract-file-resource/extract-file-resource-get.html
+

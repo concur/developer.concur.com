@@ -14,6 +14,9 @@ layout: reference
 * [Get an existing purchase order](#get)
 * [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/PurchaseOrders)
 
+## Version
+3.0  
+
 ## <a name="schema"></a>Schema  
 
 |Name | Type | Format | Description
