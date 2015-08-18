@@ -61,7 +61,8 @@ layout: reference
 ##Release Notes
 
 ###<a name="august2015"></a>August 2015  
-####Form of Payment API Version 2.0
+
+#### Form of Payment API Version 2.0
  
 
 **Overview**  
@@ -103,7 +104,7 @@ Below is a list of changes with version 2.0. Concur strongly recommends that ven
 To take advantage of the new version of the Form of Payment API, partners need to code to the new endpoints. 
 
 ---
-####Concur Request 3.1
+#### Concur Request 3.1
 This service is known as Authorization Request, Concur Request, or simply Request and was formerly known as Travel Request. Concur changed the name to better align with its broader capabilities. This service is different from the legacy authorization request feature that was available within Concur Expense.
 
 **Overview:***  
@@ -117,10 +118,14 @@ In version 3.1, the Post Request Header endpoint now has a “User” element to
 **Effective Date:** August 2015  
   
 -----
-###<a name="july2015"></a>July 2015
 
-####Travel API
-#####Travel Profile API Changes  
+### <a name="july2015"></a>July 2015
+
+
+#### Travel API
+
+##### Travel Profile API Changes  
+
 **Overview:**   
 New elements added to the Travel Profile API  
 
