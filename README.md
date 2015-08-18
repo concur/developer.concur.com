@@ -2,10 +2,11 @@ developer.concur.com
 ====================
 
 ##The Concur Developer Website
+This repo contains the documentation, tools and support content for the Concur API developer audience. This includes both internal and external developers.
 
-Changes committed to the `preview` branch will cause the site to be rebuilt and deployed to [http://preview.developer.concur.com/](http://preview.developer.concur.com/)
+Changes committed to the `preview` branch can be found here: [http://preview.developer.concur.com/](http://preview.developer.concur.com/)
 
-Changes committed to the "live" branch will cause the site to be rebuilt and deployed to [http://livesite.developer.concur.com.s3-website-us-west-2.amazonaws.com/](http://livesite.developer.concur.com.s3-website-us-west-2.amazonaws.com/)
+Changes committed to the `livesite` branch can be found here: [developer.concur.com](https://developer.concur.com/)
 
 ---
 ##Sitemap
