@@ -110,7 +110,7 @@ title: Sandbox Registration
             I Agree to the <a href="{{ site.baseurl }}/Terms-of-Use.html">Terms of Use</a> and Privacy Policy
           </label>
         </section>
-        <input type="text" name="empty-field" id="empty-field">
+        <input type="text" name="email-alt" id="email-alt">
       </fieldset>
       <footer>
         <button type="submit" class="button">Submit</button>
@@ -196,7 +196,7 @@ title: Sandbox Registration
 
     // Ajax form submition
     submitHandler: function(form) {
-      if($('#empty-field').val()) {
+      if($('#email-alt').val()) {
         return;
       }
       $(form).ajaxSubmit({
