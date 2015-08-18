@@ -13,13 +13,13 @@ title: Sandbox Registration
           <section class="col col-6">
             <label class="label">First Name</label>
             <label class="input">
-              <input type="text" name="firstName" id="firstName" placeholder="First Name">
+              <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
             </label>
           </section>
           <section class="col col-6">
             <label class="label">Last Name</label>
             <label class="input">
-              <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+              <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
             </label>
           </section>
         </div>
@@ -27,13 +27,13 @@ title: Sandbox Registration
           <section class="col col-6">
             <label class="label">Email Address</label>
             <label class="input">
-              <input type="text" name="email" id="email" placeholder="example@example.com">
+              <input type="email" name="email" id="email" required placeholder="example@example.com">
             </label>
           </section>
           <section class="col col-6">
             <label class="label">Company Name</label>
             <label class="input">
-              <input type="text" name="company" id="company" placeholder="Company Name">
+              <input type="text" name="company" id="company" placeholder="Company Name" required>
             </label>
           </section>
         </div>
@@ -41,13 +41,13 @@ title: Sandbox Registration
           <section class="col col-6">
             <label class="label">Password</label>
             <label class="input">
-              <input type="password" name="password" id="password" placeholder="Password">
+              <input type="password" name="password" id="password" placeholder="Password" required>
             </label>
           </section>
           <section class="col col-6">
             <label class="label">Verify Password</label>
             <label class="input">
-              <input type="password" name="passwordVerify" id="passwordVerify" placeholder="Password">
+              <input type="password" name="passwordVerify" id="passwordVerify" placeholder="Password" required>
             </label>
           </section>
         </div>
@@ -55,13 +55,13 @@ title: Sandbox Registration
           <section class="col col-6">
             <label class="label">Business Description</label>
             <label class="input">
-              <input type="text" name="businessDescription" id="businessDescription" placeholder="Description">
+              <input type="text" name="businessDescription" id="businessDescription" placeholder="Description" required>
             </label>
           </section>
           <section class="col col-6">
             <label class="label">Phone Number</label>
             <label class="input">
-              <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+1-555-555-5555">
+              <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+1-555-555-5555" required>
             </label>
           </section>
         </div>
@@ -191,6 +191,7 @@ title: Sandbox Registration
         equalTo: 'Password and Verify Password must be equal'
       },
       country: { required: 'Please enter your country' },
+      website: { required: 'Please enter a website, with full url including https://' }
       termsOfUseAgreement: { required: 'Please accept the terms of use to create your sandbox' }
     },
 
