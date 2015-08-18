@@ -110,6 +110,7 @@ title: Sandbox Registration
             I Agree to the <a href="{{ site.baseurl }}/Terms-of-Use.html">Terms of Use</a> and Privacy Policy
           </label>
         </section>
+        <input type="text" name="empty-field" id="empty-field">
       </fieldset>
       <footer>
         <button type="submit" class="button">Submit</button>
@@ -195,6 +196,9 @@ title: Sandbox Registration
 
     // Ajax form submition
     submitHandler: function(form) {
+      if($('#empty-field').val()) {
+        return;
+      }
       $(form).ajaxSubmit({
         beforeSend: function() {
           $('#sandboxRegistration button[type="submit"]').attr('disabled', true);

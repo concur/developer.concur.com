@@ -51,7 +51,7 @@ title: Contact Support
           <i></i>
         </label>
       </section>
-
+      <input type="text" name="empty-field" id="empty-field">
     </fieldset>
     <footer>
       <button type="submit" class="button">Send Message</button>
@@ -86,6 +86,9 @@ title: Contact Support
 
     // Ajax form submition
     submitHandler: function(form) {
+      if($('#empty-field').val()) {
+        return;
+      }
       $(form).ajaxSubmit({
         beforeSend: function() {
           $('#sandboxAssistance button[type="submit"]').attr('disabled', true);
