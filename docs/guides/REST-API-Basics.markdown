@@ -14,7 +14,7 @@ layout: reference
 
 [http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2](http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2)
 
-  http://phosiere.com
+`http://phosiere.com`
 
 ## <a name="methods"></a>HTTP Methods
 
@@ -29,7 +29,7 @@ DELETE|Requests the server to delete the resource identified by the URI.
 
 Others: OPTIONS, HEAD, TRACE, CONNECT
 
-  get http://phosiere.com
+`get http://phosiere.com`
 
 ## <a name="header"></a>HTTP Message Header
 
