@@ -29,19 +29,26 @@ DELETE|Requests the server to delete the resource identified by the URI.
 
 Others: OPTIONS, HEAD, TRACE, CONNECT
 
-`get http://phosiere.com`
+`get http://phosiere.com`  
 
-## <a name="header"></a>HTTP Message Header
+## <a name="header"></a>HTTP Message Header  
+
 
 [http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)
-### Request
+
+### Request  
+
+
 ```
   GET / HTTP/1.1
   User-Agent: curl/7.37.1
   Host: phosiere.com
   Accept: */*
 ```
-### Response
+
+### Response  
+
+
 ```
   HTTP/1.1 200 OK
   Cache-Control: private
@@ -52,9 +59,11 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
   Date: Tue, 19 May 2015 22:45:47 GMT
   Content-Length: 83
 ```
+
 ## <a name="entity"></a>HTTP Entity
 
-[http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7](http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7)
+[http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7](http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7)  
+
 
 ```
   <html>
@@ -68,9 +77,11 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
 ```
 
 ## <a name="json"></a>JSON
+
 [http://json-schema.org/example1.html](http://json-schema.org/example1.html)
 
-### Schema
+### Schema  
+
 ```
   {
       "$schema": "http://json-schema.org/draft-04/schema#",
@@ -118,7 +129,10 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
       }
   }
 ```
-Resource located at http://json-schema.org/geo:
+
+Resource located at http://json-schema.org/geo:  
+
+
 ```
   {
       "$schema": "http://json-schema.org/draft-04/schema#",
@@ -130,7 +144,10 @@ Resource located at http://json-schema.org/geo:
       }
   }
 ```
-### Data
+
+### Data  
+
+
 ```
   [
       {
@@ -164,7 +181,9 @@ Resource located at http://json-schema.org/geo:
       }
   ]
 ```
+
 ### Documentation
+
 #### Product
 
 Name | Type | Format | Description
