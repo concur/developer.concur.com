@@ -33,11 +33,12 @@ Retrieves the list of extract definitions.
 
 ### Get extract definition list request
 
-```xml
+~~~
+xml
     GET https://www.concursolutions.com/api/expense/extract/v1.0/ HTTP/1.1
     Authorization: OAuth {access token}
     ...
-    ```
+    ~~~
 
 #### Request parameters
 None.
@@ -69,7 +70,8 @@ This request will return a **definitions** parent element with a **definition** 
 
 ####  XML example of successful response
 
-```xml
+~~~
+xml
     200 OK
     Content-Type: application/xml
 
@@ -90,7 +92,7 @@ This request will return a **definitions** parent element with a **definition** 
             <name>Asian Extract</name>
         </definition>
     </definitions>
-```
+~~~
 
 ##  Get extract definition details 
 
@@ -99,11 +101,12 @@ Retrieves the details of the specified extract definition.
 
 ### Get extract definition details request
 
-```xml
+~~~
+xml
     GET https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID} HTTP/1.1
     Authorization: OAuth {access token}
     ...
-```
+~~~
 
 #### Request parameters
 
@@ -141,7 +144,7 @@ This request will return a single **definition** element identified by the URI, 
 
 ###  XML example of successful response
 
-```
+~~~
 xml
     200 OK
     Content-Type: application/xml
@@ -151,7 +154,7 @@ xml
         <name>AMEX Remittance - US</name>
         <job-link>https://www.concursolutions.com/api/expense/extract/v1.0/n59FpBJ8hN3qVWTFIrtxkOT5$pef6DmIj3/job</job-link>
     </definition>
-```  
+~~~  
 
 
 
