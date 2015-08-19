@@ -15,10 +15,9 @@ The Event Notification callout sends the notification to a URI for the applicati
 
 The URI is configured on the **Register Application Connector** page in** Web Services** under **Administration**.
 
-Refer to [Installation Process][1] for more information.
 
 ### Request Headers - Required
-Authorization header with Basic authorization for endpoint. Refer to [**Authentication**][2] for more information. 
+Authorization header with Basic authorization for endpoint. Refer to [Authentication][2] for more information. 
 
 ### Request Headers - Optional
 None
@@ -63,5 +62,4 @@ The application connector responds with an HTTP 200 code when it successfully re
 
 
 
-[1]: https://developer.concur.com/callouts/event-notification#installproc
-[2]: https://developer.concur.com/callouts/event-notification#auth
+[2]: /api-reference/callouts/event-notification.html
