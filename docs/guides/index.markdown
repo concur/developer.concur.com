@@ -1,6 +1,6 @@
 ---
 title: Associating External Attendees to Expense Entries
-layout: reference
+layout: reference  
 ---
 
 
@@ -75,6 +75,7 @@ Authorization: OAuth {valid OAuth Access Token goes here}
 Content-Type: {application/json or application/xml goes here}
 ```
 
+
 Where:
 
 **externalID** is the unique identifier record for the external attendee assigned by the system of record. If the attendee with this external ID exists, the response includes the details about the attendee including its ID.
@@ -96,7 +97,8 @@ If Concur has a record of the external attendee, its unique identifier in Concur
 
 A successful response when Concur has a record of the external attendee looks like this:
 
-```json
+```
+json
 {
     "Items":[
         {
@@ -163,7 +165,8 @@ Content-Type: {application/json or application/xml goes here}
 
 The request content body includes the details about the attendee. For example:
 
-```json
+```
+json
 {
     "AttendeeTypeID":"ID for the attendee type",
     "FirstName":"Taylor",
@@ -185,7 +188,8 @@ Content-Type: application/json
 
 In this example, we’re looking for the attendee type ID for Business Guest attendee types. A successful response looks like this:
 
-```json
+```
+json
 {
   "Items": [
     {
@@ -236,7 +240,8 @@ Content-Type: application/json
 
 With this request body:
 
-```json
+```
+json
 {
     "AttendeeTypeID":"ID":"gWjUHBxUY4iQLA9KTkbtUD6pc",
     "FirstName":"Taylor",
@@ -250,7 +255,8 @@ With this request body:
 
 A successful response looks like this:
 
-```json
+```
+json
 {
     "ID":"nmBwIaoDagUvXYaxgYZp$pWlPZOvpzUfsM",
     "URI": https://www.concursolutions.com/api/v3.0/expense/attendees
@@ -264,7 +270,8 @@ Once you obtain the ID for the attendee, make a POST request to the Entry Attend
 
 Here’s what the call looks like:
 
-```json
+```
+json
 POST https://www.concursolutions.com/api/v3.0/expense /entryattendeeassociations?user=<URL Encoded Login ID for the Login ID for the owner of the expense entry> HTTP/1.1 
 Authorization: OAuth {valid OAuth Access Token goes here}
 Content-Type: application/json
@@ -276,6 +283,7 @@ Accept: application/json
 	"AttendeeID":"nmBwIaoDagUkD8kXZGI l7B170uK9tE6pk"
 }
 ```
+
 
 In this example, the content body for POST request has an expense entry with the unique identifier `n4MrUpcqIH3ot4bFvFCNXCpk7TJOphLTH` and the attendee with the unique identifier `nmBwIaoDagUkD8kXZGI l7B170uK9tE6pk`. 
 
