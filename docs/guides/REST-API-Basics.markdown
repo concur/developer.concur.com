@@ -24,8 +24,8 @@ Method | Description
 -------|------------|
 GET|Retrieve whatever information (in the form of an entity) is identified by the URI.
 POST|Request the server to accept the entity in the request. Server determines response URI.
-PUT| Request the server to store the entity under the supplied URI. 
-DELETE|Requests the server to delete the resource identified by the URI. 
+PUT| Request the server to store the entity under the supplied URI.
+DELETE|Requests the server to delete the resource identified by the URI.
 
 Others: OPTIONS, HEAD, TRACE, CONNECT
 
