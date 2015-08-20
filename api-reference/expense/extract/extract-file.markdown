@@ -27,7 +27,8 @@ Requests the extracted data for the specified extract job.
 
 ### Request
 
-```xml
+```
+xml
     GET https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job/{JobID}/file HTTP/1.1
     Authorization: OAuth {access token}
     ...
@@ -67,7 +68,8 @@ This request will return the extracted data in text/csv format if there was a si
 
 ###  XML example of response with single extract file
 
-```xml
+```
+xml
     200 OK
     Content-Type: text/csv
     100,AAA,BBBB,CCCC,...<rest of file>
@@ -75,7 +77,8 @@ This request will return the extracted data in text/csv format if there was a si
 
 ###  XML example of successful response with multiple extract files
 
-```xml
+```
+xml
     200 OK
     Content-Type: application/zip
     <zip file contents>
