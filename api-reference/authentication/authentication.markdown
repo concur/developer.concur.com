@@ -3,7 +3,7 @@ title: Authentication
 layout: reference
 ---
 
-#Authentication
+# Authentication
 
 * [Access tokens](#access-tokens)
 	* [Verb and URIs](#verbs-and-uris)
@@ -12,18 +12,18 @@ layout: reference
 	* [Refreshing an access token](#refreshing-access-token)
 	* [Revoking a single access token for a given user](#revoke-single-access-token)
 	* [Revoking all access tokens for a user](#revoke-all-access-tokens)  
-  
-  	
+
+
 * [Choosing an authorization flow](#choosing-authorization-flow)
 	* [Native flow](#native)
 	* [Web flow](#web)
 	* [AppCenter flow](#app-center)
 	* [Auto-Connect flow](#auto-connect)
 
-##<a name="access-tokens"></a>Access tokens
+## <a name="access-tokens"></a>Access tokens
 An access token is a long-lived token used to make API calls.
 
-###<a name="verbs-and-uris"></a>Verb and URIs
+### <a name="verbs-and-uris"></a>Verb and URIs
 All authentication and auhtorization tasks use the `GET` verb and URI as noted here depending on type of application:
 
 Type | Verb + URI
@@ -31,7 +31,7 @@ Type | Verb + URI
 Native|`GET https://{InstanceURL}/net2/oauth2/accesstoken.ashx`
 Web or Auto-Connect|`GET https://{InstanceURL}/net2/oauth2/GetAccessToken.ashx`
 
-###<a name="keys-and-secrets"></a>Keys and Secrets
+### <a name="keys-and-secrets"></a>Keys and Secrets
 The **Application Authorization** section in the **New Partner Application** page includes `Key` and `Secret` fields that are used to generate a request token which is later exchanged for an access token.
 
 Field|URI Parameter|Description
@@ -39,7 +39,7 @@ Field|URI Parameter|Description
 <a name="key"></a>`Key`|`client_id`|Unique identifier for the application.
 <a name="secret"></a>`Secret`|`client_secret`|Unique value for the application.
 
-###<a name="getting-access-token"></a>Getting an access token
+### <a name="getting-access-token"></a>Getting an access token
 
 #### Parameters
 
@@ -62,7 +62,7 @@ Token|`string`|-|The access token value passed in the Authorization header when 
 Expiration_Date|`string`|-|The Universal Coordinated Time (UTC) date and time when the access token expires.
 <a name="refresh-token"></a>Refresh_Token|`string`|-|Token with a new expiration date of a year from the refresh date. You should securely store the refresh token for a user and use it for all subsequent API requests.
 
-###<a name="refreshing-access-token"></a>Refreshing an access token
+### <a name="refreshing-access-token"></a>Refreshing an access token
 
 #### Parameters
 
@@ -78,7 +78,7 @@ None
 #### Response
 TODO -- Do we get a response?
 
-###<a name="revoke-single-access-token"></a>Revoking a single access token for a given user
+### <a name="revoke-single-access-token"></a>Revoking a single access token for a given user
 
 	POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx
 
@@ -108,7 +108,7 @@ TODO -- Do we get a response?
 	POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx?token=fdjhk2382kwkajsklwe8i3932kslswl
 	Authorization: OAuth fdjhk2382kwkajsklwe8i3932kslswl
 
-###<a name="revoke-all-access-tokens"></a>Revoking all access tokens for a user
+### <a name="revoke-all-access-tokens"></a>Revoking all access tokens for a user
 	POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx
 
 #### Headers
@@ -133,7 +133,7 @@ TODO -- Do we get a response?
 	POST https://www.concursolutions.com/net2/oauth2/revoketoken.ashx?consumerKey=eZByXv2X41cJlC21pSVvRi&user=Maria
 	Authorization: OAuth fdjhk2382kwkajsklwe8i3932kslswl
 
-##<a name="choosing-authorization-flow"></a>Choosing an authorization flow 
+## <a name="choosing-authorization-flow"></a>Choosing an authorization flow
 Use this table to decide which OAuth 2.0 authorization flow to use for the application:
 
 If you need to... | Use this flow
@@ -146,7 +146,7 @@ Distribute the app in the Mobile App Center|[App Center](#app-center)
 Distribute the app in the App Center and are **not** a TripLink supplier.|[App Center](#app-center)
 Distribute the app in the App Center and **are** a TripLink supplier.|[Auto-Connect](#auto-connect)
 
-###<a name="native"></a>Native
+### <a name="native"></a>Native
 The request must contain the following HTTP headers:
 
 #### Headers
@@ -166,7 +166,7 @@ Header|Format|Description
 
 [Access token response](#access-token-response)
 
-###<a name="web"></a>Web
+### <a name="web"></a>Web
 There are two types of access levels that can be enabled with web flow:
 
 Type | Description
@@ -182,10 +182,10 @@ The web flow is as follows:
 1. [Parse of a inbound HTTP request from the Concur system to an application specified endpoint.](#parse-inbound-http-request)
 1. [Getting an access token](#getting-access-token)
 
-####<a name="application-redirection"></a>Application Redirection to the Concur website for authentication and authorization.
+#### <a name="application-redirection"></a>Application Redirection to the Concur website for authentication and authorization.
 
 `https://www.concursolutions.com/net2/oauth2/Login.aspx?{parameters}`
- 
+
 ##### Parameters
 
 Name | Type | Format | Description
@@ -214,7 +214,7 @@ Name | Type | Format | Description
 `TWS`|Trip Approval Web Service
 `USER`|User Web Service
 
-####<a name="parse-inbound-http-request"></a>Parse of a inbound HTTP request from the Concur system to an application specified endpoint.
+#### <a name="parse-inbound-http-request"></a>Parse of a inbound HTTP request from the Concur system to an application specified endpoint.
 `http://{redirect_uri}?{parameters}`
 
 * If access is denied the `error` and `error_description` parameters are used.
@@ -228,7 +228,7 @@ Name | Type | Format | Description
 `error_description`|`string`|-|Description of the error.
 `code`|`string`|`{request_token}`|The request token.
 
-###<a name="app-center"></a>AppCenter
+### <a name="app-center"></a>AppCenter
 The AppeCenter flow is as follows:
 
 1. Listening for an HTTP GET request from the Concur system.
@@ -237,7 +237,7 @@ The AppeCenter flow is as follows:
 1. Parsing the request token value from the `code` query parameter.
 1. [Getting an access token](#getting-access-token)
 
-###<a name="auto-connect"></a>Auto-Connect
+### <a name="auto-connect"></a>Auto-Connect
 The Auto-Connect flow is an authorization to support Connection Requests API calls from TripLink applications. During the Auto-Connect flow, the request token associated with a TripLink application is exchanged for an access token for the user who granted the TripLink application access to the user's Concur data.
 
 1. Periodically getting a list of connection requests.
@@ -245,9 +245,9 @@ The Auto-Connect flow is an authorization to support Connection Requests API cal
 	`GET /common/connectionrequests`
 
 1. For each user in the connection requests response: [Getting an access token](#getting-access-token)
-   
-1. For each connection request, call any other Concur APIs you need to match the Concur user with the user in your system. When the user is successfully matched, or when matching fails, update the connection request. 
+
+1. For each connection request, call any other Concur APIs you need to match the Concur user with the user in your system. When the user is successfully matched, or when matching fails, update the connection request.
 
 	`PUT /common/connectionrequests/{id}`
-   
+
 1. If you encounter an error that makes it impossible to complete the connection process, revoke the access token so the user knows that the connection attempt failed and they can try again at a later time.
