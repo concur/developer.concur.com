@@ -55,6 +55,13 @@
                     </div><!--/col-md-3-->
                     <!-- End Address -->
                 </div>
+                <div class="row">
+                  <div class="col-md-12 text-center edit-github-link">
+                    <a href="{{ site.repository_url }}{{ page.path }}"><i id="edit-github-icon" class="fa fa-github fa-2x"></i> Edit this page on GitHub</a>
+                    <span>|</span>
+                    <a href="https://github.com/concur/developer.concur.com/commit/{{ site.data.git.commit }}">Produced from {{ site.data.git.commit }}</a>
+                  </div>
+                </div>
             </div>
         </div><!--/footer-->
 
@@ -64,7 +71,7 @@
                     <div class="col-md-6">
                         <p>
                             2015 &copy; All Rights Reserved.
-                           <a href="https://www.concur.com/en-us/privacy-policy">Privacy Policy</a> | <a href="{{ site.baseurl }}/Terms-of-Use.html">Terms of Use</a> | Produced from <a href="https://github.com/concur/developer.concur.com/commit/{{ site.data.git.commit }}">{{ site.data.git.commit }}</a>
+                           <a href="https://www.concur.com/en-us/privacy-policy">Privacy Policy</a> | <a href="{{ site.baseurl }}/Terms-of-Use.html">Terms of Use</a></a>
                         </p>
                     </div>
 
@@ -85,11 +92,6 @@
                             <li>
                                 <a href="https://twitter.com/concurapi" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
                                     <i class="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                             <li>
-                                <a href="https://github.com/concur" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="GitHub">
-                                    <i class="fa fa-github"></i>
                                 </a>
                             </li>
                             <li>
