@@ -86,7 +86,8 @@ This request will return an **ActionStatus** parent element with the following c
 
 ###  XML example request
 
-```xml
+```
+xml
     POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a454QitqQ/workflowaction HTTP/1.1
     Authorization: OAuth {access token}
     ...
@@ -99,7 +100,8 @@ This request will return an **ActionStatus** parent element with the following c
 
 ###  XML example of successful response
 
-```xml
+```
+xml
     <?xml version="1.0" encoding="utf-8"?>
     <ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <Message>SUCCESS!</Message>
@@ -109,7 +111,8 @@ This request will return an **ActionStatus** parent element with the following c
 
 ###  XML example of response With error
 
-```xml
+```
+xml
     <?xml version="1.0" encoding="utf-8"?>
     <ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <Message>The action cannot be executed because the item has recently been changed. Please refresh your list and try again.</Message>
@@ -118,5 +121,5 @@ This request will return an **ActionStatus** parent element with the following c
 ```
 
 
-[1]: https://developer.concur.com/node/487
+[1]: /api-reference/expense/expense-report/reports.html#getID
 [2]: https://developer.concur.com/reference/http-codes
