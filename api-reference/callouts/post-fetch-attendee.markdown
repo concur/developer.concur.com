@@ -49,7 +49,8 @@ The request body contains an **AttendeeSearchRequest** parent element with an **
 
 ####  XML Example Request
 
-```xml
+```
+xml
     POST /concur/attendee/v1.0/fetch HTTPS/1.1
     Host: example.com
     Authorization: Basic ...
@@ -152,7 +153,8 @@ The **Attendee** child element must contain all of the elements described below.
 
 ####  XML Example of Successful Response
 
-```xml
+```
+xml
     HTTPS/1.1 OK 200
     Content-Type: application/xml
     Content-Length: {length of content body}
@@ -198,7 +200,8 @@ The **Attendee** child element must contain all of the elements described below.
 
 The following example shows the expected response when no attendees match the search criteria.
 
-```xml
+```
+xml
     HTTPS/1.1 OK
 
     <?xml version="1.0" encoding="utf-8"?>
