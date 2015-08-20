@@ -37,7 +37,7 @@ This is one use case for the Event Notification callout, however it can be used 
 ## Product Restrictions
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][5] if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum](http://forum.developer.concur.com/){:target="_blank"} if you have questions about the configuration settings.
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
