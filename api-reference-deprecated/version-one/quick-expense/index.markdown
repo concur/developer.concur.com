@@ -39,12 +39,10 @@ The version 3.0 documentation includes the data model and tools to send test req
 
 [Version 3.0 Quick Expenses][4]
 
-Version 1.0 documentation includes the data model and example requests and responses:
 
-[Version 1.0 Quick Expense][5]
 
 
 
 
 [4]: /api-reference/expense/quick-expense/index.html
-[5]: /api-reference-deprecated/version-one/quick-expense/index.html
+
