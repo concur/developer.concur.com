@@ -3,13 +3,20 @@ body {
 }
 
 .edit-github-link > a {
-	color: #fff;
+	color: #eee;
+	display: inline-block;
 }
 
 .edit-github-link > a:hover {
-	color: #fff;
+	color: #eee;
 }
 
 .edit-github-link > a > i {
 	margin-right: 5px;
+}
+
+.edit-github-link > span {
+	color: #fff;
+	margin-right: 10px;
+	margin-left: 10px;
 }
