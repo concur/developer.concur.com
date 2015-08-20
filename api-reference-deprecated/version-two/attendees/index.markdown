@@ -15,7 +15,7 @@ The Attendee List resource manages attendees in batches, and can be used to add,
 
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum](http://forum.developer.concur.com/){:target="_blank"} if you have questions about the configuration settings.
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
@@ -76,8 +76,6 @@ When there are errors with batch items, the first ten errors are returned in the
 
   
 
-
-[2]: http://forum.developer.concur.com/
 [3]: /api-reference-deprecated/version-two/attendees/attendee-resource.html
 [4]: /api-reference-deprecated/version-one/attendees/attendee-list-resource.html
 [5]: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html
