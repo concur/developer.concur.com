@@ -63,7 +63,8 @@ ExceptionDetails |This parent element will contain an **ExceptionInfo** parent e
 
 ###  XML Example Request
 
-```xml
+```
+xml
     POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/3FK118eIJ844Uwl0HF32/Exceptions
     Authorization: OAuth {access token}
     Content-Type: application/xml
@@ -81,10 +82,12 @@ ExceptionDetails |This parent element will contain an **ExceptionInfo** parent e
             <ExceptionCode>APPRVTO</ExceptionCode>
         </Exception>
     </Exceptions>
+    ```
 
 ### XML Example of Response With Success and Failure
 
-```xml
+```
+xml
     <exception-result xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <exceptions-succeeded>1</exceptions-succeeded>
         <exceptions-failed>1</exceptions-failed>
@@ -105,5 +108,5 @@ ExceptionDetails |This parent element will contain an **ExceptionInfo** parent e
   
 
 
-[1]: https://developer.concur.com/node/487#reportdetails
+[1]: /api-reference/expense/expense-report/reports.html#getID
 [2]: https://developer.concur.com/reference/http-codes
