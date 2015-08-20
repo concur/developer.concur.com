@@ -39,17 +39,17 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
 ### Request  
 
 
-~~~
+```
   GET / HTTP/1.1
   User-Agent: curl/7.37.1
   Host: phosiere.com
   Accept: */*
-~~~
+```
 
 ### Response  
 
 
-~~~
+```
   HTTP/1.1 200 OK
   Cache-Control: private
   Content-Type: text/html; charset=utf-8
@@ -58,14 +58,14 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
   X-Powered-By: ASP.NET
   Date: Tue, 19 May 2015 22:45:47 GMT
   Content-Length: 83
-~~~
+```
 
 ## <a name="entity"></a>HTTP Entity
 
 [http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7](http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7)  
 
 
-~~~
+```
   <html>
     <head>
       <title>Phosière</title>
@@ -74,7 +74,7 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
     Coming soon...
     </body>
   </html>
-~~~
+```
 
 ## <a name="json"></a>JSON
 
@@ -82,7 +82,7 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
 
 ### Schema  
 
-~~~
+```
   {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "title": "Product set",
@@ -128,12 +128,12 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
           "required": ["id", "name", "price"]
       }
   }
-~~~
+```
 
 Resource located at http://json-schema.org/geo:  
 
 
-~~~
+```
   {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "description": "A geographical coordinate",
@@ -143,12 +143,12 @@ Resource located at http://json-schema.org/geo:
           "longitude": { "type": "number" }
       }
   }
-~~~
+```
 
 ### Data  
 
 
-~~~
+```
   [
       {
           "id": 2,
@@ -180,7 +180,7 @@ Resource located at http://json-schema.org/geo:
           }
       }
   ]
-~~~
+```
 
 ### Documentation
 
