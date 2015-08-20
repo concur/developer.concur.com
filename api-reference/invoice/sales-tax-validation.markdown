@@ -6,8 +6,8 @@ layout: reference
 # Sales Tax Validation
 * [Schema](#schema)
 * [Status schema](#schema-status)
-* [Get invoices for calculating tax](#1)
-* [Update invoices with the calcuated tax amount and tax rate](#2)
+* [Get invoices for calculating tax](#get)
+* [Update invoices with the calcuated tax amount and tax rate](#put)
 * [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/SalesTaxValidationRequest)
 
 ##Version
