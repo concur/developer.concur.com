@@ -6,6 +6,7 @@ baseurl: "" # the subpath of your site, /developer.concur.com
 canonical_site: https://developer.concur.com
 twitter_username: concurapi
 github_username:  concur
+repository_url: "https://github.com/concur/developer.concur.com/blob/preview/"
 exclude:
   - build
   - shippable.yml
