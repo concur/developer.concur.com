@@ -23,16 +23,7 @@ To unsubscribe:
 application/xml
  
 ##Operations
-[POST][1]
+[POST](/api-reference/user/company-notification-subscription-resource/company-notification-subscription-resource-post.html)
 
-##See also
-[Booking][2]
 
-[Itinerary][3]
 
-[Travel Profile][4]
-
-[1]: https://developer.concur.com/company-notification-subscription-resource/company-notification-subscription-resource-post
-[2]: https://developer.concur.com/itinerary-tmc-and-third-party-developers/booking-resource
-[3]: https://developer.concur.com/itinerary-tmc-and-third-party-developers/itinerary-resource
-[4]: https://developer.concur.com/travel-profile/profile-resource
