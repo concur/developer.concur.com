@@ -1,8 +1,7 @@
---- 
+---
 title: Attendee List Resource Post
-layout: reference 
---- 
-
+layout: reference
+---
 
 
 This resource supports the following POST actions:
@@ -99,7 +98,8 @@ This request will return an **attendee-batch-result** parent element.
 
 ### XML example request 
 
-```xml
+```
+xml
 POST https://www.concursolutions.com/api/expense/attendee/v1.0/batch?type=create HTTP/1.1
 Authorization: OAuth {access token}
 Content-Type: application/xml
@@ -231,7 +231,8 @@ This request will return an **attendee-batch-result** parent element.
 
 ### XML example request 
 
-```xml
+```
+ml
 POST https://www.concursolutions.com/api/expense/attendee/v1.0/batch?type=update HTTP/1.1
 Authorization: OAuth {access token}
 Content-Type: application/xml
@@ -251,7 +252,8 @@ Content-Type: application/xml
 
 ### XML example of successful response
 
-```xml
+```
+xml
 200 OK
 Content-Type: application/xml
 ...
@@ -340,7 +342,8 @@ This request will return an **list-item-batch-result** parent element.
 
 ### XML example request 
 
-```xml
+```
+xml
 POST https://www.concursolutions.com/api/expense/attendee/v1.0/batch?type=update HTTP/1.1 
 Authorization: OAuth {access token} 
 Content-Type: application/xml
@@ -355,7 +358,8 @@ Content-Type: application/xml
 
 ### XML example of successful response
 
-```xml
+```
+xml
 200 OK
 Content-Type: application/xml
 ...
