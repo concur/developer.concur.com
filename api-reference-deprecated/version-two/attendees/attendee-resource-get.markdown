@@ -76,7 +76,7 @@ This request will return an **Attendees** parent element containing an **Attende
 |  AttendeeID |  Attendee unique identifier within Concur. |
 |  AttendeeTypeCode |  The unique identifier for the attendee type. |
 |  AttendeeOwnerID |  The unique identifier for the person or system that owns the attendee. |
-|  CurrencyCode |  The [3-letter ISO 4217 currency code][3] for attendee related amounts. |
+|  CurrencyCode |  The [3-letter ISO 4217 currency code](http://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for attendee related amounts. |
 
 #### Custom elements
 
@@ -106,7 +106,8 @@ This request will return an **Attendees** parent element containing an **Attende
 
 ####  XML Example of Successful Response
 
-```xml
+```
+xml
     200 OK
     Content-Type: application/xml
 
@@ -154,5 +155,4 @@ This request will return an **Attendees** parent element containing an **Attende
 ```
 
 
-[1]: /api-reference/expense/expense-report/get-report-details.html
-[2]: http://en.wikipedia.org/wiki/ISO_4217
+[1]: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html

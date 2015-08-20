@@ -106,17 +106,17 @@ Name | Type | Format | Description
 ## <a name="schema"></a>Schema
 
 
-###Reports
+### Reports
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`Items`	|	``array``	|	[Report](#reports)	|	The result collection.
+`Items`	|	``array``	|	[Report](#report)	|	The result collection.
 `NextPage`	|	``string``	|	-	|	The URI of the next page of results, if any.
 
 
 
 
-###<a name="report"></a>Report
+### <a name="report"></a>Report
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -158,7 +158,7 @@ Name | Type | Format | Description
 
 
 
-###Custom Field
+### Custom Field
 
 Name | Type | Format | Description
 -----|------|--------|------------

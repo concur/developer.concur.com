@@ -39,7 +39,7 @@ Authorization header with OAuth token for valid Concur user. The OAuth user must
 * application/xml
 * application/json
 
-###Request body
+### Request body
 
 **XML**: The request will contain an **EntryAttendees** parent element with an **Attendee** child element for each attendee associated to the entry.
 
@@ -62,18 +62,19 @@ The **Attendee** element (XML) or **attendee** object (JSON) must contain all of
 | EntryAttendeeCustom4     | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
 | EntryAttendeeCustom5     | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
 
-##Response
+## Response
 
 ### Content types
 
 * application/xml
 * application/json
 
-##Examples
+## Examples
 
 ### XML example request
 
-```xml
+```
+xml
     PUT https://www.concursolutions.com/api/expense/expensereport/v2.0/report/9d8ea1kole$sis293mn38dh/entry/8sle90wikl3h$halwnk$lakdjw83/attendees HHTP/1.1
     Authorization: OAuth {access token}
     ...
@@ -94,7 +95,8 @@ The **Attendee** element (XML) or **attendee** object (JSON) must contain all of
 
 ### JSON example request
 
-```json
+```
+son
 PUT https://www.concursolutions.com/api/expense/expensereport/v2.0/report/9d8ea1kole$sis293mn38dh/entry/8sle90wikl3h$halwnk$lakdjw83/attendees HHTP/1.1
 Authorization: OAuth {access token}
 ...
@@ -113,6 +115,6 @@ Authorization: OAuth {access token}
 `200 OK`
 
 
-[1]: https://developer.concur.com/node/487#reportdetails
-[2]: https://developer.concur.com/expense-report/expense-entry-attendee-resource/expense-entry-attendee-resource-get
+[1]: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html
+[2]: /api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-get.html
 

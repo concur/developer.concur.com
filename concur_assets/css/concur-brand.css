@@ -20,3 +20,11 @@ body {
 	margin-right: 10px;
 	margin-left: 10px;
 }
+
+.blog-link {
+	color: #eee;
+}
+
+.blog-link:hover {
+	color: #eee;
+}

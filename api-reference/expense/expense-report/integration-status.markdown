@@ -18,7 +18,7 @@ The integration status of the supplied object. Currently supports expense report
 [POST](#post)
 
 
-## <a name="get"></a>Post an integration status for a report
+## <a name="post"></a>Post an integration status for a report
 
 
 ### Description
