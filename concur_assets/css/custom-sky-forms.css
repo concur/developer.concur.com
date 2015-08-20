@@ -5,3 +5,7 @@
 .form-success-hidden {
     display: none;
 }
+
+#email-alt {
+  display: none;
+}

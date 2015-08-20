@@ -53,7 +53,7 @@ title: Developer Newsletter Signup
           <i></i>
         </label>
       </section>
-
+      <input type="text" name="email-alt" id="email-alt">
     </fieldset>
     <footer>
       <button type="submit" class="button">Submit</button>
@@ -82,6 +82,9 @@ title: Developer Newsletter Signup
 
     // Ajax form submition
     submitHandler: function(form) {
+      if($('#email-alt').val()) {
+        return;
+      }
       $(form).ajaxSubmit({
         beforeSend: function() {
           $('#newsletterRequest button[type="submit"]').attr('disabled', true);
