@@ -16,7 +16,7 @@ The Fetch Attendee version 2.0 callout sends the attendee information to a URI f
 
 `https://{servername}/concur/attendee/v2.0/fetch`
 
-For backward compatibility, Fetch Attendee version 1.0 is used instead of version 2.0 when the URI uses v1.0 instead of v2.0. The URI is configured on the **Application Connector Registration** page under **Web Services>Administration>Manage Applications**. Refer to [Installation Process][1] for more information.
+For backward compatibility, Fetch Attendee version 1.0 is used instead of version 2.0 when the URI uses v1.0 instead of v2.0. The URI is configured on the **Application Connector Registration** page under **Web Services>Administration>Manage Applications**. 
 
 The application connector responds to the Fetch Attendee request by returning all attendees that match the search criteria. The result is limited to the maximum number of records specified in the request. If more than the maximum number of records are sent, Concur Expense displays a message in the Attendee Search window asking the user to refine their search. The authorization functionality in version 2.0 is the same as version 1.0
 
@@ -49,7 +49,8 @@ The request body contains an **AttendeeSearchRequest** parent element with an **
 
 ####  XML Example Request
 
-```xml
+```
+xml
     POST /concur/attendee/v1.0/fetch HTTPS/1.1
     Host: example.com
     Authorization: Basic ...
@@ -152,7 +153,8 @@ The **Attendee** child element must contain all of the elements described below.
 
 ####  XML Example of Successful Response
 
-```xml
+```
+xml
     HTTPS/1.1 OK 200
     Content-Type: application/xml
     Content-Length: {length of content body}
@@ -198,7 +200,8 @@ The **Attendee** child element must contain all of the elements described below.
 
 The following example shows the expected response when no attendees match the search criteria.
 
-```xml
+```
+xml
     HTTPS/1.1 OK
 
     <?xml version="1.0" encoding="utf-8"?>
@@ -206,5 +209,4 @@ The following example shows the expected response when no attendees match the se
 ```
 
 
-[1]: https://developer.concur.com/node/371#installproc
-[2]: https://developer.concur.com/node/371#auth
+[2]: /api-reference/authentication/authentication.html

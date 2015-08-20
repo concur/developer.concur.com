@@ -13,7 +13,6 @@ The application connector can use web services to send information to Concur, to
 This callout differs from the standard Concur web services in the following ways:
 
 * It uses an **outbound** **callout** where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. The connector domain and IP address must be whitelisted by Concur during the configuration process.  
-Refer to [**Callouts and Application Connectors][1]** for more information.
 * The application connector can also use the web services to retrieve or send Concur data.
 * The developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by Concur. This guide specifies the request and response format required by Concur.
 * Concur provides a sample connector application that the developer or client can install on their network and customize to interface with their system of record. Concur can also customize the connector.
@@ -43,9 +42,7 @@ Information on how to download, install, and configure the application connector
 The configuration process has the following steps:
 
 1. Third-party developer, client or Concur downloads, installs, configures, and customizes the application connector. The application connector may make requests to the inbound web services.  
-Refer to [**Callouts and Application Connectors][1]**, **Web Services > [Core Concepts][3]**, and the reference guides for the individual web services for more information.
 2. Concur registers the application connector. Concur must whitelist the IP address and domain of the application connector. Be ready to supply the test and production domain information.  
-Refer to [**Callouts and Application Connectors][1] **for more information.
 3. Expense Admin creates a new form field with the Launch External URL control type and adds the field to the expense entry form(s).
 
 Once the configuration is complete, the callout uses the following process:
@@ -74,7 +71,6 @@ Concur sends requests to the application connector using anonymous authorization
 
 The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that Concur supplies. Two of the required variables for the signature hash are username and password, which are entered in Concur on the **Register Application Connector** page in** Web Services **under **Administration**. The application connector must use the same username and password pair to generate it's validation signature hash.
 
-Refer to the [Callouts and Application Connectors][1] for more information.
 
 ### Functions 
 [Launch External URL Request][4]
@@ -88,8 +84,6 @@ An Expense text form field must be configured as the Launch URL control type and
 Refer to the [HTTP Codes][5] page for details of the common responses and errors.
  
 
-[1]: https://developer.concur.com/callouts
-[2]: https://developer.concur.com/forums/concur-connect
-[3]: https://developer.concur.com/api-documentation/core-concepts
-[4]: https://developer.concur.com/callouts/launch-external-url/launch-external-url-request
-[5]: https://developer.concur.com/reference/http-codes
+
+[4]: /api-reference/callouts/launch-external-url-request.html
+[5]: /tools-support/reference/http-codes.html

@@ -9,7 +9,6 @@ The Concur Fetch List callout allows clients to import list items from an intern
 This callout differs from the inbound Concur web services in the following ways:
 
 * It uses an **outbound** **message** where Expense calls a public facing API endpoint provided by the application connector.  
-Refer to [**Callouts and Application Connectors**][1] for more information.
 * The third-party developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by Concur. This guide specifies the request and response format required by Concur.
 * Concur provides a sample connector application that the developer or client can install on their network and customize to interface with their system of record for list items. Concur can also customize the connector.
 * The developer or client can choose to create their own application connector using a different language, such as PHP, if preferred.
@@ -26,16 +25,12 @@ Partner developers must determine which configurations are required for their so
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
-## Concur Connect Callout Details
-Information on how to download, install, and configure the application connector is included in [**Callouts and Application Connectors**][1].
 
 ## Fetch List Process Overview
 The configuration process has the following steps:
 
 1. Third-party developer, client or Concur downloads, installs, configures, and customizes the application connector.  
-Refer to [**Callouts and Application Connectors**][1] for more information
 2. Concur registers the application connector.  
-Refer to [**Callouts and Application Connectors**][1] for more information
 3. Expense Admin creates a new list in List Management.
 4. Concur configures the list to search for external items.
 5. If using a connected list, Expense Admin creates a connected list definition in Forms and Fields.
@@ -58,7 +53,6 @@ Expense will not be able to connect to the application connector until a certifi
 ## Authentication
 Authentication between Concur and the application connector is performed using HTTP Basic Auth. By default, these credentials are stored in the appropriate web configuration file for your platform, such as web.xml or web.config. These credentials are entered in Concur on the **Register Application Connector** page in **Web Services** under **Administration**.
 
-Refer to [**Callouts and Application Connectors**][1] for more information.
 
 ## Functions
 [Post List Search Request][3]
@@ -74,7 +68,7 @@ Refer to the [HTTP Codes][4] page for details of the common responses and errors
   
 
 
-[1]: https://developer.concur.com/callouts
-[2]: https://developer.concur.com/forums/concur-connect
-[3]: https://developer.concur.com/callouts/fetch-list/post-list-search-request
-[4]: https://developer.concur.com/reference/http-codes
+
+
+[3]: /api-reference/callouts/post-list-search-request.html
+[4]: /tools-support/reference/http-codes.html

@@ -65,21 +65,18 @@ Expense or Travel Request will not be able to connect to the application connect
 ## Authentication
 Authentication between Concur and the application connector is performed using HTTP Basic Auth. By default, these credentials are stored in the appropriate web configuration file for your platform, such as web.xml or web.config. These credentials are entered in Concur on the **Register Application Connector** page in\*\* Web Services **under **Administration\*\*.
 
-Refer to the [**Callouts and Application Connectors][1][8]** page for more information.
+Refer to the **Callouts and Application Connectors** page for more information.
 
 ## Functions
 [Delete Notification][9]  
 [Get Notifications by Status][10]  
 [Post Event Notification Request ][11]  
 
-## Additional Information
-[Installation Process][12]  
-[Responses and Errors][13]  
 
 ### Installation Process
 The installation process includes installing the application connector, and registering it with Concur.
 
-1. The third-party developer or client will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. A sample connector is available on the [Sample Code][14] page under Callouts, and details of the installation process are available at [Callouts and Application Connectors][15]. During installation, the developer or client will select and configure an externally available endpoint on the host server for Concur to send the event notification request to. Refer to Security for more information about the security requirements of the application connector.
+1. The third-party developer or client will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. 
 2. The client registers the application connector with Concur:
    1. Log in to Concur as an administrative user.
    2. Select **Administration** \> **Web Services**.
@@ -117,7 +114,7 @@ Refer to the [HTTP Codes][16] page for details of the common responses and error
  
 
   
-[2]:  /api-reference/expense/expense-report/get-report-details.html
+[2]:  /api-reference/expense/expense-report/reports.html
 [3]:  /api-reference/expense/expense-report/post-report-exceptions.html
 [4]:  /docs/overviews/index.html
 [5]:  http://forum.developer.concur.com/

@@ -81,10 +81,4 @@ The following example shows how the Launch External URL web service is used to b
 * The Project ID field has been added to the expense entry form.
 * The application connector has been configured to use the expense type of the entry and the user ID to search for the correct Project IDs and present them to the user.
 
-![ /][1]
 
-
-  
-
-
-[1]: https://developer.concur.com/sites/default/files/LaunchExtURL_small.png

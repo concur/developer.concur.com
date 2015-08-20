@@ -1,12 +1,30 @@
 ---
-title: Post integration status for a report
+title: Integration Status
 layout: reference
 ---
 
+
+# Integration Status
+
+
 ## Description
+The integration status of the supplied object. Currently supports expense reports.
+
+
+## URI
+`https://www.concursolutions.com/api/expense/expensereport/v2.0/integrationstatus/`
+
+## Operations
+[POST](#post)
+
+
+## <a name="get"></a>Post an integration status for a report
+
+
+### Description
 This resource allows developers to ensure that the necessary transactions to account for expenses and arrange payment for the expenses in a specified report were created in the financial system prior to committing the expense report in Concur Expense. If they were, the developer uses this function to indicate the report was successfully integrated and move the report forward in the workflow to the Paid step. In Concur Expense, when a report arrives at the Paid workflow step the report is committed, meaning its data can't be changed and it can't be sent back in the workflow.
 
-## Request
+### Request
 
 ### Request parameters
 
@@ -14,7 +32,7 @@ This resource allows developers to ensure that the necessary transactions to acc
 
 | Parameter |Required/Optional| Description |
 |-----------------|--------|-----------------------------|
-| report/{ReportID} | required | The report keyword and the ReportID for the report that has been successfully integrated into the financial system. The ReportID is returned in the **ReportID** element by the [Get List of Reports][1] and the [Get Report Details][2] responses.
+| report/{ReportID} | required | The report keyword and the ReportID for the report that has been successfully integrated into the financial system. The ReportID is returned in the **ReportID** element by the Get List of Reports and the Get Report Details responses.
 
 ### Headers
 
@@ -25,7 +43,7 @@ Authorization header with OAuth token for valid Concur user. Required. The OAuth
 * application/json
 * application/xml
 
-## Response
+### Response
 
 ### Content types
 
@@ -43,7 +61,7 @@ The response will include an **ActionStatus** parent element (XML), or an object
 | Status | Whether the request was successful. Possible values: SUCCESS, FAILURE. |
 | Message | Provides further details for errors. |
 
-##  Examples
+###  Examples
 
 ### XML example request
 
@@ -56,7 +74,8 @@ Accept: application/xml
 
 ### XML example of successful response
 
-```xml
+```
+xml
     HTTP/1.1 200 OK
     Content-Type: application/xml
     <ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -75,7 +94,8 @@ Accept: application/xml
 
 ###  JSON example of response With error
 
-```xml
+```
+xml
     HTTP/1.1 200 OK
     Content-Type: application/json
     {"Status":"FAILURE","Message":"To use the POST Expense Journal Entry Job Key the
@@ -83,6 +103,7 @@ Accept: application/xml
 ```
 
 
-[1]: https://developer.concur.com/node/487
-[2]: https://developer.concur.com/node/487
-[3]: https://developer.concur.com/reference/http-codes
+
+
+
+

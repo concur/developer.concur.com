@@ -4,8 +4,6 @@ layout: reference
 ---
 
 
-
-
 ##Description    
 
 
@@ -50,11 +48,8 @@ Once the configuration is complete, the callout uses the following process:
 	3. Expense sends the attendee search field information to the application connector. This request includes all attendee fields, with any blank values formatted as an empty string.
 	4. The application connector queries the attendee system of record and returns a list of results to Expense.  
 **NOTE**: The results list is limited to 100 records.  
-If the connector returns a valid response that there are no search results, the user receives a message:  
-![2][3]
 	5. Expense displays the results in the **Search Results** section of the **Search Attendees** window.  
-**NOTE**: If the application connector does not respond or returns an error, the user is notified in a popup window within Expense:  
-![f][4]  
+**NOTE**: If the application connector does not respond or returns an error, the user is notified in a popup window within Expense.
 Concur will not resend the request unless the user manually initiates the search again.
 	6. If the user adds the attendees to the expense entry, the attendee information is saved in Expense.
  
@@ -98,11 +93,8 @@ The client then registers the application connector with Concur:
    |Host Name|Enter the hostname for the connector. Example: `https://{servername}`|
    |User Name|Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth.|
    |Password|Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth.1.0|  
-
-   ![][6]  
 6. In the Services section, select Fetch Attendee.  
 7. Click Configure. The Configure Service window appears.  
-   ![][7]  
 8. Enter the endpoint that the Concur will connect to on your server. Example: /attendee/v2.0/fetch  
 9. Select the Active check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.  
 10. Select the attendee types that will use the application connector. These attendee types will be automatically configured to not allow users to create new attendees manually.  
@@ -119,10 +111,7 @@ The Expense administrator can select which attendee types use the connector when
 Refer to the HTTP Codes page for details of the common responses and errors.
 
 
-[1]: https://developer.concur.com/node/25#co
-[2]: https://developer.concur.com/forums/concur-connect
-[3]: https://developer.concur.com/sites/default/files/fetchattendee_noresults.png
-[4]: https://developer.concur.com/sites/default/files/fetchattendee_error.png
-[5]: https://developer.concur.com/callouts/fetch-attendee/post-fetch-attendee
-[6]: https://developer.concur.com/sites/default/files/RegisterFetchAttendee_small.png
-[7]: https://developer.concur.com/sites/default/files/ConfigFetchAttendee.png
+[1]: /docs/guides/REST-API-Basics.html
+[2]: http://forum.developer.concur.com/
+[5]: /api-reference/expense/attendees/index.html
+

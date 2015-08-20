@@ -1,21 +1,36 @@
 ---
-title: Get form types or form data
+title: Expense Form 
 layout: reference
 ---
 
+# Expense Form
+
+## Description
+The configured expense forms in Concur. Clients can have multiple forms configured for each form type.
+
+## Version
+1.1
+
+## URI
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/ `
+
+## Operations
+[GET](#get)
+
+## <a name="get"></a>Get form types or form data
 This resource supports the following GET actions:
 
 * Get Form Types
 * Get Form Data
 
-## Get Form Types
+### Get Form Types
 
-### Description
+#### Description
 Retrieves the list of configured form types.
 
-### Get Form Types Request
+#### Get Form Types Request
 
-### Request parameters
+#### Request parameters
 None.
 
 #### Headers
@@ -138,7 +153,8 @@ This request will return a **FormDataList** parent element with a **FormData** p
 
 #### XML example request
 
-```xml
+```
+xml
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Forms/RPTINFO HTTP/1.1
 Authorization: OAuth {access token}
 ...
@@ -146,7 +162,8 @@ Authorization: OAuth {access token}
 
 #### XML example of successful response
 
-```xml
+```
+xml
     200 OK
     Content-Type: application/xml
     <FormDataList xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -164,4 +181,8 @@ Authorization: OAuth {access token}
         </FormData>
     </FormDataList>
 ```
+
+
+
+
 

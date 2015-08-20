@@ -1,12 +1,31 @@
 ---
-title: Get an extract file
+title: Extract File
 layout: reference
 ---
 
-##  Definition
+# Extract File  
+
+
+## Description
+The extracted data for the specified extract job. Formatted according to the associated extract definition.
+
+## Version
+1.0
+
+## URI
+`https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job/{JobID}/file `
+
+
+## Operations
+[GET](#get)
+
+
+## <a name="get"></a>Get an extract file
+
+###  Definition
 Requests the extracted data for the specified extract job.
 
-## Request
+### Request
 
 ```xml
     GET https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job/{JobID}/file HTTP/1.1
@@ -33,7 +52,7 @@ Required. Authorization header with OAuth token for valid Concur user. The OAuth
 #### Content-Type header
 application/xml
 
-##  Response
+###  Response
 
 ### Content types
 
@@ -44,7 +63,7 @@ application/xml
 
 This request will return the extracted data in text/csv format if there was a single file produced or as a zip archive if the extract definition is configured to produce more than one file.
 
-## Examples
+### Examples
 
 ###  XML example of response with single extract file
 

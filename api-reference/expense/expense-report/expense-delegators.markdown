@@ -1,14 +1,33 @@
 ---
-title: Get expense delegators
+title: Expense Delegators
 layout: reference
 ---
 
+# Expense delegators
+
 ## Description
-Retrieves the list of users that have granted delegate permissions to the user specified in the [OAuth][1] access token.
+Users that have granted delegate permissions to the another Expense user.
 
-## Request
+## Version
+1.1
 
-### Request parameters
+## URI
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/Delegators`
+
+## Operations
+[GET](#get)  
+ 
+
+
+## <a name="get"></a>Get expense delegators
+
+
+### Description
+Retrieves the list of users that have granted delegate permissions to the user specified in the OAuth access token.
+
+### Request
+
+#### Request parameters
 None.
 
 ### Headers
@@ -19,12 +38,12 @@ Authorization header with OAuth token for valid Concur user. Required.
 ### Accept header
 application/xml
 
-## Response
+### Response
 
-### Content Types
+#### Content Types
 application/xml
 
-### Content body
+#### Content body
 
 This request will return a **DelegatorsList** parent element with a **Delegator** parent element for each user that has granted delegate rights to the OAuth consumer. 
 
@@ -41,11 +60,12 @@ This request will return a **DelegatorsList** parent element with a **Delegator*
 |  ReceivesEmails |  Whether the delegate also receives the Concur emails sent to the delegator. |
 |  DelegatorXUserID |  The user ID of the delegator. |
 
-## Examples
+### Examples
 
-### XML Example Request
+#### XML Example Request
 
-```xml
+```
+xml
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/Delegators HTTP/1.1
 Authorization: OAuth {access token}
 ...
@@ -53,7 +73,8 @@ Authorization: OAuth {access token}
 
 ### XML example of successful response
 
-```xml
+```
+xml
     200 OK
     Content-Type: application/xml
 
@@ -81,5 +102,6 @@ Authorization: OAuth {access token}
     </DelegatorsList>
 ```
 
-[1]: https://developer.concur.com/oauth-20
-[2]: https://developer.concur.com/reference/http-codes
+
+
+

@@ -1,16 +1,32 @@
 ---
-title: Get a list of form fields
+title: Expense Form Field
 layout: reference
 ---
 
+# Expense form field
+
 ## Description
+The configured fields for the specified expense form.
+
+## Version
+1.1
+
+## URI
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/_{FormId}_/Fields`
+
+## Operations
+[GET](#get)
+
+## <a name="get"></a>Get a list of form fields
+
+### Description
 Retrieves the details of the configured form fields for the specified form.
 
 **NOTE**: When sending in requests using these fields, be sure to include the required fields from the form and any additional required fields specified in the request documentation.
 
-## Request
+### Request
 
-### Request parameters
+#### Request parameters
 
 #### Path parameters
 
@@ -20,7 +36,7 @@ Retrieves the details of the configured form fields for the specified form.
 
 Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/{FormId}/Fields`
 
-**URI Source**: The FormId is returned in the **FormId** element by the [Get Form Data][1] function.
+**URI Source**: The FormId is returned in the **FormId** element by the Get Form Data function.
 
 ### Headers
 
@@ -30,7 +46,7 @@ Authorization header with OAuth token for valid Concur user. Required.
 #### Accept header
 application/xml
 
-## Response
+### Response
 
 ### Content body
 This request will return a **FormFieldsList** parent element with a **FormField** parent element for each configured form field. 
@@ -51,11 +67,12 @@ This request will return a **FormFieldsList** parent element with a **FormField*
 |  Custom |  Whether the field is custom. |
 |  Sequence |  The field order on the form. |
 
-## Examples
+### Examples
 
 ### XML example request
 
-```xml
+```
+xml
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/nAaT8$puKKO2$pEVlsXfSruLpDfZL0wVM$s7/Fields HTTP/1.1
 Authorization: OAuth {access token}
 ...
@@ -63,7 +80,8 @@ Authorization: OAuth {access token}
 
 ### XML example of successful response
 
-```xml
+```
+xml
     200 OK
     Content-Type: application/xml
     <FormFieldsList xmlns="https://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -148,5 +166,5 @@ Authorization: OAuth {access token}
     </FormFieldsList>
 ```
 
-[1]: https://developer.concur.com/node/469#getformdata
-[2]: https://developer.concur.com/reference/http-codes
+
+
