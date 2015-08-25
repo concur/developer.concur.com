@@ -2,7 +2,9 @@ developer.concur.com
 ====================
 
 ##The Concur Developer Website
-This repo contains the documentation, tools and support content for the Concur API developer audience. This includes both internal and external developers.
+This repo contains the documentation, tools and support content for the Concur API developer audience. This includes both internal and external developers.  
+
+**A goal in open sourcing the docs repository is to give our developer community - both internal and external - the opportunity to have changes fixed more quickly by editing a problem document in the GitHub UI and "save" it, which will create a pull request.**
 
 Changes committed to the `preview` branch can be found here: [http://preview.developer.concur.com/](http://preview.developer.concur.com/)
 
