@@ -78,7 +78,7 @@ Element Name|Required/Optional|Data Type|Description|
 `City` | `string`| `-` |The city information for the billing address.|   
 `StateProvince` | `string`| `-` |The state or province information for the billing address.|
 `Country`| `string`|`-`  |The country information for the billing address.|
-`ZipCode`| `string`| `-` The zip code information for the billing address.|
+`ZipCode`| `string`| `-` | The zip code information for the billing address.|
 
 #### Segments element
 
@@ -95,7 +95,7 @@ Element Name|Required/Optional|Data Type|Description|
 **Request** 
 
 ``
-GET {InstanceURI}/api/travelprofile/v2.0/fop HTTP/1.1
+GET {InstanceURI}/api/travelprofile/v2.0/fop HTTP/1.1  
 Authorization: OAuth {access token}
 ...
 ```
@@ -104,7 +104,7 @@ Authorization: OAuth {access token}
 **Request**  
 
 ``
-GET {InstanceURI}/api/travelprofile/v2.0/fop HTTP/1.1
+GET {InstanceURI}/api/travelprofile/v2.0/fop HTTP/1.1  
 Authorization: OAuth {access token}
 ...
 ```

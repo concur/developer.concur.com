@@ -19,7 +19,7 @@ Concur conducts an initial application and security review in the sandbox enviro
 
 #### **Is There a Cost?**
 
-For apps for individual travelers, the fee for App Review is currently being waived.  For apps requiring enterprise-level integration or access to corporate information, there are costs for App Review and you will be asked to enter into a partnership agreement.  Our partner team at  [bizdev@concur.com](mailto:bizdev@concur.com) will work hand-in-hand with you, and looks forward to hearing from you.
+For apps for individual travelers, the fee for App Review is currently being waived.  For apps requiring enterprise-level integration or access to corporate information, there are costs for App Review and you will be asked to enter into a partnership agreement.  Our partner team at [bizdev@concur.com](mailto:bizdev@concur.com) will work hand-in-hand with you, and looks forward to hearing from you.
 
 #### **What does Concur Specifically Review?**
 
