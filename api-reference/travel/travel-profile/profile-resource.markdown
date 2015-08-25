@@ -6,7 +6,6 @@ layout: reference
 
 ##  Description
 
-**NOTE: Travel Profile resource version 1.0 has been deprecated.**
 
 The Travel Profile resource represents a Concur travel profile which contains travel-relation information about a user, such as:
 
@@ -22,7 +21,8 @@ The Travel Profile resource represents a Concur travel profile which contains tr
 
 ##  Version
 
-2.0
+2.0  
+1.0 has been deprecated and can be found [here](/api-reference-deprecated/version-one/Travel/profile-resource.html)
 
 ##  URI
 
@@ -968,18 +968,7 @@ Content-Type: application/xml
 </pre>
  
 
-###  See Also
-* [Form of Payment][4]
-* [Loyalty Program][5]
-* [Company Notification][6]
-* [User Notification][7]
-* [Get a list of travel profile summaries](#a2)
-* [Travel Profile XSD][3] for the complete profile schema definition.
 
 
 [3]: https://www.concursolutions.com/ns/TravelUserProfile.xsd
-[4]: http://developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
-[5]: http://developer.concur.com/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
-[6]: http://developer.concur.com/developer.concur.com/api-reference/user/company-notification-subscription-resource
-[7]: http://developer.concur.com/developer.concur.com/api-reference/travel/travel-profile/user-notification-resource
 [8]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-

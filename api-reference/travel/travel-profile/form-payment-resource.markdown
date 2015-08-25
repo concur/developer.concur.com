@@ -5,13 +5,21 @@ layout: reference
 
 
 ## Description
-The Form of Payment resource represents the form of payment a Concur user uses by default during travel. You can use this resource to obtain information associated with a user's preferred method of payment such as card display name, credit card number, expiration date, and billiting address.
+The Form of Payment Web service consists of a set of resources that provide form of payment details customized in specific ways for developers, travel suppliers, and travel management companies (TMCs).  
+
+Developers, travel suppliers, and travel management companies (TMCs):
+
+* View user’s personal methods of payment
+* View user’s corporate methods of payment 
+* Will only be included if Corporate Ghost Card scope has been enabled
+
 
 ## Version   
-1.0
+2.0  
+1.0 has been deprecated and can be found [here](/api-reference-deprecated/version-one/Travel/form-payment-resource.html)
 
 ## URI   
-<samp> https://www.concursolutions.com/api/travelprofile/v1.0/fop/ </samp>
+    https://{InstanceURL}/api/travelprofile/v2.0/fop
 
 ## Who can use this resource?
 This endpoint can be used by travel suppliers or travel management companies (TMC). The scope of information returned varies depending on who makes the request.
@@ -28,144 +36,77 @@ This endpoint can be used by travel suppliers or travel management companies (TM
 * Expiration date
 * Card Owner's Name
 * Billing Address
-* Preferred usage
-
-**Travel Suppliers**
-This endpoint returns the OAuth consumer's preferred Form of Payment for the travel supplier's type of travel. For example, a rental car supplier may request the user's preferred form of payment for car rentals, and not hotel.
-
-**Travel Management Companies**
-This endpoint returns the OAuth consumer's full list of default Forms of Payment, regardless of type of travel. The user must have selected the form of payment as a default for at least one travel type for it to be returned in the response.
-
-## Who can use this resource?
-This endpoint is intended for use by Travel Suppliers or Travel Management Companies, to make travel booking easier. This endpoint is only available to suppliers or TMCs who have completed the [Concur application review process][4]. Travel suppliers or TMCs must provide evidence of PCI compliance and meet other security related terms and conditions before accessing form of payment information. Compliance will be confirmed during the application review process.
-
-## Request
+* Preferred usage (Values for this include: Corporate, Business, Personal)
+* If the card is mandatory or is default for usages with a certain segment (Segment types: Air, Hotel, Car, Rail, Ground)  
 
 
-```
-    GET https://www.concursolutions.com/api/travelprofile/v1.0/fop/ HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
-```
+## Data Model
 
-### Request parameters
-None.
+The schema for v2.0 is available [here.](https://www.concursolutions.com/ns/FormOfPayment.xsd)  
 
-### Headers  
+The root element contains the following attribute:
 
-#### Authorization header   
-`Authorization: OAuth {access_token}`
+Name | Type | Format | Description
+-----|------|--------|------------          
+`unique`    |   `string`  |   `-` |   The user’s unique identifier, associated with loyalty information if accessed by a vendor who has provided that information.
 
-#### Content-Type header   
-application/xml 
 
-#### Accept header   
-application/xml
+## CreditCard Elements
 
-##  Response
+Name | Type | Format | Description |
+------------|-----------------|---------|-------------|
+`DisplayName` | `string` |`-` |Display name associated with the card.|  
 
-### Content Types
-application/xml
 
-### Content Body
-This request will return a **CorporateFOPResponse** parent element with the **uniqueID** attribute and a **CreditCards** parent element containing a **CreditCard** element for each included credit card. The **CreditCards** element will only appear if the user has a credit card that is available to the supplier. The **CreditCard** element has the **DisplayName** attribute and contains the following child elements.
+The CreditCard element contains the following child elements:
 
-#### CreditCard element
-
-|Element Name|Required/Optional|Data Type| Description |
-|------------|-----------------|---------|-------------|
-|Vendor | | |The card vendor. One of the following options: Unknown, AX, DC, DS, CA, VI, CB, ER, TP, JC, AA, DL, NW, TW, UC, UA, EC, CP, AS, PO, AWRDCR |  
-|AccountNo | | |The credit card account number. |
-|ExpDate |  | |The expiration date of the credit card. Format: YYYY-MM |
-|NameOnCard | | |The name on the credit card. |
-|Usages | | |This element contains a comma separated list of the selected uses for this card. |
-|BillingAddress | | |This parent element contains information about the billing address. For information about the child elements of this parent element, see the **BillingAddress element** table below. |
+Name | Type | Format | Description |
+------------|-----------------|---------|-------------|
+`Vendor` |`string` |`-` |The card vendor. One of the following options: Unknown, AmericanExpress, DinersClub, Discover, MasterCard, Visa, CarteBlanche, Enroute, UniversalAirTravel, JCB, AmericanAirlines, DeltaEquity, NorthwestAirlines, TWAGetaway, UnitedTravelCard, UnitedCreditCard, EuroCard, CanadianAirlines, AlaskaAirBarter, PurchaseOrder, AwardCredit, Debit, ChinaUnionPay, Cash, CompanyPaid, CreditCard |  
+`AccountNo` | `string`|`-` |The credit card account number. |
+`ExpDate` |`date/time`|`-` |The expiration date of the credit card. Format: YYYY-MM |
+`NameOnCard` | `string` |`-` |The name on the credit card. |
+`UsageType`|`string` |`-` |For what purpose the card is to be used, which will be one of the following values: Corporate, Business, Personal |
+`BillingAddress` |`string`|`-` |This parent element contains information about the billing address. For information about the child elements of this parent element, see the **BillingAddress element** table below. |
+`Segments`|`string`|`-` |A list of segments with which the card may be used. For information about the child elements of this parent element, see the **Segment element** table below
 
 #### BillingAddress element
 
-|Element Name|Required/Optional|Data Type|Description|
-|------------|-----------------|---------|-----------|
-|StreetAddress | | |The street and unit information for the billing address.|
-|City | | |The city information for the billing address.|   
-|StateProvince | | |The state or province information for the billing address.|
-|Country| | |The country information for the billing address.|
-|ZipCode| | |The zip code information for the billing address.|
+Element Name|Required/Optional|Data Type|Description|
+------------|-----------------|---------|-----------|
+`StreetAddress` | `string`|`-`  |The street and unit information for the billing address.|
+`City` | `string`| `-` |The city information for the billing address.|   
+`StateProvince` | `string`| `-` |The state or province information for the billing address.|
+`Country`| `string`|`-`  |The country information for the billing address.|
+`ZipCode`| `string`| `-` The zip code information for the billing address.|
+
+#### Segments element
+
+Element Name|Required/Optional|Data Type|Description|
+------------|-----------------|---------|-----------|
+`Type` | `string`|`-`  |Type of Segment, which will be one of the following values: Air, Rail, Hotel, Car, Ground|
+`Mandatory` | `boolean`| `-` |A Boolean that notes if this card must be used for payment for this segment type. |   
+`Default` | `boolean`| `-` |A Boolean that notes if this card has a default use for payment for this segment type. |
 
 
-####  XML Example of Successful Response for Air Travel Supplier
+### Examples for Travel Suppliers  
 
-```xml
-    200 OK
-    Content-Type: application/xml
+#### Example 1: Get forms of payment for the user associated with the specified OAuth 2.0 access token  
+**Request** 
 
-    <CorporateFOPResponse UniqueID="3Dkw7WlCshi$281kedhn">
-        <CreditCards>
-            <CreditCard DisplayName="American Express">
-                <Vendor>AX</Vendor>
-                <AccountNo>123456789012345</AccountNo>
-                <ExpDate>2015-05</ExpDate>
-                <NameOnCard>Chris Miller</NameOnCard>
-                <Usages>BusinessAir</Usages>
-                <BillingAddress>
-                    <StreetAddress>1234 Rainy St.</StreetAddress>
-                    <City>Seattle</City>
-                    <StateProvince>WA</StateProvince>
-                    <Country>US</Country>
-                    <ZipCode>98112</ZipCode>
-                </BillingAddress>
-            </CreditCard>
-        </CreditCards>
-    </CorporateFOPResponse>
+``
+GET {InstanceURI}/api/travelprofile/v2.0/fop HTTP/1.1
+Authorization: OAuth {access token}
+...
 ```
 
-####  XML Example of Successful Response for TMC
+#### Examples for TMCs
+**Request**  
 
-```xml
-    200 OK
-    Content-Type: application/xml
-
-    <CorporateFOPResponse UniqueID="3Dkw7WlCshi$281kedhn">
-        <CreditCards>
-            <CreditCard DisplayName="American Express">
-                <Vendor>AX</Vendor>
-                <AccountNo>123456789012345</AccountNo>
-                <ExpDate>2015-05</ExpDate>
-                <NameOnCard>Chris Miller</NameOnCard>
-                <Usages>BusinessAir,BusinessCar</Usages>
-                <BillingAddress>
-                    <StreetAddress>1234 Rainy St.</StreetAddress>
-                    <City>Seattle</City>
-                    <StateProvince>WA</StateProvince>
-                    <Country>US</Country>
-                    <ZipCode>98112</ZipCode>
-                </BillingAddress>
-            </CreditCard>
-            <CreditCard DisplayName="Visa">
-                <Vendor>VI</Vendor>
-                <AccountNo>098765432109876</AccountNo>
-                <ExpDate>2013-07</ExpDate>
-                <NameOnCard>Chris Miller</NameOnCard>
-                <Usages>Hotel</Usages>
-                <BillingAddress>
-                    <StreetAddress>1234 Rainy St.</StreetAddress>
-                    <City>Seattle</City>
-                    <StateProvince>WA</StateProvince>
-                    <Country>US</Country>
-                    <ZipCode>98112</ZipCode>
-                </BillingAddress>
-            </CreditCard>
-        </CreditCards>
-    </CorporateFOPResponse>
+``
+GET {InstanceURI}/api/travelprofile/v2.0/fop HTTP/1.1
+Authorization: OAuth {access token}
+...
 ```
 
 
-
-
-## See also
-[Loyalty Program][2]   
-[Travel Profile][3]
-
-
-[2]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
-[3]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/profile-resource
-[4]: http://concur.github.io/developer.concur.com/manage-apps/app-certification
