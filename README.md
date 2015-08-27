@@ -10,6 +10,14 @@ Changes committed to the `preview` branch can be found here: [http://preview.dev
 
 Changes committed to the `livesite` branch can be found here: [developer.concur.com](https://developer.concur.com/)
 
+### Existing Concur Partners
+If you are an existing Concur partner and require support assistance, please open a partner support case [here.](https://na4.salesforce.com/secur/login_portal.jsp?orgId=00D600000007Dq3&portalId=06060000000PrEi)
+
+### Sandboxes
+Create a sandbox [here](http://preview.developer.concur.com/manage-apps/register.html).
+
+If you require assistance configuring your sandbox, please complete this [support form](http://preview.developer.concur.com/tools-support/sandbox-configuration-assistance.html).
+
 ---
 ##Sitemap
 The Concur Developer Website is organized into three main sections:  
