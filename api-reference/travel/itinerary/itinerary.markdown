@@ -7,7 +7,6 @@ title: Itinerary Web Service
 
 The Concur Itinerary web service can be used to programmatically access travel data such as trips and bookings in the Concur travel system. The Concur Travel system uses this data to match and consolidate bookings it receives from disparate sources and put these into consolidated travelers’ itineraries, providing travelers a convenient way to view their trips in a single itinerary view. Travelers can view their itineraries through mobile applications or other services. The following diagram provides a graphical overview of the Concur Itinerary web service:
 
-![Itinerary web service][9]
 
 ## Version
 
@@ -15,9 +14,9 @@ Version 1.0
 
 ## Resources
 
-[Trip] [6]
+[Trip](/api-reference/travel/itinerary/trip/trip-resource.html)
 
-[Booking] [8]
+[Booking](/api-reference/travel/itinerary/booking/booking-resource.html)
 
 ## Concepts
 
@@ -80,7 +79,7 @@ The travel supplier can request or send travel bookings by using an OAuth token 
 
 * If you are a TMC, third-party developer, or a TripLink supplier who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the Concur Connect Platform Team.
 * Concur products are highly configurable, and not all Concur clients will have access to all features.
-* Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
+* Partner developers must determine which configurations are required for their solution prior to the review process. Use the <a href="http://forum.developer.concur.com/" target="_blank">Developer Forum</a> if you have questions about the configuration settings.
 
 ## FAQs
 
@@ -1419,18 +1418,9 @@ Concur converts local date/time to UTC.  In order to do that we need to be able 
 |  UTC | | | |
 
 
-## See also
-
-[Travel Profile][4]
-
-[Connection Requests][7]
 
 
 
-[2]: http://forum.developer.concur.com/
+
 [3]: https://www.concur.com/en-us/connect-platform/suppliers
-[4]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/index
-[6]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/trip/trip-resource
-[7]: http://concur.github.io/developer.concur.com/api-reference/common/connection-requests/connection-requests-resource
-[8]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/booking/booking-resource
 [9]: Itinerarywebserviceoverview.png

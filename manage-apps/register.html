@@ -4,8 +4,8 @@ title: Sandbox Registration
 ---
 
 <div class="col-md-12">
-    <h2>Concur Connect Partners and Developers</h2>
-    <p> As a Concur partner or developer, you can request assistance for your developer sandbox configuration by filling out and submitting this form.</p><br>
+    <h2>Sandbox Creation Form</h2>
+    <p> As a Concur partner or developer, you can create a development sandbox by filling out and submitting this form.</p><br>
     {% include form-success.html %}
     <form action="{{ site.data.forms.server }}/register" method="POST" id="sandboxRegistration" class="sky-form" novalidate="novalidate">
       <fieldset>
@@ -25,7 +25,7 @@ title: Sandbox Registration
         </div>
         <div class="row">
           <section class="col col-6">
-            <label class="label">Email Address</label>
+            <label class="label">Email Address (Use one NOT associated w/ a Concur account)</label>
             <label class="input">
               <input type="email" name="email" id="email" placeholder="example@example.com">
             </label>
@@ -120,9 +120,6 @@ title: Sandbox Registration
       <h3>Before You Start</h3>
       <ul>
           <li>Use an email that is not in use in any Concur products, or is an existing Concur email—the address must be unique.</li>
-          <li>See the Creating a Sandbox tutorial.</li>
-          <li>Learn how to prep your app for App Review.</li>
-          <li>Questions?  Contact Concur Support.</li>
       </ul>
 
       <h3>About Creating a Sandbox</h3>
@@ -143,7 +140,7 @@ title: Sandbox Registration
           <li>User</li>
         </ul>
 
-        To configure your sandbox for additional products or APIs, contact Concur Support.
+        To configure your sandbox for additional products or APIs, contact <a href="/tools-support/sandbox-configuration-assistance.html">Concur Support</a>.
       </div>
 
       <h3>When You Login</h3>
