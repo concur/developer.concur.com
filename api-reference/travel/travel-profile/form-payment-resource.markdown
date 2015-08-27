@@ -65,7 +65,7 @@ Name | Type | Format | Description |
 `Vendor` |`string` |`-` |The card vendor. One of the following options: Unknown, AmericanExpress, DinersClub, Discover, MasterCard, Visa, CarteBlanche, Enroute, UniversalAirTravel, JCB, AmericanAirlines, DeltaEquity, NorthwestAirlines, TWAGetaway, UnitedTravelCard, UnitedCreditCard, EuroCard, CanadianAirlines, AlaskaAirBarter, PurchaseOrder, AwardCredit, Debit, ChinaUnionPay, Cash, CompanyPaid, CreditCard |  
 `AccountNo` | `string`|`-` |The credit card account number. |
 `ExpDate` |`date/time`|`-` |The expiration date of the credit card. Format: YYYY-MM |
-`NameOnCard` | `string` |`-` |The name on the credit card. |
+`NameOnCard` | `string` |`-` |The name on the credit card. **Personal Cards only.** |
 `UsageType`|`string` |`-` |For what purpose the card is to be used, which will be one of the following values: Corporate, Business, Personal |
 `BillingAddress` |`string`|`-` |This parent element contains information about the billing address. For information about the child elements of this parent element, see the **BillingAddress element** table below. |
 `Segments`|`string`|`-` |A list of segments with which the card may be used. For information about the child elements of this parent element, see the **Segment element** table below
@@ -85,7 +85,7 @@ Element Name|Required/Optional|Data Type|Description|
 Element Name|Required/Optional|Data Type|Description|
 ------------|-----------------|---------|-----------|
 `Type` | `string`|`-`  |Type of Segment, which will be one of the following values: Air, Rail, Hotel, Car, Ground|
-`Mandatory` | `boolean`| `-` |A Boolean that notes if this card must be used for payment for this segment type. |   
+`Mandatory` | `boolean`| `-` |A Boolean that notes if this card must be used for payment for this segment type. **Corporate Ghost Cards only.** |   
 `Default` | `boolean`| `-` |A Boolean that notes if this card has a default use for payment for this segment type. |
 
 

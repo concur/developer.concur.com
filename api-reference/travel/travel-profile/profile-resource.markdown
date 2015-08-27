@@ -211,7 +211,7 @@ The ProfileResponse root element contains the General, Telephones, Addresses, Dr
 
 ####  General elements
 
-The General parent element contains the following child elements:
+The General parent element contains the following child elements. In order to receive the Medical Alert data, you must enable the Medical Alerts scope. In order to receive the GDS Profile Name, you must enable the TMC Specific Information scope. Note: Profile fields, such as cost center and division, must be enabled and populated in the Travel site for data to return.  
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
