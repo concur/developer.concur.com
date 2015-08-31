@@ -2,11 +2,12 @@
 	content: none;
 	font-size: 40px;
 	line-height: normal;
-	text-align: center;
-	max-width: 900px;
-	width: 900px;
+	text-align: left;
+	max-width: 800px;
+	width: 800px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	padding-left: 10px;
 }
 
 .revolution-ch2:after {
