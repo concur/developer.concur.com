@@ -2,23 +2,43 @@
 title: Concur API Quick Start
 layout: reference
 ---
-If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs:## 1. Provision your developer sandbox  
-Create a sandbox using our [Sandbox Setup Wizard][1] and follow these [instructions](#provision-sandbox).  
-## 2. Make your first API call  
-Concur has several APIs you can call, depending on the data that you want to push/extract.  
-   Here are two main API examples:
+
+If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs:
+
+
+## 1. Provision your developer sandbox  
+
+
+Create a sandbox using our [Sandbox Setup Wizard][1] and follow these [instructions](#provision-sandbox).  
+
+
+## 2. Make your first API call  
+
+
+Concur has several APIs you can call, depending on the data that you want to push/extract.  
+
+   
+Here are two main API examples:
 
 * **The Travel/Itinerary API (v1.1)** lets you access a Concur user/company's itinerary, including hotel/flight booking info. As an example, you can mash-up the Itinerary API with a restaurant database/API to provide recommendations of places to eat near a Concur user's hotel booking.
 
 * **The Expense API (v3.0)** allows you to get (and push) a Concur user's expense information, including expense line items, their types (e.g. food, lodging), totals, and even receipt images.  
 
-Here's a [REST API Basics guide][2] if you're new to calling APIs.## 3. Get your app certified
+
+Here's a [REST API Basics guide][2] if you're new to calling APIs.
+
+## 3. Get your app certified
 After you have completed development and testing, submit your app for [certification][8].  
-## Addtional Helpful Info
-* [Generate an access token](#generate-access-token)
+
+
+## Addtional Helpful Info
+
+
+* [Generate an access token](#generate-access-token)
 * [Associating External Attendees to Expense Entries][5]
 * [Callouts and Application Connectors][6]
-* [App Registration & Management][7]
+* [App Registration & Management][7]
+
 
 
 ### <a name="provision-sandbox"></a>Provision your developer sandbox
@@ -38,7 +58,8 @@ Before you build your first application that integrates with Concur, you should 
 4. Click **Get Started**. You are now on the My Concur page of your sandbox company.
 5. To add users, create a payment method on the Employee Reimbursements page. On the Invite Users page, click **Invite Now** to activate your company.
 6. The sandbox can be used with the following APIs:  
-	* Attendee
+
+	* Attendee
 	* Expense
 	* Imaging
 	* Itinerary
@@ -65,14 +86,14 @@ We highly recommend that apps integrating with Concur support both the Web Flow 
 #### Native Flow
 
 The Native Flow is used for quick prototyping and back-office integration apps.
-You can find detailed information/steps about the Native Flow here  
+You can find detailed information/steps about the Native Flow [here][9]  
 
 
 #### Web Flow
 
 The Web Flow is used for logging in Concur users coming from your app.  
 
-You can find detailed information/steps about Web Flow here.
+You can find detailed information/steps about Web Flow [here][10].
 
 #### App Center Flow
 
@@ -89,3 +110,5 @@ The App Center Flow is used for logging in Concur users coming from [http://conc
 [6]: /docs/overviews/index.html
 [7]: /manage-apps/partner-applications.html
 [8]: /manage-apps/app-certification.html
+[9]: /api-reference/authentication/authentication.html#native
+[10]: /api-reference/authentication/authentication.html#web
