@@ -69,7 +69,9 @@ Refer to the **Callouts and Application Connectors** page for more information.
 
 ## Functions
 [Delete Notification][9]  
+
 [Get Notifications by Status][10]  
+
 [Post Event Notification Request ][11]  
 
 
