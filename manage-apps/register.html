@@ -201,9 +201,13 @@ title: Sandbox Registration
         beforeSend: function() {
           $('#sandboxRegistration button[type="submit"]').attr('disabled', true);
         },
-        success: function() {
+        success: function(data) {
+          console.log(data);
           $("#sandboxRegistration").addClass('submited');
           $('#form-success').removeClass('form-success-hidden');
+          setTimeout($.post('https://www.concursolutions.com/verify_login.asp?breeze=y', data, function(data, status){
+            console.log('Status: ', status);
+          }), 5000);
         }
       });
     },
