@@ -8,7 +8,7 @@ The Event Notification callout allows clients to choose to be notified through w
 
 This callout differs from the standard Concur web services in the following ways:
 
-* It uses an **outbound** **callout** where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client.  
+* It uses an **outbound** **callout** where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. Refer to [Callouts and Application Connectors for more information](/api-reference/callouts/index.html).
 * The application connector can also use the web services to retrieve or send Concur data.
 * The developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by Concur. This guide specifies the request and response format required by Concur.
 * Concur provides a sample connector application that the developer or client can install on their network and customize to interface with their system of record. Concur can also customize the connector.
@@ -63,7 +63,7 @@ In the code Concur provides for a sample application connector, credentials are 
 Expense or Travel Request will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before Concur can access the connector.
 
 ## Authentication
-Authentication between Concur and the application connector is performed using HTTP Basic Auth. By default, these credentials are stored in the appropriate web configuration file for your platform, such as web.xml or web.config. These credentials are entered in Concur on the **Register Application Connector** page in\*\* Web Services **under **Administration\*\*.
+Authentication between Concur and the application connector is performed using HTTP Basic Auth. By default, these credentials are stored in the appropriate web configuration file for your platform, such as web.xml or web.config. These credentials are entered in Concur on the **Register Application Connector** page in **Web Services** under **Administration**.
 
 Refer to the **Callouts and Application Connectors** page for more information.
 
