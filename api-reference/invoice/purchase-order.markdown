@@ -4,18 +4,93 @@ layout: reference
 ---
 
 # Purchase Orders
-* [Schema](#schema)
-* [Response schema](#schema-response)
-* [Receipt schema](#schema-receipt)
-* [Error codes](#error-codes)
 * [Create a new purchase order](#post)
 * [Update purchase order line item with receipt information](#put-receipts)
 * [Update an existing purchase order](#put)
 * [Get an existing purchase order](#get)
+* [Schema](#schema)
+* [Response schema](#schema-response)
+* [Receipt schema](#schema-receipt)
+* [Error codes](#error-codes)
 * [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/PurchaseOrders)
 
 ## Version
 3.0  
+
+
+## <a name="post"></a>Create a new purchase order  
+
+    POST /invoice/purchaseorders
+Creates or updates one or more purchase orders. All purchase order requests are considered a batch operation, even if only one purchase order is created or updated.
+
+###<a name="8"></a>Parameters  
+
+|Name | Type | Format | Description
+|-----|------|--------|------------
+|`purchaseOrder`|-|`body` | The details of the purchase order.
+
+### Input  
+
+[Schema](#schema)
+
+### Response  
+
+[Response schema](#schema-response)
+
+##<a name="put-receipts"></a>Update purchase order line item with receipt information  
+
+    PUT /invoice/purchaseorderreceipts
+
+### Parameters  
+
+|Name | Type | Format | Description
+|-----|------|--------|------------
+|`purchaseOrderReceipt`|-|`body` | Purchase order receipt information.
+
+### Input  
+
+[Receipt schema](#schema-receipt)
+
+### Response  
+
+[Response schema](#schema-response)
+
+## <a name="put"></a>Update an existing purchase order  
+
+    PUT /invoice/purchaseorders
+
+### Parameters  
+
+|Name | Type | Format | Description
+|-----|------|--------|------------
+|`purchaseOrder`|-|`body` | The details of the purchase order.
+
+### Input  
+
+[Schema](#schema)
+
+### Response  
+
+[Response schema](#schema-response)
+
+## <a name="get"></a>Get an existing purchase order  
+
+    GET /invoice/purchaseorders/{id}
+
+### Parameters  
+
+|Name | Type | Format | Description
+|-----|------|--------|------------
+|`id`|`string`|{id}| The identifier for the purchase order.
+
+### Input  
+
+None.
+
+### Response
+
+
+[Schema](#schema)
 
 ## <a name="schema"></a>Schema  
 
@@ -172,77 +247,3 @@ The web service will not return a 4xx HTTP response code for a batch operation e
 |8005|The Country Code is missing or invalid.
 |8006|A value was supplied for a field that is not part of the form.
 |9999|An unexpected error occurred.
-
-## <a name="post"></a>Create a new purchase order  
-
-    POST /invoice/purchaseorders
-Creates or updates one or more purchase orders. All purchase order requests are considered a batch operation, even if only one purchase order is created or updated.
-
-###<a name="8"></a>Parameters  
-
-|Name | Type | Format | Description
-|-----|------|--------|------------
-|`purchaseOrder`|-|`body` | The details of the purchase order.
-
-### Input  
-
-[Schema](#schema)
-
-### Response  
-
-[Response schema](#schema-response)
-
-##<a name="put-receipts"></a>Update purchase order line item with receipt information  
-
-    PUT /invoice/purchaseorderreceipts
-
-### Parameters  
-
-|Name | Type | Format | Description
-|-----|------|--------|------------
-|`purchaseOrderReceipt`|-|`body` | Purchase order receipt information.
-
-### Input  
-
-[Receipt schema](#schema-receipt)
-
-### Response  
-
-[Response schema](#schema-response)
-
-## <a name="put"></a>Update an existing purchase order  
-
-    PUT /invoice/purchaseorders
-
-### Parameters  
-
-|Name | Type | Format | Description
-|-----|------|--------|------------
-|`purchaseOrder`|-|`body` | The details of the purchase order.
-
-### Input  
-
-[Schema](#schema)
-
-### Response  
-
-[Response schema](#schema-response)
-
-## <a name="get"></a>Get an existing purchase order  
-
-    GET /invoice/purchaseorders/{id}
-
-### Parameters  
-
-|Name | Type | Format | Description
-|-----|------|--------|------------
-|`id`|`string`|{id}| The identifier for the purchase order.
-
-### Input  
-
-None.
-
-### Response
-
-
-[Schema](#schema)
