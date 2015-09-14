@@ -90,7 +90,7 @@ Name | Type | Format | Description
 [Attendee Schema](#schema)
 
 
-## <a name="put"></a>Delete an attendee type
+## <a name="delete"></a>Delete an attendee type
     DELETE /expense/attendeetypes{id}
 
 ### Parameters
