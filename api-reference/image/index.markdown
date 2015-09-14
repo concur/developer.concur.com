@@ -62,7 +62,7 @@ Name | Type | Format | Description
 `image`	|	`file`	|	`body`	|	**Required** Image data file
 
 
-## <a name="put"></a>Update a connection request
+## <a name="put"></a>Append a receipt image
 
     PUT /expense/receiptimage/{id}
 
