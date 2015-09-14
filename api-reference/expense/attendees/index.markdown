@@ -87,7 +87,7 @@ Name | Type | Format | Description
 [Attendee Schema](#schema)
 
 
-## <a name="put"></a>Delete an attendee
+## <a name="delete"></a>Delete an attendee
 
     DELETE /expense/attendees{id}
 
