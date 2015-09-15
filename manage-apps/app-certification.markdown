@@ -13,6 +13,9 @@ Handling data with care and delivering a positive experience for our customers i
 
 After your app is approved, your app listing will be reviewed before publishing in the [Concur App Center](https://www.concur.com/en-us/app-center).  
 
+#### **Watch Our Certification Overview Video**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AcvXN3jzn2s?list=PLLNSVdjqNPVtnNCWTZR5zBH91ZVf3UJZA" frameborder="0" allowfullscreen></iframe>
+
 #### **How Does App Review Work?**  
 
 Concur conducts an initial application and security review in the sandbox environment.  For solutions that process, transmit or store sensitive information, an additional review may be conducted in our sandbox as well as your production environment.  
