@@ -29,6 +29,7 @@ Here's a [REST API Basics guide][2] if you're new to calling APIs.
 
 ## 3. Get your app certified
 After you have completed development and testing, submit your app for [certification][8].  
+**NOTE:** This only applies to developers who are building an integration across multiple clients (i.e., an app that would appear in the App Center or TMC integrations). Concur clients who are using these APIs for interaction with their own data do not need to go through certification.
 
 
 ## Addtional Helpful Info

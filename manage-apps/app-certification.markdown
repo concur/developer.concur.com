@@ -4,6 +4,7 @@ layout: reference
 ---
 
 Handling data with care and delivering a positive experience for our customers is paramount at Concur.  To ensure an appropriate level of data security and good customer experience, all apps that integrate and appear in the App Center go through our App Review process.  
+**NOTE:** This only applies to developers who are building an integration across multiple clients (i.e., an app that would appear in the App Center or TMC integrations). Concur clients who are using these APIs for interaction with their own data do not need to go through certification.
 
 #### **Get Started on Your API Review**
 
