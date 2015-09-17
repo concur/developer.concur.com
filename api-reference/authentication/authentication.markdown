@@ -91,7 +91,7 @@ TODO -- Do we get a response?
 
 Header|Format|Description
 ------|------|-----------
-`Authorization`|[http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8)|`OAuth {access_token}` of user with proper role.
+`Authorization` |<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8" target="_blank">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8.</a> |`OAuth {access_token}` of user with proper role.
 
 #### Parameters
 
@@ -115,7 +115,7 @@ TODO -- Do we get a response?
 
 Header|Format|Description
 ------|------|-----------
-`Authorization`|[http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8)|`OAuth {access_token}` of user with proper role.
+`Authorization`|<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8" target="_blank">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8.</a> |`OAuth {access_token}` of user with proper role.
 
 #### Parameters
 
@@ -153,7 +153,7 @@ The request must contain the following HTTP headers:
 
 Header|Format|Description
 ------|------|-----------
-`Authorization`|[http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8)|The Base-64 encoded Concur credentials (LoginID:Password) of the user requesting access in the HTTP Basic Authentication format. If no password is used, the user name must still end with a colon.
+`Authorization`|<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8" target="_blank">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8.</a>|The Base-64 encoded Concur credentials (LoginID:Password) of the user requesting access in the HTTP Basic Authentication format. If no password is used, the user name must still end with a colon.
 `X-ConsumerKey`|[`{key}`](#key)|Unique identifier for the application.
 
 #### Example
