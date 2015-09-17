@@ -1,5 +1,5 @@
 ---
-title: Profile Resource 
+title: Travel Profile 
 layout: reference
 ---
 

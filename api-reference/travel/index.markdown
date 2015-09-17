@@ -1,11 +1,11 @@
 ---
+title: Travel Services
 layout: reference
-title: Travel Web Services
 ---
 
 ## Overview
 
-The Travel web services consists of a set of APIs that provide programmatic access to travel data such as itineraries, travel profiles, travel form of payment information, travel requests, and travel loyalty program information. These APIs are categorized into three sets of web services:
+The Travel services consists of a set of APIs that provide programmatic access to travel data such as itineraries, travel profiles, travel form of payment information, travel requests, and travel loyalty program information. These APIs are categorized into three sets of web services:
 
 
 ### [Itinerary] [1]
@@ -25,7 +25,7 @@ Concur Travel Request web service is designed to help businesses control expense
 The Trip Approval resource allows clients to approve or reject trips. Clients send the unique identifier for the trip, the approver email and the workflow action to be performed (either approve or reject).
 
 
-[1]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/itinerary
-[2]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile
-[3]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-request/travel-request-resource
-[4]: http://concur.github.io/developer.concur.com/api-reference/travel/trip-approval/trip-approval-resource
+[1]: /api-reference/travel/itinerary/itinerary.html
+[2]: /api-reference/travel/travel-profile/index.html
+[3]: /api-reference/travel/travel-request/travel-request-resource.html
+[4]: /api-reference/travel/trip-approval/trip-approval-resource.html

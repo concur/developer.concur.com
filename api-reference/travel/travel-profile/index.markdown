@@ -1,5 +1,5 @@
 ---
-title: Travel Profile Web Service
+title: Travel Profile Service
 layout: reference
 ---
 
@@ -9,7 +9,7 @@ layout: reference
 
 **NOTE: Travel Profile version 1.0 has been deprecated.**
 
-The Travel Profile Web service consists of a set of resources that provide travel profile functionality customized in specific ways for developers, travel suppliers, and travel management companies (TMCs).
+The Travel Profile service consists of a set of resources that provide travel profile functionality customized in specific ways for developers, travel suppliers, and travel management companies (TMCs).
 
 Developers, travel suppliers, and travel management companies (TMCs):
 

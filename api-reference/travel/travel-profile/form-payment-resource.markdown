@@ -1,5 +1,5 @@
 ---
-title: Form of Payment Resource 
+title: Form of Payment
 layout: reference
 ---
 

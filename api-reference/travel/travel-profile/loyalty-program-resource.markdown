@@ -1,5 +1,5 @@
 ---
-title: Loyalty Program Resource 
+title: Loyalty Program 
 layout: reference
 ---
 
