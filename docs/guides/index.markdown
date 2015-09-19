@@ -1,6 +1,6 @@
 ---
 title: Associating External Attendees to Expense Entries
-layout: reference
+layout: reference  
 ---
 
 
@@ -45,7 +45,7 @@ The sequence of events is as follows:
 2. The app searches Concur using the External ID to determine whether it has a record for the external attendee.
 3. The search result returns information that indicates whether or not Concur has a record for the attendee.
 4. If Concur has it, the app gets the ID Concur assigned to the attendee from the search results.  Skip to Step 7.
-5. If Concur doesn’t have it, the app needs to make an API call to the GET /expense/attendeetypes endpoint to obtain the ID for the attendee types. 
+5. If Concur doesn’t have it, the app needs to make an API call to the GET /expense/attendeetypes endpoint to obtain the ID for the attendee types.
 6. Make an API call to the POST /expense/attendees endpoint to create an attendee in the Concur system. Use the ID value obtained in step 5 for the AttendeeTypeID.
 7. Concur responds with the just created attendee’s ID.
 8. The app associates the attendee with the expense entry.
@@ -75,6 +75,7 @@ Authorization: OAuth {valid OAuth Access Token goes here}
 Content-Type: {application/json or application/xml goes here}
 ```
 
+
 Where:
 
 **externalID** is the unique identifier record for the external attendee assigned by the system of record. If the attendee with this external ID exists, the response includes the details about the attendee including its ID.
@@ -92,11 +93,12 @@ Authorization: OAuth pBA8nW1qGJcd4AZp9sGxti374Cc=
 Content-Type: application/json
 ```
 
-If Concur has a record of the external attendee, its unique identifier in Concur is returned in the ID element and you can skip to step 4. If Concur does not have a record, the Items element will be empty and you need to add the external attendee in Concur as prescribed in step 3. 
+If Concur has a record of the external attendee, its unique identifier in Concur is returned in the ID element and you can skip to step 4. If Concur does not have a record, the Items element will be empty and you need to add the external attendee in Concur as prescribed in step 3.
 
 A successful response when Concur has a record of the external attendee looks like this:
 
-```json
+```
+json
 {
     "Items":[
         {
@@ -139,7 +141,7 @@ A successful response when Concur has a record of the external attendee looks li
             "Custom20":null,
             "Custom21":null,
             "Custom22":null,
-            "Custom23":null, 
+            "Custom23":null,
             "Custom24":null,
             "Custom25":null,
             "ID":"nmBwIaoDagUkD8kXZGIl7B170uK9tE6pk",
@@ -163,7 +165,8 @@ Content-Type: {application/json or application/xml goes here}
 
 The request content body includes the details about the attendee. For example:
 
-```json
+```
+json
 {
     "AttendeeTypeID":"ID for the attendee type",
     "FirstName":"Taylor",
@@ -185,7 +188,8 @@ Content-Type: application/json
 
 In this example, we’re looking for the attendee type ID for Business Guest attendee types. A successful response looks like this:
 
-```json
+```
+json
 {
   "Items": [
     {
@@ -200,7 +204,7 @@ In this example, we’re looking for the attendee type ID for Business Guest att
         "LastName"
       ],
       "ConnectorID": "",
-      "AllowManuallyEnteredAttendees": true, 
+      "AllowManuallyEnteredAttendees": true,
       "AllowAttendeeCountEditing": false,
       "ID": "gWjUHBxUY4iQLA9KTkbtUD6pc",
       "URI": "https://www.concursolutions.com /api/v3.0/expense/attendeetypes/gWjUHBxUY4iQLA9KTkbtUD6pc"
@@ -236,7 +240,8 @@ Content-Type: application/json
 
 With this request body:
 
-```json
+```
+json
 {
     "AttendeeTypeID":"ID":"gWjUHBxUY4iQLA9KTkbtUD6pc",
     "FirstName":"Taylor",
@@ -250,7 +255,8 @@ With this request body:
 
 A successful response looks like this:
 
-```json
+```
+json
 {
     "ID":"nmBwIaoDagUvXYaxgYZp$pWlPZOvpzUfsM",
     "URI": https://www.concursolutions.com/api/v3.0/expense/attendees
@@ -264,8 +270,9 @@ Once you obtain the ID for the attendee, make a POST request to the Entry Attend
 
 Here’s what the call looks like:
 
-```json
-POST https://www.concursolutions.com/api/v3.0/expense /entryattendeeassociations?user=<URL Encoded Login ID for the Login ID for the owner of the expense entry> HTTP/1.1 
+```
+json
+POST https://www.concursolutions.com/api/v3.0/expense /entryattendeeassociations?user=<URL Encoded Login ID for the Login ID for the owner of the expense entry> HTTP/1.1
 Authorization: OAuth {valid OAuth Access Token goes here}
 Content-Type: application/json
 Accept: application/json
@@ -277,7 +284,8 @@ Accept: application/json
 }
 ```
 
-In this example, the content body for POST request has an expense entry with the unique identifier `n4MrUpcqIH3ot4bFvFCNXCpk7TJOphLTH` and the attendee with the unique identifier `nmBwIaoDagUkD8kXZGI l7B170uK9tE6pk`. 
+
+In this example, the content body for POST request has an expense entry with the unique identifier `n4MrUpcqIH3ot4bFvFCNXCpk7TJOphLTH` and the attendee with the unique identifier `nmBwIaoDagUkD8kXZGI l7B170uK9tE6pk`.
 
 
 

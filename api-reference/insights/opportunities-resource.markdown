@@ -9,6 +9,7 @@ Retrieves a collection of opportunities for a specified trip or for all trips th
 
 * [Retrieve a collection of opportunities for a specified trip or for all trips that fall within a date range](#get)
 * [Schema](#schema)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/Opportunities)
 
 ###Version
 3.0

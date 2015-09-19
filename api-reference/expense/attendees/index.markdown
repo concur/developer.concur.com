@@ -11,6 +11,7 @@ layout: reference
 * [Update existing attendees](#put)
 * [Delete an attendee](#delete)
 * [Schema](#schema)
+* [Make a test call using 3.0 Swagger](https://www.concursolutions.com/api/docs/index.html#!/Attendees)
 
 ###Version
 3.0
@@ -86,7 +87,7 @@ Name | Type | Format | Description
 [Attendee Schema](#schema)
 
 
-## <a name="put"></a>Delete an attendee
+## <a name="delete"></a>Delete an attendee
 
     DELETE /expense/attendees{id}
 

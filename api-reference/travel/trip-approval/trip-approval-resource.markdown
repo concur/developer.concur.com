@@ -1,5 +1,5 @@
 ---
-title: Trip Approval Resource 
+title: Trip Approval 
 layout: reference
 ---
 

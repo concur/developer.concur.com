@@ -1,5 +1,5 @@
 ---
-title: Travel Profile Web Service
+title: Travel Profile Service
 layout: reference
 ---
 
@@ -9,7 +9,7 @@ layout: reference
 
 **NOTE: Travel Profile version 1.0 has been deprecated.**
 
-The Travel Profile Web service consists of a set of resources that provide travel profile functionality customized in specific ways for developers, travel suppliers, and travel management companies (TMCs).
+The Travel Profile service consists of a set of resources that provide travel profile functionality customized in specific ways for developers, travel suppliers, and travel management companies (TMCs).
 
 Developers, travel suppliers, and travel management companies (TMCs):
 
@@ -21,7 +21,7 @@ Travel suppliers and TMCs:
 
 Travel suppliers:
 
-* Subscribe and unsubscribe to notifications for travel profile and form of payment information changes. To obtain notifications, the Concur users must grant access to their travel profile using the [Web OAuth 2.0 authorization flow][1].
+* Subscribe and unsubscribe to notifications for travel profile and form of payment information changes. To obtain notifications, the Concur users must grant access to their travel profile using the [Web authorization flow][1].
 * Unsubscribe to notifications for travel profile and form of payment information changes.
 
 
@@ -44,11 +44,11 @@ The developer should email [ConcurConnectTech@concur.com][7] and ask to be regis
 Travel supplier or TMC partner applications must complete the [Concur application review process][8] before they can access production user data. Travel suppliers can only access Form of Payment information for the type of travel that they supply. Suppliers can only update Loyalty Program information for the programs that they manage. TMCs can access all the user's Travel Profile data, regardless of vendor.
 
 
-[1]: http://api-reference/authentication/web-flow
-[2]: http://api-reference/travel/travel-profile/profile-resource
-[3]: http:///api-reference/travel/travel-profile/form-payment-resource
-[4]: http://api-reference/travel/travel-profile/loyalty-program-resource
-[5]: http://api-reference/user/company-notification-subscription-resource
-[6]: http://api-reference/travel/travel-profile/user-notification-resource
+[1]: /api-reference/authentication/authentication.html#web
+[2]: /api-reference/travel/travel-profile/profile-resource.html
+[3]: /api-reference/travel/travel-profile/form-payment-resource.html
+[4]: /api-reference/travel/travel-profile/loyalty-program-resource.html
+[5]: /api-reference/user/company-notification-subscription-resource/index.html
+[6]: /api-reference/travel/travel-profile/user-notification-resource.html
 [7]: mailto:ConcurConnectTech@concur.com
-[8]: http://concur.github.io/developer.concur.com/manage-apps/app-certification
+[8]: /manage-apps/app-certification.html

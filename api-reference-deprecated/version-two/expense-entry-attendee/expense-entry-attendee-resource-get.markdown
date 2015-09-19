@@ -7,7 +7,7 @@ layout: reference
 ##Description
 Retrieves the expense entry attendees for the specified expense entry. This function requires the v2.0 expense entry attendee resource.
 
-**NOTE:** This version has been deprecated. Find the newer version 3.0 [here.](/api-reference/expense/expense-report/expense-entry-attendee.markdown)
+**NOTE:** This version has been deprecated. Find the newer version 3.0 [here.](/api-reference/expense/expense-report/expense-entry-attendee.html#get)
 
 ##Version
 2.0
@@ -36,14 +36,14 @@ Authorization header with OAuth token for valid Concur user. Required.
 * application/xml
 * application/json
 
-##Response
+## Response
 
 ### Content types
 
 * application/xml
 * application/json
 
-###Response body
+### Response body
 
 This request will return an **Attendees** parent element with an **Attendee** child element for each attendee. The **Attendee** element will have the following child elements.
 
@@ -64,7 +64,8 @@ This request will return an **Attendees** parent element with an **Attendee** ch
 
 ### XML example request
 
-```xml
+```
+xml
     GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/nxxKgLlnROz3zHJBCRksaas23dsfs/entry/n7We3qWw99u1KoWTMaLhSC$pXBYzQ1UDhn/attendees HTTP/1.1
     Authorization: OAuth {access token}
     ...
@@ -72,7 +73,8 @@ This request will return an **Attendees** parent element with an **Attendee** ch
 
 ### JSON example request
 
-```json
+```
+json
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/nxxKgLlnROz3zHJBCRksaas23dsfs/entry/n7We3qWw99u1KoWTMaLhSC$pXBYzQ1UDhn/Attendees HTTP/1.1
 Authorization: OAuth {access token}
 ...
@@ -80,7 +82,8 @@ Authorization: OAuth {access token}
 
 ### XML example response
 
-```xml
+```
+xml
     200 OK
     Content-Type: application/xml
 
@@ -100,7 +103,8 @@ Authorization: OAuth {access token}
 
 ### JSON example response
 
-```json
+```
+json
 200 OK
 Content-Type: application/json
 

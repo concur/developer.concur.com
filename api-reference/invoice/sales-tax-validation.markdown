@@ -4,10 +4,52 @@ layout: reference
 ---
 
 # Sales Tax Validation
+* [Get invoices for calculating tax](#get)
+* [Update invoices with the calcuated tax amount and tax rate](#put)
 * [Schema](#schema)
 * [Status schema](#schema-status)
-* [Get invoices for calculating tax](#1)
-* [Update invoices with the calcuated tax amount and tax rate](#2)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/SalesTaxValidationRequest)
+
+##Version
+3.0  
+
+
+## <a name="get"></a>Get invoices for calculating tax
+    GET /invoice/salestaxvalidationrequest
+
+### Parameters  
+
+|Name | Type | Format | Description
+|-----|------|--------|------------
+|`offset`|`string`|`query`|The starting point of the next set of results, after the limit specified in the limit field has been reached.
+|`limit`|`Int32`|`query`|The number of invoices to retrieve. Maximum value: 1000
+|`modifiedafter`|`string`|`query`|A parameter that can be used to limit the results to invoices modified after the specified date.
+
+### Input  
+
+None.
+
+### Response  
+
+[Schema](#schema)
+
+## <a name="put"></a>Update invoices with a calcuated tax amount and tax rate  
+
+    PUT /invoice/salestaxvalidationrequest
+
+### Parameters  
+
+|Name | Type | Format | Description
+|-----|------|--------|------------
+|`invoice`|-|`body`|The tax information for the invoice that is to be updated.
+
+### Input  
+
+[Invoice](#invoice)
+
+### Response  
+
+[Status schema](#schema-status)
 
 ##<a name="schema"></a>Invoices schema  
 
@@ -116,39 +158,3 @@ layout: reference
 |`TaxReferenceID`|`string`|-|The tax reference ID of the updated invoice.
 |`Type`|`string`|-|Type request result
 
-## <a name="get"></a>Get invoices for calculating tax
-    GET /invoice/salestaxvalidationrequest
-
-### Parameters  
-
-|Name | Type | Format | Description
-|-----|------|--------|------------
-|`offset`|`string`|`query`|The starting point of the next set of results, after the limit specified in the limit field has been reached.
-|`limit`|`Int32`|`query`|The number of invoices to retrieve. Maximum value: 1000
-|`modifiedafter`|`string`|`query`|A parameter that can be used to limit the results to invoices modified after the specified date.
-
-### Input  
-
-None.
-
-### Response  
-
-[Schema](#schema)
-
-## <a name="put"></a>Update invoices with a calcuated tax amount and tax rate  
-
-    PUT /invoice/salestaxvalidationrequest
-
-### Parameters  
-
-|Name | Type | Format | Description
-|-----|------|--------|------------
-|`invoice`|-|`body`|The tax information for the invoice that is to be updated.
-
-### Input  
-
-[Invoice](#invoice)
-
-### Response  
-
-[Status schema](#schema-status)

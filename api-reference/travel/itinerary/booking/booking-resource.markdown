@@ -1,5 +1,5 @@
 ---
-title: Booking Resource
+title: Booking
 layout: reference
 ---
 

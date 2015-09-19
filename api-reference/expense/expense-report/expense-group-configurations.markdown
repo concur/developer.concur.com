@@ -16,6 +16,7 @@ NOTE: The Concur Expense product is highly configurable, and each client may hav
 * [Retrieve a configuration of an expense group](#get)
 * [Retrieve an expense group configuration by ID](#getID)
 * [Schema](#schema)
+* [Make a test call using 3.0 Swagger](https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations)
 
 
 ##Version

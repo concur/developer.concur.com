@@ -4,9 +4,6 @@ layout: reference
 ---
 
 
-
-
-
 ## Description
 A basic expense with minimal fields. Can be added to expense reports from within Concur. Documentation for the v3.0 resource is [here][1].
 
@@ -41,6 +38,6 @@ None
 
 
 
-[1]: /api-reference/expense/quick-expense/quick-expense-resource.html
+[1]: /api-reference/expense/quick-expense/index.html
 [2]: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource-get.html
 [3]: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource-post.html

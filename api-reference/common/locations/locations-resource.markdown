@@ -10,6 +10,7 @@ Gets details of locations that are used by Concur and that are valid at the user
 * [Retrieve details of locations that are used by Concur and that are valid at the user's company](#get)
 * [Retrieve details of a specified location](#getID)
 * [Schema](#schema)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/Locations)
 
 ###Version
 3.0  

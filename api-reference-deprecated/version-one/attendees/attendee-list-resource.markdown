@@ -3,6 +3,7 @@ title: Attendee List Resource
 layout: reference
 ---
 
+
 ## Description
 The Shared attendees in the Concur company. Attendees added using this web service are added to the Shared Attendee List (owned by the System and available to all users). This resource can't be used to create attendees on a Private List.
 
@@ -17,6 +18,6 @@ The Shared attendees in the Concur company. Attendees added using this web servi
 
 
 
-[2]: https://developer.concur.com/node/591
+[2]: /api-reference-deprecated/version-one/attendees/attendee-list-resource-post.html
 
 

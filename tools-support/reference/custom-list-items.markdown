@@ -31,5 +31,5 @@ Developers that post custom list item values can encounter errors when they post
   
 
 
-[1]: https://developer.concur.com/list-item/list-resource/list-resource-get
-[2]: https://developer.concur.com/list-item
+[1]: /api-reference/common/list-item/index.html#get
+[2]: /api-reference/common/list-item/index.html

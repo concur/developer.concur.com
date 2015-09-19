@@ -1,5 +1,5 @@
 ---
-title: User Notification Resource 
+title: User Notification 
 layout: reference
 ---
 

@@ -1,11 +1,11 @@
 ---
-title: Trip Resource 
+title: Trips 
 layout: reference
 ---
 
 
 ## Description
-The Trip resource represents itineraries in the Concur Travel system. TripLink suppliers use this resource to display a subset of the full booking fields.
+The Trips resource represents itineraries in the Concur Travel system. TripLink suppliers use this resource to display a subset of the full booking fields.
 
 ## Version
 

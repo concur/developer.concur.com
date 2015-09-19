@@ -26,8 +26,8 @@ deployment:
   preview:
     branch: preview
     commands:
-      - aws s3 sync ./_site s3://preview.developer.concur.com --region us-west-2 --output text --delete
+      - aws s3 sync ./_site s3://preview-developer-concur-com --region us-west-2 --output text --delete
   livesite:
     branch: livesite
     commands:
-      - aws s3 sync ./_site s3://livesite.developer.concur.com --region us-west-2 --output text --delete
+      - aws s3 sync ./_site s3://livesite-developer-concur-com --region us-west-2 --output text --delete

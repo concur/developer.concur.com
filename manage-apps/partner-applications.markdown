@@ -67,8 +67,5 @@ Applications are automatically enabled for your company when they are registered
 
 
 
-[1]: /api-reference/common/list-item/index.html
-[2]: https://developer.concur.com/callouts/external-validation
-[3]: https://developer.concur.com/oauth-20
-[4]: https://developer.concur.com/go-market/app-certification
+[4]: /manage-apps/app-certification.html
 

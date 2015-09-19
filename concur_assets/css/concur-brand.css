@@ -1,3 +1,30 @@
 body {
 	font-family: "Helvetica Neue","Segoe UI",Arial,sans-serif;
 }
+
+.edit-github-link > a {
+	color: #eee;
+	display: inline-block;
+}
+
+.edit-github-link > a:hover {
+	color: #eee;
+}
+
+.edit-github-link > a > i {
+	margin-right: 5px;
+}
+
+.edit-github-link > span {
+	color: #fff;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.blog-link {
+	color: #eee;
+}
+
+.blog-link:hover {
+	color: #eee;
+}

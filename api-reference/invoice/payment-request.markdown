@@ -9,6 +9,8 @@ layout: reference
 * [Create a New Payment Request](#post)
 * [Update a Payment Request](#put)
 * [Schema](#schema)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/PaymentRequest)
+
 
 ## Version
 3.0  

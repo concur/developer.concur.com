@@ -14,12 +14,12 @@ This guide provides a step by step overview of how to set up and use the externa
 
 ##  Step 1 - Create an Application Connector
 
-The application connector is a custom web application that is installed on your company's web server. This application needs to be accessible from outside your company's network, so that Concur can send information to it, and it needs to have access to the system that you are using for validation. Concur provides some sample application connector code on the [Sample Code][2] page under Callouts. The application connector must be configured to accept the event notification requests from Concur. In later steps, you will expand the functionality of the application connector to perform additional tasks. The required connector configuration for this step is:
+The application connector is a custom web application that is installed on your company's web server. This application needs to be accessible from outside your company's network, so that Concur can send information to it, and it needs to have access to the system that you are using for validation. The application connector must be configured to accept the event notification requests from Concur. In later steps, you will expand the functionality of the application connector to perform additional tasks. The required connector configuration for this step is:
 
 * You must have a current security certificate installed on the server that hosts the application connector.
 * You must expose an endpoint on your web server that Concur can connect to. This endpoint can have any name or location. The default endpoint is: /concur/v1.0/notify
 * You must be able to accept an HTTP POST from Concur with the event notification data. Refer to the [Event Notification][3] information for details of the information format. You just need to store the data that Concur sends for this step.
-* You must have a username and password configured for the host web server, which Concur will use when sending the HTTP POST request. This username and password is sent using [HTTP Basic Auth][4].
+* You must have a username and password configured for the host web server, which Concur will use when sending the HTTP POST request. This username and password is sent using HTTP Basic Auth.
 
 Once you have the basic application connector functionality set up, you're ready to move to the next step.
 
@@ -47,11 +47,8 @@ In this step, you will enable the Event Notification functionality in your Concu
    |  Host Name |  Enter the hostname for the connector.  **Example:** `https://{servername}` |
    |  User Name |  Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth. |
    |  Password |  Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth. |  
-
-   ![][5]
 6. In the **Services** section, select **External Report Validation**.
 7. Click **Configure**. The **Configure Service** window appears.  
-   ![][6]
 8. Enter the endpoint that the Concur will connect to on your server. Example: /concur/v1.0/notify
 9. Select the **Enabled** check box.
 10. In the Workflows section, select the **Submit** check box for each Request workflow that requires notifications.
@@ -62,9 +59,7 @@ In this step, you will enable the Event Notification functionality in your Concu
 ###  Procedure: Create the Request Partner Application
 
 1. On the **Web Services** page, click **Register Partner Application**. The **Application Registration** page appears.  
-   ![ /][7]
 2. Click **New**. The **New Partner Application** page appears.  
-   ![ /][8]
 3. Complete all of the required fields:
    
    |Field |Description |
@@ -87,7 +82,7 @@ In this step, you will expand the application connector functionality to use the
 
 ###  Get OAuth Access Token
 
-All requests to Concur web services must be authenticated using [OAuth 2.0][9].
+All requests to Concur web services must be authenticated using OAuth 2.0.
 
 After receiving an event notification, the application connector should send an HTTP GET request to the [Get Access Token using Native Flow][10] function. This function requires the login credentials of an administrative Concur user and the Consumer Key that was generated when you created the partner application in the previous step. Refer to the [Get Access Token using Native Flow][10] documentation for the format of the request. Concur will respond to the request with the access token required for the next web service request.
 
@@ -102,7 +97,6 @@ After you receive the OAuth access token, you are ready to request the Request d
     ...
 ```
 
-Concur responds with the full Request details, which are documented in [Get Request Details][12].
 
 ##  Step 4 - Validate the Request Information
 
@@ -119,7 +113,7 @@ In the next step, the application connector will update the Request with the val
 
 Once the Request has been validated, the application connector is ready to update it's workflow. If the Request passed validation, it should be approved, and will then travel forward in it's workflow. If the Request did not pass validation, it should be sent back to the employee, which moves it to the beginning of the workflow.
 
-The full Request details include an element named **WorkflowStepURL**. The application connector posts the workflow action (Approve or Send Back to Employee) to this url, using the same OAuth access token in the header. Refer to the [Post Request Workflow Action][13] documentation for the request format.
+The full Request details include an element named **WorkflowStepURL**. The application connector posts the workflow action (Approve or Send Back to Employee) to this url, using the same OAuth access token in the header. 
 
 Concur responds with a success or failure status, and provides additional information for failures.
 
@@ -129,13 +123,13 @@ The application connector has now completed the process of validating a Request,
 
 [1]: https://developer.concur.com/sites/default/files/TR_Diagram_small2.png
 [2]: https://developer.concur.com/api-documentation/sample-code
-[3]: https://developer.concur.com/callouts/event-notification
+[3]: /api-reference/callouts/event-notification.html
 [4]: https://developer.concur.com/node/25#authtoconnect
 [5]: https://developer.concur.com/sites/default/files/ManageAppConnector_small.png
 [6]: https://developer.concur.com/sites/default/files/ConfigureService.png
 [7]: https://developer.concur.com/sites/default/files/RegPartApp_crop.png
 [8]: https://developer.concur.com/sites/default/files/NewPartnerApp_0.png
 [9]: https://developer.concur.com/oauth-20
-[10]: https://developer.concur.com/oauth-20/native-flow
+[10]: /api-reference/authentication/authentication.html
 [12]: https://developer.concur.com/node/518#requestdetails
 [13]: https://developer.concur.com/node/519#requestworkflow

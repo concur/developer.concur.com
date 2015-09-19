@@ -13,6 +13,7 @@ The Connection Requests resource is used to integrate TripLink partner applicati
 * [Update a connection request](#put)
 * [Delete an connection request](#delete)
 * [Schema](#schema)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/ConnectionRequests)
 
 ###Version
 3.0
@@ -107,4 +108,5 @@ Name | Type | Format | Description
 `RequestToken`	|	``string``	|	-	|	The request token.
 `Status`	|	``string``	|	-	|	The status code representing the state of the connection request.
 `URI`	|	``string``	|	-	|	The URI to the resource.
+
 

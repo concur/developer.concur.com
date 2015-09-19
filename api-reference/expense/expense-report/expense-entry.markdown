@@ -12,6 +12,7 @@ layout: reference
 * [Updates an expense entry](#put)
 * [Delete an expense entry](#delete)
 * [Schema](#schema)
+* [Make a test call using 3.0 Swagger](https://www.concursolutions.com/api/docs/index.html#!/Entries)
 
 ##Version  
 

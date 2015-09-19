@@ -108,4 +108,4 @@ The response will include a **fetch-list-response** parent element, with an **it
   
 
 
-[1]: https://developer.concur.com/node/443#auth
+[1]: api-reference/authentication/authentication.html

@@ -12,6 +12,7 @@ layout: reference
 * [Update an expense itemization](#put)
 * [Delete an expense itemization](#delete)
 * [Schema](#schema)
+* [Make a test call using 3.0 Swagger](https://www.concursolutions.com/api/docs/index.html#!/Itemizations)
 
 
 ##Version

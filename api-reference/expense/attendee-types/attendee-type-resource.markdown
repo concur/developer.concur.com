@@ -14,6 +14,7 @@ The Attendee Type resource represents the type of attendee as configured in Conc
 * [Update existing attendee type](#put)
 * [Delete an attendee type](#delete)
 * [Schema](#schema)
+* [Make a test call using 3.0 Swagger](https://www.concursolutions.com/api/docs/index.html#!/AttendeeTypes)
 
 ###Version
 3.0
@@ -89,7 +90,7 @@ Name | Type | Format | Description
 [Attendee Schema](#schema)
 
 
-## <a name="put"></a>Delete an attendee type
+## <a name="delete"></a>Delete an attendee type
     DELETE /expense/attendeetypes{id}
 
 ### Parameters

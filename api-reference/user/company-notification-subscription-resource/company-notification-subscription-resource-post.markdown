@@ -12,7 +12,7 @@ This resource supports the following POST actions:
 
 ### Description
 
-Subscribes or unsubcribes the partner from notifications when any users in the company add, modify, or cancel an itinerary. The partner must have received authorization using [OAuth][1] by an administrative user at the company to access the company's trip information. 
+Subscribes or unsubcribes the partner from notifications when any users in the company add, modify, or cancel an itinerary. The partner must have received authorization using OAuth by an administrative user at the company to access the company's trip information. 
 
 ###  Post Company Notification Subscription for Itinerary Changes Request
 
@@ -81,7 +81,7 @@ POST https://www.postbackurl.com?type=itinerary&oauth_token_key={oauthtoken}&use
 
 ### Description
 
-Subscribes or unsubcribes the partner from notifications when the company's Travel Profile information changes. The partner must have received authorization using [OAuth][1] by an administrative user at the company to access the company's trip information.
+Subscribes or unsubcribes the partner from notifications when the company's Travel Profile information changes. The partner must have received authorization using OAuth by an administrative user at the company to access the company's trip information.
 
 **NOTE**: Concur will send a notification when any area of the user's Travel Profile is updated. This may include fields that are not available through the Travel Profile web service.
 
@@ -115,7 +115,7 @@ The notification will be sent to the Postback URL that the partner has registere
 
 `https://postbackurl.com?type=profile&oauth_token_key={oauthtoken}&userid_type=login&userid_value=cm@example.com`
 
-The partner can use this information to make a [Get Travel Profile][3] request.
+The partner can use this information to make a Get Travel Profile request.
 
 ####  XML Example of Successful Response
 

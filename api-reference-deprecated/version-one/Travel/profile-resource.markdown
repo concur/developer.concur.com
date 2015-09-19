@@ -963,12 +963,7 @@ Content-Type: application/xml
 </pre>
  
 
-###  See Also
-* [Form of Payment][4]
-* [Loyalty Program][5]
-* [Company Notification][6]
-* [User Notification][7]
-* [Travel Profile XSD][3] for the complete profile schema definition.
+
 
 
 [3]: https://www.concursolutions.com/ns/PanamaUserProfile.xsd

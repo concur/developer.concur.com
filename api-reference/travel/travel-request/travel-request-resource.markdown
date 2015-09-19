@@ -1,5 +1,5 @@
 ---
-title: Travel Request Resource
+title: Travel Request
 layout: reference
 ---
 
