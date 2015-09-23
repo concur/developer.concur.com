@@ -205,9 +205,34 @@ title: Sandbox Registration
           console.log(data);
           $("#sandboxRegistration").addClass('submited');
           $('#form-success').removeClass('form-success-hidden');
-          setTimeout($.post('https://www.concursolutions.com/verify_login.asp?breeze=y', data, function(data, status){
-            console.log('Status: ', status);
-          }), 5000);
+          setTimeout(function(){
+            var verifyLoginPage = 'https://www.concursolutions.com/verify_login.asp?breeze=y';
+            // create a new hidden form
+            var hiddenForm = $('<form></form>')
+              .attr("name", "loginCS_hidden")
+              .attr("id", "loginCS_hidden")
+              .attr("style", "display:none")
+              .attr("action", verifyLoginPage)
+              .attr("method", "POST");
+
+              $('<input></input>')
+                .attr("type", "text")
+                .attr("name", "userid")
+                .attr("value", data.userid)
+                .appendTo(hiddenForm)
+
+              $('<input></input>')
+                .attr("type", "text")
+                .attr("name", "password")
+                .attr("value", data.password)
+                .appendTo(hiddenForm);
+
+              hiddenForm.appendTo('body').submit();
+
+            // $.post('https://www.concursolutions.com/verify_login.asp?breeze=y', data, function(data, status){
+            //   console.log('Status: ', status);
+            // }
+          }, 5000);
         }
       });
     },
