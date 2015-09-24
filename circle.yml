@@ -20,7 +20,7 @@ test:
   override:
     - ./build/write_branch.sh
     - ./build/write_commit.sh
-    - .build/write_forms.sh
+    - ./build/write_forms.sh
     - bundle exec jekyll build
 
 deployment:
