@@ -48,7 +48,7 @@ The request will contain a **CC_LimoUpdateRequest** parent element, containing t
 |  PickupInstructions |   |  Additional instructions about the pick up request. |
 |  DropoffInstructions |   |  Additional instructions about the drop off request. |
 |  LanguageCode |   |  The language of the traveler. Will be one of the following options: <br/>en: English  <br/>en-us: English (US)  <br/>en-gb: English (UK)  <br/>fr: French  <br/>fr-ca: French (Canadian)  <br/>de: German  <br/>pt: Portuguese  <br/>es: Spanish  <br/>nl: Dutch  <br/>it: Italian  <br/>ja: Japanese  <br/>pl: Polish  <br/>pt-br: Portuguese (Brazilian)  <br/>ru: Russian  <br/>hu: Hungarian  <br/>ko: Korean  <br/>sv: Swedish  <br/>zh-cn: Chinese  <br/>zh-tw: Traditional Chinese|
-|  Currency |   |  The [3-letter ISO 4217 currency code][2] for the reservation amount. |
+|  Currency |   |  The <a href="http://en.wikipedia.org/wiki/ISO_4217" target="_blank">3-letter ISO 4217 currency code</a> for the reservation amount. |
 |  NumPassengers |   |  The number of passengers. |
 | DiscountCode |  |The discount code information. For information about the child elements of this parent element, see the **DiscountCode elements** table below.  |
 |  FormOfPayment |   |  The form of payment for the reservation. For information about the child elements of this parent element, see the **FormOfPayment elements** table below. |
@@ -88,7 +88,7 @@ The request will contain a **CC_LimoUpdateRequest** parent element, containing t
 |  Address |  The street address of the location. Provided if the LocationType = 100. |
 |  City |  The location city. |
 |  State |  The location state. Preferably 2 characters, max 10 characters. |
-|  Country |  The location's [2 character ISO 3166-1 alpha-2][1] country code. Example: US |
+|  Country |  The location's <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">2 character ISO 3166-1 alpha-2</a> country code. Example: US |
 |  PostalCode |  The location postal code. |
 |  ExtraNotes |  Additional notes about the location. Example: Ring doorbell, Holiday Inn, etc. |
 
@@ -102,7 +102,7 @@ The request will contain a **CC_LimoUpdateRequest** parent element, containing t
 |  Address |  The street address of the location. Provided if the LocationType = 100. |
 |  City |  The location city. |
 |  State |  The location state. Preferably 2 characters, max 10 characters. |
-|  Country |  The location's [2 character ISO 3166-1 alpha-2][1] country code. Example: US |
+|  Country |  The location's <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">2 character ISO 3166-1 alpha-2</a> country code. Example: US |
 |  PostalCode |  The location postal code. |
 |  ExtraNotes |  Additional notes about the location. Example: Apartment Building, gravel driveway, etc. |
 
@@ -202,7 +202,7 @@ The response will include a **CC_LimoUpdateReply** parent element, with the foll
 |  PickupInstructions |  N |  Additional instructions about the pick up request. |
 |  DropoffInstructions |  N |  Additional instructions about the drop off request. |
 |  LanguageCode |  Y |  The language of the traveler. Will be one of the following options: <br/>en: English  <br/>en-us: English (US)  <br/>en-gb: English (UK)  <br/>fr: French  <br/>fr-ca: French (Canadian)  <br/>de: German  <br/>pt: Portuguese  <br/>es: Spanish  <br/>nl: Dutch  <br/>it: Italian  <br/>ja: Japanese  <br/>pl: Polish  <br/>pt-br: Portuguese (Brazilian)  <br/>ru: Russian  <br/>hu: Hungarian  <br/>ko: Korean  <br/>sv: Swedish  <br/>zh-cn: Chinese  <br/>zh-tw: Traditional Chinese|
-|  Currency |  Y |  The [3-letter ISO 4217 currency code][2] for the reservation amount. |
+|  Currency |  Y |  The <a href="http://en.wikipedia.org/wiki/ISO_4217" target="_blank">3-letter ISO 4217 currency code</a> for the reservation amount. |
 |  NumPassengers |  N |  The number of passengers. |
 |  RequestedDriver |  N |  The name of the requested driver, if available. |
 |  SpecialServiceRequest |  N |  The details of the special service request, if available. |

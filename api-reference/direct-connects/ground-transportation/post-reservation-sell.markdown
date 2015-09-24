@@ -382,7 +382,7 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 |  PickupInstructions | N  |  Additional instructions about the pick up request. |
 |  DropoffInstructions |  N |  Additional instructions about the drop off request. |
 |  LanguageCode | Y  |  The language of the traveler. Will be one of the following options: <br/>en: English  <br/>en-us: English (US)  <br/>en-gb: English (UK)  <br/>fr: French  <br/>fr-ca: French (Canadian)  <br/>de: German  <br/>pt: Portuguese  <br/>es: Spanish  <br/>nl: Dutch  <br/>it: Italian  <br/>ja: Japanese  <br/>pl: Polish  <br/>pt-br: Portuguese (Brazilian)  <br/>ru: Russian  <br/>hu: Hungarian  <br/>ko: Korean  <br/>sv: Swedish  <br/>zh-cn: Chinese  <br/>zh-tw: Traditional Chinese|
-|  Currency |  Y |  The [3-letter ISO 4217 currency code][2] for the reservation amount. |
+|  Currency |  Y |  The <a href="http://en.wikipedia.org/wiki/ISO_4217" target="_blank">3-letter ISO 4217 currency code</a> for the reservation amount. |
 |  NumPassengers | N  |  The number of passengers. |
 |  RequestedDriver | N  |  The name of the requested driver, if available. |
 |  SpecialServiceRequest | N  |  The details of the special service request, if available. |
