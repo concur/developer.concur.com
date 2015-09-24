@@ -18,7 +18,7 @@ The Ground Transportation direct connect sends the relevant information to a URI
 
 `https://{servername}/concur/groundtransportation`
 
-The URI is configured by the supplier when [registering the partner application][1]. 
+The URI is configured by the supplier when registering the partner application. 
 
 ### Headers
 
@@ -26,7 +26,7 @@ The URI is configured by the supplier when [registering the partner application]
 application/xml
 
 #### Authorization header
-Authorization header with OAuth credentials. Refer to the [OAuth][2] documentation for more information. 
+Authorization header with OAuth credentials.
 
 ### Request Body
 The request will contain a **CC_LimoSearchRequest** parent element, containing the following child elements.
@@ -61,7 +61,7 @@ If this value is not provided by the user, it will default to 100.
 |  Address |  The street address of the location. Provided if the LocationType = 100. |
 |  City |  The location city. |
 |  State |  The location state. Preferably 2 characters, max 10 characters. |
-|  Country |  The location's [ 2 character ISO 3166-1 alpha-2][3] country code. Example: US |
+|  Country |  The location's <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">2 character ISO 3166-1 alpha-2</a> country code. Example: US |
 |  PostalCode |  The location postal code. |
 |  ExtraNotes |  Additional notes about the location. Example: Ring doorbell, Holiday Inn, etc. |
 
@@ -77,7 +77,7 @@ If this value is not provided by the user, it will default to 100.
 |  Address |  The street address of the location. Provided if the LocationType = 100. |
 |  City |  The location city. |
 |  State |  The location state. Preferably 2 characters, max 10 characters. |
-|  Country |  The location's [ 2 character ISO 3166-1 alpha-2][3] country code. Example: US |
+|  Country |  The location's <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">2 character ISO 3166-1 alpha-2</a> country code. Example: US |
 |  PostalCode |  The location postal code. |
 |  ExtraNotes |  Additional notes about the location. Example: Apartment building, gravel driveway, etc. |
 
@@ -111,7 +111,7 @@ sv: Swedish
 zh-cn: Chinese  
 zh-tw: Traditional Chinese
 
-**Currency**: The [3-letter ISO 4217 currency code][4] for the reservation amount. 
+**Currency**: The <a href="http://en.wikipedia.org/wiki/ISO_4217" target="_blank">3-letter ISO 4217 currency code</a> for the reservation amount. 
 
 **NumPassengers**: The number of passengers. 
 
@@ -144,7 +144,7 @@ zh-tw: Traditional Chinese
 
 #### Airport Elements
 
-**AirportCode**: The [IATA code][5] for the airport.
+**AirportCode**: The <a href="http://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code" target="_blank">IATA Code</a> for the airport.
 
 **Flight**: The flight information. This parent element contains the following child elements:
 
@@ -256,7 +256,7 @@ The response will include a **CC_LimoSearchReply** parent element, with the foll
 |  Rate |  Y |  The BasePrice + ServiceCharge + SurCharge + Tax |
 |  RateTypeCode |  Y |  The code for the rate type. Will be one of the following options:<br/>F: Flat rate<br/>H: Hourly<br/>E: Estimated amount<br/>N: Currently not available |
 |  CategoryCode |  N |  Extra information that will be passed back during sell request to help identify the rate. |
-|  Currency |  Y |  The [3-letter ISO 4217 currency code][4] for the rate amount. |
+|  Currency |  Y |  The <a href="http://en.wikipedia.org/wiki/ISO_4217" target="_blank">3-letter ISO 4217 currency code</a> for the rate amount. |
 |  NoRateText |  N |  Explanation of rate type. Provided if RateTypeCode = N |
 |  MinHours |  N |  The minimum number of hours for the reservation. |
 |  DiscountType |  N |  The type of discount applied. |
