@@ -10,7 +10,7 @@ The following request is sent to the supplier when the Travel user selects a gro
 The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 `https://{servername}/concur/groundtransportation`
 
-The URI is configured by the supplier when registering the [partner application](https://developer.concur.com/overview/partner-applications).
+The URI is configured by the supplier when registering the partner application.
 
 ## Request Headers - Required
 Authorization header with OAuth credentials. Refer to the OAuth documentation for more information.
@@ -67,7 +67,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |PickupInstructions |  N |  |Additional instructions about the pick up request. |
 |DropoffInstructions |  N |  |Additional instructions about the drop off request. |
 |LanguageCode |  Y |  |The language of the traveler. Will be one of the following options: <br>en: English <br>en-us: English (US) <br>en-gb: English (UK)  <br>fr: French <br>fr-ca: French (Canadian) <br>de: German <br>pt: Portuguese <br>es: Spanish <br>nl: Dutch <br>it: Italian <br>ja: Japanese <br>pl: Polish  <br>bt-br: Portuguese (Brazilian)  <br>ru: Russian  <br>hu: Hungarian  <br>ko: Korean <br>sv: Swedish <br>zh-cn: Chinese <br>zh-tw: Traditional Chinese|
-| Currency |  Y |  |The [3-letter ISO 4217 currency code][2] for the reservation amount. |
+| Currency |  Y |  |The <a href="http://en.wikipedia.org/wiki/ISO_4217" target="_blank">3-letter ISO 4217 currency code</a> for the reservation amount. |
 | NumPassengers |  N |  |The number of passengers. |
 | RequestedDriver |  N |  |The name of the requested driver, if available. |
 | SpecialServiceRequest |  N |  |The details of the special service request, if available. |
@@ -84,6 +84,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 
 
 #### Error Child Elements <a name="Error"></a>
+
 |Element Name|Required/Optional|Data Type|Description|
 | ---------- | --------------- |-------- |-----------|
 |  ErrorCode | | |The code for the error. Will contain one of the following values: <br>400: Credential related error <br>700: Reservation not available <br>900: Unknown error |
@@ -91,6 +92,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |ErrorDescription| | |The additional error information. |
 
 #### PrimaryPassenger Child Element <a name="PrimaryPassenger"></a>
+
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |FirstName |  | |The contact's first name. |
@@ -101,6 +103,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |EmailAddress | | |The contact's email address. |
 
 ###PickupLocation <a name="PickupLocation"></a>
+
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 | LocationType |  | |One of the following: 100 - Address, 200 - Airport, 300 - Train station. |
@@ -114,6 +117,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | ExtraNotes |  | |Additional notes about the location. Example: Ring doorbell, Holiday Inn, etc. |
 
 ###PickupLocation <a name="DropoffLocation"></a>
+
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |LocationType | | |One of the following: 100 - Address, 200 - Airport, 300 - Train station, 400 - As directed. |
@@ -184,12 +188,14 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |Expiration|	Y|	|The card expiration date. Format: 2013-02-19.|
 
 ### Airport Elements
+
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |AirportCode	| | |The IATA code for the airport.|
 |Flight	| | |The flight information. For information about the child elements of this parent element, see the **Flight elements** table.|
 
 ### Flight Child Elements
+
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |CarrierCode| | |The airline code.|
@@ -208,6 +214,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |Train|	| |The train information. For information about the child elements of this parent element, see the **Train elements** table. |
 
 ### Train Child Elements
+
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |CarrierCode	| | |The code of the train carrier.|

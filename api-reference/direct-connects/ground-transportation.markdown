@@ -17,7 +17,6 @@ This callout differs from the inbound Concur web services in the following ways:
 
 **NOTE**: This direct connect was originally designed to work with Limo providers, but can support all types of ground transportation.
 
-Information on how to register and configure the partner application is included in [Partner Applications][1].
 
 ## Configuration
 
@@ -31,7 +30,7 @@ This direct connect is only available to Travel Suppliers with Ground Transporta
 
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the review process. Use the <a href="http://forum.developer.concur.com/" target="_blank">developer forums.</a> if you have questions about the configuration settings.
 
 ### Configuration process
 
@@ -60,7 +59,7 @@ This callout can also be used to perform the following operations:
 * Update the Ground Transportation Reservation with Travel
 
 ## Authentication
-Authentication between Concur and the application connector is performed using OAuth. Refer to the OAuth documentation [here][3] for more information.
+Authentication between Concur and the application connector is performed using OAuth.
 
 ## Operations
 
@@ -96,14 +95,10 @@ TUR ZM AK1  SEA 15DEC-/FALCON DES-TEL 8666932526/RATE-50.00 HOURLY-2 HR MIN/CON
 
   
 
-
-[1]: https://developer.concur.com/overview/partner-applications
-[2]: https://developer.concur.com/forums/concur-connect
-[3]: https://developer.concur.com/oauth-20
-[4]: https://developer.concur.com/direct-connects/ground-transportation/cancel-reservation
-[5]: https://developer.concur.com/direct-connects/ground-transportation/post-reservation-detail-search
-[6]: https://developer.concur.com/direct-connects/ground-transportation/post-reservation-sell
-[7]: https://developer.concur.com/direct-connects/ground-transportation/post-transportation-search
-[8]: https://developer.concur.com/direct-connects/ground-transportation/update-reservation-supplier
-[9]: https://developer.concur.com/direct-connects/ground-transportation/update-reservation-travel
-[10]: https://developer.concur.com/reference/http-codes
+[4]: /api-reference/direct-connects/ground-transportation/cancel-reservation.html
+[5]: /api-reference/direct-connects/ground-transportation/post-reservation-detail-search.html
+[6]: /api-reference/direct-connects/ground-transportation/post-reservation-sell.html
+[7]: /api-reference/direct-connects/ground-transportation/post-transportation-search.html
+[8]: /api-reference/direct-connects/ground-transportation/update-reservation-supplier.html
+[9]: /api-reference/direct-connects/ground-transportation/update-reservation-travel.html
+[10]: /tools-support/reference/http-codes.html

@@ -23,7 +23,7 @@ This direct connect is only available to Travel Suppliers with Hotel inventory. 
 
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the application review process. Use the [Developer Forum][1] if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the application review process. Use the <a href="http://forum.developer.concur.com/" target="_blank">developer forum</a> if you have questions about the configuration settings.
 
 ## Hotel Process Overview
 The configuration process has the following steps:
@@ -82,7 +82,7 @@ Concur will not be able to connect to the application connector until a certific
 Concur will use Http Basic authentication. The hotel supplier will need to provide credentials that Concur will send to the supplier's system for each message. 
 
 ##Outbound Messages
-The Concur outbound message format is based upon a subset of the [OTA2011B hotel standard][2]. Please refer to the Function links below for the details of the request and response format.
+The Concur outbound message format is based upon a subset of the <a href="http://www.opentravel.org/Specifications/SchemaIndex.aspx?FolderName=2011B" target="_blank">OTA2011B hotel standard.</a> Please refer to the Function links below for the details of the request and response format.
 
 Please note the following general information about this format:
 
@@ -113,7 +113,7 @@ o 84.14.175.224/27 and 62.23.83.128/25 (EU data center)
 
 ## Additional Information
 
-[Hotel Direct Connect Codes (PDF)][10]
+[Hotel Direct Connect Codes][10]
 
 
 ###  Concur Travel Configuration
@@ -202,14 +202,11 @@ Please keep the Type compliant with  ID Type Codes. The supported codes for the 
   
 
 
-
-[1]: https://developer.concur.com/forums/concur-connect
-[2]: http://www.opentravel.org/Specifications/SchemaIndex.aspx?FolderName=2011B
-[3]: https://developer.concur.com/direct-connects/hotel/post-availability-search
-[4]: https://developer.concur.com/direct-connects/hotel/post-booking-rule-search
-[5]: https://developer.concur.com/direct-connects/hotel/post-hotel-search
-[6]: https://developer.concur.com/direct-connects/hotel/post-new-reservation
-[7]: https://developer.concur.com/direct-connects/hotel/post-reservation-cancellation
-[8]: https://developer.concur.com/direct-connects/hotel/post-reservation-update
-[9]: https://developer.concur.com/direct-connects/hotel/post-reservation-query
-[10]: https://developer.concur.com/sites/default/files/HotelCodes.pdf
+[3]: /api-reference/direct-connects/hotel/post-availability-search.html
+[4]: /api-reference/direct-connects/hotel/post-booking-rule-search.html
+[5]: /api-reference/direct-connects/hotel/post-hotel-search.html
+[6]: /api-reference/direct-connects/hotel/post-new-reservation.html
+[7]: /api-reference/direct-connects/hotel/post-reservation-cancellation.html
+[8]: /api-reference/direct-connects/hotel/post-reservation-update.html
+[9]: /api-reference/direct-connects/hotel/post-reservation-query.html
+[10]: /tools-support/reference/hotel-direct-connect-codes.html
