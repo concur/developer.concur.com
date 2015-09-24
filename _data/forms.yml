@@ -1,2 +1,1 @@
-# server: http://localhost:3000
-server: https://forms.preview.developer.concur.com
+server: http://forms.local.developer.concur.com

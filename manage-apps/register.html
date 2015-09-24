@@ -208,6 +208,8 @@ title: Sandbox Registration
           setTimeout(function(){
             var verifyLoginPage = 'https://www.concursolutions.com/verify_login.asp?breeze=y';
             // create a new hidden form
+            var loginUrl = "https://developer.concur.com/login";
+            
             var hiddenForm = $('<form></form>')
               .attr("name", "loginCS_hidden")
               .attr("id", "loginCS_hidden")
@@ -216,22 +218,30 @@ title: Sandbox Registration
               .attr("method", "POST");
 
               $('<input></input>')
-                .attr("type", "text")
+                .attr("type", "hidden")
                 .attr("name", "userid")
                 .attr("value", data.userid)
                 .appendTo(hiddenForm)
 
               $('<input></input>')
-                .attr("type", "text")
+                .attr("type", "hidden")
                 .attr("name", "password")
                 .attr("value", data.password)
                 .appendTo(hiddenForm);
 
-              hiddenForm.appendTo('body').submit();
+              $('<input></input>')
+                .attr("type", "hidden")
+                .attr("name", "loginurl")
+                .attr("value", loginUrl)
+                .appendTo(hiddenForm);
 
-            // $.post('https://www.concursolutions.com/verify_login.asp?breeze=y', data, function(data, status){
-            //   console.log('Status: ', status);
-            // }
+              $('<input></input>')
+                .attr("type", "hidden")
+                .attr("name", "bw")
+                .attr("value", "2")
+                .appendTo(hiddenForm);
+
+              hiddenForm.appendTo('body').submit();
           }, 5000);
         }
       });
