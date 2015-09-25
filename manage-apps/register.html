@@ -6,7 +6,7 @@ title: Sandbox Registration
 <div class="col-md-12">
     <h2>Sandbox Creation Form</h2>
     <p> As a Concur customer, partner or developer, you can create a development sandbox by filling out and submitting this form.</p><br>
-    {% include form-success.html %}
+    {% include form-wait.html %}
     <form action="{{ site.data.forms.server }}/register" method="POST" id="sandboxRegistration" class="sky-form" novalidate="novalidate">
       <fieldset>
         <div class="row">
@@ -113,6 +113,7 @@ title: Sandbox Registration
         <input type="text" name="email-alt" id="email-alt">
       </fieldset>
       <footer>
+        <!-- <button type="submit" class="button" data-toggle="modal" data-target="#status-modal">Submit</button> -->
         <button type="submit" class="button">Submit</button>
       </footer>
     </form><br>
@@ -199,6 +200,7 @@ title: Sandbox Registration
       }
       $(form).ajaxSubmit({
         beforeSend: function() {
+          $('#status-modal').modal('show');
           $('#sandboxRegistration button[type="submit"]').attr('disabled', true);
         },
         success: function(data) {
@@ -209,7 +211,7 @@ title: Sandbox Registration
             var verifyLoginPage = 'https://www.concursolutions.com/verify_login.asp?breeze=y';
             // create a new hidden form
             var loginUrl = "https://developer.concur.com/login";
-            
+
             var hiddenForm = $('<form></form>')
               .attr("name", "loginCS_hidden")
               .attr("id", "loginCS_hidden")
