@@ -5,14 +5,17 @@ layout: reference
 
 # Request
 
+Concur  Request is designed to help businesses control expenses by requiring employees to obtain approval before incurring expenses.The Travel Request resource provides the ability to view requests and update the workflow for travel requests.  
+
 * [Retrieve all requests](#method1)
 * [Retrieve a request by ID](#method2)
 * [Submit a request by ID](method3)
 * [Schema](#schema)
+* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/Requests)
 
 ### Version
 3.0  
-1.0 documentation is available [here]()
+1.0 documentation is available [here](/api-reference-deprecated/version-one/Travel/travel-request.html)
 
 
 ## <a name="method1"></a>Retrieve all requests
