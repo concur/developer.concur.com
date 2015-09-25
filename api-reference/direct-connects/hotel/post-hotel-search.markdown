@@ -19,7 +19,7 @@ The Hotel direct connect sends the relevant information to a URI that the travel
 
 `https://{servername}/concur/hotel/v1/`
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts > [Partner Applications][1]** for more information. 
+The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts > [Partner Applications](/docs/overviews/partner-applications.html)** for more information. 
 
 ### Request headers
 
@@ -28,7 +28,7 @@ application/xml
 
 #### Authorization header
 
-Authorization header with Basic credentials. Required. Refer to the [Security][2] documentation for more information. 
+Authorization header with Basic credentials. Required.
 
 ### Request body
 
@@ -140,7 +140,7 @@ The **OTA_HotelSearchRS** parent element contains the following child elements:
 
 The **Property** element has the following attributes:
 
-* **ChainCode**: Refer to the [Hotel Direct Connect Codes][4]. If ChainCode is unknown or not available, send: ZZ
+* **ChainCode**: If ChainCode is unknown or not available, send: ZZ
 * **HotelCode**: This must be unique, and will be used in future requests.
 * **HotelName**: The name of the hotel. 
 

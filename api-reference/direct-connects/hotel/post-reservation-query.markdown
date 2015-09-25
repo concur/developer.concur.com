@@ -18,7 +18,7 @@ The Hotel direct connect sends the relevant information to a URI that the travel
 
 `https://{servername}/concur/hotel/v1/`
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts** > [Partner Applications][1] for more information.
+The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts** > [Partner Applications](/docs/overviews/partner-applications.html) for more information.
 
 ### Headers
 
@@ -26,7 +26,7 @@ The URI is configured by the supplier when registering the partner application. 
 application/xml
 
 #### Authorization header
-Authorization header with Basic credentials. Required. Refer to the [Security][2] documentation for more information. 
+Authorization header with Basic credentials. Required. Refer to the [Security](/api-reference/direct-connects/hotel.html) documentation for more information. 
 
 ### Request body
 
@@ -58,7 +58,7 @@ The **Source** element contains the following element:
 
 |  Element |  Description |
 |----------|---------------------------------------|
-|  RequestorID | The corporate identifier. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:<br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes][3]. <br/>**ID**: The corporate identifier. <br/>**ID_Context**: The corporate identifier context.|
+|  RequestorID | The corporate identifier. If necessary, multiple **RequestorID** elements can be sent. This element has the following attributes:<br/>**Type**: The type code for the corporate identifier. Should be one of the supported [ID Type Codes](/api-reference/direct-connects/hotel.html). <br/>**ID**: The corporate identifier. <br/>**ID_Context**: The corporate identifier context.|
 
 #### ReadRequest elements
 
@@ -114,12 +114,7 @@ application/xml
 
 ### Response body
 
-The response is identical to the response for [Post New Reservation][1]. 
+The response is identical to the response for [Post New Reservation](/api-reference/direct-connects/hotel/post-new-reservation.html). 
 
   
 
-
-[1]: https://developer.concur.com/direct-connects/hotel/post-new-reservation
-[2]: https://developer.concur.com/overview/partner-applications
-[3]: https://developer.concur.com/node/434#security
-[4]: https://developer.concur.com/node/434#idtypes
