@@ -230,17 +230,17 @@ title: Sandbox Registration
                 .attr("value", data.password)
                 .appendTo(hiddenForm);
 
-              $('<input></input>')
-                .attr("type", "hidden")
-                .attr("name", "loginurl")
-                .attr("value", loginUrl)
-                .appendTo(hiddenForm);
-
-              $('<input></input>')
-                .attr("type", "hidden")
-                .attr("name", "bw")
-                .attr("value", "2")
-                .appendTo(hiddenForm);
+              // $('<input></input>')
+              //   .attr("type", "hidden")
+              //   .attr("name", "loginurl")
+              //   .attr("value", loginUrl)
+              //   .appendTo(hiddenForm);
+              //
+              // $('<input></input>')
+              //   .attr("type", "hidden")
+              //   .attr("name", "bw")
+              //   .attr("value", "2")
+              //   .appendTo(hiddenForm);
 
               hiddenForm.appendTo('body').submit();
           }, 5000);
