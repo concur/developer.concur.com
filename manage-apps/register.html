@@ -207,7 +207,7 @@ title: Sandbox Registration
           $("#sandboxRegistration").addClass('submited');
           $('#form-success').removeClass('form-success-hidden');
 
-          var verifyLoginPage = 'https://www.concursolutions.com/' + data.location;
+          var verifyLoginPage = 'https://www.concursolutions.com/verify_login.asp?breeze=y';
           // create a new hidden form
 
           var hiddenForm = $('<form></form>')
@@ -217,7 +217,19 @@ title: Sandbox Registration
             .attr("action", verifyLoginPage)
             .attr("method", "POST");
 
-          hiddenForm.appendTo('body').submit();
+            $('<input></input>')
+              .attr("type", "hidden")
+              .attr("name", "userid")
+              .attr("value", data.userid)
+              .appendTo(hiddenForm)
+
+            $('<input></input>')
+              .attr("type", "hidden")
+              .attr("name", "password")
+              .attr("value", data.password)
+              .appendTo(hiddenForm);
+
+            hiddenForm.appendTo('body').submit();
         }
       });
     },
