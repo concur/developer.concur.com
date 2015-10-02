@@ -206,44 +206,18 @@ title: Sandbox Registration
           console.log(data);
           $("#sandboxRegistration").addClass('submited');
           $('#form-success').removeClass('form-success-hidden');
-          setTimeout(function(){
-            var verifyLoginPage = 'https://www.concursolutions.com/verify_login.asp?breeze=y';
-            // create a new hidden form
-            var loginUrl = "https://developer.concur.com/login";
 
-            var hiddenForm = $('<form></form>')
-              .attr("name", "loginCS_hidden")
-              .attr("id", "loginCS_hidden")
-              .attr("style", "display:none")
-              .attr("action", verifyLoginPage)
-              .attr("method", "POST");
+          var verifyLoginPage = 'https://www.concursolutions.com/' + data.location;
+          // create a new hidden form
 
-              $('<input></input>')
-                .attr("type", "hidden")
-                .attr("name", "userid")
-                .attr("value", data.userid)
-                .appendTo(hiddenForm)
+          var hiddenForm = $('<form></form>')
+            .attr("name", "loginCS_hidden")
+            .attr("id", "loginCS_hidden")
+            .attr("style", "display:none")
+            .attr("action", verifyLoginPage)
+            .attr("method", "POST");
 
-              $('<input></input>')
-                .attr("type", "hidden")
-                .attr("name", "password")
-                .attr("value", data.password)
-                .appendTo(hiddenForm);
-
-              $('<input></input>')
-                .attr("type", "hidden")
-                .attr("name", "loginurl")
-                .attr("value", loginUrl)
-                .appendTo(hiddenForm);
-
-              $('<input></input>')
-                .attr("type", "hidden")
-                .attr("name", "bw")
-                .attr("value", "2")
-                .appendTo(hiddenForm);
-
-              hiddenForm.appendTo('body').submit();
-          }, 5000);
+          hiddenForm.appendTo('body').submit();
         }
       });
     },
