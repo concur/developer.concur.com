@@ -19,7 +19,7 @@ The Hotel direct connect sends the relevant information to a URI that the travel
 
 `https://{servername}/concur/hotel/v1/`
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts**> [Partner Applications][1] for more information.
+The URI is configured by the supplier when registering the partner application.
 
 ### Headers
 
@@ -28,7 +28,7 @@ application/XML
 
 #### Authorization header
 
-Authorization header with Basic credentials. Refer to the [Security][2] documentation for more information.
+Authorization header with Basic credentials.
 
 ### Request Body
 The request will contain an **OTA_HotelResModifyRQ** parent element, with the following attributes:
@@ -247,5 +247,3 @@ The **OTA_HotelResModifyRS** parent element contains a **Success** element if th
 ```
 
 
-[1]: https://developer.concur.com/overview/partner-applications
-[2]: https://developer.concur.com/node/434#security

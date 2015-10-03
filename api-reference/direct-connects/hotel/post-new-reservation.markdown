@@ -19,7 +19,7 @@ The Hotel direct connect sends the relevant information to a URI that the travel
 
 `https://{servername}/concur/hotel/v1/`
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts** > [Partner Applications][1] for more information.
+The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts** > [Partner Applications](/docs/overviews/partner-applications.html) for more information.
 
 ### Headers
 
@@ -27,7 +27,7 @@ The URI is configured by the supplier when registering the partner application. 
 application/xml
 
 #### Authorization header
-Authorization header with Basic credentials. Required. Refer to the [Security][2] documentation for more information. 
+Authorization header with Basic credentials. Required.
 
 ### Request body
 
@@ -95,7 +95,7 @@ The **Source** element contains the following element:
 
 The **PaymentCard** element has the following attributes:
 
-* **CardCode**: The type of card. Refer to the [Hotel Direct Connect Codes][4].
+* **CardCode**: The type of card.
 * **CardNumber**: The card number.
 * **ExpireDate**: The expiration date. Format: MMYY
 * **SeriesCode**: The CVV value, it should be queried and passed only if hotel requires it.
@@ -215,7 +215,7 @@ The response will include a **OTA_HotelResRS** parent element, with the followin
 
 * xmlns
 * EchoToken
-* ResResponseType: The reservation status. Refer to the [Hotel Direct Connect Codes][4] for the possible values.
+* ResResponseType: The reservation status.
 * TimeStamp
 * xmlns:xsi
 * xsi:schemaLocation

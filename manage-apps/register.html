@@ -6,7 +6,7 @@ title: Sandbox Registration
 <div class="col-md-12">
     <h2>Sandbox Creation Form</h2>
     <p> As a Concur customer, partner or developer, you can create a development sandbox by filling out and submitting this form.</p><br>
-    {% include form-success.html %}
+    {% include form-wait.html %}
     <form action="{{ site.data.forms.server }}/register" method="POST" id="sandboxRegistration" class="sky-form" novalidate="novalidate">
       <fieldset>
         <div class="row">
@@ -199,50 +199,37 @@ title: Sandbox Registration
       }
       $(form).ajaxSubmit({
         beforeSend: function() {
+          $('#status-modal').modal('show');
           $('#sandboxRegistration button[type="submit"]').attr('disabled', true);
         },
         success: function(data) {
           console.log(data);
           $("#sandboxRegistration").addClass('submited');
           $('#form-success').removeClass('form-success-hidden');
-          setTimeout(function(){
-            var verifyLoginPage = 'https://www.concursolutions.com/verify_login.asp?breeze=y';
-            // create a new hidden form
-            var loginUrl = "https://developer.concur.com/login";
-            
-            var hiddenForm = $('<form></form>')
-              .attr("name", "loginCS_hidden")
-              .attr("id", "loginCS_hidden")
-              .attr("style", "display:none")
-              .attr("action", verifyLoginPage)
-              .attr("method", "POST");
 
-              $('<input></input>')
-                .attr("type", "hidden")
-                .attr("name", "userid")
-                .attr("value", data.userid)
-                .appendTo(hiddenForm)
+          var verifyLoginPage = 'https://www.concursolutions.com/verify_login.asp?breeze=y';
+          // create a new hidden form
 
-              $('<input></input>')
-                .attr("type", "hidden")
-                .attr("name", "password")
-                .attr("value", data.password)
-                .appendTo(hiddenForm);
+          var hiddenForm = $('<form></form>')
+            .attr("name", "loginCS_hidden")
+            .attr("id", "loginCS_hidden")
+            .attr("style", "display:none")
+            .attr("action", verifyLoginPage)
+            .attr("method", "POST");
 
-              $('<input></input>')
-                .attr("type", "hidden")
-                .attr("name", "loginurl")
-                .attr("value", loginUrl)
-                .appendTo(hiddenForm);
+            $('<input></input>')
+              .attr("type", "hidden")
+              .attr("name", "userid")
+              .attr("value", data.userid)
+              .appendTo(hiddenForm)
 
-              $('<input></input>')
-                .attr("type", "hidden")
-                .attr("name", "bw")
-                .attr("value", "2")
-                .appendTo(hiddenForm);
+            $('<input></input>')
+              .attr("type", "hidden")
+              .attr("name", "password")
+              .attr("value", data.password)
+              .appendTo(hiddenForm);
 
-              hiddenForm.appendTo('body').submit();
-          }, 5000);
+            hiddenForm.appendTo('body').submit();
         }
       });
     },

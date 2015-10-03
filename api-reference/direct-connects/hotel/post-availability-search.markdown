@@ -19,10 +19,10 @@ The Hotel direct connect sends the relevant information to a URI that the travel
 
     https://{servername}/concur/hotel/v1/
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts > [Partner Applications][1]** for more information.
+The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts > [Partner Applications](/docs/overviews/partner-applications.html)** for more information.
 
 ### Authorization header
-Authorization header with Basic credentials. Refer to the [Security][2] documentation for more information.
+Authorization header with Basic credentials.
 
 ### Request body root element
 The request will contain a **OTA_HotelAvailRQ** parent element, containing the following attributes:
@@ -67,7 +67,7 @@ This parent element contains an AvailRequestSegment element for the requested av
 
 |  Element Name | Required/Optional | Data Type | Description |
 |---------------|-------------------|-----------|-------------|
-| Criterion |  | Object | This parent element contains a **HotelRef** element for each hotel criterion used. Multiple criterion are compared using an OR comparison. The **HotelRef** element has the following attributes: <br/>**ChainCode**: The hotel chain code. Refer to the [Hotel Direct Connect Codes.][5]<br/>**HotelCode**: The code for the hotel within the chain. |
+| Criterion |  | Object | This parent element contains a **HotelRef** element for each hotel criterion used. Multiple criterion are compared using an OR comparison. The **HotelRef** element has the following attributes: <br/>**ChainCode**: The hotel chain code. |
 
 ####  XML Example Request
 

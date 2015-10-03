@@ -3,23 +3,23 @@ title: Travel Request
 layout: reference
 ---
 
-## Description
+#Travel Request (Deprecated)
+
 Concur Travel Request is designed to help businesses control expenses by requiring employees to obtain approval before incurring expenses.The Travel Request resource provides the ability to view requests and update the workflow for travel requests. 
+
+##Version
+1.0  
+3.0 can be found [here](/api-reference/request/request.html)
 
 ## Product Restrictions
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][12] if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the review process. Use the <a href="http://forum.developer.concur.com/" target="_blank">developer forums</a> if you have questions about the configuration settings.
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
 ## Authentication
-The Travel Request web service supports the OAuth 2.0 authentication model. This authentication model is covered in detail in [OAuth 2.0 Overview][13] topic. Any additional required elements for the web service requests are covered in the function documentation.
-
-## Resources
-
-* [Requests v. 1.0](#a1)
-* [Requests v. 3.0][1]  
+The Travel Request web service supports the OAuth 2.0 authentication model. Any additional required elements for the web service requests are covered in the function documentation.
 
 ## <a name="a1">Requests version 1.0</a>
 
@@ -118,7 +118,7 @@ This request will return a **RequestsWithCount** parent element with the **Reque
 |  EmployeeName | |  |  The name of the travel request owner. |
 |  ApprovalStatus | |  |  The travel request's approval status, in the OAuth consumer's language. |
 
-### Get travel request details
+### <a name="a3">Get travel request details</a>
 
 #### Request
 
@@ -131,7 +131,7 @@ Retrieves the full set of information for the travel request. Includes the trave
 Example:  
 `https://www.concursolutions.com/api/travelrequest/v1.0/requests/{requestKey} `
 
-**URI Source**: The URI is provided in the **ObjectURI** element of the [Event Notification][5] request.
+**URI Source**: The URI is provided in the **ObjectURI** element of the [Event Notification](/api-reference/callouts/event-notification.html) request.
 
 ##### Headers
 
@@ -181,7 +181,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
 |  StartTime | |  | The start time for the travel request. |
 |  EndTime | |  | The end time for the travel request. |
 |  ExtensionOf | |  |  The ID of the initial travel request that this travel request is an extension of or adendum to. |
-|  WorkflowActionURL | |  | The URL to post a workflow action to the travel request using the [Post Request Workflow Action][6] function. |
+|  WorkflowActionURL | |  | The URL to post a workflow action to the travel request using the [Post Request Workflow Action](/api-reference/expense/expense-report/post-report-workflow-action.html) function. |
 |  CommentCount | |  | The number of comments associated with the travel request header. |
 |  CommentsList | |  | This parent element has a Count attribute indicating the number of comments that are included in the travel request header. It has a **Comment** child element for each comment. Refer to the Comment Child Elements table for the full list of child elements. |
 |  ExceptionCount | |  | The number of exceptions associated with the travel request header. |
@@ -1033,7 +1033,7 @@ The Approver role is used when the workflow step requires an individual to perfo
 
 Example: `https://www.concursolutions.com/api/travelrequest/v1.0/requests/{workflowstepId}/workflowaction`
 
-**URI Source**: The URI is the **WorkflowStepURL** element found in the response of the [Get Request Details][1] endpoint. The workflowstepId must match the current workflow step of the travel request. Use the [Get Requests Details][1] endpoint immediately prior to sending this request to guarantee that you have the current **WorkflowStepURL**.
+**URI Source**: The URI is the **WorkflowStepURL** element found in the response of the [Get Request Details](#a3) endpoint. The workflowstepId must match the current workflow step of the travel request. Use the [Get Requests Details](#a3) endpoint immediately prior to sending this request to guarantee that you have the current **WorkflowStepURL**.
 
 #### Headers
 
@@ -1057,7 +1057,7 @@ This request should contain a **WorkflowAction** parent element with the followi
 
 ```xml
     POST api/travelrequest/v1.0/requests/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a4qQ/workflowaction HTTPS 1.1
-    Host: [www.concursolutions.com][3]
+    Host: www.concursolutions.com
     Authorization: OAuth {access token}
     ...
 
@@ -1101,9 +1101,8 @@ This request will return an **ActionStatus** parent element with the following c
     </ActionStatus>
 ```
 
-[1]: https://www.concursolutions.com/api/docs/index.html#!/Requests
+[1]: /api-reference/request/request.html
 [3]: http://concur.github.io/developer.concur.com/docs/reference/http-codes
 [4]: http://en.wikipedia.org/wiki/ISO_4217
-[5]: http://concur.github.io/developer.concur.com/api-reference/callouts/event-notification
-[12]: https://developer.concur.com/forums/concur-connect
-[13]: http://concur.github.io/developer.concur.com/api-reference/authentication/oauth-20-overview
+
+
