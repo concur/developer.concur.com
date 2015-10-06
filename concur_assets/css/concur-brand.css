@@ -28,3 +28,7 @@ body {
 .blog-link:hover {
 	color: #eee;
 }
+
+.fine-print > p {
+	font-size: 12px;
+}
