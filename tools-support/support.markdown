@@ -42,7 +42,7 @@ The service will be unavailable starting at 6 PM PST and ending at 11 PM PST on 
 
 #### Concur Company Administrators and Individual Users:  Support Questions
 
-If you're a Concur Administrator, please open a support ticket at <https://concur.com/support>  to request assistance.  Individual users should request assistance from their company's internal help desk or their company's Concur administrator.  Please do not use the developer support tools to submit support requests from Concur administrators or individual users.
+If you're a Concur administrator, support contact information can be found here: <https://www.concur.com/en-us/contact>  Individual users should request assistance from their company's internal help desk or their company's Concur administrator.  Please do not use the developer support tools to submit support requests from Concur administrators or individual users.
 
 
 
