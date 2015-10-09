@@ -3,10 +3,10 @@ title: Get report details
 layout: reference
 ---
 
-# Get report details (Deprecated)
+# Get report details
 
 ## Description
-**NOTE:** This version has been deprecated. Find the newer version 3.0 [here.](/api-reference/expense/expense-report/reports.html)
+Find the newer version 3.0 [here.](/api-reference/expense/expense-report/reports.html)
 
 Retrieves the full set of information for the report. Includes the Report Header, Entry, Attendee, Itemization and Allocation details.
 
