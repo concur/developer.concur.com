@@ -1,7 +1,8 @@
 ---
 title: Itinerary Web Service (TMC/Third-Party)
-layout: Reference
+layout: reference
 ---
+
 
 # Itinerary Web Service (TMC & Third-Party)
 
