@@ -14,7 +14,7 @@ Version 1.1
 
 ## Scope
 
-In order to obtain itinerary data when making Itinerary API calls, the value of the [OAuth scope parameter][1] must be set to: `ITINER`
+In order to obtain itinerary data when making Itinerary API calls, the value of the OAuth scope parameter must be set to: `ITINER`
 
 
 ## Operations

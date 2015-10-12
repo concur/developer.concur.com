@@ -102,8 +102,7 @@ application/xml
 #### Response
 
 
-## See also
-[Booking resource][2]
+
 
 
 
