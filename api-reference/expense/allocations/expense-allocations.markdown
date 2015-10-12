@@ -37,7 +37,7 @@ This resource can be used to retrieve information about the allocations that are
 
 
 ## <a name="getID"></a>Retrieve a single allocation by ID
-    GET /expense/allocations{id}
+    GET /expense/allocations/{id}
 
 
 ### Parameters
