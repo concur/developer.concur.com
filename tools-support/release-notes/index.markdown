@@ -105,6 +105,7 @@ Below is a list of changes with version 2.0. Concur strongly recommends that ven
 To take advantage of the new version of the Form of Payment API, partners need to code to the new endpoints. 
 
 ---
+
 #### Concur Request 3.1
 This service is known as Authorization Request, Concur Request, or simply Request and was formerly known as Travel Request. Concur changed the name to better align with its broader capabilities. This service is different from the legacy authorization request feature that was available within Concur Expense.
 
