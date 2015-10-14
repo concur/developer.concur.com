@@ -23,6 +23,11 @@ If the documentation and forums don't have the answers you need, you can submit 
 
 - - -
 
+#### Concur Service Status Dashboard:
+Find our most up-to-the-minute information on service availability in both our North America and EMEA Data Centers <a href="http://open.concur.com/" target="-blank">here.</a>
+
+- - -
+
 #### Maintenance Schedule:
 The Concur Connect platform undergoes routine maintenance according to the following schedule. During these maintenance periods, the service may be unavailable. Unplanned maintenance is performed rarely, and limited to high priority fixes. During downtime, any request to Concur Connect will receive an HTTP 503 error code.
 
