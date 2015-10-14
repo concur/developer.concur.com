@@ -7,7 +7,7 @@ layout: reference
 # Itinerary Web Service (TMC & Third-Party)
 
 
-The Concur Itinerary Web Service allows Travel Management Companies (TMC) and third-party developers to view and create travel related events in the Concur Travel system. TMCs can post bookings for any travel type. This web service can also be used by third party developers to request trip information for Concur users. This web service is designed for use by TMCs or third party developers.
+The Concur Itinerary Web Service allows Travel Management Companies (TMC) and third-party developers to view and create travel related events in the Concur Travel system. TMCs can post bookings for any travel type. This web service can also be used by third party developers to request trip information for Concur users. This web service is designed for use by TMCs or third party developers. The public Itinerary XSD can be found [here.](/api-reference/travel/itinerary/ItinServices_Public_0.xsd)
 
 
 * [GET List of Itineraries](#getlist)
@@ -237,7 +237,7 @@ Name |  Description
 `StartDateUtc` |  The start date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 `TripName` |  Name of the trip. Maximum length: 255 characters. |
 `Bookings` |  This parent element will contain a **Booking** child element for each booking associated with this itinerary. Refer to the Booking Child Elements table. |
-`RuleViolations` |  The list of rule violations associated with the itinerary. This parent element contains a **RuleViolation** child element for each associated rule violation. Refer to the [Public Itinerary XSD][3] for more information. |
+`RuleViolations` |  The list of rule violations associated with the itinerary. This parent element contains a **RuleViolation** child element for each associated rule violation. Refer to the [Public Itinerary XSD](/api-reference/travel/itinerary/ItinServices_Public_0.xsd) for more information. |
 `Status` |  The status of the itinerary. One of the following: 0- Confirmed; 1- Ticketed by agent; 2- Canceled
  |
 
@@ -340,7 +340,7 @@ Name |  Description
 Name |  Description
 -----| ------------	
 `RailPayment` |  The payment information for a rail booking. 
-`RailAdjustment` |  The amount adjusted for a rail booking. Refer to the [Public Itinerary XSD][3] for more information.
+`RailAdjustment` |  The amount adjusted for a rail booking. Refer to the [Public Itinerary XSD](/api-reference/travel/itinerary/ItinServices_Public_0.xsd) for more information.
 
 
 
