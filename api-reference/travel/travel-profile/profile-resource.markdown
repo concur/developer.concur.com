@@ -290,22 +290,22 @@ The Hotel parent element contains the user's hotel travel preferences. It contai
 |  `HotelMemberships` |  `string`  | This parent element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains [HotelMembership child elements](#hmchild) for each included membership. |
 |  `RoomType` |  `string` |  Hotel room preference. Values are: **DontCare**, **King**, **Queen**, **Double**, **Twin**, **Single**, *Disability** |
 |  `HotelOther` |  `string` |  Other Hotel related description. Format: Varchar(30) |
-|  `PreferFoamPillows` |  `string` |  Whether the user prefers foam pillows. Format: **True**\|**False**. |
-|  `PreferCrib` |  `string` |  Whether the user prefers to have a crib. Format:**True**\|**False**. |
-|  `PreferRollawayBed` |  `string` |  Whether the user prefers to have a rollaway bed. Format:**True**\|**False**. |
-|  `PreferGym` |  `string` |  Whether the user prefers a hotel with a gym. Format:**True**\|**False**. |
-|  `preferPool` |  `string` |  Whether the user prefers a hotel with a pool. Format:**True**\|**False**. |
-|  `preferRestaraunt` |  `string` |  Whether the user prefers a hotel with a restaurant. Format:**True**\|**False**. |
-|  `preferWheelchairAccess` |  `string` |  Whether the user requires wheelchair access. Format: **True**\|**False**. |
-|  `preferAccessForBlind` |  `string` |  Whether the user requires a room with access for blind guests. Format:**True**\|**False**. |
-|  `preferRoomService` |  `string` |  Whether the user prefers a hotel with room service. Format:**True**\|**False**. |
-|  `preferEarlyCheckIn` |  `string` |  Whether the user prefers a hotel with early check in. Format:**True**\|**False**. |
+|  `PreferFoamPillows` |  `boolean` |  Whether the user prefers foam pillows. Format: **True**\|**False**. |
+|  `PreferCrib` |  `boolean` |  Whether the user prefers to have a crib. Format:**True**\|**False**. |
+|  `PreferRollawayBed` |  `boolean` |  Whether the user prefers to have a rollaway bed. Format:**True**\|**False**. |
+|  `PreferGym` |  `boolean` |  Whether the user prefers a hotel with a gym. Format:**True**\|**False**. |
+|  `PreferPool` |  `boolean` |  Whether the user prefers a hotel with a pool. Format:**True**\|**False**. |
+|  `PreferRestaraunt` |  `boolean` |  Whether the user prefers a hotel with a restaurant. Format:**True**\|**False**. |
+|  `PreferWheelchairAccess` |  `boolean` |  Whether the user requires wheelchair access. Format: **True**\|**False**. |
+|  `PreferAccessForBlind` |  `boolean` |  Whether the user requires a room with access for blind guests. Format:**True**\|**False**. |
+|  `PreferRoomService` |  `boolean` |  Whether the user prefers a hotel with room service. Format:**True**\|**False**. |
+|  `PreferEarlyCheckIn` |  `boolean` |  Whether the user prefers a hotel with early check in. Format:**True**\|**False**. |
 
 ##### <a name="hmchild"></a>Hotel Memberships elements
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. |   | | |
+|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. |
 |  `AccountNo` |  `string` |  The user's account identifier in the loyalty program. |
 |  `Status` |  `string` |  Name of the user's current level in the loyalty program. |
 |  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status. |
@@ -321,8 +321,8 @@ The CustomFields parent element contains a CustomField child element for each fi
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  `CustomeField` |  `string` |  The value of the custom field. Format: Varchar(255) |
-|  `Name attribue` |  `string` |  The value of the custom field. Format: Varchar(255) |
+|  `CustomField` |  `string` |  The value of the custom field. Format: Varchar(255) |
+|  `Name attribute` |  `string` |  The value of the custom field. Format: Varchar(255) |
 
 
 
@@ -358,7 +358,7 @@ The TSA information provided. In order to receive this data, you must enable the
 | :----- | :----- | :----- |
 | `Gender` |  `string` | The user's gender. Values are: **Male**, **Female** |
 | `DateOfBirth` | `date` |  The user’s date of birth. Format: YYYY-MM-DD |
-| `NoMiddleNames`  |  `boolean` | Format: true/false |
+| `NoMiddleName`  |  `boolean` | Format: true/false |
 | `PreCheckNumber` | `string`| The user’s pre-check number. Format: Varchar(255) |
 | `RedressNumber` | `string` | The user’s redress number. Format: Varchar(255) |
 
