@@ -119,7 +119,7 @@ The Telephones parent element contains a Telephone child element for each includ
 |  `CountryCode` |  `string` |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: Char(2) |
 |  `PhoneNumber` |  `string` | The phone number as entered by the user, which may contain characters such as () or -. Format: Char(60) <br> **NOTE**: The user phone number may sometimes be incorrectly parsed if there are data input issues.|
 |  `Extension` |  `string` |  The phone extension. Format: Varchar(60) |
-|  `MobileDevice`  `string` |  The OS of the mobile device. Format: Varchar(255) |
+|  `MobileDevice` | `string` |  The OS of the mobile device. Format: Varchar(255) |
 |  `MobileName` | `string` | The name the user assigned to the mobile device. Format: Varchar(255) |
 
 
@@ -225,9 +225,9 @@ The Air parent element contains the user's air travel preferences and contains t
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  `AirMemberships` | --   | The AirMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains [AirMembership child elements](#airmember). |
-|  `Seat` |    | This element contains [air seat child elements](#airseat). |
-|  `Meals` |    | This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are: <br> Regular Meal (DEFAULT VALUE) <br> BBML = Baby Meal  <br> BLML = Bland Meal  <br> CHML = Child Meal  <br> DBML = Diabetic Meal  <br> FPML = Fruit Platter  <br> GFML = Gluten Intolerant Meal  <br> HNML = Hindu Meal  <br> KSML = Kosher Meal  <br> LCML = Low Calorie Meal  <br> LSML = Low Salt Meal  <br> MOML = Muslim Meal  <br> NLML = Low Lactose Meal  <br> NSML = No Salt Meal  <br> PFML = Peanut Free Meal  <br> SFML = Seafood Meal  <br>  VGML = Vegetarian  <br> RVML = Vegetarian Raw Vegan Meal  <br> KVML = Vegetarian Kosher <br> VLML = Vegetarian Lacto-Ovo  <br> **Note**: Regular Meal will not return a value for this preference. |
+|  `AirMemberships` | `string`   | The AirMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains [AirMembership child elements](#airmember). |
+|  `Seat` |  `string` | This element contains [air seat child elements](#airseat). |
+|  `Meals` | `string`   | This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are: <br> Regular Meal (DEFAULT VALUE) <br> BBML = Baby Meal  <br> BLML = Bland Meal  <br> CHML = Child Meal  <br> DBML = Diabetic Meal  <br> FPML = Fruit Platter  <br> GFML = Gluten Intolerant Meal  <br> HNML = Hindu Meal  <br> KSML = Kosher Meal  <br> LCML = Low Calorie Meal  <br> LSML = Low Salt Meal  <br> MOML = Muslim Meal  <br> NLML = Low Lactose Meal  <br> NSML = No Salt Meal  <br> PFML = Peanut Free Meal  <br> SFML = Seafood Meal  <br>  VGML = Vegetarian  <br> RVML = Vegetarian Raw Vegan Meal  <br> KVML = Vegetarian Kosher <br> VLML = Vegetarian Lacto-Ovo  <br> **Note**: Regular Meal will not return a value for this preference. |
 |  `HomeAirport` |  `string` |  The user's home airport |
 |  `AirOther` |  `string` |  Other Air related description |
 
@@ -261,7 +261,7 @@ The Car parent element contains the user's car travel preferences. It contains t
 |  `CarSmokingCode` |  `string` |  Smoking car preferred. Format: **S**, **N**, **O** |
 |  `CarGPS` |  `boolean` |  Car GPS preference. Format: **True**\|**False**. |
 |  `CarType` |  `string` |  Car type preference. Values are:  <br> Any Car Class <br> Mini Car <br> Economy <br> Economy Car Hybrid <br> Compact <br> Compact Car Hybrid <br> Intermediate <br> Intermediate Car Hybrid <br> Standard <br> Standard Car Hybrid <br> Full-size <br> Full-size Car Hybrid <br> Mini Van <br> Luxury <br> Premium <br> Intermediate SUV <br> Standard SUV <br> Full-Size SUV <br> Full-Size Pickup <br> Specialized Vehicle    |
-|  `CarMemberships` | --  | The CarMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains  [CarMembership child elements](#cmchild) for each included membership. |
+|  `CarMemberships` | `string`  | The CarMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains  [CarMembership child elements](#cmchild) for each included membership. |
 |  `CarOther` |  `string` |  Other Car related description. Format: Char(30) |
 |  `CarSkiRack` |  `string` |  Car ski rack preference. Format: **True**\|**False**. |
 |  `CarTransmission` | `string` | Car transmission type. Values are: **DontCare**, **Automatic**, **Manual**
@@ -270,15 +270,15 @@ The Car parent element contains the user's car travel preferences. It contains t
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  VendorCode |  `string` |  The code for the vendor that manages the loyalty program. | 
-|  AccountNo |  `string` |  The user's account identifier in the loyalty program. |
-|  Status |  `string` |  Name of the user's current level in the loyalty program. |
-|  StatusBenefits |  `string` |  Description of a benefit of the loyalty program at the current status.  |
-|  PointTotal |  `string` |  The user's total number of points in the loyalty program. |
-|  SegmentTotal |  `string` |  The user's total segments in the loyalty program. |
-|  NextStatus |  `string` |  Name or description of next higher status level in the  loyalty program. |
-|  PointsUntilNextStatus |  `string` |  Loyalty points required to next status level. |
-|  SegmentsUntilNextStatus |  `string` |  Booking segment to next status level. |
+|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. | 
+|  `AccountNo` |  `string` |  The user's account identifier in the loyalty program. |
+|  `Status` |  `string` |  Name of the user's current level in the loyalty program. |
+|  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status.  |
+|  `PointTotal` |  `string` |  The user's total number of points in the loyalty program. |
+|  `SegmentTotal` |  `string` |  The user's total segments in the loyalty program. |
+|  `NextStatus |  `string` |  Name or description of next higher status level in the  loyalty program. |
+|  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. |
+|  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. |
 
 ####  Hotel elements
 
@@ -287,7 +287,7 @@ The Hotel parent element contains the user's hotel travel preferences. It contai
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
 |  `SmokingCode` |  `string` |  Smoking room preference. Values: **DontCare**, **NonSmoking**,**Smoking** |
-|  `HotelMemberships` |    | This parent element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains [HotelMembership child elements](#hmchild) for each included membership. |
+|  `HotelMemberships` |  `string`  | This parent element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains [HotelMembership child elements](#hmchild) for each included membership. |
 |  `RoomType` |  `string` |  Hotel room preference. Values are: **DontCare**, **King**, **Queen**, **Double**, **Twin**, **Single**, *Disability** |
 |  `HotelOther` |  `string` |  Other Hotel related description. Format: Varchar(30) |
 |  `PreferFoamPillows` |  `string` |  Whether the user prefers foam pillows. Format: **True**\|**False**. |
@@ -334,8 +334,8 @@ A list of users associated to a user:
 | `FirstName`  | `string` | The user's first name. Format: Varchar(60) |
 | `LastName` |   `string ` | The user's last name. Format: Varchar(60) |
 | `EmailAddress` |    `string` | The user's email address. Format: Varchar(255) |
-| `Type attribute`  `string` |  The user's role. Values are: Arranger, Manager |
-| `PrimaryIndicatorFlag` |  'boolean` | For arranger type, denotes the primary arranger. Format: true|false. |
+| `Type attribute` | `string` |  The user's role. Values are: Arranger, Manager |
+| `PrimaryIndicatorFlag` |  `boolean` | For arranger type, denotes the primary arranger. Format: true|false. |
 
 
 #### Sponsors 
@@ -344,9 +344,7 @@ A list of sponsors associated to a user:
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-| `NonEmployeeUserType` | `string` | The non-employee's user type.
-Values are: **Contractor**, **Student/Intern**, **Candidate for Hire**, **Invitational Traveler**, **Dependent/Spouse**, **Board Member**
-**Other** |
+| `NonEmployeeUserType` | `string` | The non-employee's user type. Values are: **Contractor**, **Student/Intern**, **Candidate for Hire**, **Invitational Traveler**, **Dependent/Spouse**, **Board Member**, **Other** |
 | `SponsorName` | `string` | The sponsor’s name. Format: Varchar(255) |
 | `SponsorshipStartDate`  |  `date`  |  The sponsorship start date. Format: YYYY-MM-DD |
 | `SponsorshipEndDate` | `date`  |  The sponsorship end date. Format: YYYY-MM-DD |
@@ -358,11 +356,12 @@ The TSA information provided. In order to receive this data, you must enable the
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-| 'Gender' |  `string` | The user's gender. Values are: **Male**, **Female** |
+| `Gender` |  `string` | The user's gender. Values are: **Male**, **Female** |
 | `DateOfBirth` | `date` |  The user’s date of birth. Format: YYYY-MM-DD |
-| `NoMiddleNames  |  `boolean` | Format: true|false |
-| `PreCheckNumber`  `string`| The user’s pre-check number. Format: Varchar(255) |
+| `NoMiddleNames`  |  `boolean` | Format: true/false |
+| `PreCheckNumber` | `string`| The user’s pre-check number. Format: Varchar(255) |
 | `RedressNumber` | `string` | The user’s redress number. Format: Varchar(255) |
+
 
 
 #### Unused Tickets  
@@ -371,17 +370,17 @@ A list of unused tickets associated to a user. In order to receive this data, yo
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-| `Carrier` |  'string` | The vendor’s name. Format: Varchar(255) |
+| `Carrier` |  `string` | The vendor’s name. Format: Varchar(255) |
 | `TicketNumber`  |  `string` | The unused ticket number. Format: Varchar(255) |
 | `RecordLocator`  | `string` | The unused ticket record locator. Format: Varchar(255) |
 | `BaseFare` |   `string` | The base fare of the unused ticket. Format: Varchar(255) |
-|Taxes  | `string` | The taxes for the unused ticket. Format: Varchar(255) |
-|Fees  |  `string` | The fees for the unused ticket. Format: Varchar(255) |
-|Currency   | `string`|  The currency of the unused ticket. Format: Varchar(255) |
-|TicketType | `string` | The type of unused ticket. Format: Varchar(255 |
-|IssueDate |  `date`   | The date of issue for the unused ticket. Format: YYYY-MM-DD |
-|ExpirationDate | `date` | The date of expiration for the unused ticket. Format: YYYY-MM-DD |
-|Notes  | `string` | Notes associated to that unused ticket. Format: Varchar(255) |
+| `Taxes`  | `string` | The taxes for the unused ticket. Format: Varchar(255) |
+| `Fees`  |  `string` | The fees for the unused ticket. Format: Varchar(255) |
+| `Currency`   | `string`|  The currency of the unused ticket. Format: Varchar(255) |
+| `TicketType` | `string` | The type of unused ticket. Format: Varchar(255 |
+| `IssueDate` |  `date`   | The date of issue for the unused ticket. Format: YYYY-MM-DD |
+| `ExpirationDate` | `date` | The date of expiration for the unused ticket. Format: YYYY-MM-DD |
+| `Notes`  | `string` | Notes associated to that unused ticket. Format: Varchar(255) |
 
 #### Southwest Unused Tickets  
 A list of unused Southwest tickets associated to a user. In order to receive this data, you must enable the Unused Tickets scope.  
@@ -415,7 +414,7 @@ A list of advantage memberships associated to a user:
 
 
 
-###  Examples for Travel Suppliers
+##  Examples for Travel Suppliers
 
 ###  Example 1: Get the travel profile for the user associated with the specified OAuth 2.0 access token
 
