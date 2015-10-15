@@ -276,7 +276,7 @@ The Car parent element contains the user's car travel preferences. It contains t
 |  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status.  |
 |  `PointTotal` |  `string` |  The user's total number of points in the loyalty program. |
 |  `SegmentTotal` |  `string` |  The user's total segments in the loyalty program. |
-|  `NextStatus |  `string` |  Name or description of next higher status level in the  loyalty program. |
+|  `NextStatus` |  `string` |  Name or description of next higher status level in the  loyalty program. |
 |  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. |
 |  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. |
 
