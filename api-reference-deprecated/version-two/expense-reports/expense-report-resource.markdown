@@ -3,10 +3,10 @@ title: Expense Report Resource
 layout: reference
 ---
 
-# Expense Report Resource (Deprecated)
+# Expense Report Resource
 
 ## Description 
-**NOTE:** This version has been deprecated. Find the newer version 3.0 [here.](/api-reference/expense/expense-report/reports.html)  
+**NOTE:** Find the newer version 3.0 [here.](/api-reference/expense/expense-report/reports.html)  
 
 The expense reports in Concur.
 

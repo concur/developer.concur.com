@@ -235,22 +235,58 @@ The Air parent element contains the user's air travel preferences and contains t
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  VendorCode |  `string` |  The code for the vendor that manages the loyalty program.| 
-|  AccountNo |  `string` |  The user's account identifier in the loyalty program. |
-|  Status |  `string` |  Name of the user's current level in the loyalty program. |
-|  StatusBenefits |  `string` |  Description of a benefit of the loyalty program at the current status. |
-|  PointTotal |  `string` |  The user's total number of points in the loyalty program. |
-|  SegmentTotal |  `string` |  The user's total segments in the loyalty program. |
-|  NextStatus |  `string` |  Name or description of next higher status level in the  loyalty program. |
-|  PointsUntilNextStatus |  `string` |  Loyalty points required to next status level. |
-|  SegmentsUntilNextStatus |  `string` |  Booking segment to next status level. |
+|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program.| 
+|  `AccountNo` |  `string` |  The user's account identifier in the loyalty program. |
+|  `Status` |  `string` |  Name of the user's current level in the loyalty program. |
+|  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status. |
+|  `PointTotal` |  `string` |  The user's total number of points in the loyalty program. |
+|  `SegmentTotal` |  `string` |  The user's total segments in the loyalty program. |
+|  `NextStatus` |  `string` |  Name or description of next higher status level in the  loyalty program. |
+|  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. |
+|  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. |
 
 ##### <a name="airseat"></a>Seat elements
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  InterRowPositionCode |  `string` |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **Isolated**, **DontCare**. |
-|  SectionPositionCode |  `string` |  Preference for position in plane. Format: **Bulkhead**, **Forward**, **Rear**, **ExitRow**, **DontCare**. |
+|  `InterRowPositionCode` |  `string` |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **Isolated**, **DontCare**. |
+|  `SectionPositionCode` |  `string` |  Preference for position in plane. Format: **Bulkhead**, **Forward**, **Rear**, **ExitRow**, **DontCare**. |
+
+####  Rail elements
+
+The Rail parent element contains the user's rail travel preferences and contains the following child elements:
+
+|  Element Name |  Data Type |  Description |
+| :----- | :----- | :----- |
+| `Seat` | `string` | This element contains seat preferences. Format: **Aisle**, **Window**, **DontCare** |
+| `Coach` | `string` | This element contains coach preferences. Format: **Compartment**, **Coach**, **CoachWithTable**, **DontCare** |
+| `NoiseComfort` | `string` | This element cotains noise comfort preferences. Format: **QuietSpace**, **MobileSpace**, **DontCare*** |
+| `Bed` | `string` | This element contains bed preferences. Format: **Lower**, **MobileSpace**, **DontCare** | 
+|`BedCategory` | `string` | This element contains bed category preferences. Format: **WomenOnly**, **MenOnly**, **DontCare** |
+| `Berth` | `string` | This element contains berth preferences. Format: **Lower**, **Upper**, **Middle**, **DontCare** |
+| `Deck` | `string` | This element contains deck preferences. Format: **Lower**, **Upper**, **DontCare** |
+| `SpaceType`| `string` | This element contains space type preferences. Values are: <br> Panorama <br> SeatWithTable <br>  Solo <br> Salon  <br> Kiosk  <br> InclineSeat <br> DuoSideBySide  <br>  DuoFaceToFace <br>  Club6 <br>  Club4 <br> Carre  <br> DisabledCompanionSpace  <br> DontCare |
+| `FareSpaceComfort` | `string` | This element contains fare space comfort preferences. Format: **DedicatedBusiness**, **Business**, **IntermediateLeisure**, **Leisure**, **StandardLeisure**, **DontCare** |
+| `Special Meals` | `string` | This element contains special meal preferences. Values are: <br> LowFat <br> LowSalt<br> GlutenFree <br> Diabetic <br> Muslim <br> Kosher <br> Vegetarian <br> VegetarianLactoOvo <br> DontCare |
+| `Contingences` | `string` | This element contains contingencies preferences. Format: **Bike**, **WomenOnly**, **WheelchairSpace**, **DontCare** |
+| `RailMemberships` | `string` | This element contains [RailMembership child elements](#rmchild) |
+
+
+##### <a name="rmchild"></a>Rail Membership elements
+
+|  Element Name |  Data Type |  Description |
+| :----- | :----- | :----- |
+|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. | 
+|  `AccountNo` |  `string` |  The user's account identifier in the loyalty program. |
+|  `Status` |  `string` |  Name of the user's current level in the loyalty program. |
+|  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status.  |
+|  `PointTotal` |  `string` |  The user's total number of points in the loyalty program. |
+|  `SegmentTotal` |  `string` |  The user's total segments in the loyalty program. |
+|  `NextStatus` |  `string` |  Name or description of next higher status level in the  loyalty program. |
+|  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. |
+|  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. |
+
+
 
 ####  Car elements
 
@@ -290,22 +326,22 @@ The Hotel parent element contains the user's hotel travel preferences. It contai
 |  `HotelMemberships` |  `string`  | This parent element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains [HotelMembership child elements](#hmchild) for each included membership. |
 |  `RoomType` |  `string` |  Hotel room preference. Values are: **DontCare**, **King**, **Queen**, **Double**, **Twin**, **Single**, *Disability** |
 |  `HotelOther` |  `string` |  Other Hotel related description. Format: Varchar(30) |
-|  `PreferFoamPillows` |  `string` |  Whether the user prefers foam pillows. Format: **True**\|**False**. |
-|  `PreferCrib` |  `string` |  Whether the user prefers to have a crib. Format:**True**\|**False**. |
-|  `PreferRollawayBed` |  `string` |  Whether the user prefers to have a rollaway bed. Format:**True**\|**False**. |
-|  `PreferGym` |  `string` |  Whether the user prefers a hotel with a gym. Format:**True**\|**False**. |
-|  `preferPool` |  `string` |  Whether the user prefers a hotel with a pool. Format:**True**\|**False**. |
-|  `preferRestaraunt` |  `string` |  Whether the user prefers a hotel with a restaurant. Format:**True**\|**False**. |
-|  `preferWheelchairAccess` |  `string` |  Whether the user requires wheelchair access. Format: **True**\|**False**. |
-|  `preferAccessForBlind` |  `string` |  Whether the user requires a room with access for blind guests. Format:**True**\|**False**. |
-|  `preferRoomService` |  `string` |  Whether the user prefers a hotel with room service. Format:**True**\|**False**. |
-|  `preferEarlyCheckIn` |  `string` |  Whether the user prefers a hotel with early check in. Format:**True**\|**False**. |
+|  `PreferFoamPillows` |  `boolean` |  Whether the user prefers foam pillows. Format: **True**\|**False**. |
+|  `PreferCrib` |  `boolean` |  Whether the user prefers to have a crib. Format:**True**\|**False**. |
+|  `PreferRollawayBed` |  `boolean` |  Whether the user prefers to have a rollaway bed. Format:**True**\|**False**. |
+|  `PreferGym` |  `boolean` |  Whether the user prefers a hotel with a gym. Format:**True**\|**False**. |
+|  `PreferPool` |  `boolean` |  Whether the user prefers a hotel with a pool. Format:**True**\|**False**. |
+|  `PreferRestaraunt` |  `boolean` |  Whether the user prefers a hotel with a restaurant. Format:**True**\|**False**. |
+|  `PreferWheelchairAccess` |  `boolean` |  Whether the user requires wheelchair access. Format: **True**\|**False**. |
+|  `PreferAccessForBlind` |  `boolean` |  Whether the user requires a room with access for blind guests. Format:**True**\|**False**. |
+|  `PreferRoomService` |  `boolean` |  Whether the user prefers a hotel with room service. Format:**True**\|**False**. |
+|  `PreferEarlyCheckIn` |  `boolean` |  Whether the user prefers a hotel with early check in. Format:**True**\|**False**. |
 
 ##### <a name="hmchild"></a>Hotel Memberships elements
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. |   | | |
+|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. |
 |  `AccountNo` |  `string` |  The user's account identifier in the loyalty program. |
 |  `Status` |  `string` |  Name of the user's current level in the loyalty program. |
 |  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status. |
@@ -321,8 +357,8 @@ The CustomFields parent element contains a CustomField child element for each fi
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  `CustomeField` |  `string` |  The value of the custom field. Format: Varchar(255) |
-|  `Name attribue` |  `string` |  The value of the custom field. Format: Varchar(255) |
+|  `CustomField` |  `string` |  The value of the custom field. Format: Varchar(255) |
+|  `Name attribute` |  `string` |  The value of the custom field. Format: Varchar(255) |
 
 
 
@@ -358,7 +394,7 @@ The TSA information provided. In order to receive this data, you must enable the
 | :----- | :----- | :----- |
 | `Gender` |  `string` | The user's gender. Values are: **Male**, **Female** |
 | `DateOfBirth` | `date` |  The user’s date of birth. Format: YYYY-MM-DD |
-| `NoMiddleNames`  |  `boolean` | Format: true/false |
+| `NoMiddleName`  |  `boolean` | Format: true/false |
 | `PreCheckNumber` | `string`| The user’s pre-check number. Format: Varchar(255) |
 | `RedressNumber` | `string` | The user’s redress number. Format: Varchar(255) |
 
