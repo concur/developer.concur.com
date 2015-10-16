@@ -267,7 +267,7 @@ The Rail parent element contains the user's rail travel preferences and contains
 | `Deck` | `string` | This element contains deck preferences. Format: **Lower**, **Upper**, **DontCare** |
 | `SpaceType`| `string` | This element contains space type preferences. Values are: <br> Panorama <br> SeatWithTable <br>  Solo <br> Salon  <br> Kiosk  <br> InclineSeat <br> DuoSideBySide  <br>  DuoFaceToFace <br>  Club6 <br>  Club4 <br> Carre  <br> DisabledCompanionSpace  <br> DontCare |
 | `FareSpaceComfort` | `string` | This element contains fare space comfort preferences. Format: **DedicatedBusiness**, **Business**, **IntermediateLeisure**, **Leisure**, **StandardLeisure**, **DontCare** |
-| `Special Meals` | `string` | This element contains special meal preferences. Values are: <br> LowFat <br> LowSalt<br> GlutenFree <br> Diabetic <br> Muslim <br> Kosher <br> Vegetarian <br> VegetarianLactoOvo <br> DontCare |
+| `SpecialMeals` | `string` | This element contains special meal preferences. Values are: <br> LowFat <br> LowSalt<br> GlutenFree <br> Diabetic <br> Muslim <br> Kosher <br> Vegetarian <br> VegetarianLactoOvo <br> DontCare |
 | `Contingences` | `string` | This element contains contingencies preferences. Format: **Bike**, **WomenOnly**, **WheelchairSpace**, **DontCare** |
 | `RailMemberships` | `string` | This element contains [RailMembership child elements](#rmchild) |
 
