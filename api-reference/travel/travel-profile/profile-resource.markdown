@@ -235,22 +235,58 @@ The Air parent element contains the user's air travel preferences and contains t
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  VendorCode |  `string` |  The code for the vendor that manages the loyalty program.| 
-|  AccountNo |  `string` |  The user's account identifier in the loyalty program. |
-|  Status |  `string` |  Name of the user's current level in the loyalty program. |
-|  StatusBenefits |  `string` |  Description of a benefit of the loyalty program at the current status. |
-|  PointTotal |  `string` |  The user's total number of points in the loyalty program. |
-|  SegmentTotal |  `string` |  The user's total segments in the loyalty program. |
-|  NextStatus |  `string` |  Name or description of next higher status level in the  loyalty program. |
-|  PointsUntilNextStatus |  `string` |  Loyalty points required to next status level. |
-|  SegmentsUntilNextStatus |  `string` |  Booking segment to next status level. |
+|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program.| 
+|  `AccountNo` |  `string` |  The user's account identifier in the loyalty program. |
+|  `Status` |  `string` |  Name of the user's current level in the loyalty program. |
+|  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status. |
+|  `PointTotal` |  `string` |  The user's total number of points in the loyalty program. |
+|  `SegmentTotal` |  `string` |  The user's total segments in the loyalty program. |
+|  `NextStatus` |  `string` |  Name or description of next higher status level in the  loyalty program. |
+|  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. |
+|  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. |
 
 ##### <a name="airseat"></a>Seat elements
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  InterRowPositionCode |  `string` |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **Isolated**, **DontCare**. |
-|  SectionPositionCode |  `string` |  Preference for position in plane. Format: **Bulkhead**, **Forward**, **Rear**, **ExitRow**, **DontCare**. |
+|  `InterRowPositionCode` |  `string` |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **Isolated**, **DontCare**. |
+|  `SectionPositionCode` |  `string` |  Preference for position in plane. Format: **Bulkhead**, **Forward**, **Rear**, **ExitRow**, **DontCare**. |
+
+####  Rail elements
+
+The Rail parent element contains the user's rail travel preferences and contains the following child elements:
+
+|  Element Name |  Data Type |  Description |
+| :----- | :----- | :----- |
+| `Seat` | `string` | This element contains seat preferences. Format: **Aisle**, **Window**, **DontCare** |
+| `Coach` | `string` | This element contains coach preferences. Format: **Compartment**, **Coach**, **CoachWithTable**, **DontCare** |
+| `NoiseComfort` | `string` | This element cotains noise comfort preferences. Format: **QuietSpace**, **MobileSpace**, **DontCare*** |
+| `Bed` | `string` | This element contains bed preferences. Format: **Lower**, **MobileSpace**, **DontCare** | 
+|`BedCategory` | `string` | This element contains bed category preferences. Format: **WomenOnly**, **MenOnly**, **DontCare** |
+| `Berth` | `string` | This element contains berth preferences. Format: **Lower**, **Upper**, **Middle**, **DontCare** |
+| `Deck` | `string` | This element contains deck preferences. Format: **Lower**, **Upper**, **DontCare** |
+| `SpaceType`| `string` | This element contains space type preferences. Values are: <br> Panorama <br> SeatWithTable <br>  Solo <br> Salon  <br> Kiosk  <br> InclineSeat <br> DuoSideBySide  <br>  DuoFaceToFace <br>  Club6 <br>  Club4 <br> Carre  <br> DisabledCompanionSpace  <br> DontCare |
+| `FareSpaceComfort` | `string` | This element contains fare space comfort preferences. Format: **DedicatedBusiness**, **Business**, **IntermediateLeisure**, **Leisure**, **StandardLeisure**, **DontCare** |
+| `Special Meals` | `string` | This element contains special meal preferences. Values are: <br> LowFat <br> LowSalt<br> GlutenFree <br> Diabetic <br> Muslim <br> Kosher <br> Vegetarian <br> VegetarianLactoOvo <br> DontCare |
+| `Contingences` | `string` | This element contains contingencies preferences. Format: **Bike**, **WomenOnly**, **WheelchairSpace**, **DontCare** |
+| `RailMemberships` | `string` | This element contains [RailMembership child elements](#rmchild) |
+
+
+##### <a name="rmchild"></a>Rail Membership elements
+
+|  Element Name |  Data Type |  Description |
+| :----- | :----- | :----- |
+|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. | 
+|  `AccountNo` |  `string` |  The user's account identifier in the loyalty program. |
+|  `Status` |  `string` |  Name of the user's current level in the loyalty program. |
+|  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status.  |
+|  `PointTotal` |  `string` |  The user's total number of points in the loyalty program. |
+|  `SegmentTotal` |  `string` |  The user's total segments in the loyalty program. |
+|  `NextStatus` |  `string` |  Name or description of next higher status level in the  loyalty program. |
+|  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. |
+|  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. |
+
+
 
 ####  Car elements
 
