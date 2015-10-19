@@ -76,7 +76,7 @@ Name | Type | Format | Description
 None
 
 #### Response
-TODO -- Do we get a response?
+None
 
 ### <a name="revoke-single-access-token"></a>Revoking a single access token for a given user
 
@@ -101,7 +101,7 @@ Name | Type | Format | Description
 
 #### Response
 
-TODO -- Do we get a response?
+None
 
 #### Example
 
@@ -126,7 +126,7 @@ Name | Type | Format | Description
 
 #### Response
 
-TODO -- Do we get a response?
+None
 
 #### Example
 
