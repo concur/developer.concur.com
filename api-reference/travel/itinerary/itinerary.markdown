@@ -599,7 +599,7 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | OperatedByVendor | sring |  | The airline operating the flight on behalf of the booked airline. |
 | OperatedByVendorName | string |  | The name of the airline operating the flight on behalf of the booked airline. |
 | Services | string |  | The services included in the booking.  |
-| SpecialInstructions | string |  | Additional instructions regarding the booking.  |
+| SpecialInstructions | string |  | Additional instructions regarding the booking.  Max Length: 256 |
 | UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
 
 ##### AirSeat elements
@@ -686,7 +686,7 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | PickupDeliveryState | string |  | The state for the pickup address when the rental service offers pickup. |
 | RateType | string |  | The rate type for the booking.  |
 | SpecialEquipment | string |  | Any special equipment required by the renter.  |
-| SpecialInstructions | string |  | Additional instructions regarding the booking.  |
+| SpecialInstructions | string |  | Additional instructions regarding the booking. Max Length: 256 |
 | StartAddress | string |  | The starting address of the booking.  |
 | StartAddress2 | string |  | The starting address for the booking.  |
 | StartCity | string | Y | The starting address for the booking.  |
@@ -731,7 +731,7 @@ The Hotel Booking parent element is the Hotel Element in the Segments Array in B
 | RateCode | string |  | The rate code for the booking.  |
 | RoomDescription | string |  | The room description for the booking.  |
 | RoomType | string |  | The room type for the booking.  |
-| SpecialInstructions | string |  | Additional instructions regarding the booking.  |
+| SpecialInstructions | string |  | Additional instructions regarding the booking. Max Length: 256 |
 | StartAddress | string |  | The starting address of the booking.  |
 | StartAddress2 | string |  | The starting address for the booking.  |
 | StartCity | string | Y | The starting address for the booking.  |
@@ -842,7 +842,7 @@ The Ride Booking parent element is the Ride Element in the Segments Array in Boo
 | RateNotes | string |  | The rate notes for the booking.  |
 | RateType | string |  | The rate type for the booking.  |
 | ReservationId | string |  | The booking vendor’s reservation ID. |
-| SpecialInstructions | string |  | The special instructions for the ride. |
+| SpecialInstructions | string |  | The special instructions for the ride. Max Length: 256 |
 | StartAddress | string |  | The starting address of the booking. |
 | StartAddress2 | string |  | The starting address of the booking. |
 | StartCity | string |  | The starting address of the booking. |
@@ -906,7 +906,7 @@ The Rail Booking parent element is the Rail Element in the Segments Array in Boo
 | OperatedByVendor | string |  | The operating vendor of the booked trip. |
 | RateCode | string |  | The vendor's code for the rate of the booking.  |
 | RouteRestrictCode | string |  | The code to restrict the route of the booking.  |
-| SpecialInstructions | string |  | The instructions for the booking. |
+| SpecialInstructions | string |  | The instructions for the booking. Max Length: 256 |
 | StartCity | string |  | The starting city of the booking. |
 | StartCityCode | string | Y | The [IATA airport code][2] for the starting city of the booking.  |
 | StartCountry | string |  | The starting country of the booking.  |
@@ -1022,7 +1022,7 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | Notes | string |  | Additional information about the booking. |
 | NumPersons | unsignedByte |  | The number of persons booked for the trip. |
 | PhoneNumber | string |  | The parking phone number. |
-| SpecialInstructions | sring |  | The instructions for the booking. |
+| SpecialInstructions | sring |  | The instructions for the booking. Max Length: 256 |
 | StartAddress | string |  | The starting address of the booking. |
 | StartAddress2 | string |  | The starting address of the booking. |
 | StartCity | sring |  | The starting address of the booking. |
