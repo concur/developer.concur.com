@@ -260,15 +260,15 @@ The Rail parent element contains the user's rail travel preferences and contains
 | :----- | :----- | :----- |
 | `Seat` | `string` | This element contains seat preferences. Format: **Aisle**, **Window**, **DontCare** |
 | `Coach` | `string` | This element contains coach preferences. Format: **Compartment**, **Coach**, **CoachWithTable**, **DontCare** |
-| `NoiseComfort` | `string` | This element cotains noise comfort preferences. Format: **QuietSpace**, **MobileSpace**, **DontCare*** |
+| `NoiseComfort` | `string` | This element cotains noise comfort preferences. Format: **QuietSpace**, **MobileSpace**, **DontCare** |
 | `Bed` | `string` | This element contains bed preferences. Format: **Lower**, **MobileSpace**, **DontCare** | 
 |`BedCategory` | `string` | This element contains bed category preferences. Format: **WomenOnly**, **MenOnly**, **DontCare** |
 | `Berth` | `string` | This element contains berth preferences. Format: **Lower**, **Upper**, **Middle**, **DontCare** |
 | `Deck` | `string` | This element contains deck preferences. Format: **Lower**, **Upper**, **DontCare** |
-| `SpaceType`| `string` | This element contains space type preferences. Values are: <br> Panorama <br> SeatWithTable <br>  Solo <br> Salon  <br> Kiosk  <br> InclineSeat <br> DuoSideBySide  <br>  DuoFaceToFace <br>  Club6 <br>  Club4 <br> Carre  <br> DisabledCompanionSpace  <br> DontCare |
+| `SpaceType`| `string` | This element contains space type preferences. Format: **Panorama**, **SeatWithTable**,  **Solo**, **Salon**, **Kiosk**,  **InclineSeat**, **DuoSideBySide**,  **DuoFaceToFace**,  **Club6**,  **Club4**,  **Carre**,  **DisabledCompanionSpace**, **DontCare** |
 | `FareSpaceComfort` | `string` | This element contains fare space comfort preferences. Format: **DedicatedBusiness**, **Business**, **IntermediateLeisure**, **Leisure**, **StandardLeisure**, **DontCare** |
-| `Special Meals` | `string` | This element contains special meal preferences. Values are: <br> LowFat <br> LowSalt<br> GlutenFree <br> Diabetic <br> Muslim <br> Kosher <br> Vegetarian <br> VegetarianLactoOvo <br> DontCare |
-| `Contingences` | `string` | This element contains contingencies preferences. Format: **Bike**, **WomenOnly**, **WheelchairSpace**, **DontCare** |
+| `SpecialMeals` | `string` | This element contains special meal preferences. Format: **LowFat**, **LowSalt**, **GlutenFree**,  **Diabetic**,  **Muslim**, **Kosher**, **Vegetarian**, **VegetarianLactoOvo**, **DontCare** |
+| `Contingencies` | `string` | This element contains contingencies preferences. Format: **Bike**, **WomenOnly**, **WheelchairSpace**, **DontCare** |
 | `RailMemberships` | `string` | This element contains [RailMembership child elements](#rmchild) |
 
 

@@ -31,7 +31,7 @@ Name | Type | Format | Description
 `attendeeTypeID`	|	``string``	|	`query`	|	The ID of an attendee type. By entering a value for this parameter, you can limit the results to the attendees who match the specified type.
 `offset`	|	``string``	|	`query`	|	The starting point of the next set of results, after the limit specified in the limit field has been reached.
 `limit`	|	`Int32`	|	`query`	|	The number of records to return. Default value: 25
-`user`	|	``string``	|	`query`	|	The login ID of the user who owns this attendee. The user must have the Web Services Admin role to use this parameter.
+`user`|``string``|`query`| The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter
 
 
 
@@ -45,7 +45,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `id`|`string`|`path`|**Required** The attendee object to create.
-`user`|`string`|`query`|The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter.
+`user`|``string``|`query`| The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter
 
 
 
@@ -59,6 +59,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `content`|`body`|-|**Required** The attendee object to create
+`user`|``string``|`query`| The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter
 
 
 ### Input
@@ -77,8 +78,9 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`id`|`string`|`path`|**Required** The ID of the attendee to delete.
-`user`|``string``|`query`|**Required** The partial or complete Attendee object to update.
+`id`|`body`|`path`|**Required** The attendee ID
+`content`|``path``|-|**Required** The partial or complete Attendee object to update.
+`user`|``string``|`query`|The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter
 
 ### Input
 [Attendee Schema](#schema)
@@ -95,8 +97,8 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`id`|`body`|`path`|**Required** The attendee ID
-`content`|``path``|-|**Required** The partial or complete Attendee object to update.
+`id`|`string`|`path`|**Required** The ID of the attendee to delete.
+`user`|``string``|`query`| The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
 ### Input
 [Attendee Schema](#schema)

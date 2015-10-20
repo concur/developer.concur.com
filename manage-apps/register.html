@@ -11,13 +11,13 @@ title: Sandbox Registration
       <fieldset>
         <div class="row">
           <section class="col col-6">
-            <label class="label">First Name</label>
+            <label class="label">First Name &#42;</label>
             <label class="input">
               <input type="text" name="firstName" id="firstName" placeholder="First Name">
             </label>
           </section>
           <section class="col col-6">
-            <label class="label">Last Name</label>
+            <label class="label">Last Name &#42;</label>
             <label class="input">
               <input type="text" name="lastName" id="lastName" placeholder="Last Name">
             </label>
@@ -25,13 +25,13 @@ title: Sandbox Registration
         </div>
         <div class="row">
           <section class="col col-6">
-            <label class="label">Email Address (Use one NOT associated with a Concur account)</label>
+            <label class="label">Email Address (Use one NOT associated with a Concur account) &#42;</label>
             <label class="input">
               <input type="email" name="email" id="email" placeholder="example@example.com">
             </label>
           </section>
           <section class="col col-6">
-            <label class="label">Company Name</label>
+            <label class="label">Company Name &#42;</label>
             <label class="input">
               <input type="text" name="company" id="company" placeholder="Company Name">
             </label>
@@ -39,13 +39,13 @@ title: Sandbox Registration
         </div>
         <div class="row">
           <section class="col col-6">
-            <label class="label">Password</label>
+            <label class="label">Password &#42;</label>
             <label class="input">
               <input type="password" name="password" id="password" placeholder="Password">
             </label>
           </section>
           <section class="col col-6">
-            <label class="label">Verify Password</label>
+            <label class="label">Verify Password &#42;</label>
             <label class="input">
               <input type="password" name="passwordVerify" id="passwordVerify" placeholder="Password">
             </label>
@@ -67,7 +67,7 @@ title: Sandbox Registration
         </div>
         <div class="row">
           <section class="col col-6">
-            <label class="label">Country</label>
+            <label class="label">Country &#42;</label>
             <label class="select">
               <select name="country" id="country">
                 {% for country in site.data.countries %}
@@ -110,6 +110,7 @@ title: Sandbox Registration
             I Agree to the <a href="{{ site.baseurl }}/Terms-of-Use.html">Terms of Use</a> and Privacy Policy
           </label>
         </section>
+        <p>&#42; required field</p>
         <input type="text" name="email-alt" id="email-alt">
       </fieldset>
       <footer>

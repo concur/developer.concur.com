@@ -64,6 +64,8 @@ Expiration_Date|`string`|-|The Universal Coordinated Time (UTC) date and time wh
 
 ### <a name="refreshing-access-token"></a>Refreshing an access token
 
+NOTE: The token being refreshed must be used to make the refresh call.
+
 #### Parameters
 
 Name | Type | Format | Description
@@ -76,7 +78,7 @@ Name | Type | Format | Description
 None
 
 #### Response
-TODO -- Do we get a response?
+None
 
 ### <a name="revoke-single-access-token"></a>Revoking a single access token for a given user
 
@@ -101,7 +103,7 @@ Name | Type | Format | Description
 
 #### Response
 
-TODO -- Do we get a response?
+None
 
 #### Example
 
@@ -126,7 +128,7 @@ Name | Type | Format | Description
 
 #### Response
 
-TODO -- Do we get a response?
+None
 
 #### Example
 
