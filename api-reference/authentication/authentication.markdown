@@ -64,6 +64,8 @@ Expiration_Date|`string`|-|The Universal Coordinated Time (UTC) date and time wh
 
 ### <a name="refreshing-access-token"></a>Refreshing an access token
 
+NOTE: The token being refreshed must be used to make the refresh call.
+
 #### Parameters
 
 Name | Type | Format | Description
