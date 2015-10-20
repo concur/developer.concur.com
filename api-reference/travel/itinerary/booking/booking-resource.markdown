@@ -63,7 +63,6 @@ The request contains a Booking parent element with the following child elements:
 |  Required Element |  Description |
 |-------------------|--------------|
 |  BookingSource |  The supplier's name. |
-|  ItinSourceName |  The itinerary source. Format: TravelSupplier |
 |  RecordLocator |  Record locator for this booking. This is often six alphameric characters but can have other formats depending on the booking source |
 
 
@@ -160,7 +159,6 @@ If the end user updates an existing reservation which results in a new confirmat
         <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
         <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
         <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal> 
-        <ItinSourceName>TravelSupplier</ItinSourceName> 
         <Passengers>
             <Passenger>
                 <PassengerKey>0</PassengerKey> 
