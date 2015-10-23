@@ -8,6 +8,7 @@ layout: reference
 
 |Release Month      	|
 |---------------------|
+|[October 2015](AppCenter_ReleaseNotes_Oct2015FINAL_10.16.15.pdf) |
 |[September 2015](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) |
 |[July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) |
 |[May 2015][1-13]   |
