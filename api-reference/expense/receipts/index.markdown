@@ -19,7 +19,6 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 * Unlike all the other Concur API endpoints, the e-receipt requires the Concur Platform team to configure your sandbox to enable access. You can send a request using the [Sandbox Configuration Assistance form](/tools-support/sandbox-configuration-assistance.html). Please include the name of the Concur representative you're working with in the details section of the form.
 
 
-
 * [Create a new receipt](#post)
 * [Schema](#schema)
 * [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/Receipts)
