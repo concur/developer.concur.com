@@ -16,7 +16,7 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 **Notes:**  
 
 * The Receipt Service only accepts receipts that are up to 6 months old. Older receipts will not be accepted.
-* Unlike all the other Concur API endpoints, the e-receipt requires the Concur Platform team to configure your sandbox to enable access. You can send a request using the [Sandbox Configuration Assistance form(/tools-support/sandbox-configuration-assistance.html). Please include the name of the Concur representative you're working with in the details section of the form.
+* Unlike all the other Concur API endpoints, the e-receipt requires the Concur Platform team to configure your sandbox to enable access. You can send a request using the [Sandbox Configuration Assistance form](/tools-support/sandbox-configuration-assistance.html). Please include the name of the Concur representative you're working with in the details section of the form.
 
 
 
