@@ -7,7 +7,7 @@ layout: reference
 ##Description
 Retrieves the expense entry attendees for the specified expense entry. This function requires the v2.0 expense entry attendee resource.
 
-**NOTE:** This version has been deprecated. Find the newer version 3.0 [here.](/api-reference/expense/expense-report/expense-entry-attendee.html#get)
+**NOTE:** Find the newer version 3.0 [here.](/api-reference/expense/expense-report/expense-entry-attendee.html#get)
 
 ##Version
 2.0
