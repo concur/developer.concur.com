@@ -226,4 +226,4 @@ The **Property** element has the following child elements:
 [1]: https://developer.concur.com/overview/partner-applications
 [2]: https://developer.concur.com/node/434#security
 [3]: https://developer.concur.com/node/434#idtypes
-[4]: https://developer.concur.com/sites/default/files/HotelCodes.pdf
+[4]: /tools-support/reference/hotel-direct-connect-codes.html
