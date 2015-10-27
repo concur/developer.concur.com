@@ -1166,73 +1166,435 @@ The following car vendor codes are used in the Car Booking Elements.
 
 |  Vendor Code |  Vendor Name |
 |--------------|--------------|
-|  FA |  Able |
-|  AC |  Ace |
-|  AD |  Advantage |
-|  AL |  Alamo |
-|  LV |  Allstate |
-|  AF |  Americar |
-|  ZU |  AutoEurope |
-|  ZI |  Avis |
-|  CH |  Charlie |
-|  CP |  Compass |
-|  CO |  Continental |
-|  DS |  Discount |
-|  ZR |  Dollar |
-|  ET |  Enterprise |
-|  ED |  Eurodollar |
-|  EP |  Europcar |
-|  FH |  Falles Hire Cars |
-|  FD |  Ford Dealer |
-|  HO |  Holiday Car |
-|  IM |  Imperial |
-|  IA |  Independent Auto |
-|  TS |  Intl Travel |
-|  KG |  Kemwel Holiday |
-|  KN |  Kenning |
-|  LL |  Localiza |
-|  ZW |  Montgomery Ward |
-|  NE |  Nationwide |
-|  ZA |  Payless |
-|  PI |  Pinellas |
-|  BL |  Red And Blue |
-|  RR |  Rent Rite |
-|  RS |  Resort |
-|  ZS |  Sears |
-|  SX |  Sixt |
-|  ZT |  Thrifty |
-|  CC |  Country Car |
-|  TR |  Triangle |
-|  CT |  TT/Key Services |
-|  SV |  U-Save |
-|  CY |  Carey International |
-|  CV |  Capps Vans |
-|  AB |  All American |
-|  EE |  Exoticar Express |
-|  LX |  Limo Service |
-|  MW |  Midway |
-|  NF |  New Frontier |
-|  SL |  SL I.T.S. |
-|  US |  US Rent a Car |
-|  VR |  Specialty Van |
-|  WC |  West Coast |
-|  ZH |  Simply Wheelz |
-|  NU |  Nu Car Rentals |
-|  EY |  Economy Rent a Car |
-|  $$ |  Unknown Car Vendor |
-|  ZM |  Zoom Rent a Car |
-|  ZD |  Budget |
-|  ZE |  Hertz |
-|  ZL |  National |
-|  AU |  Austrian |
-|  DR |  DER Travel Svcs |
-|  EN |  Vip Car Rental |
-|  ML |  Merlin |
-|  EZ |  Ez Rent A Car |
-|  FX |  Fox |
-|  LM |  L & M Car Rental |
-|  SW |  Southwest |
-|  NW |  New Frontier |
+| RT | AccorHotels |
+| AM | Adams Mark |
+| AZ | The Ascott Limited |
+| AS | All Suites |
+| AR | AC Hoteles |
+| AJ | AmeriSuites |
+| AN | Ana Hotels |
+| AX | Anasazi Service |
+| AQ | ATA Hotels |
+| AO | Atlantis Hotel |
+| AH | Aston Hotels |
+| AP | Andre Balazs |
+| AC | Atel France |
+| BB | Bartell Hotels |
+| BW | Best Western |
+| BM | Biltmore |
+| BU | Baymont Inns |
+| CJ | Caesar Park |
+| QC | Camberly |
+| CA | Confortel |
+| CO | Camino Real Htls |
+| CV | COMO Hotels and Resorts |
+| CE | Chalet Susse |
+| CR | Clarion |
+| CH | CIH Hotels |
+| WX | Coast Hotels |
+| CS | Classical Hotels |
+| CI | Comfort Inns |
+| CD | Concord Hotels|
+| WA | Waldorf Astoria |
+| BC | Boutiquw|
+| CX | Country Inn |
+| CL | Corus Hotels |
+| DC | Dorchester Htls |
+| DE | Delta Hotels |
+| DS | Design Hotels |
+| FT | Grande Hotels |
+| DV | De Vere |
+| DA | Doral Hotels |
+| DO | Dorintresorts |
+| DT | Doubletree |
+| DY | Doyle Hotels|
+| DR | Drury Inns |
+| EE | Marriott Exec Ap |
+| EO | Econo Lodge |
+| ER | Electronic Rep |
+| EU | Exclusive Htls |
+| RM | Hetras |
+| XH | Extra Holidays |
+| FA | Fairmont Hotels |
+| FQ | Fauriel |
+| FM | Fiesta American |
+| FE | Forte Hotels |
+| FS | Four Seasons |
+| FZ | Friendship Inns |
+| FC | Rocco Forte |
+| GX | Global Conextion |
+| HN | Linkhotel |
+| GR | Six Senses Hotel |
+| GT | Golden Tulip |
+| AG | Gouverner Hotel |
+| GN | Gramercy Park Hotel |
+| GH | Grand Heritage |
+| GD | Grand Tradition |
+| HB | Hbs Hotel Booki |
+| HX | Hampton Inns |
+| HR | Harrah's |
+| HV | Harvey Hotels |
+| HP | Hyatt Place |
+| BH | Hawthorn Suites |
+| HL | Hilton Intl |
+| BE | Homestead Studio |
+| HG | Homewood Suites |
+| HO | Hotelrez |
+| AI | Armani Hotels |
+| HW | Hotel World |
+| HQ | Hotelink Intl |
+| HA | HOTUSA Hotels |
+| MR | Morgans Hotel Group |
+| IL | Innlink Res Svc |
+| IP | InnPoints |
+| IG | Insignia Resorts |
+| IC | InterContinental |
+| IE | InterEurope Htls |
+| IT | Intl Trvl Resort |
+| TS | Intl Trvl Svcs |
+| IR | Innpoints |
+| JA | Jarvinen Hotels |
+| JY | Jolly Hotels |
+| KA | Karos Hotels |
+| KI | Kempinski |
+| KY | Keytel |
+| KC | Kimpton Hotels |
+| KN | Kintetsu Intl |
+| NV | Las Vegas Travel |
+| LW | Leading Hotels |
+| LM | Vantis Hotel GRP |
+| LA | Little America |
+| LZ | Loews Hotels |
+| LR | LRI |
+| LU | Luxor Hotel |
+| MY | Personality Hotels |
+| MZ | Mainstay Suites |
+| MO | Mandarin Orientl |
+| MH | Marco Polo Htls |
+| MM | Maritim Hotels |
+| ET | Marriott Cnf Ctr |
+| MG | Magnolia Hotels |
+| MF | Micros Fidelio |
+| MT | Microtel Hotels |
+| MU | Millennium Htls |
+| MP | Mantra Group |
+| MN | Montage Hotels A |
+| MI | Malmaison Hotels |
+| MK | Movenpick Htls |
+| ND | National Hotels |
+| NO | New Otani |
+| NK | Nikko Hotels |
+| NH | Nippon Travel |
+| OB | Oberoi Group |
+| OC | Okura Hotels |
+| OM | Omni Hotels |
+| OH | Oslo Hotel |
+| OR | Outrigger |
+| PS | Sandman Hotels |
+| PF | Pan Pacific |
+| PL | Parkroyal Hotels |
+| PQ | Purple Hotels |
+| PH | Preferred Hotels |
+| PW | Prima Hotels |
+| PN | Peninsula Hotels |
+| PR | Protea Hotels |
+| QI| Quality Inns |
+| QL | Queens Hotels |
+| QM | Queens Moat Htls |
+| QH | QHotels |
+| RD| Radisson |
+| NR| Ramada Intl |
+| ON | Reconline |
+| RL | Red Lion Inns |
+| RF | Red Roof Inns |
+| RQ | Regal Hotels |
+| KR | Regal Hotels UK |
+| RE | Regent Intl |
+| RH | Reservations Hub |
+| BR | Renaissance Intl |
+| RC | Residence Inns |
+| RR | Righa Royal |
+| RZ | Ritz-Carlton |
+| RW | Rosewood |
+| RI | Rodeway Inns |
+| RO | Rotana Hotels and Resorts |
+| RB | Resort Bookings |
+| RG | Rydges Group |
+| SH | Scandic Hotels |
+| IQ | Myfidelio |
+| SC | Sceptre Hotels |
+| SQ | Select Hotels |
+| SG | Shangri-La |
+| BP | Shilo Inns |
+| US | Sierra Hotels |
+| SJ | Jameson Inns |
+| SZ | Sleep Inns |
+| SB | Sofitel |
+| LX | Small Luxury |
+| SM | InnLink Res Svc |
+| SN | Sonesta Hotels |
+| ST | Sorat Hotels |
+| SP | Special Prop-IHG |
+| XV | SpringHill Suites |
+| SR | Steigenberger |
+| SK | Stakis Hotels |
+| YS | Stamford Hotels |
+| LV | Las Vegas Test |
+| YZ | Staybridge Ste |
+| WR | Sterling Intl |
+| SS | Studio 6 |
+| XL | Summit Hotels |
+| SX | Supranational |
+| UK | Swallow Hotels |
+| SL | Swissotel |
+| TI | Thistle Hotels |
+| TM | Tianma |
+| TP | Top Intnl Htls |
+| TH | Trident Hotels |
+| TO | TownePlace Suites |
+| TA | Reservhotel |
+| TX | Treff Hotels |
+| TR | Cendant Trip Rewards |
+| VP | VIP Intl |
+| VA | OneTech Solution |
+| VI | Vienna International |
+| WH | W Hotels |
+| DW | Walt Disney Htl |
+| WK | Warwick Hotels |
+| WL | Wellesley Inns |
+| WM | Westmark Hotel |
+| EJ | Williams |
+| WC | WestCoast Hotels |
+| WW | World Hotels |
+| WY | Wyndham Hotels |
+| SW | Starwood (All) |
+| AL | Aloft Hotels |
+| BY | Banyan Tree |
+| EL | Elements |
+| GA | Global Alliance |
+| IW | Hotels & Preference |
+| QX | Luxury Lifestyle |
+| RP | Rendezvous Hospitality Group |
+| RU | Hard Rock |
+| TY | Tradyso Global Distribution |
+| ZX | Marriott Affliat|
+| TB | GTA TravelBound |
+| DX | Dolce Hotels |
+| JI | Jurys Inns |
+| LD | Leonardo |
+| LJ | Lalit |
+| NZ | Ascend|
+| IN | Indigo Hotels|
+| LC | Luxury Collection|
+| LI | LeisureLink Inc |
+| OT | Othon Hotels |
+| PX | Performance Conn |
+| PY | Peabody Hotels |
+| SE | Sercotel |
+| WF | West Coast Famil |
+| ZC | Ritz Club |
+| XO | Luxury Resorts |
+| AT | Address Hotels |
+| CQ | Club Quarters |
+| ML | Melrose Hotels |
+| DH | Distinguished Hotels |
+| PI | Premier Inn |
+| ZZ | Independent |
+| JT | Jumeirah |
+| EZ | Cambria Suites |
+| UB | Suburban Extended Stay |
+| FB | Fontainebleau |
+| GV | Graves Hotels |
+| IM | Independent Htls |
+| JL | Jumeriah |
+| LP | Lexington |
+| OP | Omni Partners |
+| PV | Preferred Group |
+| RJ | Resort Condos |
+| RK | Rezlink Intl |
+| UV | Univisit |
+| VK | Vacationclick |
+| VR | Vacation Rentals |
+| XN | Global Res |
+| XX | New Synxis |
+| XZ | Hotelzon |
+| OI | Amadeus LinkHotel |
+| GF | Grange Hotels |
+| EP | Epoque Hotels |
+| LO | Langham Hotels |
+| PM | Barcelo Hotels |
+| QV | ResortQuest Intl |
+| XW | WebRes |
+| YH | Booking Services |
+| YP | Altiuspar Soluti |
+| DD | Derag Hotels |
+| XR | St Regis |
+| 6C | Intercontinental Hotels Group |
+| AB | Abba Hotels |
+| AE | AmeriHost Inn |
+| AV | Allegience Svcs |
+| AW | Astra Worldwide |
+| BA | Boscolo Hotels |
+| BG | Bulgari Hotels |
+| BN | Barcelo Hotels |
+| BV | Best Value Inns |
+| CG | City Lodge Group |
+| CN | Conrad |
+| CP | Crowne Plaza |
+| CU | Charming Hotels |
+| CW | Carlson Brands (All) |
+| CZ | Comfort Suites |
+| DI | Days Inn |
+| DM | Domina Hotels |
+| DU | Destinations Unl |
+| EC | Choice Brands |
+| EH | Hilton (All) |
+| EK | Sercotel |
+| EM | Marriott (All) |
+| GI | Hilton Garden Inn |
+| GM | Meritus |
+| GW | Great Hotels |
+| HE | Historic Hotels |
+| HF | HomeGate Studios |
+| HU | Hyatt Vacation |
+| ID | Resnet |
+| IF | ACC-NIFOS |
+| IS | Ian Schrager |
+| IU | Intourist Travel |
+| JC | Cendant Brands (All) |
+| JU | Jumer |
+| KL | ClubHouse Inns |
+| LT | Travelodge AU |
+| MS | Magnuson Hotels |
+| MV | MGM Mirage |
+| NN | Louvre Hotels |
+| NY | Denihan Hospitality Group |
+| OE | Orient Express |
+| OK | Alesia |
+| OS | Sweden Hotels |
+| PK | Park Plaza Intl |
+| PT | Prime Hotels |
+| RA | Ramada Hotels |
+| RN | Expotel |
+| RX | Ringhotels |
+| SO | Sonesta |
+| SV | Sarova Hotels |
+| SY | Starhotels |
+| TL | Travelodge |
+| TV | ReservHotel |
+| VC | Marriott Vacation Club |
+| WD | Chase Suite Hotels |
+| WG | Wingate Inn |
+| XS | Summerfield Suites |
+| II | Indecorp |
+| GZ | Genares Worldwide |
+| GE | Gaylord Hotels |
+| FV | Flairview |
+| EW | Exclusive World |
+| GQ | Genre Hotels |
+| FX | First Hotel |
+| WT | Tryp by Wyndham |
+| UN | Carino Hotels |
+| GP | Husa Hotels |
+| IV | InnVite |
+| LG | Lindner Hotels |
+| JJ | Jin Jiang Hotels |
+| CK | Black Pepper Hotels |
+| QO | Swiss Quality Hotels |
+| AK | Autograph |
+| EB | Edition |
+| EQ | Eaton |
+| FD | Etours |
+| HM | Missoni |
+| JG | JG Black Book |
+| OO | One And Only |
+| UA | Premier Connect |
+| PU | Pullman |
+| QG | Quest |
+| TW | Trump Hotel Collection |
+| TF | Thon Hotels |
+| IA | Corinthia Hotels |
+| NU | Northwood Hospitality |
+| HC | hotel.de |
+| $$ | Unknown Hotel Vendor |
+| QU | Aqua Hotels and Resorts |
+| FG | FastBooking |
+| BL | Balladins Hotels |
+| ZW | CWT Private Hotels |
+| DN | Destination |
+| XE | Excalibur |
+| CY | Courtyard |
+| ES | Embassy Suites |
+| FN | Fairfield Inns |
+| HH | Hilton |
+| HI | Holiday Inn |
+| HJ | Howard Johnson |
+| HY | Hyatt|
+| MC | Marriott|
+| SI | Sheraton|
+| WI | Westin|
+| CB | Classic British |
+| HT | Home2 Suites|
+| JH | Jumer Hotels |
+| LQ | La Quinta Inns|
+| QR | Quality Htl Res |
+| SU | Southern Sun |
+| UI | Utell |
+| PD | Park Inn|
+| SF | Sutton Place Htl |
+| YO | Candlewood Stes|
+| KG | Knights Inn|
+| VG | Villager|
+| OZ | Super 8|
+| VY | Maybourne Hotels |
+| JD | Doyle Collection |
+| EA | Extended Stay |
+| VE | Vantis Hotels |
+| YX | Synxis Res Svcs |
+| BK | Interstate Hotels and Resorts |
+| MD | Le Meridien|
+| LE | Luxe Worldwide |
+| KH | K Hotels |
+| FW | Flag Hotels|
+| UZ | Unirez |
+| GO | Guesthouse International |
+| TG | Travelodge UK |
+| WO | WorldRes |
+| JV | Joie De Vivre |
+| PJ | Prince Resorts |
+| BI | Best Inns |
+| MB | Mandalay Bay |
+| YR | Raffles Intl |
+| FH | Fiesta Americana |
+| NS | NH Hotels |
+| NC | Noble House |
+| OG | Olympus Hospitality |
+| RS | Rockresorts Intl |
+| GB | MacDonald Group |
+| WB | Relais/Chateaux |
+| GG | Grand Hosp. |
+| AA | AmericInns |
+| MX | Motel 6 |
+| DL | Doral Resorts |
+| CC | Clarion |
+| BT | BT Advantage |
+| SA | Sabre Exclusives |
+| RV | Red Roof Inns |
+| TJ | Taj Hotels |
+| BX | Columbus Res Svc |
+| BZ | Cmnet Brazil |
+| CM | Camino Real |
+| DJ | Hotel Port |
+| EI | Executive Hotels |
+| HK | Hot Key Intl. |
+| IH | CIH Hotels |
+| KO | KSL Resorts |
+| ME | Sol Melia |
+| NW | Newtrade |
+| PG | Phillips Hotel |
+| UE | Universal Resort |
+| WS | World Res |
+| WV | TravelCLICK |
 
 
 ###  <a name="ride_vendor_codes" id="ride_vendor_codes">Ride vendor Codes</a>
