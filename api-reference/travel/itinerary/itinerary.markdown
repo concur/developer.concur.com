@@ -729,7 +729,7 @@ The Hotel Booking parent element is the Hotel Element in the Segments Array in B
 | NumRooms | unsignedByte |  | The number of rooms the booking is for.  |
 | PhoneNumber | string |  | The phone number for the booking.  |
 | RateCode | string |  | The rate code for the booking.  |
-| RoomDescription | string |  | The room description for the booking.  |
+| RoomDescription | string |  | The room description for the booking.  Max Length: 200  |
 | RoomType | string |  | The room type for the booking.  |
 | SpecialInstructions | string |  | Additional instructions regarding the booking. Max Length: 256 |
 | StartAddress | string |  | The starting address of the booking.  |
