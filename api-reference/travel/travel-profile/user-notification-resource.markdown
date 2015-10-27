@@ -45,7 +45,7 @@ Subscribes or unsubcribes the travel supplier from notifications when the user a
 
 #### Authorization header
 
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the OAuth 2.0 Web flow authorization process [OAuth2_0_webflow][1] process.
+Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/authentication.html#web).
 
 ###  Example: Suscribe to itinerary changes
 
@@ -115,7 +115,7 @@ Subscribes or unsubcribes the travel supplier from notifications when the user's
 #### Headers
 
 ##### Authorization header
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the OAuth 2.0 Web flow authorization process [OAuth2_0_webflow][1] process.
+Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/authentication.html#web).
 
 ###  XML Example Request
 
@@ -152,7 +152,7 @@ Subscribes or unsubcribes the travel supplier from notifications when the user's
 #### Headers
 
 ##### Authorization header
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the OAuth 2.0 Web flow authorization process [OAuth2_0_webflow][1] process.
+Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/authentication.html#web).
 
 ###  Request
 
@@ -172,16 +172,4 @@ The notification will be sent to the Postback URL that the supplier has register
 
 `200 OK`
 
-## Related Resources
 
-* [Booking][2]
-* [Form of Payment][3]
-* [Itinerary][4]
-* [Travel Profile][5]
-
-
-[1]: http://concur.github.io/developer.concur.com/api-reference/authentication/web-flow
-[2]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/booking
-[3]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
-[4]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/index.html
-[5]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/profile-resource

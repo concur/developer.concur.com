@@ -6,7 +6,7 @@ layout: reference
 ##Description
 An expense entry in an expense report.
 
-**NOTE:** This version has been deprecated. You can find version 3.0 [here](/api-reference/expense/expense-report/expense-entry.html)
+**NOTE:** You can find version 3.0 [here](/api-reference/expense/expense-report/expense-entry.html)
 
 ##Version
 1.1
