@@ -3,10 +3,10 @@ title: Expense Report Header Resource
 layout: reference
 ---
 
-# Expense Report Header Resource (Deprecated)
+# Expense Report Header Resource
 
 ## Description
-**NOTE:** This version has been deprecated. Find the newer version 3.0 [here.](/api-reference/expense/expense-report/reports.html)
+**NOTE:** Find the newer version 3.0 [here.](/api-reference/expense/expense-report/reports.html)
 
 The expense report header contains classification information for the expense report, and serves as the container for the expense entries.
 
