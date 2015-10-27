@@ -1819,7 +1819,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  OperatedByVendor |  The airline operating the flight on behalf of the booked airline. |
 |  OperatedByVendorName |  The name of the airline operating the flight on behalf of the booked airline. |
 |  Services |  The services included in the booking. |
-|  SpecialInstructions |  Additional instructions regarding the booking. |
+|  SpecialInstructions |  Additional instructions regarding the booking. Max Length: 256 |
 |  UpgradedDateTime |  The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
 
 ###  Car Booking Elements
@@ -1910,7 +1910,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  PickupDeliveryState |  The state for the pickup address when the rental service offers pickup. |
 |  RateType |  The rate type for the booking. |
 |  SpecialEquipment |  Any special equipment required by the renter. |
-|  SpecialInstructions |  Additional instructions regarding the booking. |
+|  SpecialInstructions |  Additional instructions regarding the booking. Max Length: 256 |
 |  StartAddress |  The starting address of the booking. |
 |  StartAddress2 |  The starting address for the booking. |
 |  StartCity |  The starting address for the booking. |
@@ -1959,9 +1959,9 @@ The booking elements contain many child elements. For ease of use, these element
 |  NumRooms |  The number of rooms the booking is for. |
 |  PhoneNumber |  The phone number for the booking. |
 |  RateCode |  The rate code for the booking. |
-|  RoomDescription |  The room description for the booking. |
+|  RoomDescription |  The room description for the booking. Max Length: 200 |
 |  RoomType |  The room type for the booking. |
-|  SpecialInstructions |  Additional instructions regarding the booking. |
+|  SpecialInstructions |  Additional instructions regarding the booking. Max Length: 256 |
 |  StartAddress |  The starting address of the booking. |
 |  StartAddress2 |  The starting address for the booking. |
 |  StartCity |  The starting address for the booking. |
@@ -2099,7 +2099,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  RateNotes |  The rate notes for the booking. |
 |  RateType |  The rate type for the booking. |
 |  ReservationId |  The booking vendor’s reservation ID. |
-|  SpecialInstructions |  The special instructions for the ride. |
+|  SpecialInstructions |  The special instructions for the ride. Max Length: 256 |
 |  StartAddress |  The starting address of the booking. |
 |  StartAddress2 |  The starting address of the booking. |
 |  StartCity |  The starting address of the booking. |
@@ -2168,7 +2168,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  OperatedByVendor |  The operating vendor of the booked trip. |
 |  RateCode |  The vendor's code for the rate of the booking. |
 |  RouteRestrictCode |  The code to restrict the route of the booking. |
-|  SpecialInstructions |  The instructions for the booking. |
+|  SpecialInstructions |  The instructions for the booking. Max Length: 256 |
 |  StartCity |  The starting city of the booking. |
 |  StartCityCode |  The [IATA airport code][1] for the starting city of the booking. |
 |  StartCountry |  The starting country of the booking. |
@@ -2292,7 +2292,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  Notes |  Additional information about the booking. |
 |  NumPersons |  The number of persons booked for the trip. |
 |  PhoneNumber |  The parking phone number. |
-|  SpecialInstructions |  The instructions for the booking. |
+|  SpecialInstructions |  The instructions for the booking. Max Length: 256 |
 |  StartAddress |  The starting address of the booking. |
 |  StartAddress2 |  The starting address of the booking. |
 |  StartCity |  The starting address of the booking. |
