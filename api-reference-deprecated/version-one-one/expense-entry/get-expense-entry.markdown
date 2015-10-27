@@ -9,7 +9,7 @@ layout: reference
 
 ## Version
 1.0
-**NOTE:** This version has been deprecated. You can find version 3.0 [here.](/api-reference/expense/expense-report/expense-entry.html)
+**NOTE:** You can find version 3.0 [here.](/api-reference/expense/expense-report/expense-entry.html)
 
 
 Description | Supported Accept Types
