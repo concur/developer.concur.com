@@ -20,7 +20,7 @@ Concur  Request is designed to help businesses control expenses by requiring emp
 
 ## <a name="method1"></a>Retrieve all requests
 						
-	GET /travelrequest/requests
+	GET /api/v3.0/travelrequest/requests
 
 ### Parameters
 
@@ -38,7 +38,7 @@ Name | Type | Format | Description
 							
 ## <a name="method2"></a>Retrieve a request by ID	
 
-	GET /travelrequest/request/{id}	
+	GET /api/v3.0/travelrequest/request/{id}	
 
 ### Parameters
 
@@ -49,7 +49,7 @@ Name | Type | Format | Description
 							
 ## <a name="method3"></a>Submit a request by ID
 						
-	POST /travelrequest/requests/{id}/submit
+	POST /api/v3.0/travelrequest/requests/{id}/submit
 
 ### Parameters
 
