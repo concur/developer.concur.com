@@ -21,9 +21,11 @@ layout: reference
 1.1 documentation is available [here.](/api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html)  
   
 
-
 ## <a name="get"></a>Retrieve all expense entries
 
+In order to retrieve all expense entries, you must use [version 2.0](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) of this API.
+
+<!---
     GET /expense/entries/
 
         
@@ -44,7 +46,7 @@ Name | Type | Format | Description
 `limit`	|	`query`	|	`Int32`	|	The number of records to return. Default value: 25
 `user`	|	`query`	|	`string`	|	The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.
 
-
+-->
 
 ## <a name="getID"></a>Retrieve a single expense entry by ID
 
