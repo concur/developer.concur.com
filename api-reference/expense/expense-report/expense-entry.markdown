@@ -58,7 +58,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `id`	|	`string`	|	`path`	|	**Required** The expense entry ID.
-`user`	|	`string`	|	`query`	|	The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.
+`user`	|	`string`	|	`query`	|	The login ID of the user who owns the entries.
 
 
 ## <a name="post"></a>Create a new expense entry
@@ -96,7 +96,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `id`|````string````|`path`|**Required** The ID of the expense entry to delete.
-`user`|````string````|`query`|The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.
+`user`|````string````|`query`|The login ID of the user who owns the entries.
 
 
 ## <a name="schema"></a>Schema
