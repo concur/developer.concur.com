@@ -23,7 +23,7 @@ layout: reference
 
 ## <a name="get"></a>Retrieve all entry-attendee associations owned by the user
 
-    GET /expense/entryattendeeassociations
+    GET  https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations
 
         
 ### Parameters
@@ -39,7 +39,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve an entry-attendee association by ID
 
-    GET /expense/entryattendeeassociations/{id}
+    GET  https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/{id}
 
 
 ### Parameters
@@ -52,7 +52,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a new entry-attendee association
 
-    POST /expense/entryattendeeassociations
+    POST  https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations
 
 
 ### Parameters
@@ -64,7 +64,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update a specified entry-attendee association
 
-    PUT /expense/entryattendeeassociations/{id}
+    PUT  https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/{id}
 
 
 ### Parameters
@@ -77,7 +77,7 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete a specified entry-attendee association
 
-    DELETE /expense/entryattendeeassociations/{id}
+    DELETE  https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/{id}
 
 
 ### Parameters

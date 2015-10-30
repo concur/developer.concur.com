@@ -21,7 +21,7 @@ layout: reference
 
 ## <a name="get"></a>Retrieve reports owned by the user based on search criteria
 
-    GET /expense/reports
+    GET  https://www.concursolutions.com/api/v3.0/expense/reports
 
         
 ### Parameters
@@ -68,7 +68,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve a report by ID
 
-    GET /expense/report/{id}
+    GET  https://www.concursolutions.com/api/v3.0/expense/report/{id}
 
 
 ### Parameters
@@ -81,7 +81,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a new report
 
-    POST /expense/report
+    POST  https://www.concursolutions.com/api/v3.0/expense/report
 
 
 ### Parameters
@@ -91,7 +91,8 @@ Name | Type | Format | Description
 `content`	|	-	|	`body`	|	**Required** Report object to create
 
 ## <a name="put"></a>Update a report
-    PUT /expense/report/{id}
+
+    PUT  https://www.concursolutions.com/api/v3.0/expense/report/{id}
 
 
 ### Parameters

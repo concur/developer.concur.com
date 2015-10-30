@@ -23,7 +23,7 @@ The Attendee Type resource represents the type of attendee as configured in Conc
 
 ## <a name="get"></a>Retrieve all attendees types
 
-    GET /expense/attendeetypes/
+    GET  https://www.concursolutions.com/api/v3.0/expense/attendeetypes/
 
         
 ### Parameters
@@ -37,7 +37,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve attendee types by ID
 
-    GET /expense/attendeetypes/{id}
+    GET  https://www.concursolutions.com/api/v3.0/expense/attendeetypes/{id}
 
 
 ### Parameters
@@ -50,7 +50,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a new attendee type
 
-    POST /expense/attendeetypes
+    POST  https://www.concursolutions.com/api/v3.0/expense/attendeetypes
 
 
 ### Parameters
@@ -71,7 +71,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update existing attendee type
 
-    PUT /expense/attendeetypes/{id}
+    PUT  https://www.concursolutions.com/api/v3.0/expense/attendeetypes/{id}
 
 
 ### Parameters
@@ -91,7 +91,7 @@ Name | Type | Format | Description
 
 
 ## <a name="delete"></a>Delete an attendee type
-    DELETE /expense/attendeetypes{id}
+    DELETE  https://www.concursolutions.com/api/v3.0/expense/attendeetypes{id}
 
 ### Parameters
 

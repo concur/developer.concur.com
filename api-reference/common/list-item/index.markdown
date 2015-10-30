@@ -24,7 +24,7 @@ The Concur List Item web service provides an automated solution to clients who w
 
 ## <a name="get"></a>Retrieve all list items based on the search criteria.
 
-    GET  /common/listitems
+    GET   https://www.concursolutions.com/api/v3.0/common/listitems
 
         
 ### Parameters
@@ -51,7 +51,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve a list item by ID
 
-    GET  /common/listitems/{id}
+    GET   https://www.concursolutions.com/api/v3.0/common/listitems/{id}
 
 
 ### Parameters
@@ -64,7 +64,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a new list item
 
-    POST  /common/listitems
+    POST   https://www.concursolutions.com/api/v3.0/common/listitems
 
 
 ### Parameters
@@ -76,7 +76,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update a list item
 
-    PUT  /common/listitems/{id}
+    PUT   https://www.concursolutions.com/api/v3.0/common/listitems/{id}
 
 
 ### Parameters
@@ -89,7 +89,7 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete a list item
 
-    DELETE  /common/listitems/{id}
+    DELETE   https://www.concursolutions.com/api/v3.0/common/listitems/{id}
 
 
 ### Parameters

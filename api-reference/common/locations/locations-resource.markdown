@@ -20,7 +20,7 @@ Gets details of locations that are used by Concur and that are valid at the user
 
 ## <a name="get"></a>Retrieve details of locations that are used by Concur and that are valid at the user's company
 
-    GET /common/locations
+    GET  https://www.concursolutions.com/api/v3.0/common/locations
 
         
 ### Parameters
@@ -39,7 +39,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve details of a specified location
 
-    GET /common/locations/{id}
+    GET  https://www.concursolutions.com/api/v3.0/common/locations/{id}
 
 
 ### Parameters

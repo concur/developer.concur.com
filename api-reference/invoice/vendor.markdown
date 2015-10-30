@@ -17,7 +17,7 @@ layout: reference
 
 ## <a name="get"></a>Retrieve an existing vendor 
 
-    GET /invoice/vendors
+    GET  https://www.concursolutions.com/api/v3.0/invoice/vendors
 
 ### Parameters  
 
@@ -72,7 +72,7 @@ None.
 
 ## <a name="post"></a>Create vendors  
 
-    POST /invoice/vendors
+    POST  https://www.concursolutions.com/api/v3.0/invoice/vendors
 
 ### Parameters  
 
@@ -91,7 +91,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update existing vendors  
 
-    PUT /invoice/vendors
+    PUT  https://www.concursolutions.com/api/v3.0/invoice/vendors
 
 ### Parameters  
 
@@ -109,7 +109,7 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete vendor  
 
-    DELETE /invoice/vendors
+    DELETE  https://www.concursolutions.com/api/v3.0/invoice/vendors
 
 ### Parameters  
 
