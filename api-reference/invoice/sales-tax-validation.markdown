@@ -15,7 +15,7 @@ layout: reference
 
 
 ## <a name="get"></a>Get invoices for calculating tax
-    GET /invoice/salestaxvalidationrequest
+    GET  https://www.concursolutions.com/api/v3.0/invoice/salestaxvalidationrequest
 
 ### Parameters  
 
@@ -35,7 +35,7 @@ None.
 
 ## <a name="put"></a>Update invoices with a calcuated tax amount and tax rate  
 
-    PUT /invoice/salestaxvalidationrequest
+    PUT  https://www.concursolutions.com/api/v3.0/invoice/salestaxvalidationrequest
 
 ### Parameters  
 

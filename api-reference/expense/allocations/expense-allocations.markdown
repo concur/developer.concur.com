@@ -17,7 +17,7 @@ This resource can be used to retrieve information about the allocations that are
 3.0
 
 ## <a name="get"></a>Retrieve all allocations per entry or report
-    GET /expense/allocations
+    GET  https://www.concursolutions.com/api/v3.0/expense/allocations
         
 ### Parameters
 
@@ -37,7 +37,7 @@ This resource can be used to retrieve information about the allocations that are
 
 
 ## <a name="getID"></a>Retrieve a single allocation by ID
-    GET /expense/allocations/{id}
+    GET  https://www.concursolutions.com/api/v3.0/expense/allocations/{id}
 
 
 ### Parameters

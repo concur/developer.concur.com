@@ -16,7 +16,7 @@ Retrieves a collection of opportunities for a specified trip or for all trips th
 
 ## <a name="get"></a>Retrieve all connection requests tht match the TripLink supplier ID
 
-    GET /insights/opportunities
+    GET  https://www.concursolutions.com/api/v3.0/insights/opportunities
 
         
 ### Parameters

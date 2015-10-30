@@ -15,7 +15,8 @@ Gets the latest hotel and air booking for a particular user.
 3.0
 
 ## <a name="get"></a>Retrieve the latest hotel and air booking for a particular user
-    GET  /insights/latestbookings/
+
+    GET   https://www.concursolutions.com/api/v3.0/insights/latestbookings/
 
         
 ### Parameters

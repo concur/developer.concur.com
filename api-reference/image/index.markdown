@@ -23,7 +23,7 @@ layout: reference
 
 ## <a name="get"></a>Retrieve a list of all receipt images
 
-    GET /expense/receiptimages
+    GET  https://www.concursolutions.com/api/v3.0/expense/receiptimages
 
         
 ### Parameters
@@ -38,7 +38,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve a receipt image by ID
 
-    GET /expense/receiptimage/{id}
+    GET  https://www.concursolutions.com/api/v3.0/expense/receiptimage/{id}
 
 
 ### Parameters
@@ -51,7 +51,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a new receipt image
 
-    POST /expense/receiptimages
+    POST  https://www.concursolutions.com/api/v3.0/expense/receiptimages
 
 
 ### Parameters
@@ -64,7 +64,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Append a receipt image
 
-    PUT /expense/receiptimage/{id}
+    PUT  https://www.concursolutions.com/api/v3.0/expense/receiptimage/{id}
 
 
 ### Parameters
@@ -78,7 +78,7 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete a receipt image
 
-    DELETE /expense/receiptimage/{id}
+    DELETE  https://www.concursolutions.com/api/v3.0/expense/receiptimage/{id}
 
 
 ### Parameters

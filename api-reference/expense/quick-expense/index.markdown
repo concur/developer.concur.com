@@ -21,7 +21,7 @@ layout: reference
 
 ## <a name="get"></a>Retrieve quick expenses
 
-    GET /expense/quickexpenses
+    GET  https://www.concursolutions.com/api/v3.0/expense/quickexpenses
 
         
 ### Parameters
@@ -36,7 +36,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve quick expense by ID
 
-    GET /expense/quickexpenses/{id}
+    GET  https://www.concursolutions.com/api/v3.0/expense/quickexpenses/{id}
 
 
 ### Parameters
@@ -49,7 +49,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a quick expense
 
-    POST /expense/quickexpenses
+    POST  https://www.concursolutions.com/api/v3.0/expense/quickexpenses
 
 
 ### Parameters
@@ -61,7 +61,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update a quick expense
 
-    PUT /expense/quickexpenses/{id}
+    PUT  https://www.concursolutions.com/api/v3.0/expense/quickexpenses/{id}
 
 
 ### Parameters
@@ -74,7 +74,7 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete a quick expense
 
-    DELETE /expense/quickexpenses/{id}
+    DELETE  https://www.concursolutions.com/api/v3.0/expense/quickexpenses/{id}
 
 
 ### Parameters
