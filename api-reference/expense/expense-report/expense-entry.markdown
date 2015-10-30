@@ -186,7 +186,7 @@ Name | Type | Format | Description
 `PersonalDistance`	|	`Int32`	|	-	|	The portion of the journey for personal use. This element is required in order to post a company car mileage expense when there is no BusinessDistance value. Format: positive integer. When using the Odometer elements, the sum of PersonalDistance and BusinessDistance must equal the difference between OdometerEnd and OdometerStart. Used with Company Car configuration types.
 `StartLocation`	|	`string`	|	-	|	**Required** Indicates where the journey started. This is also known as the "From Location". Maximum length: 100 characters
 `UnitOfMeasure`	|	`string`	|	-	|	**Required** The unit of measure for distance and odometer values. Possible values: M - miles, K - kilometers
-`VehicleID`	|	`string`	|	-	|	The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID.
+`VehicleID`	|	`string`	|	-	|	The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. **COMING SOON:** A GET Vehicles function to learn the Vehicle ID.
 
 
 
