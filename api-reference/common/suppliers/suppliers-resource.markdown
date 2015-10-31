@@ -17,7 +17,7 @@ Supplier companies provide travel services to users. The Suppliers resource can 
 
 ## <a name="get"></a>Retrieve all suppliers based on search criteria
 
-    GET  https://www.concursolutions.com/api/v3.0/common/suppliers/
+    GET  /api/v3.0/common/suppliers/
 
         
 ### Parameters
@@ -43,7 +43,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve a single supplier by ID
 
-    GET  https://www.concursolutions.com/api/v3.0/common/suppliers/{id}
+    GET  /api/v3.0/common/suppliers/{id}
 
 
 ### Parameters

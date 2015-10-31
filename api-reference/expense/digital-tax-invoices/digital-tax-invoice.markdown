@@ -18,7 +18,7 @@ The Digital Tax Invoice web service allows digital tax invoice validators to vie
 
 ## <a name="get"></a>Retrieve all digital tax invoices that can be validated by the user based on the search criteria
 
-    GET  https://www.concursolutions.com/api/v3.0/expense/digitaltaxinvoices
+    GET  /api/v3.0/expense/digitaltaxinvoices
 
         
 ### Parameters
@@ -32,7 +32,7 @@ The Digital Tax Invoice web service allows digital tax invoice validators to vie
 
 ## <a name="getID"></a>Retrieve a single digital tax invoice by ID
 
-    GET  https://www.concursolutions.com/api/v3.0/expense/digitaltaxinvoices{id}
+    GET  /api/v3.0/expense/digitaltaxinvoices{id}
 
 
 ### Parameters
@@ -44,7 +44,7 @@ The Digital Tax Invoice web service allows digital tax invoice validators to vie
 
 ## <a name="put"></a>Update a specified digital tax invoice
 
-    PUT  https://www.concursolutions.com/api/v3.0/expense/digitaltaxinvoices{id}
+    PUT  /api/v3.0/expense/digitaltaxinvoices{id}
 
 
 ### Parameters

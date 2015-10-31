@@ -16,7 +16,7 @@ layout: reference
 
 ## <a name="get"></a>Retrieves all payment requests digests based on the search criteria
 
-    GET  https://www.concursolutions.com/api/v3.0/invoice/paymentrequestdigests
+    GET  /api/v3.0/invoice/paymentrequestdigests
 
         
 ### Parameters
@@ -41,7 +41,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieves a payment request digest based on ID
 
-    GET  https://www.concursolutions.com/api/v3.0/invoice/paymentrequestdigests/{id}
+    GET  /api/v3.0/invoice/paymentrequestdigests/{id}
 
 
 ### Parameters

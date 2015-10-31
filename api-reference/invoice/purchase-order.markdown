@@ -20,7 +20,7 @@ layout: reference
 
 ## <a name="post"></a>Create a new purchase order  
 
-    POST  https://www.concursolutions.com/api/v3.0/invoice/purchaseorders  
+    POST  /api/v3.0/invoice/purchaseorders  
 
 Creates or updates one or more purchase orders. All purchase order requests are considered a batch operation, even if only one purchase order is created or updated.
 
@@ -40,7 +40,7 @@ Creates or updates one or more purchase orders. All purchase order requests are 
 
 ##<a name="put-receipts"></a>Update purchase order line item with receipt information  
 
-    PUT  https://www.concursolutions.com/api/v3.0/invoice/purchaseorderreceipts
+    PUT  /api/v3.0/invoice/purchaseorderreceipts
 
 ### Parameters  
 
@@ -58,7 +58,7 @@ Creates or updates one or more purchase orders. All purchase order requests are 
 
 ## <a name="put"></a>Update an existing purchase order  
 
-    PUT  https://www.concursolutions.com/api/v3.0/invoice/purchaseorders
+    PUT  /api/v3.0/invoice/purchaseorders
 
 ### Parameters  
 
@@ -76,7 +76,7 @@ Creates or updates one or more purchase orders. All purchase order requests are 
 
 ## <a name="get"></a>Get an existing purchase order  
 
-    GET  https://www.concursolutions.com/api/v3.0/invoice/purchaseorders/{id}
+    GET  /api/v3.0/invoice/purchaseorders/{id}
 
 ### Parameters  
 

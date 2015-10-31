@@ -20,7 +20,7 @@ The Connection Requests resource is used to integrate TripLink partner applicati
 
 ## <a name="get"></a>Retrieve all connection requests tht match the TripLink supplier ID
 
-    GET  https://www.concursolutions.com/api/v3.0/common/connectionrequests/
+    GET  /api/v3.0/common/connectionrequests/
 
         
 ### Parameters
@@ -35,7 +35,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve a connection request by ID
 
-    GET  https://www.concursolutions.com/api/v3.0/common/connectionrequests/{id}
+    GET  /api/v3.0/common/connectionrequests/{id}
 
 
 ### Parameters
@@ -48,7 +48,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a connection request on behalf of a specific user
 
-    POST  https://www.concursolutions.com/api/v3.0/common/connectionrequests/
+    POST  /api/v3.0/common/connectionrequests/
 
 
 ### Parameters
@@ -60,7 +60,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update a connection request
 
-    PUT  https://www.concursolutions.com/api/v3.0/common/connectionrequests/{id}
+    PUT  /api/v3.0/common/connectionrequests/{id}
 
 
 ### Parameters
@@ -73,7 +73,7 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete a connection request
 
-    DELETE  https://www.concursolutions.com/api/v3.0/common/connectionrequests/{id}
+    DELETE  /api/v3.0/common/connectionrequests/{id}
 
 
 ### Parameters

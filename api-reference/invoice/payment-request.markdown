@@ -18,7 +18,7 @@ layout: reference
 
 ## <a name="get"></a>Retrieve a Payment Request
 
-    GET  https://www.concursolutions.com/api/v3.0/invoice/paymentrequest/{id}
+    GET  /api/v3.0/invoice/paymentrequest/{id}
 
         
 ### Parameters
@@ -30,7 +30,7 @@ id	|	`string`	|	path	|	**Required** Payment Request ID.
 
 ## <a name="post"></a>Create a new Payment Request
 
-    POST  https://www.concursolutions.com/api/v3.0/invoice/paymentrequest
+    POST  /api/v3.0/invoice/paymentrequest
 
 
 ### Parameters
@@ -42,7 +42,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update a Payment Request
 
-    PUT  https://www.concursolutions.com/api/v3.0/invoice/paymentrequest
+    PUT  /api/v3.0/invoice/paymentrequest
 
 
 ### Parameters

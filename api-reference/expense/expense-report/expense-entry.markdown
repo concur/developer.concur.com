@@ -50,7 +50,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve a single expense entry by ID
 
-    GET  https://www.concursolutions.com/api/v3.0/expense/entries/{id}
+    GET  /api/v3.0/expense/entries/{id}
 
 
 ### Parameters
@@ -63,7 +63,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a new expense entry
 
-    POST  https://www.concursolutions.com/api/v3.0/expense/entries/
+    POST  /api/v3.0/expense/entries/
 
 
 ### Parameters
@@ -75,7 +75,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Updates an expense entry
 
-    PUT  https://www.concursolutions.com/api/v3.0/expense/entries/{id}
+    PUT  /api/v3.0/expense/entries/{id}
 
 
 ### Parameters
@@ -88,7 +88,7 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete an expense entry
 
-    DELETE  https://www.concursolutions.com/api/v3.0/expense/entries/{id}
+    DELETE  /api/v3.0/expense/entries/{id}
 
 
 ### Parameters
