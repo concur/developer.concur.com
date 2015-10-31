@@ -20,7 +20,7 @@ layout: reference
 
 ## <a name="get"></a>Retrieve all attendees owned by the specified user
 
-    GET  https://www.concursolutions.com/api/v3.0/expense/attendees	
+    GET  /api/v3.0/expense/attendees	
 
         
 ### Parameters
@@ -37,7 +37,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve a single attendee by ID
 
-    GET  https://www.concursolutions.com/api/v3.0/expense/attendees{id}
+    GET  /api/v3.0/expense/attendees{id}
 
 
 ### Parameters
@@ -51,7 +51,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a new attendee
 
-    POST  https://www.concursolutions.com/api/v3.0/expense/attendees
+    POST  /api/v3.0/expense/attendees
 
 
 ### Parameters
@@ -71,7 +71,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update existing attendees
 
-    PUT  https://www.concursolutions.com/api/v3.0/expense/attendees{id}
+    PUT  /api/v3.0/expense/attendees{id}
 
 
 ### Parameters
@@ -91,7 +91,7 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete an attendee
 
-    DELETE  https://www.concursolutions.com/api/v3.0/expense/attendees{id}
+    DELETE  /api/v3.0/expense/attendees{id}
 
 ### Parameters
 

@@ -25,7 +25,7 @@ layout: reference
 
 ## <a name="get"></a>Retrieve all expense itemizations owned by the user
 
-    GET  https://www.concursolutions.com/api/v3.0/expense/itemizations
+    GET  /api/v3.0/expense/itemizations
 
         
 ### Parameters
@@ -43,7 +43,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve an expense itemization by ID
 
-    GET  https://www.concursolutions.com/api/v3.0/expense/itemizations/{id}
+    GET  /api/v3.0/expense/itemizations/{id}
 
 
 ### Parameters
@@ -56,7 +56,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a new expense itemization
 
-    POST  https://www.concursolutions.com/api/v3.0/expense/itemizations
+    POST  /api/v3.0/expense/itemizations
 
 
 ### Parameters
@@ -68,7 +68,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update an expense itemization
 
-    PUT  https://www.concursolutions.com/api/v3.0/expense/itemizations/{id}
+    PUT  /api/v3.0/expense/itemizations/{id}
 
 
 ### Parameters
@@ -80,7 +80,8 @@ Name | Type | Format | Description
 
 
 ## <a name="delete"></a>Delete an expense itemization
-    DELETE  https://www.concursolutions.com/api/v3.0/expense/itemizations/{id}
+
+    DELETE  /api/v3.0/expense/itemizations/{id}
 
 
 ### Parameters

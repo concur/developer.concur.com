@@ -25,7 +25,7 @@ Extract definitions determine the format and content of the extract files.
 1.0
 
 ###  URI
-`https://www.concursolutions.com/api/expense/extract/v1.0/`
+`/api/expense/extract/v1.0/`
 
 
 ### <a name="getdefinitions"></a>Get a list of extract definitions 

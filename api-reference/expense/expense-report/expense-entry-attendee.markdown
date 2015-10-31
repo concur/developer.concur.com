@@ -23,7 +23,7 @@ layout: reference
 
 ## <a name="get"></a>Retrieve all entry-attendee associations owned by the user
 
-    GET  https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations
+    GET  /api/v3.0/expense/entryattendeeassociations
 
         
 ### Parameters
@@ -39,7 +39,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve an entry-attendee association by ID
 
-    GET  https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/{id}
+    GET  /api/v3.0/expense/entryattendeeassociations/{id}
 
 
 ### Parameters
@@ -52,7 +52,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a new entry-attendee association
 
-    POST  https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations
+    POST  /api/v3.0/expense/entryattendeeassociations
 
 
 ### Parameters
@@ -64,7 +64,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update a specified entry-attendee association
 
-    PUT  https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/{id}
+    PUT  /api/v3.0/expense/entryattendeeassociations/{id}
 
 
 ### Parameters
@@ -77,14 +77,14 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete a specified entry-attendee association
 
-    DELETE  https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/{id}
+    DELETE  /api/v3.0/expense/entryattendeeassociations/{id}
 
 
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`id`|````string````|`path`|**Required** The connection request ID.
+`id`|`string`|`path`|**Required** The connection request ID.
 
 
 

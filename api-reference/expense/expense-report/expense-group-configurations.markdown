@@ -26,7 +26,7 @@ NOTE: The Concur Expense product is highly configurable, and each client may hav
 
 ## <a name="get"></a>Retrieve a configuration of an expense group
 
-    GET  /expense/expensegroupconfigurations
+    GET  /api/v3.0/expense/expensegroupconfigurations
 
         
 ### Parameters
@@ -41,7 +41,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve an expense group configuration by ID
 
-    GET  /expense/expensegroupconfigurations{id}
+    GET  /api/v3.0/expense/expensegroupconfigurations{id}
 
 
 ### Parameters

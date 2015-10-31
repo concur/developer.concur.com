@@ -29,7 +29,7 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 
 ## <a name="post"></a>Create a new receipt
 
-    POST  https://www.concursolutions.com/api/v3.0/common/receipts
+    POST  /api/v3.0/common/receipts
 
 
 ### Parameters
