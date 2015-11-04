@@ -7,25 +7,20 @@ layout: reference
 # Entries
 
 * [Retrieve all expense entries](#get)
-* [Retrieve a single expense entry by ID](#getID)
 * [Create a new expense entry](#post)
 * [Updates an expense entry](#put)
 * [Delete an expense entry](#delete)
 * [Schema](#schema)
-* [Make a test call using 3.0 Swagger](https://www.concursolutions.com/api/docs/index.html#!/Entries)
 
-##Version  
-
-
-3.0  
+ 
 1.1 documentation is available [here.](/api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html)  
   
 
 ## <a name="get"></a>Retrieve all expense entries
 
-In order to retrieve all expense entries, you must use [version 2.0](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) of this API.
+In order to retrieve all expense entries, you must use [version 2.0.](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html)
 
-<!---
+<!--- 3.0 NOT READY
     GET /expense/entries/
 
         
@@ -48,6 +43,8 @@ Name | Type | Format | Description
 
 -->
 
+<!--- 3.0 NOT READY
+
 ## <a name="getID"></a>Retrieve a single expense entry by ID
 
     GET  /api/v3.0/expense/entries/{id}
@@ -60,6 +57,7 @@ Name | Type | Format | Description
 `id`	|	`string`	|	`path`	|	**Required** The expense entry ID.
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns the entries.
 
+-->
 
 ## <a name="post"></a>Create a new expense entry
 
@@ -186,7 +184,6 @@ Name | Type | Format | Description
 `PersonalDistance`	|	`Int32`	|	-	|	The portion of the journey for personal use. This element is required in order to post a company car mileage expense when there is no BusinessDistance value. Format: positive integer. When using the Odometer elements, the sum of PersonalDistance and BusinessDistance must equal the difference between OdometerEnd and OdometerStart. Used with Company Car configuration types.
 `StartLocation`	|	`string`	|	-	|	**Required** Indicates where the journey started. This is also known as the "From Location". Maximum length: 100 characters
 `UnitOfMeasure`	|	`string`	|	-	|	**Required** The unit of measure for distance and odometer values. Possible values: M - miles, K - kilometers
-`VehicleID`	|	`string`	|	-	|	The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. **COMING SOON:** A GET Vehicles function to learn the Vehicle ID.
 
 
 
