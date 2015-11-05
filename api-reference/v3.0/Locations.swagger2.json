@@ -1,0 +1,189 @@
+{
+  "swagger": "2.0",
+  "host": "rqa3-cb.concurtech.net",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "",
+    "description": "",
+    "version": "3.0"
+  },
+  "paths": {
+    "/common/locations": {
+      "get": {
+        "summary": "Get all locations",
+        "description": "Gets details of locations that are used by Concur and that are valid at the user's company.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The number of records to return. Default value: 25",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A common name associated with the location. This name can be a location description such as a neighborhood (SoHo), a landmark (Statue of Liberty), or a city name (New York).",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "The city name of the location.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countrySubdivision",
+            "in": "query",
+            "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-2\">ISO 3166-2:2007 country subdivision code</a> for the location. Example: US-WA",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "description": "The 2-letter <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1 country code</a> for the location. Example: United States is US",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "administrativeRegion",
+            "in": "query",
+            "description": "The administrative region of the location. An administrative region is a government unit, such as a county, that contains one or more cities.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LocationCollection"
+            }
+          }
+        }
+      }
+    },
+    "/common/locations/{id}": {
+      "get": {
+        "summary": "Get a location by ID",
+        "description": "Gets details of the specified location.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the location.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Location"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Decimal": {
+      "properties": {}
+    },
+    "Location": {
+      "properties": {
+        "AdministrativeRegion": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Country": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "CountrySubdivision": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "IATACode": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "ID": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "IsAirport": {
+          "type": "boolean",
+          "description": "Indicates whether the location is used by the booking tool. Format: true or false"
+        },
+        "IsBookingTool": {
+          "type": "boolean",
+          "description": "Indicates whether the location is used by the booking tool. Format: true or false"
+        },
+        "Latitude": {
+          "type": "number",
+          "format": "double",
+          "description": "The longitude of the geocode for the location."
+        },
+        "Longitude": {
+          "type": "number",
+          "format": "double",
+          "description": "The longitude of the geocode for the location."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    },
+    "LocationCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/Location"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    },
+    "Nullable`1": {
+      "properties": {
+        "HasValue": {
+          "type": "boolean",
+          "description": "Indicates whether the location is used by the booking tool. Format: true or false"
+        },
+        "Value": {
+          "$ref": "#/definitions/Decimal"
+        }
+      }
+    }
+  }
+}

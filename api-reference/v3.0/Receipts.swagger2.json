@@ -1,0 +1,359 @@
+{
+  "swagger": "2.0",
+  "host": "rqa3-cb.concurtech.net",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "",
+    "description": "",
+    "version": "3.0"
+  },
+  "paths": {
+    "/common/receipts": {
+      "post": {
+        "summary": "Create a new receipt entry",
+        "description": "Creates a new receipt entry. This operation enables a provider company to post receipts to Concur.",
+        "parameters": [
+          {
+            "name": "content",
+            "in": "body",
+            "description": "The Receipt object to create.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReceiptPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CreateResponse": {
+      "properties": {
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "URI": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        }
+      }
+    },
+    "CustomField": {
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "Value": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        }
+      }
+    },
+    "Decimal": {
+      "properties": {}
+    },
+    "GeneralDetail": {
+      "properties": {
+        "LineItems": {
+          "$ref": "#/definitions/LineItem"
+        }
+      }
+    },
+    "HotelDetail": {
+      "properties": {
+        "AverageDailyRoomRate": {
+          "type": "number",
+          "format": "double",
+          "description": "The longitude of the ride end location. Range: -180 to 180"
+        },
+        "CheckinDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The starting date and time for the ride. Format: YYYY-MM-DDThh:mm"
+        },
+        "CheckoutDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The starting date and time for the ride. Format: YYYY-MM-DDThh:mm"
+        },
+        "ConfirmationNumber": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "GNR": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "LineItems": {
+          "$ref": "#/definitions/LineItem"
+        },
+        "NumberInParty": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The order in which the item appears in the sequence of line items."
+        },
+        "RatePlanType": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "RoomNumber": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "RoomType": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        }
+      }
+    },
+    "LineItem": {
+      "properties": {
+        "Amount": {
+          "type": "number",
+          "format": "double",
+          "description": "The longitude of the ride end location. Range: -180 to 180"
+        },
+        "Date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The starting date and time for the ride. Format: YYYY-MM-DDThh:mm"
+        },
+        "Description": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "Description2": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "Quantity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The order in which the item appears in the sequence of line items."
+        },
+        "Rate": {
+          "type": "number",
+          "format": "double",
+          "description": "The longitude of the ride end location. Range: -180 to 180"
+        },
+        "RateType": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "Reference": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "SequenceNumber": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The order in which the item appears in the sequence of line items."
+        }
+      }
+    },
+    "Location": {
+      "properties": {
+        "Address": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "Address2": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "City": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "CountryCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "CountrySubdivisionCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "EmailAddress": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "FaxNumber": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "InternetAddress": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "Name": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "PostalCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "TelephoneNumber": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        }
+      }
+    },
+    "MatchingFact": {
+      "properties": {
+        "Type": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "Value": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        }
+      }
+    },
+    "Merchant": {
+      "properties": {
+        "Location": {
+          "$ref": "#/definitions/Location"
+        },
+        "Name": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        }
+      }
+    },
+    "Nullable`1": {
+      "properties": {
+        "HasValue": {
+          "type": "boolean"
+        },
+        "Value": {
+          "$ref": "#/definitions/Decimal"
+        }
+      }
+    },
+    "PaymentCard": {
+      "properties": {
+        "AuthorizationCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "MaskedNumber": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "Type": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        }
+      }
+    },
+    "ReceiptPost": {
+      "properties": {
+        "Amount": {
+          "type": "number",
+          "format": "double",
+          "description": "The longitude of the ride end location. Range: -180 to 180"
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "CustomFields": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "FormofPaymentCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "GeneralDetail": {
+          "$ref": "#/definitions/GeneralDetail"
+        },
+        "HotelDetail": {
+          "$ref": "#/definitions/HotelDetail"
+        },
+        "ImageBase64": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "MatchingFact": {
+          "$ref": "#/definitions/MatchingFact"
+        },
+        "Merchant": {
+          "$ref": "#/definitions/Merchant"
+        },
+        "PaymentCard": {
+          "$ref": "#/definitions/PaymentCard"
+        },
+        "RideDetail": {
+          "$ref": "#/definitions/RideDetail"
+        },
+        "TransactionDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The starting date and time for the ride. Format: YYYY-MM-DDThh:mm"
+        },
+        "Type": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        }
+      }
+    },
+    "RideDetail": {
+      "properties": {
+        "DriverName": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        },
+        "DropoffLatitude": {
+          "type": "number",
+          "format": "double",
+          "description": "The longitude of the ride end location. Range: -180 to 180"
+        },
+        "DropoffLongitude": {
+          "type": "number",
+          "format": "double",
+          "description": "The longitude of the ride end location. Range: -180 to 180"
+        },
+        "EndDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The starting date and time for the ride. Format: YYYY-MM-DDThh:mm"
+        },
+        "LineItems": {
+          "$ref": "#/definitions/LineItem"
+        },
+        "StartDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The starting date and time for the ride. Format: YYYY-MM-DDThh:mm"
+        },
+        "VehicleNumber": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        }
+      }
+    }
+  }
+}
