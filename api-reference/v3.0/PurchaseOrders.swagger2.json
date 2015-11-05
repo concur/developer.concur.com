@@ -1,0 +1,795 @@
+{
+  "swagger": "2.0",
+  "host": "rqa3-cb.concurtech.net",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "",
+    "description": "",
+    "version": "3.0"
+  },
+  "paths": {
+    "/invoice/purchaseorders": {
+      "post": {
+        "summary": "Create a new purchase order",
+        "description": "Creates a purchase order and returns the status of the creation request.",
+        "parameters": [
+          {
+            "name": "purchaseOrder",
+            "in": "body",
+            "description": "The details of the purchase order.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrderResult"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an existing purchase order.",
+        "description": "Updates an existing purchase order and returns the status of the update request.",
+        "parameters": [
+          {
+            "name": "purchaseOrder",
+            "in": "body",
+            "description": "The details of the purchase order.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrderResult"
+            }
+          }
+        }
+      }
+    },
+    "/invoice/purchaseorders/{id}": {
+      "get": {
+        "summary": "Get an existing purchase order.",
+        "description": "Gets an existing purchase order.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The identifier for the purchase order.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrder"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Allocation": {
+      "properties": {
+        "Amount": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom1": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom10": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom11": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom12": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom13": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom14": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom15": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom16": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom17": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom18": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom19": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom2": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom20": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom3": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom4": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom5": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom6": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom7": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom8": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom9": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "GrossAmount": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Percentage": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    },
+    "BillToAddress": {
+      "properties": {
+        "Address1": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Address2": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Address3": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "City": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CountryCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ExternalID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "PostalCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "State": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "StateProvince": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    },
+    "LineItem": {
+      "properties": {
+        "AccountCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Allocation": {
+          "$ref": "#/definitions/Allocation"
+        },
+        "AmountWithoutVat": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CreateDate": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom1": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom10": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom11": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom12": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom13": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom14": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom15": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom16": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom17": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom18": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom19": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom2": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom20": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom3": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom4": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom5": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom6": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom7": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom8": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom9": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Description": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ExpenseType": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ExternalID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "IsReceiptRequired": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "LineNumber": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "PurchaseOrderReceipt": {
+          "$ref": "#/definitions/PurchaseOrderReceipt"
+        },
+        "Quantity": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "RequestedBy": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "RequestedDeliveryDate": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "SupplierPartID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Tax": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "UnitPrice": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "VatAmount": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "VatRate": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    },
+    "PurchaseOrder": {
+      "properties": {
+        "AmountWithoutVat": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "BillToAddress": {
+          "$ref": "#/definitions/BillToAddress"
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom1": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom10": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom11": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom12": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom13": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom14": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom15": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom16": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom17": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom18": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom19": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom2": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom20": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom21": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom22": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom23": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom24": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom3": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom4": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom5": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom6": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom7": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom8": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom9": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Description": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "DiscountPercentage": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "DiscountTerms": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "LedgerCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "LineItem": {
+          "$ref": "#/definitions/LineItem"
+        },
+        "Name": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "NeededByDate": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "OrderDate": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "PaymentTerms": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "PolicyExternalID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "PoVendorTaxId": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ProvincialTaxId": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "PurchaseOrderNumber": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ReceiptType": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "RequestedBy": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "RequestedDeliveryDate": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Shipping": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ShippingDescription": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ShippingMethodKey": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ShippingTermsKey": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ShipToAddress": {
+          "$ref": "#/definitions/ShipToAddress"
+        },
+        "Status": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Tax": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "VatAmountOne": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "VatAmountTwo": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "VatRateOne": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "VatRateTwo": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "VendorAccountNumber": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "VendorAddressCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "VendorCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    },
+    "PurchaseOrderReceipt": {
+      "properties": {
+        "Custom1": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom10": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom2": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom3": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom4": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom5": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom6": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom7": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom8": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Custom9": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Deleted": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "DeliverySlipNumber": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "GoodsReceiptNumber": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "IsReceived": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "LineItemExternalID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "PurchaseOrderNumber": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ReceivedDate": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ReceivedQuantity": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "UnitOfMeasureCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Version": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    },
+    "PurchaseOrderResult": {
+      "properties": {
+        "ErrorCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ErrorMessage": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "FieldCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "LineItemExternalID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Message": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "PurchaseOrderNumber": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Status": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    },
+    "ShipToAddress": {
+      "properties": {
+        "Address1": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Address2": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Address3": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "City": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CountryCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ExternalID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "PostalCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "State": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "StateProvince": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    }
+  }
+}
