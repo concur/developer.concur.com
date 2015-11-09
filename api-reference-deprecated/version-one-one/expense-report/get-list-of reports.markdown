@@ -1,5 +1,5 @@
 ---
-title: Get List of Reports (v1.1)
+title: Get List of Reports v1.1
 layout: reference
 ---
 
