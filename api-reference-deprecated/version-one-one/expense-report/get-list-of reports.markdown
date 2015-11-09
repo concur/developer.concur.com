@@ -64,7 +64,8 @@ NOTES:
 ## Response
 
 ### Response Media Type: 
-application/xml
+application/xml  
+
 ### Return Value: 
 This request will return a `ReportsList` parent element with an xmlns version attribute and a `ReportSummary` child element for each report. The `ReportSummary` elements will have the following child elements:
 
