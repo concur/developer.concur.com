@@ -60,6 +60,12 @@ h1 {
 .navbar-default .navbar-form {
   border-color: #0A0A0A;
 }
+
+/* HLD - to keep from applying bootstrap container class to the inner swagger-ui element */
+.swagger-section .container{
+  width: inherit;
+}
+
 .container1 {
   width: 1500px;
   margin: auto;

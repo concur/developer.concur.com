@@ -1,6 +1,7 @@
 ---
 title: Allocations Swagger Test
 layout: reference
+reference-type: swagger
 ---
 
 # Allocations Swagger Test
