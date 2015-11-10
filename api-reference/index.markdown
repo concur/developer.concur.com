@@ -71,7 +71,7 @@ Before you build your first application that integrates with Concur, you should 
 
 To configure your sandbox with additional APIs, go to **Administration > Web Services** to and modify your application to add more APIs. If you need assistance, or contact [Concur Support][3] for assistance.
 
-### <a name="generate-access-token"></a>Generate An Acccess Token
+### <a name="generate-access-token"></a>Generate An Access Token
 All Concur APIs require an access token to be passed as a header.
 There are several ways of generating a Concur access token, depending on your stage of development and integration scenario:
 
