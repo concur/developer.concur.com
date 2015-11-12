@@ -37,7 +37,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve a single attendee by ID
 
-    GET  /api/v3.0/expense/attendees{id}
+    GET  /api/v3.0/expense/attendees/{id}
 
 
 ### Parameters
@@ -71,15 +71,15 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update existing attendees
 
-    PUT  /api/v3.0/expense/attendees{id}
+    PUT  /api/v3.0/expense/attendees/{id}
 
 
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`id`|`body`|`path`|**Required** The attendee ID
-`content`|``path``|-|**Required** The partial or complete Attendee object to update.
+`id`|`string`|`path`|**Required** The attendee ID
+`content`|``body``|-|**Required** The partial or complete Attendee object to update.
 `user`|``string``|`query`|The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter
 
 ### Input
@@ -91,7 +91,7 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete an attendee
 
-    DELETE  /api/v3.0/expense/attendees{id}
+    DELETE  /api/v3.0/expense/attendees/{id}
 
 ### Parameters
 
