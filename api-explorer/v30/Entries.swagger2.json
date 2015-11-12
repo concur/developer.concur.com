@@ -1,0 +1,1206 @@
+{
+  "swagger": "2.0",
+  "host": "rqa3-cb.concurtech.net",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Entries",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": "" 
+    }
+  ],
+  "paths": {
+    "/expense/entries": {
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Get all expense entries",
+        "description": "Gets all expense entries owned by the user.",
+        "parameters": [
+          {
+            "name": "reportID",
+            "in": "query",
+            "description": "The report ID of the entries to be retrieved. Use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/ReportDigests/Get_offset_limit_user_approvalStatusCode_paymentStatusCode_currencyCode_paymentType_reimbursementMethod_approverLoginID_expenseTypeCode_attendeeTypeCode_countryCode_batchID_vendorName_hasVAT_hasImages_hasAttendees_hasBillableExpenses_isTestUser_expenseGroupConfigID_costObject_entryTransactionDateBefore_entryTransactionDateAfter_createDateBefore_createDateAfter_userDefinedDateBefore_userDefinedDateAfter_submitDateBefore_submitDateAfter_processingPaymentDateBefore_processingPaymentDateAfter_paidDateBefore_paidDateAfter_modifiedDateBefore_modifiedDateAfter_get_0\">GET /expense/reportdigests</a> function to find the report ID. Format: An alpha-numeric GUID string.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "paymentTypeID",
+            "in": "query",
+            "description": "The ID of the payment type of the entries to be retrieved. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> function to learn the payment type ID for the desired payment type.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "batchID",
+            "in": "query",
+            "description": "The batch ID for the entries to be retrieved. The batch ID identifies the batch that contains the report payee associated with the entries. Use the GET Payment Batch function to learn the Payment Type ID for the desired Payment Type.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "isBillable",
+            "in": "query",
+            "description": "Determines whether the operation retrieves entries that are billable. Format: true or false",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "attendeeTypeCode",
+            "in": "query",
+            "description": "The ID of the attendee type for the entries to be retrieved.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "hasAttendees",
+            "in": "query",
+            "description": "Determines whether the operation retrieves entries that have attendees. Format: true or false",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "hasVAT",
+            "in": "query",
+            "description": "Determines whether the operation retrieves entries that have VAT details. Format: true or false",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "expenseTypeCode",
+            "in": "query",
+            "description": "The code for the expense type for the entries to be retrieved.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "attendeeID",
+            "in": "query",
+            "description": "The attendee associated with the entries to be retrieved.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The number of records to return. Default value: 25",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/EntryCollection"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [ "Resources" ],
+        "summary": "Create a new expense entry",
+        "description": "Creates a new expense entry.",
+        "parameters": [
+          {
+            "name": "content",
+            "in": "body",
+            "description": "The expense entry object to create.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EntryPost"
+            }
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/expense/entries/{id}": {
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Get a single expense entry by ID",
+        "description": "Gets an expense entry by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The expense entry ID.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/EntryGet"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "Resources" ],
+        "summary": "Update an expense entry by ID",
+        "description": "Updates the specified expense entry. Only the fields provided in the supplied object are updated. Missing fields will not be altered.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The expense entry ID.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "in": "body",
+            "description": "The partial or complete expense entry object to update.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EntryPut"
+            }
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [ "Resources" ],
+        "summary": "Delete an expense entry by ID",
+        "description": "Deletes the specified expense entry.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the expense entry to delete.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CreateResponse": {
+      "properties": {
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        }
+      }
+    },
+    "CustomField": {
+      "properties": {
+        "Code": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "ListItemID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Type": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Value": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        }
+      }
+    },
+    "Decimal": {
+      "properties": {}
+    },
+    "EntryCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/EntryGet"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        }
+      }
+    },
+    "EntryGet": {
+      "properties": {
+        "AllocationType": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "ApprovedAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount."
+        },
+        "CompanyCardTransactionID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom1": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom10": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom11": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom12": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom13": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom14": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom15": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom16": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom17": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom18": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom19": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom2": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom20": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom21": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom22": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom23": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom24": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom25": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom26": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom27": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom28": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom29": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom3": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom30": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom31": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom32": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom33": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom34": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom35": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom36": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom37": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom38": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom39": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom4": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom40": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom5": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom6": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom7": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom8": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom9": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Description": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "ElectronicReceiptID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "EmployeeBankAccountID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "ExchangeRate": {
+          "type": "number",
+          "format": "double",
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount."
+        },
+        "ExpenseTypeCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "ExpenseTypeName": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "FormID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "HasAppliedCashAdvance": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "HasAttendees": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "HasComments": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "HasExceptions": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "HasImage": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "HasItemizations": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "HasVAT": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "IsBillable": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "IsImageRequired": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "IsPaidByExpensePay": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "IsPersonal": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "IsPersonalCardCharge": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "Journey": {
+          "$ref": "#/definitions/Journey"
+        },
+        "LastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date when the good or service associated with this expense entry was provided. Format: YYYY-MM-DD"
+        },
+        "LocationCountry": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "LocationID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "LocationName": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "LocationSubdivision": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit1": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit2": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit3": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit4": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit5": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit6": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "PaymentTypeID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "PaymentTypeName": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "PostedAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount."
+        },
+        "ReceiptReceived": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "ReportID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "ReportOwnerID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "SpendCategoryCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "SpendCategoryName": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "TaxReceiptType": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "TransactionAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount."
+        },
+        "TransactionCurrencyCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "TransactionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date when the good or service associated with this expense entry was provided. Format: YYYY-MM-DD"
+        },
+        "TripID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "VendorDescription": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "VendorListItemID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "VendorListItemName": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        }
+      }
+    },
+    "EntryPost": {
+      "properties": {
+        "Comment": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom1": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom10": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom11": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom12": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom13": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom14": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom15": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom16": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom17": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom18": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom19": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom2": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom20": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom21": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom22": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom23": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom24": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom25": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom26": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom27": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom28": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom29": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom3": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom30": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom31": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom32": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom33": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom34": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom35": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom36": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom37": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom38": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom39": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom4": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom40": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom5": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom6": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom7": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom8": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom9": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Description": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "ExchangeRate": {
+          "type": "number",
+          "format": "double",
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount."
+        },
+        "ExpenseTypeCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "IsBillable": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "IsPersonal": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "Journey": {
+          "$ref": "#/definitions/Journey"
+        },
+        "LocationID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit1": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit2": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit3": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit4": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit5": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit6": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "PaymentTypeID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "ReportID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "TaxReceiptType": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "TransactionAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount."
+        },
+        "TransactionCurrencyCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "TransactionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date when the good or service associated with this expense entry was provided. Format: YYYY-MM-DD"
+        },
+        "VendorDescription": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "VendorListItemID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        }
+      }
+    },
+    "EntryPut": {
+      "properties": {
+        "Comment": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom1": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom10": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom11": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom12": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom13": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom14": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom15": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom16": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom17": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom18": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom19": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom2": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom20": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom21": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom22": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom23": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom24": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom25": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom26": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom27": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom28": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom29": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom3": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom30": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom31": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom32": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom33": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom34": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom35": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom36": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom37": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom38": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom39": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom4": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom40": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom5": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom6": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom7": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom8": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Custom9": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "Description": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "ExchangeRate": {
+          "type": "number",
+          "format": "double",
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount."
+        },
+        "ExpenseTypeCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "IsBillable": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "IsPersonal": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "Journey": {
+          "$ref": "#/definitions/Journey"
+        },
+        "LocationID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit1": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit2": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit3": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit4": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit5": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "OrgUnit6": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "PaymentTypeID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "ReportID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "TaxReceiptType": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "TransactionAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount."
+        },
+        "TransactionCurrencyCode": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "TransactionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date when the good or service associated with this expense entry was provided. Format: YYYY-MM-DD"
+        },
+        "VendorDescription": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "VendorListItemID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        }
+      }
+    },
+    "Journey": {
+      "properties": {
+        "BusinessDistance": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The portion of the journey for personal use. This element is required in order to post a company car mileage expense when there is no BusinessDistance value. Format: positive integer. When using the Odometer elements, the sum of PersonalDistance and BusinessDistance must equal the difference between OdometerEnd and OdometerStart. Used with Company Car configuration types."
+        },
+        "EndLocation": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "NumberOfPassengers": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The portion of the journey for personal use. This element is required in order to post a company car mileage expense when there is no BusinessDistance value. Format: positive integer. When using the Odometer elements, the sum of PersonalDistance and BusinessDistance must equal the difference between OdometerEnd and OdometerStart. Used with Company Car configuration types."
+        },
+        "OdometerEnd": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The portion of the journey for personal use. This element is required in order to post a company car mileage expense when there is no BusinessDistance value. Format: positive integer. When using the Odometer elements, the sum of PersonalDistance and BusinessDistance must equal the difference between OdometerEnd and OdometerStart. Used with Company Car configuration types."
+        },
+        "OdometerStart": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The portion of the journey for personal use. This element is required in order to post a company car mileage expense when there is no BusinessDistance value. Format: positive integer. When using the Odometer elements, the sum of PersonalDistance and BusinessDistance must equal the difference between OdometerEnd and OdometerStart. Used with Company Car configuration types."
+        },
+        "PersonalDistance": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The portion of the journey for personal use. This element is required in order to post a company car mileage expense when there is no BusinessDistance value. Format: positive integer. When using the Odometer elements, the sum of PersonalDistance and BusinessDistance must equal the difference between OdometerEnd and OdometerStart. Used with Company Car configuration types."
+        },
+        "StartLocation": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "UnitOfMeasure": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        },
+        "VehicleID": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID."
+        }
+      }
+    },
+    "Nullable`1": {
+      "properties": {
+        "HasValue": {
+          "type": "boolean",
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false"
+        },
+        "Value": {
+          "$ref": "#/definitions/Decimal"
+        }
+      }
+    },
+    "Void": {
+      "properties": {}
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "swagger": "2.0",
+  "host": "rqa3-cb.concurtech.net",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Purchase Order Receipts",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": "" 
+    }
+  ],
+  "paths": {
+    "/invoice/purchaseorderreceipts": {
+      "put": {
+        "tags": [ "Resources" ],
+        "summary": "Updates purchase order receipts which is already in the system.",
+        "description": "Updates purchase order receipts and associate if to purchase order line item and returns status of updation.",
+        "parameters": [
+          {
+            "name": "purchaseOrderReceipt",
+            "in": "body",
+            "description": "Purchase order receipt information.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrderReceipt"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrderResult"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [ "Resources" ],
+        "summary": "Create purchase order receiving information for a purchase order line item.",
+        "description": "Creates purchase order receipts and associate if to purchase order line item and returns status of updation.",
+        "parameters": [
+          {
+            "name": "purchaseOrderReceipt",
+            "in": "body",
+            "description": "Purchase order receipt information that needs to be created.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrderReceipt"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PurchaseOrderResult"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Gets an existing purchase order receipts information.",
+        "description": "Gets an existing purchase order receipts.",
+        "parameters": [
+          {
+            "name": "goodsReceiptNumber",
+            "in": "query",
+            "description": "Gets an existing purchase order receipts.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ReceiptsCollection"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [ "Resources" ],
+        "summary": "Deletes a new purchase order line item receipt.",
+        "description": "Deletes a new purchase order line item receipt given a Goods Receipts Number.",
+        "parameters": [
+          {
+            "name": "goodsReceiptNumber",
+            "in": "query",
+            "description": "Unique number for the purchase order line item receipt.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PurchaseOrderReceipt": {
+      "properties": {
+        "Custom1": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Custom10": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Custom2": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Custom3": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Custom4": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Custom5": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Custom6": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Custom7": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Custom8": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Custom9": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Deleted": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "DeliverySlipNumber": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "GoodsReceiptNumber": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "ID": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "IsReceived": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "LineItemExternalID": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "PurchaseOrderNumber": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "ReceivedDate": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "ReceivedQuantity": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "UnitOfMeasureCode": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Version": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    },
+    "PurchaseOrderResult": {
+      "properties": {
+        "ErrorCode": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "ErrorMessage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "FieldCode": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "LineItemExternalID": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Message": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "PurchaseOrderNumber": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "Status": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    },
+    "ReceiptsCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/PurchaseOrderReceipt"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "TotalCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Void": {
+      "properties": {}
+    }
+  }
+}

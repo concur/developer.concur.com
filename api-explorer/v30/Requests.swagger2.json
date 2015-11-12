@@ -1,0 +1,1115 @@
+{
+  "swagger": "2.0",
+  "host": "rqa3-cb.concurtech.net",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Requests",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": "" 
+    }
+  ],
+  "paths": {
+    "/travelrequest/requests/{id}": {
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Get a Request by ID",
+        "description": "Returns a Request by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Request ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Request"
+            }
+          }
+        }
+      }
+    },
+    "/travelrequest/requests": {
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Get all Requests",
+        "description": "Returns all Requests owned by the user.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Starting page offset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of records to return (default 100)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user who owns this Request. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "The Status search term specifies which travel request or approval status to return. If no Status value is sent, the default Status of Active will be used.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modifiedAfter",
+            "in": "query",
+            "description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "modifiedBefore",
+            "in": "query",
+            "description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "withSegmentTypes",
+            "in": "query",
+            "description": "Pass true to populate the SegmentType field in the result.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RequestCollection"
+            }
+          }
+        }
+      }
+    },
+    "/travelrequest/requests/{id}/submit": {
+      "post": {
+        "tags": [ "Resources" ],
+        "summary": "Submit a Request by ID",
+        "description": "Submit a Request by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Request ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Allocation": {
+      "properties": {
+        "Custom1": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom10": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom11": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom12": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom13": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom14": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom15": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom16": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom17": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom18": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom19": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom2": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom20": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom3": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom4": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom5": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom6": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom7": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom8": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom9": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Percentage": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        }
+      }
+    },
+    "CashAdvance": {
+      "properties": {
+        "AmountRequested": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ApprovalStatusName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Comments": {
+          "$ref": "#/definitions/Comment"
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "CurrencyName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "EmployeeCurrencyCode": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "EmployeeCurrencyName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ExchangeRate": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "IssueDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "RequestDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "StartingBalance": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        }
+      }
+    },
+    "Comment": {
+      "properties": {
+        "AuthorFirstName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "AuthorLastName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "CommentDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "IsLatest": {
+          "type": "boolean",
+          "description": "Indicates that the comment is the last one."
+        },
+        "Value": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        }
+      }
+    },
+    "CustomField": {
+      "properties": {
+        "Code": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ListItemID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Type": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Value": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        }
+      }
+    },
+    "Link": {
+      "properties": {
+        "Action": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Method": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Url": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        }
+      }
+    },
+    "Request": {
+      "properties": {
+        "AgencyOfficeName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "AllocationFormID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ApprovalLimitDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "ApprovalStatusCode": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ApprovalStatusName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "AuthorizedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "CashAdvances": {
+          "$ref": "#/definitions/CashAdvance"
+        },
+        "Comments": {
+          "$ref": "#/definitions/Comment"
+        },
+        "CreationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "CurrencyName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Custom1": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom10": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom11": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom12": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom13": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom14": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom15": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom16": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom17": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom18": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom19": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom2": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom20": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom3": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom4": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom5": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom6": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom7": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom8": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom9": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "EmployeeName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "EndDate": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "EndTime": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Entries": {
+          "$ref": "#/definitions/RequestEntry"
+        },
+        "EverSentBack": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Exceptions": {
+          "$ref": "#/definitions/TRException"
+        },
+        "ExtensionOf": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "HasException": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "HeaderFormID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "LastModifiedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "LoginID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "PolicyID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "PolicyName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Purpose": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "RequestID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "StartDate": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "StartTime": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "SubmitDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "TotalApprovedAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "TotalPostedAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "TotalRemainingAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "UserPermissions": {
+          "$ref": "#/definitions/UserPermissions"
+        }
+      }
+    },
+    "RequestCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/TravelRequestHeader"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        }
+      }
+    },
+    "RequestEntry": {
+      "properties": {
+        "Allocations": {
+          "$ref": "#/definitions/Allocation"
+        },
+        "ApprovedAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Comments": {
+          "$ref": "#/definitions/Comment"
+        },
+        "Custom1": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom10": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom11": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom12": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom13": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom14": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom15": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom16": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom17": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom18": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom19": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom2": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom20": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom21": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom22": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom23": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom24": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom25": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom26": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom27": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom28": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom29": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom3": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom30": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom31": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom32": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom33": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom34": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom35": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom36": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom37": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom38": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom39": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom4": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom40": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom5": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom6": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom7": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom8": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom9": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "EntryDescription": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "EntryFormID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Exceptions": {
+          "$ref": "#/definitions/TRException"
+        },
+        "ExchangeRate": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ExpenseTypeName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ForeignAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ForeignCurrencyCode": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ForeignCurrencyName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "LastModifiedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "OrgUnit1": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit2": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit3": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit4": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit5": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit6": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "PostedAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "RemainingAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Segments": {
+          "$ref": "#/definitions/Segment"
+        },
+        "TransactionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "TripType": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        }
+      }
+    },
+    "Segment": {
+      "properties": {
+        "ApprovedAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ArrivalDate": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ArrivalTime": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ClassOfServiceCode": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Comments": {
+          "$ref": "#/definitions/Comment"
+        },
+        "Custom1": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom10": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom11": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom12": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom13": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom14": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom15": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom16": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom17": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom18": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom19": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom2": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom20": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom21": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom22": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom23": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom24": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom25": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom26": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom27": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom28": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom29": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom3": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom30": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom31": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom32": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom33": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom34": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom35": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom36": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom37": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom38": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom39": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom4": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom40": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom5": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom6": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom7": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom8": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom9": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "DepartureDate": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "DepartureTime": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Exceptions": {
+          "$ref": "#/definitions/TRException"
+        },
+        "ExchangeRate": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "FlightNumber": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ForeignAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ForeignCurrencyCode": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ForeignCurrencyName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "FormTypeCode": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "FromLocationDetail": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "FromLocationID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "FromLocationName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "IsAgencyBooked": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "IsSelfBooked": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "LastModifiedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "OutboundSegmentID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "PostedAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "RecordLocator": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "RemainingAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "SegmentFormID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "SegmentLocator": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "SegmentType": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "SegmentTypeCode": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ToLocationDetail": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ToLocationID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ToLocationName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "TripLocator": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        }
+      }
+    },
+    "TravelRequestHeader": {
+      "properties": {
+        "ApprovalStatusCode": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ApprovalStatusName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ApproverLoginID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "CreationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "EmployeeName": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "EndDate": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "HeaderFormID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "ID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "LastComment": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Purpose": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "RequestDetailsUrl": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "RequestID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "SegmentTypes": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "StartDate": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "TotalApprovedAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "TotalPostedAmount": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "UserLoginID": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        }
+      }
+    },
+    "TRException": {
+      "properties": {
+        "Code": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        },
+        "Level": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The numeric level associated with the exception. Example: 99"
+        },
+        "Message": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        }
+      }
+    },
+    "UserPermissions": {
+      "properties": {
+        "Links": {
+          "$ref": "#/definitions/Link"
+        }
+      }
+    },
+    "Void": {
+      "properties": {}
+    }
+  }
+}

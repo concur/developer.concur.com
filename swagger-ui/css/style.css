@@ -5,43 +5,44 @@
   background: transparent url(../images/logo.png) no-repeat left center;
   padding: 20px 0 20px 40px;
 }
-#text-head {
+.swagger-section #text-head {
   font-size: 80px;
   font-family: 'Roboto', sans-serif;
   color: #ffffff;
   float: right;
   margin-right: 20%;
 }
-.navbar-fixed-top .navbar-nav {
+.swagger-section .navbar-fixed-top .navbar-nav {
   height: auto;
 }
-.navbar-fixed-top .navbar-brand {
+.swagger-section .navbar-fixed-top .navbar-brand {
   height: auto;
 }
-.navbar-header {
+.swagger-section .navbar-header {
   height: auto;
 }
-.navbar-inverse {
+.swagger-section .navbar-inverse {
   background-color: #000;
   border-color: #000;
 }
-#navbar-brand {
+.swagger-section #navbar-brand {
   margin-left: 20%;
 }
-.navtext {
+.swagger-section .navtext {
   font-size: 10px;
 }
-.h1,
+.swagger-section .h1,
 h1 {
   font-size: 60px;
 }
-.navbar-default .navbar-header .navbar-brand {
+.swagger-section .navbar-default .navbar-header .navbar-brand {
   color: #a2dfee;
 }
 /* tag titles */
 .swagger-section .swagger-ui-wrap ul#resources li.resource div.heading h2 a {
   color: #393939;
-  font-family: 'Arvo', serif;
+  /*font-family: 'Arvo', serif;*/
+  font-family: 'Droid Sans', sans-serif;
   font-size: 1.5em;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource div.heading h2 a:hover {
@@ -56,17 +57,12 @@ h1 {
   font-family: 'Arvo', serif;
   font-weight: bold;
 }
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
+.swagger-section .navbar-default .navbar-collapse,
+.swagger-section .navbar-default .navbar-form {
   border-color: #0A0A0A;
 }
 
-/* HLD - to keep from applying bootstrap container class to the inner swagger-ui element */
-.swagger-section .container{
-  width: inherit;
-}
-
-.container1 {
+.swagger-section .container1 {
   width: 1500px;
   margin: auto;
   margin-top: 0;
@@ -75,7 +71,7 @@ h1 {
   background-position: -40px -20px;
   margin-bottom: 210px;
 }
-.container-inner {
+.swagger-section .container-inner {
   width: 1200px;
   margin: auto;
   background-color: rgba(223, 227, 228, 0.75);
@@ -83,11 +79,11 @@ h1 {
   padding-top: 40px;
   border-radius: 15px;
 }
-.header-content {
+.swagger-section .header-content {
   padding: 0;
   width: 1000px;
 }
-.title1 {
+.swagger-section .title1 {
   font-size: 80px;
   font-family: 'Vollkorn', serif;
   color: #404040;
@@ -95,68 +91,68 @@ h1 {
   padding-top: 40px;
   padding-bottom: 100px;
 }
-#icon {
+.swagger-section #icon {
   margin-top: -18px;
 }
-.subtext {
+.swagger-section .subtext {
   font-size: 25px;
   font-style: italic;
   color: #08b;
   text-align: right;
   padding-right: 250px;
 }
-.bg-primary {
+.swagger-section .bg-primary {
   background-color: #00468b;
 }
-.navbar-default .nav > li > a,
-.navbar-default .nav > li > a:focus {
+.swagger-section .navbar-default .nav > li > a,
+.swagger-section .navbar-default .nav > li > a:focus {
   color: #08b;
 }
-.navbar-default .nav > li > a,
-.navbar-default .nav > li > a:hover {
+.swagger-section .navbar-default .nav > li > a,
+.swagger-section .navbar-default .nav > li > a:hover {
   color: #08b;
 }
-.navbar-default .nav > li > a,
-.navbar-default .nav > li > a:focus:hover {
+.swagger-section .navbar-default .nav > li > a,
+.swagger-section .navbar-default .nav > li > a:focus:hover {
   color: #08b;
 }
-.text-faded {
+.swagger-section .text-faded {
   font-size: 25px;
   font-family: 'Vollkorn', serif;
 }
-.section-heading {
+.swagger-section .section-heading {
   font-family: 'Vollkorn', serif;
   font-size: 45px;
   padding-bottom: 10px;
 }
-hr {
+.swagger-section hr {
   border-color: #00468b;
   padding-bottom: 10px;
 }
-.description {
+.swagger-section .description {
   margin-top: 20px;
   padding-bottom: 200px;
 }
-.description li {
+.swagger-section .description li {
   font-family: 'Vollkorn', serif;
   font-size: 25px;
   color: #525252;
   margin-left: 28%;
   padding-top: 5px;
 }
-.gap {
+.swagger-section .gap {
   margin-top: 200px;
 }
-.troubleshootingtext {
+.swagger-section .troubleshootingtext {
   color: rgba(255, 255, 255, 0.7);
   padding-left: 30%;
 }
-.troubleshootingtext li {
+.swagger-section .troubleshootingtext li {
   list-style-type: circle;
   font-size: 25px;
   padding-bottom: 5px;
 }
-.overlay {
+.swagger-section .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -164,20 +160,20 @@ hr {
   height: 100%;
   z-index: 1000;
 }
-.block.response_body.json:hover {
+.swagger-section .block.response_body.json:hover {
   cursor: pointer;
 }
-.backdrop {
+.swagger-section .backdrop {
   color: blue;
 }
-#myModal {
+.swagger-section #myModal {
   height: 100%;
 }
-.modal-backdrop {
+.swagger-section .modal-backdrop {
   bottom: 0;
   position: fixed;
 }
-.curl {
+.swagger-section .curl {
   padding: 10px;
   font-family: "Anonymous Pro", "Menlo", "Consolas", "Bitstream Vera Sans Mono", "Courier New", monospace;
   font-size: 0.9em;
@@ -188,7 +184,7 @@ hr {
   border: 1px solid #e5e0c6;
   border-radius: 4px;
 }
-.curl_title {
+.swagger-section .curl_title {
   font-size: 1.1em;
   margin: 0;
   padding: 15px 0 5px;
@@ -196,17 +192,17 @@ hr {
   font-weight: 500;
   line-height: 1.1;
 }
-.footer {
+.swagger-section .footer {
   display: none;
 }
 .swagger-section .swagger-ui-wrap h2 {
   padding: 0;
 }
-h2 {
+.swagger-section h2 {
   margin: 0;
   margin-bottom: 5px;
 }
-.markdown p {
+.swagger-section .markdown p {
   font-size: 15px;
   font-family: 'Arvo', serif;
 }
@@ -217,24 +213,24 @@ h2 {
 .swagger-section .swagger-ui-wrap b {
   font-family: 'Arvo', serif;
 }
-#signin:hover {
+.swagger-section #signin:hover {
   cursor: pointer;
 }
-.dropdown-menu {
+.swagger-section .dropdown-menu {
   padding: 15px;
 }
-.navbar-right .dropdown-menu {
+.swagger-section .navbar-right .dropdown-menu {
   left: 0;
   right: auto;
 }
-#signinbutton {
+.swagger-section #signinbutton {
   width: 100%;
   height: 32px;
   font-size: 13px;
   font-weight: bold;
   color: #08b;
 }
-.navbar-default .nav > li .details {
+.swagger-section .navbar-default .nav > li .details {
   color: #000000;
   text-transform: none;
   font-size: 15px;
@@ -244,10 +240,10 @@ h2 {
   line-height: 20px;
   top: -2px;
 }
-.navbar-default .nav > li .details:hover {
+.swagger-section .navbar-default .nav > li .details:hover {
   color: black;
 }
-#signout {
+.swagger-section #signout {
   width: 100%;
   height: 32px;
   font-size: 13px;

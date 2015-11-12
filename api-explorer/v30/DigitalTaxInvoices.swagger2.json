@@ -1,0 +1,187 @@
+{
+  "swagger": "2.0",
+  "host": "rqa3-cb.concurtech.net",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Digital Tax Invoices",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": "" 
+    }
+  ],
+  "paths": {
+    "/expense/digitaltaxinvoices": {
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Get all digital tax invoices",
+        "description": "Gets all digital tax invoices that can be validated by the user based on the search criteria.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The number of records to return. Default value: 25",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "modifiedafter",
+            "in": "query",
+            "description": "A modification date for the queue record; this parameter can be used to limit the results of the GET request to the queue items that have been added since the last time the validation company queried the queue. The user must have the Web Services Admin role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DigitalTaxInvoiceCollection"
+            }
+          }
+        }
+      }
+    },
+    "/expense/digitaltaxinvoices/{id}": {
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Get a single digital tax invoice by ID",
+        "description": "Gets a single digital tax invoice by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the digital tax invoice.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DigitalTaxInvoiceGetSingle"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "Resources" ],
+        "summary": "Update a digital tax invoice by ID",
+        "description": "Updates the specified digital tax invoice.",
+        "parameters": [
+          {
+            "name": "content",
+            "in": "body",
+            "description": "A status update for the digital tax invoice.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DigitalTaxInvoicePut"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the digital tax invoice to update.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DigitalTaxInvoiceCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/DigitalTaxInvoiceGetAll"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "A status that describes the digital tax invoice. Format: VALID - Valid; INVLD - Invalid; WARNG - Valid with warnings "
+        }
+      }
+    },
+    "DigitalTaxInvoiceGetAll": {
+      "properties": {
+        "ConcurReceiptID": {
+          "type": "string",
+          "description": "A status that describes the digital tax invoice. Format: VALID - Valid; INVLD - Invalid; WARNG - Valid with warnings "
+        },
+        "ID": {
+          "type": "string",
+          "description": "A status that describes the digital tax invoice. Format: VALID - Valid; INVLD - Invalid; WARNG - Valid with warnings "
+        },
+        "URI": {
+          "type": "string",
+          "description": "A status that describes the digital tax invoice. Format: VALID - Valid; INVLD - Invalid; WARNG - Valid with warnings "
+        }
+      }
+    },
+    "DigitalTaxInvoiceGetSingle": {
+      "properties": {
+        "AccountID": {
+          "type": "string",
+          "description": "A status that describes the digital tax invoice. Format: VALID - Valid; INVLD - Invalid; WARNG - Valid with warnings "
+        },
+        "ConcurReceiptID": {
+          "type": "string",
+          "description": "A status that describes the digital tax invoice. Format: VALID - Valid; INVLD - Invalid; WARNG - Valid with warnings "
+        },
+        "DocumentID": {
+          "type": "string",
+          "description": "A status that describes the digital tax invoice. Format: VALID - Valid; INVLD - Invalid; WARNG - Valid with warnings "
+        },
+        "ReceiptData": {
+          "type": "string",
+          "description": "A status that describes the digital tax invoice. Format: VALID - Valid; INVLD - Invalid; WARNG - Valid with warnings "
+        }
+      }
+    },
+    "DigitalTaxInvoicePut": {
+      "properties": {
+        "Comment": {
+          "type": "string",
+          "description": "A status that describes the digital tax invoice. Format: VALID - Valid; INVLD - Invalid; WARNG - Valid with warnings "
+        },
+        "Status": {
+          "type": "string",
+          "description": "A status that describes the digital tax invoice. Format: VALID - Valid; INVLD - Invalid; WARNG - Valid with warnings "
+        }
+      }
+    },
+    "Void": {
+      "properties": {}
+    }
+  }
+}

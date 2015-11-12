@@ -1,0 +1,157 @@
+{
+  "swagger": "2.0",
+  "host": "rqa3-cb.concurtech.net",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Users",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": "" 
+    }
+  ],
+  "paths": {
+    "/common/users": {
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Get all users",
+        "description": "Gets all users based on the search criteria.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The number of records to return. Default value: 25. Maximum: 100.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "primaryEmail",
+            "in": "query",
+            "description": "The primary email of the user.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "employeeID",
+            "in": "query",
+            "description": "The employee ID of the user.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "lastName",
+            "in": "query",
+            "description": "The last name of the user.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Indicates whether to return active or inactive users. FORMAT: true or false",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UserCollection"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "properties": {
+        "Active": {
+          "type": "boolean",
+          "description": "Indicates whether the user is currently active or not."
+        },
+        "CellPhoneNumber": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "EmployeeID": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "FirstName": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "ID": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "LastName": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "LoginID": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "MiddleName": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "OrganizationUnit": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "PrimaryEmail": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    },
+    "UserCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/User"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    }
+  }
+}
