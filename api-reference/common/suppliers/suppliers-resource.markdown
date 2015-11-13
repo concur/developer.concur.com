@@ -10,9 +10,8 @@ Supplier companies provide travel services to users. The Suppliers resource can 
 * [Retrieve all suppliers based on search criteria](#get)
 * [Retrieve a single supplier by ID](#getID)
 * [Schema](#schema)
-* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/Suppliers)
 
-###Version
+### Version
 3.0
 
 ## <a name="get"></a>Retrieve all suppliers based on search criteria

@@ -11,9 +11,8 @@ layout: reference
 * [Update existing attendees](#put)
 * [Delete an attendee](#delete)
 * [Schema](#schema)
-* [Make a test call using 3.0 Swagger](https://www.concursolutions.com/api/docs/index.html#!/Attendees)
 
-###Version
+### Version
 3.0
 
 2.0 documentation is available [here](/api-reference-deprecated/version-two/attendees/index.html)

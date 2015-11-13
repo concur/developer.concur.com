@@ -13,9 +13,9 @@ The Connection Requests resource is used to integrate TripLink partner applicati
 * [Update a connection request](#put)
 * [Delete an connection request](#delete)
 * [Schema](#schema)
-* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/ConnectionRequests)
 
-###Version
+
+### Version
 3.0
 
 ## <a name="get"></a>Retrieve all connection requests tht match the TripLink supplier ID
