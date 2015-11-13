@@ -1,6 +1,12 @@
 ---
-title: Swagger API Reference
+title: Swagger API Explorer
 layout: reference
 ---
 
-Browse swagger documents for v3.0 and 3.1 APIs.
+# Swagger API Explorer
+
+Browse swagger documents for v3.0 and 3.1 APIs, such as what APIs are available, the resource and method details for each API.
+
+### Test Calls Returning Soon
+Out interactive API explorer that allows you to enter your token and make test calls, is currently being updated and will be available soon.
+
