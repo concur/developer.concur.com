@@ -12,9 +12,8 @@ layout: reference
 * [Update a quick expense](#put)
 * [Delete a quick expense](#delete)
 * [Schema](#schema)
-* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/QuickExpenses)
 
-###Version
+### Version
 3.0
 
 1.0 documentation is available [here](/api-reference-deprecated/version-one/quick-expense/index.html)

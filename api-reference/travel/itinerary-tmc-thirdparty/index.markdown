@@ -2056,6 +2056,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  SW |  SummitQwest |
 |  TD |  Tandem |
 |  TV |  Transvip |
+| $$ | unknown |
 
 #### Core Elements - Optional
 

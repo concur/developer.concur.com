@@ -9,9 +9,8 @@ layout: reference
 * [Update existing vendors](#put)
 * [Delete vendors](#delete)
 * [Schema](#schema)
-* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/Vendors)
 
-##Version
+## Version
 3.0  
 
 

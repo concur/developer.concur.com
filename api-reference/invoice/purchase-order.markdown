@@ -12,7 +12,6 @@ layout: reference
 * [Response schema](#schema-response)
 * [Receipt schema](#schema-receipt)
 * [Error codes](#error-codes)
-* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/PurchaseOrders)
 
 ## Version
 3.0  

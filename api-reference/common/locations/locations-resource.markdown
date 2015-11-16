@@ -10,9 +10,8 @@ Gets details of locations that are used by Concur and that are valid at the user
 * [Retrieve details of locations that are used by Concur and that are valid at the user's company](#get)
 * [Retrieve details of a specified location](#getID)
 * [Schema](#schema)
-* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/Locations)
 
-###Version
+### Version
 3.0  
 
 1.1 has been deprecated and can be found [here.](/api-reference-deprecated/version-one-one/expense-report/location-resource.html)  

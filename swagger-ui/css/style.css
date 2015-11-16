@@ -1,0 +1,252 @@
+.swagger-section #header a#logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+  background: transparent url(../images/logo.png) no-repeat left center;
+  padding: 20px 0 20px 40px;
+}
+.swagger-section #text-head {
+  font-size: 80px;
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+  float: right;
+  margin-right: 20%;
+}
+.swagger-section .navbar-fixed-top .navbar-nav {
+  height: auto;
+}
+.swagger-section .navbar-fixed-top .navbar-brand {
+  height: auto;
+}
+.swagger-section .navbar-header {
+  height: auto;
+}
+.swagger-section .navbar-inverse {
+  background-color: #000;
+  border-color: #000;
+}
+.swagger-section #navbar-brand {
+  margin-left: 20%;
+}
+.swagger-section .navtext {
+  font-size: 10px;
+}
+.swagger-section .h1,
+h1 {
+  font-size: 60px;
+}
+.swagger-section .navbar-default .navbar-header .navbar-brand {
+  color: #a2dfee;
+}
+/* tag titles */
+.swagger-section .swagger-ui-wrap ul#resources li.resource div.heading h2 a {
+  color: #393939;
+  /*font-family: 'Arvo', serif;*/
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 1.5em;
+}
+.swagger-section .swagger-ui-wrap ul#resources li.resource div.heading h2 a:hover {
+  color: black;
+}
+.swagger-section .swagger-ui-wrap ul#resources li.resource div.heading h2 {
+  color: #525252;
+  padding-left: 0px;
+  display: block;
+  clear: none;
+  float: left;
+  font-family: 'Arvo', serif;
+  font-weight: bold;
+}
+.swagger-section .navbar-default .navbar-collapse,
+.swagger-section .navbar-default .navbar-form {
+  border-color: #0A0A0A;
+}
+
+.swagger-section .container1 {
+  width: 1500px;
+  margin: auto;
+  margin-top: 0;
+  background-image: url('../images/shield.png');
+  background-repeat: no-repeat;
+  background-position: -40px -20px;
+  margin-bottom: 210px;
+}
+.swagger-section .container-inner {
+  width: 1200px;
+  margin: auto;
+  background-color: rgba(223, 227, 228, 0.75);
+  padding-bottom: 40px;
+  padding-top: 40px;
+  border-radius: 15px;
+}
+.swagger-section .header-content {
+  padding: 0;
+  width: 1000px;
+}
+.swagger-section .title1 {
+  font-size: 80px;
+  font-family: 'Vollkorn', serif;
+  color: #404040;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+.swagger-section #icon {
+  margin-top: -18px;
+}
+.swagger-section .subtext {
+  font-size: 25px;
+  font-style: italic;
+  color: #08b;
+  text-align: right;
+  padding-right: 250px;
+}
+.swagger-section .bg-primary {
+  background-color: #00468b;
+}
+.swagger-section .navbar-default .nav > li > a,
+.swagger-section .navbar-default .nav > li > a:focus {
+  color: #08b;
+}
+.swagger-section .navbar-default .nav > li > a,
+.swagger-section .navbar-default .nav > li > a:hover {
+  color: #08b;
+}
+.swagger-section .navbar-default .nav > li > a,
+.swagger-section .navbar-default .nav > li > a:focus:hover {
+  color: #08b;
+}
+.swagger-section .text-faded {
+  font-size: 25px;
+  font-family: 'Vollkorn', serif;
+}
+.swagger-section .section-heading {
+  font-family: 'Vollkorn', serif;
+  font-size: 45px;
+  padding-bottom: 10px;
+}
+.swagger-section hr {
+  border-color: #00468b;
+  padding-bottom: 10px;
+}
+.swagger-section .description {
+  margin-top: 20px;
+  padding-bottom: 200px;
+}
+.swagger-section .description li {
+  font-family: 'Vollkorn', serif;
+  font-size: 25px;
+  color: #525252;
+  margin-left: 28%;
+  padding-top: 5px;
+}
+.swagger-section .gap {
+  margin-top: 200px;
+}
+.swagger-section .troubleshootingtext {
+  color: rgba(255, 255, 255, 0.7);
+  padding-left: 30%;
+}
+.swagger-section .troubleshootingtext li {
+  list-style-type: circle;
+  font-size: 25px;
+  padding-bottom: 5px;
+}
+.swagger-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+.swagger-section .block.response_body.json:hover {
+  cursor: pointer;
+}
+.swagger-section .backdrop {
+  color: blue;
+}
+.swagger-section #myModal {
+  height: 100%;
+}
+.swagger-section .modal-backdrop {
+  bottom: 0;
+  position: fixed;
+}
+.swagger-section .curl {
+  padding: 10px;
+  font-family: "Anonymous Pro", "Menlo", "Consolas", "Bitstream Vera Sans Mono", "Courier New", monospace;
+  font-size: 0.9em;
+  max-height: 400px;
+  margin-top: 5px;
+  overflow-y: auto;
+  background-color: #fcf6db;
+  border: 1px solid #e5e0c6;
+  border-radius: 4px;
+}
+.swagger-section .curl_title {
+  font-size: 1.1em;
+  margin: 0;
+  padding: 15px 0 5px;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+}
+.swagger-section .footer {
+  display: none;
+}
+.swagger-section .swagger-ui-wrap h2 {
+  padding: 0;
+}
+.swagger-section h2 {
+  margin: 0;
+  margin-bottom: 5px;
+}
+.swagger-section .markdown p {
+  font-size: 15px;
+  font-family: 'Arvo', serif;
+}
+.swagger-section .swagger-ui-wrap .code {
+  font-size: 15px;
+  font-family: 'Arvo', serif;
+}
+.swagger-section .swagger-ui-wrap b {
+  font-family: 'Arvo', serif;
+}
+.swagger-section #signin:hover {
+  cursor: pointer;
+}
+.swagger-section .dropdown-menu {
+  padding: 15px;
+}
+.swagger-section .navbar-right .dropdown-menu {
+  left: 0;
+  right: auto;
+}
+.swagger-section #signinbutton {
+  width: 100%;
+  height: 32px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #08b;
+}
+.swagger-section .navbar-default .nav > li .details {
+  color: #000000;
+  text-transform: none;
+  font-size: 15px;
+  font-weight: normal;
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  line-height: 20px;
+  top: -2px;
+}
+.swagger-section .navbar-default .nav > li .details:hover {
+  color: black;
+}
+.swagger-section #signout {
+  width: 100%;
+  height: 32px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #08b;
+}

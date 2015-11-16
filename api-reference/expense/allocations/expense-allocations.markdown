@@ -11,9 +11,8 @@ This resource can be used to retrieve information about the allocations that are
 * [Retrieve all allocations per entry or report](#get)
 * [Retrieve a single allocation by ID](#getID)
 * [Schema](#schema)
-* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/Allocations)
 
-###Version
+### Version
 3.0
 
 ## <a name="get"></a>Retrieve all allocations per entry or report

@@ -11,7 +11,7 @@ Concur  Request is designed to help businesses control expenses by requiring emp
 * [Retrieve a request by ID](#method2)
 * [Submit a request by ID](method3)
 * [Schema](#schema)
-* [Make a test call using Swagger](https://www.concursolutions.com/api/docs/index.html#!/Requests)
+
 
 ### Version
 3.0  
