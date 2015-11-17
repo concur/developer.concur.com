@@ -68,7 +68,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve a report by ID
 
-    GET  /api/v3.0/expense/report/{id}
+    GET  /api/v3.0/expense/reports/{id}
 
 
 ### Parameters
@@ -81,7 +81,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a new report
 
-    POST  /api/v3.0/expense/report
+    POST  /api/v3.0/expense/reports
 
 
 ### Parameters
@@ -92,7 +92,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update a report
 
-    PUT  /api/v3.0/expense/report/{id}
+    PUT  /api/v3.0/expense/reports/{id}
 
 
 ### Parameters
