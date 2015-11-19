@@ -83,7 +83,6 @@ The General parent element contains the following child elements. In order to re
 |  `Division` | `string` | The user's division. Format: Varchar(255) |
 |  `PreferredLanguage` |  `string` |  The user's preferred language locale. Example: United States English is en-US. Format: Varchar(20) |
 |  `EReceiptOptIn` |  `string` |  Whether the user has opted in to receive e-receipts. Format: **True**\|**False** |
-|  `MarketingOptIn` |  `string` |  Whether the user has opted in to receive marketing information. Format: **True**\|**False** |
 |  `HasOpenBooking` |  `boolean` |  Whether the user has the TripLink User (formerly Open Booking User) permission. Format: **true**\|**false** |
 |  `CountryCode` |  `string` |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: Char(2) |
 |  `CompanyName` |  `string` |  The user's company name. |
