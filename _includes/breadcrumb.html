@@ -3,7 +3,7 @@
         <div class="container">
             <h1 class="pull-left">{{ page.title }}</h1>
             <ol class="pull-right breadcrumb">
-                <li><a href="/">Home</a></li>
+                <li><a href="{{ site.baseurl }}/">Home</a></li>
                 {% assign crumbs = page.url | split: '/' %}
                 {% assign crumbs_total = crumbs | size | minus: 1 %}
                 {% for crumb in crumbs offset: 1 %}
