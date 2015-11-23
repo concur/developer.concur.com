@@ -140,7 +140,7 @@ Name | Type | Format | Description
 `user`|`string`|`{user_LoginID}`|**Required** The LoginID of the user.
 
 #### Response
-
+w
 None
 
 #### Example
@@ -156,7 +156,7 @@ If you need to... | Use this flow
 Get an access token for prototyping, designing and testing an application.|[Native](#native)
 Get an access token for a user with the Web Services Administrator role and don't require the user to assent (usually for back-office integration apps).|[Native](#native)
 Inform the end-user how the app will access their data.|[Web](#web) or [App Center](#app-center)
-Have an end-user-facing app and which to initiate the account linking from the app, outside of the Concur App Center|[Web](#web)
+Have an end-user-facing app and wish to initiate the account linking from the app, outside of the Concur App Center. **NOTE:** These apps must also support App Center Flow so your app is available in the Mobile App Center. Most end-user apps will be used predominantly on a mobile device.|[Web](#web)
 Distribute the app in the Mobile App Center|[App Center](#app-center)
 Distribute the app in the App Center and are **not** a TripLink supplier.|[App Center](#app-center)
 Distribute the app in the App Center and **are** a TripLink supplier.|[Auto-Connect](#auto-connect)
