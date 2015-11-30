@@ -9,6 +9,7 @@ The Users resource represents a set of Concur users. It is always managed as a b
 
 
 * [Retrieve a users information](#getUser)
+* [Retrieve all users based on search criteria](#getall)
 * [Retrieve the list of required fields for creating a user](#requiredFields)
 * [Create or update a users account information](#createUser)
 * [Update a users password](#updatePwd)
@@ -56,6 +57,11 @@ Name | Type | Format | Description
 `InvoiceApprover`|`string` | | Whether the user is an Invoice approver. Format: Y/N.
 `ExpenseApproverEmployeeID`|`string` | | The employee ID of the user's Expense approver. If you are importing both a user and their approver, the approver should be listed before the user in the batch.
 `IsTestEmp`|`string` | | Whether the user is a test user. Format: Y/N.
+
+
+## <a name="getall"></a>Retrieve all users based on search criteria
+
+Note that this is a version 3.0 API and can be found [here](/api-explorer/v30/Users.html).
 
 
 ## <a name="requiredFields"></a>Retrieve the list of required fields for creating a user
