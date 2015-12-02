@@ -4,7 +4,7 @@ layout: reference
 ---
 
 
-# API Lifecycle & Deprecation Policy (DRAFT)
+# API Lifecycle & Deprecation Policy
 The Concur API Lifecycle & Deprecation Policy is part of our [API terms and conditions of use.](/Terms-of-Use.html) We may make periodic updates to this Policy, at which time we will notify those who have agreements with us.
 
 ## API Version Status  
@@ -25,4 +25,4 @@ Active | Deprecated | Retired | Decommissioned
 
 *Exception: Changes required due to security issues may have a shorter notification and action window.  
 
-Updated: 10/08/2015
+
