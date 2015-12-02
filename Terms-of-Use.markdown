@@ -171,3 +171,8 @@ The license rights granted in the foregoing clauses (a) and (b) may not be subli
 9.8   Governing Law.  This Agreement shall be governed by, subject to, and interpreted in accordance with the laws of the state of Washington , without regard to conflict of laws principles.  The parties hereby irrevocably consent to the exclusive jurisdiction of, and venue in, any federal or state court of competent jurisdiction located in King County, Washington for the purposes of adjudicating any action or proceeding to enforce the terms of this Agreement.  The parties agree that this Agreement and the transactions contemplated therein shall not be governed by the United Nations Convention on Contracts for the International Sale of Goods or the Uniform Computer Information Transactions Act, as currently enacted by any jurisdiction or as may be codified or amended from time to time by any jurisdiction.  English shall be the governing language of this Agreement.
 
 9.9   Interpretation.  This Agreement will not be construed in favor of or against any party by reason of the extent to which any party participated in the preparation of this Agreement.  This Agreement may be executed by facsimile copy and in any number of counterparts, all of which taken together will constitute one single agreement between the parties. 
+
+
+### [Deprecation Policy](/tools-support/reference/deprecation-policy.html)
+
+
