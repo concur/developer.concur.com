@@ -22,7 +22,7 @@ The Travel Profile resource represents a Concur travel profile which contains tr
 ##  Version
 
 2.0  
-1.0 has been deprecated and can be found [here](/api-reference-deprecated/version-one/Travel/profile-resource.html)
+1.0 can be found [here](/api-reference-deprecated/version-one/Travel/profile-resource.html)
 
 ##  URI
 
