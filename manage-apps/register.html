@@ -206,11 +206,11 @@ title: Sandbox Registration
           $('#sandboxRegistration button[type="submit"]').attr('disabled', true);
         },
         success: function(data) {
-          console.log(data);
           if (data.sandboxErr !== 'No Error') {
             $('#status-modal').modal('hide');
             $('#form-error').removeClass('form-error-hidden');
             $('#form-error > h3').append(data.sandboxErr);
+            return;
           } else {
             $("#sandboxRegistration").addClass('submited');
             $('#form-success').removeClass('form-success-hidden');
