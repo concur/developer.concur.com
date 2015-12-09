@@ -205,16 +205,15 @@ title: Sandbox Registration
           $('#status-modal').modal('show');
           $('#sandboxRegistration button[type="submit"]').attr('disabled', true);
         },
+        error: function(res) {
+          console.log(res.responseText)
+          $('#status-modal').modal('hide');
+          $('#form-error').removeClass('form-error-hidden');
+          $('#form-error > h3').append(res.responseText);
+        },
         success: function(data) {
-          if (data.sandboxErr !== 'No Error') {
-            $('#status-modal').modal('hide');
-            $('#form-error').removeClass('form-error-hidden');
-            $('#form-error > h3').append(data.sandboxErr);
-            return;
-          } else {
             $("#sandboxRegistration").addClass('submited');
             $('#form-success').removeClass('form-success-hidden');
-          };
 
           var verifyLoginPage = 'https://www.concursolutions.com/verify_login.asp?breeze=y';
           // create a new hidden form
