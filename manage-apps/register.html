@@ -6,6 +6,7 @@ title: Sandbox Registration
 <div class="col-md-12">
     <h2>Sandbox Creation Form</h2>
     <p> As a Concur customer, partner or developer, you can create a development sandbox by filling out and submitting this form. NOTE: Please be sure to be logged out of all Concur products before proceeding.</p><br>
+    {% include form-error.html %}
     {% include form-wait.html %}
     <form action="{{ site.data.forms.server }}/register" method="POST" id="sandboxRegistration" class="sky-form" novalidate="novalidate">
       <fieldset>
@@ -170,6 +171,7 @@ title: Sandbox Registration
       password: { required: true },
       passwordVerify: {
         required: true,
+        minlength: 7,
         equalTo: '#password'
       },
       country: { required: true },
@@ -203,8 +205,12 @@ title: Sandbox Registration
           $('#status-modal').modal('show');
           $('#sandboxRegistration button[type="submit"]').attr('disabled', true);
         },
+        error: function(res) {
+          $('#status-modal').modal('hide');
+          $('#form-error').removeClass('form-error-hidden');
+          $('#form-error > h3').append(res.responseText);
+        },
         success: function(data) {
-          console.log(data);
           $("#sandboxRegistration").addClass('submited');
           $('#form-success').removeClass('form-success-hidden');
 
