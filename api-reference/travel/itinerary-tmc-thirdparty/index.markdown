@@ -696,13 +696,30 @@ This function requires as its arguments an **Itinerary** parent element. The par
 |  TripName |  Name of the trip. Maximum length: 255 characters. |
 |  TripStatus |  The status of the itinerary. One of the following:<br>0 - Confirmed<br>1 - Ticketed<br>2 - Canceled<br>6 - Proposal<br>7 - Booked Proposal |
 
+
+
 ### Required Elements for Agency Proposal
 
 | Element | Description |
 | ------- | ----------- |
 | ClientLocator | The unique identifier for the batch of proposals. All proposals in the batch should have the same value. |
 | TravelRequestId | The identifier for the travel request that the proposal is associated with. |
-| CustomAttributes | This parent element has two **CustomAttribute** child elements, with the following child elements:<br>DataType - The value for this element is **Numeric**.<br> Name -  For the first CustomAttribute element: **ProposalBatchSize**. For the second CustomAttribute element: **ProposalSequenceIndex** <br> Data - For the **ProposalBatchSize**: The number of proposals in the batch. Maximum: 3 <br>For the**ProposalSequenceIndex**: The index of the proposal in the batch of proposals. <br> DisplayOnItinerary - The value for this element is **true**.<br> DisplayTitle - This element should be empty.<br> ExternalId - This element should be empty.|
+| CustomAttributes | This parent element will contain **CustomAttributes** child element. The **CustomAttributes** child elements are detailed in the CustomAttributes Elements table.
+
+
+### CustomAttributes Elements required
+
+
+|DataType|Name|Supported Values|Comment|
+|:--|:------------:|:-------------:|:---------------------|
+|**Numeric**|**ProposalBatchSize**|1 to 3|The number of proposals in the batch. Maximum: 3
+|**Numeric**|**ProposalSequenceIndex**|1 to 3|The index of the proposal in the batch of proposals.|
+|**Text**|**AutoSelectProposal**|True, False|If true, then the proposal will be selected accordingly and replace the segments previously entered by the user. <br> If False, then the proposal will be up to the user to decide which proposal s/he wants to manually select.|
+|**Text**|**TicketIssued**|True, False| Are the tickets for this proposal issued or not.|
+|?|**DisplayOnItinerary**|?|The value for this element has to be 'True'.| 
+|?|**DisplayTitle**|?|This element should be empty.| 
+|?|**ExternalId**|?|This element should be empty.|
+
 
 ###  Optional Elements
 
