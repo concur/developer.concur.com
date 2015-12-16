@@ -711,15 +711,15 @@ This function requires as its arguments an **Itinerary** parent element. The par
 ### CustomAttributes Elements required
 
 
-|DataType|Name|Supported Values|Comment|
+|DataType|Name| Data Supported Values|Comment|
 |:--|:------------:|:-------------:|:---------------------|
 |**Numeric**|**ProposalBatchSize**|1 to 3|The number of proposals in the batch. Maximum: 3
 |**Numeric**|**ProposalSequenceIndex**|1 to 3|The index of the proposal in the batch of proposals.|
 |**Text**|**AutoSelectProposal**|True, False|If true, then the proposal will be selected accordingly and replace the segments previously entered by the user. <br> If False, then the proposal will be up to the user to decide which proposal s/he wants to manually select.|
 |**Text**|**TicketIssued**|True, False| Are the tickets for this proposal issued or not.|
-|?|**DisplayOnItinerary**|?|The value for this element has to be 'True'.| 
-|?|**DisplayTitle**|?|This element should be empty.| 
-|?|**ExternalId**|?|This element should be empty.|
+|Text |**DisplayOnItinerary**| True |The value for this element has to be 'True'.| 
+|N/A |**DisplayTitle**| N/A |This element should be empty.| 
+|N/A |**ExternalId**| N/A | This element should be empty.|
 
 
 ###  Optional Elements
