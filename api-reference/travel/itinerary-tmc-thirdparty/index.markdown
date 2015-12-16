@@ -401,26 +401,26 @@ Name |  Description
 
 Name |  Description
 -----| ------------	
-`AirlineVendor` |  The vendor of the frequent flyer program. |
-`Description` |  The program description. |   | | | |
-`DiscountProgramExpirationDate` |  The date the discount program enrollment expires. Format: YYYY-MM-DDThh:mm:ss |
-`DiscountProgramType` |  The type of discount program. |
-`FrequentFlyerNumber` |  The passenger's identifier for the program. |
-`ProgramVendor` |  The program vendor. |
-`Status` |  The passenger's program status. |
-`StatusExpirationDate` |  The expiration date for the passenger's program status. |
+`AirlineVendor` |  The vendor of the frequent flyer program. 
+`Description` |  The program description. 
+`DiscountProgramExpirationDate` |  The date the discount program enrollment expires. Format: YYYY-MM-DDThh:mm:ss 
+`DiscountProgramType` |  The type of discount program. 
+`FrequentFlyerNumber` |  The passenger's identifier for the program. 
+`ProgramVendor` |  The program vendor. 
+`Status` |  The passenger's program status. 
+`StatusExpirationDate` |  The expiration date for the passenger's program status. 
 
 
 ### <a name="rpchild"></a>Rail Program Child Elements
 
 Name |  Description
 -----| ------------	
-`Description` |  Description of the discount program. |
-`DiscountProgramExpirationDate` |  The date the discount program enrollment expires. Format: YYYY-MM-DDThh:mm:ss |   | |
-`DiscountProgramType` |  The type of discount program. |
-`ProgramNumber` |  The passenger's identifier for the program. |
-`ProgramVendor` |  The program vendor. |
-`Status` |  The passenger's program status. |
+`Description` |  Description of the discount program. 
+`DiscountProgramExpirationDate` |  The date the discount program enrollment expires. Format: YYYY-MM-DDThh:mm:ss 
+`DiscountProgramType` |  The type of discount program. 
+`ProgramNumber` |  The passenger's identifier for the program. 
+`ProgramVendor` |  The program vendor. 
+`Status` |  The passenger's program status. 
 `StatusExpirationDate` |  The expiration date for the passenger's program status.
 
 
@@ -2215,7 +2215,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  Element |  Description |
 |----------|-------------|
 |  Amenities |  The amenities for the seat. |
-|  BerthPosition |  The berth location of the seat. |   | |
+|  BerthPosition |  The berth location of the seat. | 
 |  Deck |  Which deck the seat is on. |
 |  FacingForward |  Whether the seat is facing forward. |
 |  FareSpaceComfort |  The space around the seat. |
@@ -2339,7 +2339,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  Element |  Description |
 |----------|-------------|
 |  Amount |  The total amount for the rate for the booking. |
-|  Currency |  The [3-letter ISO 4217 currency code][2] for the total amount. |   | |
+|  Currency |  The [3-letter ISO 4217 currency code][2] for the total amount. |
 |  Description |  The description for the rate. |
 |  IsPaid |  Whether the rate has been paid. Format: true/false. |
 |  IsPrimary |  Indicates whether the charge is the Primary or Main rate. For example, if one of the rates is the actual rate and the rest are penalties, the actual rate should be set as IsPrimary. Only one charge in a set should be primary. Format: true/false. |
@@ -2353,7 +2353,7 @@ The booking elements contain many child elements. For ease of use, these element
 
 |  Element |  Description |
 |----------|-------------|
-|  Currency |  The [3-letter ISO 4217 currency code][2] for the total amount. |   | |
+|  Currency |  The [3-letter ISO 4217 currency code][2] for the total amount. |
 |  Description |  The description for the fixed amount. |
 |  IsPaid |  Whether the fixed amount has been paid. Format: true/false. |
 |  IsPrimary |  Whether the fixed amount is primary. Format: true/false. |
@@ -2368,7 +2368,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  Element |  Description |
 |----------|-------------|
 |  Amount |  The total amount for the rate for the booking. |
-|  Currency |  The [3-letter ISO 4217 currency code][2] for the total amount. |   | |
+|  Currency |  The [3-letter ISO 4217 currency code][2] for the total amount. |
 |  Description |  The description for the rate. |
 |  IsPaid |  Whether the rate has been paid. Format: true/false. |
 |  IsPrimary |  Whether the rate is primary. Format: true/false. |
