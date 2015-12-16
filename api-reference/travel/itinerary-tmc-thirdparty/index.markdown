@@ -279,7 +279,7 @@ Name |  Description
 Name |  Description
 -----| ------------	
 `BaseFare` |  The base fare of the booking quote. |
-`BaseFareCurrency` |  The [3-letter ISO 4217 currency code][5] for the booking quote. |   | |
+`BaseFareCurrency` |  The [3-letter ISO 4217 currency code][5] for the booking quote. | 
 `BaseFareNuc` |  The base fare in [NUC][6]. |
 `BaseFareNucCurrency` |  The [3-letter ISO 4217 currency code][5] for the base fare in NUC. |
 `DateCreatedUtc` |  The date the quote was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -306,9 +306,10 @@ Name |  Description
 Name |  Description
 -----| ------------	
 `DateCreatedUtc` |  The date the charge order was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
-`DateModifiedUtc` |  The date the charge order was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |   | |
+`DateModifiedUtc` |  The date the charge order was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 `IssueDate` |  The date the charge order was issued. Format: YYYY-MM-DDThh:mm:ss |
-`PlatingCarrierNumericCode` |  Part of the ticket number that indicates the airline code. This is a three digit number. For example: 001=American, 005=Continental, 006=Delta, 012=Northwest `PlatingControlNumber` |  Part of the ticket number that indicates the ticket control number. Format: Ten digit number. |
+`PlatingCarrierNumericCode` |  Part of the ticket number that indicates the airline code. This is a three digit number. For example: 001=American, 005=Continental, 006=Delta, 012=Northwest |
+`PlatingControlNumber` |  Part of the ticket number that indicates the ticket control number. Format: Ten digit number. |
 `TotalAmount` |  The total amount of charge orders for the ticket. |
 `TotalAmountCurrency` |  The [3-letter ISO 4217 currency code][5] for the total charge order amount. |
 
@@ -401,26 +402,26 @@ Name |  Description
 
 Name |  Description
 -----| ------------	
-`AirlineVendor` |  The vendor of the frequent flyer program. |
-`Description` |  The program description. |   | | | |
-`DiscountProgramExpirationDate` |  The date the discount program enrollment expires. Format: YYYY-MM-DDThh:mm:ss |
-`DiscountProgramType` |  The type of discount program. |
-`FrequentFlyerNumber` |  The passenger's identifier for the program. |
-`ProgramVendor` |  The program vendor. |
-`Status` |  The passenger's program status. |
-`StatusExpirationDate` |  The expiration date for the passenger's program status. |
+`AirlineVendor` |  The vendor of the frequent flyer program. 
+`Description` |  The program description. 
+`DiscountProgramExpirationDate` |  The date the discount program enrollment expires. Format: YYYY-MM-DDThh:mm:ss 
+`DiscountProgramType` |  The type of discount program. 
+`FrequentFlyerNumber` |  The passenger's identifier for the program. 
+`ProgramVendor` |  The program vendor. 
+`Status` |  The passenger's program status. 
+`StatusExpirationDate` |  The expiration date for the passenger's program status. 
 
 
 ### <a name="rpchild"></a>Rail Program Child Elements
 
 Name |  Description
 -----| ------------	
-`Description` |  Description of the discount program. |
-`DiscountProgramExpirationDate` |  The date the discount program enrollment expires. Format: YYYY-MM-DDThh:mm:ss |   | |
-`DiscountProgramType` |  The type of discount program. |
-`ProgramNumber` |  The passenger's identifier for the program. |
-`ProgramVendor` |  The program vendor. |
-`Status` |  The passenger's program status. |
+`Description` |  Description of the discount program. 
+`DiscountProgramExpirationDate` |  The date the discount program enrollment expires. Format: YYYY-MM-DDThh:mm:ss 
+`DiscountProgramType` |  The type of discount program. 
+`ProgramNumber` |  The passenger's identifier for the program. 
+`ProgramVendor` |  The program vendor. 
+`Status` |  The passenger's program status. 
 `StatusExpirationDate` |  The expiration date for the passenger's program status.
 
 
@@ -696,13 +697,30 @@ This function requires as its arguments an **Itinerary** parent element. The par
 |  TripName |  Name of the trip. Maximum length: 255 characters. |
 |  TripStatus |  The status of the itinerary. One of the following:<br>0 - Confirmed<br>1 - Ticketed<br>2 - Canceled<br>6 - Proposal<br>7 - Booked Proposal |
 
+
+
 ### Required Elements for Agency Proposal
 
 | Element | Description |
 | ------- | ----------- |
 | ClientLocator | The unique identifier for the batch of proposals. All proposals in the batch should have the same value. |
 | TravelRequestId | The identifier for the travel request that the proposal is associated with. |
-| CustomAttributes | This parent element has two **CustomAttribute** child elements, with the following child elements:<br>DataType - The value for this element is **Numeric**.<br> Name -  For the first CustomAttribute element: **ProposalBatchSize**. For the second CustomAttribute element: **ProposalSequenceIndex** <br> Data - For the **ProposalBatchSize**: The number of proposals in the batch. Maximum: 3 <br>For the**ProposalSequenceIndex**: The index of the proposal in the batch of proposals. <br> DisplayOnItinerary - The value for this element is **true**.<br> DisplayTitle - This element should be empty.<br> ExternalId - This element should be empty.|
+| CustomAttributes | This parent element will contain **CustomAttributes** child element. The **CustomAttributes** child elements are detailed in the CustomAttributes Elements table.
+
+
+### CustomAttributes Elements required
+
+
+|DataType|Name| Data Supported Values|Comment|
+|:--|:------------:|:-------------:|:---------------------|
+|**Numeric**|**ProposalBatchSize**|1 to 3|The number of proposals in the batch. Maximum: 3
+|**Numeric**|**ProposalSequenceIndex**|1 to 3|The index of the proposal in the batch of proposals.|
+|**Text**|**AutoSelectProposal**|True, False|If true, then the proposal will be selected accordingly and replace the segments previously entered by the user. <br> If False, then the proposal will be up to the user to decide which proposal s/he wants to manually select.|
+|**Text**|**TicketIssued**|True, False| Are the tickets for this proposal issued or not.|
+|Text |**DisplayOnItinerary**| True |The value for this element has to be 'True'.| 
+|N/A |**DisplayTitle**| N/A |This element should be empty.| 
+|N/A |**ExternalId**| N/A | This element should be empty.|
+
 
 ###  Optional Elements
 
@@ -2198,7 +2216,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  Element |  Description |
 |----------|-------------|
 |  Amenities |  The amenities for the seat. |
-|  BerthPosition |  The berth location of the seat. |   | |
+|  BerthPosition |  The berth location of the seat. | 
 |  Deck |  Which deck the seat is on. |
 |  FacingForward |  Whether the seat is facing forward. |
 |  FareSpaceComfort |  The space around the seat. |
@@ -2322,7 +2340,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  Element |  Description |
 |----------|-------------|
 |  Amount |  The total amount for the rate for the booking. |
-|  Currency |  The [3-letter ISO 4217 currency code][2] for the total amount. |   | |
+|  Currency |  The [3-letter ISO 4217 currency code][2] for the total amount. |
 |  Description |  The description for the rate. |
 |  IsPaid |  Whether the rate has been paid. Format: true/false. |
 |  IsPrimary |  Indicates whether the charge is the Primary or Main rate. For example, if one of the rates is the actual rate and the rest are penalties, the actual rate should be set as IsPrimary. Only one charge in a set should be primary. Format: true/false. |
@@ -2336,7 +2354,7 @@ The booking elements contain many child elements. For ease of use, these element
 
 |  Element |  Description |
 |----------|-------------|
-|  Currency |  The [3-letter ISO 4217 currency code][2] for the total amount. |   | |
+|  Currency |  The [3-letter ISO 4217 currency code][2] for the total amount. |
 |  Description |  The description for the fixed amount. |
 |  IsPaid |  Whether the fixed amount has been paid. Format: true/false. |
 |  IsPrimary |  Whether the fixed amount is primary. Format: true/false. |
@@ -2351,7 +2369,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  Element |  Description |
 |----------|-------------|
 |  Amount |  The total amount for the rate for the booking. |
-|  Currency |  The [3-letter ISO 4217 currency code][2] for the total amount. |   | |
+|  Currency |  The [3-letter ISO 4217 currency code][2] for the total amount. |
 |  Description |  The description for the rate. |
 |  IsPaid |  Whether the rate has been paid. Format: true/false. |
 |  IsPrimary |  Whether the rate is primary. Format: true/false. |
@@ -2368,7 +2386,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  Element |  Description |
 |----------|-------------|
 |  AllowanceAmount |  The cost of overage fees when the allowance is exceeded. For example, if the allowance is 5000 miles, the cost could be $0.02 per mile. The overage must be in the same currency as the basic rate. |
-|  AllowanceIsUnlimited |  Whether the allowance is unlimited. Format: true/false. |   | |
+|  AllowanceIsUnlimited |  Whether the allowance is unlimited. Format: true/false. |
 |  AllowanceNumUnits |  The number of units for the allowance associated with the charge. For example, 5000 miles. |
 |  AllowanceUnit |  The unit of measure for the allowance associated with the charge. For example, a car weekly rate might allow 5000 miles included in the rate. |
 |  Amount |  The total amount for the rate for the booking. |

@@ -6,6 +6,10 @@
     display: none;
 }
 
+.form-error-hidden {
+    display: none;
+}
+
 #email-alt {
   display: none;
 }
