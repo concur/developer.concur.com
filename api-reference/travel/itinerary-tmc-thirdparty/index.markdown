@@ -279,7 +279,7 @@ Name |  Description
 Name |  Description
 -----| ------------	
 `BaseFare` |  The base fare of the booking quote. |
-`BaseFareCurrency` |  The [3-letter ISO 4217 currency code][5] for the booking quote. |   | |
+`BaseFareCurrency` |  The [3-letter ISO 4217 currency code][5] for the booking quote. | 
 `BaseFareNuc` |  The base fare in [NUC][6]. |
 `BaseFareNucCurrency` |  The [3-letter ISO 4217 currency code][5] for the base fare in NUC. |
 `DateCreatedUtc` |  The date the quote was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -306,9 +306,10 @@ Name |  Description
 Name |  Description
 -----| ------------	
 `DateCreatedUtc` |  The date the charge order was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
-`DateModifiedUtc` |  The date the charge order was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |   | |
+`DateModifiedUtc` |  The date the charge order was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 `IssueDate` |  The date the charge order was issued. Format: YYYY-MM-DDThh:mm:ss |
-`PlatingCarrierNumericCode` |  Part of the ticket number that indicates the airline code. This is a three digit number. For example: 001=American, 005=Continental, 006=Delta, 012=Northwest `PlatingControlNumber` |  Part of the ticket number that indicates the ticket control number. Format: Ten digit number. |
+`PlatingCarrierNumericCode` |  Part of the ticket number that indicates the airline code. This is a three digit number. For example: 001=American, 005=Continental, 006=Delta, 012=Northwest |
+`PlatingControlNumber` |  Part of the ticket number that indicates the ticket control number. Format: Ten digit number. |
 `TotalAmount` |  The total amount of charge orders for the ticket. |
 `TotalAmountCurrency` |  The [3-letter ISO 4217 currency code][5] for the total charge order amount. |
 
@@ -2385,7 +2386,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  Element |  Description |
 |----------|-------------|
 |  AllowanceAmount |  The cost of overage fees when the allowance is exceeded. For example, if the allowance is 5000 miles, the cost could be $0.02 per mile. The overage must be in the same currency as the basic rate. |
-|  AllowanceIsUnlimited |  Whether the allowance is unlimited. Format: true/false. |   | |
+|  AllowanceIsUnlimited |  Whether the allowance is unlimited. Format: true/false. |
 |  AllowanceNumUnits |  The number of units for the allowance associated with the charge. For example, 5000 miles. |
 |  AllowanceUnit |  The unit of measure for the allowance associated with the charge. For example, a car weekly rate might allow 5000 miles included in the rate. |
 |  Amount |  The total amount for the rate for the booking. |
