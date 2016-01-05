@@ -6,26 +6,21 @@ layout: reference
 
 ##  App Center Release Notes
 
-|Release Month      	|
+|2016 | 2015 | 2014 |
 |---------------------|
-|[January 2016](AppCenter_ReleaseNotes_January 2016 FINAL.pdf) |
-|[December 2015](AppCenter_ReleaseNotes_December2015FINAL.pdf)
-|[October 2015](AppCenter_ReleaseNotes_Oct2015FINAL_10.16.15.pdf) |
-|[September 2015](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) |
-|[July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) |
-|[May 2015][1-13]   |
-|[April 2015][1-12] |
-|[March 2015][1-11] |
-|[February 2015][1-10] |
-|[February 2015][1-9]	|
-|[December 2014][1-8]	|
-|[November 2014][1-7] |
-|[October 2014][1-6]  |
-|[September 2014][1-5]|
-|[August 2014][1-4]	  |
-|[July 2014][1-3]    	|
-|[June 2014][1-2]	    |
-|[May 2014][1-1]      |
+|[January 2016](AppCenter_ReleaseNotes_January 2016 FINAL.pdf) | -- | -- |
+| -- | [February 2015][1-10] | -- |
+| -- | [March 2015][1-11] | -- |
+| -- | [April 2015][1-12] | -- |
+| -- | [May 2015][1-13]  | [May 2014][1-1]  |
+| -- | -- | [June 2014][1-2]	 |
+| -- | [July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July 2014][1-3]  |
+| -- | -- | [August 2014][1-4]	  |
+| -- | [September 2015](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September 2014][1-5] |
+| -- | [October 2015](AppCenter_ReleaseNotes_Oct2015FINAL_10.16.15.pdf) | [October 2014][1-6]  |
+| -- | -- | [November 2014][1-7] |
+| -- | [December 2015](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December 2014][1-8] |
+
 
 
 ##  Developer Platform Release Notes
@@ -44,21 +39,21 @@ layout: reference
 
 ##  Combined App Center and Developer Platform Release Notes
 
-|Release Month	        |Last Updated      |
-|-----------------------|------------------|
-|[April 2014][3-13]     |April 4 2014      |
-|[March 2014][3-12]     |March 7 2014      | 
-|[February 2014][3-11]	|February 7 2014   |
-|[January 2014][3-10]   |January 25 2014   |
-|[December 2013][3-9]  	|December 13 2013  |
-|[November 2013][3-8]   |November 8 2013   |
-|[October 2013][3-7]    |October 18 2013   |
-|[September 2013][3-6]  |September 20 2013 |
-|[August 2013][3-5]   	|September 3 2013  |
-|[July 2013][3-4]	      |July 19 2013      |
-|[June 2013][3-3]	      |June 7 2013       |
-|[May 2013][3-2]        |May 15 2013       |
-|[April 2013][3-1]	    |April 23 2013     |
+|Release Month	        |
+|-----------------------|
+|[April 2014][3-13]     |
+|[March 2014][3-12]     |
+|[February 2014][3-11]	|
+|[January 2014][3-10]   |
+|[December 2013][3-9]  	|
+|[November 2013][3-8]   |
+|[October 2013][3-7]    |
+|[September 2013][3-6]  |
+|[August 2013][3-5]   	|
+|[July 2013][3-4]	      |
+|[June 2013][3-3]	      |
+|[May 2013][3-2]        |
+|[April 2013][3-1]	    |
 
 
 
