@@ -67,30 +67,7 @@ Name | Type | Format | Description
 `CompanyShipToAddressCode`	|	`string`	|	-	|	The code which identifies the company location to which the vendor shipped items listed in the invoice.
 `CountryCode`	|	`string`	|	-	|	**Required**The country code.
 `CurrencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.
-`Custom01`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom02`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom03`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom04`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom05`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom06`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom07`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom08`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom09`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom10`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom11`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom12`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom13`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom14`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom15`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom16`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom17`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom18`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom19`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom20`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom21`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom22`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom23`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom24`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
+`Custom01` through `Custom24`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
 `DataSource`	|	`string`	|	-	|	A code which indicates the method used to created the Payment Request. Use GET /invoice/localizeddata to translate the code into text.
 `DeliverySlipNumber`	|	`string`	|	-	|	The delivery slip number associated with receiving receipt.
 `Description`	|	`string`	|	-	|	User entered description of the Payment Request.
@@ -142,26 +119,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `Allocations`	|	`Array[Allocation]`	|	-	|	The details of the Payment Request Allocation Core Identity Fields.
 `AmountWithoutVat`	|	`string`	|	-	|	The net amount of the line item (excluding VAT).
-`Custom01`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom02`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom03`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom04`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom05`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom06`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom07`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom08`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom09`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom10`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom11`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom12`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom13`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom14`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom15`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom16`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom17`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom18`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom19`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom20`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
+`Custom01` through `Custom20`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
 `Description`	|	`string`	|	-	|	Brief overview of the good or service ordered.
 `ExpenseTypeCode`	|	`string`	|	-	|	A code which indicates the Expense Type for the Line Item.
 `ItemCode`	|	`string`	|	-	|	Represents the item code (the unique code a vendor assigns to a good or code a vendor assigns to a good or service to identify it).
@@ -181,26 +139,11 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`Custom01`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom02`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom03`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom04`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom05`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom06`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom07`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
+`Custom01` through `Custom07`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
 `Custom08`	|	`string`	|	-	|	A value that can be applied to a custom field 8 that is part of the allocation form.
 `Custom09`	|	`string`	|	-	|	A value that can be applied to a custom field 9 that is part of the allocation form.
 `Custom10`	|	`string`	|	-	|	A value that can be applied to a custom field 10 that is part of the allocation form.
-`Custom11`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom12`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom13`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom14`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom15`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom16`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom17`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom18`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom19`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom20`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
+`Custom11` through `Custom20`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
 `Percentage`	|	`string`	|	-	|	**Required**The percentage of the Request Line Item that the individual allocation record. All Allocations associated to a given Line Item should add up to 100.
 
 ###VendorRemitToIdentifier
