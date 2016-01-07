@@ -6,9 +6,7 @@ layout: reference
 
 
 
-Requests in Concur can be validated in an external system by using a combination of Concur's callouts and web services.
-
-![][1]
+Requests in Concur can be validated in an external system by using a combination of Concur's callouts and web services.  
 
 This guide provides a step by step overview of how to set up and use the external validation functionality for Requests. This guide does not provide instruction on the process of programming the application connector, but provides an overview of the required functionality.
 
@@ -111,7 +109,7 @@ In the next step, the application connector will update the Request with the val
 
 ##  Step 5 - Update the Request Workflow
 
-Once the Request has been validated, the application connector is ready to update it's workflow. If the Request passed validation, it should be approved, and will then travel forward in it's workflow. If the Request did not pass validation, it should be sent back to the employee, which moves it to the beginning of the workflow.
+Once the Request has been validated, the application connector is ready to update its workflow. If the Request passed validation, it should be approved, and will then travel forward in its workflow. If the Request did not pass validation, it should be sent back to the employee, which moves it to the beginning of the workflow.
 
 The full Request details include an element named **WorkflowStepURL**. The application connector posts the workflow action (Approve or Send Back to Employee) to this url, using the same OAuth access token in the header. 
 

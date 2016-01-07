@@ -244,7 +244,7 @@ Name | Type | Format | Description
 `code`|`string`|`{request_token}`|The request token.
 
 ### <a name="app-center"></a>AppCenter
-The AppeCenter flow is as follows:
+The AppCenter flow is as follows:
 
 1. Listening for an HTTP GET request from the Concur system.
 	* The listener must be hosted at the URI specified in the App Center listing.
