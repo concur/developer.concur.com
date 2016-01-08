@@ -34,7 +34,7 @@ After you have completed development and testing, submit your app for [certifica
 **NOTE:** This only applies to developers who are building an integration across multiple clients (i.e., an app that would appear in the App Center or TMC integrations). Concur clients who are using these APIs for interaction with their own data do not need to go through certification.
 
 
-## Addtional Helpful Info
+## Additional Helpful Info
 
 
 * [Generate an access token](#generate-access-token)
@@ -71,7 +71,7 @@ Before you build your first application that integrates with Concur, you should 
 	* Travel Profile
 	* User
 
-To configure your sandbox with additional APIs, go to **Administration > Web Services** to and modify your application to add more APIs. If you need assistance, or contact [Concur Support][3] for assistance.
+To configure your sandbox with additional APIs, go to **Administration > Web Services** and modify your application to add more APIs. If you need assistance, or contact [Concur Support][3] for assistance.
 
 ### <a name="generate-access-token"></a>Generate An Access Token
 All Concur APIs require an access token to be passed as a header.
