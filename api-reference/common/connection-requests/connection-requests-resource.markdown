@@ -11,7 +11,6 @@ The Connection Requests resource is used to integrate TripLink partner applicati
 * [Retrieve a connection request by ID](#getID)
 * [Create a connection request on behalf of a specific user](#post)
 * [Update a connection request](#put)
-* [Delete an connection request](#delete)
 * [Schema](#schema)
 
 
@@ -69,20 +68,6 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `id`	|	``path``	|	``string``	|	**Required** The connection request ID.
 `content`	|	``body``	|	-	|	**Required** The connection request object to update.
-
-
-## <a name="delete"></a>Delete a connection request
-
-    DELETE  /api/v3.0/common/connectionrequests/{id}
-
-
-### Parameters
-
-Name | Type | Format | Description
------|------|--------|------------
-`id`|````string````|`path`|**Required** The connection request ID.
-
-
 
 ## <a name="schema"></a>Schema
 
