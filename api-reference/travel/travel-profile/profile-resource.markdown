@@ -497,7 +497,7 @@ This endpoint provides a list of travel profile summaries that have been updated
 ###  Request
 
 <code>
-GET {InstanceURI}/api/travelprofile/v2.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
+GET {InstanceURI}/api/travelprofile/v2.0/summary?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
 Authorization: OAuth {access token}
 </code>
 
@@ -592,7 +592,7 @@ This example gets the list of travel profile summaries modified after January 1 
 ####  Request
 
 <samp>
-    GET {InstanceURI}/api/travelprofile/v2.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
+    GET {InstanceURI}/api/travelprofile/v2.0/summary?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
     Authorization: OAuth {access token}
     ...
 </samp>
