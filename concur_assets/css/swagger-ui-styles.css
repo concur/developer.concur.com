@@ -1,3 +1,7 @@
 .swagger-section .container{
   width: inherit;
 }
+
+#input_apiKey {
+  width: 200px;
+}
