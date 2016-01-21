@@ -62,6 +62,10 @@ title: Developer Newsletter Signup
 </div><!--/col-md-12-->
 
 <script>
+  $("#newsletterRequest").change(function(){
+    ($("#country").val() !== "US") ? $("#state").attr("disabled", true) && $("#state").val("") : $("#state").attr("disabled", false);
+  });
+
   $("#newsletterRequest").validate({
     // Rules for form validation
     rules: {
