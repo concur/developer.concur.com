@@ -7,7 +7,7 @@ layout: reference
 ##  Description
 
 
-The Travel Profile resource represents a Concur travel profile which contains travel-relation information about a user, such as:
+The Travel Profile resource represents a Concur travel profile which contains travel-related information about a user, such as:
 
 * Company Information (example: custom fields)
 * User Information
