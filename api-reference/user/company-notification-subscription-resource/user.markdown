@@ -61,7 +61,7 @@ Name | Type | Format | Description
 
 ## <a name="getall"></a>Retrieve all users based on search criteria
 
-Note that this is a version 3.0 API and can be found [here](/api-explorer/v30/Users.html).
+Note that this is a version 3.0 API and can be found [here](/api-explorer/v-30/Users.html).
 
 
 ## <a name="requiredFields"></a>Retrieve the list of required fields for creating a user
@@ -125,7 +125,7 @@ Name | Type | Format | Description
 `CashAdvanceAccountCode`|`string` | | The user's account code for cash advances. Maximum 20 characters.
 `CrnKey`|`string` | | The 3-letter ISO 4217 currency code for the user's reimbursement currency. Maximum 3 characters. Example: United States Dollar is USD.
 `CtrySubCode`|`string` | | The user's two-character country code and two-character state or province code. Maximum 2 characters. Example: Washington State, United States is US-WA.
-`ExpenseUser`|`boolean` | `Y/N` | Whether the user has access to Expense. 
+`ExpenseUser`|`boolean` | `Y/N` | Whether the user has access to Expense.
 `ExpenseApprover`|`boolean` | `Y/N` | Whether the user is an Expense approver.
 `TripUser`|`boolean` | `Y/N`| Whether the user has access to Travel.
 `InvoiceUser`|`boolean` | `Y/N` | Whether the user has access to Invoice.
