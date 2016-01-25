@@ -1,0 +1,455 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Sales Tax Validation Request",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": "" 
+    }
+  ],
+  "paths": {
+    "/invoice/salestaxvalidationrequest": {
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Get invoices for calculating tax",
+        "description": "Gets invoices for the purpose of calculating sales tax.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The number of invoices to retrieve. Maximum value: 1000",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "modifiedafter",
+            "in": "query",
+            "description": "A parameter that can be used to limit the results to invoices modified after the specified date.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/InvoiceGetCollection"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "Resources" ],
+        "summary": "Update invoices with the calcuated tax amount and tax rate",
+        "description": "Updates invoices with the calculated tax amount and tax rate.",
+        "parameters": [
+          {
+            "name": "invoice",
+            "in": "body",
+            "description": "The tax information for the invoice that is to be updated.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Invoice"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/InvoiceStatus"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BillToAddress": {
+      "properties": {
+        "Address1": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Address2": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Address3": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "City": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CountryCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ExternalID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "PostalCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "State": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "StateProvince": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    },
+    "Invoice": {
+      "properties": {
+        "CalculatedTaxAmount": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CalculatedTaxRate": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Comments": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "LineItem": {
+          "$ref": "#/definitions/InvoiceLineItemPut"
+        },
+        "Status": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "StatusCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "TaxReferenceID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    },
+    "InvoiceGet": {
+      "properties": {
+        "BillToAddress": {
+          "$ref": "#/definitions/BillToAddress"
+        },
+        "CalculatedTaxAmount": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CalculatedTaxRate": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CountryCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "InvoiceAmount": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "InvoiceDate": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "LineItem": {
+          "$ref": "#/definitions/InvoiceLineItem"
+        },
+        "PurchaseOrderNumber": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "RequestID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ShippingAmount": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ShipToAddress": {
+          "$ref": "#/definitions/ShipToAddress"
+        },
+        "Status": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "StatusCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Tax": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "TaxReferenceID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Title": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Total": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "VendorInvoiceNumber": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    },
+    "InvoiceGetCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/InvoiceGet"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "TotalCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Record Number for create/update request."
+        }
+      }
+    },
+    "InvoiceLineItem": {
+      "properties": {
+        "CalculatedTaxAmount": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CalculatedTaxRate": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CommodityCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CountryCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "LineItemKey": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Quantity": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Total": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "UnitPrice": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Vendor": {
+          "$ref": "#/definitions/InvoiceVendor"
+        }
+      }
+    },
+    "InvoiceLineItemPut": {
+      "properties": {
+        "CalculatedTaxAmount": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CalculatedTaxRate": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "LineItemKey": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    },
+    "InvoiceStatus": {
+      "properties": {
+        "Code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Record Number for create/update request."
+        },
+        "Comments": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Message": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "RecordNumber": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Record Number for create/update request."
+        },
+        "Status": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "TaxReferenceID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Type": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    },
+    "InvoiceVendor": {
+      "properties": {
+        "Address1": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Address2": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Address3": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "City": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CountryCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "PostalCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "State": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "VendorAddressName": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "VendorName": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    },
+    "ShipToAddress": {
+      "properties": {
+        "Address1": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Address2": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Address3": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "City": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "CountryCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "ExternalID": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "PostalCode": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "State": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        },
+        "StateProvince": {
+          "type": "string",
+          "description": "The state or province of the shipping or billing address."
+        }
+      }
+    }
+  }
+}
