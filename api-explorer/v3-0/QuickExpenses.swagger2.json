@@ -1,0 +1,408 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Quick Expenses",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": "" 
+    }
+  ],
+  "paths": {
+    "/expense/quickexpenses": {
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Get all quick expenses",
+        "description": "Returns all quick expenses owned by the user.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The start of the page offset.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The number of records to return (default 25).",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/QuickExpenseCollection"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [ "Resources" ],
+        "summary": "Create a new quick expense",
+        "description": "Creates a new quick expense.",
+        "parameters": [
+          {
+            "name": "content",
+            "in": "body",
+            "description": "The quick expense object to be created.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QuickExpensePost"
+            }
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/expense/quickexpenses/{id}": {
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Get a single quick expense by ID",
+        "description": "Returns a quick expenses by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the quick expense.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/QuickExpenseGet"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "Resources" ],
+        "summary": "Update a quick expense by ID",
+        "description": "Updates the QuickExpense specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the quick expense.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "in": "body",
+            "description": "Partial or complete QuickExpense object to update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QuickExpensePut"
+            }
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [ "Resources" ],
+        "summary": "Delete a quick expense by ID",
+        "description": "Deletes the specified quick expense.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the quick expense to be deleted.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CreateResponse": {
+      "properties": {
+        "ID": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "URI": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        }
+      }
+    },
+    "Decimal": {
+      "properties": {}
+    },
+    "Nullable`1": {
+      "properties": {
+        "HasValue": {
+          "type": "boolean"
+        },
+        "Value": {
+          "$ref": "#/definitions/Decimal"
+        }
+      }
+    },
+    "QuickExpenseCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/QuickExpenseGet"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        }
+      }
+    },
+    "QuickExpenseGet": {
+      "properties": {
+        "Comment": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "ExpenseTypeCode": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "ExpenseTypeName": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "ID": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "LocationName": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "OwnerLoginID": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "OwnerName": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "PaymentTypeCode": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "ReceiptImageID": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "TransactionAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654"
+        },
+        "TransactionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date the expense was incurred. Format: YYYY-MM-DD"
+        },
+        "URI": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "VendorDescription": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        }
+      }
+    },
+    "QuickExpensePost": {
+      "properties": {
+        "Comment": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "ExpenseTypeCode": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "LocationCity": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "LocationCountry": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "LocationSubdivision": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "PaymentTypeCode": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "ReceiptImageID": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "SpendCategoryCode": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "TransactionAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654"
+        },
+        "TransactionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date the expense was incurred. Format: YYYY-MM-DD"
+        },
+        "VendorDescription": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        }
+      }
+    },
+    "QuickExpensePut": {
+      "properties": {
+        "Comment": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "ExpenseTypeCode": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "LocationCity": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "LocationCountry": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "LocationSubdivision": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "PaymentTypeCode": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "ReceiptImageID": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "SpendCategoryCode": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        },
+        "TransactionAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654"
+        },
+        "TransactionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date the expense was incurred. Format: YYYY-MM-DD"
+        },
+        "VendorDescription": {
+          "type": "string",
+          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+        }
+      }
+    },
+    "Void": {
+      "properties": {}
+    }
+  }
+}

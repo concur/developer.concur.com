@@ -1,0 +1,225 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Receipt Images",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": "" 
+    }
+  ],
+  "paths": {
+    "/expense/receiptimages": {
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Get all receipt IDs by user",
+        "description": "Get a list of all receipt IDs owned by the user associated with the OAuth token",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Starting page offset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of records to return (default 25)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ReceiptImageCollection"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [ "Resources" ],
+        "summary": "Create a new receipt image",
+        "description": "Creates a new image in the receipt store.",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "in": "body",
+            "description": "Image data file",
+            "required": true,
+            "schema": {
+              "type": "file"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ReceiptImage"
+            }
+          }
+        }
+      }
+    },
+    "/expense/receiptimages/{id}": {
+      "get": {
+        "tags": [ "Resources" ],
+        "summary": "Get a receipt image URL",
+        "description": "Get a receipt image URL by image ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ReceiptImage ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ReceiptImage"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "Resources" ],
+        "summary": "Appends a receipt image to an existing receipt image",
+        "description": "Appends a receipt image to an existing image in the receipt store.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the receipt image to update",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "in": "body",
+            "description": "Image data file",
+            "required": true,
+            "schema": {
+              "type": "file"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [ "Resources" ],
+        "summary": "Delete a receipt image by ID",
+        "description": "Deletes the specified receipt image",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the receipt image to delete",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ReceiptImage": {
+      "properties": {
+        "ID": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    },
+    "ReceiptImageCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/ReceiptImage"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    },
+    "Void": {
+      "properties": {}
+    }
+  }
+}
