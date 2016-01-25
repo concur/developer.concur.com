@@ -6,4 +6,4 @@ reference-type: swagger
 
 
 
-{% swagger /api-explorer/v30/Itemizations.swagger2.json %}
+{% swagger /api-explorer/v3-0/Itemizations.swagger2.json %}

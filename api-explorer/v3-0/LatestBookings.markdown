@@ -6,4 +6,4 @@ reference-type: swagger
 
 
 
-{% swagger /api-explorer/v30/LatestBookings.swagger2.json %}
+{% swagger /api-explorer/v3-0/LatestBookings.swagger2.json %}
