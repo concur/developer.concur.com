@@ -2234,12 +2234,3 @@ img.img-mouse {
 .team-v1 li > h3 {
 	color: #555;
 }
-
-/*Swagger Tables - Prevent Side Scrolling*/
-.parameter{
-  width: 100% !important;
-}
-
-.body-textarea {
-  width: 100% !important;
-}
