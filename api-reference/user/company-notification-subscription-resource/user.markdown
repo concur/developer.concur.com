@@ -61,7 +61,7 @@ Name | Type | Format | Description
 
 ## <a name="getall"></a>Retrieve all users based on search criteria
 
-Note that this is a version 3.0 API and can be found [here](/api-explorer/v-30/Users.html).
+Note that this is a version 3.0 API and can be found [here](/api-explorer/v3-0/Users.html).
 
 
 ## <a name="requiredFields"></a>Retrieve the list of required fields for creating a user
