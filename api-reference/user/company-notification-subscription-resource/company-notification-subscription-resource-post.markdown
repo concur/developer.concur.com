@@ -12,7 +12,7 @@ This resource supports the following POST actions:
 
 ### Description
 
-Subscribes or unsubcribes the partner from notifications when any users in the company add, modify, or cancel an itinerary. The partner must have received authorization using OAuth by an administrative user at the company to access the company's trip information. 
+Subscribes or unsubcribes the partner from notifications when any users in the company add, modify, or cancel an itinerary. The partner must have received authorization using OAuth by an administrative user at the company to access the company's trip information.
 
 ###  Post Company Notification Subscription for Itinerary Changes Request
 
@@ -54,7 +54,7 @@ The response body will include a **Notification** parent element, with the follo
 |  ObjectURI |  The URI for the object. The developer can use the appropriate GET endpoint with the ObjectURI to get complete details for the trip. |
 |  EventDateTime |  When the event happened. Format: YYYY-MM-DDThh:mm:ss |
 |  EventType |  The type of the change. Format: CREATE, UPDATE, CANCEL |
-|  Context |  This is not used yet but will be used in future to specify the change in the trip. Developers can use this in conjuction with EventType to decide how to process the notification. |
+|  Context |  This is not used yet but will be used in future to specify the change in the trip. Developers can use this in conjunction with EventType to decide how to process the notification. |
 |  TripId |  The unique identifier for the trip. Format: String |
 
 ####  XML Example of Successful Response
