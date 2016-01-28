@@ -1,0 +1,6 @@
+.blogtags * {
+  display: inline;
+}
+.noliststyle {
+  list-style: none;
+}

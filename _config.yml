@@ -23,9 +23,22 @@ kramdown:
   input: GFM
 
 # sitemap plugin configuration
-# this config defines 2 properties - change_frequency and priority - that can be included in an 
+# this config defines 2 properties - change_frequency and priority - that can be included in an
 # individual page's front matter to alter that page's settings in the sitemap.xml
 url: https://developer.concur.com
-sitemap: 
+sitemap:
   change_frequency_name: "change_frequency"
   priority_name: "priority"
+
+paginate: 5
+paginate_path: '/blog/page:num'
+
+jekyll-archives:
+  enabled: all
+  layout: 'archive'
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/tag/:name/'
+    category: '/category/:name/'

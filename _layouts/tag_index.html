@@ -1,0 +1,14 @@
+---
+layout: blog
+---
+
+<h1 class="post-title" >Tags</h1>
+<ul class='noliststyle'>
+  {% for tag in site.tags %}
+  <li>
+    <a href="/blog/tag/{{ tag[0] }}">{{ tag[0] | capitalize }}</a>
+    <span>{{ tag[1].size }}</span>
+    <br>
+  </li>
+  {% endfor %}
+</ul>
