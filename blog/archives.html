@@ -1,18 +1,28 @@
 ---
 layout: blog
 ---
+
 <h1 class="post-title">Archives</h1>
-<ul class='noliststyle'>
-{% for post in site.posts %}
-  {% unless post.next %}
-    <h3>{{ post.date | date: '%Y' }}</h3>
+
+<div id="MainMenu">
+  <div class="list-group panel">
+  {% for post in site.posts %}
+    {% unless post.next %}
+    <!-- Current Year-->
+      <a href="#{{ post.date | date: '%Y' }}" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu">{{ post.date | date: '%Y' }}</a>
+      <div class="collapse" id="{{ post.date | date: '%Y' }}">
+    <!-- Loop Through Previous Years-->
     {% else %}
-    {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-    {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+      {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+      {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
       {% if year != nyear %}
-        <h3>{{ post.date | date: '%Y' }}</h3>
+      </div>
+        <a href="#{{ post.date | date: '%Y' }}" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu">{{ post.date | date: '%Y' }}</a>
+        <div class="collapse" id="{{ post.date | date: '%Y' }}">
       {% endif %}
-  {% endunless %}
-  <li>{{ post.date | date:"%B %-d" }} <a href="{{ post.url }}">{{ post.title }}</a></li>
-{% endfor %}
-</ul>
+    {% endunless %}
+    <a href="{{ post.url }}"  class="list-group-item">{{ post.title }} • {{ post.date | date: "%B %-d "}}</a>
+  {% endfor %}
+        </div>
+  </div>
+</div>
