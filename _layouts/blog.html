@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <div class="breadcrumbs">
     <div class="container">
         <h1 class="pull-left"><a href='/blog'>Developer Blog</a>{% if page.title %} | <a href='{{page.url}}'>{{ page.title}} {% endif %}</a></h1>
@@ -26,12 +27,10 @@ layout: default
           <li class="list-group-item">
               <strong><a href="/blog/archives.html">Archives</a></strong>
           </li>
-
       </div>
-
       <div class="col-md-9">
         {{content}}
       </div>
   </div>
-  <br>
 </div>
+<br>

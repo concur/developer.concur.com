@@ -6,7 +6,17 @@ layout: blog
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
     <p class="post-meta"><time>{{ page.date | date: "%A, %B %d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-  </header>
+    {% if page.references %}
+    <p>This page references:</p>
+    <ul>
+      {% for ref in page.references %}
+        <li class="author">
+          <a href="{{ref.url}}">{{ ref.link }}</a>
+        </li>
+      {% endfor %}
+      {% endif %}
+    </ul>
+    </header>
   <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
