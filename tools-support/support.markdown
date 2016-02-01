@@ -14,7 +14,7 @@ To recover your developer sandbox user name or password, click on the applicable
 - - - 
 
 #### Visiting Forums:
-To ask Concur and other developers questions about the platform, use the <a href="http://forum.developer.concur.com/" target="_blank">forums.</a>
+To ask Concur and other developers questions about the platform, use the <a href="http://forum.developer.concur.com/">forums.</a>
 
 - - -
 
