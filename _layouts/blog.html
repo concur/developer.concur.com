@@ -3,34 +3,33 @@ layout: default
 ---
 
 <div class="breadcrumbs">
-    <div class="container">
-        <h1 class="pull-left"><a href='/blog'>Developer Blog</a>{% if page.title %} | <a href='{{page.url}}'>{{ page.title}} {% endif %}</a></h1>
-    </div>
+  <div class="container">
+    <h1 class="pull-left"><a href='/blog'>Developer Blog</a>{% if page.title %} | <a href='{{page.url}}'>{{ page.title}} {% endif %}</a></h1>
+  </div>
 </div>
 <br>
+
 <div class="container">
   <div class="row">
-      <div class="col-md-3">
-        <h1>Latest Posts</h1>
-          {% for post in site.posts limit:10 %}
-          <li class="list-group-item">
-            <strong><a href="{{ post.url }}">{{ post.title }}</a></strong> {{ post.date | date: "%b %-d"}}
+    <div class="col-md-3">
+      <h1>Latest Posts</h1>
+      <div class="list-group panel">
+        {% for post in site.posts limit:10 %}
+          <div class="list-group-item">
+            <a href="{{ post.url }}"><strong>{{ post.title }}</strong></a><small> • {{ post.date | date: "%B %-d"}}</small>
             <br>
-              {% for tag in post.tags %}
-                <span><a href='/blog/tag/{{tag}}'>#{{ tag | capitalize }}</a></span>
-              {% endfor %}
-          </li>
-          {% endfor %}
-          <li class="list-group-item">
-              <strong><a href="/blog/tags">Posts By Tag</a></strong>
-          </li>
-          <li class="list-group-item">
-              <strong><a href="/blog/archives.html">Archives</a></strong>
-          </li>
+            {% for tag in post.tags %}
+              <span class='navtags'><i class="glyphicon glyphicon-tags"></i><a href='/blog/tag/{{tag}}'>&nbsp;&nbsp;{{ tag | capitalize }}</a></span>&nbsp;&nbsp;&nbsp;
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <div class="list-group-item"><strong><a href="/blog/tags">Posts By Tag</a></strong></div>
+        <div class="list-group-item"><strong><a href="/blog/archives.html">Archives</a></strong></div>
       </div>
-      <div class="col-md-9">
+    </div>
+    <div class="col-md-9">
         {{content}}
-      </div>
+    </div>
   </div>
 </div>
 <br>
