@@ -2,13 +2,19 @@
 layout: blog
 ---
 
-<h1 class="post-title" >Tags</h1>
-<ul class='noliststyle'>
+<h1 class="post-title"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;Tags</h1>
+
+<div id="MainMenu">
+  <div class="list-group panel">
   {% for tag in site.tags %}
-  <li>
-    <a href="/blog/tag/{{ tag[0] }}">{{ tag[0] | capitalize }}</a>
-    <span>{{ tag[1].size }}</span>
-    <br>
-  </li>
+    <a href="#{{ tag[0] }}" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu">{{ tag[0] | capitalize}} ({{ tag[1].size }})</a>
+      <div class="collapse" id="{{ tag[0] }}">
+      {% for post in site.posts %}
+        {% if post.tags contains tag[0] %}
+          <a href="{{ post.url }}"  class="list-group-item">{{ post.title }} • {{ post.date | date: "%B %-d, %Y"}}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
   {% endfor %}
-</ul>
+  </div>
+</div>
