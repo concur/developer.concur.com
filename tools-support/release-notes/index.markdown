@@ -7,7 +7,7 @@ layout: reference
 # App Center Release Notes
 
 | 2016 | 2015 | 2014 |
-| ----------------- |
+| ---- | ---- | ---- |
 | [January 2016](AppCenter_ReleaseNotes_January 2016 FINAL.pdf) | -- | -- |
 | -- | [February 2015][1-10] | -- |
 | -- | [March 2015][1-11] | -- |
@@ -24,7 +24,7 @@ layout: reference
 # Developer Platform Release Notes
 
 | 2016 | 2015 | 2014 |
-| ------------------ |
+| ---- | ---- | ---- |
 | -- | -- | -- |
 | [February 2016](#feb2016) | [February 2015][2-4] | -- |
 | -- | -- | -- |
