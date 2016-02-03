@@ -12,12 +12,12 @@ layout: reference
 | -- | [February 2015][1-10] | -- |
 | -- | [March 2015][1-11] | -- |
 | -- | [April 2015][1-12] | -- |
-| -- | [May 2015][1-13]  | [May 2014][1-1]  |
-| -- | -- | [June 2014][1-2]	 |
-| -- | [July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July 2014][1-3]  |
+| -- | [May 2015][1-13]  | [May 2014][1-1] |
+| -- | -- | [June 2014][1-2] |
+| -- | [July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July 2014][1-3] |
 | -- | -- | [August 2014][1-4]	  |
 | -- | [September 2015](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September 2014][1-5] |
-| -- | [October 2015](AppCenter_ReleaseNotes_Oct2015FINAL_10.16.15.pdf) | [October 2014][1-6]  |
+| -- | [October 2015](AppCenter_ReleaseNotes_Oct2015FINAL_10.16.15.pdf) | [October 2014][1-6] |
 | -- | -- | [November 2014][1-7] |
 | -- | [December 2015](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December 2014][1-8] |
 
@@ -28,8 +28,8 @@ layout: reference
 | -- | -- | -- |
 | [February 2016](#feb2016) | [February 2015][2-4] | -- |
 | -- | -- | -- |
-| -- | [April 2015][2-5]  | -- |
-| -- | [May 2015][2-6]  | [May 2014][2-1]  |
+| -- | [April 2015][2-5] | -- |
+| -- | [May 2015][2-6] | [May 2014][2-1] |
 | -- | -- | [June 2014][2-2] |
 | -- | [July 2015](#july2015) | -- |
 | -- | [August 2015](#august2015) | -- |
@@ -167,11 +167,11 @@ Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner
 
 
 [1-1]:App%20Center%20Release%20Notes_client_final_May2014_0.pdf
-[1-2]:App Center Release Notes_final_June2014.pdf
+[1-2]:App%20Center%20Release%20Notes_final_June2014.pdf
 [1-3]:App%20Center%20Release%20Notes_final_July2014.pdf
 [1-4]:App%20Center%20Release%20Notes_final_Aug2014.pdf
 [1-5]:App%20Center%20Release%20Notes_final_Sep2014.pdf
-[1-6]:App Center Release Notes_final_Oct102014.pdf
+[1-6]:App%20Center%20Release%20Notes_final_Oct102014.pdf
 [1-7]:App%20Center%20Release%20Notes_final_Nov142014.pdf
 [1-8]:App%20Center%20Release%20Notes_DecFinal_Dec12_2014.pdf
 [1-9]:App%20Center%20Release%20Notes_Feb13_2015.pdf
@@ -180,7 +180,7 @@ Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner
 [1-12]:App_Center_ReleaseNotes_Mar27_2015.pdf
 [1-13]:AppCenter_ReleaseNotes_May2015FINAL.pdf
 
-[2-1]:Concur Platform Client Release Notes_final_May2014.pdf
+[2-1]:Concur%20Platform%20Client%20Release%20Notes_final_May2014.pdf
 [2-2]:Concur%20Platform%20Client%20Release%20Notes_draft_June2014.pdf
 [2-3]:Concur%20Platform%20Release%20Notes_final_October2014.pdf
 [2-4]:Concur%20Platform%20Client%20Release%20Notes_final_February2015.pdf
