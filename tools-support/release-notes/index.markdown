@@ -4,11 +4,11 @@ layout: reference
 ---
 
 
-#  App Center Release Notes
+# App Center Release Notes
 
-|2016 | 2015 | 2014 |
-|---------------------|
-|[January 2016](AppCenter_ReleaseNotes_January 2016 FINAL.pdf) | -- | -- |
+| 2016 | 2015 | 2014 |
+| ----------------- |
+| [January 2016](AppCenter_ReleaseNotes_January 2016 FINAL.pdf) | -- | -- |
 | -- | [February 2015][1-10] | -- |
 | -- | [March 2015][1-11] | -- |
 | -- | [April 2015][1-12] | -- |
@@ -21,10 +21,10 @@ layout: reference
 | -- | -- | [November 2014][1-7] |
 | -- | [December 2015](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December 2014][1-8] |
 
-#  Developer Platform Release Notes
+# Developer Platform Release Notes
 
-|2016 | 2015 | 2014 |
-|---------------------|
+| 2016 | 2015 | 2014 |
+| ------------------ |
 | -- | -- | -- |
 | [February 2016](#feb2016) | [February 2015][2-4] | -- |
 | -- | -- | -- |
@@ -39,23 +39,23 @@ layout: reference
 | -- | -- | -- |
 
 
-#  Combined App Center and Developer Platform Release Notes
+# Combined App Center and Developer Platform Release Notes
 
-|Release Month	        |
-|-----------------------|
-|[April 2014][3-13]     |
-|[March 2014][3-12]     |
-|[February 2014][3-11]	|
-|[January 2014][3-10]   |
-|[December 2013][3-9]  	|
-|[November 2013][3-8]   |
-|[October 2013][3-7]    |
-|[September 2013][3-6]  |
-|[August 2013][3-5]   	|
-|[July 2013][3-4]	      |
-|[June 2013][3-3]	      |
-|[May 2013][3-2]        |
-|[April 2013][3-1]	    |
+| Release Month	        |
+| --------------------- |
+| [April 2014][3-13]    |
+| [March 2014][3-12]    |
+| [February 2014][3-11]	|
+| [January 2014][3-10]  |
+| [December 2013][3-9]  |
+| [November 2013][3-8]  |
+| [October 2013][3-7]   |
+| [September 2013][3-6] |
+| [August 2013][3-5]  	|
+| [July 2013][3-4]	    |
+| [June 2013][3-3]      |
+| [May 2013][3-2]       |
+| [April 2013][3-1]	    |
 
 
 
@@ -65,7 +65,7 @@ layout: reference
 ### <a name="feb2016"></a>February 2016
 
 #### Travel Profile 1.0 Deprecated
-Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will contiue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0](/api-reference/travel/travel-profile/index.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommisioned an no longer available.
+Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0](/api-reference/travel/travel-profile/index.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned an no longer available.
 
 Please refer to our [deprecation policy](/tools-support/reference/deprecation-policy.html) for definitions additional information.
 
@@ -99,7 +99,7 @@ Below is a list of changes with version 2.0. Concur strongly recommends that ven
 * Concur will pass a flag to note whether the card is personal or company ghost
 
 * New scope under the FOP scope called Company Ghost Cards
-	*  Card type
+	* Card type
 	* Card number
 	* Card expiration date
 	* Card billing address
