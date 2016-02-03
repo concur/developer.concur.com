@@ -16,6 +16,7 @@ exclude:
   - LICENSE
   - Gemfile
   - Gemfile.lock
+  - Vagrantfile
 
 # Build settings
 kramdown:
