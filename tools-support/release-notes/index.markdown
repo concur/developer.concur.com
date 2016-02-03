@@ -8,7 +8,7 @@ layout: reference
 
 | 2016 | 2015 | 2014 |
 | ---- | ---- | ---- |
-| [January 2016](AppCenter_ReleaseNotes_January 2016 FINAL.pdf) | -- | -- |
+| [January 2016](AppCenter_ReleaseNotes_January_2016_FINAL.pdf) | -- | -- |
 | -- | [February 2015][1-10] | -- |
 | -- | [March 2015][1-11] | -- |
 | -- | [April 2015][1-12] | -- |
@@ -17,7 +17,7 @@ layout: reference
 | -- | [July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July 2014][1-3] |
 | -- | -- | [August 2014][1-4] |
 | -- | [September 2015](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September 2014][1-5] |
-| -- | [October 2015](AppCenter_ReleaseNotes_Oct2015FINAL_10.16.15.pdf) | [October 2014][1-6] |
+| -- | [October 2015](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October 2014][1-6] |
 | -- | -- | [November 2014][1-7] |
 | -- | [December 2015](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December 2014][1-8] |
 
