@@ -1,5 +1,5 @@
 ---
-title: Release Notes 
+title: Release Notes
 layout: reference
 ---
 
@@ -59,22 +59,22 @@ layout: reference
 
 
 
-##Release Notes
+## Release Notes
 
 
-###<a name="feb2016"></a>February 2016
+### <a name="feb2016"></a>February 2016
 
 #### Travel Profile 1.0 Deprecated
 Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will contiue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0](/api-reference/travel/travel-profile/index.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommisioned an no longer available.
 
-Please refer to our [deprecation policy](/tools-support/reference/deprecation-policy.html) for definitions additional information. 
+Please refer to our [deprecation policy](/tools-support/reference/deprecation-policy.html) for definitions additional information.
 
 
 
-###<a name="august2015"></a>August 2015  
+### <a name="august2015"></a>August 2015  
 
 #### Form of Payment API Version 2.0
- 
+
 
 **Overview**  
 Concur offers a profile API, which passes profile data from Concur to third parties. With this release, we have separated the form of payment section from profile. In addition, we now support corporate ghost cards to be passed to 3rd party vendors, such as TripLink vendors and fulfillment TMCs.
@@ -112,7 +112,7 @@ Below is a list of changes with version 2.0. Concur strongly recommends that ven
 * Documentation will be provided closer to the delivery date
 
 **Configuration for Professional and Standard Travel**
-To take advantage of the new version of the Form of Payment API, partners need to code to the new endpoints. 
+To take advantage of the new version of the Form of Payment API, partners need to code to the new endpoints.
 
 ---
 
@@ -128,7 +128,7 @@ This new feature is for instance highly beneficial when an employee plans a trip
 In version 3.1, the Post Request Header endpoint now has a “User” element to designate the user on behalf of which the Request will be created. The API consumer, as the Request creator, has to be granted the Proxy Logon user role.
 
 **Effective Date:** August 2015  
-  
+
 -----
 
 ### <a name="july2015"></a>July 2015
@@ -156,8 +156,8 @@ Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner
 **Change 1:**
 
 * Removed: Form of Payment scope from Travel Profile API
-* Added: Form of Payment API 
- 
+* Added: Form of Payment API
+
 **Change 2:**
 
 * Removed: Driver's License and Rate Preference
