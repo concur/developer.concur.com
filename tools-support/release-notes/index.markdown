@@ -65,9 +65,9 @@ layout: reference
 ### <a name="feb2016"></a>February 2016
 
 #### Travel Profile 1.0 Deprecated
-Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0](/api-reference/travel/travel-profile/index.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned an no longer available.
+Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0]({{site.baseurl}}/api-reference/travel/travel-profile/index.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned an no longer available.
 
-Please refer to our [deprecation policy](/tools-support/reference/deprecation-policy.html) for definitions additional information.
+Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/reference/deprecation-policy.html) for definitions additional information.
 
 
 
@@ -166,37 +166,37 @@ Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner
 **Effective Date:** July 2015 release
 
 
-[1-1]:App%20Center%20Release%20Notes_client_final_May2014_0.pdf
-[1-2]:App%20Center%20Release%20Notes_final_June2014.pdf
-[1-3]:App%20Center%20Release%20Notes_final_July2014.pdf
-[1-4]:App%20Center%20Release%20Notes_final_Aug2014.pdf
-[1-5]:App%20Center%20Release%20Notes_final_Sep2014.pdf
-[1-6]:App%20Center%20Release%20Notes_final_Oct102014.pdf
-[1-7]:App%20Center%20Release%20Notes_final_Nov142014.pdf
-[1-8]:App%20Center%20Release%20Notes_DecFinal_Dec12_2014.pdf
-[1-9]:App%20Center%20Release%20Notes_Feb13_2015.pdf
-[1-10]:App%20Center%20Release%20Notes_Feb27_2015.pdf
-[1-11]:App%20Center%20Release%20Notes_Mar13_2015.pdf
+[1-1]:App20%Center20%Release20%Notes_client_final_May2014_0.pdf
+[1-2]:App20%Center20%Release20%Notes_final_June2014.pdf
+[1-3]:App20%Center20%Release20%Notes_final_July2014.pdf
+[1-4]:App20%Center20%Release20%Notes_final_Aug2014.pdf
+[1-5]:App20%Center20%Release20%Notes_final_Sep2014.pdf
+[1-6]:App20%Center20%Release20%Notes_final_Oct102014.pdf
+[1-7]:App20%Center20%Release20%Notes_final_Nov142014.pdf
+[1-8]:App20%Center20%Release20%Notes_DecFinal_Dec12_2014.pdf
+[1-9]:App20%Center20%Release20%Notes_Feb13_2015.pdf
+[1-10]:App20%Center20%Release20%Notes_Feb27_2015.pdf
+[1-11]:App20%Center20%Release20%Notes_Mar13_2015.pdf
 [1-12]:App_Center_ReleaseNotes_Mar27_2015.pdf
 [1-13]:AppCenter_ReleaseNotes_May2015FINAL.pdf
 
-[2-1]:Concur%20Platform%20Client%20Release%20Notes_final_May2014.pdf
-[2-2]:Concur%20Platform%20Client%20Release%20Notes_draft_June2014.pdf
-[2-3]:Concur%20Platform%20Release%20Notes_final_October2014.pdf
-[2-4]:Concur%20Platform%20Client%20Release%20Notes_final_February2015.pdf
+[2-1]:Concur20%Platform20%Client20%Release20%Notes_final_May2014.pdf
+[2-2]:Concur20%Platform20%Client20%Release20%Notes_draft_June2014.pdf
+[2-3]:Concur20%Platform20%Release20%Notes_final_October2014.pdf
+[2-4]:Concur20%Platform20%Client20%Release20%Notes_final_February2015.pdf
 [2-5]:Concur_Platform_ReleaseNotes_draft_April2015.pdf
 [2-6]:API_ReleaseNotes_May2015.pdf
 
-[3-1]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20April%202013.pdf
-[3-2]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20May%202013.pdf
-[3-3]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20June%202013.pdf
-[3-4]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20July%202013.pdf
-[3-5]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20August%202013.pdf
-[3-6]:Concur%20Platform%20Client%20Facing%20Release%20Notes%20September%202013.pdf
-[3-7]:Concur%20Platform%20Client%20Facing%20Release%20Notes%20October%202013.pdf
-[3-8]:Concur%20Platform%20Client%20Facing%20Release%20Notes%20November%202013.pdf
-[3-9]:Concur%20Platform%20Client%20Facing%20Release%20Notes%20December%202013.pdf
-[3-10]:Concur%20Platform%20Client%20Release%20Notes_final_Jan2014.pdf
-[3-11]:Concur%20Platform%20Client%20Release%20Notes_final_Feb2014.pdf
-[3-12]:Concur%20Platform%20Client%20Release%20Notes_final_March2014.pdf
-[3-13]:Concur%20Platform%20Client%20Release%20Notes_final.pdf
+[3-1]:Concur20%Connect20%Client20%Facing20%Release20%Notes20%April20%2013.pdf
+[3-2]:Concur20%Connect20%Client20%Facing20%Release20%Notes20%May20%2013.pdf
+[3-3]:Concur20%Connect20%Client20%Facing20%Release20%Notes20%June20%2013.pdf
+[3-4]:Concur20%Connect20%Client20%Facing20%Release20%Notes20%July20%2013.pdf
+[3-5]:Concur20%Connect20%Client20%Facing20%Release20%Notes20%August20%2013.pdf
+[3-6]:Concur20%Platform20%Client20%Facing20%Release20%Notes20%September20%2013.pdf
+[3-7]:Concur20%Platform20%Client20%Facing20%Release20%Notes20%October20%2013.pdf
+[3-8]:Concur20%Platform20%Client20%Facing20%Release20%Notes20%November20%2013.pdf
+[3-9]:Concur20%Platform20%Client20%Facing20%Release20%Notes20%December20%2013.pdf
+[3-10]:Concur20%Platform20%Client20%Release20%Notes_final_Jan2014.pdf
+[3-11]:Concur20%Platform20%Client20%Release20%Notes_final_Feb2014.pdf
+[3-12]:Concur20%Platform20%Client20%Release20%Notes_final_March2014.pdf
+[3-13]:Concur20%Platform20%Client20%Release20%Notes_final.pdf
