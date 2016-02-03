@@ -15,7 +15,7 @@ layout: reference
 | -- | [May 2015][1-13]  | [May 2014][1-1] |
 | -- | -- | [June 2014][1-2] |
 | -- | [July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July 2014][1-3] |
-| -- | -- | [August 2014][1-4]	  |
+| -- | -- | [August 2014][1-4] |
 | -- | [September 2015](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September 2014][1-5] |
 | -- | [October 2015](AppCenter_ReleaseNotes_Oct2015FINAL_10.16.15.pdf) | [October 2014][1-6] |
 | -- | -- | [November 2014][1-7] |
@@ -71,12 +71,12 @@ Please refer to our [deprecation policy](/tools-support/reference/deprecation-po
 
 
 
-### <a name="august2015"></a>August 2015  
+### <a name="august2015"></a>August 2015
 
 #### Form of Payment API Version 2.0
 
 
-**Overview**  
+**Overview**
 Concur offers a profile API, which passes profile data from Concur to third parties. With this release, we have separated the form of payment section from profile. In addition, we now support corporate ghost cards to be passed to 3rd party vendors, such as TripLink vendors and fulfillment TMCs.
 
 In order to ensure all existing partners are not affected by this change, we are going to offer a new version of the Form of Payment API with a new endpoint.
@@ -119,15 +119,15 @@ To take advantage of the new version of the Form of Payment API, partners need t
 #### Concur Request 3.1
 This service is known as Authorization Request, Concur Request, or simply Request and was formerly known as Travel Request. Concur changed the name to better align with its broader capabilities. This service is different from the legacy authorization request feature that was available within Concur Expense.
 
-**Overview:***  
+**Overview:**
 Concur is exposing a new endpoint providing the ability for a client vendor to create a Request on behalf of the actual Request user.
 
 This new feature is for instance highly beneficial when an employee plans a trip and needs to request the authorization to travel. A Travel Request has to be created and submitted to the manager. However, as the user is on the road and plans to depart tomorrow, this individual decides to call the TMC to obtain a reservation right away. The TMC will first generate a Request on behalf of this traveler, and then associate the booking to this Request, so that the manager can easily review all the trip details and decide to approve or reject.
 
-**Details:**  
+**Details:**
 In version 3.1, the Post Request Header endpoint now has a “User” element to designate the user on behalf of which the Request will be created. The API consumer, as the Request creator, has to be granted the Proxy Logon user role.
 
-**Effective Date:** August 2015  
+**Effective Date:** August 2015
 
 -----
 
@@ -136,10 +136,10 @@ In version 3.1, the Post Request Header endpoint now has a “User” element to
 
 #### Travel API
 
-##### Travel Profile API Changes  
+##### Travel Profile API Changes
 
-**Overview:**   
-New elements added to the Travel Profile API  
+**Overview:**
+New elements added to the Travel Profile API
 
 **Additions:**
 
@@ -150,7 +150,7 @@ New elements added to the Travel Profile API
 **Effective Date:** July 2015 release
 
 
-**Overview:**  
+**Overview:**
 Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner Application
 
 **Change 1:**
@@ -161,7 +161,7 @@ Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner
 **Change 2:**
 
 * Removed: Driver's License and Rate Preference
-* Moved: Custom Fields under Company Details  
+* Moved: Custom Fields under Company Details
 
 **Effective Date:** July 2015 release
 
