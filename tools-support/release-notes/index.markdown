@@ -4,7 +4,7 @@ layout: reference
 ---
 
 
-##  App Center Release Notes
+#  App Center Release Notes
 
 |2016 | 2015 | 2014 |
 |---------------------|
@@ -21,23 +21,27 @@ layout: reference
 | -- | -- | [November 2014][1-7] |
 | -- | [December 2015](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December 2014][1-8] |
 
+[February 2016](#feb2016)
+
+#  Developer Platform Release Notes
+
+|2016 | 2015 | 2014 |
+|---------------------|
+| -- | -- | -- |
+| [February 2016](#feb2016) | [February 2015][2-4] | -- |
+| -- | -- | -- |
+| -- | [April 2015][2-5]  | -- |
+| -- | [May 2015][2-6]  | [May 2014][2-1]  |
+| -- | -- | [June 2014][2-2] |
+| -- | [July 2015](#july2015) | -- |
+| -- | [August 2015](#august2015) | -- |
+| -- | -- | -- |
+| -- | -- | [October 2014][2-3] |
+| -- | -- | -- |
+| -- | -- | -- |
 
 
-##  Developer Platform Release Notes
-
-|Release Month     	|
-|-------------------|
-|[August 2015](#august2015) |
-|[July 2015](#july2015) |
-|[May 2015][2-6]    |
-|[April 2015][2-5]  |
-|[February 2015][2-4] |
-|[October 2014][2-3]|
-|[June 2014][2-2]   |
-|[May 2014][2-1]    |
-
-
-##  Combined App Center and Developer Platform Release Notes
+#  Combined App Center and Developer Platform Release Notes
 
 |Release Month	        |
 |-----------------------|
@@ -58,6 +62,16 @@ layout: reference
 
 
 ##Release Notes
+
+
+###<a name="feb2016"></a>February 2016
+
+#### Travel Profile 1.0 Deprecated
+Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will contiue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0](/api-reference/travel/travel-profile/index.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommisioned an no longer available.
+
+Please refer to our [deprecation policy](/tools-support/reference/deprecation-policy.html) for definitions additional information. 
+
+
 
 ###<a name="august2015"></a>August 2015  
 
