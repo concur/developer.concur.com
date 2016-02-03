@@ -21,8 +21,6 @@ layout: reference
 | -- | -- | [November 2014][1-7] |
 | -- | [December 2015](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December 2014][1-8] |
 
-[February 2016](#feb2016)
-
 #  Developer Platform Release Notes
 
 |2016 | 2015 | 2014 |
