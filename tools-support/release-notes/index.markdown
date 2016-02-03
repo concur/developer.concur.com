@@ -12,7 +12,7 @@ layout: reference
 | -- | [February 2015][1-10] | -- |
 | -- | [March 2015][1-11] | -- |
 | -- | [April 2015][1-12] | -- |
-| -- | [May 2015][1-13]  | [May 2014][1-1] |
+| -- | [May 2015][1-13] | [May 2014][1-1] |
 | -- | -- | [June 2014][1-2] |
 | -- | [July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July 2014][1-3] |
 | -- | -- | [August 2014][1-4] |
@@ -114,7 +114,7 @@ Below is a list of changes with version 2.0. Concur strongly recommends that ven
 **Configuration for Professional and Standard Travel**
 To take advantage of the new version of the Form of Payment API, partners need to code to the new endpoints.
 
----
+-----
 
 #### Concur Request 3.1
 This service is known as Authorization Request, Concur Request, or simply Request and was formerly known as Travel Request. Concur changed the name to better align with its broader capabilities. This service is different from the legacy authorization request feature that was available within Concur Expense.
