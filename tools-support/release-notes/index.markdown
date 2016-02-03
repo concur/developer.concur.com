@@ -12,7 +12,7 @@ layout: reference
 | -- | [February 2015][1-10] | -- |
 | -- | [March 2015][1-11] | -- |
 | -- | [April 2015][1-12] | -- |
-| -- | [May 2015][1-13] | [May 2014][1-1] |
+| -- | [May 2015][1-13] | [May 2014](App_Center_Release_Notes_client_final_May2014_0.pdf) |
 | -- | -- | [June 2014][1-2] |
 | -- | [July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July 2014][1-3] |
 | -- | -- | [August 2014][1-4] |
@@ -166,37 +166,3 @@ Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner
 **Effective Date:** July 2015 release
 
 
-[1-1]:App_Center_Release_Notes_client_final_May2014_0.pdf
-[1-2]:App_Center_Release_Notes_final_June2014.pdf
-[1-3]:App_Center_Release_Notes_final_July2014.pdf
-[1-4]:App_Center_Release_Notes_final_Aug2014.pdf
-[1-5]:App_Center_Release_Notes_final_Sep2014.pdf
-[1-6]:App_Center_Release_Notes_final_Oct102014.pdf
-[1-7]:App_Center_Release_Notes_final_Nov142014.pdf
-[1-8]:App_Center_Release_Notes_DecFinal_Dec12_2014.pdf
-[1-9]:App_Center_Release_Notes_Feb13_2015.pdf
-[1-10]:App_Center_Release_Notes_Feb27_2015.pdf
-[1-11]:App_Center_Release20_Notes_Mar13_2015.pdf
-[1-12]:App_Center_ReleaseNotes_Mar27_2015.pdf
-[1-13]:AppCenter_ReleaseNotes_May2015FINAL.pdf
-
-[2-1]:Concur_Platform_Client_Release_Notes_final_May2014.pdf
-[2-2]:Concur_Platform_Client_Release_Notes_draft_June2014.pdf
-[2-3]:Concur_Platform_Release_Notes_final_October2014.pdf
-[2-4]:Concur_Platform_Client_Release_Notes_final_February2015.pdf
-[2-5]:Concur_Platform_ReleaseNotes_draft_April2015.pdf
-[2-6]:API_ReleaseNotes_May2015.pdf
-
-[3-1]:Concur_Connect_Client_Facing_Release_Notes_April_2013.pdf
-[3-2]:Concur_Connect_Client_Facing_Release_Notes_May_2013.pdf
-[3-3]:Concur_Connect_Client_Facing_Release_Notes_June_2013.pdf
-[3-4]:Concur_Connect_Client_Facing_Release_Notes_July_2013.pdf
-[3-5]:Concur_Connect_Client_Facing_Release_Notes_August_2013.pdf
-[3-6]:Concur_Platform_Client_Facing_Release_Notes_September_2013.pdf
-[3-7]:Concur_Platform_Client_Facing_Release_Notes_October_2013.pdf
-[3-8]:Concur_Platform_Client_Facing_Release_Notes_November_2013.pdf
-[3-9]:Concur_Platform_Client_Facing_Release_Notes_December_2013.pdf
-[3-10]:Concur_Platform_Client_Release_Notes_final_Jan2014.pdf
-[3-11]:Concur_Platform_Client_Release_Notes_final_Feb2014.pdf
-[3-12]:Concur_Platform_Client_Release_Notes_final_March2014.pdf
-[3-13]:Concur_Platform_Client_Release_Notes_final.pdf
