@@ -1,21 +1,7 @@
 ---
-title: Tools
+title: Web Test Tool
 layout: reference
 ---
-
-### acconnect Utility
-The acconnect utility is a Windows command-line tool that obtains a request token by simulating the App Center flow.
-
-**Requirements:**
-
-* For Windows users, Windows XP or later Windows operating System.
-* For Mac users, a Windows VM such as Parallels Desktop.
-* You must be an administrator on the local computer to run acconnect.
-
-[acconnect utility help](/tools-support/tools/acconnect-utility.html)  
-
-[acconnect utility](/tools-support/tools-files/acconnect.zip) (ZIP File)
-
 
 ### Web Test Tool
 

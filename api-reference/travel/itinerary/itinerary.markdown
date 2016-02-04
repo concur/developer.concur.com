@@ -140,7 +140,7 @@ Yes.
 
 No.
 
-## Reference
+## <a name="reference_topics" id="reference_topics">Reference</a>
 
 The Itinerary Reference documentation includes the following reference information that can be used in conjunction with the Trip Resource API and Booking Resource API documentation. It includes the following reference topics:
 
@@ -152,11 +152,27 @@ The Itinerary Reference documentation includes the following reference informati
 * [Time Zone Formats](#time_zones)
 
 ###  <a name="itinerary_data_model" id="itinerary_data_model">Itinerary data model</a>
+[Return to Reference topics](#reference_topics)
 
 The Itinerary data model defines data elements  that are returned or sent when getting, creating, updating, or deleting trips and bookings with the /api/travel/trip/v1.1 and /api/travel/booking/v1.1 resources respectively. 
-Trips include all bookings in an itinerary whereas a booking includes only a specific segment of an itinerary.
+Trips include all bookings in an itinerary whereas a booking includes only a specific segment of an itinerary.  It includes the following elements:
 
-#### Root elements
+* [Root elements] (#root_elements)
+* [Booking elements](#booking_elements)
+* [AirfareQuotes elements](#airfarequotes_elements)
+* [Passengers elements](#passengers_elements)
+* [AirlineTickets elements](#airlinetickets_elements)
+* [Fixed elements](#fixed_elements)
+* [AirBooking elements](#airbooking_elements)
+* [CarBooking elements](#carbooking_elements)
+* [Hotel Booking elements](#hotel_booking_elements)
+* [Dining Booking elements](#dining_booking_elements)
+* [Ride Booking elements](#ride_booking_elements)
+* [Rail Booking elements](#rail_booking_elements)
+* [Parking Booking elements](#parking_booking_elements)
+* [Travel Booking elements](#travel_booking_elements)
+
+#### <a name="root_elements" id="root_elements">Root elements</a>
 
 | Element Name          | Data Type    | TripLink | Description |
 |----------------------|-------------|---------|---------------------------------------------------------------------|
@@ -190,7 +206,7 @@ Trips include all bookings in an itinerary whereas a booking includes only a spe
 | Custom Attributes     | Array        |          |    |
 | RuleViolations        | Array        | N        | The list of rule violations associated with the itinerary. This parent element contains a RuleViolation child element for each associated rule violation.|
 
-#### Booking elements
+#### <a name="booking_elements" id="booking_elements">Booking elements</a>
 The Bookings parent element contains a Booking child element for each included booking. TripLink suppliers have access only to a subset of the Booking elements. The TripLink column indicates with a Y if a specific elment is available for a TripLink supplier. Each booking element contains the following child elements:
 
 | Element  | Data Type | TripLink | Description |
@@ -295,7 +311,7 @@ The Bookings parent element contains a Booking child element for each included b
 | TotalFareCurrency   | string |  | The [3-letter ISO 4217 currency code][1] for the total fare. |
 | RailCharges      | array |  | The charges applied by the airline. This parent element contains a **Fixed** and a **Tax** child element for each fixed charge and tax from the airline. See the **Fixed elements** table and the **Tax elements** table. |
 
-#### AirfareQuotes elements
+#### <a name="airfarequotes_elements" id="airfarequotes_elements">AirfareQuotes elements</a>
 
 The AirfareQuotes parent element is an array that contains a Quote child element that contains the following child elements.
 
@@ -313,7 +329,7 @@ The AirfareQuotes parent element is an array that contains a Quote child element
 | TotalFareCurrency | String |  |   |
 | AirlineCharges | Array |  | This parent element contains a **Fixed** and a **Percent** child element for each fixed charge and percent of fixed charge associated with this airfare quote. For information about these child elements, see the **Fixed elements** table and the **Percent elements** table later on this page. |
 
-#### Passengers elements
+#### <a name="passengers_elements" id="passengers_elements">Passengers elements</a>
 
 The passenger parent element is the Passengers Element in Booking Elements. This parent element contains a Passenger child element for each booked passenger.
 
@@ -329,7 +345,7 @@ The passenger parent element is the Passengers Element in Booking Elements. This
 | TextName | String | optional | Y | The user's full name as entered in the booking tool if different from the name in the database. |
 | FrequentTravelerProgram | String | optional | Y | Passenger's loyalty programs |
 
-#### AirlineTickets elements
+#### <a name="airlinetickets_elements" id="airlinetickets_elements">AirlineTickets elements</a>
 
 The AirLineTickets parent element is an array that contains the following child elements.
 
@@ -462,7 +478,7 @@ The AirLineTickets parent element is an array that contains the following child 
 | TotalFareCurrency   | string |  |   |
 | Taxes   | array |  | The charges applied by the airline. This parent element contains a **Fixed** and a **Tax** child element for each fixed charge and tax from the airline. For more information, see the **Fixed elements** table and the **Tax elements** table later on this page. |
 
-##### Fixed elements
+##### <a name="fixed_elements" id="fixed_elements">Fixed elements</a>
 
 The Fixed element contains the following child elements.
 
@@ -549,7 +565,7 @@ The RuleViolations element contains a list of rule violations associated with th
 | VendorCode | String |  |   |
 | VendorName | String |  |   |
 
-#### AirBooking elements
+#### <a name="airbooking_elements" id="airbooking_elements">AirBooking elements</a>
 
 The Air Booking parent element is the Air Element in the Segments Array in Booking Elements. This parent element contains an Air Booking child element for each booked flight.
 
@@ -609,7 +625,7 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | PassengerRph | integer | The passenger assigned to the seat. |
 | SeatNumber | string | The number of the seat. |
 
-#### Car Booking elements
+#### <a name="carbooking_elements" id="carbooking_elements">CarBooking elements</a>
 
 The Car Booking parent element is the Car Element in the Segments Array in Booking Elements. This parent element contains a Car Booking child element for each booked car.
 
@@ -699,7 +715,7 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | Transmission | string |  | The character code that indicates if the car has auto-transmission. A for Auto, M for Manual |
 | UpgradedDateTime | dateTime |  | The date and time the booking was upgraded. Format: YYYY-MM-DDThh:mm:ss |
 
-#### Hotel Booking elements
+#### <a name="hotel_booking_elements" id="hotel_booking_elements">Hotel Booking elements</a>
 
 The Hotel Booking parent element is the Hotel Element in the Segments Array in Booking Elements. This parent element contains a Hotel Booking child element for each booked hotel.
 
@@ -757,7 +773,7 @@ The Hotel Booking parent element is the Hotel Element in the Segments Array in B
 | VendorFlags | string |  | Semi-colon-delimited list of flags for free hotel service flags. E.g. free breakfast (FB), internet (FI), Parking (FP), etc. If they were all present they can be concatenated as - FB;FI;FP;  |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
 
-#### Dining Booking elements
+#### <a name="dining_booking_elements" id="dining_booking_elements">Dining Booking elements</a>
 
 The Dining Booking parent element is the Dining Element in the Segments Array in Booking Elements. This parent element contains a Dining Booking child element for each booked meal.
 
@@ -794,7 +810,7 @@ The Dining Booking parent element is the Dining Element in the Segments Array in
 | Vendor | string |  | The two letter GDS vendor code. |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
 
-#### Ride Booking elements
+#### <a name="ride_booking_elements" id="ride_booking_elements">Ride Booking elements</a>
 
 The Ride Booking parent element is the Ride Element in the Segments Array in Booking Elements. This parent element contains a Ride Booking child element for each booked ride.
 
@@ -862,7 +878,7 @@ The Ride Booking parent element is the Ride Element in the Segments Array in Boo
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
 | Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table.  |
 
-#### Rail Booking Elements
+#### <a name="rail_booking_elements" id="rail_booking_elements">Rail Booking elements</a>
 
 The Rail Booking parent element is the Rail Element in the Segments Array in Booking Elements. This parent element contains a Rail Booking child element for each booked rail segment.
 
@@ -947,7 +963,7 @@ The Rail Booking parent element is the Rail Element in the Segments Array in Boo
 | WagonNumber | string |  | The number of the wagon the seat is on. |
 | WagonType | string |  | The type of wagon the seat is on. |
 
-#### Parking Booking elements
+#### <a name="parking_booking_elements" id="parking_booking_elements">Parking Booking elements</a>
 
 The Parking Booking parent element is the Parking Element in the Segments Array in Booking Elements. This parent element contains a Parking Booking child element for each booked parking.
 
@@ -988,7 +1004,7 @@ The Parking Booking parent element is the Parking Element in the Segments Array 
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
 | Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table later on this page. |
 
-#### Travel Booking elements
+#### <a name="travel_booking_elements" id="travel_booking_elements">Travel Booking elements</a>
 
 The Travel Booking parent element is the Travel Element in the Segments Array in Booking Elements. This parent element contains a Travel Booking child element for each booked travel request.
 
@@ -1088,6 +1104,7 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | VendorChargeCode | string |  | The vendor's code for the charge. |
 
 ###  <a name="car_vendor_codes" id="car_vendor_codes">Car vendor codes</a>
+[Return to Reference topics](#reference_topics)
 
 The following car vendor codes are used in the Car Booking Elements.
 
@@ -1163,6 +1180,7 @@ The following car vendor codes are used in the Car Booking Elements.
 
 
 ###  <a name="hotel_vendor_codes" id="hotel_vendor_codes">Hotel vendor codes</a>
+[Return to Reference topics](#reference_topics)
 
 |  Vendor Code |  Vendor Name |
 |--------------|--------------|
@@ -1598,6 +1616,7 @@ The following car vendor codes are used in the Car Booking Elements.
 
 
 ###  <a name="ride_vendor_codes" id="ride_vendor_codes">Ride vendor Codes</a>
+[Return to Reference topics](#reference_topics)
 
 |  Vendor Code |  Vendor Name |
 |--------------|--------------|
@@ -1614,6 +1633,7 @@ The following car vendor codes are used in the Car Booking Elements.
 
 
 ### <a name="semantics_codes" id="semantics_codes">Semantics codes</a>
+[Return to Reference topics](#reference_topics)
 
 The semantics codes are used in the Charges child elements in Bookings.
 
@@ -1710,6 +1730,7 @@ The semantics codes are used in the Charges child elements in Bookings.
 
 
 ### <a name="time_zones" id="time_zones">Time zones</a>
+[Return to Reference topics](#reference_topics)
 
 Concur converts local date/time to UTC.  In order to do that we need to be able to determine where the local time is.
 
@@ -1749,6 +1770,7 @@ Concur converts local date/time to UTC.  In order to do that we need to be able 
 |  UTC | | | |
 
 ####  Windows time zones
+[Return to Reference topics](#reference_topics)
 
 | | | | |
 |--------------|--------------|--------------|--------------|

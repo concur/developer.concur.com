@@ -3,6 +3,8 @@ title: acconnect Utility
 layout: reference
 ---
 
+### acconect Utility
+
 acconnect is a command-line tool that obtains a request token for the specified user by using the App Center flow.
 
 #### Requirements:
@@ -46,4 +48,3 @@ acconnect.exe VJbNf8skImcf79QOV2Zfz8 M6nNN433aaXh9W4kNJQVP85DpPd3JYGV EXPRPT joh
 ``
 
 [1]:{{ site.baseurl }}/tools-support/tools-files/acconnect.zip
-
