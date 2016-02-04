@@ -59,7 +59,7 @@ layout: blog
               {% assign postmonth = post.date | date: "%B"%}
 
               {% if year == postyear and month == postmonth %}
-                <a href="{{ post.url }}"  class="list-group-item"> {{ post.title }} • {{ post.date | date: "%B %-d "}} </a>
+                <a href="{{ post.url }}"  class="list-group-item"> {{ post.title }} • {{ post.date | date: "%A, %B %-d"}} </a>
               {% endif %}
               {% if forloop.index == site.posts.size and counter > 0 %}
                 </div>

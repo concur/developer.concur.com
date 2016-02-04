@@ -2,7 +2,7 @@
 layout: blog
 ---
 
-<h1 class="post-title"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;{{page.tag | capitalize }}</h1>
+<h1 class="post-title"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;{{page.tag | replace: "-", " " }}</h1>
 
 <!-- Capture & Assign Variables Used In Menu -->
 
@@ -58,7 +58,7 @@ layout: blog
 
                     {% if forloop.index == site.posts.size and counter > 0 %}
                       <a href="#{{ month }}" class="list-group-item" data-toggle="collapse" data-parent="#{{ year }}">{{ month }} ({{counter}})</a>
-                      <div class="collapse" id="{{ month }}">              
+                      <div class="collapse" id="{{ month }}">
                     {% endif %}
 
                   {% endfor %}
@@ -69,7 +69,7 @@ layout: blog
                     {% assign postmonth = post.date | date: "%B"%}
 
                     {% if year == postyear and month == postmonth and post.tags contains page.tag %}
-                      <a href="{{ post.url }}"  class="list-group-item"> {{ post.title }} • {{ post.date | date: "%B %-d "}} </a>
+                      <a href="{{ post.url }}"  class="list-group-item"> {{ post.title }} • {{ post.date | date: "%A, %B %-d"}} </a>
                     {% endif %}
                     {% if forloop.index == site.posts.size and counter > 0 %}
                       </div>

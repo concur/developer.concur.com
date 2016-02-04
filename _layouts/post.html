@@ -2,10 +2,26 @@
 layout: blog
 ---
 
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time>{{ page.date | date: "%A, %B %d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+<article >
+  <header >
+    <h1>{{ page.title }}</h1>
+    <div>
+      {% if page.author %}
+        <span> By {{ page.author }} | {{ page.date | date: "%A, %B %d, %Y" }}</span>
+      {% else %}
+      <span>{{ page.date | date: "%A, %B %d, %Y" }}</span>
+      {% endif %}
+    </div>
+    {% if page.tags %}
+    <i class="glyphicon glyphicon-tags"></i>&nbsp;
+    {% for tag in page.tags %}
+      {% if forloop.index == page.tags.size %}
+        <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}</a></span>
+      {% else %}
+        <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}, </a></span>
+      {% endif %}
+    {% endfor %}
+    {% endif %}
     {% if page.references %}
     <p>This page references:</p>
     <ul>
@@ -14,10 +30,11 @@ layout: blog
           <a href="{{ref.url}}">{{ ref.link }}</a>
         </li>
       {% endfor %}
-      {% endif %}
     </ul>
+    {% endif %}
     </header>
   <div class="post-content" itemprop="articleBody">
+    <br>
     {{ content }}
   </div>
 </article>
