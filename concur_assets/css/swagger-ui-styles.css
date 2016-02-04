@@ -1,3 +1,12 @@
 .swagger-section .container{
   width: inherit;
 }
+
+/*Swagger Tables - Prevent Side Scrolling*/
+.parameter{
+  width: 100% !important;
+}
+
+.body-textarea {
+  width: 100% !important;
+}
