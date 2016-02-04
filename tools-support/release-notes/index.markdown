@@ -1,82 +1,70 @@
 ---
-title: Release Notes
+title: Release Notes 
 layout: reference
 ---
 
 
-# Developer Platform Release Notes
+##  App Center Release Notes
 
-| 2016 | 2015 | 2014 |
-| ---- | ---- | ---- |
-| -- | -- | -- |
-| [February 2016](#feb2016) | [February 2015][2-4] | -- |
-| -- | -- | -- |
-| -- | [April 2015][2-5] | -- |
-| -- | [May 2015][2-6] | [May 2014][2-1] |
-| -- | -- | [June 2014][2-2] |
-| -- | [July 2015](#july2015) | -- |
-| -- | [August 2015](#august2015) | -- |
-| -- | -- | -- |
-| -- | -- | [October 2014][2-3] |
-| -- | -- | -- |
-| -- | -- | -- |
-
-# App Center Release Notes
-
-| 2016 | 2015 | 2014 |
-| ---- | ---- | ---- |
-| [January 2016](AppCenter_ReleaseNotes_January_2016_FINAL.pdf) | -- | -- |
+|2016 | 2015 | 2014 |
+|---------------------|
+|[January 2016](AppCenter_ReleaseNotes_January 2016 FINAL.pdf) | -- | -- |
 | -- | [February 2015][1-10] | -- |
 | -- | [March 2015][1-11] | -- |
 | -- | [April 2015][1-12] | -- |
-| -- | [May 2015][1-13] | [May 2014](App_Center_Release_Notes_client_final_May2014_0.pdf) |
-| -- | -- | [June 2014][1-2] |
-| -- | [July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July 2014][1-3] |
-| -- | -- | [August 2014][1-4] |
+| -- | [May 2015][1-13]  | [May 2014][1-1]  |
+| -- | -- | [June 2014][1-2]	 |
+| -- | [July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July 2014][1-3]  |
+| -- | -- | [August 2014][1-4]	  |
 | -- | [September 2015](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September 2014][1-5] |
-| -- | [October 2015](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October 2014][1-6] |
+| -- | [October 2015](AppCenter_ReleaseNotes_Oct2015FINAL_10.16.15.pdf) | [October 2014][1-6]  |
 | -- | -- | [November 2014][1-7] |
 | -- | [December 2015](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December 2014][1-8] |
 
 
-# Combined App Center and Developer Platform Release Notes
 
-| Release Month	        |
-| --------------------- |
-| [April 2014][3-13]    |
-| [March 2014][3-12]    |
-| [February 2014][3-11]	|
-| [January 2014][3-10]  |
-| [December 2013][3-9]  |
-| [November 2013][3-8]  |
-| [October 2013][3-7]   |
-| [September 2013][3-6] |
-| [August 2013][3-5]  	|
-| [July 2013][3-4]	    |
-| [June 2013][3-3]      |
-| [May 2013][3-2]       |
-| [April 2013][3-1]	    |
+##  Developer Platform Release Notes
+
+|Release Month     	|
+|-------------------|
+|[August 2015](#august2015) |
+|[July 2015](#july2015) |
+|[May 2015][2-6]    |
+|[April 2015][2-5]  |
+|[February 2015][2-4] |
+|[October 2014][2-3]|
+|[June 2014][2-2]   |
+|[May 2014][2-1]    |
 
 
+##  Combined App Center and Developer Platform Release Notes
 
-## Release Notes
+|Release Month	        |
+|-----------------------|
+|[April 2014][3-13]     |
+|[March 2014][3-12]     |
+|[February 2014][3-11]	|
+|[January 2014][3-10]   |
+|[December 2013][3-9]  	|
+|[November 2013][3-8]   |
+|[October 2013][3-7]    |
+|[September 2013][3-6]  |
+|[August 2013][3-5]   	|
+|[July 2013][3-4]	      |
+|[June 2013][3-3]	      |
+|[May 2013][3-2]        |
+|[April 2013][3-1]	    |
 
 
-### <a name="feb2016"></a>February 2016
 
-#### Travel Profile 1.0 Deprecated
-Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0]({{site.baseurl}}/api-reference/travel/travel-profile/index.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned an no longer available.
+##Release Notes
 
-Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/reference/deprecation-policy.html) for definitions additional information.
-
-
-
-### <a name="august2015"></a>August 2015
+###<a name="august2015"></a>August 2015  
 
 #### Form of Payment API Version 2.0
+ 
 
-
-**Overview**
+**Overview**  
 Concur offers a profile API, which passes profile data from Concur to third parties. With this release, we have separated the form of payment section from profile. In addition, we now support corporate ghost cards to be passed to 3rd party vendors, such as TripLink vendors and fulfillment TMCs.
 
 In order to ensure all existing partners are not affected by this change, we are going to offer a new version of the Form of Payment API with a new endpoint.
@@ -99,7 +87,7 @@ Below is a list of changes with version 2.0. Concur strongly recommends that ven
 * Concur will pass a flag to note whether the card is personal or company ghost
 
 * New scope under the FOP scope called Company Ghost Cards
-	* Card type
+	*  Card type
 	* Card number
 	* Card expiration date
 	* Card billing address
@@ -112,23 +100,23 @@ Below is a list of changes with version 2.0. Concur strongly recommends that ven
 * Documentation will be provided closer to the delivery date
 
 **Configuration for Professional and Standard Travel**
-To take advantage of the new version of the Form of Payment API, partners need to code to the new endpoints.
+To take advantage of the new version of the Form of Payment API, partners need to code to the new endpoints. 
 
------
+---
 
 #### Concur Request 3.1
 This service is known as Authorization Request, Concur Request, or simply Request and was formerly known as Travel Request. Concur changed the name to better align with its broader capabilities. This service is different from the legacy authorization request feature that was available within Concur Expense.
 
-**Overview:**
+**Overview:***  
 Concur is exposing a new endpoint providing the ability for a client vendor to create a Request on behalf of the actual Request user.
 
 This new feature is for instance highly beneficial when an employee plans a trip and needs to request the authorization to travel. A Travel Request has to be created and submitted to the manager. However, as the user is on the road and plans to depart tomorrow, this individual decides to call the TMC to obtain a reservation right away. The TMC will first generate a Request on behalf of this traveler, and then associate the booking to this Request, so that the manager can easily review all the trip details and decide to approve or reject.
 
-**Details:**
+**Details:**  
 In version 3.1, the Post Request Header endpoint now has a “User” element to designate the user on behalf of which the Request will be created. The API consumer, as the Request creator, has to be granted the Proxy Logon user role.
 
-**Effective Date:** August 2015
-
+**Effective Date:** August 2015  
+  
 -----
 
 ### <a name="july2015"></a>July 2015
@@ -136,10 +124,10 @@ In version 3.1, the Post Request Header endpoint now has a “User” element to
 
 #### Travel API
 
-##### Travel Profile API Changes
+##### Travel Profile API Changes  
 
-**Overview:**
-New elements added to the Travel Profile API
+**Overview:**   
+New elements added to the Travel Profile API  
 
 **Additions:**
 
@@ -150,52 +138,53 @@ New elements added to the Travel Profile API
 **Effective Date:** July 2015 release
 
 
-**Overview:**
+**Overview:**  
 Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner Application
 
 **Change 1:**
 
 * Removed: Form of Payment scope from Travel Profile API
-* Added: Form of Payment API
-
+* Added: Form of Payment API 
+ 
 **Change 2:**
 
 * Removed: Driver's License and Rate Preference
-* Moved: Custom Fields under Company Details
+* Moved: Custom Fields under Company Details  
 
 **Effective Date:** July 2015 release
 
-[1-1]:App_Center_Release_Notes_client_final_May2014_0.pdf
-[1-2]:App_Center_Release_Notes_final_June2014.pdf
-[1-3]:App_Center_Release_Notes_final_July2014.pdf
-[1-4]:App_Center_Release_Notes_final_Aug2014.pdf
-[1-5]:App_Center_Release_Notes_final_Sep2014.pdf
-[1-6]:App_Center_Release_Notes_final_Oct102014.pdf
-[1-7]:App_Center_Release_Notes_final_Nov142014.pdf
-[1-8]:App_Center_Release_Notes_DecFinal_Dec12_2014.pdf
-[1-9]:App_Center_Release_Notes_Feb13_2015.pdf
-[1-10]:App_Center_Release_Notes_Feb27_2015.pdf
-[1-11]:App_Center_Release20_Notes_Mar13_2015.pdf
+
+[1-1]:App%20Center%20Release%20Notes_client_final_May2014_0.pdf
+[1-2]:App Center Release Notes_final_June2014.pdf
+[1-3]:App%20Center%20Release%20Notes_final_July2014.pdf
+[1-4]:App%20Center%20Release%20Notes_final_Aug2014.pdf
+[1-5]:App%20Center%20Release%20Notes_final_Sep2014.pdf
+[1-6]:App Center Release Notes_final_Oct102014.pdf
+[1-7]:App%20Center%20Release%20Notes_final_Nov142014.pdf
+[1-8]:App%20Center%20Release%20Notes_DecFinal_Dec12_2014.pdf
+[1-9]:App%20Center%20Release%20Notes_Feb13_2015.pdf
+[1-10]:App%20Center%20Release%20Notes_Feb27_2015.pdf
+[1-11]:App%20Center%20Release%20Notes_Mar13_2015.pdf
 [1-12]:App_Center_ReleaseNotes_Mar27_2015.pdf
 [1-13]:AppCenter_ReleaseNotes_May2015FINAL.pdf
 
-[2-1]:Concur_Platform_Client_Release_Notes_final_May2014.pdf
-[2-2]:Concur_Platform_Client_Release_Notes_draft_June2014.pdf
-[2-3]:Concur_Platform_Release_Notes_final_October2014.pdf
-[2-4]:Concur_Platform_Client_Release_Notes_final_February2015.pdf
+[2-1]:Concur Platform Client Release Notes_final_May2014.pdf
+[2-2]:Concur%20Platform%20Client%20Release%20Notes_draft_June2014.pdf
+[2-3]:Concur%20Platform%20Release%20Notes_final_October2014.pdf
+[2-4]:Concur%20Platform%20Client%20Release%20Notes_final_February2015.pdf
 [2-5]:Concur_Platform_ReleaseNotes_draft_April2015.pdf
 [2-6]:API_ReleaseNotes_May2015.pdf
 
-[3-1]:Concur_Connect_Client_Facing_Release_Notes_April_2013.pdf
-[3-2]:Concur_Connect_Client_Facing_Release_Notes_May_2013.pdf
-[3-3]:Concur_Connect_Client_Facing_Release_Notes_June_2013.pdf
-[3-4]:Concur_Connect_Client_Facing_Release_Notes_July_2013.pdf
-[3-5]:Concur_Connect_Client_Facing_Release_Notes_August_2013.pdf
-[3-6]:Concur_Platform_Client_Facing_Release_Notes_September_2013.pdf
-[3-7]:Concur_Platform_Client_Facing_Release_Notes_October_2013.pdf
-[3-8]:Concur_Platform_Client_Facing_Release_Notes_November_2013.pdf
-[3-9]:Concur_Platform_Client_Facing_Release_Notes_December_2013.pdf
-[3-10]:Concur_Platform_Client_Release_Notes_final_Jan2014.pdf
-[3-11]:Concur_Platform_Client_Release_Notes_final_Feb2014.pdf
-[3-12]:Concur_Platform_Client_Release_Notes_final_March2014.pdf
-[3-13]:Concur_Platform_Client_Release_Notes_final.pdf
+[3-1]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20April%202013.pdf
+[3-2]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20May%202013.pdf
+[3-3]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20June%202013.pdf
+[3-4]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20July%202013.pdf
+[3-5]:Concur%20Connect%20Client%20Facing%20Release%20Notes%20August%202013.pdf
+[3-6]:Concur%20Platform%20Client%20Facing%20Release%20Notes%20September%202013.pdf
+[3-7]:Concur%20Platform%20Client%20Facing%20Release%20Notes%20October%202013.pdf
+[3-8]:Concur%20Platform%20Client%20Facing%20Release%20Notes%20November%202013.pdf
+[3-9]:Concur%20Platform%20Client%20Facing%20Release%20Notes%20December%202013.pdf
+[3-10]:Concur%20Platform%20Client%20Release%20Notes_final_Jan2014.pdf
+[3-11]:Concur%20Platform%20Client%20Release%20Notes_final_Feb2014.pdf
+[3-12]:Concur%20Platform%20Client%20Release%20Notes_final_March2014.pdf
+[3-13]:Concur%20Platform%20Client%20Release%20Notes_final.pdf
