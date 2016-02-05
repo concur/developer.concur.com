@@ -42,3 +42,5 @@ jekyll-archives:
     day: '/:year/:month/:day/'
     tag: '/tag/:name/'
     category: '/category/:name/'
+
+gems: ['jekyll-paginate']
