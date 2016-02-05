@@ -40,7 +40,7 @@ If you have not configured your sandbox to obtain access, you can make that requ
 If you have configured your sandbox, the GET List of Itineraries required for the Get Itinerary endpoint is located in the official Concur developer page [here](https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html).
 
 ##### Important
-- Use the Itinerary scope. More details [here](https://developer.concur.com/oauth-20/web-flow). Use the search term ITINER
+- Use the Itinerary scope. More details [here](https://developer.concur.com/api-reference/authentication/authentication.html#web). Use the search term ITINER
 - Use either Web flow or Apps Center flow authentication
 - Ensure that your dates are recent
 
@@ -130,7 +130,7 @@ Developers should build a scheduled process to poll for itineraries or get trips
 1. GET a list of trips for the user.
 2. GET the details of each trip one at a time.
 
-For more information on how to GET a trip list for a user by using their Oauth token, go [here](https://developer.concur.com/itinerary-tmc-and-third-party-developers/itinerary-resource/itinerary-resource-get#listofitins).
+For more information on how to GET a trip list for a user by using their Oauth token, go [here](https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html#getlist).
 
 #### Example Get List of Trips request:
 
@@ -153,7 +153,7 @@ Refer to the sample [Get trip details for a trip ID]( https://developer.concur.c
 
 ##### Important
 
-No itinerary can contain all of the possible elements, because the response will always be a subset of the possible returned values. For full response details, view the [Public Itinerary XSD](https://developer.concur.com/sites/default/files/ItinServices_Public_0.xsd ).
+No itinerary can contain all of the possible elements, because the response will always be a subset of the possible returned values. For full response details, view the [Public Itinerary XSD](https://developer.concur.com/api-reference/travel/itinerary/ItinServices_Public_0.xsd).
 
 Once you have the trip details, look for trips that lack your segment type.
 

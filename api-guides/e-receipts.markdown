@@ -41,11 +41,11 @@ This diagram explains how to send an eReceipt to Concur:
 #### Accessing the eReceipt API:
 Unlike all the other Concur API endpoints, eReceipt requires the Concur Platform team to configure your sandbox to enable access. You can make that request from the Support Page [here](https://developer.concur.com/docs-and-resources/support). Remember to include the name of the Concur representative you with whom you are working in the form.
 
-The POST fields required for the eReceipt endpoint are located in the official Concur developer page [here](https://developer.concur.com/receipts/post-receipt), and test it out in our Swagger page [here](https://www.concursolutions.com/api/docs/index.html).
+The POST fields required for the eReceipt endpoint are located in the official Concur developer page [here](https://developer.concur.com/api-reference/expense/receipts/index.html#post), and test it out in our Swagger page [here](https://www.concursolutions.com/api/docs/index.html).
 
 ##### Important
 
-- Use the ERECPT scope. More details [here](https://developer.concur.com/oauth-20/web-flow). Search Term: ERECPT.
+- Use the ERECPT scope. More details [here](https://developer.concur.com/api-reference/authentication/authentication.html#web). Search Term: ERECPT.
 - Use the easier Native Flow authentication for Application 2 in your sandbox to retrieve the user token
 - Ensure that your dates are recent
 
@@ -136,7 +136,7 @@ JSON
 }
 ```
 
-Test your API in the [API Explorer](https://concurapi.readme.io/doc/poste-receipt).
+Test your API in the [API Explorer](https://concurapi.readme.io/docs/post-e-receipt).
 
 The user experience should flow like this:
 
