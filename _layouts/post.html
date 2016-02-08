@@ -5,23 +5,25 @@ layout: blog
 <article >
   <header >
     <h1>{{ page.title }}</h1>
-    <div>
+    <p>
       {% if page.author %}
-        <span> By {{ page.author }} | {{ page.date | date: "%A, %B %d, %Y" }}</span>
+        <span>By {{ page.author }} • {{ page.date | date: "%A, %B %d, %Y" }}</span>
       {% else %}
       <span>{{ page.date | date: "%A, %B %d, %Y" }}</span>
       {% endif %}
-    </div>
-    {% if page.tags %}
-    <i class="glyphicon glyphicon-tags"></i>&nbsp;
-    {% for tag in page.tags %}
-      {% if forloop.index == page.tags.size %}
-        <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}</a></span>
-      {% else %}
-        <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}, </a></span>
+    </p>
+    <p>
+      {% if page.tags %}
+      <i class="glyphicon glyphicon-tags"></i>&nbsp;
+      {% for tag in page.tags %}
+        {% if forloop.index == page.tags.size %}
+          <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}</a></span>
+        {% else %}
+          <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}, </a></span>
+        {% endif %}
+      {% endfor %}
       {% endif %}
-    {% endfor %}
-    {% endif %}
+    </p>
     {% if page.references %}
     <p>This page references:</p>
     <ul>
