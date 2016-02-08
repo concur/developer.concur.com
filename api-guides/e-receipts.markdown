@@ -39,7 +39,7 @@ This diagram explains how to send an eReceipt to Concur:
 
 
 #### Accessing the eReceipt API:
-Unlike all the other Concur API endpoints, eReceipt requires the Concur Platform team to configure your sandbox to enable access. You can make that request from the Support Page [here](https://developer.concur.com/docs-and-resources/support). Remember to include the name of the Concur representative you with whom you are working in the form.
+Unlike all the other Concur API endpoints, eReceipt requires the Concur Platform team to configure your sandbox to enable access. You can make that request from the Support Page [here](https://developer.concur.com/tools-suport/support). Remember to include the name of the Concur representative you with whom you are working in the form.
 
 The POST fields required for the eReceipt endpoint are located in the official Concur developer page [here](https://developer.concur.com/api-reference/expense/receipts/index.html#post), and test it out in our Swagger page [here](https://www.concursolutions.com/api/docs/index.html).
 
