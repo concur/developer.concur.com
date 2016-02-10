@@ -4,8 +4,13 @@ layout: blog
 {% for post in paginator.posts %}
   <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
   <p class="author">
+<<<<<<< HEAD
     <span class="date">By {{post.author }} • </span>
     <span class="author">{{ post.date | date: "%B %d, %Y"}}</span>
+=======
+    <span class="date"> {{ post.date | date: "%B %d, %Y"}} •</span>
+    <span class="author"> {% if post.author %} {{post.author }} {% endif %} </span>
+>>>>>>> 98b07c65ecf0dfcda47a887692cbf0ff4ed45a25
   </p>
 
   <p>{{ post.excerpt }}</p>

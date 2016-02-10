@@ -22,9 +22,17 @@ __“App Recommendation Engine”—Get Apps You Need, When You Need Them:__ If 
 
 __“Personal Card”—Expense Charges from a Personal Card in a Click:__ It’s time-consuming to identify and log business-related charges from a personal credit card—and then create a cash transaction—just to be reimbursed. This test service simplifies the process. You: 1) Login to your personal bank account; 2) Click a button to identify business expenses; and 3) Instantly see your expenses in Concur.
 
+<<<<<<< HEAD
 __Have a new innovation or integration idea? Contact us at [conceptlab@concur.com][email-concur-labs]. You’ll also find information on prototypes, projects and sample code on [Concur Labs][concur-labs].__
 
 
+=======
+__Have a new innovation or integration idea? Contact us at [conceptlab@concur.com][email-concur-labs]. You’ll also find information on prototypes, projects and sample code on [concurlabs.com][concur-labs].__
+
+
+-----
+
+>>>>>>> 98b07c65ecf0dfcda47a887692cbf0ff4ed45a25
 [concur-labs]: https://concurlabs.com/
 [ford-motor-company]: https://media.ford.com/content/fordmedia/fna/us/en/news/2016/01/04/sync-apple-carplay-android-auto.html
 [ces]: https://media.ford.com/content/fordmedia/fna/us/en/news/2016/01/04/sync-apple-carplay-android-auto.html

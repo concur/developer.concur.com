@@ -5,6 +5,7 @@ layout: blog
 <article >
   <header >
     <h1>{{ page.title }}</h1>
+<<<<<<< HEAD
     <p>
       {% if page.author %}
         <span>By {{ page.author }} • {{ page.date | date: "%A, %B %d, %Y" }}</span>
@@ -24,6 +25,25 @@ layout: blog
       {% endfor %}
       {% endif %}
     </p>
+=======
+    <div>
+      {% if page.author %}
+        <span> By {{ page.author }} | {{ page.date | date: "%A, %B %d, %Y" }}</span>
+      {% else %}
+      <span>{{ page.date | date: "%A, %B %d, %Y" }}</span>
+      {% endif %}
+    </div>
+    {% if page.tags %}
+    <i class="glyphicon glyphicon-tags"></i>&nbsp;
+    {% for tag in page.tags %}
+      {% if forloop.index == page.tags.size %}
+        <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}</a></span>
+      {% else %}
+        <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}, </a></span>
+      {% endif %}
+    {% endfor %}
+    {% endif %}
+>>>>>>> 98b07c65ecf0dfcda47a887692cbf0ff4ed45a25
     {% if page.references %}
     <p>This page references:</p>
     <ul>
