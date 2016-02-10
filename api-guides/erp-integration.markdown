@@ -1,26 +1,25 @@
 ---
-title: "ERP Integration: Professional and Standard Recipe"
+title: "ERP Integration: Professional Edition & Standard Edition Recipe"
 layout: reference
 ---
-## Apps for my business
+## ERP Integration
 
-This series of API Recipes describes API tasks associated with Apps for my business. Apps for my business are applications designed for financial integration companies and finance leaders who want to track their employees travel and entertainment expenses in order to increase compliance with spending guidelines, control unnecessary spend and reduce costs and risk. This API Recipe explains the process for obtaining client expense report data from Concur through Enterprise Resource Planning (ERP) integration
+This series of API Recipes describes API tasks associated with one type of an Apps for My Business: ERP Financial Integration. This App is intended for financial integration companies and finance leaders who want to streamline the Journal Entry process once Expense Reports in Concur have been final-approved and are ready to be integrated into the client's financial system. This API Recipe explains the process for obtaining client expense report data from Concur for Enterprise Resource Planning (ERP) integration
 
 Before a partner user can obtain expense report data from Concur, ensure that you have completed the following:
 
 - Ensure your app has been certified by Concur
 - Ensure your organization has obtained a signed letter of Agreement from a client stating that you can obtain that client’s expense report data using the extract file created by Concur’s service
-- Ensure your app supports Concur’s App Center flow
 - Ensure your app can authenticate with Concur using either [Native Flow](https://developer.concur.com/api-reference/authentication/authentication.html#native) (preferred) or Web Flow
 - Ensure your app includes the ability to [refresh the Concur authentication token](https://developer.concur.com/api-reference/authentication/authentication.html#refreshing-access-token)
 - Ensure your app includes the ability to respond appropriately to [revoked token messages](https://developer.concur.com/api-reference/authentication/authentication.html#revoke-single-access-token)
 
-#### Apps for my business: Professional Edition ERP Integration
+#### Professional Edition ERP Integration
 Professional Edition ERP Integration assumes that you are working for or on behalf of a Financial Integration Company. As such, the client we support in common may have elected to include additional functionality resulting in more complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program. These configuration choices require more care when pulling the extract file from Concur. Contact Concur to request the CTE Extract Example Cases and then consult with the client to determine if their configuration will result in any of the Sample Cases described in the document.
 
 
 #### Standard Edition vs. Professional Edition
-Consult with your client so they can inform you if they are using Standard or Professional Edition of the Concur Service.  Both editions produce extract files that you will use as part of the integration, however, there are distinct differences between them in obtaining the extract files.
+Consult with your client so they can inform you if they are using Standard or Professional Edition of the Concur Service.  Both editions produce extract files that you will use as part of the integration, however, there are distinct differences between them in obtaining the extract files.  If the client is unsure of the Edition-type, Standard Edition will have a "Setup" menu option within the Administration menu as displayed to an administrative user.
 
 ##### Get Extract Files for your client
 
@@ -28,7 +27,9 @@ Use the following process and their associated API to obtain extract files for y
 
 Navigate to [Extracts](https://developer.concur.com/api-reference/common/extracts/extracts.html).
 
-1.  Obtain a list extract definitions for your client. Keep in mind that the authorization header with the OAuth token must be for a valid user. The OAuth consumer must have one the following roles in Concur: Company Administrator or Web services Administrator for Professional ERP Integration.
+Professional Edition:
+
+1.  Obtain a list extract definitions for your client. Keep in mind that the authorization header with the OAuth token must be for a valid user. The OAuth consumer must have one the following role in Concur: Web services Administrator for Professional ERP Integration.
 
     Your GET request looks like the example:
 
@@ -155,12 +156,12 @@ This will request a list of the last 100 extract jobs run for the specified extr
             <zip file contents>
 
 
-#### Apps for my business: Standard Edition ERP Integration
+#### Standard Edition ERP Integration
 
 Standard Edition ERP Integration assumes that you are working for or on behalf of a Financial Integration Company. Once your app is certified, and you have obtained a signed letter of agreement from a client, you can obtain that client’s expense report data through the extract file produced by Concur’s service.
 
 #### API’s used to obtain extract files for your client
-Before you begin, you need to have the client close the Payment Manager batch using the appropriate API’s in order for you to retrieve the files using the API below. Ask your client not to close the batch manually through the User Interface.
+Before you begin, you need to close the Payment Manager batch using the appropriate API’s in order for you to retrieve the files using the API below. Ask your client not to close the batch manually through the User Interface.
 
   Navigate to [Payment Batches](https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html).
 
