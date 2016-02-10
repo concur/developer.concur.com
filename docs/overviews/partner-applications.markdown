@@ -24,9 +24,9 @@ The Concur Developer Platform APIs implement OAuth 2.0 to authenticate users and
 3. Fully test your app in your sandbox.  This will ensure your integration not only works, but the end user experience in the Concur UI adds value.
 4. note for the Development Company pursuing a certified App Center App: Once your testing is complete, the Concur Partner Enablement team will guide you through the Certification process. (also see: https://developer.concur.com/manage-apps/app-certification.html)  Then, we will supply the production App Key (this will be different from your sandbox). Your application will not be available to Concur clients (e.g. "App for My Business") or their users (e.g. "App for Me") until Concur and the developer have completed the certification process.  Publication in our App Center will follow shortly afterwards via the work you do with our App Center Marketing team ( AppCenterMarketing@concur.com )
   
-## <a name="method2"></a>Registering a Partner Application in your sandbox (or for clients building their own app in their production site)...
+## <a name="method2"></a>Registering a Partner Application in your sandbox (or for clients building their own app in their production site)
 
-Your sandbox app registration should be taken care of automatically with the self-registration or manually by the Partner Enablement Team in the Professional Edition sandbox. [for clients building their own app, you can assign the role yourselves in your own site]. If there are additional changes needed to your sandbox app (or for clients building their own app), follow these steps...
+Your sandbox app registration should be taken care of automatically with the self-registration or manually by the Partner Enablement Team in the Professional Edition sandbox. [for clients building their own app, you can assign the role yourselves in your own site]. If there are additional changes needed to your sandbox app (or for clients building their own app), follow these steps:
 
 To register partner applications in your sandbox, the following permissions are required:
 
