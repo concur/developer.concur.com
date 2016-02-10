@@ -111,3 +111,39 @@ ul.blog-tags a:hover {
 .col-md-9 li a{
   color: #0275BC;
 }
+
+/* Navbar Pull Bottom */
+
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+.wrapper {
+	min-height:100%;
+	position:relative;
+}
+
+div.container.content { /* Container Content is usually what we want the bottom padding on. */
+  padding-bottom:400px;
+}
+
+div.container.content-sm { /* Sometimes it's small. */
+  padding-bottom:400px;
+}
+
+.one-page-inner div.container.content { /* Some pages use these combo classes in other ways - remove the padding... */
+  padding-bottom: 0px;
+}
+div.container.content.last { /* ... and only apply it to the last item. */
+  padding-bottom: 400px;
+}
+.footer-v1 {
+	width:100%;
+	height:375px;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
