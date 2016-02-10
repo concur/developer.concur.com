@@ -1,0 +1,17 @@
+.blogtags * {
+  display: inline;
+}
+.noliststyle {
+  list-style: none;
+}
+.list-group-item a {
+  color: inherit;
+}
+
+.list-group-item a:hover {
+  text-decoration: none;
+}
+
+.navtags {
+  padding-top: 2px;
+}
