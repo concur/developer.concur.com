@@ -10,7 +10,6 @@ author: John Dietz
 
 We’re continually creating new integrations and experimenting with new technologies to help travelers and travel managers. Especially in the new [Concur Labs][concur-labs], where developers and designers are brewing new recipes to give you “The Perfect Trip.” For example, this week at CES, we showed how travelers can expense mileage directly from their car.
 
-
 At [Concur Labs][concur-labs], our charter is to pioneer integrations and prototypes that help improve life for business travelers, and enable them to expense from anywhere they choose. What’s key is that we factor in early feedback as we go and work with teams across the company.
 
 Currently we’re building telematics for mileage tracking, travel admin time-savers and travel app tools. Here’s a sampling of projects underway:
@@ -22,17 +21,9 @@ __“App Recommendation Engine”—Get Apps You Need, When You Need Them:__ If 
 
 __“Personal Card”—Expense Charges from a Personal Card in a Click:__ It’s time-consuming to identify and log business-related charges from a personal credit card—and then create a cash transaction—just to be reimbursed. This test service simplifies the process. You: 1) Login to your personal bank account; 2) Click a button to identify business expenses; and 3) Instantly see your expenses in Concur.
 
-<<<<<<< HEAD
+
 __Have a new innovation or integration idea? Contact us at [conceptlab@concur.com][email-concur-labs]. You’ll also find information on prototypes, projects and sample code on [Concur Labs][concur-labs].__
 
-
-=======
-__Have a new innovation or integration idea? Contact us at [conceptlab@concur.com][email-concur-labs]. You’ll also find information on prototypes, projects and sample code on [concurlabs.com][concur-labs].__
-
-
------
-
->>>>>>> 98b07c65ecf0dfcda47a887692cbf0ff4ed45a25
 [concur-labs]: https://concurlabs.com/
 [ford-motor-company]: https://media.ford.com/content/fordmedia/fna/us/en/news/2016/01/04/sync-apple-carplay-android-auto.html
 [ces]: https://media.ford.com/content/fordmedia/fna/us/en/news/2016/01/04/sync-apple-carplay-android-auto.html
