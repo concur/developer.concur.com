@@ -4,9 +4,9 @@ layout: reference
 ---
 ## ERP Integration
 
-This series of API Recipes describes API tasks associated with one type of an Apps for My Business: ERP Financial Integration. This App is intended for financial integration companies and finance leaders who want to streamline the Journal Entry process once Expense Reports in Concur have been final-approved and are ready to be integrated into the client's financial system. This API Recipe explains the process for obtaining client expense report data from Concur for Enterprise Resource Planning (ERP) integration
+This API Recipe describes API tasks associated with ERP Financial Integration. This App is intended for financial integration companies or finance leaders who want to streamline the processes once Expense Reports in Concur have been final-approved and are ready to be integrated into the client's financial system. 
 
-Before a partner user can obtain expense report data from Concur, ensure that you have completed the following:
+Before a partner can obtain expense report data from Concur, ensure that you have completed the following:
 
 - Ensure your app has been certified by Concur
 - Ensure your organization has obtained a signed letter of Agreement from a client stating that you can obtain that client’s expense report data using the extract file created by Concur’s service
@@ -15,11 +15,11 @@ Before a partner user can obtain expense report data from Concur, ensure that yo
 - Ensure your app includes the ability to respond appropriately to [revoked token messages](https://developer.concur.com/api-reference/authentication/authentication.html#revoke-single-access-token)
 
 #### Professional Edition ERP Integration
-Professional Edition ERP Integration assumes that you are working for or on behalf of a Financial Integration Company. As such, the client we support in common may have elected to include additional functionality resulting in more complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program. These configuration choices require more care when pulling the extract file from Concur. Contact Concur to request the CTE Extract Example Cases and then consult with the client to determine if their configuration will result in any of the Sample Cases described in the document.
+Professional Edition ERP Integration assumes that you are working for or on behalf of a Financial Integration Company. The client we support in common may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Contact Concur to request the CTE Extract Example Cases document. Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document.  contact = pdspe@concur.com
 
 
 #### Standard Edition vs. Professional Edition
-Consult with your client so they can inform you if they are using Standard or Professional Edition of the Concur Service.  Both editions produce extract files that you will use as part of the integration, however, there are distinct differences between them in obtaining the extract files.  If the client is unsure of the Edition-type, Standard Edition will have a "Setup" menu option within the Administration menu as displayed to an administrative user.
+Consult with your client so they can inform you if they are using Standard or Professional Edition of the Concur Service.  Both editions produce extract files that you will use as part of the integration, however, there are distinct differences between them in obtaining the extract files.  If the client is unsure of the Edition-type, Standard Edition will have a "Setup" menu option within the Administration menu as displayed to an administrative user.  Professional Edition will not have a "Setup" menu within the Administration menu.
 
 ##### Get Extract Files for your client
 
