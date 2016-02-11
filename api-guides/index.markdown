@@ -10,7 +10,7 @@ These guides are intended to help you gain a better understanding of our APIs in
 As we are currently in the process of creating more documents of this type, please feel free to provide us with feed and suggestions in our [Developer Forums](http://forum.developer.concur.com/c/apis/api-guides).
 
 
-# Getting Started With Parnter Applications
+# Getting Started With Partner Applications
 
 * [Applications](#method1)
 * [Registering a Partner Application in your sandbox (or for clients building their own app in their production site)](#method2)
