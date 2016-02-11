@@ -4,29 +4,22 @@ layout: reference
 ---
 
 
-# Partner Applications
+# Applications
 
-* [Partner Applications](#method1)
-* [Required Permissions](#methodA)
-* [Registering a Partner Application](#method2)
-* [Modifying a Partner Application](#method3)
-* [Enabling and Disabling Partner Applications](#method4)
+## <a name="method1"></a>Applications
 
+Your company (be it an existing Concur client or a software development company pursuing a certified Concur App Center application) can use the Concur Developer Platform to build a variety of applications, ranging from single-function apps to end-to-end solutions that address complex business problems.  
 
-## <a name="method1"></a>Partner Applications
-
-Your company (an existing Concur client or a software development company pursuing a certified Concur App Center application) can use the Concur Developer Platform to build a variety of applications, ranging from single-function apps to end-to-end solutions that address complex business problems.  
-
-The Concur Developer Platform APIs implement OAuth 2.0 to authenticate users and authorize access to their Concur data. To go from your idea to users using your app in conjunction with Concur follow these steps:
+Concur's APIs implement OAuth 2.0 to authenticate users and authorize access to their Concur data. To go from your idea to users using your app in conjunction with Concur follow these steps:
 
 1. Register for a sandbox:  https://developer.concur.com/manage-apps/register.html  Note: The sandbox that is created from the self-registration process above produces a Standard Edition sandbox.  It is recommended that any potential App Center Partners that are developing an "App for My Business" request a Professional Edition sandbox as well. To request a Professional Edition sandbox please contact bizdev@concur.com.  (Clients interested in developing an app for their own use, can follow the steps below to enable an app in their own production instance).
-2. Read desired Recipes & related API docs and begin developing your app.
+2. Read desired Recipes & related API docs and begin developing your app.  (see them listed on the left margin)
 3. Fully test your app in your sandbox.  This will ensure your integration not only works, but the end user experience in the Concur UI adds value.
 4. note for the Development Company pursuing a certified App Center App: Once your testing is complete, the Concur Partner Enablement team will guide you through the Certification process. (also see: https://developer.concur.com/manage-apps/app-certification.html)  Then, we will supply the production App Key (this will be different from your sandbox). Your application will not be available to Concur clients (e.g. "App for My Business") or their users (e.g. "App for Me") until Concur and the developer have completed the certification process.  Publication in our App Center will follow shortly afterwards via the work you do with our App Center Marketing team ( AppCenterMarketing@concur.com )
   
 ## <a name="method2"></a>Registering a Partner Application in your sandbox (or for clients building their own app in their production site)
 
-Your sandbox app registration should be taken care of automatically with the self-registration or manually by the Partner Enablement Team in the Professional Edition sandbox. [for clients building their own app, you can assign the role yourselves in your own site]. If there are additional changes needed to your sandbox app (or for clients building their own app), follow these steps:
+The app in the system-generated sandbox should already be registered, so read further if you want to add an app or change the existing app. [for clients building their own app, you can assign the role yourselves in your own site]. If there are additional changes needed to your sandbox app (or for clients building their own app), follow these steps:
 
 To register partner applications in your sandbox, the following permissions are required:
 
