@@ -4,7 +4,7 @@ layout: reference
 ---
 
 
-# Callouts and Application Connectors | Developer Portal
+# Callouts and Application Connectors
 
 ##  Callouts and Application Connectors
 
