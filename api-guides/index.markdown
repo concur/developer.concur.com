@@ -7,7 +7,7 @@ layout: reference
 
 These guides are intended to help you gain a better understanding of our APIs in specific use cases and workflows. Please read the Getting Started section below first.  
 
-As we are currently in the process of creating more documents of this type, please feel free to provide us with feed and suggestions in our [Developer Forums](http://forum.developer.concur.com/c/apis/api-guides).
+As we are currently in the process of creating more documents of this type, please feel free to provide us with feedback and suggestions in our [Developer Forums](http://forum.developer.concur.com/c/apis/api-guides).
 
 
 # Getting Started With Partner Applications
@@ -20,18 +20,18 @@ As we are currently in the process of creating more documents of this type, plea
 
 ## <a name="method1"></a>Applications
 
-Your company (be it an existing Concur client or a software development company pursuing a certified Concur App Center application) can use the Concur Developer Platform to build a variety of applications, ranging from single-function apps to end-to-end solutions that address complex business problems.  
+Your company (be it an existing Concur client or a software development company pursuing a certified Concur App Center application) can use the Concur Developer Platform to build a variety of applications, ranging from single-function apps to end-to-end solutions.  
 
 Concur's APIs implement OAuth 2.0 to authenticate users and authorize access to their Concur data. To go from your idea to users using your app in conjunction with Concur follow these steps:
 
-1. Register for a sandbox:  https://developer.concur.com/manage-apps/register.html  Note: The sandbox that is created from the self-registration process above produces a Standard Edition sandbox.  It is recommended that any potential App Center Partners that are developing an "App for My Business" request a Professional Edition sandbox as well. To request a Professional Edition sandbox please contact bizdev@concur.com.  (Clients interested in developing an app for their own use, can follow the steps below to enable an app in their own production instance).
-2. Read desired Recipes & related API docs and begin developing your app.  (see them listed on the left margin)
-3. Fully test your app in your sandbox.  This will ensure your integration not only works, but the end user experience in the Concur UI adds value.
-4. note for the Development Company pursuing a certified App Center App: Once your testing is complete, the Concur Partner Enablement team will guide you through the Certification process. (also see: https://developer.concur.com/manage-apps/app-certification.html)  Then, we will supply the production App Key (this will be different from your sandbox). Your application will not be available to Concur clients (e.g. "App for My Business") or their users (e.g. "App for Me") until Concur and the developer have completed the certification process.  Publication in our App Center will follow shortly afterwards via the work you do with our App Center Marketing team ( AppCenterMarketing@concur.com )
+1. Register for a sandbox:  https://developer.concur.com/manage-apps/register.html  Note: The sandbox that is created from the self-registration process above produces a Standard Edition sandbox.  It is recommended that any potential App Center Partners that are developing an "App for My Business" request a Professional Edition sandbox as well. To request a Professional Edition sandbox please contact bizdev@concur.com.  (Clients interested in developing an app for their own use, can follow the steps below to enable an app in their own production instance. This requires the client to purchase "Web Services").
+2. Read the desired Recipes & related API docs and begin developing your app.  (see the Guides listed on the left margin)
+3. Fully test your app in your sandbox.  This will ensure your integration not only works, but the end user experience in the Concur UI adds value (if applicable).
+4. Note to the developer pursuing a certified App Center App: Once your testing is complete, the Concur Partner Enablement team will guide you through the Certification process. (also see: https://developer.concur.com/manage-apps/app-certification.html)  Then, we will supply the production App Key (this will be different from your sandbox). Your application will not be available to Concur clients or their users until Concur and the developer have completed the certification process.  Publication in our App Center will follow shortly afterwards via the work you do with our App Center Marketing team ( AppCenterMarketing@concur.com )
   
 ## <a name="method2"></a>Registering a Partner Application in your sandbox (or for clients building their own app in their production site)
 
-The app in the system-generated sandbox should already be registered, so read further if you want to add an app or change the existing app. [for clients building their own app, you can assign the role yourselves in your own site]. If there are additional changes needed to your sandbox app (or for clients building their own app), follow these steps:
+The app in the system-generated sandbox should already be registered, so read further only if you need to add an app or change the existing app. [for clients building their own app, you can assign the role yourselves in your own site].
 
 To register partner applications in your sandbox, the following permissions are required:
 
@@ -47,8 +47,8 @@ Field | Description
 `Name`	| Enter the name that should appear in the list of applications.
 `Description` | Enter the description of the function of the application.
 `Visibility` | This field defaults to Private. It can only be modified by Concur Internal staff. It will not be set to anything other than Private until the Concur Review Process is complete.
-`Active` | Choose whether this application is active. Inactive applications will not appear in the list of available applications.
-`APIs Used` | Select the Concur Web Service APIs that this application will interface with and that are relevant to your app. If the API includes sensitive data groups, they will appear as separate check boxes beneath the API. Select only the check boxes for the sensitive data that your application must have access to. **NOTE:** The Quick Expense Web Service requires the Expense Report Web Service scope. If the application wants to GET receipt images, it would use the Imaging Web Service, so it would also require the Imaging Web Service scope.
+`Active` | Choose whether this application is active.
+`APIs Used` | Select the Concur Web Service APIs that are relevant to your app. If the API includes sensitive data groups, they will appear as separate check boxes beneath the API. Select only the check boxes for the sensitive data that your application must have access to. **NOTE:** The Quick Expense Web Service requires the Expense Report Web Service scope. If the application wants to GET receipt images, it would use the Imaging Web Service, so it would also require the Imaging Web Service scope.
 
 * The Application Authorization section displays your company domain and automatically creates a Key and Secret to use with this application.
 
