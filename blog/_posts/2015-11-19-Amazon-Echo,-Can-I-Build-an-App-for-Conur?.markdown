@@ -7,7 +7,7 @@ tags:
 author: Chris Trudeau
 ---
 
-Want to use Amazon Echo to ask about upcoming business trips? It’s easy. The [Alexa Skill Kit][alexa-skill-kit] you to build Echo apps that can call APIs, including Concur APIs. Here’s a quick overview of how to integrate Alexa Skill Kit with the Concur JS SDK to enable travelers request details on their next trip. Sample code referenced is also available on [Github][github].
+Want to use Amazon Echo to ask about upcoming business trips? It’s easy. The [Alexa Skill Kit][alexa-skill-kit] enables you to build Echo apps that can call APIs, including Concur APIs. Here’s a quick overview of how to integrate Alexa Skill Kit with the Concur JS SDK to enable travelers request details on their next trip. Sample code referenced is also available on [Github][github].
 
 ### What Kind of Functionality Can I Create?
 
