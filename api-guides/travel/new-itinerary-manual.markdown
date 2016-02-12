@@ -24,7 +24,7 @@ Using the following process, you can easily create trips in your sandbox for tes
 
       <html>
       <body>
-      <img src="images/Concur_admin_console_trip_library_num.JPG" alt="Add New Reservation">
+      <img src="api-guides/images/Concur_admin_console_trip_library_num.JPG" alt="Add New Reservation">
       </body>
       </html>
 
@@ -35,7 +35,7 @@ Using the following process, you can easily create trips in your sandbox for tes
 
       <html>
       <body>
-      <img src="images/Create_new_trip_num.JPG" alt="Create new trip">
+      <img src="api-guides/images/Create_new_trip_num.JPG" alt="Create new trip">
       </body>
       </html>
 
@@ -45,7 +45,7 @@ Using the following process, you can easily create trips in your sandbox for tes
 
     <html>
     <body>
-    <img src="images/Add_New_Reservation_num.JPG" alt="Add New Reservation">
+    <img src="api-guides/images/Add_New_Reservation_num.JPG" alt="Add New Reservation">
     </body>
     </html>
 
