@@ -21,12 +21,12 @@ Using the following process, you can easily create trips in your sandbox for tes
 1. Log into your sandbox.
 2. Click the **Travel** tab.
 
-
       <html>
       <body>
       <img src="/api-guides/images/Concur_admin_console_num.JPG" alt="Add New Reservation">
       </body>
       </html>
+      
 
 3. In Travel Alerts, click the **Upcoming Trips** tab.
 4. Click **Add new Itinerary manually**.The **Add New Reservation** dialog appears.
