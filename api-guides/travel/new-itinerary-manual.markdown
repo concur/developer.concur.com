@@ -24,7 +24,7 @@ Using the following process, you can easily create trips in your sandbox for tes
 
       <html>
       <body>
-      <img src="/api-guides/images/Concur_admin_console_trip_library_num.JPG" alt="Add New Reservation">
+      <img src="/api-guides/images/Concur_admin_console_num" alt="Add New Reservation">
       </body>
       </html>
 
