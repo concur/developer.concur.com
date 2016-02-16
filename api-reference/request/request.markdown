@@ -5,11 +5,11 @@ layout: reference
 
 # Request
 
-Concur  Request is designed to help businesses control expenses by requiring employees to obtain approval before incurring expenses.The Travel Request resource provides the ability to view requests and update the workflow for travel requests.  
+Concur Request automates the spend request and approval process for both travel and everyday expenses, giving you the data you need to accurately track and better control spending. By increasing visibility into planned expenses and up-to-date budget data, you can make strategic spending decisions before any spending actually occurs. The Request resource provides many abilities, including viewing requests and transition of request into the workflow.
 
 * [Retrieve all requests](#method1)
 * [Retrieve a request by ID](#method2)
-* [Submit a request by ID](method3)
+* [Submit a request by ID](#method3)
 * [Schema](#schema)
 
 
@@ -196,7 +196,7 @@ Name | Type | Format | Description
 `Custom1` through `Custom40`	|	`CustomField`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
 `DepartureDate`	|	`string`	|	-	|	The departure date of the segment.
 `DepartureTime`	|	`string`	|	-	|	The departure time of the segment.
-`Exceptions`	|	`Array`	|	[Exception}(#exception)	|	This parent element has an Exception child element for each exception. Refer to the Exception model for the full list of child elements.
+`Exceptions`	|	`Array`	|	[Exception](#exception)	|	This parent element has an Exception child element for each exception. Refer to the Exception model for the full list of child elements.
 `ExchangeRate`	|	`string`	|	-	|	The exchange rate that applies to the segment.
 `FlightNumber`	|	`string`	|	-	|	The flight number for air segments. Appears only when Request is integrated with Concur Travel.
 `ForeignAmount`	|	`string`	|	-	|	The foreign currency amount of the segment.

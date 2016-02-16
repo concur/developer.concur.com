@@ -181,7 +181,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
 |  StartTime | |  | The start time for the travel request. |
 |  EndTime | |  | The end time for the travel request. |
 |  ExtensionOf | |  |  The ID of the initial travel request that this travel request is an extension of or adendum to. |
-|  WorkflowActionURL | |  | The URL to post a workflow action to the travel request using the [Post Request Workflow Action](/api-reference/expense/expense-report/post-report-workflow-action.html) function. |
+|  WorkflowActionURL | |  | The URL to post a workflow action to the travel request using the [Post Request Workflow Action](/api-reference-deprecated/version-one/Travel/travel-request.markdown#a5) function. |
 |  CommentCount | |  | The number of comments associated with the travel request header. |
 |  CommentsList | |  | This parent element has a Count attribute indicating the number of comments that are included in the travel request header. It has a **Comment** child element for each comment. Refer to the Comment Child Elements table for the full list of child elements. |
 |  ExceptionCount | |  | The number of exceptions associated with the travel request header. |
@@ -911,7 +911,7 @@ Example: `https://www.concursolutions.com/api/travelrequest/v1.0/requests`
 Example:  
 <samp>https://www.concursolutions.com/api/travelrequest/v1.0/requests/{requestID}</samp>
 
-**URI Source**: The requestId value is returned by [Get Request Details][1] function, and the **Request-Url** element in this function.
+**URI Source**: The requestId value is returned by [Get Request Details](#a3) function, and the **Request-Url** element in this function.
 
 #### Headers
 
