@@ -21,7 +21,7 @@
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
@@ -199,11 +199,11 @@
       "properties": {
         "ID": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "TEXT NEEDED"
         },
         "URI": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "TEXT NEEDED"
         }
       }
     },
@@ -227,7 +227,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": ""
         }
       }
     },
@@ -235,43 +235,43 @@
       "properties": {
         "Comment": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "A comment that describes the expense. Max Length: 2000"
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The 3-letter ISO 4217 currency code for the expense transaction amount. Example: USD"
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The code for the expense type in the company’s expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the Get Expense Group Configuration function response."
         },
         "ExpenseTypeName": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The name of the expense type associated with the quick expense."
         },
         "ID": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The unique identifier of the resource."
         },
         "LocationName": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The name of the location where the expense was incurred."
         },
         "OwnerLoginID": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The Concur login ID for the expense owner. Useful for system to system integration when there are expenses for multiple users."
         },
         "OwnerName": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The first and last name for the expense owner. Useful for system to system integration when there are expenses for multiple users."
         },
         "PaymentTypeCode": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "This element specifies the method of payment for the expense. Format: CASHX = Cash, CPAID = Company Paid, or PENDC = Pending Card Transaction (default)"
         },
         "ReceiptImageID": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The ID of the receipt image associated with this quick expense, if any."
         },
         "TransactionAmount": {
           "type": "number",
@@ -285,7 +285,7 @@
         },
         "URI": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The URI to the resource."
         },
         "VendorDescription": {
           "type": "string",
@@ -297,39 +297,39 @@
       "properties": {
         "Comment": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "A comment that describes the expense. Max Length: 2000"
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The 3-letter ISO 4217 currency code for the expense transaction amount. Example: USD"
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The code for the expense type in the company’s expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the Get Expense Group Configuration function response."
         },
         "LocationCity": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The name of the city where the expense was incurred."
         },
         "LocationCountry": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The name of the country where the expense was incurred."
         },
         "LocationSubdivision": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "TEXT NEEDED"
         },
         "PaymentTypeCode": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "	This element specifies the method of payment for the expense. Format: CASHX = Cash, CPAID = Company Paid, or PENDC = Pending Card Transaction (default)"
         },
         "ReceiptImageID": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The ID of the receipt image associated with this quick expense, if any."
         },
         "SpendCategoryCode": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "TEXT NEEDED"
         },
         "TransactionAmount": {
           "type": "number",
@@ -351,39 +351,39 @@
       "properties": {
         "Comment": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "A comment that describes the expense. Max Length: 2000"
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The 3-letter ISO 4217 currency code for the expense transaction amount. Example: USD"
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The code for the expense type in the company’s expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the Get Expense Group Configuration function response."
         },
         "LocationCity": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The name of the city where the expense was incurred."
         },
         "LocationCountry": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The name of the country where the expense was incurred."
         },
         "LocationSubdivision": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "TEXT NEEDED"
         },
         "PaymentTypeCode": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "	This element specifies the method of payment for the expense. Format: CASHX = Cash, CPAID = Company Paid, or PENDC = Pending Card Transaction (default)"
         },
         "ReceiptImageID": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "The ID of the receipt image associated with this quick expense, if any."
         },
         "SpendCategoryCode": {
           "type": "string",
-          "description": "The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction.  Max Length: 64"
+          "description": "TEXT NEEDED"
         },
         "TransactionAmount": {
           "type": "number",
