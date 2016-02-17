@@ -88,7 +88,7 @@ Name | Type | Format | Description
 ## <a name="schema"></a>Schema
 
 
-###Quick Expenses
+### Quick Expenses
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -96,7 +96,7 @@ Name | Type | Format | Description
 `NextPage`	|	`string`	|	-	|	The URI of the next page of results, if any.
 
 
-###<a name="quickexpense"></a>Quick Expense
+### <a name="quickexpense"></a>Quick Expense
 
 Name | Type | Format | Description
 -----|------|--------|------------
