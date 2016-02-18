@@ -56,6 +56,18 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `content`	|	-	|	`body`	|	**Required** The quick expense object to be created
+`Comment`	|	`string`	|		|	A comment that describes the expense. Max Length: 2000
+`CurrencyCode`	|	`string`	|		|	**Required** The 3-letter ISO 4217 currency code for the expense transaction amount. Example: USD
+`ExpenseTypeCode`	|	`string`	|		|	The code for the expense type in the company's expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the Get Expense Group Configuration function response.
+`LocationCity`	|	`string`	|		|	The city where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. If you provide both the LocationCity and LocationCountry values, Concur will try to match them with the company's list of locations. If they are matched successfully, the full location details including country will be saved with the expense. If a LocationCity is provided, the LocationCountry and LocationSubdivision must be provided. If a country does not have subdivisions, the LocationSubdivision field may be omitted.
+`LocationCountry`	|	`string`	|		|	The country where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: 2-letter ISO 3166-1 country code.
+`LocationSubdivision`	|	`string`	|		|	The state, province, or other country subdivision where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: ISO 3166-2:2007 country subdivision.
+`PaymentTypeCode`	|	`string`	|		|	This element specifies the method of payment for the expense. Format: CASHX = Cash, CPAID = Company Paid, or PENDC = Pending Card Transaction (default)
+`ReceiptImageID`	|	`string`	|		|	The unique identifier for the image. The ReceiptImageID is returned in the ID element of the Post Receipt Image API response.
+`SpendCategoryCode`	|	`string`	|		|	The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting. Format: One of the Code values in the Spend Category Code List. Developers can view the configured Spend Category/Expense Type mappings by using the Get Expense Group Configuration function.
+`TransactionAmount`	|	`Decimal`	|		|	**Required** The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654
+`TransactionDate`	|	`DateTime`	|		|	**Required**The date the expense was incurred. Format: YYYY-MM-DD
+`VendorDescription`	|	`string`	|		|	The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction. Max Length: 64
 
 
 ## <a name="put"></a>Update a quick expense
@@ -69,6 +81,18 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `id`	|	`string`	|	`path`	|	**Required** The ID of the quick expense
 `content`	|	-	|	`body`	|	**Required** Partial or complete QuickExpense object to update
+`Comment`	|	`string`	|		|	A comment that describes the expense. Max Length: 2000
+`CurrencyCode`	|	`string`	|		|	**Required** The 3-letter ISO 4217 currency code for the expense transaction amount. Example: USD
+`ExpenseTypeCode`	|	`string`	|		|	The code for the expense type in the company's expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the Get Expense Group Configuration function response.
+`LocationCity`	|	`string`	|		|	The city where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. If you provide both the LocationCity and LocationCountry values, Concur will try to match them with the company's list of locations. If they are matched successfully, the full location details including country will be saved with the expense. If a LocationCity is provided, the LocationCountry and LocationSubdivision must be provided. If a country does not have subdivisions, the LocationSubdivision field may be omitted.
+`LocationCountry`	|	`string`	|		|	The country where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: 2-letter ISO 3166-1 country code.
+`LocationSubdivision`	|	`string`	|		|	The state, province, or other country subdivision where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: ISO 3166-2:2007 country subdivision.
+`PaymentTypeCode`	|	`string`	|		|	This element specifies the method of payment for the expense. Format: CASHX = Cash, CPAID = Company Paid, or PENDC = Pending Card Transaction (default)
+`ReceiptImageID`	|	`string`	|		|	The unique identifier for the image. The ReceiptImageID is returned in the ID element of the Post Receipt Image API response.
+`SpendCategoryCode`	|	`string`	|		|	The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting. Format: One of the Code values in the Spend Category Code List. Developers can view the configured Spend Category/Expense Type mappings by using the Get Expense Group Configuration function.
+`TransactionAmount`	|	`Decimal`	|		|	**Required** The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654
+`TransactionDate`	|	`DateTime`	|		|	**Required**The date the expense was incurred. Format: YYYY-MM-DD
+`VendorDescription`	|	`string`	|		|	The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction. Max Length: 64
 
 
 ## <a name="delete"></a>Delete a quick expense
@@ -88,7 +112,7 @@ Name | Type | Format | Description
 ## <a name="schema"></a>Schema
 
 
-###Quick Expenses
+### Quick Expenses
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -96,7 +120,7 @@ Name | Type | Format | Description
 `NextPage`	|	`string`	|	-	|	The URI of the next page of results, if any.
 
 
-###<a name="quickexpense"></a>Quick Expense
+### <a name="quickexpense"></a>Quick Expense
 
 Name | Type | Format | Description
 -----|------|--------|------------
