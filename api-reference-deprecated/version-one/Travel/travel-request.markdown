@@ -3,11 +3,11 @@ title: Travel Request
 layout: reference
 ---
 
-#Travel Request (Deprecated)
+# Travel Request (Deprecated)
 
 Concur Travel Request is designed to help businesses control expenses by requiring employees to obtain approval before incurring expenses.The Travel Request resource provides the ability to view requests and update the workflow for travel requests. 
 
-##Version
+## Version
 1.0  
 3.0 can be found [here](/api-reference/request/request.html)
 
@@ -181,7 +181,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
 |  StartTime | |  | The start time for the travel request. |
 |  EndTime | |  | The end time for the travel request. |
 |  ExtensionOf | |  |  The ID of the initial travel request that this travel request is an extension of or adendum to. |
-|  WorkflowActionURL | |  | The URL to post a workflow action to the travel request using the [Post Request Workflow Action](/api-reference-deprecated/version-one/Travel/travel-request.markdown#a5) function. |
+|  WorkflowActionURL | |  | The URL to post a workflow action to the travel request using the [Post Request Workflow Action](/api-reference-deprecated/version-one/Travel/travel-request.html#a5) function. |
 |  CommentCount | |  | The number of comments associated with the travel request header. |
 |  CommentsList | |  | This parent element has a Count attribute indicating the number of comments that are included in the travel request header. It has a **Comment** child element for each comment. Refer to the Comment Child Elements table for the full list of child elements. |
 |  ExceptionCount | |  | The number of exceptions associated with the travel request header. |
@@ -1019,7 +1019,7 @@ Posts a workflow action for the supplied travel request. The workflow action mov
 * **Send Back to Employee**: The travel request is sent back to the employee for revision. This workflow action is used by the approvers and processors when they discover an error that must be corrected by the user. When the user resubmits the travel request, it goes through the entire workflow again.
 * **Recall to Employee**: This workflow action is initiated by the employee, and is only available after the travel request has been submitted. This workflow action will rarely be used by developers, and may not be available to some clients due to configuration.
 
-####Two different workflow roles
+#### Two different workflow roles
 
 Each workflow action is associated with a workflow role. The System role is used when the workflow actions do not require a particular user to perform the action. Developers who want to evaluate a travel request programatically then supply a workflow action use the System role.
 
