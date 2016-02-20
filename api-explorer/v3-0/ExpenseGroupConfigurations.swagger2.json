@@ -1,9 +1,9 @@
 {
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
-  "basePath": "/api/v3.0",
+  "host": "developer.concur.com",
+  "basePath": "/api-explorer-proxy/api/v3.0",
   "schemes": [
-    "https"
+    "http"
   ],
   "produces": [
     "application/json",
