@@ -3,7 +3,7 @@
   "host": "developer.concur.com",
   "basePath": "/api-explorer-proxy/api/v3.0",
   "schemes": [
-    "http"
+    "https"
   ],
   "produces": [
     "application/json",
