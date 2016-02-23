@@ -7,7 +7,7 @@ title: Contact Support
   <h2>Concur Connect Partners and Developers</h2>
   <p> As a Concur partner or developer, you can request marketing assistance by completing and submitting the form below.</p><br>
   {% include form-success.html %}
-  <form id="sandboxAssistance" class="sky-form" novalidate="novalidate">
+  <form action="{{ site.data.forms.server }}/sandbox-cfg-assistance" method="POST" id="sandboxAssistance" class="sky-form" novalidate="novalidate">
     <fieldset>
       <section>
         <label class="label">First Name</label>
@@ -47,7 +47,7 @@ title: Contact Support
       <section>
         <label class="label">Message</label>
         <label class="textarea">
-          <textarea name="message" id="message" rows="3" placeholder="Message..."></textarea>
+          <textarea name="details" id="message" rows="3" placeholder="Message..."></textarea>
           <i></i>
         </label>
       </section>
