@@ -1,5 +1,5 @@
 ---
-title: "ERP Integration: Professional Edition & Standard Edition Recipe"
+title: Expense - Professional Edition & Standard Edition
 layout: reference
 ---
 ## ERP Integration
