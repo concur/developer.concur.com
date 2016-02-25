@@ -1,5 +1,5 @@
 ---
-title: Add a New Itinerary Manually Recipe
+title: Itinerary - Add a New Itinerary Manually
 layout: reference
 ---
 

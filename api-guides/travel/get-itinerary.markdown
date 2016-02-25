@@ -1,5 +1,5 @@
 ---
-title: Itinerary - GET Itinerary & Trip Details Recipe
+title: Itinerary - GET Itinerary & Trip Details
 layout: reference
 
 ---
