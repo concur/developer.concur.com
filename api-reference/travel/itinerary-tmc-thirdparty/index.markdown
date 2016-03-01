@@ -7,7 +7,7 @@ layout: reference
 # Itinerary Web Service (TMC & Third-Party)
 
 
-The Concur Itinerary Web Service allows Travel Management Companies (TMC) and third-party developers to view and create travel related events in the Concur Travel system. TMCs can post bookings for any travel type. This web service can also be used by third party developers to request trip information for Concur users. This web service is designed for use by TMCs or third party developers. The public Itinerary XSD can be found [here.](/api-reference/travel/itinerary/ItinServices_Public_0.xsd)
+The Concur Itinerary Web Service allows Travel Management Companies (TMC) and third-party developers to view and create travel related events in the Concur Travel system. TMCs can post bookings for any travel type. This web service can also be used by third party developers to request trip information for Concur users. This web service is designed for use by TMCs or third party developers. The public Itinerary XSD can be found [here.](/api-reference/travel/itinerary/ItinServices_Public_0.xsd)  In addition, the GetList XSD can be found [here.](/api-reference/travel/itinerary/GetListOfItinerariesImport_v1_1.xsd)
 
 
 * [GET List of Itineraries](#getlist)
