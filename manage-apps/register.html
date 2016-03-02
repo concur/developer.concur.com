@@ -206,13 +206,12 @@ title: Sandbox Registration
           $('#sandboxRegistration button[type="submit"]').attr('disabled', true);
         },
         error: function(res) {
-          console.log('******',res)
-          if (res.statusText === 'error') {
-            $('#form-error > h3').append('Login Timeout Error: Please proceed to <a href="https://www.concursolutions.com">www.concursolutions.com</a> and login with the credentials submitted below.');
-          }
           $('#status-modal').modal('hide');
           $('#form-error').removeClass('form-error-hidden');
           $('#form-error > h3').append(res.responseText);
+          if (res.statusText === 'error' && $('#form-error > h3').text() === '') {
+            $('#form-error > h3').append('Login Timeout Error: Please proceed to <a href="https://www.concursolutions.com">www.concursolutions.com</a> and login with the credentials submitted below.');
+          }
         },
         success: function(data) {
           $("#sandboxRegistration").addClass('submited');
