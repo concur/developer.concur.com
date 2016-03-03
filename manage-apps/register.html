@@ -209,6 +209,9 @@ title: Sandbox Registration
           $('#status-modal').modal('hide');
           $('#form-error').removeClass('form-error-hidden');
           $('#form-error > h3').append(res.responseText);
+          if (res.statusText === 'error' && $('#form-error > h3').text() === '') {
+            $('#form-error > h3').append('Login Timeout Error: Please proceed to <a href="https://www.concursolutions.com">www.concursolutions.com</a> and login with the credentials submitted below.');
+          }
         },
         success: function(data) {
           $("#sandboxRegistration").addClass('submited');
