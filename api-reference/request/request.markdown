@@ -61,7 +61,7 @@ Name | Type | Format | Description
 						
 ## <a name="schema"></a>Schema							
 
-###<a name="request"></a>Request
+### <a name="request"></a>Request
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -166,7 +166,7 @@ Name | Type | Format | Description
 `TripType`	|	`string`	|	-	|	['ONE_WAY' or 'ROUND_TRIP' or 'MULTI_STOP'] Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP.
 
 
-###<a name="allocation"></a>Allocation
+### <a name="allocation"></a>Allocation
 				
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -175,7 +175,7 @@ Name | Type | Format | Description
 
 
 
-###<a name="exception"></a>Exception
+### <a name="exception"></a>Exception
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -184,7 +184,7 @@ Name | Type | Format | Description
 `Message`	|	`string`	|	-	|	The user-facing message defined for the exception.
 
 
-###<a name="segment"></a>Segment
+### <a name="segment"></a>Segment
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -223,14 +223,14 @@ Name | Type | Format | Description
 `TripLocator`	|	`string`	|	-	|	The unique identifier for the Concur Travel trip associated with this segment. Appears only when the Request is integrated with Concur Travel.
 
 
-###<a name="userpermissions"></a>User Permissions
+### <a name="userpermissions"></a>User Permissions
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `Links`	|	`Array`	|	[Link](#link)	|	The actions that the user is allowed to perform on the Request.
 
 
-###<a name="link"></a>Link
+### <a name="link"></a>Link
 
 Name | Type | Format | Description
 -----|------|--------|------------
