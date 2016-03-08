@@ -24,7 +24,7 @@ layout: reference
 An access token is a long-lived token used to make API calls.
 
 ### <a name="verbs-and-uris"></a>Verb and URIs
-All authentication and auhtorization tasks use the `GET` verb and URI as noted here depending on type of application:
+All authentication and authorization tasks use the `GET` verb and URI as noted here depending on type of application:
 
 Type | Verb + URI
 -----|-----------
@@ -58,7 +58,7 @@ None
 Name | Type | Format | Description
 -----|------|--------|------------
 Instance_URL|`string`|-|Identifies the Concur datacenter where the user's data resides. For example, if the Instance_Url is `https://www.ea1.concursolutions.com`, then all API calls for this user should use this URL as a prefix in subsequent API calls
-Token|`string`|-|The access token value passed in the Authorization header when making API calls. It is a long-lived token which is currently set to expire after one year from creation. You shoud securely store the token and use it for all subsequent API requests until the token expires. Before it does, you should send a request to refresh the token prior to the expiration date.
+Token|`string`|-|The access token value passed in the Authorization header when making API calls. It is a long-lived token which is currently set to expire after one year from creation. You should securely store the token and use it for all subsequent API requests until the token expires. Before it does, you should send a request to refresh the token prior to the expiration date.
 Expiration_Date|`string`|-|The Universal Coordinated Time (UTC) date and time when the access token expires.
 <a name="refresh-token"></a>Refresh_Token|`string`|-|Token with a new expiration date of a year from the refresh date. You should securely store the refresh token for a user and use it for all subsequent API requests.
 
@@ -89,7 +89,7 @@ None
 Name | Type | Format | Description
 -----|------|--------|------------
 Instance_URL|`string`|-|Identifies the Concur datacenter where the user's data resides. For example, if the Instance_Url is `https://www.ea1.concursolutions.com`, then all API calls for this user should use this URL as a prefix in subsequent API calls
-Token|`string`|-|The access token value passed in the Authorization header when making API calls. It is a long-lived token which is currently set to expire after one year from creation. You shoud securely store the token and use it for all subsequent API requests until the token expires. Before it does, you should send a request to refresh the token prior to the expiration date.
+Token|`string`|-|The access token value passed in the Authorization header when making API calls. It is a long-lived token which is currently set to expire after one year from creation. You should securely store the token and use it for all subsequent API requests until the token expires. Before it does, you should send a request to refresh the token prior to the expiration date.
 Expiration_Date|`string`|-|The Universal Coordinated Time (UTC) date and time when the access token expires.
 
 
@@ -136,7 +136,7 @@ Header|Format|Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`consumerKey`|`string`|[`{key}`](#key)|**Required** The key of the appliation.
+`consumerKey`|`string`|[`{key}`](#key)|**Required** The key of the application.
 `user`|`string`|`{user_LoginID}`|**Required** The LoginID of the user.
 
 #### Response
