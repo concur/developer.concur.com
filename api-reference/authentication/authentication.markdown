@@ -28,8 +28,8 @@ All authentication and authorization tasks use the `GET` verb and URI as noted h
 
 Type | Verb + URI
 -----|-----------
-Native|`POST https://{InstanceURL}/net2/oauth2/accesstoken.ashx`
-Web or Auto-Connect|`POST https://{InstanceURL}/net2/oauth2/GetAccessToken.ashx`
+Native|`GET https://{InstanceURL}/net2/oauth2/accesstoken.ashx`
+Web or Auto-Connect|`GET https://{InstanceURL}/net2/oauth2/GetAccessToken.ashx`
 
 ### <a name="keys-and-secrets"></a>Keys and Secrets
 The **Application Authorization** section in the **New Partner Application** page includes `Key` and `Secret` fields that are used to generate a request token which is later exchanged for an access token.
