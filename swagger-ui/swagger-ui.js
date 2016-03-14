@@ -5,19 +5,6 @@
  * @license Apache-2.0
  */
 
- var replaceResponse = function(a, b, element) {
-   if (!element) element = document.body;
-   var nodes = element.childNodes;
-   for (var n=0; n<(nodes.length ? nodes.length : 0); n++) {
-     if (nodes[n].nodeType == Node.TEXT_NODE) {
-       var reg = new RegExp(a, 'gi');
-       nodes[n].textContent = nodes[n].textContent.replace(reg, b);
-     } else {
-       replaceResponse(a, b, nodes[n]);
-     };
-   };
- };
-
 (function(){this["Handlebars"] = this["Handlebars"] || {};
 this["Handlebars"]["templates"] = this["Handlebars"]["templates"] || {};
 this["Handlebars"]["templates"]["apikey_button_view"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -31826,14 +31813,17 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
   },
 
   // puts the response data in UI
+
   showStatus: function(response) {
     var url, content;
     if (response.content === undefined) {
       content = response.data;
-      url = response.url;
+      // Edit Incoming Response To Mask Proxy
+      url = response.url.replace('developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
     } else {
       content = response.content.data;
-      url = response.request.url;
+      // Edit Incoming Response To Mask Proxy
+      url = response.request.url.replace('developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
     }
     var headers = response.headers;
     content = jQuery.trim(content);
@@ -31936,9 +31926,6 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     $('.response', $(this.el)).slideDown();
     $('.response_hider', $(this.el)).show();
     $('.response_throbber', $(this.el)).hide();
-
-    // Edit Incoming Response To Mask Proxy
-    // replaceResponse('developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
 
     //adds curl output
     var curlCommand = this.model.asCurl(this.map);
