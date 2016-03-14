@@ -60,11 +60,11 @@ This function is only available to travel suppliers who have completed the [Conc
 
 ### Headers
 
-####Authorization header
+#### Authorization header
 
 Authorization header with OAuth token for valid Concur user. Required.
 
-####Accept header
+#### Accept header
 
 application/xml
 
