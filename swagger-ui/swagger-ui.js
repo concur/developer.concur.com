@@ -4,6 +4,20 @@
  * @link http://swagger.io
  * @license Apache-2.0
  */
+
+ var replaceResponse = function(a, b, element) {
+   if (!element) element = document.body;
+   var nodes = element.childNodes;
+   for (var n=0; n<(nodes.length ? nodes.length : 0); n++) {
+     if (nodes[n].nodeType == Node.TEXT_NODE) {
+       var reg = new RegExp(a, 'gi');
+       nodes[n].textContent = nodes[n].textContent.replace(reg, b);
+     } else {
+       replaceResponse(a, b, nodes[n]);
+     };
+   };
+ };
+
 (function(){this["Handlebars"] = this["Handlebars"] || {};
 this["Handlebars"]["templates"] = this["Handlebars"]["templates"] || {};
 this["Handlebars"]["templates"]["apikey_button_view"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -41,19 +55,6 @@ this["Handlebars"]["templates"]["content_type"] = Handlebars.template({"1":funct
   return buffer + "</select>\n";
 },"useData":true});
 'use strict';
-
-var replaceResponse = function(a, b, element) {
-  if (!element) element = document.body;
-  var nodes = element.childNodes;
-  for (var n=0; n<(nodes.length ? nodes.length : 0); n++) {
-    if (nodes[n].nodeType == Node.TEXT_NODE) {
-      var reg = new RegExp(a, 'gi');
-      nodes[n].textContent = nodes[n].textContent.replace(reg, b);
-    } else {
-      replaceResponse(a, b, nodes[n]);
-    };
-  };
-};
 
 $(function() {
 
@@ -31937,7 +31938,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     $('.response_throbber', $(this.el)).hide();
 
     // Edit Incoming Response To Mask Proxy
-    replaceResponse('developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
+    // replaceResponse('developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
 
     //adds curl output
     var curlCommand = this.model.asCurl(this.map);
