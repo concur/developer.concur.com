@@ -219,7 +219,9 @@ Name | Type | Format | Description
 `EXTRCT`|Extract Web Service
 `IMAGE`|Imaging Web Service
 `INSGHT`|Insights Web Service
+`INVPMT`|Invoice Payment Request Web Service
 `INVPO`|Invoice Purchase Order Web Service
+`INVVEN`|Invoice Vendor Web Service
 `ITINER`|Itinerary Web Service
 `LIST`|List Item Web Service
 `MTNG`|Meeting Web Service
