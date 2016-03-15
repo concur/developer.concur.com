@@ -65,7 +65,7 @@ This resource can be used to retrieve information about the allocations that are
 |-----|------|--------|------------ |
 |`AccountNumber`|`string`|-|The primary accounting code assigned to the expense type associated with this allocation. Typically, expense types have only a primary account code.
 |`AccountCode2`|`string`|-|The secondary or alternative accounting code assigned to the expense type associated with this allocation.
-|`Custom1 through Custom20`|`CustomField`|-|A custom field associated with the allocation. This field may or may not have data, depending on how Expense is configured. Format: Text field. Maximum length: 64 characters.
+|`Custom1 through Custom20`|`CustomFieldExtension`|-|A custom field associated with the allocation. This field may or may not have data, depending on how Expense is configured. Format: Text field. Maximum length: 64 characters.
 |`EntryID`|`string`|-|The unique identifier for the expense entry.
 |`ID`|`string`|-|The unique identifier of the resource.
 |`IsHidden`|`Boolean`|-|Indicates whether the allocation is hidden. Format: true or false
@@ -80,7 +80,9 @@ This resource can be used to retrieve information about the allocations that are
 |Name | Type | Format | Description|
 |-----|------|--------|------------|
 |`Code`|`string`|-|For list fields, this is the list item code.
+|`Label`|`string`|-|The label value for the custom field.
 |`ListItemID`|`string`|-|For list fields, this is the list item ID.
+|`Sequence`|`integer`|-|The sequence value for this custom field i.e. the order in which this field appears on the form.
 |`Type`|`string`|-|The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text
 |`Value`|`string`|-|The value in the Org Unit or Custom field. For list fields, this is the name of the list item. Maximum length: 48 characters|
 
