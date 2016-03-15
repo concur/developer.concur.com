@@ -31818,11 +31818,11 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     if (response.content === undefined) {
       content = response.data;
       // Edit Incoming Response To Mask Proxy
-      url = response.url.replace('developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
+      url = response.url.replace('preview.developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
     } else {
       content = response.content.data;
       // Edit Incoming Response To Mask Proxy
-      url = response.request.url.replace('developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
+      url = response.request.url.replace('preview.developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
     }
     var headers = response.headers;
     content = jQuery.trim(content);
