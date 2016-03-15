@@ -77,14 +77,23 @@
                               <li><a href="{{ site.baseurl }}/tools-support/tools/webtest.html">Tools</a></li>
                               <li><a href="https://forum.developer.concur.com/">Forum</a></li>
                               <li><a href="{{ site.baseurl }}/tools-support/support.html">Support</a></li>
-                              <li><a href="{{ site.baseurl }}/blog">Blog</a></li>
                               <li><a href="{{ site.baseurl }}/tools-support/release-notes/index.html">Release Notes</a></li>
                               <li><a href="{{ site.baseurl }}/tools-support/reference/custom-list-items.html">Reference</a></li>
                               <li><a href="{{ site.baseurl }}/newsletter-request.html">Newsletter</a></li>
                             </ul>
                         </li>
                         <!-- End Tools & Support -->
-
+                        <!-- Blog  -->
+                        {% if page.url == '/blog' %}
+                          <li class="active">
+                        {% else %}
+                          <li>
+                        {% endif %}
+                            <a href="{{ site.baseurl }}/blog">
+                                Blog
+                            </a>
+                        </li>
+                        <!-- End Blog -->
                         <!-- Search Block -->
                         <li>
                             <i class="search fa fa-search search-btn"></i>
