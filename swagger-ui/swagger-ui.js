@@ -4,7 +4,6 @@
  * @link http://swagger.io
  * @license Apache-2.0
  */
-
 (function(){this["Handlebars"] = this["Handlebars"] || {};
 this["Handlebars"]["templates"] = this["Handlebars"]["templates"] || {};
 this["Handlebars"]["templates"]["apikey_button_view"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -42,6 +41,7 @@ this["Handlebars"]["templates"]["content_type"] = Handlebars.template({"1":funct
   return buffer + "</select>\n";
 },"useData":true});
 'use strict';
+
 
 $(function() {
 
