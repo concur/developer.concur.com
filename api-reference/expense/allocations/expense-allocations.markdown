@@ -52,14 +52,14 @@ This resource can be used to retrieve information about the allocations that are
 
 ## <a name="schema"></a>Schema
 
-###<a name="vendors"></a>Allocations
+### <a name="vendors"></a>Allocations
 
 |Name | Type | Format | Description|
 |-----|------|--------|------------|
 |`Items`|`array`|[`Allocation`](#allocations)|The result collection.
 |`NextPage`|`string`|-|The URI of the next page of results, if any.|
 
-###<a name="allocations"></a>Allocations
+### <a name="allocations"></a>Allocations
 
 |Name | Type | Format | Description|
 |-----|------|--------|------------ |
@@ -75,7 +75,7 @@ This resource can be used to retrieve information about the allocations that are
 
 
 
-###<a name="status"></a>Custom Field
+### <a name="status"></a>Custom Field
 
 |Name | Type | Format | Description|
 |-----|------|--------|------------|
