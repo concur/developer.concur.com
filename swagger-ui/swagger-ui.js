@@ -4410,7 +4410,7 @@ Operation.prototype.execute = function (arg1, arg2, arg3, arg4, parent) {
   }
 
   var obj = {
-    url: url.replace('www.concursolutions.com', 'developer.concur.com/api-explorer-proxy'),
+    url: url.replace('www.concursolutions.com', 'preview.developer.concur.com/api-explorer-proxy'),
     method: this.method.toUpperCase(),
     body: body,
     useJQuery: opts.useJQuery,
