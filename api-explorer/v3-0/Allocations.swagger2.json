@@ -140,64 +140,64 @@
           "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
         },
         "Custom1": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom10": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom11": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom12": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom13": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom14": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom15": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom16": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom17": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom18": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom19": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom2": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom20": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom3": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom4": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom5": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom6": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom7": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom8": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom9": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "EntryID": {
           "type": "string",
@@ -225,15 +225,23 @@
         }
       }
     },
-    "CustomField": {
+    "CustomFieldExtension": {
       "properties": {
         "Code": {
           "type": "string",
           "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
         },
+        "Label": {
+          "type": "string",
+          "description": "The label value for the custom field."
+        },
         "ListItemID": {
           "type": "string",
           "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+        },
+        "Sequence": {
+          "type": "integer",
+          "description": "The sequence value for this custom field i.e. the order in which this field appears on the form."
         },
         "Type": {
           "type": "string",
