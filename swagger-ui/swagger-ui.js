@@ -31813,7 +31813,6 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
   },
 
   // puts the response data in UI
-
   showStatus: function(response) {
     var url, content;
     if (response.content === undefined) {
@@ -31926,6 +31925,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     $('.response', $(this.el)).slideDown();
     $('.response_hider', $(this.el)).show();
     $('.response_throbber', $(this.el)).hide();
+
 
     //adds curl output
     var curlCommand = this.model.asCurl(this.map);
