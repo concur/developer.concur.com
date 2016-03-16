@@ -31929,7 +31929,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
 
     //adds curl output
     var curlCommand = this.model.asCurl(this.map);
-    curlCommand = curlCommand.replace('!', '&#33;');
+    curlCommand = curlCommand.replace('!', '&#33;').replace('preview.developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
     $( '.curl', $(this.el)).html('<pre>' + curlCommand + '</pre>');
 
     // only highlight the response if response is less than threshold, default state is highlight response
