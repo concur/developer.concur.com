@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Standard Sanbox Issue Workaround
+title: Standard Sandbox Issue Workaround
 date: 2016-03-16
 tags:
     - sandbox
