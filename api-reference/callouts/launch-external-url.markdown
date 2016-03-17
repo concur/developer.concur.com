@@ -29,13 +29,13 @@ This callout is not supported in the Concur mobile application.
 
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum](https://forum.developer.concur.com/) if you have questions about the configuration settings.
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
 ### Concur Connect Callout Details
 
-Information on how to download, install, and configure the application connector is included in [Callouts and Application Connectors][1].
+Information on how to download, install, and configure the application connector is included in [Callouts and Application Connectors](/api-reference/callouts/callouts-application-connectors.html).
 
 ### Launch URL Process Overview
 
