@@ -1,5 +1,5 @@
 ---
-title: Expense Report Resource: GET List of Reports
+title: GET List of Reports
 layout: reference
 ---
 
