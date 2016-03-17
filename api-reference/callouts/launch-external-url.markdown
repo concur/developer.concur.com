@@ -78,11 +78,11 @@ The application connector can validate the authenticity of the query by generati
 
 An Expense text form field must be configured as the Launch URL control type and the form field must be added to the desired form before this callout can be used. The Launch URL control type will not appear in the list until a partner application using the Launch External URL api has been registered and enabled for the company. The administrator must select either a single-line or a multi-line control type, depending on the data that will be placed in the field.
 
-**Notes:
+**Notes:**
 
-      * The Launch External url currently only workds with Professional Edition.
-      * It is also only available to be configured at the Expense Entry-level fields.
-      * This Callout cannot be used with Standard Edition clients or from a Travel or Invoice field.**
+* **The Launch External url currently only workds with Professional Edition.**
+* **It is also only available to be configured at the Expense Entry-level fields.**
+* **This Callout cannot be used with Standard Edition clients or from a Travel or Invoice field.**
 
 ###  Responses and Errors
 
