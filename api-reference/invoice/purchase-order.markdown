@@ -23,7 +23,7 @@ layout: reference
 
 Creates or updates one or more purchase orders. All purchase order requests are considered a batch operation, even if only one purchase order is created or updated.
 
-###<a name="8"></a>Parameters  
+### <a name="8"></a>Parameters  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -37,7 +37,7 @@ Creates or updates one or more purchase orders. All purchase order requests are 
 
 [Response schema](#schema-response)
 
-##<a name="put-receipts"></a>Update purchase order line item with receipt information  
+## <a name="put-receipts"></a>Update purchase order line item with receipt information  
 
     PUT  /api/v3.0/invoice/purchaseorderreceipts
 

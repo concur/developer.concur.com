@@ -27,7 +27,7 @@ Name | Type | Format | Description
 ## <a name="schema"></a>Schema
 
 
-###<a name="latestbooking"></a>Latest Booking
+### <a name="latestbooking"></a>Latest Booking
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -35,7 +35,7 @@ Name | Type | Format | Description
 `Hotel`	|	`Hotel`|	-	|	The latest booked hotel segment.
 
 
-###<a name="airline"></a>Airline
+### <a name="airline"></a>Airline
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -43,7 +43,7 @@ Name | Type | Format | Description
 `Code`	|	`string`	|	-	|	The airline code of the latest booked airline segment.
 
 
-###<a name="hotel"></a>Hotel
+### <a name="hotel"></a>Hotel
 
 Name | Type | Format | Description
 -----|------|--------|------------

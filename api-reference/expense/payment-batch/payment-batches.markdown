@@ -13,7 +13,7 @@ The Payment Batch File web service provides an automated solution to clients who
 * [Close a payment batch](#closepaymentbatch)
 
 
-###Version
+### Version
 1.1 for GET methods  
 1.2 for POST method
 

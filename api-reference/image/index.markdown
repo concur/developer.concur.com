@@ -100,7 +100,7 @@ Name | Type | Format | Description
 `NextPage`	|	string	|	-	|	The URI of the next page of results, if any.
 
 
-###<a name="receiptimage"></a>Receipt Image
+### <a name="receiptimage"></a>Receipt Image
 
 Name | Type | Format | Description
 -----|------|--------|------------

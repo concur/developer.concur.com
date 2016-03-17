@@ -109,14 +109,14 @@ Name | Type | Format | Description
 
 ## <a name="schema"></a>Schema
 
-###<a name="attendees"></a>Attendees
+### <a name="attendees"></a>Attendees
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `Items`|`array`|[`Attendee`](#attendee)|The result collection.
 `NextPage`|``string``|-|The URI of the next page of results, if any.
 
-###<a name="attendee"></a>Attendee
+### <a name="attendee"></a>Attendee
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -141,7 +141,7 @@ Name | Type | Format | Description
 `URI`	|	`string`	|	-	|	The URI to the resource.
 `VersionNumber`	|	`Int32`	|	-	|	The attendee's version number.
 
-###<a name="status"></a>Custom Field
+### <a name="status"></a>Custom Field
 
 Name | Type | Format | Description
 -----|------|--------|------------
