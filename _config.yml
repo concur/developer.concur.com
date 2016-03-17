@@ -44,5 +44,3 @@ jekyll-archives:
     category: '/category/:name/'
 
 gems: ['jekyll-paginate']
-
-name: Concur Developer Center
