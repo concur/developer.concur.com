@@ -71,13 +71,18 @@ Concur sends requests to the application connector using anonymous authorization
 
 The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that Concur supplies. Two of the required variables for the signature hash are username and password, which are entered in Concur on the **Register Application Connector** page in** Web Services **under **Administration**. The application connector must use the same username and password pair to generate it's validation signature hash.
 
-
 ### Functions 
 [Launch External URL Request][4]
 
 ###  Concur Expense Configuration
 
 An Expense text form field must be configured as the Launch URL control type and the form field must be added to the desired form before this callout can be used. The Launch URL control type will not appear in the list until a partner application using the Launch External URL api has been registered and enabled for the company. The administrator must select either a single-line or a multi-line control type, depending on the data that will be placed in the field.
+
+**Notes:
+
+      * The Launch External url currently only workds with Professional Edition.
+      * It is also only available to be configured at the Expense Entry-level fields.
+      * This Callout cannot be used with Standard Edition clients or from a Travel or Invoice field.**
 
 ###  Responses and Errors
 
