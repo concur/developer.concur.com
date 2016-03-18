@@ -31,7 +31,7 @@ Name | Type | Format | Description
 ## <a name="schema"></a>Schema
 
 
-###<a name="opportunities"></a>Opportunities
+### <a name="opportunities"></a>Opportunities
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -39,7 +39,7 @@ Name | Type | Format | Description
 `NextPage`	|	`string`	|	-	|	The URI of the next page of results, if any.
 
 
-###<a name="opportunity"></a>Opportunity
+### <a name="opportunity"></a>Opportunity
 
 Name | Type | Format | Description
 -----|------|--------|------------

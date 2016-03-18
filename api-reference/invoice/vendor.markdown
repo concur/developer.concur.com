@@ -128,7 +128,7 @@ None.
 
 ## <a name="schema"></a>Schema
 
-###<a name="vendors"></a>Vendors  
+### <a name="vendors"></a>Vendors  
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -137,7 +137,7 @@ Name | Type | Format | Description
 `RequestRunSummary`|`string`|-|-|
 `Vendor`|`array`|[`Vendor`](#vendor)|**Required** Vendor
 
-###<a name="vendor"></a>Vendor  
+### <a name="vendor"></a>Vendor  
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -202,7 +202,7 @@ Name | Type | Format | Description
 `VendorName`|`string`|-|The name of the vendor.
 `VoucherNotes`|`string`|-|Notes sent to Vendor along with authorization to charge Card Voucher.
 
-###<a name="status"></a>Status  
+### <a name="status"></a>Status  
 
 Name | Type | Format | Description
 -----|------|--------|------------

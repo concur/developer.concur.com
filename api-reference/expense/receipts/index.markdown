@@ -42,7 +42,7 @@ Name | Type | Format | Description
 ## <a name="schema"></a>Schema
 
 
-###Response
+### Response
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -50,7 +50,7 @@ Name | Type | Format | Description
 `URI`	|	``string``	|	-	|	
 
 
-###Receipt
+### Receipt
 
 Name | Type | Format | Description
 -----|------|--------|------------	
@@ -68,21 +68,21 @@ Name | Type | Format | Description
 `TransactionDateTime`	|	`DateTime`	|	-	|	**Required** The date and time when the transaction happened. Format: YYYY-MM-DDThh:mm
 `Type`	|	`string`	|	-	|	**Required** The type of receipt. Possible values: General, Ride, Hotel		
 
-###<a name="customfield"></a>Custom Field	
+### <a name="customfield"></a>Custom Field	
 
 Name | Type | Format | Description
 -----|------|--------|------------							
 `Name`	|	`string`	|	-	|	**Required** The name of the custom field. Maximum length: 128 characters
 `Value`	|	`string`	|	-	|	**Required** The value of the custom field. Maximum length: 256 characters
 
-###General Detail	
+### General Detail	
 
 Name | Type | Format | Description
 -----|------|--------|------------						
 `LineItems`	|	`Array`	|	[Line Item](#lineitem)	|	The parent element for the line items in the receipt. There is a LineItem child element for each line item.
 
 
-###<a name="lineitem"></a>Line Item	
+### <a name="lineitem"></a>Line Item	
 
 Name | Type | Format | Description
 -----|------|--------|------------						
@@ -97,7 +97,7 @@ Name | Type | Format | Description
 `SequenceNumber`	|	`Int32`	|	-	|	**Required** The order in which the item appears in the sequence of line items.
 
 
-###Hotel Detail	
+### Hotel Detail	
 
 Name | Type | Format | Description
 -----|------|--------|------------						
@@ -113,7 +113,7 @@ Name | Type | Format | Description
 `RoomType`	|	`string`	|	-	|	The type of room. Possible values are room types defined using hospitality industry standards, such as Single, Double, Suite, and so on. Maximum length: 50 characters
 
 
-###Matching Fact
+### Matching Fact
 
 Name | Type | Format | Description
 -----|------|--------|------------						
@@ -121,7 +121,7 @@ Name | Type | Format | Description
 `Value`	|	`string`	|	-	|	**Required** The value of the matching fact. If the Type element is set to OAuth, this value must be the access token for the Concur user who owns the receipt. In this case, the access token must not be expired or revoked. If the Type element is set to Login, this value must be the login ID of the Concur user who owns the receipt.
 
 
-###Merchant
+### Merchant
 
 Name | Type | Format | Description
 -----|------|--------|------------							
@@ -129,7 +129,7 @@ Name | Type | Format | Description
 `Name`	|	`string`	|	-	|	**Required** The name of the provider (``Merchant`). Maximum length: 64 characters
 
 
-###Location
+### Location
 
 Name | Type | Format | Description
 -----|------|--------|------------							
@@ -147,7 +147,7 @@ Name | Type | Format | Description
 
 
 
-###Payment Card	
+### Payment Card	
 
 Name | Type | Format | Description
 -----|------|--------|------------				
@@ -157,7 +157,7 @@ Name | Type | Format | Description
 
 
 
-###Ride Detail	
+### Ride Detail	
 	
 Name | Type | Format | Description
 -----|------|--------|------------					

@@ -9,7 +9,7 @@ layout: reference
 * [Schema](#schema)
 * [Status schema](#schema-status)
 
-##Version
+## Version
 3.0  
 
 

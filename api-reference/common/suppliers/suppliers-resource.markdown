@@ -57,7 +57,7 @@ Name | Type | Format | Description
 ## <a name="schema"></a>Schema
 
 
-###<a name="suppliers"></a>Suppliers
+### <a name="suppliers"></a>Suppliers
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -65,7 +65,7 @@ Name | Type | Format | Description
 `NextPage`	|	``string``	|	-	|	The URI of the next page of results, if any.
 
 
-###<a name="supplier"></a>Supplier
+### <a name="supplier"></a>Supplier
 
 Name | Type | Format | Description
 -----|------|--------|------------

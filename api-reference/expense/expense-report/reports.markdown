@@ -16,6 +16,7 @@ layout: reference
 ## Version
 3.0  
 2.0 Retrieve (GET) Report can be found [here](/api-reference-deprecated/version-two/expense-reports/expense-report-resource.html)  
+2.0 Retrieve (GET) List of Reports can be found [here](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html)
 1.1 Create and update (POST) Report Header can be found [here](/api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html)
 
 

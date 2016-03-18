@@ -64,7 +64,7 @@ Name | Type | Format | Description
 `TotalCount`	|	`Int32`	|	-	|	
 
 
-###<a name="paymentrequestdigest"></a>Payment Request Digest
+### <a name="paymentrequestdigest"></a>Payment Request Digest
 
 Name | Type | Format | Description
 -----|------|--------|------------
