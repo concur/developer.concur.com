@@ -98,7 +98,7 @@ Name | Type | Format | Description
 `NextPage`	|	`string`|	-	|	The URI of the next page of results, if any.
 
 
-###<a name="entryattendeeassociation"></a>Entry Attendee Association
+### <a name="entryattendeeassociation"></a>Entry Attendee Association
 
 Name | Type | Format | Description
 -----|------|--------|------------

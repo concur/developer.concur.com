@@ -95,7 +95,7 @@ Name | Type | Format | Description
 ## <a name="schema"></a>Schema
 
 
-###<a name="itemizations"></a>Itemizations
+### <a name="itemizations"></a>Itemizations
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -103,7 +103,7 @@ Name | Type | Format | Description
 `NextPage`	|	`string`	|	-	|	The URI of the next page of results, if any.
 
 
-###<a name="itemization"></a>Itemization
+### <a name="itemization"></a>Itemization
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -135,7 +135,7 @@ Name | Type | Format | Description
 `TransactionDate`	|	`DateTime`	|	-	|	**Required** The date when the good or service associated with this itemization was provided. Format: YYYY-MM-DD
 `URI`	|	`string`	|	-	|	The URI to the resource.
 
-###<a name="customfield"></a>Custom Field
+### <a name="customfield"></a>Custom Field
 
 Name | Type | Format | Description
 -----|------|--------|------------

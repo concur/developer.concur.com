@@ -57,7 +57,7 @@ The Digital Tax Invoice web service allows digital tax invoice validators to vie
 ## <a name="schema"></a>Schema
 
 
-###<a name="digitaltaxinvoices"></a>Digital Tax Invoices
+### <a name="digitaltaxinvoices"></a>Digital Tax Invoices
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -65,7 +65,7 @@ The Digital Tax Invoice web service allows digital tax invoice validators to vie
 |`NextPage`	|	`string`	-	|	The URI of the next page of results, if any.
 
 
-###<a name="digitaltaxinvoice"></a>Digital Tax Invoice
+### <a name="digitaltaxinvoice"></a>Digital Tax Invoice
 
 |Name | Type | Format | Description
 |-----|------|--------|------------

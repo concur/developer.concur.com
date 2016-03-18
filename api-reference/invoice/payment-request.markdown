@@ -146,7 +146,7 @@ Name | Type | Format | Description
 `Custom11` through `Custom20`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
 `Percentage`	|	`string`	|	-	|	**Required**The percentage of the Request Line Item that the individual allocation record. All Allocations associated to a given Line Item should add up to 100.
 
-###VendorRemitToIdentifier
+### VendorRemitToIdentifier
 
 Name | Type | Format | Description
 -----|------|--------|------------

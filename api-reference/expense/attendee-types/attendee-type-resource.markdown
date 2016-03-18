@@ -111,7 +111,7 @@ Name | Type | Format | Description
 ## <a name="schema"></a>Schema
 
 
-###<a name="attendeetype"></a>Attendee Type
+### <a name="attendeetype"></a>Attendee Type
 
 Name | Type | Format | Description
 -----|------|--------|------------

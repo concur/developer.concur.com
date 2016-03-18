@@ -17,7 +17,7 @@ The Concur List Item web service provides an automated solution to clients who w
 * [Schema](#schema)
 
 
-###Version
+### Version
 3.0
 
 1.0 documentation is available [here](/api-reference-deprecated/version-one/list-item/index.html)
@@ -112,7 +112,7 @@ Name | Type | Format | Description
 `NextPage`	|	`string`	|	-	|	The URI of the next page of results, if any.
 
 
-###<a name="listitem"></a>List Item
+### <a name="listitem"></a>List Item
 
 Name | Type | Format | Description
 -----|------|--------|------------

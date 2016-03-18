@@ -19,7 +19,7 @@ NOTE: The Concur Expense product is highly configurable, and each client may hav
 * [Make a test call using 3.0 Swagger](https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations)
 
 
-##Version
+## Version
 3.0
 
 1.1 documentation is available [here](/api-reference-deprecated/version-one-one/expense-group/expense-group-configuration-resource.html)
@@ -56,7 +56,7 @@ Name | Type | Format | Description
 ## <a name="schema"></a>Schema
 
 
-###<a name="ExpenseGroupConfigurations"></a>Expense Group Configurations
+### <a name="ExpenseGroupConfigurations"></a>Expense Group Configurations
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -64,7 +64,7 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	The login ID of the user associated with this expense group configuration. The user must have the Web Services Admin role to use this parameter.
 
 
-###<a name="expensegroupconfiguration"></a>Expense Group Configuration
+### <a name="expensegroupconfiguration"></a>Expense Group Configuration
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -81,7 +81,7 @@ Name | Type | Format | Description
 `URI`	|	`string`	|	-	|	The URI to the resource.
 
 
-###<a name="attendeetype"></a>Attendee Type
+### <a name="attendeetype"></a>Attendee Type
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -89,7 +89,7 @@ Name | Type | Format | Description
 `Name`	|	`string`	|	-	|	The name of the attendee type.
 
 
-###<a name="Cash Advance"></a>Cash Advance
+### <a name="Cash Advance"></a>Cash Advance
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -99,7 +99,7 @@ Name | Type | Format | Description
 `Name`	|	`string`	|	-	|	The name of the cash advance workflow.
 `WorkflowID`	|	`string`	|	-	|	The unique identifier for the cash advance workflow. Null means there is no such workflow.
 
-###<a name="paymenttype"></a>Payment Type
+### <a name="paymenttype"></a>Payment Type
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -107,7 +107,7 @@ Name | Type | Format | Description
 `IsDefault`	|	`Boolean`	|	-	|	Determines whether this payment type is the default. Format: true or false
 `Name`	|	`string`	|	-	|	The name of the payment type.
 
-###<a name="policy"></a>Policy
+### <a name="policy"></a>Policy
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -118,7 +118,7 @@ Name | Type | Format | Description
 `Name`	|	`string`	|	-	|	The name of the policy.
 
 
-###<a name="expensetype"></a>Expense Type
+### <a name="expensetype"></a>Expense Type
 
 Name | Type | Format | Description
 -----|------|--------|------------
