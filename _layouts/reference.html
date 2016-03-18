@@ -23,3 +23,11 @@ layout: default
 
     </div><!--/container-->
     <!--=== End Content Part ===-->
+    <script>
+      $(document).ready(function(){
+        localStorage.api_key ? $('#input_apiKey').val(localStorage.api_key) : null;
+      });
+      $('#input_apiKey').change(function(){
+          localStorage.setItem('api_key', $('#input_apiKey').val());
+      });
+    </script>
