@@ -3,7 +3,7 @@ layout: post
 title: Standard Sandbox Issue Workaround
 date: 2016-03-16
 tags:
-    - sandbox
+    - Sandbox
 author: Henry Yamamoto
 ---
 
