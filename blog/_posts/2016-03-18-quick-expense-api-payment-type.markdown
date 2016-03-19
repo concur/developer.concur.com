@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Expense API Updated: Payment Type
+title: Quick Expense API Updated-Payment Type
 date: 2016-03-18
 tags:
     - Quick-Expense
