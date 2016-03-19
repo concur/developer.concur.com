@@ -12,7 +12,7 @@ references:
 author: Concur Expense
 ---
 
-## Allocations v3.0 > API Updated
+## Allocations v3.0
 
 ### Overview
 Concur has updated the Allocations v3.0 Application Programming Interface (API) with the following change:  
