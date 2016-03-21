@@ -7,6 +7,7 @@ tags:
     - Payment-Type
 references:
     - url: /api-explorer/v3-0/QuickExpenses.html
+      link: Quick Expenses
 author: Sarra Loew
 ---
 
