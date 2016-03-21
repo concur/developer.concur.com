@@ -7,6 +7,9 @@ tags:
     - Payment-Type
 references:
     - url: /api-explorer/v3-0/QuickExpenses.html
+      link: Quick Expenses v3
+    - url: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource-post.html
+      link: Quick Expense POST v1
 author: Sarra Loew
 ---
 
