@@ -5,6 +5,8 @@ date: 2016-03-18
 tags:
     - Quick-Expense
     - Payment-Type
+references:
+    - url: /api-explorer/v3-0/QuickExpenses.html
 author: Sarra Loew
 ---
 
