@@ -21,4 +21,6 @@ The payment types have the following configuration requirements:
 
 * **CPAID:** If user's group configuration has Company Paid as an active payment type, then the payment type will be set to Company Paid. If the Company Paid payment type is not active then the payment will default to the group’s default payment type. If there is no default payment type for the group, then the payment type will be set to Cash.
 
-* **PENDC:** If user's group configuration has Pending Card Transaction as an active payment type, then the payment type will be set to Pending Card Transaction- but this will only happen if the user has at least one credit card assigned to them. If the Pending Card Transaction payment type is not active or the user does not have a credit card then the payment will default to the group’s default payment type. If there is no default payment type for the group, then the payment type will be set to Cash.
+* **PENDC:** If user's group configuration has Pending Card Transaction as an active payment type, then the payment type will be set to Pending Card Transaction- but this will only happen if the user has at least one credit card assigned to them. If the Pending Card Transaction payment type is not active or the user does not have a credit card then the payment will default to the group’s default payment type. If there is no default payment type for the group, then the payment type will be set to Cash.  
+
+**NOTE: The payment element is called ‘PaymentType’ in v1 Quick Expense API and it is called ‘PaymentTypeCode’ in v3.**
