@@ -6,6 +6,12 @@
 <!-- <link href='/swagger-ui/css/ecebook.css' rel='stylesheet' type='text/css'/> -->
 
 <!-- <script src='/swagger-ui/lib/jquery-1.8.0.min.js' type='text/javascript'></script> -->
+<script>
+  var branch = "{{site.data.branch.branchname}}";
+  var replacementURL;
+  (branch === 'meta-tag') ? replacementURL = 'preview.developer.concur.com/api-explorer-proxy' : null;
+  (branch === 'livesite') ? replacementURL = 'developer.concur.com/api-explorer-proxy' : null;
+</script>
 <script src='/swagger-ui/lib/jquery.slideto.min.js' type='text/javascript'></script>
 <script src='/swagger-ui/lib/jquery.wiggle.min.js' type='text/javascript'></script>
 <script src='/swagger-ui/lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
@@ -24,10 +30,10 @@
     // var key = encodeURIComponent($('#input_apiKey')[0].value);
     var key = $('#input_apiKey')[0].value;
     if(key && key.trim() != "") {
-      
+
       var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", "OAuth " + key, "header");
       swaggerUI.api.clientAuthorizations.add("api_key", apiKeyAuth);
-      
+
       log("added key " + key);
     }
   }
@@ -41,13 +47,13 @@
         $('pre code').each(function(i, e) {
           hljs.highlightBlock(e)
         });
-        
+
         // if(typeof initOAuth == "function") {
         //   initOAuth({
         //     clientId: "your-client-id",
         //     clientSecret: "your-client-secret-if-required",
         //     realm: "your-realms",
-        //     appName: "your-app-name", 
+        //     appName: "your-app-name",
         //     scopeSeparator: ","
         //   });
         // }

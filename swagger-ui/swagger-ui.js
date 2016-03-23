@@ -4,6 +4,9 @@
  * @link http://swagger.io
  * @license Apache-2.0
  */
+
+ console.log(replacementURL);
+ 
 (function(){this["Handlebars"] = this["Handlebars"] || {};
 this["Handlebars"]["templates"] = this["Handlebars"]["templates"] || {};
 this["Handlebars"]["templates"]["apikey_button_view"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -4410,7 +4413,7 @@ Operation.prototype.execute = function (arg1, arg2, arg3, arg4, parent) {
   }
 
   var obj = {
-    url: url.replace('www.concursolutions.com', 'developer.concur.com/api-explorer-proxy'),
+    url: url.replace('www.concursolutions.com', replacementURL),
     method: this.method.toUpperCase(),
     body: body,
     useJQuery: opts.useJQuery,
@@ -31818,11 +31821,11 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     if (response.content === undefined) {
       content = response.data;
       // Edit Incoming Response To Mask Proxy
-      url = response.url.replace('developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
+      url = response.url.replace(replacementURL, 'www.concursolutions.com');
     } else {
       content = response.content.data;
       // Edit Incoming Response To Mask Proxy
-      url = response.request.url.replace('developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
+      url = response.request.url.replace(replacementURL, 'www.concursolutions.com');
     }
     var headers = response.headers;
     content = jQuery.trim(content);
@@ -31929,7 +31932,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
 
     //adds curl output
     var curlCommand = this.model.asCurl(this.map);
-    curlCommand = curlCommand.replace('!', '&#33;').replace('developer.concur.com/api-explorer-proxy', 'www.concursolutions.com');
+    curlCommand = curlCommand.replace('!', '&#33;').replace(replacementURL, 'www.concursolutions.com');
     $( '.curl', $(this.el)).html('<pre>' + curlCommand + '</pre>');
 
     // only highlight the response if response is less than threshold, default state is highlight response
