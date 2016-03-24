@@ -6,12 +6,17 @@
 <!-- <link href='/swagger-ui/css/ecebook.css' rel='stylesheet' type='text/css'/> -->
 
 <!-- <script src='/swagger-ui/lib/jquery-1.8.0.min.js' type='text/javascript'></script> -->
+
+  {% if site.data.brach.branchname ==  'preview' %}
+    {% assign URL = 'preview.developer.concur.com/api-explorer-proxy' %}
+  {% else %}
+    {% assign URL = 'developer.concur.com/api-explorer-proxy' %}
+  {% endif %}
+
 <script>
-  var branch = "{{site.data.branch.branchname}}";
-  var replacementURL;
-  (branch === 'preview') ? replacementURL = 'preview.developer.concur.com/api-explorer-proxy' : null;
-  (branch === 'livesite') ? replacementURL = 'developer.concur.com/api-explorer-proxy' : null;
+  var replacementURL = "{{URL}}";
 </script>
+
 <script src='/swagger-ui/lib/jquery.slideto.min.js' type='text/javascript'></script>
 <script src='/swagger-ui/lib/jquery.wiggle.min.js' type='text/javascript'></script>
 <script src='/swagger-ui/lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
@@ -76,3 +81,5 @@
     }
   }
 </script>
+
+{% assign test = {{site.data.branch.branchname }} %}
