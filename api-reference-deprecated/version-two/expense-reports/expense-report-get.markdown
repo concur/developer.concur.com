@@ -218,7 +218,7 @@ Format: YYYY-MM-DD |
 
 |  Element |  Description |
 | -------- | ------------ |
-|  AccountNumber |  Credit card number used for this expense. Maximum 255 characters. |
+|  AccountNumber |  Credit card number used for this expense. This value is encrypted in the repsonse. Maximum 255 characters. |
 |  CardDescription |  The name on the credit card used for this expense. Maximum 255 characters. |
 |  CardTypeCode |  Type of credit card. |
 |  TransactionReferenceNumber |  Reference number from the credit card vendor. Maximum 64 characters. |
@@ -240,6 +240,7 @@ Format: YYYY-MM-DD |
 |  MerchantReferenceNumber |  Merchant reference number passed from the merchant to the card. Maximum 15 characters. |
 |  ExchangeRateFromBillingToEmployeeCurrency |  Currency exchange rate used between the credit card billing currency and the employee's reimbursement currency. Maximum 23 characters. |
 |  BillingAmount |  Amount due to the company card from the employee or company (depending on who is responsible for the bill) for this detail row. Maximum 23 characters. |
+|  AccountNumberLastSegment  |  The last 4 digits of the Card Account.  | 
 
 ### Custom fields elements  
 
