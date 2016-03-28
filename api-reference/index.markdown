@@ -100,7 +100,7 @@ You can find detailed information/steps about Web Flow [here][10].
 
 #### App Center Flow
 
-The App Center Flow is used for logging in Concur users coming from [http://concursolutions.com/][4]
+The App Center Flow is used for logging in Concur users coming from [https://concursolutions.com/][4]
 
 
 
