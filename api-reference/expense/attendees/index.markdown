@@ -33,6 +33,63 @@ Name | Type | Format | Description
 `user`|``string``|`query`| The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter
 
 
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/attendees?limit=5&user=jimadmin%40concurconnect2.com
+```
+
+###XML Example of a successful response
+```
+<Attendees xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Items>
+    <Attendee>
+      <ID>gWj3IHRYiHZGUtIO83ILhbNHqCsjMmkvj$pQ</ID>
+      <URI>https://www.concursolutions.com/api/v3.0/expense/attendees/gWj3IHRYiHZGUtIO83ILhbNHqCsjMmkvj$pQ</URI>
+      <AttendeeTypeCode>NOSHOWS</AttendeeTypeCode>
+      <AttendeeTypeID>gWjYOjoCmOo2Ua$pH4qnCsQxgS8Z0E</AttendeeTypeID>
+      <FirstName xsi:nil="true" />
+      <LastName>No Show Attendee</LastName>
+      <MiddleInitial xsi:nil="true" />
+      <Suffix xsi:nil="true" />
+      <Company xsi:nil="true" />
+      <Title xsi:nil="true" />
+      <ExternalID xsi:nil="true" />
+      <HasExceptionsPrevYear>false</HasExceptionsPrevYear>
+      <HasExceptionsYTD>false</HasExceptionsYTD>
+      <TotalAmountPrevYear>0.00000000</TotalAmountPrevYear>
+      <TotalAmountYTD>0.00000000</TotalAmountYTD>
+      <VersionNumber>1</VersionNumber>
+      <OwnerName>System, Concur</OwnerName>
+      <OwnerLoginID>ConcurSystem</OwnerLoginID>
+      <CurrencyCode>USD</CurrencyCode>
+      <Custom1 xsi:nil="true" />
+      <Custom2 xsi:nil="true" />
+      <Custom3 xsi:nil="true" />
+      <Custom4 xsi:nil="true" />
+      <Custom5 xsi:nil="true" />
+      <Custom6 xsi:nil="true" />
+      <Custom7 xsi:nil="true" />
+      <Custom8 xsi:nil="true" />
+      <Custom9 xsi:nil="true" />
+      <Custom10 xsi:nil="true" />
+      <Custom11 xsi:nil="true" />
+      <Custom12 xsi:nil="true" />
+      <Custom13 xsi:nil="true" />
+      <Custom14 xsi:nil="true" />
+      <Custom15 xsi:nil="true" />
+      <Custom16 xsi:nil="true" />
+      <Custom17 xsi:nil="true" />
+      <Custom18 xsi:nil="true" />
+      <Custom19 xsi:nil="true" />
+      <Custom20 xsi:nil="true" />
+      <Custom21 xsi:nil="true" />
+      <Custom22 xsi:nil="true" />
+      <Custom23 xsi:nil="true" />
+      <Custom24 xsi:nil="true" />
+      <Custom25 xsi:nil="true" />
+    </Attendee>
+```
+
 
 ## <a name="getID"></a>Retrieve a single attendee by ID
 
@@ -46,6 +103,60 @@ Name | Type | Format | Description
 `id`|`string`|`path`|**Required** The attendee object to create.
 `user`|``string``|`query`| The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter
 
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/attendees/gWj3IHRYiHZGRTDN6y4r4LN3phszY33HT%24pQ?user=jimadmin%40concurconnect2.com
+```
+
+###XML Example of a successful response
+```
+<Attendee xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ID>gWj3IHRYiHZGRTDN6y4r4LN3phszY33HT$pQ</ID>
+  <URI>https://www.concursolutions.com/api/v3.0/expense/attendees/gWj3IHRYiHZGRTDN6y4r4LN3phszY33HT$pQ</URI>
+  <AttendeeTypeCode>BUSGUEST</AttendeeTypeCode>
+  <AttendeeTypeID>gWjUHBxUY4iQLA9KTkbtUD6pc</AttendeeTypeID>
+  <FirstName>Marco</FirstName>
+  <LastName>Simoncelli</LastName>
+  <MiddleInitial xsi:nil="true" />
+  <Suffix xsi:nil="true" />
+  <Company>Honda</Company>
+  <Title xsi:nil="true" />
+  <ExternalID>58</ExternalID>
+  <HasExceptionsPrevYear>false</HasExceptionsPrevYear>
+  <HasExceptionsYTD>false</HasExceptionsYTD>
+  <TotalAmountPrevYear>0.00000000</TotalAmountPrevYear>
+  <TotalAmountYTD>0.00000000</TotalAmountYTD>
+  <VersionNumber>1</VersionNumber>
+  <OwnerName>System, Concur</OwnerName>
+  <OwnerLoginID>ConcurSystem</OwnerLoginID>
+  <CurrencyCode>USD</CurrencyCode>
+  <Custom1 xsi:nil="true" />
+  <Custom2 xsi:nil="true" />
+  <Custom3 xsi:nil="true" />
+  <Custom4 xsi:nil="true" />
+  <Custom5 xsi:nil="true" />
+  <Custom6 xsi:nil="true" />
+  <Custom7 xsi:nil="true" />
+  <Custom8 xsi:nil="true" />
+  <Custom9 xsi:nil="true" />
+  <Custom10 xsi:nil="true" />
+  <Custom11 xsi:nil="true" />
+  <Custom12 xsi:nil="true" />
+  <Custom13 xsi:nil="true" />
+  <Custom14 xsi:nil="true" />
+  <Custom15 xsi:nil="true" />
+  <Custom16 xsi:nil="true" />
+  <Custom17 xsi:nil="true" />
+  <Custom18 xsi:nil="true" />
+  <Custom19 xsi:nil="true" />
+  <Custom20 xsi:nil="true" />
+  <Custom21 xsi:nil="true" />
+  <Custom22 xsi:nil="true" />
+  <Custom23 xsi:nil="true" />
+  <Custom24 xsi:nil="true" />
+  <Custom25 xsi:nil="true" />
+</Attendee>
+```
 
 
 ## <a name="post"></a>Create a new attendee
@@ -60,6 +171,10 @@ Name | Type | Format | Description
 `content`|`body`|-|**Required** The attendee object to create
 `user`|``string``|`query`| The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter
 
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/attendees?user=jimadmin%40concurconnect2.com
+```
 
 ### Input
 [Attendee Schema](#schema)
@@ -150,5 +265,8 @@ Name | Type | Format | Description
 `Type`|``string``|-|The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text
 `Value`|``string``|-|The value in the Org Unit or Custom field. For list fields, this is the name of the list item. Maximum length: 48 characters
 
-
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/attendees/gWj3IHRYiHZGQfry7MIhVOYtD%24ss2Jnnwj%24pQ?user=jimadmin%40concurconnect2
+```
 
