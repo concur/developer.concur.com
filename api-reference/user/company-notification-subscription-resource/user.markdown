@@ -131,7 +131,7 @@ Name | Type | Format | Description
 `InvoiceUser`|`boolean` | `Y/N` | Whether the user has access to Invoice.
 `InvoiceApprover`|`boolean` | `Y/N` | Whether the user is an Invoice approver.
 `ExpenseApproverEmployeeID`|`string` | | The employee ID of the user's Expense approver. Maximum 48 characters.If you are importing both a user and their approver, the approver should be listed before the user in the batch.
-`NewLoginID`|`string` | | Use this element to change the Login ID for an existing employee. Maximum 128 characters.
+`NewLoginID`|`string` | | Use this element to change the Login ID for an existing employee. Maximum 128 characters..
 `NewEmployeeID`|`string` | | Use this element to change the Employee ID for an existing employee. Maximum 48 characters.
 
 ### Response
