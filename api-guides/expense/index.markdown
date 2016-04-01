@@ -35,17 +35,22 @@ A Partner can determine the Edition type by the field Label value populated in C
 
 
   1. Standard Edition:
-    - < Id > Custom21 </ Id >
-    - < Label > EmployeeAdministrationCountry </ Label >
+
+            <Id> Custom21 </Id>
+            <Label> EmployeeAdministrationCountry </Label>
+
   2. Professional Edition:
-    - < Id > Custom21 </ Id >
-    - < Label > EmployeeGroup </ Label >
+
+            <Id> Custom21 </Id>
+            <Label> EmployeeGroup </Label>
+
   3. Standard-to-Professional Upgrade Edition:
-    -	< Id > Custom21 </ Id >
-    -	< Label > EmployeeGroup </ Label >
-    -	In addition, these clients will have this field & Label:
-    -	< Id > PmtMethodCode </ Id >
-    -	 < Label > ReimbursementMethod </ Label >
+
+            <Id> Custom21 </Id>
+            <Label> EmployeeGroup </Label>
+            In addition, these clients will have this field & Label:
+            <Id> PmtMethodCode </Id>
+            <Label> ReimbursementMethod </Label>
 
 ### Import Notes across the Edition Types:
 
