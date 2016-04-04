@@ -4,7 +4,7 @@ layout: reference
 ---
 ## ERP Integration
 
-This API Recipe describes API tasks associated with ERP Financial Integration. This App is intended for financial integration companies or finance leaders who want to streamline the processes once Expense Reports in Concur have been final-approved and are ready to be integrated into the client's financial system. 
+This API Recipe describes API tasks associated with ERP Financial Integration. This App is intended for financial integration companies or finance leaders who want to streamline the processes once Expense Reports in Concur have been final-approved and are ready to be integrated into the client's financial system.
 
 Before a partner can obtain expense report data from Concur, ensure that you have completed the following:
 
