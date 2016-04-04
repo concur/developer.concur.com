@@ -66,6 +66,10 @@
 
 {% if sub_open == true %}
 
+{% if node_category == 'Erp-integration' %}
+  {% assign node_category = 'ERP Integration'%}
+{% endif %}
+
     <li class="list-group-item list-toggle {{ category_status }}">
         <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-{{ node_category }}">{{ node_category }}</a>
         <ul id="collapse-{{ node_category }}" class="collapse {{ category_status | replace:'active','in' }}">
