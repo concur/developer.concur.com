@@ -61,7 +61,7 @@ A Partner can determine the Edition type by the field Label value populated in C
   - For all Standard Edition clients the Ledger code = DEFAULT
 3.	Employee Group:
   - This is optional for Standard Edition clients. If it is used, then Custom21 & OrgUnit1 fields will be the fields to use.  These fields will point to a 2-level list.
-  - See appendix document to learn how to determine Group Codes for Standard Edition.
+  - To determine Group Codes for Standard Edition, see this [page](/api-guides/expense/how-to-identify-group-codes-for-standard-edition-clients.html).
 4.	Custom Fields:
   - Partner must determine the base record custom field(s).  These fields will vary per client.
   - Partner must determine if the custom field(s) are defined as a List field.
@@ -74,7 +74,7 @@ A Partner can determine the Edition type by the field Label value populated in C
 2.	Ledger Code (required for POST body)
   - This value can vary and a Pro Edition client could have 2 or more.
   - The Ledger code must be obtained from Concur since the Code is not available in the API and it is not exposed to the client administrator in the Concur UI (Accounting Administration menu).
-          * Contact pdspe@concur.com for the Client’s Ledger codes.
+          * Contact us via this <a href="mailto:pdspe@concur.com">email</a> for the Client’s Ledger codes.
 3.	Employee Group: (required for POST body)
   - This will be used for all Pro Edition Clients.
   - Custom21 will be used for the Expense Group value.  Custom 22 will be used for the Invoice Group value.   Both will be a List field.  Invoice is not necessary for all clients.
@@ -93,7 +93,7 @@ A Partner can determine the Edition type by the field Label value populated in C
 
 #### Appendix:	How to Provision a Base User Record
 
-See attached document for the APIs to use and the steps to take in your app to successfully post a base user record.
+For the APIs to use and the steps to take in your app to successfully post a base user record, see this [page](/api-guides/expense/how-to-provision-a-basic-user-record-into-Concur.html).
 
 #### Reminder:
 
