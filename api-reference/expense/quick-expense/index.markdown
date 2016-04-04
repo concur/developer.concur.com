@@ -32,6 +32,47 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
 
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/quickexpenses?limit=10&user=ALL
+```
+###XML Example of a successful reqponse
+```
+<QuickExpenses xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Items>
+    <QuickExpense>
+      <ID>gWr6YqsUJgM3BFgTKATDDdg2d</ID>
+      <URI>https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr6YqsUJgM3BFgTKATDDdg2d</URI>
+      <ExpenseTypeCode>DINNR</ExpenseTypeCode>
+      <PaymentTypeCode>CPAID</PaymentTypeCode>
+      <TransactionDate>2015-03-17T00:00:00</TransactionDate>
+      <TransactionAmount>17.01000000</TransactionAmount>
+      <CurrencyCode>USD</CurrencyCode>
+      <VendorDescription>I Love Sushi</VendorDescription>
+      <Comment>Does this default to Cash?</Comment>
+      <OwnerLoginID>dstaab@ps2.com</OwnerLoginID>
+      <OwnerName>Doug Staab</OwnerName>
+      <ExpenseTypeName>Dinner</ExpenseTypeName>
+      <LocationName />
+      <ReceiptImageID xsi:nil="true" />
+    </QuickExpense>
+    <QuickExpense>
+      <ID>gWr2zR6U3nDMqq562UQDhftNM</ID>
+      <URI>https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr2zR6U3nDMqq562UQDhftNM</URI>
+      <ExpenseTypeCode>UNDEF</ExpenseTypeCode>
+      <PaymentTypeCode>PENDC</PaymentTypeCode>
+      <TransactionDate>2015-04-15T00:00:00</TransactionDate>
+      <TransactionAmount>20.00000000</TransactionAmount>
+      <CurrencyCode>USD</CurrencyCode>
+      <VendorDescription xsi:nil="true" />
+      <Comment>can an image be posted using QE ID?</Comment>
+      <OwnerLoginID>dstaab@ps2.com</OwnerLoginID>
+      <OwnerName>Doug Staab</OwnerName>
+      <ExpenseTypeName>Undefined</ExpenseTypeName>
+      <LocationName />
+      <ReceiptImageID xsi:nil="true" />
+    </QuickExpense>
+```
 
 ## <a name="getID"></a>Retrieve quick expense by ID
 
