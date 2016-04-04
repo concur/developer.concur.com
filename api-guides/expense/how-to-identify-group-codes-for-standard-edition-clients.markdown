@@ -37,7 +37,9 @@ Steps to obtain Standard Group Codes
         *	You will need to record the top level values and the 2nd level values.
         *	The top level value will be populated in Custom21
         *	The bottom level value will be populated in OrgUnit1
-        *	There could be more than one top level value.  In the following example there is just one top-level value (US)
+        *	There could be more than one top level value. In the following example there is just one top-level value (US)
+
+        Example:
 
             <ListItems xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
               <Items>
