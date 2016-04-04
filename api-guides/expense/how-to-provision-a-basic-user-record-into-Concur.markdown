@@ -58,9 +58,7 @@ See how to determine if the Employee Form Fields are lists and connected lists b
 #### Employee Group:
 
 1.	The employee group values are obtained from the List API results.
-
 2.	An Employee Form is assigned to an Employee Group.  The same form can be assigned to more than one Group, but a Group cannot have more than form assigned to it.  This form dictates which fields need populated.
-
 3.	Standard Edition Clients
   - The grouping feature may not be configured.
   - If it is configured, the Group codes will populate 2 fields: Custom21 and OrgUnit1.  The fields will be called:
@@ -70,12 +68,10 @@ See how to determine if the Employee Form Fields are lists and connected lists b
             <Id> OrgUnit1 </Id>
             <Label> ExpensePolicyGroup </Label>
   - See the Reminder section below for a document that explains how to obtain Standard Edition Group values.
-
 4.	Professional Edition Clients - the grouping feature will be configured for all Pro Edition clients.  Custom21 will be used and the field will be called:
 
             <Id> Custom21 </Id>
             <Label> EmployeeGroup </Label>
-
 5.	Standard-to-Professional Edition Clients
 - Same as #4 Pro Edition, but also consider the “Reimbursement Method” field topic highlighted below.
 
