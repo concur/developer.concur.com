@@ -34,8 +34,42 @@ Name | Type | Format | Description
 `limit`	|	`Int32`	|	`query`	|	The number of records to return. Default value: 25
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter.
 
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations?limit=15&user=ALL
+```
 
-
+###JSON example of a successful response
+```
+{
+  "Items": [
+    {
+      "EntryID": "gWidFO7ikXS264Tf3Z68NmcXdkxhcxezfzA",
+      "AttendeeID": "gWj3IHRYiHZGX4xP$s0YUWUyoUjss$pWV3z$pQ",
+      "Amount": 80,
+      "AssociatedAttendeeCount": 1,
+      "Custom1": null,
+      "Custom2": null,
+      "Custom3": null,
+      "Custom4": null,
+      "Custom5": null,
+      "ID": "gWgSNsCedFvv8LE1LrkughW9mAyCN",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSNsCedFvv8LE1LrkughW9mAyCN"
+    },
+    {
+      "EntryID": "gWidFO7ikXSi7DX4hlLTggJD76w1IvtEvWw",
+      "AttendeeID": "gWj3IHRYiHZGSG6M4xo0PEyYXAs8rHGfD$pQ",
+      "Amount": 120,
+      "AssociatedAttendeeCount": 1,
+      "Custom1": null,
+      "Custom2": null,
+      "Custom3": null,
+      "Custom4": null,
+      "Custom5": null,
+      "ID": "gWgOOsCJrozFymvWtfB5Ri1WD$ste9",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgOOsCJrozFymvWtfB5Ri1WD$ste9"
+    }
+  ```
 ## <a name="getID"></a>Retrieve an entry-attendee association by ID
 
     GET  /api/v3.0/expense/entryattendeeassociations/{id}
