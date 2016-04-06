@@ -35,6 +35,47 @@ This resource can be used to retrieve information about the allocations that are
 
 [Allocations Schema](#schema)
 
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/allocations?limit=5&user=ALL
+```
+
+###XML Example of a successful response
+```
+<Allocations xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Items>
+    <Allocation>
+      <ID>gWmudeHM8AuFikny3Hrpz$s2gaNvc0E7Xfyw</ID>
+      <URI>https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFikny3Hrpz$s2gaNvc0E7Xfyw</URI>
+      <EntryID>gWidFO7ikXSy7gHnNngC12jkL7khMiREv4g</EntryID>
+      <Percentage>100.00000000</Percentage>
+      <IsPercentEdited>false</IsPercentEdited>
+      <IsHidden>true</IsHidden>
+      <AccountCode1>1</AccountCode1>
+      <AccountCode2 xsi:nil="true" />
+      <Custom1 xsi:nil="true" />
+      <Custom2 xsi:nil="true" />
+      <Custom3 xsi:nil="true" />
+      <Custom4 xsi:nil="true" />
+      <Custom5 xsi:nil="true" />
+      <Custom6 xsi:nil="true" />
+      <Custom7 xsi:nil="true" />
+      <Custom8 xsi:nil="true" />
+      <Custom9 xsi:nil="true" />
+      <Custom10 xsi:nil="true" />
+      <Custom11 xsi:nil="true" />
+      <Custom12 xsi:nil="true" />
+      <Custom13 xsi:nil="true" />
+      <Custom14 xsi:nil="true" />
+      <Custom15 xsi:nil="true" />
+      <Custom16 xsi:nil="true" />
+      <Custom17 xsi:nil="true" />
+      <Custom18 xsi:nil="true" />
+      <Custom19 xsi:nil="true" />
+      <Custom20 xsi:nil="true" />
+    </Allocation>
+```
+
 
 ## <a name="getID"></a>Retrieve a single allocation by ID
 
@@ -48,7 +89,44 @@ This resource can be used to retrieve information about the allocations that are
 |`id`|`string`|`path`|**Required** The unique identifier for the allocation.
 |`user`|`string`|`query`|The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter.|
 
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFhxez1E72ExJPksvTH0KPPyw?user=<Web_Services_Admin_Login>
+```
 
+###XML Example of a successful response
+```
+<Allocation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ID>gWmudeHM8AuFhxez1E72ExJPksvTH0KPPyw</ID>
+  <URI>https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFhxez1E72ExJPksvTH0KPPyw</URI>
+  <EntryID>gWidFO7ikXSy41$smPkwdC5cL1aku$pSgc$p4g</EntryID>
+  <Percentage>100.00000000</Percentage>
+  <IsPercentEdited>false</IsPercentEdited>
+  <IsHidden>true</IsHidden>
+  <AccountCode1>1</AccountCode1>
+  <AccountCode2 xsi:nil="true" />
+  <Custom1 xsi:nil="true" />
+  <Custom2 xsi:nil="true" />
+  <Custom3 xsi:nil="true" />
+  <Custom4 xsi:nil="true" />
+  <Custom5 xsi:nil="true" />
+  <Custom6 xsi:nil="true" />
+  <Custom7 xsi:nil="true" />
+  <Custom8 xsi:nil="true" />
+  <Custom9 xsi:nil="true" />
+  <Custom10 xsi:nil="true" />
+  <Custom11 xsi:nil="true" />
+  <Custom12 xsi:nil="true" />
+  <Custom13 xsi:nil="true" />
+  <Custom14 xsi:nil="true" />
+  <Custom15 xsi:nil="true" />
+  <Custom16 xsi:nil="true" />
+  <Custom17 xsi:nil="true" />
+  <Custom18 xsi:nil="true" />
+  <Custom19 xsi:nil="true" />
+  <Custom20 xsi:nil="true" />
+</Allocation>
+```
 
 ## <a name="schema"></a>Schema
 
