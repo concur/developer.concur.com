@@ -29,19 +29,23 @@ Find our most up-to-the-minute information on service availability in both our N
 - - -
 
 #### Maintenance Schedule:
-The Concur Connect platform undergoes routine maintenance according to the following schedule. During these maintenance periods, the service may be unavailable. Unplanned maintenance is performed rarely, and limited to high priority fixes. During downtime, any request to Concur Connect will receive an HTTP 503 error code.
+The Concur platform undergoes routine maintenance according to the following schedule. During these maintenance periods, the service may be unavailable. Unplanned maintenance is performed rarely, and limited to high priority fixes. During downtime, any request to Concur Connect will receive an HTTP 503 error code.
 
 ##### Weekly maintenance window
 Every week, starting Friday at 9 PM PST and ending at 1 AM PST on Saturday
 
-##### Monthly maintenance schedule for 2015
-The service will be unavailable starting at 6 PM PST and ending at 11 PM PST on the following dates:
+##### Monthly maintenance schedule for 2016
+The service may be unavailable starting at 6 PM PST and ending at 11 PM PST on the following dates:
 
-* August 13
-* September 17
-* October 15
-* November 12
-* December 10
+* April 14
+* May 12
+* June 9
+* July 7
+* August 11
+* September 8
+* October 13
+* November 3
+* December 8
 
 ---
 
