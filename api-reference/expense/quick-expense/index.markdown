@@ -32,6 +32,33 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
 
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/quickexpenses?limit=15&user=ALL
+```
+
+###JSON example of a successful response
+```
+{
+  "Items": [
+    {
+      "ExpenseTypeCode": "DINNR",
+      "PaymentTypeCode": "CPAID",
+      "TransactionDate": "2015-03-17T00:00:00",
+      "TransactionAmount": 17.01,
+      "CurrencyCode": "USD",
+      "VendorDescription": "I Love Sushi",
+      "Comment": "Does this default to Cash?",
+      "OwnerLoginID": "user@concurconnect2.com",
+      "OwnerName": "user",
+      "ExpenseTypeName": "Dinner",
+      "LocationName": "",
+      "ReceiptImageID": null,
+      "ID": "gWr6YqsUJgM3BFgTKATDDdg2d",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr6YqsUJgM3BFgTKATDDdg2d"
+    }
+  ```
+  
 
 ## <a name="getID"></a>Retrieve quick expense by ID
 
