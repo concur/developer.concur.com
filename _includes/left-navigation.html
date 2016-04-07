@@ -66,8 +66,15 @@
 
 {% if sub_open == true %}
 
+{% assign folder_name = node_category | split: '-' %}
+{% capture folder_name %}
+  {% for item in folder_name %}
+    {{ item | capitalize }}
+  {% endfor %}
+{% endcapture %}
+
     <li class="list-group-item list-toggle {{ category_status }}">
-        <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-{{ node_category }}">{{ node_category }}</a>
+        <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-{{ node_category }}">{{ folder_name | replace: 'Erp', 'ERP'}}</a>
         <ul id="collapse-{{ node_category }}" class="collapse {{ category_status | replace:'active','in' }}">
             <li class="{{ node_status }}">
                 <a href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a>
