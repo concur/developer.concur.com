@@ -186,7 +186,7 @@
       "post": {
         "tags": [ "Resources" ],
         "summary": "Create a Request",
-        "description": "Create a Request for oneself, or on behalf of another user",
+        "description": "Create a request for yourself or on behalf of another user:",
         "parameters": [
           {
             "name": "content",
