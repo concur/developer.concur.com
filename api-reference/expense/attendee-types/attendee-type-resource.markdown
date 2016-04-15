@@ -32,6 +32,49 @@ Name | Type | Format | Description
 `offset`	|	``string``	|	`query`	|	The starting point of the next set of results, after the limit specified in the limit field has been reached.
 `limit`	|	`Int32`	|	`query`	|	The number of records to return. Default value: 25
 
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/attendeetypes?limit=5
+```
+
+###XML Example of a successful response
+```
+<AttendeeTypes xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Items>
+    <AttendeeType>
+      <ID>gWjUHBxUY4iQLA9KTkbtUD6pc</ID>
+      <URI>https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjUHBxUY4iQLA9KTkbtUD6pc</URI>
+      <Name>Business Guest</Name>
+      <Code>BUSGUEST</Code>
+      <AttendeeFormID>gWvidmKNPVEaOg$s66rqA62OJVXfvHBMs4sw</AttendeeFormID>
+      <DuplicateSearchFields>
+        <DuplicateSearchField>Title</DuplicateSearchField>
+        <DuplicateSearchField>Company</DuplicateSearchField>
+        <DuplicateSearchField>OwnerEmpName</DuplicateSearchField>
+        <DuplicateSearchField>FirstName</DuplicateSearchField>
+        <DuplicateSearchField>LastName</DuplicateSearchField>
+      </DuplicateSearchFields>
+      <ConnectorID />
+      <AllowManuallyEnteredAttendees>true</AllowManuallyEnteredAttendees>
+      <AllowAttendeeCountEditing>true</AllowAttendeeCountEditing>
+    </AttendeeType>
+    <AttendeeType>
+      <ID>gWjYs6nUm$ptrgvkjvwYt2B3SN</ID>
+      <URI>https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYs6nUm$ptrgvkjvwYt2B3SN</URI>
+      <Name>Employee</Name>
+      <Code>EMPLOYEE</Code>
+      <AttendeeFormID>gWvidmKNPVEz8W4lJWEPWQF1u7bqDgK3ZkA</AttendeeFormID>
+      <DuplicateSearchFields>
+        <DuplicateSearchField>Title</DuplicateSearchField>
+        <DuplicateSearchField>OwnerEmpName</DuplicateSearchField>
+        <DuplicateSearchField>FirstName</DuplicateSearchField>
+        <DuplicateSearchField>LastName</DuplicateSearchField>
+      </DuplicateSearchFields>
+      <ConnectorID />
+      <AllowManuallyEnteredAttendees>true</AllowManuallyEnteredAttendees>
+      <AllowAttendeeCountEditing>false</AllowAttendeeCountEditing>
+    </AttendeeType>
+```
 
 
 ## <a name="getID"></a>Retrieve attendee types by ID
@@ -45,6 +88,30 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `id`|`string`|`path`|**Required** The ID of the attendee type.
 
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYs6nUm%24ptrgvkjvwYt2B3SN
+```
+
+###XML Example of a successful response
+```
+<AttendeeType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ID>gWjYs6nUm$ptrgvkjvwYt2B3SN</ID>
+  <URI>https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYs6nUm$ptrgvkjvwYt2B3SN</URI>
+  <Name>Employee</Name>
+  <Code>EMPLOYEE</Code>
+  <AttendeeFormID>gWvidmKNPVEz8W4lJWEPWQF1u7bqDgK3ZkA</AttendeeFormID>
+  <DuplicateSearchFields>
+    <DuplicateSearchField>Title</DuplicateSearchField>
+    <DuplicateSearchField>OwnerEmpName</DuplicateSearchField>
+    <DuplicateSearchField>FirstName</DuplicateSearchField>
+    <DuplicateSearchField>LastName</DuplicateSearchField>
+  </DuplicateSearchFields>
+  <ConnectorID />
+  <AllowManuallyEnteredAttendees>true</AllowManuallyEnteredAttendees>
+  <AllowAttendeeCountEditing>false</AllowAttendeeCountEditing>
+</AttendeeType>
+```
 
 
 ## <a name="post"></a>Create a new attendee type
@@ -62,6 +129,13 @@ Name | Type | Format | Description
 ### Input
 
 [Attendee Schema](#schema)
+
+
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/attendeetypes
+```
+
 
 ### Response
 
@@ -98,6 +172,12 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `id`|`string`|`path`|**Required** The ID of the attendee type to delete
+
+
+###Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjeLsVUzCo9GKsE78ZtoAME9
+```
 
 
 ### Input
