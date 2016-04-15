@@ -37,12 +37,14 @@ Name | Type | Format | Description
 `offset`	|	`string`	|	`query`	|	The starting point of the next set of results, after the limit specified in the limit field has been reached.
 `limit`	|	`Int32`	|	`query`	|	The number of records to return Default value: 10
 
-###Request URL
+### Request URL
+
 ```
 https://www.concursolutions.com/api/v3.0/expense/expensegroupconfigurations?user=ALL&limit=10
 ```
 
-###JSON example of a successful response
+### JSON example of a successful response
+
 ```
 {
   "Items": [

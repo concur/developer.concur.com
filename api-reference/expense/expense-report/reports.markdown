@@ -66,12 +66,14 @@ Name | Type | Format | Description
 `modifiedDateAfter`	|	`DateTime`	|	`query`	|	The report modified date is after this date.Format: YYYY-MM-DD
 
 
-###Request URL
+### Request URL
+
 ```
 https://www.concursolutions.com/api/v3.0/expense/reports?limit=15&user=ALL
 ```
 
-###JSON example of a successful response
+### JSON example of a successful response
+
 ```
 {
   "Items": [

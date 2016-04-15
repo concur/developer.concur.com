@@ -39,12 +39,14 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter.
 
 
-###Request URL
+### Request URL
+
 ```
 https://www.concursolutions.com/api/v3.0/expense/itemizations?limit=10&user=ALL
 ```
 
-###JSON example of a successful response
+### JSON example of a successful response
+
 ```
 {
   "Items": [
@@ -121,7 +123,7 @@ https://www.concursolutions.com/api/v3.0/expense/itemizations?limit=10&user=ALL
       "ID": "gWidFO7ikXSy$seMkLiQismjUIYkxYzCsf4g",
       "URI": "https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXSy$seMkLiQismjUIYkxYzCsf4g"
     }
-  ```
+```
 
 ## <a name="getID"></a>Retrieve an expense itemization by ID
 

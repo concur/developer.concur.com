@@ -32,12 +32,14 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
 
-###Request URL
+### Request URL
+
 ```
 https://www.concursolutions.com/api/v3.0/expense/quickexpenses?limit=15&user=ALL
 ```
 
-###JSON example of a successful response
+### JSON example of a successful response
+
 ```
 {
   "Items": [
@@ -57,7 +59,7 @@ https://www.concursolutions.com/api/v3.0/expense/quickexpenses?limit=15&user=ALL
       "ID": "gWr6YqsUJgM3BFgTKATDDdg2d",
       "URI": "https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr6YqsUJgM3BFgTKATDDdg2d"
     }
-  ```
+```
   
 
 ## <a name="getID"></a>Retrieve quick expense by ID

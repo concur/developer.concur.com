@@ -34,12 +34,14 @@ Name | Type | Format | Description
 `limit`	|	`Int32`	|	`query`	|	The number of records to return. Default value: 25
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter.
 
-###Request URL
+### Request URL
+
 ```
 https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations?limit=15&user=ALL
 ```
 
-###JSON example of a successful response
+### JSON example of a successful response
+
 ```
 {
   "Items": [
@@ -69,7 +71,8 @@ https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations?limit
       "ID": "gWgOOsCJrozFymvWtfB5Ri1WD$ste9",
       "URI": "https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgOOsCJrozFymvWtfB5Ri1WD$ste9"
     }
-  ```
+```
+
 ## <a name="getID"></a>Retrieve an entry-attendee association by ID
 
     GET  /api/v3.0/expense/entryattendeeassociations/{id}
