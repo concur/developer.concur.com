@@ -65,7 +65,7 @@ Name | Type | Format | Description
 `Merchant`	|	`Merchant`	|	-	|	**Required** The parent element for information about the provider who is posting the receipt.
 `PaymentCard`	|	`PaymentCard`	|	-	|	The parent element for the credit card used for payment. This element is required when the FormofPaymentCode value is CCARD.
 `RideDetail`	|	`RideDetail`	|	-	|	The details of a hired ride. This element is required when the Type value is Ride.
-`TransactionDateTime`	|	`DateTime`	|	-	|	**Required** The date and time when the transaction happened. Format: YYYY-MM-DDThh:mm
+`TransactionDateTime`	|	`DateTime`	|	-	|	**Required** The date and time when the transaction happened (in Coordinated Universal Time, aka UTC). Format: YYYY-MM-DDThh:mm
 `Type`	|	`string`	|	-	|	**Required** The type of receipt. Possible values: General, Ride, Hotel		
 
 ### <a name="customfield"></a>Custom Field	
@@ -87,7 +87,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------						
 `Amount`	|	`Decimal`	|	-	|	**Required** The total charged amount for the line item. Range: -922,337,203,685,477 to 922,337,203,685,477
-`Date`	|	`DateTime`	|	-	|	The date and time when the line item was charged. Format: YYYY-MM-DDThh:mm
+`Date`	|	`DateTime`	|	-	|	The date and time when the line item was charged (in Coordinated Universal Time, aka UTC). Format: YYYY-MM-DDThh:mm
 `Description`	|	`string`	|	-	|	**Required** The item's description. Maximum length: 100 characters
 `Description2`	|	`string`	|	-	|	Additional details about the item. In the receipt image, the secondary description appears on the line following the primary description. Maximum length: 32 characters
 `Quantity`	|	`Int32`	|	-	|	The quantity of units. Format: Any positive number
@@ -102,8 +102,8 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------						
 `AverageDailyRoomRate`	|	`Decimal`	|	-	|	**Required** The sum of the room rate for each night stayed, divided by the number of nights stayed. Range: -922,337,203,685,477 to 922,337,203,685,477
-`CheckinDateTime`	|	`DateTime`	|	-	|	**Required** The check-in date and time. Format: YYYY-MM-DDThh:mm
-`CheckoutDateTime`	|	`DateTime`	|	-	|	**Required** The check-out date and time. Format: YYYY-MM-DDThh:mm
+`CheckinDateTime`	|	`DateTime`	|	-	|	**Required** The check-in date and time (in Coordinated Universal Time, aka UTC). Format: YYYY-MM-DDThh:mm
+`CheckoutDateTime`	|	`DateTime`	|	-	|	**Required** The check-out date and time (in Coordinated Universal Time, aka UTC). Format: YYYY-MM-DDThh:mm
 `ConfirmationNumber`	|	`string`	|	-	|	The confirmation number for the booking. Maximum length: 32 characters
 `GNR`	|	`string`	|	-	|	The Guest Name Record (GNR) for the stay. Maximum length: 20 characters
 `LineItems`	|	`Array`	|	[Line Item](#lineitem)	|	The parent element for the line items in the receipt. There is a LineItem child element for each line item.

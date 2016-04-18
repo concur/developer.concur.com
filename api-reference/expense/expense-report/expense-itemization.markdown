@@ -39,6 +39,91 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter.
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/itemizations?limit=10&user=ALL
+```
+
+### JSON example of a successful response
+
+```
+{
+  "Items": [
+    {
+      "EntryID": "gWidFO7ikXSy55WZOaAXv8JRfFkruCwrP4g",
+      "ReportID": "F4F027007E814C1CA70E",
+      "ReportOwnerID": "CAtraveler@concurconnect2.com",
+      "ExpenseTypeCode": "LODTX",
+      "ExpenseTypeName": "Hotel Tax",
+      "SpendCategoryCode": "LODGA",
+      "SpendCategoryName": "Lodging - Track Room Rate Spending",
+      "TransactionDate": "2013-08-07T00:00:00",
+      "TransactionAmount": 20,
+      "PostedAmount": 20,
+      "ApprovedAmount": 20,
+      "LocationID": "gWqWg2EhaUtcIW$s2pMbTGM8W81u2qcfX94w",
+      "LocationName": "Montreal, Quebec",
+      "LocationSubdivision": "Quebec",
+      "LocationCountry": "CA",
+      "Description": "test",
+      "IsPersonal": false,
+      "IsBillable": false,
+      "IsImageRequired": false,
+      "AllocationType": "N",
+      "HasComments": false,
+      "HasExceptions": false,
+      "LastModified": "2013-09-02T19:40:48.877",
+      "OrgUnit1": null,
+      "OrgUnit2": null,
+      "OrgUnit3": null,
+      "OrgUnit4": null,
+      "OrgUnit5": null,
+      "OrgUnit6": null,
+      "Custom1": null,
+      "Custom2": null,
+      "Custom3": null,
+      "Custom4": null,
+      "Custom5": null,
+      "Custom6": null,
+      "Custom7": null,
+      "Custom8": null,
+      "Custom9": null,
+      "Custom10": null,
+      "Custom11": null,
+      "Custom12": null,
+      "Custom13": null,
+      "Custom14": null,
+      "Custom15": null,
+      "Custom16": null,
+      "Custom17": null,
+      "Custom18": null,
+      "Custom19": null,
+      "Custom20": null,
+      "Custom21": null,
+      "Custom22": null,
+      "Custom23": null,
+      "Custom24": null,
+      "Custom25": null,
+      "Custom26": null,
+      "Custom27": null,
+      "Custom28": null,
+      "Custom29": null,
+      "Custom30": null,
+      "Custom31": null,
+      "Custom32": null,
+      "Custom33": null,
+      "Custom34": null,
+      "Custom35": null,
+      "Custom36": null,
+      "Custom37": null,
+      "Custom38": null,
+      "Custom39": null,
+      "Custom40": null,
+      "ID": "gWidFO7ikXSy$seMkLiQismjUIYkxYzCsf4g",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXSy$seMkLiQismjUIYkxYzCsf4g"
+    }
+```
 
 ## <a name="getID"></a>Retrieve an expense itemization by ID
 

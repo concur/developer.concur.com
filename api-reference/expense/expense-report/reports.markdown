@@ -66,6 +66,79 @@ Name | Type | Format | Description
 `modifiedDateAfter`	|	`DateTime`	|	`query`	|	The report modified date is after this date.Format: YYYY-MM-DD
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/reports?limit=15&user=ALL
+```
+
+### JSON example of a successful response
+
+```
+{
+  "Items": [
+    {
+      "Name": "Canadian Tax",
+      "Total": 1900,
+      "CurrencyCode": "CAD",
+      "Country": "CA",
+      "CountrySubdivision": "CA-BC",
+      "CreateDate": "2013-09-02T19:05:57.687",
+      "SubmitDate": "2013-09-02T19:18:35.537",
+      "ProcessingPaymentDate": "2013-09-02T19:40:48.533",
+      "PaidDate": "2013-09-02T19:46:01.57",
+      "ReceiptsReceived": false,
+      "UserDefinedDate": "2013-09-02T00:00:00",
+      "LastComment": "",
+      "OwnerLoginID": "CAtraveler@concurconnect2.com",
+      "OwnerName": "Canadian Traveler",
+      "ApproverLoginID": null,
+      "ApproverName": null,
+      "ApprovalStatusName": "Approved",
+      "ApprovalStatusCode": "A_APPR",
+      "PaymentStatusName": "Sent for Payment",
+      "PaymentStatusCode": "P_PAID",
+      "LastModifiedDate": "2013-09-02T19:46:01.98",
+      "PersonalAmount": 0,
+      "AmountDueEmployee": 1500,
+      "AmountDueCompanyCard": 0,
+      "TotalClaimedAmount": 1900,
+      "TotalApprovedAmount": 1900,
+      "LedgerName": "DEFAULT",
+      "PolicyID": "gWmINGEAkQoamAzOARD9NEBtuv0ppnbJ4lQ",
+      "EverSentBack": false,
+      "HasException": false,
+      "WorkflowActionUrl": "http://www.concursolutions.com/api/v3.0/expense/reports/report/gWpkOyRxJoH6lOiUHqNhW93UWxhOZZw/WorkFlowAction?limit=15&user=ALL",
+      "OrgUnit1": null,
+      "OrgUnit2": null,
+      "OrgUnit3": null,
+      "OrgUnit4": null,
+      "OrgUnit5": null,
+      "OrgUnit6": null,
+      "Custom1": null,
+      "Custom2": null,
+      "Custom3": null,
+      "Custom4": null,
+      "Custom5": null,
+      "Custom6": null,
+      "Custom7": null,
+      "Custom8": null,
+      "Custom9": null,
+      "Custom10": null,
+      "Custom11": null,
+      "Custom12": null,
+      "Custom13": null,
+      "Custom14": null,
+      "Custom15": null,
+      "Custom16": null,
+      "Custom17": null,
+      "Custom18": null,
+      "Custom19": null,
+      "Custom20": null,
+      "ID": "F4F027007E814C1CA70E",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/reports/F4F027007E814C1CA70E"
+    }
+```
 
 ## <a name="getID"></a>Retrieve a report by ID
 
