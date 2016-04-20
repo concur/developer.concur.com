@@ -14,7 +14,7 @@ At [Concur Labs][concur-labs], our charter is to pioneer integrations and protot
 
 Currently we’re building telematics for mileage tracking, travel admin time-savers and travel app tools. Here’s a sampling of projects underway:
 
-![alt text](https://www.concur.com/blog/wp-content/uploads/2016/01/Concur-Labs-dashboard.png){: align="left"}{: style="padding-right: 10px"}
+![alt text](https://www.concur.com/newsroom/public/uploads/wp/concur-labs-dashboard.png){: align="left"}{: style="padding-right: 10px"}
 __“Trace”—Expense Mileage from Your Car:__ This mobile app connects to your odometer to clock, log and track miles for expensing. You simply swipe to send business trip miles to Concur, and your mileage expense is ready for submission. We built the first concept at a Ford Developer Hackathon and then worked with [Ford Motor Company][ford-motor-company] to evolve this into a new feature for drivers. [We presented the service at CES][ces], the largest international consumer electronics and technology show, with 170K attendees.
 
 __“App Recommendation Engine”—Get Apps You Need, When You Need Them:__ If you travel often, you’re probably familiar with the hassles of anticipating traffic, navigating airports and finding the nearest Starbucks. When you book a business trip, a geo-targeted list of recommended travel apps comes to your Inbox or Android device. The service also factors in previous expense data to deliver personalized and relevant suggestions.
