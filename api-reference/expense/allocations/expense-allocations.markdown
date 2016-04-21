@@ -31,12 +31,15 @@ This resource can be used to retrieve information about the allocations that are
 |`user`|`string`|`query`|The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter.|
 
 
-###Request URL
+### Request URL
+
 ```
 https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
 ```
 
-###JSON Example of a successful response
+
+### JSON Example of a successful response
+
 ```
 {
   "Items": [
@@ -101,6 +104,7 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
       "URI": "https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFhxez1E72ExJPksvTH0KPPyw"
     }
   ```
+  
     
 
 ### Response
@@ -159,12 +163,15 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
 |`Value`|`string`|-|The value in the Org Unit or Custom field. For list fields, this is the name of the list item. Maximum length: 48 characters|
 
 
-###Request URL
+### Request URL
+
 ```
 https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFlD9Py%24p7cwkclNQvGC1JQPyw
 ```
 
-###JSON example of a successful response
+
+### JSON example of a successful response
+
 ```
 {
   "EntryID": "gWidFO7ikXSy8HdaIfw32sJhcmk76TjD$p4g",
