@@ -33,12 +33,15 @@ Name | Type | Format | Description
 `limit`	|	`Int32`	|	`query`	|	The number of records to return. Default value: 25
 
 
-###Request URL
+### Request URL
+
 ```
 https://www.concursolutions.com/api/v3.0/expense/attendeetypes?limit=10
 ```
 
-###JSON example of a successful response
+
+### JSON example of a successful response
+
 ```
 {
   "Items": [
@@ -84,7 +87,8 @@ https://www.concursolutions.com/api/v3.0/expense/attendeetypes?limit=10
       "ID": "gWjYOjoOorT3dhpHGto5H$poJuoa0m",
       "URI": "https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjoOorT3dhpHGto5H$poJuoa0m"
     }
- ```
+```
+
 
 ## <a name="getID"></a>Retrieve attendee types by ID
 
@@ -97,12 +101,15 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `id`|`string`|`path`|**Required** The ID of the attendee type.
 
-###Request URL
+### Request URL
+
 ```
 https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjoOorT3dhpHGto5H%24poJuoa0m
 ```
 
-###JSON example of a successful response
+
+### JSON example of a successful response
+
 ```
 {
   "Name": "Healthcare Professional",
@@ -131,6 +138,7 @@ https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjoOorT3dhpHG
 }
 ```
 
+
 ## <a name="post"></a>Create a new attendee type
 
     POST  /api/v3.0/expense/attendeetypes
@@ -152,18 +160,22 @@ Name | Type | Format | Description
 [Attendee Schema](#schema)
 
 
-###Request URL
+### Request URL
+
 ```
 https://www.concursolutions.com/api/v3.0/expense/attendeetypes
 ```
 
-###JSON example of a successful response
+
+### JSON example of a successful response
+
 ```
 {
   "ID": "gWjYOj4JuT5VB$paQnF31149$sKgaM$p",
   "URI": "https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOj4JuT5VB$paQnF31149$sKgaM$p"
 }
 ```
+
 
 ## <a name="put"></a>Update existing attendee type
 
@@ -185,10 +197,12 @@ Name | Type | Format | Description
 
 [Attendee Schema](#schema)
 
-###Request URL
+### Request URL
+
 ```
 https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjoa7Fe0HsTGEk417OCzqUf1A
 ```
+
 
 ## <a name="delete"></a>Delete an attendee type
 
@@ -207,10 +221,12 @@ Name | Type | Format | Description
 ### Response
 [Attendee Schema](#schema)
 
-###Request URL
+### Request URL
+
 ```
 https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjomP3Jxp6dFC%24pIg%24sc99nQQ3q
 ```
+
 
 ## <a name="schema"></a>Schema
 
