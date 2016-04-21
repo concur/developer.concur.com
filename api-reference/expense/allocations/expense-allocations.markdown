@@ -31,6 +31,82 @@ This resource can be used to retrieve information about the allocations that are
 |`user`|`string`|`query`|The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter.|
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
+```
+
+
+### JSON Example of a successful response
+
+```
+{
+  "Items": [
+    {
+      "EntryID": "gWidFO7ikXSy7gHnNngC12jkL7khMiREv4g",
+      "Percentage": "100.00000000",
+      "IsPercentEdited": false,
+      "IsHidden": true,
+      "AccountCode1": "1",
+      "AccountCode2": null,
+      "Custom1": null,
+      "Custom2": null,
+      "Custom3": null,
+      "Custom4": null,
+      "Custom5": null,
+      "Custom6": null,
+      "Custom7": null,
+      "Custom8": null,
+      "Custom9": null,
+      "Custom10": null,
+      "Custom11": null,
+      "Custom12": null,
+      "Custom13": null,
+      "Custom14": null,
+      "Custom15": null,
+      "Custom16": null,
+      "Custom17": null,
+      "Custom18": null,
+      "Custom19": null,
+      "Custom20": null,
+      "ID": "gWmudeHM8AuFikny3Hrpz$s2gaNvc0E7Xfyw",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFikny3Hrpz$s2gaNvc0E7Xfyw"
+    },
+    {
+      "EntryID": "gWidFO7ikXSy41$smPkwdC5cL1aku$pSgc$p4g",
+      "Percentage": "100.00000000",
+      "IsPercentEdited": false,
+      "IsHidden": true,
+      "AccountCode1": "1",
+      "AccountCode2": null,
+      "Custom1": null,
+      "Custom2": null,
+      "Custom3": null,
+      "Custom4": null,
+      "Custom5": null,
+      "Custom6": null,
+      "Custom7": null,
+      "Custom8": null,
+      "Custom9": null,
+      "Custom10": null,
+      "Custom11": null,
+      "Custom12": null,
+      "Custom13": null,
+      "Custom14": null,
+      "Custom15": null,
+      "Custom16": null,
+      "Custom17": null,
+      "Custom18": null,
+      "Custom19": null,
+      "Custom20": null,
+      "ID": "gWmudeHM8AuFhxez1E72ExJPksvTH0KPPyw",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFhxez1E72ExJPksvTH0KPPyw"
+    }
+```
+  
+    
+
 ### Response
 
 [Allocations Schema](#schema)
@@ -86,4 +162,46 @@ This resource can be used to retrieve information about the allocations that are
 |`Type`|`string`|-|The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text
 |`Value`|`string`|-|The value in the Org Unit or Custom field. For list fields, this is the name of the list item. Maximum length: 48 characters|
 
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFlD9Py%24p7cwkclNQvGC1JQPyw
+```
+
+
+### JSON example of a successful response
+
+```
+{
+  "EntryID": "gWidFO7ikXSy8HdaIfw32sJhcmk76TjD$p4g",
+  "Percentage": "100.00000000",
+  "IsPercentEdited": false,
+  "IsHidden": true,
+  "AccountCode1": "1",
+  "AccountCode2": null,
+  "Custom1": null,
+  "Custom2": null,
+  "Custom3": null,
+  "Custom4": null,
+  "Custom5": null,
+  "Custom6": null,
+  "Custom7": null,
+  "Custom8": null,
+  "Custom9": null,
+  "Custom10": null,
+  "Custom11": null,
+  "Custom12": null,
+  "Custom13": null,
+  "Custom14": null,
+  "Custom15": null,
+  "Custom16": null,
+  "Custom17": null,
+  "Custom18": null,
+  "Custom19": null,
+  "Custom20": null,
+  "ID": "gWmudeHM8AuFlD9Py$p7cwkclNQvGC1JQPyw",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFlD9Py$p7cwkclNQvGC1JQPyw"
+}
+```
 
