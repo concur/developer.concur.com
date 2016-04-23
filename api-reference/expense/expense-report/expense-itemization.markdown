@@ -138,6 +138,91 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter.
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXV6%24pcZsso2aBN0Aad4P5i8bjCg
+```
+
+### JSON example of a successful response
+
+```
+{
+  "EntryID": "gWidFO7ikXV6$sQxTtWGQsIhawC4KoyssTCg",
+  "ReportID": "39BD9F7C5C3F4986A6A5",
+  "ReportOwnerID": "jimadmin@concurconnect2.com",
+  "ExpenseTypeCode": "LODTX",
+  "ExpenseTypeName": "Hotel Tax",
+  "SpendCategoryCode": "LODGA",
+  "SpendCategoryName": "Lodging - Track Room Rate Spending",
+  "TransactionDate": "2016-04-21T00:00:00",
+  "TransactionAmount": 20,
+  "PostedAmount": 20,
+  "ApprovedAmount": 20,
+  "LocationID": "gWqWg2EhcUKB$sottpx8eODvjn1$pWvWfG15A",
+  "LocationName": "Bellevue, Washington",
+  "LocationSubdivision": "Washington",
+  "LocationCountry": "US",
+  "Description": null,
+  "IsPersonal": false,
+  "IsBillable": false,
+  "IsImageRequired": false,
+  "AllocationType": "N",
+  "HasComments": false,
+  "HasExceptions": false,
+  "LastModified": "2016-04-22T22:19:55.213",
+  "OrgUnit1": null,
+  "OrgUnit2": null,
+  "OrgUnit3": null,
+  "OrgUnit4": null,
+  "OrgUnit5": null,
+  "OrgUnit6": null,
+  "Custom1": null,
+  "Custom2": null,
+  "Custom3": null,
+  "Custom4": null,
+  "Custom5": null,
+  "Custom6": null,
+  "Custom7": null,
+  "Custom8": null,
+  "Custom9": null,
+  "Custom10": null,
+  "Custom11": null,
+  "Custom12": null,
+  "Custom13": null,
+  "Custom14": null,
+  "Custom15": null,
+  "Custom16": null,
+  "Custom17": null,
+  "Custom18": null,
+  "Custom19": null,
+  "Custom20": null,
+  "Custom21": null,
+  "Custom22": null,
+  "Custom23": null,
+  "Custom24": null,
+  "Custom25": null,
+  "Custom26": null,
+  "Custom27": null,
+  "Custom28": null,
+  "Custom29": null,
+  "Custom30": null,
+  "Custom31": null,
+  "Custom32": null,
+  "Custom33": null,
+  "Custom34": null,
+  "Custom35": null,
+  "Custom36": null,
+  "Custom37": null,
+  "Custom38": null,
+  "Custom39": null,
+  "Custom40": null,
+  "ID": "gWidFO7ikXV6$pcZsso2aBN0Aad4P5i8bjCg",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXV6$pcZsso2aBN0Aad4P5i8bjCg"
+}
+```
+
+
 ## <a name="post"></a>Create a new expense itemization
 
     POST  /api/v3.0/expense/itemizations
@@ -148,6 +233,22 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `content`	|	-	|	`body`	|	**Required** The expense itemization object to create.
+
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/itemizations
+```
+
+### JSON example of a successful response
+
+```
+{
+  "ID": "gWidFO7ikXV69FISvVWPbHe1Oj4FbCd0DCg",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXV69FISvVWPbHe1Oj4FbCd0DCg"
+}
+```
 
 
 ## <a name="put"></a>Update an expense itemization
@@ -163,6 +264,17 @@ Name | Type | Format | Description
 `content`	|	-	|	`body`	|	**Required** The partial or complete expense itemization object to update.
 
 
+### Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXV6%24pcZsso2aBN0Aad4P5i8bjCg
+```
+
+### JSON example of a successful response
+
+```
+no content
+```
+
 ## <a name="delete"></a>Delete an expense itemization
 
     DELETE  /api/v3.0/expense/itemizations/{id}
@@ -176,6 +288,18 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	**Required** The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter.
 
 
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXV6%24pcZsso2aBN0Aad4P5i8bjCg
+```
+
+### JSON example of a successful response
+
+```
+no content
+```
 
 ## <a name="schema"></a>Schema
 
