@@ -64,14 +64,16 @@ layout: reference
 ### <a name="april2016"></a>April 2016
 
 #### Travel: Form of Payment 1.0 Deprecated
-Effective May 1, 2016, Form of Payment 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0]({{site.baseurl}}/api-reference/travel/travel-profile/index.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
+Effective May 1, 2016, Form of Payment 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0]({{site.baseurl}}/api-reference/travel/travel-profile/form-payment-resource.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
 
 Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/reference/deprecation-policy.html) for definitions additional information.
+
+-----
 
 ### <a name="feb2016"></a>February 2016
 
 #### Travel Profile 1.0 Deprecated
-Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0]({{site.baseurl}}/api-reference/travel/travel-profile/form-payment-resource.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
+Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0]({{site.baseurl}}/api-reference/travel/travel-profile/index.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
 
 Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/reference/deprecation-policy.html) for definitions additional information.
 
