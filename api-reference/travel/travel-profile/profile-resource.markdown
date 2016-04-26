@@ -556,6 +556,7 @@ The data model of the response for the GET operation.
     <span class="xml-tag">&lt;/Metadata</span><span class="xml-tag">&gt;</span>
     <span class="xml-tag">&lt;Data</span><span class="xml-tag">&gt;</span>
         <span class="xml-tag">&lt;ProfileSummary</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;Status</span> <span class="xml-tag">/&gt;</span>
             <span class="xml-tag">&lt;LoginID</span> <span class="xml-tag">/&gt;</span>
             <span class="xml-tag">&lt;XmlProfileSyncID</span> <span class="xml-tag">/&gt;</span>
             <span class="xml-tag">&lt;ProfileLastModifiedUTC</span> <span class="xml-tag">/&gt;</span>
@@ -598,6 +599,7 @@ The Paging parent element contains contains the paging information for the respo
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- | :----- |
+|  Status |  `string` |  Current status of the user: Active or Inactive. |
 |  LoginID |  `string` |  The Concur user login ID. |
 |  XMLProfileSyncID |  `string` |  TThe user's XML Profile Sync ID, if available. |
 |  ProfileLastModifiedUTC |  `string` |  The date, in UTC, when the travel profile was last modified. Format: YYYY-MM-DDThh:mm:ss. |
@@ -632,11 +634,13 @@ Content-Type: application/xml
     <span class="xml-tag">&lt;/Metadata</span><span class="xml-tag">&gt;</span>
     <span class="xml-tag">&lt;Data</span><span class="xml-tag">&gt;</span>
         <span class="xml-tag">&lt;ProfileSummary</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;Status</span><span class="xml-tag">&gt;</span>Active<span class="xml-tag">&lt;/Status</span><span class="xml-tag">&gt;</span>
             <span class="xml-tag">&lt;LoginID</span><span class="xml-tag">&gt;</span>mariab@company1.com<span class="xml-tag">&lt;/LoginID</span><span class="xml-tag">&gt;</span>
             <span class="xml-tag">&lt;XmlProfileSyncID</span><span class="xml-tag">&gt;</span>`string`123<span class="xml-tag">&lt;/XmlProfileSyncID</span><span class="xml-tag">&gt;</span>
             <span class="xml-tag">&lt;ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>2015-01-01T01:00:00<span class="xml-tag">&lt;/ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>
         <span class="xml-tag">&lt;/ProfileSummary</span><span class="xml-tag">&gt;</span>
         <span class="xml-tag">&lt;ProfileSummary</span><span class="xml-tag">&gt;</span>
+            <span class="xml-tag">&lt;Status</span><span class="xml-tag">&gt;</span>Inactive<span class="xml-tag">&lt;/Status</span><span class="xml-tag">&gt;</span>
             <span class="xml-tag">&lt;LoginID</span><span class="xml-tag">&gt;</span>peterk@company1.com<span class="xml-tag">&lt;/LoginID</span><span class="xml-tag">&gt;</span>
             <span class="xml-tag">&lt;XmlProfileSyncID</span><span class="xml-tag">&gt;</span>`string`456<span class="xml-tag">&lt;/XmlProfileSyncID</span><span class="xml-tag">&gt;</span>
             <span class="xml-tag">&lt;ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>2015-01-01T01:00:00<span class="xml-tag">&lt;/ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>

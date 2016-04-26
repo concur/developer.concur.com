@@ -57,6 +57,112 @@ Name | Type | Format | Description
 `id`	|	`string`	|	`path`	|	**Required** The expense entry ID.
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns the entries.
 
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0wZ%24s4ftzvzTCg
+```
+
+### JSON example of a successful response
+
+```
+{
+  "ReportID": "39BD9F7C5C3F4986A6A5",
+  "ReportOwnerID": "jimadmin@concurconnect2.com",
+  "ExpenseTypeCode": "GASXX",
+  "ExpenseTypeName": "Fuel",
+  "SpendCategoryCode": "GASXX",
+  "SpendCategoryName": "Gas",
+  "PaymentTypeID": "gWurF7TC$pQAT4cqT0JokiYMobzQdz",
+  "PaymentTypeName": "Cash",
+  "TransactionDate": "2016-04-04T00:00:00",
+  "TransactionCurrencyCode": "USD",
+  "TransactionAmount": 100,
+  "ExchangeRate": 1,
+  "PostedAmount": 100,
+  "ApprovedAmount": 100,
+  "VendorDescription": "Chevron",
+  "VendorListItemID": "gWuY7jnXPYIMMTdjsoL547QqQ6pDvuDytvw",
+  "VendorListItemName": "Chevron",
+  "LocationID": null,
+  "LocationName": "",
+  "LocationSubdivision": null,
+  "LocationCountry": null,
+  "Description": null,
+  "IsPersonal": false,
+  "IsBillable": false,
+  "IsPersonalCardCharge": false,
+  "HasImage": false,
+  "IsImageRequired": true,
+  "ReceiptReceived": false,
+  "TaxReceiptType": "N",
+  "ElectronicReceiptID": null,
+  "CompanyCardTransactionID": null,
+  "TripID": null,
+  "HasItemizations": false,
+  "AllocationType": "N",
+  "HasAttendees": false,
+  "HasVAT": false,
+  "HasAppliedCashAdvance": false,
+  "HasComments": false,
+  "HasExceptions": false,
+  "IsPaidByExpensePay": false,
+  "EmployeeBankAccountID": null,
+  "Journey": null,
+  "LastModified": "2016-04-22T21:50:46.893",
+  "FormID": "gWvidmKNPVE38CEiyWu7DFvcS7OvCjV3Zvg",
+  "OrgUnit1": null,
+  "OrgUnit2": null,
+  "OrgUnit3": null,
+  "OrgUnit4": null,
+  "OrgUnit5": null,
+  "OrgUnit6": null,
+  "Custom1": null,
+  "Custom2": null,
+  "Custom3": null,
+  "Custom4": null,
+  "Custom5": null,
+  "Custom6": null,
+  "Custom7": null,
+  "Custom8": null,
+  "Custom9": null,
+  "Custom10": null,
+  "Custom11": null,
+  "Custom12": null,
+  "Custom13": null,
+  "Custom14": null,
+  "Custom15": null,
+  "Custom16": null,
+  "Custom17": null,
+  "Custom18": null,
+  "Custom19": null,
+  "Custom20": null,
+  "Custom21": null,
+  "Custom22": null,
+  "Custom23": null,
+  "Custom24": null,
+  "Custom25": null,
+  "Custom26": null,
+  "Custom27": null,
+  "Custom28": null,
+  "Custom29": null,
+  "Custom30": null,
+  "Custom31": null,
+  "Custom32": null,
+  "Custom33": null,
+  "Custom34": null,
+  "Custom35": null,
+  "Custom36": null,
+  "Custom37": null,
+  "Custom38": null,
+  "Custom39": null,
+  "Custom40": null,
+  "ID": "gWidFO7ikXV66iSvqtG6Yd0wZ$s4ftzvzTCg",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0wZ$s4ftzvzTCg"
+}
+```
+
 -->
 
 ## <a name="post"></a>Create a new expense entry
@@ -69,6 +175,22 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `content`|````body````|-|**Required** The expense entry object to create.
+
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/entries
+```
+
+### JSON example of a successful response
+
+```
+{
+  "ID": "gWidFO7ikXV647DRpQmvCXeFNA4VPTOczCg",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV647DRpQmvCXeFNA4VPTOczCg"
+}
+```
 
 
 ## <a name="put"></a>Updates an expense entry
@@ -84,6 +206,16 @@ Name | Type | Format | Description
 `content`|````body````|-|**Required** The partial or complete expense entry object to update.
 
 
+### Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0wZ%24s4ftzvzTCg
+```
+
+### JSON example of a successful response
+```
+no content
+```
+
 ## <a name="delete"></a>Delete an expense entry
 
     DELETE  /api/v3.0/expense/entries/{id}
@@ -96,6 +228,18 @@ Name | Type | Format | Description
 `id`|````string````|`path`|**Required** The ID of the expense entry to delete.
 `user`|````string````|`query`|The login ID of the user who owns the entries.
 
+
+### REquest URL
+```
+https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0wZ%24s4ftzvzTCg
+```
+
+
+### JSON example of a successful response
+
+```
+no content
+```
 
 ## <a name="schema"></a>Schema
 

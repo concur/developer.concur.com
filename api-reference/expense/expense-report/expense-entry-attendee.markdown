@@ -86,6 +86,30 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter.
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM%24s2kvfcQ8xC%24p6uaPsY6V6qB7FqOU
+```
+
+### JSON example of a successful response
+
+```
+{
+  "EntryID": "gWidFO7ikXV67u6QrT2w1Yhqzh4a8j$pEjCg",
+  "AttendeeID": "gWj3IHRYiHZOTjq8PONWIqyRFfGz4RoozoQ",
+  "Amount": 17.01,
+  "AssociatedAttendeeCount": 1,
+  "Custom1": null,
+  "Custom2": null,
+  "Custom3": null,
+  "Custom4": null,
+  "Custom5": null,
+  "ID": "gWgSM$s2kvfcQ8xC$p6uaPsY6V6qB7FqOU",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM$s2kvfcQ8xC$p6uaPsY6V6qB7FqOU"
+}
+```
+
 ## <a name="post"></a>Create a new entry-attendee association
 
     POST  /api/v3.0/expense/entryattendeeassociations
@@ -97,6 +121,21 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `content`	|	-	|	`body`	|	**Required** The EntryAttendeeAssociation object to create.
 
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations
+```
+
+### JSON example of a successful response
+
+```
+{
+  "ID": "gWgSM$s2kvfcQ8xC$p6uaPsY6V6qB7FqOU",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM$s2kvfcQ8xC$p6uaPsY6V6qB7FqOU"
+}
+```
 
 ## <a name="put"></a>Update a specified entry-attendee association
 
@@ -115,6 +154,18 @@ Name | Type | Format | Description
 
     DELETE  /api/v3.0/expense/entryattendeeassociations/{id}
 
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM%24s2kvfcQ8xC%24p6uaPsY6V6qB7FqOU
+```
+
+### JSON example of a successful response
+
+```
+no content
+```
 
 ### Parameters
 
