@@ -168,3 +168,20 @@ Name | Type | Format | Description
 `LineItems`	|	`Array`	|	[Line Item](#lineitem)	|	The parent element for the line items in the receipt. There is a LineItem child element for each line item.
 `StartDateTime`	|	`DateTime`	|	-	|	**Required** The starting date and time for the ride (in Local Time). Format: YYYY-MM-DDThh:mm
 `VehicleNumber`	|	`string`	|	-	|	The unique identifier for the vehicle. Maximum length: 50 characters
+
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/common/receipts
+```
+
+
+### JSON example of a successful response
+
+```
+{
+  "ID": "270583561310",
+  "URI": ""
+}
+```
