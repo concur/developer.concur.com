@@ -75,6 +75,34 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr7QiDXTuWSO8bsFmK87bnP%24sC8fZmg
+```
+
+### JSON example of a successful response
+
+```
+{
+  "ExpenseTypeCode": "DINNR",
+  "PaymentTypeCode": "CPAID",
+  "TransactionDate": "2015-03-17T00:00:00",
+  "TransactionAmount": 17.01,
+  "CurrencyCode": "USD",
+  "VendorDescription": "I Love Sushi",
+  "Comment": "Does this default to Cash?",
+  "OwnerLoginID": "jimadmin@concurconnect2.com",
+  "OwnerName": "Jim Admin",
+  "ExpenseTypeName": "Dinner",
+  "LocationName": "",
+  "ReceiptImageID": null,
+  "ID": "gWr7QiDXTuWSO8bsFmK87bnP$sC8fZmg",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr7QiDXTuWSO8bsFmK87bnP$sC8fZmg"
+}
+```
+
+
 ## <a name="post"></a>Create a quick expense
 
     POST  /api/v3.0/expense/quickexpenses
@@ -97,6 +125,23 @@ Name | Type | Format | Description
 `TransactionAmount`	|	`Decimal`	|		|	**Required** The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654
 `TransactionDate`	|	`DateTime`	|		|	**Required**The date the expense was incurred. Format: YYYY-MM-DD
 `VendorDescription`	|	`string`	|		|	The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction. Max Length: 64
+
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/quickexpenses
+```
+
+
+### JSON example of a successful response
+
+```
+{
+  "ID": "gWr7QiDXTuWSO8bsFmK87bnP$sC8fZmg",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr7QiDXTuWSO8bsFmK87bnP$sC8fZmg"
+}
+```
 
 
 ## <a name="put"></a>Update a quick expense
@@ -124,6 +169,18 @@ Name | Type | Format | Description
 `VendorDescription`	|	`string`	|		|	The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction. Max Length: 64
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr7QiDXTuWSO8bsFmK87bnP%24sC8fZmg
+```
+
+
+### JSON example of a successful response
+```
+no content
+```
+
 ## <a name="delete"></a>Delete a quick expense
 
     DELETE  /api/v3.0/expense/quickexpenses/{id}
@@ -136,6 +193,17 @@ Name | Type | Format | Description
 `id`	|	`string`	|	`path`	|	**Required** The ID of the quick expense to be deleted
 `user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
+
+### Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr7QiDXTuWSO8bsFmK87bnP%24sC8fZmg
+```
+
+
+### JSON example of a successful response
+```
+no content
+```
 
 
 ## <a name="schema"></a>Schema
