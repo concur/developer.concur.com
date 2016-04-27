@@ -11,7 +11,7 @@ layout: reference
 | -- | -- | -- |
 | [February 2016](#feb2016) | [February 2015][2-4] | -- |
 | [March 2016]({{site.baseurl}}/blog/2016/03/15/march-release-notes.html) | -- | -- |
-| -- | [April 2015][2-5] | -- |
+| [April 2016](#april2016) | [April 2015][2-5] | -- |
 | -- | [May 2015][2-6] | [May 2014][2-1] |
 | -- | -- | [June 2014][2-2] |
 | -- | [July 2015](#july2015) | -- |
@@ -61,6 +61,14 @@ layout: reference
 
 ## Release Notes
 
+### <a name="april2016"></a>April 2016
+
+#### Travel: Form of Payment 1.0 Deprecated
+Effective May 1, 2016, Form of Payment 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0]({{site.baseurl}}/api-reference/travel/travel-profile/form-payment-resource.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
+
+Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/reference/deprecation-policy.html) for definitions additional information.
+
+-----
 
 ### <a name="feb2016"></a>February 2016
 
@@ -69,7 +77,7 @@ Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues wil
 
 Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/reference/deprecation-policy.html) for definitions additional information.
 
-
+-----
 
 ### <a name="august2015"></a>August 2015
 

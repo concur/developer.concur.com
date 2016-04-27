@@ -5,11 +5,12 @@ layout: reference
 
 
 ## Description
-The Form of Payment resource represents the form of payment a Concur user uses by default during travel. You can use this resource to obtain information associated with a user's preferred method of payment such as card display name, credit card number, expiration date, and billiting address.  
+The Form of Payment resource represents the form of payment a Concur user uses by default during travel. You can use this resource to obtain information associated with a user's preferred method of payment such as card display name, credit card number, expiration date, and billiting address. **This version (1.0) has been deprecated effective 04/01/2016**  
+
 **Click [here](/api-reference/travel/travel-profile/form-payment-resource.html) to access a newer version.**
 
 ## Version   
-1.0
+1.0 **Deprecated 04/01/2016**
 
 ## URI   
 <samp> https://www.concursolutions.com/api/travelprofile/v1.0/fop/ </samp>
