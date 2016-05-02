@@ -145,7 +145,7 @@ Test your API in the [API Explorer](https://concurapi.readme.io/docs/post-e-rece
 <html>
 <body>
 
-<img src="images/Web flow.jpg" alt="Web flow">
+<img src="images/Web_flow.jpg" alt="Web flow">
 
 </body>
 </html>
@@ -157,7 +157,7 @@ Test your API in the [API Explorer](https://concurapi.readme.io/docs/post-e-rece
 <html>
 <body>
 
-<img src="images/Normal flow.jpg" alt="Normal flow">
+<img src="images/Normal_flow.jpg" alt="Normal flow">
 
 </body>
 </html>
