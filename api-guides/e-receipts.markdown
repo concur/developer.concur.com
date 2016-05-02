@@ -130,16 +130,16 @@ JSON
 }
 ```
 
-Test your API in the [API Explorer](https://concurapi.readme.io/docs/post-e-receipt).
+Test your API in the [API Explorer](https://concurapi.readme.io/docs/post-e-receipt).  
+
 
 #### If the user connection is initiated from the Partner site, it should follow Web Flow:
 
-![Web Flow](images/web_flow.jpg)
-
+![Web Flow](images/web_flow.JPG)
 
 #### If the connection is initated from the Concur App Center, the user experience should follow App Center Flow:
 
-![App Center Flow](images/Normal-flow.JPG)
+![App Center Flow](images/Normal-flow.jpg)
 
 #### Make us better at making your experience easier.
 Share a Concur API process issue we can do better. Provide us with an explanation, screen shots and your recommendation [here](http://forum.developer.concur.com/).
