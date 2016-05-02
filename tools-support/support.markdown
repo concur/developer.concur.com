@@ -4,7 +4,7 @@ layout: reference
 ---
 
 #### Configuring Sandboxes:
-You can get assistance for your developer sandbox configuration using the [Sandbox Configuration Assistance][1] page.
+You can get assistance for your developer sandbox configuration by going to the [Concur Forums for Sandbox Setup][1] page.
 
 - - -
 
