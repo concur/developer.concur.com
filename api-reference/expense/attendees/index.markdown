@@ -9,7 +9,6 @@ layout: reference
 * [Retrieve a single attendee by ID](#getID)
 * [Create a new attendee](#post)
 * [Update existing attendees](#put)
-* [Delete an attendee](#delete)
 * [Schema](#schema)
 
 ### Version
@@ -222,11 +221,6 @@ Name | Type | Format | Description
 ```
 https://www.concursolutions.com/api/v3.0/expense/attendees/gWj3IHRYiHZOQ2T9NNdJ%24plN%24s7%24sG8LhZwjoQ
 ```
-
-
-## <a name="delete"></a>Delete an attendee
-
-    DELETE  /api/v3.0/expense/attendees/{id}
 
 ### Parameters
 
