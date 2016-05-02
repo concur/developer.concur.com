@@ -4,7 +4,7 @@ layout: reference
 ---
 
 #### Configuring Sandboxes:
-You can get assistance for your developer sandbox configuration using the [Sandbox Configuration Assistance][1] page.
+You can get assistance for your developer sandbox configuration by going to the [Concur Forums for Sandbox Setup][1] page.
 
 - - -
 
@@ -55,7 +55,7 @@ If you're a Concur administrator, support contact information can be found here:
 
 
 
-[1]: {{site.baseurl}}/tools-support/sandbox-configuration-assistance.html
+[1]: https://forum.developer.concur.com/c/sandbox
 [2]: https://developer.concur.com/docs-and-resources/forums
 [3]: https://na4.salesforce.com/secur/login_portal.jsp?orgId=00D600000007Dq3&portalId=06060000000PrEi
 [4]: https://www.concursolutions.com/profile/send_password_hint.asp?txtLoginID=&forgotName=1
