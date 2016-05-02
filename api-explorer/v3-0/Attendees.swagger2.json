@@ -21,7 +21,7 @@
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
@@ -159,35 +159,6 @@
             "schema": {
               "$ref": "#/definitions/AttendeePut"
             }
-          },
-          {
-            "name": "user",
-            "in": "query",
-            "description": "The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/Void"
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [ "Resources" ],
-        "summary": "Delete an attendee by ID",
-        "description": "Deletes the specified attendee.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The ID of the attendee to delete.",
-            "required": true,
-            "type": "string"
           },
           {
             "name": "user",
