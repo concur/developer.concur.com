@@ -32,7 +32,7 @@ Currently the Receipts service supports these three types of receipts: general p
 
 This diagram explains how to send an e-receipt to Concur. Developers should remember to both ***STORE*** and ***USE*** the instance URL as well as the refresh token. 
 
-![Send a receipt to Concur](/images/Send_a_receipt_to_Concur.jpg)
+![Send a receipt to Concur](images/Send_a_receipt_to_Concur.jpg)
 
 The POST fields required for the Receipt endpoint are located in the official Concur developer page [here](https://developer.concur.com/receipts/post-receipt), and test it out in our Swagger page [here](https://www.concursolutions.com/api/docs/index.html).
 
@@ -134,12 +134,12 @@ Test your API in the [API Explorer](https://concurapi.readme.io/docs/post-e-rece
 
 #### If the user connection is initiated from the Partner site, it should follow Web Flow:
 
-![Web Flow](/images/web_flow.jpg)
+![Web Flow](images/web_flow.jpg)
 
 
 #### If the connection is initated from the Concur App Center, the user experience should follow App Center Flow:
 
-![App Center Flow](/images/Normal-flow.JPG)
+![App Center Flow](images/Normal-flow.JPG)
 
 #### Make us better at making your experience easier.
 Share a Concur API process issue we can do better. Provide us with an explanation, screen shots and your recommendation [here](http://forum.developer.concur.com/).
