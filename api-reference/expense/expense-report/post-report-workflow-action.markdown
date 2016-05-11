@@ -11,7 +11,9 @@ Posts a workflow action for the supplied expense report. The workflow action mov
 The available actions are:
 
 * **Approve**: The report successfully completes the current workflow step. The report will continue in the workflow, and may require additional approvals based on configuration. If the report was in the Processing Payment status, it will be moved to the Paid status.  
-**NOTE**: Reports can't be moved from Processing Payment to Paid until all of their expense entries have been extracted or manually paid. Wait until the extract process completes for the report, then send the Approve workflow action.
+**NOTES**:
+  1. Reports can't be moved from Processing Payment to Paid until all of their expense entries have been extracted or manually paid. Wait until the extract process completes for the report, then send the Approve workflow action.
+  2. This API is not supported for the Processor role or expense reports pending the Processor workflow step.
 * **Send Back to Employee**: The report is sent back to the employee for revision. When the user resubmits the report, it travels through the entire workflow again.
 * **Recall to Employee**: This workflow action is initiated by the employee, and is only available after the report has been submitted. This workflow action may not be available to some clients due to configuration.
 
