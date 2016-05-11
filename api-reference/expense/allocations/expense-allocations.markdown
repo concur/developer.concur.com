@@ -28,7 +28,7 @@ This resource can be used to retrieve information about the allocations that are
 |`repordID`|`string`|`query`|The unique identifier for the report as it appears in the Concur Expense UI. Format: A variable-length string. Maximum length: 32 characters.
 |`entryID`|`string`|`query`|The unique identifier for the expense entry.
 |`itemizationID`|`string`|`query`|The unique identifier for the expense itemization.
-|`user`|`string`|`query`|The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter.|
+Note: userId is not a supported query string parameter for this API.
 
 
 ### Request URL
