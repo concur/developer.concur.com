@@ -9,15 +9,15 @@ layout: reference
 | 2016 | 2015 | 2014 |
 | ---- | ---- | ---- |
 | -- | -- | -- |
-| [February 2016](#feb2016) | [February 2015][2-4] | -- |
-| [March 2016]({{site.baseurl}}/blog/2016/03/15/march-release-notes.html) | -- | -- |
-| [April 2016](#april2016) | [April 2015][2-5] | -- |
-| -- | [May 2015][2-6] | [May 2014][2-1] |
-| -- | -- | [June 2014][2-2] |
-| -- | [July 2015](#july2015) | -- |
-| -- | [August 2015](#august2015) | -- |
+| [February](#feb2016) | [February][2-4] | -- |
+| [March]({{site.baseurl}}/blog/2016/03/15/march-release-notes.html) | -- | -- |
+| [April](#april2016) | [April][2-5] | -- |
+| -- | [May][2-6] | [May][2-1] |
+| -- | -- | [June][2-2] |
+| -- | [July](#july2015) | -- |
+| -- | [August](#august2015) | -- |
 | -- | -- | -- |
-| -- | -- | [October 2014][2-3] |
+| -- | -- | [October][2-3] |
 | -- | -- | -- |
 | -- | -- | -- |
 
@@ -25,18 +25,18 @@ layout: reference
 
 | 2016 | 2015 | 2014 |
 | ---- | ---- | ---- |
-| [January 2016](AppCenter_ReleaseNotes_January_2016_FINAL.pdf) | -- | -- |
-| [February 2016](AppCenter_ReleaseNotes_February 2016_DRAFT.pdf) | [February 2015][1-10] | -- |
-| [March 2016](AppCenter_ReleaseNotes_March 2016_FINAL.pdf) | [March 2015][1-11] | -- |
-| -- | [April 2015][1-12] | -- |
-| -- | [May 2015][1-13] | [May 2014](App_Center_Release_Notes_client_final_May2014_0.pdf) |
-| -- | -- | [June 2014][1-2] |
-| -- | [July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July 2014][1-3] |
-| -- | -- | [August 2014][1-4] |
-| -- | [September 2015](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September 2014][1-5] |
-| -- | [October 2015](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October 2014][1-6] |
-| -- | -- | [November 2014][1-7] |
-| -- | [December 2015](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December 2014][1-8] |
+| [January](AppCenter_ReleaseNotes_January_2016_FINAL.pdf) | -- | -- |
+| [February](AppCenter_ReleaseNotes_February 2016_DRAFT.pdf) | [February][1-10] | -- |
+| [March](AppCenter_ReleaseNotes_March 2016_FINAL.pdf) | [March][1-11] | -- |
+| -- | [April][1-12] | -- |
+| [May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf) | [May][1-13] | [May](App_Center_Release_Notes_client_final_May2014_0.pdf) |
+| -- | -- | [June][1-2] |
+| -- | [July](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July][1-3] |
+| -- | -- | [August][1-4] |
+| -- | [September](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September[1-5] |
+| -- | [October](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October][1-6] |
+| -- | -- | [November][1-7] |
+| -- | [December](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December][1-8] |
 
 
 # Combined App Center and Developer Platform Release Notes
