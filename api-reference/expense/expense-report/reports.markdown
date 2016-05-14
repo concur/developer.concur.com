@@ -220,7 +220,7 @@ Name | Type | Format | Description
 `PaymentStatusCode`	|	`string`	|	-	|	The code for the payment status of the report.
 `PaymentStatusName`	|	`string`	|	-	|	The report's payment status, in the OAuth consumer's language.
 `PersonalAmount`	|	`Decimal`	|	-	|	The total amount of expenses marked as personal. Maximum 23 characters.
-`PolicyID`	|	`string`	|	-	|	The unique identifier of the policy that applies to this report. Maximum 64 characters.
+`PolKey`	|	`string`	|	-	|	The unique identifier of the policy that applies to this report. Maximum 64 characters.
 `ProcessingPaymentDate`	|	`DateTime`	|	-	|	The date that the report completed all approvals and was ready to be extracted for payment.
 `ReceiptsReceived`	|	`Boolean`	|	-	|	If Y, then this report has its receipt receipt confirmed by the Expense Processor. Format: Y/N
 `SubmitDate`	|	`DateTime`	|	-	|	The date the report was submitted.
