@@ -1,14 +1,14 @@
 ---
-title: Get notifications by status 
+title: Get notifications by status
 layout: reference
 ---
 
 
 
-##Description
+## Description
 Retrieves the list of event notifications that are in the supplied status.
 
-##Request 
+## Request
 
 ### Request parameters
 
@@ -45,13 +45,13 @@ application/xml
 
 ##  Response
 
-###Supported Content Types
+### Supported Content Types
 
 * application/xml
 * application/json
 
-###Response Body
-This request will return a **NotificationsList** parent element with a **Notification** child element for each failed notification. The **Notification** elements will have a **Failure** child element if the notification is failed. 
+### Response Body
+This request will return a **NotificationsList** parent element with a **Notification** child element for each failed notification. The **Notification** elements will have a **Failure** child element if the notification is failed.
 
 #### Failure elements
 
@@ -103,4 +103,3 @@ This request will return a **NotificationsList** parent element with a **Notific
         }
     ]
 ```
-

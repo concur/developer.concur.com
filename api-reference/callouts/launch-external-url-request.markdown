@@ -1,13 +1,13 @@
 ---
-title: Launch an external URL request 
+title: Launch an external URL request
 layout: reference
 ---
 
 
-###Description
+### Description
 Concur will send a request with the information in an encoded query string when the user clicks the button.
 
-###Request URI
+### Request URI
 The Launch External URL callout launches the URI for the application connector, which can be in a custom location for each client. The standard location is:
 
 `https://{servername}/concur/form/v1.0/get`
@@ -24,7 +24,7 @@ The full URI for the request includes the following query string values:
         &signature={URL-encoded signature hash}
 ```
 
-###Request Query Parameters
+### Request Query Parameters
 
 | Value | Description |
 |-------|-------------|
@@ -34,7 +34,7 @@ The full URI for the request includes the following query string values:
 |  nonce |  The URL-encoded GUID used to generate the signature. |
 |  signature |  The URL-encoded signature hash. |
 
-###Authenticating the Request
+### Authenticating the Request
 To authenticate the request, the developer of the page in the app connector will need to generate an auth signature and compare it with the one passed in the query string.
 
 When the request is received by the connector:
@@ -72,7 +72,7 @@ If the signature hashes match then you know the credentials are valid and the re
 
 ##  Get External URL Response
 
-###Content Body
+### Content Body
 The application connector does not directly respond to the Launch External URL request. The application connector completes any updates to Concur using the Inbound Web Services. The Launch External URL functionality monitors the external window, and when the window is closed, it redraws the form the user launched from to display any updated values.
 
 The following example shows how the Launch External URL web service is used to bring an external system value into an Expense Entry form field. The following configuration has already been completed:
@@ -80,5 +80,3 @@ The following example shows how the Launch External URL web service is used to b
 * The Project ID field has been configured as a Launch URL form field control type.
 * The Project ID field has been added to the expense entry form.
 * The application connector has been configured to use the expense type of the entry and the user ID to search for the correct Project IDs and present them to the user.
-
-
