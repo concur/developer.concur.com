@@ -3,7 +3,7 @@ title: PUT Expense Entry Attendees
 layout: reference
 ---
 
-##Descr iption
+## Description
 This allows the developer to specify which existing attendees are associated to the specified entry. It also gives the developer the option to provide the values for the Entry-Attendee association. The list of attendees in the request will replace any existing associated attendees, so the developer must include all attendees in the request. This function cannot be used to create new attendees.
 
 **NOTE:** Find the newer version 3.0 [here.](/api-reference/expense/expense-report/expense-entry-attendee.html)
