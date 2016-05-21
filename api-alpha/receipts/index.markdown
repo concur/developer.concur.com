@@ -15,9 +15,9 @@ This page documents the Receipts 4.0 API that is still in its development phase.
 
 `https://us.api.concursolutions.com/receipts/v4`
 
-## <a name="Operations"></a> Operations
+## <a name="Operations"></a>Operations
 
-### <a name="GetServiceIndex"></a> GET a service index
+### <a name="GetServiceIndex"></a>GET a service index
 
 #### Headers
 
@@ -74,7 +74,7 @@ Name | Type | Format | Description
 }
 ```
 
-### <a name="PostReceipt"></a> POST a receipt
+### <a name="PostReceipt"></a>POST a receipt
 
 #### Headers
 
@@ -104,7 +104,7 @@ A receipt specified as per one of the below [schemas](#Schema).
 
 ##### Response
 
-### <a name="GetReceipt"></a> GET an individual receipt
+### <a name="GetReceipt"></a>GET an individual receipt
 
 #### Header
 
@@ -130,7 +130,7 @@ A receipt (including metadata) matching the [schema](#Schema).
 
 ##### Response
 
-### <a name="GetReceiptsForUser"></a> GET receipts for a user
+### <a name="GetReceiptsForUser"></a>GET receipts for a user
 
 #### Header
 
@@ -159,16 +159,16 @@ Name | Type | Format | Description
 
 ##### Response
 
-## <a name="Schema"></a> Receipt types
+## <a name="Schema"></a>Receipt types
 
-### <a name="General"></a> General
+### <a name="General"></a>General
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `core`|`object`|[`core`](#Core)|**Required** Core object for all receipts.
 `lineItems`|`array`|[`lineItems`](#lineItems)|Line items specified for general receipts.
 
-### <a name="Air"></a> Air
+### <a name="Air"></a>Air
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -226,7 +226,7 @@ Name | Type | Description
 <a name="fareBasisCode"></a>`fareBasisCode`|`string`|See [http://en.wikipedia.org/wiki/Fare_basis_code](http://en.wikipedia.org/wiki/Fare_basis_code) "pattern": "^[a-zA-Z0-9]{3,8}$"
 <a name="ticketDesignatorCode"></a>`ticketDesignatorCode`|`string`|"pattern": "^[a-zA-Z0-9\\*?]{1,10}$"
 
-### <a name="Car"></a> Car
+### <a name="Car"></a>Car
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -280,7 +280,7 @@ Name | Type | Description
 <a name="genericCode"></a>`genericCode`|`string`|"pattern": "^[a-zA-Z]$"
 <a name="engineSize"></a>`engineSize`|`string`|"pattern": "^[0-9]{1,4}$"
 
-### <a name="Hotel"></a> Hotel
+### <a name="Hotel"></a>Hotel
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -323,7 +323,7 @@ Name | Type | Format | Description
 `ratePlanType`|`string`|-|Description
 `averageDailyRoomRate`|`string`|[`currency`](#currency)|**Required** Description
 
-### <a name="Ride"></a> Ride
+### <a name="Ride"></a>Ride
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -341,7 +341,7 @@ Name | Type | Format | Description
 `vehicleNumber`|`string`|-|License plate number of the vehicle.
 `lineItems`|`array`|[`lineItems`](#lineItems)|Descriptive breakdown of the fare charged. For example: base fare, distance travelled, discount etc.
 
-### <a name="JPT"></a> Japan Public Transport (JPT)
+### <a name="JPT"></a>Japan Public Transport (JPT)
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -363,7 +363,7 @@ Name | Type | Format | Description
 `toIsCommuterPass`|`boolean`|-|Is the arrival route included in the commuter pass subscription of the employee.
 `distance`|`integer`|-|Distance between departure and arrival station.
 
-### <a name="Core"></a> Core
+### <a name="Core"></a>Core
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -530,7 +530,7 @@ Name | Type | Format | Description
 `rate`|`number`|-|**Required** A positive percentage, non-zero number with up to four significant digits and up to two decimal places
 `amount`|`string`|[`currency`](#currency)|**Required** Any positive, negative, or zero number with up to 14 significant digits and up to 3 decimal places.
 
-### <a name="Common"></a> Common
+### <a name="Common"></a>Common
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -544,11 +544,11 @@ Name | Type | Format | Description
 <a name="longitude"></a>`longitude`|`number`|-|"minimum": -180, "maximum": 180
 <a name="positiveInteger"></a>`positiveInteger`|`integer`|-|"minimum": 0, "exclusiveMinimum": true
 
-### <a name=patterns></a> Patterns
+### <a name=patterns></a>Patterns
 
 <a Name=pattern-date-time></a>dateTime = "^[\\d]{4}(-)[\\d]{2}(-)[\\d]{2}(\\s|T)[\\d]{2}:[\\d]{2}:[\\d]{2}((\\+|-)[0-1][\\d]:?(0|3)0)?$"
 
-### <a name=metadata></a> Receipt Metadata
+### <a name=metadata></a>Receipt Metadata
 
 This is Concur metadata generated for a receipt at the time a POST occurs. It is only present for a GET operation and not valid for a POST operation.
 
@@ -562,7 +562,7 @@ Name | Type | Format | Description
 `image`|`string`|-|URL to the image for the receipt.
 `imageId`|`string`|-|Concur specific identifier for the image.
 
-## <a name="ReceiptImage"></a> Receipt Image
+## <a name="ReceiptImage"></a>Receipt Image
 
 
 
