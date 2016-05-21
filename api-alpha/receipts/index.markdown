@@ -6,20 +6,10 @@ layout: reference
 
 This page documents the Receipts 4.0 API that is still in its development phase. The information on this page is only meant to be used for reference purposes and will most likely evolve until the API is made public. 
 
-- [URI](#URI)
-- [Operations](#Operations)
- - [GET a service index](#GetServiceIndex)
- - [POST a receipt](#PostReceipt)
- - [GET an individual receipt](#GetReceipt)
- - [GET receipts for a user](#GetReceiptsForUser)
-- [Receipt types](#Schema)
- - [General](#General)
- - [Air](#Air)
- - [Car](#Car)
- - [Hotel](#Hotel)
- - [Ride](#Ride)
- - [Japan Public Transport (JPT)](#JPT)
-- [Receipt Image](#ReceiptImage)
+- [GET a service index](#GetServiceIndex)
+- [POST a receipt](#PostReceipt)
+- [GET an individual receipt](#GetReceipt)
+- [GET receipts for a user](#GetReceiptsForUser)
 
 ## <a name="URI"></a>URI
 
@@ -36,12 +26,15 @@ Header | Value | Description
 `Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
 
 #### Parameters
+
 None
 
 #### Input
+
 None
 
 #### Response
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `rel`|`string`|-|Abstracted name of the API.
@@ -185,6 +178,7 @@ Name | Type | Format | Description
 `lineItems`|`array`|[`lineItems`](#lineItems)|**Required** Ancillary fees.
 
 #### <a name="tickets"></a> tickets
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `number`|`string`|-|**Required** Ticket identifier.
@@ -200,6 +194,7 @@ Name | Type | Format | Description
 `coupons`|`array`|[`coupons`](#coupons)|**Required** Flights issued within this transaction
 
 #### <a name="coupons"></a> coupons
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `originationAirportIATACode`|`string`|[`IATAAirportCode`](#IATAAirportCode)|**Required** Airport code of origin.
@@ -219,6 +214,7 @@ Name | Type | Format | Description
 `lineItems`|`array`|[`lineItems`](#lineItems)|Line Items/Fees specific to a leg of the trip. Eg. Baggage fees, class of service fees, priority boarding, meals.
 
 #### <a name="Air-definitions"></a> definitions
+
 Name | Type | Description
 -----|------|------------
 <a name="IATAAirportCode"></a>`IATAAirportCode`|`string`|"pattern": "^[a-zA-Z]{3}$"
@@ -254,6 +250,7 @@ Name | Type | Format | Description
 `lineItems`|`array`|[`lineItems`](#lineItems)|Line item details
 
 #### <a name="vehicle"></a> vehicle
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `registrationNumber`|`string`|-|Registration or license plate identifier
@@ -269,12 +266,14 @@ Name | Type | Format | Description
 `fuelType`|`string`|-|Fuel type of the vehicle
 
 #### <a name="distance"></a> distance
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `totalDistance`|`number`|-|Distance traveled during the rental
 `unit`|`enum`|-|"M" or "K" (Miles or Kilometers)
 
 #### <a name="Car-definitions"></a> definitions
+
 Name | Type | Description
 -----|------|------------
 <a name="classCode"></a>`classCode`|`string`|"pattern": "^[a-zA-Z]{4}$"
@@ -299,6 +298,7 @@ Name | Type | Format | Description
 `lineItems`|`array`|[`lineItems`](#lineItems)|**Required** Line item details
 
 #### <a name="property"></a> property
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `name`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** Description
@@ -306,6 +306,7 @@ Name | Type | Format | Description
 `location`|`object`|[`location`](#location)|**Required** Description
 
 #### <a name="guests"></a> guests
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `guestNameRecord`|`string`|-|Description
@@ -314,6 +315,7 @@ Name | Type | Format | Description
 `address`|`object`|[`address`](#address)|Description
 
 #### <a name="room"></a> room
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `roomNumber`|`string`|-|Description
@@ -348,6 +350,7 @@ Name | Type | Format | Description
 `segments`|`array`|[`icCardSegment`](#icCardSegment)|**Required** The segments for the trip.
 
 #### <a name="icCardSegment"></a> icCardSegment
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `sequenceNumber`|`integer`|-|**Required** Unique transaction identifier for every trip taken using the IC card.
@@ -361,6 +364,7 @@ Name | Type | Format | Description
 `distance`|`integer`|-|Distance between departure and arrival station.
 
 ### <a name="Core"></a> Core
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `user`|`string`|-|**Required** Fully qualified URL for the user identifier.
@@ -377,6 +381,7 @@ Name | Type | Format | Description
 `customData`|`object`|[`customData`](#customData)|Custom fields sent by receipt provider.
 
 #### <a name="merchant"></a> merchant
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `name`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** Name.
@@ -385,6 +390,7 @@ Name | Type | Format | Description
 `taxId`|`string`|-|The tax identification number assigned to the merchant by the national tax authority. In some countries this must appear on the receipt for it to be considered a tax receipt/invoice. If supplied, it must be displayed on the receipt.
 
 #### <a name="location"></a> location
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `name`|`string`|-|The name for the location.
@@ -398,6 +404,7 @@ Name | Type | Format | Description
 `faxNumber`|`string`|-|Fax number.
 
 #### <a name="address"></a> address
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `address`|`string`|-|Street address.
@@ -408,9 +415,11 @@ Name | Type | Format | Description
 `postalCode`|`string`|-|Postal code.
 
 #### <a name="payments"></a> payments
+
 The payments array allows for one or more payment methods used in the transaction to be defined.  All payment methods defined within the array result in the value for amount in the base object of the receipt. The JSON keyword 'anyOf' which indicates at least one of the following is required and multiple can be present: [cash](#cash), [creditCard](#creditCard), [companyPaid](#companyPaid), [digitalWallet](#digitalWallet) and / or [unusedTicket](#unusedTicket).
 
 ##### <a name="cash"></a> cash
+
 Represents cash transactions.
 
 Name | Type | Format | Description
@@ -418,6 +427,7 @@ Name | Type | Format | Description
 `amount`|`string`|[`currency`](#currency)|**Required** Amount
 
 ##### <a name="creditCard"></a> creditCard
+
 Represents transactions where a credit card was used.
 
 Name | Type | Format | Description
@@ -426,6 +436,7 @@ Name | Type | Format | Description
 `cardDetail`|`object`|[`cardDetail`](#cardDetail)|**Required** Credit card information.
 
 ##### <a name="companyPaid"></a> companyPaid
+
 Represents transactions where the company is billed for the transaction or a common form of payment is used within the company.
 
 Name | Type | Format | Description
@@ -435,6 +446,7 @@ Name | Type | Format | Description
 `cardDetail`|`object`|[`cardDetail`](#cardDetail)|**Required** Credit card information. This object is required if the source of CompanyPaid is GhostCard.
 
 ##### <a name="digitalWallet"></a> digitalWallet
+
 Represents modern forms of payment. Calling applications may often interpret this form of payment as cash.
 
 Name | Type | Format | Description
@@ -443,6 +455,7 @@ Name | Type | Format | Description
 `amount`|`string`|[`currency`](#currency)|**Required** Amount
 
 ##### <a name="unusedTicket"></a> unusedTicket
+
 Represents the value of an unused airline ticket that is put toward the purchase of a new airline ticket.
 
 Name | Type | Format | Description
@@ -451,6 +464,7 @@ Name | Type | Format | Description
 `amount`|`string`|[`currency`](#currency)|**Required** Amount
 
 ###### <a name="cardDetail"></a> cardDetail
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `cardType`|`enum`|-|**Required** "American Express","Diner’s Club","Discover","MasterCard","Visa","Carte Blanche","Enroute","Universal Air Travel","JCB","EuroCard"
@@ -458,6 +472,7 @@ Name | Type | Format | Description
 `authorizationCode`|`string`|-|Authorization code for transaction.
 
 #### <a name="customData"></a> customData
+
 Custom data is very powerful for partnerships built around receipt data. To avoid name collisions and to make consuming custom data relatively easy it is **highly** recommended a globally unique identifier (GUID) be provided for the customDataGuid key to disambiguate data and avoid name collisions. This GUID is mutually agreed upon by both provider and consumer of the data.
 
 Name | Type | Format | Description
@@ -475,6 +490,7 @@ Name | Type | Format | Description
 ```
 
 ### <a name="lineItems"></a> lineItems
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `sequenceNumber`|`integer`|-|**Required** The order the item appears in the sequence of line items when the receipts is rendered by Concur.
@@ -491,6 +507,7 @@ Name | Type | Format | Description
 `taxes`|`array`|[`taxes`](#taxes)|Taxes paid as part of transaction.
 
 ##### <a name="issuanceCode"></a> issuanceCode
+
 See [http://www.atpco.net/atpco/download/optionalsubcodes.pdf](http://www.atpco.net/atpco/download/optionalsubcodes.pdf)
 
 Name | Type | Format | Description
@@ -504,6 +521,7 @@ Name | Type | Format | Description
 `commercialName`|`string`|-|Description
 
 #### <a name="taxes"></a> taxes
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `authority`|`string`|-|Taxing authority.
@@ -513,6 +531,7 @@ Name | Type | Format | Description
 `amount`|`string`|[`currency`](#currency)|**Required** Any positive, negative, or zero number with up to 14 significant digits and up to 3 decimal places.
 
 ### <a name="Common"></a> Common
+
 Name | Type | Format | Description
 -----|------|--------|------------
 <a name="dateTime"></a>`dateTime`|`string`|-|DateTime of where the transaction happened in format specified in ISO 8601. While the standard regards time zone designators as optional, we highly recommend to use UTC + Offset. For example, 2016-04-22T12:20+0700 (12:20 PM in Pacific Time). [Pattern](#pattern-date-time)
@@ -526,9 +545,11 @@ Name | Type | Format | Description
 <a name="positiveInteger"></a>`positiveInteger`|`integer`|-|"minimum": 0, "exclusiveMinimum": true
 
 ### <a name=patterns></a> Patterns
+
 <a Name=pattern-date-time></a>dateTime = "^[\\d]{4}(-)[\\d]{2}(-)[\\d]{2}(\\s|T)[\\d]{2}:[\\d]{2}:[\\d]{2}((\\+|-)[0-1][\\d]:?(0|3)0)?$"
 
 ### <a name=metadata></a> Receipt Metadata
+
 This is Concur metadata generated for a receipt at the time a POST occurs. It is only present for a GET operation and not valid for a POST operation.
 
 Name | Type | Format | Description
