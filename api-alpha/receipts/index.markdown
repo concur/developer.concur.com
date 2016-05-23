@@ -6,34 +6,39 @@ layout: reference
 
 This page documents the Receipts 4.0 API that is still in its development phase. The information on this page is only meant to be used for reference purposes and will most likely evolve until the API is made public. 
 
-- [GET a service index](#GetServiceIndex)
-- [POST a receipt](#PostReceipt)
-- [GET an individual receipt](#GetReceipt)
-- [GET receipts for a user](#GetReceiptsForUser)
+- [Retrieve the service index](#GetServiceIndex)
+- [Create a receipt](#PostReceipt)
+- [Retrieve an individual receipt](#GetReceipt)
+- [Retrieve receipts for a user](#GetReceiptsForUser)
+- [Schemas](#Schema)
+  - [General](#General)
+  - [Air](#Air)
+  - [Car](#Car)
+  - [Hotel](#Hotel)
+  - [Ride](#Ride)
 
-## <a name="URI"></a>URI
+## <a name="URI"></a>Base URI
 
-`https://us.api.concursolutions.com/receipts/v4`
+https://us.api.concursolutions.com/receipts/v4|
+----------------------------------------------
 
-## <a name="Operations"></a>Operations
+## <a name="GetServiceIndex"></a>Retrieve the service index
 
-### <a name="GetServiceIndex"></a>GET a service index
-
-#### Headers
+### Headers
 
 Header | Value | Description
 -------|-------|------------
 `Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
 
-#### Parameters
+### Parameters
 
 None
 
-#### Input
+### Input
 
 None
 
-#### Response
+### Response
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -41,12 +46,12 @@ Name | Type | Format | Description
 `href`|`string`|-|Current URI for the API.
 `method`|`string`|-|Method(s) to be used with the URI.
 
-#### Example
+### Example
 
-##### Request
+#### Request
 `curl -v https://us.api.concursolutions.com/receipts/v4 -H "Authorization: Bearer {valid JWT}"`
 
-##### Response
+#### Response
 
 ```
 {
@@ -56,110 +61,111 @@ Name | Type | Format | Description
       "href": "https://us.api.concursolutions.com/receipts/v4"
     },
     {
-      "rel": "receipt-post",
-      "href": "https://us.api.concursolutions.com/receipts/v4/user/{userId}",
-      "method": "POST"
-    },
-    {
       "rel": "receipt-get",
       "href": "https://us.api.concursolutions.com/receipts/v4/{receiptId}",
       "method": "GET"
     },
     {
+      "rel": "receipt-post",
+      "href": "https://us.api.concursolutions.com/receipts/v4/user/{userId}",
+      "method": "POST"
+    },
+    {
       "rel": "receipts-get-user",
       "href": "https://us.api.concursolutions.com/receipts/v4/user/{userId}",
       "method": "GET"
+    },
+    {
+      "rel": "schemas-get",
+      "method": "GET",
+      "href": "https://us.api.concursolutions.com/receipts/v4/schemas"
     }
   ]
 }
 ```
 
-### <a name="PostReceipt"></a>POST a receipt
+## <a name="PostReceipt"></a>Create a receipt
 
-#### Headers
+### Headers
 
 Header | Value | Description
 -------|-------|------------
 `content-type`|`string`|**Required** [Content-Type](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17): `application/json`
-`link`|| [Link](http://tools.ietf.org/html/rfc5988#section-5): `<http://schema.concursolutions.com/{schema-name.json}}>;rel=describedBy`. The default is `http://schema.concursolutions.com/general-receipt.schema.json` when not specified and a list of the available [schemas](#Schema) is below.
+`link`|| [Link](http://tools.ietf.org/html/rfc5988#section-5): `<http://schema.concursolutions.com/{schema-name.json}}>;rel=describedBy`. When not specified, the default is `http://schema.concursolutions.com/general-receipt.schema.json` and a list of the available [schemas](#Schema) is below.
 `Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
 
-#### Parameters
+### Parameters
 
-Name | Type | Format | Description
------|------|--------|------------
-`receipt`|`body`|JSON|**Required** The receipt data in the entity body.
+None.
 
-#### Input
+### Input
 
 A receipt specified as per one of the below [schemas](#Schema).
 
+### Response
+
+### Example
+
+#### Request
+
 #### Response
 
-[201 Created](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.2)  
+## <a name="GetReceipt"></a>Retrieve an individual receipt
 
-#### Example
-
-##### Request
-
-##### Response
-
-### <a name="GetReceipt"></a>GET an individual receipt
-
-#### Header
+### Header
 
 Header | Value | Description
 -------|-------|------------
 `Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
 
-#### Parameters
+### Parameters
 
-None
+None.
 
-#### Input
+### Input
 
-None
+None.
 
-#### Response
+### Response
 
 A receipt (including metadata) matching the [schema](#Schema).
 
-#### Example
+### Example
 
-##### Request
+#### Request
 
-##### Response
+#### Response
 
-### <a name="GetReceiptsForUser"></a>GET receipts for a user
+## <a name="GetReceiptsForUser"></a>Retrieve receipts for a user
 
-#### Header
+### Header
 
 Header | Value | Description
 -------|-------|------------
 `Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
 
-#### Parameters
+### Parameters
 
-None
+None.
 
-#### Input
+### Input
 
-None
+None.
 
-#### Response
+### Response
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `receipts`|`body`|-|An array of most recent in descending order receipts (including metadata) matching the [schema](#Schema).
 `link`|`body`|[Link](http://tools.ietf.org/html/rfc5988#section-5)|URI to the next page of results, if any.
 
-#### Example
+### Example
 
-##### Request
+#### Request
 
-##### Response
+#### Response
 
-## <a name="Schema"></a>Receipt types
+## <a name="Schema"></a>Schemas
 
 ### <a name="General"></a>General
 
@@ -561,8 +567,6 @@ Name | Type | Format | Description
 `validationSchema`|`string`|-|URL to the schema used for validation.
 `image`|`string`|-|URL to the image for the receipt.
 `imageId`|`string`|-|Concur specific identifier for the image.
-
-## <a name="ReceiptImage"></a>Receipt Image
 
 
 
