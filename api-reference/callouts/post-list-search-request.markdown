@@ -1,9 +1,9 @@
 ---
-title: Post a list search request 
+title: Post a list search request
 layout: reference
 ---
 
-#Post List Search Request
+# Post List Search Request
 
 ## Supported Accept Types
 application/xml
@@ -105,7 +105,7 @@ The response will include a **fetch-list-response** parent element, with an **it
     <fetch-list-response>
     </fetch-list-response>
 
-  
+
 
 
 [1]: api-reference/authentication/authentication.html

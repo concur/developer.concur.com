@@ -45,7 +45,7 @@ This request will return a **ReportDetails** parent element.
 
  Element |  Description
  -----| ----- |
-  UserLoginID |  The user ID of the report owner. Maximum 128 characters. 
+  UserLoginID |  The user ID of the report owner. Maximum 128 characters.
   EmployeeName |  The name of the employee who created the report. Maximum 66 characters. |
  ReportID |  The unique identifier for the report, which appears in the Concur Expense UI. Maximum 32 character varchar. |
   ReportKey |  The unencrypted unique identifier for the report, that appears on the report header. The element appears only if the OAuth consumer has the Web Services Admin role in Concur. Maximum 48 characters. |
@@ -55,9 +55,9 @@ This request will return a **ReportDetails** parent element.
   CreationDate |  The date the report was created. Format: YYYY-MM-DDThh:mm:ss |
   SubmitDate |  The date the report was submitted. Maximum 10 characters. |
   PaidDate |  The date the report was extracted for payment. This element has an attribute named i:nil. If the value for this element is null, the i:nil attribute will be set to true. Format: YYYY-MM-DDThh:mm:ss |
-  CurrencyCode |  The [3-letter ISO 4217 currency code][1] for the expense report currency. The expense report currency is defined as the report creator's default reimbursement currency. 
+  CurrencyCode |  The [3-letter ISO 4217 currency code][1] for the expense report currency. The expense report currency is defined as the report creator's default reimbursement currency.
   ReportTotal |  The total amount of the report. Maximum 23 characters. |
-  PersonalExpenses |  The total amount of expenses marked as personal. Maximum 23 characters. 
+  PersonalExpenses |  The total amount of expenses marked as personal. Maximum 23 characters.
   AmountDueEmployee | The total amount due to the employee for the report. Maximum 23 characters. |
   AmountDueCompanyCard |  The total amount due to the company card for the report. Maximum 23 characters. |
   TotalClaimedAmount |  The total amount of all non-personal expenses in the report. Maximum 23 characters. |
@@ -83,7 +83,7 @@ Format: YYYY-MM-DD |
   ReportOwner |  This parent element includes details about the employee who is the report owner. It saves the caller from calling the Get User Information function to get employee information commonly used in accounting integration. The **ReportOwner** element includes the most recent information about the report owner, at the time the report is requested. |
   EmployeeBankAccount |  This parent element includes the bank account data found on the **Bank Information** page in Profile. This data is used in **Payment System** integrations where the payment system reimburses the employee via this bank account.
 
-###ExpenseEntry elements
+### ExpenseEntry elements
 
 |  Element |  Description |
 | -------- | ------------ |
@@ -186,7 +186,7 @@ Format: YYYY-MM-DD |
 |  AccountCode2 | The secondary or alternative accounting code assigned to the expense type associated with this allocation. In rare cases some expense types include this accounting code to handle special cases. One example of these special cases is when using travel allowance, where one expense would use the primary account code for the allowed amount, and the alternative account code for the overage. Another example is personal use of a company car. <br> Refer to the _Expense: Account Codes Setup Guide_ for more information on how Concur Expense determines which accounting codes to use.  |
 |  Custom1 through Custom20 |  The custom fields associated with the allocation. These may not have data, depending on your configuration. TRefer to the **Custom Fields elements** table for more information. |  
 |  JournalEntriesList |  This parent element contains at least one **JournalEntry** child element. It contains multiple **JournalEntry** elements if the allocation has multiple journal entries. Refer to the **JournalEntry elements** table for more information. |
-|  VATDataList |  This parent element contains one **VATData** element for each VAT line item. This element will be empty if there are no VAT line items. Refer to the **VATData elements** table for more information. | 
+|  VATDataList |  This parent element contains one **VATData** element for each VAT line item. This element will be empty if there are no VAT line items. Refer to the **VATData elements** table for more information. |
 
 ### JournalEntry elements
 
@@ -240,7 +240,7 @@ Format: YYYY-MM-DD |
 |  MerchantReferenceNumber |  Merchant reference number passed from the merchant to the card. Maximum 15 characters. |
 |  ExchangeRateFromBillingToEmployeeCurrency |  Currency exchange rate used between the credit card billing currency and the employee's reimbursement currency. Maximum 23 characters. |
 |  BillingAmount |  Amount due to the company card from the employee or company (depending on who is responsible for the bill) for this detail row. Maximum 23 characters. |
-|  AccountNumberLastSegment  |  The last 4 digits of the Card Account.  | 
+|  AccountNumberLastSegment  |  The last 4 digits of the Card Account.  |
 
 ### Custom fields elements  
 
@@ -284,7 +284,7 @@ Format: YYYY-MM-DD |
 
 ```
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/n6ujbuLd1Arwe45lT7As3ThJYJf2dAsrrEW HTTP/1.1
-Authorization: OAuth {access token} 
+Authorization: OAuth {access token}
 ...
 ```
 
