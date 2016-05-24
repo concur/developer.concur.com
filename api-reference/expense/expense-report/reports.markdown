@@ -153,6 +153,79 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	Optional. The login ID of the report owner(s) to use when searching for reports. If the value is set to LoginID, reports for the report owner with this login ID value are returned. If the value is set to ALL, reports for all report owners are returned. If this parameter is not specified, reports for the OAuth Consumer are returned. The access token owner (OAuth Consumer) must have the Web Services Admin role to use this parameter.
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/reports/39BD9F7C5C3F4986A6A5
+```
+
+### JSON example of a successful response
+
+```
+{
+  "Name": "Test 02",
+  "Total": 307.01,
+  "CurrencyCode": "USD",
+  "Country": "US",
+  "CountrySubdivision": null,
+  "CreateDate": "2016-04-04T23:33:08.21",
+  "SubmitDate": null,
+  "ProcessingPaymentDate": null,
+  "PaidDate": null,
+  "ReceiptsReceived": false,
+  "UserDefinedDate": "2016-04-04T00:00:00",
+  "LastComment": "",
+  "OwnerLoginID": "jimadmin@concurconnect2.com",
+  "OwnerName": "Jim Admin",
+  "ApproverLoginID": null,
+  "ApproverName": null,
+  "ApprovalStatusName": "Not Submitted",
+  "ApprovalStatusCode": "A_NOTF",
+  "PaymentStatusName": "Not Paid",
+  "PaymentStatusCode": "P_NOTP",
+  "LastModifiedDate": "2016-04-23T02:53:23.7",
+  "PersonalAmount": 0,
+  "AmountDueEmployee": 290,
+  "AmountDueCompanyCard": 0,
+  "TotalClaimedAmount": 307.01,
+  "TotalApprovedAmount": 307.01,
+  "LedgerName": "DEFAULT",
+  "PolicyID": "gWmINGEAkQoapyOLKfSdm0A9qK0ZVUvwolA",
+  "EverSentBack": false,
+  "HasException": true,
+  "WorkflowActionUrl": "",
+  "OrgUnit1": null,
+  "OrgUnit2": null,
+  "OrgUnit3": null,
+  "OrgUnit4": null,
+  "OrgUnit5": null,
+  "OrgUnit6": null,
+  "Custom1": null,
+  "Custom2": null,
+  "Custom3": null,
+  "Custom4": null,
+  "Custom5": null,
+  "Custom6": null,
+  "Custom7": null,
+  "Custom8": null,
+  "Custom9": null,
+  "Custom10": null,
+  "Custom11": null,
+  "Custom12": null,
+  "Custom13": null,
+  "Custom14": null,
+  "Custom15": null,
+  "Custom16": null,
+  "Custom17": null,
+  "Custom18": null,
+  "Custom19": null,
+  "Custom20": null,
+  "ID": "39BD9F7C5C3F4986A6A5",
+  "URI": "http://www.concursolutions.com/api/v3.0/expense/reports/39BD9F7C5C3F4986A6A5"
+}
+```
+
+
 ## <a name="post"></a>Create a new report
 
     POST  /api/v3.0/expense/reports
@@ -165,6 +238,22 @@ Name | Type | Format | Description
 `content`	|	-	|	`body`	|	**Required** Report object to create
 
 ## <a name="put"></a>Update a report
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/reports
+```
+
+### JSON example of a successful response
+
+```
+{
+  "ID": "DD683A53018A4349B7CD",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/reports/DD683A53018A4349B7CD"
+}
+```
+
 
     PUT  /api/v3.0/expense/reports/{id}
 
@@ -241,3 +330,16 @@ Name | Type | Format | Description
 `ListItemID`	|	`string`	|	-	|	For list fields, this is the list item ID.
 `Type`	|	`string`	|	-	|	The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text
 `Value`	|	`string`	|	-	|	The value in the Org Unit or Custom field. For list fields, this is the name of the list item. Maximum length: 48 characters
+
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/reports/39BD9F7C5C3F4986A6A5
+```
+
+### JSON example of a successful response
+
+```
+no content
+```

@@ -1,5 +1,5 @@
 ---
-title: Post an attendee search request 
+title: Post an attendee search request
 layout: reference
 ---
 
@@ -10,17 +10,17 @@ This callout supports the following POST actions:
 
 ##  Post Attendee Search Request
 
-###Request URI
+### Request URI
 
 The Fetch Attendee version 2.0 callout sends the attendee information to a URI for the application connector, which can be in a custom location for each client. The default is:
 
 `https://{servername}/concur/attendee/v2.0/fetch`
 
-For backward compatibility, Fetch Attendee version 1.0 is used instead of version 2.0 when the URI uses v1.0 instead of v2.0. The URI is configured on the **Application Connector Registration** page under **Web Services>Administration>Manage Applications**. 
+For backward compatibility, Fetch Attendee version 1.0 is used instead of version 2.0 when the URI uses v1.0 instead of v2.0. The URI is configured on the **Application Connector Registration** page under **Web Services>Administration>Manage Applications**.
 
 The application connector responds to the Fetch Attendee request by returning all attendees that match the search criteria. The result is limited to the maximum number of records specified in the request. If more than the maximum number of records are sent, Concur Expense displays a message in the Attendee Search window asking the user to refine their search. The authorization functionality in version 2.0 is the same as version 1.0
 
-##Headers
+## Headers
 
 ### Authorization header
 
@@ -100,11 +100,11 @@ xml
 
 ##  Post Attendee Search Response
 
-###Supported Content Types                                                                                                   
+### Supported Content Types                                                                                                   
 
 application/xml
 
-###Response Body
+### Response Body
 
 The response will include an **AttendeeSearchResponse** parent element, with an **Attendee** child element for each search result.  
 
@@ -112,11 +112,11 @@ If no attendees match the search criteria, the response returns an empty **Atten
 
 #### Attendee elements
 
-The **Attendee** child element must contain all of the elements described below. The **FirstName**, **LastName**, and **ExternalID** elements must have values. All other elements must be returned in the response, however they can be empty if no data is available. 
+The **Attendee** child element must contain all of the elements described below. The **FirstName**, **LastName**, and **ExternalID** elements must have values. All other elements must be returned in the response, however they can be empty if no data is available.
 
 |  Element |  Description |
 |-------|--------|
-|  AttendeeTypeCode |  The attendee type code for the attendee type assigned to this attendee. Maximum length: 8 | 
+|  AttendeeTypeCode |  The attendee type code for the attendee type assigned to this attendee. Maximum length: 8 |
 |  Company |  The attendee's company. Required in the response. Also used for Institution Name for Healthcare Provider attendees. Maximum length: 150 |
 |  Custom1 through Custom25 | Varies depending on configuration. Required in the response. Maximum length of Custom1 through Custom20: 100 characters. Maximum length of Custom21 through Custom25: 48 characters. For information about Custom fields that are used by healthcare providers, see the **Custom fields for healthcare provider attendees** table below.  |
 |  ExternalID |  The attendee's unique identifier outside of Concur. Maximum length: 32 |
