@@ -145,7 +145,7 @@ general-receipt.json
 HTTP/1.1 201 Created
 concur-correlationid: 0f839dfc-1537-441b-a2f0-8a574b2a2776
 Link: <http://schema.concursolutions.com/general-receipt.schema.json>; rel="describedBy"
-Location: https://us.api.concursolutions.com/receipts/v4/{receiptId}
+Location: https://us.api.concursolutions.com/receipts/v4/7c22adcfaf6b4622be0d4e28f7aa2f79
 Date: Mon, 23 May 2016 21:31:31 GMT
 Connection: keep-alive
 Content-Length: 0
@@ -177,9 +177,47 @@ A receipt (including metadata) matching the [schema](#Schema) in which it was cr
 
 #### Request
 
-
+`curl -v https://us.api.concursolutions.com/receipts/v4/7c22adcfaf6b4622be0d4e28f7aa2f79 -H "Authorization: Bearer {valid JWT}`
 
 #### Response
+
+```
+HTTP/1.1 200 OK
+X-Powered-By: Express
+concur-correlationid: 0f839dfc-1537-441b-a2f0-8a574b2a2776
+Content-Type: application/json; charset=utf-8
+Content-Length: 1152
+ETag: W/"480-2083390041"
+Date: Tue, 24 May 2016 23:05:44 GMT
+Connection: keep-alive
+
+{
+  "dateTimeReceived": "",
+  "id": "7c22adcfaf6b4622be0d4e28f7aa2f79",
+  "image": null,
+  "imageId": "2834476850AC36F1965F1A6555697D00",
+  "receipt":{
+      "app": "{app URL}",
+      "dateTime": "2016-05-23T13:40:00+0700",
+      "total": "10.00",
+      "currencyCode": "USD",
+      "merchant": {
+          "name": "General Book Store",
+          "location": {
+              "name": "Downtown Bellevue",
+              "address": {
+                  "countryCode": "US"
+              }
+          }
+      },
+      "payments": [
+          {
+              "amount": "10.00"
+          }
+      ]
+  }
+}
+```
 
 ## <a name="GetReceiptsForUser"></a>Retrieve receipts for a user
 
