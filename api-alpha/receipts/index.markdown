@@ -1,5 +1,5 @@
 ---
-title: Receipts 4.0 Alpha Preview
+title: Receipts API 4.0 (Preview)
 layout: reference
 ---
 # Receipts API
@@ -19,8 +19,7 @@ This page documents the Receipts 4.0 API that is still in its development phase.
 
 ## <a name="URI"></a>Base URI
 
-https://us.api.concursolutions.com/receipts/v4|
-----------------------------------------------
+`https://us.api.concursolutions.com/receipts/v4`
 
 ## <a name="GetServiceIndex"></a>Retrieve the service index
 
@@ -32,13 +31,15 @@ Header | Value | Description
 
 ### Parameters
 
-None
+None.
 
 ### Input
 
-None
+None.
 
 ### Response
+
+200 OK
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -104,11 +105,51 @@ A receipt specified as per one of the below [schemas](#Schema).
 
 ### Response
 
+201 Created
+
 ### Example
 
 #### Request
 
+general-receipt.json
+
+```
+{
+    "user": "{user URL}",
+    "app": "{app URL}",
+    "dateTime": "2016-05-23T13:40:00+0700",
+    "total": "10.00",
+    "currencyCode": "USD",
+    "merchant": {
+        "name": "General Book Store",
+        "location": {
+            "name": "Downtown Bellevue",
+            "address": {
+                "countryCode": "US"
+            }
+        }
+    },
+    "payments": [
+        {
+            "amount": "10.00"
+        }
+    ]
+}
+```
+
+`curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId} -d @general-receipt.json -H "Content-Type: application/json" -H "link:<http://schema.concursolutions.com/general-receipt.schema.json>;rel=describedBy" -H "Authorization: Bearer {valid JWT}"`
+
 #### Response
+
+```
+HTTP/1.1 201 Created
+concur-correlationid: 0f839dfc-1537-441b-a2f0-8a574b2a2776
+Link: <http://schema.concursolutions.com/general-receipt.schema.json>; rel="describedBy"
+Location: https://us.api.concursolutions.com/receipts/v4/{receiptId}
+Date: Mon, 23 May 2016 21:31:31 GMT
+Connection: keep-alive
+Content-Length: 0
+```
 
 ## <a name="GetReceipt"></a>Retrieve an individual receipt
 
@@ -128,11 +169,15 @@ None.
 
 ### Response
 
-A receipt (including metadata) matching the [schema](#Schema).
+200 OK
+
+A receipt (including metadata) matching the [schema](#Schema) in which it was created.
 
 ### Example
 
 #### Request
+
+
 
 #### Response
 
