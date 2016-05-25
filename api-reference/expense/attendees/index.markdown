@@ -255,7 +255,7 @@ Name | Type | Format | Description
 `Company`	|	``string``	|	-	|	The name of the attendee's company. Maximum length: 150 characters
 `CurrencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for monetary amounts related to an attendee.
 `Custom1 through Custom25`	|	`CustomField`	|	-	|	A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.
-`ExternalID`	|	`string`	|	-	|	A unique identifier for the attendee, assigned outside of Concur. Maximum length: 48 characters
+`ExternalID`	|	`string`	|	-	|	A unique identifier for the attendee, assigned outside of Concur. Maximum length: 48 characters **NOTE: For HCP connectors where information returned to Concur represents one record per attendee+address pair, this value should be a unique identifier for that pair, and the unique identifier for the individual should be placed into a custom field.**
 `FirstName`	|	`string`	|	-	|	The attendee's first name. Maximum length: 50 characters
 `HasExceptionsPrevYear`	|	`Boolean`	|	-	|	Determines whether the attendee had exceptions in the previous year, based on yearly total limits for attendees. Format: true or false
 `HasExceptionsYTD`	|	`Boolean`	|	-	|	Determines whether the attendee has exceptions in the current year, based on yearly total limits for attendees. Format: true or false
