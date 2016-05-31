@@ -16,6 +16,7 @@ This page documents the Receipts 4.0 API that is still in its development phase.
   - [Car](#Car)
   - [Hotel](#Hotel)
   - [Ride](#Ride)
+  - [Japan Public Transport](#JPT)
 
 ## <a name="URI"></a>Base URI
 
@@ -27,7 +28,7 @@ This page documents the Receipts 4.0 API that is still in its development phase.
 
 Header | Value | Description
 -------|-------|------------
-`Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
+`Authorization`|`JWT`|OAuth2 access token in the form of a JSON Web Token (JWT) obtained by the client application from the Authorization API.
 
 ### Parameters
 
@@ -93,7 +94,7 @@ Header | Value | Description
 -------|-------|------------
 `content-type`|`string`|**Required** [Content-Type](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17): `application/json`
 `link`|| [Link](http://tools.ietf.org/html/rfc5988#section-5): `<http://schema.concursolutions.com/{schema-name.json}}>;rel=describedBy`. When not specified, the default is `http://schema.concursolutions.com/general-receipt.schema.json` and a list of the available [schemas](#Schema) is below.
-`Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
+`Authorization`|`JWT`|OAuth2 access token in the form of a JSON Web Token (JWT) obtained by the client application from the Authorization API.
 
 ### Parameters
 
@@ -145,7 +146,7 @@ general-receipt.json
 HTTP/1.1 201 Created
 concur-correlationid: 0f839dfc-1537-441b-a2f0-8a574b2a2776
 Link: <http://schema.concursolutions.com/general-receipt.schema.json>; rel="describedBy"
-Location: https://us.api.concursolutions.com/receipts/v4/7c22adcfaf6b4622be0d4e28f7aa2f79
+Location: https://us.api.concursolutions.com/receipts/v4/{receiptId}
 Date: Mon, 23 May 2016 21:31:31 GMT
 Connection: keep-alive
 Content-Length: 0
@@ -157,7 +158,7 @@ Content-Length: 0
 
 Header | Value | Description
 -------|-------|------------
-`Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
+`Authorization`|`JWT`|OAuth2 access token in the form of a JSON Web Token (JWT) obtained by the client application from the Authorization API.
 
 ### Parameters
 
@@ -177,7 +178,7 @@ A receipt (including metadata) matching the [schema](#Schema) in which it was cr
 
 #### Request
 
-`curl -v https://us.api.concursolutions.com/receipts/v4/7c22adcfaf6b4622be0d4e28f7aa2f79 -H "Authorization: Bearer {valid JWT}`
+`curl -v https://us.api.concursolutions.com/receipts/v4/{receiptId} -H "Authorization: Bearer {valid JWT}`
 
 #### Response
 
@@ -225,7 +226,7 @@ Connection: keep-alive
 
 Header | Value | Description
 -------|-------|------------
-`Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
+`Authorization`|JWT|OAuth2 access token in the form of a JSON Web Token (JWT) obtained by the client application from the Authorization API.
 
 ### Parameters
 
@@ -246,7 +247,109 @@ Name | Type | Format | Description
 
 #### Request
 
+`curl -v https://us.api.concursolutions.com/receipts/v4/user/{userId} -H "Authorization: Bearer {valid JWT}"`
+
 #### Response
+
+```
+{
+  "receipts": [
+    {
+      "dateTimeReceived": "2016-05-24T22:43:39.129Z",
+      "id": "d2ad6266ded44c2fa2d1ac39fef332ff",
+      "image": null,
+      "imageId": "5B3B39343FC63B60B7CA7D9B7B3A980A",
+      "receipt": {
+        "app": "http://api.concur.com/v4/app/802698dc151d421c80643d76f241c78b",
+        "currencyCode": "JPY",
+        "dateTime": "2014-05-05T00:00:00+09:00",
+        "icCardId": "00X00C1093A4E892",
+        "merchant": {
+          "location": {
+            "address": {
+              "countryCode": "JP"
+            },
+            "name": "Japan"
+          },
+          "name": "NWICR"
+        },
+        "payments": [
+          {
+            "amount": "130"
+          }
+        ],
+        "reference": "4e6e49c5-7aaf-4ff1-ad97-919348ed8fb3",
+        "segments": [
+          {
+            "amount": "130",
+            "dateTime": "2014-05-05T00:00:00+09:00",
+            "distance": 1234,
+            "fromIsCommuterPass": false,
+            "fromStationCode": "02506",
+            "fromStationName": "恵比寿（東京）",
+            "sequenceNumber": 1,
+            "toIsCommuterPass": false,
+            "toStationCode": "0250D",
+            "toStationName": "高田馬場"
+          }
+        ],
+        "total": "130",
+        "user": "http://api.concur.com/v4/user/123456"
+      },
+      "userId": "AAD27DDE-F599-4F33-B34A-4DE829420799",
+      "validationSchema": "http://schema.concursolutions.com/jpt-ic-card-receipt.schema.json",
+      "self": "https://receipt-api-platform-receipts-mspqaf5.concurasp.com/v4/d2ad6266ded44c2fa2d1ac39fef332ff",
+      "template": "https://receipt-api-platform-receipts-mspqaf5.concurasp.com/v4/{receiptId}"
+    },
+    {
+      "dateTimeReceived": "2016-05-24T22:43:00.480Z",
+      "id": "b500aa7c452e4c21a066137088f4ae04",
+      "image": null,
+      "imageId": "F2E20CC2721C3A16B8E18A034626E63D",
+      "receipt": {
+        "app": "http://api.concur.com/v4/app/802698dc151d421c80643d76f241c78b",
+        "currencyCode": "JPY",
+        "dateTime": "2014-05-05T00:00:00+09:00",
+        "icCardId": "00X00C1093A4E892",
+        "merchant": {
+          "location": {
+            "address": {
+              "countryCode": "JP"
+            },
+            "name": "Japan"
+          },
+          "name": "NWICR"
+        },
+        "payments": [
+          {
+            "amount": "130"
+          }
+        ],
+        "reference": "4e6e49c5-7aaf-4ff1-ad97-919348ed8fb3",
+        "segments": [
+          {
+            "amount": "130",
+            "dateTime": "2014-05-05T00:00:00+09:00",
+            "distance": 1234,
+            "fromIsCommuterPass": false,
+            "fromStationCode": "02506",
+            "fromStationName": "恵比寿（東京）",
+            "sequenceNumber": 1,
+            "toIsCommuterPass": false,
+            "toStationCode": "0250D",
+            "toStationName": "高田馬場"
+          }
+        ],
+        "total": "130",
+        "user": "http://api.concur.com/v4/user/123456"
+      },
+      "userId": "AAD27DDE-F599-4F33-B34A-4DE829420799",
+      "validationSchema": "http://schema.concursolutions.com/jpt-ic-card-receipt.schema.json",
+      "self": "https://receipt-api-platform-receipts-mspqaf5.concurasp.com/v4/b500aa7c452e4c21a066137088f4ae04",
+      "template": "https://receipt-api-platform-receipts-mspqaf5.concurasp.com/v4/{receiptId}"
+    }
+}
+```
 
 ## <a name="Schema"></a>Schemas
 
@@ -262,7 +365,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `core`|`object`|[`core`](#Core)|**Required** Core object for all receipts.
-`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique identifier of the itinerary in Concur’s database of itineraries (also known as a trip).
+`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of an itinerary (also know as a trip) in Concur’s Itinerary Service.  An itinerary can contain one or more bookings from various sources.  
 `tickets`|`array`|[`tickets`](#tickets)|**Required** Air tickets.
 `lineItems`|`array`|[`lineItems`](#lineItems)|**Required** Ancillary fees.
 
@@ -320,8 +423,8 @@ Name | Type | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `core`|`object`|[`core`](#Core)|**Required** Core object for all receipts.
-`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique identifier of the itinerary in Concur’s database of itineraries (also known as a trip).
-`segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Segment identifier.
+`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of an itinerary (also know as a trip) in Concur’s Itinerary Service.  An itinerary can contain one or more bookings from various sources.
+`segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of a single travel event in Concur’s Itinerary Service.  An itinerary can contain one or more bookings and each booking can contain one or more segments. The segmentLocator uniquely identifies something like a car rental with a specific start and end date or a single air segment/sector.
 `startDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Rental start date and time
 `endDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Rental end date and time
 `pickupLocation`|`object`|[`location`](#location)|Vehicle pick up location.
@@ -374,8 +477,8 @@ Name | Type | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `core`|`object`|[`core`](#Core)|**Required** Core object for all receipts.
-`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique identifier of the itinerary in Concur’s database of itineraries (also known as a trip).
-`segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Segment identifier.
+`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of an itinerary (also know as a trip) in Concur’s Itinerary Service.  An itinerary can contain one or more bookings from various sources.
+`segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of a single travel event in Concur’s Itinerary Service.  An itinerary can contain one or more bookings and each booking can contain one or more segments. The segmentLocator uniquely identifies something like a car rental with a specific start and end date or a single air segment/sector.
 `property`|`object`|[`property`](#property)|**Required** Physical property location information for the hotel property. This is often different than the merchant location information.
 `confirmationNumber`|`string`|-|Booking identifier
 `checkInDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Check in date and time
@@ -417,8 +520,8 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `core`|`object`|[`core`](#Core)|**Required** Core object for all receipts.
-`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique identifier of the itinerary in Concur's database of itineraries.
-`segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique identifier of a segment within an itinerary.
+`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of an itinerary (also know as a trip) in Concur’s Itinerary Service.  An itinerary can contain one or more bookings from various sources.
+`segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of a single travel event in Concur’s Itinerary Service.  An itinerary can contain one or more bookings and each booking can contain one or more segments. The segmentLocator uniquely identifies something like a car rental with a specific start and end date or a single air segment/sector.
 `operator`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** Name of the company offering the ride service.
 `terminalNumber`|`string`|-|If customer was picked at an airport, then the terminal number where picked up.
 `startDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time of when customer was picked up.
