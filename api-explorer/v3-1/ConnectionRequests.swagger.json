@@ -193,8 +193,7 @@
 			"description": "URI for the GET call that will return this connection request."
 		  },
 		  "EmailAddresses": {
-		  	"type": "UserEmailAddresses",
-			"description": "The user's email addresses ordered by importance."
+		  	"$ref": "#/definitions/UserEmailAddresses"
 		  }
     	}
     },
