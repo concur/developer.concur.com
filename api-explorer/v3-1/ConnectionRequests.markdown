@@ -6,4 +6,4 @@ reference-type: swagger
 
 
 
-{% swagger /api-explorer/v3-1/ConnectionRequests.swagger2.json %}
+{% swagger /api-explorer/v3-1/ConnectionRequests.swagger.json %}
