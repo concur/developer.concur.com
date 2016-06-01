@@ -660,7 +660,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `cardType`|`enum`|-|**Required** "American Express","Diner’s Club","Discover","MasterCard","Visa","Carte Blanche","Enroute","Universal Air Travel","JCB","EuroCard"
-`maskedNumber`|`string`|-|A masked number which provides enough data for the user to identify the card used for the transaction. For example: XXXX-XXXX-XXXX-1234
+`maskedNumber`|`string`|-|Last four digits of the credit card used for the transaction. Providing leading characters for masking is optional. For example: XXXXXXXXXXXX1234. For compliance purposes, do not send the full credit card number. Providing any more than the last four digits of the credit card will result in the input being rejected.
 `authorizationCode`|`string`|-|Authorization code for transaction.
 
 #### <a name="customData"></a> customData
