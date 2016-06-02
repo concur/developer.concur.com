@@ -30,7 +30,7 @@ https://developer.concur.com/api-reference/user/company-notification-subscriptio
 
 A client can determine the Edition-type by having their administrator login to their Concur site.  If they see a “Setup” menu and a sub option for Expense within the main, Administration menu, then this is a Standard Edition site.  If the client administrator does not see the “Expense” menu within the Setup menu, then they have a Professional Edition site.  See:
 
-
+![Expense Menu](Create_new_trip_num.JPG)
 
 A Partner can determine the Edition type by the field Label value populated in Custom21 data element.  This data element can be obtained by making a GET request to this API:	https://www.concursolutions.com/api/user/v1.0/FormFields
 
