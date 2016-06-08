@@ -75,9 +75,9 @@ A Partner can determine the Edition type by the field Label value populated in C
  
  b.	Partner must determine if the custom field(s) are defined as a List field.
  
-    i.	If the field has a List, then the Partner must locate the List Code values in order to populate the List Item Code for each base employee record
+     i.	If the field has a List, then the Partner must locate the List Code values in order to populate the List Item Code for each base employee record
    
-    ii.	The List can be configured as a multi-level list (aka “Connected List”).
+     ii.	The List can be configured as a multi-level list (aka “Connected List”).
    
  c.	See next document to learn how to obtain the above data.
 
@@ -87,7 +87,7 @@ A Partner can determine the Edition type by the field Label value populated in C
 2.	Ledger Code (required for POST body)
  a.	This value can vary and a Pro Edition client could have 2 or more.
  b.	The Ledger code must be obtained from Concur since the Code is not available in the API and it is not exposed to the client administrator in the Concur UI (Accounting Administration menu).
-  i.	Contact pdspe@concur.com for the Client’s Ledger codes.
+    i.	Contact pdspe@concur.com for the Client’s Ledger codes.
 3.	Employee Group: (required for POST body)
  a.	This will be used for all Pro Edition Clients.
  b.	Custom21 will be used for the Expense Group value.  Custom 22 will be used for the Invoice Group value.   Both will be a List field.  Invoice is not necessary for all clients.
@@ -96,8 +96,8 @@ A Partner can determine the Edition type by the field Label value populated in C
 4.	Custom Fields:
  a.	Partner must determine the base record custom field(s).  These fields will vary per client.
  b.	Partner must determine if the custom field(s) are defined as a List field.
-  i.	If the field has a List, then the Partner must locate the List values in order to populate the List Item Code for each base employee record
-  ii.	The List can be configured as a multi-level list (aka “Connected List”).
+    i.	If the field has a List, then the Partner must locate the List values in order to populate the List Item Code for each base employee record
+    ii.	The List can be configured as a multi-level list (aka “Connected List”).
  c.	See next document to learn how to obtain the above data.
 
 
@@ -113,9 +113,9 @@ A Partner can determine the Edition type by the field Label value populated in C
 
   a.	Standard Edition - clients that have more than 1 reimbursement method (Expense Pay, Payroll, Co. Check) can provision Users but the client must import the Reimbursement values via a file (possible values are listed below).
 
-    i.	If the client uses ADP Payroll, then the ADP payroll fields listed below must be populated manually or via an import file.
+     i.	If the client uses ADP Payroll, then the ADP payroll fields listed below must be populated manually or via an import file.
 
-    ii.	If Expense Pay or AP Check is the single reimbursement method used by the client, then the Partner does not need to populate this data ( a blank value will populate the single, default method)
+     ii.	If Expense Pay or AP Check is the single reimbursement method used by the client, then the Partner does not need to populate this data ( a blank value will populate the single, default method)
   
   b.	Standard-to-Professional Upgrade Edition - clients that continue to use the corresponding Payment Manager batches (which get populated with reports based on the values in this field) can provision Users; but the client must import these values via a file. This requires a brief consultation with the client, Partner, & Concur to ensure everyone is on the same page. E.g. this type of client may choose to use one Accounting file and therefore would not need the individual batches that these field values populate.
   
@@ -123,21 +123,21 @@ A Partner can determine the Edition type by the field Label value populated in C
   
   d. These are the values that the client would populate via an import file:
 
-    i.	CNQRPAY
+     i.	CNQRPAY
   
-    ii.	APCHECK
+     ii.	APCHECK
   
-    iii. ADPPAYR
+     iii. ADPPAYR
   
 2.	Reimbursement via Payroll
 
   a. In Standard Edition, 3 ADP Payroll fields are exposed when the Payroll option is selected:
 
-    i.	ADP Company Code
+     i.	ADP Company Code
 
-    ii.	ADP Deduction Code
+     ii.	ADP Deduction Code
 
-    iii.	ADP File #
+     iii.	ADP File #
 
   b.	The above Payroll fields must also be populated by the client via an import file.
 
