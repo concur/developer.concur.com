@@ -75,9 +75,9 @@ A Partner can determine the Edition type by the field Label value populated in C
  
  b.	Partner must determine if the custom field(s) are defined as a List field.
  
-   i.	If the field has a List, then the Partner must locate the List Code values in order to populate the List Item Code for each base employee record
+    i.	If the field has a List, then the Partner must locate the List Code values in order to populate the List Item Code for each base employee record
    
-   ii.	The List can be configured as a multi-level list (aka “Connected List”).
+    ii.	The List can be configured as a multi-level list (aka “Connected List”).
    
  c.	See next document to learn how to obtain the above data.
 
