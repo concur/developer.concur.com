@@ -65,17 +65,12 @@ A Partner can determine the Edition type by the field Label value populated in C
  
  	See appendix document to learn how to determine Group Codes for Standard Edition.
  
-4.	Custom Fields:
-
- a.	Partner must determine the base record custom field(s).  These fields will vary per client.
- 
- b.	Partner must determine if the custom field(s) are defined as a List field.
- 
-     i.	If the field has a List, then the Partner must locate the List Code values in order to populate the List Item Code for each base employee record
-   
-     ii.	The List can be configured as a multi-level list (aka “Connected List”).
-   
- c.	See next document to learn how to obtain the above data.
+4. Custom Fields:
+  1. Partner must determine the base record custom field(s).  These fields will vary per client.
+  2. Partner must determine if the custom field(s) are defined as a List field.
+    1. If the field has a List, then the Partner must locate the List Code values in order to populate the List Item Code for each base employee record
+    2. The List can be configured as a multi-level list (aka “Connected List”).
+    3. See next document to learn how to obtain the above data.
 
 
 #### Professional Edition:
