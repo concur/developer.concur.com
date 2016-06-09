@@ -123,14 +123,14 @@ A Partner can determine the Edition type by the field Label value populated in C
    *ADPPAYR  
   
 #### Reimbursement via Payroll
-1. Standard Edition:
-  1. 3 ADP Payroll fields are exposed when the Payroll option is selected:
-   *ADP Company Code
-   *ADP Deduction Code
-   *ADP File #
-   *The above Payroll fields must also be populated by the client via an import file.
+1. Standard Edition and Standard-to-Professional Upgrade Edition:
+  1. 3 ADP Payroll fields are exposed when the Payroll option is populated in the Reimbursment Method field:
+    1. ADP Company Code
+    2. ADP Deduction Code
+    3. ADP File #
+    The above Payroll fields must also be populated by the client via an import file.
 2. Professional Edition:
-  1. custom fields can be used to capture the same data
+  1. custom fields can be used to capture the same data for Co Code, Deduction Code, & ADP File # but the Reimbursement Method field will not be present
 
 #### Cash Advance
   * Not available in the current User API.
