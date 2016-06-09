@@ -58,14 +58,10 @@ A Partner can determine the Edition type by the field Label value populated in C
 #### Standard Edition:
 1.	Client must have the Expense Service enabled.  i.e. Travel-only is not supported
 2.	Ledger Code:
-
- a.	required to be part of the User Post.
- 
- b.	For all Standard Edition clients the Ledger code = DEFAULT  as of Spring 2016.  This could change as Concur adds Standard Edition functionality
- 
-3.	Employee Group:
-
- a.	This is optional for Standard Edition clients. If it is used, then Custom21 & OrgUnit1 fields will be the fields to use.  These fields will point to a 2-level list.
+  1. Required to be part of the User Post.
+  2. For all Standard Edition clients the Ledger code = DEFAULT  as of Spring 2016.  This could change as Concur adds Standard Edition functionality  
+  3. Employee Group:
+    1. This is optional for Standard Edition clients. If it is used, then Custom21 & OrgUnit1 fields will be the fields to use.  These fields will point to a 2-level list.
  
  b.	See appendix document to learn how to determine Group Codes for Standard Edition.
  
