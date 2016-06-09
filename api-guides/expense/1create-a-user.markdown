@@ -109,32 +109,35 @@ A Partner can determine the Edition type by the field Label value populated in C
 ### Stipulations for a BASE User Record:
 
 #### Reimbursement Method field
-  1. Standard Edition  
-  * clients that have more than 1 reimbursement method (Expense Pay, Payroll, Co. Check) can provision Users but the client must import the Reimbursement values via a file (possible values are listed below).
-  * If the client uses ADP Payroll, then the ADP payroll fields listed below must be populated manually or via an import file.
-  * If Expense Pay or AP Check is the single reimbursement method used by the client, then the Partner does not need to populate this data ( a blank value will populate the single, default method)  
-  2. Standard-to-Professional Upgrade Edition  
-  * clients that continue to use the corresponding Payment Manager batches (which get populated with reports based on the values in this field) can provision Users; but the client must import these values via a file. This requires a brief consultation with the client, Partner, & Concur to ensure everyone is on the same page. E.g. this type of client may choose to use one Accounting file and therefore would not need the individual batches that these field values populate.  
-  3. Pro Edition  
-  * This field does not apply to Pro Edition at this time.  
-  * These are the values that the client would populate via an import file:
-  * CNQRPAY
-  * APCHECK
-  * ADPPAYR  
+1. Standard Edition
+  1. clients that have more than 1 reimbursement method (Expense Pay, Payroll, Co. Check) can provision Users but the client must import the Reimbursement values via a file (possible values are listed below).
+   1. If the client uses ADP Payroll, then the ADP payroll fields listed below must be populated manually or via an import file.
+   2. If Expense Pay or AP Check is the single reimbursement method used by the client, then the Partner does not need to populate this data ( a blank value will populate the single, default method)
+2. Standard-to-Professional Upgrade Edition
+  1. clients that continue to use the corresponding Payment Manager batches (which get populated with reports based on the values in this field) can provision Users; but the client must import these values via a file. This requires a brief consultation with the client, Partner, & Concur to ensure everyone is on the same page. E.g. this type of client may choose to use one Accounting file and therefore would not need the individual batches that these field values populate.
+3. Pro Edition
+  1. This field does not apply to Pro Edition at this time.
+  2. These are the values that the client would populate via an import file:
+   *CNQRPAY
+   *APCHECK
+   *ADPPAYR  
   
 #### Reimbursement via Payroll
-  1. In Standard Edition, 3 ADP Payroll fields are exposed when the Payroll option is selected:
-  * ADP Company Code
-  * ADP Deduction Code
-  * ADP File #
-  * The above Payroll fields must also be populated by the client via an import file.  
+1. Standard Edition:
+  1. 3 ADP Payroll fields are exposed when the Payroll option is selected:
+   *ADP Company Code
+   *ADP Deduction Code
+   *ADP File #
+   *The above Payroll fields must also be populated by the client via an import file.
+2. Professional Edition:
+  1. custom fields can be used to capture the same data
 
 #### Cash Advance
   * Not available in the current User API.
   * The Cash Advance Account Code will need to be manually entered or imported via a file.  
   
 #### Travel Policy
-  * All 3 Edition types:
-  * clients that have more than one Travel Policy can provision Users but the client must populate this field manually or via an import if the client has more than one travel policy.
-  * For multi-national and large market, it is very common to have more than one travel policy.
-  * For Standard travel, there is usually only one travel policy. Often times this field is left blank in the employee import file so users are associated with the default travel policy and then users are moved manually via User Administration
+1. All 3 Edition types:
+  1. clients that have more than one Travel Policy can provision Users but the client must populate this field manually or via an import if the client has more than one travel policy.
+  2. For multi-national and large market, it is very common to have more than one travel policy.
+  3. For Standard travel, there is usually only one travel policy. Often times this field is left blank in the employee import file so users are associated with the default travel policy and then users are moved manually via User Administration
