@@ -16,6 +16,9 @@ This page documents the Receipts 4.0 API that is still in its development phase.
   - [Car](#Car)
   - [Hotel](#Hotel)
   - [Ride](#Ride)
+  - [Japan Public Transport](#JPT)
+  - [Train](#Train)
+- [Failure Codes](#FailureCodes)
 
 ## <a name="URI"></a>Base URI
 
@@ -27,7 +30,7 @@ This page documents the Receipts 4.0 API that is still in its development phase.
 
 Header | Value | Description
 -------|-------|------------
-`Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
+`Authorization`|`JWT`|OAuth2 access token in the form of a JSON Web Token (JWT) obtained by the client application from the [Authorization API](https://developer.concur.com/api-alpha/auth/apidoc.html).
 
 ### Parameters
 
@@ -93,7 +96,7 @@ Header | Value | Description
 -------|-------|------------
 `content-type`|`string`|**Required** [Content-Type](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17): `application/json`
 `link`|| [Link](http://tools.ietf.org/html/rfc5988#section-5): `<http://schema.concursolutions.com/{schema-name.json}}>;rel=describedBy`. When not specified, the default is `http://schema.concursolutions.com/general-receipt.schema.json` and a list of the available [schemas](#Schema) is below.
-`Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
+`Authorization`|`JWT`|OAuth2 access token in the form of a JSON Web Token (JWT) obtained by the client application from the Authorization API.
 
 ### Parameters
 
@@ -145,7 +148,7 @@ general-receipt.json
 HTTP/1.1 201 Created
 concur-correlationid: 0f839dfc-1537-441b-a2f0-8a574b2a2776
 Link: <http://schema.concursolutions.com/general-receipt.schema.json>; rel="describedBy"
-Location: https://us.api.concursolutions.com/receipts/v4/7c22adcfaf6b4622be0d4e28f7aa2f79
+Location: https://us.api.concursolutions.com/receipts/v4/{receiptId}
 Date: Mon, 23 May 2016 21:31:31 GMT
 Connection: keep-alive
 Content-Length: 0
@@ -157,7 +160,7 @@ Content-Length: 0
 
 Header | Value | Description
 -------|-------|------------
-`Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
+`Authorization`|`JWT`|OAuth2 access token in the form of a JSON Web Token (JWT) obtained by the client application from the Authorization API.
 
 ### Parameters
 
@@ -177,7 +180,7 @@ A receipt (including metadata) matching the [schema](#Schema) in which it was cr
 
 #### Request
 
-`curl -v https://us.api.concursolutions.com/receipts/v4/7c22adcfaf6b4622be0d4e28f7aa2f79 -H "Authorization: Bearer {valid JWT}`
+`curl -v https://us.api.concursolutions.com/receipts/v4/{receiptId} -H "Authorization: Bearer {valid JWT}`
 
 #### Response
 
@@ -225,7 +228,7 @@ Connection: keep-alive
 
 Header | Value | Description
 -------|-------|------------
-`Authorization`|JWT|The client application needs to obtain an OAuth2 access token in the form of a JSON Web Token (JWT) which is passed as an `Authorization` header with every call.
+`Authorization`|JWT|OAuth2 access token in the form of a JSON Web Token (JWT) obtained by the client application from the Authorization API.
 
 ### Parameters
 
@@ -246,7 +249,109 @@ Name | Type | Format | Description
 
 #### Request
 
+`curl -v https://us.api.concursolutions.com/receipts/v4/user/{userId} -H "Authorization: Bearer {valid JWT}"`
+
 #### Response
+
+```
+{
+  "receipts": [
+    {
+      "dateTimeReceived": "2016-05-24T22:43:39.129Z",
+      "id": "d2ad6266ded44c2fa2d1ac39fef332ff",
+      "image": null,
+      "imageId": "5B3B39343FC63B60B7CA7D9B7B3A980A",
+      "receipt": {
+        "app": "http://api.concur.com/v4/app/802698dc151d421c80643d76f241c78b",
+        "currencyCode": "JPY",
+        "dateTime": "2014-05-05T00:00:00+09:00",
+        "icCardId": "00X00C1093A4E892",
+        "merchant": {
+          "location": {
+            "address": {
+              "countryCode": "JP"
+            },
+            "name": "Japan"
+          },
+          "name": "NWICR"
+        },
+        "payments": [
+          {
+            "amount": "130"
+          }
+        ],
+        "reference": "4e6e49c5-7aaf-4ff1-ad97-919348ed8fb3",
+        "segments": [
+          {
+            "amount": "130",
+            "dateTime": "2014-05-05T00:00:00+09:00",
+            "distance": 1234,
+            "fromIsCommuterPass": false,
+            "fromStationCode": "02506",
+            "fromStationName": "恵比寿（東京）",
+            "sequenceNumber": 1,
+            "toIsCommuterPass": false,
+            "toStationCode": "0250D",
+            "toStationName": "高田馬場"
+          }
+        ],
+        "total": "130",
+        "user": "http://api.concur.com/v4/user/123456"
+      },
+      "userId": "AAD27DDE-F599-4F33-B34A-4DE829420799",
+      "validationSchema": "http://schema.concursolutions.com/jpt-ic-card-receipt.schema.json",
+      "self": "https://receipt-api-platform-receipts-mspqaf5.concurasp.com/v4/d2ad6266ded44c2fa2d1ac39fef332ff",
+      "template": "https://receipt-api-platform-receipts-mspqaf5.concurasp.com/v4/{receiptId}"
+    },
+    {
+      "dateTimeReceived": "2016-05-24T22:43:00.480Z",
+      "id": "b500aa7c452e4c21a066137088f4ae04",
+      "image": null,
+      "imageId": "F2E20CC2721C3A16B8E18A034626E63D",
+      "receipt": {
+        "app": "http://api.concur.com/v4/app/802698dc151d421c80643d76f241c78b",
+        "currencyCode": "JPY",
+        "dateTime": "2014-05-05T00:00:00+09:00",
+        "icCardId": "00X00C1093A4E892",
+        "merchant": {
+          "location": {
+            "address": {
+              "countryCode": "JP"
+            },
+            "name": "Japan"
+          },
+          "name": "NWICR"
+        },
+        "payments": [
+          {
+            "amount": "130"
+          }
+        ],
+        "reference": "4e6e49c5-7aaf-4ff1-ad97-919348ed8fb3",
+        "segments": [
+          {
+            "amount": "130",
+            "dateTime": "2014-05-05T00:00:00+09:00",
+            "distance": 1234,
+            "fromIsCommuterPass": false,
+            "fromStationCode": "02506",
+            "fromStationName": "恵比寿（東京）",
+            "sequenceNumber": 1,
+            "toIsCommuterPass": false,
+            "toStationCode": "0250D",
+            "toStationName": "高田馬場"
+          }
+        ],
+        "total": "130",
+        "user": "http://api.concur.com/v4/user/123456"
+      },
+      "userId": "AAD27DDE-F599-4F33-B34A-4DE829420799",
+      "validationSchema": "http://schema.concursolutions.com/jpt-ic-card-receipt.schema.json",
+      "self": "https://receipt-api-platform-receipts-mspqaf5.concurasp.com/v4/b500aa7c452e4c21a066137088f4ae04",
+      "template": "https://receipt-api-platform-receipts-mspqaf5.concurasp.com/v4/{receiptId}"
+    }
+}
+```
 
 ## <a name="Schema"></a>Schemas
 
@@ -262,45 +367,45 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `core`|`object`|[`core`](#Core)|**Required** Core object for all receipts.
-`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique identifier of the itinerary in Concur’s database of itineraries (also known as a trip).
-`tickets`|`array`|[`tickets`](#tickets)|**Required** Air tickets.
-`lineItems`|`array`|[`lineItems`](#lineItems)|**Required** Ancillary fees.
+`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of an itinerary (also know as a trip) in Concur’s Itinerary Service.  An itinerary can contain one or more bookings from various sources.  
+`tickets`|`array`|[`tickets`](#tickets)|**Required** The air tickets issued.
+`lineItems`|`array`|[`lineItems`](#lineItems)|**Required** Ancillary airline fees.
 
 #### <a name="tickets"></a> tickets
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`number`|`string`|-|**Required** Ticket identifier.
-`recordLocator`|`string`|-|Confirmation identifier for the ticket.
+`number`|`string`|-|**Required** Ticket number issued by the airline when the payment is made. They are globally unique for all ARC carriers. The first 3 digits identify the airline. 3 digit code for each airline can be found [here](http://www.iata.org/about/members/Pages/airline-list.aspx?All=true). Example ticket number for American Airlines, 0012375432602.
+`recordLocator`|`string`|-|Confirmation identifier for the ticket created by the airline. For most airlines this is a 6 character alphanumeric code that is unique for a short period of time and could be reused in the future.
 `issueDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time the ticket was issued.
-`pseudoCityCode`|`string`|[`IATACityCode`](#IATACityCode)|City code the ticket was issued
-`IATAAgencyNumber`|`string`|[`IATAAgencyNumber`](#IATAAgencyNumber)|Number assigned to the agency issuing the ticket.
-`agencyName`|`string`|-|Agency issuing the ticket.
-`passengerName`|`string`|-|Passenger associated with the ticket.
-`endorsements`|`string`|-|TODO:
-`tourIdentifier`|`string`|-|TODO:
-`linearFareConstructor`|`string`|-|TODO:
-`coupons`|`array`|[`coupons`](#coupons)|**Required** Flights issued within this transaction
+`pseudoCityCode`|`string`|[`IATACityCode`](#IATACityCode)|IATA city code the ticket was issued from. For example, SEA.
+`IATAAgencyNumber`|`string`|[`IATAAgencyNumber`](#IATAAgencyNumber)|Identifying number assigned by the IATA to the agency issuing the ticket.
+`agencyName`|`string`|-|Name of the agency issuing the ticket.
+`passengerName`|`string`|-|Name of the passenger associated with the ticket.
+`endorsements`|`string`|-|
+`tourIdentifier`|`string`|-|
+`linearFareConstructor`|`string`|-|
+`coupons`|`array`|[`coupons`](#coupons)|**Required** Flights issued within this transaction.
 
 #### <a name="coupons"></a> coupons
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`originationAirportIATACode`|`string`|[`IATAAirportCode`](#IATAAirportCode)|**Required** Airport code of origin.
+`originationAirportIATACode`|`string`|[`IATAAirportCode`](#IATAAirportCode)|**Required** IATA airport code of the flight's origin.
 `originationDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time of origin.
-`destinationAirportIATACode`|`string`|[`IATAAirportCode`](#IATAAirportCode)|**Required** Airport code of destination.
+`destinationAirportIATACode`|`string`|[`IATAAirportCode`](#IATAAirportCode)|**Required** IATA airport code of the flight's destination.
 `destinationDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time of destination.
 `flightNumber`|`string`|-|Flight identifier.
 `couponNumber`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** Identifier associated with the given coupon
-`operatingAirlineCode`|`string`|[`IATAAirlineCode`](#IATAAirlineCode)|**Required** Airline code operating the flight.
+`operatingAirlineCode`|`string`|[`IATAAirlineCode`](#IATAAirlineCode)|**Required** IATA code of the airline operating the flight.
 `marketingCarrier`|`string`|[`flightDesignator`](#flightDesignator)|**Required** Flight designator booking the flight.
 `operatingCarrier`|`string`|[`flightDesignator`](#flightDesignator)|**Required** Flight designator operating the flight.
-`classOfServiceCode`|`string`|[`classOfServiceCode`](#classOfServiceCode)|**Required** Class of service per the airline's class of service codes. Most airlines use the same codes. Some airlines have custom codes.
+`classOfServiceCode`|`string`|[`classOfServiceCode`](#classOfServiceCode)|**Required** Class of service per the airline's class of service codes. Most airlines use the same codes but some airlines have custom codes.
 `fareBasisCode`|`string`|[`fareBasisCode`](#fareBasisCode)|**Required** Rate code the airline used to calculate the fare for this flight.
-`ticketDesignatorCode`|`string`|[`ticketDesignatorCode`](#ticketDesignatorCode)|The code to indicate what type of discount is applied, such as for a child or infant, or airline employee. A valid ticket designator code. This is a 1 to 10 alphanumeric code and can optionally include a single asterisk. Ticket designators are free-form text codes which help identify ticket types. Airlines determine which ticket designators they will use; no standards exist.
-`fare`|`string`|[`currency`](#currency)|**Required** Fare for the flight.
+`ticketDesignatorCode`|`string`|[`ticketDesignatorCode`](#ticketDesignatorCode)|A valid ticket designator code to indicate what type of discount is applied, such as for a child or infant, or airline employee. This is a 1 to 10 alphanumeric code and can optionally include a single asterisk. Ticket designators are free-form text codes which help identify ticket types. Airlines determine which ticket designators they will use; no standards exist.
+`fare`|`string`|[`currency`](#currency)|**Required** Fare charged for the flight.
 `taxes`|`array`|[`taxes`](#taxes)|Taxes paid as part of transaction.
-`lineItems`|`array`|[`lineItems`](#lineItems)|Line Items/Fees specific to a leg of the trip. Eg. Baggage fees, class of service fees, priority boarding, meals.
+`lineItems`|`array`|[`lineItems`](#lineItems)|Line Items/fees specific to a leg of the trip. Eg. Baggage fees, class of service fees, priority boarding, meals.
 
 #### <a name="Air-definitions"></a> definitions
 
@@ -320,46 +425,46 @@ Name | Type | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `core`|`object`|[`core`](#Core)|**Required** Core object for all receipts.
-`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique identifier of the itinerary in Concur’s database of itineraries (also known as a trip).
-`segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Segment identifier.
-`startDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Rental start date and time
-`endDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Rental end date and time
+`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of an itinerary (also know as a trip) in Concur’s Itinerary Service.  An itinerary can contain one or more bookings from various sources.
+`segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of a single travel event in Concur’s Itinerary Service.  An itinerary can contain one or more bookings and each booking can contain one or more segments. The segmentLocator uniquely identifies something like a car rental with a specific start and end date or a single air segment/sector.
+`startDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Rental start date and time.
+`endDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Rental end date and time.
 `pickupLocation`|`object`|[`location`](#location)|Vehicle pick up location.
 `dropoffLocation`|`object`|[`location`](#location)|Vehicle drop off location.
-`rentalDays`|`integer`|[`positiveInteger`](#positiveInteger)|**Required** Total number of days for rental
-`discountCode`|`string`|-|The code for the corporate discount
-`discountName`|`string`|-|The name for the corporate discount
-`rentalAgreementNumber`|`string`|-|Agreement identifier
-`confirmationNumber`|`string`|-|Booking confirmation identifier
-`vehicle`|`object`|[`vehicle`](#vehicle)|Vehicle description
-`distance`|`object`|[`distance`](#distance)|Distance
-`odometerReadingOut`|`number`|-|Odometer reading at the start of the rental period. Number with up to one decimal place.
-`odometerReadingIn`|`number`|-|Odometer reading at the start of the rental period. Number with up to one decimal place.
-`additionalDriver`|`boolean`|-|Additional approved driver (true) or not (false)
-`lineItems`|`array`|[`lineItems`](#lineItems)|Line item details
+`rentalDays`|`integer`|[`positiveInteger`](#positiveInteger)|**Required** Total number of days for rental.
+`discountCode`|`string`|-|The code for the corporate discount.
+`discountName`|`string`|-|The name for the corporate discount.
+`rentalAgreementNumber`|`string`|-|Agreement identifier.
+`confirmationNumber`|`string`|-|Booking confirmation identifier.
+`vehicle`|`object`|[`vehicle`](#vehicle)|Vehicle description.
+`distance`|`object`|[`distance`](#distance)|Distance travelled.
+`odometerReadingOut`|`number`|-|Odometer reading at the start of the rental period. Number with up to one decimal place is expected.
+`odometerReadingIn`|`number`|-|Odometer reading at the start of the rental period. Number with up to one decimal place is expected.
+`additionalDriver`|`boolean`|-|Additional approved driver (true) or not (false).
+`lineItems`|`array`|[`lineItems`](#lineItems)|Break down of all car rental charges. This could include daily rate, fees etc.
 
 #### <a name="vehicle"></a> vehicle
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`registrationNumber`|`string`|-|Registration or license plate identifier
-`description`|`string`|-|Vehicle description, including year, make and model
-`classReservedCode`|`string`|[`classCode`](#classCode)|Reservation four letter Association of Car Rental Industry Systems Standards (ACRISS) car classification identifier [http://www.acriss.org/expanded-matrix.asp](http://www.acriss.org/expanded-matrix.asp)
+`registrationNumber`|`string`|-|Registration or license plate identifier.
+`description`|`string`|-|Vehicle description, including year, make and model.
+`classReservedCode`|`string`|[`classCode`](#classCode)|Association of Car Rental Industry Systems Standard (ACRISS) four letter car code.
 `classRentedCode`|`string`|[`classCode`](#classCode)|Actual vehicle rented ACRISS identifier.
 `classChargedCode`|`string`|[`classCode`](#classCode)|Car class code charged ACRISS identifier.
-`categoryCode`|`string`|[`genericCode`](#genericCode)|ACRISS car category code
-`typeCode`|`string`|[`genericCode`](#genericCode)|ACRISS car type code
-`transmissionDriveCode`|`string`|[`genericCode`](#genericCode)|ACRISS car transmission/drive code
-`fuelAirConditioningCode`|`string`|[`genericCode`](#genericCode)|ACRISS car fuel/air conditioning code
-`engineSize`|`string`|[`engineSize`](#engineSize)|Engine size in cubic centimeters
-`fuelType`|`string`|-|Fuel type of the vehicle
+`categoryCode`|`string`|[`genericCode`](#genericCode)|ACRISS car category code.
+`typeCode`|`string`|[`genericCode`](#genericCode)|ACRISS car type code.
+`transmissionDriveCode`|`string`|[`genericCode`](#genericCode)|ACRISS car transmission/drive code.
+`fuelAirConditioningCode`|`string`|[`genericCode`](#genericCode)|ACRISS car fuel/air conditioning code.
+`engineSize`|`string`|[`engineSize`](#engineSize)|Engine size in cubic centimeters.
+`fuelType`|`string`|-|Fuel type of the vehicle.
 
 #### <a name="distance"></a> distance
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`totalDistance`|`number`|-|Distance traveled during the rental
-`unit`|`enum`|-|"M" or "K" (Miles or Kilometers)
+`totalDistance`|`number`|-|Distance traveled during the rental.
+`unit`|`enum`|-|"M" or "K" (Miles or Kilometers).
 
 #### <a name="Car-definitions"></a> definitions
 
@@ -374,51 +479,51 @@ Name | Type | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `core`|`object`|[`core`](#Core)|**Required** Core object for all receipts.
-`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique identifier of the itinerary in Concur’s database of itineraries (also known as a trip).
-`segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Segment identifier.
+`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of an itinerary (also know as a trip) in Concur’s Itinerary Service.  An itinerary can contain one or more bookings from various sources.
+`segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of a single travel event in Concur’s Itinerary Service.  An itinerary can contain one or more bookings and each booking can contain one or more segments. The segmentLocator uniquely identifies something like a car rental with a specific start and end date or a single air segment/sector.
 `property`|`object`|[`property`](#property)|**Required** Physical property location information for the hotel property. This is often different than the merchant location information.
 `confirmationNumber`|`string`|-|Booking identifier
-`checkInDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Check in date and time
-`checkOutDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Check out date and time
-`guests`|`array`|[`guests`](#guests)|**Required** Guest information
-`numberInParty`|`integer`|[`positiveInteger`](#positiveInteger)|Number of individuals for the stay
-`room`|`object`|[`room`](#room)|**Required** Room details
-`nightsStayed`|`integer`|[`positiveInteger`](#positiveInteger)|**Required** Number of nights for the stay
-`lineItems`|`array`|[`lineItems`](#lineItems)|**Required** Line item details
+`checkInDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Check in date and time.
+`checkOutDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Check out date and time.
+`guests`|`array`|[`guests`](#guests)|**Required** Guest information.
+`numberInParty`|`integer`|[`positiveInteger`](#positiveInteger)|Number of individuals for the stay.
+`room`|`object`|[`room`](#room)|**Required** Room details.
+`nightsStayed`|`integer`|[`positiveInteger`](#positiveInteger)|**Required** Number of nights for the stay.
+`lineItems`|`array`|[`lineItems`](#lineItems)|**Required** Break down of all hotel charges. This could include the daily room rate, meals and other charges.
 
 #### <a name="property"></a> property
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`name`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** Description
-`description`|`string`|-|Description
-`location`|`object`|[`location`](#location)|**Required** Description
+`name`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** Name of the hotel property where the guest stayed.
+`description`|`string`|-|A brief description of the hotel.
+`location`|`object`|[`location`](#location)|**Required** Location of the hotel property where the guest stayed.
 
 #### <a name="guests"></a> guests
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`guestNameRecord`|`string`|-|Description
-`firstName`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** Description
-`lastName`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** Description
-`address`|`object`|[`address`](#address)|Description
+`guestNameRecord`|`string`|-|The loyalty or membership number of the hotel guest.
+`firstName`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** First name of the guest.
+`lastName`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** Last name of the guest.
+`address`|`object`|[`address`](#address)|Address of the guest. It is highly recommended to provide the business address of the guest if the hotel is provided with one. Doing so will help VAT reclamation partners that work with companies, to have compliant receipts that are accepted by the tax authority when filing tax reclaims.
 
 #### <a name="room"></a> room
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`roomNumber`|`string`|-|Description
-`roomType`|`string`|-|Description
-`ratePlanType`|`string`|-|Description
-`averageDailyRoomRate`|`string`|[`currency`](#currency)|**Required** Description
+`roomNumber`|`string`|-|Room number where the guest stayed.
+`roomType`|`string`|-|Type of room where the guest stayed. For example, Standard, Deluxe, etc.
+`ratePlanType`|`string`|-|Name of the rate plan according to which the guest was charged.
+`averageDailyRoomRate`|`string`|[`currency`](#currency)|**Required** Average of the daily room rates for the duration of the guests stay. Room rates usually differ from day to day.
 
 ### <a name="Ride"></a>Ride
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `core`|`object`|[`core`](#Core)|**Required** Core object for all receipts.
-`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique identifier of the itinerary in Concur's database of itineraries.
-`segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique identifier of a segment within an itinerary.
+`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of an itinerary (also know as a trip) in Concur’s Itinerary Service.  An itinerary can contain one or more bookings from various sources.
+`segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of a single travel event in Concur’s Itinerary Service.  An itinerary can contain one or more bookings and each booking can contain one or more segments. The segmentLocator uniquely identifies something like a car rental with a specific start and end date or a single air segment/sector.
 `operator`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** Name of the company offering the ride service.
 `terminalNumber`|`string`|-|If customer was picked at an airport, then the terminal number where picked up.
 `startDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time of when customer was picked up.
@@ -452,6 +557,8 @@ Name | Type | Format | Description
 `toIsCommuterPass`|`boolean`|-|Is the arrival route included in the commuter pass subscription of the employee.
 `distance`|`integer`|-|Distance between departure and arrival station.
 
+### <a name="Train"></a>Train
+
 ### <a name="Core"></a>Core
 
 Name | Type | Format | Description
@@ -476,7 +583,7 @@ Name | Type | Format | Description
 `name`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** Name.
 `location`|`object`|[`location`](#location)|**Required** Location and address.
 `description`|`string`|-|Desription.
-`taxId`|`string`|-|The tax identification number assigned to the merchant by the national tax authority. In some countries this must appear on the receipt for it to be considered a tax receipt/invoice. If supplied, it must be displayed on the receipt.
+`taxId`|`string`|-|The tax identification number assigned to the merchant by the national tax authority. In some countries this must appear on the receipt for it to be considered a tax receipt/invoice.
 
 #### <a name="location"></a> location
 
@@ -557,7 +664,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `cardType`|`enum`|-|**Required** "American Express","Diner’s Club","Discover","MasterCard","Visa","Carte Blanche","Enroute","Universal Air Travel","JCB","EuroCard"
-`maskedNumber`|`string`|-|A masked number which provides enough data for the user to identify the card used for the transaction. For example: XXXX-XXXX-XXXX-1234
+`maskedNumber`|`string`|-|Last four digits of the credit card used for the transaction. Providing leading characters for masking is optional. For example: XXXXXXXXXXXX1234. For compliance purposes, do not send the full credit card number. Providing any more than the last four digits of the credit card will result in the input being rejected.
 `authorizationCode`|`string`|-|Authorization code for transaction.
 
 #### <a name="customData"></a> customData
@@ -650,6 +757,8 @@ Name | Type | Format | Description
 `validationSchema`|`string`|-|URL to the schema used for validation.
 `image`|`string`|-|URL to the image for the receipt.
 `imageId`|`string`|-|Concur specific identifier for the image.
+
+## <a name="FailureCodes"></a>Failure Codes
 
 
 

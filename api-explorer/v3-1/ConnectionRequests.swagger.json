@@ -1,7 +1,7 @@
 {
 	"swagger": "2.0",
 	"host": "www.concursolutions.com",
-	"basePath": "/api/v3.0",
+	"basePath": "/api/v3.1",
 	"schemes": [
 	  "https"
 	],
@@ -16,7 +16,7 @@
 	"info": {
 		"title": "Connection Requests",
 		"description": "",
-		"version": "3.0"
+		"version": "3.1"
 	},
   "tags": [
     {
@@ -191,6 +191,9 @@
 		  "URI": {
 		  	"type": "string",
 			"description": "URI for the GET call that will return this connection request."
+		  },
+		  "EmailAddresses": {
+		  	"$ref": "#/definitions/UserEmailAddresses"
 		  }
     	}
     },
@@ -212,6 +215,30 @@
 		  	"type": "string",
 			"description": "URI for the GET call that will return the newly created connection request."
 		  }
+    	}
+    },
+    "UserEmailAddresses": {
+    	"properties": {
+    		"Email1": {
+   				"type": "string",
+				"description": "Email address for the user."
+     		},
+    		"Email2": {
+   				"type": "string",
+				"description": "Email address for the user."
+     		},
+    		"Email3": {
+   				"type": "string",
+				"description": "Email address for the user."
+     		},
+    		"Email4": {
+   				"type": "string",
+				"description": "Email address for the user."
+     		},
+    		"Email5": {
+   				"type": "string",
+				"description": "Email address for the user."
+     		}
     	}
     },
     "Void": {

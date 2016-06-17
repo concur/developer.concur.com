@@ -1,11 +1,11 @@
 ---
-title: How To Provision A Basic User Record Into Concur
+title: 2. How To Provision A Basic User Record Into Concur
 layout: reference
 ---
 
-### How To Provision A Basic User Record Into Concur
+### 2. How To Provision A Basic User Record Into Concur
 
-This document will guide the developer through the process to successfully add a base User record to a Concur site.  Clients should be made aware that they will need to import additional employee data (via files) in order to make use of Concur functionality that is not covered by the basic User Provisioning process.  Clients should consult with their Concur Implementation Technical Consultant for more information.
+This document will guide the developer through the process to successfully add a BASE User record to a Concur site.  Clients should be made aware that they will need to import additional employee data (via files) in order to make use of Concur functionality that is not covered by the basic User Provisioning process.  Clients should consult with their Concur Implementation Technical Consultant for more information.
 
 Concur comes in 3 Editions: Standard, Professional, and Standard-to-Professional Upgrade.  A client can determine the Edition-type by having their administrator login to their Concur site.  If they see a “Setup” menu with a sub option for Expense within the Administration menu, then this is a Standard Edition site.  If the client administrator does not see the “Setup” menu with Expense as a sub menu, then they have a Professional Edition site.
 
@@ -45,12 +45,9 @@ There are subtle differences between the Editions when adding a base User record
   - Professional Edition -  the client could have 2 or more Employee Forms.
           * Note: Each employee is assigned to a Group.  The Employee Group can only have one Employee form assigned to it.  However, a single Employee Form can be assigned to more than one Group.
 2.	The following concepts are the same for all 3 Edition types.  This section will help you understand the data you need to obtain from the client’s Concur site & then prepare it in a POST User API request.
-  - The Partner has to identify which required fields are defined as a List & whether or not the list is a single-level or a multi-level list:
-        * Single-level list:
-3.	The field is a stand-alone field that does not have a connection to another field’s values.  For example: a small company that only classifies their employees into a Department.  The are no other segments.
-  - Multi-level list (aka “Connected List” or “Linked List”):
-4.	The field has a connection to one or more other fields’ list values.  
-    For example: a company could classify their employees into a Company, Division, & Department.  The purpose of the connected list values reduces the likelihood of incorrect combinations of data being entered for an employee record.  In the above example, the selected Company list value will dictate which values are available for selection in the Division list, which will, in turn, dictate which values are available for selection in the Department field.
+  a. The Partner has to identify which required fields are defined as a List & whether or not the list is a single-level or a multi-level list:
+      1. Single-level list: The field is a stand-alone field that does not have a connection to another field’s values.  For example: a small company that only classifies their employees into a Department.  The are no other segments.
+      2. Multi-level list (aka “Connected List” or “Linked List”):  The field has a connection to one or more other fields’ list values.  For example: a company could classify their employees into a Company, Division, & Department.  The purpose of the connected list values reduces the likelihood of incorrect combinations of data being entered for an employee record.  In the above example, the selected Company list value will dictate which values are available for selection in the Division list, which will, in turn, dictate which values are available for selection in the Department field.
 
 See how to determine if the Employee Form Fields are lists and connected lists below.
 
@@ -108,11 +105,11 @@ This is a Pro Edition example since it does not include a field ID = < Id > PmtM
 
           <FormField>
               <Id> Custom21 </Id> - Record the field ID to be used in your POST Body later.
-              <Label> EmployeeGroup </Label> - This value indicates this is a Pro Edition. See above notes for the other values.
+              <Label> EmployeeGroup </Label> - Indicated this is a Pro Ed. See above for the other values.
               <ControlType> picklist </ControlType>
               <DataType> LIST </DataType> - This is the value if the list is a stand alone list
               <MaxLength> 48 </MaxLength>
-              <Required> Y </Required>	- Required field so be prepared to use this in your POST Body
+              <Required> Y </Required> - Required field so be prepared to use this in your POST Body
               <Cols/>
               <Access> RW </Access>
               <Width/>
@@ -129,7 +126,7 @@ This is a Pro Edition example since it does not include a field ID = < Id > PmtM
               <Id> OrgUnit1 </Id> - Record the field ID to be used in your POST Body later
               <Label> Company </Label>
               <ControlType> list_edit </ControlType>
-              <DataType> MLIST </DataType> - This is the value if the list is a multi-level list
+              <DataType> MLIST </DataType> - Value if the list is a multi-level list
               <MaxLength> 48 </MaxLength>
               <Required> Y </Required>
               <Cols/>
@@ -156,10 +153,10 @@ This is a Pro Edition example since it does not include a field ID = < Id > PmtM
               <Width/>
               <Custom> Y </Custom>
               <ParentFormTypeCode> EMPINFO </ParentFormTypeCode>
-              <ParentFieldId> OrgUnit1 </ParentFieldId>	one way to determine if the field is part of a connected list
+              <ParentFieldId> OrgUnit1 </ParentFieldId>	Indicates this is a connected list
               <IsCopyDownSourceForOtherForms> Y </IsCopyDownSourceForOtherForms>
               <ListName> Company Hierarchy </ListName>
-              <HierLevel> 2 </HierLevel> - One way to determine if the field is part of a connected list
+              <HierLevel> 2 </HierLevel> - Indicates the field is part of a connected list
               <Sequence> 16 </Sequence>
           </FormField>
 
@@ -175,7 +172,7 @@ This is a Pro Edition example since it does not include a field ID = < Id > PmtM
               <Width/>
               <Custom> Y </Custom>
               <ParentFormTypeCode> EMPINFO </ParentFormTypeCode>
-              <ParentFieldId> OrgUnit2</ParentFieldId> - One way to determine if the field is part of a connected list
+              <ParentFieldId> OrgUnit2</ParentFieldId> - Indicates the field is part of a connected list
               <IsCopyDownSourceForOtherForms> Y </IsCopyDownSourceForOtherForms>
               <ListName> Company Hierarchy </ListName>
               <HierLevel> 3 </HierLevel>
@@ -185,7 +182,7 @@ This is a Pro Edition example since it does not include a field ID = < Id > PmtM
           <FormField>
               <Id> LedgerKey </Id>
               <Label> Ledger </Label>
-              <ControlType> picklist </ControlType>  - The ledger code does not get returned in the GET List API.  See page 1.
+              <ControlType> picklist </ControlType>-Ledger code doesn't get returned in the GET List API.
               <DataType> INTEGER </DataType>
               <MaxLength />
               <Required> Y </Required>
@@ -309,9 +306,9 @@ Repeat the above until you have obtained all of the List value CODES for all of 
 2.	Employee Group Codes
   -	Values will be part of the list data
   -	Standard Edition uses a 2-level Group structure. These fields are used:
-1.	Custom21
-2.	OrgUnit1
-3.	See this document to learn how to obtain Standard Edition Group values.
+  -	  a. Custom21
+  -	  b. OrgUnit1
+  -	  c. See additional document to learn how to obtain Standard Edition Group values.
 3.	Other required fields
   -	All required fields must be populated in the POST User request body
 4.	Reimbursement Method field for the Standard-to-Professional Edition upgrade:
@@ -327,15 +324,12 @@ Repeat the above until you have obtained all of the List value CODES for all of 
           <Id> PmtMethodCode </Id>
           <Label> ReimbursementMethod </Label>
 
-If you determine the client is a Standard to Professional Upgrade client, please contact Concur at: PDSPE@concur.com
-
-#### Notes:
-
-The Reimbursement Method field:
-
-If a client has migrated from Standard to Professional this field can be removed only if the client has moved to the single level SAE file. If the client is still using the G/L files they used while on Standard, you can’t remove the Reimbursement Method field because those files require that field. Once the client is put on the single level SAE file, the Reimbursement Method field is no longer needed and can be removed from the Employee Form.
-
-If the client still uses their Standard Edition files, then this is an issue due to an outstanding issue where the POST User API does not populate the field.
+  a. If you determine the client is a Standard to Professional Upgrade client, please contact Concur at: PDSPE@concur.com
+  b. Notes:
+    
+    1. If a client has migrated from Standard to Professional this field can be removed only if the client has moved to the single level SAE file. If the client is still using the G/L files they used while on Standard, you can’t remove the Reimbursement Method field because those files require that field. Once the client is put on the single level SAE file, the Reimbursement Method field is no longer needed and can be removed from the Employee Form.
+    
+    2. If the client still uses their Standard Edition files, then this is an issue due to an outstanding issue where the POST User API does not populate the field.
 
 
 #### Step 3: Post User
