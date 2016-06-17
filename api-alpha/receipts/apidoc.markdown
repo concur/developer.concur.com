@@ -17,6 +17,7 @@ This page documents the Receipts 4.0 API that is still in its development phase.
   - [Hotel](#Hotel)
   - [Ride](#Ride)
   - [Japan Public Transport](#JPT)
+  - [Train](#Train)
 - [Failure Codes](#FailureCodes)
 
 ## <a name="URI"></a>Base URI
@@ -555,6 +556,8 @@ Name | Type | Format | Description
 `fromIsCommuterPass`|`boolean`|-|Is the departure route included in the commuter pass subscription of the employee.
 `toIsCommuterPass`|`boolean`|-|Is the arrival route included in the commuter pass subscription of the employee.
 `distance`|`integer`|-|Distance between departure and arrival station.
+
+### <a name="Train"></a>Train
 
 ### <a name="Core"></a>Core
 
