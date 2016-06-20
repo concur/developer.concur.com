@@ -324,7 +324,7 @@ Name | Type | Format | Description
 `itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of an itinerary (also know as a trip) in Concur’s Itinerary Service.  An itinerary can contain one or more bookings from various sources.
 `segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of a single travel event in Concur’s Itinerary Service.  An itinerary can contain one or more bookings and each booking can contain one or more segments. The segmentLocator uniquely identifies something like a car rental with a specific start and end date or a single air segment/sector.
 `operator`|`string`|[`nonEmptyString`](#nonEmptyString)|**Required** Name of the company offering the ride service.
-`terminalNumber`|`string`|-|If customer was picked at an airport, then the terminal number where picked up.
+`terminalNumber`|`string`|-|If customer was picked up or dropped off at an airport, then the terminal number.
 `startDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time of when customer was picked up.
 `endDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time of when customer was dropped off.
 `pickupLocation`|`object`|[`location`](#location)|Location where the customer was picked up.
