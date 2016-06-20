@@ -13,7 +13,8 @@ author: Dale Ragan
 
 ContainerDays in Boston
 ===
-As an "open space conference” for DevOps community, [ContainerDays Boston][ContainerDays] mixed presentational sessions with many participant-driven idea sharing, project demos, workshops into two days “unconference” schedule. At ContainerDays, [Dale][Dale.Ragan], [Campbell][Campbell.Gunn], and [Weiteng][Weiteng.Huang] had chances to exchange our experience of container technology and how we built immutable infrastructure at Concur Technologies with other participants. Dale also had an amazing interview with Beth Parizeau from TechTarget, because we took the opportunity to get on the stage in one of the open space sessions. The article of interview is [(Tech firms roll out Kubernetes in production)](http://searchitoperations.techtarget.com/news/450297178/Tech-firms-roll-out-Kubernetes-in-production).  
+As an "open space conference” for DevOps community, [ContainerDays Boston][ContainerDays] mixed presentational sessions with many participant-driven idea sharing, project demos, workshops into two days “unconference” schedule. At ContainerDays, [Dale][Dale.Ragan], [Campbell][Campbell.Gunn], and [Weiteng][Weiteng.Huang] had chances to exchange our experience of container technology and how we built immutable infrastructure at Concur Technologies with other participants. Dale also had an amazing interview with Beth Parizeau from TechTarget, because we took the opportunity to get on the stage in one of the open space sessions. The article of interview is [(Tech firms roll out Kubernetes in production)](http://searchitoperations.techtarget.com/news/450297178/Tech-firms-roll-out-Kubernetes-in-production).
+
 [ContainerDays]: http://dynamicinfradays.org/events/2016-boston/
 [Dale.Ragan]: https://github.com/dragan
 [Campbell.Gunn]: https://github.com/campbellgconcur
