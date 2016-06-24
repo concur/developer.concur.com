@@ -7,41 +7,31 @@ layout: reference
 ##  Description
 
 
-The Travel Profile resource represents a Concur travel profile which contains travel-related information about a user, such as:
-
-* Company Information (example: custom fields)
-* User Information
-* Contact Details
-* Rate Preferences and Discount Codes
-* Preferences by travel type
-* Managers/Arrangers
-* Passports/Visas
-* TMC Specific Data
-* Unused Tickets
+The Travel Profile resource represents a Concur travel profile which contains travel-related information about a user.
 
 ##  Version
 
 2.0  
-1.0 can be found [here](/api-reference-deprecated/version-one/Travel/profile-resource.html)
-
-##  URI
-
-<code>https://{InstanceURL}/api/travelprofile/v2.0/profile</code>
+[Version 1.0](/api-reference-deprecated/version-one/Travel/profile-resource.html) has been **deprecated**
 
 ##  Operations
 
 * [Get a travel profile](#a1)
+* [Get a list of travel profile summaries](#a2)
 
-Detailed descriptions of requests and responses are available in the documentation for each HTTP method. The complete schema definition is available here: [Travel Profile XSD][3]. If you're using Internet Explorer, right click the link and choose Save Target As... to view the XSD.
-
+Detailed descriptions of requests and responses are available in the documentation for each HTTP method.
 
 ## <a name="a1">Get a travel profile</a>
 
 This endpoint provides travel profile information for the specified user. The travel profile includes information such as the user's identity, contact information, rate preferences and discount codes, preferences by travel type, and custom fields. 
 
+###  URI
+
+<code>https://{InstanceURL}/api/travelprofile/v2.0/profile</code>
+
 ###  Request parameters
 
-All request paramenters are optional. To identify a specific user by Login ID or XML Sync ID, you can specify the following request parameters:
+All request parameters are optional. To identify a specific user by Login ID or XML Sync ID, you can specify the following request parameters:
 
 |  Parameter Name |  Parameter Type |  Data Type |  Description |
 | :----- | :----- | :----- |:-----|
@@ -59,39 +49,70 @@ application/xml
 Where access_token is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve.
 
 #### Data model
-The schema for v2.0 is available [here](https://www.concursolutions.com/ns/TravelUserProfile.xsd).
+The complete schema definition is available here: [Travel Profile XSD][3].
 
 ####  ProfileResponse root element
 
-The ProfileResponse root element contains the General, EmergencyContact, Telephones, Addresses, NationalIDs, DriversLicenses, HasNoPassport, Passports, Visas, EmailAddresses, RatePreferences, DiscountCodes, Air, Rail, Car, Hotel, CustomFields, Roles, Sponsors, TSAInfo, UnusedTickets, SouthwestUnusedTickets, and AdvantageMemberships child elements. It has the attributes shown in the Data Model section.
+The ProfileResponse root element contains:
 
-####  General elements
+* [General](#General)
+* [EmergencyContact](#EmergencyContact)
+* [Telephones](#Telephones)
+* [Addresses](#Addresses)
+* [NationalIDs](#NationalIDs)
+* [DriversLicenses](#DriversLicenses)
+* [HasNoPassport](#HasNoPassport)
+* [Passports](#Passports)
+* [Visas](#Visas)
+* [EmailAddresses](#EmailAddresses)
+* [RatePreferences](#RatePreferences)
+* [DiscountCodes](#DiscountCodes)
+* [Air](#Air)
+* [Rail](#Rail)
+* [Car](#Car)
+* [Hotel](#Hotel)
+* [CustomFields](#CustomFields)
+* [Roles](#Roles)
+* [Sponsors](#Sponsors)
+* [TSAInfo](#TSAInfo)
+* [UnusedTickets](#UnusedTickets)
+* [SouthwestUnusedTickets](#SouthwestUnusedTickets)
+* [AdvantageMemberships](#AdvantageMemberships)
 
-The General parent element contains the following child elements. In order to receive the Cost Center, Company Employee ID, or Division data, you must enable the Company Details scope. In order to receive the Medical Alert data, you must enable the Medical Alerts scope. In order to receive the GDS Profile Name, you must enable the TMC Specific Information scope. Note: Profile fields, such as cost center and division, must be enabled and populated in the Travel site for data to return.  
+***
 
-|  Element Name |  Data Type |  Description |
-| ----- | ----- | ----- |
-|  `NamePrefix` |  `string` |  The user's name prefix. Format: nvarchar(60) |
-|  `FirstName` |  `string` |  The user's first name. Format: nvarchar(60) |
-|  `MiddleName` |  `string` |  The user's middle name. Format: nvarchar(60) |
-|  `LastName` |  `string` |  The user's last name. Format: nvarchar(60) |
-|  `NameSuffix` |  `string` |  The user's name suffix. Format: nvarchar(60) |
-|  `PreferredName` |  `string` |  The user's preferred name. Format: nvarchar(60) |
-|  `JobTitle` |  `string` |  The user's job title. Format: nvarchar(255) |
-|  `CostCenter` | `string` | The user’s cost center. Format: nvarchar(25) |
-|  `CompanyEmployeeID` | `string` | The user’s employee ID. Format: nvarchar(48) |
-|  `Division` | `string` | The user's division. Format: nvarchar(60) |
-|  `PreferredLanguage` |  `string` |  The user's preferred language locale. Example: United States English is en-US. Format: varchar(20) |
-|  `EReceiptOptIn` |  `boolean` |  Whether the user has opted in to receive e-receipts. Format: **true**\|**false** |
-|  `HasOpenBooking` |  `boolean` |  Whether the user has the TripLink User (formerly Open Booking User) permission. Format: **true**\|**false** |
-|  `CountryCode` |  `string` |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: char(2) |
-|  `CompanyName` |  `string` |  The user's company name. Format: nvarchar(255) |
-|  `CompanyID` | `string` | The user's company ID. Format: varchar(255) |
-|  `RuleClass` |  `string` |  The user's rule class. Format: nvarchar(60) |
-|  `MedicalAlerts` | `string` |  The user's medical alerts. Format: nvarchar(255) |
-|  `GDSProfileName` |  `string` |  The user's GDS profile name. Format: varchar(60) |
+####  <a name="General"></a>General elements
 
-#### Emergency contact details
+The General parent element contains the following child elements.
+
+* Some elements require specific scopes be enabled to receive the data, refer to the table below.
+* Profile fields, such as cost center and division, must be enabled and populated in the Travel site for data to return.  
+
+| Element Name | Data Type | Description |  Scope |
+| ----- | ----- | ----- | ----- |
+|  `NamePrefix` |  `string` |  The user's name prefix. Format: nvarchar(60) | |
+|  `FirstName` |  `string` |  The user's first name. Format: nvarchar(60) | |
+|  `MiddleName` |  `string` |  The user's middle name. Format: nvarchar(60) | |
+|  `LastName` |  `string` |  The user's last name. Format: nvarchar(60) | |
+|  `NameSuffix` |  `string` |  The user's name suffix. Format: nvarchar(60) | |
+|  `PreferredName` |  `string` |  The user's preferred name. Format: nvarchar(60) | |
+|  `JobTitle` |  `string` |  The user's job title. Format: nvarchar(255) | |
+|  `CostCenter` | `string` | The user’s cost center. Format: nvarchar(25) | Company Details |
+|  `CompanyEmployeeID` | `string` | The user’s employee ID. Format: nvarchar(48) | Company Details |
+|  `Division` | `string` | The user's division. Format: nvarchar(60) | Company Details |
+|  `PreferredLanguage` |  `string` |  The user's preferred language locale. Example: United States English is en-US. Format: varchar(20) | |
+|  `EReceiptOptIn` |  `boolean` |  Whether the user has opted in to receive e-receipts. Format: **true**\|**false** | |
+|  `HasOpenBooking` |  `boolean` |  Whether the user has the TripLink User (formerly Open Booking User) permission. Format: **true**\|**false** | |
+|  `CountryCode` |  `string` |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: char(2) | |
+|  `CompanyName` |  `string` |  The user's company name. Format: nvarchar(255) | |
+|  `CompanyID` | `string` | The user's company ID. Format: varchar(255) | |
+|  `RuleClass` |  `string` |  The user's rule class. Format: nvarchar(60) | |
+|  `MedicalAlerts` | `string` |  The user's medical alerts. Format: nvarchar(255) | Medical Alerts |
+|  `GDSProfileName` |  `string` |  The user's GDS profile name. Format: varchar(60) | TMC Specific |
+
+***
+
+#### <a name="EmergencyContact"></a>EmergencyContact elements
 
 The emergency contact information provided. In order to receive this data, you must enable the Emergency Contact Information scope.  
 
@@ -106,9 +127,9 @@ The emergency contact information provided. In order to receive this data, you m
 | `CountryCode` | `string` | The country code in from the ISO 3166-1 alpha-2 country code specification. Format: char(2) |
 | `PostalCode` | `string` | The postal code. Format: nvarchar(20) |
 
+***
 
-
-####  Telephones elements
+####  <a name="Telephones"></a>Telephones elements
 
 The Telephones parent element contains a Telephone child element for each included telephone. The Telephone element has the attributes shown in the Response Class section and contains the following child elements:
 
@@ -123,9 +144,9 @@ The Telephones parent element contains a Telephone child element for each includ
 |  `MobileDevice` | `string` |  The OS of the mobile device. Format: varchar(25) |
 |  `MobileName` | `string` | The name the user assigned to the mobile device. Format: nvarchar(255) |
 
+***
 
-
-####  Addresses elements
+####  <a name="Addresses"></a>Addresses elements
 
 The Addresses parent element contains an Address child element for each included address. The Address element has the attributes shown in the Response Class section and contains the following child elements:
 
@@ -142,7 +163,9 @@ The Addresses parent element contains an Address child element for each included
 |  `Longitude` |  `string` |  Longitude value of Work Address. |
 |  `Latitude` |  `string` |  Latitude value of Work Address. |
 
-#### NationsIDs elements
+***
+
+#### <a name="NationalIDs"></a>NationalIDs elements
 
 The NationalIDs parent element contains a NationalID child element for each included National ID. The NationalID element contains the following child elements: 
 
@@ -152,8 +175,9 @@ The NationalIDs parent element contains a NationalID child element for each incl
 |  `IssuingCountry` |  `string` |  The country the national ID was issued in. Format: varchar(2) |
 |  `Expiration` |  `date` |  The expiration date of the national ID. Format: YYYY-MM-DD |
 
+***
 
-####  DriversLicenses elements
+####  <a name="DriversLicenses"></a>DriversLicenses elements
 
 The DriversLicenses parent element contains a DriversLicense child element for each included licenses. The DriversLicense element contains the following child elements:
 
@@ -164,8 +188,9 @@ The DriversLicenses parent element contains a DriversLicense child element for e
 |  `IssuingState` |  `string` |  The state the license was issued in. Format: nvarchar(30) |
 |  `Expiration` |  `date` |  The expiration date of the license. Format: YYYY-MM-DD |
 
+***
 
-####  Has No Passport
+####  <a name="HasNoPassport"></a>HasNoPassport element
 
 In order to receive this data, you must enable the Passport Visa Information scope.  
 
@@ -173,8 +198,9 @@ In order to receive this data, you must enable the Passport Visa Information sco
 | :----- | :----- | :----- |
 |  `HasNoPassport` |  `boolean` | Format: true|false. |
 
+***
 
-#### Passports  
+#### <a name="Passports"></a>Passports elements  
 
 A list of passports in the user's profile. In order to receive this data, you must enable the Passport Visa Information scope.  
 
@@ -187,8 +213,9 @@ A list of passports in the user's profile. In order to receive this data, you mu
 | `PassportCityIssued` | `string` |The city the user’s passport was issued in. Format: nvarchar(60) |
 | `PassportCountryIssued` |  `string`  |The country the user’s passport was issued in. Format: char(2) |
 
+***
 
-#### Visas  
+#### <a name="Visas"/></a>Visas elements  
 
 A list of visas in the user's profile. In order to receive this data, you must enable the Passport Visa Information scope.  
 
@@ -202,9 +229,9 @@ A list of visas in the user's profile. In order to receive this data, you must e
 | `VisaCityIssued` | `string` | The city the user’s visa was issued in. Format: nvarchar(60) |
 | `VisaCountryIssued` |  `string` | The country the user’s visa was issued in. Format: char(2) |
 
+***
 
-
-####  EmailAddresses elements
+####  <a name="EmailAddresses"></a>EmailAddresses elements
 
 The EmailAddresses parent element contains a EmailAddress child element for each included email address. It contains the following child element:
 
@@ -214,8 +241,8 @@ The EmailAddresses parent element contains a EmailAddress child element for each
 | `Contact attribute` | `boolean` | The Contact attribute specifies whether the email address should be used for travel notifications. Format: true|false. |
 | `Type attribute` | `string` | The type of email address. Values are: Business or Personal. |
 
-
-####  RatePreferences elements
+***
+####  <a name="RatePreferences"></a>RatePreferences elements
 The RatePreferences parent element contains the following child element:
 
 |  Element Name |  Data Type |  Description |
@@ -224,8 +251,8 @@ The RatePreferences parent element contains the following child element:
 |  `AARPRate` |  `boolean` |  Whether the user is eligible for the AARP rate. Format: **true**\|**false** |
 |  `GovtRate` |  `boolean` |  Whether the user is eligible for the Government rate. Format: **true**\|**false** |
 |  `MilitaryRate` |  `boolean` |  Whether the user is eligible for the Military rate. Format: **true**\|**false** |
-
-####  DiscountCodes elements
+***
+####  <a name="DiscountCodes"></a>DiscountCodes elements
 
 The DiscountCodes parent element contains a DiscountCode child element for each included discount code.
 
@@ -233,8 +260,8 @@ The DiscountCodes parent element contains a DiscountCode child element for each 
 | :----- | :----- | :----- |
 |  `DiscountCode` |  `string` | The discount code for the specified vendor. |
 | `Vendor attribute` | `string` | Specifies the name of the vendor for the discount code. |
-
-####  Air elements
+***
+####  <a name="Air"></a>Air elements
 
 The Air parent element contains the user's air travel preferences and contains the following child elements:
 
@@ -267,7 +294,9 @@ The Air parent element contains the user's air travel preferences and contains t
 |  `InterRowPositionCode` |  `string` |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **DontCare**. |
 |  `SectionPositionCode` |  `string` |  Preference for position in plane. Format: **Bulkhead**, **Forward**, **Rear**, **ExitRow**, **DontCare**. |
 
-####  Rail elements
+***
+
+####  <a name="Rail"></a>Rail elements
 
 The Rail parent element contains the user's rail travel preferences and contains the following child elements:
 
@@ -301,9 +330,9 @@ The Rail parent element contains the user's rail travel preferences and contains
 |  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. |
 |  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. |
 
+***
 
-
-####  Car elements
+####  <a name="Car"></a>Car elements
 
 The Car parent element contains the user's car travel preferences. It contains the following child elements:
 
@@ -331,7 +360,9 @@ The Car parent element contains the user's car travel preferences. It contains t
 |  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. |
 |  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. |
 
-####  Hotel elements
+***
+
+####  <a name="Hotel"></a>Hotel elements
 
 The Hotel parent element contains the user's hotel travel preferences. It contains the following child elements:
 
@@ -366,8 +397,9 @@ The Hotel parent element contains the user's hotel travel preferences. It contai
 |  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. |
 |  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. |
 
+***
 
-#### CustomFields elements  
+#### <a name="CustomFields"></a>CustomFields elements  
 The CustomFields parent element contains a CustomField child element for each field. In order to receive this data, you must enable the Company Details scope. It contains the following child element:  
 
 |  Element Name |  Data Type |  Description |
@@ -375,9 +407,9 @@ The CustomFields parent element contains a CustomField child element for each fi
 |  `CustomField` |  `string` |  The value of the custom field. Format: varchar(255) |
 |  `Name attribute` |  `string` |  The value of the custom field. Format: varchar(255) |
 
+***
 
-
-#### Roles  
+#### <a name="Roles"></a>Roles elements  
 A list of users associated to a user:  
 
 |  Element Name |  Data Type |  Description |
@@ -388,8 +420,9 @@ A list of users associated to a user:
 | `Type attribute` | `string` |  The user's role. Values are: Arranger, Manager |
 | `PrimaryIndicatorFlag attribute` |  `boolean` | For arranger type, denotes the primary arranger. Format: **true**\|**false**. |
 
+***
 
-#### Sponsors 
+#### <a name="Sponsors"></a>Sponsors 
 
 A list of sponsors associated to a user:  
 
@@ -400,10 +433,11 @@ A list of sponsors associated to a user:
 | `SponsorshipStartDate`  |  `date`  |  The sponsorship start date. Format: YYYY-MM-DD |
 | `SponsorshipEndDate` | `date`  |  The sponsorship end date. Format: YYYY-MM-DD |
 
+***
 
-#### Transportation Security Administration (TSA) Details  
+#### <a name="TSAInfo"></a>TSAInfo elements  
 
-The TSA information provided. In order to receive this data, you must enable the TSA Information scope.  
+The Transportation Security Administration (TSA) Details provided. In order to receive this data, you must enable the TSA Information scope.  
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -413,9 +447,9 @@ The TSA information provided. In order to receive this data, you must enable the
 | `PreCheckNumber` | `string`| The user’s pre-check number. Format: varchar(255) |
 | `RedressNumber` | `string` | The user’s redress number. Format: varchar(255) |
 
+***
 
-
-#### Unused Tickets  
+#### <a name="UnusedTickets"></a>UnusedTickets elements  
 
 A list of unused tickets associated to a user. In order to receive this data, you must enable the Unused Tickets scope.  
 
@@ -433,7 +467,10 @@ A list of unused tickets associated to a user. In order to receive this data, yo
 | `ExpirationDate` | `date` | The date of expiration for the unused ticket. Format: YYYY-MM-DD |
 | `Notes`  | `string` | Notes associated to that unused ticket. Format: Varchar(255) |
 
-#### Southwest Unused Tickets  
+***
+
+#### <a name="SouthwestUnusedTickets"></a>SouthwestUnusedTickets elements
+  
 A list of unused Southwest tickets associated to a user. In order to receive this data, you must enable the Unused Tickets scope.  
 
 |  Element Name |  Data Type |  Description |
@@ -443,8 +480,9 @@ A list of unused Southwest tickets associated to a user. In order to receive thi
 | `CurrencyCode` | `string` | The currency of the unused ticket. Format: Varchar(255) |
 | `ExpirationDate` | `date` | The date of expiration for the unused ticket. Format: YYYY-MM-DD |
 
+***
 
-#### Advantage Memberships  
+#### <a name="AdvantageMemberships"></a>AdvantageMemberships elements  
 A list of advantage memberships associated to a user:  
 
 |  Element Name |  Data Type |  Description |
@@ -463,7 +501,7 @@ A list of advantage memberships associated to a user:
 | `OriginStationCode` | `string` | The origin station code. Format: Varchar(255) |
 | `DestinationStationCode` | `string` | The destination station code. Format: Varchar(255) |
 
-
+***
 
 ##  Examples for Travel Suppliers
 

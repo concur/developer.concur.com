@@ -10,11 +10,11 @@ The Travel services consists of a set of APIs that provide programmatic access t
 
 ### [Itinerary] [1]
 
-The Concur Itinerary web service can be used to programmatically access travel data such as trips and bookings in the Concur travel system. The Concur Travel system uses this data to match and consolidate bookings it receives from disparate sources and put these into consolidated travelers’ itineraries, providing travelers a convenient way to view their trips in a single itinerary view. Travelers can view their itineraries through mobile applications or other services.
+The Concur Itinerary web service can be used to pro grammatically access travel data such as trips and bookings in the Concur travel system. The Concur Travel system uses this data to match and consolidate bookings it receives from disparate sources and put these into consolidated travelers’ itineraries, providing travelers a convenient way to view their trips in a single itinerary view. Travelers can view their itineraries through mobile applications or other services.
 
-### [Travel profile] [2]
+### [Travel Profile Web Service] [2]
 
-The Travel Profile web service consists of a set of resources that provide travel profile functionality customized in specific ways for developers, travel suppliers, and travel management companies (TMCs). Depending on who is using this web service, it provides the ability to update travel loyalty information, subscribe and unsuscribe to travel profile changes, and subscribe and unsuscribe to form of payment information changes.
+The Travel Profile Web Service consists of a set of resources that provide travel profile functionality customized in specific ways for developers, travel suppliers, and travel management companies (TMCs). Depending on who is using this web service, it provides the ability to update travel loyalty information, subscribe and unsubscribe to travel profile changes, and subscribe and unsubscribe to form of payment information changes.
 
 ### [Travel requests] [3]
 
@@ -26,6 +26,6 @@ The Trip Approval resource allows clients to approve or reject trips. Clients se
 
 
 [1]: /api-reference/travel/itinerary/itinerary.html
-[2]: /api-reference/travel/travel-profile/index.html
+[2]: /api-reference/travel-profile/travel-profile/00-profile-services.html
 [3]: /api-reference/request/request.html
 [4]: /api-reference/travel/trip-approval/trip-approval-resource.html

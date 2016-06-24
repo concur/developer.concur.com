@@ -16,7 +16,7 @@ Developers, travel suppliers, and travel management companies (TMCs):
 
 ## Version   
 2.0  
-1.0 can be found [here](/api-reference-deprecated/version-one/Travel/form-payment-resource.html)
+[Version 1.0](/api-reference-deprecated/version-one/Travel/form-payment-resource.html) has been **deprecated**
 
 ## URI   
     https://{InstanceURL}/api/travelprofile/v2.0/fop

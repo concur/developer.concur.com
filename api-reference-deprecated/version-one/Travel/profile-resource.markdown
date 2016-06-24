@@ -3,6 +3,8 @@ title: Profile Resource
 layout: reference
 ---
 
+<span style="background-color:red; font-size:24pt"> **This version (1.0) has been deprecated effective 04/01/2016**</span>  
+Access a new version: [Travel Profile Version 2.0](/api-reference/travel-profile/_profile-resource.html)
 
 ##  Description
 
