@@ -1,5 +1,5 @@
 ---
-title: Travel Profile Service
+title: Travel Profile Services
 layout: reference
 ---
 
