@@ -1,5 +1,5 @@
 ---
-title: Company Notification Subscription Resource 
+title: Company Notification 
 layout: reference
 ---
 
