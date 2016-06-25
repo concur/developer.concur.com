@@ -12,19 +12,20 @@ layout: reference
   - A schema is defined for specific receipt types (Air, Car, Hotel, Taxi, Train, Japan Public Transport, General).
   - Open schema format allows for new receipt types to be easily added.
 - Allows client to easily supply Value Added Tax information.
-- If a client has specified a schema type when posting receipt data, an e-receipt is automatically generated that can be 
+- If a client has specified a schema type when posting receipt data, a receipt image is automatically generated that can be 
   used by our customers when creating their expense report. 
-- Generated e-receipt will have brand logo if the partner has provided us with one.
-- E-receipt will be generated in the customers preferred language. 
+- Generated receipt image will have brand logo if the partner has provided us with one.
+- Receipt image will be generated in the customers preferred language. 
 - For our early release, clients can post receipt data only. Very soon we will allow posting of receipt data and image.
 
 ## Receipts v3 to v4 - how do the field mappings change?
 
-## Frequently asked questions
+
+## FAQs
 - Why do I have to use a new Authentication API?
 - Why are matching facts no longer required when creating a receipt?
 - How does rich data improve customer experience?
-- How are e-receipts generated?
+- How is a receipt image generated?
 
 
 
