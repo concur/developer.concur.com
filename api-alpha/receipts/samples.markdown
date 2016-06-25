@@ -1,3 +1,8 @@
+---
+title: Sample Receipts
+layout: reference
+---
+
 ## General
 
 ## Air
