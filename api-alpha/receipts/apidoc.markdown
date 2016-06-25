@@ -403,7 +403,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `name`|`string`|-|The name for the location.
 `number`|`string`|-|The identifier the company assigned to the location.
-`address`|`object`|[`address`](#address)|Object describing the address.
+`address`|`object`|[`address`](#address)|**Required** Object describing the address.
 `latitude`|`number`|[`latitude`](#latitude)|The latitude of the location.
 `longitude`|`number`|[`longitude`](#longitude)|The longitude of the location.
 `internetAddress`|`string`|-|World wide web address.
