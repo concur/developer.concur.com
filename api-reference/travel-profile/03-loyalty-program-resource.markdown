@@ -1,21 +1,12 @@
 ---
-title: Loyalty Program 
+title: Loyalty Program
 layout: reference
 ---
 
 
 
 ## Description
-The loyalty program information for the user, as entered in Concur. Loyalty programs contain a variety of information about the user's loyalty membership including:
-
-* Vendor
-* Number
-* Status
-* Points Total
-* Segment Total
-* Next Status
-* Unit to Next Status
-* Segments to Next Status
+The loyalty program information for the user, as entered in Concur.
 
 ## Version
 1.0
@@ -166,11 +157,11 @@ application/xml
 
 ###  Response body root elements
 
-This request will return a **LoyaltyMembershipResponse** parent element with the following child elements:  
+This request will return a **LoyaltyMembershipResponse** parent element with the following child elements:
 
 | Element | Description |
 | ------- | ----------- |
-|  Status |  The status of the update request. Format: OK or ERROR | 
+|  Status |  The status of the update request. Format: OK or ERROR |
 |  ErrorDescription |  The details of the error. Only contains data if the **Status** is ERROR. |
 
 ###  XML Example of Successful Response
@@ -185,11 +176,5 @@ This request will return a **LoyaltyMembershipResponse** parent element with the
     </LoyaltyMembershipResponse>
 ```
 
-## See also
-* [Form of Payment][2]
-* [Travel Profile][3]
-
 [1]: http://concur.github.io/developer.concur.com/api-reference/authentication/oauth-20-overview
 [4]: https://developer.concur.com/go-market/app-certification
-[2]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
-[3]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/profile-resource

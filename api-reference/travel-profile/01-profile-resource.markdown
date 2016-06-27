@@ -114,7 +114,8 @@ The General parent element contains the following child elements.
 
 #### <a name="EmergencyContact"></a>EmergencyContact elements
 
-The emergency contact information provided. In order to receive this data, you must enable the Emergency Contact Information scope.  
+The emergency contact information provided.
+* Emergency Contact Information scope must be enabled to receive the data.
 
 |  Element Name |  Data Type |  Description |
 | ----- | ----- | ----- |
@@ -150,7 +151,7 @@ The Telephones parent element contains a Telephone child element for each includ
 
 The Addresses parent element contains an Address child element for each included address. The Address element has the attributes shown in the Response Class section and contains the following child elements:
 
-**NOTE**: The values returned for the Address child elements are as entered by the user. The fields do not enforce formatting and may have a wide variety of values.
+* **NOTE**: The values returned for the Address child elements are as entered by the user. The fields do not enforce formatting and may have a wide variety of values.
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -167,7 +168,7 @@ The Addresses parent element contains an Address child element for each included
 
 #### <a name="NationalIDs"></a>NationalIDs elements
 
-The NationalIDs parent element contains a NationalID child element for each included National ID. The NationalID element contains the following child elements: 
+The NationalIDs parent element contains a NationalID child element for each included National ID. The NationalID element contains the following child elements:
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -196,13 +197,14 @@ In order to receive this data, you must enable the Passport Visa Information sco
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  `HasNoPassport` |  `boolean` | Format: true|false. |
+|  `HasNoPassport` |  `boolean` | Format: **true**\|**false**. |
 
 ***
 
-#### <a name="Passports"></a>Passports elements  
+#### <a name="Passports"></a>Passports elements
 
-A list of passports in the user's profile. In order to receive this data, you must enable the Passport Visa Information scope.  
+A list of passports in the user's profile.
+* Passport Visa Information scope must be enabled to receive the data.
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -215,9 +217,10 @@ A list of passports in the user's profile. In order to receive this data, you mu
 
 ***
 
-#### <a name="Visas"/></a>Visas elements  
+#### <a name="Visas"/></a>Visas elements
 
-A list of visas in the user's profile. In order to receive this data, you must enable the Passport Visa Information scope.  
+A list of visas in the user's profile.
+* Passport Visa Information scope must be enabled to receive the data.
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -233,12 +236,12 @@ A list of visas in the user's profile. In order to receive this data, you must e
 
 ####  <a name="EmailAddresses"></a>EmailAddresses elements
 
-The EmailAddresses parent element contains a EmailAddress child element for each included email address. It contains the following child element:
+The EmailAddresses parent element contains an EmailAddress child element for each included email address. It contains the following child element:
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
 |  `EmailAddress` |  `string` | The user's email address. Format: Varchar(255) |
-| `Contact attribute` | `boolean` | The Contact attribute specifies whether the email address should be used for travel notifications. Format: true|false. |
+| `Contact attribute` | `boolean` | The Contact attribute specifies whether the email address should be used for travel notifications. Format: **true**\|**false**. |
 | `Type attribute` | `string` | The type of email address. Values are: Business or Personal. |
 
 ***
@@ -320,7 +323,7 @@ The Rail parent element contains the user's rail travel preferences and contains
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. | 
+|  `VendorCode` |  `string` |  The code for the vendor that manages the loyalty program. |
 |  `AccountNo` |  `string` |  The user's account identifier in the loyalty program. |
 |  `Status` |  `string` |  Name of the user's current level in the loyalty program. |
 |  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status.  |
@@ -399,8 +402,9 @@ The Hotel parent element contains the user's hotel travel preferences. It contai
 
 ***
 
-#### <a name="CustomFields"></a>CustomFields elements  
-The CustomFields parent element contains a CustomField child element for each field. In order to receive this data, you must enable the Company Details scope. It contains the following child element:  
+#### <a name="CustomFields"></a>CustomFields elements
+The CustomFields parent element contains a CustomField child element for each field.
+* Company Details scope must be enabled to receive the data.
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -409,8 +413,8 @@ The CustomFields parent element contains a CustomField child element for each fi
 
 ***
 
-#### <a name="Roles"></a>Roles elements  
-A list of users associated to a user:  
+#### <a name="Roles"></a>Roles elements
+A list of users associated to a user:
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -422,9 +426,9 @@ A list of users associated to a user:
 
 ***
 
-#### <a name="Sponsors"></a>Sponsors 
+#### <a name="Sponsors"></a>Sponsors
 
-A list of sponsors associated to a user:  
+A list of sponsors associated to a user:
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -435,9 +439,10 @@ A list of sponsors associated to a user:
 
 ***
 
-#### <a name="TSAInfo"></a>TSAInfo elements  
+#### <a name="TSAInfo"></a>TSAInfo elements
 
-The Transportation Security Administration (TSA) Details provided. In order to receive this data, you must enable the TSA Information scope.  
+The Transportation Security Administration (TSA) Details provided.
+* TSA Information scope must be enabled to receive the data.
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -449,9 +454,10 @@ The Transportation Security Administration (TSA) Details provided. In order to r
 
 ***
 
-#### <a name="UnusedTickets"></a>UnusedTickets elements  
+#### <a name="UnusedTickets"></a>UnusedTickets elements
 
-A list of unused tickets associated to a user. In order to receive this data, you must enable the Unused Tickets scope.  
+A list of unused tickets associated to a user
+* Unused Tickets scope must be enabled to receive the data.
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -470,8 +476,9 @@ A list of unused tickets associated to a user. In order to receive this data, yo
 ***
 
 #### <a name="SouthwestUnusedTickets"></a>SouthwestUnusedTickets elements
-  
-A list of unused Southwest tickets associated to a user. In order to receive this data, you must enable the Unused Tickets scope.  
+
+A list of unused Southwest tickets associated to a user.
+* Unused Tickets scope must be enabled to receive the data.
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -482,8 +489,8 @@ A list of unused Southwest tickets associated to a user. In order to receive thi
 
 ***
 
-#### <a name="AdvantageMemberships"></a>AdvantageMemberships elements  
-A list of advantage memberships associated to a user:  
+#### <a name="AdvantageMemberships"></a>AdvantageMemberships elements
+A list of advantage memberships associated to a user:
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -578,7 +585,7 @@ Where _access_token_ is the OAuth 2.0 access token of the user whose travel prof
 
 ###  Data model
 
-The data model of the response for the GET operation.
+The data model of the response for the GET operation. The complete schema definition is also available here: [Travel Profile Summary V2 XSD][4]
 
 <pre>
 <span class="xml-tag">&lt;ConnectResponse</span><span class="xml-tag">&gt;</span>
@@ -633,7 +640,7 @@ The Data parent element contains a ProfileSummary child element for each include
 
 ####  ProfileSummary
 
-The Paging parent element contains contains the paging information for the response and it contains the following child elements:
+The ProfileSummary element contains the profile information for the response and it contains the following child elements:
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- | :----- |
@@ -692,4 +699,5 @@ Content-Type: application/xml
 
 
 [3]: https://www.concursolutions.com/ns/TravelUserProfile.xsd
+[4]: https://www.concursolutions.com/ns/TravelProfileSummaryV2.xsd
 [8]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-
