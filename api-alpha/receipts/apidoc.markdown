@@ -8,12 +8,15 @@ This page documents the Receipts 4.0 API that is still in its development phase.
 
 - [Retrieve the service index](#GetServiceIndex)
 - [Create a receipt](#PostReceipt)
+- [Retrieve a receipt](#GetReceipt)
+- [Retrieve all receipts for a user](#GetReceiptsUser)
+- [Retrieve available schemas](#GetSchemas)
 - [Schemas](#Schema)
   - [General](#General)
   - [Air](#Air)
   - [Car](#Car)
   - [Hotel](#Hotel)
-  - [Ride](#Ride)
+  - [Ground Transport](#GroundTransport)
   - [Japan Public Transport](#JPT)
   - [Train](#Train)
 - [Failure Codes](#FailureCodes)
@@ -112,45 +115,55 @@ A receipt specified as per one of the below [schemas](#Schema).
 
 #### Request
 
-general-receipt.json
+#### Response
 
-```
-{
-    "user": "{user URL}",
-    "app": "{app URL}",
-    "dateTime": "2016-05-23T13:40:00+0700",
-    "total": "10.00",
-    "currencyCode": "USD",
-    "merchant": {
-        "name": "General Book Store",
-        "location": {
-            "name": "Downtown Bellevue",
-            "address": {
-                "countryCode": "US"
-            }
-        }
-    },
-    "payments": [
-        {
-            "amount": "10.00"
-        }
-    ]
-}
-```
+## <a name="GetReceipt"></a>Retrieve a receipt
 
-`curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId} -d @general-receipt.json -H "Content-Type: application/json" -H "link:<http://schema.concursolutions.com/general-receipt.schema.json>;rel=describedBy" -H "Authorization: Bearer {valid JWT}"`
+### Headers
+
+### Parameters
+
+### Input
+
+### Response
+
+### Example
+
+#### Request
 
 #### Response
 
-```
-HTTP/1.1 201 Created
-concur-correlationid: 0f839dfc-1537-441b-a2f0-8a574b2a2776
-Link: <http://schema.concursolutions.com/general-receipt.schema.json>; rel="describedBy"
-Location: https://us.api.concursolutions.com/receipts/v4/{receiptId}
-Date: Mon, 23 May 2016 21:31:31 GMT
-Connection: keep-alive
-Content-Length: 0
-```
+## <a name="GetReceiptsUser"></a>Retrieve all receipts for a user
+
+### Headers
+
+### Parameters
+
+### Input
+
+### Response
+
+### Example
+
+#### Request
+
+#### Response
+
+## <a name="GetSchemas"></a>Retrieve available schemas
+
+### Headers
+
+### Parameters
+
+### Input
+
+### Response
+
+### Example
+
+#### Request
+
+#### Response
 
 ## <a name="Schema"></a>Schemas
 
@@ -174,7 +187,7 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`number`|`string`|-|**Required** Ticket number issued by the airline when the payment is made. They are globally unique for all ARC carriers. The first 3 digits identify the airline. 3 digit code for each airline can be found [here](http://www.iata.org/about/members/Pages/airline-list.aspx?All=true). Example ticket number for American Airlines, 0012375432602.
+`number`|`string`|-|**Required** Ticket number issued by the airline when the payment is made. They are globally unique for all IATA carriers. The first 3 digits identify the airline. 3 digit code for each airline can be found [here](http://www.iata.org/about/members/Pages/airline-list.aspx?All=true). Example ticket number for American Airlines, 0012375432602.
 `recordLocator`|`string`|-|Confirmation identifier for the ticket created by the airline. For most airlines this is a 6 character alphanumeric code that is unique for a short period of time and could be reused in the future.
 `issueDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time the ticket was issued.
 `pseudoCityCode`|`string`|[`IATACityCode`](#IATACityCode)|IATA city code the ticket was issued from. For example, SEA.
@@ -390,7 +403,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `name`|`string`|-|The name for the location.
 `number`|`string`|-|The identifier the company assigned to the location.
-`address`|`object`|[`address`](#address)|Object describing the address.
+`address`|`object`|[`address`](#address)|**Required** Object describing the address.
 `latitude`|`number`|[`latitude`](#latitude)|The latitude of the location.
 `longitude`|`number`|[`longitude`](#longitude)|The longitude of the location.
 `internetAddress`|`string`|-|World wide web address.
@@ -558,6 +571,7 @@ Name | Type | Format | Description
 `imageId`|`string`|-|Concur specific identifier for the image.
 
 ## <a name="FailureCodes"></a>Failure Codes
+
 
 
 
