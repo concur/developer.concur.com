@@ -1,5 +1,5 @@
 ---
-title: User Notification 
+title: User Notification
 layout: reference
 ---
 
@@ -24,12 +24,12 @@ application/xml
 
 ## Operations
 
-* [Suscribe for notifications for itinerary changes](#a1)
-* [Suscribe for notifications for payment changes](#a2)
-* [Suscribe for notifications for travel profile changes](#a3)
+* [Subscribe for notifications for itinerary changes](#a1)
+* [Subscribe for notifications for payment changes](#a2)
+* [Subscribe for notifications for travel profile changes](#a3)
 
-## <a name="a1">Suscribe for notifications for itinerary changes</a>
-Subscribes or unsubcribes the travel supplier from notifications when the user adds, modifies, or cancels an itinerary. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their trip information. 
+## <a name="a1">Subscribe for notifications for itinerary changes</a>
+Subscribes or unsubscribes the travel supplier from notifications when the user adds, modifies, or cancels an itinerary. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their trip information.
 
 
 ## Request
@@ -47,7 +47,7 @@ Subscribes or unsubcribes the travel supplier from notifications when the user a
 
 Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/authentication.html#web).
 
-###  Example: Suscribe to itinerary changes
+###  Example: Subscribe to itinerary changes
 
 ```xml
     POST https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=itinerary HTTP/1.1
@@ -73,7 +73,7 @@ The request will include a **Notification** parent element, with the following c
 | ObjectURI | The URI for the object. The developer can use the appropriate GET endpoint with the ObjectURI to get complete details for the trip. For Itinerary, the ObjectURI value is the same as the TripId value. |
 | EventDateTime | When the event happened. Format: YYYY-MM-DDThh:mm:ss |
 | EventType | The type of the change. Format: CREATE, UPDATE, CANCEL |
-| Context | This is not used yet but will be used in future to specify the change in the trip. Developers can use this in conjuction with EventType to decide how to process the notification. |
+| Context | This is not used yet but will be used in future to specify the change in the trip. Developers can use this in conjunction with EventType to decide how to process the notification. |
 | TripId | The unique identifier for the trip. Format: String |
 
 ###  Example: Post a of notification in XML format
@@ -97,10 +97,10 @@ The request will include a **Notification** parent element, with the following c
 
 `200 OK`
 
-##  <a name="a2">Suscribe for notifications for payment changes</a>
+##  <a name="a2">Subscribe for notifications for payment changes</a>
 
 ### Description
-Subscribes or unsubcribes the travel supplier from notifications when the user's Form of Payment information changes. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their Form of Payment information.
+Subscribes or unsubscribes the travel supplier from notifications when the user's Form of Payment information changes. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their Form of Payment information.
 
 **NOTE**: Concur will send a notification when any area of the user's Form of Payment is updated. This may include fields that are not available through the Travel Profile web service.
 
@@ -131,13 +131,13 @@ The notification will be sent to the Postback URL that the supplier has register
 
 `https://postbackurl.com?type=FOP&oauth_token_key={oauth_token}`
 
-###  XML Example of xuccessful response
+###  XML Example of successful response
 
 `200 OK`
 
-##  <a name="a3">Suscribe for notifications for travel profile changes</a>
+##  <a name="a3">Subscribe for notifications for travel profile changes</a>
 
-Subscribes or unsubcribes the travel supplier from notifications when the user's Travel Profile information changes. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their travel profile information.
+Subscribes or unsubscribes the travel supplier from notifications when the user's Travel Profile information changes. This functionality is only available to travel suppliers that have an application on the App Center tab of Concur. The supplier must also have received authorization by the user to access their travel profile information.
 
 **NOTE**: Concur will send a notification when any area of the user's Travel Profile is updated. This may include fields that are not available through the Travel Profile web service.
 

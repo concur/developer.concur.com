@@ -1,18 +1,38 @@
 ---
-title: Subscribe or unsubscribe from notifications
+title: Company Notification
 layout: reference
 ---
 
-This resource supports the following POST actions:
+## Description
 
-* POST Company Notification Subscription for Itinerary Changes
-* POST Company Notification Subscription for Travel Profile Changes
+A subscription to a notification when any user in the Concur company changes the specified features of their Concur account or data. Currently supports notifications for the following events: Itinerary change (create or update), Travel Profile basic information change.
 
-##  Post Company Notification Subscription for Itinerary Changes
+This functionality requires that the partner complete the OAuth process with an administrative user from the Concur company. This resource can only be accessed by partner applications that have selected the User API scope.
+
+## Version
+1.0
+
+## URI
+To subscribe:
+`https://www.concursolutions.com/api/company/v1.0/subscribe`
+
+To unsubscribe:
+`https://www.concursolutions.com/api/company/v1.0/unsubscribe`
+
+## Content Type
+application/xml
+
+## Operations
+
+* [Post Company Notification Subscription for Itinerary Changes](#a1)
+* [Post Company Notification Subscription for Payment Changes](#a2)
+* [Post Company Notification Subscription for Travel Profile Changes](#a3)
+
+##  <a name="a1">Post Company Notification Subscription for Itinerary Changes</a>
 
 ### Description
 
-Subscribes or unsubcribes the partner from notifications when any users in the company add, modify, or cancel an itinerary. The partner must have received authorization using OAuth by an administrative user at the company to access the company's trip information.
+Subscribes or unsubscribes the partner from notifications when any users in the company add, modify, or cancel an itinerary. The partner must have received authorization using OAuth by an administrative user at the company to access the company's trip information.
 
 ###  Post Company Notification Subscription for Itinerary Changes Request
 
@@ -50,7 +70,7 @@ The response body will include a **Notification** parent element, with the follo
 
 | Element | Description |
 | ------- | ----------- |
-|  ObjectType |  ITINERARY |  
+|  ObjectType |  ITINERARY |
 |  ObjectURI |  The URI for the object. The developer can use the appropriate GET endpoint with the ObjectURI to get complete details for the trip. |
 |  EventDateTime |  When the event happened. Format: YYYY-MM-DDThh:mm:ss |
 |  EventType |  The type of the change. Format: CREATE, UPDATE, CANCEL |
@@ -77,11 +97,51 @@ POST https://www.postbackurl.com?type=itinerary&oauth_token_key={oauthtoken}&use
     </Notification>
 ```
 
-##  Post Company Notification Subscription for Travel Profile Changes
+##  <a name="a2">Post Company Notification Subscription for Payment Changes</a>
 
 ### Description
 
-Subscribes or unsubcribes the partner from notifications when the company's Travel Profile information changes. The partner must have received authorization using OAuth by an administrative user at the company to access the company's trip information.
+Subscribes or unsubscribes the partner from notifications when the company's Payment information changes. The partner must have received authorization using OAuth by an administrative user at the company to access the company's form of payment information.
+
+###  Post Company Notification Subscription for Payment Changes Request
+
+#### Headers
+
+#### Request parameters
+
+**type=fop**<br>The type of subscription. Required.
+
+**Examples**<br>To subscribe:<br>`https://www.concursolutions.com/api/company/v1.0/subscribe?type=fop`<br>To unsubscribe:<br>`https://www.concursolutions.com/api/company/v1.0/unsubscribe?type=fop`
+
+#### Headers
+
+##### Authorization header
+Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/authentication.html#web).
+
+###  XML Example Request
+
+```
+    POST https://www.concursolutions.com/api/company/v1.0/subscribe?type=fop HTTP/1.1
+    Authorization: OAuth {access token}
+```
+
+###  Post notification subscription for form of payment changes response
+
+#### Notification Format
+The notification will be sent to the Postback URL that the supplier has registered with Concur during application review. Suppliers can only have one postback URL for all notification types. The notification will include the **type** and **oauth_token_key** query parameters, specifying the OAuth information for the updated user:
+
+`https://postbackurl.com?type=FOP&oauth_token_key={oauth_token}`
+
+###  XML Example of successful response
+
+`200 OK`
+
+
+##  <a name="a3">Post Company Notification Subscription for Travel Profile Changes</a>
+
+### Description
+
+Subscribes or unsubscribes the partner from notifications when the company's Travel Profile information changes. The partner must have received authorization using OAuth by an administrative user at the company to access the company's trip information.
 
 **NOTE**: Concur will send a notification when any area of the user's Travel Profile is updated. This may include fields that are not available through the Travel Profile web service.
 
@@ -105,7 +165,7 @@ Required. Authorization header with OAuth token for an administrative user at th
     POST <https://www.concursolutions.com/api/company/v1.0/subscribe?type=profile> HTTP/1.1
     Authorization: OAuth {access token}
     ...
-```    
+```
 
 ###  Post Company Notification Subscription for Travel Profile Changes Response
 

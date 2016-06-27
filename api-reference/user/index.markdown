@@ -15,7 +15,7 @@ The Users resource represents a set of Concur users. It is always managed as a b
 * [Update a users password](#updatePwd)
 
 
-###Version
+### Version
 1.0
 
 ## <a name="getUser"></a>Retrieve a users information
