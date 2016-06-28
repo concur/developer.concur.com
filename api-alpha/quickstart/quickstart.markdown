@@ -23,7 +23,7 @@ Formerly, the first task all developers needed to complete after they configured
 
 Follow the steps explained in [Authentication API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html) to obtain a valid token for creating a receipt for a user in your v4 developer sandbox.
 
-###  Accessing the E-Receipts Provider API
+###  Accessing the Receipts API
 
 In step 4 of the registration process described in [App Registration &  Management](https://developer.concur.com/manage-apps/partner-applications.htm),  the fields available for information are named and described.
 
