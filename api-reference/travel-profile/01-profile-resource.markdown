@@ -11,7 +11,7 @@ The Travel Profile resource represents a Concur travel profile which contains tr
 
 ##  Version
 
-2.0  
+2.0
 [Version 1.0](/api-reference-deprecated/version-one/Travel/profile-resource.html) has been **deprecated**
 
 ##  Operations
@@ -23,7 +23,7 @@ Detailed descriptions of requests and responses are available in the documentati
 
 ## <a name="a1">Get a travel profile</a>
 
-This endpoint provides travel profile information for the specified user. The travel profile includes information such as the user's identity, contact information, rate preferences and discount codes, preferences by travel type, and custom fields. 
+This endpoint provides travel profile information for the specified user. The travel profile includes information such as the user's identity, contact information, rate preferences and discount codes, preferences by travel type, and custom fields.
 
 ###  URI
 
@@ -245,6 +245,7 @@ The EmailAddresses parent element contains an EmailAddress child element for eac
 | `Type attribute` | `string` | The type of email address. Values are: Business or Personal. |
 
 ***
+
 ####  <a name="RatePreferences"></a>RatePreferences elements
 The RatePreferences parent element contains the following child element:
 
@@ -254,7 +255,9 @@ The RatePreferences parent element contains the following child element:
 |  `AARPRate` |  `boolean` |  Whether the user is eligible for the AARP rate. Format: **true**\|**false** |
 |  `GovtRate` |  `boolean` |  Whether the user is eligible for the Government rate. Format: **true**\|**false** |
 |  `MilitaryRate` |  `boolean` |  Whether the user is eligible for the Military rate. Format: **true**\|**false** |
+
 ***
+
 ####  <a name="DiscountCodes"></a>DiscountCodes elements
 
 The DiscountCodes parent element contains a DiscountCode child element for each included discount code.
