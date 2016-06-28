@@ -4,10 +4,13 @@ layout: reference
 ---
 # Receipts API
 
-The Receipts resource represents receipts that can be posted to Concur by a provider company on behalf of opted-in users. This resource currently spports three types of receipts:
--  General - A general purpose receipt type used for various goods or services
--  Hotel - A receipt for a hospitality service, for example a hotel stay
--  Ride - A receipt for a ride service
+The Receipts resource represents receipts that can be posted to Concur by a provider company on behalf of a user. This resource currently supports following types of receipts:
+-  [General](#General) - A general purpose receipt type used for various goods or services
+-  [Hotel](#Hotel) - A receipt for a hospitality service, for example a hotel stay
+-  [Ride](#Ride) - A receipt for a ground transportation service, for example a taxi
+-  [Car](#Car) - A receipt for a car rental
+-  [Air](#Air) - A receipt for air travel
+-  [Japan Public Transport](#JPT) - A receipt for a JPT train ride
 
 This page documents the Receipts 4.0 API currently in development. The information on this page is intended for reference purposes and will evolve until the API is made public.
 
@@ -17,14 +20,9 @@ The following API calls are explained on this page:
 - [Create a receipt](#PostReceipt)
 - [Retrieve an individual receipt](#GetReceipt)
 - [Retrieve receipts for a user](#GetReceiptsForUser)
-- [Schemas](#Schema)
-  - [General](#General)
-  - [Air](#Air)
-  - [Car](#Car)
-  - [Hotel](#Hotel)
-  - [Ride](#Ride)
-  - [Japan Public Transport](#JPT)
-  - [Train](#Train)
+
+Additional information:
+
 - [Failure Codes](#FailureCodes)
 
 ## <a name="URI"></a>Base URI
@@ -774,3 +772,24 @@ Name | Type | Format | Description
 `imageId`|`string`|-|Concur specific identifier for the image.
 
 ## <a name="FailureCodes"></a>Failure Codes
+
+Endpoint Name | Endpoint | Response Code
+------------ | -------------- | -----------------
+receipt-get | GET `/v4/{receiptId}` | 200 - OK
+ | | 403 - Credentials (JWT) were insufficient to post receipts
+receipt-post | POST `/v4/users/{userId}` | 201 - Created
+ | | 400 - User being posted to doesn't match user in the receipt
+ | | 400 - Content Type can't be parsed
+ | | 400 - Request body can't be parsed
+ | | 400 - Invalid receipt schema
+ | | 400 - Receipt failed schema validation
+ | | 401 - Unauthorized to post to the user's receipts collection
+ | | 403 - Credentials (JWT) were insufficient to post receipts
+ | | 415 - Content Type not supported
+ | | 500 - Internal Server Error
+ | | 501 - Receipt type not yet supported
+receipts-get-user | GET `/v4/users/{userId}` | 200 - OK
+ | | 403 - Credentials (JWT) were insufficient to post receipts
+ | | 404 - User doesn't exist
+ | | 404 - Page Number doesn't exist or is invalid
+ | | 500 - Internal Server Error
