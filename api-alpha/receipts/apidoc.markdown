@@ -4,6 +4,8 @@ layout: reference
 ---
 # Receipts API
 
+_This page documents the Receipts 4.0 API currently in development. The information on this page is intended for reference purposes and will evolve until the API is made public._
+
 The Receipts resource represents receipts that can be posted to Concur by a provider company on behalf of a user. This resource currently supports following types of receipts:
 -  [General](#General) - A general purpose receipt type used for various goods or services
 -  [Hotel](#Hotel) - A receipt for a hospitality service, for example a hotel stay
@@ -11,8 +13,6 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 -  [Car](#Car) - A receipt for a car rental
 -  [Air](#Air) - A receipt for air travel
 -  [Japan Public Transport](#JPT) - A receipt for a JPT train ride
-
-This page documents the Receipts 4.0 API currently in development. The information on this page is intended for reference purposes and will evolve until the API is made public.
 
 The following API calls are explained on this page:
 
