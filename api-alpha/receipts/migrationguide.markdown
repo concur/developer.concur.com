@@ -169,10 +169,3 @@ Name  |  Type  |   Format  |  Description  |  v4 Mapping
 AuthorizationCode  |  string  |  -  |  The authorization code that the card interchange provided when it approved this purchase. Maximum length: 15 characters  | cardDetail.Core.payments.cardDetail.authorizationCode
 MaskedNumber  |  string  |  -  |  **Required**: the masked card number for the credit card. With the exception of the AX (American Express) card type, this is the last four digits of the card number. For American Express, the value can be one of these, in order of preference: a) The first six digits and the last four digits of the card number. b) The last five digits. c) The last four digits.  | cardDetail.Core.payments.cardDetail.maskedNumber
 type  |  string  |  -  |  **Required**: the card interchange for the credit card. Possible values: AX (American Express), DC (Diner’s Club), DS (Discover), CA (MasterCard), VI (Visa), CB (Carte Blanche), ER (Enroute), TP (Universal Air Travel), JC (JCB), EC (EuroCard), OTHER (other types)  |  cardDetail.Core.payments.cardDetail.cardType
-
-
-## FAQs
-- Why do I have to use a new Authentication API?
-- Why are matching facts no longer required when creating a receipt?
-- How does rich data improve customer experience?
-- How is a receipt image generated?
