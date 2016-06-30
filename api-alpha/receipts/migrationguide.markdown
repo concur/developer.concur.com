@@ -13,11 +13,11 @@ layout: reference
 
 - Version 4 allows clients the increased benefit of being able to provide rich data.
 
- - We have made receipts for hotels distinct from those from rental cars agencies because we understand the difference in information provided in both.
-
- - To allow different vendors to provide data that makes sense to them and to our customers, we designed receipt schemas. A schema is defined for specific receipt types: Air, Auto Rental, Hotel, Taxi, Train, Japan Public Transport, and General.
- - Our open schema format allows for new receipt types to be easily added.
-
+  - We have made receipts for hotels distinct from those from rental cars agencies because we understand the difference in information provided in both.
+  
+  - To allow different vendors to provide data that makes sense to them and to our customers, we designed receipt schemas. A schema is defined for specific receipt types: Air, Car Rental, Hotel, Ground Transport, Japan Public Transport, and General.
+  
+  - Our open schema format allows for new receipt types to be easily added.
 
 - Version 4 allows our clients to easily supply Value Added Tax information.
 
@@ -27,7 +27,6 @@ layout: reference
   - If provided by the partner, generated receipt images have their brand logo.
 
   - Receipt images are generated in the customer's preferred language.
-
 
 - During our early release, clients can post receipt data only. Soon after the initial release, we will allow the posting of receipt data and image.
 
