@@ -7,19 +7,19 @@ layout: reference
 _This page documents the Receipts 4.0 API currently in development. The information on this page is intended for reference purposes and will evolve until the API is made public._
 
 The Receipts resource represents receipts that can be posted to Concur by a provider company on behalf of a user. This resource currently supports following types of receipts:
- *  [General](#General): A general purpose receipt type used for various goods or services
- *  [Hotel](#Hotel): A receipt for a hospitality service, for example a hotel stay
- *  [Ground Transport](#GroundTransport): A receipt for a ground transportation service, for example a taxi
- *  [Car](#Car): A receipt for a car rental
- *  [Air](#Air): A receipt for air travel
- *  [Japan Public Transport](#JPT): A receipt for a JPT train ride
+ - [General](#General): A general purpose receipt type used for various goods or services.
+ - [Hotel](#Hotel): A receipt for a hospitality service, for example a hotel stay.
+ - [Ground Transport](#GroundTransport): A receipt for a ground transportation service, for example a taxi.
+ - [Car](#Car): A receipt for a car rental.
+ - [Air](#Air): A receipt for air travel.
+ - [Japan Public Transport](#JPT): A receipt for a JPT train ride.
 
-The following API calls are explained on this page:
+The following API methods are explained:
 
- - [Retrieve the service index](#GetServiceIndex)
- - [Create a receipt](#PostReceipt)
+ - [GET Service Index](#GetServiceIndex)
+ - [POST a Receipt](#PostReceipt)
 
-Additional information:
+Error Handling:
 
  - [Failure Codes](#FailureCodes)
 
@@ -27,9 +27,13 @@ Additional information:
 
 `https://us.api.concursolutions.com/receipts/v4`
 
-## <a name="GetServiceIndex"></a>Retrieve the service index
+## <a name="GetServiceIndex"></a>GET Service Index
 
-Use this API call to list all possible operations that the API provides. A client may not have permissions to perform all listed operations.
+``` 
+GET /receipts/v4 
+```
+
+The service index lists operations that the API supports.
 
 ### Headers
 
@@ -41,7 +45,7 @@ Header | Value | Description
 
 None.
 
-### Input
+### Request Body
 
 None.
 
@@ -56,12 +60,12 @@ Name | Type | Format | Description
 `href`|`string`|-|Current URI for the API.
 `method`|`string`|-|Method(s) to be used with the URI.
 
-### Retrieve the Service Index example
+### Example
 
 #### Request
 `curl -v https://us.api.concursolutions.com/receipts/v4 -H "Authorization: Bearer {valid JWT}"`
 
-#### JSON example of a successful response
+#### Successful Response
 
 ```
 {
@@ -71,19 +75,9 @@ Name | Type | Format | Description
       "href": "https://us.api.concursolutions.com/receipts/v4"
     },
     {
-      "rel": "receipt-get",
-      "href": "https://us.api.concursolutions.com/receipts/v4/{receiptId}",
-      "method": "GET"
-    },
-    {
       "rel": "receipt-post",
       "href": "https://us.api.concursolutions.com/receipts/v4/user/{userId}",
       "method": "POST"
-    },
-    {
-      "rel": "receipts-get-user",
-      "href": "https://us.api.concursolutions.com/receipts/v4/user/{userId}",
-      "method": "GET"
     },
     {
       "rel": "schemas-get",
@@ -94,23 +88,25 @@ Name | Type | Format | Description
 }
 ```
 
-## <a name="PostReceipt"></a>Create a receipt
+## <a name="PostReceipt"></a>POST a Receipt
 
-Use this API call to create a v4 receipt.
+```
+POST /receipts/v4/users/{userId}
+```
 
 ### Headers
 
 Header | Value | Description
 -------|-------|------------
 `content-type`|`string`|**Required** [Content-Type](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17): `application/json`.
-`link`|-| [Link](http://tools.ietf.org/html/rfc5988#section-5): `<http://schema.concursolutions.com/{schema-name.json}}>;rel=describedBy`. When not specified, the default is:  `http://schema.concursolutions.com/general-receipt.schema.json`. The list of available [schemas](#Schema) is below.
-`Authorization`|`JWT`|OAuth2 access token in the form of a JWT obtained by the client application from the [Authorization API](https://developer.concur.com/api-alpha/auth/apidoc.html).
+`link`|-| [Link](http://tools.ietf.org/html/rfc5988#section-5): `<http://schema.concursolutions.com/{schema-name.json}}>;rel=describedBy`. When not specified, the default is:  `http://schema.concursolutions.com/general-receipt.schema.json`. The list of available [schemas](#Schema) is below. If a receipt image is being generated on a clients behalf, we will use the schema type mentioned in this field to select the appropriate template. 
+`Authorization`|`JWT`|OAuth2 access token in the form of a JWT obtained by the client application from the [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html).
 
 ### Parameters
 
-None.
+The ```userId``` of the user for whom the receipt is being posted. This can be found in the JWT that is obtained using the [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html). 
 
-### Input
+### Request Body
 
 A receipt specified as per one of the [schemas](#Schema) below.
 
@@ -119,7 +115,7 @@ A receipt specified as per one of the [schemas](#Schema) below.
 201 Created
 ```
 
-### Create a receipt example
+### Example
 
 #### Request
 ```
@@ -153,7 +149,7 @@ general-receipt.json
 curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId} -d @general-receipt.json -H "Content-Type: application/json" -H "link:<http://schema.concursolutions.com/general-receipt.schema.json>;rel=describedBy" -H "Authorization: Bearer {valid JWT}"
 ```
 
-#### Example of a successful response
+#### Successful Response
 
 ```
 HTTP/1.1 201 Created
@@ -570,10 +566,10 @@ Name | Type | Format | Description
 
 ## <a name="FailureCodes"></a>Failure Codes
 
+The API signals errors using standard HTTP status codes. In case of 5xx errors, the client is expected to handle these and retry the request at a later point. 4xx errors usually indicate an incorrect request. Available failure codes and their descriptions are listed below.
+
 Endpoint Name | Endpoint | Response Code
 ------------ | -------------- | -----------------
-receipt-get | GET `/v4/{receiptId}` | 200 - OK
- | | 403 - Credentials (JWT) were insufficient to post receipts
 receipt-post | POST `/v4/users/{userId}` | 201 - Created
  | | 400 - User being posted to doesn't match user in the receipt
  | | 400 - Content Type can't be parsed
@@ -585,8 +581,3 @@ receipt-post | POST `/v4/users/{userId}` | 201 - Created
  | | 415 - Content Type not supported
  | | 500 - Internal Server Error
  | | 501 - Receipt type not yet supported
-receipts-get-user | GET `/v4/users/{userId}` | 200 - OK
- | | 403 - Credentials (JWT) were insufficient to post receipts
- | | 404 - User doesn't exist
- | | 404 - Page Number doesn't exist or is invalid
- | | 500 - Internal Server Error
