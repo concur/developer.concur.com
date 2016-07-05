@@ -10,7 +10,7 @@ The ```Receipts``` resource represents receipts that can be posted to Concur by 
 [General](#General): A general purpose receipt type used for various goods or services.
 [Hotel](#Hotel): A receipt for a hospitality service, for example a hotel stay.
 [Ground Transport](#GroundTransport): A receipt for a ground transportation service, for example a taxi.
-[Car](#Car): A receipt for a car rental.
+[Car Rental](#Car): A receipt for a car rental.
 [Air](#Air): A receipt for air travel.
 [Japan Public Transport](#JPT): A receipt for a JPT train ride.
 
