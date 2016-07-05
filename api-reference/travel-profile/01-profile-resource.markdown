@@ -11,7 +11,7 @@ The Travel Profile resource represents a Concur travel profile which contains tr
 
 ##  Version
 
-2.0  
+2.0
 [Version 1.0](/api-reference-deprecated/version-one/Travel/profile-resource.html) has been **deprecated**
 
 ##  Operations
@@ -23,7 +23,7 @@ Detailed descriptions of requests and responses are available in the documentati
 
 ## <a name="a1">Get a travel profile</a>
 
-This endpoint provides travel profile information for the specified user. The travel profile includes information such as the user's identity, contact information, rate preferences and discount codes, preferences by travel type, and custom fields. 
+This endpoint provides travel profile information for the specified user. The travel profile includes information such as the user's identity, contact information, rate preferences and discount codes, preferences by travel type, and custom fields.
 
 ###  URI
 
@@ -193,7 +193,7 @@ The DriversLicenses parent element contains a DriversLicense child element for e
 
 ####  <a name="HasNoPassport"></a>HasNoPassport element
 
-In order to receive this data, you must enable the Passport Visa Information scope.  
+In order to receive this data, you must enable the Passport Visa Information scope.
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
@@ -217,7 +217,7 @@ A list of passports in the user's profile.
 
 ***
 
-#### <a name="Visas"/></a>Visas elements
+#### <a name="Visas"></a>Visas elements
 
 A list of visas in the user's profile.
 * Passport Visa Information scope must be enabled to receive the data.
@@ -245,17 +245,20 @@ The EmailAddresses parent element contains an EmailAddress child element for eac
 | `Type attribute` | `string` | The type of email address. Values are: Business or Personal. |
 
 ***
-####  <a name="RatePreferences"></a>RatePreferences elements
+
+#### <a name="RatePreferences"></a>RatePreferences elements
 The RatePreferences parent element contains the following child element:
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  `AAARate` |  `boolean` |  Whether the user is eligible for the AAA rate. Format: **true**\|**false** |
-|  `AARPRate` |  `boolean` |  Whether the user is eligible for the AARP rate. Format: **true**\|**false** |
-|  `GovtRate` |  `boolean` |  Whether the user is eligible for the Government rate. Format: **true**\|**false** |
-|  `MilitaryRate` |  `boolean` |  Whether the user is eligible for the Military rate. Format: **true**\|**false** |
+|  `AAARate` |  `boolean` | Whether the user is eligible for the AAA rate. Format: **true**\|**false** |
+|  `AARPRate` |  `boolean` | Whether the user is eligible for the AARP rate. Format: **true**\|**false** |
+|  `GovtRate` |  `boolean` | Whether the user is eligible for the Government rate. Format: **true**\|**false** |
+|  `MilitaryRate` |  `boolean` | Whether the user is eligible for the Military rate. Format: **true**\|**false** |
+
 ***
-####  <a name="DiscountCodes"></a>DiscountCodes elements
+
+#### <a name="DiscountCodes"></a>DiscountCodes elements
 
 The DiscountCodes parent element contains a DiscountCode child element for each included discount code.
 
@@ -263,8 +266,10 @@ The DiscountCodes parent element contains a DiscountCode child element for each 
 | :----- | :----- | :----- |
 |  `DiscountCode` |  `string` | The discount code for the specified vendor. |
 | `Vendor attribute` | `string` | Specifies the name of the vendor for the discount code. |
+
 ***
-####  <a name="Air"></a>Air elements
+
+#### <a name="Air"></a>Air elements
 
 The Air parent element contains the user's air travel preferences and contains the following child elements:
 

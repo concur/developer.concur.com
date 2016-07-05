@@ -23,9 +23,9 @@ Formerly, the first task all developers needed to complete after they configured
 
 Follow the steps explained in [Authentication API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html) to obtain a valid token for creating a receipt for a user in your v4 developer sandbox.
 
-###  Accessing the E-Receipts Provider API
+###  Accessing the Receipts API
 
-In step 4 of the registration process described in [App Registration &  Management](https://developer.concur.com/manage-apps/partner-applications.htm),  the fields available for information are named and described.
+In step 4 of the registration process described in [App Registration &  Management](https://developer.concur.com/manage-apps/partner-applications.html), the fields available for information are named and described.
 
 * In the APIs Used field, check the **E-Receipts Provider** checkbox.
 
@@ -35,13 +35,12 @@ In step 4 of the registration process described in [App Registration &  Manageme
 
 * Create or import users in your sandbox using the process explained in Step 5 of Configure your developer sandbox above
 
- * Refer to the [Authentication API documentation](https://preview.developer.concur.com/api-alpha/auth/apidoc.htm) to get a valid token for creating a receipt for a user in your sandbox
+ * Refer to the [Authentication API documentation](https://preview.developer.concur.com/api-alpha/auth/apidoc.html) to get a valid token for creating a receipt for a user in your sandbox
 
  * Refer to the [Receipts API documentation](https://preview.developer.concur.com/api-alpha/receipts/apidoc.html) to know how to create a receipt
 
 
 Once a receipt is successfully posted, the receipt data and image can be viewed in the Available Expenses section of the [website](https://www.concursolutions.com/expense/client/default.asp).
-
 
 
 
