@@ -7,12 +7,12 @@ layout: reference
 _This page documents the Receipts 4.0 API currently in development. The information on this page is intended for reference purposes and will evolve until the API is made public._
 
 The ```Receipts``` resource represents receipts that can be posted to Concur by a provider company on behalf of a user. This resource currently supports following types of receipts:
- - [General](#General): A general purpose receipt type used for various goods or services.
- - [Hotel](#Hotel): A receipt for a hospitality service, for example a hotel stay.
- - [Ground Transport](#GroundTransport): A receipt for a ground transportation service, for example a taxi.
- - [Car](#Car): A receipt for a car rental.
- - [Air](#Air): A receipt for air travel.
- - [Japan Public Transport](#JPT): A receipt for a JPT train ride.
+[General](#General): A general purpose receipt type used for various goods or services.
+[Hotel](#Hotel): A receipt for a hospitality service, for example a hotel stay.
+[Ground Transport](#GroundTransport): A receipt for a ground transportation service, for example a taxi.
+[Car](#Car): A receipt for a car rental.
+[Air](#Air): A receipt for air travel.
+[Japan Public Transport](#JPT): A receipt for a JPT train ride.
 
 API methods:
 
@@ -495,7 +495,7 @@ Name | Type | Format | Description
 <a name="dateTime"></a>`dateTime`|`string`|-|DateTime when the transaction occurred in the format specified in ISO 8601. While the standard regards time zone designators as optional, we highly recommend to use UTC + Offset. For example, 2016-04-22T12:20+0700 (12:20 PM in Pacific Time).
 <a name="nonEmptyString"></a>`nonEmptyString`|`string`|-|"minLength": 1, "pattern": "^(?!\\s*$).+"
 <a name="countrySubdivisionCode"></a>`countrySubdivisionCode`|`string`|-|"pattern": "^[a-zA-Z0-9]{1,3}$"
-<a name="currency"</a>`currency`|`string`|-|"pattern": "^[-]?\\d*\\.?\\d+$"
+<a name="currency"></a>`currency`|`string`|-|"pattern": "^[-]?\\d*\\.?\\d+$"
 <a name="countryCode"></a>`countryCode`|`string`|-|"minLength": 2, "maxLength": 3,
 <a name="currencyCode"></a>`currencyCode`|`string`|-|"minLength": 3, "maxLength": 3, [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code for the currency paid to the merchant
 <a name="latitude"></a>`latitude`|`number`|-|"minimum": -90, "maximum": 90
