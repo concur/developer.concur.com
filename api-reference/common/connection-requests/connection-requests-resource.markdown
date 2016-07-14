@@ -5,9 +5,13 @@ layout: reference
 
 # Connection Requests
 
-The Connection Requests resource is used to integrate TripLink partner applications with Concur. It can be used to create, update, and manage connections between a user's Concur account and a select travel loyalty program. With Connection Requests a TripLink partner application can retrieve new connection requests and provide status for pending connections, successful connections, and failed connections. When retrieving new connections, the results can be filtered by status, page offset, and a limit for the number of records to return.
+The Connection Requests resource is used to integrate TripLink partner applications with Concur. It can be used to create, update, and manage connections between a user's Concur account and a select travel loyalty program. With Connection Requests a TripLink partner application can retrieve new connection requests in order to match users who want to connect to the supplier with the user's account in the supplier system. After the request is retreived, the supplier is expected to provide a status if the connetion was successful connections or failed. When retrieving new connections, the results can be filtered by status, page offset, and a limit for the number of records to return.
 
-In version 3.1, connection requests can also associate users to loyalty programs with e-mail addresses, in addition to utilizing loyalty numbers.
+In version 3.1, connection requests can also associate users to either loyalty programs, Concur verified e-mail addresses, or both of these factors. Concur verified emails are email addresses where a user has taken additional steps to confirm an email belongs to them by entering a verifiication code within the Concur UI after receiving this in their email. Verified emails have uniqueness across all user accounts in the Concur system.
+
+The use of loyalty numbers and/or verified emails to identify users is based on the business agreement between Concur and the TripLink supplier and will be discussed durign the TripLink integration kick-off process. Email or loyalty numnber will not be returned in the connection request if the supplier is not using these factors in their process to to match a user in their system to a Concur user.
+
+Concur's recommendation for suppliers is to match users requesting to conenct utilizing last name and loyalty number only. Or in the case of suppliers without loyalty numbers to use verfied email and the last name of the user only. The first name and middle name fields have proved to generate a high degree of failures when utilized due to issues like Nicknames within the supplier systems. 
 
 * [Retrieve all connection requests that match the TripLink supplier ID](#get)
 * [Retrieve a connection request by ID](#getID)
@@ -131,10 +135,10 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`Email1`	|	``string``	|	-	|	The user's email address.
-`Email2`	|	``string``	|	-	|	The user's email address.
-`Email3`	|	``string``	|	-	|	The user's email address.
-`Email4`	|	``string``	|	-	|	The user's email address.
-`Email5`	|	``string``	|	-	|	The user's email address.
+`Email1`	|	``string``	|	-	|	The user's verified email address.
+`Email2`	|	``string``	|	-	|	The user's verified email address.
+`Email3`	|	``string``	|	-	|	The user's verified email address.
+`Email4`	|	``string``	|	-	|	The user's verified email address.
+`Email5`	|	``string``	|	-	|	The user's verified email address.
 
 
