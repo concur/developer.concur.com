@@ -31,7 +31,7 @@ layout: reference
 | -- | [April][1-12] | -- |
 | [May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf) | [May][1-13] | [May](App_Center_Release_Notes_client_final_May2014_0.pdf) |
 | [June](AppCenter_ReleaseNotes_June 2016_FINAL.pdf) | -- | [June][1-2] |
-| -- | [July](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July][1-3] |
+| [July](AppCenter_ReleaseNotes_July 2016_FINAL.pdf) | [July](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July][1-3] |
 | -- | -- | [August][1-4] |
 | -- | [September](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September[1-5] |
 | -- | [October](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October][1-6] |

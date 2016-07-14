@@ -11,7 +11,7 @@ application/xml
 ## Request URI
 The Fetch List callout sends the attendee information to a URI for the application connector, which can be in a custom location for each client. The standard location is:
 
-    https://{servername}/concur/list/v1.0/fetch
+    https://{servername}/concur/list/v1.2/fetch
 
 The URI is configured on the **Register Application Connector** page in **Web Services** under **Administration**.
 
@@ -37,7 +37,7 @@ The request will contain a **fetch-list-request** parent element, containing the
 
 The example uses the Fetch List web service to search a connected list for all cities under US-W-CA (United States, Western Region, California) beginning with San, and is configured to connect to an application connector located at www.example.com.
 
-    POST /concur/list/v1.0/fetch HTTPS/1.1
+    POST /concur/list/v1.2/fetch HTTPS/1.1
     Host: example.com
     Authorization: Basic ...
     Content-Type: application/xml; charset=utf-8
