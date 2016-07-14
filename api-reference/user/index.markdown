@@ -193,3 +193,12 @@ Name | Type | Format | Description
 `LoginID`|`string` | | The login ID of the user.
 `Status`|`string` | | The status of the attempt to update the user's password. Format: Success, Failed.
 `Message`|`string` | | Additional details about the success or failure of the request.
+
+### Example
+
+     <UserBatch xmlns="http://www.concursolutions.com/api/user/2011/02">
+      <UserProfile>
+          <loginid>loginID/loginid>
+          <password>password</password>
+      </UserProfile>
+    </UserBatch>

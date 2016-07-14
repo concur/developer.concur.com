@@ -7,7 +7,7 @@ layout: reference
 
 ###  What is new and different?
 
-- If you are migrating from version 3 to version 4, you will need to use a new [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html).
+- If you are migrating from version 3 to version 4, you will need to use a new [Authentication API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html).
 
 - In version 4, there are no matching facts. Clients post receipts for specific users.
 
@@ -21,8 +21,7 @@ layout: reference
 
 - Version 4 allows our clients to easily supply Value Added Tax information.
 
-- For our clients with specified schema types, a receipt image is automatically generated when posting receipt data. The image can be
-  used by our customers when creating their expense reports.
+- For our clients with specified schema types, a receipt image is automatically generated when posting receipt data. The image can be used by our customers when creating their expense reports.
 
   - If provided by the partner, generated receipt images have their brand logo.
 

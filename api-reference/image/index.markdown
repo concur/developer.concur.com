@@ -92,7 +92,7 @@ Name | Type | Format | Description
 ## <a name="schema"></a>Schema
 
 
-###Receipt Images
+### Receipt Images
 
 Name | Type | Format | Description
 -----|------|--------|------------
