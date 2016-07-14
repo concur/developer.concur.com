@@ -9,7 +9,7 @@ The Connection Requests resource is used to integrate TripLink partner applicati
 
 In version 3.1, connection requests can also associate users to either loyalty programs, Concur verified e-mail addresses, or both of these factors. Concur verified emails are email addresses where a user has taken additional steps to confirm an email belongs to them by entering a verifiication code within the Concur UI after receiving this in their email. Verified emails have uniqueness across all user accounts in the Concur system.
 
-The use of loyalty numbers and/or verified emails to identify users is based on the business agreement between Concur and the TripLink supplier and will be discussed durign the TripLink integration kick-off process. Email or loyalty numnber will not be returned in the connection request if the supplier is not using these factors in their process to to match a user in their system to a Concur user.
+The use of loyalty numbers and/or verified emails to identify users is based on the business agreement between Concur and the TripLink supplier and will be discussed during the TripLink integration kick-off process. Email or loyalty number will not be returned in the connection request if the supplier is not using these factors in their process to to match a user in their system to a Concur user.
 
 Concur's recommendation for suppliers is to match users requesting to conenct utilizing last name and loyalty number only. Or in the case of suppliers without loyalty numbers to use verfied email and the last name of the user only. The first name and middle name fields have proved to generate a high degree of failures when utilized due to issues like Nicknames within the supplier systems. 
 
