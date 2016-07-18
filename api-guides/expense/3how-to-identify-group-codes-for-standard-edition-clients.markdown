@@ -22,7 +22,7 @@ layout: reference
   -	Use the ID from the Items Link in your next API request….
 
 	* <https://www.concursolutions.com/api/expense/list/v1.0/gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw/batch>
-	* <https://www.concursolutions.com/api/expense/list/v1.0/gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw false>
+	* <https://www.concursolutions.com/api/expense/list/v1.0/gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw/false>
 	* <https://www.concursolutions.com/api/expense/list/v1.0/gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw/items>
     * Employee Groups (Do not change-contact Client Support)  
 
