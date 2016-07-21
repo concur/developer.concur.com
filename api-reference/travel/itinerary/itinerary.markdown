@@ -659,8 +659,8 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | TotalRate | decimal |  | The total rate amount of the booking.  |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
 | AirCondition | string |  | The character code that indicates if car has air conditioner. R for AC, N for No AC |
-| Body | string |  | The character code to indicate how many passengers the car can seat.  |
-| Class | string |  | Character code to indicate the class of the car e.g. if it is economy, full size, compact, etc. Varies by Vendor |
+| Body | string |  | The character code to indicate how many passengers the car can seat. B for 2-door, D for 4-door, F for Four-wheel drive, J for All Terrain, K for truck, L for Limo, P for pick-up, R for recreation, S for Sport, T for Convertible, V for Van, W for Wagon/Estate, X for special. |
+| Class | string |  | Character code to indicate the class of the car e.g. if it is economy, full size, compact, etc. Varies by Vendor. C for compact, E for economy, F for full size, I for Intermediate, L for Luxury, M for Mini, P for Premium, S for Standard, X for special. |
 | DiscountCode | string |  | The discount code used by the company/TMC to get a discounted rate. |
 | DropoffCollectionAddress1 | string |  | The AddressLine1 for the dropoff address when the rental service offers dropoff. |
 | DropoffCollectionAddressType | string |  |   |
