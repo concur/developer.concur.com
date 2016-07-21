@@ -3,9 +3,9 @@ title: v3 to v4 Migration Guide
 layout: reference
 ---
 
-## Receipts - Migrating from Version 3 to Version 4
+# Receipts - Migrating from Version 3 to Version 4
 
-###  What is new and different?
+##  What is new and different?
 
 - If you are migrating from V3 to V4, you will need to use a new [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html).
 
@@ -29,7 +29,7 @@ layout: reference
 
 - During our early release, partners can post receipt data only. Soon, we will allow the posting of receipt data and image.
 
-## Receipts V3 to V4 - How do the field mappings change?
+## How do the field mappings change?
 
 The following tables illustrate how the Receipt fields you are familiar with in V3 map to V4.
 
