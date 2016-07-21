@@ -3,15 +3,15 @@ title: v3 to v4 Migration Guide
 layout: reference
 ---
 
-## Receipts- Migrating from v3 to v4
+## Receipts - Migrating from Version 3 to Version 4
 
 ###  What is new and different?
 
-- If you are migrating from version 3 to version 4, you will need to use a new [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html).
+- If you are migrating from V3 to V4, you will need to use a new [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html).
 
-- In version 4, there are no matching facts. Partners post receipts for specific users.
+- In V4, there are no matching facts. Partners post receipts for specific users.
 
-- Version 4 allows partners the increased benefit of being able to provide rich receipt data.
+- V4 allows partners the increased benefit of being able to provide rich receipt data.
 
   - We have made receipts for hotels distinct from those for car rental agencies because the information provided in each of them is not the same.
   
@@ -19,7 +19,7 @@ layout: reference
   
   - Our open schema format allows for new receipt types to be easily added. 
 
-- Version 4 allows our partners to easily supply Value Added Tax information.
+- V4 allows our partners to easily supply Value Added Tax information.
 
 - A receipt image is automatically generated if only receipt data is posted. The image can be used by our end users when creating their expense reports.
 
@@ -29,9 +29,9 @@ layout: reference
 
 - During our early release, partners can post receipt data only. Soon, we will allow the posting of receipt data and image.
 
-## Receipts v3 to v4 - How do the field mappings change?
+## Receipts V3 to V4 - How do the field mappings change?
 
-The following tables illustrate how the Receipt fields you are familiar with in version 3 map to version 4.
+The following tables illustrate how the Receipt fields you are familiar with in V3 map to V4.
 
 
 ####  Receipts
