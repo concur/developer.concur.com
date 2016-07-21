@@ -6,7 +6,7 @@ layout: reference
 
 _This page documents the Receipts 4.0 API currently in development. The information on this page is intended for reference purposes and will evolve until the API is made public._
 
-The ```Receipts``` resource represents receipts that can be posted to Concur by a provider company on behalf of a user. This resource supports following types of receipts:
+The ```Receipts``` resource represents receipts that can be posted to Concur by a partner on behalf of a end user. This resource supports following types of receipts:
 [General](#General): A general purpose receipt type used for various goods or services.
 [Hotel](#Hotel): A receipt for a hospitality service, for example a hotel stay.
 [Ground Transport](#GroundTransport): A receipt for a ground transportation service, for example a taxi.
@@ -100,14 +100,14 @@ POST /receipts/v4/users/{userId}
 Header | Description
 -------|------------
 `Content-type`|**Required** [Content-Type](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17): `application/json`.
-`Link`|[Link](http://tools.ietf.org/html/rfc5988#section-5): `<http://schema.concursolutions.com/{schema-name.json}}>;rel=describedBy`. When not specified, the default is: `http://schema.concursolutions.com/general-receipt.schema.json`. The list of available [schemas](#Schema) is below. If a receipt image is being generated on a clients behalf, we will use the schema type mentioned in this field to select the appropriate template. 
+`Link`|[Link](http://tools.ietf.org/html/rfc5988#section-5): `<http://schema.concursolutions.com/{schema-name.json}}>;rel=describedBy`. When not specified, the default is: `http://schema.concursolutions.com/general-receipt.schema.json`. The list of available [schemas](#Schema) is below. If a receipt image is being generated on a clients behalf, we will use the schema type mentioned in this field to select the appropriate receipt template. 
 `Authorization`|OAuth2 access token in the form of a JSON Web Token obtained by the client application from the [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html).
 
 ### Parameters
 
 Name | Description
 -----|------------
-`userId`|The userId of the user for whom the receipt is being posted. This can be found in the JWT that is obtained using the [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html). 
+`userId`|The UUID of the user for whom the receipt is being posted. This can be found in the JWT that is obtained using the [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html). 
 
 ### Request Body
 
