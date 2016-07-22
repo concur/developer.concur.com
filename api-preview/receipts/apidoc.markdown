@@ -58,7 +58,7 @@ None.
 Name | Description
 -----|------------
 `rel`|Abstracted name of the API.
-`method`|Method(s) to be used with the URI.
+`method`|Method to be used with the URI.
 `href`|Current URI for the API.
 
 ### Example
@@ -190,9 +190,9 @@ None.
 
 Name | Description
 -----|------------
-`rel`|
+`rel`|Identifier for the schema.
 `method`|Method to be used with the URI.
-`href`|
+`href`|URL to be used to retrieve the schema.
 
 ## <a name="Schema"></a>Schemas
 
