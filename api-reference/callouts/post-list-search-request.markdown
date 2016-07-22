@@ -108,4 +108,4 @@ The response will include a **fetch-list-response** parent element, with an **it
 
 
 
-[1]: api-reference/authentication/authentication.html
+[1]: /api-reference/authentication/authentication.html
