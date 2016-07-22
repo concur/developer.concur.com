@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
+  "host": "msprqa3.concurtech.net",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,20 +14,13 @@
     "application/xml"
   ],
   "info": {
-    "title": "Opportunities",
+    "title": "",
     "description": "",
     "version": "3.0"
   },
-  "tags": [
-    {
-      "name": "Resources",
-      "description": "" 
-    }
-  ],
   "paths": {
     "/insights/opportunities": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Gets a collection of opportunities for a specified trip or for all trips that fall within a date range",
         "description": "Gets a collection of opportunities for a specified trip or for all trips that fall within a date range. Specify values for fromUtc and toUtc to get opportunities for a range of trips. Specify only tripId to get opportunities for a single trip. Specify OpportunityType to filter results by the specified opportunity types.",
         "parameters": [
@@ -81,7 +74,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The URI to the resource."
+          "description": "The URI of the next page of results, if any."
         }
       }
     },
@@ -89,20 +82,20 @@
       "properties": {
         "EndCityCode": {
           "type": "string",
-          "description": "The URI to the resource."
+          "description": "The city code of the destination city where the opportunity is offered"
         },
         "EndDateLocal": {
           "type": "string",
           "format": "date-time",
-          "description": "The local start date of the location where the opportunity is offered"
+          "description": "The local end date of the location where the opportunity is offered"
         },
         "EndPostalCode": {
           "type": "string",
-          "description": "The URI to the resource."
+          "description": "The postal code of the destination location where the opportunity is offered"
         },
         "ID": {
           "type": "string",
-          "description": "The URI to the resource."
+          "description": "The unique identifier of the resource."
         },
         "IsActive": {
           "type": "boolean",
@@ -110,7 +103,7 @@
         },
         "StartCityCode": {
           "type": "string",
-          "description": "The URI to the resource."
+          "description": "The city code of the originating city where the opportunity is offered"
         },
         "StartDateLocal": {
           "type": "string",
@@ -119,15 +112,15 @@
         },
         "StartPostalCode": {
           "type": "string",
-          "description": "The URI to the resource."
+          "description": "The postal code of the originating location where the opportunity is offered"
         },
         "TripId": {
           "type": "string",
-          "description": "The URI to the resource."
+          "description": "The trip id of the associated itinerary"
         },
         "Type": {
           "type": "string",
-          "description": "The URI to the resource."
+          "description": "The type of opportunity"
         },
         "URI": {
           "type": "string",

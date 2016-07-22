@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
+  "host": "msprqa3.concurtech.net",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,20 +14,13 @@
     "application/xml"
   ],
   "info": {
-    "title": "Purchase Order Receipts",
+    "title": "",
     "description": "",
     "version": "3.0"
   },
-  "tags": [
-    {
-      "name": "Resources",
-      "description": "" 
-    }
-  ],
   "paths": {
     "/invoice/purchaseorderreceipts": {
       "put": {
-        "tags": [ "Resources" ],
         "summary": "Updates purchase order receipts which is already in the system.",
         "description": "Updates purchase order receipts and associate if to purchase order line item and returns status of updation.",
         "parameters": [
@@ -51,7 +44,6 @@
         }
       },
       "post": {
-        "tags": [ "Resources" ],
         "summary": "Create purchase order receiving information for a purchase order line item.",
         "description": "Creates purchase order receipts and associate if to purchase order line item and returns status of updation.",
         "parameters": [
@@ -75,7 +67,6 @@
         }
       },
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Gets an existing purchase order receipts information.",
         "description": "Gets an existing purchase order receipts.",
         "parameters": [
@@ -97,7 +88,6 @@
         }
       },
       "delete": {
-        "tags": [ "Resources" ],
         "summary": "Deletes a new purchase order line item receipt.",
         "description": "Deletes a new purchase order line item receipt given a Goods Receipts Number.",
         "parameters": [
@@ -125,91 +115,91 @@
       "properties": {
         "Custom1": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Custom 1 value for purchase order line item receipt."
         },
         "Custom10": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Custom 10 value for purchase order line item receipt."
         },
         "Custom2": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Custom 2 value for purchase order line item receipt."
         },
         "Custom3": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Custom 3 value for purchase order line item receipt."
         },
         "Custom4": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Custom 4 value for purchase order line item receipt."
         },
         "Custom5": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Custom 5 value for purchase order line item receipt."
         },
         "Custom6": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Custom 6 value for purchase order line item receipt."
         },
         "Custom7": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Custom 7 value for purchase order line item receipt."
         },
         "Custom8": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Custom 8 value for purchase order line item receipt."
         },
         "Custom9": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Custom 9 value for purchase order line item receipt."
         },
         "Deleted": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Delete status of purchase order line item receipt."
         },
         "DeliverySlipNumber": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Delivery slip number for a purchase order line item receipt."
         },
         "GoodsReceiptNumber": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Goods receipt number for a purchase order line item receipt. This field is Required for V2 Version"
         },
         "ID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier of the resource."
         },
         "IsReceived": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Indicates whether the line item was received. Optional for V2 Version."
         },
         "LineItemExternalID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "A customer-supplied value that uniquely identifies the line item within the purchase order."
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The purchase order number."
         },
         "ReceivedDate": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The date the line item was received. Format: YYYY-MM-DD"
         },
         "ReceivedQuantity": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The number of items that were received."
         },
         "UnitOfMeasureCode": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "Unit of measure code for a purchase order line item receipt."
         },
         "URI": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The URI to the resource."
         },
         "Version": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The URI to the resource."
         }
       }
     },
@@ -217,31 +207,31 @@
       "properties": {
         "ErrorCode": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "A code that indicates why the purchase order was not processed successfully."
         },
         "ErrorMessage": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "A description of the error."
         },
         "FieldCode": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "A code that indicates which field caused an issue. This code typically appears only when a field is being validated against a field of a form type. Format: LEVEL|CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information."
         },
         "LineItemExternalID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information."
         },
         "Message": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information."
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The purchase order number."
         },
         "Status": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The result of processing the purchase order. Format: SUCCESS or FAILURE"
         }
       }
     },

@@ -1,0 +1,1663 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "Itemizations",
+  "apis": [
+    {
+      "path": "/expense/itemizations",
+      "description": "Get all expense itemizations",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_reportID_entryID_expenseTypeCode_offset_limit_user",
+          "responseClass": "ItemizationCollection",
+          "summary": "Get all expense itemizations",
+          "notes": "Gets all expense itemizations owned by the user.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "reportID",
+              "description": "The report ID of the itemizations to be retrieved. Use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/ReportDigests/Get_offset_limit_user_approvalStatusCode_paymentStatusCode_currencyCode_paymentType_reimbursementMethod_approverLoginID_expenseTypeCode_attendeeTypeCode_countryCode_batchID_vendorName_hasVAT_hasImages_hasAttendees_hasBillableExpenses_isTestUser_expenseGroupConfigID_costObject_entryTransactionDateBefore_entryTransactionDateAfter_createDateBefore_createDateAfter_userDefinedDateBefore_userDefinedDateAfter_submitDateBefore_submitDateAfter_processingPaymentDateBefore_processingPaymentDateAfter_paidDateBefore_paidDateAfter_modifiedDateBefore_modifiedDateAfter_get_0\">GET /expense/reportdigests</a> function to find the report ID. Format: An alpha-numeric string",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "entryID",
+              "description": "The entry ID for the itemizations to be retrieved. Use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Entries/Get_reportID_paymentTypeID_batchID_isBillable_attendeeTypeCode_hasAttendees_hasVAT_expenseTypeCode_attendeeID_offset_limit_user_get_0\">GET /expense/entries</a> endpoint to learn the valid entry ID.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "expenseTypeCode",
+              "description": "The expense type code for the itemizations to be retrieved.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The number of records to return. Default value: 25",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "25",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/itemizations/{id}",
+      "description": "Get a single expense itemization by ID",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id_user",
+          "responseClass": "ItemizationGet",
+          "summary": "Get a single expense itemization by ID",
+          "notes": "Gets an expense itemization by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the expense itemization.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/itemizations",
+      "description": "Create a new expense itemization",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_content_user",
+          "responseClass": "CreateResponse",
+          "summary": "Create a new expense itemization",
+          "notes": "Creates a new expense itemization.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The expense itemization object to create.",
+              "dataType": "ItemizationPost",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/itemizations/{id}",
+      "description": "Update an expense itemization by ID",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_id_content_user",
+          "responseClass": "Void",
+          "summary": "Update an expense itemization by ID",
+          "notes": "Updates the specified expense itemization. Only the fields provided in the supplied object are updated. Missing fields will not be altered.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the expense itemization.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The partial or complete expense itemization object to update.",
+              "dataType": "ItemizationPut",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/itemizations/{id}",
+      "description": "Delete an expense itemization by ID",
+      "operations": [
+        {
+          "httpMethod": "DELETE",
+          "nickname": "Delete_id_user",
+          "responseClass": "Void",
+          "summary": "Delete an expense itemization by ID",
+          "notes": "Deletes the specified expense itemization.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the expense itemization to delete.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/itemizations",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/expense/itemizations",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "CreateResponse": {
+      "id": "CreateResponse",
+      "displayName": "Response",
+      "properties": {
+        "ID": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "CustomField": {
+      "id": "CustomField",
+      "displayName": null,
+      "properties": {
+        "Code": {
+          "description": "For list fields, this is the list item code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ListItemID": {
+          "description": "For list fields, this is the list item ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Type": {
+          "description": "The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Decimal": {
+      "id": "Decimal",
+      "displayName": null,
+      "properties": {}
+    },
+    "ItemizationCollection": {
+      "id": "ItemizationCollection",
+      "displayName": "Itemizations",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "ItemizationGet",
+            "displayName": "Itemization"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ItemizationGet": {
+      "id": "ItemizationGet",
+      "displayName": "Itemization",
+      "properties": {
+        "AllocationType": {
+          "description": "The type of allocation for the itemization. Possible values: P - partial allocation, F - full allocation, N - no allocation. Use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Allocations/Get_limit_offset_reportID_entryID_itemizationID_user_get_0\">GET /expense/allocations</a> function to get information about this entry's allocations.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovedAmount": {
+          "description": "The approved amount of the expense itemization, in the report currency.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom25": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom26": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom27": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom28": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom29": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom30": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom31": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom32": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom33": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom34": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom35": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom36": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom37": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom38": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom39": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom40": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "The description of the expense. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EntryID": {
+          "description": "The ID of the expense entry that is the parent for the itemization. Use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Entries/Get_reportID_paymentTypeID_batchID_isBillable_attendeeTypeCode_hasAttendees_hasVAT_expenseTypeCode_attendeeID_offset_limit_user_get_0\">GET /expense/entries</a> endpoint to learn the entry ID for the expense itemizations.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ExpenseTypeCode": {
+          "description": "The code for the expense type. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> endpoint to learn the expense type code for expense types that are active for this report's policy.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ExpenseTypeName": {
+          "description": "The name of the expense type, localized to the user's language.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "HasComments": {
+          "description": "Indicates whether the expense has comments. Use the GET ExpenseEntryComments endpoint to get information about this entry's comments. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HasExceptions": {
+          "description": "Indicates whether the expense has exceptions. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsBillable": {
+          "description": "Indicates whether the itemization is billable. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsImageRequired": {
+          "description": "Indicates whether a receipt image is required for the entry. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsPersonal": {
+          "description": "Indicates whether the itemization is personal (that is, non-reimbursable). Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastModified": {
+          "description": "The UTC date when the itemization was last modified.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LocationCountry": {
+          "description": "The country where the expense was incurred. Format: 2-letter ISO 3166-1 country code",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LocationID": {
+          "description": "The unique identifier for the location where the expense was incurred. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Locations/Get_offset_limit_name_city_countrySubdivision_country_administrativeRegion_get_0\">GET /common/locations</a> function to get information for this location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LocationName": {
+          "description": "The location where the expense was incurred, usually the city name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LocationSubdivision": {
+          "description": "The state, province, or other country subdivision where the expense was incurred. Format: ISO 3166-2:2007 country subdivision",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit1": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit2": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit3": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit4": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit5": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit6": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PostedAmount": {
+          "description": "The amount of the expense itemization, in the report currency.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ReportID": {
+          "description": "The ID of the report that is the parent for the itemization. Use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/ReportDigests/Get_offset_limit_user_approvalStatusCode_paymentStatusCode_currencyCode_paymentType_reimbursementMethod_approverLoginID_expenseTypeCode_attendeeTypeCode_countryCode_batchID_vendorName_hasVAT_hasImages_hasAttendees_hasBillableExpenses_isTestUser_expenseGroupConfigID_costObject_entryTransactionDateBefore_entryTransactionDateAfter_createDateBefore_createDateAfter_userDefinedDateBefore_userDefinedDateAfter_submitDateBefore_submitDateAfter_processingPaymentDateBefore_processingPaymentDateAfter_paidDateBefore_paidDateAfter_modifiedDateBefore_modifiedDateAfter_get_0\">GET /expense/reportdigests</a> endpoint to learn the report ID for the itemizations.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ReportOwnerID": {
+          "description": "The login ID for the report owner. Use the <a target=\"_blank\" https://developer.concur.com/user-resources/users/user-resource-get\">GET User Information</a> endpoint to learn details about this user.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "SpendCategoryCode": {
+          "description": "The code for the spending category that is specified for this itemization.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "SpendCategoryName": {
+          "description": "The name of the spending category that is specified for this itemization, localized to the user's language.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "TransactionAmount": {
+          "description": "The amount of the expense itemization, in the transaction currency of the parent expense entry.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionDate": {
+          "description": "The date when the good or service associated with this itemization was provided. Format: YYYY-MM-DD",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ItemizationPost": {
+      "id": "ItemizationPost",
+      "displayName": "Itemization",
+      "properties": {
+        "Comment": {
+          "description": "The expense itemization comment. Maximum length: 500 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom25": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom26": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom27": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom28": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom29": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom30": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom31": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom32": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom33": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom34": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom35": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom36": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom37": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom38": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom39": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom40": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "The description of the expense. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EntryID": {
+          "description": "The ID of the expense entry that is the parent for the itemization. Use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Entries/Get_reportID_paymentTypeID_batchID_isBillable_attendeeTypeCode_hasAttendees_hasVAT_expenseTypeCode_attendeeID_offset_limit_user_get_0\">GET /expense/entries</a> endpoint to learn the entry ID for the expense itemizations.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ExpenseTypeCode": {
+          "description": "The code for the expense type. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> endpoint to learn the expense type code for expense types that are active for this report's policy.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "IsBillable": {
+          "description": "Indicates whether the itemization is billable. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsPersonal": {
+          "description": "Indicates whether the itemization is personal (that is, non-reimbursable). Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit1": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit2": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit3": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit4": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit5": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit6": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionAmount": {
+          "description": "The amount of the expense itemization, in the transaction currency of the parent expense entry.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionDate": {
+          "description": "The date when the good or service associated with this itemization was provided. Format: YYYY-MM-DD",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "ItemizationPut": {
+      "id": "ItemizationPut",
+      "displayName": "Itemization",
+      "properties": {
+        "Comment": {
+          "description": "The expense itemization comment. Maximum length: 500 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom25": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom26": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom27": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom28": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom29": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom30": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom31": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom32": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom33": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom34": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom35": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom36": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom37": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom38": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom39": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom40": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "The description of the expense. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EntryID": {
+          "description": "The ID of the expense entry that is the parent for the itemization. Use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Entries/Get_reportID_paymentTypeID_batchID_isBillable_attendeeTypeCode_hasAttendees_hasVAT_expenseTypeCode_attendeeID_offset_limit_user_get_0\">GET /expense/entries</a> endpoint to learn the entry ID for the expense itemizations.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ExpenseTypeCode": {
+          "description": "The code for the expense type. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> endpoint to learn the expense type code for expense types that are active for this report's policy.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "IsBillable": {
+          "description": "Indicates whether the itemization is billable. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsPersonal": {
+          "description": "Indicates whether the itemization is personal (that is, non-reimbursable). Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit1": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit2": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit3": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit4": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit5": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit6": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ListItems/Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code_get_0\">GET /common/listitems</a> operation to learn the item name. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionAmount": {
+          "description": "The amount of the expense itemization, in the transaction currency of the parent expense entry.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionDate": {
+          "description": "The date when the good or service associated with this itemization was provided. Format: YYYY-MM-DD",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "Nullable`1": {
+      "id": "Nullable`1",
+      "displayName": null,
+      "properties": {
+        "HasValue": {
+          "description": null,
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": null,
+          "type": "Decimal",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

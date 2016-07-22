@@ -1,0 +1,590 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "Receipts",
+  "apis": [
+    {
+      "path": "/common/receipts",
+      "description": "Create a new receipt entry",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_content",
+          "responseClass": "CreateResponse",
+          "summary": "Create a new receipt entry",
+          "notes": "Creates a new receipt entry. This operation enables a provider company to post receipts to Concur.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The Receipt object to create.",
+              "dataType": "ReceiptPost",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/receipts",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/common/receipts",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "CreateResponse": {
+      "id": "CreateResponse",
+      "displayName": "Response",
+      "properties": {
+        "ID": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "CustomField": {
+      "id": "CustomField",
+      "displayName": null,
+      "properties": {
+        "Name": {
+          "description": "The name of the custom field. Maximum length: 128 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Value": {
+          "description": "The value of the custom field. Maximum length: 256 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "Decimal": {
+      "id": "Decimal",
+      "displayName": null,
+      "properties": {}
+    },
+    "GeneralDetail": {
+      "id": "GeneralDetail",
+      "displayName": null,
+      "properties": {
+        "LineItems": {
+          "description": "The parent element for the line items in the receipt. There is a LineItem child element for each line item.",
+          "type": "Array",
+          "items": {
+            "$ref": "LineItem",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "HotelDetail": {
+      "id": "HotelDetail",
+      "displayName": null,
+      "properties": {
+        "AverageDailyRoomRate": {
+          "description": "The sum of the room rate for each night stayed, divided by the number of nights stayed. Range: -922,337,203,685,477 to 922,337,203,685,477",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CheckinDateTime": {
+          "description": "The check-in date and time. Format: YYYY-MM-DDThh:mm",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CheckoutDateTime": {
+          "description": "The check-out date and time. Format: YYYY-MM-DDThh:mm",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ConfirmationNumber": {
+          "description": "The confirmation number for the booking. Maximum length: 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "GNR": {
+          "description": "The Guest Name Record (GNR) for the stay. Maximum length: 20 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItems": {
+          "description": "The parent element for the line items in the receipt. There is a LineItem child element for each line item.",
+          "type": "Array",
+          "items": {
+            "$ref": "LineItem",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NumberInParty": {
+          "description": "The number of people for this stay.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RatePlanType": {
+          "description": "The rate plan type that is used to calculate the room rate. Possible values are rate plan types defined using hospitality industry standards. Maximum length: 50 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RoomNumber": {
+          "description": "The room number for the stay. Maximum length: 15 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RoomType": {
+          "description": "The type of room. Possible values are room types defined using hospitality industry standards, such as Single, Double, Suite, and so on. Maximum length: 50 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "LineItem": {
+      "id": "LineItem",
+      "displayName": null,
+      "properties": {
+        "Amount": {
+          "description": "The total charged amount for the line item. Range: -922,337,203,685,477 to 922,337,203,685,477",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Date": {
+          "description": "The date and time when the line item was charged. Format: YYYY-MM-DDThh:mm",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "The item's description. Maximum length: 100 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Description2": {
+          "description": "Additional details about the item. In the receipt image, the secondary description appears on the line following the primary description. Maximum length: 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Quantity": {
+          "description": "The quantity of units. Format: Any positive number",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Rate": {
+          "description": "The amount charged per unit. Range: -922,337,203,685,477 to 922,337,203,685,477",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RateType": {
+          "description": "The unit of measure or rate type. Possible values: HOUR or PER HOUR, DAY or PER DAY, WEEK or PER WEEK, MONTH or PER MONTH. Maximum length: 10 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Reference": {
+          "description": "The item's SKU, identifier, or some other attribute the provider uses to reference the item. Maximum length: 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SequenceNumber": {
+          "description": "The order in which the item appears in the sequence of line items.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "Location": {
+      "id": "Location",
+      "displayName": null,
+      "properties": {
+        "Address": {
+          "description": "The provider's street address. Maximum length: 100 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Address2": {
+          "description": "The provider's secondary street address. Maximum length: 50 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "City": {
+          "description": "The provider's city. Maximum length: 100 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CountryCode": {
+          "description": "The provider's country. Format: <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">2-letter ISO 3166-1 country code</a>",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CountrySubdivisionCode": {
+          "description": "The provider's state, province, or other country subdivision. Format: <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-2\">ISO 3166-2:2007 country subdivision</a> code YYY, where YYY is the one-to-three–character subdivision code",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmailAddress": {
+          "description": "The provider's email address. Maximum length: 255 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FaxNumber": {
+          "description": "The provider's fax number. Maximum length: 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InternetAddress": {
+          "description": "The provider's Web address. Maximum length: 255 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the provider's location, such as an airport, car rental agency, property, store, or other named location. Maximum length: 100 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PostalCode": {
+          "description": "The provider's postal code. Maximum length: 20 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TelephoneNumber": {
+          "description": "The provider's telephone number. Maximum length: 100 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "MatchingFact": {
+      "id": "MatchingFact",
+      "displayName": null,
+      "properties": {
+        "Type": {
+          "description": "The type of matching fact that is used to identify the Concur user who owns the receipt. Possible values: OAuth, Login",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Value": {
+          "description": "The value of the matching fact. If the Type element is set to OAuth, this value must be the access token for the Concur user who owns the receipt. In this case, the access token must not be expired or revoked. If the Type element is set to Login, this value must be the login ID of the Concur user who owns the receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "Merchant": {
+      "id": "Merchant",
+      "displayName": null,
+      "properties": {
+        "Location": {
+          "description": "The parent element for the provider location.",
+          "type": "Location",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Name": {
+          "description": "The name of the provider (merchant). Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "Nullable`1": {
+      "id": "Nullable`1",
+      "displayName": null,
+      "properties": {
+        "HasValue": {
+          "description": null,
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": null,
+          "type": "Decimal",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PaymentCard": {
+      "id": "PaymentCard",
+      "displayName": null,
+      "properties": {
+        "AuthorizationCode": {
+          "description": "The authorization code that the card interchange provided when it approved this purchase. Maximum length: 15 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "MaskedNumber": {
+          "description": "The masked card number for the credit card. With the exception of the AX (American Express) card type, this is the last four digits of the card number. For American Express, the value can be one of these, in order of preference: a) The first six digits and the last four digits of the card number. b) The last five digits. c) The last four digits.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Type": {
+          "description": "The card interchange for the credit card. Possible values: AX (American Express), DC (Diner's Club), DS (Discover), CA (MasterCard), VI (Visa), CB (Carte Blanche), ER (Enroute), TP (Universal Air Travel), JC (JCB), EC (EuroCard), OTHER (other types)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "ReceiptPost": {
+      "id": "ReceiptPost",
+      "displayName": "Receipt",
+      "properties": {
+        "Amount": {
+          "description": "The net amount of the transaction. A positive number means a payment is due. A negative number means a refund is due. Zero means no payment or refund is due. Range: -922,337,203,685,477 to 922,337,203,685,477",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the currency paid to the provider.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CustomFields": {
+          "description": "The parent element for custom fields.",
+          "type": "Array",
+          "items": {
+            "$ref": "CustomField",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "FormofPaymentCode": {
+          "description": "The code for the form of payment. Possible values: CASH (Cash), CCARD (Credit Card), CPAID (Company Paid)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "GeneralDetail": {
+          "description": "The details of a general transaction. This element is required when the Type value is General.",
+          "type": "GeneralDetail",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HotelDetail": {
+          "description": "The details of a hospitality service. This element is required when the Type value is Hotel.",
+          "type": "HotelDetail",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ImageBase64": {
+          "description": "The binary receipt image in Base64 encoding. This API supports PNG, JPEG, JPG, and PDF file formats.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "MatchingFact": {
+          "description": "The parent element for information that is used to match the receipt to the Concur user who initiated the transaction. The MatchingFact object must contain either a valid access token or a Concur login ID.",
+          "type": "MatchingFact",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Merchant": {
+          "description": "The parent element for information about the provider who is posting the receipt.",
+          "type": "Merchant",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "PaymentCard": {
+          "description": "The parent element for the credit card used for payment. This element is required when the FormofPaymentCode value is CCARD.",
+          "type": "PaymentCard",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RideDetail": {
+          "description": "The details of a hired ride. This element is required when the Type value is Ride.",
+          "type": "RideDetail",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionDateTime": {
+          "description": "The date and time when the transaction happened. Format: YYYY-MM-DDThh:mm",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Type": {
+          "description": "The type of receipt. Possible values: General, Ride, Hotel",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "RideDetail": {
+      "id": "RideDetail",
+      "displayName": null,
+      "properties": {
+        "DriverName": {
+          "description": "The name of the driver. Maximum length: 255 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DropoffLatitude": {
+          "description": "The latitude of the ride end location. Range: -90 to 90",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DropoffLongitude": {
+          "description": "The longitude of the ride end location. Range: -180 to 180",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EndDateTime": {
+          "description": "The ending date and time for the ride. Format: YYYY-MM-DDThh:mm",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "LineItems": {
+          "description": "The parent element for the line items in the receipt. There is a LineItem child element for each line item.",
+          "type": "Array",
+          "items": {
+            "$ref": "LineItem",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "StartDateTime": {
+          "description": "The starting date and time for the ride. Format: YYYY-MM-DDThh:mm",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "VehicleNumber": {
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    }
+  }
+}

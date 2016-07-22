@@ -1,0 +1,3581 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "PaymentRequest",
+  "apis": [
+    {
+      "path": "/invoice/paymentrequest/{id}",
+      "description": "Gets all relevant information of a Payment Request.",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id",
+          "responseClass": "PaymentRequest",
+          "summary": "Gets all relevant information of a Payment Request.",
+          "notes": "This API Gets all relevant information (Payment Request Header, Payment Request Line Item and Payment Request Allocation) of a Payment Request.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "Payment Request ID.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/paymentrequest",
+      "description": "Create a new Payment Request.",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_paymentRequest",
+          "responseClass": "CreateResponse",
+          "summary": "Create a new Payment Request.",
+          "notes": "Creates a new Payment Request with all relevant details including line items and associated allocations.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "paymentRequest",
+              "description": "An XML or JSON representation of a Payment Request.",
+              "dataType": "PaymentRequestPost",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/paymentrequest",
+      "description": "Update a Payment Request.",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_paymentRequest",
+          "responseClass": "CreateResponse",
+          "summary": "Update a Payment Request.",
+          "notes": "Updates a Payment Request with all relevant details including line items and associated allocations.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "paymentRequest",
+              "description": "An XML or JSON representation of a Payment Request.",
+              "dataType": "PaymentRequestPut",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/paymentrequest",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/invoice/paymentrequest",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "Allocation": {
+      "id": "Allocation",
+      "displayName": "Allocation",
+      "properties": {
+        "AllocationAccountCode": {
+          "description": "The Account Code that the allocation will be assigned to.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "A value that can be applied to a custom field 10 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "A value that can be applied to a custom field 8 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "A value that can be applied to a custom field 9 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsTestUser": {
+          "description": "Indication that the Allocation record was created by a test user (this is a true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Percentage": {
+          "description": "The percentage of the Request Line Item that the individual allocation record. All Allocations associated to a given Line Item should add up to 100.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "AllocationsCollection": {
+      "id": "AllocationsCollection",
+      "displayName": "Allocations",
+      "properties": {
+        "Allocation": {
+          "description": "The details of the Payment Request Allocation Core Identity Fields.",
+          "type": "Array",
+          "items": {
+            "$ref": "Allocation",
+            "displayName": "Allocation"
+          },
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "CompanyAddress": {
+      "id": "CompanyAddress",
+      "displayName": "CompanyAddress",
+      "properties": {
+        "Address1": {
+          "description": "Line 1 of the street address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Address2": {
+          "description": "Line 2 of the street address",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Address3": {
+          "description": "Line 3 of the street address",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "City": {
+          "description": "The name of the city.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CountryCode": {
+          "description": "The country code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Name": {
+          "description": "The name given to the company location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "PostalCode": {
+          "description": "The postal / zip code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "State": {
+          "description": "The state code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "CreateResponse": {
+      "id": "CreateResponse",
+      "displayName": "Response",
+      "properties": {
+        "ID": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "LineItem": {
+      "id": "LineItem",
+      "displayName": "PaymentRequestLineItem",
+      "properties": {
+        "Allocations": {
+          "description": "The details of the Payment Request Allocation Core Identity Fields.",
+          "type": "AllocationsCollection",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AllocationStatus": {
+          "description": "Current amount of allocation performed on the Request Line Item (accepted values: None, Partial, Full).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "AmountWithoutVat": {
+          "description": "The net amount of the line item (excluding VAT).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovedLineItemAmount": {
+          "description": "The approved amount of the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DeliverySlipNumber": {
+          "description": "The delivery slip number associated with receiving receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "Brief overview of the good or service ordered.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExpenseTypeCode": {
+          "description": "A code which indicates the Expense Type for the Line Item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "IsMatched": {
+          "description": "Indication that the Payment Request Line Item is associated to a Purchase Order Line Item (this is a true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItemId": {
+          "description": "The identifier of the payment request line item. The ID is only guaranteed to be unique for a given payment request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "LineItemIsTestUser": {
+          "description": "Indication that the Allocation record was created by a test user (this is a true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "MatchedPurchaseOrderLineItemId": {
+          "description": "The identifier of the purchase order line item to which the payment request line item is matched (if any).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderNumber": {
+          "description": "The identifier of the purchase order containing the line item to which the payment request line item is matched (if any).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Quantity": {
+          "description": "Total number of goods or services ordered.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestedLineItemAmount": {
+          "description": "The requested amount of the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestLineItemNumber": {
+          "description": "The relative location of the Line Item in relation to other Line Items in the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ShipFromPostalCode": {
+          "description": "The postal code the good or service was shipped from.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShipToPostalCode": {
+          "description": "The postal code the good or service will be shipped to.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SupplierPartId": {
+          "description": "The unique identifier provided by the supplier that is associated with the good or service.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Tax": {
+          "description": "The tax associated with the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode": {
+          "description": "The Tax Code  assigned for the Line Item, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode2": {
+          "description": "The Tax Code 2 assigned for the Line Item, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode3": {
+          "description": "The Tax Code 3 assigned for the Line Item, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode4": {
+          "description": "The Tax Code 4 assigned for the Line Item, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalPrice": {
+          "description": "The total amount of the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "UnitOfMeasure": {
+          "description": "The code for the measurement unit used to quantify the good or service. Use GET /invoice/localizeddata to look up codes and descriptions.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UnitPrice": {
+          "description": "The cost for a single unit of the line item good or service.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "VatAmount": {
+          "description": "The amount of VAT 1 included in the line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountFour": {
+          "description": "The amount of VAT 4 included in the line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountThree": {
+          "description": "The amount of VAT 3 included in the line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountTwo": {
+          "description": "The amount of VAT 2 included in the line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRate": {
+          "description": "The VAT rate 1 applied to the net line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateFour": {
+          "description": "The VAT rate 4 applied to the net line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateThree": {
+          "description": "The VAT rate 3 applied to the net line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateTwo": {
+          "description": "The VAT rate 2 applied to the net line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "LineItemsCollection": {
+      "id": "LineItemsCollection",
+      "displayName": "LineItems",
+      "properties": {
+        "LineItem": {
+          "description": "The details of the Core Payment Request Line Item Identity Fields.",
+          "type": "Array",
+          "items": {
+            "$ref": "LineItem",
+            "displayName": "PaymentRequestLineItem"
+          },
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PaymentRequest": {
+      "id": "PaymentRequest",
+      "displayName": "PaymentRequest",
+      "properties": {
+        "AmountWithoutVat": {
+          "description": "The net amount of the invoice (excluding VAT).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovalStatus": {
+          "description": "A code which indicates the Approval Status of the payment request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ApprovedByDelegate": {
+          "description": "Was the Payment Request approved by a Delegate (true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "AssignedByUsername": {
+          "description": "Username of the assigning employee.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AssignedDate": {
+          "description": "The date the Payment Request was assigned to the current owner.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "BuyerCostCenter": {
+          "description": "The company defined center responsible for the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CalculatedAmount": {
+          "description": "The sum of all Line Item Amounts plus Shipping Amount and Tax Amount for the payment request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CheckNumber": {
+          "description": "Check number of the payment made to the vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CompanyBillToAddress": {
+          "description": "The customer's billing address, which is where the vendor should bill the customer.",
+          "type": "CompanyAddress",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CompanyShipToAddress": {
+          "description": "The customer's shipping address, which is where the vendor should ship the goods.",
+          "type": "CompanyAddress",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CountryCode": {
+          "description": "The country code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CreatedByUsername": {
+          "description": "Username of the Payment Request creator.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DataSource": {
+          "description": "A code which indicates the method used to created the Payment Request. Use GET /invoice/localizeddata to translate the code into text.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "DeletedDate": {
+          "description": "The date the user deleted the payment request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DeliverySlipNumber": {
+          "description": "The delivery slip number associated with receiving receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "User entered description of the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DiscountPercentage": {
+          "description": "The discount from the supplier if the discount terms are met.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DiscountTerms": {
+          "description": "The NET discount terms with a supplier when discounts apply.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeName": {
+          "description": "The owner of the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ExternalPolicyId": {
+          "description": "The external policy ID. ",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ExtractDate": {
+          "description": "The date the payment request was extracted, in order to import it into an accounts payable system and generate a payment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FirstApprovalDate": {
+          "description": "The date the payment request received its first approval in its approval workflow.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FirstSubmitDate": {
+          "description": "The date the payment request was first submitted.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceAmount": {
+          "description": "User-entered value representing the total invoice amount, used to calculate amount remaining on the line item page.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceDate": {
+          "description": "The date the Vendor issued the Invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceNumber": {
+          "description": "The Invoice Number from the vendor for the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "InvoiceReceivedDate": {
+          "description": "The date on which the invoice was received.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsAssigned": {
+          "description": "Is the Payment Request assigned (true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "IsInvoiceConfirmed": {
+          "description": "Indicates if the Payment Request Invoice is confirmed or in a different status (true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "IsPaymentRequestDeleted": {
+          "description": "Is the Payment Request deleted (true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "IsPaymentRequestDuplicate": {
+          "description": "Is the Payment Request identified as a duplicate of another existing request (true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "IsTestTransaction": {
+          "description": "Is the Payment Request a test transaction (true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "LastSubmitDate": {
+          "description": "The date the payment request was last submitted.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LedgerCode": {
+          "description": "A code which indicates which company journal the Payment Request is assigned to. Use GET /invoice/localizeddata to translate the code into text.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "LineItems": {
+          "description": "The details of the Core Payment Request Line Item Identity Fields.",
+          "type": "LineItemsCollection",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItemTotalAmount": {
+          "description": "The sum of all Line Item Amounts.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItemVatAmount": {
+          "description": "The sum amount of VAT from all line items in the request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The Payment Request Name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "NotesToVendor": {
+          "description": "Information from the customer to the vendor for special requests or handling for the ordered good or service.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OB10BuyerId": {
+          "description": "A unique buyer account on the OB10 network.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OB10TransactionId": {
+          "description": "Unique Identifier for the PR transaction (generated by OB10).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit01": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit02": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit03": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit04": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit05": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit06": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaidAmount": {
+          "description": "Represents the amount of the payment that will be/has been made for the Invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaidDate": {
+          "description": "The date payment was made to the vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentAdjustmentNotes": {
+          "description": "Notes to the vendor regarding the amount paid (underpayment due to damages, for example).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentDueDate": {
+          "description": "The date the vendor needs to be paid by.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentMethod": {
+          "description": "A code which indicates the method used to reimburse the vendor for the Payment Request. Use GET /invoice/localizeddata to translate the code into text.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentRequestCreatedByTestUser": {
+          "description": "Was the Payment Request created by a Test User (true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentRequestDeletedBy": {
+          "description": "The user who deleted the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentStatus": {
+          "description": "A code which indicates the Payment Status of the payment request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "PaymentTermsDays": {
+          "description": "This number, along with type of payment terms (example: NET), determine when the invoice is expected to be paid.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ProvincialTaxId": {
+          "description": "The Vendor Provincial Tax ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderNumber": {
+          "description": "The purchase order number for the purchase order associated with the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ReceiptConfirmationType": {
+          "description": "A code which indicates the receipt confirmation type for this Payment Request (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ShippingAmount": {
+          "description": "The value for the Shipping Amount header field.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SubmittedByDelegate": {
+          "description": "Was the Payment Request created by a Delegate (true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "TaxAmount": {
+          "description": "The value for the Tax Amount header field.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode": {
+          "description": "The Tax Code assigned for the Request, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode2": {
+          "description": "The Tax Code assigned for the Request, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode3": {
+          "description": "undefined:ConnectSwaggerDocs-PMT_TAX_CODE_3",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode4": {
+          "description": "undefined:ConnectSwaggerDocs-PMT_TAX_CODE_4",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalApprovedAmount": {
+          "description": "The total amount that has been approved.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UserCreationDate": {
+          "description": "The date the Invoice user first saved the payment request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountFour": {
+          "description": "The amount of VAT included in the invoice total. (Fourth of four VAT amount fields available.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountOne": {
+          "description": "The amount of VAT included in the invoice total. (First of four VAT amount fields available.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountThree": {
+          "description": "The amount of VAT included in the invoice total. (Third of four VAT amount fields available.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountTwo": {
+          "description": "The amount of VAT included in the invoice total. (Second of four VAT amount fields available.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateFour": {
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the fourth VAT amount field.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateOne": {
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the first VAT amount field.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateThree": {
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the third VAT amount field.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateTwo": {
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the second VAT amount field.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorRemitAddress": {
+          "description": "The vendor's billing address, which is where the customer sends the payment to.",
+          "type": "VendorAddress",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "VendorShipFromAddress": {
+          "description": "The vendor's shipping address, which is where the items listed in the invoice are shipped from.",
+          "type": "VendorAddress",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorTaxId": {
+          "description": "The Vendor Tax ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "WorkflowCompleteDate": {
+          "description": "The date the last step in the workflow process completed.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PaymentRequestAllocationPostPut": {
+      "id": "PaymentRequestAllocationPostPut",
+      "displayName": "Allocation",
+      "properties": {
+        "Custom01": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom02": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom03": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom04": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom05": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom06": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom07": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom08": {
+          "description": "A value that can be applied to a custom field 8 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom09": {
+          "description": "A value that can be applied to a custom field 9 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "A value that can be applied to a custom field 10 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Percentage": {
+          "description": "The percentage of the Request Line Item that the individual allocation record. All Allocations associated to a given Line Item should add up to 100.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "PaymentRequestLineItemPost": {
+      "id": "PaymentRequestLineItemPost",
+      "displayName": "LineItem",
+      "properties": {
+        "Allocations": {
+          "description": "The details of the Payment Request Allocation Core Identity Fields.",
+          "type": "Array",
+          "items": {
+            "$ref": "PaymentRequestAllocationPostPut",
+            "displayName": "Allocation"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "AmountWithoutVat": {
+          "description": "The net amount of the line item (excluding VAT).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom01": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom02": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom03": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom04": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom05": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom06": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom07": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom08": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom09": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "Brief overview of the good or service ordered.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExpenseTypeCode": {
+          "description": "A code which indicates the Expense Type for the Line Item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ItemCode": {
+          "description": "Represents the item code (the unique code a vendor assigns to a good or code a vendor assigns to a good or service to identify it).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderNumber": {
+          "description": "Purchase Order that is associated to the Line Item .",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Quantity": {
+          "description": "Total number of goods or services ordered.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShipFromPostalCode": {
+          "description": "The postal code the good or service was shipped from.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShipToPostalCode": {
+          "description": "The postal code the good or service will be shipped to.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SupplierPartId": {
+          "description": "The unique identifier provided by the supplier that is associated with the good or service.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Tax": {
+          "description": "The tax associated with the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode": {
+          "description": "The Tax Code  assigned for the Line Item, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode2": {
+          "description": "The Tax Code 2 assigned for the Line Item, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode3": {
+          "description": "The Tax Code 3 assigned for the Line Item, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode4": {
+          "description": "The Tax Code 4 assigned for the Line Item, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalPrice": {
+          "description": "The total amount of the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UnitOfMeasure": {
+          "description": "The code for the measurement unit used to quantify the good or service. Use GET /invoice/localizeddata to look up codes and descriptions.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UnitPrice": {
+          "description": "The cost for a single unit of the line item good or service.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmount": {
+          "description": "The amount of VAT 1 included in the line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountFour": {
+          "description": "The amount of VAT 4 included in the line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountThree": {
+          "description": "The amount of VAT 3 included in the line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountTwo": {
+          "description": "The amount of VAT 2 included in the line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRate": {
+          "description": "The VAT rate 1 applied to the net line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateFour": {
+          "description": "The VAT rate 4 applied to the net line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateThree": {
+          "description": "The VAT rate 3 applied to the net line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateTwo": {
+          "description": "The VAT rate 2 applied to the net line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PaymentRequestLineItemPut": {
+      "id": "PaymentRequestLineItemPut",
+      "displayName": "LineItem",
+      "properties": {
+        "Action": {
+          "description": "The operation(INSERT/UPDATE/DELETE) to be performed on the Line Item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Allocations": {
+          "description": "The details of the Payment Request Allocation Core Identity Fields.",
+          "type": "Array",
+          "items": {
+            "$ref": "PaymentRequestAllocationPostPut",
+            "displayName": "Allocation"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "AmountWithoutVat": {
+          "description": "The net amount of the line item (excluding VAT).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom01": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom02": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom03": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom04": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom05": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom06": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom07": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom08": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom09": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "Brief overview of the good or service ordered.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExpenseTypeCode": {
+          "description": "A code which indicates the Expense Type for the Line Item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ItemCode": {
+          "description": "Represents the item code (the unique code a vendor assigns to a good or code a vendor assigns to a good or service to identify it).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItemID": {
+          "description": "Line Item ID of the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderNumber": {
+          "description": "Purchase Order that is associated to the Line Item .",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Quantity": {
+          "description": "Total number of goods or services ordered.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShipFromPostalCode": {
+          "description": "The postal code the good or service was shipped from.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShipToPostalCode": {
+          "description": "The postal code the good or service will be shipped to.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SupplierPartId": {
+          "description": "The unique identifier provided by the supplier that is associated with the good or service.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Tax": {
+          "description": "The tax associated with the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode": {
+          "description": "The Tax Code  assigned for the Line Item, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode2": {
+          "description": "The Tax Code 2 assigned for the Line Item, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode3": {
+          "description": "The Tax Code 3 assigned for the Line Item, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxCode4": {
+          "description": "The Tax Code 4 assigned for the Line Item, based on the Tax Setting.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UnitOfMeasure": {
+          "description": "The code for the measurement unit used to quantify the good or service. Use GET /invoice/localizeddata to look up codes and descriptions.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UnitPrice": {
+          "description": "The cost for a single unit of the line item good or service.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmount": {
+          "description": "The amount of VAT 1 included in the line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountFour": {
+          "description": "The amount of VAT 4 included in the line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountThree": {
+          "description": "The amount of VAT 3 included in the line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountTwo": {
+          "description": "The amount of VAT 2 included in the line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRate": {
+          "description": "The VAT rate 1 applied to the net line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateFour": {
+          "description": "The VAT rate 4 applied to the net line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateThree": {
+          "description": "The VAT rate 3 applied to the net line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateTwo": {
+          "description": "The VAT rate 2 applied to the net line item total.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PaymentRequestPost": {
+      "id": "PaymentRequestPost",
+      "displayName": "PaymentRequest",
+      "properties": {
+        "AmountWithoutVat": {
+          "description": "The net amount of the invoice (excluding VAT).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "BuyerCostCenter": {
+          "description": "The company defined center responsible for the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CheckNumber": {
+          "description": "Check number of the payment made to the vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CompanyBillToAddressCode": {
+          "description": "The code which identifies the company location to which the vendor billed the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CompanyShipToAddressCode": {
+          "description": "The code which identifies the company location to which the vendor shipped items listed in the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CountryCode": {
+          "description": "The country code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Custom01": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom02": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom03": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom04": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom05": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom06": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom07": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom08": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom09": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DataSource": {
+          "description": "A code which indicates the method used to created the Payment Request. Use GET /invoice/localizeddata to translate the code into text.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DeliverySlipNumber": {
+          "description": "The delivery slip number associated with receiving receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "User entered description of the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DiscountPercentage": {
+          "description": "The discount from the supplier if the discount terms are met.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DiscountTerms": {
+          "description": "The NET discount terms with a supplier when discounts apply.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeEmailAddress": {
+          "description": "The email address of the employee to whom the request should be assigned. Not evaluated if EmployeeLoginId or EmployeeId match an employee. This value is <strong>required</strong> if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; PurchaseOrderNumber; ExternalPolicyId.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeId": {
+          "description": "The company ID of the employee to whom the request should be assigned. Has precedence over EmployeeEmail; not evaluated if EmployeeLoginId matches an employee. This value is <strong>required</strong> if none of the following are provided: LedgerCode, EmployeeLoginId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeLoginId": {
+          "description": "The login ID of the employee to whom the request should be assigned. Has precedence over EmployeeId and EmployeeEmail. This value is <strong>required</strong> if none of the following are provided: LedgerCode, EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExternalPolicyId": {
+          "description": "The external policy ID of the Payment Request. This value is <strong>required</strong> if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; EmployeeEmail; PurchaseOrderNumber.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceAmount": {
+          "description": "User-entered value representing the total invoice amount, used to calculate amount remaining on the line item page.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "InvoiceDate": {
+          "description": "The date the Vendor issued the Invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceNumber": {
+          "description": "The Invoice Number from the vendor for the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceReceivedDate": {
+          "description": "The date on which the invoice was received.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsEmergencyCheckRun": {
+          "description": "Is an emergency check run required(Y/N).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsInvoiceConfirmed": {
+          "description": "Indicates if the Payment Request Invoice is confirmed or in a different status (true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LedgerCode": {
+          "description": "A code which indicates which company journal the Payment Request is assigned to. Use GET /invoice/localizeddata to obtain valid codes. This value is <strong>required</strong> if none of the following are provided: EmployeeLoginId; EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItems": {
+          "description": "The details of the Core Payment Request Line Item Identity Fields.",
+          "type": "Array",
+          "items": {
+            "$ref": "PaymentRequestLineItemPost",
+            "displayName": "LineItem"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The Payment Request Name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "NotesToVendor": {
+          "description": "Information from the customer to the vendor for special requests or handling for the ordered good or service.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OB10BuyerId": {
+          "description": "A unique buyer account on the OB10 network.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OB10TransactionId": {
+          "description": "Unique Identifier for the PR transaction (generated by OB10).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit01": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit02": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit03": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit04": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit05": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit06": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentAdjustmentNotes": {
+          "description": "Notes to the vendor regarding the amount paid (underpayment due to damages, for example).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentAmount": {
+          "description": "Represents the amount of the payment that will be/has been made for the Invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentDueDate": {
+          "description": "The date the vendor needs to be paid by.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentTermsDays": {
+          "description": "This number, along with type of payment terms (example: NET), determine when the invoice is expected to be paid.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ProvincialTaxId": {
+          "description": "The Vendor Provincial Tax ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderId": {
+          "description": "The ID of the Purchase Order to which the Payment Request should be matched. This value is <strong>required</strong> if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; EmployeeEmail; ExternalPolicyId.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ReceiptConfirmationType": {
+          "description": "A code which indicates the receipt confirmation type for this Payment Request (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShippingAmount": {
+          "description": "The value for the Shipping Amount header field.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxAmount": {
+          "description": "The value for the Tax Amount header field.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountFour": {
+          "description": "The amount of VAT included in the invoice total. (Fourth of four VAT amount fields available.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountOne": {
+          "description": "The amount of VAT included in the invoice total. (First of four VAT amount fields available.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountThree": {
+          "description": "The amount of VAT included in the invoice total. (Third of four VAT amount fields available.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountTwo": {
+          "description": "The amount of VAT included in the invoice total. (Second of four VAT amount fields available.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateFour": {
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the fourth VAT amount field.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateOne": {
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the first VAT amount field.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateThree": {
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the third VAT amount field.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateTwo": {
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the second VAT amount field.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorRemitToIdentifier": {
+          "description": "Used to identify the vendor location for payment remittance. At a minimum, the VendorCode or the combination of (VendorName, Address1 and PostalCode) are required. Use of as many fields as possible is encouraged to ensure a single vendor can be identified. If more than one vendor matches the information provided, the Payment Request creation attempt will fail.",
+          "type": "VendorIdentifier",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "VendorShipFromAddressCode": {
+          "description": "The code which identifies the location from which the vendor shipped items listed in the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorTaxId": {
+          "description": "The Vendor Tax ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PaymentRequestPut": {
+      "id": "PaymentRequestPut",
+      "displayName": "PaymentRequest",
+      "properties": {
+        "AmountWithoutVat": {
+          "description": "The net amount of the invoice (excluding VAT).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "BuyerCostCenter": {
+          "description": "The company defined center responsible for the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CheckNumber": {
+          "description": "Check number of the payment made to the vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CompanyBillToAddressCode": {
+          "description": "The code which identifies the company location to which the vendor billed the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CompanyShipToAddressCode": {
+          "description": "The code which identifies the company location to which the vendor shipped items listed in the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CountryCode": {
+          "description": "The country code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom01": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom02": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom03": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom04": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom05": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom06": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom07": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom08": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom09": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DeliverySlipNumber": {
+          "description": "The delivery slip number associated with receiving receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "User entered description of the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DiscountPercentage": {
+          "description": "The discount from the supplier if the discount terms are met.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DiscountTerms": {
+          "description": "The NET discount terms with a supplier when discounts apply.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DoCopyDown": {
+          "description": "Use new Request Owner's employee copydown values in this request",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DoCopyDownFromPO": {
+          "description": "Use purchase order copydown values in this request",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeEmailAddress": {
+          "description": "The email address of the employee to whom the request should be assigned. Not evaluated if EmployeeLoginId or EmployeeId match an employee.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeId": {
+          "description": "The company ID of the employee to whom the request should be assigned. Has precedence over EmployeeEmail; not evaluated if EmployeeLoginId matches an employee.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeLoginId": {
+          "description": "The login ID of the employee to whom the request should be assigned. Has precedence over EmployeeId and EmployeeEmail.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceAmount": {
+          "description": "User-entered value representing the total invoice amount, used to calculate amount remaining on the line item page.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceDate": {
+          "description": "The date the Vendor issued the Invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceNumber": {
+          "description": "The Invoice Number from the vendor for the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceReceivedDate": {
+          "description": "The date on which the invoice was received.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsEmergencyCheckRun": {
+          "description": "Is an emergency check run required(Y/N).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsInvoiceConfirmed": {
+          "description": "Indicates if the Payment Request Invoice is confirmed or in a different status (true/false).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItems": {
+          "description": "The details of the Core Payment Request Line Item Identity Fields.",
+          "type": "Array",
+          "items": {
+            "$ref": "PaymentRequestLineItemPut",
+            "displayName": "LineItem"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The Payment Request Name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "NotesToVendor": {
+          "description": "Information from the customer to the vendor for special requests or handling for the ordered good or service.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OB10BuyerId": {
+          "description": "A unique buyer account on the OB10 network.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OB10TransactionId": {
+          "description": "Unique Identifier for the PR transaction (generated by OB10).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit01": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit02": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit03": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit04": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit05": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit06": {
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentAdjustmentNotes": {
+          "description": "Notes to the vendor regarding the amount paid (underpayment due to damages, for example).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentAmount": {
+          "description": "Represents the amount of the payment that will be/has been made for the Invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentDueDate": {
+          "description": "The date the vendor needs to be paid by.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentTermsDays": {
+          "description": "This number, along with type of payment terms (example: NET), determine when the invoice is expected to be paid.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ProvincialTaxId": {
+          "description": "The Vendor Provincial Tax ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderId": {
+          "description": "The ID of the Purchase Order to which the Payment Request should be matched.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ReceiptConfirmationType": {
+          "description": "A code which indicates the receipt confirmation type for this Payment Request (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestID": {
+          "description": "The Request ID of the Payment Request",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ShippingAmount": {
+          "description": "The value for the Shipping Amount header field.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxAmount": {
+          "description": "The value for the Tax Amount header field.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountFour": {
+          "description": "The amount of VAT included in the invoice total. (Fourth of four VAT amount fields available.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountOne": {
+          "description": "The amount of VAT included in the invoice total. (First of four VAT amount fields available.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountThree": {
+          "description": "The amount of VAT included in the invoice total. (Third of four VAT amount fields available.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountTwo": {
+          "description": "The amount of VAT included in the invoice total. (Second of four VAT amount fields available.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateFour": {
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the fourth VAT amount field.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateOne": {
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the first VAT amount field.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateThree": {
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the third VAT amount field.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateTwo": {
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the second VAT amount field.)",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorRemitToIdentifier": {
+          "description": "Used to identify the vendor location for payment remittance. At a minimum, the VendorCode or the combination of (VendorName, Address1 and PostalCode) are required. Use of as many fields as possible is encouraged to ensure a single vendor can be identified. If more than one vendor matches the information provided, the Payment Request creation attempt will fail.",
+          "type": "VendorIdentifier",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorShipFromAddressCode": {
+          "description": "The code which identifies the location from which the vendor shipped items listed in the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorTaxId": {
+          "description": "The Vendor Tax ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "VendorAddress": {
+      "id": "VendorAddress",
+      "displayName": "VendorAddress",
+      "properties": {
+        "Address1": {
+          "description": "Line 1 of the street address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Address2": {
+          "description": "Line 2 of the street address",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Address3": {
+          "description": "Line 3 of the street address",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "City": {
+          "description": "The name of the city.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CountryCode": {
+          "description": "The country code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "DiscountTerms": {
+          "description": "The NET discount terms with a supplier when discounts apply.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Name": {
+          "description": "The name of the vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "PostalCode": {
+          "description": "The postal / zip code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "State": {
+          "description": "The state code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "VendorIdentifier": {
+      "id": "VendorIdentifier",
+      "displayName": "VendorRemitToIdentifier",
+      "properties": {
+        "Address1": {
+          "description": "Line 1 of the street address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AddressCode": {
+          "description": "The code which identifies a particular vendor location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PostalCode": {
+          "description": "The postal / zip code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorCode": {
+          "description": "The code which identifies a particular vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    }
+  }
+}

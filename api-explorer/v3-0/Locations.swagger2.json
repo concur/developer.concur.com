@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
+  "host": "msprqa3.concurtech.net",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,20 +14,13 @@
     "application/xml"
   ],
   "info": {
-    "title": "Locations",
+    "title": "",
     "description": "",
     "version": "3.0"
   },
-  "tags": [
-    {
-      "name": "Resources",
-      "description": "" 
-    }
-  ],
   "paths": {
     "/common/locations": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Get all locations",
         "description": "Gets details of locations that are used by Concur and that are valid at the user's company.",
         "parameters": [
@@ -94,7 +87,6 @@
     },
     "/common/locations/{id}": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Get a location by ID",
         "description": "Gets details of the specified location.",
         "parameters": [
@@ -125,27 +117,27 @@
       "properties": {
         "AdministrativeRegion": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The administrative region of the location."
         },
         "Country": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The 2-letter <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">ISO 3166-1 country code</a> for the location."
         },
         "CountrySubdivision": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-2\">ISO 3166-2:2007 country subdivision code</a> for the location. Example: US-WA"
         },
         "IATACode": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The <a target=\"_blank\" href=\"http://www.iata.org/publications/Pages/code-search.aspx\">International Air Transport Association (IATA) airport code</a> of the location."
         },
         "ID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier of the resource."
         },
         "IsAirport": {
           "type": "boolean",
-          "description": "Indicates whether the location is used by the booking tool. Format: true or false"
+          "description": "Indicates whether the location is an airport. Format: true or false"
         },
         "IsBookingTool": {
           "type": "boolean",
@@ -154,7 +146,7 @@
         "Latitude": {
           "type": "number",
           "format": "double",
-          "description": "The longitude of the geocode for the location."
+          "description": "The latitude of the geocode for the location."
         },
         "Longitude": {
           "type": "number",
@@ -163,11 +155,11 @@
         },
         "Name": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The location name. Maximum length: 64 characters"
         },
         "URI": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The URI to the resource."
         }
       }
     },

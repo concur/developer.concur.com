@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
+  "host": "msprqa3.concurtech.net",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,20 +14,13 @@
     "application/xml"
   ],
   "info": {
-    "title": "List Items",
+    "title": "",
     "description": "",
     "version": "3.0"
   },
-  "tags": [
-    {
-      "name": "Resources",
-      "description": "" 
-    }
-  ],
   "paths": {
     "/common/listitems": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Gets all listitems",
         "description": "Returns all list items based on the search criteria.",
         "parameters": [
@@ -148,7 +141,6 @@
         }
       },
       "post": {
-        "tags": [ "Resources" ],
         "summary": "Create a new listitem",
         "description": "Create a new listitem",
         "parameters": [
@@ -174,7 +166,6 @@
     },
     "/common/listitems/{id}": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Get a single listitem by ID",
         "description": "Returns a listitem by ID.",
         "parameters": [
@@ -203,7 +194,6 @@
         }
       },
       "put": {
-        "tags": [ "Resources" ],
         "summary": "Update listitem",
         "description": "Updates listitem specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
         "parameters": [
@@ -234,7 +224,6 @@
         }
       },
       "delete": {
-        "tags": [ "Resources" ],
         "summary": "Delete listitem by ID",
         "description": "Deletes the specified listitem",
         "parameters": [
@@ -268,12 +257,10 @@
     "CreateResponse": {
       "properties": {
         "ID": {
-          "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "type": "string"
         },
         "URI": {
-          "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "type": "string"
         }
       }
     },
@@ -281,51 +268,51 @@
       "properties": {
         "ID": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The unique identifier of the resource."
         },
         "Level10Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the tenth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level1Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the first level of the list. All lists have at least a Level1Code. Text maximum 32 characters"
         },
         "Level2Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the second level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level3Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the third level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level4Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the fourth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level5Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the fifth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level6Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the sixth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level7Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the seventh level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level8Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the eighth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level9Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the ninth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "ListID": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The unique identifier for the list this item is a member."
         },
         "Name": {
           "type": "string",
@@ -333,11 +320,11 @@
         },
         "ParentID": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The unique identifier of this item's parent. Is empty when there is no parent."
         },
         "URI": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The URI to the resource."
         }
       }
     },
@@ -348,7 +335,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The URI of the next page of results, if any."
         }
       }
     },
@@ -356,47 +343,47 @@
       "properties": {
         "Level10Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the tenth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level1Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the first level of the list. All lists have at least a Level1Code. Text maximum 32 characters"
         },
         "Level2Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the second level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level3Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the third level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level4Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the fourth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level5Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the fifth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level6Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the sixth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level7Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the seventh level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level8Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the eighth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "Level9Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code for the ninth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters"
         },
         "ListID": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The unique identifier for the list this item is a member."
         },
         "Name": {
           "type": "string",
@@ -408,11 +395,11 @@
       "properties": {
         "Code": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The item code of the listitem. Text maximum 32 characters"
         },
         "ListID": {
           "type": "string",
-          "description": "The name of item. Text maximum 64 characters"
+          "description": "The unique identifier for the list this item is a member."
         },
         "Name": {
           "type": "string",

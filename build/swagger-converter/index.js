@@ -162,9 +162,10 @@ var mapSwaggerDefinitions = function(concurSwaggerModels){
     return { 
       properties: _.mapObject(val.properties, (val, key) => {
         let t = swaggerTypeMapper(getConcurSwaggerModelType(val));
+debugger;
         if(!t.isDefinitionRef())
           t = _.extend(t, _.pick(val, truthyKeys('description')));
-        return t;
+        return _.clone(t);
       })
     };
   });
@@ -217,5 +218,4 @@ var convertFile = function(file){
   });
 };
 
-// TODO - context should be another function that encapsulated directory/file/stdout
-_.each(program.args, convertFile, { output: program.output });
+_.each(program.args, convertFile);

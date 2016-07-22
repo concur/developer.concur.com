@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
+  "host": "msprqa3.concurtech.net",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,20 +14,13 @@
     "application/xml"
   ],
   "info": {
-    "title": "Latest Bookings",
+    "title": "",
     "description": "",
     "version": "3.0"
   },
-  "tags": [
-    {
-      "name": "Resources",
-      "description": "" 
-    }
-  ],
   "paths": {
     "/insights/latestbookings/": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Get the latest hotel and air booking for a particular user.",
         "description": "Get the latest hotel and air booking for a particular user.",
         "parameters": [
@@ -55,11 +48,11 @@
       "properties": {
         "BookingClass": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\" http://www.iata.org/publications/Pages/code-search.aspx\">IATA airport code</a> of the location of the latest booked hotel segment."
+          "description": "The booking class of the latest booked airline segment."
         },
         "Code": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\" http://www.iata.org/publications/Pages/code-search.aspx\">IATA airport code</a> of the location of the latest booked hotel segment."
+          "description": "The airline code of the latest booked airline segment."
         }
       }
     },

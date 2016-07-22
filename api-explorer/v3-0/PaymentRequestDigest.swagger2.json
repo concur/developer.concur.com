@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
+  "host": "msprqa3.concurtech.net",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,20 +14,13 @@
     "application/xml"
   ],
   "info": {
-    "title": "Payment Request Digest",
+    "title": "",
     "description": "",
     "version": "3.0"
   },
-  "tags": [
-    {
-      "name": "Resources",
-      "description": "" 
-    }
-  ],
   "paths": {
     "/invoice/paymentrequestdigests/{id}": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Get the payment request digest based on ID. ",
         "description": "Returns the payment request digest based on ID. ",
         "parameters": [
@@ -51,7 +44,6 @@
     },
     "/invoice/paymentrequestdigests": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Get all payment requests digests based on the search criteria.",
         "description": "Returns all payment requests digests based on the search criteria.",
         "parameters": [
@@ -172,71 +164,71 @@
       "properties": {
         "ApprovalStatusCode": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "A code indicating the request's approval status."
         },
         "CreateDate": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The date the request was created."
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The 3-letter ISO 4217 currency code for the request currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona."
         },
         "ID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier of the resource."
         },
         "InvoiceNumber": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The invoice number of the Payment Request."
         },
         "IsDeleted": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "A true/false value which indicates whether the request has been deleted. (Deleted requests are retained in the system for historical purposes.)."
         },
         "OwnerLoginID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The login ID of the Payment Request owner."
         },
         "OwnerName": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The name of the Payment Request owner."
         },
         "PaidDate": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The date when all journal entries in the request were integrated with or extracted to the financial system."
         },
         "PaymentRequestId": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier of the Payment Request summarized in this digest."
         },
         "PaymentRequestUri": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The URI of the Payment Request summarized in this digest."
         },
         "PaymentStatusCode": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "A code indicating the request's payment status."
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The purchase order number for the purchase order associated with the invoice."
         },
         "Total": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The total amount of the request."
         },
         "URI": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The URI to the resource."
         },
         "UserDefinedDate": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The invoice date as assigned by the user."
         },
         "VendorName": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The name of the vendor."
         }
       }
     },

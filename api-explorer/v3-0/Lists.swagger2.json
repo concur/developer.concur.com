@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
+  "host": "msprqa3.concurtech.net",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,20 +14,13 @@
     "application/xml"
   ],
   "info": {
-    "title": "Lists",
+    "title": "",
     "description": "",
     "version": "3.0"
   },
-  "tags": [
-    {
-      "name": "Resources",
-      "description": "" 
-    }
-  ],
   "paths": {
     "/common/lists": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Gets all lists",
         "description": "Returns all lists based on the search criteria.",
         "parameters": [
@@ -57,7 +50,6 @@
         }
       },
       "post": {
-        "tags": [ "Resources" ],
         "summary": "Create a new list",
         "description": "Create a new list",
         "parameters": [
@@ -83,7 +75,6 @@
     },
     "/common/lists/{id}": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Get a single list by ID",
         "description": "Returns a list by ID.",
         "parameters": [
@@ -105,7 +96,6 @@
         }
       },
       "put": {
-        "tags": [ "Resources" ],
         "summary": "Update list",
         "description": "Updates list specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
         "parameters": [
@@ -141,12 +131,10 @@
     "CreateResponse": {
       "properties": {
         "ID": {
-          "type": "string",
-          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
+          "type": "string"
         },
         "URI": {
-          "type": "string",
-          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
+          "type": "string"
         }
       }
     },
@@ -154,11 +142,11 @@
       "properties": {
         "ConnectorID": {
           "type": "string",
-          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
+          "description": "Optional. Defines the encrypted ConnectorID. If not provided then the list isn't associated with a connector."
         },
         "DisplayCodeFirst": {
           "type": "boolean",
-          "description": "Optional. Defines whether CODE should appear before TEXT, or vice-versa."
+          "description": "Required. Defines whether CODE should appear before TEXT, or vice-versa."
         },
         "ExternalThreshold": {
           "type": "integer",
@@ -167,23 +155,23 @@
         },
         "ID": {
           "type": "string",
-          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
+          "description": "The unique identifier of the resource."
         },
         "IsVendorList": {
           "type": "boolean",
-          "description": "Optional. Defines whether CODE should appear before TEXT, or vice-versa."
+          "description": "Required. Defines whether it is a vendor list."
         },
         "Name": {
           "type": "string",
-          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
+          "description": "Required. Defines a name for the list. This name must be unique."
         },
         "SearchCriteriaCode": {
           "type": "string",
-          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
+          "description": "Required. Defines whether the search criteria should apply to the CODE or to the TEXT."
         },
         "URI": {
           "type": "string",
-          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
+          "description": "The URI to the resource."
         }
       }
     },
@@ -194,7 +182,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
+          "description": "The URI of the next page of results, if any."
         }
       }
     },
@@ -202,11 +190,11 @@
       "properties": {
         "ConnectorID": {
           "type": "string",
-          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
+          "description": "Optional. Defines the encrypted ConnectorID. If not provided then the list isn't associated with a connector."
         },
         "DisplayCodeFirst": {
           "type": "boolean",
-          "description": "Optional. Defines whether CODE should appear before TEXT, or vice-versa."
+          "description": "Required. Defines whether CODE should appear before TEXT, or vice-versa."
         },
         "ExternalThreshold": {
           "type": "integer",
@@ -215,15 +203,15 @@
         },
         "IsVendorList": {
           "type": "boolean",
-          "description": "Optional. Defines whether CODE should appear before TEXT, or vice-versa."
+          "description": "Required. Defines whether it is a vendor list."
         },
         "Name": {
           "type": "string",
-          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
+          "description": "Required. Defines a name for the list. This name must be unique."
         },
         "SearchCriteriaCode": {
           "type": "string",
-          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
+          "description": "Required. Defines whether the search criteria should apply to the CODE or to the TEXT."
         }
       }
     },
@@ -235,7 +223,7 @@
         },
         "Name": {
           "type": "string",
-          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT."
+          "description": "Optional. Defines a name for the list. This name must be unique."
         },
         "SearchCriteriaCode": {
           "type": "string",

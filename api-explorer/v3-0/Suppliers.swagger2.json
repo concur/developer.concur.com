@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
+  "host": "msprqa3.concurtech.net",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,20 +14,13 @@
     "application/xml"
   ],
   "info": {
-    "title": "Suppliers",
+    "title": "",
     "description": "",
     "version": "3.0"
   },
-  "tags": [
-    {
-      "name": "Resources",
-      "description": "" 
-    }
-  ],
   "paths": {
     "/common/suppliers": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Gets All Suppliers by Search Criteria",
         "description": "Returns all Suppliers based on the search criteria.",
         "parameters": [
@@ -143,7 +136,6 @@
     },
     "/common/suppliers/{id}": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Get a single Supplier by ID",
         "description": "Returns a single Supplier ID",
         "parameters": [
@@ -174,7 +166,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "The URI of the next page of results, if any."
         }
       }
     },
@@ -182,39 +174,39 @@
       "properties": {
         "BusinessName": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Name"
         },
         "City": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "City"
         },
         "CountryCode": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Country Code"
         },
         "ID": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "The unique identifier of the resource."
         },
         "PostalCode": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Zip"
         },
         "State": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "State"
         },
         "StreetAddress": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Address"
         },
         "StreetAddress2": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Address2 "
         },
         "URI": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "The URI to the resource."
         }
       }
     },
@@ -222,127 +214,127 @@
       "properties": {
         "AmadeusId": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Amadeus Id"
         },
         "AustinTetra": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Austin Tetra"
         },
         "BusinessName": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Name"
         },
         "ChainCode": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Chain Code"
         },
         "ChainName": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Chain Name"
         },
         "City": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "City"
         },
         "CountryCode": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Country Code"
         },
         "CreditCardVendorId": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Creditcard Vendor Id"
         },
         "DunsNumber": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Duns Number"
         },
         "Email": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Email"
         },
         "Fax": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Fax"
         },
         "GalileoId": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Galileo Id"
         },
         "ID": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "The unique identifier of the resource."
         },
         "MccCode": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "MCC Code (Ex: Delta Airline - 3058)"
         },
         "NorthstarId": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Northstar Id"
         },
         "PegasusId": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Pegasus Id"
         },
         "Phone": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Phone"
         },
         "PostalCode": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Zip"
         },
         "PrimaryNaics": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Primary Naics Code"
         },
         "PrimarySic": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Primary Sic Code"
         },
         "PropertyCode": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "undefined:ConnectSwaggerDocs-SUP_PARAM_PROPERTY_CODE"
         },
         "SabreId": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Sabre Id"
         },
         "SecondaryNaics": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Secondary Naics Code"
         },
         "SecondarySic": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Secondary Sic Code"
         },
         "State": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "State"
         },
         "StreetAddress": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Address"
         },
         "StreetAddress2": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Address2 "
         },
         "TaxId": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Tax Id"
         },
         "TollFree": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Toll Free "
         },
         "URI": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "The URI to the resource."
         },
         "WebUrl": {
           "type": "string",
-          "description": "Worldspan Id"
+          "description": "Web Address"
         },
         "WorldspanId": {
           "type": "string",

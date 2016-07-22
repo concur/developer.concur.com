@@ -1,0 +1,410 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "PurchaseOrderReceipts",
+  "apis": [
+    {
+      "path": "/invoice/purchaseorderreceipts",
+      "description": "Updates purchase order receipts which is already in the system.",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_purchaseOrderReceipt",
+          "responseClass": "PurchaseOrderResult",
+          "summary": "Updates purchase order receipts which is already in the system.",
+          "notes": "Updates purchase order receipts and associate if to purchase order line item and returns status of updation.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "purchaseOrderReceipt",
+              "description": "Purchase order receipt information.",
+              "dataType": "PurchaseOrderReceipt",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/purchaseorderreceipts",
+      "description": "Create purchase order receiving information for a purchase order line item.",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "POST_purchaseOrderReceipt",
+          "responseClass": "PurchaseOrderResult",
+          "summary": "Create purchase order receiving information for a purchase order line item.",
+          "notes": "Creates purchase order receipts and associate if to purchase order line item and returns status of updation.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "purchaseOrderReceipt",
+              "description": "Purchase order receipt information that needs to be created.",
+              "dataType": "PurchaseOrderReceipt",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/purchaseorderreceipts",
+      "description": "Gets an existing purchase order receipts information.",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_goodsReceiptNumber",
+          "responseClass": "ReceiptsCollection",
+          "summary": "Gets an existing purchase order receipts information.",
+          "notes": "Gets an existing purchase order receipts.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "goodsReceiptNumber",
+              "description": "Gets an existing purchase order receipts.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/purchaseorderreceipts",
+      "description": "Deletes a new purchase order line item receipt.",
+      "operations": [
+        {
+          "httpMethod": "DELETE",
+          "nickname": "Delete_goodsReceiptNumber",
+          "responseClass": "Void",
+          "summary": "Deletes a new purchase order line item receipt.",
+          "notes": "Deletes a new purchase order line item receipt given a Goods Receipts Number.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "goodsReceiptNumber",
+              "description": "Unique number for the purchase order line item receipt.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/purchaseorderreceipts",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/invoice/purchaseorderreceipts",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "PurchaseOrderReceipt": {
+      "id": "PurchaseOrderReceipt",
+      "displayName": null,
+      "properties": {
+        "Custom1": {
+          "description": "Custom 1 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "Custom 10 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "Custom 2 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "Custom 3 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "Custom 4 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "Custom 5 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "Custom 6 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "Custom 7 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "Custom 8 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "Custom 9 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Deleted": {
+          "description": "Delete status of purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DeliverySlipNumber": {
+          "description": "Delivery slip number for a purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "GoodsReceiptNumber": {
+          "description": "Goods receipt number for a purchase order line item receipt. This field is Required for V2 Version",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsReceived": {
+          "description": "Indicates whether the line item was received. Optional for V2 Version.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "LineItemExternalID": {
+          "description": "A customer-supplied value that uniquely identifies the line item within the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "PurchaseOrderNumber": {
+          "description": "The purchase order number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ReceivedDate": {
+          "description": "The date the line item was received. Format: YYYY-MM-DD",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ReceivedQuantity": {
+          "description": "The number of items that were received.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UnitOfMeasureCode": {
+          "description": "Unit of measure code for a purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Version": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": {
+            "valueType": "LIST",
+            "values": [
+              "V1",
+              "V2"
+            ],
+            "min": null,
+            "max": null
+          },
+          "required": false
+        }
+      }
+    },
+    "PurchaseOrderResult": {
+      "id": "PurchaseOrderResult",
+      "displayName": "Error",
+      "properties": {
+        "ErrorCode": {
+          "description": "A code that indicates why the purchase order was not processed successfully.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ErrorMessage": {
+          "description": "A description of the error.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FieldCode": {
+          "description": "A code that indicates which field caused an issue. This code typically appears only when a field is being validated against a field of a form type. Format: LEVEL|CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItemExternalID": {
+          "description": "The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Message": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderNumber": {
+          "description": "The purchase order number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Status": {
+          "description": "The result of processing the purchase order. Format: SUCCESS or FAILURE",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ReceiptsCollection": {
+      "id": "ReceiptsCollection",
+      "displayName": "PurchaseOrderReceipts",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "PurchaseOrderReceipt",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalCount": {
+          "description": null,
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

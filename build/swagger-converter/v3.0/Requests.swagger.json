@@ -1,0 +1,2295 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "Requests",
+  "apis": [
+    {
+      "path": "/travelrequest/requests/{id}",
+      "description": "Get a Request by ID",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "GetDetails_id_user",
+          "responseClass": "Request",
+          "summary": "Get a Request by ID",
+          "notes": "Returns a Request by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The Request ID",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/travelrequest/requests",
+      "description": "Get all Requests",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "GetList_offset_limit_user_status_modifiedAfter_modifiedBefore_withSegmentTypes",
+          "responseClass": "RequestCollection",
+          "summary": "Get all Requests",
+          "notes": "Returns all Requests owned by the user.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "Starting page offset",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "Number of records to return (default 100)",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "100",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns this Request. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "status",
+              "description": "The Status search term specifies which travel request or approval status to return. If no Status value is sent, the default Status of Active will be used.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "ACTIVE",
+              "allowableValues": {
+                "max": 0,
+                "min": 0,
+                "valueType": "LIST",
+                "values": [
+                  "ACTIVE",
+                  "UNSUBMITTED",
+                  "PENDING",
+                  "VALIDATED",
+                  "CANCELED",
+                  "CLOSED",
+                  "SUBMITTED",
+                  "TOAPPROVE",
+                  "APPROVED",
+                  "PENDINGPROPOSAL",
+                  "PROPOSALAPPROVED",
+                  "PROPOSALCANCELED",
+                  "PENDING_EBOOKING"
+                ]
+              }
+            },
+            {
+              "paramType": "query",
+              "name": "modifiedAfter",
+              "description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "modifiedBefore",
+              "description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "withSegmentTypes",
+              "description": "Pass true to populate the SegmentType field in the result.",
+              "dataType": "bool",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "False",
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/travelrequest/requests/{id}/submit",
+      "description": "Submit a Request by ID",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Submit_id",
+          "responseClass": "Void",
+          "summary": "Submit a Request by ID",
+          "notes": "Submit a Request by ID",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The Request ID",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": {
+    "Allocation": {
+      "id": "Allocation",
+      "displayName": "Allocation",
+      "properties": {
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Percentage": {
+          "description": "The percentage of the expense that is included in this allocation.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "CashAdvance": {
+      "id": "CashAdvance",
+      "displayName": "CashAdvance",
+      "properties": {
+        "AmountRequested": {
+          "description": "The amount requested in the cash advance, in the currency specified in the CurrencyCode element.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovalStatusName": {
+          "description": "The approval status of the cash advance.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Comments": {
+          "description": "This parent element has a Comment child element for each comment. Refer to the Comments model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "Comment",
+            "displayName": "Comment"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the cash advance currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyName": {
+          "description": "The name of the currency for the cash advance.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeCurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code for the employee's currency, also known as the home currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeCurrencyName": {
+          "description": "The name of the employee's currency, also known as the home currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExchangeRate": {
+          "description": "The exchange rate that applies to the cash advance.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IssueDate": {
+          "description": "The issue date for the cash advance.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestDate": {
+          "description": "The date of cash advance request, obtained from the detailed cash advance record.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StartingBalance": {
+          "description": "The initial balance for the cash advance.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Comment": {
+      "id": "Comment",
+      "displayName": "Comment",
+      "properties": {
+        "AuthorFirstName": {
+          "description": "The first name of the person who made the comment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AuthorLastName": {
+          "description": "The last name of the person who made the comment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CommentDateTime": {
+          "description": "The time, in GMT, when the user made the comment.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsLatest": {
+          "description": "Indicates that the comment is the last one.",
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": "The text of the Request header comment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "CustomField": {
+      "id": "CustomField",
+      "displayName": null,
+      "properties": {
+        "Code": {
+          "description": "For list fields, this is the list item code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ListItemID": {
+          "description": "For list fields, this is the list item ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Type": {
+          "description": "The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Link": {
+      "id": "Link",
+      "displayName": "Link",
+      "properties": {
+        "Action": {
+          "description": "The action that the user is allowed to perform on the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Method": {
+          "description": "The method of the request. Possible values: GET, POST, PUT and DELETE.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Url": {
+          "description": "The URL of the resource that the user can access.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ListField": {
+      "id": "ListField",
+      "displayName": null,
+      "properties": {
+        "Code": {
+          "description": "The code of the list item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ListItemID": {
+          "description": "The list item ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": "The name of the list item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Nullable`1": {
+      "id": "Nullable`1",
+      "displayName": null,
+      "properties": {
+        "HasValue": {
+          "description": null,
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": {
+            "valueType": "LIST",
+            "values": [
+              "ONE_WAY",
+              "ROUND_TRIP",
+              "MULTI_STOP"
+            ],
+            "min": null,
+            "max": null
+          },
+          "required": false
+        }
+      }
+    },
+    "Request": {
+      "id": "Request",
+      "displayName": "Request",
+      "properties": {
+        "AgencyOfficeName": {
+          "description": "The travel agency office name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AllocationFormID": {
+          "description": "The unique identifier of the Segment Form resource (See. the \"Forms\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovalLimitDate": {
+          "description": "The date by which the Request must be approved. This element appears only when integrated with Concur Travel.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovalStatusCode": {
+          "description": "The code for the approval status the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovalStatusName": {
+          "description": "The approval status of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AuthorizedDate": {
+          "description": "The date the Request was authorized. Format: YYYY-MM-DDThh:mm:ss.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CashAdvances": {
+          "description": "This parent element has a CashAdvance child element for each cash advance. See the CashAdvance model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "CashAdvance",
+            "displayName": "CashAdvance"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "Comments": {
+          "description": "This parent element has a Comment child element for each comment. See the Comment model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "Comment",
+            "displayName": "Comment"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "CreationDate": {
+          "description": "The date of the Request was created.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency. The Request currency is defined as the Request creator's default reimbursement currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyName": {
+          "description": "The currency name for the Request currency. The Request currency is defined as the Request creator's default reimbursement currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeName": {
+          "description": "The first, middle (or middle initial), and last name of the employee who created the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EndDate": {
+          "description": "The end date of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EndTime": {
+          "description": "The end time for the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Entries": {
+          "description": "This parent element has a RequestEntry child element for each entry. See the RequestEntry model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "RequestEntry",
+            "displayName": "Entry"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "EverSentBack": {
+          "description": "Indicates whether the Request has ever been sent back to the employee. Format: Y/N",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Exceptions": {
+          "description": "This parent element has an Exception child element for each exception. See the Exception model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "TRException",
+            "displayName": "Exception"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "ExtensionOf": {
+          "description": "The ID of the initial Request that this Request is an extension of or adendum to.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HasException": {
+          "description": "Indicates whether the Request has exceptions. Format: Y/N",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HeaderFormID": {
+          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastModifiedDate": {
+          "description": "The date the Request was last modified. Format: YYYY-MM-DDThh:mm:ss",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LoginID": {
+          "description": "The Concur login ID of the Request owner.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PolicyID": {
+          "description": "The unique identifier of the policy that applies to this Request. Maximum length 64 characters.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PolicyName": {
+          "description": "The name of the policy that applies to this Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Purpose": {
+          "description": "The purpose of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestID": {
+          "description": "The unique key for the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StartDate": {
+          "description": "The start date of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StartTime": {
+          "description": "The start time for the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SubmitDate": {
+          "description": "The date the Request was submitted. Format: YYYY-MM-DDThh:mm:ss.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalApprovedAmount": {
+          "description": "The total amount of approved expenses in the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalPostedAmount": {
+          "description": "The total amount of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalRemainingAmount": {
+          "description": "The total amount of expenses remaining in the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UserPermissions": {
+          "description": "The actions that the user is allowed to perform on the Request.",
+          "type": "UserPermissions",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "RequestCollection": {
+      "id": "RequestCollection",
+      "displayName": "Requests",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "TravelRequestHeader",
+            "displayName": "Request"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "RequestEntry": {
+      "id": "RequestEntry",
+      "displayName": "Entry",
+      "properties": {
+        "Allocations": {
+          "description": "This parent element has an Allocation child element for each associated allocation. See the Allocation model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "Allocation",
+            "displayName": "Allocation"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovedAmount": {
+          "description": "The approved amount of the Request entry in the Request currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Comments": {
+          "description": "This parent element has a Comment child element for each comment. See the Comments model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "Comment",
+            "displayName": "Comment"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom25": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom26": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom27": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom28": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom29": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom30": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom31": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom32": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom33": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom34": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom35": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom36": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom37": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom38": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom39": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom40": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EntryDescription": {
+          "description": "The description of the Request entry.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EntryFormID": {
+          "description": "The unique identifier of the Entry Form resource (See. the \"Forms\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Exceptions": {
+          "description": "This parent element has an Exception child element for each exception. See the Exception model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "TRException",
+            "displayName": "Exception"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "ExchangeRate": {
+          "description": "The exchange rate that applies to the entry.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExpenseTypeName": {
+          "description": "The expense type name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ForeignAmount": {
+          "description": "The foreign amount of the Request entry.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ForeignCurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the Request entry.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ForeignCurrencyName": {
+          "description": "The name of the currency for the foreign amount.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastModifiedDate": {
+          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit1": {
+          "description": "The details from the Org Unit custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit2": {
+          "description": "The details from the Org Unit custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit3": {
+          "description": "The details from the Org Unit custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit4": {
+          "description": "The details from the Org Unit custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit5": {
+          "description": "The details from the Org Unit custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit6": {
+          "description": "The details from the Org Unit custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PostedAmount": {
+          "description": "The posted amount of the Request entry in the Request currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RemainingAmount": {
+          "description": "The remaining amount of the Request entry in the Request currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Segments": {
+          "description": "This parent element has a Segment child element for each segment associated with the travel request. See the Segment model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "Segment",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionDate": {
+          "description": "The date of the Request entry.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TripType": {
+          "description": " Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP.",
+          "type": "TripType?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Segment": {
+      "id": "Segment",
+      "displayName": null,
+      "properties": {
+        "ApprovedAmount": {
+          "description": "The approved amount of the segment in the Request currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ArrivalDate": {
+          "description": "The arrival date of the segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ArrivalTime": {
+          "description": "The arrival time of the segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Class": {
+          "description": "undefined:ConnectSwaggerDocs-REQ_SEGMENT_CLASS_SERVICE",
+          "type": "ListField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ClassOfServiceCode": {
+          "description": "The Class of Service Code from Concur Travel. Appears only when the Request is integrated with Concur Travel.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Comments": {
+          "description": "The list of comments added for this segment.",
+          "type": "Array",
+          "items": {
+            "$ref": "Comment",
+            "displayName": "Comment"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom25": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom26": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom27": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom28": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom29": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom30": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom31": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom32": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom33": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom34": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom35": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom36": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom37": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom38": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom39": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom40": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DepartureDate": {
+          "description": "The departure date of the segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DepartureTime": {
+          "description": "The departure time of the segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Exceptions": {
+          "description": "This parent element has an Exception child element for each exception. Refer to the Exception model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "TRException",
+            "displayName": "Exception"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "ExchangeRate": {
+          "description": "The exchange rate that applies to the segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FlightNumber": {
+          "description": "The flight number for air segments. Appears only when Request is integrated with Concur Travel.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ForeignAmount": {
+          "description": "The foreign currency amount of the segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ForeignCurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ForeignCurrencyName": {
+          "description": "The name of the currency for the foreign amount of the segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FormTypeCode": {
+          "description": "The code for form type of the segment type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationAirportName": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationCode": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationCountryCode": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationDetail": {
+          "description": "The code for the starting location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationIataCode": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationID": {
+          "description": "The unique identifier of the departure location. (See. the \"Locations\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationIsAirport": {
+          "description": null,
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationName": {
+          "description": "The name of the starting location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationSubCountryCode": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationVendor": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsAgencyBooked": {
+          "description": "Indicates whether the air segment was agency booked. Format: Y/N.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsSelfBooked": {
+          "description": "Indicates whether the air segment was self booked. Format: Y/N.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastModifiedDate": {
+          "description": "The date the segment was last modified. Format: YYYY-MM-DDThh:mm:ss",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OutboundSegmentID": {
+          "description": "undefined:ConnectSwaggerDocs-REQ_SEGMENT_OUTBOUND_ID",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PostedAmount": {
+          "description": "The posted amount of the segment in the Request currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RecordLocator": {
+          "description": "Appears only when the Request is integrated with Concur Travel.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RemainingAmount": {
+          "description": "The remaining amount of the segment in the Request currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentFormID": {
+          "description": "The unique identifier of the Segment Form resource (See. the \"Forms\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentLocator": {
+          "description": "The unique identifier for the Concur Travel segment associated with this segment. Appears only when the Request is integrated with Concur Travel.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentType": {
+          "description": "The type of itinerary segment. Format: air, car, hotel, rail, dining, event, ground, taxi, parking, other and so on",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentTypeCode": {
+          "description": "The code for the type of itinerary segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationAirportName": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationCode": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationCountryCode": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationDetail": {
+          "description": "The code for the ending location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationIataCode": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationID": {
+          "description": "The unique identifier of the arrival location. (See. the \"Locations\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationIsAirport": {
+          "description": null,
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationName": {
+          "description": "The name of the ending location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationSubCountryCode": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationVendor": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TripLocator": {
+          "description": "The unique identifier for the Concur Travel trip associated with this segment. Appears only when the Request is integrated with Concur Travel.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorName": {
+          "description": "The name of the vendor of the segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "TravelRequestHeader": {
+      "id": "TravelRequestHeader",
+      "displayName": "Request",
+      "properties": {
+        "ApprovalStatusCode": {
+          "description": "The code for the approval status the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovalStatusName": {
+          "description": "The Request's approval status, in the user's language.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApproverLoginID": {
+          "description": "The login ID of the approver for the user's Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CreationDate": {
+          "description": "The creation date of the Request.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeName": {
+          "description": "The name of the Request owner.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EndDate": {
+          "description": "The end date of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HeaderFormID": {
+          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastComment": {
+          "description": "The text of the most recent comment on the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Purpose": {
+          "description": "The purpose of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestDetailsUrl": {
+          "description": "The URI to use when posting Request header details to this Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestID": {
+          "description": "The unique identifier for the Request, as it appears in the Concur UI.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentTypes": {
+          "description": "A comma separated list of the segment type names that are present in this Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StartDate": {
+          "description": "The start date of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalApprovedAmount": {
+          "description": "The total amount of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalPostedAmount": {
+          "description": "The posted amount of the Request entry in the Request currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UserLoginID": {
+          "description": "The login ID of the user this Request belongs to.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "TRException": {
+      "id": "TRException",
+      "displayName": "Exception",
+      "properties": {
+        "Code": {
+          "description": "The system exception code defined for the exception. Example: BADCODE",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level": {
+          "description": "The numeric level associated with the exception. Example: 99",
+          "type": "int",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Message": {
+          "description": "The user-facing message defined for the exception.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "UserPermissions": {
+      "id": "UserPermissions",
+      "displayName": "UserPermissions",
+      "properties": {
+        "Links": {
+          "description": "The actions that the user is allowed to perform on the Request.",
+          "type": "Array",
+          "items": {
+            "$ref": "Link",
+            "displayName": "Link"
+          },
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

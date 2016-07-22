@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "www.concursolutions.com",
+  "host": "msprqa3.concurtech.net",
   "basePath": "/api/v3.1",
   "schemes": [
     "https"
@@ -14,20 +14,13 @@
     "application/xml"
   ],
   "info": {
-    "title": "Requests",
+    "title": "",
     "description": "",
     "version": "3.1"
   },
-  "tags": [
-    {
-      "name": "Resources",
-      "description": "" 
-    }
-  ],
   "paths": {
     "/travelrequest/requests/{id}": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Get a Request by ID",
         "description": "Returns a Request by ID.",
         "parameters": [
@@ -56,7 +49,6 @@
         }
       },
       "put": {
-        "tags": [ "Resources" ],
         "summary": "Update a Request",
         "description": "Update a Request",
         "parameters": [
@@ -110,7 +102,6 @@
     },
     "/travelrequest/requests": {
       "get": {
-        "tags": [ "Resources" ],
         "summary": "Get all Requests",
         "description": "Returns all Requests owned by the user.",
         "parameters": [
@@ -184,9 +175,8 @@
         }
       },
       "post": {
-        "tags": [ "Resources" ],
         "summary": "Create a Request",
-        "description": "Create a request for yourself or on behalf of another user:",
+        "description": "Create a Request",
         "parameters": [
           {
             "name": "content",
@@ -231,7 +221,6 @@
     },
     "/travelrequest/requests/{id}/submit": {
       "post": {
-        "tags": [ "Resources" ],
         "summary": "Submit a Request by ID",
         "description": "Submit a Request by ID",
         "parameters": [
@@ -255,7 +244,6 @@
     },
     "/travelrequest/requests/{id}/recall": {
       "post": {
-        "tags": [ "Resources" ],
         "summary": "Recall a Request by ID",
         "description": "Recall a Request by ID",
         "parameters": [
@@ -283,24 +271,24 @@
       "properties": {
         "AuthorFirstName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The first name of the person who made the comment."
         },
         "AuthorLastName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The last name of the person who made the comment."
         },
         "CommentDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The time, in GMT, when the user made the comment."
         },
         "IsLatest": {
           "type": "boolean",
-          "description": "Indicates whether the air segment was self booked. Format: Y/N."
+          "description": "Indicates that the comment is the last one."
         },
         "Value": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The text of the Request header comment."
         }
       }
     },
@@ -311,11 +299,11 @@
       "properties": {
         "Code": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The text of the Request header comment."
         },
         "Message": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The text of the Request header comment."
         }
       }
     },
@@ -323,15 +311,15 @@
       "properties": {
         "Action": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The action that the user is allowed to perform on the resource."
         },
         "Method": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The method of the request. Possible values: GET, POST, PUT and DELETE."
         },
         "Url": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The URL of the resource that the user can access."
         }
       }
     },
@@ -339,7 +327,7 @@
       "properties": {
         "HasValue": {
           "type": "boolean",
-          "description": "Indicates whether the air segment was self booked. Format: Y/N."
+          "description": "Indicates that the comment is the last one."
         },
         "Value": {
           "$ref": "#/definitions/Decimal"
@@ -350,29 +338,29 @@
       "properties": {
         "AgencyOfficeID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The ID of the travel agency office."
         },
         "AgencyOfficeName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The travel agency office name."
         },
         "ApprovalLimitDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The date by which the Request must be approved. This element appears only when integrated with Concur Travel."
         },
         "ApprovalStatusCode": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The code for the approval status the Request."
         },
         "ApprovalStatusName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The approval status of the Request."
         },
         "AuthorizedDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The date the Request was authorized. Format: YYYY-MM-DDThh:mm:ss."
         },
         "Comments": {
           "$ref": "#/definitions/Comment"
@@ -380,31 +368,31 @@
         "CreationDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The date of the Request was created."
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency. The Request currency is defined as the Request creator's default reimbursement currency."
         },
         "CurrencyName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The currency name for the Request currency. The Request currency is defined as the Request creator's default reimbursement currency."
         },
         "EmployeeName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The first, middle (or middle initial), and last name of the employee who created the Request."
         },
         "EndDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The end date of the travel request. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss."
         },
         "Exceptions": {
           "$ref": "#/definitions/TRException"
         },
         "HeaderFormID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information)."
         },
         "HighestExceptionLevel": {
           "type": "exceptionlevel",
@@ -413,39 +401,39 @@
         "LastModifiedDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The date the Request was last modified. Format: YYYY-MM-DDThh:mm:ss"
         },
         "LoginID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The Concur login ID of the Request owner."
         },
         "MainDestinationID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The main destination location ID"
         },
         "MainDestinationName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The main destination location name"
         },
         "Name": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The name of the Request."
         },
         "PolicyID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the policy that applies to this Request. Maximum length 64 characters."
         },
         "PolicyName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The name of the policy that applies to this Request."
         },
         "Purpose": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The purpose of the Request."
         },
         "RequestID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique key for the Request."
         },
         "SegmentsEntries": {
           "$ref": "#/definitions/SegmentsEntry"
@@ -453,27 +441,27 @@
         "StartDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The start date of the travel request. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss."
         },
         "SubmitDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The date the Request was submitted. Format: YYYY-MM-DDThh:mm:ss."
         },
         "TotalApprovedAmount": {
           "type": "number",
           "format": "double",
-          "description": "The foreign amount of the Request entry."
+          "description": "The total amount of approved expenses in the Request."
         },
         "TotalPostedAmount": {
           "type": "number",
           "format": "double",
-          "description": "The foreign amount of the Request entry."
+          "description": "The total amount of the Request."
         },
         "TotalRemainingAmount": {
           "type": "number",
           "format": "double",
-          "description": "The foreign amount of the Request entry."
+          "description": "The total amount of expenses remaining in the Request."
         },
         "UserPermissions": {
           "$ref": "#/definitions/UserPermissions"
@@ -484,36 +472,36 @@
       "properties": {
         "AgencyOfficeID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The ID of the travel agency office."
         },
         "Comment": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The text of the most recent comment on the Request."
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency."
         },
         "EndDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The end date of the travel request. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss."
         },
         "MainDestinationID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The main destination location ID"
         },
         "Name": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The name of the Request."
         },
         "PolicyID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the policy that applies to this Request. Maximum length 64 characters."
         },
         "Purpose": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The purpose of the Request."
         },
         "SegmentsEntries": {
           "$ref": "#/definitions/PostSegmentsEntry"
@@ -521,7 +509,7 @@
         "StartDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The start date of the travel request. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss."
         }
       }
     },
@@ -530,36 +518,36 @@
         "ArrivalDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The arrival date of the segment."
         },
         "Comment": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "A comment added to this segment."
         },
         "DepartureDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The departure date of the segment."
         },
         "FlightNumber": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The flight number for air segments. Appears only when Request is integrated with Concur Travel."
         },
         "FromLocationDetail": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The code for the starting location."
         },
         "FromLocationID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the departure location. (See. the \"Locations\" resource for more information)."
         },
         "ToLocationDetail": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The code for the ending location."
         },
         "ToLocationID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the arrival location. (See. the \"Locations\" resource for more information)."
         }
       }
     },
@@ -568,18 +556,18 @@
         "ForeignAmount": {
           "type": "number",
           "format": "double",
-          "description": "The foreign amount of the Request entry."
+          "description": "The transaction amount of the travel Request entry."
         },
         "ForeignCurrencyCode": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the entry."
         },
         "Segments": {
           "$ref": "#/definitions/PostSegment"
         },
         "SegmentTypeID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the Segment Type resource used to define the type of the segment created (See. the policies and associated data in \"RequestGroupConfigurations\" resource for more information)."
         },
         "TripType": {
           "type": "triptype",
@@ -591,28 +579,28 @@
       "properties": {
         "AgencyOfficeID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The ID of the travel agency office."
         },
         "Comment": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The text of the most recent comment on the Request."
         },
         "EndDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The end date of the travel request. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss."
         },
         "MainDestinationID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The main destination location ID"
         },
         "Name": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The name of the Request."
         },
         "Purpose": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The purpose of the Request."
         },
         "SegmentsEntries": {
           "$ref": "#/definitions/PutRequestSegmentsEntry"
@@ -620,7 +608,7 @@
         "StartDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The start date of the travel request. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss."
         }
       }
     },
@@ -629,18 +617,22 @@
         "ForeignAmount": {
           "type": "number",
           "format": "double",
-          "description": "The foreign amount of the Request entry."
+          "description": "The transaction amount of the travel Request entry."
         },
         "ForeignCurrencyCode": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the entry."
         },
         "ID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the Segment(s) Entry to update. If there is no ID, the Segment(s) Entry will be added to the Request."
         },
         "Segments": {
           "$ref": "#/definitions/PutSegment"
+        },
+        "SegmentTypeID": {
+          "type": "string",
+          "description": "The unique identifier of the Segment Type resource used to define the type of the segment created (See. the policies and associated data in \"RequestGroupConfigurations\" resource for more information)."
         },
         "TripType": {
           "type": "triptype",
@@ -653,40 +645,40 @@
         "ArrivalDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The arrival date of the segment."
         },
         "Comment": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "A comment added to this segment."
         },
         "DepartureDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The departure date of the segment."
         },
         "FlightNumber": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The flight number for air segments. Appears only when Request is integrated with Concur Travel."
         },
         "FromLocationDetail": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The code for the starting location."
         },
         "FromLocationID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the departure location. (See. the \"Locations\" resource for more information)."
         },
         "ID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the segment to update. If there is no ID, the segment will be added to the Segment(s) Entry."
         },
         "ToLocationDetail": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The code for the ending location."
         },
         "ToLocationID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the arrival location. (See. the \"Locations\" resource for more information)."
         }
       }
     },
@@ -697,7 +689,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The URI of the next page of results, if any."
         }
       }
     },
@@ -705,37 +697,37 @@
       "properties": {
         "ApprovalStatusCode": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The code for the approval status the Request."
         },
         "ApprovalStatusName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The Request's approval status, in the user's language."
         },
         "ApproverLoginID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The login ID of the approver for the user's Request."
         },
         "CreationDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The creation date of the Request."
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency."
         },
         "EmployeeName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The name of the Request owner."
         },
         "EndDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The end date of the Request."
         },
         "HeaderFormID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information)."
         },
         "HighestExceptionLevel": {
           "type": "exceptionlevel",
@@ -743,58 +735,58 @@
         },
         "ID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the resource."
         },
         "LastComment": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The text of the most recent comment on the Request."
         },
         "MainDestinationID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The main destination location ID"
         },
         "MainDestinationName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The main destination location name"
         },
         "Name": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The name of the Request."
         },
         "Purpose": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The purpose of the Request."
         },
         "RequestID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier for the Request, as it appears in the Concur UI."
         },
         "SegmentTypes": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "A comma separated list of the segment type names that are present in this Request."
         },
         "StartDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The start date of the Request."
         },
         "TotalApprovedAmount": {
           "type": "number",
           "format": "double",
-          "description": "The foreign amount of the Request entry."
+          "description": "The total amount of the Request."
         },
         "TotalPostedAmount": {
           "type": "number",
           "format": "double",
-          "description": "The foreign amount of the Request entry."
+          "description": "The posted amount of the Request entry in the Request currency."
         },
         "URI": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The URI to the resource."
         },
         "UserLoginID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The login ID of the user this Request belongs to."
         },
         "UserPermissions": {
           "$ref": "#/definitions/UserPermissions"
@@ -808,14 +800,14 @@
         },
         "ID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The login ID of the user this Request belongs to."
         },
         "Request": {
           "$ref": "#/definitions/OutputRequest"
         },
         "URI": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The login ID of the user this Request belongs to."
         }
       }
     },
@@ -824,43 +816,43 @@
         "ArrivalDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The arrival date of the segment."
         },
         "Comment": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "A comment added to this segment."
         },
         "DepartureDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The departure date of the segment."
         },
         "Exceptions": {
           "$ref": "#/definitions/TRException"
         },
         "FlightNumber": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The flight number for air segments. Appears only when Request is integrated with Concur Travel."
         },
         "FromLocationDetail": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The code for the starting location."
         },
         "FromLocationID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the departure location. (See. the \"Locations\" resource for more information)."
         },
         "FromLocationName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The name of the starting location."
         },
         "ID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the segment."
         },
         "IsAgencyBooked": {
           "type": "boolean",
-          "description": "Indicates whether the air segment was self booked. Format: Y/N."
+          "description": "Indicates whether the air segment was agency booked. Format: Y/N."
         },
         "IsSelfBooked": {
           "type": "boolean",
@@ -869,7 +861,7 @@
         "LastModifiedDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+          "description": "The date the segment was last modified. Format: YYYY-MM-DDThh:mm:ss"
         },
         "Order": {
           "type": "integer",
@@ -878,15 +870,15 @@
         },
         "ToLocationDetail": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The code for the ending location."
         },
         "ToLocationID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the arrival location. (See. the \"Locations\" resource for more information)."
         },
         "ToLocationName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The name of the ending location."
         }
       }
     },
@@ -898,7 +890,7 @@
         "ExchangeRate": {
           "type": "number",
           "format": "double",
-          "description": "The foreign amount of the Request entry."
+          "description": "The exchange rate that applies to the entry."
         },
         "ForeignAmount": {
           "type": "number",
@@ -907,15 +899,15 @@
         },
         "ForeignCurrencyCode": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the Request entry."
         },
         "ForeignCurrencyName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The name of the currency for the foreign amount."
         },
         "ID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the Segment(s) Entry resource (See. the \"SegmentsEntry\" resource for more information)."
         },
         "LastModifiedDate": {
           "type": "string",
@@ -924,26 +916,26 @@
         },
         "SegmentFormID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the Segment Form resource (See. the \"Forms\" resource for more information)."
         },
         "SegmentFormTypeCode": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The code for form type of the segment type."
         },
         "Segments": {
           "$ref": "#/definitions/Segment"
         },
         "SegmentTypeCode": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The code for the type of itinerary segment."
         },
         "SegmentTypeID": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The unique identifier of the Segment Type resource (See. the policies and associated data in \"RequestGroupConfigurations\" resource for more information)."
         },
         "SegmentTypeName": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The name for the type of itinerary segment."
         },
         "TripType": {
           "type": "triptype",
@@ -955,11 +947,11 @@
       "properties": {
         "Code": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The system exception code defined for the exception. Example: BADCODE"
         },
         "Level": {
           "type": "string",
-          "description": "The user-facing message defined for the exception."
+          "description": "The numeric level associated with the exception. Example: 99"
         },
         "Message": {
           "type": "string",
