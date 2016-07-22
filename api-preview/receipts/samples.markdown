@@ -193,7 +193,7 @@ curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId}
 
 ####  Receipt image generated
 
-![Hotel Receipt Example](https://github.com/concur/receipt-service/blob/master/src/test/expectedImages/hotel-negative-line-item.png)
+![Hotel Receipt Example](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/hotel-negative-line-item.png)
 
 ### <a name="GroundTransport"></a>Ground Transport
 
@@ -362,7 +362,7 @@ curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId}
 
 ####  Receipt image generated
 
-![Ground Transport Receipt Example](https://github.com/concur/receipt-service/blob/master/src/test/expectedImages/ride-curb.json.png)
+![Ground Transport Receipt Example](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/ride-curb.json.png)
 
 ### <a name="JPT"></a>Japan Public Transport
 
@@ -433,4 +433,4 @@ curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId}
 
 ####  Receipt image generated
 
-![JPT Receipt Example](https://github.com/concur/receipt-service/blob/master/src/test/expectedImages/jpt-multiple-segments.png)
+![JPT Receipt Example](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/jpt-multiple-segments.png)
