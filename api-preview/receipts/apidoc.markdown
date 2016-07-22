@@ -18,7 +18,7 @@ API methods:
 
  - [GET Service Index](#GetServiceIndex)
  - [POST a Receipt](#PostReceipt)
- - [GET Schema Types](#GetSchemaTypes)
+ - [GET Schemas](#GetSchemas)
 
 Error Handling:
 
@@ -64,6 +64,7 @@ Name | Description
 ### Example
 
 #### Request
+
 `curl -v https://us.api.concursolutions.com/receipts/v4 -H "Authorization: Bearer {valid JWT}"`
 
 #### Successful Response
@@ -94,8 +95,6 @@ Name | Description
 ```
 POST /receipts/v4/users/{userId}
 ```
-
-### Headers
 
 Header | Description
 -------|------------
@@ -163,6 +162,37 @@ Date: Mon, 23 May 2016 21:31:31 GMT
 Connection: keep-alive
 Content-Length: 0
 ```
+
+## <a name="GetSchemas"></a>GET Schemas
+
+```
+GET /receipts/v4/schemas
+```
+
+### Headers
+
+Header | Description
+-------|------------
+`Authorization`|OAuth2 access token in the form of a JSON Web Token obtained by the client application from the [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html).
+
+### Parameters
+
+None.
+
+### Request Body
+
+None.
+
+### Response
+```
+200 OK
+```
+
+Name | Description
+-----|------------
+`rel`|
+`method`|Method to be used with the URI.
+`href`|
 
 ## <a name="Schema"></a>Schemas
 
