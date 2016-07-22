@@ -108,7 +108,7 @@ The App Center Flow is used for logging in Concur users coming from [https://con
 [1]: /manage-apps/register.html
 [2]: /docs/guides/REST-API-Basics.html
 [3]: /tools-support/sandbox-configuration-assistance.html
-[4]: http://concursolutions.com/
+[4]: https://concursolutions.com/
 [5]: /docs/guides/index.html
 [6]: /docs/overviews/index.html
 [7]: /manage-apps/partner-applications.html
