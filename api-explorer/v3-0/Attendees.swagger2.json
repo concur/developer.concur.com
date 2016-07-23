@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Attendees",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/expense/attendees": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all attendees",
         "description": "Gets all attendees owned by the specified user.",
         "parameters": [
@@ -71,6 +80,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new attendee",
         "description": "Creates a new attendee.",
         "parameters": [
@@ -103,6 +115,9 @@
     },
     "/expense/attendees/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single attendee by ID",
         "description": "Gets a single attendee by ID.",
         "parameters": [
@@ -131,6 +146,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update an attendee by ID",
         "description": "Updates the specified attendee. Only the fields provided in the supplied object are updated. Missing fields are not altered.",
         "parameters": [
@@ -168,6 +186,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete an attendee by ID",
         "description": "Deletes the specified attendee.",
         "parameters": [

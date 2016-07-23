@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Connection Requests",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/common/connectionrequests": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all connection requests",
         "description": "Gets all connection requests that match the TripLink supplier ID.",
         "parameters": [
@@ -57,6 +66,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a connection request",
         "description": "Creates a connection request on behalf of the specified user.",
         "parameters": [
@@ -80,6 +92,9 @@
     },
     "/common/connectionrequests/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a connection request by ID",
         "description": "Gets a connection request by ID.",
         "parameters": [
@@ -101,6 +116,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update a connection request by ID",
         "description": "Updates the specified connection request. Only the fields provided in the supplied object are updated. Missing fields will not be altered.",
         "parameters": [
@@ -131,6 +149,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete a connection request",
         "description": "Deletes a connection request by ID.",
         "parameters": [

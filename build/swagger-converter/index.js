@@ -9,6 +9,7 @@ var logger = require('@concur/concur-utils').logging.fromConfig({
 var program = require('commander');
 var fs = require('fs');
 var url = require('url');
+var _str = require("underscore.string"); 
 
 program
   .version('1.0.0')
@@ -125,6 +126,7 @@ var mapSwaggerMethods = function(concurSwaggerApiOperations){
     if(_.has(memo, concurSwaggerApiOperation.httpMethod.toLowerCase()))
       return memo;
     memo[concurSwaggerApiOperation.httpMethod.toLowerCase()] = {
+      tags: [ 'Resources' ],
       summary: concurSwaggerApiOperation.summary,
       description: concurSwaggerApiOperation.notes,
       parameters: mapSwaggerParams(concurSwaggerApiOperation.parameters),
@@ -180,7 +182,7 @@ var mapSwagger2 = function(concurSwagger){
   let basePathUrl = url.parse(concurSwagger.basePath);
   let validSwagger = {
     swagger: concurSwagger.swaggerVersion,
-    host: basePathUrl.host,
+    host: 'www.concursolutions.com',
     basePath: basePathUrl.path,
     schemes: [
       'https'
@@ -194,10 +196,14 @@ var mapSwagger2 = function(concurSwagger){
       'application/xml'
     ],
     info: {
-      title: '',
+      title: _.map(_str.words(_str.humanize(concurSwagger.resourcePath)), w => { return _str.capitalize(w); }).join(' '),
       description: '',
       version: concurSwagger.apiVersion
     },
+    tags: [{
+      name: 'Resources',
+      description: ''
+    }],
     paths: mapSwaggerPaths(concurSwagger.apis),
     definitions: mapSwaggerDefinitions(concurSwagger.models)
   };

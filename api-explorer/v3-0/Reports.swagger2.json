@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Reports",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/expense/reports": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Gets all reports",
         "description": "Returns all reports owned by the user based on the search criteria.",
         "parameters": [
@@ -295,6 +304,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new report",
         "description": "Create a new report",
         "parameters": [
@@ -327,6 +339,9 @@
     },
     "/expense/reports/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Gets a single report by ID",
         "description": "Returns a report by ID.",
         "parameters": [
@@ -355,6 +370,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update report",
         "description": "Updates report specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
         "parameters": [

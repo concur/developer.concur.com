@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Locations",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/common/locations": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all locations",
         "description": "Gets details of locations that are used by Concur and that are valid at the user's company.",
         "parameters": [
@@ -87,6 +96,9 @@
     },
     "/common/locations/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a location by ID",
         "description": "Gets details of the specified location.",
         "parameters": [

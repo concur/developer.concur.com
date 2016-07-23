@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "List Items",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/common/listitems": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Gets all listitems",
         "description": "Returns all list items based on the search criteria.",
         "parameters": [
@@ -141,6 +150,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new listitem",
         "description": "Create a new listitem",
         "parameters": [
@@ -166,6 +178,9 @@
     },
     "/common/listitems/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single listitem by ID",
         "description": "Returns a listitem by ID.",
         "parameters": [
@@ -194,6 +209,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update listitem",
         "description": "Updates listitem specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
         "parameters": [
@@ -224,6 +242,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete listitem by ID",
         "description": "Deletes the specified listitem",
         "parameters": [

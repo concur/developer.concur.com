@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Attendee Types",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/expense/attendeetypes": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all attendee types",
         "description": "Gets all active attendee types for the company.",
         "parameters": [
@@ -50,6 +59,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new attendee type",
         "description": "Creates a new attendee type.",
         "parameters": [
@@ -75,6 +87,9 @@
     },
     "/expense/attendeetypes/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single attendee type by ID",
         "description": "Gets an attendee type by ID.",
         "parameters": [
@@ -96,6 +111,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete an attendee type by ID",
         "description": "Deletes the specified attendee type.",
         "parameters": [
@@ -117,6 +135,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update an attendee type by ID",
         "description": "Updates the specified attendee type. Only the fields provided in the supplied object will be updated. Missing fields will not be altered.",
         "parameters": [

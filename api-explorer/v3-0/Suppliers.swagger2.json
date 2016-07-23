@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Suppliers",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/common/suppliers": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Gets All Suppliers by Search Criteria",
         "description": "Returns all Suppliers based on the search criteria.",
         "parameters": [
@@ -136,6 +145,9 @@
     },
     "/common/suppliers/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single Supplier by ID",
         "description": "Returns a single Supplier ID",
         "parameters": [

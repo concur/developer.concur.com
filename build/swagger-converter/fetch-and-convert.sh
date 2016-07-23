@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "Cleaning up workspace"
+
+rm -rf ./v3.0 ./v3.1 ./converted
+
 echo "Download Legacy Swagger from QA Environment"
 
 mkdir ./v3.0 ./v3.1

@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Receipts",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/common/receipts": {
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new receipt entry",
         "description": "Creates a new receipt entry. This operation enables a provider company to post receipts to Concur.",
         "parameters": [

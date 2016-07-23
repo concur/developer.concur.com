@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Payment Request Digest",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/invoice/paymentrequestdigests/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get the payment request digest based on ID. ",
         "description": "Returns the payment request digest based on ID. ",
         "parameters": [
@@ -44,6 +53,9 @@
     },
     "/invoice/paymentrequestdigests": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all payment requests digests based on the search criteria.",
         "description": "Returns all payment requests digests based on the search criteria.",
         "parameters": [

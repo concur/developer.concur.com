@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Lists",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/common/lists": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Gets all lists",
         "description": "Returns all lists based on the search criteria.",
         "parameters": [
@@ -50,6 +59,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new list",
         "description": "Create a new list",
         "parameters": [
@@ -75,6 +87,9 @@
     },
     "/common/lists/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single list by ID",
         "description": "Returns a list by ID.",
         "parameters": [
@@ -96,6 +111,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update list",
         "description": "Updates list specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
         "parameters": [

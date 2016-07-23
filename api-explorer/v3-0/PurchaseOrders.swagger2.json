@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Purchase Orders",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/invoice/purchaseorders": {
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new purchase order",
         "description": "Creates a purchase order and returns the status of the creation request.",
         "parameters": [
@@ -44,6 +53,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update an existing purchase order.",
         "description": "Updates an existing purchase order and returns the status of the update request.",
         "parameters": [
@@ -69,6 +81,9 @@
     },
     "/invoice/purchaseorders/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get an existing purchase order.",
         "description": "Gets an existing purchase order.",
         "parameters": [

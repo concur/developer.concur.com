@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Vendors",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/invoice/vendors": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Retrieves an existing vendor.",
         "description": "Gets an existing vendor.",
         "parameters": [
@@ -302,6 +311,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create vendor/s and returns the status of creation.",
         "description": "Create vendor/s and returns the status of creation.",
         "parameters": [
@@ -325,6 +337,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Updates existing vendor/s and returns the status of creation.",
         "description": "Updates existing vendor/s and returns the status of creation.",
         "parameters": [
@@ -348,6 +363,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete a vendor by Vendor Code and Address Code.",
         "description": "Delete a vendor by Vendor Code and Address Code.",
         "parameters": [

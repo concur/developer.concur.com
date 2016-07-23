@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Itemizations",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/expense/itemizations": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all expense itemizations",
         "description": "Gets all expense itemizations owned by the user.",
         "parameters": [
@@ -78,6 +87,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new expense itemization",
         "description": "Creates a new expense itemization.",
         "parameters": [
@@ -110,6 +122,9 @@
     },
     "/expense/itemizations/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single expense itemization by ID",
         "description": "Gets an expense itemization by ID.",
         "parameters": [
@@ -138,6 +153,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update an expense itemization by ID",
         "description": "Updates the specified expense itemization. Only the fields provided in the supplied object are updated. Missing fields will not be altered.",
         "parameters": [
@@ -175,6 +193,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete an expense itemization by ID",
         "description": "Deletes the specified expense itemization.",
         "parameters": [

@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Payment Request",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/invoice/paymentrequest/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Gets all relevant information of a Payment Request.",
         "description": "This API Gets all relevant information (Payment Request Header, Payment Request Line Item and Payment Request Allocation) of a Payment Request.",
         "parameters": [
@@ -44,6 +53,9 @@
     },
     "/invoice/paymentrequest": {
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new Payment Request.",
         "description": "Creates a new Payment Request with all relevant details including line items and associated allocations.",
         "parameters": [
@@ -67,6 +79,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update a Payment Request.",
         "description": "Updates a Payment Request with all relevant details including line items and associated allocations.",
         "parameters": [

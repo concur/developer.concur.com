@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.1",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Requests",
     "description": "",
     "version": "3.1"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/travelrequest/requests/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a Request by ID",
         "description": "Returns a Request by ID.",
         "parameters": [
@@ -49,6 +58,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update a Request",
         "description": "Update a Request",
         "parameters": [
@@ -102,6 +114,9 @@
     },
     "/travelrequest/requests": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all Requests",
         "description": "Returns all Requests owned by the user.",
         "parameters": [
@@ -175,6 +190,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a Request",
         "description": "Create a Request",
         "parameters": [
@@ -221,6 +239,9 @@
     },
     "/travelrequest/requests/{id}/submit": {
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Submit a Request by ID",
         "description": "Submit a Request by ID",
         "parameters": [
@@ -244,6 +265,9 @@
     },
     "/travelrequest/requests/{id}/recall": {
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Recall a Request by ID",
         "description": "Recall a Request by ID",
         "parameters": [

@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Receipt Images",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/expense/receiptimages": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all receipt IDs by user",
         "description": "Get a list of all receipt IDs owned by the user associated with the OAuth token",
         "parameters": [
@@ -57,6 +66,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new receipt image",
         "description": "Creates a new image in the receipt store.",
         "parameters": [
@@ -89,6 +101,9 @@
     },
     "/expense/receiptimages/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a receipt image URL",
         "description": "Get a receipt image URL by image ID.",
         "parameters": [
@@ -117,6 +132,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Appends a receipt image to an existing receipt image",
         "description": "Appends a receipt image to an existing image in the receipt store.",
         "parameters": [
@@ -154,6 +172,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete a receipt image by ID",
         "description": "Deletes the specified receipt image",
         "parameters": [

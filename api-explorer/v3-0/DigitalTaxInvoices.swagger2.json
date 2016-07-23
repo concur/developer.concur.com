@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Digital Tax Invoices",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/expense/digitaltaxinvoices": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all digital tax invoices",
         "description": "Gets all digital tax invoices that can be validated by the user based on the search criteria.",
         "parameters": [
@@ -59,6 +68,9 @@
     },
     "/expense/digitaltaxinvoices/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single digital tax invoice by ID",
         "description": "Gets a single digital tax invoice by ID.",
         "parameters": [
@@ -80,6 +92,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update a digital tax invoice by ID",
         "description": "Updates the specified digital tax invoice.",
         "parameters": [

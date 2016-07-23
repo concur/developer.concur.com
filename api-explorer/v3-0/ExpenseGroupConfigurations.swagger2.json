@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Expense Group Configurations",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/expense/expensegroupconfigurations": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get an expense group configuration",
         "description": "Gets the configuration of an expense group.",
         "parameters": [
@@ -59,6 +68,9 @@
     },
     "/expense/expensegroupconfigurations/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get an expense group configuration by ID",
         "description": "Gets an expense group configuration by ID.",
         "parameters": [

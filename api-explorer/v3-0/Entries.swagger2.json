@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Entries",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/expense/entries": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all expense entries",
         "description": "Gets all expense entries owned by the user.",
         "parameters": [
@@ -120,6 +129,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new expense entry",
         "description": "Creates a new expense entry.",
         "parameters": [
@@ -152,6 +164,9 @@
     },
     "/expense/entries/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single expense entry by ID",
         "description": "Gets an expense entry by ID.",
         "parameters": [
@@ -180,6 +195,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update an expense entry by ID",
         "description": "Updates the specified expense entry. Only the fields provided in the supplied object are updated. Missing fields will not be altered.",
         "parameters": [
@@ -217,6 +235,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete an expense entry by ID",
         "description": "Deletes the specified expense entry.",
         "parameters": [

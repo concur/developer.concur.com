@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Purchase Order Receipts",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/invoice/purchaseorderreceipts": {
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Updates purchase order receipts which is already in the system.",
         "description": "Updates purchase order receipts and associate if to purchase order line item and returns status of updation.",
         "parameters": [
@@ -44,6 +53,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create purchase order receiving information for a purchase order line item.",
         "description": "Creates purchase order receipts and associate if to purchase order line item and returns status of updation.",
         "parameters": [
@@ -67,6 +79,9 @@
         }
       },
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Gets an existing purchase order receipts information.",
         "description": "Gets an existing purchase order receipts.",
         "parameters": [
@@ -88,6 +103,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Deletes a new purchase order line item receipt.",
         "description": "Deletes a new purchase order line item receipt given a Goods Receipts Number.",
         "parameters": [

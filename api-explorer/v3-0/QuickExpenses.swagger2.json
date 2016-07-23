@@ -1,6 +1,6 @@
 {
   "swagger": "2.0",
-  "host": "msprqa3.concurtech.net",
+  "host": "www.concursolutions.com",
   "basePath": "/api/v3.0",
   "schemes": [
     "https"
@@ -14,13 +14,22 @@
     "application/xml"
   ],
   "info": {
-    "title": "",
+    "title": "Quick Expenses",
     "description": "",
     "version": "3.0"
   },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
   "paths": {
     "/expense/quickexpenses": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all quick expenses",
         "description": "Returns all quick expenses owned by the user.",
         "parameters": [
@@ -57,6 +66,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new quick expense",
         "description": "Creates a new quick expense.",
         "parameters": [
@@ -89,6 +101,9 @@
     },
     "/expense/quickexpenses/{id}": {
       "get": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single quick expense by ID",
         "description": "Returns a quick expenses by ID.",
         "parameters": [
@@ -117,6 +132,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update a quick expense by ID",
         "description": "Updates the QuickExpense specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
         "parameters": [
@@ -154,6 +172,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete a quick expense by ID",
         "description": "Deletes the specified quick expense.",
         "parameters": [
