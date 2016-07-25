@@ -32,6 +32,6 @@ In short, these are the steps you need to do, to use this extension application:
 4. Start the application.
 5. Set up the application in Concur.  
 
-All these steps are explained in more details [here](https://github.com/SAP/cloud-concur-expenses-analyzer-ext/blob/master/README.md), and you can download and test the application itself from [this GitHub repository](https://github.com/SAP/cloud-concur-expenses-analyzer-ext.git).
+All these steps are explained in more details [here](https://github.com/SAP/cloud-concur-expenses-analyzer-ext/blob/master/README.md), and you can download and test the application itself from [this GitHub repository](https://github.com/SAP/cloud-concur-expenses-analyzer-ext).
 Feel free to use the comments section bellow, to give us your feedback.
  
