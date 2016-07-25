@@ -61,7 +61,7 @@ If this value is not provided by the user, it will default to 100.
 |  Address |  The street address of the location. Provided if the LocationType = 100. |
 |  City |  The location city. |
 |  State |  The location state. Preferably 2 characters, max 10 characters. |
-|  Country |  The location's <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">2 character ISO 3166-1 alpha-2</a> country code. Example: US |
+|  Country |  The location's <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">2 character ISO 3166-1 alpha-2</a> country code. Example: US |
 |  PostalCode |  The location postal code. |
 |  ExtraNotes |  Additional notes about the location. Example: Ring doorbell, Holiday Inn, etc. |
 
@@ -404,6 +404,6 @@ The response will include a **CC_LimoSearchReply** parent element, with the foll
 
 [1]: https://developer.concur.com/overview/partner-applications
 [2]: https://developer.concur.com/oauth-20
-[3]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-[4]: http://en.wikipedia.org/wiki/ISO_4217
-[5]: http://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code
+[3]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+[4]: https://en.wikipedia.org/wiki/ISO_4217
+[5]: https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code
