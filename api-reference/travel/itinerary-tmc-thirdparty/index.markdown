@@ -675,7 +675,7 @@ The Concur loginID of the user that owns the trip. Can be used when creating a n
 
 Examples:  
 ****To post a new trip for the OAuth consumer:****  
-<https://www.concursolutions.com/api/travel/trip/v1.1>
+https://www.concursolutions.com/api/travel/trip/v1.1
 
 ****To update a trip for the OAuth consumer:****  
 https://www.concursolutions.com/api/travel/trip/v1.1?tripId={_tripId_}
