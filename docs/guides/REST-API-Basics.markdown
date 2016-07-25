@@ -12,13 +12,13 @@ layout: reference
 
 ## <a name="uri"></a>Uniform Resource Identifier (URI)
 
-[http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2](http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2)
+[https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2)
 
 `http://phosiere.com`
 
 ## <a name="methods"></a>HTTP Methods
 
-[http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+[https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
 
 Method | Description
 -------|------------|
@@ -34,7 +34,7 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
 ## <a name="header"></a>HTTP Message Header  
 
 
-[http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)
+[https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)
 
 ### Request  
 
@@ -62,7 +62,7 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
 
 ## <a name="entity"></a>HTTP Entity
 
-[http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7](http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7)  
+[https://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7](https://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7)  
 
 
 ```
