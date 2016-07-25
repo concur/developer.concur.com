@@ -46,7 +46,7 @@ This URI can be appended with the following optional report View values:
 | `APPROVEDTHISYEAR` | Returns all reports approved or pending approval from the specified user in the current calendar year. |
 | `APPROVEDLASTYEAR` | Returns all reports approved by the specified user in the previous calendar year. |
 
-This request can include an optional query string specifying the last modified date (in [Coordinated Universal Time](http://en.wikipedia.org/wiki/Coordinated_Universal_Time), aka UTC) of the reports. This query string will return the reports modified within 24 hours after the supplied date. You can provide the time in UTC, and the query will return the reports with a last modified date that is greater (up to 24 hours after the time) or equal to the supplied time. The provided date/time can be any time between now and the first date of expense report creation in the database. The format is either the date or the date and time combined:
+This request can include an optional query string specifying the last modified date (in [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), aka UTC) of the reports. This query string will return the reports modified within 24 hours after the supplied date. You can provide the time in UTC, and the query will return the reports with a last modified date that is greater (up to 24 hours after the time) or equal to the supplied time. The provided date/time can be any time between now and the first date of expense report creation in the database. The format is either the date or the date and time combined:
 
 `/api/expense/expensereport/v1.1/reportslist/UNSUBMITTED/LastModified?date=2011-07-06T12:23:00`
 
@@ -75,7 +75,7 @@ This request will return a `ReportsList` parent element with an xmlns version at
 | `ReportName` | The name of the report.
 | `ReportId` | The unique identifier for the report, which appears in the Concur Expense UI.
 | `ReportTotal` | The total amount of the report.
-| `ReportCurrency`| The [3-letter ISO 4217 currency code](http://en.wikipedia.org/wiki/ISO_4217) for the expense report currency.
+| `ReportCurrency`| The [3-letter ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) for the expense report currency.
 | `ReportDate` | The create date of the report.
 | `LastComment` | The text of the most recent comment on the report.
 | `Report-Details-Url` | The URL to access the report summary details.
