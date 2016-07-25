@@ -810,4 +810,4 @@ Content-Type: application/xml
 
 [3]: https://www.concursolutions.com/ns/TravelUserProfile.xsd
 [4]: https://www.concursolutions.com/ns/TravelProfileSummaryV2.xsd
-[8]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-
+[8]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
