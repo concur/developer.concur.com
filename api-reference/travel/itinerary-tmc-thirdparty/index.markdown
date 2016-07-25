@@ -260,7 +260,7 @@ Name |  Description
 `AirfareQuotes` |  List of stored airfare quotes. This parent element has a **Quote** child element for each airfare quote. The **Quote** parent element contains [Airfare Quotes Child Elements](#afchild)
 `AirlineTickets` |  List of Airline Tickets. This parent element contains [Airline Tickets Child Elements](#alchild)
 `Charges` |  The charges for the booking. 
-`MiscChargeOrders` |  This parent element has a **MiscellaneousChargeOrder** child element for each included miscellaneous charge. The **MiscellaneousChargeOrder** parent element cotains [Miscellaneous Charge Order Child Elements](mcchild)
+`MiscChargeOrders` |  This parent element has a **MiscellaneousChargeOrder** child element for each included miscellaneous charge. The **MiscellaneousChargeOrder** parent element cotains [Miscellaneous Charge Order Child Elements](#mcchild)
 `Passengers` |  This parent element has a **Passenger** child element for each included passenger. Refer to the [Passenger Child Elements](#pchild)
 `PassPrograms` |  This parent element has [**Pass Program** child elements](#ppchild) for each pass program associated with the booking.
 `PhoneNumbers` |  This parent element has [**Phone Number Data** child elements](#phone) for each phone number associated with the booking. 
@@ -301,7 +301,7 @@ Name |  Description
 `AirlineAdjustment` |  Any adjustment made to the booking. 
 
 
-### <a name="alchild"></a>Miscellaneous Charge Order Child Elements
+### <a name="mcchild"></a>Miscellaneous Charge Order Child Elements
 
 Name |  Description
 -----| ------------	
@@ -675,7 +675,7 @@ The Concur loginID of the user that owns the trip. Can be used when creating a n
 
 Examples:  
 ****To post a new trip for the OAuth consumer:****  
-<https://www.concursolutions.com/api/travel/trip/v1.1>
+https://www.concursolutions.com/api/travel/trip/v1.1
 
 ****To update a trip for the OAuth consumer:****  
 https://www.concursolutions.com/api/travel/trip/v1.1?tripId={_tripId_}
