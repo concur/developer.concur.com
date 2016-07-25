@@ -1,0 +1,1504 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "Reports",
+  "apis": [
+    {
+      "path": "/expense/reports",
+      "description": "Gets all reports",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_offset_limit_user_approvalStatusCode_paymentStatusCode_currencyCode_paymentType_reimbursementMethod_approverLoginID_expenseTypeCode_attendeeTypeCode_countryCode_batchID_vendorName_hasVAT_hasImages_hasAttendees_hasBillableExpenses_isTestUser_expenseGroupConfigID_costObject_entryTransactionDateBefore_entryTransactionDateAfter_createDateBefore_createDateAfter_userDefinedDateBefore_userDefinedDateAfter_submitDateBefore_submitDateAfter_processingPaymentDateBefore_processingPaymentDateAfter_paidDateBefore_paidDateAfter_modifiedDateBefore_modifiedDateAfter",
+          "responseClass": "ReportCollection",
+          "summary": "Gets all reports",
+          "notes": "Returns all reports owned by the user based on the search criteria.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "Starting page offset",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "Number of records to return (default 25)",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "25",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "Optional. The login ID of the report owner(s) to use when searching for reports. If the value is set to LoginID, reports for the report owner with this login ID value are returned. If the value is set to ALL, reports for all report owners are returned. If this parameter is not specified, reports for the OAuth Consumer are returned. The access token owner (OAuth Consumer) must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "approvalStatusCode",
+              "description": "The status code for the Approval Status. The values can include Concur Expense standard codes or custom codes. The Concur Expense standard code values are: A_AAFH - Report submission triggered an anomaly and fraud check; A_ACCO - Report is pending reviews; A_APPR - Report has been approved; A_EXTV - Report is pending external validation; A_FILE - Report has been submitted; A_NOTF - Report has not been submitted; A_PBDG - Report approval is pending Budget approval; A_PECO - Report approval is pending Cost object approval; A_PEND - Report is pending manager approval; A_PVAL - Report is pending prepayment validation; A_RESU - Report needs to be resubmitted; A_RHLD - Report submission is pending receipt images; A_TEXP - Report expired in approval queue. For custom codes, contact Concur Developer Support.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "paymentStatusCode",
+              "description": "The payment status code for the report. The values can include Concur Expense standard codes or custom codes. The Concur Expense standard code values are: P_HOLD - Report payment is on hold; P_NOTP - Report has not been paid; P_PAID - Report has been paid; P_PAYC - Payment is confirmed. Some or all of the report expenses have been paid; P_PROC - Report is in process to be paid. For custom codes, contact Concur Developer Support.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "currencyCode",
+              "description": "The 3-letter ISO 4217 currency code for the report currency. Example: USD.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "paymentType",
+              "description": "The unique identifier for the payment type that is the payment type for at least one expense entry in the report. Use PaymentTypeID from Response of GET Expense Group Configurations V3 to obtain valid payment types.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "reimbursementMethod",
+              "description": "The method the report owner will be reimbursed. VALUES: ADPPAYR - ADP Payroll; APCHECK - AP (Company Check); CNQRPAY - Expense Pay; PMTSERV - Other Payment Service. NOTE: PAY_PAL is NOT supported.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "approverLoginID",
+              "description": "The login ID for the report approver that is the current approver assigned to the report.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "expenseTypeCode",
+              "description": "The expense type code that is the expense type for at least one expense entry in the report. Use ExpenseTypeCode from Response of GET Expense Group Configurations V3.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "attendeeTypeCode",
+              "description": "The report contains expense entries that have attendees of the specified type.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "countryCode",
+              "description": "The report country. Maximum 2 characters. Format: The ISO 3166-1 alpha-2 country code. Example: United States is US.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "batchID",
+              "description": "The unique identifier for a payment batch where there is at least one report payee within the report. Use the BatchID from Response of GET Payment Batch List.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "vendorName",
+              "description": "The Vendor Description that is the vendor for at least one expense entry in the report.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "hasVAT",
+              "description": "Determines if the report has at least one expense entry with VAT details. FORMAT: true or false.",
+              "dataType": "Boolean?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "hasImages",
+              "description": "Determines if the report has at least one expense entry with an entry image or if there is a report image for this report. FORMAT: true or false.",
+              "dataType": "Boolean?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "hasAttendees",
+              "description": "Determines if the report has at least one expense entry with an attendee. FORMAT: true or false.",
+              "dataType": "Boolean?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "hasBillableExpenses",
+              "description": "The IsBillable flag for at least one expense entry in the report. FORMAT: true or false.",
+              "dataType": "Boolean?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "isTestUser",
+              "description": "The report owner is a test user using the report for testing purposes in a non-production envirnment. FORMAT: true or false.",
+              "dataType": "Boolean?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "expenseGroupConfigID",
+              "description": "The unique identifier for the expense group configuration associated to the report's expense group. Use the ID from the Response of the Expense Group Configurations V3.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "costObject",
+              "description": "The list item code for an allocation field for at least allocation in the report.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "entryTransactionDateBefore",
+              "description": "The entry transaction date for at least one expense entry in the report is before this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "entryTransactionDateAfter",
+              "description": "The entry transaction date for at least one expense entry in the report is after this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "createDateBefore",
+              "description": "The report create date is before this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "createDateAfter",
+              "description": "The report create date is after this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "userDefinedDateBefore",
+              "description": "The report user defined date is before this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "userDefinedDateAfter",
+              "description": "The report user defined date is after this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "submitDateBefore",
+              "description": "The report submit date is before this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "submitDateAfter",
+              "description": "The report submit date is after this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "processingPaymentDateBefore",
+              "description": "The report processing payment date is before this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "processingPaymentDateAfter",
+              "description": "The report processing payment date is after this date. Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "paidDateBefore",
+              "description": "The report paid date is before this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "paidDateAfter",
+              "description": "The report paid date is after this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "modifiedDateBefore",
+              "description": "The report modified date is before this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "modifiedDateAfter",
+              "description": "The report modified date is after this date.Format: YYYY-MM-DD",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/reports/{id}",
+      "description": "Gets a single report by ID",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id_user",
+          "responseClass": "ReportGet",
+          "summary": "Gets a single report by ID",
+          "notes": "Returns a report by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "report ID",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "Optional. The login ID of the report owner(s) to use when searching for reports. If the value is set to LoginID, reports for the report owner with this login ID value are returned. If the value is set to ALL, reports for all report owners are returned. If this parameter is not specified, reports for the OAuth Consumer are returned. The access token owner (OAuth Consumer) must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/reports",
+      "description": "Create a new report",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_content_user",
+          "responseClass": "CreateResponse",
+          "summary": "Create a new report",
+          "notes": "Create a new report",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "report object to create",
+              "dataType": "ReportPost",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "Optional. The login ID for the Report Owner.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/reports/{id}",
+      "description": "Update report",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_id_content_user",
+          "responseClass": "Void",
+          "summary": "Update report",
+          "notes": "Updates report specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The unique identifier for the report.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The report object to update",
+              "dataType": "ReportPut",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "Optional. The login ID for the Report Owner.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/reports",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/expense/reports",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "CreateResponse": {
+      "id": "CreateResponse",
+      "displayName": "Response",
+      "properties": {
+        "ID": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "CustomField": {
+      "id": "CustomField",
+      "displayName": null,
+      "properties": {
+        "Code": {
+          "description": "For list fields, this is the list item code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ListItemID": {
+          "description": "For list fields, this is the list item ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Type": {
+          "description": "The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Decimal": {
+      "id": "Decimal",
+      "displayName": null,
+      "properties": {}
+    },
+    "Nullable`1": {
+      "id": "Nullable`1",
+      "displayName": null,
+      "properties": {
+        "HasValue": {
+          "description": null,
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": null,
+          "type": "Decimal",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ReportCollection": {
+      "id": "ReportCollection",
+      "displayName": "Reports",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "ReportGet",
+            "displayName": "Report"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ReportGet": {
+      "id": "ReportGet",
+      "displayName": "Report",
+      "properties": {
+        "AmountDueCompanyCard": {
+          "description": "The total amount due to the company card for the report. Maximum 23 characters.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AmountDueEmployee": {
+          "description": "The total amount due to the employee for the report. Maximum 23 characters.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovalStatusCode": {
+          "description": "The approval status code for the report.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovalStatusName": {
+          "description": "The report's approval status, in the OAuth consumer's language.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApproverLoginID": {
+          "description": "The Login ID of the report owner's expense approver.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApproverName": {
+          "description": "The name of the report owner's expense approver.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Country": {
+          "description": "The report country. Maximum 2 characters. Format: The ISO 3166-1 alpha-2 country code. Example: United States is US.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CountrySubdivision": {
+          "description": "The report country subdivision.  Format: ISO 3166-2:2007 country subdivision.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CreateDate": {
+          "description": "The date the report was created.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\\\">3-letter ISO 4217 currency code</a> for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EverSentBack": {
+          "description": "Whether the report has ever been sent back to the employee. Format: Y/N",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HasException": {
+          "description": "Whether the report has exceptions. Format: Y/N ",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastComment": {
+          "description": "The text of the most recent comment on the report.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastModifiedDate": {
+          "description": "The date the report header was last modified.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LedgerName": {
+          "description": "The name of the expense report ledger. Maximum 20 characters.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the report.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit1": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit2": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit3": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit4": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit5": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit6": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OwnerLoginID": {
+          "description": "The Login ID of the user this report belongs to.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OwnerName": {
+          "description": "The name of the expense report owner.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaidDate": {
+          "description": "The date when all journal entries in the report was integrated with or extracted to the financial system.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentStatusCode": {
+          "description": "The code for the payment status of the report.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentStatusName": {
+          "description": "The report's payment status, in the OAuth consumer's language.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PersonalAmount": {
+          "description": "The total amount of expenses marked as personal. Maximum 23 characters.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PolicyID": {
+          "description": "The unique identifier of the policy that applies to this report. Maximum 64 characters.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ProcessingPaymentDate": {
+          "description": "The date that the report completed all approvals and was ready to be extracted for payment.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ReceiptsReceived": {
+          "description": "If Y, then this report has its receipt receipt confirmed by the Expense Processor. Format: Y/N",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SubmitDate": {
+          "description": "The date the report was submitted.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Total": {
+          "description": "The total amount of the report.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalApprovedAmount": {
+          "description": "The total amount of approved expenses in the report. Maximum 23 characters.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalClaimedAmount": {
+          "description": "The total amount of all non-personal expenses in the report. Maximum 23 characters.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UserDefinedDate": {
+          "description": "The date of the report assigned by the user.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "WorkflowActionUrl": {
+          "description": "The URL to post a workflow action to the report using the Post Report Workflow Action function.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ReportPost": {
+      "id": "ReportPost",
+      "displayName": "Report",
+      "properties": {
+        "Comment": {
+          "description": "The report header comment. Maximum length: 500.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the report.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "OrgUnit1": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit2": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit3": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit4": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit5": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit6": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PolicyID": {
+          "description": "The unique identifier for the policy.  This is the protected, Policy Key",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Purpose": {
+          "description": "The business purpose of the report. Maximum length: 500.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UserDefinedDate": {
+          "description": "The date of the report assigned by the user.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ReportPut": {
+      "id": "ReportPut",
+      "displayName": "Report",
+      "properties": {
+        "Comment": {
+          "description": "The report header comment. Maximum length: 500.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the report.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "OrgUnit1": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit2": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit3": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit4": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit5": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit6": {
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PolicyID": {
+          "description": "The unique identifier for the policy.  This is the protected, Policy Key",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Purpose": {
+          "description": "The business purpose of the report. Maximum length: 500.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UserDefinedDate": {
+          "description": "The date of the report assigned by the user.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

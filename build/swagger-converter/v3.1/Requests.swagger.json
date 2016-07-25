@@ -1,0 +1,1595 @@
+{
+  "apiVersion": "3.1",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.1",
+  "resourcePath": "Requests",
+  "apis": [
+    {
+      "path": "/travelrequest/requests/{id}",
+      "description": "Get a Request by ID",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "GetDetails_id_user",
+          "responseClass": "OutputRequest",
+          "summary": "Get a Request by ID",
+          "notes": "Returns a Request by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The Request ID",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/travelrequest/requests",
+      "description": "Get all Requests",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "GetList_offset_limit_user_status_modifiedAfter_modifiedBefore_withSegmentTypes_withUserPermissions",
+          "responseClass": "RequestCollection",
+          "summary": "Get all Requests",
+          "notes": "Returns all Requests owned by the user.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "Starting page offset",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "Number of records to return (default 100)",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "100",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns this Request. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "status",
+              "description": "The Status search term specifies which travel request or approval status to return. If no Status value is sent, the default Status of Active will be used.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "ACTIVE",
+              "allowableValues": {
+                "max": 0,
+                "min": 0,
+                "valueType": "LIST",
+                "values": [
+                  "ACTIVE",
+                  "UNSUBMITTED",
+                  "PENDING",
+                  "VALIDATED",
+                  "CANCELED",
+                  "CLOSED",
+                  "SUBMITTED",
+                  "TOAPPROVE",
+                  "APPROVED",
+                  "PENDINGPROPOSAL",
+                  "PROPOSALAPPROVED",
+                  "PROPOSALCANCELED",
+                  "PENDING_EBOOKING"
+                ]
+              }
+            },
+            {
+              "paramType": "query",
+              "name": "modifiedAfter",
+              "description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "modifiedBefore",
+              "description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "withSegmentTypes",
+              "description": "Pass true to populate the SegmentType field in the result.",
+              "dataType": "bool",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "False",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "withUserPermissions",
+              "description": "Pass true to get the UserPermssions in the result.",
+              "dataType": "bool",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "False",
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/travelrequest/requests/{id}/submit",
+      "description": "Submit a Request by ID",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Submit_id",
+          "responseClass": "Void",
+          "summary": "Submit a Request by ID",
+          "notes": "Submit a Request by ID",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The Request ID",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/travelrequest/requests/{id}/recall",
+      "description": "Recall a Request by ID",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Recall_id",
+          "responseClass": "Void",
+          "summary": "Recall a Request by ID",
+          "notes": "Recall a Request by ID",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The Request ID",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/travelrequest/requests",
+      "description": "Create a Request",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_content_user_doSubmit_forceSubmit",
+          "responseClass": "RequestResponse",
+          "summary": "Create a Request",
+          "notes": "Create a Request",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "Partial or complete Request object to save",
+              "dataType": "PostInputRequest",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "doSubmit",
+              "description": "Trigger a submit action upon a successfull save operation",
+              "dataType": "bool",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "False",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "forceSubmit",
+              "description": "Force the submit operation even if non-blocking functional exceptions were to be raised on request creation or update operation.",
+              "dataType": "bool",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "False",
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/travelrequest/requests/{id}",
+      "description": "Update a Request",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_content_id_user_doSubmit_forceSubmit",
+          "responseClass": "RequestResponse",
+          "summary": "Update a Request",
+          "notes": "Update a Request",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "Partial or complete Request object to save",
+              "dataType": "PutInputRequest",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The Request ID",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "doSubmit",
+              "description": "Trigger a submit action upon a successfull save operation",
+              "dataType": "bool",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "False",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "forceSubmit",
+              "description": "Force the submit operation even if non-blocking functional exceptions were to be raised on request creation or update operation.",
+              "dataType": "bool",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "False",
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": {
+    "Comment": {
+      "id": "Comment",
+      "displayName": "Comment",
+      "properties": {
+        "AuthorFirstName": {
+          "description": "The first name of the person who made the comment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AuthorLastName": {
+          "description": "The last name of the person who made the comment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CommentDateTime": {
+          "description": "The time, in GMT, when the user made the comment.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsLatest": {
+          "description": "Indicates that the comment is the last one.",
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": "The text of the Request header comment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Decimal": {
+      "id": "Decimal",
+      "displayName": null,
+      "properties": {}
+    },
+    "Error": {
+      "id": "Error",
+      "displayName": "Error",
+      "properties": {
+        "Code": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Message": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Link": {
+      "id": "Link",
+      "displayName": "Link",
+      "properties": {
+        "Action": {
+          "description": "The action that the user is allowed to perform on the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Method": {
+          "description": "The method of the request. Possible values: GET, POST, PUT and DELETE.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Url": {
+          "description": "The URL of the resource that the user can access.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Nullable`1": {
+      "id": "Nullable`1",
+      "displayName": null,
+      "properties": {
+        "HasValue": {
+          "description": null,
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": null,
+          "type": "Decimal",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "OutputRequest": {
+      "id": "OutputRequest",
+      "displayName": "Request",
+      "properties": {
+        "AgencyOfficeID": {
+          "description": "The ID of the travel agency office.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AgencyOfficeName": {
+          "description": "The travel agency office name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovalLimitDate": {
+          "description": "The date by which the Request must be approved. This element appears only when integrated with Concur Travel.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovalStatusCode": {
+          "description": "The code for the approval status the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovalStatusName": {
+          "description": "The approval status of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AuthorizedDate": {
+          "description": "The date the Request was authorized. Format: YYYY-MM-DDThh:mm:ss.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Comments": {
+          "description": "This parent element has a Comment child element for each comment. See the Comment model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "Comment",
+            "displayName": "Comment"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "CreationDate": {
+          "description": "The date of the Request was created.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency. The Request currency is defined as the Request creator's default reimbursement currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyName": {
+          "description": "The currency name for the Request currency. The Request currency is defined as the Request creator's default reimbursement currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeName": {
+          "description": "The first, middle (or middle initial), and last name of the employee who created the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EndDate": {
+          "description": "The end date of the travel request. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Exceptions": {
+          "description": "This parent element has an Exception child element for each exception. See the Exception model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "TRException",
+            "displayName": "Exception"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "HeaderFormID": {
+          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HighestExceptionLevel": {
+          "description": "Indicates the highest exception level of the Request. Possible value: NONE, NON_BLOCKING, BLOCKING",
+          "type": "ExceptionLevel?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastModifiedDate": {
+          "description": "The date the Request was last modified. Format: YYYY-MM-DDThh:mm:ss",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LoginID": {
+          "description": "The Concur login ID of the Request owner.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "MainDestinationID": {
+          "description": "The main destination location ID",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "MainDestinationName": {
+          "description": "The main destination location name",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PolicyID": {
+          "description": "The unique identifier of the policy that applies to this Request. Maximum length 64 characters.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PolicyName": {
+          "description": "The name of the policy that applies to this Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Purpose": {
+          "description": "The purpose of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestID": {
+          "description": "The unique key for the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentsEntries": {
+          "description": "This parent element has a RequestEntry child element for each entry. See the RequestEntry model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "SegmentsEntry",
+            "displayName": "SegmentsEntry"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "StartDate": {
+          "description": "The start date of the travel request. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SubmitDate": {
+          "description": "The date the Request was submitted. Format: YYYY-MM-DDThh:mm:ss.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalApprovedAmount": {
+          "description": "The total amount of approved expenses in the Request.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalPostedAmount": {
+          "description": "The total amount of the Request.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalRemainingAmount": {
+          "description": "The total amount of expenses remaining in the Request.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UserPermissions": {
+          "description": "The actions that the user is allowed to perform on the Request.",
+          "type": "UserPermissions",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PostInputRequest": {
+      "id": "PostInputRequest",
+      "displayName": "Request",
+      "properties": {
+        "AgencyOfficeID": {
+          "description": "The ID of the travel agency office.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Comment": {
+          "description": "The text of the most recent comment on the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "EndDate": {
+          "description": "The end date of the travel request. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "MainDestinationID": {
+          "description": "The main destination location ID",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PolicyID": {
+          "description": "The unique identifier of the policy that applies to this Request. Maximum length 64 characters.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Purpose": {
+          "description": "The purpose of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentsEntries": {
+          "description": "undefined:ConnectSwaggerDocs-REQ_SEGMENT_ENTRIES",
+          "type": "Array",
+          "items": {
+            "$ref": "PostSegmentsEntry",
+            "displayName": "SegmentsEntry"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "StartDate": {
+          "description": "The start date of the travel request. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PostSegment": {
+      "id": "PostSegment",
+      "displayName": "Segment",
+      "properties": {
+        "ArrivalDate": {
+          "description": "The arrival date of the segment.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Comment": {
+          "description": "A comment added to this segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DepartureDate": {
+          "description": "The departure date of the segment.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FlightNumber": {
+          "description": "The flight number for air segments. Appears only when Request is integrated with Concur Travel.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationDetail": {
+          "description": "The code for the starting location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationID": {
+          "description": "The unique identifier of the departure location. (See. the \"Locations\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationDetail": {
+          "description": "The code for the ending location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationID": {
+          "description": "The unique identifier of the arrival location. (See. the \"Locations\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PostSegmentsEntry": {
+      "id": "PostSegmentsEntry",
+      "displayName": "SegmentsEntry",
+      "properties": {
+        "ForeignAmount": {
+          "description": "The transaction amount of the travel Request entry.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ForeignCurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the entry.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Segments": {
+          "description": "This parent element has a Segment child element for each segment associated with the travel request. See the Segment model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "PostSegment",
+            "displayName": "Segment"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentTypeID": {
+          "description": "The unique identifier of the Segment Type resource used to define the type of the segment created (See. the policies and associated data in \"RequestGroupConfigurations\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "TripType": {
+          "description": " Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP.",
+          "type": "TripType?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PutInputRequest": {
+      "id": "PutInputRequest",
+      "displayName": "Request",
+      "properties": {
+        "AgencyOfficeID": {
+          "description": "The ID of the travel agency office.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Comment": {
+          "description": "The text of the most recent comment on the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EndDate": {
+          "description": "The end date of the travel request. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "MainDestinationID": {
+          "description": "The main destination location ID",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Purpose": {
+          "description": "The purpose of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentsEntries": {
+          "description": "undefined:ConnectSwaggerDocs-REQ_SEGMENT_ENTRIES",
+          "type": "Array",
+          "items": {
+            "$ref": "PutRequestSegmentsEntry",
+            "displayName": "SegmentsEntry"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "StartDate": {
+          "description": "The start date of the travel request. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PutRequestSegmentsEntry": {
+      "id": "PutRequestSegmentsEntry",
+      "displayName": "SegmentsEntry",
+      "properties": {
+        "ForeignAmount": {
+          "description": "The transaction amount of the travel Request entry.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ForeignCurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the entry.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the Segment(s) Entry to update. If there is no ID, the Segment(s) Entry will be added to the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Segments": {
+          "description": "This parent element has a Segment child element for each segment associated with the travel request. See the Segment model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "PutSegment",
+            "displayName": "Segment"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentTypeID": {
+          "description": "The unique identifier of the Segment Type resource used to define the type of the segment created (See. the policies and associated data in \"RequestGroupConfigurations\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TripType": {
+          "description": " Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP.",
+          "type": "TripType?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PutSegment": {
+      "id": "PutSegment",
+      "displayName": "Segment",
+      "properties": {
+        "ArrivalDate": {
+          "description": "The arrival date of the segment.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Comment": {
+          "description": "A comment added to this segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DepartureDate": {
+          "description": "The departure date of the segment.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FlightNumber": {
+          "description": "The flight number for air segments. Appears only when Request is integrated with Concur Travel.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationDetail": {
+          "description": "The code for the starting location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationID": {
+          "description": "The unique identifier of the departure location. (See. the \"Locations\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the segment to update. If there is no ID, the segment will be added to the Segment(s) Entry.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationDetail": {
+          "description": "The code for the ending location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationID": {
+          "description": "The unique identifier of the arrival location. (See. the \"Locations\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "RequestCollection": {
+      "id": "RequestCollection",
+      "displayName": "Requests",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "RequestHeader",
+            "displayName": "Request"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "RequestHeader": {
+      "id": "RequestHeader",
+      "displayName": "Request",
+      "properties": {
+        "ApprovalStatusCode": {
+          "description": "The code for the approval status the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovalStatusName": {
+          "description": "The Request's approval status, in the user's language.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApproverLoginID": {
+          "description": "The login ID of the approver for the user's Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CreationDate": {
+          "description": "The creation date of the Request.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeName": {
+          "description": "The name of the Request owner.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EndDate": {
+          "description": "The end date of the Request.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HeaderFormID": {
+          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HighestExceptionLevel": {
+          "description": "Indicates the highest exception level of the Request. Possible value: NONE, NON_BLOCKING, BLOCKING",
+          "type": "ExceptionLevel?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastComment": {
+          "description": "The text of the most recent comment on the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "MainDestinationID": {
+          "description": "The main destination location ID",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "MainDestinationName": {
+          "description": "The main destination location name",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Purpose": {
+          "description": "The purpose of the Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestID": {
+          "description": "The unique identifier for the Request, as it appears in the Concur UI.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentTypes": {
+          "description": "A comma separated list of the segment type names that are present in this Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StartDate": {
+          "description": "The start date of the Request.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalApprovedAmount": {
+          "description": "The total amount of the Request.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalPostedAmount": {
+          "description": "The posted amount of the Request entry in the Request currency.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UserLoginID": {
+          "description": "The login ID of the user this Request belongs to.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UserPermissions": {
+          "description": "The actions that the user is allowed to perform on the Request.",
+          "type": "UserPermissions",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "RequestResponse": {
+      "id": "RequestResponse",
+      "displayName": "Response",
+      "properties": {
+        "Error": {
+          "description": null,
+          "type": "Error",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Request": {
+          "description": null,
+          "type": "OutputRequest",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Segment": {
+      "id": "Segment",
+      "displayName": "Segment",
+      "properties": {
+        "ArrivalDate": {
+          "description": "The arrival date of the segment.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Comment": {
+          "description": "A comment added to this segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DepartureDate": {
+          "description": "The departure date of the segment.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Exceptions": {
+          "description": "This parent element has an Exception child element for each exception. See the Exception model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "TRException",
+            "displayName": "Exception"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "FlightNumber": {
+          "description": "The flight number for air segments. Appears only when Request is integrated with Concur Travel.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationDetail": {
+          "description": "The code for the starting location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationID": {
+          "description": "The unique identifier of the departure location. (See. the \"Locations\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FromLocationName": {
+          "description": "The name of the starting location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsAgencyBooked": {
+          "description": "Indicates whether the air segment was agency booked. Format: Y/N.",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsSelfBooked": {
+          "description": "Indicates whether the air segment was self booked. Format: Y/N.",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastModifiedDate": {
+          "description": "The date the segment was last modified. Format: YYYY-MM-DDThh:mm:ss",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Order": {
+          "description": "The display order of the segment.",
+          "type": "int",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationDetail": {
+          "description": "The code for the ending location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationID": {
+          "description": "The unique identifier of the arrival location. (See. the \"Locations\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ToLocationName": {
+          "description": "The name of the ending location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "SegmentsEntry": {
+      "id": "SegmentsEntry",
+      "displayName": "SegmentsEntry",
+      "properties": {
+        "Exceptions": {
+          "description": "This parent element has an Exception child element for each exception. See the Exception model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "TRException",
+            "displayName": "Exception"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "ExchangeRate": {
+          "description": "The exchange rate that applies to the entry.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ForeignAmount": {
+          "description": "The foreign amount of the Request entry.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ForeignCurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the Request entry.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ForeignCurrencyName": {
+          "description": "The name of the currency for the foreign amount.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the Segment(s) Entry resource (See. the \"SegmentsEntry\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastModifiedDate": {
+          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentFormID": {
+          "description": "The unique identifier of the Segment Form resource (See. the \"Forms\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentFormTypeCode": {
+          "description": "The code for form type of the segment type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Segments": {
+          "description": "This parent element has an Exception child element for each exception. See the Exception model for the full list of child elements.",
+          "type": "Array",
+          "items": {
+            "$ref": "Segment",
+            "displayName": "Segment"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentTypeCode": {
+          "description": "The code for the type of itinerary segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentTypeID": {
+          "description": "The unique identifier of the Segment Type resource (See. the policies and associated data in \"RequestGroupConfigurations\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentTypeName": {
+          "description": "The name for the type of itinerary segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TripType": {
+          "description": " Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP.",
+          "type": "TripType?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "TRException": {
+      "id": "TRException",
+      "displayName": "Exception",
+      "properties": {
+        "Code": {
+          "description": "The system exception code defined for the exception. Example: BADCODE",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level": {
+          "description": "The numeric level associated with the exception. Example: 99",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Message": {
+          "description": "The user-facing message defined for the exception.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "UserPermissions": {
+      "id": "UserPermissions",
+      "displayName": "UserPermissions",
+      "properties": {
+        "Links": {
+          "description": "The actions that the user is allowed to perform on the Request.",
+          "type": "Array",
+          "items": {
+            "$ref": "Link",
+            "displayName": "Link"
+          },
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

@@ -21,13 +21,15 @@
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/expense/expensegroupconfigurations": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get an expense group configuration",
         "description": "Gets the configuration of an expense group.",
         "parameters": [
@@ -66,7 +68,9 @@
     },
     "/expense/expensegroupconfigurations/{id}": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get an expense group configuration by ID",
         "description": "Gets an expense group configuration by ID.",
         "parameters": [
@@ -101,11 +105,11 @@
       "properties": {
         "Code": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The attendee type code."
         },
         "Name": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The name of the attendee type."
         }
       }
     },
@@ -113,23 +117,23 @@
       "properties": {
         "AllowUserCarryBalance": {
           "type": "boolean",
-          "description": "Indicates whether the descendent nodes in the Expense Feature Hierarchy are covered by this policy. Format: true or false"
+          "description": "Indicates whether users are allowed to carry a cash advance balance forward from one report to another. Format: true or false"
         },
         "AllowUserLinkMultiple": {
           "type": "boolean",
-          "description": "Indicates whether the descendent nodes in the Expense Feature Hierarchy are covered by this policy. Format: true or false"
+          "description": "Indicates whether users are allowed to link multiple cash advances to one expense report. Format: true or false"
         },
         "AllowUserUpdateExchangeRate": {
           "type": "boolean",
-          "description": "Indicates whether the descendent nodes in the Expense Feature Hierarchy are covered by this policy. Format: true or false"
+          "description": "Indicates whether users are allowed to update the currency exchange rate for expense entries. Format: true or false"
         },
         "Name": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The name of the cash advance workflow."
         },
         "WorkflowID": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The unique identifier for the cash advance workflow. Null means there is no such workflow."
         }
       }
     },
@@ -137,19 +141,19 @@
       "properties": {
         "AllowUserDigitalTaxInvoice": {
           "type": "boolean",
-          "description": "Indicates whether the descendent nodes in the Expense Feature Hierarchy are covered by this policy. Format: true or false"
+          "description": "Indicates whether users are allowed to upload digital tax invoices. Format: true or false"
         },
         "AllowUserRegisterYodlee": {
           "type": "boolean",
-          "description": "Indicates whether the descendent nodes in the Expense Feature Hierarchy are covered by this policy. Format: true or false"
+          "description": "Indicates whether users in the expense group are allowed to register Yodlee credit cards. Format: true or false"
         },
         "AttendeeListFormID": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The unique identifier for the attendee list form."
         },
         "AttendeeListFormName": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The name of the attendee list form."
         },
         "AttendeeTypes": {
           "$ref": "#/definitions/AttendeeType"
@@ -159,11 +163,11 @@
         },
         "ID": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The unique identifier of the resource."
         },
         "Name": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The name of the expense group configuration."
         },
         "PaymentTypes": {
           "$ref": "#/definitions/PaymentType"
@@ -173,7 +177,7 @@
         },
         "URI": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The URI to the resource."
         }
       }
     },
@@ -184,7 +188,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The URI of the next page of results, if any."
         }
       }
     },
@@ -192,15 +196,15 @@
       "properties": {
         "Code": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The code for the expense type. Expense types define expenses within an expense category. For example, Business Meal is an expense type in the MEALS category."
         },
         "ExpenseCode": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The code for the expense category. The expense category code controls the function of an expense entry. Format: OTHER - Standard, COCARMILE - Company Car, PCARMILE - Personal Car, MFUEL - Fuel For Mileage, LODGING - Lodging, MEALS - Meals, OTHERNP - Other Not Partially Approvable, JPYPTRAN - Japanese Public Transportation"
         },
         "Name": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The name of the expense type."
         }
       }
     },
@@ -208,15 +212,15 @@
       "properties": {
         "ID": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The unique identifier of the resource."
         },
         "IsDefault": {
           "type": "boolean",
-          "description": "Indicates whether the descendent nodes in the Expense Feature Hierarchy are covered by this policy. Format: true or false"
+          "description": "Determines whether this payment type is the default. Format: true or false"
         },
         "Name": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The name of the payment type."
         }
       }
     },
@@ -227,11 +231,11 @@
         },
         "ID": {
           "type": "string",
-          "description": "The name of the policy."
+          "description": "The unique identifier of the resource."
         },
         "IsDefault": {
           "type": "boolean",
-          "description": "Indicates whether the descendent nodes in the Expense Feature Hierarchy are covered by this policy. Format: true or false"
+          "description": "Indicates whether this policy is the default. Format: true or false"
         },
         "IsInheritable": {
           "type": "boolean",

@@ -1,0 +1,631 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "ListItems",
+  "apis": [
+    {
+      "path": "/common/listitems",
+      "description": "Gets all listitems",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_limit_offset_listId_name_parentId_level1Code_level2Code_level3Code_level4Code_level5Code_level6Code_level7Code_level8Code_level9Code_level10Code",
+          "responseClass": "ListItemGetCollection",
+          "summary": "Gets all listitems",
+          "notes": "Returns all list items based on the search criteria.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The number of records to return. The default is 25 and the maximum is 100.",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "25",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "The start of the page offset. The default is from the beginning.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "listId",
+              "description": "The unique identifier for the list this item is a member.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "name",
+              "description": "The name of the listItem. Text Max length: 64.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "parentId",
+              "description": "The unique identifier of this item's parent. Is empty when there is no parent.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "level1Code",
+              "description": "The item code for the first level of the list. All lists have at least a Level1Code. Text maximum 32 characters",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "level2Code",
+              "description": "The item code for the second level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "level3Code",
+              "description": "The item code for the third level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "level4Code",
+              "description": "The item code for the fourth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "level5Code",
+              "description": "The item code for the fifth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "level6Code",
+              "description": "The item code for the sixth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "level7Code",
+              "description": "The item code for the seventh level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "level8Code",
+              "description": "The item code for the eighth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "level9Code",
+              "description": "The item code for the ninth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "level10Code",
+              "description": "The item code for the tenth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/listitems/{id}",
+      "description": "Get a single listitem by ID",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id_listId",
+          "responseClass": "ListItemGet",
+          "summary": "Get a single listitem by ID",
+          "notes": "Returns a listitem by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The unique identifier for the listItem.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "listId",
+              "description": "The unique identifier for the list this item is a member.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/listitems",
+      "description": "Create a new listitem",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_content",
+          "responseClass": "CreateResponse",
+          "summary": "Create a new listitem",
+          "notes": "Create a new listitem",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "listitem object to create",
+              "dataType": "ListItemPost",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/listitems/{id}",
+      "description": "Update listitem",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_id_content",
+          "responseClass": "Void",
+          "summary": "Update listitem",
+          "notes": "Updates listitem specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The unique identifier for the listItem.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The listitem object to update",
+              "dataType": "ListItemPut",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/listitems/{id}",
+      "description": "Delete listitem by ID",
+      "operations": [
+        {
+          "httpMethod": "DELETE",
+          "nickname": "Delete_id_listId",
+          "responseClass": "Void",
+          "summary": "Delete listitem by ID",
+          "notes": "Deletes the specified listitem",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The unique identifier of the listitem to delete",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "listId",
+              "description": "The unique identifier of the list associated with a listitem to be deleted",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/listitems",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/common/listitems",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "CreateResponse": {
+      "id": "CreateResponse",
+      "displayName": "Response",
+      "properties": {
+        "ID": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ListItemGet": {
+      "id": "ListItemGet",
+      "displayName": "ListItem",
+      "properties": {
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level10Code": {
+          "description": "The item code for the tenth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level1Code": {
+          "description": "The item code for the first level of the list. All lists have at least a Level1Code. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level2Code": {
+          "description": "The item code for the second level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level3Code": {
+          "description": "The item code for the third level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level4Code": {
+          "description": "The item code for the fourth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level5Code": {
+          "description": "The item code for the fifth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level6Code": {
+          "description": "The item code for the sixth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level7Code": {
+          "description": "The item code for the seventh level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level8Code": {
+          "description": "The item code for the eighth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level9Code": {
+          "description": "The item code for the ninth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ListID": {
+          "description": "The unique identifier for the list this item is a member.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of item. Text maximum 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ParentID": {
+          "description": "The unique identifier of this item's parent. Is empty when there is no parent.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ListItemGetCollection": {
+      "id": "ListItemGetCollection",
+      "displayName": "ListItems",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "ListItemGet",
+            "displayName": "ListItem"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ListItemPost": {
+      "id": "ListItemPost",
+      "displayName": "ListItem",
+      "properties": {
+        "Level10Code": {
+          "description": "The item code for the tenth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level1Code": {
+          "description": "The item code for the first level of the list. All lists have at least a Level1Code. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Level2Code": {
+          "description": "The item code for the second level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level3Code": {
+          "description": "The item code for the third level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level4Code": {
+          "description": "The item code for the fourth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level5Code": {
+          "description": "The item code for the fifth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level6Code": {
+          "description": "The item code for the sixth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level7Code": {
+          "description": "The item code for the seventh level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level8Code": {
+          "description": "The item code for the eighth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Level9Code": {
+          "description": "The item code for the ninth level of the list. Empty when this level doesn't exist in the list. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ListID": {
+          "description": "The unique identifier for the list this item is a member.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Name": {
+          "description": "The name of item. Text maximum 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "ListItemPut": {
+      "id": "ListItemPut",
+      "displayName": "ListItem",
+      "properties": {
+        "Code": {
+          "description": "The item code of the listitem. Text maximum 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ListID": {
+          "description": "The unique identifier for the list this item is a member.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Name": {
+          "description": "The name of item. Text maximum 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

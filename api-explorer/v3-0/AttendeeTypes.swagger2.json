@@ -21,13 +21,15 @@
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/expense/attendeetypes": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all attendee types",
         "description": "Gets all active attendee types for the company.",
         "parameters": [
@@ -57,7 +59,9 @@
         }
       },
       "post": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new attendee type",
         "description": "Creates a new attendee type.",
         "parameters": [
@@ -83,7 +87,9 @@
     },
     "/expense/attendeetypes/{id}": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single attendee type by ID",
         "description": "Gets an attendee type by ID.",
         "parameters": [
@@ -105,7 +111,9 @@
         }
       },
       "delete": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete an attendee type by ID",
         "description": "Deletes the specified attendee type.",
         "parameters": [
@@ -127,7 +135,9 @@
         }
       },
       "put": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update an attendee type by ID",
         "description": "Updates the specified attendee type. Only the fields provided in the supplied object will be updated. Missing fields will not be altered.",
         "parameters": [
@@ -164,7 +174,7 @@
       "properties": {
         "AllowAttendeeCountEditing": {
           "type": "boolean",
-          "description": "Determines whether users are allowed to add attendees for this attendee type. Format: true or false"
+          "description": "Determines whether users are allowed to edit the count for this attendee type. Format: true or false"
         },
         "AllowManuallyEnteredAttendees": {
           "type": "boolean",
@@ -172,15 +182,15 @@
         },
         "AttendeeFormID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier for the attendee form for this attendee type."
         },
         "Code": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "A code that indicates the type of attendee. Examples: EMPLOYEE, SPOUSE, BUSGUEST. Maximum length: 40 characters"
         },
         "ConnectorID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier for the Application Connector that is the data source for this attendee type. When this field is empty, the Expense database is the data source."
         },
         "DuplicateSearchFields": {
           "type": "array",
@@ -192,15 +202,15 @@
         },
         "ID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier of the resource."
         },
         "Name": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The name for the attendee type. This name must be unique. Maximum length: 40 characters"
         },
         "URI": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The URI to the resource."
         }
       }
     },
@@ -208,7 +218,7 @@
       "properties": {
         "AllowAttendeeCountEditing": {
           "type": "boolean",
-          "description": "Determines whether users are allowed to add attendees for this attendee type. Format: true or false"
+          "description": "Determines whether users are allowed to edit the count for this attendee type. Format: true or false"
         },
         "AllowManuallyEnteredAttendees": {
           "type": "boolean",
@@ -216,15 +226,15 @@
         },
         "AttendeeFormID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier for the attendee form for this attendee type."
         },
         "Code": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "A code that indicates the type of attendee. Examples: EMPLOYEE, SPOUSE, BUSGUEST. Maximum length: 40 characters"
         },
         "ConnectorID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier for the Application Connector that is the data source for this attendee type. When this field is empty, the Expense database is the data source."
         },
         "DuplicateSearchFields": {
           "type": "array",
@@ -236,7 +246,7 @@
         },
         "Name": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The name for the attendee type. This name must be unique. Maximum length: 40 characters"
         }
       }
     },
@@ -244,7 +254,7 @@
       "properties": {
         "AllowAttendeeCountEditing": {
           "type": "boolean",
-          "description": "Determines whether users are allowed to add attendees for this attendee type. Format: true or false"
+          "description": "Determines whether users are allowed to edit the count for this attendee type. Format: true or false"
         },
         "AllowManuallyEnteredAttendees": {
           "type": "boolean",
@@ -252,15 +262,15 @@
         },
         "AttendeeFormID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier for the attendee form for this attendee type."
         },
         "Code": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "A code that indicates the type of attendee. Examples: EMPLOYEE, SPOUSE, BUSGUEST. Maximum length: 40 characters"
         },
         "ConnectorID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier for the Application Connector that is the data source for this attendee type. When this field is empty, the Expense database is the data source."
         },
         "DuplicateSearchFields": {
           "type": "array",
@@ -272,7 +282,7 @@
         },
         "Name": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The name for the attendee type. This name must be unique. Maximum length: 40 characters"
         }
       }
     },

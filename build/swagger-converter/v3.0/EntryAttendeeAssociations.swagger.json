@@ -1,0 +1,545 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "EntryAttendeeAssociations",
+  "apis": [
+    {
+      "path": "/expense/entryattendeeassociations",
+      "description": "Get all entry-attendee associations",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_entryID_offset_limit_user",
+          "responseClass": "EntryAttendeeAssociationCollection",
+          "summary": "Get all entry-attendee associations",
+          "notes": "Gets all entry-attendee associations owned by the user. These are the associations between an expense entry and an attendee.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "entryID",
+              "description": "The ID of the entry for which to retrieve entry-attendee associations.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The number of records to return. Default value: 25",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "25",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/entryattendeeassociations/{id}",
+      "description": "Get a single entry-attendee association by ID",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id_user",
+          "responseClass": "EntryAttendeeAssociationGet",
+          "summary": "Get a single entry-attendee association by ID",
+          "notes": "Gets an entry-attendee association by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the entry-attendee association.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/entryattendeeassociations",
+      "description": "Create a new entry-attendee association. This is the association between an expense entry and an attendee.",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_content_user",
+          "responseClass": "CreateResponse",
+          "summary": "Create a new entry-attendee association. This is the association between an expense entry and an attendee.",
+          "notes": "Creates a new entry-attendee association.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The EntryAttendeeAssociation object to create.",
+              "dataType": "EntryAttendeeAssociationPost",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/entryattendeeassociations/{id}",
+      "description": "Update an entry-attendee association by ID",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_id_content_user",
+          "responseClass": "Void",
+          "summary": "Update an entry-attendee association by ID",
+          "notes": "Updates the specified entry-attendee association. Only the fields provided in the supplied object will be updated. Missing fields will not be altered.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the entry-attendee association.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The partial or complete EntryAttendeeAssociation object to update.",
+              "dataType": "EntryAttendeeAssociationPut",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/entryattendeeassociations/{id}",
+      "description": "Delete an entry-attendee association by ID",
+      "operations": [
+        {
+          "httpMethod": "DELETE",
+          "nickname": "Delete_id_user",
+          "responseClass": "Void",
+          "summary": "Delete an entry-attendee association by ID",
+          "notes": "Deletes the specified entry-attendee association.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the entry-attendee association to delete.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/entryattendeeassociations",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/expense/entryattendeeassociations",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "CreateResponse": {
+      "id": "CreateResponse",
+      "displayName": "Response",
+      "properties": {
+        "ID": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Decimal": {
+      "id": "Decimal",
+      "displayName": null,
+      "properties": {}
+    },
+    "EntryAttendeeAssociationCollection": {
+      "id": "EntryAttendeeAssociationCollection",
+      "displayName": "EntryAttendeeAssociations",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "EntryAttendeeAssociationGet",
+            "displayName": "EntryAttendeeAssociation"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "EntryAttendeeAssociationGet": {
+      "id": "EntryAttendeeAssociationGet",
+      "displayName": "EntryAttendeeAssociation",
+      "properties": {
+        "Amount": {
+          "description": "The portion of the entry transaction amount assigned to this attendee.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AssociatedAttendeeCount": {
+          "description": "The count of additional attendees associated with this attendee. A count greater than 1 means there are unnamed attendees associated with this attendee.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AttendeeID": {
+          "description": "The unique identifier of the associated attendee. To obtain the attendee ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Attendees/Get_externalID_attendeeTypeID_offset_limit_user_get_0\">GET /expense/attendees</a> endpoint. The value of the ID element in the response is the attendee ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EntryID": {
+          "description": "The unique identifier of the associated entry. To obtain the attendee ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Entries/Get_reportID_paymentTypeID_batchID_isBillable_attendeeTypeCode_hasAttendees_hasVAT_expenseTypeCode_attendeeID_offset_limit_user_get_0\">GET /expense/entries</a> endpoint. The value of the ID element in the response is the entry ID. ",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "EntryAttendeeAssociationPost": {
+      "id": "EntryAttendeeAssociationPost",
+      "displayName": "EntryAttendeeAssociation",
+      "properties": {
+        "Amount": {
+          "description": "The portion of the entry transaction amount assigned to this attendee.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AssociatedAttendeeCount": {
+          "description": "The count of additional attendees associated with this attendee. A count greater than 1 means there are unnamed attendees associated with this attendee.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AttendeeID": {
+          "description": "The unique identifier of the associated attendee. To obtain the attendee ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Attendees/Get_externalID_attendeeTypeID_offset_limit_user_get_0\">GET /expense/attendees</a> endpoint. The value of the ID element in the response is the attendee ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EntryID": {
+          "description": "The unique identifier of the associated entry. To obtain the attendee ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Entries/Get_reportID_paymentTypeID_batchID_isBillable_attendeeTypeCode_hasAttendees_hasVAT_expenseTypeCode_attendeeID_offset_limit_user_get_0\">GET /expense/entries</a> endpoint. The value of the ID element in the response is the entry ID. ",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "EntryAttendeeAssociationPut": {
+      "id": "EntryAttendeeAssociationPut",
+      "displayName": "EntryAttendeeAssociation",
+      "properties": {
+        "Amount": {
+          "description": "The portion of the entry transaction amount assigned to this attendee.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AssociatedAttendeeCount": {
+          "description": "The count of additional attendees associated with this attendee. A count greater than 1 means there are unnamed attendees associated with this attendee.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Nullable`1": {
+      "id": "Nullable`1",
+      "displayName": null,
+      "properties": {
+        "HasValue": {
+          "description": null,
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": null,
+          "type": "Decimal",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

@@ -21,13 +21,15 @@
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/expense/allocations": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all allocations per entry or report",
         "description": "Gets all allocations per entry or report.",
         "parameters": [
@@ -66,6 +68,13 @@
             "description": "The unique identifier for the expense itemization.",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user who owns the allocation. The user must have the Web Services Admin role to use this parameter.",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -80,7 +89,9 @@
     },
     "/expense/allocations/{id}": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single allocation by ID",
         "description": "Gets a single allocation by ID.",
         "parameters": [
@@ -118,7 +129,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The URI of the next page of results, if any."
         }
       }
     },
@@ -126,11 +137,11 @@
       "properties": {
         "AccountCode1": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The primary accounting code assigned to the expense type associated with this allocation. Typically, expense types have only a primary account code."
         },
         "AccountCode2": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The secondary or alternative accounting code assigned to the expense type associated with this allocation."
         },
         "Custom1": {
           "$ref": "#/definitions/CustomFieldExtension"
@@ -194,15 +205,15 @@
         },
         "EntryID": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The unique identifier for the expense entry."
         },
         "ID": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The unique identifier of the resource."
         },
         "IsHidden": {
           "type": "boolean",
-          "description": "Indicates whether the percentage has been edited. Format: true or false"
+          "description": "Indicates whether the allocation is hidden. Format: true or false"
         },
         "IsPercentEdited": {
           "type": "boolean",
@@ -210,11 +221,11 @@
         },
         "Percentage": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The percentage of the expense that is included in this allocation."
         },
         "URI": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The URI to the resource."
         }
       }
     },
@@ -222,7 +233,7 @@
       "properties": {
         "Code": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "For list fields, this is the list item code."
         },
         "Label": {
           "type": "string",
@@ -230,15 +241,16 @@
         },
         "ListItemID": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "For list fields, this is the list item ID."
         },
         "Sequence": {
           "type": "integer",
+          "format": "int32",
           "description": "The sequence value for this custom field i.e. the order in which this field appears on the form."
         },
         "Type": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text"
         },
         "Value": {
           "type": "string",

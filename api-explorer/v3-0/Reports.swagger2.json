@@ -21,13 +21,15 @@
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/expense/reports": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Gets all reports",
         "description": "Returns all reports owned by the user based on the search criteria.",
         "parameters": [
@@ -302,7 +304,9 @@
         }
       },
       "post": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new report",
         "description": "Create a new report",
         "parameters": [
@@ -335,7 +339,9 @@
     },
     "/expense/reports/{id}": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Gets a single report by ID",
         "description": "Returns a report by ID.",
         "parameters": [
@@ -364,7 +370,9 @@
         }
       },
       "put": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update report",
         "description": "Updates report specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
         "parameters": [
@@ -407,12 +415,10 @@
     "CreateResponse": {
       "properties": {
         "ID": {
-          "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "type": "string"
         },
         "URI": {
-          "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "type": "string"
         }
       }
     },
@@ -420,19 +426,19 @@
       "properties": {
         "Code": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "For list fields, this is the list item code."
         },
         "ListItemID": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "For list fields, this is the list item ID."
         },
         "Type": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text"
         },
         "Value": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
         }
       }
     },
@@ -442,8 +448,7 @@
     "Nullable`1": {
       "properties": {
         "HasValue": {
-          "type": "boolean",
-          "description": "If Y, then this report has its receipt receipt confirmed by the Expense Processor. Format: Y/N"
+          "type": "boolean"
         },
         "Value": {
           "$ref": "#/definitions/Decimal"
@@ -457,7 +462,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The URI of the next page of results, if any."
         }
       }
     },
@@ -466,45 +471,45 @@
         "AmountDueCompanyCard": {
           "type": "number",
           "format": "double",
-          "description": "The total amount of all non-personal expenses in the report. Maximum 23 characters."
+          "description": "The total amount due to the company card for the report. Maximum 23 characters."
         },
         "AmountDueEmployee": {
           "type": "number",
           "format": "double",
-          "description": "The total amount of all non-personal expenses in the report. Maximum 23 characters."
+          "description": "The total amount due to the employee for the report. Maximum 23 characters."
         },
         "ApprovalStatusCode": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The approval status code for the report."
         },
         "ApprovalStatusName": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The report's approval status, in the OAuth consumer's language."
         },
         "ApproverLoginID": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The Login ID of the report owner's expense approver."
         },
         "ApproverName": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The name of the report owner's expense approver."
         },
         "Country": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The report country. Maximum 2 characters. Format: The ISO 3166-1 alpha-2 country code. Example: United States is US."
         },
         "CountrySubdivision": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The report country subdivision.  Format: ISO 3166-2:2007 country subdivision."
         },
         "CreateDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date of the report assigned by the user."
+          "description": "The date the report was created."
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\\\">3-letter ISO 4217 currency code</a> for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona."
         },
         "Custom1": {
           "$ref": "#/definitions/CustomField"
@@ -568,32 +573,32 @@
         },
         "EverSentBack": {
           "type": "boolean",
-          "description": "If Y, then this report has its receipt receipt confirmed by the Expense Processor. Format: Y/N"
+          "description": "Whether the report has ever been sent back to the employee. Format: Y/N"
         },
         "HasException": {
           "type": "boolean",
-          "description": "If Y, then this report has its receipt receipt confirmed by the Expense Processor. Format: Y/N"
+          "description": "Whether the report has exceptions. Format: Y/N "
         },
         "ID": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The unique identifier of the resource."
         },
         "LastComment": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The text of the most recent comment on the report."
         },
         "LastModifiedDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date of the report assigned by the user."
+          "description": "The date the report header was last modified."
         },
         "LedgerName": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The name of the expense report ledger. Maximum 20 characters."
         },
         "Name": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The name of the report."
         },
         "OrgUnit1": {
           "$ref": "#/definitions/CustomField"
@@ -615,38 +620,38 @@
         },
         "OwnerLoginID": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The Login ID of the user this report belongs to."
         },
         "OwnerName": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The name of the expense report owner."
         },
         "PaidDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date of the report assigned by the user."
+          "description": "The date when all journal entries in the report was integrated with or extracted to the financial system."
         },
         "PaymentStatusCode": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The code for the payment status of the report."
         },
         "PaymentStatusName": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The report's payment status, in the OAuth consumer's language."
         },
         "PersonalAmount": {
           "type": "number",
           "format": "double",
-          "description": "The total amount of all non-personal expenses in the report. Maximum 23 characters."
+          "description": "The total amount of expenses marked as personal. Maximum 23 characters."
         },
         "PolicyID": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The unique identifier of the policy that applies to this report. Maximum 64 characters."
         },
         "ProcessingPaymentDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date of the report assigned by the user."
+          "description": "The date that the report completed all approvals and was ready to be extracted for payment."
         },
         "ReceiptsReceived": {
           "type": "boolean",
@@ -655,17 +660,17 @@
         "SubmitDate": {
           "type": "string",
           "format": "date-time",
-          "description": "The date of the report assigned by the user."
+          "description": "The date the report was submitted."
         },
         "Total": {
           "type": "number",
           "format": "double",
-          "description": "The total amount of all non-personal expenses in the report. Maximum 23 characters."
+          "description": "The total amount of the report."
         },
         "TotalApprovedAmount": {
           "type": "number",
           "format": "double",
-          "description": "The total amount of all non-personal expenses in the report. Maximum 23 characters."
+          "description": "The total amount of approved expenses in the report. Maximum 23 characters."
         },
         "TotalClaimedAmount": {
           "type": "number",
@@ -674,7 +679,7 @@
         },
         "URI": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The URI to the resource."
         },
         "UserDefinedDate": {
           "type": "string",
@@ -683,7 +688,7 @@
         },
         "WorkflowActionUrl": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The URL to post a workflow action to the report using the Post Report Workflow Action function."
         }
       }
     },
@@ -691,119 +696,119 @@
       "properties": {
         "Comment": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The report header comment. Maximum length: 500."
         },
         "Custom1": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom2": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom3": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom4": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom5": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom6": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom7": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom8": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom9": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Name": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The name of the report."
         },
         "OrgUnit1": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit2": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit3": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit4": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit5": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit6": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration."
         },
         "PolicyID": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The unique identifier for the policy.  This is the protected, Policy Key"
         },
         "Purpose": {
           "type": "string",
@@ -820,119 +825,119 @@
       "properties": {
         "Comment": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The report header comment. Maximum length: 500."
         },
         "Custom1": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom2": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom3": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom4": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom5": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom6": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom7": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom8": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom9": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Name": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The name of the report."
         },
         "OrgUnit1": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit2": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit3": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit4": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit5": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit6": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The details from the Org Unit fields. These may not have data, depending on configuration."
         },
         "PolicyID": {
           "type": "string",
-          "description": "The business purpose of the report. Maximum length: 500."
+          "description": "The unique identifier for the policy.  This is the protected, Policy Key"
         },
         "Purpose": {
           "type": "string",

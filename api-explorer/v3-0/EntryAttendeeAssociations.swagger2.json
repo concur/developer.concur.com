@@ -21,13 +21,15 @@
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/expense/entryattendeeassociations": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all entry-attendee associations",
         "description": "Gets all entry-attendee associations owned by the user. These are the associations between an expense entry and an attendee.",
         "parameters": [
@@ -71,7 +73,9 @@
         }
       },
       "post": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new entry-attendee association. This is the association between an expense entry and an attendee.",
         "description": "Creates a new entry-attendee association.",
         "parameters": [
@@ -104,7 +108,9 @@
     },
     "/expense/entryattendeeassociations/{id}": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single entry-attendee association by ID",
         "description": "Gets an entry-attendee association by ID.",
         "parameters": [
@@ -133,7 +139,9 @@
         }
       },
       "put": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update an entry-attendee association by ID",
         "description": "Updates the specified entry-attendee association. Only the fields provided in the supplied object will be updated. Missing fields will not be altered.",
         "parameters": [
@@ -171,7 +179,9 @@
         }
       },
       "delete": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete an entry-attendee association by ID",
         "description": "Deletes the specified entry-attendee association.",
         "parameters": [
@@ -205,12 +215,10 @@
     "CreateResponse": {
       "properties": {
         "ID": {
-          "type": "string",
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration."
+          "type": "string"
         },
         "URI": {
-          "type": "string",
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration."
+          "type": "string"
         }
       }
     },
@@ -224,7 +232,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration."
+          "description": "The URI of the next page of results, if any."
         }
       }
     },
@@ -242,7 +250,7 @@
         },
         "AttendeeID": {
           "type": "string",
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration."
+          "description": "The unique identifier of the associated attendee. To obtain the attendee ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Attendees/Get_externalID_attendeeTypeID_offset_limit_user_get_0\">GET /expense/attendees</a> endpoint. The value of the ID element in the response is the attendee ID."
         },
         "Custom1": {
           "type": "string",
@@ -266,15 +274,15 @@
         },
         "EntryID": {
           "type": "string",
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration."
+          "description": "The unique identifier of the associated entry. To obtain the attendee ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Entries/Get_reportID_paymentTypeID_batchID_isBillable_attendeeTypeCode_hasAttendees_hasVAT_expenseTypeCode_attendeeID_offset_limit_user_get_0\">GET /expense/entries</a> endpoint. The value of the ID element in the response is the entry ID. "
         },
         "ID": {
           "type": "string",
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration."
+          "description": "The unique identifier of the resource."
         },
         "URI": {
           "type": "string",
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration."
+          "description": "The URI to the resource."
         }
       }
     },
@@ -292,7 +300,7 @@
         },
         "AttendeeID": {
           "type": "string",
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration."
+          "description": "The unique identifier of the associated attendee. To obtain the attendee ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Attendees/Get_externalID_attendeeTypeID_offset_limit_user_get_0\">GET /expense/attendees</a> endpoint. The value of the ID element in the response is the attendee ID."
         },
         "Custom1": {
           "type": "string",
@@ -316,7 +324,7 @@
         },
         "EntryID": {
           "type": "string",
-          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration."
+          "description": "The unique identifier of the associated entry. To obtain the attendee ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Entries/Get_reportID_paymentTypeID_batchID_isBillable_attendeeTypeCode_hasAttendees_hasVAT_expenseTypeCode_attendeeID_offset_limit_user_get_0\">GET /expense/entries</a> endpoint. The value of the ID element in the response is the entry ID. "
         }
       }
     },
