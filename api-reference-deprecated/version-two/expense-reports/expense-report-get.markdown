@@ -649,10 +649,10 @@ Content-Type: application/xml
 ```
 
 
-[1]: http://en.wikipedia.org/wiki/ISO_4217
+[1]: https://en.wikipedia.org/wiki/ISO_4217
 [2]: https://developer.concur.com/expense-report/expense-report-resource/post-report-exceptions
-[3]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-[4]: http://en.wikipedia.org/wiki/ISO_3166-2
+[3]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+[4]: https://en.wikipedia.org/wiki/ISO_3166-2
 [5]: https://developer.concur.com/users/users-resource/user-resource-get
 [6]: https://developer.concur.com/expense-report/expense-group-configuration-resource/expense-group-configuration-resource-get
 [7]: https://developer.concur.com/api-documentation/deprecated-features/get-list-reports-v20
