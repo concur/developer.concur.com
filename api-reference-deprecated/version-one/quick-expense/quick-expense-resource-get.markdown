@@ -155,6 +155,6 @@ The QuickExpense child element contains details of the quick expense.
 
 
 
-[1]: /api-reference/expense/quick-expense/quick-expense-resource.html
+[1]: /api-reference/expense/quick-expense/
 [2]: https://developer.concur.com/reference/http-codes
 [3]: http://en.wikipedia.org/wiki/ISO_4217
