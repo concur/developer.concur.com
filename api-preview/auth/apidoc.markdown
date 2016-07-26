@@ -7,7 +7,7 @@ layout: reference
 # Authentication API (Preview)
 
 * [Overview]()
-* [Tokens](#access_token)
+* [Tokens](#accesstoken)
   * [Obtaining a token](#obtain_token)
   * [Refreshing a token](#refresh_token)
   * [Revoking a token](#revoke_token)
@@ -20,7 +20,7 @@ layout: reference
   * [One time password grant](#otp_grant)
 
 
-## <a name=“access_token”></a>Access Tokens
+## <a name=“accesstoken”></a>Access Tokens
 
 
 The Oauth2 service generates access tokens for authenticated users, applications or companies. The tokens are created using the JSON Web Token (JWT) format.
