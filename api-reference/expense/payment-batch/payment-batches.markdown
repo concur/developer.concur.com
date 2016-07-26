@@ -68,7 +68,7 @@ Name | Type | Format | Description
 
 This request closes the specified batch, preventing any new expenses from entering it. After the batch closes, Concur creates the batch file containing the expense transaction information. If a batch ID for an already closed batch is sent, Concur regenerates the batch file for the specified batch.
 
-    POST /expense/paymentbatch/v1.2/batch/{BatchID}/close
+    POST /expense/paymentbatch/v1.2/batch/{BatchID}/closed
 
 
 ### Parameters
