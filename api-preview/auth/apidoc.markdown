@@ -62,7 +62,8 @@ json
 
 An access token has a one hour lifetime.
 
-## <a name=“obtain_token”></a>Obtaining a token
+## <a name="obtain_token"></a>Obtaining a token
+
 
 * For a User
 * For an Application
