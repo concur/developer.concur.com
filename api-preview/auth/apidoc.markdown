@@ -35,7 +35,8 @@ Name | Type | Format | Description
 
 **Token Response**
 
-```http
+```
+http
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: date-requested
@@ -43,7 +44,8 @@ Content-Length: 3397
 Connection: Close
 ```
 
-```json
+```
+json
 {
 	"expires_in": "3600",
 	"scope": "app-scopes",
@@ -91,7 +93,8 @@ Name | Type | Format | Description
 
 **Request**
 
-```http
+```
+http
 
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
@@ -117,7 +120,8 @@ Content-Length: 3397
 Connection: Close
 ```
 
-```json
+```
+json
 
 {
   "expires_in": "3600",
@@ -172,7 +176,8 @@ client_id=your-client_id
 
 **Response**
 
-````http
+```
+http
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: date-requested
@@ -180,7 +185,8 @@ Content-Length: 3397
 Connection: Close
 ```
 
-```json
+```
+json
 {
 	"expires_in": "3600",
 	"scope": "app-scopes",
@@ -214,7 +220,8 @@ Connection: Close
 
 example bad login
 
-```json
+```
+json
 {
   "error": "invalid_grant",
   "error_description": "Incorrect Credentials. Please Retry",
@@ -243,7 +250,8 @@ Name | Type | Format | Description
 
 **Request**
 
-```http
+```
+http
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: us.api.concursolutions.com
@@ -255,7 +263,8 @@ client_id=your-client_id&client_secret=your-client_secret&grant_type=client_cred
 
 **Response**
 
-```json
+```
+json
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: date-requested
@@ -312,7 +321,8 @@ If the calling application chooses to send custom parameters, all of these exact
 
 **Request**
 
-```http
+```
+http
 
 POST /oauth2/v0/otp HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
@@ -329,14 +339,16 @@ client_id=your-client_id
 
 **Response**
 
-```http
+```
+http
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 22
 Date: date-requested
 ```
 
-```json
+```
+json
 {"message":"otp sent"}
 ```
 
@@ -378,7 +390,8 @@ Name | Type | Format | Description
 
 **Request**
 
-```http
+```
+http
 
 POST /oauth2/v0/otp HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
@@ -398,14 +411,16 @@ client_id=your-client_id
 
 **Response**
 
-```http
+```
+http
 HTTP/1.1 200 OK
 Date: date-requested
 Content-Length: 1490
 Connection: keep-alive
 ```
 
-```json
+```
+json
 {
 	"expires_in": "3600",
 	"scope": "scopes-defined",
