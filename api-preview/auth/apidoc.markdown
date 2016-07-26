@@ -20,7 +20,7 @@ layout: reference
   * [One time password grant](#otp_grant)
 
 
-## <a name=access_token></a>Access Tokens
+## <a name=“access_token”></a>Access Tokens
 
 
 The Oauth2 service generates access tokens for authenticated users, applications or companies. The tokens are created using the JSON Web Token (JWT) format.
@@ -62,13 +62,13 @@ json
 
 An access token has a one hour lifetime.
 
-## <a name=obtain_token></a>Obtaining a token
+## <a name=“obtain_token”></a>Obtaining a token
 
 * For a User
 * For an Application
 * For a Company
 
-## <a name=refresh_token></a>Refreshing a token
+## <a name=“refresh_token”></a>Refreshing a token
 
 
 The refresh grant is used to refresh an access_token that has expired. This grant can be used anytime a refresh_token is returned in the response of another grant request. No user interaction is required.
@@ -138,21 +138,21 @@ json
 ```
 
 
-## <a name=revoke_token></a>Revoking a token
+## <a name=“revoke_token”></a>Revoking a token
 
 
-## <a name=manage_token></a>Managing tokens
+## <a name=“manage_token”></a>Managing tokens
 
 
 refresh token 28char
 
-## <a name=auth_grant></a>Authorization grant
+## <a name=“auth_grant”></a>Authorization grant
 
 
-## <a name=implicit_grant></a>Implicit grant
+## <a name=“implicit_grant”></a>Implicit grant
 
 
-## <a name=password_grant></a>Password grant
+## <a name=“password_grant”></a>Password grant
 
 
 The Password grant can be used when there is a trust relationship between the user and the application. The application either already has the user's credentials or can obtain the user's credentials by directly interacting with the user.
@@ -238,7 +238,7 @@ json
 }
 ```
 
-## <a name=client_credentials></a>Client Credentials grant
+## <a name=“client_credentials”></a>Client Credentials grant
 
 
 **Overview**
@@ -289,7 +289,7 @@ Connection: Close
 }
 ```
 
-## <a name=otp_grant></a>One Time Password grant
+## <a name=“otp_grant”></a>One Time Password grant
 
 
 The One-time Password grant type leverages email, phone (text messaging), instant messaging and similar systems to provide per user access tokens to client applications. This grant type requires the following steps:
