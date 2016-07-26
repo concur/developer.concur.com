@@ -1,5 +1,5 @@
 ---
-title: Authentication API (Preview) 
+title: Authentication API 
 layout: reference
 ---
 
