@@ -1,0 +1,441 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "AttendeeTypes",
+  "apis": [
+    {
+      "path": "/expense/attendeetypes",
+      "description": "Get all attendee types",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_offset_limit",
+          "responseClass": "AttendeeTypesCollection",
+          "summary": "Get all attendee types",
+          "notes": "Gets all active attendee types for the company.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The number of records to return. Default value: 25",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "25",
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/attendeetypes/{id}",
+      "description": "Get a single attendee type by ID",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id",
+          "responseClass": "AttendeeTypeGet",
+          "summary": "Get a single attendee type by ID",
+          "notes": "Gets an attendee type by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the attendee type.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/attendeetypes/{id}",
+      "description": "Delete an attendee type by ID",
+      "operations": [
+        {
+          "httpMethod": "DELETE",
+          "nickname": "Delete_id",
+          "responseClass": "Void",
+          "summary": "Delete an attendee type by ID",
+          "notes": "Deletes the specified attendee type.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the attendee type to delete.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/attendeetypes",
+      "description": "Create a new attendee type",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_content",
+          "responseClass": "CreateResponse",
+          "summary": "Create a new attendee type",
+          "notes": "Creates a new attendee type.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The AttendeeType object to create.",
+              "dataType": "AttendeeTypePost",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/attendeetypes/{id}",
+      "description": "Update an attendee type by ID",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_id_content",
+          "responseClass": "Void",
+          "summary": "Update an attendee type by ID",
+          "notes": "Updates the specified attendee type. Only the fields provided in the supplied object will be updated. Missing fields will not be altered.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the attendee type.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The partial or complete AttendeeType object to update.",
+              "dataType": "AttendeeTypePut",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/attendeetypes",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/expense/attendeetypes",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "AttendeeTypeGet": {
+      "id": "AttendeeTypeGet",
+      "displayName": "AttendeeType",
+      "properties": {
+        "AllowAttendeeCountEditing": {
+          "description": "Determines whether users are allowed to edit the count for this attendee type. Format: true or false",
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "AllowManuallyEnteredAttendees": {
+          "description": "Determines whether users are allowed to add attendees for this attendee type. Format: true or false",
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "AttendeeFormID": {
+          "description": "The unique identifier for the attendee form for this attendee type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Code": {
+          "description": "A code that indicates the type of attendee. Examples: EMPLOYEE, SPOUSE, BUSGUEST. Maximum length: 40 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ConnectorID": {
+          "description": "The unique identifier for the Application Connector that is the data source for this attendee type. When this field is empty, the Expense database is the data source.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "DuplicateSearchFields": {
+          "description": "The list of Attendee field IDs used by the Add Attendee user interface to alert users that the attendee they want to add is a possible duplicate. This parent element has a DuplicateSearchField child element for each field ID.",
+          "type": "Array",
+          "items": {
+            "type": "string",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": true
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name for the attendee type. This name must be unique. Maximum length: 40 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "AttendeeTypePost": {
+      "id": "AttendeeTypePost",
+      "displayName": "AttendeeType",
+      "properties": {
+        "AllowAttendeeCountEditing": {
+          "description": "Determines whether users are allowed to edit the count for this attendee type. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AllowManuallyEnteredAttendees": {
+          "description": "Determines whether users are allowed to add attendees for this attendee type. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AttendeeFormID": {
+          "description": "The unique identifier for the attendee form for this attendee type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Code": {
+          "description": "A code that indicates the type of attendee. Examples: EMPLOYEE, SPOUSE, BUSGUEST. Maximum length: 40 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ConnectorID": {
+          "description": "The unique identifier for the Application Connector that is the data source for this attendee type. When this field is empty, the Expense database is the data source.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DuplicateSearchFields": {
+          "description": "The list of Attendee field IDs used by the Add Attendee user interface to alert users that the attendee they want to add is a possible duplicate. This parent element has a DuplicateSearchField child element for each field ID.",
+          "type": "Array",
+          "items": {
+            "type": "string",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": true
+        },
+        "Name": {
+          "description": "The name for the attendee type. This name must be unique. Maximum length: 40 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "AttendeeTypePut": {
+      "id": "AttendeeTypePut",
+      "displayName": "AttendeeType",
+      "properties": {
+        "AllowAttendeeCountEditing": {
+          "description": "Determines whether users are allowed to edit the count for this attendee type. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AllowManuallyEnteredAttendees": {
+          "description": "Determines whether users are allowed to add attendees for this attendee type. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AttendeeFormID": {
+          "description": "The unique identifier for the attendee form for this attendee type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Code": {
+          "description": "A code that indicates the type of attendee. Examples: EMPLOYEE, SPOUSE, BUSGUEST. Maximum length: 40 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ConnectorID": {
+          "description": "The unique identifier for the Application Connector that is the data source for this attendee type. When this field is empty, the Expense database is the data source.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DuplicateSearchFields": {
+          "description": "The list of Attendee field IDs used by the Add Attendee user interface to alert users that the attendee they want to add is a possible duplicate. This parent element has a DuplicateSearchField child element for each field ID.",
+          "type": "Array",
+          "items": {
+            "type": "string",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name for the attendee type. This name must be unique. Maximum length: 40 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "AttendeeTypesCollection": {
+      "id": "AttendeeTypesCollection",
+      "displayName": "AttendeeTypes",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "AttendeeTypeGet",
+            "displayName": "AttendeeType"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "CreateResponse": {
+      "id": "CreateResponse",
+      "displayName": "Response",
+      "properties": {
+        "ID": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

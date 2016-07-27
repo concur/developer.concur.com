@@ -1,0 +1,1197 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "Vendors",
+  "apis": [
+    {
+      "path": "/invoice/vendors",
+      "description": "Retrieves an existing vendor.",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_limit_offset_sortDirection_sortBy_searchType_vendorCode_vendorName_taxID_buyerAccountNumber_addressCode_address1_address2_address3_city_state_postalCode_approved_country_custom1_custom2_custom3_custom4_custom5_custom6_custom7_custom8_custom9_custom10_custom11_custom12_custom13_custom14_custom15_custom16_custom17_custom18_custom19_custom20",
+          "responseClass": "VendorCollection",
+          "summary": "Retrieves an existing vendor.",
+          "notes": "Gets an existing vendor.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The maximum number of items to be returned in a  response. The default is 25 and cannot exceed 1000.",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "Specifies the starting point for the next query when iterating through the collection response.  Use with paged collections of resources.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "sortDirection",
+              "description": "ascending or descending, The default value will be ascending.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "sortBy",
+              "description": "Field you need to the results to be sorted by. Vendor Name will be made default if no value is sent. Only fields that are added to the vendor form can be used here. Fields have to be specified by name as specified in Doc.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "searchType",
+              "description": "Valid Options - exact, begins, contains and ends - Applies for the entire given search parameters. The default value if not sent is exact.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "vendorCode",
+              "description": "Vendor Code to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "vendorName",
+              "description": "Vendor Name to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "taxID",
+              "description": "Tax ID to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "buyerAccountNumber",
+              "description": "Buyer Account Number to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "addressCode",
+              "description": "Address Code to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "address1",
+              "description": "Address 1 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "address2",
+              "description": "Address 2 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "address3",
+              "description": "Address 3 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "city",
+              "description": "City to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "state",
+              "description": "State to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "postalCode",
+              "description": "Postal Code to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "approved",
+              "description": "Find Approved/Un Approved Vendors , True/False",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "country",
+              "description": "Country to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom1",
+              "description": "Custom 1 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom2",
+              "description": "Custom 2 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom3",
+              "description": "Custom 3 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom4",
+              "description": "Custom 4 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom5",
+              "description": "Custom 5 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom6",
+              "description": "Custom 6 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom7",
+              "description": "Custom 7 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom8",
+              "description": "Custom 8 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom9",
+              "description": "Custom 9 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom10",
+              "description": "Custom 10 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom11",
+              "description": "Custom 11 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom12",
+              "description": "Custom 12 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom13",
+              "description": "Custom 13 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom14",
+              "description": "Custom 14 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom15",
+              "description": "Custom 15 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom16",
+              "description": "Custom 16 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom17",
+              "description": "Custom 17 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom18",
+              "description": "Custom 18 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom19",
+              "description": "Custom 19 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "custom20",
+              "description": "Custom 20 to be searched",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/vendors",
+      "description": "Create vendor/s and returns the status of creation.",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_vendors",
+          "responseClass": "VendorCollection",
+          "summary": "Create vendor/s and returns the status of creation.",
+          "notes": "Create vendor/s and returns the status of creation.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "vendors",
+              "description": "The vendor details.",
+              "dataType": "VendorCollection",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/vendors",
+      "description": "Updates existing vendor/s and returns the status of creation.",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_vendors",
+          "responseClass": "VendorCollection",
+          "summary": "Updates existing vendor/s and returns the status of creation.",
+          "notes": "Updates existing vendor/s and returns the status of creation.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "vendors",
+              "description": "The vendor details.",
+              "dataType": "VendorCollection",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/vendors",
+      "description": "Delete a vendor by Vendor Code and Address Code.",
+      "operations": [
+        {
+          "httpMethod": "DELETE",
+          "nickname": "Delete_vendorCode_addressCode",
+          "responseClass": "VendorCollection",
+          "summary": "Delete a vendor by Vendor Code and Address Code.",
+          "notes": "Delete a vendor by Vendor Code and Address Code.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "vendorCode",
+              "description": "Vendor Code to be deleted",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "addressCode",
+              "description": "Address Code to be deleted",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/vendors",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/invoice/vendors",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "Status": {
+      "id": "Status",
+      "displayName": null,
+      "properties": {
+        "Code": {
+          "description": "Code of request result",
+          "type": "int",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Message": {
+          "description": "Message of request result",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RecordNumber": {
+          "description": "Record Number for create/update request.",
+          "type": "int",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Type": {
+          "description": "Type request result",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Vendor": {
+      "id": "Vendor",
+      "displayName": "Vendor",
+      "properties": {
+        "AccountNumber": {
+          "description": "The Buyer Account Number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Address1": {
+          "description": "The Vendor Address 1.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Address2": {
+          "description": "The Vendor Address 2.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Address3": {
+          "description": "The Vendor Address 3.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AddressCode": {
+          "description": "The Address Code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AddressImportSyncID": {
+          "description": "This ID is originally generated by Invoice when an employee requests a new vendor. The Employee Request Vendor Extract provides this value to positively identify the vendor address record when reimporting vendor from the client's system of record for the Vendor Master List.  ",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Approved": {
+          "description": "Vendor Approval Status.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "City": {
+          "description": "The Vendor City.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ContactEmail": {
+          "description": "The Vendor Contact Email.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ContactFirstName": {
+          "description": "The Vendor Contact First Name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ContactLastName": {
+          "description": "The Vendor Contact Last Name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ContactPhoneNumber": {
+          "description": "The Vendor Contact Phone Number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Country": {
+          "description": "The Vendor Country.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CountryCode": {
+          "description": "The Vendor Country Code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The Vendor Currency Code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "A value that can be applied to a custom field 1 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "A value that can be applied to a custom field 10 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "A value that can be applied to a custom field 11 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "A value that can be applied to a custom field 12 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "A value that can be applied to a custom field 13 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "A value that can be applied to a custom field 14 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "A value that can be applied to a custom field 15 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "A value that can be applied to a custom field 16 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "A value that can be applied to a custom field 17 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "A value that can be applied to a custom field 18 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "A value that can be applied to a custom field 19 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "A value that can be applied to a custom field 2 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "A value that can be applied to a custom field 20 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "A value that can be applied to a custom field 3 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "A value that can be applied to a custom field 4 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "A value that can be applied to a custom field 5 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "A value that can be applied to a custom field 6 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "A value that can be applied to a custom field 7 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "A value that can be applied to a custom field 8 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "A value that can be applied to a custom field 9 that is part of the vendor form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DefaultEmployeeID": {
+          "description": "The Default Employee ID of the employee connected to the vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DefaultExpenseTypeName": {
+          "description": "The Default Expense Type tied to the vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DiscountPercentage": {
+          "description": "The Discount Percentage.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DiscountTermsDays": {
+          "description": "The Vendor Discount Terms Days.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsLineItemVatIncld": {
+          "description": "Line item Unit Price Contains VAT",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsVisibleForContentExtraction": {
+          "description": "Flag that indicates if the vendor will be available for OCR within Brainware ",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentMethodType": {
+          "description": "Preferred Payment Type for Vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentTerms": {
+          "description": "The Vendor Payment Terms.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PostalCode": {
+          "description": "The Vendor Postal Code / Zip.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ProvincialTaxID": {
+          "description": "The Vendor Provincial Tax ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderContactEmail": {
+          "description": "The Purchase Order Contact Email.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderContactFirstName": {
+          "description": "The Purchase Order Contact First Name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderContactLastName": {
+          "description": "The Purchase Order Contact Last Name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderContactPhoneNumber": {
+          "description": "The Purchase Order Contact Phone Number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShippingMethod": {
+          "description": "The Vendor Shipping Method.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShippingTerms": {
+          "description": "The Vendor Shipping Terms.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "State": {
+          "description": "The Vendor State.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StatusList": {
+          "description": "Status results",
+          "type": "Array",
+          "items": {
+            "$ref": "Status",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": true
+        },
+        "TaxID": {
+          "description": "The Vendor Tax ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxType": {
+          "description": "The Vendor Tax Type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorBankList": {
+          "description": "The list of a vendor's active banking information.",
+          "type": "Array",
+          "items": {
+            "$ref": "VendorBank",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorCode": {
+          "description": "The vendor code of the request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorFormName": {
+          "description": "The vendor form name this vendor is associated with.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorGroupList": {
+          "description": "The list of vendor groups by name.",
+          "type": "Array",
+          "items": {
+            "type": "string",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorName": {
+          "description": "The name of the vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VoucherNotes": {
+          "description": "Notes sent to Vendor along with authorization to charge Card Voucher.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "VendorBank": {
+      "id": "VendorBank",
+      "displayName": null,
+      "properties": {
+        "AccountNumber": {
+          "description": "The account number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "AccountType": {
+          "description": "The account type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "AddressCode": {
+          "description": "The Address Code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "BankCode": {
+          "description": "Bank Code",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "BankName": {
+          "description": "The bank name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "BranchCode": {
+          "description": "Branch Code",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "BranchLocation": {
+          "description": "The branch location",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CountryCode": {
+          "description": "The country code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyAlphaCode": {
+          "description": "The currency alpha Code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsActive": {
+          "description": "Is information active",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "NameOnAccount": {
+          "description": "The name on the account.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "RoutingNumber": {
+          "description": "The routing number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StatusList": {
+          "description": "Status results",
+          "type": "Array",
+          "items": {
+            "$ref": "Status",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "TransType": {
+          "description": "The trans type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorCode": {
+          "description": "The vendor code of the request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "VendorCollection": {
+      "id": "VendorCollection",
+      "displayName": "Vendors",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "Vendor",
+            "displayName": "Vendor"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestRunSummary": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalCount": {
+          "description": null,
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Vendor": {
+          "description": "Vendor",
+          "type": "Array",
+          "items": {
+            "$ref": "Vendor",
+            "displayName": "Vendor"
+          },
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    }
+  }
+}

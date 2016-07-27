@@ -1,0 +1,201 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "Opportunities",
+  "apis": [
+    {
+      "path": "/insights/opportunities",
+      "description": "Gets a collection of opportunities for a specified trip or for all trips that fall within a date range",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_tripId_opportunityType_fromUtc_toUtc",
+          "responseClass": "Opportunities",
+          "summary": "Gets a collection of opportunities for a specified trip or for all trips that fall within a date range",
+          "notes": "Gets a collection of opportunities for a specified trip or for all trips that fall within a date range. Specify values for fromUtc and toUtc to get opportunities for a range of trips. Specify only tripId to get opportunities for a single trip. Specify OpportunityType to filter results by the specified opportunity types.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "tripId",
+              "description": "The trip id",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "opportunityType",
+              "description": "Comma seperated list of opportunities (Hotel, Car, Air, Rail, Taxi and Service) to get. Do not specify any values to get all opportunities",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "fromUtc",
+              "description": "The From date in UTC for the date range",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "toUtc",
+              "description": "The To date in UTC for the date range",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/insights/opportunities",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/insights/opportunities",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "Opportunities": {
+      "id": "Opportunities",
+      "displayName": "Opportunities",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "Opportunity",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Opportunity": {
+      "id": "Opportunity",
+      "displayName": null,
+      "properties": {
+        "EndCityCode": {
+          "description": "The city code of the destination city where the opportunity is offered",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EndDateLocal": {
+          "description": "The local end date of the location where the opportunity is offered",
+          "type": "datetime",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EndPostalCode": {
+          "description": "The postal code of the destination location where the opportunity is offered",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsActive": {
+          "description": "Indicates that the opportunity is currently active",
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StartCityCode": {
+          "description": "The city code of the originating city where the opportunity is offered",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StartDateLocal": {
+          "description": "The local start date of the location where the opportunity is offered",
+          "type": "datetime",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StartPostalCode": {
+          "description": "The postal code of the originating location where the opportunity is offered",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TripId": {
+          "description": "The trip id of the associated itinerary",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Type": {
+          "description": "The type of opportunity",
+          "type": "string",
+          "items": null,
+          "allowableValues": {
+            "valueType": "LIST",
+            "values": [
+              "Hotel",
+              "Car",
+              "Air",
+              "Rail",
+              "Taxi",
+              "Service"
+            ],
+            "min": null,
+            "max": null
+          },
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    }
+  }
+}

@@ -54,4 +54,4 @@ The full list of possible HTTP error codes can be found [here][2]. The table bel
 
 
 [1]: mailto:concurconnecttech@concur.com
-[2]: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+[2]: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html

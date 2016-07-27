@@ -7,7 +7,7 @@ layout: reference
 
 These guides are intended to help you gain a better understanding of our APIs in specific use cases and workflows. Please read the Getting Started section below first.  
 
-As we are currently in the process of creating more documents of this type, please feel free to provide us with feedback and suggestions in our [Developer Forums](http://forum.developer.concur.com/c/apis/api-guides).
+As we are currently in the process of creating more documents of this type, please feel free to provide us with feedback and suggestions in our [Developer Forums](https://forum.developer.concur.com/c/apis/api-guides).
 
 
 # Getting Started With Partner Applications

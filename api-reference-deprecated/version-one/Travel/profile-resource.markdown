@@ -973,4 +973,4 @@ Content-Type: application/xml
 [5]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
 [6]: http://concur.github.io/developer.concur.com/api-reference/user/company-notification-subscription-resource
 [7]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/user-notification-resource
-[8]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-
+[8]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2

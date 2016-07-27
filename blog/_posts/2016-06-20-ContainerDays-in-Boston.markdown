@@ -23,11 +23,11 @@ Our Takeaway from ContainerDays:
 
 + Orchestrating containers in high-availability cluster is on its early stage with many new features and improvement coming out everyday from both industry and academia (like this session: [Understanding Cluster Schedulers, and Why You'll Want a Better One](https://docs.google.com/presentation/d/1LI7rlrij9CmPvkKe2NUbPPY90NnB-Lhqn3ga5b1XZd4/pub?start=false&loop=false) by Ionel Gog, University of Cambridge & Malte Schwarzkopf, MIT). It has been the most sought-after topic during this conference.  
 
-+ Community sees the emerging pattern from many success stories using containers in design, build, testing, deployment, and operation of the Twelve-Factor App. The first talk of the conference, [From Hello World to Real World: Creating a Production-Grade Container Environment](http://www.slideshare.net/ShannonWilliams14/from-hello-world-to-real-world-container-days-boston-2016) by Bill Maxwell & Shannon Williams from Rancher Labs, gave newcomers what it took to bring your containerized jobs, apps or services to production with visibility, monitoring, and logging in place.  
++ Community sees the emerging pattern from many success stories using containers in design, build, testing, deployment, and operation of the Twelve-Factor App. The first talk of the conference, [From Hello World to Real World: Creating a Production-Grade Container Environment](https://www.slideshare.net/ShannonWilliams14/from-hello-world-to-real-world-container-days-boston-2016) by Bill Maxwell & Shannon Williams from Rancher Labs, gave newcomers what it took to bring your containerized jobs, apps or services to production with visibility, monitoring, and logging in place.  
 
 + Workshop and Open Space sessions are great opportunity to get newcomers' feet wet with container and cluster, while advanced users shared their thoughts of how we can make things even better.
 A great tool that visualizes your Kubernetes environment which Ray demonstrated was the [Kubernetes Visualizer](https://github.com/saturnism/gcp-live-k8s-visualizer).
-Here is a document that was used during the workshop: [Kubernetes Deep Dive: From Basics to Advanced Features](http://bit.ly/k8s-lab) by Ray Tsang from Google.  
+Here is a document that was used during the workshop: [Kubernetes Deep Dive: From Basics to Advanced Features](https://bit.ly/k8s-lab) by Ray Tsang from Google.  
 
 Companies like Barkly, EMC, Joyent, Rancher Labs, Uber, Yelp presented their journeys into container technologies. Many of those validate what we build at Concur. Below are some of highlights. You can find more details from [ContainerDays' page](http://dynamicinfradays.org/events/2016-boston/) and [its Youtube channel](https://www.youtube.com/channel/UCajF7fDWt6cGPQKq5vWg_fg).
 
@@ -39,7 +39,7 @@ Companies like Barkly, EMC, Joyent, Rancher Labs, Uber, Yelp presented their jou
 
 > Andrey's talk went to great lengths for overlay network's topology. From their experience user-space overlay network seems to suffer more in performance comparing to kernel-based. The [Flannel](https://github.com/coreos/flannel) from CoreOs has default to be "UDP" backend (user-space), while it also offers "in-kernel VXLAN"; this will be something we should review, if we are not running Flannel on GCE or AWS-VPC backend.
 
-[Kubernetes in Production, From the Ground Up](http://www.slideshare.net/mikesplain/container-days-boston-kubernetes-in-production) by Mike Splain, Barkly
+[Kubernetes in Production, From the Ground Up](https://www.slideshare.net/mikesplain/container-days-boston-kubernetes-in-production) by Mike Splain, Barkly
 
 > The talk echoed many aspects of our kubernetes cluster design at Concur. Mike's journey to bring their HA cluster to production with features of automatic scheduling, failover, rolling deployments, and autoscaling is truely fantastic. And there's the extra kudo for his nerve to demo on his production environment.
 

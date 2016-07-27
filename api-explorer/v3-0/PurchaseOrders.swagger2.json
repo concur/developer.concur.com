@@ -21,13 +21,15 @@
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/invoice/purchaseorders": {
       "post": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new purchase order",
         "description": "Creates a purchase order and returns the status of the creation request.",
         "parameters": [
@@ -51,7 +53,9 @@
         }
       },
       "put": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update an existing purchase order.",
         "description": "Updates an existing purchase order and returns the status of the update request.",
         "parameters": [
@@ -77,7 +81,9 @@
     },
     "/invoice/purchaseorders/{id}": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get an existing purchase order.",
         "description": "Gets an existing purchase order.",
         "parameters": [
@@ -105,95 +111,95 @@
       "properties": {
         "Amount": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The total amount of the allocation."
         },
         "Custom1": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 1 that is part of the allocation form."
         },
         "Custom10": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 10 that is part of the allocation form."
         },
         "Custom11": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 11 that is part of the allocation form."
         },
         "Custom12": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 12 that is part of the allocation form."
         },
         "Custom13": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 13 that is part of the allocation form."
         },
         "Custom14": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 14 that is part of the allocation form."
         },
         "Custom15": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 15 that is part of the allocation form."
         },
         "Custom16": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 16 that is part of the allocation form."
         },
         "Custom17": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 17 that is part of the allocation form."
         },
         "Custom18": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 18 that is part of the allocation form."
         },
         "Custom19": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 19 that is part of the allocation form."
         },
         "Custom2": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 2 that is part of the allocation form."
         },
         "Custom20": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 20 that is part of the allocation form."
         },
         "Custom3": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 3 that is part of the allocation form."
         },
         "Custom4": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 4 that is part of the allocation form."
         },
         "Custom5": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 5 that is part of the allocation form."
         },
         "Custom6": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 6 that is part of the allocation form."
         },
         "Custom7": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 7 that is part of the allocation form."
         },
         "Custom8": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 8 that is part of the allocation form."
         },
         "Custom9": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 9 that is part of the allocation form."
         },
         "GrossAmount": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The allocation gross amount."
         },
         "Percentage": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The allocation percentage."
         }
       }
     },
@@ -201,35 +207,35 @@
       "properties": {
         "Address1": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Address line 1 of the shipping or billing address."
         },
         "Address2": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Address line 2 of the shipping or billing address."
         },
         "Address3": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Address line 3 of the shipping or billing address."
         },
         "City": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The city of the shipping or billing address."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The code of the country for the shipping or billing address."
         },
         "ExternalID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A unique value supplied by the customer to identify a particular shipping or billing address."
         },
         "Name": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "An optional name that can be given to the shipping or billing address."
         },
         "PostalCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The postal code of the shipping or billing address."
         },
         "State": {
           "type": "string",
@@ -245,153 +251,157 @@
       "properties": {
         "AccountCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The account code of the line item. A value must be supplied for either ExpenseType or AccountCode, but not both. This field is required if an ExpenseType value is not supplied."
         },
         "Allocation": {
           "$ref": "#/definitions/Allocation"
         },
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "undefined:ConnectSwaggerDocs-PO_LI_AMOUNT_WO_VAT"
         },
         "CreateDate": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The date the line item was created. Format: YYYY-MM-DD"
         },
         "Custom1": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 1 that is part of the purchase order line item form."
         },
         "Custom10": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 10 that is part of the purchase order line item form."
         },
         "Custom11": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 11 that is part of the purchase order line item form."
         },
         "Custom12": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 12 that is part of the purchase order line item form."
         },
         "Custom13": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 13 that is part of the purchase order line item form."
         },
         "Custom14": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 14 that is part of the purchase order line item form."
         },
         "Custom15": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 15 that is part of the purchase order line item form."
         },
         "Custom16": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 16 that is part of the purchase order line item form."
         },
         "Custom17": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 17 that is part of the purchase order line item form."
         },
         "Custom18": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 18 that is part of the purchase order line item form."
         },
         "Custom19": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 19 that is part of the purchase order line item form."
         },
         "Custom2": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 2 that is part of the purchase order line item form."
         },
         "Custom20": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 20 that is part of the purchase order line item form."
         },
         "Custom3": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 3 that is part of the purchase order line item form."
         },
         "Custom4": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 4 that is part of the purchase order line item form."
         },
         "Custom5": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 5 that is part of the purchase order line item form."
         },
         "Custom6": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 6 that is part of the purchase order line item form."
         },
         "Custom7": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 7 that is part of the purchase order line item form."
         },
         "Custom8": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 8 that is part of the purchase order line item form."
         },
         "Custom9": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 9 that is part of the purchase order line item form."
         },
         "Description": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A description of the line item."
         },
         "ExpenseType": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The expense type of the line item.  A value must be supplied for either ExpenseType or AccountCode, but not both. This field is required if an AccountCode value is not supplied."
         },
         "ExternalID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A customer-supplied value that uniquely identifies the line item within the purchase order."
         },
         "IsReceiptRequired": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Indicates whether the line item requires a receipt. Format: true or false"
         },
         "LineNumber": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The line item number within the purchase order."
         },
         "PurchaseOrderReceipt": {
           "$ref": "#/definitions/PurchaseOrderReceipt"
         },
+        "PurchaseOrderReceiptType": {
+          "type": "string",
+          "description": "Purchase order ReceiptType of the line item. Can be NONE or WQTY (Receipt type Quantity). "
+        },
         "Quantity": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The quantity associated with the line item."
         },
         "RequestedBy": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The person who requests the goods in the line item of the purchase order."
         },
         "RequestedDeliveryDate": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The date the line item of the purchase order instructed the vendor to deliver the goods. Format: YYYY-MM-DD"
         },
         "SupplierPartID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Any number that might help to identify the line item. This could be a value such as the vendor's part number or even the manufacturer number."
         },
         "Tax": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Any tax that is associated with the line item."
         },
         "UnitPrice": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The price of each item of the line item."
         },
         "VatAmount": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "undefined:ConnectSwaggerDocs-PO_LI_VAT_AMOUNT"
         },
         "VatRate": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "undefined:ConnectSwaggerDocs-PO_LI_VAT_RATE"
         }
       }
     },
@@ -399,236 +409,236 @@
       "properties": {
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "undefined:ConnectSwaggerDocs-PO_VAT_AMOUNT_WO_VAT"
         },
         "BillToAddress": {
           "$ref": "#/definitions/BillToAddress"
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The 3-letter ISO 4217 <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\"> currency code</a> of the currency that is associated with the purchase order."
         },
         "Custom1": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 1 that is part of the purchase order header form."
         },
         "Custom10": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 10 that is part of the purchase order header form."
         },
         "Custom11": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 11 that is part of the purchase order header form."
         },
         "Custom12": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 12 that is part of the purchase order header form."
         },
         "Custom13": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 13 that is part of the purchase order header form."
         },
         "Custom14": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 14 that is part of the purchase order header form."
         },
         "Custom15": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 15 that is part of the purchase order header form."
         },
         "Custom16": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 16 that is part of the purchase order header form."
         },
         "Custom17": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 17 that is part of the purchase order header form."
         },
         "Custom18": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 18 that is part of the purchase order header form."
         },
         "Custom19": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 19 that is part of the purchase order header form."
         },
         "Custom2": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 2 that is part of the purchase order header form."
         },
         "Custom20": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 20 that is part of the purchase order header form."
         },
         "Custom21": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 21 that is part of the purchase order header form."
         },
         "Custom22": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 22 that is part of the purchase order header form."
         },
         "Custom23": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 23 that is part of the purchase order header form."
         },
         "Custom24": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 24 that is part of the purchase order header form."
         },
         "Custom3": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 3 that is part of the purchase order header form."
         },
         "Custom4": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 4 that is part of the purchase order header form."
         },
         "Custom5": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 5 that is part of the purchase order header form."
         },
         "Custom6": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 6 that is part of the purchase order header form."
         },
         "Custom7": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 7 that is part of the purchase order header form."
         },
         "Custom8": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 8 that is part of the purchase order header form."
         },
         "Custom9": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that can be applied to a custom field 9 that is part of the purchase order header form."
         },
         "Description": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A description of the purchase order."
         },
         "DiscountPercentage": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The discount from the vendor, if the discount terms are met."
         },
         "DiscountTerms": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The net discount terms that the vendor offers, when discounts apply."
         },
         "ID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The unique identifier of the resource."
         },
         "LedgerCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A code which indicates which company journal the Purchase Order is assigned to. Use GET /purchase order/localizeddata to translate the code into text."
         },
         "LineItem": {
           "$ref": "#/definitions/LineItem"
         },
         "Name": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A name for the purchase order."
         },
         "NeededByDate": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD"
         },
         "OrderDate": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The date when goods were ordered. Format: YYYY-MM-DD"
         },
         "PaymentTerms": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The net payment terms that have been set up with a vendor."
         },
         "PolicyExternalID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The external identifier of the policy that should be associated with the purchase order. The external ID is a property of the policy in its configuration."
         },
         "PoVendorTaxId": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "undefined:ConnectSwaggerDocs-PO_VENDOR_TAX_ID"
         },
         "ProvincialTaxId": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "undefined:ConnectSwaggerDocs-PO_PROVINCIAL_TAX_ID"
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The purchase order number."
         },
         "ReceiptType": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "undefined:ConnectSwaggerDocs-RECEIPT_TYPE"
         },
         "RequestedBy": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The person that requests the goods associated to the purchase order.\r\n            \tIf the setting \"Assign invoice to Purchase Request Owner\" is turned on, our system will read this value\r\n            \tto identify a valid invoice owner.\r\n            \tThis value will be matched against the following Employee fields in the order given:\r\n                1. Employee Login ID\r\n                2. Employee ID\r\n                3. Employee Email Address\r\n                4. Employee Name (\"first_name last_name\" or \"last_name, first_name\")"
         },
         "RequestedDeliveryDate": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The date the purchase order instructed the vendor to deliver the goods. Format YYYY-MM-DD"
         },
         "Shipping": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The total shipping cost for the purchase order."
         },
         "ShippingDescription": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A description of how the goods in the purchase order will ship. For example, via FedEx."
         },
         "ShippingMethodKey": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A code that represents the shipping method used by the vendor. Maximum length: 10 characters"
         },
         "ShippingTermsKey": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A code that represents the shipping terms that the vendor offers. Maximum length: 10 characters"
         },
         "ShipToAddress": {
           "$ref": "#/definitions/ShipToAddress"
         },
         "Status": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The current status of the purchase order."
         },
         "Tax": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The total tax for the purchase order."
         },
         "URI": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The URI to the resource."
         },
         "VatAmountOne": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "undefined:ConnectSwaggerDocs-PO_VAT_AMOUNT1"
         },
         "VatAmountTwo": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "undefined:ConnectSwaggerDocs-PO_VAT_AMOUNT2"
         },
         "VatRateOne": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "undefined:ConnectSwaggerDocs-PO_VAT_RATE1"
         },
         "VatRateTwo": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "undefined:ConnectSwaggerDocs-PO_VAT_RATE2"
         },
         "VendorAccountNumber": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The vendor account number."
         },
         "VendorAddressCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The code that identifies the vendor's remit address for the purchase order."
         },
         "VendorCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The code that identifies the vendor for the purchase order."
         }
       }
     },
@@ -636,91 +646,91 @@
       "properties": {
         "Custom1": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Custom 1 value for purchase order line item receipt."
         },
         "Custom10": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Custom 10 value for purchase order line item receipt."
         },
         "Custom2": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Custom 2 value for purchase order line item receipt."
         },
         "Custom3": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Custom 3 value for purchase order line item receipt."
         },
         "Custom4": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Custom 4 value for purchase order line item receipt."
         },
         "Custom5": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Custom 5 value for purchase order line item receipt."
         },
         "Custom6": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Custom 6 value for purchase order line item receipt."
         },
         "Custom7": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Custom 7 value for purchase order line item receipt."
         },
         "Custom8": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Custom 8 value for purchase order line item receipt."
         },
         "Custom9": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Custom 9 value for purchase order line item receipt."
         },
         "Deleted": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Delete status of purchase order line item receipt."
         },
         "DeliverySlipNumber": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Delivery slip number for a purchase order line item receipt."
         },
         "GoodsReceiptNumber": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Goods receipt number for a purchase order line item receipt. This field is Required for V2 Version"
         },
         "ID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The unique identifier of the resource."
         },
         "IsReceived": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Indicates whether the line item was received. Optional for V2 Version."
         },
         "LineItemExternalID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A customer-supplied value that uniquely identifies the line item within the purchase order."
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The purchase order number."
         },
         "ReceivedDate": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The date the line item was received. Format: YYYY-MM-DD"
         },
         "ReceivedQuantity": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The number of items that were received."
         },
         "UnitOfMeasureCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Unit of measure code for a purchase order line item receipt."
         },
         "URI": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The URI to the resource."
         },
         "Version": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The URI to the resource."
         }
       }
     },
@@ -728,31 +738,31 @@
       "properties": {
         "ErrorCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A code that indicates why the purchase order was not processed successfully."
         },
         "ErrorMessage": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A description of the error."
         },
         "FieldCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A code that indicates which field caused an issue. This code typically appears only when a field is being validated against a field of a form type. Format: LEVEL|CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information."
         },
         "LineItemExternalID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information."
         },
         "Message": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information."
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The purchase order number."
         },
         "Status": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The result of processing the purchase order. Format: SUCCESS or FAILURE"
         }
       }
     },
@@ -760,35 +770,35 @@
       "properties": {
         "Address1": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Address line 1 of the shipping or billing address."
         },
         "Address2": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Address line 2 of the shipping or billing address."
         },
         "Address3": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Address line 3 of the shipping or billing address."
         },
         "City": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The city of the shipping or billing address."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The code of the country for the shipping or billing address."
         },
         "ExternalID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A unique value supplied by the customer to identify a particular shipping or billing address."
         },
         "Name": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "An optional name that can be given to the shipping or billing address."
         },
         "PostalCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The postal code of the shipping or billing address."
         },
         "State": {
           "type": "string",

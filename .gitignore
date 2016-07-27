@@ -8,3 +8,4 @@ _site
 npm-debug.log
 node_modules/
 api-reference/import-swagger.sh
+build/swagger-converter/converted/
