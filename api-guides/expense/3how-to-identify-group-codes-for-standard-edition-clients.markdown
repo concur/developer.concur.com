@@ -21,11 +21,6 @@ layout: reference
   -	  Note: this is a 2-level list.
   -	Use the ID from the Items Link in your next API request….
 
-	* <https://www.concursolutions.com/api/expense/list/v1.0/gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw/batch>
-	* <https://www.concursolutions.com/api/expense/list/v1.0/gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw/false>
-	* <https://www.concursolutions.com/api/expense/list/v1.0/gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw/items>
-    * Employee Groups (Do not change-contact Client Support)  
-
 
 
 2.	**GET List Items within the above list by using the Items ID for the desired list.**
@@ -60,12 +55,14 @@ layout: reference
             </ListItem>
             <ListItem>
             <ID>gWnhB0zozt$phRN78EhfQGJul9GbRIACX$swA</ID>
+            
             <URI>https://www.concursolutions.com/api/v3.0/common/listitems/gWnhB0zozt$phRN78EhfQGJul9GbRIACX$swA</URI>
             <ListID>gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw</ListID>
             <Name>Broker / Dealer</Name>
             <ParentID>gWnhB0zozs4kmKXwN4sTo1soIZX$sc2jNxCw</ParentID>
             <Level1Code>US</Level1Code>
             <Level2Code>US1</Level2Code>
+            
             <Level3Code xsi:nil="true"/>
             <Level4Code xsi:nil="true"/>
             <Level5Code xsi:nil="true"/>
@@ -77,12 +74,14 @@ layout: reference
           </ListItem>
           <ListItem>
            <ID>gWnhB0zozt$phQQD0yqipIfjjs$pQfCqXj$s7g</ID>
+            
             <URI>https://www.concursolutions.com/api/v3.0/common/listitems/gWnhB0zozt$phQQD0yqipIfjjs$pQfCqXj$s7g</URI>
             <ListID>gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw</ListID>
             <Name>NSAM</Name>
             <ParentID>gWnhB0zozs4kmKXwN4sTo1soIZX$sc2jNxCw</ParentID>
             <Level1Code>US</Level1Code>
             <Level2Code>US2</Level2Code>
+            
             <Level3Code xsi:nil="true"/>
             <Level4Code xsi:nil="true"/>
             <Level5Code xsi:nil="true"/>
@@ -94,12 +93,14 @@ layout: reference
           </ListItem>
           <ListItem>
             <ID>gWnhB0zozt$pslpwWAqeFulFJMrk7Mq2GACA</ID>
+            
             <URI>https://www.concursolutions.com/api/v3.0/common/listitems/gWnhB0zozt$pslpwWAqeFulFJMrk7Mq2GACA</URI>
             <ListID>gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw</ListID>
             <Name>NSMLUX</Name>
             <ParentID>gWnhB0zozs4kmKXwN4sTo1soIZX$sc2jNxCw</ParentID>
             <Level1Code>US</Level1Code>
             <Level2Code>US3</Level2Code>
+            
             <Level3Code xsi:nil="true"/>
             <Level4Code xsi:nil="true"/>
             <Level5Code xsi:nil="true"/>
@@ -111,12 +112,14 @@ layout: reference
           </ListItem>
           <ListItem>
             <ID>gWnhB0zoztIxUpLHGADvDpk8clU1DSHI2lg</ID>
+            
             <URI>https://www.concursolutions.com/api/v3.0/common/listitems/gWnhB0zoztIxUpLHGADvDpk8clU1DSHI2lg</URI>
             <ListID>gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw</ListID>
             <Name>NRF</Name>
             <ParentID>gWnhB0zozs4kmKXwN4sTo1soIZX$sc2jNxCw</ParentID>
             <Level1Code>US</Level1Code>
             <Level2Code>US4</Level2Code>
+            
             <Level3Code xsi:nil="true"/>
             <Level4Code xsi:nil="true"/>
             <Level5Code xsi:nil="true"/>
