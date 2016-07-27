@@ -12,6 +12,9 @@ The Payment Batch File web service provides an automated solution to clients who
 * [Close a payment batch](#closepaymentbatch)
 * [Retrieve a payment batch file](#getbatchfile)
 
+### Version
+1.1 for GET methods  
+1.2 for POST method
 
 ## <a name="getpaymentbatches"></a>Retrieve the list of payment batches
 
@@ -66,9 +69,6 @@ Name | Type | Format | Description
 `Status`|`string` | | The status of the request to close the batch.
 `JobQueueKey`|`string` | | The unique identifier for the batch job.
 
-### Version
-1.1 for GET methods  
-1.2 for POST method
 
 ## <a name="getbatchfile"></a>Retrieve a payment batch file
 
