@@ -32,6 +32,7 @@ The request will contain a **fetch-list-request** parent element, containing the
 |  search-by |  Indicates which list item attribute should be searched. Possible values are TEXT or CODE.<br/>**NOTE**: The application connector must support both attributes in order to properly handle wildcard searches. |
 |  lang-code |  The two character code for the language of the user. |
 |  num-to-return |  Expense will specify the number of items to return. The application connector must use this value to ensure that it does not return more results than requested. There is a system limit of 1000 items. |
+|  num-to-return |  Indicates the code at each level in the case of a multi-level list. |
 
 ####  XML Example Request
 
@@ -51,6 +52,11 @@ The example uses the Fetch List web service to search a connected list for all c
         <search-by>TEXT</search-by>
         <lang-code>EN</lang-code>
         <num-to-return>500</num-to-return>
+		<code-by-level>
+            <level1>US</level1>
+            <level2>W</level2>
+            <level3>CA</level3>      
+        </code-by-level>
     </fetch-list-request>
 
 # Post List Search Response
