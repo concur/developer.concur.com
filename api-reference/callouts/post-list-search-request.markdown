@@ -32,8 +32,29 @@ The request will contain a **fetch-list-request** parent element, containing the
 |  search-by |  Indicates which list item attribute should be searched. Possible values are TEXT or CODE.<br/>**NOTE**: The application connector must support both attributes in order to properly handle wildcard searches. |
 |  lang-code |  The two character code for the language of the user. |
 |  num-to-return |  Expense will specify the number of items to return. The application connector must use this value to ensure that it does not return more results than requested. There is a system limit of 1000 items. |
+|  code-by-level |  Indicates the code at each level in the case of a multi-level list. |
 
-####  XML Example Request
+####  XML Example Request for single level list
+
+The example uses the Fetch List web service to search a single level list for all projects beginning with Alph, and is configured to connect to an application connector located at www.example.com.
+
+    POST /concur/list/v1.2/fetch HTTPS/1.1
+    Host: example.com
+    Authorization: Basic ...
+    Content-Type: application/xml; charset=utf-8
+    Content-Length: {length of content body}
+
+    <?xml version="1.0" ?>
+    <fetch-list-request>
+        <long-code></long-code>
+        <short-code></short-code>
+        <query>Alph*</query>
+        <search-by>TEXT</search-by>
+        <lang-code>EN</lang-code>
+        <num-to-return>500</num-to-return>		
+    </fetch-list-request>
+	
+####  XML Example Request for Multi-level list
 
 The example uses the Fetch List web service to search a connected list for all cities under US-W-CA (United States, Western Region, California) beginning with San, and is configured to connect to an application connector located at www.example.com.
 
@@ -51,6 +72,11 @@ The example uses the Fetch List web service to search a connected list for all c
         <search-by>TEXT</search-by>
         <lang-code>EN</lang-code>
         <num-to-return>500</num-to-return>
+		<code-by-level>
+            <level1>US</level1>
+            <level2>W</level2>
+            <level3>CA</level3>      
+        </code-by-level>
     </fetch-list-request>
 
 # Post List Search Response

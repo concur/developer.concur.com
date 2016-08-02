@@ -40,7 +40,7 @@ The service index lists methods that the API supports.
 
 Header | Description
 -------|------------
-`Authorization`|OAuth2 access token in the form of a JSON Web Token obtained by the client application from the [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html).
+`Authorization`|OAuth2 access token in the form of a JSON Web Token obtained by the client application from the [Authentication API](https://preview.developer.concur.com/api-preview/auth/apidoc.html).
 
 ### Parameters
 
@@ -106,7 +106,7 @@ Header | Description
 
 Name | Description
 -----|------------
-`userId`|The UUID of the user for whom the receipt is being posted. This can be found in the JWT that is obtained using the [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html). 
+`userId`|The UUID of the user for whom the receipt is being posted. This can be found in the JWT that is obtained using the [Authentication API](https://preview.developer.concur.com/api-preview/auth/apidoc.html). 
 
 ### Request Body
 
@@ -173,7 +173,7 @@ GET /receipts/v4/schemas
 
 Header | Description
 -------|------------
-`Authorization`|OAuth2 access token in the form of a JSON Web Token obtained by the client application from the [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html).
+`Authorization`|OAuth2 access token in the form of a JSON Web Token obtained by the client application from the [Authentication API](https://preview.developer.concur.com/api-preview/auth/apidoc.html).
 
 ### Parameters
 
