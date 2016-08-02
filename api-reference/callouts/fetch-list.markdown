@@ -55,7 +55,6 @@ Authentication between Concur and the application connector is performed using H
 
 ## Functions
 
-* Version 1.0: Deprecated
 * [Version 1.2: Post List Search Request][3]
 
 ##  Concur Expense Configuration
