@@ -19,7 +19,8 @@ The Travel Profile resource represents a Concur travel profile which contains tr
 * [Get a travel profile](#a1)
 * [Update a travel profile](#a2)
 * [Create a travel profile](#a3)
-* [Get a list of travel profile summaries](#a4)
+* [Possible Warning and Error Messages](#a4)
+* [Get a list of travel profile summaries](#a5)
 
 Detailed descriptions of requests and responses are available in the documentation for each HTTP method.
 
@@ -615,6 +616,32 @@ A list of advantage memberships associated to a user:
 
 * **NOTE**:  Multiple memberships for the same VendorType, VendorCode, ProgramCode, and CardNumber are identified and a warning is thrown.
 
+***
+## <a name="a4">Possible Warnings and Error Messages</a>
+The codes and types of messages that can be returned on updates and creates:
+
+| CODE | Message Type | Notes | Example |
+| ----- | ----- | ----- | ----- |
+| S001 | Success | Process completed successfully | Success, no errors or warnings reported |
+| E001 | No Access | User does not have access | |
+| E001 | Required Field Missing | The field noted is required for updates or creates, no changes were made | |
+| W001 | Invalid Regex | The given data does not match the expected regex | |
+| W002 | Invalid Length | The given data is too long or too short | |
+| W003 | Not Found In Company | The given user was not found in the company | |
+| W004 | Duplicate Entry | The given data is duplicated and not allowed | |
+| W005 | Duplicate LoginId | The given LoginID is duplicated | |
+| W006 | Out of Range | The given data is out of range | |
+| W007 | Field is Required | The given field cannot be cleared | |
+| W008 | Missing Update Mode | UpdateMode is missing to give direction on list handling | |
+| W009 | Invalid Account Number | Account Number check failed due to length, Luhn, etc. | |
+| W010 | Invalid Vendor Code | Vendor Code given is invalid | |
+| W011 | Cannot Change | The given field cannot be altered | |
+| W012 | Primary Cell Number Error | Data violates 1 primary cell phone requirement | |
+| W013 | Invalid Custom Field | The data provided is invalid for the custom field | |
+| W014 | Invalid Date Range | The data provided is outside of acceptable date range | |
+| W015 | Invalid GUID | The GUID is invalid | |
+| W016 | Too Many Items | There are too many items in the given list | |
+| W017 | No Access to VendorCode | The user lacks access to the given vendor code | |
 
 ***
 
@@ -661,7 +688,7 @@ A list of advantage memberships associated to a user:
 #### Update and Create Examples Coming Soon
 
 
-## <a name="a4">Get a list of travel profile summaries</a>
+## <a name="a5">Get a list of travel profile summaries</a>
 
 This endpoint provides a list of travel profile summaries that have been updated since the specified date. The response is separated into pages.
 
