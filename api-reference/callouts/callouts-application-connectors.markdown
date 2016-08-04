@@ -18,9 +18,13 @@ The available callouts are:
 
 * Fetch Attendee Data
 * Fetch List Item
+* Event Notification
+* Launch External URL
  
-These callouts send information out from Concur to an application connector that interfaces with a external system. The connector runs a search on the external system. The results are then returned to Concur, which presents the results to the user.
- 
+Fetch Attendee and Fetch List Item send information out from Concur to an application connector that interfaces with a external system. The connector runs a search on the external system. The results are then returned to Concur, which presents the results to the user.
+
+The Event Notification callout allows clients to receive notification of specific moments in the workflow of an expense report.  When a report enters the desired workflow state a request is sent to the external system.  The system can call into Concur to get all the details of a report and perform appropriate actions.
+
 The Launch External URL callout gives clients and developers a platform to extend the functionality of Concur, providing a means to deliver custom user interactions, or access functionality found in an external system.
   
 The client can arrange to add an Expense Entry form field that is configured to use the Launch External URL callout to a Concur Expense Entry form.&nbsp;Concur Expense will display this field with an attached button that launches a separate window when clicked. The window is controlled by an application connector, created by the client, a third party developer, or Concur. The application connector is a web server that presents information in the window.
@@ -42,12 +46,6 @@ Concur will make calls to the application connector's endpoint using SSL. During
 In the code Concur provides for a sample application connector, credentials are stored in a web configuration file that varies by platform, such as web.xml or web.config. However, if you are hosting the connector, you can customize where and how the credentials are stored by customizing HTTPBasicAuth.java or Authentication.cs.
  
 Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before Concur can access the connector.
- 
-####  Application
- 
-Concur provides a sample application in Java with basic functionality that a more complex connector can be built from.
- 
-Web server configurations vary greatly, so no specific recommendations on server configuration are presented here. However, if the client chooses to use the sample connector, the web server must be able to run an application written in JDK 1.6 on Apache Tomcat 6.0.
  
 ####  Authentication
  
