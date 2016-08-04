@@ -97,7 +97,7 @@ Host Name | Enter the hostname for the connector. Example: https://{servername} 
 User Name | Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector.|
 Password | Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector.|
  
-3. Click **Test Connection**. Concur will attempt to connect to the test connection endpoint with the supplied credentials. If you have not configured the test connection endpoint, the test will fail. Refer to the _Required: To add the test connection endpoint_ section above for the test connection details.
+3. Click **Test Connection**. Concur will attempt to connect to the test connection endpoint https://(host name)/system/v1.0/testconnection with the supplied credentials. If you have not configured the test connection endpoint, the test will fail.
 4. In the **Services** section, select an outbound message or callout that the connector will interact with.
 5. Click **Configure**. The **Configure Service** window appears.
 6. Enter the endpoint that the Concur will connect to on the host. Example: /attendee/v1.0/find
