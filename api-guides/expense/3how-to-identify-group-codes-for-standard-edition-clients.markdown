@@ -39,7 +39,6 @@ layout: reference
 
 ### Example
 
-<code>
 
  	<ListItems xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Items>
@@ -98,4 +97,4 @@ layout: reference
       <NextPage xsi:nil="true"/>
     </ListItems>
     
- </code>
+
