@@ -39,8 +39,9 @@ layout: reference
 
 ### Example
 
-```
-<ListItems xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<code>
+
+ 	<ListItems xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Items>
           <ListItem>
             <ID>gWnhB0zozs4kmKXwN4sTo1soIZX$sc2jNxCw</ID>
@@ -96,4 +97,5 @@ layout: reference
         </Items>
       <NextPage xsi:nil="true"/>
     </ListItems>
- ```
+    
+ </code>
