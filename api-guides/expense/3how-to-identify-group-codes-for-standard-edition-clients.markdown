@@ -35,11 +35,12 @@ layout: reference
         *	You will need to record the top level values and the 2nd level values.
         *	The top level value will be populated in Custom21
         *	The bottom level value will be populated in OrgUnit1
-        *	There could be more than one top level value. In the following example there is just one top-level value (US)
+        *	There could be more than one top level value. In the following example there is just one top-level value (US) but a couple of different values for the second level. (US1 and US2)
 
-    Example:
+### Example
 
-    <ListItems xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+ 	<ListItems xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Items>
           <ListItem>
             <ID>gWnhB0zozs4kmKXwN4sTo1soIZX$sc2jNxCw</ID>
@@ -92,40 +93,8 @@ layout: reference
             <Level9Code xsi:nil="true"/>
             <Level10Code xsi:nil="true"/>
           </ListItem>
-          <ListItem>
-            <ID>gWnhB0zozt$pslpwWAqeFulFJMrk7Mq2GACA</ID>
-            <URI>https://www.concursolutions.com/api/v3.0/common/listitems/gWnhB0zozt$pslpwWAqeFulFJMrk7Mq2GACA</URI>
-            <ListID>gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw</ListID>
-            <Name>NSMLUX</Name>
-            <ParentID>gWnhB0zozs4kmKXwN4sTo1soIZX$sc2jNxCw</ParentID>
-            <Level1Code>US</Level1Code>
-            <Level2Code>US3</Level2Code>
-            <Level3Code xsi:nil="true"/>
-            <Level4Code xsi:nil="true"/>
-            <Level5Code xsi:nil="true"/>
-            <Level6Code xsi:nil="true"/>
-            <Level7Code xsi:nil="true"/>
-            <Level8Code xsi:nil="true"/>
-            <Level9Code xsi:nil="true"/>
-            <Level10Code xsi:nil="true"/>
-          </ListItem>
-          <ListItem>
-            <ID>gWnhB0zoztIxUpLHGADvDpk8clU1DSHI2lg</ID>
-            <URI>https://www.concursolutions.com/api/v3.0/common/listitems/gWnhB0zoztIxUpLHGADvDpk8clU1DSHI2lg</URI>
-            <ListID>gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw</ListID>
-            <Name>NRF</Name>
-            <ParentID>gWnhB0zozs4kmKXwN4sTo1soIZX$sc2jNxCw</ParentID>
-            <Level1Code>US</Level1Code>
-            <Level2Code>US4</Level2Code>
-            <Level3Code xsi:nil="true"/>
-            <Level4Code xsi:nil="true"/>
-            <Level5Code xsi:nil="true"/>
-            <Level6Code xsi:nil="true"/>
-            <Level7Code xsi:nil="true"/>
-            <Level8Code xsi:nil="true"/>
-            <Level9Code xsi:nil="true"/>
-            <Level10Code xsi:nil="true"/>
-          </ListItem>
         </Items>
       <NextPage xsi:nil="true"/>
     </ListItems>
+    
+
