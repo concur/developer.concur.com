@@ -35,7 +35,7 @@ layout: reference
         *	You will need to record the top level values and the 2nd level values.
         *	The top level value will be populated in Custom21
         *	The bottom level value will be populated in OrgUnit1
-        *	There could be more than one top level value. In the following example there is just one top-level value (US)
+        *	There could be more than one top level value. In the following example there is just one top-level value (US) but a couple of different values for the second level. (US1 and US2)
 
 ### Example
 
