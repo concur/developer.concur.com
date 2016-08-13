@@ -533,7 +533,7 @@ Name | Type | Format | Description
 `subtotal`|`string`|[`currency`](#currency)|The amount paid for the line item excluding taxes.
 `taxesTotal`|`string`|[`currency`](#currency)|The amount of tax paid for this line item.
 `taxes`|`array`|[`taxes`](#taxes)|Taxes paid as part of transaction.
-`vatApplicable`|`boolean`|If lineItem was subject to a value added tax then true, if not then false.
+`vatApplicable`|`boolean`|-|If lineItem was subject to a value added tax then true, if not then false.
 `discounts`|`array`|[`discounts`](#discounts)|The discount offered for this line item.
 
 #### <a name="taxes"></a>taxes
@@ -547,8 +547,8 @@ Name | Type | Format | Description
 
 ## <a name="Common"></a>Patterns for formatting data 
 
-Name | Type | Format | Description
------|------|--------|------------
+Name | Type | Description
+-----|------|------------
 <a name="dateTime"></a>`dateTime`|`string`|DateTime when the transaction occurred in the format specified in ISO 8601. While the standard regards time zone designators as optional, we highly recommend to use UTC + Offset. For example, 2016-04-22T12:20+0700 (12:20 PM in Pacific Time).
 <a name="nonEmptyString"></a>`nonEmptyString`|`string`|"minLength": 1, "pattern": "^(?!\\s*$).+"
 <a name="countrySubdivisionCode"></a>`countrySubdivisionCode`|`string`|"pattern": "^[a-zA-Z0-9]{1,3}$". Refer to ISO 3166-2:2013.
