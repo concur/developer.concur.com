@@ -6,7 +6,7 @@ layout: reference
 
 _This page documents the Receipts 4.0 API currently in development. The information on this page is intended for reference purposes and will evolve until the API is made public._
 
-The ```Receipts``` resource represents receipts that can be posted to Concur by a partner on behalf of a end user. This resource supports following types of receipts:
+The ```Receipts``` resource represents receipts that can be posted to Concur by a partner on behalf of an end user. This resource supports following types of receipts:
  - [General](#General): A general purpose receipt type used for various goods or services.
  - [Hotel](#Hotel): A receipt for a hospitality service, for example a hotel stay.
  - [Ground Transport](#GroundTransport): A receipt for a ground transportation service, for example a taxi.
@@ -341,6 +341,41 @@ Name | Type | Format | Description
 `dropoffLocation`|`object`|[`location`](#location)|**Required** Location where the customer was dropped off.
 `driverNumber`|`string`|-|Unique identifier assigned by the ride company to a driver.
 `lineItems`|`array`|[`lineItems`](#lineItems)|Descriptive breakdown of the fare charged. For example: base fare, distance travelled, discount and other add-ons.
+
+### <a name="Rail"></a>Rail
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`core`|`object`|[`core`](#Core)|**Required**: core object for all receipts.
+`itineraryLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of an itinerary (also know as a trip) in Concur’s Itinerary Service.  An itinerary can contain one or more bookings from various sources.
+`railTickets`|`array`|[`railTickets`](#railTickets)|**Required** Train tickets purchased in this transaction.
+`lineItems`|`array`|[`lineItems`](#lineItems)|Break down of all charges which could include insurance purchased for all train tickets, paid wi-fi etc.
+
+#### <a name="railTickets"></a>railTickets
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`ticketNumber`|`string`|-|Ticket number issued when the payment is made.
+`recordLocator`|`string`|-|**Required** Confirmation identifier for the ticket. This code is usually unique for a short period of time and could be reused by the rail company in the future.
+`issueDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time the ticket was issued. 
+`passengerName`|`string`|-|**Required** Name of the person associated withthe ticket.
+`fare`|`currency`|[`currency`](#currency)|Fare charged for a train ticket. This will be the total of all segments in this train ticket.
+`segments`|`array`|[`segments`](#segments)|**Required** Segments for this train ticket.
+
+#### <a name="segments"></a>segments
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`departureStation`|`string`|-|**Required** Name of the station from where the train is departing.
+`departureDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time of departure.
+`arrivalStation`|`string`|-|**Required** Name of the station where the train is arriving.
+`arrivalDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time of arrival.
+`trainNumber`|`string`|-|**Required** Train identifier.
+`trainType`|`string`|-|Type of train. For example TGV or TER in France.
+`classOfServiceCode`|`string`|[`classOfServiceCode`](#classOfServiceCode)|**Required** The class of travel.
+`fare`|`string`|[`currency`](#currency)|Fare charged for this segment of the train ride.
+`taxes`|`array`|[`taxes`](#taxes)|Taxes paid for this segment.
+`lineItems`|`array`|[`lineItems`](#lineItems)|Line items specific to this segment. This could include meals, seat reservations, insurance etc.
 
 ### <a name="JPT"></a>Japan Public Transport (JPT)
 
