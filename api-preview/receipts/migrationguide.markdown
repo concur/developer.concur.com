@@ -15,7 +15,7 @@ layout: reference
 
   - We have made receipts for hotels distinct from those for car rental agencies because the information provided in each of them is not the same.
   
-  - To allow different partners to provide data that makes sense to them and to our end users, we designed receipt schemas. A schema is defined for specific receipt types: Air, Car Rental, Hotel, Ground Transport, Japan Public Transport and General.
+  - To allow different partners to provide data that makes sense to them and to our end users, we designed receipt schemas. A schema is defined for specific receipt types: Air, Car Rental, Hotel, Ground Transport, Rail and General.
   
   - Our open schema format allows for new receipt types to be easily added. 
 
