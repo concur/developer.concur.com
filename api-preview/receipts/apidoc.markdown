@@ -337,6 +337,7 @@ Name | Type | Format | Description
 `travelDuration`|`string`|[`duration`](#duration)|Duration of travel time specified as defined in ISO 8601.
 `pickupLocation`|`object`|[`location`](#location)|**Required** Location where the customer was picked up.
 `dropoffLocation`|`object`|[`location`](#location)|**Required** Location where the customer was dropped off.
+`distance`|`object`|[`distance`](#distance)|Distance travelled.
 `driverNumber`|`string`|-|Unique identifier assigned by the ride company to a driver.
 `lineItems`|`array`|[`lineItems`](#lineItems)|Descriptive breakdown of the fare charged. For example: base fare, distance travelled, discount and other add-ons.
 
