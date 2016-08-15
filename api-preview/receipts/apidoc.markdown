@@ -98,7 +98,7 @@ Header | Description
 -------|------------
 `Content-type`|**Required** [Content-Type](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17): `application/json`.
 `Link`|**Required** [Link](http://tools.ietf.org/html/rfc5988#section-5): `<http://schema.concursolutions.com/{schema-name.json}}>;rel=describedBy`. List of available [schemas](#Schema) is below. Use the [GET Schemas](#GetSchemas) call to retrieve the URLs for available schema types. If a receipt image is being generated on a clients behalf, we will use the schema type mentioned in this field to select the appropriate receipt template. 
-`Authorization`|OAuth2 access token in the form of a JSON Web Token obtained by the client application from the [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html).
+`Authorization`|OAuth2 access token in the form of a JSON Web Token obtained by the client application from the [Authentication API](https://developer.concur.com/api-preview/auth/apidoc.html).
 
 ### Parameters
 
