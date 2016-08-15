@@ -2,7 +2,7 @@
 title: Sample Receipts
 layout: reference
 ---
-Below we have provided samples for [Hotel](#Hotel), [Ground Transport](#GroundTransport) and [Japan Public Transport](#JPT) receipts that can be created using the V4 API. A receipt image is automatically generated using appropriate brand logo if only receipt data is posted. As a partner, if you would like your brand logo to show up on the receipt image, email pdspe@concur.com.  
+Below we have provided samples for [Hotel](#Hotel), [Ground Transport](#GroundTransport), [Air] (#Air), [Rail] (#Rail) and [General] (#General) receipts that can be created using the V4 API. A receipt image is automatically generated using appropriate brand logo if only receipt data is posted. As a partner, if you would like your brand logo to show up on the receipt image, email pdspe@concur.com.  
 
 ### <a name="Hotel">Hotel
 
@@ -21,187 +21,205 @@ curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId}
     "user": "http://api.concursolutions.com/user/123456",
     "app": "http://api.concursolutions.com/app/receiptServiceTest",
     "taxInvoice": true,
-    "reference": "HILTON387494",
-    "dateTime": "2099-11-05T15:05:00-0800",
-    "total": "221.29",
-    "currencyCode": "USD",
-    "merchant": {
-        "name": "Hyatt",
-        "description": "",
-        "taxId": "123-21213",
+    "reference": "6343430",
+    "dateTime": "2015-04-27T11:09:00-0700",
+    "total": "749.95",
+    "subtotal": "652.67",
+    "taxesTotal": "97.28",
+    "currencyCode": "CAD",
+    "seller": {
+        "name": "Starwood",
+        "taxId": "820986396",
         "location": {
-            "name": "Hyatt Place",
-            "number": "HIL928928",
-            "latitude": 47.616667,
-            "longitude": -122.333333,
-            "internetAddress": "http://www.hiltonirvine.com",
-            "emailAddress": "irvine@hilton.com",
-            "telephoneNumber": "949-262-6240",
+            "name": "Starwood Hotels & Resorts Worldwide, Inc",
+            "number": "",
+            "latitude": 41.042297,
+            "longitude": -73.531531,
+            "internetAddress": "http://www.starwoodhotels.com/",
+            "emailAddress": "",
+            "telephoneNumber": "203-964-6000",
             "faxNumber": "",
             "address": {
-                "address": "1 Jamboree Center",
-                "address2": "",
-                "city": "Irvine",
-                "countrySubdivisionCode": "CA",
-                "countryCode": "US",
-                "postalCode": "90273"
+                "streetAddress": "One StarPoint",
+                "addressLocality": "Stamford",
+                "addressRegion": "CT",
+                "addressCountry": "US",
+                "postalCode": "06902"
             }
         }
     },
     "taxes": [
         {
-            "authority": "CA Hotel Tax",
-            "address": {
-                "countrySubdivisionCode": "CA",
-                "countryCode": "US"
+            "authority": {
+                "addressCountry": "CA"
             },
-            "type": "Local Sales Tax for Hotels",
-            "rate": 10.00,
-            "amount": "17.20"
+            "name": "Hotel Room Tax",
+            "rate": 11.00,
+            "amount": "66.88"
+        },
+        {
+            "authority": {
+                "addressCountry": "CA"
+            },
+            "name": "GST",
+            "rateType": "Standard",
+            "rate": 5.00,
+            "amount": "30.4"
         }
     ],
     "payments": [
         {
-            "amount": "221.29",
+            "amount": "749.95",
             "cardDetail": {
                 "cardType": "American Express",
-                "maskedNumber": "XXXXXXXXXXX1009",
-                "authorizationCode": "AB987654321"
+                "creditCardId": "1002",
+                "authorizationCode": "548283"
             }
         }
     ],
     "property": {
-        "name": "Hyatt Place",
+        "name": "Westin",
         "description": "",
         "location": {
-            "name": "Jamboree Center",
-            "number": "HIL928928",
-            "latitude": 47.616667,
-            "longitude": -122.333333,
-            "internetAddress": "http://www.hiltonirvine.com",
-            "emailAddress": "irvine@hilton.com",
-            "telephoneNumber": "949-262-6240",
-            "faxNumber": "",
+            "name": "Westin Grand Vancouver",
+            "number": "",
+            "latitude": 49.280011,
+            "longitude": -123.117024,
+            "internetAddress": "",
+            "emailAddress": "",
+            "telephoneNumber": "604-602-1999",
+            "faxNumber": "604-647-2502",
             "address": {
-                "address": "1 Jamboree Center",
-                "address2": "",
-                "city": "Irvine",
-                "countrySubdivisionCode": "CA",
-                "countryCode": "US",
-                "postalCode": "90273"
+                "streetAddress": "433 Robson Street",
+                "addressLocality": "Vancouver",
+                "addressRegion": "BC",
+                "addressCountry": "CA",
+                "postalCode": "v6b 6l9"
             }
         }
     },
-    "confirmationNumber": "9372034",
-    "checkInDateTime": "2014-11-05T15:05:00-0800",
-    "checkOutDateTime": "2014-11-06T11:50:00-0800",
+    "checkInDateTime": "2016-04-25T21:11:00-0700",
+    "checkOutDateTime": "2016-04-27T11:09:00-0700",
     "guests": [
         {
-            "guestNameRecord": "GAB",
-            "firstName": "John",
-            "lastName": "Doe",
+            "guestNameRecord": "SPG-Axxxxxxx1899",
+            "firstName": "Kevin",
+            "lastName": "Craig",
             "address": {
-                "address": "601 108TH AVE NE",
-                "address2": "SUITE 1000",
-                "city": "Bellevue",
-                "countrySubdivisionCode": "WA",
-                "countryCode": "US",
-                "postalCode": "98004"
+                "streetAddress": "4120 Yonge Street",
+                "addressLocality": "Toronto",
+                "addressRegion": "ON",
+                "addressCountry": "CA",
+                "postalCode": "M2P 2B8"
             }
         }
     ],
     "numberInParty": 1,
     "room": {
-        "roomNumber": "0427",
-        "roomType": "King",
-        "ratePlanType": "Standard",
-        "averageDailyRoomRate": "172.00"
+        "roomNumber": "1601",
+        "averageDailyRoomRate": "304.00"
     },
-    "nightsStayed": 1,
+    "nightsStayed": 2,
     "lineItems": [
         {
             "sequenceNumber": 1,
-            "dateTime": "2014-11-05T15:05:00-0800",
-            "reference": "",
-            "description": "In room dining dinner food",
-            "description2": "Room #0427 : Check #5875",
-            "semanticsCode": "FOOD",
-            "quantity": 1,
-            "amount": "13.96"
-        },
-        {
-            "sequenceNumber": 2,
-            "dateTime": "2014-11-05T15:05:00-0800",
-            "reference": "",
-            "description": "AAA Discount Rate",
-            "description2": "",
+            "dateTime": "2016-04-25T18:00:00-0700",
+            "reference": "RT1601",
+            "description": "Room Chrg Retail",
             "semanticsCode": "ROOMRATE",
-            "rate": "172.00",
-            "rateType": "Day",
             "quantity": 1,
-            "amount": "172.00",
+            "total": "304.00",
             "taxes": [
                 {
-                    "authority": "CA Hotel Tax",
-                    "address": {
-                        "countrySubdivisionCode": "CA",
-                        "countryCode": "US"
+                    "authority": {
+                        "addressCountry": "CA"
                     },
-                    "type": "Local Sales Tax for Hotels",
-                    "rate": 10.00,
-                    "amount": "17.20"
+                    "name": "Hotel Room Tax",
+                    "rate": 11.00,
+                    "amount": "33.44"
+                },
+                {
+                    "authority": {
+                        "addressCountry": "CA"
+                    },
+                    "name": "GST",
+                    "rateType": "Standard",
+                    "rate": 5.00,
+                    "amount": "15.20"
                 }
             ]
         },
         {
-            "sequenceNumber": 3,
-            "dateTime": "2014-11-05T15:05:00-0800",
-            "reference": "",
-            "description": "CTA FEE",
-            "description2": "",
+            "sequenceNumber": 2,
+            "dateTime": "2016-04-25T18:00:00-0700",
+            "reference": "RT1601",
+            "description": "Destination Marketing Fee",
             "semanticsCode": "FEE",
             "quantity": 1,
-            "amount": "0.13"
+            "total": "4.56"
+        },
+        {
+            "sequenceNumber": 3,
+            "dateTime": "2016-04-26T18:00:00-0700",
+            "reference": "4071",
+            "description": "Hidden Bar and Lounge",
+            "semanticsCode": "MINIBAR",
+            "quantity": 1,
+            "total": "31.55"
         },
         {
             "sequenceNumber": 4,
-            "dateTime": "2014-11-05T15:05:00-0800",
-            "reference": "",
-            "description": "Parking Overnight",
-            "description2": "",
-            "semanticsCode": "PARKING",
+            "dateTime": "2016-04-26T18:00:00-0700",
+            "reference": "RT1601",
+            "description": "Room Chrg Retail",
+            "semanticsCode": "ROOMRATE",
             "quantity": 1,
-            "amount": "18.00"
+            "total": "304.00",
+            "taxes": [
+                {
+                    "authority": {
+                        "addressCountry": "CA"
+                    },
+                    "name": "Hotel Room Tax",
+                    "rate": 11.00,
+                    "amount": "33.44"
+                },
+                {
+                    "authority": {
+                        "addressCountry": "CA"
+                    },
+                    "name": "GST",
+                    "rateType": "Standard",
+                    "rate": 5.00,
+                    "amount": "15.20"
+                }
+            ]
         },
         {
             "sequenceNumber": 5,
-            "dateTime": "2014-11-05T15:05:00-0800",
-            "reference": "",
-            "description": "Special Discount",
-            "description2": "",
+            "dateTime": "2016-04-26T18:00:00-0700",
+            "reference": "RT1601",
+            "description": "Destination Marketing Fee",
             "semanticsCode": "FEE",
             "quantity": 1,
-            "amount": "-10.00"
+            "total": "4.56"
         }
-    ],
-    "customData": {
-        "Special Request": "Feather pillows upon arrival"
-    }
+    ]
 }
 
 ```
 
 ####  Receipt image generated
 
-![Hotel Receipt Example](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/hotel-negative-line-item.png?raw=true)
+![Hotel Receipt Example](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/hotel-vat.png?raw=true)
 
 ### <a name="GroundTransport"></a>Ground Transport
 
 ####  Request URL
 ```
 curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId} 
--d @hotel-receipt-example.json -H "Content-Type: application/json" 
--H "link:<http://schema.concursolutions.com/ride-receipt.schema.json>;rel=describedBy" 
+-d @groundtransport-receipt-example.json -H "Content-Type: application/json" 
+-H "link:<http://schema.concursolutions.com/groundtransport-receipt.schema.json>;rel=describedBy" 
 -H "Authorization: Bearer {valid JWT}"
 ```
 
@@ -214,38 +232,43 @@ curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId}
     "reference": "ADBXTF25",
     "dateTime": "2099-11-10T15:39:46-0700",
     "total": "65.00",
+    "taxesTotal": "5.69",
+    "subtotal": "59.87",
     "currencyCode": "USD",
-    "merchant": {
+    "broker": {
         "name": "Curb",
         "description": "Curb Seattle",
         "taxId": "123-123456",
         "location": {
-            "name": "Seattle Downtown",
-            "number": "C3404",
-            "latitude": 47.6097,
-            "longitude": -122.3331,
-            "internetAddress": "http://www.curb.com/seattle",
-            "emailAddress": "seattle@curb.com",
-            "telephoneNumber": "206-000-0000",
-            "faxNumber": "",
             "address": {
-                "address": "678 Some Ave",
-                "address2": "",
-                "city": "Seattle",
-                "countrySubdivisionCode": "WA",
-                "countryCode": "US",
+                "streetAddress": "510 4th Ave Ste 2500",
+                "addressLocality": "Seattle",
+                "addressRegion": "WA",
+                "addressCountry": "US",
                 "postalCode": "98104"
             }
         }
     },
+    "seller": {
+        "name": "John Smith",
+        "location": {
+            "address": {
+                "streetAddress": "225 42nd Ave S",
+                "addressLocality": "Seattle",
+                "addressRegion": "WA",
+                "addressCountry": "US",
+                "postalCode": "98103"
+            },
+            "telephoneNumber": "206-555-5555"
+        }
+    },
     "taxes": [
         {
-            "authority": "WA State Tax",
-            "address": {
-                "countrySubdivisionCode": "WA",
-                "countryCode": "US"
+            "authority": {
+                "addressCountry": "US",
+                "addressRegion": "WA"
             },
-            "type": "Local Sales Tax",
+            "name": "Local Sales Tax",
             "rate": 9.50,
             "amount": "5.69"
         }
@@ -255,21 +278,20 @@ curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId}
             "amount": "65.00",
             "cardDetail": {
                 "cardType": "Visa",
-                "maskedNumber": "XXXXXXXXXXXX4321",
+                "creditCardId": "4321",
                 "authorizationCode": "AB123654789"
             }
         }
     ],
-    "operator": "Curb",
-    "terminalNumber": "T123456",
     "startDateTime": "2014-11-10T15:08:24-0700",
     "endDateTime": "2014-11-10T15:39:46-0700",
+    "travelDuration": "PT21M22S",
     "pickupLocation": {
         "name": "Key Center Building, Bellevue, WA",
         "latitude": 47.4436655,
         "longitude": -122.2982266,
         "address": {
-            "countryCode": "US"
+            "addressCountry": "US"
         }
     },
     "dropoffLocation": {
@@ -277,29 +299,30 @@ curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId}
         "latitude": 47.4489,
         "longitude": -122.3094,
         "address": {
-            "countryCode": "US"
+            "addressCountry": "US"
         }
     },
-    "driverName": "John Smith",
+    "distance": {
+        "totalDistance": 15.6,
+        "unit": "mi"
+    },
     "driverNumber": "DFE154-8567",
-    "vehicleNumber": "AZQ987456",
     "lineItems": [
         {
             "sequenceNumber": 1,
             "reference": "",
             "description": "Base Fare",
-            "description2": "",
+            "additionalDescription": "",
             "semanticsCode": "FEE",
             "quantity": 1,
-            "amount": "6.39",
+            "total": "6.39",
             "taxes": [
                 {
-                    "authority": "WA State Tax",
-                    "address": {
-                        "countrySubdivisionCode": "WA",
-                        "countryCode": "US"
+                    "authority": {
+                        "addressCountry": "US",
+                        "addressRegion": "WA"
                     },
-                    "type": "Local Sales Tax",
+                    "name": "Local Sales Tax",
                     "rate": 9.50,
                     "amount": "0.61"
                 }
@@ -309,18 +332,17 @@ curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId}
             "sequenceNumber": 2,
             "reference": "",
             "description": "Distance",
-            "description2": "",
+            "additionalDescription": "",
             "semanticsCode": "FEE",
             "quantity": 1,
-            "amount": "49.32",
+            "total": "49.32",
             "taxes": [
                 {
-                    "authority": "WA State Tax",
-                    "address": {
-                        "countrySubdivisionCode": "WA",
-                        "countryCode": "US"
+                    "authority": {
+                        "addressCountry": "US",
+                        "addressRegion": "WA"
                     },
-                    "type": "Local Sales Tax",
+                    "name": "Local Sales Tax",
                     "rate": 9.50,
                     "amount": "4.68"
                 }
@@ -330,18 +352,17 @@ curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId}
             "sequenceNumber": 3,
             "reference": "",
             "description": "Time",
-            "description2": "",
+            "additionalDescription": "",
             "semanticsCode": "FEE",
             "quantity": 1,
-            "amount": "4.16",
+            "total": "4.16",
             "taxes": [
                 {
-                    "authority": "WA State Tax",
-                    "address": {
-                        "countrySubdivisionCode": "WA",
-                        "countryCode": "US"
+                    "authority": {
+                        "addressCountry": "US",
+                        "addressRegion": "WA"
                     },
-                    "type": "Local Sales Tax",
+                    "name": "Local Sales Tax",
                     "rate": 9.50,
                     "amount": "0.40"
                 }
@@ -351,10 +372,10 @@ curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId}
             "sequenceNumber": 4,
             "reference": "",
             "description": "Rounding Down",
-            "description2": "",
+            "additionalDescription": "",
             "semanticsCode": "DISCOUNT",
             "quantity": 1,
-            "amount": "-0.56"
+            "total": "-0.56"
         }
     ]
 }
@@ -362,75 +383,152 @@ curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId}
 
 ####  Receipt image generated
 
-![Ground Transport Receipt Example](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/ride-curb.json.png?raw=true)
+![Ground Transport Receipt Example](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/ground-transport-curb.png?raw=true)
 
-### <a name="JPT"></a>Japan Public Transport
+### <a name="Air"></a>Air
+
+####  Request URL
+
+#### Request body
+
+####  Receipt image generated
+
+### <a name="Rail"></a>Rail
 
 ####  Request URL
 ```
 curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId} 
--d @hotel-receipt-example.json -H "Content-Type: application/json" 
--H "link:<http://schema.concursolutions.com/jpt-receipt.schema.json>;rel=describedBy" 
+-d @rail-receipt-example.json -H "Content-Type: application/json" 
+-H "link:<http://schema.concursolutions.com/rail.schema.json>;rel=describedBy" 
 -H "Authorization: Bearer {valid JWT}"
 ```
 
 #### Request body
+
 ```
 {
-	  "user": "http://api.concur.com/v4/user/123456",
-    "app": "http://api.concur.com/v4/app/802698dc151d421c80643d76f241c78b",
-    "dateTime": "2016-05-05T00:00:00+09:00",
-    "total": "270",
-    "currencyCode": "JPY",
-    "reference": "4e6e49c5-7aaf-4ff1-ad97-919348ed8fb3",
-    "merchant": {
+    "user": "http://api.concursolutions.com/user/123456",
+    "app": "http://api.concursolutions.com/app/receiptServiceTest",
+    "taxInvoice": true,
+    "reference": "VDFG4567",
+    "dateTime": "2099-11-10T16:04:49-0700",
+    "total": "394.00",
+    "subtotal": "394.00",
+    "taxesTotal": "0.00",
+    "currencyCode": "GBP",
+    "itineraryLocator": "DSFJKLT4967",
+    "seller": {
+        "name": "Voyages-sncf",
+        "description": "",
+        "taxId": "321-654321",
         "location": {
+            "name": "Headquarters",
+            "number": "",
+            "latitude": 41.8819,
+            "longitude": -87.6278,
+            "internetAddress": "http://www.voyages-sncf.com",
+            "emailAddress": "info@uk.voyages-sncf.com",
+            "telephoneNumber": "0330 822 0333",
             "address": {
-                "countryCode": "JP"
-            },
-            "name": "Japan"
-        },
-        "name": "NWICR"
+                "streetAddress": "34 Tower View",
+                "addressLocality": "Kings Hill, WEST MALLING",
+                "addressCountry": "GB",
+                "postalCode": "ME19 4ED"
+            }
+        }
     },
     "payments": [
         {
-            "amount": "120"
-        },
-        {
-            "amount": "150"
+            "amount": "394.00",
+            "cardDetail": {
+                "cardType": "American Express",
+                "creditCardId": "4002"
+            }
         }
     ],
-	"icCardId":  "00X00C1093A4E892",
-	"segments": [
-		{
-			"sequenceNumber": 1,
-			"dateTime": "2016-05-05T00:00:00+09:00",
-			"amount": "120",
-			"fromStationCode": "02506",
-			"fromStationName": "恵比寿（東京）",
-			"toStationCode": "0250D",
-			"toStationName": "高田馬場",
-			"fromIsCommuterPass": false,
-			"toIsCommuterPass": false,
-			"distance": 1234
-		},
-		{
-			"sequenceNumber": 2,
-			"dateTime": "2016-05-05T00:00:00+09:00",
-			"amount": "150",
-			"fromStationCode": "0B50B",
-			"fromStationName": "おゆみ野",
-			"toStationCode": "0B501",
-			"toStationName": "千葉中央",
-			"fromIsCommuterPass": false,
-			"toIsCommuterPass": false,
-			"distance": 167
-		}
-	]
+    "railTickets": [
+        {
+            "ticketNumber": "C123456",
+            "recordLocator": "AZT222XFT9",
+            "issueDateTime": "2015-04-30T12:37:55-0700",
+            "passengerName": "John Doe",
+            "fare": "197.00",
+            "segments": [
+                {
+                    "departureStation": "Paris Est",
+                    "departureDateTime": "2015-11-25T10:00:00-0700",
+                    "arrivalStation": "Frankfurt Main HBF",
+                    "arrivalDateTime": "2015-11-26T12:00:00+0900",
+                    "trainNumber": "9557",
+                    "trainType": "TGV",
+                    "classOfServiceCode": "First Class",
+                    "fare": "98.50"
+                },
+                {
+                    "departureStation": "Frankfurt Main HBF",
+                    "departureDateTime": "2015-11-27T10:00:00-0700",
+                    "arrivalStation": "Paris Est",
+                    "arrivalDateTime": "2015-11-28T12:00:00+0900",
+                    "trainNumber": "9558",
+                    "trainType": "TGV",
+                    "classOfServiceCode": "First Class",
+                    "fare": "98.50"
+                }
+            ]
+        },
+        {
+            "ticketNumber": "C123457",
+            "recordLocator": "AZT222XFT9",
+            "issueDateTime": "2015-04-30T12:37:55-0700",
+            "passengerName": "Jane Doe",
+            "fare": "197.00",
+            "segments": [
+                {
+                    "departureStation": "Paris Est",
+                    "departureDateTime": "2015-11-25T10:00:00-0700",
+                    "arrivalStation": "Frankfurt Main HBF",
+                    "arrivalDateTime": "2015-11-26T12:00:00+0900",
+                    "trainNumber": "9557",
+                    "trainType": "TGV",
+                    "classOfServiceCode": "First Class",
+                    "fare": "98.50"
+                },
+                {
+                    "departureStation": "Frankfurt Main HBF",
+                    "departureDateTime": "2015-11-27T10:00:00-0700",
+                    "arrivalStation": "Paris Est",
+                    "arrivalDateTime": "2015-11-28T12:00:00+0900",
+                    "trainNumber": "9558",
+                    "trainType": "TGV",
+                    "classOfServiceCode": "First Class",
+                    "fare": "98.50"
+                }
+            ]
+        }
+    ],
+    "lineItems": [
+        {
+            "sequenceNumber": 1,
+            "semanticsCode": "FEE",
+            "description": "Credit Card Fee",
+            "dateTime": "2015-11-10T16:04:49-0700",
+            "subtotal": "4.92",
+            "total": "4.92"
+        }
+    ]
 }
-
 ```
 
 ####  Receipt image generated
 
-![JPT Receipt Example](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/jpt-multiple-segments.png?raw=true)
+![Rail Receipt Example](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/rail-multiple-tickets.png?raw=true)
+
+### <a name="General"></a>General
+
+####  Request URL
+
+#### Request body
+
+####  Receipt image generated
+
+
