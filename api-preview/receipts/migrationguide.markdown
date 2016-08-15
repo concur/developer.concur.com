@@ -7,7 +7,7 @@ layout: reference
 
 ##  What is new and different?
 
-- If you are migrating from V3 to V4, you will need to use a new [Authorization API](https://preview.developer.concur.com/api-alpha/auth/apidoc.html).
+- If you are migrating from V3 to V4, you will need to use a new [Authentication API](https://developer.concur.com/api-preview/auth/apidoc.html).
 
 - In V4, there are no matching facts. Partners post receipts for specific users.
 
