@@ -334,8 +334,10 @@ Name | Type | Format | Description
 `segmentLocator`|`string`|[`nonEmptyString`](#nonEmptyString)|Unique ID of a single travel event in Concur’s Itinerary Service.  An itinerary can contain one or more bookings and each booking can contain one or more segments. The segmentLocator uniquely identifies something like a car rental with a specific start and end date or a single air segment/sector.
 `startDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time of when customer was picked up.
 `endDateTime`|`string`|[`dateTime`](#dateTime)|**Required** Date and time of when customer was dropped off.
+`travelDuration`|`string`|[`duration`](#duration)|Duration of travel time specified as defined in ISO 8601.
 `pickupLocation`|`object`|[`location`](#location)|**Required** Location where the customer was picked up.
 `dropoffLocation`|`object`|[`location`](#location)|**Required** Location where the customer was dropped off.
+`distance`|`object`|[`distance`](#distance)|Distance travelled.
 `driverNumber`|`string`|-|Unique identifier assigned by the ride company to a driver.
 `lineItems`|`array`|[`lineItems`](#lineItems)|Descriptive breakdown of the fare charged. For example: base fare, distance travelled, discount and other add-ons.
 
@@ -547,6 +549,7 @@ Name | Type | Format | Description
 Name | Type | Description
 -----|------|------------
 <a name="dateTime"></a>`dateTime`|`string`|DateTime when the transaction occurred in the format specified in ISO 8601. While the standard regards time zone designators as optional, we highly recommend to use UTC + Offset. For example, 2016-04-22T12:20+0700 (12:20 PM in Pacific Time).
+<a name="duration"></a>`duration`|`string`|"pattern": "^(-)?P(?:(-?[0-9,.]*)Y)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)W)?(?:(-?[0-9,.]*)D)?(?:T(?:(-?[0-9,.]*)H)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)S)?)?$"
 <a name="nonEmptyString"></a>`nonEmptyString`|`string`|"minLength": 1, "pattern": "^(?!\\s*$).+"
 <a name="countrySubdivisionCode"></a>`countrySubdivisionCode`|`string`|"pattern": "^[a-zA-Z0-9]{1,3}$". Refer to ISO 3166-2:2013.
 <a name="countryCode"></a>`countryCode`|`string`|"minLength": 2, "maxLength": 3. Refer to ISO 3166-2:2013.
