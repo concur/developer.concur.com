@@ -25,9 +25,6 @@ Error Handling:
 
  - [Failure Codes](#FailureCodes)
 
-## <a name="URI"></a>Base URI
-
-`https://us.api.concursolutions.com/receipts/v4`
 
 ## <a name="GetServiceIndex"></a>GET Service Index
 
