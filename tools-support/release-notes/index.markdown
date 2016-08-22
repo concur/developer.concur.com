@@ -33,7 +33,7 @@ layout: reference
 | [June](AppCenter_ReleaseNotes_June 2016_FINAL.pdf) | -- | [June][1-2] |
 | [July](AppCenter_ReleaseNotes_July 2016_FINAL.pdf) | [July](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July][1-3] |
 | [August](AppCenter_ReleaseNotes_August 2016_FINAL.pdf) | -- | [August][1-4] |
-| -- | [September](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September][1-5] |
+| [September DRAFT](AppCenter_ReleaseNotes_Sept 2016_DRAFT.pdf) | [September](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September][1-5] |
 | -- | [October](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October][1-6] |
 | -- | -- | [November][1-7] |
 | -- | [December](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December][1-8] |
