@@ -2,7 +2,7 @@
 title: Sample Receipts
 layout: reference
 ---
-Below we have provided samples for [Hotel](#Hotel), [Ground Transport](#GroundTransport), [Air] (#Air), [Rail] (#Rail) and [General] (#General) receipts that can be created using the V4 API. A receipt image is automatically generated using appropriate brand logo if only receipt data is posted. As a partner, if you would like your brand logo to show up on the receipt image, email pdspe@concur.com.  
+Below we have provided samples for [Hotel](#Hotel), [Ground Transport](#GroundTransport), [Air](#Air), [Rail](#Rail) and [General](#General) receipts that can be created using the V4 API. A receipt image is automatically generated using appropriate brand logo if only receipt data is posted. As a partner, if you would like your brand logo to show up on the receipt image, email pdspe@concur.com.  
 
 ### <a name="Hotel">Hotel
 
