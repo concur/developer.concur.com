@@ -135,6 +135,7 @@ Name | Type | Format | Description
 `Items`|`array`|[`Vendor`](#vendor)|The result collection.
 `NextPage`|`string`|-|-|The URI of the next page of results, if any.
 `RequestRunSummary`|`string`|-|-|
+`TotalCount`|`Int`|-|-|
 `Vendor`|`array`|[`Vendor`](#vendor)|**Required** Vendor
 
 ### <a name="vendor"></a>Vendor  
@@ -197,10 +198,34 @@ Name | Type | Format | Description
 `TaxID`|`string`|-|The Vendor Tax ID.
 `TaxType`|`string`|-|The Vendor Tax Type.
 `URI`|`string`|-|The URI to the resource.
+`VendorBankList`|`array`|[`VendorBank`](#VendorBank)|The list of a vendor's active banking information.
 `VendorCode`|`string`|-|The vendor code of the request.
 `VendorFormName`|`string`|-|The vendor form name this vendor is associated with.
+`VendorGroupList`|`array`|-|The list of vendor groups by name.
 `VendorName`|`string`|-|The name of the vendor.
 `VoucherNotes`|`string`|-|Notes sent to Vendor along with authorization to charge Card Voucher.
+
+### <a name="VendorBank"</a>VendorBank
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`AccountNumber`|`string`|-|**Required** The account number.
+`AccountType`|`string`|-|**Required** The account type.
+`AddressCode`|`string`|-|The Address Code.
+`BankCode`|`string`|-|Bank Code
+`BankName`|`string`|-|The bank name.
+`BranchCode`|`string`|-|Branch Code
+`BranchLocation`|`string`|-|The branch location
+`CountryCode`|`string`|-|The country code.
+`CurrencyAlphaCode`|`string`|-|The currency alpha Code.
+`ID`|`string`|-|The unique idenitifier of this resource.
+`IsActive`|`string`|-|**Required** Is information active
+`NameOnAccount`|`string`|-|**Required** The name on the account.
+`RoutingNumber`|`string`|-|The routing number.
+`StatusList`|`array`|[`status`](#status)|Status results
+`TransType`|`string`|-|The trans type.
+`URI`|`string`|-|The URI to the resource.
+`VendorCode`|`string`|-|**Required** The vendor code of the request.
 
 ### <a name="status"></a>Status  
 
