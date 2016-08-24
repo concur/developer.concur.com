@@ -157,7 +157,7 @@ The emergency contact information provided.
 | `Name`  |  `string`  | The emergency contact name Format: nvarchar(255) | | | |
 | `Relationship` |  `string`  | The relationship to the user. Values are: Spouse, Brother, Parent, Sister, LifePartner, Other | | | |
 | `Phone`  | `list` |  | | | If multiple values of the same telephone type are provided, only the last one will be saved.  See below for the list elements.|
-| `Address` |  `Address` | Street Address. Format: nvarchar(max) | | | | |
+| `Address` |  `Address` | Street Address. Format: nvarchar(max) | | | |
 
 
 Address Elements
@@ -168,7 +168,7 @@ Address Elements
 | `City` |   `string` | The city name. Format: nvarchar(30) | | | |
 | `StateProvince` |   `string` | The state or province. Format: nvarchar(30) | | | |
 | `CountryCode` | `string` | The country code in from the ISO 3166-1 alpha-2 country code specification. Format: char(2) | | | |
-| `PostalCode` | `string` | The postal code. Format: nvarchar(20) | | | ||
+| `PostalCode` | `string` | The postal code. Format: nvarchar(20) | | | |
 
 
 Phone List Elements
@@ -176,7 +176,7 @@ Phone List Elements
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | `PhoneNumber`  | `string` | The emergency contact’s phone number.  Format: nvarchar(60) | | | No unicode characters. |
-| `Type`  | `string` | This contains a “type” attribute with values of DayTime or Alternate.  | required | required | | |
+| `Type`  | `string` | This contains a “type” attribute with values of DayTime or Alternate.  | Required | Required | |
 
 
 
@@ -192,15 +192,15 @@ The Telephones parent element contains a Telephone child element for each includ
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 |  `Type attribute` | `string` | Type of phone. Values are: Home, Work, Fax, Pager, Other, and Cell | required | required ||
-|  `ContactOptIn attribute` |  `boolean` |  Whether the user has opted in to being contacted on this phone. Only appears when the phone type is Cell. Format: **true**\|**false** | ||
-|  `PrimaryMobile attribute` | `boolean` | This is the user's preferred mobile device. Format: **true**\|**false** | ||
+|  `ContactOptIn attribute` |  `boolean` |  Whether the user has opted in to being contacted on this phone. Only appears when the phone type is Cell. Format: **true**\|**false** | | | |
+|  `PrimaryMobile attribute` | `boolean` | This is the user's preferred mobile device. Format: **true**\|**false** | | | |
 |  `CountryCode` |  `string` |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: Char(2) | required (Cell) | required (Cell)|Required for Cell types.
 |  `PhoneNumber` |  `string` | The phone number as entered by the user, which may contain characters such as () or -. Format: nvarchar(60) <br> | required (Cell) | required (Cell)| Required for Cell types. |
 |  `Extension` |  `string` |  The phone extension. Format: nvarchar(60) | | | |
 |  `MobileDevice` | `string` |  The OS of the mobile device. Values are: AndroidPhone, AndroidTablet, Blackberry, iOSPhone, iOSTablet, NotASmartphone, OtheriOSDevice, OtherSmartphone, Unknown, WindowMobile | | | |
-|  `MobileName` | `string` | The name the user assigned to the mobile device. Format: nvarchar(255) | | | | |
+|  `MobileName` | `string` | The name the user assigned to the mobile device. Format: nvarchar(255) | | | |
 
-* **NOTES**: 
+* **NOTES**:
  * Telephone Types Other, Pager, Fax, Home, Work, Work2
  	* Ignores CountryCode, DeviceName, DeviceType, ContactOptIn, IsPrimaryMobile
 	 * Only Work (NOT Work2) uses Extension
@@ -284,10 +284,10 @@ A list of passports in the user's profile:
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | `PassportNumber` | `string` | The user's passport number. Format: nvarchar(100) | Required | Required | |
 | `PassportNationality` | `string` | The user's passport nationality. Format: char(2) | Required | Required | |
-| `PassportExpiration`  | `date` |  The date the user’s passport expires. Format: YYYY-MM-DD || | Min - 01/01/1900, Max - 06/06/2079 |
-| `PassportDateIssued` | `date`  | The date the user’s passport was issued. Format: YYYY-MM-DD || | Min - 01/01/1900, Max - 06/06/2079|
-| `PassportCityIssued` | `string` |The city the user’s passport was issued in. Format: nvarchar(60) || | |
-| `PassportCountryIssued` |  `string`  |The country code in from the [ISO 3166-1 alpha-2 country code][1] specification. Format: char(2) || | ||
+| `PassportExpiration`  | `date` |  The date the user’s passport expires. Format: YYYY-MM-DD | | | Min - 01/01/1900, Max - 06/06/2079 |
+| `PassportDateIssued` | `date`  | The date the user’s passport was issued. Format: YYYY-MM-DD | | | Min - 01/01/1900, Max - 06/06/2079|
+| `PassportCityIssued` | `string` |The city the user’s passport was issued in. Format: nvarchar(60) | | | |
+| `PassportCountryIssued` |  `string`  |The country code in from the [ISO 3166-1 alpha-2 country code][1] specification. Format: char(2) | | | |
 
 * **NOTE**: there can only be 2 passports associated to a user.  If more than two passports are provided, W016 warning message is returned.
 
@@ -304,10 +304,10 @@ A list of visas in the user's profile.
 | `VisaNationality` | `string` | The user's visa nationality. Format: char(2) | Required | Required | |
 | `VisaNumber`  | `string` | The user's visa nationality. Format: nvarchar(100) | Required | Required | |
 | `VisaType`  |  `string` | The user's visa type. Values are Unknown, SingleEntry, DoubleEntry, MultiEntry, ESTA, ETA, and SchengenVisa. | | | |
-| `VisaDateIssued` | `date` |  The date the user’s visa was issued. Format: YYYY-MM-DD | | |Min - 01/01/1900 Max - 06/06/2079 | 
-| `VisaExpiration` | `date`  | The date the user’s visa expires. Format: YYYY-MM-DD | | |Min -01/01/1900 Max - 06/06/2079 | 
+| `VisaDateIssued` | `date` |  The date the user’s visa was issued. Format: YYYY-MM-DD | | | Min - 01/01/1900 Max - 06/06/2079 |
+| `VisaExpiration` | `date`  | The date the user’s visa expires. Format: YYYY-MM-DD | | | Min -01/01/1900 Max - 06/06/2079 |
 | `VisaCityIssued` | `string` | The city the user’s visa was issued in. Format: nvarchar(60) | | | |
-| `VisaCountryIssued` |  `string` | The country code in from the [ISO 3166-1 alpha-2 country code][1] specification. Format: char(2) | | | ||
+| `VisaCountryIssued` |  `string` | The country code in from the [ISO 3166-1 alpha-2 country code][1] specification. Format: char(2) | | | |
 
 * **NOTE**:  Visas will sync with existing visas.  Any existing Visas not provided in the list will be deleted.
 
@@ -359,7 +359,7 @@ The Air parent element contains the user's air travel preferences and contains t
 |  `Seat` |   | This element contains [air seat child elements](#airseat). | | | |
 |  `Meals` | `string`   | This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are: <br> Regular Meal (DEFAULT VALUE) <br> BBML = Baby Meal  <br> BLML = Bland Meal  <br> CHML = Child Meal  <br> DBML = Diabetic Meal  <br> FPML = Fruit Platter  <br> GFML = Gluten Intolerant Meal  <br> HNML = Hindu Meal  <br> KSML = Kosher Meal  <br> LCML = Low Calorie Meal  <br> LSML = Low Salt Meal  <br> MOML = Muslim Meal  <br> NLML = Low Lactose Meal  <br> NSML = No Salt Meal  <br> PFML = Peanut Free Meal  <br> SFML = Seafood Meal  <br>  VGML = Vegetarian  <br> RVML = Vegetarian Raw Vegan Meal  <br> KVML = Vegetarian Kosher <br> VLML = Vegetarian Lacto-Ovo  <br> | | | |
 |  `HomeAirport` |  `string` |  The user's home airport. varchar(3) | | | Must be an existing IATA code. |
-|  `AirOther` |  `string` |  Other Air related description | | | ||
+|  `AirOther` |  `string` |  Other Air related description | | | |
 
 ##### <a name="airmember"></a>Air Memberships elements
 
@@ -381,8 +381,8 @@ The Air parent element contains the user's air travel preferences and contains t
 
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
-|  `InterRowPositionCode` |  `string` |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **DontCare**. | | |  | 
-|  `SectionPositionCode` |  `string` |  Preference for position in plane. Format: **Bulkhead**, **Forward**, **Rear**, **ExitRow**, **DontCare**. | | |  | |
+|  `InterRowPositionCode` |  `string` |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **DontCare**. | | | | 
+|  `SectionPositionCode` |  `string` |  Preference for position in plane. Format: **Bulkhead**, **Forward**, **Rear**, **ExitRow**, **DontCare**. | | | |
 
 ***
 
@@ -416,12 +416,12 @@ The Rail parent element contains the user's rail travel preferences and contains
 |  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status. | | | |
 |  `PointTotal` |  `string` |  The user's total number of points in the loyalty program. | | | |
 |  `SegmentTotal` |  `string` |  The user's total segments in the loyalty program. | | | |
-|  `Expiration` |  `DateTime` |  The user's expiration date in the loyalty program.  Min - 01/01/1753, Max - 12/31/9999 | | |  |
+|  `Expiration` |  `DateTime` |  The user's expiration date in the loyalty program.  Min - 01/01/1753, Max - 12/31/9999 | | | | |
 |  `NextStatus` |  `string` |  Name or description of next higher status level in the  loyalty program. | | | |
-|  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. | | |  |
-|  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. | | |  |
-|  `BahnCardClass` |  `string` |  Bahn card class. Valid values are First and Second. | | | | |
-|  `BahnCardType` |  `string` |  Bahn card type. Valid values include NA (for non-rail programs), Card25, Card50, Card100, Business25. and Business50.. | | | | 
+|  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. | | | |
+|  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. | | | |
+|  `BahnCardClass` |  `string` |  Bahn card class. Valid values are First and Second. | | | |
+|  `BahnCardType` |  `string` |  Bahn card type. Valid values include NA (for non-rail programs), Card25, Card50, Card100, Business25. and Business50.. | | | |
 
 
 
@@ -434,12 +434,12 @@ The Car parent element contains the user's car travel preferences. It contains t
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 |  `CarSmokingCode` |  `string` |  Smoking car preferred. Format: **DontCare**, **NonSmoking**, **Smoking** | | | |
-|  `CarGPS` |  `boolean` |  Car GPS preference. Format: **true**\|**false**. | | | 
-|  `CarType` |  `string` |  Car type preference. Values are:  <br> DontCare <br> Mini <br> Economy <br> EconomyHybrid <br> Compact <br> CompactHybrid <br> Intermediate <br> IntermediateHybrid <br> Standard <br> StandardHybrid <br> FullSize <br> FullSizeHybrid <br> MiniVan <br> Luxury <br> Premium <br> StandardSUV <br> IntermediateSUV <br> FullSizeSUV <br> FullSizePickup <br> Specialized    | | | |
+|  `CarGPS` |  `boolean` |  Car GPS preference. Format: **true**\|**false**. | | | |
+|  `CarType` |  `string` |  Car type preference. Values are:  <br> DontCare <br> Mini <br> Economy <br> EconomyHybrid <br> Compact <br> CompactHybrid <br> Intermediate <br> IntermediateHybrid <br> Standard <br> StandardHybrid <br> FullSize <br> FullSizeHybrid <br> MiniVan <br> Luxury <br> Premium <br> StandardSUV <br> IntermediateSUV <br> FullSizeSUV <br> FullSizePickup <br> Specialized | | | |
 |  `CarMemberships` |   | The CarMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains  [CarMembership child elements](#cmchild) for each included membership. | | | |
 |  `CarOther` |  `string` |  Other Car related description. Format: varchar(30) | | | |
 |  `CarSkiRack` |  `boolean` |  Car ski rack preference. Format: **true**\|**false**. | | |
-|  `CarTransmission` | `string` | Car transmission type. Values are: **DontCare**, **Automatic**, **Manual** | | | | |
+|  `CarTransmission` | `string` | Car transmission type. Values are: **DontCare**, **Automatic**, **Manual** | | | |
 
 ##### <a name="cmchild"></a>Car Memberships elements
 
@@ -451,10 +451,10 @@ The Car parent element contains the user's car travel preferences. It contains t
 |  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status. | | | |
 |  `PointTotal` |  `string` |  The user's total number of points in the loyalty program. | | | |
 |  `SegmentTotal` |  `string` |  The user's total segments in the loyalty program. | | | |
-|  `Expiration` |  `DateTime` |  The user's expiration date in the loyalty program.  Min - 01/01/1753, Max - 12/31/9999 | | |  | 
+|  `Expiration` |  `DateTime` |  The user's expiration date in the loyalty program.  | | | Min - 01/01/1753, Max - 12/31/9999 | 
 |  `NextStatus` |  `string` |  Name or description of next higher status level in the  loyalty program. | | | |
 |  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. | | |  |
-|  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. | | |  | |
+|  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. | | | |
 
 
 ***
@@ -490,7 +490,7 @@ The Hotel parent element contains the user's hotel travel preferences. It contai
 |  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status. | | | |
 |  `PointTotal` |  `string` |  The user's total number of points in the loyalty program. | | | |
 |  `SegmentTotal` |  `string` |  The user's total segments in the loyalty program. | | | |
-|  `Expiration` |  `DateTime` |  The user's expiration date in the loyalty program.  Min - 01/01/1753, Max - 12/31/9999 | | |  | |
+|  `Expiration` |  `DateTime` |  The user's expiration date in the loyalty program. | | | Min - 01/01/1753, Max - 12/31/9999 |
 
 
 ***
@@ -502,7 +502,7 @@ The CustomFields parent element contains a CustomField child element for each fi
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 |  `CustomField` |  `string` |  The value of the custom field. Format: varchar(255) | | | |
-|  `Name attribute` |  `string` |  The name of the custom field. Format: varchar(255) | Required | Required | | |
+|  `Name attribute` |  `string` |  The name of the custom field. Format: varchar(255) | Required | Required | |
 
 ***
 
@@ -537,7 +537,7 @@ A list of sponsors associated to a user:
 | `NonEmployeeUserType` | `string` | The non-employee's user type. Values are: **Contractor**, **Student/Intern**, **Candidate for Hire**, **Invitational Traveler**, **Dependent/Spouse**, **Board Member**, **Other** | Required | Required | |
 | `SponsorName` | `string` | The sponsor’s name. Format: varchar(255) | Cannot Update | | |
 | `SponsorshipStartDate`  |  `date`  |  The sponsorship start date. Format: YYYY-MM-DD | Required | Required | |
-| `SponsorshipEndDate` | `date`  |  The sponsorship end date. Format: YYYY-MM-DD | Required | Required | | |
+| `SponsorshipEndDate` | `date`  |  The sponsorship end date. Format: YYYY-MM-DD | Required | Required | |
 | `LoginID` | `string` | The sponsor’s name. Format: varchar(255) | Required | Required | |
 
 * **NOTES**:
@@ -559,7 +559,7 @@ The Transportation Security Administration (TSA) Details provided.
 | `DateOfBirth` | `date` |  The user’s date of birth. Format: YYYY-MM-DD.  Min - 01/01/1900, Max - 	06/06/2079 | | | |
 | `NoMiddleName`  |  `boolean` | Format: true/false | | | |
 | `PreCheckNumber` | `string`| The user’s pre-check number. Format: varchar(255) | | | |
-| `RedressNumber` | `string` | The user’s redress number. Format: varchar(255) | | | | |
+| `RedressNumber` | `string` | The user’s redress number. Format: varchar(255) | | | |
 
 * **NOTE**: NoMiddleName: If the profile has a middle name, NoMiddleName overrides to false
 
@@ -580,9 +580,9 @@ A list of unused tickets associated to a user
 | `Fees`  |  `string` | The fees for the unused ticket. Format: Varchar(255) | | | |
 | `Currency`   | `string`|  The currency of the unused ticket. Format: Varchar(3) | | | |
 | `TicketType` | `string` | The type of unused ticket. Format: Varchar(1) | | | |
-| `IssueDate` |  `date`   | The date of issue for the unused ticket. Format: YYYY-MM-DD. Min - 01/01/1753, Max - 12/31/9999 | | | |
-| `ExpirationDate` | `date` | The date of expiration for the unused ticket. Format: YYYY-MM-DD. Min - 01/01/1753, Max - 12/31/9999 | | | |
-| `Notes`  | `string` | Notes associated to that unused ticket. Format: Varchar(255) | | | | |
+| `IssueDate` |  `date`   | The date of issue for the unused ticket. Format: YYYY-MM-DD. | | | Min - 01/01/1753, Max - 12/31/9999 |
+| `ExpirationDate` | `date` | The date of expiration for the unused ticket. Format: YYYY-MM-DD. | | | Min - 01/01/1753, Max - 12/31/9999 |
+| `Notes`  | `string` | Notes associated to that unused ticket. Format: Varchar(255) | | | |
 
 ***
 
@@ -593,10 +593,10 @@ A list of unused Southwest tickets associated to a user.
 
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
-| `RecordLocator` | `string` | The unused ticket record locator. Format: Varchar(255) | Required | |  |
+| `RecordLocator` | `string` | The unused ticket record locator. Format: Varchar(255) | Required | | |
 | `TicketAmount` |`string` | The amount of the unused ticket. Format: Varchar(255) | | | |
 | `Currency`   | `string`|  The currency of the unused ticket. Format: Varchar(3) | | | |
-| `ExpirationDate` | `date` | The date of expiration for the unused ticket. Format: YYYY-MM-DD. Min - 01/01/1753, Max - 12/31/9999 | | | | |
+| `ExpirationDate` | `date` | The date of expiration for the unused ticket. Format: YYYY-MM-DD. | | | Min - 01/01/1753, Max - 12/31/9999 |
 
 ***
 
@@ -618,7 +618,9 @@ A list of advantage memberships associated to a user:
 * **NOTE**:  Multiple memberships for the same VendorType, VendorCode, ProgramCode, and CardNumber are identified and a warning is thrown.
 
 ***
+
 ## <a name="a4">Possible Warnings and Error Messages</a>
+
 The codes and types of messages that can be returned on updates and creates:
 
 | CODE | Message Type | Notes | Example |
