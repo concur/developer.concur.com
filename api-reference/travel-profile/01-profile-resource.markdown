@@ -193,7 +193,7 @@ The Telephones parent element contains a Telephone child element for each includ
 |  `CountryCode` |  `string` |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: Char(2) | required (Cell) | required (Cell)|Required for Cell types.
 |  `PhoneNumber` |  `string` | The phone number as entered by the user, which may contain characters such as () or -. Format: nvarchar(60) <br> | required (Cell) | required (Cell)| Required for Cell types. |
 |  `Extension` |  `string` |  The phone extension. Format: nvarchar(60) | | | |
-|  `MobileDevice` | `string` |  The OS of the mobile device. Values are: AndroidPhone, AndroidTablet, Blackberry, iOSPhone, iOSTablet, NotASmartphone, OtheriOSDevice, OtherSmartphone, Unknown, WindowMobile | | | |
+|  `MobileDevice` | `string` |  The OS of the mobile device. Values are:<br> Android Phone<br> Android Tablet<br> Blackberry<br> iOS Phone<br> iOS Tablet<br> Not a smartphone<br> Other iOS device<br> Other smartphone<br> Unknown<br> Window Mobile | | | |
 |  `MobileName` | `string` | The name the user assigned to the mobile device. Format: nvarchar(255) | | | |
 
 * **NOTES**:
