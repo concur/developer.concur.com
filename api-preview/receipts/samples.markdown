@@ -527,8 +527,98 @@ curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId}
 
 ####  Request URL
 
+```
+curl -v POST https://us.api.concursolutions.com/receipts/v4/user/{userId} 
+-d @general-receipt-example.json -H "Content-Type: application/json" 
+-H "link:<http://schema.concursolutions.com/general.schema.json>;rel=describedBy" 
+-H "Authorization: Bearer {valid JWT}"
+```
+
 #### Request body
+
+```
+{
+    "user": "http://api.concursolutions.com/user/123456",
+    "app": "http://api.concursolutions.com/app/receiptServiceTest",
+    "taxInvoice": true,
+    "reference": "CUSTOMERID-1234",
+    "dateTime": "2099-11-05T15:05:00-0800",
+    "total": "7.61",
+    "subtotal": "6.95",
+    "taxesTotal": "0.66",
+    "currencyCode": "USD",
+    "seller": {
+        "name": "Chipotle",
+        "description": "Chipotle Burritos and Tacos",
+        "taxId": "123-21213",
+        "location": {
+            "name": "Bellevue Downtown",
+            "number": "C3404",
+            "latitude": 47.616667,
+            "longitude": -122.333333,
+            "internetAddress": "http://www.chipotle.com",
+            "emailAddress": "bellevue@chipotle.com",
+            "telephoneNumber": "425-467-0660",
+            "faxNumber": "",
+            "address": {
+                "streetAddress": "10503 NE 4th, Unit 200",
+                "addressLocality": "Bellevue",
+                "addressRegion": "WA",
+                "addressCountry": "US",
+                "postalCode": "98004"
+            }
+        }
+    },
+    "taxes": [
+        {
+            "authority": {
+                "addressCountry": "US",
+                "addressRegion": "WA"
+            },
+            "name": "Local Sales Tax",
+            "rate": 9.50,
+            "amount": "0.66"
+        }
+    ],
+    "payments": [
+        {
+            "amount": "7.83",
+            "cardDetail": {
+                "cardType": "American Express",
+                "creditCardId": "0098",
+                "authorizationCode": "AB987654321"
+            }
+        }
+    ],
+    "lineItems": [
+        {
+            "sequenceNumber": 1,
+            "reference": "",
+            "description": "Carnitas Bowl",
+            "additionalDescription": "",
+            "semanticsCode": "FOOD",
+            "quantity": 1,
+            "unitCost": "6.95",
+            "subtotal": "6.95",
+            "taxesTotal": "0.66",
+            "total": "7.61",
+            "taxes": [
+                {
+                    "authority": {
+                        "addressCountry": "US",
+                        "addressRegion": "WA"
+                    },
+                    "name": "Local Sales Tax",
+                    "rate": 9.50,
+                    "amount": "0.66"
+                }
+            ]
+        }
+    ]
+}
+
+```
 
 ####  Receipt image generated
 
-
+![General Receipt Example](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/general.png?raw=true)
