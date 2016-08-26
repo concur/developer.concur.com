@@ -1,5 +1,5 @@
 ---
-title: Travel Profile 
+title: Travel Profile
 layout: reference
 ---
 
@@ -80,6 +80,7 @@ Where access_token is the OAuth 2.0 access token of the user whose travel profil
 
 #### Data model
 The complete schema definition is available here: [Travel Profile XSD][3].
+<i>Concur reserves the right to change the XSD.  Reading/writing strictly to the XSD will result in breakage as new XML elements are added.</i>
 
 ####  Profile root element
 
@@ -116,7 +117,7 @@ The Profile root element contains:
 The General parent element contains the following child elements.
 
 * Some elements require specific scopes be enabled to receive the data, refer to the table below.
-* Profile fields, such as cost center and division, must be enabled and populated in the Travel site for data to return.  
+* Profile fields, such as cost center and division, must be enabled and populated in the Travel site for data to return. 
 
 | Element Name | Data Type | Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
@@ -139,7 +140,7 @@ The General parent element contains the following child elements.
 |  `RuleClass` |  `string` |  The user's rule class. Format: nvarchar(60) | | | Must already be setup in the company. |
 |  `TravelConfigID` | `string` | The user's TravelConfig. Format: varchar(255) | | Required | |
 |  `MedicalAlerts` | `string` |  The user's medical alerts. Format: nvarchar(255) | | | Requires Medical Alerts Scope. |
-|  `AgencyNumber` | `string` | The TravelConfig's Agency. Format: varchar(255) | Cannot Update | | |
+|  `AgencyNumber` | `string` | The TravelConfig’s Agency IATA Number. Format: varchar(255) | Cannot Update | | |
 |  `SearchID` | `string` | The user's Search ID. Format: varchar(64) | | | |
 |  `GDSProfileName` |  `string` |  The user's GDS profile name. Format: varchar(60) | | | Requires TMC Specific scope.|
 
@@ -160,7 +161,7 @@ The emergency contact information provided.
 | `Address` |  `Address` | Street Address. Format: nvarchar(max) | | | |
 
 
-Address Elements
+#### Address Elements
 
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
@@ -171,17 +172,12 @@ Address Elements
 | `PostalCode` | `string` | The postal code. Format: nvarchar(20) | | | |
 
 
-Phone List Elements
+#### Phone List Elements
 
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | `PhoneNumber`  | `string` | The emergency contact’s phone number.  Format: nvarchar(60) | | | No unicode characters. |
 | `Type`  | `string` | This contains a “type” attribute with values of DayTime or Alternate.  | Required | Required | |
-
-
-
-
-
 
 ***
 
@@ -197,7 +193,7 @@ The Telephones parent element contains a Telephone child element for each includ
 |  `CountryCode` |  `string` |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: Char(2) | required (Cell) | required (Cell)|Required for Cell types.
 |  `PhoneNumber` |  `string` | The phone number as entered by the user, which may contain characters such as () or -. Format: nvarchar(60) <br> | required (Cell) | required (Cell)| Required for Cell types. |
 |  `Extension` |  `string` |  The phone extension. Format: nvarchar(60) | | | |
-|  `MobileDevice` | `string` |  The OS of the mobile device. Values are: AndroidPhone, AndroidTablet, Blackberry, iOSPhone, iOSTablet, NotASmartphone, OtheriOSDevice, OtherSmartphone, Unknown, WindowMobile | | | |
+|  `MobileDevice` | `string` |  The OS of the mobile device. Values are:<br> Android Phone<br> Android Tablet<br> Blackberry<br> iOS Phone<br> iOS Tablet<br> Not a smartphone<br> Other iOS device<br> Other smartphone<br> Unknown<br> Window Mobile | | | |
 |  `MobileName` | `string` | The name the user assigned to the mobile device. Format: nvarchar(255) | | | |
 
 * **NOTES**:
@@ -347,6 +343,7 @@ The DiscountCodes parent element contains a DiscountCode child element for each 
 | `Vendor attribute` | `string` | Specifies the name of the vendor for the discount code. | | | unable to update |
 
 * **NOTE:** Discount code elements are not available to create or update.
+
 ***
 
 #### <a name="Air"></a>Air elements
