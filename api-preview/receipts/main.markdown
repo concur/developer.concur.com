@@ -1,3 +1,8 @@
+---
+title: Get Started
+layout: reference
+---
+
 #Receipts
 
 ## Version
