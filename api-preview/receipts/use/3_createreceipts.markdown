@@ -1,3 +1,8 @@
+---
+title: Create Receipts
+layout: reference
+---
+
 # Receipts
 
 ## Create Receipts
