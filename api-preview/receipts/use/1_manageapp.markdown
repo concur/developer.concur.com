@@ -1,3 +1,8 @@
+---
+title: Manage Your Client Application
+layout: reference
+---
+
 # Receipts
 
 ## Manage Your Client Application
