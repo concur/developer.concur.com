@@ -23,6 +23,6 @@ Active | Deprecated | Retired | Decommissioned
 **Support:** Updated with bug fixes and new features are available. | **Support:** Updated with bug fixes for first six (6) months; No fixes after that period. | **Support:** No longer supported six (6) months after Deprecated. | **Support:** None.
 **Release Notes:** Notify 2 weeks prior to launch; Announce availability when in production. | **Release Notes:** Notify 90 days prior to deprecation; Announce when deprecated. | **Release Notes:** Notify 90 days prior to retirement; Announce when retired. | **Release Notes:** Notify 90 days prior to decommissioning.
 
-*Exception: Changes required due to security issues may have a shorter notification and action window.  
+## *Exception: Changes required due to security issues may have a shorter notification and action window.  
 
 
