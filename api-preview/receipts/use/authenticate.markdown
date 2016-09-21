@@ -1,3 +1,0 @@
-# Receipts
-
-## Authenticate Requests
