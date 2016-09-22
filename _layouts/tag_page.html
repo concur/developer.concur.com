@@ -2,6 +2,29 @@
 layout: blog
 ---
 
+{% assign location = page.url | split :'/' %}
+
+{% if location contains 'changelog' %}
+  {% assign path = 'tools-support/changelog' %}
+  {% assign pagetitle = 'Change Log' %}
+{% else %}
+  {% assign path = 'blog' %}
+  {% assign pagetitle = 'Developer Blog' %}
+{% endif %}
+
+{% assign path_posts = "" | split:"|"  %}
+{% for post in site.posts limit: 10 %}
+  {% if pagetitle == 'Change Log' %}
+    {% if post.categories contains 'changelog' %}
+      {% assign path_posts = path_posts | push: post %}
+    {% endif %}
+  {% else %}
+    {% unless post.categories contains 'changelog' %}
+      {% assign path_posts = path_posts | push: post %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+
 <h1 class="post-title"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;{{page.tag | replace: "-", " " }}</h1>
 
 <!-- Capture & Assign Variables Used In Menu -->

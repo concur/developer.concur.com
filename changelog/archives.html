@@ -39,8 +39,7 @@ layout: blog
             <!-- Get Count of Posts This Month -->
             {% for post in site.posts %}
 
-              {% unless post.categories contains 'changelog' %}
-
+              {% if post.categories contains 'changelog'%}
 
                 {% assign postyear = post.date | date: "%Y" | times: 1 %}
                 {% assign postmonth = post.date | date: "%B"%}
@@ -54,26 +53,24 @@ layout: blog
                   <div class="collapse" id="{{ month }}">
                 {% endif %}
 
-              {% endunless %}
-
+              {% endif %}
             {% endfor %}
 
             {% for post in site.posts %}
 
-              {% unless post.categories contains 'changelog' %}
-
+              {% if post.categories contains 'changelog'%}
 
                 {% assign postyear = post.date | date: "%Y" | times: 1 %}
                 {% assign postmonth = post.date | date: "%B"%}
 
-                {% if year == postyear and month == postmonth %}
+                {% if year == postyear and month == postmonth and post.categories contains 'changelog' %}
                   <a href="{{ post.url }}"  class="list-group-item"> {{ post.title }} • {{ post.date | date: "%A, %B %-d"}} </a>
                 {% endif %}
                 {% if forloop.index == site.posts.size and counter > 0 %}
                   </div>
                 {% endif %}
 
-              {% endunless %}
+              {% endif %}
 
             {% endfor %}
 
