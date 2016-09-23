@@ -6,32 +6,32 @@ layout: reference
 # Receipts
 
 - [Version](#version)
-- [API Explorer](#explorer)
-- [Code Snippets](#code)
+- [API Explorer](#api-explorer)
+- [Code Snippets](#code-snippets)
 
 ## Version
 
 - 4.0 In preview mode and to be made active soon.
 - [3.0](https://developer.concur.com/api-reference/expense/receipts/) Will be  [deprecated](https://developer.concur.com/tools-support/reference/deprecation-policy.html) once 4.0 is active.
 
-## <a href="explorer">API Explorer</a>
+## API Explorer
 
-- <a href="postman">Explore in Postman</a>
-- <a href="commandline">Explore using Command Line</a>
+- [Prerequisites](#prerequisites)
+- [Explore in Postman](#explore-in-postman)
+- [Explore using Command Line](#explore-in-command-line)
 
-### <a href="postman">Explore in Postman</a>
-
-Click on the button below to explore the Receipts API in [Postman](https://www.getpostman.com/docs/introduction).
-
-Prerequisites:
+### Prerequisites
 
 1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
-2. Read the [Manage Your Client Application](#ManageApp) section and get a client ID and client secret by emailing pdspe@concur.com. 
-3. If you have never used Postman before, here is [information](https://www.youtube.com/watch?v=jBjXVrS8nXs&list=PLM-7VG-sgbtD8qBnGeQM5nvlpqB_ktaLZ&autoplay=1) on how to use the Postman REST client.
+2. Read the Manage Your Client Application section and get a client ID and client secret by emailing pdspe@concur.com. 
+
+### Explore in Postman
+
+Click on the button below to explore the Receipts API in [Postman](https://www.getpostman.com/docs/introduction). If you have never used Postman before, here is [information](https://www.youtube.com/watch?v=jBjXVrS8nXs&list=PLM-7VG-sgbtD8qBnGeQM5nvlpqB_ktaLZ&autoplay=1) on how to send requests and view responses using the Postman REST client.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ccb1f53f5fbd3ba26c37)
 
-### <a href="commandline">Explore in Command Line</a>
+### Explore in Command Line
 
 If you prefer to access the API via the command line, try these commands:
 
@@ -77,11 +77,11 @@ curl -H "Authorization: Bearer {YOUR JWT}" https://us.api.concursolutions.com/re
 ```
 Returns all receipts for a given user ID.
 
-## <a href="#code">Code Snippets</a>
+## Code Snippets
 
 Below are some simple NodeJS code snippets for getting a token and posting a receipt.
 
-### Retrieve a User JSON Web Token (JWT):
+### Retrieve a User JSON Web Token (JWT)
 
 ```
 'use strict';
