@@ -11,8 +11,8 @@ layout: reference
 
 ## Version
 
-- 4.0 Active
-- [3.0](https://developer.concur.com/api-reference/expense/receipts/) [Deprecated](https://developer.concur.com/tools-support/reference/deprecation-policy.html) as of October 14, 2016
+- 4.0 In preview mode and to be made active soon.
+- [3.0](https://developer.concur.com/api-reference/expense/receipts/) Will be  [deprecated](https://developer.concur.com/tools-support/reference/deprecation-policy.html) once 4.0 is active.
 
 ## <a href="explorer">API Explorer</a>
 
