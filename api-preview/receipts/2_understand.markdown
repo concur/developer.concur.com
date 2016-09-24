@@ -8,20 +8,26 @@ layout: reference
 ## Understand the Receipts API
 
 - [Overview of Version 4.0](#overview)
-- [Supported Receipt Types](#receipttypes)
-- [E-Receipt Generation](#ereceipts)
+- [Supported Receipt Types](#supported-receipt-types)
+  - [Air Receipt](#air-receipt)
+  - [Car Rental Receipt](#car-rental-receipt)
+  - [General Receipt](#general-receipt)
+  - [Japan Public Transportation Receipt](#japan-public-transportation-receipt)
+  - [Ground Transport Receipt](#ground-transport-receipt)
+  - [Hotel Receipt](#hotel-receipt)
+  - [Rail Receipt](#rail-receipt)
+- [E-Receipt Generation](#e-receipt-generation)
 
-### <a href="overview">Overview of Version 4.0</a>
+### Overview
 
 Version 4.0 of the Receipts API offers features like more receipt types, automatic e-receipt generation in end user’s preferred language and ability for partners to provide detailed tax information. Unlike version 3.0, we are discontinuing the use of matching facts; instead the partner will have to create a receipt for a specific end user. Receipts 4.0 works only with the new Authentication API. 
 
-### <a href="receipttypes">Supported Receipt Types</a>
-
-Receipts can be of type [Air](#air-receipt), [Car Rental](#car-rental-receipt), [General](#general-receipt), [Japan Public Transport](#japan-public-transportation-receipt), [Ground Transport](#ground-transport-receipt), [Hotel](#hotel-receipt) or [Rail](#rail-receipt). 
+### Supported Receipt Types
 
 In the tables below, a property name mentioned in __*bold italics*__ is required. If not, it is optional.
 
-##Address-Original
+## Address-Original
+
 Postal address schema used for JPT receipts _only_.
 
 |Property Name|Type|Format|Description|
@@ -33,7 +39,8 @@ Postal address schema used for JPT receipts _only_.
 |__*countryCode*__|string|country-code|2 or 3 character country code as defined in ISO 3166-2:2013|
 |postalCode|string|N/A||
 
-##Address
+## Address
+
 Common address object used by all receipt types except for the JPT IC Card receipt, which uses [Address-Original](#address-original).
 
 |Property Name|Type|Format|Description|
@@ -44,10 +51,11 @@ Common address object used by all receipt types except for the JPT IC Card recei
 |__*addressCountry*__|string|country-code|2 or 3 character country code as defined in ISO 3166-2:2013|
 |postalCode|string|N/A||
 
-##Air Receipt
-Schema for airline receipts.
-* Includes all of [Receipt Core Definitions](#receipt-core-definitions)
+## Air Receipt
 
+Schema for airline receipts.
+
+* Includes all of [Receipt Core Definitions](#receipt-core-definitions)
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -55,7 +63,7 @@ Schema for airline receipts.
 |tickets|array|[tickets](#tickets)|Air tickets issued.|
 |lineItems|array|[lineItems](#line-item)|Ancillary airline fees.|
 
-###tickets
+### tickets
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -68,8 +76,7 @@ Schema for airline receipts.
 |__*passengerName*__|string|N/A|Name of the passenger associated with the ticket.|
 |__*coupons*__|array|[coupons](#coupons)|Flights issued within this transaction.|
 
-
-###coupons
+### coupons
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -89,9 +96,8 @@ Schema for airline receipts.
 |taxes|array|[Taxes](#taxes)|Schema for objects that make up an array of taxes. Used in most receipt types.|
 |lineItems|array|[lineItems](#line-item)|Line Items/fees specific to a leg of the trip. Eg. Baggage fees, class of service fees, priority boarding, meals.|
 
+### Definitions
 
-
-###Definitions
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |IATAAirportCode|string|^[a-zA-Z]{3}$|3-letter IATA code for an airport.|
@@ -103,11 +109,11 @@ Schema for airline receipts.
 |fareBasisCode|string|^[a-zA-Z0-9]{3,8}$||
 |ticketDesignatorCode|string|^[a-zA-Z0-9\*?]{1,10}$||
 
+## Car Rental Receipt
 
-##Car Rental Receipt
 Schema for car rentals. This does not include ride services or taxis.
-* Includes all of [Receipt Core Definitions](#receipt-core-definitions)
 
+* Includes all of [Receipt Core Definitions](#receipt-core-definitions)
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -127,7 +133,7 @@ Schema for car rentals. This does not include ride services or taxis.
 |additionalDriver|boolean|N/A|Additional approved driver (true) or not (false).|
 |lineItems|array|[lineItems](#line-item)|Break down of all car rental charges. This could include daily rate, fees, insurance, GPS rental and other add-ons.|
 
-###vehicle
+### vehicle
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -138,16 +144,13 @@ Schema for car rentals. This does not include ride services or taxis.
 |classChargedCode|string|^[a-zA-Z]{4}$|Car class code actually charged to the user.|
 |engineSize|string|^[0-9]{1,4}$|Engine displacement in cubic centimeters.|
 
-
-
-###Definitions
+### Definitions
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |acrissCarCode|string|^[a-zA-Z]{4}$|Four-letter Association of Car Rental Industry Systems Standard (ACRISS) car code.|
 |engineSize|string|^[0-9]{1,4}$|Engine displacement in cubic centimeters.|
 
-
-##Common Definitions
+## Common Definitions
 Shared definitions that are utilized in multiple receipt types.
 ###Definitions
 |Property Name|Type|Format|Description|
@@ -163,17 +166,15 @@ Shared definitions that are utilized in multiple receipt types.
 |longitude|number|N/A|Numeric longitude value between -180 and 180|
 |positiveInteger|integer|N/A|Positive integer value of at least 1|
 
-####distance
-
+#### distance
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*totalDistance*__|number|N/A||
 |__*unit*__|N/A|N/A| Can be any of the following values: mi, km|
 
+## Discount
 
-
-##Discount
 Schema for discounts, such as coupons or discount codes, that could be part of a transaction.
 
 |Property Name|Type|Format|Description|
@@ -182,19 +183,21 @@ Schema for discounts, such as coupons or discount codes, that could be part of a
 |discountCode|string|N/A|The code for the discount.|
 |discountRate|string|N/A|The percentage of discount provided.|
 
-##General Receipt
-General receipt type for transactions that do not fall under one of the more specific receipt types. This might include retail stores or restaurants.
-* Includes all of [Receipt Core Definitions](#receipt-core-definitions)
+## General Receipt
 
+General receipt type for transactions that do not fall under one of the more specific receipt types. This might include retail stores or restaurants.
+
+* Includes all of [Receipt Core Definitions](#receipt-core-definitions)
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |lineItems|array|[lineItems](#line-item)|Line items specified for general receipts.|
 
-##Ground Transport Receipt
-Schema for ground transportation receipts. This includes essentially all forms of non-aerial transportation, _except_ those that run on railed tracks.
-* Includes all of [Receipt Core Definitions](#receipt-core-definitions)
+## Ground Transport Receipt
 
+Schema for ground transportation receipts. This includes essentially all forms of non-aerial transportation, _except_ those that run on railed tracks.
+
+* Includes all of [Receipt Core Definitions](#receipt-core-definitions)
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -210,10 +213,11 @@ Schema for ground transportation receipts. This includes essentially all forms o
 |driverNumber|string|N/A|Unique identifier assigned by the ride company to a driver.|
 |lineItems|array|[lineItems](#line-item)|Descriptive breakdown of the fare charged. For example: base fare, distance travelled, discount and other add-ons.|
 
-##Hotel Receipt
-Schema for hotel receipts.
-* Includes all of [Receipt Core Definitions](#receipt-core-definitions)
+## Hotel Receipt
 
+Schema for hotel receipts.
+
+* Includes all of [Receipt Core Definitions](#receipt-core-definitions)
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -229,7 +233,7 @@ Schema for hotel receipts.
 |__*nightsStayed*__|integer|N/A|Positive integer value of at least 1|
 |__*lineItems*__|array|[lineItems](#line-item)||
 
-###guests
+### guests
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -238,8 +242,7 @@ Schema for hotel receipts.
 |__*lastName*__|string|^(?!\s*$).+|Non-empty string. Length must be at least 1 character.|
 |address|object|[Address](#address)|Address of the guest. It is highly recommended that the business address of the guest is provided if the hotel is provided with one. Doing so will help VAT reclamation partners who work with companies, to have compliant receipts accepted by the tax authority when filing tax reclaims.|
 
-
-###property
+### property
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -253,8 +256,7 @@ Schema for hotel receipts.
 |faxNumber|string|N/A||
 |__*address*__|object|[Address](#address)|Common address object used by all receipt types except for the JPT IC Card receipt, which uses [Address-Original](#address-original).|
 
-
-###room
+### room
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -263,8 +265,8 @@ Schema for hotel receipts.
 |ratePlanType|string|N/A|Name of the rate plan according to which the guest was charged.|
 |__*averageDailyRoomRate*__|string|^[-]?\d*\.?\d+$|Average of the daily room rates for the duration of the guests stay. Room rates usually differ from day to day.|
 
+## Japan Public Transportation Receipt
 
-##Japan Public Transportation Receipt
 Schema specifically for Japan Public Transportation (JPT) JPT IC Card receipts. Not for use with any other rail transactions.
 
 |Property Name|Type|Format|Description|
@@ -285,7 +287,7 @@ Schema specifically for Japan Public Transportation (JPT) JPT IC Card receipts. 
 |__*icCardId*__|string|N/A|The unique identifier for the card with a maximum length of 20 characters.|
 |__*segments*__|array|[segments](#segments)|The segments for the trip.|
 
-###segments
+### segments
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -299,10 +301,7 @@ Schema specifically for Japan Public Transportation (JPT) JPT IC Card receipts. 
 |toIsCommuterPass|boolean|N/A|Whether or not the arrival route is included in the commuter pass subscription of the employee.|
 |distance|integer|N/A|Distance between departure and arrival station.|
 
-
-
 ####icCardSegment
-
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -316,9 +315,8 @@ Schema specifically for Japan Public Transportation (JPT) JPT IC Card receipts. 
 |toIsCommuterPass|boolean|N/A|Whether or not the arrival route is included in the commuter pass subscription of the employee.|
 |distance|integer|N/A|Distance between departure and arrival station.|
 
+## Line Item
 
-
-##Line Item
 Generic line item. These objects are included in arrays in most receipt types.
 
 |Property Name|Type|Format|Description|
@@ -339,7 +337,8 @@ Generic line item. These objects are included in arrays in most receipt types.
 |amountIncludesVat|boolean|N/A||
 |discounts|array|[discounts](#discount)|The discounts offered for this line item.|
 
-##Location
+## Location
+
 Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.
 
 |Property Name|Type|Format|Description|
@@ -354,7 +353,8 @@ Schema representing a location, including geographical information and a postal 
 |faxNumber|string|N/A||
 |__*address*__|object|[Address](#address)|Common address object used by all receipt types except for the JPT IC Card receipt, which uses [Address-Original](#address-original).|
 
-##Merchant
+## Merchant
+
 Schema for an object representing a merchant. The broker and seller properties in all receipts use this schema.
 
 |Property Name|Type|Format|Description|
@@ -364,25 +364,24 @@ Schema for an object representing a merchant. The broker and seller properties i
 |taxId|string|N/A|The tax identification number assigned to the merchant by the national tax authority. If the partner is providing a tax invoice, then providing a tax identification number is recommended.|
 |__*location*__|object|[Location](#location)|Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.|
 
-##Payments
-The payments array allows for one or more payment methods used in the transaction to be defined. All payment methods defined within the array result in the value for total in the base object of the receipt. The JSON keyword ‘anyOf’ indicates at least one of the following is required and multiple can be present: [cash](#cash), [creditCard](#creditcard), [companyPaid](#companypaid), [digitalWallet](#digitalwallet) and / or [unusedTicket](#unusedticket).
-####cash
+## Payments
 
+The payments array allows for one or more payment methods used in the transaction to be defined. All payment methods defined within the array result in the value for total in the base object of the receipt. The JSON keyword ‘anyOf’ indicates at least one of the following is required and multiple can be present: [cash](#cash), [creditCard](#creditcard), [companyPaid](#companypaid), [digitalWallet](#digitalwallet) and / or [unusedTicket](#unusedticket).
+
+#### cash
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 
-
-####creditCard
-
+#### creditCard
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 |__*cardDetail*__|object|[cardDetail](#undefined)|Credit card information.|
 
-###cardDetail
+### cardDetail
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -390,10 +389,7 @@ The payments array allows for one or more payment methods used in the transactio
 |creditCardId|string|^[0-9]{4}$|Last four digits of the credit card number to meet FACTA and PCI requirements|
 |authorizationCode|string|N/A|Authorization code for transaction.|
 
-
-
-####companyPaid
-
+#### companyPaid
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -401,7 +397,7 @@ The payments array allows for one or more payment methods used in the transactio
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 |cardDetail|object|[cardDetail](#undefined)|Credit card information.|
 
-###cardDetail
+### cardDetail
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -409,28 +405,21 @@ The payments array allows for one or more payment methods used in the transactio
 |creditCardId|string|^[0-9]{4}$|Last four digits of the credit card number to meet FACTA and PCI requirements|
 |authorizationCode|string|N/A|Authorization code for transaction.|
 
-
-
-####digitalWallet
-
+#### digitalWallet
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*source*__|N/A|N/A| Can be any of the following values: ApplePay, AndroidPay, SamsungPay, PayPal|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 
-
-####unusedTicket
-
+#### unusedTicket
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*ticketNumber*__|string|^(?!\s*$).+|Non-empty string. Length must be at least 1 character.|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 
-
-####cardDetail
-
+#### cardDetail
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -438,12 +427,11 @@ The payments array allows for one or more payment methods used in the transactio
 |creditCardId|string|^[0-9]{4}$|Last four digits of the credit card number to meet FACTA and PCI requirements|
 |authorizationCode|string|N/A|Authorization code for transaction.|
 
+## Rail Receipt
 
-
-##Rail Receipt
 Schema for rail or train receipts.
-* Includes all of [Receipt Core Definitions](#receipt-core-definitions)
 
+* Includes all of [Receipt Core Definitions](#receipt-core-definitions)
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -451,7 +439,7 @@ Schema for rail or train receipts.
 |lineItems|array|[lineItems](#line-item)|Break down of all charges which could include insurance purchased for all train tickets, paid wi-fi etc.|
 |__*railTickets*__|array|[railTickets](#railtickets)||
 
-###railTickets
+### railTickets
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -462,8 +450,7 @@ Schema for rail or train receipts.
 |fare|string|^[-]?\d*\.?\d+$|Fare charged for a train ticket. This will be the total of all segments in this train ticket.|
 |__*segments*__|array|[segments](#segments)|Segments for this train ticket.|
 
-
-###segments
+### segments
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -478,8 +465,8 @@ Schema for rail or train receipts.
 |taxes|array|[Taxes](#taxes)|Taxes paid for this segment.|
 |lineItems|array|[lineItems](#line-item)|Line items specific to this segment. This could include meals, seat reservations, insurance etc.|
 
+## Receipt Core Definitions
 
-##Receipt Core Definitions
 Core values for all receipt types. All major receipt schemas include these core objects.
 
 |Property Name|Type|Format|Description|
@@ -498,7 +485,7 @@ Core values for all receipt types. All major receipt schemas include these core 
 |collectionReference|string|N/A|Use this key to group related receipts into a collection for credits, tips or other adjustments to the original transaction and looking at groups of receipts for analysis purposes. The reference and collectionReference keys typically have separate and unique values but could be the same for the first receipt in a collection.|
 |taxInvoice|boolean|N/A|A tax invoice (true) or otherwise (false).|
 
-###broker
+### broker
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -507,8 +494,7 @@ Core values for all receipt types. All major receipt schemas include these core 
 |taxId|string|N/A|The tax identification number assigned to the merchant by the national tax authority. If the partner is providing a tax invoice, then providing a tax identification number is recommended.|
 |__*location*__|object|[Location](#location)|Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.|
 
-
-###seller
+### seller
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -517,8 +503,8 @@ Core values for all receipt types. All major receipt schemas include these core 
 |taxId|string|N/A|The tax identification number assigned to the merchant by the national tax authority. If the partner is providing a tax invoice, then providing a tax identification number is recommended.|
 |__*location*__|object|[Location](#location)|Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.|
 
+## Taxes
 
-##Taxes
 Schema for objects that make up an array of taxes. Used in most receipt types.
 
 |Property Name|Type|Format|Description|
@@ -529,15 +515,14 @@ Schema for objects that make up an array of taxes. Used in most receipt types.
 |rateType|string|N/A|The rate type for the tax charged. For value added tax this could be Zero, Standard, Reduced, etc.|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 
-###authority
+### authority
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*addressCountry*__|string|country-code|2 or 3 character country code as defined in ISO 3166-2:2013|
 |addressRegion|string|^[a-zA-Z0-9]{1,3}$|1 to 3 character country subdivision code as defined in ISO 3166-2:2013|
 
-
-### <a href="ereceipts">E-Receipt Generation</a>
+### E-Receipt Generation
 
 An e-receipt or a receipt image is generated when only receipt data is posted. We have pre-created templates for every receipt type. The Examples section of this document shows what the template for a particular receipt type would look like and the data that would be displayed along with it. 
 In addition to data, e-receipts can also display a logo of the partner’s choice. In order to do so, the partner has to do two things
