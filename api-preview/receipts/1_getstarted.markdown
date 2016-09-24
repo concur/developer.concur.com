@@ -6,6 +6,7 @@ layout: reference
 # Receipts
 
 - [Version](#version)
+- [Base URLs](#base-urls)
 - [API Explorer](#api-explorer)
 - [Code Snippets](#code-snippets)
 
@@ -13,6 +14,12 @@ layout: reference
 
 - 4.0 In preview mode and to be made active soon.
 - [3.0](https://developer.concur.com/api-reference/expense/receipts/) Will be  [deprecated](https://developer.concur.com/tools-support/reference/deprecation-policy.html) once 4.0 is active.
+
+## Base URLs
+
+`https://us.api.concursolutions.com/receipts/`
+
+`https://emea.api.concursolutions.com/receipts/`
 
 ## API Explorer
 
