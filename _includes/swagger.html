@@ -30,13 +30,15 @@
 
 <script type="text/javascript">
   var swaggerUI = undefined;
+  var oauthTokenPattern = /^\d_.*$/g;
 
   function addApiKeyAuthorization(){
     // var key = encodeURIComponent($('#input_apiKey')[0].value);
     var key = $('#input_apiKey')[0].value;
     if(key && key.trim() != "") {
-
-      var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", "OAuth " + key, "header");
+      var authScheme = oauthTokenPattern.test(key) ? "OAuth" : "Bearer";
+      var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", authScheme + " " + key, "header");
+      
       swaggerUI.api.clientAuthorizations.add("api_key", apiKeyAuth);
 
       log("added key " + key);

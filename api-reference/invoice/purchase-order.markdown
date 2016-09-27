@@ -21,7 +21,7 @@ layout: reference
 
     POST  /api/v3.0/invoice/purchaseorders  
 
-Creates or updates one or more purchase orders. All purchase order requests are considered a batch operation, even if only one purchase order is created or updated.
+Create or update a Purchase Order. Batch processing is not available using the Purchase Order API. Please use CES for batch updates.
 
 ### <a name="8"></a>Parameters  
 
