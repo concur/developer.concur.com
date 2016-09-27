@@ -21,7 +21,7 @@ layout: reference
 
     POST  /api/v3.0/invoice/purchaseorders  
 
-Create or update a Purchase Order. Batch processing through Purchase Order API is not available, use CES import for batch updates.
+Create or update a Purchase Order. Batch processing is not available using the Purchase Order API. Please use CES for batch updates.
 
 ### <a name="8"></a>Parameters  
 
