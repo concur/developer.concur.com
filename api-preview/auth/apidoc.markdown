@@ -10,11 +10,9 @@ layout: reference
 * [Tokens](#access_token)
   * [Obtaining a token](#obtain_token)
   * [Refreshing a token](#refresh_token)
-  * [Revoking a token](#revoke_token)
   * [Token Management](#manage_token)
 * Types of grants
   * [Authorization grant](#auth_grant)
-  * [Implicit grant](#implicit_grant)
   * [Password grant](#password_grant)
   * [Client Credentials grant](#client_credentials)
   * [One time password grant](#otp_grant)
@@ -32,7 +30,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `expires_in`|`string`|-|The lifetime in seconds of the access token
 `scope`|`string`|-|The scope of the access token as granted to the client application
-`token_type`|`string`|-| The type of toen returned. Value will be `Bearer`
+`token_type`|`string`|-| The type of token returned. Value will be `Bearer`
 `access_token`|`string`|-|JSON Web Token (JWT) used to access pprotected resources of Concur's services.
 `refresh_token`|`string`|-|Refresh token required to request a new access token for a given user.
 
@@ -58,16 +56,24 @@ json
 }
 ```
 
-**Token Lifetime**
-
-An access token has a one hour lifetime.
-
 ## <a name="obtain_token"></a>Obtaining a token
 
+You can obtain a token for a `principal`. There are currently three principals in the Concur universe. 
 
-* For a User
-* For an Application
-* For a Company
+* User
+* Application
+* Company
+
+**Token Lifetime**
+
+An `accessToken` has a one hour lifetime.
+
+In order to obtain a token, the client application needs to call the Oauth2 endpoint using various `grants` depending on the authentication scenarios required. The full list of supported scenarios is provided below:
+
+  * [Authorization grant](#auth_grant)
+  * [Password grant](#password_grant)
+  * [Client Credentials grant](#client_credentials)
+  * [One time password grant](#otp_grant)
 
 ## <a name="refresh_token"></a>Refreshing a token
 
@@ -76,7 +82,7 @@ The refresh grant is used to refresh an access_token that has expired. This gran
 
 **Token Lifetime**
 
-A refresh token has a six month lifetime. if the refresh token expires, the client application must reinitiate the authorization process. When a refresh token is used to request a new access token, both a new access token as well as a new refresh token are returned in the response.
+A refresh token has a **six month** lifetime. if the refresh token expires, the client application must reinitiate the authorization process. When a refresh token is used to request a new access token, both a new access token as well as a new refresh token are returned in the response.
 
 It is recommended that the client application use the refresh grant to request a new access token as the initial step of accessing protected resources of Concur's services.
 
@@ -90,11 +96,11 @@ To request a new access token using a valid refresh token, use the Oauth2 /token
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
-`client_id`|`string` | `UIID` | **Required** The client applications client_id supplied by App Management
-`client_secret`|`string` | `UIID` | **Required** The client applications client_secret supplied by App Management
+`client_id`|`string` | `UUID` | **Required** The client applications client_id supplied by App Management
+`client_secret`|`string` | `UUID` | **Required** The client applications client_secret supplied by App Management
 `refresh_token`|`string` | `UUID` | **Required** An existing valid refresh token to be used to request a new access token
 `scope`|`string` | | The client applications list of scopes
-`grant_type`|`string` | | **Required** The grant type instructs the Oauth2 service how to process the request. For refresh token, the value must be `refresh_token`
+`grant_type`|`string` | | **Required** The grant type instructs the Oauth2 service how to process the request. For refresh token, the value must be `refresh`
 
 **Request**
 
@@ -117,7 +123,9 @@ client_id=your-client_id
 
 **Response**
 
-````http
+```
+http
+
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: date-requested
@@ -138,17 +146,64 @@ json
 
 ```
 
-## <a name="revoke_token"></a>Revoking a token
-
-
 ## <a name="manage_token"></a>Managing tokens
 
-refresh token 28char
+Refresh Tokens are 28 character strings that allow your application to obtain a fresh `accessToken` for access to Concur's APIs. 
+
+```
+1_052f3d45439c5b4c6a3cc3d037
+```
+
+It is highly recommended that you store `refreshTokens` together with your user's authorization metadata in your application every time you obtain a new `refreshToken` as they might change depending on different scenarios.
+
 
 ## <a name="auth_grant"></a>Authorization grant
 
+The authorization grant is the regular 3-legged oauth2 grant and is defined in detail in [RFC6749 sec-4.1](https://tools.ietf.org/html/rfc6749#section-4.1). This grant requires the user to explicitly authenticate themselves and authorise the application initiating the grant. 
 
-## <a name="implicit_grant"></a>Implicit grant
+The users *must be* able to authenticate themselves via a Concur username & password. Users will be challenged to login by an Oauth2 HTML page.
+
+**Who should use it**
+* 3rd party "partner" websites - or - 
+* non-Concur Applications - & - 
+* Applications that need explicit user authentication & authorization - & -
+* Applications that can securely store a code, access_token & refresh_token
+
+**Grant details**
+
+`GET /oauth2/v0/authorize`
+
+Name | Type | Format | Description
+-----|------| ------ | -----------
+  `client_id`|`string` | `UUID` | Applications client_id supplied by App Management
+  `redirect_uri`|`string` | | The redirect URI for your application to continue with the Oauth2 flow
+  `scope`|`string` | | List of scopes that application is asking for
+  `response_type`|`string` | | code
+  `state`|`string` | | 
+
+
+`POST /oauth2/v0/verify_creds`
+
+Name | Type | Format | Description
+-----|------| ------ | -----------
+`loginid` | `string` | | LoginId of the user
+`password` | `string` | | User's password
+
+`POST /oauth2/v0/authorize_client`
+
+Name | Type | Format | Description
+-----|------| ------ | -----------
+`allow` | `string` | | 
+
+`POST /oauth2/v0/token`
+
+Name | Type | Format | Description
+-----|------| ------ | -----------
+`client_id`|`string` | `UUID` | Applications client_id supplied by App Management
+`client_secret`|`string` | `UUID` | Applications client_secret supplied by App Management
+`redirect_uri`|`string` | `UUID` | A
+`code`|`string` | | 
+`grant_type`|`string` | | `authorization_code` 
 
 
 ## <a name="password_grant"></a>Password grant
@@ -160,15 +215,17 @@ The Password grant can be used when there is a trust relationship between the us
 
 Name | Type | Format | Description
 -----|------| ------ | --------------
-  `client_id`|`string` | `UIID` | Applications client_id supplied by App Management
+  `client_id`|`string` | `UUID` | Applications client_id supplied by App Management
   `client_secret`|`string` | `UUID` | Applications client_secret supplied by App Management
   `grant_type`|`string` | | Specify which grant type you expect the oauth2 service to process. for password grant, the value is `password`
-  `username`|`string` | | specify the username, userId, or companyId to be used in the password grant request
-  `password`|`string` | | specify the users password, usertoken, or companytoken to be used in the password grant request.
-  `credtype`|`string` | | The credtype signifies to oauth2 which credential set is being submitted in the request. There are two  supported values: `authtoken` and `password`. if omitted, oauth2 will assume the type is `password`.
+  `username`|`string` | | specify the username or userId
+  `password`|`string` | | specify the users password
+  `credtype`|`string` | | The credtype signifies to oauth2 which credential set is being submitted in the request. There are two supported values: `authtoken` and `password`. if omitted, oauth2 will assume the type is `password`.
 
 **Request**
-```http
+
+```
+http
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: us.api.concursolutions.com
@@ -239,12 +296,6 @@ json
 
 ## <a name=“client_credentials”></a>Client Credentials grant
 
-
-**Overview**
-
-
-**Requesting a client_credentials token**
-
 Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
 
 `POST /oauth2/v0/token`
@@ -253,7 +304,7 @@ Use the `application/x-www-form-urlencoded` content type and character encoding 
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
-`client_id`|`string` | `UIID` | **Required** Applications client_id supplied by App Management
+`client_id`|`string` | `UUID` | **Required** Applications client_id supplied by App Management
 `client_secret`|`string` | `UUID` | **Required** Applications client_secret supplied by App Management
 `grant_type`|`string` | | **Required** Specify which grant type you expect the oauth2 service to process. for client_credentials grant, the value is `client_credentials`
 
