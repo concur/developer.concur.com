@@ -11,6 +11,7 @@ layout: reference
   * [Obtaining a token](#obtain_token)
   * [Refreshing a token](#refresh_token)
   * [Token Management](#manage_token)
+  * [Base URIs](#base_uri)
 * Types of grants
   * [Authorization grant](#auth_grant)
   * [Password grant](#password_grant)
@@ -154,7 +155,13 @@ Refresh Tokens are 28 character strings that allow your application to obtain a 
 1_052f3d45439c5b4c6a3cc3d037
 ```
 
-It is highly recommended that you store `refreshTokens` together with your user's authorization metadata in your application every time you obtain a new `refreshToken` as they might change depending on different scenarios.
+It is highly recommended that you store Refresh Tokens together with your user's authorization metadata in your application every time you obtain a new `refreshToken` as they might change depending on different scenarios.
+
+## <a name="base_uri"></a>Base URIs
+Environment | URI 
+-----|------
+US Production |`https://us.api.concursolutions.com/oauth2/v0`
+EU Production |`https://emea.api.concursolutions.com/oauth2/v0`
 
 
 ## <a name="auth_grant"></a>Authorization grant
@@ -201,8 +208,7 @@ Name | Type | Format | Description
 -----|------| ------ | -----------
 `client_id`|`string` | `UUID` | Applications client_id supplied by App Management
 `client_secret`|`string` | `UUID` | Applications client_secret supplied by App Management
-`redirect_uri`|`string` | `UUID` | A
-`code`|`string` | | 
+`redirect_uri`|`string` | `UUID` | `code`|`string` | | 
 `grant_type`|`string` | | `authorization_code` 
 
 
@@ -219,7 +225,7 @@ Name | Type | Format | Description
   `client_secret`|`string` | `UUID` | Applications client_secret supplied by App Management
   `grant_type`|`string` | | Specify which grant type you expect the oauth2 service to process. for password grant, the value is `password`
   `username`|`string` | | specify the username or userId
-  `password`|`string` | | specify the users password
+  `password`|`string` | | specify the user's password
   `credtype`|`string` | | The credtype signifies to oauth2 which credential set is being submitted in the request. There are two supported values: `authtoken` and `password`. if omitted, oauth2 will assume the type is `password`.
 
 **Request**
@@ -294,7 +300,7 @@ json
 }
 ```
 
-## <a name=“client_credentials”></a>Client Credentials grant
+## <a name="client_credentials"></a>Client Credentials grant
 
 Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
 
@@ -365,6 +371,7 @@ Name | Type | Format | Description
 `client_secret`|`string`|`UUID`|**Required** The client_secret as set by the client owner in the Concur application management system.
 `channel_handle`|`string`|-|**Required** The location (email address, phone number) where the one time token should be sent. Currently, only `email address` is valid.
 `channel_type`|`string`|-|**Required** The type of messaging system to use. Currently only `email` is valid
+`link`|`string`|-|*Optional* The callback URL that appears in the email for users to click to complete the auth flow.
 
 
 The calling application code can also append n-number of unique client defined parameters in the URI for the purpose of connecting the one time token to the application when received by the user. The names of these parameters cannot conflict with the API defined parameters.
@@ -396,6 +403,7 @@ client_id=your-client_id
 &client_secret=your-client_secret
 &channel_handle=email adress
 &channel_type=valid-email
+&link=http://foo.bar.com/callback
 
 ```
 
