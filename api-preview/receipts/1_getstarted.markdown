@@ -6,7 +6,7 @@ layout: reference
 # Receipts
 
 - [Version](#version)
-- [Base URLs](#base-urls)
+- [Regional Endpoints](#regional-endpoints)
 - [API Explorer](#api-explorer)
 - [Code Snippets](#code-snippets)
 
@@ -15,7 +15,7 @@ layout: reference
 - 4.0 In preview mode and to be made active soon.
 - [3.0](https://developer.concur.com/api-reference/expense/receipts/) Will be  [deprecated](https://developer.concur.com/tools-support/reference/deprecation-policy.html) once 4.0 is active.
 
-## Base URLs
+## Regional Endpoints
 
 `https://us.api.concursolutions.com/receipts/`
 
@@ -30,7 +30,7 @@ layout: reference
 ### Prerequisites
 
 1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
-2. Read the Manage Your Client Application section and get a client ID and client secret by emailing pdspe@concur.com. 
+2. Read the [Manage Your Client Application](https://developer.concur.com/api-preview/receipts/3_manageapp.html) section and get a client ID and client secret by emailing pdspe@concur.com. 
 
 ### Explore in Postman
 
