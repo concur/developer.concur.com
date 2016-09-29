@@ -59,7 +59,7 @@ json
 
 ## <a name="obtain_token"></a>Obtaining a token
 
-You can obtain a token for a `principal`. There are currently three principals in the Concur universe. 
+You can obtain a token for three different types of principals in the Concur universe. 
 
 * User
 * Application
@@ -158,6 +158,7 @@ Refresh Tokens are 28 character strings that allow your application to obtain a 
 It is highly recommended that you store Refresh Tokens together with your user's authorization metadata in your application every time you obtain a new `refreshToken` as they might change depending on different scenarios.
 
 ## <a name="base_uri"></a>Base URIs
+
 Environment | URI 
 -----|------
 US Production |`https://us.api.concursolutions.com/oauth2/v0`
