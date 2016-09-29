@@ -4410,7 +4410,7 @@ Operation.prototype.execute = function (arg1, arg2, arg3, arg4, parent) {
   }
 
   var obj = {
-    url: url,
+    url: url.replace('www.concursolutions.com', replacementURL),
     method: this.method.toUpperCase(),
     body: body,
     useJQuery: opts.useJQuery,
@@ -31818,11 +31818,11 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     if (response.content === undefined) {
       content = response.data;
       // Edit Incoming Response To Mask Proxy
-      url = response.url;
+      url = response.url.replace(replacementURL, 'www.concursolutions.com');
     } else {
       content = response.content.data;
       // Edit Incoming Response To Mask Proxy
-      url = response.request.url;
+      url = response.request.url.replace(replacementURL, 'www.concursolutions.com');
     }
     var headers = response.headers;
     content = jQuery.trim(content);
@@ -31929,7 +31929,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
 
     //adds curl output
     var curlCommand = this.model.asCurl(this.map);
-    curlCommand = curlCommand.replace('!', '&#33;');
+    curlCommand = curlCommand.replace('!', '&#33;').replace(replacementURL, 'www.concursolutions.com');
     $( '.curl', $(this.el)).html('<pre>' + curlCommand + '</pre>');
 
     // only highlight the response if response is less than threshold, default state is highlight response
