@@ -31,9 +31,13 @@ Version 4.0 of the Receipts API offers features like more receipt types, automat
 
 ### Regional Availability
 
-`https://us.api.concursolutions.com/receipts/`
+```
+https://us.api.concursolutions.com/receipts/
+```
 
-`https://emea.api.concursolutions.com/receipts/`
+```
+https://emea.api.concursolutions.com/receipts/
+```
 
 ### Explore the API
 
@@ -64,11 +68,13 @@ The response will include an `access_token` field, which contains your JWT. For 
 Examples:
 
 cURL:
+
 ```
 curl -d "client_secret={YOUR SECRET}&client_id={YOUR CLIENT ID}&grant_type=password&username={YOUR USERNAME}&password={YOUR PASSWORD}" https://us.api.concursolutions.com/oauth2/v0/token
 ```
 
 HTTPie:
+
 ```
 http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={YOUR SECRET} client_id={YOUR CLIENT ID} grant_type=password username={YOUR USERNAME} password=P{YOUR PASSWORD}
 ```
@@ -82,16 +88,19 @@ Making a GET request to the root of the service will return a list of current en
 _Example Requests:_
 
 cURL:
+
 ```
 curl -H "Authorization: Bearer {YOUR JWT}" https://us.api.concursolutions.com/receipts/
 ```
 
 HTTPie:
+
 ```
 http https://us.api.concursolutions.com/receipts/ 'Authorization:Bearer {YOUR JWT}'
 ```
 
 _Example Response:_
+
 ```
 {
   "links": [
