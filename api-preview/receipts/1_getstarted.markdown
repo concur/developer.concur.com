@@ -12,6 +12,12 @@ layout: reference
 - [Explore the API](#explore-the-api)
   - [Prerequisites](#prerequisites)
   - [Endpoints](#endpoints)
+    - [Acquire a JWT](#retrieve-a-user-json-web-token-jwt)
+    - [GET Service Index](#endpoint-service-index)
+    - [GET Schemas](#endpoint-schemas)
+    - [POST Receipts](#endpoint-post-a-receipt)
+    - [GET Receipts by User ID](#endpoint-get-receipts-by-userid)
+    - [GET Receipts by Receipt ID](#endpoint-get-a-receipt-by-id)
   - [Explore the API in JavaScript](#explore-the-api-in-javascript)
 
 ### Version
