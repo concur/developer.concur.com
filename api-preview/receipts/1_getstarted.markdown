@@ -142,26 +142,31 @@ One of the receipt schemas must be included in the [link header](http://json-sch
 _Example Requests:_
 
 cURL for the schema index:
+
 ```
 curl -H "Authorization: Bearer {YOUR JWT}" https://us.api.concursolutions.com/receipts/schemas/
 ```
 
 HTTPie for the schema index:
+
 ```
 http https://us.api.concursolutions.com/receipts/schemas 'Authorization:Bearer {YOUR JWT}'
 ```
 
 cURL for a single schema:
+
 ```
 curl -H "Authorization: Bearer {YOUR JWT}" https://us.api.concursolutions.com/receipts/schemas/car-rental-receipt.schema.json
 ```
 
 HTTPie for a single schema:
+
 ```
 http https://us.api.concursolutions.com/receipts/schemas/car-rental-receipt.schema.json 'Authorization:Bearer {YOUR JWT}'
 ```
 
 _Example Response:_
+
 ```
 {
   "receiptSchemas": [
@@ -279,6 +284,7 @@ Receipt images may be posted along with data. In this case, Concur will use the 
 _Example Requests:_
 
 cURL data without image:
+
 ```
 curl -v -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN} \
 -H "Authorization: Bearer {YOUR JWT}" \
@@ -288,6 +294,7 @@ curl -v -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FR
 ```
 
 cURL data and image:
+
 ```
 curl -v -k -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN} \
 -H "Authorization: Bearer {YOUR JWT}" \
@@ -298,6 +305,7 @@ curl -v -k -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID
 ```
 
 HTTPie data without image:
+
 ```
 http POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN} \
 "Authorization:Bearer {YOUR JWT}" \
@@ -307,6 +315,7 @@ http POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOU
 ```
 
 _Example Response:_
+
 ```
 < HTTP/1.1 201 Created
 < Link: <http://schema.concursolutions.com/car-rental-receipt.schema.json>; rel="describedBy"
@@ -330,16 +339,19 @@ Returns the JSON receipt associated with the ID in the URL.
 _Example Requests:_
 
 cURL:
+
 ```
 curl -H "Authorization: Bearer {YOUR JWT}" https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}
 ```
 
 HTTPie:
+
 ```
 http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID} "Authorization: Bearer {YOUR JWT}"
 ```
 
 _Example Response_
+
 ```
 {
   "dateTimeReceived": "2016-09-28T21:41:21.087Z",
@@ -371,16 +383,19 @@ Returns all receipts for a given user ID.
 _Example Requests:_
 
 cURL:
+
 ```
 curl -H "Authorization: Bearer {YOUR JWT}" https://us.api.concursolutions.com/receipts/v4/users/{USER ID}
 ```
 
 HTTPie:
+
 ```
 http https://us.api.concursolutions.com/receipts/v4/users/{USER ID} "Authorization: Bearer {YOUR JWT}"
 ```
 
 _Example Response:_
+
 ```
 {
   "receipts": [
