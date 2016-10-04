@@ -64,12 +64,6 @@ and the response will look like:
       "country": "US"
     }
   ],
-  "com:concur:internal:product:Identifiers:1.0": {
-    "cteUsername": "taso@taso-sandbox.com",
-    "expenseIds": {
-      "guuid": "8002019270063595416",
-      "entityId": "d0023488znta"
-    },
     "travelIds": {
       "userId": 85663431,
       "companyId": "63E447F6-A6A7-4B70-A951-10F45d693B43",
@@ -107,7 +101,7 @@ and the response will look like:
       "value": "tel:+1-4251231234;ext=",
       "primary": false,
       "notifications": false,
-      "countryCode": "US",
+      "countryCode": "US"
       "countryISDCode": "1"
     }
   ],
@@ -120,7 +114,6 @@ and the response will look like:
   "dateOfBirth": null,
   "schemas": [
     "com:concur:User:1.0",
-    "com:concur:internal:product:Identifiers:1.0",
     "com:concur:Employee:1.0"
   ],
   "active": true,
