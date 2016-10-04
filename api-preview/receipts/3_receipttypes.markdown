@@ -8,6 +8,7 @@ layout: reference
 ## Supported Receipt Types
 
 Receipts can any of the following types
+
  - [Air](#air-receipt)
  - [Car Rental](#car-rental-receipt)
  - [General](#general-receipt)
