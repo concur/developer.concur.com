@@ -1,20 +1,20 @@
 ---
-title: Handle Response Codes
+title: Response Codes
 layout: reference
 ---
 
 # Receipts
 
-## Handle Response Codes
+## Response Codes
 
-### <a href="Success">Success Codes</a>
+### Success Codes
 
 |Code|Message|Information|
 |---|---|---|
 |200|OK|Your GET request succeeded.|
 |201|Created|Your POST request succeeded. Please note that even though your request passed validation, the service still needs to create your receipt. Because of this processing time, your receipt might not be available for retrieval immediately.|
 
-### <a href="Failure">Failure Codes</a>
+### Failure Codes
 
 |Code|Message|Response Body|Information|
 |---|---|---|---|

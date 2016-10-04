@@ -59,7 +59,7 @@ json
 
 ## <a name="obtain_token"></a>Obtaining a token
 
-You can obtain a token for a `principal`. There are currently three principals in the Concur universe. 
+You can obtain a token for three different types of principals in the Concur universe. 
 
 * User
 * Application
@@ -158,6 +158,7 @@ Refresh Tokens are 28 character strings that allow your application to obtain a 
 It is highly recommended that you store Refresh Tokens together with your user's authorization metadata in your application every time you obtain a new `refreshToken` as they might change depending on different scenarios.
 
 ## <a name="base_uri"></a>Base URIs
+
 Environment | URI 
 -----|------
 US Production |`https://us.api.concursolutions.com/oauth2/v0`
@@ -403,7 +404,7 @@ client_id=your-client_id
 &client_secret=your-client_secret
 &channel_handle=email adress
 &channel_type=valid-email
-&link=http://foo.bar.com/callback
+&link=https://example.com/callback
 
 ```
 
@@ -443,7 +444,7 @@ HTTP Status | Response Code | Error | Description
 
 The One-time Password grant requires that all of the parameters, including client application defined parameters to be sent in the request body when requesting an access token. Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
 
-`POST oauth2-service/v0/token`
+`POST oauth2/v0/token`
 
 **Parameters**
 
@@ -453,17 +454,17 @@ Name | Type | Format | Description
 `client_secret`|`string`|`UUID`|**Required** The client_secret as set by the client owner in the Concur application management system.
 `channel_handle`|`string`|-|**Required** The location (email address, phone number) where the one time token should be sent.
 `channel_type`|`string`|-|**Required** The type of messaging system to use. Currently only `email` is valid
-`scope`|`string`|-|**Required** The scope(s) requested by the client for the token.
+`scope`|`string`|-| The scope(s) requested by the client for the token.
 `grant_type`|`string`|-|**Required** The grant type being used, specifically for this approach: `otp`.
 `otp`|`string`|-|**Required** The one-time token provided as a result of the **Send a one time token to the user** method.
-`product`|`string`|-|_optional_ defaults to Concur Travel & Expense - com.concur.cte
+
 
 **Request**
 
 ```
 http
 
-POST /oauth2/v0/otp HTTP/1.1
+POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: us.api.concursolutions.com
 Connection: close

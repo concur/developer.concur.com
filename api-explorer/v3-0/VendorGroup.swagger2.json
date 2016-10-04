@@ -1,0 +1,244 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "http://localhost/api/v3.0",
+  "resourcePath": "VendorGroup",
+  "apis": [
+    {
+      "path": "/invoice/vendor/groups",
+      "description": "Add vendor groups by Vendor Code, Address Code, and Vendor Group.",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_vendorCode_addressCode_vendorGroups",
+          "responseClass": "VendorGroupCollection",
+          "summary": "Add vendor groups by Vendor Code, Address Code, and Vendor Group.",
+          "notes": "Add vendor groups by Vendor Code, Address Code, and Vendor Group.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "vendorCode",
+              "description": "Vendor Code to be searched",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "addressCode",
+              "description": "Address Code to be searched",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "body",
+              "name": "vendorGroups",
+              "description": "The vendor group details.",
+              "dataType": "VendorGroupCollection",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/vendor/groups",
+      "description": "Delete a vendor group by Vendor Code, Address Code, and Group Name.",
+      "operations": [
+        {
+          "httpMethod": "DELETE",
+          "nickname": "Delete_vendorCode_addressCode_groupName",
+          "responseClass": "VendorGroupCollection",
+          "summary": "Delete a vendor group by Vendor Code, Address Code, and Group Name.",
+          "notes": "Delete a vendor group by Vendor Code, Address Code, and Group Name.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "vendorCode",
+              "description": "Vendor Code to be deleted",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "addressCode",
+              "description": "Address Code to be deleted",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "groupName",
+              "description": "Group Name to be deleted",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/vendor/groups",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/invoice/vendor/groups",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "Status": {
+      "id": "Status",
+      "displayName": null,
+      "properties": {
+        "Code": {
+          "description": "Code of request result",
+          "type": "int",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Message": {
+          "description": "Message of request result",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RecordNumber": {
+          "description": "Record Number for create/update request.",
+          "type": "int",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Type": {
+          "description": "Type request result",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "VendorGroup": {
+      "id": "VendorGroup",
+      "displayName": null,
+      "properties": {
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The vendor code of the request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "StatusList": {
+          "description": "Status results",
+          "type": "Array",
+          "items": {
+            "$ref": "Status",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "VendorGroupCollection": {
+      "id": "VendorGroupCollection",
+      "displayName": "VendorGroups",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "VendorGroup",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestRunSummary": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalCount": {
+          "description": null,
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorGroup": {
+          "description": "The list of vendor groups.",
+          "type": "Array",
+          "items": {
+            "$ref": "VendorGroup",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    }
+  }
+}

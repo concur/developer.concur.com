@@ -1,0 +1,262 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "http://localhost/api/v3.0",
+  "resourcePath": "VendorBank",
+  "apis": [
+    {
+      "path": "/invoice/vendor/banks",
+      "description": "Update vendor banking information.",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_vendorBanks",
+          "responseClass": "VendorBankCollection",
+          "summary": "Update vendor banking information.",
+          "notes": "Update vendor banking information.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "vendorBanks",
+              "description": "The vendor bank details.",
+              "dataType": "VendorBankCollection",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/vendor/banks",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/invoice/vendor/banks",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "Status": {
+      "id": "Status",
+      "displayName": null,
+      "properties": {
+        "Code": {
+          "description": "Code of request result",
+          "type": "int",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Message": {
+          "description": "Message of request result",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RecordNumber": {
+          "description": "Record Number for create/update request.",
+          "type": "int",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Type": {
+          "description": "Type request result",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "VendorBank": {
+      "id": "VendorBank",
+      "displayName": null,
+      "properties": {
+        "AccountNumber": {
+          "description": "The account number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "AccountType": {
+          "description": "The account type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "AddressCode": {
+          "description": "The Address Code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "BankCode": {
+          "description": "Bank Code",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "BankName": {
+          "description": "The bank name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "BranchCode": {
+          "description": "Branch Code",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "BranchLocation": {
+          "description": "The branch location",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CountryCode": {
+          "description": "The country code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyAlphaCode": {
+          "description": "The currency alpha Code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsActive": {
+          "description": "Is information active",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "NameOnAccount": {
+          "description": "The name on the account.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "RoutingNumber": {
+          "description": "The routing number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StatusList": {
+          "description": "Status results",
+          "type": "Array",
+          "items": {
+            "$ref": "Status",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "TransType": {
+          "description": "The trans type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorCode": {
+          "description": "The vendor code of the request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "VendorBankCollection": {
+      "id": "VendorBankCollection",
+      "displayName": "VendorBanks",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "VendorBank",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestRunSummary": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalCount": {
+          "description": null,
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorBank": {
+          "description": "The list of a vendor's active banking information.",
+          "type": "Array",
+          "items": {
+            "$ref": "VendorBank",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    }
+  }
+}
