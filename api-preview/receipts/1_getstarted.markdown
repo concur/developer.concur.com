@@ -47,7 +47,7 @@ https://emea.api.concursolutions.com/receipts/
 2. Read the [Getting Started](https://developer.concur.com/api-preview/auth/gettingstarted.html) section of [Authentication API](https://developer.concur.com/api-preview/auth/apidoc.html).
 
 Once you have registered your application, read about the [API endpoints](#endpoints) below, or click the button to download a request collection for [Postman](https://www.getpostman.com/docs/introduction).
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/840946ecbcfcd57887ac)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5782fa347917ac1568e6)
 
 #### Endpoints
 
@@ -449,33 +449,22 @@ Below are some simple NodeJS code snippets for getting a token and posting a rec
 
 ```js
 'use strict';
-const https = require('https');
+const request = require('request');
 
-const CLIENT_SECRET = 'YOUR VALUE HERE';
-const CLIENT_ID = 'YOUR VALUE HERE';
-const USERNAME = 'YOUR VALUE HERE';
-const PASSWORD = 'YOUR VALUE HERE';
-
-const options = {
-    hostname: 'us.api.concursolutions.com',
-    path: `/oauth2/v0/token?concur-correlationid=receipts-explorer&client_secret=${CLIENT_SECRET}&client_id=${CLIENT_ID}&grant_type=password&username=${USERNAME}&password=${PASSWORD}`,
-    method: 'POST'
-};
-
-const req = https.request(options, (res) => {
-    console.log('statusCode:', res.statusCode);
-    console.log('headers:', res.headers);
-
-    res.on('data', (data) => {
-        process.stdout.write(data);
+request.post({
+    url:'https://us.api.concursolutions.com/oauth2/v0/token',
+    form: {
+        client_secret: 'YOUR VALUE HERE',
+        client_id: 'YOUR VALUE HERE',
+        username: 'YOUR VALUE HERE',
+        password: 'YOUR VALUE HERE',
+        grant_type: 'password'
+    }},
+    (err, httpResponse, body) => {
+        if(err) { console.log(err); }
+        console.log('Status:', httpResponse.statusCode);
+        console.log('Response:', body);
     });
-});
-
-req.end();
-
-req.on('error', (e) => {
-    console.error(e);
-});
 ```
 
 ##### Post a Receipt
