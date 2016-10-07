@@ -18,6 +18,7 @@ layout: reference
     - [POST Receipts](#endpoint-post-a-receipt)
     - [GET Receipts by User ID](#endpoint-get-receipts-by-userid)
     - [GET Receipts by Receipt ID](#endpoint-get-a-receipt-by-id)
+    - [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image)
   - [Explore the API in JavaScript](#explore-the-api-in-javascript)
 
 ### Version
