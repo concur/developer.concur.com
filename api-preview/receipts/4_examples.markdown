@@ -7,7 +7,7 @@ layout: reference
 
 ## Sample Receipts
 
-Below we have sample receipt data and the corresponding receipt image for the Air, [Car Rental](#car-rental), General, Ground Transport, Hotel and Rail receipt types. 
+Below we have sample receipt data and the corresponding receipt image for the [Car Rental](#car-rental), [Ground Transport](#ground-transport) and [Hotel](#hotel) receipt types. 
 
 ### Car Rental 
 
@@ -341,4 +341,172 @@ Below we have sample receipt data and the corresponding receipt image for the Ai
 
 ![Hotel Receipt Image](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/hotel.png?raw=true)
 
+### Ground Transport
 
+#### Receipt Data
+
+```
+{
+    "taxInvoice": true,
+    "reference": "ADBXTF25",
+    "dateTime": "2016-09-29T15:39:46-0700",
+    "total": "65.00",
+    "taxesTotal": "5.69",
+    "subtotal": "59.87",
+    "currencyCode": "USD",
+    "broker": {
+        "name": "ACME Corporation",
+        "taxId": "123-21213",
+        "location": {
+            "name": "Seattle Downtown",
+            "number": "C3404",
+            "latitude": 47.6097,
+            "longitude": -122.3331,
+            "internetAddress": "http://www.acmecorporation.com/",
+            "emailAddress": "groundtransport@acmecorporation.com",
+            "telephoneNumber": "206-000-0000",
+            "faxNumber": "",
+            "address": {
+                "streetAddress": "1 Ground Transport Way",
+                "addressLocality": "Seattle",
+                "addressRegion": "WA",
+                "addressCountry": "US",
+                "postalCode": "90001"
+            }
+        }
+    },
+    "seller": {
+        "name": "John Smith",
+        "location": {
+            "address": {
+                "streetAddress": "225 42nd Ave S",
+                "addressLocality": "Seattle",
+                "addressRegion": "WA",
+                "addressCountry": "US",
+                "postalCode": "98103"
+            }
+        }
+    },
+    "taxes": [
+        {
+            "authority": {
+                "addressCountry": "US",
+                "addressRegion": "WA"
+            },
+            "name": "Local Sales Tax",
+            "rate": 9.50,
+            "amount": "5.69"
+        }
+    ],
+    "payments": [
+        {
+            "amount": "65.00",
+            "cardDetail": {
+                "cardType": "Visa",
+                "creditCardId": "4321",
+                "authorizationCode": "AB123654789"
+            }
+        }
+    ],
+    "classOfService": "BLACK",
+    "startDateTime": "2014-11-10T15:08:24-0500",
+    "endDateTime": "2014-11-10T15:39:46-0500",
+    "travelDuration": "PT21M22S",
+    "pickupLocation": {
+        "name": "Key Center Building, Bellevue, WA",
+        "latitude": 47.4436655,
+        "longitude": -122.2982266,
+        "address": {
+            "addressCountry": "US"
+        }
+    },
+    "dropoffLocation": {
+        "name": "Seattle-Tacoma International Airport, SeaTac, WA",
+        "latitude": 47.4489,
+        "longitude": -122.3094,
+        "address": {
+            "addressCountry": "US"
+        }
+    },
+    "distance": {
+        "totalDistance": 15.6,
+        "unit": "mi"
+    },
+    "driverNumber": "DFE154-8567",
+    "lineItems": [
+        {
+            "sequenceNumber": 1,
+            "reference": "",
+            "description": "Base Fare",
+            "additionalDescription": "",
+            "semanticsCode": "FEE",
+            "quantity": 1,
+            "total": "6.39",
+            "taxes": [
+                {
+                    "authority": {
+                        "addressCountry": "US",
+                        "addressRegion": "WA"
+                    },
+                    "name": "Local Sales Tax",
+                    "rate": 9.50,
+                    "amount": "0.61"
+                }
+            ]
+        },
+        {
+            "sequenceNumber": 2,
+            "reference": "",
+            "description": "Distance",
+            "additionalDescription": "",
+            "semanticsCode": "FEE",
+            "quantity": 1,
+            "total": "49.32",
+            "taxes": [
+                {
+                    "authority": {
+                        "addressCountry": "US",
+                        "addressRegion": "WA"
+                    },
+                    "name": "Local Sales Tax",
+                    "rate": 9.50,
+                    "amount": "4.68"
+                }
+            ]
+        },
+        {
+            "sequenceNumber": 3,
+            "reference": "",
+            "description": "Time",
+            "additionalDescription": "",
+            "semanticsCode": "FEE",
+            "quantity": 1,
+            "total": "4.16",
+            "taxes": [
+                {
+                    "authority": {
+                        "addressCountry": "US",
+                        "addressRegion": "WA"
+                    },
+                    "name": "Local Sales Tax",
+                    "rate": 9.50,
+                    "amount": "0.40"
+                }
+            ]
+        },
+        {
+            "sequenceNumber": 4,
+            "reference": "",
+            "description": "Rounding Down",
+            "additionalDescription": "",
+            "semanticsCode": "DISCOUNT",
+            "quantity": 1,
+            "total": "-0.56"
+        }
+    ]
+}
+```
+
+#### Generated Receipt Image
+
+![Ground Transport Receipt Image](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/ground_transport.png?raw=true)
