@@ -38,7 +38,7 @@
             "in": "query",
             "description": "The Vendor Code to be searched.",
             "required": true,
-            "type": "string",
+            "type": "string"
           },
           {
             "name": "addressCode",
@@ -78,7 +78,7 @@
             "in": "query",
             "description": "The Vendor Code to be deleted.",
             "required": true,
-            "type": "string",
+            "type": "string"
           },
           {
             "name": "addressCode",
