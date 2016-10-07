@@ -1,242 +1,171 @@
 {
-  "apiVersion": "3.0",
-  "swaggerVersion": "2.0",
-  "basePath": "http://localhost/api/v3.0",
-  "resourcePath": "VendorGroup",
-  "apis": [
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "VendorGroup",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
     {
-      "path": "/invoice/vendor/groups",
-      "description": "Add vendor groups by Vendor Code, Address Code, and Vendor Group.",
-      "operations": [
-        {
-          "httpMethod": "PUT",
-          "nickname": "Put_vendorCode_addressCode_vendorGroups",
-          "responseClass": "VendorGroupCollection",
-          "summary": "Add vendor groups by Vendor Code, Address Code, and Vendor Group.",
-          "notes": "Add vendor groups by Vendor Code, Address Code, and Vendor Group.",
-          "produces": [
-            "application/json",
-            "application/xml"
-          ],
-          "consumes": [
-            "application/json",
-            "application/xml"
-          ],
-          "parameters": [
-            {
-              "paramType": "query",
-              "name": "vendorCode",
-              "description": "Vendor Code to be searched",
-              "dataType": "string",
-              "required": true,
-              "allowMultiple": false,
-              "defaultValue": null,
-              "allowableValues": null
-            },
-            {
-              "paramType": "query",
-              "name": "addressCode",
-              "description": "Address Code to be searched",
-              "dataType": "string",
-              "required": true,
-              "allowMultiple": false,
-              "defaultValue": null,
-              "allowableValues": null
-            },
-            {
-              "paramType": "body",
-              "name": "vendorGroups",
-              "description": "The vendor group details.",
-              "dataType": "VendorGroupCollection",
-              "required": true,
-              "allowMultiple": false,
-              "defaultValue": null,
-              "allowableValues": null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "path": "/invoice/vendor/groups",
-      "description": "Delete a vendor group by Vendor Code, Address Code, and Group Name.",
-      "operations": [
-        {
-          "httpMethod": "DELETE",
-          "nickname": "Delete_vendorCode_addressCode_groupName",
-          "responseClass": "VendorGroupCollection",
-          "summary": "Delete a vendor group by Vendor Code, Address Code, and Group Name.",
-          "notes": "Delete a vendor group by Vendor Code, Address Code, and Group Name.",
-          "produces": [
-            "application/json",
-            "application/xml"
-          ],
-          "consumes": [
-            "application/json",
-            "application/xml"
-          ],
-          "parameters": [
-            {
-              "paramType": "query",
-              "name": "vendorCode",
-              "description": "Vendor Code to be deleted",
-              "dataType": "string",
-              "required": true,
-              "allowMultiple": false,
-              "defaultValue": null,
-              "allowableValues": null
-            },
-            {
-              "paramType": "query",
-              "name": "addressCode",
-              "description": "Address Code to be deleted",
-              "dataType": "string",
-              "required": true,
-              "allowMultiple": false,
-              "defaultValue": null,
-              "allowableValues": null
-            },
-            {
-              "paramType": "query",
-              "name": "groupName",
-              "description": "Group Name to be deleted",
-              "dataType": "string",
-              "required": true,
-              "allowMultiple": false,
-              "defaultValue": null,
-              "allowableValues": null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "path": "/invoice/vendor/groups",
-      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
-      "operations": []
-    },
-    {
-      "path": "/invoice/vendor/groups",
-      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
-      "operations": []
+      "name": "Resources",
+      "description": ""
     }
   ],
-  "models": {
+  "paths": {
+    "/invoice/vendor/groups": {
+      "put": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Add vendor groups by Vendor Code, Address Code, and Vendor Group.",
+        "description": "Add vendor groups by Vendor Code, Address Code, and Vendor Group.",
+        "parameters": [
+          {
+            "name": "vendorCode",
+            "in": "query",
+            "description": "The Vendor Code to be searched.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "addressCode",
+            "in": "query",
+            "description": "Address Code to be searched.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vendorGroups",
+            "in": "body",
+            "description": "The vendor group details.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VendorGroupCollection"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VendorGroupCollection"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Delete a vendor group by Vendor Code, Address Code, and Group Name.",
+        "description": "Delete a vendor group by Vendor Code, Address Code, and Group Name.",
+        "parameters": [
+          {
+            "name": "vendorCode",
+            "in": "query",
+            "description": "The Vendor Code to be deleted.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "addressCode",
+            "in": "query",
+            "description": "Address Code to be deleted.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "groupName",
+            "in": "query",
+            "description": "Group Name to be deleted.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VendorGroupCollection"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
     "Status": {
-      "id": "Status",
-      "displayName": null,
       "properties": {
         "Code": {
-          "description": "Code of request result",
-          "type": "int",
-          "items": null,
-          "allowableValues": null,
-          "required": false
+          "type": "integer",
+          "format": "int32",
+          "description": "Code of request result"
         },
         "Message": {
-          "description": "Message of request result",
           "type": "string",
-          "items": null,
-          "allowableValues": null,
-          "required": false
+          "description": "Message of request result"
         },
         "RecordNumber": {
-          "description": "Record Number for create/update request.",
-          "type": "int",
-          "items": null,
-          "allowableValues": null,
-          "required": false
+          "type": "integer",
+          "format": "int32",
+          "description": "Record Number for create/update request."
         },
         "Type": {
-          "description": "Type request result",
           "type": "string",
-          "items": null,
-          "allowableValues": null,
-          "required": false
+          "description": "Type request result"
         }
       }
     },
     "VendorGroup": {
-      "id": "VendorGroup",
-      "displayName": null,
       "properties": {
         "ID": {
-          "description": "The unique identifier of the resource.",
           "type": "string",
-          "items": null,
-          "allowableValues": null,
-          "required": false
+          "description": "The unique identifier of the resource."
         },
         "Name": {
-          "description": "The vendor code of the request.",
           "type": "string",
-          "items": null,
-          "allowableValues": null,
-          "required": true
-        },
-        "StatusList": {
-          "description": "Status results",
-          "type": "Array",
-          "items": {
-            "$ref": "Status",
-            "displayName": null
-          },
-          "allowableValues": null,
-          "required": false
+          "required": true,
+          "description": "The group name"
         },
         "URI": {
-          "description": "The URI to the resource.",
           "type": "string",
-          "items": null,
-          "allowableValues": null,
-          "required": false
+          "description": "The URI to the resource."
         }
       }
     },
     "VendorGroupCollection": {
-      "id": "VendorGroupCollection",
-      "displayName": "VendorGroups",
       "properties": {
-        "Items": {
-          "description": "The result collection.",
-          "type": "Array",
-          "items": {
-            "$ref": "VendorGroup",
-            "displayName": null
-          },
-          "allowableValues": null,
-          "required": false
+        "VendorGroup": {
+          "$ref": "#/definitions/VendorGroup"
         },
         "NextPage": {
-          "description": "The URI of the next page of results, if any.",
           "type": "string",
-          "items": null,
-          "allowableValues": null,
-          "required": false
+          "description": "The URI of the next page of results, if any."
         },
         "RequestRunSummary": {
-          "description": null,
           "type": "string",
-          "items": null,
-          "allowableValues": null,
-          "required": false
+          "description": "The URI of the next page of results, if any."
         },
         "TotalCount": {
-          "description": null,
-          "type": "Int32?",
-          "items": null,
-          "allowableValues": null,
-          "required": false
+          "type": "integer",
+          "format": "int32",
+          "description": "Record Number for create/update request."
         },
-        "VendorGroup": {
-          "description": "The list of vendor groups.",
-          "type": "Array",
-          "items": {
-            "$ref": "VendorGroup",
-            "displayName": null
-          },
-          "allowableValues": null,
-          "required": true
+        "Items": {
+          
         }
       }
     }

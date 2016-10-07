@@ -402,7 +402,7 @@ The payments array allows for one or more payment methods used in the transactio
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
-|__*source*__|N/A|N/A| Can be any of the following values: ApplePay, AndroidPay, SamsungPay, PayPal|
+|__*source*__|N/A|N/A| Can be any of the following values: ApplePay, AndroidPay, SamsungPay, PayPal, OlaMoney|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 
 
