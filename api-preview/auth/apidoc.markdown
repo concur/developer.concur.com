@@ -12,6 +12,7 @@ layout: reference
   * [Refreshing a token](#refresh_token)
   * [Token Management](#manage_token)
   * [Base URIs](#base_uri)
+  * [ID Token](#id_token)
 * Types of grants
   * [Authorization grant](#auth_grant)
   * [Password grant](#password_grant)
@@ -164,6 +165,33 @@ Environment | URI
 US Production |`https://us.api.concursolutions.com/oauth2/v0`
 EU Production |`https://emea.api.concursolutions.com/oauth2/v0`
 
+## <a name="id_token"></a>ID Token
+
+If your application was registered with the 'openid' scope, the Authentication service will return an [OPENID](http://openid.net) compatible [ID token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken).
+
+```
+Sample id_token:
+
+{
+  "aud": "e010e25d-b4ce-4ce3-a7e4-b670cb1adcb0",
+  "concur.profile": "https://us.api.concursolutions.com/profile/v1/pricipals/76459ad3-f77b-4d98-a21a-55333c9179f0",
+  "concur.version": 2,
+  "concur.type": "user",
+  "sub": "76459ad3-f77b-4d98-a21a-55333c9179f0",
+  "iss": "https://us.api.concursolutions.com",
+  "exp": 1476215558,
+  "userURI": "https://us.api.concursolutions.com/profile/v1/users/76459ad3-f77b-4d98-a21a-55333c9179f0",
+  "useruuid": "76459ad3-f77b-4d98-a21a-55333c9179f0",
+  "nbf": 1476211958,
+  "at_hash": "a1959060c9b623c8",
+  "type": "id-token",
+  "https://api.concursolutions.com/user": "https://us.api.concursolutions.com/profile/v1/users/76459ad3-f77b-4d98-a21a-55333c9179f0",
+  "iat": 1476211958
+}
+```
+
+### Verifying an id_token
+The Authentication service exposes [JWKs](https://tools.ietf.org/html/rfc7517) that can be used to validate the id_token in the form of a JWT. Validating a JWT is described in detail in [RFC 7519 - sec 7.2](https://tools.ietf.org/html/rfc7519#section-7.2)
 
 ## <a name="auth_grant"></a>Authorization grant
 
