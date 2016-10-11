@@ -17,7 +17,7 @@ Concur's recommendation for suppliers is to match users requesting to conenct ut
 * [Retrieve a connection request by ID](#getID)
 * [Create a connection request on behalf of a specific user](#post)
 * [Update a connection request](#put)
-* [Schema 3.2] (#schema32)
+* [Schema 3.2](#schema32)
 * [Schema 3.0 (deprecated)](#schema)
 * [Schema 3.1 (deprecated)](#schema31)
 
