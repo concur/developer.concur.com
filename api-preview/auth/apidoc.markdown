@@ -205,6 +205,10 @@ The users *must be* able to authenticate themselves via a Concur username & pass
 * Applications that need explicit user authentication & authorization - & -
 * Applications that can securely store a code, access_token & refresh_token
 
+**Authorization Grant Sequence Diagram**
+![wsd](authorization_grant_diagram.png)
+
+
 **Grant details**
 
 `GET /oauth2/v0/authorize`
@@ -261,6 +265,7 @@ Name | Type | Format | Description
 
 ```
 http
+
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: us.api.concursolutions.com
@@ -278,6 +283,7 @@ client_id=your-client_id
 
 ```
 http
+
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: date-requested
@@ -287,6 +293,7 @@ Connection: Close
 
 ```
 json
+
 {
 	"expires_in": "3600",
 	"scope": "app-scopes",
@@ -311,7 +318,7 @@ json
 |       400 |   12 | | password has been force expired                 |
 |       400 |   13 | | password expired                                |
 |       400 |   14 | | user is locked out                              |
-|       400 |   16 | | User lives in another pod                       |
+|       400 |   16 | | User lives in another geolocation. User's geolocation will be returned in a `geolocation` field in the message body.                       |
 |       400 |   51 | | username is not supplied                        |
 |       400 |   52 | | password is not supplied                        |
 |       400 |   53 | | company is not enabled for this oauth2 client   |
@@ -322,6 +329,7 @@ example bad login
 
 ```
 json
+
 {
   "error": "invalid_grant",
   "error_description": "Incorrect Credentials. Please Retry",
@@ -347,6 +355,7 @@ Name | Type | Format | Description
 
 ```
 http
+
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: us.api.concursolutions.com
@@ -360,6 +369,7 @@ client_id=your-client_id&client_secret=your-client_secret&grant_type=client_cred
 
 ```
 json
+
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: date-requested
@@ -440,6 +450,7 @@ client_id=your-client_id
 
 ```
 http
+
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 22
@@ -448,7 +459,10 @@ Date: date-requested
 
 ```
 json
-{"message":"otp sent"}
+
+{
+  "message":"otp sent"
+}
 ```
 
 **OTP Response Codes**
@@ -512,6 +526,7 @@ client_id=your-client_id
 
 ```
 http
+
 HTTP/1.1 200 OK
 Date: date-requested
 Content-Length: 1490
@@ -520,6 +535,7 @@ Connection: keep-alive
 
 ```
 json
+
 {
 	"expires_in": "3600",
 	"scope": "scopes-defined",
@@ -528,6 +544,7 @@ json
 	"refresh_token": "refresh_token"
 }
 ```
+
 **Token Response Codes**
 
 HTTP Status | Response Code | Error | Description
