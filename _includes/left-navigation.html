@@ -9,7 +9,7 @@
 {% assign pages = site.pages | sort:"url" %}
 {% assign last_container = '' %}
 
-<ul class="list-group sidebar-nav-v1" id="sidebar-nav">
+<ul class="list-group sidebar-nav-v1 hidden-print" id="sidebar-nav">
 {% for node in pages %}
     {% assign node_parts = node.url | remove_first: '/' | split: '/'  %}
     {% if node_parts[0] == page_parts[0] and node_parts[1] != 'index.html' %}
