@@ -151,24 +151,25 @@ json
 
 ## <a name="revoke_token"></a>Revoking a token
 
-All refresh_tokens associated to a user for an application can be revoked by calling the `/app-mgmt/v0/apps` endpoint.
+All refresh_tokens associated to a user for an application can be revoked by calling the `/app-mgmt/v0/apps` endpoint. You have to provide the User's `accessToken` in the Authorization Header as `Authorization: Bearer <access_token>`
 
-`DELETE /app-mgmt/v0/apps/{appId}/principals/{principalId}/refreshToken`
+`DELETE /app-mgmt/v0/apps/{appId}/principals/me/refreshToken`
 
 **URL Parameters**
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
 `appId`|`string` | `UUID` | **Required** The client applications client_id supplied by App Management
-`principalId`|`string` | `UUID` | **Required** The principalId. (In this instance, it is the User's UUID)
+
 
 **Request**
 
 ```
 http
 
-DELETE /app-mgmt/v0/apps/{appId}/principals/{principalId}/refreshTokens HTTP/1.1
+DELETE /app-mgmt/v0/apps/{appId}/principals/me/refreshTokens HTTP/1.1
 Content-Type: application/json
+Authorization: Bearer <access_token>
 
 ```
 
