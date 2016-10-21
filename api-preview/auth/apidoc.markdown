@@ -10,7 +10,7 @@ layout: reference
 * [Tokens](#access_token)
   * [Obtaining a token](#obtain_token)
   * [Refreshing a token](#refresh_token)
-  * [Revoking a token] (#revoke_token)
+  * [Revoking a token](#revoke_token)
   * [Token Management](#manage_token)
   * [Base URIs](#base_uri)
   * [ID Token](#id_token)
