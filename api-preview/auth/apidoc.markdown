@@ -10,6 +10,7 @@ layout: reference
 * [Tokens](#access_token)
   * [Obtaining a token](#obtain_token)
   * [Refreshing a token](#refresh_token)
+  * [Revoking a token] (#revoke_token)
   * [Token Management](#manage_token)
   * [Base URIs](#base_uri)
   * [ID Token](#id_token)
@@ -147,6 +148,46 @@ json
 }
 
 ```
+
+## <a name="revoke_token"></a>Revoking a token
+
+All refresh_tokens associated to a user for an application can be revoked by calling the `/app-mgmt/v0/apps` endpoint.
+
+`DELETE /app-mgmt/v0/apps/{appId}/principals/{principalId}/refreshToken`
+
+**URL Parameters**
+
+Name | Type | Format | Description
+-----|------| ------ | -----------
+`appId`|`string` | `UUID` | **Required** The client applications client_id supplied by App Management
+`principalId`|`string` | `UUID` | **Required** The principalId. (In this instance, it is the User's UUID)
+
+**Request**
+
+```
+http
+
+DELETE /app-mgmt/v0/apps/{appId}/principals/{principalId}/refreshTokens HTTP/1.1
+Content-Type: application/json
+
+```
+
+**Response**
+
+```
+http
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: date-requested
+Content-Length: 9
+Connection: Close
+```
+
+```
+"deleted"
+```
+ 
 
 ## <a name="manage_token"></a>Managing tokens
 
