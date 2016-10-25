@@ -1,0 +1,153 @@
+-
+  title: receipts.read
+  value: receipts.read
+-
+  title: receipts.write
+  value: receipts.write
+-
+  title: receipts.writeonly
+  value: receipts.writeonly
+-
+  title: user.read
+  value: user.read
+-
+  title: user.write
+  value: user.write
+-
+  title: company.read
+  value: company.read
+-
+  title: company.write
+  value: company.write
+-
+  title: creditcardaccount.read
+  value: creditcardaccount.read
+-
+  title: travelrequest.write
+  value: travelrequest.write
+-
+  title: openid
+  value: openid
+-
+  title: ATTEND
+  value: ATTEND
+-
+  title: CONFIG
+  value: CONFIG
+-
+  title: CONREQ
+  value: CONREQ
+-
+  title: ERECPT
+  value: ERECPT
+-
+  title: EVS
+  value: EVS
+-
+  title: EXPRPT
+  value: EXPRPT
+-
+  title: CCARD
+  value: CCARD
+-
+  title: BANK
+  value: BANK
+-
+  title: EXTRCT
+  value: EXTRCT
+-
+  title: FISVC
+  value: FISVC
+-
+  title: FOP
+  value: FOP
+-
+  title: GHOST
+  value: GHOST
+-
+  title: IMAGE
+  value: IMAGE
+-
+  title: INSGHT
+  value: INSGHT
+-
+  title: INVPMT
+  value: INVPMT
+-
+  title: INVPO
+  value: INVPO
+-
+  title: INVTV
+  value: INVTV
+-
+  title: INVVEN
+  value: INVVEN
+-
+  title: ITINER
+  value: ITINER
+-
+  title: JOBLOG
+  value: JOBLOG
+-
+  title: LIST
+  value: LIST
+-
+  title: MTNG
+  value: MTNG
+-
+  title: NOTIF
+  value: NOTIF
+-
+  title: PAYBAT
+  value: PAYBAT
+-
+  title: RCTIMG
+  value: RCTIMG
+-
+  title: SUPSVC
+  value: SUPSVC
+-
+  title: TAXINV
+  value: TAXINV
+-
+  title: TRVPRF
+  value: TRVPRF
+-
+  title: PASSV
+  value: PASSV
+-
+  title: COMPD
+  value: COMPD
+-
+  title: EMERG
+  value: EMERG
+-
+  title: TSAI
+  value: TSAI
+-
+  title: TMCSP
+  value: TMCSP
+-
+  title: MEDIC
+  value: MEDIC
+-
+  title: UNUTX
+  value: UNUTX
+-
+  title: TRVPTS
+  value: TRVPTS
+-
+  title: TRVREQ
+  value: TRVREQ
+-
+  title: TWS
+  value: TWS
+-
+  title: USER
+  value: USER
+-
+  title: TRIPIT
+  value: TRIPIT
+-
+  title: COMPANY
+  value: COMPANY
