@@ -175,7 +175,8 @@ Error Messages|Possible Issues|
 `Invalid Account Number` | Account Number check failed due to prefix, length, luhn, or other required format [See Below](#a5) |
 
 ## <a name="a5">Account Number Validation</a>
-Vendor|Luhn Required|Length|Prefix(s)|
+
+Vendor|Luhn Required|Length(s)|Prefix(s)|
 ---------|-------------|------|---------|
 AmericanExpress| Yes | 15 | 34, 37 |
 DinersClub| Yes | 14 | 36, 38, 39, 300, 301, 302, 303, 304, 305, 309 |
