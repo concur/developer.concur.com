@@ -10,8 +10,9 @@ The Form of Payment Web service consists of a set of resources that provide form
 Developers, travel suppliers, and travel management companies (TMCs):
 
 * View user’s personal methods of payment
-* View user’s corporate methods of payment 
+* View user’s corporate methods of payment
 * Will only be included if Corporate Ghost Card scope has been enabled
+* Update credit card data
 
 
 ## Version
@@ -45,13 +46,15 @@ Authorization: OAuth {access_token}
 Where access_token is the OAuth 2.0 access token of the user whose travel credit card information you want to retrieve or update.
 
 ## <a name="a2">Create/Update method of payment details</a>
-This endpoint can be used by travel suppliers or travel management companies (TMC) to update the method of payment details for the specified user. The scope of information returned varies depending on the entity making the request. This uses the same model as the data that is retrieved.
+This endpoint can be used by travel suppliers or travel management companies (TMC) to update the method of payment details for the specified user.
 
 ### Helpful Tips
 * Corporate (Ghost) Cards cannot be updated using this service
 * Existing Cards will be updated (based on Vendor and Account Number), others will be created
+	* **Cards not passed in, that did exist, will be DELETED**
+	* **Perform a Get before Post in order to verify existing cards status to prevent unintentional deletions**
 * Marking a card as default for a specific Segment will make other cards no longer default for the segment
-	* **Perform a Get before Post in order to verify existing cards status, and prevent unintentional overwrites**
+
 
 ### Headers
 
@@ -169,7 +172,7 @@ Error Messages|Possible Issues|
 `You must specify at least one credit card to add or update` | An empty list of CreditCards is being supplied |
 `Cannot update Corporate (Ghost) cards using this service` | Attempting to update a card with `UsageType = Corporate` |
 `Cannot update Mandatory field for Corporate (Ghost) cards using this service.` | This field is only used by Ghost cards, which cannot be updated using this service.|
-`Only one segment of a particular type can be profviced for each Credit Card.` | Duplicate segemtnes are being supplied to an individual credit card (ie multiple car segments) |
+`Only one segment of a particular type can be profviced for each Credit Card.` | Duplicate segmentes are being supplied to an individual credit card (ie multiple car segments) |
 `You do not have permissions for element: {type}` | An attempt is being made to update a card of a conflicting vendor type |
 `Forbidden Request` | The entity trying access the Form of Payment endpoint does not have the proper permissions. |
 `Invalid Account Number` | Account Number check failed due to prefix, length, luhn, or other required format [See Below](#a5) |
