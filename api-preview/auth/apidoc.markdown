@@ -19,7 +19,7 @@ layout: reference
   * [Password grant](#password_grant)
   * [Client Credentials grant](#client_credentials)
   * [One time password grant](#otp_grant)
-* [Response Codes] (#response_codes)
+* [Response Codes](#response_codes)
 
 
 ## <a name="access_token"></a>Access Tokens
@@ -559,13 +559,13 @@ json
  ----------------------------------------------------------------
 | HTTP Status | Description                                      |
 |-------------|--------------------------------------------------|
-|   200       | Successful call, response is in body.            |
-|   400       | Bad call `(error, error_description, code)`      |
-|   401       | Authentication `(error, error_description, code)`|
+|   200       | OK - Successful call, response is in body.       |
+|   400       | Bad Request `(error, error_description, code)`   |
+|   401       | Unauthorized `(error, error_description, code)`  |
 |   403       | Forbidden `(error, error_description, code)`     |
-|   404       | Not found `(error, error_description, code)`     |
-|   500       | Server error, error message is in body.          |
-|   503       | Server timed out, error message is in body.      |
+|   404       | Not Found `(error, error_description, code)`     |
+|   500       | Server Error, error message is in body.          |
+|   503       | Server Timed Out, error message is in body.      |
  ----------------------------------------------------------------
 
 4xx class errors have a JSON response with the following fields
