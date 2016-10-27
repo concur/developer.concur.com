@@ -1,6 +1,7 @@
 ---
 title: Allocations
 layout: reference
+reference-type: swagger
 ---
 
 # Allocations
@@ -11,6 +12,7 @@ This resource can be used to retrieve information about the allocations that are
 * [Retrieve all allocations per entry or report](#get)
 * [Retrieve a single allocation by ID](#getID)
 * [Schema](#schema)
+* [Try it out](#try-it-out)
 
 ### Version
 3.0
@@ -18,7 +20,7 @@ This resource can be used to retrieve information about the allocations that are
 ## <a name="get"></a>Retrieve all allocations per entry or report
 
     GET  /api/v3.0/expense/allocations
-        
+
 ### Parameters
 
 |Name | Type | Format | Description|
@@ -28,6 +30,7 @@ This resource can be used to retrieve information about the allocations that are
 |`repordID`|`string`|`query`|The unique identifier for the report as it appears in the Concur Expense UI. Format: A variable-length string. Maximum length: 32 characters.
 |`entryID`|`string`|`query`|The unique identifier for the expense entry.
 |`itemizationID`|`string`|`query`|The unique identifier for the expense itemization.
+
 Note: userId is not a supported query string parameter for this API.
 
 
@@ -104,8 +107,6 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
       "URI": "https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFhxez1E72ExJPksvTH0KPPyw"
     }
 ```
-  
-    
 
 ### Response
 
@@ -205,3 +206,6 @@ https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFlD9Py%2
 }
 ```
 
+## <a name="try-it-out"></a> Try It Out
+
+{% swagger /api-explorer/v3-0/Allocations.swagger2.json %}
