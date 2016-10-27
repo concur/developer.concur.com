@@ -19,7 +19,7 @@ layout: reference
   * [Password grant](#password_grant)
   * [Client Credentials grant](#client_credentials)
   * [One time password grant](#otp_grant)
-* [Response Codes] (#response_codes)
+* [Response Codes](#response_codes)
 
 
 ## <a name="access_token"></a>Access Tokens
