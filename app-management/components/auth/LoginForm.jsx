@@ -9,7 +9,7 @@ class LoginForm extends React.Component {
           <h2>Login to App Management</h2>
           <p>Don&#39;t have an account? <Link to="/signup">Sign Up here</Link></p>
           <form
-            action="{{ site.data.forms.server }}/apps"
+            action={`${process.env.API_SERVER}/login`}
             method="POST"
             id="appCreation"
             className="sky-form"

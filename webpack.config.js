@@ -1,5 +1,7 @@
+const webpack = require('webpack');
+
 module.exports = {
-  entry: './app-management/entry.jsx',
+  entry: ['whatwg-fetch', './app-management/entry.jsx'],
   output: {
     path: './concur_assets/js',
     filename: 'bundle.js'
@@ -27,5 +29,8 @@ module.exports = {
         loader: 'json-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.EnvironmentPlugin(['API_SERVER'])
+  ]
 }

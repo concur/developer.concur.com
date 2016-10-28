@@ -7,7 +7,7 @@ class SignupForm extends React.Component {
         <div className="col-md-12">
           <h2>Signup</h2>
           <form
-            action="{{ site.data.forms.server }}/apps"
+            action={`${process.env.API_SERVER}/signup`}
             method="POST"
             id="appCreation"
             className="sky-form"
