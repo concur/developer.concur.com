@@ -70,10 +70,12 @@ class NewAppForm extends React.Component {
               <div className="row">
                 <section className="col col-6">
                   <label className="label" htmlFor="allowedGrants">Allowed Grants &#42;</label>
-                  <div className="select select-multiple">
-                    <select name="allowedGrants" id="allowedGrants" multiple>
+                  <div className="select">
+                    <select name="allowedGrants" id="allowedGrants">
+                      <option value="" defaultValue />
                       {grantOptions}
                     </select>
+                    <i />
                   </div>
                 </section>
                 <section className="col col-6">

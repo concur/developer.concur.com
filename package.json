@@ -4,7 +4,8 @@
   "description": "developer.concur.com ====================",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "webpack"
+    "start": "webpack -w & bundle install && bundle exec jekyll serve --incremental & wait",
+    "build": "NODE_ENV=production webpack -p && bundle install && bundle exec jekyll build"
   },
   "repository": {
     "type": "git",

@@ -25,7 +25,7 @@ class AppListing extends React.Component {
     const appItems = this.state.apps.map((app) => {
       const { id, name } = app;
       return (
-        <div className="well" key={id}>
+        <div className="well col-md-4 col-sm-12" key={id}>
           <h2>{name}</h2>
           <Link to="" className="btn-u btn-u-green">Details</Link>
           <Link to="" className="btn-u btn-u-blue">Edit</Link>
