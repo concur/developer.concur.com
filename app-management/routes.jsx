@@ -3,6 +3,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import PageContainer from './components/PageContainer';
 import AppListing from './components/AppListing';
+import AppDetails from './components/AppDetails';
 import NewAppForm from './components/NewAppForm';
 import LoginForm from './components/auth/LoginForm';
 import SignupForm from './components/auth/SignupForm';
@@ -38,6 +39,7 @@ class AppRoutes extends React.Component {
         <Route path="/" component={PageContainer}>
           <IndexRoute component={AppListing} onEnter={requireAuth} />
           <Route path="new" component={NewAppForm} onEnter={requireAuth} />
+          <Route path="details/:id" component={AppDetails} onEnter={requireAuth} />
           <Route path="login" component={LoginForm} onEnter={showAuthForms} />
           <Route path="signup" component={SignupForm} onEnter={showAuthForms} />
           <Route path="logout" component={Logout} onEnter={logout} />

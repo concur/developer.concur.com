@@ -11,3 +11,4 @@ node_modules/
 api-reference/import-swagger.sh
 build/swagger-converter/converted/
 concur_assets/js/bundle.js
+.env
