@@ -1,9 +1,14 @@
 import React from 'react';
 
 class SignupForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.submitHandler = this.submitHandler.bind(this);
+  }
+
   submitHandler(e) {
     e.preventDefault();
-    console.log('signup form submitted', e);
   }
 
   render () {
@@ -56,7 +61,12 @@ class SignupForm extends React.Component {
                 <section className="col col-6">
                   <label className="label" htmlFor="passwordConfirm">Confirm Password</label>
                   <div className="input">
-                    <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm Password" />
+                    <input
+                      type="password"
+                      name="passwordConfirm"
+                      id="passwordConfirm"
+                      placeholder="Confirm Password"
+                    />
                   </div>
                 </section>
               </div>

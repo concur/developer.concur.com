@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react'
+/* eslint-env browser */
+
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 class AppDetails extends React.Component {
@@ -7,15 +9,21 @@ class AppDetails extends React.Component {
     this.state = {
       app: {},
       loading: false,
-      error: false
+      error: false,
     };
   }
 
   componentWillMount() {
-    fetch(`${process.env.API_SERVER}/apps/${this.props.params.id}`)
+    window.fetch(`${process.env.API_SERVER}/apps/${this.props.params.id}`)
       .then(response => response.json())
-      .then(app => this.setState({ app, loading: false }))
-      .catch(err => this.setState({ error: true, loading: false }));
+      .then(app => this.setState({
+        app,
+        loading: false,
+      }))
+      .catch(() => this.setState({
+        error: true,
+        loading: false,
+      }));
   }
 
   render () {
@@ -55,5 +63,11 @@ class AppDetails extends React.Component {
     );
   }
 }
+
+AppDetails.propTypes = {
+  params: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }),
+};
 
 export default AppDetails;

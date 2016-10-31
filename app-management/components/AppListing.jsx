@@ -1,3 +1,5 @@
+/* eslint-env browser */
+
 import React from 'react';
 import { Link } from 'react-router';
 
@@ -7,15 +9,21 @@ class AppListing extends React.Component {
     this.state = {
       apps: [],
       loading: true,
-      error: false
+      error: false,
     };
   }
 
   componentWillMount() {
-    fetch(`${process.env.API_SERVER}/apps`)
+    window.fetch(`${process.env.API_SERVER}/apps`)
       .then(response => response.json())
-      .then(apps => this.setState({ apps, loading: false }))
-      .catch(err => this.setState({ error: true, loading: false }));
+      .then(apps => this.setState({
+        apps,
+        loading: false,
+      }))
+      .catch(() => this.setState({
+        error: true,
+        loading: false,
+      }));
   }
 
   render () {

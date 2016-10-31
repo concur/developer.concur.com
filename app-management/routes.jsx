@@ -32,22 +32,18 @@ function logout(nextState, replaceState) {
   }
 }
 
-class AppRoutes extends React.Component {
-  render () {
-    return (
-      <Router history={hashHistory}>
-        <Route path="/" component={PageContainer}>
-          <IndexRoute component={AppListing} onEnter={requireAuth} />
-          <Route path="new" component={NewAppForm} onEnter={requireAuth} />
-          <Route path="details/:id" component={AppDetails} onEnter={requireAuth} />
-          <Route path="login" component={LoginForm} onEnter={showAuthForms} />
-          <Route path="signup" component={SignupForm} onEnter={showAuthForms} />
-          <Route path="logout" component={Logout} onEnter={logout} />
-        </Route>
-        <Route path="*" component={NotFound} />
-      </Router>
-    );
-  }
-}
+const AppRoutes = () => (
+  <Router history={hashHistory}>
+    <Route path="/" component={PageContainer}>
+      <IndexRoute component={AppListing} onEnter={requireAuth} />
+      <Route path="new" component={NewAppForm} onEnter={requireAuth} />
+      <Route path="details/:id" component={AppDetails} onEnter={requireAuth} />
+      <Route path="login" component={LoginForm} onEnter={showAuthForms} />
+      <Route path="signup" component={SignupForm} onEnter={showAuthForms} />
+      <Route path="logout" component={Logout} onEnter={logout} />
+    </Route>
+    <Route path="*" component={NotFound} />
+  </Router>
+);
 
 export default AppRoutes;

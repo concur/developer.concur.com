@@ -6,7 +6,6 @@ import scopes from '../data/scopes.json';
 class NewAppForm extends React.Component {
   submitHandler(e) {
     e.preventDefault();
-    console.log('new app form submitted', e);
   }
 
   render () {

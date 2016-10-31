@@ -1,10 +1,51 @@
+/* eslint-env browser */
+
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
+
+import auth from '../../utils/auth';
 
 class LoginForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
+
+    this.state = {
+      username: '',
+      password: '',
+    };
+  }
+
+  handleInputChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
   submitHandler(e) {
     e.preventDefault();
-    console.log('login form submitted', e);
+
+    const loginData = {
+      username: this.state.username,
+      password: this.state.password,
+    };
+
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(loginData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    window.fetch(`${process.env.API_SERVER}/auth/login`, options)
+      .then(response => response.json())
+      .then((data) => {
+        if (data && data.access_token) {
+          auth.setToken(data.access_token);
+          hashHistory.push('/');
+        }
+      });
   }
 
   render () {
@@ -24,7 +65,13 @@ class LoginForm extends React.Component {
                 <section>
                   <label className="label" htmlFor="username">Username</label>
                   <div className="input">
-                    <input type="text" name="username" id="username" placeholder="Username" />
+                    <input
+                      type="text"
+                      name="username"
+                      id="username"
+                      placeholder="Username"
+                      onChange={this.handleInputChange}
+                    />
                   </div>
                 </section>
               </div>
@@ -32,7 +79,13 @@ class LoginForm extends React.Component {
                 <section>
                   <label className="label" htmlFor="password">Password</label>
                   <div className="input" htmlFor="password">
-                    <input type="password" name="password" id="password" placeholder="Password" />
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="Password"
+                      onChange={this.handleInputChange}
+                    />
                   </div>
                 </section>
               </div>
