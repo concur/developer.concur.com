@@ -4,6 +4,11 @@ import grants from '../data/grants.json';
 import scopes from '../data/scopes.json';
 
 class NewAppForm extends React.Component {
+  submitHandler(e) {
+    e.preventDefault();
+    console.log('new app form submitted', e);
+  }
+
   render () {
     const grantOptions = grants.map((grant, idx) => {
       const { title, value } = grant;
@@ -19,10 +24,10 @@ class NewAppForm extends React.Component {
         <div className="col-md-12">
           <h2>App Creation Form</h2>
           <form
-            action="{{ site.data.forms.server }}/apps"
-            method="POST"
-            id="appCreation"
             className="sky-form"
+            method="POST"
+            action="{{ site.data.forms.server }}/apps"
+            onSubmit={this.submitHandler}
           >
             <fieldset>
               <div className="row">

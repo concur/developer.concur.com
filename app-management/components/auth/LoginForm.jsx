@@ -2,6 +2,11 @@ import React from 'react';
 import { Link } from 'react-router';
 
 class LoginForm extends React.Component {
+  submitHandler(e) {
+    e.preventDefault();
+    console.log('login form submitted', e);
+  }
+
   render () {
     return (
       <div className="row">
@@ -9,10 +14,10 @@ class LoginForm extends React.Component {
           <h2>Login to App Management</h2>
           <p>Don&#39;t have an account? <Link to="/signup">Sign Up here</Link></p>
           <form
-            action={`${process.env.API_SERVER}/login`}
-            method="POST"
-            id="appCreation"
             className="sky-form"
+            method="POST"
+            action={`${process.env.API_SERVER}/login`}
+            onSubmit={this.submitHandler}
           >
             <fieldset>
               <div className="row">

@@ -1,16 +1,21 @@
 import React from 'react';
 
 class SignupForm extends React.Component {
+  submitHandler(e) {
+    e.preventDefault();
+    console.log('signup form submitted', e);
+  }
+
   render () {
     return (
       <div className="row">
         <div className="col-md-12">
           <h2>Signup</h2>
           <form
-            action={`${process.env.API_SERVER}/signup`}
-            method="POST"
-            id="appCreation"
             className="sky-form"
+            method="POST"
+            action={`${process.env.API_SERVER}/signup`}
+            onSubmit={this.submitHandler}
           >
             <fieldset>
               <div className="row">
