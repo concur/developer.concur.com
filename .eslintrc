@@ -2,6 +2,7 @@
     "extends": "airbnb",
     "rules": {
         "react/prefer-stateless-function": 1,
+        "react/forbid-prop-types": 0,
         "space-before-function-paren": 0
     }
 }
