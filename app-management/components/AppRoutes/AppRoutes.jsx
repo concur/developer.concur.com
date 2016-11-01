@@ -39,9 +39,11 @@ class AppRoutes extends React.Component {
     }
   }
 
-  logout() {
+  logout(nextState, replaceState) {
     if (this.isAuthenticated()) {
       this.props.store.dispatch(logout());
+    } else {
+      replaceState('/login');
     }
   }
 
