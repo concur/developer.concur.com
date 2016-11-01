@@ -7,7 +7,7 @@ const defaultState = {
   username: '',
   password: '',
   isFetching: false,
-  error: null,
+  error: '',
 };
 
 function loginReducer(state = defaultState, action) {
@@ -21,7 +21,7 @@ function loginReducer(state = defaultState, action) {
       return {
         ...state,
         isfetching: true,
-        error: null,
+        error: '',
       };
     case LOGIN_FAILURE:
       return {
@@ -33,7 +33,7 @@ function loginReducer(state = defaultState, action) {
       return {
         ...state,
         isFetching: false,
-        error: null,
+        error: '',
         username: '',
         password: '',
       };
