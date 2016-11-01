@@ -3,12 +3,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
 import appReducer from './reducers';
 
 import AppRoutes from './components/AppRoutes';
 
-const store = createStore(appReducer);
+const store = createStore(
+  appReducer,
+  applyMiddleware(thunkMiddleware)
+);
 
 const App = () => (
   <Provider store={store}>
