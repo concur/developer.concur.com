@@ -1,20 +1,12 @@
 /* eslint-env browser */
 
+import { reset } from 'redux-form';
 import { hashHistory } from 'react-router';
 import { login } from './auth';
 
-export const LOGIN_HANDLE_INPUT_CHANGE = 'LOGIN_HANDLE_INPUT_CHANGE';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-
-export function handleInputChange(fieldName, newValue) {
-  return {
-    type: LOGIN_HANDLE_INPUT_CHANGE,
-    fieldName,
-    newValue,
-  };
-}
 
 export function loginRequest() {
   return {
@@ -35,11 +27,9 @@ export function loginSuccess() {
   };
 }
 
-export function fetchToken() {
-  return function thunk(dispatch, getState) {
+export function fetchToken(username, password) {
+  return function thunk(dispatch) {
     dispatch(loginRequest());
-
-    const { username, password } = getState().loginForm;
     const options = {
       method: 'POST',
       body: JSON.stringify({ username, password }),
@@ -54,6 +44,7 @@ export function fetchToken() {
         if (data && data.access_token) {
           dispatch(login(data.access_token));
           dispatch(loginSuccess());
+          dispatch(reset('login'));
           hashHistory.push('/');
         } else {
           dispatch(loginFailure('No token provided'));

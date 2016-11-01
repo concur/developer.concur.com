@@ -1,21 +1,21 @@
-import { SIGNUP_HANDLE_INPUT_CHANGE } from '../actions/signup';
+import { SIGNUP_REQUEST, SIGNUP_FAILURE, SIGNUP_SUCCESS } from '../actions/signup';
 
-const defaultState = {
-  firstName: '',
-  lastName: '',
-  username: '',
-  email: '',
-  password: '',
-  passwordConfirm: '',
-};
+const defaultState = {};
 
 function signupReducer(state = defaultState, action) {
   switch (action.type) {
-    case SIGNUP_HANDLE_INPUT_CHANGE:
+    case SIGNUP_REQUEST:
       return {
-        ...state,
-        [action.fieldName]: action.newValue,
+        isFetching: true,
+        error: '',
       };
+    case SIGNUP_FAILURE:
+      return {
+        isFetching: false,
+        error: action.message,
+      };
+    case SIGNUP_SUCCESS:
+      return defaultState;
     default:
       return state;
   }
