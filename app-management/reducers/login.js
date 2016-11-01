@@ -8,9 +8,10 @@ const defaultState = {
 function loginReducer(state = defaultState, action) {
   switch (action.type) {
     case LOGIN_HANDLE_INPUT_CHANGE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         [action.fieldName]: action.newValue,
-      });
+      };
     default:
       return state;
   }

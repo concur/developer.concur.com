@@ -12,9 +12,10 @@ const defaultState = {
 function signupReducer(state = defaultState, action) {
   switch (action.type) {
     case SIGNUP_HANDLE_INPUT_CHANGE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         [action.fieldName]: action.newValue,
-      });
+      };
     default:
       return state;
   }
