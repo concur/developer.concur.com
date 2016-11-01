@@ -3,31 +3,14 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-class AppDetails extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      app: {},
-      loading: false,
-      error: false,
-    };
-  }
-
+class AppDetailsPage extends React.Component {
   componentWillMount() {
-    window.fetch(`${process.env.API_SERVER}/apps/${this.props.params.id}`)
-      .then(response => response.json())
-      .then(app => this.setState({
-        app,
-        loading: false,
-      }))
-      .catch(() => this.setState({
-        error: true,
-        loading: false,
-      }));
+    const id = this.props.params.id;
+    this.props.fetchAppDetails(id);
   }
 
   render () {
-    if (this.state.loading) {
+    if (this.props.isFetching) {
       return (
         <div className="row">
           <div className="col-md-12">
@@ -37,7 +20,7 @@ class AppDetails extends React.Component {
       );
     }
 
-    if (this.state.error) {
+    if (this.props.error) {
       return (
         <div className="row">
           <div className="col-md-12">
@@ -48,26 +31,30 @@ class AppDetails extends React.Component {
       );
     }
 
-    const { app } = this.state;
+    const { app } = this.props;
 
     return (
       <div className="row">
         <div className="col-md-12">
           <h2>{app.name}</h2>
-          <Link to="/">&larr; Back to My Apps</Link>
           <div className="row">
             <p>{app.description}</p>
           </div>
+          <Link to="/">&larr; Back to My Apps</Link>
         </div>
       </div>
     );
   }
 }
 
-AppDetails.propTypes = {
+AppDetailsPage.propTypes = {
+  fetchAppDetails: PropTypes.func.isRequired,
   params: PropTypes.shape({
     id: PropTypes.string.isRequired,
   }),
+  isFetching: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
+  app: PropTypes.object.isRequired,
 };
 
-export default AppDetails;
+export default AppDetailsPage;
