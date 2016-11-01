@@ -30,13 +30,7 @@ function loginReducer(state = defaultState, action) {
         error: action.message,
       };
     case LOGIN_SUCCESS:
-      return {
-        ...state,
-        isFetching: false,
-        error: '',
-        username: '',
-        password: '',
-      };
+      return defaultState;
     default:
       return state;
   }

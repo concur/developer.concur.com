@@ -25,9 +25,7 @@ function appListingReducer(state = defaultState, action) {
       };
     case APP_LISTING_SUCCESS:
       return {
-        ...state,
-        isFetching: false,
-        error: '',
+        ...defaultState,
         apps: action.apps,
       };
     default:
