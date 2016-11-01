@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class SignupForm extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.submitHandler = this.submitHandler.bind(this);
-  }
-
-  submitHandler(e) {
+  static submitHandler(e) {
     e.preventDefault();
   }
 
   render () {
+    const {
+      firstName,
+      lastName,
+      username,
+      email,
+      password,
+      passwordConfirm,
+      handleInputChange } = this.props;
+
     return (
       <div className="row">
         <div className="col-md-12">
@@ -27,13 +30,27 @@ class SignupForm extends React.Component {
                 <section className="col col-6">
                   <label className="label" htmlFor="firstName">First Name</label>
                   <div className="input">
-                    <input type="text" name="firstName" id="firstName" placeholder="First Name" />
+                    <input
+                      type="text"
+                      name="firstName"
+                      id="firstName"
+                      placeholder="First Name"
+                      value={firstName}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </section>
                 <section className="col col-6">
                   <label className="label" htmlFor="lastName">Last Name</label>
                   <div className="input">
-                    <input type="text" name="lastName" id="lastName" placeholder="Last Name" />
+                    <input
+                      type="text"
+                      name="lastName"
+                      id="lastName"
+                      placeholder="Last Name"
+                      value={lastName}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </section>
               </div>
@@ -41,13 +58,27 @@ class SignupForm extends React.Component {
                 <section className="col col-6">
                   <label className="label" htmlFor="username">Username</label>
                   <div className="input">
-                    <input type="text" name="username" id="username" placeholder="Username" />
+                    <input
+                      type="text"
+                      name="username"
+                      id="username"
+                      placeholder="Username"
+                      value={username}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </section>
                 <section className="col col-6">
                   <label className="label" htmlFor="password">Email Address</label>
                   <div className="input">
-                    <input type="email" name="email" id="email" placeholder="Email Address" />
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Email Address"
+                      value={email}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </section>
               </div>
@@ -55,7 +86,14 @@ class SignupForm extends React.Component {
                 <section className="col col-6">
                   <label className="label" htmlFor="password">Password</label>
                   <div className="input">
-                    <input type="password" name="password" id="password" placeholder="Password" />
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </section>
                 <section className="col col-6">
@@ -66,6 +104,8 @@ class SignupForm extends React.Component {
                       name="passwordConfirm"
                       id="passwordConfirm"
                       placeholder="Confirm Password"
+                      value={passwordConfirm}
+                      onChange={handleInputChange}
                     />
                   </div>
                 </section>
@@ -80,5 +120,15 @@ class SignupForm extends React.Component {
     );
   }
 }
+
+SignupForm.propTypes = {
+  handleInputChange: PropTypes.func.isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  passwordConfirm: PropTypes.string.isRequired,
+};
 
 export default SignupForm;

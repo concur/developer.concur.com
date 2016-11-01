@@ -2,11 +2,18 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import appReducer from './reducers';
 
-import AppRoutes from './routes';
+import AppRoutes from './components/AppRoutes';
+
+const store = createStore(appReducer);
 
 const App = () => (
-  <AppRoutes />
+  <Provider store={store}>
+    <AppRoutes store={store} />
+  </Provider>
 );
 
 const mountingNode = document.getElementById('app-management-root');

@@ -1,0 +1,73 @@
+import React, { PropTypes } from 'react';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+
+import PageContainer from '../PageContainer';
+import AppListing from '../AppListing';
+import AppDetails from '../AppDetails';
+import NewAppForm from '../NewAppForm';
+import LoginForm from '../auth/LoginForm';
+import SignupForm from '../auth/SignupForm';
+import Logout from '../auth/Logout';
+import NotFound from '../NotFound';
+
+import { logout } from '../../actions/auth';
+
+class AppRoutes extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.isAuthenticated = this.isAuthenticated.bind(this);
+    this.requireAuth = this.requireAuth.bind(this);
+    this.showAuthForms = this.showAuthForms.bind(this);
+    this.logout = this.logout.bind(this);
+  }
+
+  isAuthenticated() {
+    const { store } = this.props;
+    return store.getState().auth.authenticated;
+  }
+
+  requireAuth(nextState, replaceState) {
+    if (!this.isAuthenticated()) {
+      replaceState('/login');
+    }
+  }
+
+  showAuthForms(nextState, replaceState) {
+    if (this.isAuthenticated()) {
+      replaceState('/');
+    }
+  }
+
+  logout() {
+    if (this.isAuthenticated()) {
+      this.props.store.dispatch(logout());
+    }
+  }
+
+  render () {
+    const routes = (
+      <Route path="/" component={PageContainer}>
+        <IndexRoute component={AppListing} onEnter={this.requireAuth} />
+        <Route path="new" component={NewAppForm} onEnter={this.requireAuth} />
+        <Route path="details/:id" component={AppDetails} onEnter={this.requireAuth} />
+        <Route path="login" component={LoginForm} onEnter={this.showAuthForms} />
+        <Route path="signup" component={SignupForm} onEnter={this.showAuthForms} />
+        <Route path="logout" component={Logout} onEnter={this.logout} />
+        <Route path="*" component={NotFound} />
+      </Route>
+    );
+
+    return (
+      <Router history={hashHistory} routes={routes} />
+    );
+  }
+}
+
+AppRoutes.propTypes = {
+  store: PropTypes.shape({
+    dispatch: PropTypes.func.isRequired,
+  }),
+};
+
+export default AppRoutes;

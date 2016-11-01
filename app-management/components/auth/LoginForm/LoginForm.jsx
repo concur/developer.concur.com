@@ -1,33 +1,20 @@
 /* eslint-env browser */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link, hashHistory } from 'react-router';
-
-import auth from '../../utils/auth';
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleInputChange = this.handleInputChange.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
-
-    this.state = {
-      username: '',
-      password: '',
-    };
-  }
-
-  handleInputChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
   }
 
   submitHandler(e) {
     e.preventDefault();
 
     const loginData = {
-      username: this.state.username,
-      password: this.state.password,
+      username: this.props.username,
+      password: this.props.password,
     };
 
     const options = {
@@ -42,7 +29,7 @@ class LoginForm extends React.Component {
       .then(response => response.json())
       .then((data) => {
         if (data && data.access_token) {
-          auth.setToken(data.access_token);
+          this.props.login(data.access_token);
           hashHistory.push('/');
         }
       });
@@ -70,7 +57,8 @@ class LoginForm extends React.Component {
                       name="username"
                       id="username"
                       placeholder="Username"
-                      onChange={this.handleInputChange}
+                      value={this.props.username}
+                      onChange={this.props.handleInputChange}
                     />
                   </div>
                 </section>
@@ -84,7 +72,8 @@ class LoginForm extends React.Component {
                       name="password"
                       id="password"
                       placeholder="Password"
-                      onChange={this.handleInputChange}
+                      value={this.props.password}
+                      onChange={this.props.handleInputChange}
                     />
                   </div>
                 </section>
@@ -99,5 +88,12 @@ class LoginForm extends React.Component {
     );
   }
 }
+
+LoginForm.propTypes = {
+  login: PropTypes.func.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+  username: PropTypes.string,
+  password: PropTypes.string,
+};
 
 export default LoginForm;

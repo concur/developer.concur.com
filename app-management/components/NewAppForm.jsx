@@ -4,7 +4,7 @@ import grants from '../data/grants.json';
 import scopes from '../data/scopes.json';
 
 class NewAppForm extends React.Component {
-  submitHandler(e) {
+  static submitHandler(e) {
     e.preventDefault();
   }
 
