@@ -1,206 +1,206 @@
 [
   {
-    "title": "receipts.read",
+    "label": "receipts.read",
     "value": "receipts.read"
   },
   {
-    "title": "receipts.write",
+    "label": "receipts.write",
     "value": "receipts.write"
   },
   {
-    "title": "receipts.writeonly",
+    "label": "receipts.writeonly",
     "value": "receipts.writeonly"
   },
   {
-    "title": "user.read",
+    "label": "user.read",
     "value": "user.read"
   },
   {
-    "title": "user.write",
+    "label": "user.write",
     "value": "user.write"
   },
   {
-    "title": "company.read",
+    "label": "company.read",
     "value": "company.read"
   },
   {
-    "title": "company.write",
+    "label": "company.write",
     "value": "company.write"
   },
   {
-    "title": "creditcardaccount.read",
+    "label": "creditcardaccount.read",
     "value": "creditcardaccount.read"
   },
   {
-    "title": "travelrequest.write",
+    "label": "travelrequest.write",
     "value": "travelrequest.write"
   },
   {
-    "title": "openid",
+    "label": "openid",
     "value": "openid"
   },
   {
-    "title": "ATTEND",
+    "label": "ATTEND",
     "value": "ATTEND"
   },
   {
-    "title": "CONFIG",
+    "label": "CONFIG",
     "value": "CONFIG"
   },
   {
-    "title": "CONREQ",
+    "label": "CONREQ",
     "value": "CONREQ"
   },
   {
-    "title": "ERECPT",
+    "label": "ERECPT",
     "value": "ERECPT"
   },
   {
-    "title": "EVS",
+    "label": "EVS",
     "value": "EVS"
   },
   {
-    "title": "EXPRPT",
+    "label": "EXPRPT",
     "value": "EXPRPT"
   },
   {
-    "title": "CCARD",
+    "label": "CCARD",
     "value": "CCARD"
   },
   {
-    "title": "BANK",
+    "label": "BANK",
     "value": "BANK"
   },
   {
-    "title": "EXTRCT",
+    "label": "EXTRCT",
     "value": "EXTRCT"
   },
   {
-    "title": "FISVC",
+    "label": "FISVC",
     "value": "FISVC"
   },
   {
-    "title": "FOP",
+    "label": "FOP",
     "value": "FOP"
   },
   {
-    "title": "GHOST",
+    "label": "GHOST",
     "value": "GHOST"
   },
   {
-    "title": "IMAGE",
+    "label": "IMAGE",
     "value": "IMAGE"
   },
   {
-    "title": "INSGHT",
+    "label": "INSGHT",
     "value": "INSGHT"
   },
   {
-    "title": "INVPMT",
+    "label": "INVPMT",
     "value": "INVPMT"
   },
   {
-    "title": "INVPO",
+    "label": "INVPO",
     "value": "INVPO"
   },
   {
-    "title": "INVTV",
+    "label": "INVTV",
     "value": "INVTV"
   },
   {
-    "title": "INVVEN",
+    "label": "INVVEN",
     "value": "INVVEN"
   },
   {
-    "title": "ITINER",
+    "label": "ITINER",
     "value": "ITINER"
   },
   {
-    "title": "JOBLOG",
+    "label": "JOBLOG",
     "value": "JOBLOG"
   },
   {
-    "title": "LIST",
+    "label": "LIST",
     "value": "LIST"
   },
   {
-    "title": "MTNG",
+    "label": "MTNG",
     "value": "MTNG"
   },
   {
-    "title": "NOTIF",
+    "label": "NOTIF",
     "value": "NOTIF"
   },
   {
-    "title": "PAYBAT",
+    "label": "PAYBAT",
     "value": "PAYBAT"
   },
   {
-    "title": "RCTIMG",
+    "label": "RCTIMG",
     "value": "RCTIMG"
   },
   {
-    "title": "SUPSVC",
+    "label": "SUPSVC",
     "value": "SUPSVC"
   },
   {
-    "title": "TAXINV",
+    "label": "TAXINV",
     "value": "TAXINV"
   },
   {
-    "title": "TRVPRF",
+    "label": "TRVPRF",
     "value": "TRVPRF"
   },
   {
-    "title": "PASSV",
+    "label": "PASSV",
     "value": "PASSV"
   },
   {
-    "title": "COMPD",
+    "label": "COMPD",
     "value": "COMPD"
   },
   {
-    "title": "EMERG",
+    "label": "EMERG",
     "value": "EMERG"
   },
   {
-    "title": "TSAI",
+    "label": "TSAI",
     "value": "TSAI"
   },
   {
-    "title": "TMCSP",
+    "label": "TMCSP",
     "value": "TMCSP"
   },
   {
-    "title": "MEDIC",
+    "label": "MEDIC",
     "value": "MEDIC"
   },
   {
-    "title": "UNUTX",
+    "label": "UNUTX",
     "value": "UNUTX"
   },
   {
-    "title": "TRVPTS",
+    "label": "TRVPTS",
     "value": "TRVPTS"
   },
   {
-    "title": "TRVREQ",
+    "label": "TRVREQ",
     "value": "TRVREQ"
   },
   {
-    "title": "TWS",
+    "label": "TWS",
     "value": "TWS"
   },
   {
-    "title": "USER",
+    "label": "USER",
     "value": "USER"
   },
   {
-    "title": "TRIPIT",
+    "label": "TRIPIT",
     "value": "TRIPIT"
   },
   {
-    "title": "COMPANY",
+    "label": "COMPANY",
     "value": "COMPANY"
   }
 ]

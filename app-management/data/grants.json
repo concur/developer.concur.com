@@ -1,26 +1,26 @@
 [
   {
-    "title": "Authorization Code",
+    "label": "Authorization Code",
     "value": "authorization_code"
   },
   {
-    "title": "Implicit",
+    "label": "Implicit",
     "value": "implicit"
   },
   {
-    "title": "Refresh Token",
+    "label": "Refresh Token",
     "value": "refresh_token"
   },
   {
-    "title": "Client Credentials",
+    "label": "Client Credentials",
     "value": "client_credentials"
   },
   {
-    "title": "Password",
+    "label": "Password",
     "value": "password"
   },
   {
-    "title": "OTP",
+    "label": "OTP",
     "value": "otp"
   }
 ]
