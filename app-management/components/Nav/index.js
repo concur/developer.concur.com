@@ -3,7 +3,7 @@ import Nav from './Nav';
 
 function mapStateToProps(state) {
   return {
-    loggedIn: state.auth.authenticated,
+    authenticated: state.auth.authenticated,
   };
 }
 

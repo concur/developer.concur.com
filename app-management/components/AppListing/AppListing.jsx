@@ -13,8 +13,8 @@ class AppListing extends React.Component {
       return (
         <div className="row">
           <div className="col-md-12">
-            <h1>My Apps</h1>
-            <p>Loading...</p>
+            <h2>My Apps</h2>
+            <i className="fa fa-spinner fa-4x fa-spin" />
           </div>
         </div>
       );
@@ -24,7 +24,7 @@ class AppListing extends React.Component {
       return (
         <div className="row">
           <div className="col-md-12">
-            <h1>My Apps</h1>
+            <h2>My Apps</h2>
             <p>An error occurred when loading your apps</p>
           </div>
         </div>

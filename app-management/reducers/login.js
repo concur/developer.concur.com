@@ -10,7 +10,7 @@ function loginReducer(state = defaultState, action) {
     case LOGIN_REQUEST:
       return {
         ...state,
-        isfetching: true,
+        isFetching: true,
         error: '',
       };
     case LOGIN_FAILURE:

@@ -14,7 +14,7 @@ class AppDetailsPage extends React.Component {
       return (
         <div className="row">
           <div className="col-md-12">
-            <p>Loading...</p>
+            <i className="fa fa-spinner fa-4x fa-spin" />
           </div>
         </div>
       );

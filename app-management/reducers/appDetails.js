@@ -14,7 +14,7 @@ function appDetailsReducer(state = defaultState, action) {
     case APP_DETAILS_REQUEST:
       return {
         ...state,
-        isfetching: true,
+        isFetching: true,
         error: '',
       };
     case APP_DETAILS_FAILURE:
