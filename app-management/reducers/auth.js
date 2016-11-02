@@ -1,41 +1,19 @@
-/* eslint-env browser */
-
-import { AUTH_LOGIN, AUTH_LOGOUT, TOKEN_KEY } from '../actions/auth';
-
-const auth = {
-  setToken(token) {
-    window.localStorage.setItem(TOKEN_KEY, token);
-  },
-
-  getToken() {
-    return window.localStorage.getItem(TOKEN_KEY);
-  },
-
-  removeToken() {
-    window.localStorage.removeItem(TOKEN_KEY);
-  },
-};
-
+import { AUTH_LOGIN, AUTH_LOGOUT } from '../actions/auth';
 
 const defaultState = {
-  authenticated: !!auth.getToken(),
-  token: auth.getToken(),
+  authenticated: false,
+  token: null,
 };
 
 function authReducer(state = defaultState, action) {
   switch (action.type) {
     case AUTH_LOGIN:
-      auth.setToken(action.token);
       return {
         authenticated: true,
-        token: auth.getToken(),
+        token: action.token,
       };
     case AUTH_LOGOUT:
-      auth.removeToken();
-      return {
-        authenticated: false,
-        token: auth.getToken(),
-      };
+      return defaultState;
     default:
       return state;
   }

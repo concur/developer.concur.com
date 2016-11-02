@@ -8,11 +8,19 @@ import { createStore, applyMiddleware } from 'redux';
 import appReducer from './reducers';
 
 import AppRoutes from './components/AppRoutes';
+import auth from './utils/auth';
+import { login } from './actions/auth';
 
 const store = createStore(
   appReducer,
   applyMiddleware(thunkMiddleware)
 );
+
+const token = auth.getToken();
+
+if (token) {
+  store.dispatch(login(token));
+}
 
 const App = () => (
   <Provider store={store}>
