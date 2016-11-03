@@ -30,7 +30,7 @@ Concur's recommendation for suppliers is to match users requesting to connect ut
 
 ## <a name="get"></a>Retrieve all connection requests that match the TripLink supplier ID
 
-    GET  /connect/v3.2/common/connectionrequests/
+    GET  /api/v3.2/common/connectionrequests/
     
     GET  /api/v3.0/common/connectionrequests/  (deprecated)
     GET  /api/v3.1/common/connectionrequests/  (deprecated)
@@ -48,7 +48,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve a connection request by ID
 
-    GET  /connect/v3.2/common/connectionrequests/{id}
+    GET  /api/v3.2/common/connectionrequests/{id}
 
     GET  /api/v3.0/common/connectionrequests/{id}  (deprecated)
     GET  /api/v3.1/common/connectionrequests/{id}  (deprecated)
@@ -63,7 +63,7 @@ Name | Type | Format | Description
 
 ## <a name="post"></a>Create a connection request on behalf of a specific user
 
-    POST  /connect/v3.2/common/connectionrequests/
+    POST  /api/v3.2/common/connectionrequests/
 
     POST  /api/v3.0/common/connectionrequests/  (deprecated)
     POST  /api/v3.1/common/connectionrequests/  (deprecated)
@@ -78,7 +78,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Update a connection request
 
-    PUT  /connect/v3.2/common/connectionrequests/{id}
+    PUT  /api/v3.2/common/connectionrequests/{id}
 
     PUT  /api/v3.0/common/connectionrequests/{id}  (deprecated)
     PUT  /api/v3.1/common/connectionrequests/{id}  (deprecated)
