@@ -5,7 +5,7 @@ import LoginForm from './LoginForm';
 const LoginPage = props => (
   <div className="row">
     <div className="col-md-6">
-      <h2>Login to App Management</h2>
+      <h2>Log in to App Management</h2>
       <p>Don&#39;t have an account? <Link to="/signup">Sign Up here</Link></p>
       <LoginForm onSubmit={props.handleSubmit} />
     </div>

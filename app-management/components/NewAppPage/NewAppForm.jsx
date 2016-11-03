@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import validate from 'validate.js';
 
+import formValidator from '../../utils/formValidator';
 import { renderInput, renderTextarea, renderCheckbox, renderSelect, renderMultiSelect } from '../Skyforms';
 
 // All selectable grants and scopes
@@ -41,8 +41,6 @@ const constraints = {
     presence: { message: 'is required' },
   },
 };
-
-const formValidator = values => validate(values, constraints) || {};
 
 const NewAppForm = props => (
   <form className="sky-form" onSubmit={props.handleSubmit}>
@@ -129,5 +127,5 @@ NewAppForm.propTypes = {
 
 export default reduxForm({
   form: 'newApp',
-  validate: formValidator,
+  validate: formValidator(constraints),
 })(NewAppForm);

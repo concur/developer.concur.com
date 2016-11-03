@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import validate from 'validate.js';
 
+import formValidator from '../../utils/formValidator';
 import { renderInput } from '../Skyforms';
 
 const constraints = {
@@ -20,6 +20,7 @@ const constraints = {
   },
   password: {
     presence: { message: 'is required' },
+    length: { minimum: 8 },
   },
   passwordConfirm: {
     presence: { message: 'is required' },
@@ -29,8 +30,6 @@ const constraints = {
     },
   },
 };
-
-const formValidator = values => validate(values, constraints) || {};
 
 const SignupForm = props => (
   <form className="sky-form" onSubmit={props.handleSubmit}>
@@ -109,5 +108,5 @@ SignupForm.propTypes = {
 
 export default reduxForm({
   form: 'signup',
-  validate: formValidator,
+  validate: formValidator(constraints),
 })(SignupForm);

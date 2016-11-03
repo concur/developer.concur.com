@@ -1,40 +1,46 @@
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
+import formValidator from '../../utils/formValidator';
+import { renderInput } from '../Skyforms';
+
+const constraints = {
+  username: {
+    presence: { message: 'is needed to login' },
+  },
+  password: {
+    presence: { message: 'is needed to login' },
+  },
+};
+
 const LoginForm = props => (
   <form className="sky-form" onSubmit={props.handleSubmit}>
     <fieldset>
       <div className="row">
         <section>
-          <label className="label" htmlFor="username">Username</label>
-          <div className="input">
-            <Field
-              component="input"
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Username"
-            />
-          </div>
+          <Field
+            component={renderInput}
+            type="text"
+            name="username"
+            label="Username"
+            placeholder="Username"
+          />
         </section>
       </div>
       <div className="row">
         <section>
-          <label className="label" htmlFor="password">Password</label>
-          <div className="input" htmlFor="password">
-            <Field
-              component="input"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-            />
-          </div>
+          <Field
+            component={renderInput}
+            type="password"
+            name="password"
+            label="Password"
+            placeholder="Password"
+          />
         </section>
       </div>
     </fieldset>
     <footer>
-      <button type="submit" className="button">Sign In</button>
+      <button type="submit" className="button">Log in</button>
     </footer>
   </form>
 );
@@ -45,4 +51,5 @@ LoginForm.propTypes = {
 
 export default reduxForm({
   form: 'login',
+  validate: formValidator(constraints),
 })(LoginForm);
