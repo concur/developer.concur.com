@@ -1,16 +1,20 @@
 import { connect } from 'react-redux';
 import SignupPage from './SignupPage';
-import { postNewUser } from '../../actions/signup';
+import { postSignup } from '../../actions/signup';
+
+function mapStateToProps(state) {
+  return state.signup;
+}
 
 function mapDispatchToProps(dispatch) {
   return {
     handleSubmit: (values) => {
-      dispatch(postNewUser(values));
+      dispatch(postSignup(values));
     },
   };
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SignupPage);

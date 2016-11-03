@@ -30,7 +30,7 @@ export function postNewApp(values) {
   return function thunk(dispatch) {
     dispatch(newAppRequest());
 
-    // const data = getState().newAppForm;
+    // const data = getState().newApp;
     // const token = getState().auth.token;
     // const options = {
     //   method: 'POST',

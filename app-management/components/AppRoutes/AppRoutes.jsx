@@ -24,7 +24,7 @@ class AppRoutes extends React.Component {
 
   isAuthenticated() {
     const { store } = this.props;
-    return store.getState().auth.authenticated;
+    return !!store.getState().auth.token;
   }
 
   requireAuth(nextState, replaceState) {

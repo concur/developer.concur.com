@@ -9,7 +9,7 @@ import appReducer from './reducers';
 
 import AppRoutes from './components/AppRoutes';
 import auth from './utils/auth';
-import { login } from './actions/auth';
+import { loginSuccess } from './actions/auth';
 
 const store = createStore(
   appReducer,
@@ -19,7 +19,7 @@ const store = createStore(
 const token = auth.getToken();
 
 if (token) {
-  store.dispatch(login(token));
+  store.dispatch(loginSuccess(token));
 }
 
 const App = () => (

@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import LoginPage from './LoginPage';
-import { fetchToken } from '../../actions/login';
+import { fetchToken } from '../../actions/auth';
+
+function mapStateToProps(state) {
+  return state.auth;
+}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -11,6 +15,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(LoginPage);
