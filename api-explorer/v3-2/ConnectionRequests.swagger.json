@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "host": "us.api.concursolutions.com",
-    "basePath": "/connect/v3.2",
+    "basePath": "/api/v3.2",
     "schemes": [
         "https"
     ],
