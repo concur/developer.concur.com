@@ -1,5 +1,5 @@
 ---
-title: Receipts 
+title: Receipts
 layout: reference
 ---
 
@@ -17,7 +17,7 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 
 * Receipts currently can't be Posted to users whose data is hosted in Concur's EU datacenter.  Only users whose data is hosted in the US datacenter can receive e-receipts.  
 * The Receipt Service only accepts receipts that are up to 6 months old. Older receipts will not be accepted.
-* Unlike all the other Concur API endpoints, the e-receipt requires the Concur Platform team to configure your sandbox to enable access. You can send a request using the [Sandbox Configuration Assistance form](/tools-support/sandbox-configuration-assistance.html). Please include the name of the Concur representative you're working with in the details section of the form.
+* Unlike all the other Concur API endpoints, the e-receipt requires the Concur Platform team to configure your sandbox to enable access. You can send a request using the [Sandbox Configuration Assistance form](/sandbox-configuration-assistance.html). Please include the name of the Concur representative you're working with in the details section of the form.
 
 
 * [Create a new receipt](#post)
@@ -46,14 +46,14 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`ID`	|	``string``	|	-	|	
-`URI`	|	``string``	|	-	|	
+`ID`	|	``string``	|	-	|
+`URI`	|	``string``	|	-	|
 
 
 ### Receipt
 
 Name | Type | Format | Description
------|------|--------|------------	
+-----|------|--------|------------
 `Amount`	|	`Decimal`	|	-	|	**Required** The net amount of the transaction. A positive number means a payment is due. A negative number means a refund is due. Zero means no payment or refund is due. Range: -922,337,203,685,477 to 922,337,203,685,477
 `CurrencyCode`	|	`string`	|	-	|	**Required** The 3-letter ISO 4217 currency code for the currency paid to the provider.
 `CustomFields`	|	`Array`	|	[Custom Field](#customfield)	|	The parent element for custom fields.
@@ -68,21 +68,21 @@ Name | Type | Format | Description
 `TransactionDateTime`	|	`DateTime`	|	-	|	**Required** The date and time when the transaction happened (in Local Time). Format: YYYY-MM-DDThh:mm
 `Type`	|	`string`	|	-	|	**Required** The type of receipt. Possible values: General, Ride, Hotel		
 
-### <a name="customfield"></a>Custom Field	
+### <a name="customfield"></a>Custom Field
 
 Name | Type | Format | Description
 -----|------|--------|------------							
 `Name`	|	`string`	|	-	|	**Required** The name of the custom field. Maximum length: 128 characters
 `Value`	|	`string`	|	-	|	**Required** The value of the custom field. Maximum length: 256 characters
 
-### General Detail	
+### General Detail
 
 Name | Type | Format | Description
 -----|------|--------|------------						
 `LineItems`	|	`Array`	|	[Line Item](#lineitem)	|	The parent element for the line items in the receipt. There is a LineItem child element for each line item.
 
 
-### <a name="lineitem"></a>Line Item	
+### <a name="lineitem"></a>Line Item
 
 Name | Type | Format | Description
 -----|------|--------|------------						
@@ -97,7 +97,7 @@ Name | Type | Format | Description
 `SequenceNumber`	|	`Int32`	|	-	|	**Required** The order in which the item appears in the sequence of line items.
 
 
-### Hotel Detail	
+### Hotel Detail
 
 Name | Type | Format | Description
 -----|------|--------|------------						
@@ -147,7 +147,7 @@ Name | Type | Format | Description
 
 
 
-### Payment Card	
+### Payment Card
 
 Name | Type | Format | Description
 -----|------|--------|------------				
@@ -157,8 +157,8 @@ Name | Type | Format | Description
 
 
 
-### Ride Detail	
-	
+### Ride Detail
+
 Name | Type | Format | Description
 -----|------|--------|------------					
 `DriverName`	|	`string`	|	-	|	The name of the driver. Maximum length: 255 characters

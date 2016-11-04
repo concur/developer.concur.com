@@ -16,7 +16,7 @@ If you are an existing Concur partner and require support assistance, please ope
 ### Sandboxes
 Create a sandbox [here](http://preview.developer.concur.com/manage-apps/register.html).
 
-If you require assistance configuring your sandbox, please complete this [support form](http://preview.developer.concur.com/tools-support/sandbox-configuration-assistance.html).
+If you require assistance configuring your sandbox, please complete this [support form](http://preview.developer.concur.com/sandbox-configuration-assistance.html).
 
 ---
 ##Sitemap
@@ -48,5 +48,3 @@ The Concur Developer Website is organized into three main sections:
 * `support` provides information and links to support tools
 * `release-notes` contains all release notes docs
 * `reference` contains all markdown files for reference materials
-
-
