@@ -63,7 +63,7 @@
           "Resources"
         ],
         "summary": "Create a new attendee type",
-        "description": "Creates a new attendee type.",
+        "description": "DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016 Creates a new attendee type.",
         "parameters": [
           {
             "name": "content",
@@ -115,7 +115,7 @@
           "Resources"
         ],
         "summary": "Delete an attendee type by ID",
-        "description": "Deletes the specified attendee type.",
+        "description": "DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016 Deletes the specified attendee type.",
         "parameters": [
           {
             "name": "id",
