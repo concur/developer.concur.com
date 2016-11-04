@@ -4,6 +4,8 @@ layout: reference
 ---
 
 ## Description
+**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
+
 Creates or updates an itemization record for the specified expense entry.
 
 **NOTE**: Posting expense report information is a multi-stage process. Refer to the Processes section of the Expense Report Web Service page for the steps required to post new expense reports and entries.
