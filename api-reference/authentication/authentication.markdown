@@ -5,6 +5,8 @@ layout: reference
 
 # Authentication
 
+**DEPRECATION PROCESS NOTICE:** This authentication version is scheduled to be deprecated soon. If you are a new partner or an existing one creating a new app, please refer to the new authentication version documentation preview [here](/api-preview/auth/apidoc.html). Please contact your Partner Enablement representative before starting any new development to ensure a smooth and successful certification process. In addition, if you are an existing partner with an existing app, you may want to start planning to migrate to the new authentication once notification of deprecation is posted [here](/changelog/)
+
 * [Access tokens](#access-tokens)
 	* [Verb and URIs](#verbs-and-uris)
 	* [Keys and Secrets](#keys-and-secrets)
