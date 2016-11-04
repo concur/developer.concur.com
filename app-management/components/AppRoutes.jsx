@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import PageContainer from '../PageContainer';
-import AppListing from '../AppListing';
-import AppDetailsPage from '../AppDetailsPage';
-import NewAppPage from '../NewAppPage';
-import LoginPage from '../LoginPage';
-import SignupPage from '../SignupPage';
-import LogoutPage from '../LogoutPage';
-import NotFound from '../NotFound';
+import PageContainer from './PageContainer';
+import AppListing from './AppListing';
+import AppDetailsPage from './AppDetailsPage';
+import NewAppPage from './NewAppPage';
+import LoginPage from './LoginPage';
+import SignupPage from './SignupPage';
+import LogoutPage from './LogoutPage';
+import NotFound from './NotFound';
 
-import { logout } from '../../actions/auth';
+import { logout } from '../actions/auth';
 
 class AppRoutes extends React.Component {
   constructor(props) {
@@ -48,20 +48,18 @@ class AppRoutes extends React.Component {
   }
 
   render () {
-    const routes = (
-      <Route path="/" component={PageContainer}>
-        <IndexRoute component={AppListing} onEnter={this.requireAuth} />
-        <Route path="new" component={NewAppPage} onEnter={this.requireAuth} />
-        <Route path="details/:id" component={AppDetailsPage} onEnter={this.requireAuth} />
-        <Route path="login" component={LoginPage} onEnter={this.showAuthForms} />
-        <Route path="signup" component={SignupPage} onEnter={this.showAuthForms} />
-        <Route path="logout" component={LogoutPage} onEnter={this.logout} />
-        <Route path="*" component={NotFound} />
-      </Route>
-    );
-
     return (
-      <Router history={hashHistory} routes={routes} />
+      <Router history={hashHistory}>
+        <Route path="/" component={PageContainer}>
+          <IndexRoute component={AppListing} onEnter={this.requireAuth} />
+          <Route path="new" component={NewAppPage} onEnter={this.requireAuth} />
+          <Route path="details/:id" component={AppDetailsPage} onEnter={this.requireAuth} />
+          <Route path="login" component={LoginPage} onEnter={this.showAuthForms} />
+          <Route path="signup" component={SignupPage} onEnter={this.showAuthForms} />
+          <Route path="logout" component={LogoutPage} onEnter={this.logout} />
+          <Route path="*" component={NotFound} />
+        </Route>
+      </Router>
     );
   }
 }

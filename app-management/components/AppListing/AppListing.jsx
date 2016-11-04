@@ -32,10 +32,8 @@ class AppListing extends React.Component {
     }
 
     const appItems = this.props.apps.map(({ id, name }) => (
-      <div className="well col-md-4 col-sm-12" key={id}>
-        <h3>{name}</h3>
-        <Link to={`/details/${id}`} className="btn-u btn-u-green">Details</Link>
-        <Link to="" className="btn-u btn-u-blue">Edit</Link>
+      <div className="well col-md-12" key={id}>
+        <h3><Link to={`/details/${id}`}>{name}</Link></h3>
       </div>
     ));
 

@@ -9,6 +9,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     fetchAppDetails: id => dispatch(fetchAppDetails(id)),
+    handleSubmit: values => console.log(values),
   };
 }
 

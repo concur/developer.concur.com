@@ -147,3 +147,9 @@ div.container.content.last { /* ... and only apply it to the last item. */
 	bottom:0;
 	left:0;
 }
+
+/* App Management */
+
+.navbar-nav li a.active {
+  border-bottom: solid 2px #0275BC;
+}
