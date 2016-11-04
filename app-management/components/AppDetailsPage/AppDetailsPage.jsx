@@ -2,6 +2,8 @@
 
 import React, { PropTypes } from 'react';
 import AppEditForm from './AppEditForm';
+import LoadingSpinner from '../LoadingSpinner';
+import ErrorAlert from '../ErrorAlert';
 
 class AppDetailsPage extends React.Component {
   componentWillMount() {
@@ -11,23 +13,17 @@ class AppDetailsPage extends React.Component {
 
   render () {
     const { isFetching, error, app, handleSubmit } = this.props;
+    let content;
 
     if (isFetching) {
-      return (
-        <div className="row">
-          <div className="col-md-12">
-            <i className="fa fa-spinner fa-4x fa-spin" />
-          </div>
-        </div>
-      );
-    }
-
-    if (error) {
-      return (
-        <div className="row">
-          <div className="col-md-12">
-            <p>An error occurred when loading this app</p>
-          </div>
+      content = <LoadingSpinner loading={isFetching} />;
+    } else if (error) {
+      content = <ErrorAlert error={error} />;
+    } else {
+      content = (
+        <div>
+          <h2>{app.name}</h2>
+          <AppEditForm initialValues={app} onSubmit={handleSubmit} />
         </div>
       );
     }
@@ -35,11 +31,7 @@ class AppDetailsPage extends React.Component {
     return (
       <div className="row">
         <div className="col-md-12">
-          <h2>{app.name}</h2>
-          <AppEditForm
-            initialValues={app}
-            onSubmit={handleSubmit}
-          />
+          {content}
         </div>
       </div>
     );

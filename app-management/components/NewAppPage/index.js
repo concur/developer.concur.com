@@ -4,9 +4,7 @@ import { postNewApp } from '../../actions/newApp';
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleSubmit: (values) => {
-      dispatch(postNewApp(values));
-    },
+    handleSubmit: values => dispatch(postNewApp(values)),
   };
 }
 

@@ -2,6 +2,8 @@
 
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import LoadingSpinner from '../LoadingSpinner';
+import ErrorAlert from '../ErrorAlert';
 
 class AppListing extends React.Component {
   componentWillMount() {
@@ -9,41 +11,25 @@ class AppListing extends React.Component {
   }
 
   render () {
-    if (this.props.isFetching) {
-      return (
-        <div className="row">
-          <div className="col-md-12">
-            <h2>My Apps</h2>
-            <i className="fa fa-spinner fa-4x fa-spin" />
-          </div>
-        </div>
-      );
-    }
+    const { isFetching, error, apps } = this.props;
+    let content;
 
-    if (this.props.error) {
-      return (
-        <div className="row">
-          <div className="col-md-12">
-            <h2>My Apps</h2>
-            <p>An error occurred when loading your apps</p>
-          </div>
+    if (isFetching) {
+      content = <LoadingSpinner loading={isFetching} />;
+    } else {
+      content = apps.map(({ id, name }) => (
+        <div className="well col-md-12" key={id}>
+          <h3><Link to={`/details/${id}`}>{name}</Link></h3>
         </div>
-      );
+      ));
     }
-
-    const appItems = this.props.apps.map(({ id, name }) => (
-      <div className="well col-md-12" key={id}>
-        <h3><Link to={`/details/${id}`}>{name}</Link></h3>
-      </div>
-    ));
 
     return (
       <div className="row">
         <div className="col-md-12">
-          <h2>My Apps</h2>
-          <div className="row">
-            {appItems}
-          </div>
+          <h2><i className="fa fa-list" aria-hidden="true" /> My Apps</h2>
+          <ErrorAlert error={error} />
+          {content}
         </div>
       </div>
     );

@@ -4,14 +4,34 @@ import { Link } from 'react-router';
 const Nav = ({ authenticated }) => {
   const links = authenticated ? (
     <ul className="nav navbar-nav pull-right">
-      <li><Link to="/" activeClassName="active" onlyActiveOnIndex>My Apps</Link></li>
-      <li><Link to="/new" activeClassName="active">New App</Link></li>
-      <li><Link to="/logout" activeClassName="active">Logout</Link></li>
+      <li>
+        <Link to="/" activeClassName="active" onlyActiveOnIndex>
+          <i className="fa fa-list" aria-hidden="true" /> My Apps
+        </Link>
+      </li>
+      <li>
+        <Link to="/new" activeClassName="active">
+          <i className="fa fa-plus" aria-hidden="true" /> New App
+        </Link>
+      </li>
+      <li>
+        <Link to="/logout" activeClassName="active">
+          <i className="fa fa-sign-out" aria-hidden="true" /> Logout
+        </Link>
+      </li>
     </ul>
   ) : (
     <ul className="nav navbar-nav pull-right">
-      <li><Link to="/signup" activeClassName="active">Sign Up</Link></li>
-      <li><Link to="/login" activeClassName="active">Login</Link></li>
+      <li>
+        <Link to="/signup" activeClassName="active">
+          <i className="fa fa-user" aria-hidden="true" /> Sign Up
+        </Link>
+      </li>
+      <li>
+        <Link to="/login" activeClassName="active">
+          <i className="fa fa-sign-in" aria-hidden="true" /> Login
+        </Link>
+      </li>
     </ul>
   );
 

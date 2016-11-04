@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const LoadingSpinner = ({ loading }) => (
-  loading ? <i className="fa fa-spinner fa-4x fa-spin" /> : null
+  loading ? <h2><i className="fa fa-spinner fa-spin" /> Loading...</h2> : null
 );
 
 LoadingSpinner.propTypes = {
