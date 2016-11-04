@@ -9,8 +9,7 @@ references:
     - url: api-reference/authentication/authentication.html
       link: Authentication
 categories:
-    - deprecation
-author: Concur Platform
+    - changelog
 ---
 
 
