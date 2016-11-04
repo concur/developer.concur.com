@@ -115,7 +115,7 @@
           "Resources"
         ],
         "summary": "Update list",
-        "description": "Updates list specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
+        "description": "DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016. Updates list specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
         "parameters": [
           {
             "name": "id",

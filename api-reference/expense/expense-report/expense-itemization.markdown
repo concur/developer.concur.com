@@ -6,23 +6,25 @@ layout: reference
 
 #  Itemizations
 
-* [Retrieve all expense itemizations owned by the user](#get)
+* [Retrieve all expense itemizations owned by the user](#get) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
 * [Retrieve an expense itemization by ID](#getID)
 * [Create a new expense itemization](#post)
-* [Update an expense itemization](#put)
-* [Delete an expense itemization](#delete)
+* [Update an expense itemization](#put) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
+* [Delete an expense itemization](#delete) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
 * [Schema](#schema)
 
 
 ## Version
 
-3.0  
+3.0 Note that some methods are deprecated  
 
 1.1 documentation is available [here](/api-reference-deprecated/version-one-one/expense-entry-itemization/expense-entry-itemization-resource.html)  
 
 
 
-## <a name="get"></a>Retrieve all expense itemizations owned by the user
+## <a name="get"></a>Retrieve all expense itemizations owned by the user 
+
+**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
 
     GET  /api/v3.0/expense/itemizations
 
@@ -253,6 +255,8 @@ https://www.concursolutions.com/api/v3.0/expense/itemizations
 
 ## <a name="put"></a>Update an expense itemization
 
+**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
+
     PUT  /api/v3.0/expense/itemizations/{id}
 
 
@@ -276,6 +280,8 @@ no content
 ```
 
 ## <a name="delete"></a>Delete an expense itemization
+
+**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
 
     DELETE  /api/v3.0/expense/itemizations/{id}
 

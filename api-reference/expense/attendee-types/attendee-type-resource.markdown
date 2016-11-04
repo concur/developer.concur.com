@@ -10,9 +10,9 @@ The Attendee Type resource represents the type of attendee as configured in Conc
 
 * [Retrieve all attendees types](#get)
 * [Retrieve attendee types by ID](#getID)
-* [Create a new attendee type](#post)
+* [Create a new attendee type](#post) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
 * [Update existing attendee type](#put)
-* [Delete an attendee type](#delete)
+* [Delete an attendee type](#delete) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
 * [Schema](#schema)
 
 ### Version
@@ -141,6 +141,8 @@ https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjoOorT3dhpHG
 
 ## <a name="post"></a>Create a new attendee type
 
+**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
+
     POST  /api/v3.0/expense/attendeetypes
 
 
@@ -205,6 +207,8 @@ https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjoa7Fe0HsTGE
 
 
 ## <a name="delete"></a>Delete an attendee type
+
+**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
 
     DELETE  /api/v3.0/expense/attendeetypes{id}
 
