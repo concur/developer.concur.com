@@ -1,4 +1,7 @@
-const defaultState = {};
+const defaultState = {
+  isFetching: false,
+  error: '',
+};
 
 function newAppReducer(state = defaultState, action) {
   switch (action.type) {

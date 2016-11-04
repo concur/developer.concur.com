@@ -42,8 +42,8 @@ const constraints = {
   },
 };
 
-const NewAppForm = props => (
-  <form className="sky-form" onSubmit={props.handleSubmit}>
+const NewAppForm = ({ handleSubmit, reset }) => (
+  <form className="sky-form" onSubmit={handleSubmit}>
     <fieldset>
       <div className="row">
         <section className="col col-6">
@@ -117,12 +117,14 @@ const NewAppForm = props => (
     </fieldset>
     <footer>
       <button type="submit" className="button">Submit</button>
+      <button type="button" className="button" onClick={reset}>Reset</button>
     </footer>
   </form>
 );
 
 NewAppForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
 };
 
 export default reduxForm({
