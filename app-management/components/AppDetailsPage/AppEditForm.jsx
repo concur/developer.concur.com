@@ -1,9 +1,11 @@
+/* eslint-env browser */
+
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router';
 
 import formValidator from '../../utils/formValidator';
-import { renderInput, renderTextarea, renderSelect, renderMultiSelect } from '../Skyforms';
+import { renderInput, renderTextarea, renderCheckbox, renderSelect, renderMultiSelect } from '../Skyforms';
 
 // All selectable grants and scopes
 import grants from '../../data/grants.json';
@@ -43,9 +45,29 @@ const constraints = {
   },
 };
 
-const EditAppForm = props => (
-  <form className="sky-form" onSubmit={props.handleSubmit}>
+const EditAppForm = ({ handleSubmit, generateSecret, secretConfirm }) => (
+  <form className="sky-form" onSubmit={handleSubmit}>
     <fieldset>
+      <div className="row">
+        <section className="col col-6">
+          <Field
+            component={renderCheckbox}
+            type="checkbox"
+            name="enabled"
+          >
+            Enabled
+          </Field>
+        </section>
+        <section className="col col-6">
+          <button
+            type="button"
+            className="button pull-right"
+            onClick={() => window.confirm(secretConfirm) && generateSecret()}
+          >
+            Get New Secret
+          </button>
+        </section>
+      </div>
       <div className="row">
         <section className="col col-6">
           <Field
@@ -118,6 +140,8 @@ const EditAppForm = props => (
 
 EditAppForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  generateSecret: PropTypes.func.isRequired,
+  secretConfirm: PropTypes.string.isRequired,
 };
 
 export default reduxForm({
