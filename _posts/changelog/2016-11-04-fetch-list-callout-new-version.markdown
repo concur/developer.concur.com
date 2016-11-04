@@ -14,7 +14,7 @@ categories:
 ---
 
 
-## **Coming Soon:** Fetch List Callout Version 1.2 Now Available
+## Fetch List Callout Version 1.2 Now Available
 
 ### Overview
 Concur has updated the Fetch List Callout to v1.2. The new version simplifies the list item fetch process, from two separate calls to a single call. The single call now provides all the information required to save the selected list item. 
