@@ -16,7 +16,7 @@ Receipts can any of the following types
  - [Hotel](#hotel-receipt)
  - [Rail](#rail-receipt)
 
-See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema.
+See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema. Property names mentioned in __*bold italics*__ are required fields.
 
 ### Schemas
 
