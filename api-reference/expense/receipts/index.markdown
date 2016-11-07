@@ -3,7 +3,9 @@ title: Receipts
 layout: reference
 ---
 
-**DEPRECATION PROCESS NOTICE:** Receipts version 3.0 is scheduled to be deprecated on February 7, 2017. Please contact your Partner Enablement representative before starting any new development to ensure a smooth and successful certification process.
+**DEPRECATION PROCESS NOTICE:** Receipts version 3.0 is scheduled to be deprecated on February 7, 2017. Please contact your Partner Enablement representative before starting any new development to ensure a smooth and successful certification process. **DO NOT USE FOR NEW DEVELOPMENT OR APPS.**
+
+New version 4.0 documentation can be found [here](/api-reference/receipts/get-started.html)
 
 # Receipts
 
@@ -25,7 +27,11 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 * [Schema](#schema)
 
 ### Version
-3.0
+3.0 
+
+**DEPRECATION PROCESS NOTICE:** Receipts version 3.0 is scheduled to be deprecated on February 7, 2017. Please contact your Partner Enablement representative before starting any new development to ensure a smooth and successful certification process.  
+
+New version 4.0 documentation can be found [here](/api-reference/receipts/get-started.html)
 
 
 ## <a name="post"></a>Create a new receipt
