@@ -19,7 +19,7 @@ Create a sandbox using our [Sandbox Setup Wizard][1] and follow these [instructi
 
 Concur has several APIs you can call, depending on the data that you want to push/extract.  
 
-   
+
 Here are two main API examples:
 
 * **The Travel/Itinerary API (v1.1)** lets you access a Concur user/company's itinerary, including hotel/flight booking info. As an example, you can mash-up the Itinerary API with a restaurant database/API to provide recommendations of places to eat near a Concur user's hotel booking.
@@ -107,7 +107,7 @@ The App Center Flow is used for logging in Concur users coming from [https://con
 
 [1]: /manage-apps/register.html
 [2]: /docs/guides/REST-API-Basics.html
-[3]: /tools-support/sandbox-configuration-assistance.html
+[3]: /sandbox-configuration-assistance.html
 [4]: https://concursolutions.com/
 [5]: /docs/guides/index.html
 [6]: /docs/overviews/index.html
