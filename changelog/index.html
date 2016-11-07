@@ -5,11 +5,13 @@ layout: blog
 {% if post.categories contains 'changelog' %}
   <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
   <p class="author">
-    <span class="date">By {{post.author }} • </span>
-    <span class="author">{{ post.date | date: "%B %-d, %Y"}}</span>
+    {% if post.author %}
+    <span class="date">By {{ post.author }} • </span>
+    {% endif %}
+    <span class="author">{{ post.date | date: "%B %-d, %Y" }}</span>
   </p>
 
-  <p>{{ post.excerpt }}</p>
   <p><strong><a href='{{ post.url }}'>Read more...</a></strong></p>
+  <hr>
 {% endif %}
 {% endfor %}
