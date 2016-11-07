@@ -21,6 +21,8 @@ layout: reference
   * [One time password grant](#otp_grant)
 * [Response Codes](#response_codes)
 
+**Note:** The old authentication documentation can be found [here](/api-reference-deprecated/old-auth/old-auth.html)
+
 
 ## <a name="access_token"></a>Access Tokens
 
