@@ -144,7 +144,7 @@ Below we have sample receipt data and the corresponding receipt image for the [C
     
 #### Generated Receipt Image
 
-![Car Rental Receipt Image](/car-rental.png?raw=true)
+![Car Rental Receipt Image](/car-rental.png)
 
 ### Hotel
 
@@ -339,7 +339,7 @@ Below we have sample receipt data and the corresponding receipt image for the [C
 
 #### Generated Receipt Image
 
-![Hotel Receipt Image](/receipts/hotel.png?raw=true)
+![Hotel Receipt Image](/receipts/hotel.png)
 
 ### Ground Transport
 
@@ -509,4 +509,4 @@ Below we have sample receipt data and the corresponding receipt image for the [C
 
 #### Generated Receipt Image
 
-![Ground Transport Receipt Image](/ground_transport.png?raw=true)
+![Ground Transport Receipt Image](/ground_transport.png)
