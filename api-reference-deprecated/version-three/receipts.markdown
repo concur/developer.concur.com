@@ -26,7 +26,7 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 ### Version
 3.0 is deprecated as of 11/04/2016  
 
-Please use [4.0](/api-reference/expense/receipts/)
+Please use [4.0](/api-reference/receipts/get-started.html)
 
 ## <a name="post"></a>Create a new receipt
 
