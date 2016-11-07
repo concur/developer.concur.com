@@ -1,17 +1,5 @@
 import auth, { TOKEN_KEY } from '../../utils/auth';
-
-/*
- * Note that this localStorage mock only handles strings
- */
-const LocalStorage = () => {
-  const storage = {};
-
-  return {
-    getItem: (key) => storage[key] || null,
-    setItem: (key, item) => storage[key] = item,
-    removeItem: (key) => delete storage[key],
-  };
-};
+import LocalStorage from '../localStorage.mock';
 
 describe('auth utility', () => {
   beforeEach(() => {
