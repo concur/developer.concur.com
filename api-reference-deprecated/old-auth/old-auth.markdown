@@ -9,6 +9,8 @@ layout: reference
 
 This API will be deprecated as per our [policy](https://developer.concur.com/tools-support/reference/deprecation-policy.html) on **Februrary 4, 2017**.
 
+For any new development please refer to the new authentication documentation [here](/api-reference/authentication/authentication.html)
+
 
 * [Access tokens](#access-tokens)
 	* [Verb and URIs](#verbs-and-uris)
