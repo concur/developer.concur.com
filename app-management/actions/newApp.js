@@ -19,10 +19,10 @@ export function newAppFailure(message) {
   };
 }
 
-export function newAppSuccess(appId) {
+export function newAppSuccess(app) {
   return {
     type: NEW_APP_SUCCESS,
-    appId,
+    app,
   };
 }
 
@@ -45,9 +45,8 @@ export function postNewApp() {
 
     window.fetch(`${process.env.API_SERVER}/apps`, options)
       .then(response => response.json())
-      .then(() => dispatch(newAppSuccess()))
+      .then(app => dispatch(newAppSuccess(app)))
       .catch(err => dispatch(newAppFailure(err.message)));
-    dispatch(newAppSuccess());
     dispatch(reset('newApp'));
   };
 }
