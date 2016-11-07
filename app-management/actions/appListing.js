@@ -25,7 +25,7 @@ export function appListingSuccess(apps) {
 }
 
 export function fetchAppListing() {
-  return function thunk(dispatch, getState) {
+  return (dispatch, getState) => {
     dispatch(appListingRequest());
 
     const token = getState().auth.token;

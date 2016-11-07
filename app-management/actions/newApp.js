@@ -19,32 +19,34 @@ export function newAppFailure(message) {
   };
 }
 
-export function newAppSuccess(apps) {
+export function newAppSuccess(appId) {
   return {
     type: NEW_APP_SUCCESS,
-    apps,
+    appId,
   };
 }
 
-export function postNewApp(values) {
-  return function thunk(dispatch) {
+export function postNewApp() {
+  return (dispatch, getState) => {
     dispatch(newAppRequest());
 
-    // const data = getState().newApp;
-    // const token = getState().auth.token;
-    // const options = {
-    //   method: 'POST',
-    //   body: JSON.stringify(data),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // };
+    const state = getState();
 
-    // window.fetch(`${process.env.API_SERVER}/apps`, options)
-    //   .then(response => response.json())
-    //   .then(apps => dispatch(newAppSuccess()))
-    //   .catch(err => dispatch(newAppFailure(err.message)));
+    const data = state.newApp;
+    const token = state.auth.token;
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    window.fetch(`${process.env.API_SERVER}/apps`, options)
+      .then(response => response.json())
+      .then(() => dispatch(newAppSuccess()))
+      .catch(err => dispatch(newAppFailure(err.message)));
     dispatch(newAppSuccess());
     dispatch(reset('newApp'));
   };

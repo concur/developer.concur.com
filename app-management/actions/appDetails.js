@@ -25,7 +25,7 @@ export function appDetailsSuccess(app) {
 }
 
 export function fetchAppDetails(id) {
-  return function thunk(dispatch, getState) {
+  return (dispatch, getState) => {
     dispatch(appDetailsRequest());
 
     const token = getState().auth.token;

@@ -27,13 +27,15 @@ export function signupSuccess(token) {
   };
 }
 
-export function postSignup(values) {
-  return function thunk(dispatch) {
+export function postSignup() {
+  return (dispatch, getState) => {
     dispatch(signupRequest());
+
+    const user = getState().signup;
 
     const options = {
       method: 'POST',
-      body: JSON.stringify(values),
+      body: JSON.stringify(user),
       headers: {
         'Content-Type': 'application/json',
       },

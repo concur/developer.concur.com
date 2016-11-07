@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LoginPage from './LoginPage';
-import { fetchToken } from '../../actions/auth';
+import { login } from '../../actions/auth';
 
 function mapStateToProps(state) {
   return state.auth;
@@ -9,7 +9,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     handleSubmit: ({ username, password }) => {
-      dispatch(fetchToken(username, password));
+      dispatch(login(username, password));
     },
   };
 }

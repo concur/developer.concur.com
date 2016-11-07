@@ -37,8 +37,8 @@ export function logout() {
   };
 }
 
-export function fetchToken(username, password) {
-  return function thunk(dispatch) {
+export function login(username, password) {
+  return (dispatch) => {
     dispatch(loginRequest());
     const options = {
       method: 'POST',
@@ -56,7 +56,7 @@ export function fetchToken(username, password) {
           dispatch(reset('login'));
           hashHistory.push('/');
         } else {
-          dispatch(loginFailure('No token provided'));
+          dispatch(loginFailure('Invalid username and/or password'));
         }
       })
       .catch(err => dispatch(loginFailure(err.message)));
