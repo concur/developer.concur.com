@@ -3,6 +3,7 @@ title: Receipts
 layout: reference
 ---
 
+**DEPRECATION PROCESS NOTICE:** Receipts version 3.0 is scheduled to be deprecated on February 7, 2017. Please contact your Partner Enablement representative before starting any new development to ensure a smooth and successful certification process.
 
 # Receipts
 
