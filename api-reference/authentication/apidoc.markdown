@@ -558,7 +558,6 @@ json
 
 ##### HTTP Status returned by oauth2
 
- ----------------------------------------------------------------
 | HTTP Status | Description                                      |
 |-------------|--------------------------------------------------|
 |   200       | OK - Successful call, response is in body.       |
@@ -568,7 +567,7 @@ json
 |   404       | Not Found `(error, error_description, code)`     |
 |   500       | Server Error, error message is in body.          |
 |   503       | Server Timed Out, error message is in body.      |
- ----------------------------------------------------------------
+
 
 4xx class errors have a JSON response with the following fields
 
@@ -582,7 +581,7 @@ json
 
 ##### /token
 
- -----------------------------------------------------------------------------------
+
 | Code | Error             | Description                                            |
 |------|-------------------|--------------------------------------------------------|
 | 5    | `invalid_grant`   | Incorrect credentials. Please Retry                    |
@@ -631,7 +630,7 @@ json
 
 ##### /otp
 
- -----------------------------------------------------------------------------------
+
 | Code | Error             | Description                                            |
 |------|-------------------|--------------------------------------------------------|
 | 57   | `invalid_request` | `channel_type` was not supplied                        |
