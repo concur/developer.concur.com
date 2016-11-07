@@ -339,7 +339,7 @@ Below we have sample receipt data and the corresponding receipt image for the [C
 
 #### Generated Receipt Image
 
-![Hotel Receipt Image](/api-reference/receipts/receipts/hotel.png)
+![Hotel Receipt Image](/api-reference/receipts/hotel.png)
 
 ### Ground Transport
 
