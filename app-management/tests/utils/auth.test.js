@@ -1,11 +1,9 @@
 import auth, { TOKEN_KEY } from '../../utils/auth';
 import LocalStorage from '../localStorage.mock';
 
-describe('auth utility', () => {
-  beforeEach(() => {
-    window.localStorage = LocalStorage();
-  });
+window.localStorage = LocalStorage();
 
+describe('auth utility', () => {
   it('should set a token to localStorage', () => {
     const token = 'a-sample-token';
     auth.setToken(token);

@@ -2,9 +2,7 @@ import * as auth from '../../actions/auth';
 import LocalStorage from '../localStorage.mock';
 import { TOKEN_KEY } from '../../utils/auth';
 
-beforeEach(() => {
-  window.localStorage = LocalStorage();
-});
+window.localStorage = LocalStorage();
 
 describe('loginRequest', () => {
   it('should create an action notifying a request has begun', () => {
@@ -38,6 +36,17 @@ describe('loginSuccess', () => {
 
     expect(auth.loginSuccess(token)).toEqual(expectedAction);
     expect(window.localStorage.getItem(TOKEN_KEY)).toBe(token);
+  });
+});
+
+describe('logout', () => {
+  it('should create an action resetting auth state and localStorage', () => {
+    const expectedAction = {
+      type: auth.AUTH_LOGOUT,
+    };
+
+    expect(auth.logout()).toEqual(expectedAction);
+    expect(window.localStorage.getItem(TOKEN_KEY)).toBe(null);
   });
 });
 

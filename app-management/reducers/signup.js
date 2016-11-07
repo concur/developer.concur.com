@@ -1,6 +1,9 @@
 import { SIGNUP_REQUEST, SIGNUP_FAILURE, SIGNUP_SUCCESS } from '../actions/signup';
 
-const defaultState = {};
+const defaultState = {
+  isFetching: false,
+  error: '',
+};
 
 function signupReducer(state = defaultState, action) {
   switch (action.type) {
