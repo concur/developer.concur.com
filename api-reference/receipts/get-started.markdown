@@ -3,8 +3,6 @@ title: Get Started
 layout: reference
 ---
 
-**PLEASE NOTE:** This page was a temporary page setup for preview purposes. Until redirect takes place, please use this [link](/api-reference/receipts/get-started.html) for the permanent location of this documentation.
-
 # Receipts
 
 ## Get Started
@@ -25,12 +23,12 @@ layout: reference
 
 ### Version
 
-- 4.0 In preview mode and to be made active soon.
-- [3.0](https://developer.concur.com/api-reference/expense/receipts/) Will be [deprecated](https://developer.concur.com/tools-support/reference/deprecation-policy.html) once 4.0 is active.
+- 4.0 
+- [3.0](https://developer.concur.com/api-reference-deprecated/version-three/receipts.html) [Deprecation Notice](https://preview.developer.concur.com/changelog/2016/11/07/receipts-version-three-deprecation.html).
 
 #### Overview of Version 4.0
 
-Version 4.0 of the Receipts API offers features like more receipt types, automatic e-receipt generation in end user’s preferred language and ability for partners to provide detailed tax information. Unlike version 3.0, we are discontinuing the use of matching facts; instead the partner will have to create a receipt for a specific end user. Receipts 4.0 works only with the new Authentication API.
+Version 4.0 of the Receipts API offers features like more receipt types, automatic e-receipt generation in end user’s preferred language and ability for partners to provide detailed tax information. Unlike version 3.0, we are discontinuing the use of matching facts; instead the partner will have to create a receipt for a specific end user. Receipts 4.0 works only with the new [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
 
 ### Regional Availability
 
@@ -47,7 +45,7 @@ https://emea.api.concursolutions.com/receipts/
 #### Prerequisites
 
 1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
-2. Read the [Getting Started](https://developer.concur.com/api-preview/auth/gettingstarted.html) section of [Authentication API](https://developer.concur.com/api-preview/auth/apidoc.html).
+2. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
 
 Once you have registered your application, read about the [API endpoints](#endpoints) below, or click the button to download a request collection for [Postman](https://www.getpostman.com/docs/introduction).
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5782fa347917ac1568e6)
@@ -65,7 +63,7 @@ Once you have registered your application, read about the [API endpoints](#endpo
 
 ##### Retrieve a User JSON Web Token (JWT):
 
-Before making requests to the Receipts API, you must [acquire a JWT from the Authentication API](https://developer.concur.com/api-preview/auth/apidoc.html#obtain_token).
+Before making requests to the Receipts API, you must [obtain an access token from the Authentication API](https://developer.concur.com/api-reference/authentication/getting-started.html).
 
 The response will include an `access_token` field, which contains your JWT. For subsequent calls, you will need to include this JWT in the `Authorization` header of your calls. An `id_token` will be also included in the response. In order to retrieve the unique ID for your user, you will have to decode this `id_token` at [jwt.io](https://jwt.io/). You will need this ID in order to post receipts.
 

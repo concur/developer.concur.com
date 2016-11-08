@@ -3,8 +3,6 @@ title: Sample Receipts
 layout: reference
 ---
 
-**PLEASE NOTE:** This page was a temporary page setup for preview purposes. Until redirect takes place, please use this [link](/api-reference/receipts/sample-receipts.html) for the permanent location of this documentation.
-
 # Receipts
 
 ## Sample Receipts
@@ -146,7 +144,7 @@ Below we have sample receipt data and the corresponding receipt image for the [C
     
 #### Generated Receipt Image
 
-![Car Rental Receipt Image](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/car-rental.png?raw=true)
+![Car Rental Receipt Image](/api-reference/receipts/car-rental.png)
 
 ### Hotel
 
@@ -341,7 +339,7 @@ Below we have sample receipt data and the corresponding receipt image for the [C
 
 #### Generated Receipt Image
 
-![Hotel Receipt Image](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/hotel.png?raw=true)
+![Hotel Receipt Image](/api-reference/receipts/hotel.png)
 
 ### Ground Transport
 
@@ -511,4 +509,4 @@ Below we have sample receipt data and the corresponding receipt image for the [C
 
 #### Generated Receipt Image
 
-![Ground Transport Receipt Image](https://github.com/concur/developer.concur.com/blob/preview/api-preview/receipts/ground_transport.png?raw=true)
+![Ground Transport Receipt Image](/api-reference/receipts/ground_transport.png)

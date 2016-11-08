@@ -3,8 +3,6 @@ title: Getting Started
 layout: reference
 ---
 
-**PLEASE NOTE:** This page was a temporary page setup for preview purposes. Until redirect takes place, please use this [link](/api-reference/authentication/getting-started.html) for the permanent location of this documentation.
-
 # Getting Started
 
 Concur's new Oauth2 framework is a very simple way to implement a Unified Token Authentication mechanism within your application. Here is a four step guide to helping you get up to speed and making calls to Concur's API.
@@ -31,7 +29,7 @@ client_secret=<clientSecret> eg. 35c3bd92-fcb8-405e-a886-47ff3fba5664
 curl -X POST -H 'concur-correlationid: nameofapp' "$oauth2_base/v0/token" --data 'username=$username&password=$password&grant_type=password&client_secret=$client_secret&client_id=$client_id'
 ```
 
-Full docs: https://developer.concur.com/api-preview/auth/apidoc.html#password_grant
+Full docs: https://developer.concur.com/api-reference/authentication/apidoc.html#password_grant
 
 ## 3. Calling an API with the accessToken
 Once you have the `accessToken` in the form of a JWT (JSON Web Token), you need to supply this in an Authorization header in the form of `Authorization: Bearer <accessToken>` when making a HTTPS call. The `accessToken` is a large string that looks something like this:
@@ -188,7 +186,7 @@ Here's an example of a cURL call to obtain a new `accessToken`
 curl -X POST 'https://us.api.concursolutions.com/oauth2/v0/token' --data 'client_id=$client_id&client_secret=$client_secret&grant_type=refresh&refresh_token=<old refresh token>'
 ```
 
-FULL DOCS: https://developer.concur.com/api-preview/auth/apidoc.html#refresh_token
+FULL DOCS: https://developer.concur.com/api-reference/authentication/apidoc.html#refresh_token
 
 Now that you've made your first call, read up more about Concur's wide ranging APIs and how they can enhance your application or solve your business needs.
 

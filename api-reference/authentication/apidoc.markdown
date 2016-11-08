@@ -1,11 +1,10 @@
 ---
-title: Authentication API 
+title: Authentication
 layout: reference
 ---
 
-**PLEASE NOTE:** This page was a temporary page setup for preview purposes. Until redirect takes place, please use this [link](/api-reference/authentication/apidoc.html) for the permanent location of this documentation.
 
-# Authentication API (Preview)
+# Authentication
 
 * [Overview]()
 * [Tokens](#access_token)
@@ -21,6 +20,8 @@ layout: reference
   * [Client Credentials grant](#client_credentials)
   * [One time password grant](#otp_grant)
 * [Response Codes](#response_codes)
+
+**Note:** The old authentication documentation can be found [here](/api-reference-deprecated/old-auth/old-auth.html)
 
 
 ## <a name="access_token"></a>Access Tokens
@@ -250,7 +251,7 @@ The users *must be* able to authenticate themselves via a Concur username & pass
 * Applications that can securely store a code, access_token & refresh_token
 
 **Authorization Grant Sequence Diagram**
-![wsd](authorization_grant_diagram.png)
+![wsd](/api-reference/authentication/authorization_grant_diagram.png)
 
 
 **Grant details**
@@ -567,6 +568,7 @@ json
 |   500       | Server Error, error message is in body.          |
 |   503       | Server Timed Out, error message is in body.      |
 
+
 4xx class errors have a JSON response with the following fields
 
 ```
@@ -627,6 +629,7 @@ json
 | 119  | `invalid_request` | prompt must be set to consent for `offline_access`     |
 
 ##### /otp
+
 
 | Code | Error             | Description                                            |
 |------|-------------------|--------------------------------------------------------|

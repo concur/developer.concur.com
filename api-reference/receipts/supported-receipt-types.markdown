@@ -3,8 +3,6 @@ title: Supported Receipt Types
 layout: reference
 ---
 
-**PLEASE NOTE:** This page was a temporary page setup for preview purposes. Until redirect takes place, please use this [link](/api-reference/receipts/supported-receipt-types.html) for the permanent location of this documentation.
-
 # Receipts
 
 ## Supported Receipt Types
