@@ -5,9 +5,6 @@ date: 2016-11-04
 tags:
     - Deprecation Notice
     - Authentication
-references:
-    - url: api-reference/authentication/authentication.html
-      link: Authentication
 categories:
     - changelog
 ---
