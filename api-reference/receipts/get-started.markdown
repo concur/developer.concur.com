@@ -24,7 +24,7 @@ layout: reference
 ### Version
 
 - 4.0 
-- [3.0](https://developer.concur.com/api-reference-deprecated/version-three/receipts.html) [Deprecation Notice](https://preview.developer.concur.com/changelog/2016/11/07/receipts-version-three-deprecation.html).
+- [3.0](https://developer.concur.com/api-reference-deprecated/version-three/receipts.html) [Deprecation Notice](https://developer.concur.com/changelog/2016/11/07/receipts-version-three-deprecation.html).
 
 #### Overview of Version 4.0
 
@@ -284,7 +284,7 @@ _Example Response:_
 |receipt|required|The JSON receipt to be posted.|
 |image|optional|Image of the receipt. If an image isn't provided, one will be generated automatically from the JSON.|
 
-Creating a receipt requires JSON data about the transaction and, optionally, an image of the receipt. If an image is not supplied with the request, Concur will automatically generate a receipt image based on the data provided. [JSON schemas](#schemas) are used to validate the format of receipt data received in POST requests.
+Creating a receipt requires JSON data about the transaction and, optionally, an image of the receipt. If an image is not supplied with the request, Concur will automatically generate a receipt image based on the data provided. [JSON schemas](https://developer.concur.com/api-reference/receipts/get-started.html#endpoint-schemas) are used to validate the format of receipt data received in POST requests.
 
 Successful POST requests will receive a response of 201 Created. The `Location` header of the response contains a URL for your receipt. Once the receipt has been processed, it can be retrieved at this URL.
 
