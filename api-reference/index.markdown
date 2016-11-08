@@ -71,7 +71,7 @@ Before you build your first application that integrates with Concur, you should 
 	* Travel Profile
 	* User
 
-To configure your sandbox with additional APIs, go to **Administration > Web Services** and modify your application to add more APIs. If you need assistance, or contact [Concur Support][3] for assistance.
+To configure your sandbox with additional APIs, go to **Administration > Web Services** and modify your application to add more APIs. If you need assistance, please submit your request via our [Concur Forums][3] for assistance.
 
 ### <a name="generate-access-token"></a>Generate An Access Token
 All Concur APIs require an access token to be passed as a header.
@@ -107,7 +107,7 @@ The App Center Flow is used for logging in Concur users coming from [https://con
 
 [1]: /manage-apps/register.html
 [2]: /docs/guides/REST-API-Basics.html
-[3]: /sandbox-configuration-assistance.html
+[3]: https://forum.developer.concur.com/c/sandbox
 [4]: https://concursolutions.com/
 [5]: /docs/guides/index.html
 [6]: /docs/overviews/index.html
