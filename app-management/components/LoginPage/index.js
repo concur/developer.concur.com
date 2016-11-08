@@ -8,9 +8,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleSubmit: ({ username, password }) => {
-      dispatch(login(username, password));
-    },
+    handleSubmit: (user) => dispatch(login(user)),
   };
 }
 

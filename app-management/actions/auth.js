@@ -37,12 +37,13 @@ export function logout() {
   };
 }
 
-export function login(username, password) {
+export function login(user) {
   return (dispatch) => {
     dispatch(loginRequest());
+
     const options = {
       method: 'POST',
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify(user),
       headers: {
         'Content-Type': 'application/json',
       },

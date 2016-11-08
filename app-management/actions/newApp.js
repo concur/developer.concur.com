@@ -26,17 +26,14 @@ export function newAppSuccess(app) {
   };
 }
 
-export function postNewApp() {
+export function postNewApp(newApp) {
   return (dispatch, getState) => {
     dispatch(newAppRequest());
 
-    const state = getState();
-
-    const data = state.newApp;
-    const token = state.auth.token;
+    const token = getState().auth.token;
     const options = {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify(newApp),
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,

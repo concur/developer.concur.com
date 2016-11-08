@@ -27,11 +27,9 @@ export function signupSuccess(token) {
   };
 }
 
-export function postSignup() {
-  return (dispatch, getState) => {
+export function postSignup(user) {
+  return (dispatch) => {
     dispatch(signupRequest());
-
-    const user = getState().signup;
 
     const options = {
       method: 'POST',
@@ -43,7 +41,7 @@ export function postSignup() {
 
     window.fetch(`${process.env.API_SERVER}/auth/signup`, options)
       .then(response => response.json())
-      .then(() => {
+      .then(data => {
         dispatch(signupSuccess());
         hashHistory.push('/login');
         dispatch(reset('signup'));

@@ -8,7 +8,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleSubmit: values => dispatch(postSignup(values)),
+    handleSubmit: user => dispatch(postSignup(user)),
   };
 }
 
