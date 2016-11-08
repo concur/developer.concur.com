@@ -3,6 +3,7 @@ title: Authentication API
 layout: reference
 ---
 
+**PLEASE NOTE:** This page was a temporary page setup for preview purposes. Until redirect takes place, please use this [link](/api-reference/authentication/apidoc.html) for the permanent location of this documentation.
 
 # Authentication API (Preview)
 
