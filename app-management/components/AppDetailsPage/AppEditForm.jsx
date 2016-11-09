@@ -44,7 +44,7 @@ const constraints = {
   },
 };
 
-const EditAppForm = ({ handleSubmit, generateSecret, initialValues }) => (
+const EditAppForm = ({ handleSubmit, generateSecret, initialValues, secret }) => (
   <form className="sky-form" onSubmit={handleSubmit}>
     <fieldset>
       <div className="row">
@@ -56,11 +56,18 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues }) => (
           >
             Enabled
           </Field>
+          <Field
+            component={renderCheckbox}
+            type="checkbox"
+            name="certified"
+          >
+            Certified
+          </Field>
         </section>
         <section className="col col-6">
           <AppSecret
-            clickHandler={generateSecret}
-            secret={initialValues.appSecret}
+            clickHandler={() => generateSecret(initialValues.id)}
+            secret={secret}
           />
         </section>
       </div>
@@ -138,6 +145,7 @@ EditAppForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   generateSecret: PropTypes.func.isRequired,
   initialValues: PropTypes.object,
+  secret: PropTypes.string,
 };
 
 export default reduxForm({

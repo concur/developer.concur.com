@@ -7,12 +7,13 @@ const AppSecret = ({ clickHandler, secret }) => (
         <strong>
           Here is your app secret. This will only be displayed once, so copy it down:
         </strong>
-        {secret}
+        <br />
+        <code>{secret}</code>
       </p>
     }
     <button
       type="button"
-      className="button pull-right"
+      className="btn-u btn-u-orange"
       onClick={clickHandler}
     >
       Get New Secret

@@ -2,7 +2,7 @@
 
 import { connect } from 'react-redux';
 import AppDetailsPage from './AppDetailsPage';
-import { fetchAppDetails } from '../../actions/appDetails';
+import { fetchAppDetails, updateAppDetails, generateAppSecret } from '../../actions/appDetails';
 
 function mapStateToProps(state) {
   return state.appDetails;
@@ -11,11 +11,11 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     fetchAppDetails: id => dispatch(fetchAppDetails(id)),
-    handleSubmit: values => console.log(values),
-    generateSecret: () => {
+    handleSubmit: app => dispatch(updateAppDetails(app)),
+    generateSecret: (id) => {
       const confirmation = window.confirm('Are you sure? This will clear your previous app secret.');
       if (confirmation) {
-        console.log('generated');
+        dispatch(generateAppSecret(id));
       }
     },
   };
