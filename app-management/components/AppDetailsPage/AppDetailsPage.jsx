@@ -12,7 +12,7 @@ class AppDetailsPage extends React.Component {
   }
 
   render () {
-    const { isFetching, error, app, handleSubmit, generateSecret, secretConfirm } = this.props;
+    const { isFetching, error, app, handleSubmit, generateSecret } = this.props;
     let content;
 
     if (isFetching) {
@@ -27,7 +27,6 @@ class AppDetailsPage extends React.Component {
             initialValues={app}
             onSubmit={handleSubmit}
             generateSecret={generateSecret}
-            secretConfirm={secretConfirm}
           />
         </div>
       );
@@ -50,7 +49,6 @@ AppDetailsPage.propTypes = {
     id: PropTypes.string.isRequired,
   }),
   generateSecret: PropTypes.func.isRequired,
-  secretConfirm: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
   app: PropTypes.object.isRequired,
