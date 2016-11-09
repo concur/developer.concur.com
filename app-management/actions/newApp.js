@@ -1,6 +1,7 @@
 import 'es6-promise';
 import fetch from 'isomorphic-fetch';
 import { reset } from 'redux-form';
+import { hashHistory } from 'react-router';
 
 export const NEW_APP_REQUEST = 'NEW_APP_REQUEST';
 export const NEW_APP_FAILURE = 'NEW_APP_FAILURE';
@@ -44,6 +45,7 @@ export function postNewApp(newApp) {
       .then(response => response.json())
       .then((app) => {
         dispatch(newAppSuccess(app));
+        hashHistory.push(`/details/${app.id}`);
         dispatch(reset('newApp'));
       })
       .catch(err => dispatch(newAppFailure(err.message)));

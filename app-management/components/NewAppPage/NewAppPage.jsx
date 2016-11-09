@@ -7,7 +7,7 @@ const NewAppPage = ({ handleSubmit, isFetching, error }) => (
   <div className="row">
     <div className="col-md-12">
       <h2>New App</h2>
-      <LoadingSpinner loading={isFetching} />
+      <LoadingSpinner loading={isFetching} message="Submitting..." />
       <ErrorAlert error={error} />
       <NewAppForm onSubmit={handleSubmit} />
     </div>

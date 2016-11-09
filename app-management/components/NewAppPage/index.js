@@ -8,7 +8,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleSubmit: values => dispatch(postNewApp(values)),
+    handleSubmit: app => dispatch(postNewApp(app)),
   };
 }
 
