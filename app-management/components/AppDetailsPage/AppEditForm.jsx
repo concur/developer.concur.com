@@ -56,13 +56,6 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, secret }) =>
           >
             Enabled
           </Field>
-          <Field
-            component={renderCheckbox}
-            type="checkbox"
-            name="certified"
-          >
-            Certified
-          </Field>
         </section>
         <section className="col col-6">
           <AppSecret
@@ -136,7 +129,7 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, secret }) =>
     </fieldset>
     <footer>
       <Link to="/" className="button">Cancel</Link>
-      <button type="submit" className="button">Update</button>
+      <button type="submit" className="button" disabled={initialValues.certified}>Update</button>
     </footer>
   </form>
 );

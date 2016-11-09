@@ -4,6 +4,7 @@ import React, { PropTypes } from 'react';
 import AppEditForm from './AppEditForm';
 import LoadingSpinner from '../LoadingSpinner';
 import ErrorAlert from '../ErrorAlert';
+import CertificationBadge from '../CertificationBadge';
 
 class AppDetailsPage extends React.Component {
   componentWillMount() {
@@ -22,7 +23,11 @@ class AppDetailsPage extends React.Component {
     } else {
       content = (
         <div>
-          <h2>{app.name}</h2>
+          <h2>
+            {app.name}&nbsp;
+            <CertificationBadge certified={app.certified} />
+          </h2>
+
           <AppEditForm
             initialValues={app}
             onSubmit={handleSubmit}

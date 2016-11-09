@@ -4,6 +4,7 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import LoadingSpinner from '../LoadingSpinner';
 import ErrorAlert from '../ErrorAlert';
+import CertificationBadge from '../CertificationBadge';
 
 class AppListing extends React.Component {
   componentWillMount() {
@@ -17,9 +18,12 @@ class AppListing extends React.Component {
     if (isFetching) {
       content = <LoadingSpinner loading={isFetching} />;
     } else {
-      content = apps.map(({ id, name }) => (
+      content = apps.map(({ id, name, certified }) => (
         <div className="well col-md-12" key={id}>
-          <h3><Link to={`/details/${id}`}>{name}</Link></h3>
+          <h3>
+            <Link to={`/details/${id}`}>{name} </Link>
+            <CertificationBadge certified={certified} />
+          </h3>
         </div>
       ));
     }
