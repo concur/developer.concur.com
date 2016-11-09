@@ -1,4 +1,5 @@
-/* eslint-env browser */
+import 'es6-promise';
+import fetch from 'isomorphic-fetch';
 
 export const APP_DETAILS_REQUEST = 'APP_DETAILS_REQUEST';
 export const APP_DETAILS_FAILURE = 'APP_DETAILS_FAILURE';
@@ -37,7 +38,7 @@ export function fetchAppDetails(id) {
       },
     };
 
-    window.fetch(`${process.env.API_SERVER}/apps/${id}`, options)
+    return fetch(`${process.env.API_SERVER}/apps/${id}`, options)
       .then(response => response.json())
       .then(app => dispatch(appDetailsSuccess(app)))
       .catch(err => dispatch(appDetailsFailure(err.message)));

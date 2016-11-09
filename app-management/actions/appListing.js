@@ -1,4 +1,5 @@
-/* eslint-env browser */
+import 'es6-promise';
+import fetch from 'isomorphic-fetch';
 
 export const APP_LISTING_REQUEST = 'APP_LISTING_REQUEST';
 export const APP_LISTING_FAILURE = 'APP_LISTING_FAILURE';
@@ -37,7 +38,7 @@ export function fetchAppListing() {
       },
     };
 
-    window.fetch(`${process.env.API_SERVER}/apps`, options)
+    return fetch(`${process.env.API_SERVER}/apps`, options)
       .then(response => response.json())
       .then(apps => dispatch(appListingSuccess(apps)))
       .catch(err => dispatch(appListingFailure(err.message)));

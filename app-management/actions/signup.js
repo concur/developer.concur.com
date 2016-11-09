@@ -1,5 +1,5 @@
-/* eslint-env browser */
-
+import 'es6-promise';
+import fetch from 'isomorphic-fetch';
 import { reset } from 'redux-form';
 import { hashHistory } from 'react-router';
 
@@ -39,10 +39,10 @@ export function postSignup(user) {
       },
     };
 
-    window.fetch(`${process.env.API_SERVER}/auth/signup`, options)
+    return fetch(`${process.env.API_SERVER}/auth/signup`, options)
       .then(response => response.json())
-      .then(data => {
-        dispatch(signupSuccess());
+      .then((data) => {
+        dispatch(signupSuccess(data.access_token));
         hashHistory.push('/login');
         dispatch(reset('signup'));
       })

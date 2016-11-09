@@ -1,5 +1,5 @@
-/* eslint-env browser */
-
+import 'es6-promise';
+import fetch from 'isomorphic-fetch';
 import { hashHistory } from 'react-router';
 import { reset } from 'redux-form';
 import auth from '../utils/auth';
@@ -49,7 +49,7 @@ export function login(user) {
       },
     };
 
-    window.fetch(`${process.env.API_SERVER}/auth/login`, options)
+    return fetch(`${process.env.API_SERVER}/auth/login`, options)
       .then(response => response.json())
       .then((data) => {
         if (data && data.access_token) {

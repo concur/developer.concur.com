@@ -1,5 +1,5 @@
-/* eslint-env browser */
-
+import 'es6-promise';
+import fetch from 'isomorphic-fetch';
 import { reset } from 'redux-form';
 
 export const NEW_APP_REQUEST = 'NEW_APP_REQUEST';
@@ -40,10 +40,12 @@ export function postNewApp(newApp) {
       },
     };
 
-    window.fetch(`${process.env.API_SERVER}/apps`, options)
+    return fetch(`${process.env.API_SERVER}/apps`, options)
       .then(response => response.json())
-      .then(app => dispatch(newAppSuccess(app)))
+      .then((app) => {
+        dispatch(newAppSuccess(app));
+        dispatch(reset('newApp'));
+      })
       .catch(err => dispatch(newAppFailure(err.message)));
-    dispatch(reset('newApp'));
   };
 }

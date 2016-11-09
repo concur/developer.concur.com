@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/concur/developer.concur.com#readme",
   "dependencies": {
+    "es6-promise": "^4.0.5",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
@@ -48,8 +50,10 @@
     "eslint-plugin-react": "^6.4.1",
     "jest": "^16.0.2",
     "json-loader": "^0.5.4",
+    "nock": "^9.0.2",
     "react-addons-test-utils": "^15.3.2",
     "react-test-renderer": "^15.3.2",
+    "redux-mock-store": "^1.2.1",
     "webpack": "^1.13.3"
   }
 }
