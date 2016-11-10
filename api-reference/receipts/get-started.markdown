@@ -12,7 +12,7 @@ layout: reference
 - [Explore the API](#explore-the-api)
   - [Prerequisites](#prerequisites)
   - [Endpoints](#endpoints)
-    - [Acquire a JWT](#retrieve-a-user-json-web-token-jwt)
+    - [Acquire an Access Token](#retrieve-a-user-access-token)
     - [GET Service Index](#endpoint-service-index)
     - [GET Schemas](#endpoint-schemas)
     - [POST Receipts](#endpoint-post-a-receipt)
@@ -61,11 +61,11 @@ Once you have registered your application, read about the [API endpoints](#endpo
 |[GET /v4/:receiptId](#endpoint-get-a-receipt-by-id)|JSON|Get a receipt by ID|
 |[GET /v4/:receiptId/image](#endpoint-get-receipt-image)|image file|Get a receipt image.|
 
-##### Retrieve a User JSON Web Token (JWT):
+##### Retrieve a User Access Token:
 
 Before making requests to the Receipts API, you must [obtain an access token from the Authentication API](https://developer.concur.com/api-reference/authentication/getting-started.html).
 
-The response will include an `access_token` field, which contains your JWT. For subsequent calls, you will need to include this JWT in the `Authorization` header of your calls. An `id_token` will be also included in the response. In order to retrieve the unique ID for your user, you will have to decode this `id_token` at [jwt.io](https://jwt.io/). You will need this ID in order to post receipts.
+The response will include an `access_token` field, which contains your access token. For subsequent calls, you will need to include this access token in the `Authorization` header of your calls. An `id_token` will be also included in the response. In order to retrieve the unique ID for your user, you will have to decode this `id_token` at [jwt.io](https://jwt.io/). You will need this ID in order to post receipts.
 
 Examples:
 
@@ -92,13 +92,13 @@ _Example Requests:_
 cURL:
 
 ```
-curl -H "Authorization: Bearer {YOUR JWT}" https://us.api.concursolutions.com/receipts/
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/
 ```
 
 HTTPie:
 
 ```
-http https://us.api.concursolutions.com/receipts/ 'Authorization:Bearer {YOUR JWT}'
+http https://us.api.concursolutions.com/receipts/ 'Authorization:Bearer {YOUR ACCESS TOKEN}'
 ```
 
 _Example Response:_
@@ -155,25 +155,25 @@ _Example Requests:_
 cURL for the schema index:
 
 ```
-curl -H "Authorization: Bearer {YOUR JWT}" https://us.api.concursolutions.com/receipts/schemas/
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/schemas/
 ```
 
 HTTPie for the schema index:
 
 ```
-http https://us.api.concursolutions.com/receipts/schemas 'Authorization:Bearer {YOUR JWT}'
+http https://us.api.concursolutions.com/receipts/schemas 'Authorization:Bearer {YOUR ACCESS TOKEN}'
 ```
 
 cURL for a single schema:
 
 ```
-curl -H "Authorization: Bearer {YOUR JWT}" https://us.api.concursolutions.com/receipts/schemas/car-rental-receipt.schema.json
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/schemas/car-rental-receipt.schema.json
 ```
 
 HTTPie for a single schema:
 
 ```
-http https://us.api.concursolutions.com/receipts/schemas/car-rental-receipt.schema.json 'Authorization:Bearer {YOUR JWT}'
+http https://us.api.concursolutions.com/receipts/schemas/car-rental-receipt.schema.json 'Authorization:Bearer {YOUR ACCESS TOKEN}'
 ```
 
 _Example Response:_
@@ -298,7 +298,7 @@ cURL data without image:
 
 ```
 curl -v -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN} \
--H "Authorization: Bearer {YOUR JWT}" \
+-H "Authorization: Bearer {YOUR ACCESS TOKEN}" \
 -H "Content-Type: application/json" \
 -H "link: <http://schema.concursolutions.com/{VALIDATION SCHEMA FROM SCHEMA ENDPOINT}.schema.json>;rel=describedBy" \
 -d @{PATH TO YOUR RECEIPT JSON}
@@ -308,7 +308,7 @@ cURL data and image:
 
 ```
 curl -v -k -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN} \
--H "Authorization: Bearer {YOUR JWT}" \
+-H "Authorization: Bearer {YOUR ACCESS TOKEN}" \
 -H "Content-Type:multipart/form-data" \
 -H "link: <http://schema.concursolutions.com/{VALIDATION SCHEMA FROM SCHEMA ENDPOINT}.schema.json>;rel=describedBy" \
 -F "receipt=<{PATH TO YOUR RECEIPT JSON};type=application/json" \
@@ -319,7 +319,7 @@ HTTPie data without image:
 
 ```
 http POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN} \
-"Authorization:Bearer {YOUR JWT}" \
+"Authorization:Bearer {YOUR ACCESS TOKEN}" \
 "Content-Type: application/json" \
 "link: <http://schema.concursolutions.com/{VALIDATION SCHEMA FROM SCHEMA ENDPOINT}.schema.json>;rel=describedBy" \
 < {PATH TO YOUR RECEIPT JSON}
@@ -352,13 +352,13 @@ _Example Requests:_
 cURL:
 
 ```
-curl -H "Authorization: Bearer {YOUR JWT}" https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}
 ```
 
 HTTPie:
 
 ```
-http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID} "Authorization: Bearer {YOUR JWT}"
+http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID} "Authorization: Bearer {YOUR ACCESS TOKEN}"
 ```
 
 _Example Response_
@@ -396,13 +396,13 @@ _Example Requests:_
 cURL:
 
 ```
-curl -H "Authorization: Bearer {YOUR JWT}" https://us.api.concursolutions.com/receipts/v4/users/{USER ID}
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/v4/users/{USER ID}
 ```
 
 HTTPie:
 
 ```
-http https://us.api.concursolutions.com/receipts/v4/users/{USER ID} "Authorization: Bearer {YOUR JWT}"
+http https://us.api.concursolutions.com/receipts/v4/users/{USER ID} "Authorization: Bearer {YOUR ACCESS TOKEN}"
 ```
 
 _Example Response:_
@@ -456,13 +456,13 @@ _Example Requests:_
 cURL:
 
 ```
-curl -H "Authorization: Bearer {YOUR JWT}" https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image
 ```
 
 HTTPie:
 
 ```
-http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authorization: Bearer {YOUR JWT}"
+http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authorization: Bearer {YOUR ACCESS TOKEN}"
 ```
 
 [Back to Top](#endpoints)
@@ -471,7 +471,7 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 
 Below are some simple NodeJS code snippets for getting a token and posting a receipt.
 
-##### Retrieve a User JSON Web Token (JWT):
+##### Retrieve a User Access Token:
 
 ```js
 'use strict';
@@ -499,7 +499,7 @@ request.post({
 'use strict';
 const https = require('https');
 
-const JWT = 'YOUR ACCESS TOKEN HERE';
+const ACCESS_TOKEN = 'YOUR ACCESS TOKEN HERE';
 const USER_ID = 'YOUR VALUE HERE';
 const receipt = JSON.stringify(YOUR_RECEIPT_HERE);
 
@@ -508,7 +508,7 @@ const options = {
     path: `/receipts/v4/users/${USER_ID}`,
     method: 'POST',
     headers: {
-        'Authorization': `Bearer ${JWT}`,
+        'Authorization': `Bearer ${ACCESS_TOKEN}`,
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(receipt),
         'Link': '<http://schema.concursolutions.com/general-receipt.schema.json>;rel=describedBy'
