@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, FieldArray, reduxForm } from 'redux-form';
 import { Link } from 'react-router';
 
 import formValidator from '../../utils/formValidator';
-import { renderInput, renderTextarea, renderCheckbox, renderSelect, renderMultiSelect } from '../Skyforms';
+import { renderInput, renderTextarea, renderCheckbox, renderSelect, renderMultiSelect, renderUris } from '../Skyforms';
 import AppSecret from './AppSecret';
 
 // All selectable grants and scopes
@@ -29,9 +29,11 @@ const constraints = {
   appType: {
     presence: { message: 'is required' },
   },
-  redirectUrl: {
-    presence: { message: 'is required' },
-    url: true,
+  redirectUris: {
+    validateUrlArray: {
+      allowLocal: true,
+    },
+    firstElementRequired: true,
   },
   allowedGrants: {
     presence: { message: '- at least one is required.' },
@@ -95,13 +97,7 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, secret }) =>
           />
         </section>
         <section className="col col-6">
-          <Field
-            component={renderInput}
-            type="url"
-            name="redirectUrl"
-            label="Redirect URL"
-            placeholder="Redirect URL"
-          />
+          <FieldArray component={renderUris} name="redirectUris" />
         </section>
       </div>
       <div className="row">

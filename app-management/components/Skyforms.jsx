@@ -4,6 +4,7 @@
 
 import React, { PropTypes } from 'react';
 import Select from 'react-select';
+import { Field } from 'redux-form';
 
 // Wrap each render component with a label and Skyform classes needed for errors
 const FieldWrapper = ({ name, label, touched, error, classNames, children }) => (
@@ -12,7 +13,7 @@ const FieldWrapper = ({ name, label, touched, error, classNames, children }) => 
     <div className={touched && error ? `${classNames} state-error` : classNames}>
       {children}
     </div>
-    {touched && error && <em htmlFor={name} className="invalid">{error.join(', ')}</em>}
+    {touched && error && <em htmlFor={name} className="invalid">{error}</em>}
   </div>
 );
 
@@ -20,14 +21,15 @@ FieldWrapper.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   touched: PropTypes.bool.isRequired,
-  error: PropTypes.array,
+  error: PropTypes.any,
   classNames: PropTypes.string,
   children: PropTypes.any.isRequired,
 };
 
-export const renderInput = ({ input, name, type, label, meta: { touched, error } }) => (
+export const renderInput = ({ input, name, type, label, meta: { touched, error }, children }) => (
   <FieldWrapper name={name} label={label} touched={touched} error={error} classNames="input">
     <input {...input} id={name} type={type} />
+    {children}
   </FieldWrapper>
 );
 
@@ -37,6 +39,7 @@ renderInput.propTypes = {
   type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   meta: PropTypes.object.isRequired,
+  children: PropTypes.any,
 };
 
 export const renderTextarea = ({ input, name, label, meta: { touched, error } }) => (
@@ -109,4 +112,34 @@ renderCheckbox.propTypes = {
   type: PropTypes.string.isRequired,
   meta: PropTypes.object.isRequired,
   children: PropTypes.any,
+};
+
+export const renderUris = ({ fields }) => (
+  <div>
+    {fields.map((uri, idx) =>
+      <div key={idx}>
+        <Field
+          component={renderInput}
+          type="url"
+          name={uri}
+          label={`Redirect URI ${idx + 1}`}
+          placeholder="Redirect URI"
+        >
+          {idx ? (
+            <i
+              className="icon-append fa fa-minus-circle"
+              onClick={() => fields.remove(idx)}
+            />
+          ) : null}
+        </Field>
+      </div>
+    )}
+    <div>
+      <button type="button" className="button" onClick={() => fields.push('')}>Add URI</button>
+    </div>
+  </div>
+);
+
+renderUris.propTypes = {
+  fields: PropTypes.object,
 };
