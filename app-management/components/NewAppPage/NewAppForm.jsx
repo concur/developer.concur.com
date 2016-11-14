@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 
-import formValidator from '../../utils/formValidator';
+import { formValidator } from '../../utils/formValidator';
 import { renderInput, renderTextarea, renderCheckbox, renderSelect, renderMultiSelect, renderUris } from '../Skyforms';
 
 // All selectable grants and scopes

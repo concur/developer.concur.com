@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-import formValidator from '../../utils/formValidator';
+import { formValidator } from '../../utils/formValidator';
 import { renderInput } from '../Skyforms';
 
 const constraints = {

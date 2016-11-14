@@ -1,17 +1,20 @@
 import validate from 'validate.js';
 
-validate.validators.firstElementRequired = (obj) => {
-  const message = obj && obj[0] ? undefined : 'are required';
+export const firstElementRequired = (array) => {
+  const message = array && array[0] ? undefined : 'are required';
   return message;
 };
 
-validate.validators.validateUrlArray = (urls, options) => {
+export const validateUrlArray = (urls, options) => {
   if (Array.isArray(urls) && !validate.validators.firstElementRequired(urls)) {
     return urls.map(url => validate.validators.url(url, options));
   }
   return undefined;
 };
 
-export default function formValidator(constraints) {
+validate.validators.firstElementRequired = firstElementRequired;
+validate.validators.validateUrlArray = validateUrlArray;
+
+export const formValidator = (constraints) => {
   return values => validate(values, constraints) || {};
 }
