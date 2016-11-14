@@ -5,7 +5,9 @@ layout: reference
 
 # Getting Started
 
-Concur's new Oauth2 framework is a very simple way to implement a Unified Token Authentication mechanism within your application. Here is a four step guide to helping you get up to speed and making calls to Concur's API.
+Concur's new Oauth2 framework is a very simple way to implement a Unified Token Authentication mechanism within your application. Here is a four step guide to helping you get up to speed and making calls to Concur's API.  
+
+**Note:** The old authentication documentation can be found [here](/api-reference-deprecated/old-auth/old-auth.html)
 
 
 ## 1. Obtain your Application clientID and clientSecret 
