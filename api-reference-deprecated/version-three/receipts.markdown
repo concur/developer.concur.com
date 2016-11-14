@@ -4,7 +4,9 @@ layout: reference
 ---
 
 
-# Receipts (DEPRECATED 11/04/2016)
+# Receipts (DEPRECATED 02/07/2017)
+
+Please use [4.0](/api-reference/receipts/get-started.html) for any new development and apps.
 
 The Receipts resource represents receipts that can be posted to Concur by a provider company on behalf of opted-in users. This resource currently supports three types of receipts:
 
@@ -24,9 +26,9 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 * [Schema](#schema)
 
 ### Version
-3.0 is deprecated as of 11/04/2016  
+3.0 will be deprecated on February 7, 2016. Receipts version 3.0 will be officially deprecated as per our policy on Februrary 7, 2017. The API can still be used **by existing applications** after deprecation, but will no longer be supported six months after deprecation date, which would be August 7, 2017.  
 
-Please use [4.0](/api-reference/receipts/get-started.html)
+Please use [4.0](/api-reference/receipts/get-started.html) for any new development and apps.  
 
 ## <a name="post"></a>Create a new receipt
 

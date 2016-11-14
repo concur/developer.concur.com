@@ -9,7 +9,7 @@ This series of API Recipes describes API tasks associated with Apps for Travel M
 #### Before you begin
 Review the following checklist to ensure you are able to perform the task in this recipe. To see reference information, click the link in the bullet point.
 
-- Understand the [Oath 2.0 process](https://developer.concur.com/api-reference/authentication/authentication.html)
+- Understand the [authentication process](/api-reference/authentication/apidoc.html)
 - Be able to access the [Get Trips API](https://developer.concur.com/api-reference/travel/itinerary/trip/trip-resource.html#postnt)
 - Ensure you have a definition [XSD](https://developer.concur.com/api-reference/travel/itinerary/ItinServices_Public_0.xsd), usable for architecting your solution
 
