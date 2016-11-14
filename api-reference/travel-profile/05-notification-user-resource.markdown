@@ -45,7 +45,7 @@ Subscribes or unsubscribes the travel supplier from notifications when the user 
 
 #### Authorization header
 
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/authentication.html#web).
+Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/apidoc.html).
 
 ###  Example: Subscribe to itinerary changes
 
@@ -115,7 +115,7 @@ Subscribes or unsubscribes the travel supplier from notifications when the user'
 #### Headers
 
 ##### Authorization header
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/authentication.html#web).
+Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/apidoc.html).
 
 ###  XML Example Request
 
@@ -152,7 +152,7 @@ Subscribes or unsubscribes the travel supplier from notifications when the user'
 #### Headers
 
 ##### Authorization header
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/authentication.html#web).
+Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/apidoc.html).
 
 ###  Request
 
