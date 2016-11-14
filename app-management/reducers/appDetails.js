@@ -1,13 +1,13 @@
 import {
   APP_DETAILS_REQUEST, APP_DETAILS_FAILURE, APP_DETAILS_SUCCESS,
-  APP_DETAILS_TOKEN_SUCCESS,
+  APP_DETAILS_SHOW_SECRET, APP_DETAILS_HIDE_SECRET,
 } from '../actions/appDetails';
 
 const defaultState = {
   app: {},
-  refreshToken: '',
   isFetching: false,
   error: '',
+  showSecret: false,
 };
 
 function appDetailsReducer(state = defaultState, action) {
@@ -29,12 +29,15 @@ function appDetailsReducer(state = defaultState, action) {
         ...defaultState,
         app: action.app,
       };
-    case APP_DETAILS_TOKEN_SUCCESS:
+    case APP_DETAILS_SHOW_SECRET:
       return {
         ...state,
-        isFetching: false,
-        error: '',
-        refreshToken: action.refreshToken,
+        showSecret: true,
+      };
+    case APP_DETAILS_HIDE_SECRET:
+      return {
+        ...state,
+        showSecret: false,
       };
     default:
       return state;

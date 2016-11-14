@@ -2,7 +2,7 @@
 
 import { connect } from 'react-redux';
 import AppDetailsPage from './AppDetailsPage';
-import { fetchAppDetails, updateAppDetails, generateAppSecret } from '../../actions/appDetails';
+import { fetchAppDetails, updateAppDetails, showSecret } from '../../actions/appDetails';
 
 function mapStateToProps(state) {
   return state.appDetails;
@@ -15,7 +15,8 @@ function mapDispatchToProps(dispatch) {
     generateSecret: (id) => {
       const confirmation = window.confirm('Are you sure? This will clear your previous app secret.');
       if (confirmation) {
-        dispatch(generateAppSecret(id));
+        dispatch(showSecret());
+        console.log(`TBD: Generate secret for app ${id}`);
       }
     },
   };

@@ -2,8 +2,9 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from 'nock';
 import {
-  APP_DETAILS_REQUEST, APP_DETAILS_FAILURE, APP_DETAILS_SUCCESS,
-  appDetailsRequest, appDetailsFailure, appDetailsSuccess, fetchAppDetails,
+  APP_DETAILS_REQUEST, APP_DETAILS_FAILURE, APP_DETAILS_SUCCESS, APP_DETAILS_SHOW_SECRET,
+  APP_DETAILS_HIDE_SECRET, appDetailsRequest, appDetailsFailure, appDetailsSuccess,
+  fetchAppDetails, showSecret, hideSecret,
 } from '../../actions/appDetails';
 
 const middlewares = [ thunk ];
@@ -43,6 +44,26 @@ describe('appDetailsSuccess', () => {
     };
 
     expect(appDetailsSuccess(app)).toEqual(expectedAction);
+  });
+});
+
+describe('showSecret', () => {
+  it('should create an action to show the app secret', () => {
+    const expectedAction = {
+      type: APP_DETAILS_SHOW_SECRET,
+    };
+
+    expect(showSecret()).toEqual(expectedAction);
+  });
+});
+
+describe('hideSecret', () => {
+  it('should create an action to hide the app secret', () => {
+    const expectedAction = {
+      type: APP_DETAILS_HIDE_SECRET,
+    };
+
+    expect(hideSecret()).toEqual(expectedAction);
   });
 });
 
