@@ -106,28 +106,28 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`FirstName`	|	``string``	|	-	|	The user's first name.
+`firstName`	|	``string``	|	-	|	The user's first name.
 `ID`	|	``string``	|	-	|	The unique identifier of the resource.
-`LastModified`	|	``string``	|	-	|	The date and time when the connection request was last modified. Format: UTC
-`LastName`	|	``string``	|	-	|	The user's last name.
-`LoyaltyNumber`	|	``string``	|	-	|	The user's travel loyalty number.
-`MiddleName`	|	``string``	|	-	|	The user's middle name.
-`RequestToken`	|	``string``	|	-	|	The request token.
-`Status`	|	``string``	|	-	|	The status code representing the state of the connection request.
+`lastModified`	|	``string``	|	-	|	The date and time when the connection request was last modified. Format: UTC
+`lastName`	|	``string``	|	-	|	The user's last name.
+`loyaltyNumber`	|	``string``	|	-	|	The user's travel loyalty number.
+`middleName`	|	``string``	|	-	|	The user's middle name.
+`requestToken`	|	``string``	|	-	|	The request token.
+`status`	|	``string``	|	-	|	The status code representing the state of the connection request.
 `URI`	|	``string``	|	-	|	The URI to the resource.
-`UserUuid`	|	``string``	|	-	|	The unique identifier of the user.
-`EmailAddresses`	|	``UserEmailAddresses``	|	[User Email Addresses](#useremailaddresses32)	|	Email addresses associated with the user.
+`userId`	|	``string``	|	-	|	The unique identifier of the user.
+`emailAddresses`	|	``UserEmailAddresses``	|	[User Email Addresses](#useremailaddresses32)	|	Email addresses associated with the user.
 
 
 ### <a name="useremailaddresses32"></a>User Email Addresses
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`Email1`	|	``string``	|	-	|	The user's verified email address.
-`Email2`	|	``string``	|	-	|	The user's verified email address.
-`Email3`	|	``string``	|	-	|	The user's verified email address.
-`Email4`	|	``string``	|	-	|	The user's verified email address.
-`Email5`	|	``string``	|	-	|	The user's verified email address.
+`email1`	|	``string``	|	-	|	The user's verified email address.
+`email2`	|	``string``	|	-	|	The user's verified email address.
+`email3`	|	``string``	|	-	|	The user's verified email address.
+`email4`	|	``string``	|	-	|	The user's verified email address.
+`email5`	|	``string``	|	-	|	The user's verified email address.
 
 
 ## <a name="schema"></a>Schema 3.0 (Deprecated)
