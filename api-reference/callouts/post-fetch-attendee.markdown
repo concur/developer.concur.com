@@ -209,4 +209,4 @@ xml
 ```
 
 
-[2]: /api-reference/authentication/authentication.html
+[2]: /api-reference/authentication/apidoc.html

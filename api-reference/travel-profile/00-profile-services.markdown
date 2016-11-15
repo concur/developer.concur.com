@@ -46,7 +46,7 @@ The developer should email [ConcurConnectTech@concur.com][7] and ask to be regis
 Travel supplier or TMC partner applications must complete the [Concur application review process][8] before they can access production user data. Travel suppliers can only access Form of Payment information for the type of travel that they supply. Suppliers can only update Loyalty Program information for the programs that they manage. TMCs can access all the user's Travel Profile data, regardless of vendor.
 
 
-[1]: /api-reference/authentication/authentication.html#web
+[1]: /api-reference/authentication/apidoc.html
 [2]: /api-reference/travel-profile/01-profile-resource.html
 [3]: /api-reference/travel-profile/02-form-payment-resource.html
 [4]: /api-reference/travel-profile/03-loyalty-program-resource.html

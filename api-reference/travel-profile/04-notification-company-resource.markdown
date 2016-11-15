@@ -181,6 +181,6 @@ The partner can use this information to make a Get Travel Profile request.
 
 `200 OK`
 
-[1]: https://developer.concur.com/oauth-20
+[1]: /api-reference/authentication/apidoc.html
 [2]: https://developer.concur.com/reference/http-codes
 [3]: https://developer.concur.com/travel-profile/profile-resource/get-travel-profile
