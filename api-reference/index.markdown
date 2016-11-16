@@ -1,6 +1,9 @@
 ---
 title: API Reference
 layout: reference
+redirect_from:
+  - /docs-and-resources/documentation/
+  - /api-documentation/
 ---
 
 # Quick Start Guide
