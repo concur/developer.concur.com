@@ -5,6 +5,7 @@ import {
   APP_LISTING_REQUEST, APP_LISTING_FAILURE, APP_LISTING_SUCCESS,
   appListingRequest, appListingFailure, appListingSuccess, fetchAppListing,
 } from '../../actions/appListing';
+import appFactory from '../app.mock';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
@@ -34,14 +35,8 @@ describe('appListingFailure', () => {
 describe('appListingSuccess', () => {
   it('should create an action with the apps fetched', () => {
     const apps = [
-      {
-        id: 'test-id',
-        name: 'My App',
-      },
-      {
-        id: 'test-id-2',
-        name: 'My App 2'
-      }
+      appFactory('id-1'),
+      appFactory('id-2'),
     ];
     const expectedAction = {
       type: APP_LISTING_SUCCESS,
@@ -53,22 +48,23 @@ describe('appListingSuccess', () => {
 });
 
 describe('fetchAppListing', () => {
+  const apps = [
+    appFactory('id-1'),
+    appFactory('id-2'),
+  ];
+  let store;
+
+  beforeEach(() => {
+    store = mockStore({
+      auth: { token: 'a-sample-token' },
+    });
+  });
+
   afterEach(() => {
     nock.cleanAll();
   });
 
   it('creates an appListingSuccess action when fetching is successful', () => {
-    const apps = [
-      {
-        id: 'test-id',
-        name: 'My App',
-      },
-      {
-        id: 'test-id-2',
-        name: 'My App 2'
-      }
-    ];
-
     nock(process.env.API_SERVER)
       .get('/apps')
       .reply(200, apps);
@@ -78,12 +74,6 @@ describe('fetchAppListing', () => {
       appListingSuccess(apps),
     ];
 
-    const store = mockStore({
-      auth: {
-        token: 'a-sample-token',
-      },
-    });
-
     return store.dispatch(fetchAppListing())
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
@@ -91,17 +81,6 @@ describe('fetchAppListing', () => {
   });
 
   it('creates an appListingFailure action when fetching fails', () => {
-    const apps = [
-      {
-        id: 'test-id',
-        name: 'My App',
-      },
-      {
-        id: 'test-id-2',
-        name: 'My App 2'
-      }
-    ];
-
     nock(process.env.API_SERVER)
       .get('/apps')
       .replyWithError('Server is down');
@@ -110,12 +89,6 @@ describe('fetchAppListing', () => {
       appListingRequest(),
       appListingFailure('request to http://localhost:3000/apps failed, reason: Server is down'),
     ];
-
-    const store = mockStore({
-      auth: {
-        token: 'a-sample-token',
-      },
-    });
 
     return store.dispatch(fetchAppListing())
       .then(() => {

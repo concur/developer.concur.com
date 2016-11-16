@@ -8,9 +8,7 @@ export const NEW_APP_FAILURE = 'NEW_APP_FAILURE';
 export const NEW_APP_SUCCESS = 'NEW_APP_SUCCESS';
 
 export function newAppRequest() {
-  return {
-    type: NEW_APP_REQUEST,
-  };
+  return { type: NEW_APP_REQUEST };
 }
 
 export function newAppFailure(message) {

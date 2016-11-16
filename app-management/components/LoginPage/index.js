@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import LoginPage from './LoginPage';
 import { login } from '../../actions/auth';
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return state.auth;
 }
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
     handleSubmit: user => dispatch(login(user)),
   };

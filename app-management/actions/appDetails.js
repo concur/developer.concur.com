@@ -9,9 +9,7 @@ export const APP_DETAILS_SHOW_SECRET = 'APP_DETAILS_SHOW_SECRET';
 export const APP_DETAILS_HIDE_SECRET = 'APP_DETAILS_HIDE_SECRET';
 
 export function appDetailsRequest() {
-  return {
-    type: APP_DETAILS_REQUEST,
-  };
+  return { type: APP_DETAILS_REQUEST };
 }
 
 export function appDetailsFailure(message) {
@@ -29,21 +27,15 @@ export function appDetailsSuccess(app) {
 }
 
 export function appDetailsUpdateSuccess() {
-  return {
-    type: APP_DETAILS_UPDATE_SUCCESS,
-  };
+  return { type: APP_DETAILS_UPDATE_SUCCESS };
 }
 
 export function showSecret() {
-  return {
-    type: APP_DETAILS_SHOW_SECRET,
-  };
+  return { type: APP_DETAILS_SHOW_SECRET };
 }
 
 export function hideSecret() {
-  return {
-    type: APP_DETAILS_HIDE_SECRET,
-  };
+  return { type: APP_DETAILS_HIDE_SECRET };
 }
 
 export function fetchAppDetails(id) {

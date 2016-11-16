@@ -8,9 +8,7 @@ export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 
 export function signupRequest() {
-  return {
-    type: SIGNUP_REQUEST,
-  };
+  return { type: SIGNUP_REQUEST };
 }
 
 export function signupFailure(message) {

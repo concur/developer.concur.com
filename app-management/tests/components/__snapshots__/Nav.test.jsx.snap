@@ -1,0 +1,77 @@
+exports[`<Nav /> renders all other links when authenticated 1`] = `
+<div
+  className="clearfix">
+  <ul
+    className="nav navbar-nav pull-right">
+    <li>
+      <Link
+        activeClassName="active"
+        onlyActiveOnIndex={true}
+        style={Object {}}
+        to="/">
+        <i
+          aria-hidden="true"
+          className="fa fa-list" />
+         My Apps
+      </Link>
+    </li>
+    <li>
+      <Link
+        activeClassName="active"
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/new">
+        <i
+          aria-hidden="true"
+          className="fa fa-plus" />
+         New App
+      </Link>
+    </li>
+    <li>
+      <Link
+        activeClassName="active"
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/logout">
+        <i
+          aria-hidden="true"
+          className="fa fa-sign-out" />
+         Logout
+      </Link>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<Nav /> renders signup and login links when the user is not authenticated 1`] = `
+<div
+  className="clearfix">
+  <ul
+    className="nav navbar-nav pull-right">
+    <li>
+      <Link
+        activeClassName="active"
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/signup">
+        <i
+          aria-hidden="true"
+          className="fa fa-user" />
+         Sign Up
+      </Link>
+    </li>
+    <li>
+      <Link
+        activeClassName="active"
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/login">
+        <i
+          aria-hidden="true"
+          className="fa fa-sign-in" />
+         Login
+      </Link>
+    </li>
+  </ul>
+</div>
+`;

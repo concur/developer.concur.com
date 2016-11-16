@@ -55,21 +55,28 @@ describe('logout', () => {
     };
 
     expect(logout()).toEqual(expectedAction);
-    expect(window.localStorage.getItem(TOKEN_KEY)).toBe(null);
+    expect(window.localStorage.getItem(TOKEN_KEY)).toBeNull();
   });
 });
 
 describe('login', () => {
+  const user = {
+    username: 'johnsmith',
+    password: 'password',
+  };
+  let store;
+
+  beforeEach(() => {
+    store = mockStore({
+      auth: { token: null },
+    });
+  })
+
   afterEach(() => {
     nock.cleanAll();
   });
 
   it('creates a loginSuccess action when fetching is successful', () => {
-    const user = {
-      username: 'johnsmith',
-      password: 'password',
-    };
-
     const response = {
       access_token: 'a-sample-token',
     };
@@ -84,12 +91,6 @@ describe('login', () => {
       reset('login'),
     ];
 
-    const store = mockStore({
-      auth: {
-        token: null,
-      },
-    });
-
     return store.dispatch(login(user))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
@@ -97,11 +98,6 @@ describe('login', () => {
   });
 
   it('creates a loginFailure action when fetching fails', () => {
-    const user = {
-      username: 'johnsmith',
-      password: 'password',
-    };
-
     nock(process.env.API_SERVER)
       .post('/auth/login')
       .replyWithError('Server is down');
@@ -111,12 +107,6 @@ describe('login', () => {
       loginFailure('request to http://localhost:3000/auth/login failed, reason: Server is down'),
     ];
 
-    const store = mockStore({
-      auth: {
-        token: null,
-      },
-    });
-
     return store.dispatch(login(user))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
@@ -124,11 +114,6 @@ describe('login', () => {
   });
 
   it('creates a loginFailure action when authentication fails', () => {
-    const user = {
-      username: 'johnsmith',
-      password: 'password',
-    };
-
     nock(process.env.API_SERVER)
       .post('/auth/login')
       .reply(401, { message: 'Unauthorized' });
@@ -137,12 +122,6 @@ describe('login', () => {
       loginRequest(),
       loginFailure('Invalid username and/or password'),
     ];
-
-    const store = mockStore({
-      auth: {
-        token: null,
-      },
-    });
 
     return store.dispatch(login(user))
       .then(() => {

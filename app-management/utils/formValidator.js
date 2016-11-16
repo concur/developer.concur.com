@@ -17,4 +17,4 @@ validate.validators.validateUrlArray = validateUrlArray;
 
 export const formValidator = (constraints) => {
   return values => validate(values, constraints) || {};
-}
+};

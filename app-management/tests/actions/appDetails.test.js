@@ -7,6 +7,7 @@ import {
   appDetailsSuccess, fetchAppDetails, appDetailsUpdateSuccess, updateAppDetails, showSecret,
   hideSecret,
 } from '../../actions/appDetails';
+import appFactory from '../app.mock';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
@@ -35,10 +36,7 @@ describe('appDetailsFailure', () => {
 
 describe('appDetailsSuccess', () => {
   it('should create an action with the app fetched', () => {
-    const app = {
-      id: 'test-id',
-      name: 'My App',
-    };
+    const app = appFactory('id-1');
     const expectedAction = {
       type: APP_DETAILS_SUCCESS,
       app,
@@ -79,16 +77,20 @@ describe('hideSecret', () => {
 });
 
 describe('fetchAppDetails', () => {
+  const app = appFactory('id-1');
+  let store;
+
+  beforeEach(() => {
+    store = mockStore({
+      auth: { token: 'a-sample-token' },
+    });
+  });
+
   afterEach(() => {
     nock.cleanAll();
   });
 
   it('creates an appDetailsSuccess action when fetching is successful', () => {
-    const app = {
-      id: 'test-id',
-      name: 'My App',
-    };
-
     nock(process.env.API_SERVER)
       .get(`/apps/${app.id}`)
       .reply(200, app);
@@ -98,12 +100,6 @@ describe('fetchAppDetails', () => {
       appDetailsSuccess(app),
     ];
 
-    const store = mockStore({
-      auth: {
-        token: 'a-sample-token',
-      },
-    });
-
     return store.dispatch(fetchAppDetails(app.id))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
@@ -111,25 +107,14 @@ describe('fetchAppDetails', () => {
   });
 
   it('creates an appDetailsFailure action when fetching fails', () => {
-    const app = {
-      id: 'test-id',
-      name: 'My App',
-    };
-
     nock(process.env.API_SERVER)
       .get(`/apps/${app.id}`)
       .replyWithError('Server is down');
 
     const expectedActions = [
       appDetailsRequest(),
-      appDetailsFailure('request to http://localhost:3000/apps/test-id failed, reason: Server is down'),
+      appDetailsFailure('request to http://localhost:3000/apps/id-1 failed, reason: Server is down'),
     ];
-
-    const store = mockStore({
-      auth: {
-        token: 'a-sample-token',
-      },
-    });
 
     return store.dispatch(fetchAppDetails(app.id))
       .then(() => {
@@ -139,16 +124,20 @@ describe('fetchAppDetails', () => {
 });
 
 describe('updateAppDetails', () => {
+  const app = appFactory('id-1');
+  let store;
+
+  beforeEach(() => {
+    store = mockStore({
+      auth: { token: 'a-sample-token' },
+    });
+  });
+
   afterEach(() => {
     nock.cleanAll();
   });
 
   it('creates an appDetailsUpdateSuccess action when fetching is successful', () => {
-    const app = {
-      id: 'test-id',
-      name: 'My App',
-    };
-
     nock(process.env.API_SERVER)
       .put(`/apps/${app.id}`)
       .reply(200, app);
@@ -159,12 +148,6 @@ describe('updateAppDetails', () => {
       appDetailsRequest(),
     ];
 
-    const store = mockStore({
-      auth: {
-        token: 'a-sample-token',
-      },
-    });
-
     return store.dispatch(updateAppDetails(app))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
@@ -172,25 +155,14 @@ describe('updateAppDetails', () => {
   });
 
   it('creates an appDetailsFailure action when fetching fails', () => {
-    const app = {
-      id: 'test-id',
-      name: 'My App',
-    };
-
     nock(process.env.API_SERVER)
       .put(`/apps/${app.id}`)
       .replyWithError('Server is down');
 
     const expectedActions = [
       appDetailsRequest(),
-      appDetailsFailure('request to http://localhost:3000/apps/test-id failed, reason: Server is down'),
+      appDetailsFailure('request to http://localhost:3000/apps/id-1 failed, reason: Server is down'),
     ];
-
-    const store = mockStore({
-      auth: {
-        token: 'a-sample-token',
-      },
-    });
 
     return store.dispatch(updateAppDetails(app))
       .then(() => {

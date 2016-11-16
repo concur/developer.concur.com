@@ -10,9 +10,7 @@ export const AUTH_LOGIN_SUCCESS = 'AUTH_LOGIN_SUCCESS';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 
 export function loginRequest() {
-  return {
-    type: AUTH_LOGIN_REQUEST,
-  };
+  return { type: AUTH_LOGIN_REQUEST };
 }
 
 export function loginFailure(message) {
@@ -32,9 +30,7 @@ export function loginSuccess(token) {
 
 export function logout() {
   auth.removeToken();
-  return {
-    type: AUTH_LOGOUT,
-  };
+  return { type: AUTH_LOGOUT };
 }
 
 export function login(user) {

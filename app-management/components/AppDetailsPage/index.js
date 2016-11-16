@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import AppDetailsPage from './AppDetailsPage';
 import { fetchAppDetails, updateAppDetails, showSecret } from '../../actions/appDetails';
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return state.appDetails;
 }
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
     fetchAppDetails: id => dispatch(fetchAppDetails(id)),
     handleSubmit: app => dispatch(updateAppDetails(app)),

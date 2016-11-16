@@ -7,16 +7,16 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json']
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015', 'stage-3']
+          presets: [['es2015', { modules: false }], 'react', 'stage-3']
         }
       },
       {

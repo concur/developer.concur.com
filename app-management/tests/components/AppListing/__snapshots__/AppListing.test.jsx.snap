@@ -1,0 +1,83 @@
+exports[`<AppListing /> displays the loading spinner if the listing is loading 1`] = `
+<div
+  className="row">
+  <div
+    className="col-md-12">
+    <h2>
+      <i
+        aria-hidden="true"
+        className="fa fa-list" />
+       My Apps
+    </h2>
+    <ErrorAlert
+      error="" />
+    <LoadingSpinner
+      loading={true} />
+  </div>
+</div>
+`;
+
+exports[`<AppListing /> renders apps 1`] = `
+<div
+  className="row">
+  <div
+    className="col-md-12">
+    <h2>
+      <i
+        aria-hidden="true"
+        className="fa fa-list" />
+       My Apps
+    </h2>
+    <ErrorAlert
+      error="" />
+    <AppPreview
+      app={
+        Object {
+          "allowedGrants": Array [
+            "implicit",
+            "authorization_code",
+          ],
+          "allowedScopes": Array [
+            "receipts.read",
+            "receipts.write",
+          ],
+          "appType": "Business",
+          "certified": false,
+          "description": "This is my app.",
+          "enabled": true,
+          "id": "id-1",
+          "name": "Starbucks",
+          "owner": "someidoftheowner",
+          "redirectUris": Array [
+            "http://localhost:3000",
+            "http://www.concur.com",
+          ],
+        }
+      } />
+    <AppPreview
+      app={
+        Object {
+          "allowedGrants": Array [
+            "implicit",
+            "authorization_code",
+          ],
+          "allowedScopes": Array [
+            "receipts.read",
+            "receipts.write",
+          ],
+          "appType": "Business",
+          "certified": false,
+          "description": "This is my app.",
+          "enabled": true,
+          "id": "id-2",
+          "name": "Starbucks",
+          "owner": "someidoftheowner",
+          "redirectUris": Array [
+            "http://localhost:3000",
+            "http://www.concur.com",
+          ],
+        }
+      } />
+  </div>
+</div>
+`;

@@ -13,8 +13,8 @@ const constraints = {
   },
 };
 
-const LoginForm = props => (
-  <form className="sky-form" onSubmit={props.handleSubmit}>
+const LoginForm = ({ handleSubmit }) => (
+  <form className="sky-form" onSubmit={handleSubmit}>
     <fieldset>
       <div className="row">
         <section>

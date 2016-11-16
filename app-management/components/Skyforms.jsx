@@ -7,7 +7,7 @@ import Select from 'react-select';
 import { Field } from 'redux-form';
 
 // Wrap each render component with a label and Skyform classes needed for errors
-const FieldWrapper = ({ name, label, touched, error, classNames, children }) => (
+export const FieldWrapper = ({ name, label, touched, error, classNames, children }) => (
   <div>
     <label className="label" htmlFor={name}>{label}</label>
     <div className={touched && error ? `${classNames} state-error` : classNames}>
@@ -134,7 +134,7 @@ export const renderUris = ({ fields }) => (
         </Field>
       </div>
     )}
-    <div>
+    <div className="add-uri">
       <button type="button" className="button" onClick={() => fields.push('')}>Add URI</button>
     </div>
   </div>

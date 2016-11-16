@@ -6,9 +6,7 @@ export const APP_LISTING_FAILURE = 'APP_LISTING_FAILURE';
 export const APP_LISTING_SUCCESS = 'APP_LISTING_SUCCESS';
 
 export function appListingRequest() {
-  return {
-    type: APP_LISTING_REQUEST,
-  };
+  return { type: APP_LISTING_REQUEST };
 }
 
 export function appListingFailure(message) {

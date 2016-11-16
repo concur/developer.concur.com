@@ -2,6 +2,7 @@ import appDetailsReducer from '../../reducers/appDetails';
 import {
   appDetailsRequest, appDetailsFailure, appDetailsSuccess, showSecret, hideSecret,
 } from '../../actions/appDetails';
+import appFactory from '../app.mock';
 
 describe('appDetails reducer', () => {
   it('should return default state', () => {
@@ -41,10 +42,7 @@ describe('appDetails reducer', () => {
   });
 
   it('should handle APP_DETAILS_SUCCESS', () => {
-    const app = {
-      id: 'test-id',
-      name: 'My App',
-    };
+    const app = appFactory('test-id');
     const action = appDetailsSuccess(app);
     const state = appDetailsReducer(undefined, action);
 

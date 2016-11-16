@@ -1,0 +1,19 @@
+exports[`<FieldWrapper /> should display the state-error class when there is an error 1`] = `
+<div>
+  <label
+    className="label"
+    htmlFor="My field">
+    my-field
+  </label>
+  <div
+    className="my-field state-error">
+    <input
+      type="text" />
+  </div>
+  <em
+    className="invalid"
+    htmlFor="My field">
+    Required
+  </em>
+</div>
+`;

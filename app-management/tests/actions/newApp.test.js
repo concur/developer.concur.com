@@ -6,6 +6,7 @@ import {
   NEW_APP_REQUEST, NEW_APP_FAILURE, NEW_APP_SUCCESS,
   newAppRequest, newAppFailure, newAppSuccess, postNewApp,
 } from '../../actions/newApp';
+import appFactory from '../app.mock';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
@@ -34,10 +35,7 @@ describe('newAppFailure', () => {
 
 describe('newAppSuccess', () => {
   it('should create an action with the new app', () => {
-    const app = {
-      id: 'test-id',
-      name: 'My App',
-    };
+    const app = appFactory('id-1');
     const expectedAction = {
       type: NEW_APP_SUCCESS,
       app,
@@ -48,15 +46,20 @@ describe('newAppSuccess', () => {
 });
 
 describe('postNewApp', () => {
+  let store;
+
+  beforeEach(() => {
+    store = mockStore({
+      auth: { token: 'a-sample-token' },
+    });
+  })
+
   afterEach(() => {
     nock.cleanAll();
   });
 
   it('creates a newAppSuccess action when fetching is successful', () => {
-    const app = {
-      id: 'test-id',
-      name: 'My App',
-    };
+    const app = appFactory('id-1');
 
     nock(process.env.API_SERVER)
       .post('/apps')
@@ -67,12 +70,6 @@ describe('postNewApp', () => {
       newAppSuccess(app),
       reset('newApp'),
     ];
-
-    const store = mockStore({
-      auth: {
-        token: 'a-sample-token',
-      },
-    });
 
     return store.dispatch(postNewApp())
       .then(() => {
@@ -89,12 +86,6 @@ describe('postNewApp', () => {
       newAppRequest(),
       newAppFailure('request to http://localhost:3000/apps failed, reason: Server is down'),
     ];
-
-    const store = mockStore({
-      auth: {
-        token: 'a-sample-token',
-      },
-    });
 
     return store.dispatch(postNewApp())
       .then(() => {

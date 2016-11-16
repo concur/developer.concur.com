@@ -45,6 +45,14 @@ describe('signupSuccess', () => {
 });
 
 describe('postSignup', () => {
+  let store;
+
+  beforeEach(() => {
+    store = mockStore({
+      auth: { token: null },
+    });
+  })
+
   afterEach(() => {
     nock.cleanAll();
   });
@@ -74,12 +82,6 @@ describe('postSignup', () => {
       reset('signup'),
     ];
 
-    const store = mockStore({
-      auth: {
-        token: null,
-      },
-    });
-
     return store.dispatch(postSignup())
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
@@ -95,12 +97,6 @@ describe('postSignup', () => {
       signupRequest(),
       signupFailure('request to http://localhost:3000/auth/signup failed, reason: Server is down'),
     ];
-
-    const store = mockStore({
-      auth: {
-        token: null,
-      },
-    });
 
     return store.dispatch(postSignup())
       .then(() => {

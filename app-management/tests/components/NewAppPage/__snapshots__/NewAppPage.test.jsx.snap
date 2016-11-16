@@ -1,0 +1,18 @@
+exports[`<NewAppPage /> should render with <NewAppForm /> 1`] = `
+<div
+  className="row">
+  <div
+    className="col-md-12">
+    <h2>
+      New App
+    </h2>
+    <LoadingSpinner
+      loading={false}
+      message="Submitting..." />
+    <ErrorAlert
+      error="" />
+    <ReduxForm
+      onSubmit={[Function]} />
+  </div>
+</div>
+`;

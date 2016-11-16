@@ -2,6 +2,7 @@ import appListingReducer from '../../reducers/appListing';
 import {
   appListingRequest, appListingFailure, appListingSuccess,
 } from '../../actions/appListing';
+import appFactory from '../app.mock';
 
 describe('appListing reducer', () => {
   it('should return default state', () => {
@@ -39,14 +40,8 @@ describe('appListing reducer', () => {
 
   it('should handle APP_LISTING_SUCCESS', () => {
     const apps = [
-      {
-        id: 'test-id',
-        name: 'My App',
-      },
-      {
-        id: 'test-id-2',
-        name: 'My App 2',
-      }
+      appFactory('id-1'),
+      appFactory('id-2'),
     ];
     const action = appListingSuccess(apps);
     const state = appListingReducer(undefined, action);
