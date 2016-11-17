@@ -1,0 +1,8 @@
+// Hover/Focus state
+.dropdown-menu > li > a {
+  &:hover,
+  &:focus {
+    color: $concur-blue;
+    background-color: #fff;
+  }
+}

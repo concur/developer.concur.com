@@ -1,0 +1,18 @@
+$concur-blue: #0275BC;
+$border-radius-base: 0;
+$headings-font-weight: 200;
+$headings-font-color: #444;
+
+@import "components/navbar";
+@import "components/navbar-notice";
+@import "components/jumbotrons";
+@import "components/dropdowns";
+
+@import "bootstrap";
+
+// @import "typography";
+@import "buttons";
+
+.footer-v1 {
+  height: inherit;
+}

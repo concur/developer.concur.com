@@ -1,0 +1,13 @@
+$notice-color: #333;
+$notice-text-color: #fff;
+
+.navbar-notice {
+  padding: 5px 0;
+  background-color: $notice-color;
+  color: $notice-text-color;
+  opacity: 0.6;
+
+  a, a:hover {
+    color: $notice-text-color;
+  }
+}

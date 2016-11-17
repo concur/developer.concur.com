@@ -1,0 +1,53 @@
+$navbar-default-bg: #111;
+$navbar-height: 70px;
+$navbar-border-radius: 0;
+$navbar-default-link-color: #fff;
+$navbar-default-link-hover-color: $concur-blue;
+$navbar-default-link-active-color: $navbar-default-link-color;
+
+nav.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-nav {
+  > li > a {
+    border-bottom: 2px solid $navbar-default-bg;
+    text-transform: uppercase;
+  }
+}
+
+a.navbar-brand {
+  display: inline-block;
+  padding: 0;
+
+  img {
+    display: inline-block;
+    float: left;
+    height: $navbar-height;
+    padding: 10px 0;
+  }
+
+  .app-name {
+    padding-top: 25px;
+    display: inline-block;
+    font-size: 1em;
+  }
+}
+
+.search {
+  position: relative;
+}
+
+.search-open {
+  position: absolute;
+  z-index: 50;
+  top: $navbar-height;
+  right: 0;
+  display: none;
+  padding: 10px 0;
+  background: $navbar-default-bg;
+
+  .btn {
+    padding: 7px 15px 7px;
+  }
+}
