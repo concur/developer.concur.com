@@ -25,6 +25,11 @@ $grid-float-breakpoint-max: $grid-float-breakpoint - 1;
 
 // Other styles
 
+// eliminates positioning jumps when a scrollbar is missing
+html {
+  overflow-y: scroll;
+}
+
 .footer-v1 {
   height: inherit;
 }
