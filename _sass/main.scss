@@ -1,18 +1,43 @@
-$concur-blue: #0275BC;
+@import "colors";
+
 $border-radius-base: 0;
 $headings-font-weight: 200;
 $headings-font-color: #444;
+$grid-float-breakpoint: 992px;
+$grid-float-breakpoint-max: $grid-float-breakpoint - 1;
 
+// components
 @import "components/navbar";
+@import "components/navbar-searchbox";
 @import "components/navbar-notice";
 @import "components/jumbotrons";
-@import "components/dropdowns";
+
+// pages
+@import "pages/home";
+@import "pages/why-concur";
+@import "pages/go-to-market";
 
 @import "bootstrap";
 
-// @import "typography";
-@import "buttons";
+// Bootstrap component override
+@import "components/buttons";
+@import "components/dropdowns";
+
+// Other styles
 
 .footer-v1 {
   height: inherit;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}
+
+.breadcrumb {
+  background: none;
+  padding: 0;
+}
+
+.concur-blue {
+  background-color: $concur-blue;
 }

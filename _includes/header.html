@@ -64,16 +64,18 @@
             <a href="#" class="search">
               <i class="fa fa-search search-btn"></i>
             </a>
-            <div class="search-open pull-right">
-              <div class="animated fadeInDown">
-                <form method="GET" action="{{ site.baseurl }}/search.html" id="searchbox_000165422556797149853:qlbg8re_3tu" class="form-inline">
-                  <input value="000165422556797149853:qlbg8re_3tu" name="cx" type="hidden"/>
-                  <input value="FORID:11" name="cof" type="hidden"/> <!-- FORID values configure ad positions -->
-                  <div class="form-group">
-                    <label for="q" hidden>Search</label>
+            <div class="search-open">
+              <div class="input-group animated fadeInDown">
+                <form method="GET" action="{{ site.baseurl }}/search.html" id="searchbox_000165422556797149853:qlbg8re_3tu">
+                  <input value="000165422556797149853:qlbg8re_3tu" name="cx" type="hidden">
+                  <input value="FORID:11" name="cof" type="hidden"> <!-- FORID values configure ad positions -->
+
+                  <div class="input-group">
                     <input type="text" id="q" class="form-control" name="q" placeholder="Search">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn bright-blue">Go</button>
+                    </span>
                   </div>
-                  <button type="submit" class="btn">Go</button>
                 </form>
               </div>
             </div>

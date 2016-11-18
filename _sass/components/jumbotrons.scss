@@ -1,30 +1,10 @@
-$why-concur-image: url('/assets/img/sliders/nyc_timessquare.jpg');
-$why-concur-bg: rgba(0, 0, 0, 0.5);
-
 .jumbotron {
+  height: 400px;
+  background: $concur-blue;
+
   h1, h2, h3, h4, h5, h6 {
     padding-bottom: 20px;
-    font-size: 2.5em;
     font-weight: 400;
     color: #fff;
-  }
-}
-
-.jumbotron-home {
-  background: $concur-blue;
-  background-image: url('/concur_assets/img/slider_1_bg.png');
-  height: 400px;
-}
-
-.jumbotron-why-concur {
-  background: -webkit-linear-gradient($why-concur-bg, $why-concur-bg), $why-concur-image;
-  background:    -moz-linear-gradient($why-concur-bg, $why-concur-bg), $why-concur-image;
-  background:      -o-linear-gradient($why-concur-bg, $why-concur-bg), $why-concur-image;
-  background:         linear-gradient($why-concur-bg, $why-concur-bg), $why-concur-image;
-
-  height: 400px;
-
-  h2 {
-    text-transform: uppercase;
   }
 }

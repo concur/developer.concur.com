@@ -499,7 +499,7 @@ a:hover {
 
 @media (max-width: 550px) {
 	.breadcrumbs h1.pull-left,
-	.breadcrumbs ul.pull-right {
+	.breadcrumbs ol.pull-right {
 		width: 100%;
 		text-align: center;
 	}

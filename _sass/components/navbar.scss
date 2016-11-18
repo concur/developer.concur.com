@@ -1,18 +1,25 @@
-$navbar-default-bg: #111;
+$navbar-default-bg: $off-black;
 $navbar-height: 70px;
 $navbar-border-radius: 0;
-$navbar-default-link-color: #fff;
+$navbar-default-link-color: $white;
 $navbar-default-link-hover-color: $concur-blue;
 $navbar-default-link-active-color: $navbar-default-link-color;
 
+// eliminate margin between navbar and page content
 nav.navbar {
   margin-bottom: 0;
 }
 
 .navbar-nav {
+  // apply border so text doesn't jump on hover
   > li > a {
     border-bottom: 2px solid $navbar-default-bg;
     text-transform: uppercase;
+  }
+
+  > li.active > a,
+  > li > a:hover {
+    border-bottom: 2px solid $concur-blue;
   }
 }
 
@@ -30,24 +37,13 @@ a.navbar-brand {
   .app-name {
     padding-top: 25px;
     display: inline-block;
-    font-size: 1em;
+    font-size: 0.8em;
   }
 }
 
-.search {
-  position: relative;
-}
-
-.search-open {
-  position: absolute;
-  z-index: 50;
-  top: $navbar-height;
-  right: 0;
-  display: none;
-  padding: 10px 0;
-  background: $navbar-default-bg;
-
-  .btn {
-    padding: 7px 15px 7px;
+// remove hover effects in collapsable mode
+@media (max-width: $grid-float-breakpoint-max) {
+	.navbar-nav > li > a:hover {
+    border-bottom: 2px solid $navbar-default-bg;
   }
 }

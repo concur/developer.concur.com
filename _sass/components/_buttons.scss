@@ -1,28 +1,37 @@
 /*--- Default button styles ---*/
 .btn {
+  font-family: "proxima-nova", arial, helvetica, sans-serif;
   display: inline-block;
   padding: 10px 25px 9px;
   text-decoration: none;
   font-size: 18px;
   line-height: 19px;
-  font-weight: 600;
+  font-weight: 400;
   color: #fff;
   margin-bottom: 3px;
-  background-color: #00a9f2;
-    -webkit-border-radius: 3px;
-       -moz-border-radius: 3px;
-            border-radius: 3px;
+  background-color: $bright-blue;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
   -webkit-box-shadow: 0px 3px 0px #0075a8;
      -moz-box-shadow: 0px 3px 0px #0075a8;
           box-shadow: 0px 3px 0px #0075a8;
+
+  &:hover {
+    background-color: #27beff;
+    color: #fff;
+  }
+
+  &:active,
+  &:focus {
+    text-decoration: underline;
+    color: #fff;
+  }
 }
+
 button.btn, input.btn {
   border: none;
   cursor: pointer;
-}
-.btn:hover {
-  background-color: #27beff;
-  color: #fff;
 }
 
 /*--- Button Sizing styles ---*/
@@ -51,10 +60,11 @@ button.btn, input.btn {
   -webkit-box-shadow: 0px 3px 0px #004089;
      -moz-box-shadow: 0px 3px 0px #004089;
           box-shadow: 0px 3px 0px #004089;
-}
-.btn.concur-blue:hover {
-  background-color: #0088e3;
-  color: #fff;
+
+  &:hover {
+    background-color: #0088e3;
+    color: #fff;
+  }
 }
 
 /*--- Dark Blue ---*/
@@ -64,10 +74,11 @@ button.btn, input.btn {
   -webkit-box-shadow: 0px 3px 0px #012041;
      -moz-box-shadow: 0px 3px 0px #012041;
           box-shadow: 0px 3px 0px #012041;
-}
-.btn.dark-blue:hover {
-  background-color: #0b59a9;
-  color: #fff;
+
+  &:hover {
+    background-color: #0b59a9;
+    color: #fff;
+  }
 }
 
 /*--- Orange ---*/
@@ -77,10 +88,11 @@ button.btn, input.btn {
   -webkit-box-shadow: 0px 3px 0px #862614;
      -moz-box-shadow: 0px 3px 0px #862614;
           box-shadow: 0px 3px 0px #862614;
-}
-.btn.orange:hover {
-  background-color: #ec6039;
-  color: #fff;
+
+  &:hover {
+    background-color: #ec6039;
+    color: #fff;
+  }
 }
 
 /*--- Bright Green ---*/
@@ -90,13 +102,12 @@ button.btn, input.btn {
   -webkit-box-shadow: 0px 3px 0px #4b850a;
      -moz-box-shadow: 0px 3px 0px #4b850a;
           box-shadow: 0px 3px 0px #4b850a;
-}
-.btn.bright-green:hover {
-  background-color: #92cb53;
-  color: #fff;
-}
 
-
+  &:hover {
+    background-color: #92cb53;
+    color: #fff;
+  }
+}
 
 /*--- Dark Green ---*/
 .btn.dark-green {
@@ -105,10 +116,11 @@ button.btn, input.btn {
   -webkit-box-shadow: 0px 3px 0px #2a4e04;
      -moz-box-shadow: 0px 3px 0px #2a4e04;
           box-shadow: 0px 3px 0px #2a4e04;
-}
-.btn.dark-green:hover {
-  background-color: #59a33d;
-  color: #fff;
+
+  &:hover {
+    background-color: #59a33d;
+    color: #fff;
+  }
 }
 
 /*--- Grey ---*/
@@ -119,10 +131,11 @@ button.btn, input.btn {
   -webkit-box-shadow: 0px 3px 0px #626166;
      -moz-box-shadow: 0px 3px 0px #626166;
           box-shadow: 0px 3px 0px #626166;
-}
-.btn.grey:hover {
-  background-color: #adaeae;
-  color: #fff;
+
+  &:hover {
+    background-color: #adaeae;
+    color: #fff;
+  }
 }
 
 /*--- White ---*/
@@ -132,10 +145,11 @@ button.btn, input.btn {
   -webkit-box-shadow: 0px 3px 0px rgba(0,0,0,0.25);
      -moz-box-shadow: 0px 3px 0px rgba(0,0,0,0.25);
           box-shadow: 0px 3px 0px rgba(0,0,0,0.25);
-}
-.btn.white:hover {
-  background-color: #e5e5e5;
-  color: #444;
+
+  &:hover {
+    background-color: #e5e5e5;
+    color: #444;
+  }
 }
 
 /*--- Yellow ---*/
@@ -145,10 +159,11 @@ button.btn, input.btn {
   -webkit-box-shadow: 0px 3px 0px #b4670d;
      -moz-box-shadow: 0px 3px 0px #b4670d;
           box-shadow: 0px 3px 0px #b4670d;
-}
-.btn.yellow:hover {
-  background-color: #f8b723;
-  color: #fff;
+
+  &:hover {
+    background-color: #f8b723;
+    color: #fff;
+  }
 }
 
 /*--- Ghost Buttons ---*/
@@ -171,20 +186,24 @@ button.btn, input.btn {
 
 /*--- concur-blue ---*/
 .btn-ghost.concur-blue {
-  border-color: #00a9f2;
-  color: #00a9f2;
+  border-color: $concur-blue;
+  color: $concur-blue;
+
+  &:hover {
+    background-color: $concur-blue;
+    color: #fff;
+    text-decoration: none;
+  }
 }
-.btn-ghost.concur-blue:hover {
-  background-color: #00a9f2;
-  color: #fff;
-  text-decoration: none;
-}
+
 .btn-ghost.white {
   color: white;
   border-color: white;
-  background-color: rgba(0,0,0,0.2);
-}
-.btn-ghost.white:hover {
-  background-color: white;
-  color: #00a9f2;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: white;
+    color: $concur-blue;
+    text-decoration: none;
+  }
 }

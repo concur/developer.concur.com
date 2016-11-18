@@ -1,0 +1,14 @@
+$gtm-bg-image: url('/assets/img/sliders/GTM1.jpg');
+$gtm-bg: rgba(0, 0, 0, 0.3);
+
+.jumbotron.jumbotron-go-to-market {
+  background: -webkit-linear-gradient($gtm-bg, $gtm-bg), $gtm-bg-image bottom;
+  background:    -moz-linear-gradient($gtm-bg, $gtm-bg), $gtm-bg-image bottom;
+  background:      -o-linear-gradient($gtm-bg, $gtm-bg), $gtm-bg-image bottom;
+  background:         linear-gradient($gtm-bg, $gtm-bg), $gtm-bg-image bottom;
+}
+
+.concur-blue p a:not(.btn) {
+  color: white;
+  text-decoration: underline;
+}

@@ -1,8 +1,30 @@
-// Hover/Focus state
-.dropdown-menu > li > a {
-  &:hover,
-  &:focus {
-    color: $concur-blue;
-    background-color: #fff;
+.dropdown-menu {
+  padding: 0;
+
+  > li {
+    min-width: 250px;
+  }
+
+  > li > a {
+    padding: 8px 20px;
+    border-bottom: 2px solid $light-gray;
+
+    &:hover,
+    &:focus {
+      color: $white;
+      background-color: $dark-gray;
+    }
+  }
+}
+
+@media (min-width: $grid-float-breakpoint) {
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
+}
+
+@media (max-width: $grid-float-breakpoint-max) {
+  .dropdown-menu > li > a {
+    border-bottom: 1px solid $off-black;
   }
 }
