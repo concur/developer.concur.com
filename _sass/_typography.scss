@@ -5,6 +5,7 @@ body button,
 body select {
   font-family: "proxima-nova", arial, helvetica, sans-serif;
 }
+
 body h1,
 body h2,
 body h3,
@@ -21,6 +22,7 @@ body h6 {
 .prox-basic {
   font-family: "proxima-nova", arial, helvetica, sans-serif;
 }
+
 .prox-condensed {
   font-family: "proxima-nova-condensed", arial, helvetica, sans-serif;
 }
@@ -30,6 +32,7 @@ body h6 {
   font-size: 12px;
   line-height: 18px;
 }
+
 @media (max-width: 1024px) {
   .small {
     font-size: 13px;
@@ -40,343 +43,12 @@ body h6 {
 p {
   font-size: 16px;
   line-height: 22px;
+  font-weight: 200;
 }
+
 @media (max-width: 1024px) {
   p {
     font-size: 15px;
     line-height: 21px;
-  }
-}
-
-body h1 {
-  font-size: 56px;
-  line-height: 62px;
-}
-@media (max-width: 1024px) {
-  body h1 {
-    font-size: 46px;
-    line-height: 52px;
-  }
-}
-@media (max-width: 767px) {
-  body h1 {
-    font-size: 36px;
-    line-height: 42px;
-  }
-}
-
-
-body h2 {
-   font-size: 48px;
-    line-height: 54px;
-
-}
-@media (max-width: 1024px) {
-  body h2 {
-    font-size: 40px;
-    line-height: 46px;
-  }
-}
-@media (max-width: 767px) {
-  body h2 {
-    font-size: 34px;
-    line-height: 40px;
-  }
-}
-
-
-body h3 {
-  font-size: 32px;
-  line-height: 38px;
-}
-@media (max-width: 1024px) {
-  body h3 {
-    font-size: 30px;
-    line-height: 36px;
-  }
-}
-@media (max-width: 767px) {
-  body h3 {
-    font-size: 28px;
-    line-height: 34px;
-  }
-}
-
-
-body h4 {
-  font-size: 24px;
-  line-height: 30px;
-}
-
-body h5 {
-  font-size: 24px;
-  line-height: 30px;
-}
-
-body h6 {
-  font-size: 18px;
-  line-height: 30px;
-}
-
-h1.xxlg {
-  font-size: 56px;
-  line-height: 62px;
-}
-@media (max-width: 1024px) {
-  h1.xxlg {
-    font-size: 46px;
-    line-height: 52px;
-  }
-}
-@media (max-width: 767px) {
-  h1.xxlg {
-    font-size: 36px;
-    line-height: 42px;
-  }
-}
-
-
-h1.xlg,
-h2.xlg {
-    font-size: 52px;
-    line-height: 58px;
-}
-@media (max-width: 1024px) {
-  h1.xlg,
-  h2.xlg {
-    font-size: 42px;
-    line-height: 48px;
-  }
-}
-@media (max-width: 768px) {
-  h1.xlg,
-  h2.xlg {
-    font-size: 34px;
-    line-height: 40px;
-  }
-}
-
-
-h1.lg,
-h2.lg {
-    font-size: 48px;
-    line-height: 54px;
-}
-@media (max-width: 1024px) {
-  h1.lg,
-  h2.lg {
-    font-size: 40px;
-    line-height: 46px;
-  }
-}
-@media (max-width: 767px) {
-  h1.lg,
-  h2.lg {
-    font-size: 34px;
-    line-height: 40px;
-  }
-}
-
-
-h1.reg,
-h2.reg {
-    font-size: 42px;
-    line-height: 48px;
-}
-@media (max-width: 1024px) {
-  h1.reg,
-  h2.reg {
-    font-size: 36px;
-    line-height: 42px;
-  }
-}
-@media (max-width: 767px) {
-  h1.reg,
-  h2.reg {
-    font-size: 32px;
-    line-height: 38px;
-  }
-}
-
-
-h1.sm,
-h2.sm,
-h3.xlg {
-  font-size: 38px;
-  line-height: 44px;
-}
-@media (max-width: 1024px) {
-  h1.sm,
-  h2.sm,
-  h3.xlg {
-    font-size: 34px;
-    line-height: 40px;
-  }
-}
-@media (max-width: 767px) {
-  h1.sm,
-  h2.sm,
-  h3.xlg {
-    font-size: 30px;
-    line-height: 36px;
-  }
-}
-
-
-h1.xsm,
-h2.xsm,
-h3.lg {
-  font-size: 36px;
-  line-height: 42px;
-}
-@media (max-width: 1024px) {
-  h1.xsm,
-  h2.xsm,
-  h3.lg {
-    font-size: 32px;
-    line-height: 38px;
-  }
-}
-@media (max-width: 767px) {
-  h1.xsm,
-  h2.xsm,
-  h3.lg {
-    font-size: 30px;
-    line-height: 36px;
-  }
-}
-
-h3.reg {
-  font-size: 32px;
-  line-height: 38px;
-}
-@media (max-width: 1024px) {
-  h3.reg {
-    font-size: 30px;
-    line-height: 36px;
-  }
-}
-@media (max-width: 767px) {
-  h3.reg {
-    font-size: 28px;
-    line-height: 34px;
-  }
-}
-
-
-h3.sm,
-h4.lg {
-  font-size: 30px;
-  line-height: 36px;
-}
-@media (max-width: 1024px) {
-  h3.sm,
-  h4.lg {
-    font-size: 28px;
-    line-height: 34px;
-  }
-}
-@media (max-width: 767px) {
-  h3.sm,
-  h4.lg {
-    font-size: 26px;
-    line-height: 30px;
-  }
-}
-
-
-h4.reg,
-h5.xl {
-  font-size: 28px;
-  line-height: 34px;
-}
-@media (max-width: 1024px) {
-  h4.reg,
-  h5.xl {
-    font-size: 26px;
-    line-height: 32px;
-  }
-}
-@media (max-width: 767px) {
-  h4.reg,
-  h5.xl {
-    font-size: 24px;
-  line-height: 30px;
-
-  }
-}
-
-h4.sm,
-h5.lg {
-  font-size: 24px;
-  line-height: 30px;
-}
-
-
-h5.reg,
-p.xl {
-  font-size: 20px;
-  line-height: 26px;
-}
-@media (max-width: 1024px) {
-  h5.reg,
-  p.xl {
-    font-size: 18px;
-    line-height: 24px;
-  }
-}
-
-h5.sm,
-h6.lg,
-p.lg {
-  font-size: 18px;
-  line-height: 24px;
-}
-@media (max-width: 1024px) {
-  h5.sm,
-  h6.lg,
-  p.lg {
-    font-size: 16px;
-    line-height: 22px;
-  }
-}
-
-h6.reg,
-p.reg {
-  font-size: 16px;
-  line-height: 22px;
-}
-@media (max-width: 1024px) {
-  h6.reg,
-  p.reg {
-    font-size: 15px;
-    line-height: 21px;
-  }
-}
-
-h6.sm,
-p.sm {
-  font-size: 15px;
-  line-height: 21px;
-}
-
-
-h6.xsm,
-p.xsm {
-  font-size: 14px;
-  line-height: 20px;
-}
-
-
-h6.xxsm,
-p.xxsm {
-  font-size: 12px;
-  line-height: 18px;
-}
-@media (max-width: 1024px) {
-  h6.xxsm,
-  p.xxsm {
-    font-size: 13px;
-    line-height: 19px;
   }
 }

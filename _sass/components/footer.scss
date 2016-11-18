@@ -1,0 +1,24 @@
+.footer {
+  background-color: $off-black;
+  color: white;
+  padding: 30px 0;
+
+}
+
+.headline {
+  margin: 10px 0 25px 0;
+  border-bottom: 2px solid $concur-blue;
+
+  h2, h3, h4 {
+    padding-bottom: 5px;
+    color: $light-gray;
+  }
+}
+
+.copyright {
+  margin-top: 20px;
+}
+
+.company-description {
+  margin-bottom: 10px;
+}

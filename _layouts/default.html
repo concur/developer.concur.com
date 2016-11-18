@@ -34,7 +34,6 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/plugins/line-icons/line-icons.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/plugins/sky-forms/version-2.0.1/css/custom-sky-forms.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/plugins/fancybox/source/jquery.fancybox.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/pages/page_one.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme-colors/default.css">
 
@@ -47,7 +46,6 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/blogcss.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/plugins.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/concur-brand.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/bootstrap.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/custom-sky-forms.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/github-markdown.css">
 
@@ -66,7 +64,7 @@
 </head>
 
 <body>
-<div class="wrapper page-option-v1">
+<div class="wrapper">
     {% include header.html %}
 
     {{ content }}
@@ -76,27 +74,14 @@
 
 <!-- JS Implementing Plugins -->
 <script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/back-to-top.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
 <!-- JS Customization -->
 <!-- <script type="text/javascript" src="{{ site.baseurl }}/assets/js/blog-fetch.js"></script> -->
 <!-- JS Page Level -->
 <script type="text/javascript" src="{{ site.baseurl }}/assets/js/app.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/assets/js/plugins/fancy-box.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/fancybox/source/helpers/jquery.fancybox-media.js"></script>
 <script type="text/javascript">
-    jQuery(document).ready(function() {
-        App.init();
-        FancyBox.initFancybox();
-        jQuery(document).ready(function() {
-            jQuery('.fancybox-media').fancybox({
-                openEffect  : 'none',
-                closeEffect : 'none',
-                helpers : {
-                    media : {}
-                }
-            });
-        });
-    });
+  jQuery(document).ready(function() {
+    App.init();
+  });
 </script>
 <!--[if lt IE 9]>
     <script src="assets/plugins/respond.js"></script>
