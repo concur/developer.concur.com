@@ -7,7 +7,7 @@ tags:
     - Connect
     - Deprecation
 references:
-    - url: /tools-support/reference/deprecation-policy.html](https://developer.concur.com/tools-support/reference/deprecation-policy.html
+    - url: /tools-support/reference/deprecation-policy.html
       link: Concur API Deprecation Policy
 categories:
     - changelog
