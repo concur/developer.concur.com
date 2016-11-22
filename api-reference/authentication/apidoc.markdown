@@ -39,7 +39,7 @@ Name | Type | Format | Description
 `token_type`|`string`|-| The type of token returned. Value will be `Bearer`
 `access_token`|`string`|-|JSON Web Token (JWT) used to access pprotected resources of Concur's services.
 `refresh_token`|`string`|-|Refresh token required to request a new access token for a given user.
-`geoLocation`|`string`|-|The base URL for where the user profile lives 
+`geolocation`|`string`|-|The base URL for where the user profile lives 
 
 **Token Response**
 
@@ -60,7 +60,7 @@ json
 	"token_type": "Bearer",
 	"access_token": "access_token",
 	"refresh_token": "refresh_token",
-  "geoLocation": "https://us.api.concursolutions.com"
+  "geolocation": "https://us.api.concursolutions.com"
 }
 ```
 
@@ -150,7 +150,7 @@ json
   "token_type": "Bearer",
   "access_token": "new-access_token",
   "refresh_token": "new-refresh_token",
-  "geoLocation": "https://us.api.concursolutions.com"
+  "geolocation": "https://us.api.concursolutions.com"
 }
 
 ```
@@ -348,7 +348,7 @@ json
 	"token_type": "Bearer",
 	"access_token": "access_token",
 	"refresh_token": "refresh_token",
-  "geoLocation": "https://us.api.concursolutions.com"
+  "geolocation": "https://us.api.concursolutions.com"
 }
 
 ```
@@ -410,7 +410,7 @@ Connection: Close
   "scope": "scopes defined for application",
   "token_type": "Bearer",
   "access_token": "JWT",
-  "geoLocation": "https://us.api.concursolutions.com"
+  "geolocation": "https://us.api.concursolutions.com"
 }
 ```
 
@@ -558,7 +558,7 @@ json
 	"token_type": "Bearer",
 	"access_token": "access_token (JWT)",
 	"refresh_token": "refresh_token"
-  "geoLocation": "https://us.api.concursolutions.com"
+  "geolocation": "https://us.api.concursolutions.com"
 }
 ```
 
