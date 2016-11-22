@@ -39,6 +39,7 @@ Name | Type | Format | Description
 `token_type`|`string`|-| The type of token returned. Value will be `Bearer`
 `access_token`|`string`|-|JSON Web Token (JWT) used to access pprotected resources of Concur's services.
 `refresh_token`|`string`|-|Refresh token required to request a new access token for a given user.
+`geolocation`|`string`|-|The base URL for where the user profile lives 
 
 **Token Response**
 
@@ -58,7 +59,8 @@ json
 	"scope": "app-scopes",
 	"token_type": "Bearer",
 	"access_token": "access_token",
-	"refresh_token": "refresh_token"
+	"refresh_token": "refresh_token",
+  "geolocation": "https://us.api.concursolutions.com"
 }
 ```
 
@@ -147,7 +149,8 @@ json
   "scope": "app-scope",
   "token_type": "Bearer",
   "access_token": "new-access_token",
-  "refresh_token": "new-refresh_token"
+  "refresh_token": "new-refresh_token",
+  "geolocation": "https://us.api.concursolutions.com"
 }
 
 ```
@@ -195,10 +198,10 @@ Connection: Close
 
 ## <a name="manage_token"></a>Managing tokens
 
-Refresh Tokens are 28 character strings that allow your application to obtain a fresh `accessToken` for access to Concur's APIs. 
+Refresh Tokens are UUID4 identifiers that allow your application to obtain a fresh `accessToken` on behalf of a user to access Concur's APIs. 
 
 ```
-1_052f3d45439c5b4c6a3cc3d037
+e013335d-b4ce-4c43-a7e4-b67abc1adcb0
 ```
 
 It is highly recommended that you store Refresh Tokens together with your user's authorization metadata in your application every time you obtain a new `refreshToken` as they might change depending on different scenarios.
@@ -344,7 +347,8 @@ json
 	"scope": "app-scopes",
 	"token_type": "Bearer",
 	"access_token": "access_token",
-	"refresh_token": "refresh_token"
+	"refresh_token": "refresh_token",
+  "geolocation": "https://us.api.concursolutions.com"
 }
 
 ```
@@ -405,7 +409,8 @@ Connection: Close
   "expires_in": "3600",
   "scope": "scopes defined for application",
   "token_type": "Bearer",
-  "access_token": "JWT"
+  "access_token": "JWT",
+  "geolocation": "https://us.api.concursolutions.com"
 }
 ```
 
@@ -435,6 +440,8 @@ Name | Type | Format | Description
 `client_secret`|`string`|`UUID`|**Required** The client_secret as set by the client owner in the Concur application management system.
 `channel_handle`|`string`|-|**Required** The location (email address, phone number) where the one time token should be sent. Currently, only `email address` is valid.
 `channel_type`|`string`|-|**Required** The type of messaging system to use. Currently only `email` is valid
+`name`|`string`|-|*Optional* The name of the user that appears in the email.
+`company`|`string`|-|*Optional* The company or application name that appears in the email. 
 `link`|`string`|-|*Optional* The callback URL that appears in the email for users to click to complete the auth flow.
 
 
@@ -551,6 +558,7 @@ json
 	"token_type": "Bearer",
 	"access_token": "access_token (JWT)",
 	"refresh_token": "refresh_token"
+  "geolocation": "https://us.api.concursolutions.com"
 }
 ```
 
