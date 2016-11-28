@@ -14,8 +14,20 @@
   }
 }
 
-.copyright {
+.footer-copyright {
   margin-top: 20px;
+}
+
+.footer-github {
+  margin: 30px 0;
+
+  span {
+    margin: 0 10px;
+  }
+
+  * {
+    color: white;
+  }
 }
 
 .company-description {
