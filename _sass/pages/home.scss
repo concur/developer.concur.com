@@ -1,5 +1,12 @@
-.jumbotron.jumbotron-home {
-  background: url('/concur_assets/img/slider_1_bg.png') center;
+$home-image: url('/concur_assets/img/slider_1_bg.png');
+$home-bg: rgba(0, 0, 0, 0.2);
+
+.jumbotron-home {
+  background: -webkit-linear-gradient($home-bg, $home-bg), $home-image top center;
+  background:    -moz-linear-gradient($home-bg, $home-bg), $home-image top center;
+  background:      -o-linear-gradient($home-bg, $home-bg), $home-image top center;
+  background:         linear-gradient($home-bg, $home-bg), $home-image top center;
+  background-size: cover;
 }
 
 .card-content {
@@ -11,7 +18,8 @@
 
   position: relative;
   margin-bottom: 20px;
-  min-height: 360px;
+  min-height: 380px;
+  border: 2px solid $light-gray;
 
   img {
     min-height: 100px;

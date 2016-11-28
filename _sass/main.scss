@@ -15,6 +15,7 @@ $grid-float-breakpoint-max: $grid-float-breakpoint - 1;
 @import "components/card";
 
 // pages
+@import "pages/shared";
 @import "pages/home";
 @import "pages/why-concur";
 @import "pages/go-to-market";

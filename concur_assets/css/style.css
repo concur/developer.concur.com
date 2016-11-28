@@ -127,11 +127,11 @@ body {
 }
 
 div.container.content { /* Container Content is usually what we want the bottom padding on. */
-  padding-bottom:400px;
+  padding-bottom: 100px;
 }
 
 div.container.content-sm { /* Sometimes it's small. */
-  padding-bottom:400px;
+  padding-bottom: 400px;
 }
 
 .one-page-inner div.container.content { /* Some pages use these combo classes in other ways - remove the padding... */

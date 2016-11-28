@@ -38,6 +38,10 @@ a.navbar-brand {
     padding-top: 25px;
     display: inline-block;
     font-size: 0.8em;
+
+    &:hover {
+      color: $concur-blue;
+    }
   }
 }
 
