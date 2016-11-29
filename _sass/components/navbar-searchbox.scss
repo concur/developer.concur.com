@@ -3,15 +3,15 @@
 }
 
 .search-open {
-	right: 0;
-	top: $navbar-height + 3;
-	display: none;
-	padding: 14px;
-	position: absolute;
+  right: 0;
+  top: $navbar-height + 3;
+  display: none;
+  padding: 14px;
+  position: absolute;
   z-index: 100;
   width: 280px;
-	background: lighten($navbar-default-bg, 5%);
-	box-shadow: 0 1px 3px lighten($navbar-default-bg, 5%);
+  background: lighten($navbar-default-bg, 5%);
+  box-shadow: 0 1px 3px lighten($navbar-default-bg, 5%);
 
   form {
     margin: 0;
@@ -28,13 +28,13 @@
 }
 
 @media (max-width: 991px) {
-	.navbar .search-open {
-		top: 5px;
-		padding: 0;
-		left: 48px;
-		border-top: none;
-		box-shadow: none;
-		background: none;
-		margin-right: 10px;
-	}
+  .navbar .search-open {
+    top: 5px;
+    padding: 0;
+    left: 48px;
+    border-top: none;
+    box-shadow: none;
+    background: none;
+    margin-right: 10px;
+  }
 }
