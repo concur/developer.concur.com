@@ -52,7 +52,7 @@ successful call, responds with
 301 Redirect https://client.app.url?code=3979344784714c10a35d6f1fddd869f0
 ```
 
-**Client app calls Oauth2 password grant to get an access token for each of the users**
+**Client app calls Oauth2 password grant to get an access token for the company**
 
 Name | Type | Format | Description
 -----|------| ------ | --------------
