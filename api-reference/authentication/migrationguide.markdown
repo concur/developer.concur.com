@@ -74,6 +74,7 @@ successful call, responds with:
 ## <a name="response_codes"></a>Response Codes
 
 ##### HTTP Status returned by AppMgmt ** WHAT ARE THE ACTUAL ERROR CODES **
+
 | HTTP Status | Description                                      |
 |-------------|--------------------------------------------------|
 |   200       | OK - Successful call, response is in body.       |
