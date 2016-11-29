@@ -48,6 +48,7 @@ successful call, responds with
 **AppCenter redirects User to Client's auth handler URI and passing in the authToken**
 
 ```http
+
 301 Redirect https://client.app.url?code=3979344784714c10a35d6f1fddd869f0
 ```
 
@@ -66,8 +67,7 @@ Name | Type | Format | Description
 
 **Request**
 
-```
-http
+```http
 
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
@@ -84,8 +84,7 @@ client_id=your-client_id
 
 **Response**
 
-```
-http
+```http
 
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
@@ -94,15 +93,15 @@ Content-Length: 3397
 Connection: Close
 ```
 
-```
-json
+```json
 
 {
   "expires_in": "3600",
-  "scope": "app-scopes",
+  "scope": "app_scopes",
   "token_type": "Bearer",
   "access_token": "access_token",
-  "refresh_token": "refresh_token"
+  "refresh_token": "refresh_token",
+  "geolocation":"https://us.api.concursolutions.com"
 }
 
 ```
@@ -110,8 +109,7 @@ json
 
 example bad login
 
-```
-json
+```json
 
 {
   "error": "invalid_grant",
@@ -136,7 +134,8 @@ json
 
 4xx class errors have a JSON response with the following fields
 
-```
+```json
+
   {
    "code": <number>,
    "error": <error>,
