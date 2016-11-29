@@ -1,3 +1,4 @@
+---
 title: Migrating to Oauth2 Tokens
 layout: reference
 ---
