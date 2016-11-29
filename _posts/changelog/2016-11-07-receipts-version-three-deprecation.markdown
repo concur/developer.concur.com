@@ -17,7 +17,7 @@ categories:
 
 ### Overview
 
-In October 2016, Concur released a new version of the Receipts API and made it available for select early adopter partners. Updates to the Receipts API were announced in one of our September blog posts and you can find it [here](https://developer.concur.com/2016/09/12/API-Receipt-Update.html). Receipts version 3.0 will be now be officially deprecated as per our [policy](https://developer.concur.com/tools-support/reference/deprecation-policy.html) on February 7, 2017.
+Receipts version 4.0 is now available. Updates to the Receipts API were announced in one of our September blog posts and you can find it [here](https://developer.concur.com/2016/09/12/API-Receipt-Update.html). Receipts version 3.0 will be now be officially deprecated as per our [policy](https://developer.concur.com/tools-support/reference/deprecation-policy.html) on February 7, 2017.
 
 [Receipts API version 3.0](/api-reference-deprecated/version-three/receipts.html)
 
