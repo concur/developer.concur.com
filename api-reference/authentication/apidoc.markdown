@@ -466,6 +466,7 @@ http
 
 POST /oauth2/v0/otp HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Accept: application/json
 Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 437
