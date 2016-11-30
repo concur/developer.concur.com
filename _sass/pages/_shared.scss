@@ -1,12 +1,10 @@
+.concur-blue {
+  background-color: $concur-blue;
+}
+
 .concur-blue p a:not(.btn) {
   color: white;
   text-decoration: underline;
-}
-
-.content .markdown-body {
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: normal;
-  }
 }
 
 .one-page {
@@ -42,4 +40,37 @@
   .btn, .btn-ghost {
     margin: 10px 0;
   }
+}
+
+.wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+.breadcrumb li.active,
+.breadcrumb li a:hover {
+  color: $concur-link-color;
+}
+
+div.container.content { /* Container Content is usually what we want the bottom padding on. */
+  padding-bottom: 100px;
+}
+
+.one-page-inner div.container.content { /* Some pages use these combo classes in other ways - remove the padding... */
+  padding-bottom: 0px;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  border-color: $concur-link-color;
+  background-color: $concur-link-color;
+}
+
+.sidebar-nav-v1 ul li:hover a,
+.sidebar-nav-v1 ul li.active a {
+  color: $concur-link-color;
 }

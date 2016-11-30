@@ -1,0 +1,45 @@
+.content .markdown-body {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+  }
+}
+
+.markdown table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.markdown table > thead > tr > th,
+.markdown table > tbody > tr > th,
+.markdown table > tfoot > tr > th,
+.markdown table > thead > tr > td,
+.markdown table > tbody > tr > td,
+.markdown table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+
+.markdown table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+
+.markdown table > caption + thead > tr:first-child > th,
+.markdown table > colgroup + thead > tr:first-child > th,
+.markdown table > thead:first-child > tr:first-child > th,
+.markdown table > caption + thead > tr:first-child > td,
+.markdown table > colgroup + thead > tr:first-child > td,
+.markdown table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+
+.markdown table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+
+.markdown li a {
+  color: $concur-link-color;
+}

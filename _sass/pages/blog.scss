@@ -1,9 +1,11 @@
 .blogtags * {
   display: inline;
 }
+
 .noliststyle {
   list-style: none;
 }
+
 .list-group-item a {
   color: inherit;
 }
@@ -14,4 +16,12 @@
 
 .navtags {
   padding-top: 2px;
+}
+
+.blog-link {
+  color: #eee;
+
+  &:hover {
+    color: #eee;
+  }
 }

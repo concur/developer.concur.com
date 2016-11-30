@@ -5,6 +5,8 @@ $headings-font-weight: 200;
 $headings-font-color: #444;
 $grid-float-breakpoint: 992px;
 $grid-float-breakpoint-max: $grid-float-breakpoint - 1;
+$link-color: $concur-link-color;
+$link-hover-color: $concur-link-color;
 
 // components
 @import "components/navbar";
@@ -13,14 +15,20 @@ $grid-float-breakpoint-max: $grid-float-breakpoint - 1;
 @import "components/navbar-notice";
 @import "components/jumbotrons";
 @import "components/card";
+@import "components/swagger";
+@import "components/custom-skyforms";
+@import "components/markdown";
 
 // pages
 @import "pages/shared";
 @import "pages/home";
 @import "pages/why-concur";
 @import "pages/go-to-market";
+@import "pages/blog";
+@import "pages/search";
 
 @import "bootstrap";
+@import "vendor/github-markdown";
 
 // Bootstrap component override
 @import "typography";
@@ -34,6 +42,14 @@ html {
   overflow-y: scroll;
 }
 
+body {
+  font-family: "Helvetica Neue","Segoe UI",Arial,sans-serif;
+}
+
+.fine-print > p {
+  font-size: 12px;
+}
+
 .jumbotron {
   margin-bottom: 0;
 }
@@ -41,10 +57,6 @@ html {
 .breadcrumb {
   background: none;
   padding: 0;
-}
-
-.concur-blue {
-  background-color: $concur-blue;
 }
 
 .content {

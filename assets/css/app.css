@@ -6,68 +6,6 @@
  * Website: http://htmlstream.com
 */
 
-/*Reset Styles
-------------------------------------*/
-* {
-   border-radius: 0 !important;
-}
-
-a,
-a:focus,
-a:hover,
-a:active,
-button,
-button:hover {
-   outline: 0 !important;
-}
-
-a:focus {
-  text-decoration: none;
-}
-
-hr {
-  margin: 30px 0;
-}
-
-hr.hr-md {
-  margin: 20px 0;
-}
-
-/*Headings*/
-h1 {
-  font-size: 28px;
-  line-height: 35px;
-}
-h2 {
-  font-size: 24px;
-  line-height: 33px;
-}
-h3 {
-  font-size: 20px;
-  line-height: 27px;
-}
-h4 {
-  line-height: 25px;
-}
-h5 {
-  line-height: 20px;
-}
-h6 {
-  line-height: 18px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: #585f69;
-  margin-top: 5px;
-  text-shadow: none;
-  font-weight: normal;
-  font-family: 'Open Sans', sans-serif;
-}
-
-h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
-   margin-right: 5px;
-}
-
 /*Block Headline*/
 .headline {
   display: block;
