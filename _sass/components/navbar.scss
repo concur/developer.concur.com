@@ -23,6 +23,13 @@ nav.navbar {
   }
 }
 
+// remove hover effects in collapsable mode
+@media (max-width: $grid-float-breakpoint-max) {
+  .navbar-nav > li > a:hover {
+    border-bottom: 2px solid $navbar-default-bg;
+  }
+}
+
 a.navbar-brand {
   display: inline-block;
   padding: 0;
@@ -35,19 +42,11 @@ a.navbar-brand {
   }
 
   .app-name {
-    padding-top: 25px;
     display: inline-block;
-    font-size: 0.8em;
+    padding-top: 25px;
 
     &:hover {
       color: $concur-blue;
     }
-  }
-}
-
-// remove hover effects in collapsable mode
-@media (max-width: $grid-float-breakpoint-max) {
-  .navbar-nav > li > a:hover {
-    border-bottom: 2px solid $navbar-default-bg;
   }
 }
