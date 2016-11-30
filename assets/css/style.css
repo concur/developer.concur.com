@@ -8,19 +8,9 @@
 
 /*Import Global Compulsory CSS Files*/
 @import url(app.css);
-@import url(ie8.css);
-@import url(blocks.css);
-@import url(plugins.css);
 
 /*Import CSS Plugins*/
 @import url(plugins/animate.css);
-@import url(plugins/box-shadows.css);
-@import url(plugins/style-switcher.css);
-
-/*Import Headers*/
-
-/*Import Footers*/
-@import url(footers/footer-v1.css);
 
 /*Import Google Font*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
@@ -74,127 +64,6 @@ a:hover {
 ------------------------------------*/
 .parallax-bg {
 	background: url(../img/blur/img1.jpg) 50% 0 repeat fixed;
-}
-
-/*Parallax Counter Block*/
-.parallax-counter {
-	padding: 60px 0;
-	background: url(../img/bg/9.jpg) 50% 0 no-repeat fixed;
-}
-
-.parallax-counter h4 {
-	color: #fff;
-	font-size: 18px;
-}
-
-.parallax-counter .counters {
-	color: #fff;
-	padding: 20px 0;
-	font-weight: 200;
-	background: rgba(0,0,0,0.6);
-}
-
-/*Parallax Counter v1
-------------------------------------*/
-/*Parallax Counter Block*/
-.parallax-counter-v1 {
-	padding: 60px 0;
-	background: url(../img/patterns/5.png) repeat fixed;
-}
-
-.parallax-counter-v1 .counters {
-	color: #fff;
-	padding: 15px 0 10px;
-	border: solid 1px #555;
-}
-
-.parallax-counter-v1 h4 {
-	color: #bbb;
-	font-size: 16px;
-	text-transform: uppercase;
-}
-
-.parallax-counter-v1 span.counter {
-	font-size: 42px;
-	line-height: 48px;
-}
-
-/*Parallax Counter v2
-------------------------------------*/
-.parallax-counter-v2 {
-	position: relative;
-	padding: 80px 0 60px;
-	background: url(../img/patterns/16.png) repeat fixed;
-}
-
-.parallax-counter-v2:after {
-	top: 0;
-	left: 50%;
-	content: " ";
-	margin-left: -25px;
-	position: absolute;
-	border-top: 25px solid #fff;
-	border-left: 25px solid transparent;
-	border-right: 25px solid transparent;
-}
-
-.parallax-counter-v2:before {
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	content: " ";
-	position: absolute;
-	background: rgba(0,0,0,0.02);
-}
-
-.parallax-counter-v2 .counters {
-	padding: 20px 0;
-	border-bottom: solid 2px #ddd;
-	background: rgba(255,255,255,0.9);
-}
-
-.parallax-counter-v2 .counters h4,
-.parallax-counter-v2 .counters span {
-	color: #555;
-	font-weight: 200;
- 	font-family: 'Open Sans', sans-serif;
-}
-
-.parallax-counter-v2 .counters span {
-	font-size: 36px;
-}
-
-.parallax-counter-v2 .counters h4 {
-	font-size: 22px;
-	text-transform: uppercase;
-}
-
-@media (max-width: 992px) {
-  .parallax-counter-v2 .counters {
-    margin-bottom: 0 !important;
-  }
-}
-
-/*Parallax Team
-------------------------------------*/
-.parallax-team {
-	background: url(../img/team/faces.jpg) 50% 0 repeat fixed;
-}
-
-.parallax-team,
-.parallax-team .title-box-v2 {
-	position: relative;
-}
-
-.parallax-team:before {
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	content: " ";
-	position: absolute;
-	background: rgba(255,255,255,0.9);
 }
 
 /*Main Styles
@@ -2227,9 +2096,4 @@ img.img-mouse {
 .testimonials-bs .carousel-control-v2.right {
     text-decoration: none;
     background-image: none;
-}
-
-/*Team v1*/
-.team-v1 li > h3 {
-	color: #555;
 }

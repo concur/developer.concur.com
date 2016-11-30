@@ -140,9 +140,3 @@ div.container.content-sm { /* Sometimes it's small. */
 div.container.content.last { /* ... and only apply it to the last item. */
   padding-bottom: 400px;
 }
-.footer-v1 {
-	width:100%;
-	position:absolute;
-	bottom:0;
-	left:0;
-}
