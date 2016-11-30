@@ -1,0 +1,38 @@
+@import "colors";
+
+$border-radius-base: 0;
+$headings-font-weight: 200;
+$headings-font-color: #444;
+$grid-float-breakpoint: 992px;
+$grid-float-breakpoint-max: $grid-float-breakpoint - 1;
+$link-color: $concur-link-color;
+$link-hover-color: $concur-link-color;
+$font-family-base: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+
+// components
+@import "components/navbar";
+@import "components/navbar-searchbox";
+@import "components/navbar-notice";
+
+@import "bootstrap";
+
+// Bootstrap component override
+@import "components/buttons";
+@import "components/dropdowns";
+
+// Other styles
+
+// eliminates positioning jumps when a scrollbar is missing
+html {
+  overflow-y: scroll;
+}
+
+body {
+  h1, h2, h3, h4, h5, h6 {
+    color: #585f69;
+    margin-top: 5px;
+    text-shadow: none;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+  }
+}
