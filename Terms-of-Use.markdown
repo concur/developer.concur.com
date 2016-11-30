@@ -6,7 +6,7 @@ layout: reference
 
 <!-- Print button -->
 <a class="btn btn-primary pull-right hidden-print" href="javascript:window.print()">
-  <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+  <span class="fa fa-print" aria-hidden="true"></span>
   Print
 </a>
 

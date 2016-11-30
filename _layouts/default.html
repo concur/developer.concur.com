@@ -27,31 +27,25 @@
     <link rel="canonical" href="{{ site.canonical_site }}{{ page.url }}">
 
     <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/new-stylesheet.css">
 
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/plugins/line-icons/line-icons.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/plugins/sky-forms/version-2.0.1/css/custom-sky-forms.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/plugins/fancybox/source/jquery.fancybox.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css" media="screen">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/pages/page_one.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme-colors/default.css">
-    <!--[if lt IE 9]><link rel="stylesheet" href="assets/plugins/revolution-slider/rs-plugin/css/settings-ie8.css" type="text/css" media="screen"><![endif]-->
 
     <!-- CSS Theme -->
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme-colors/default.css">
 
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/header-default.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/style.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/app.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/blogcss.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/plugins.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/concur-brand.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/bootstrap.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/custom-sky-forms.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/concur_assets/css/github-markdown.css">
 
@@ -70,7 +64,7 @@
 </head>
 
 <body>
-<div class="wrapper page-option-v1">
+<div class="wrapper">
     {% include header.html %}
 
     {{ content }}
@@ -80,43 +74,14 @@
 
 <!-- JS Implementing Plugins -->
 <script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/back-to-top.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/jquery.parallax.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 <!-- JS Customization -->
 <!-- <script type="text/javascript" src="{{ site.baseurl }}/assets/js/blog-fetch.js"></script> -->
 <!-- JS Page Level -->
 <script type="text/javascript" src="{{ site.baseurl }}/assets/js/app.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/assets/js/plugins/fancy-box.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/fancybox/source/helpers/jquery.fancybox-media.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/assets/js/plugins/owl-carousel.js"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/assets/js/plugins/revolution-slider.js"></script>
 <script type="text/javascript">
-    jQuery(document).ready(function() {
-        App.init();
-        App.initParallaxBg();
-        FancyBox.initFancybox();
-        OwlCarousel.initOwlCarousel();
-        //RevolutionSlider.initRSfullWidth();
-        jQuery(document).ready(function() {
-             jQuery('.tp-banner').revolution(
-            {
-              delay:9000,
-              startwidth:1170,
-              startheight:400,
-              hideThumbs:10
-            });
-            jQuery('.fancybox-media').fancybox({
-                openEffect  : 'none',
-                closeEffect : 'none',
-                helpers : {
-                    media : {}
-                }
-            });
-        });
-    });
+  jQuery(document).ready(function() {
+    App.init();
+  });
 </script>
 <!--[if lt IE 9]>
     <script src="assets/plugins/respond.js"></script>

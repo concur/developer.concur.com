@@ -4,30 +4,32 @@ layout: default
 
 {% include breadcrumb.html %}
 
-    <!--=== Content Part ===-->
-    <div class="container content">
-      <div class="row">
-          <div class="col-md-3">
-            {% include left-navigation.html %}
-          </div><!--/col-md-3-->
+<!--=== Content Part ===-->
+<div class="container content">
+  <div class="row">
+    <div class="col-md-3">
+      {% include left-navigation.html %}
+    </div> <!--/.col-md-3-->
 
-          <div class="col-md-9 markdown-body">
-            {% if page.reference-type == 'swagger' %}
-            <div class="pull-right">
-              Access Token <input id="input_apiKey" type="text">
-            </div>
-            {% endif %}
-            {{ content }}
-          </div><!--/col-md-9-->
-        </div><!--/row-->
+    <div class="col-md-9 markdown-body">
+      {% if page.reference-type == 'swagger' %}
+      <div class="pull-right">
+        Access Token <input id="input_apiKey" type="text">
+      </div>
+      {% endif %}
 
-    </div><!--/container-->
-    <!--=== End Content Part ===-->
-    <script>
-      $(document).ready(function(){
-        localStorage.api_key ? $('#input_apiKey').val(localStorage.api_key) : null;
-      });
-      $('#input_apiKey').change(function(){
-          localStorage.setItem('api_key', $('#input_apiKey').val());
-      });
-    </script>
+      {{ content }}
+    </div> <!--/.col-md-9-->
+  </div> <!--/.row-->
+
+</div> <!--/.container-->
+<!--=== End Content Part ===-->
+
+<script>
+  $(document).ready(function(){
+    localStorage.api_key ? $('#input_apiKey').val(localStorage.api_key) : null;
+  });
+  $('#input_apiKey').change(function(){
+    localStorage.setItem('api_key', $('#input_apiKey').val());
+  });
+</script>

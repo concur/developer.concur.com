@@ -1,0 +1,53 @@
+/* Font Family Defaults */
+body,
+body input,
+body button,
+body select {
+  font-family: "proxima-nova", arial, helvetica, sans-serif;
+}
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  text-transform: none;
+  color: #444;
+  font-family: "proxima-nova-condensed", arial, helvetica, sans-serif;
+  font-weight: 100;
+}
+
+/* override classes */
+.prox-basic {
+  font-family: "proxima-nova", arial, helvetica, sans-serif;
+}
+
+.prox-condensed {
+  font-family: "proxima-nova-condensed", arial, helvetica, sans-serif;
+}
+
+/* Concur Font Sizes */
+.small {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@media (max-width: 1024px) {
+  .small {
+    font-size: 13px;
+    line-height: 19px;
+  }
+}
+
+p {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+@media (max-width: 1024px) {
+  p {
+    font-size: 15px;
+    line-height: 21px;
+  }
+}

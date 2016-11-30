@@ -18,7 +18,6 @@
 @import url(plugins/style-switcher.css);
 
 /*Import Headers*/
-@import url(headers/header-default.css);
 
 /*Import Footers*/
 @import url(footers/footer-v1.css);
@@ -500,7 +499,7 @@ a:hover {
 
 @media (max-width: 550px) {
 	.breadcrumbs h1.pull-left,
-	.breadcrumbs ul.pull-right {
+	.breadcrumbs ol.pull-right {
 		width: 100%;
 		text-align: center;
 	}
