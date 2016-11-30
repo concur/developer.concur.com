@@ -3,13 +3,43 @@
   text-decoration: underline;
 }
 
-.one-page .btn
-.one-page .btn-ghost {
-  margin: 10px 0;
-}
-
 .content .markdown-body {
   h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
+  }
+}
+
+.one-page {
+  h1, h2 {
+    color: #fff;
+    font-size: 23px;
+    line-height: 28px;
+    text-shadow: none;
+    margin-bottom: 25px;
+  }
+
+  p {
+    color: #fff;
+  }
+
+  .one-page-inner {
+    padding: 30px 0;
+    min-height: 300px;
+
+    &:last-of-type {
+      padding-bottom: 200px;
+    }
+  }
+
+  .one-default {
+    background: #fff;
+
+    p, h1, h2 {
+      color: #555;
+    }
+  }
+
+  .btn, .btn-ghost {
+    margin: 10px 0;
   }
 }
