@@ -64,6 +64,45 @@ json
 }
 ```
 
+The structure of the access_token is as follows (as an example):
+
+```
+Header:
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "1455614346"
+}
+Payload:
+{
+  "concur.version": 2,
+  "aud": "*",
+  "sub": "08BDDA1E-0D4F-4261-9F1B-F9B8D9F817D6",
+  "iss": "https://[us|emea].api.concursolutions.com",
+  "exp": 1465194622,
+  "nbf": 1465191022,
+  "concur.type": "[user|company|app]",
+  "concur.app": "https://[us|emea].api.concursolutions.com/profile/v1/apps/08BDDA1E-0D4F-4261-9F1B-F9B8D9F817D6",
+  "concur.profile": "https://[us|emea].api.concursolutions.com/profile/v1/users/5C590898-57F2-4445-B638-846E83190BC1",
+  "concur.scopes": [
+    "resource.sub-resource.action"
+  ],
+  "iat": 1465191022
+}
+```
+
+* `concur.version` - is the version of the JWT schema in use. 
+* `concur.type` - is the type of principal this JWT refers to. eg. user, company or application.
+* `concur.app` - a link to the app that created this token. 
+* `concur.profile` - is a link to the user's profile.
+* `concur.scopes` - the scopes that the principal permitted the app to use on its behalf
+* `sub` - is a UUID4 identifier for the subject of the JWT.
+* `iss` - this is the datacenter/region that issued this token
+* `exp` - the unix timestamp at which the token will expire
+* `nbf` - the unix timestamp before which the token should not be used (not terribly interesting to us)
+* `iat` - the unix timestamp at which this token was issued
+
+
 ## <a name="obtain_token"></a>Obtaining a token
 
 You can obtain a token for three different types of principals in the Concur universe. 
