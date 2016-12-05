@@ -21,6 +21,7 @@ $link-hover-color: $concur-link-color;
 @import "components/footer";
 
 // pages
+@import "pages/shared";
 @import "pages/home";
 @import "pages/go-to-market";
 @import "pages/why-concur";

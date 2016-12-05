@@ -1,4 +1,4 @@
-/*   
+/*
  * Template Name: Unify - Responsive Bootstrap Template
  * Description: Business, Corporate, Portfolio, E-commerce, Blog and One Page Template.
  * Version: 1.6
@@ -66,23 +66,12 @@ i.style-switcher-btn-option:hover {
    text-align: center;
 }
 
-.style-switcher .btn-u {
-  font-weight: 200;
-  border: solid 1px #555;
-  border-radius: 2px !important;
-}
-
-.style-switcher .btn-u.active-switcher-btn,
-.style-switcher .btn-u.active-switcher-btn {
-   border: solid 1px #bbb;
-}
-
 /*Style Swticher Header*/
 .style-swticher-header {
   background: #252525;
   padding: 9px 10px 5px 15px;
   border-bottom: solid 1px #222;
-  border-radius: 3px 0 0 0 !important;  
+  border-radius: 3px 0 0 0 !important;
 }
 
 .style-swticher-header .style-switcher-heading {

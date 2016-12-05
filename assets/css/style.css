@@ -870,10 +870,6 @@ ul.blog-tags a:hover i {
 	margin-bottom: 5px;
 }
 
-.promo-service a.btn-u {
-	margin: 0 20px 10px 0;
-}
-
 /*Promo Elements*/
 .title-box {
 	font-size: 16px;
@@ -1734,16 +1730,6 @@ ul.labels-demo li {
 
 /*Table Search v1
 ------------------------------------*/
-.table-search-v1 .btn-u.dropdown-toggle {
-	border-left: none;
-}
-
-.table-search-v1 .btn-group .btn-u {
-	top: 4px;
-	padding: 0 6px;
-	position: relative;
-}
-
 .table-search-v1 thead {
 	border-bottom: solid 1px #ddd;
 }
@@ -1795,16 +1781,6 @@ ul.labels-demo li {
 
 /*Table Search v2
 ------------------------------------*/
-.table-search-v2 .btn-u.dropdown-toggle {
-	border-left: none;
-}
-
-.table-search-v2 .btn-group .btn-u {
-	top: 4px;
-	padding: 0 6px;
-	position: relative;
-}
-
 .table-search-v2 thead {
 	border-bottom: solid 1px #ddd;
 }
@@ -1872,10 +1848,6 @@ ul.labels-demo li {
 
 .table-search-v2 .table-buttons li {
 	padding: 0;
-}
-
-.table-search-v2 .table-buttons .btn-u-sm {
-	padding: 3px 6px;
 }
 
 .table-search-v2 .td-width {
