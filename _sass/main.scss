@@ -13,6 +13,12 @@ $font-family-base: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
 @import "components/navbar";
 @import "components/navbar-searchbox";
 @import "components/navbar-notice";
+@import "components/jumbotrons";
+
+// pages
+@import "pages/home";
+@import "pages/go-to-market";
+@import "pages/why-concur";
 
 @import "bootstrap";
 
@@ -35,4 +41,8 @@ body {
     font-weight: normal;
     font-family: 'Open Sans', sans-serif;
   }
+}
+
+.jumbotron {
+  margin-bottom: 0;
 }

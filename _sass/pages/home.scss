@@ -1,0 +1,10 @@
+$home-image: url('/concur_assets/img/slider_1_bg.png');
+$home-bg: rgba(0, 0, 0, 0.2);
+
+.jumbotron-home {
+  background: -webkit-linear-gradient($home-bg, $home-bg), $home-image top center;
+  background:    -moz-linear-gradient($home-bg, $home-bg), $home-image top center;
+  background:      -o-linear-gradient($home-bg, $home-bg), $home-image top center;
+  background:         linear-gradient($home-bg, $home-bg), $home-image top center;
+  background-size: cover;
+}
