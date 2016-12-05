@@ -1,19 +1,23 @@
 @import "colors";
 
 $border-radius-base: 0;
+$font-family-base: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+
 $headings-font-weight: 200;
 $headings-font-color: #444;
+
 $grid-float-breakpoint: 992px;
 $grid-float-breakpoint-max: $grid-float-breakpoint - 1;
+
 $link-color: $concur-link-color;
 $link-hover-color: $concur-link-color;
-$font-family-base: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
 
 // components
 @import "components/navbar";
 @import "components/navbar-searchbox";
 @import "components/navbar-notice";
 @import "components/jumbotrons";
+@import "components/breadcrumbs";
 
 // pages
 @import "pages/home";
