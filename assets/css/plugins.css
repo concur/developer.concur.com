@@ -1,4 +1,4 @@
-/*   
+/*
  * Template Name: Unify - Responsive Bootstrap Template
  * Description: Business, Corporate, Portfolio, E-commerce, Blog and One Page Template.
  * Version: 1.6
@@ -20,7 +20,7 @@
 @media (max-width: 450px) {
    .da-slide p {
       display:none;
-   }   
+   }
 }
 
 @media (max-width: 900px) {
@@ -40,12 +40,6 @@
   border-radius: 10px !important;
 }
 
-.tp-banner-container a.btn-u,
-.tp-banner-container a.btn-u:hover {
-  color: #fff;
-  border: solid 1px transparent;
-}
-
 .tp-banner-container a.re-btn-brd {
   background: none;
   border: solid 1px #fff;
@@ -53,14 +47,10 @@
 
 .tp-banner-container a.re-btn-brd:hover {
   color: #555;
-  background: #fff; 
+  background: #fff;
 }
 
 /*Fullwidth*/
-.tp-banner-container .btn-u.btn-brd {
-  font-weight: 400;
-}
-
 .tp-banner-container {
   position: relative;
 }
@@ -82,7 +72,7 @@
   content: ' ';
   position: absolute;
   background: rgba(0,0,0,0.3);
-} 
+}
 
 .revolution-ch1 {
   color: #fff;
@@ -108,7 +98,7 @@
   left: 50%;
   width: 70px;
   height: 2px;
-  content: ' '; 
+  content: ' ';
   bottom: -20px;
   background: #fff;
   margin-left: -35px;
@@ -132,7 +122,7 @@
   line-height: 45px;
   text-align: center;
   text-transform: uppercase;
-  font-family: "Open Sans", sans-serif;  
+  font-family: "Open Sans", sans-serif;
 }
 
 .re-text-v1 {
@@ -255,7 +245,7 @@
 ------------------------------------*/
 .clients {
    box-shadow:none !important;
-   margin-bottom: 0 !important;    
+   margin-bottom: 0 !important;
 }
 .clients li {
    overflow: hidden;
@@ -272,7 +262,7 @@
    display: none;
    position: absolute;
 }
-.clients li:hover img.color-img { 
+.clients li:hover img.color-img {
    display: block;
 }
 .clients li img {
@@ -283,15 +273,15 @@
 .clients li img:hover {
     filter: none;
 }
-.clients, 
+.clients,
 .flexslider.home {
     border: 0;
     overflow: hidden;
-    margin-top: 10px;      
-    margin-bottom: 30px;      
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
-.flexslider { 
+.flexslider {
    margin-top: 10px !important;
    background: none !important;
 }
@@ -308,7 +298,7 @@
 
 /*FancyBox Hover Effect*/
 .zoomer:hover .overlay-zoom .zoom-icon{
-   opacity:0.4;   
+   opacity:0.4;
    -webkit-transform: scale(1);
    -moz-transform: scale(1);
    -o-transform: scale(1);
@@ -323,7 +313,7 @@
    height: 100%;
    display: block;
    cursor: pointer;
-   position: relative;     
+   position: relative;
    -webkit-transition: all 0.1s ease-in-out;
    -moz-transition: all 0.1s ease-in-out;
    -o-transition: all 0.1s ease-in-out;
@@ -332,8 +322,8 @@
 }
 
 .overlay-zoom .zoom-icon {
-   top:0;   
-   opacity: 0; 
+   top:0;
+   opacity: 0;
    z-index: 100;
    width: inherit;
    height: inherit;
@@ -419,12 +409,12 @@
 }
 
 .counters span.counter-icon i:after {
-   width: 0; 
+   width: 0;
    height: 0;
    left: 38%;
-   content: " "; 
+   content: " ";
    bottom: -7px;
-   display: block; 
+   display: block;
    position: absolute;
    border-top: 7px solid #72c02c;
    border-left: 7px solid transparent;
@@ -697,12 +687,12 @@
 .testimonials-v3 .owl-buttons .owl-next {
   padding: 13px;
   position: relative;
-  margin: 15px 2px 0; 
+  margin: 15px 2px 0;
     background: #f5f5f5;
-  display: inline-block;  
+  display: inline-block;
 }
 
-.testimonials-v3 .owl-buttons .owl-prev:after, 
+.testimonials-v3 .owl-buttons .owl-prev:after,
 .testimonials-v3 .owl-buttons .owl-next:after {
     top: 0;
     color: #bbb;
@@ -723,7 +713,7 @@
   content: "\f105";
 }
 
-.testimonials-v3 .owl-buttons .owl-prev:hover:after, 
+.testimonials-v3 .owl-buttons .owl-prev:hover:after,
 .testimonials-v3 .owl-buttons .owl-next:hover:after {
   color: #fff;
 }
@@ -734,7 +724,7 @@
   -webkit-transition: background 0.4s ease-in-out;
   -moz-transition: background 0.4s ease-in-out;
   -o-transition: background 0.4s ease-in-out;
-  transition: background 0.4s ease-in-out;  
+  transition: background 0.4s ease-in-out;
 }
 
 /*Recent Works (Owl Carousel)
@@ -818,7 +808,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   content: " ";
   position: absolute;
   background: rgba(0,0,0,0.5);
@@ -828,7 +818,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   content: " ";
   position: absolute;
   background: url(../img/patterns/gridtile.png) repeat;
@@ -887,7 +877,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   content: " ";
   position: absolute;
   background: rgba(0,0,0,0.8);
@@ -897,7 +887,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   content: " ";
   position: absolute;
   background: url(../img/patterns/gridtile.png) repeat;
@@ -973,7 +963,7 @@
 
 .wrapper-portfolio-grid-no-space {
   width: 100%;
-  max-width: 1200px;  
+  max-width: 1200px;
   margin: 0 auto 50px;
 }
 

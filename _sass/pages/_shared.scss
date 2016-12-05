@@ -1,0 +1,13 @@
+.one-page {
+  .btn {
+    margin: 5px 0 20px;
+  }
+
+  .one-page-inner.one-blue {
+    background: $concur-blue;
+
+    p a:not(.btn) {
+      color: white;
+    }
+  }
+}

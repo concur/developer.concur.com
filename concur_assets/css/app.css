@@ -1,4 +1,4 @@
-.headline h2, 
+.headline h2,
 .headline h3,
 .headline h4 {
   border-bottom: 2px solid #0275BC;
@@ -58,14 +58,6 @@
 .sidebar-nav-v1 ul li:hover a,
 .sidebar-nav-v1 ul li.active a {
   color: #0275BC;
-}
-
-.btn-u {
-   background: #0275BC;
-}
-
-.btn-u.btn-brd {
-  border-color: #0275BC;
 }
 
 span.label-u,
