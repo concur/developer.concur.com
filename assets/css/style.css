@@ -17,9 +17,6 @@
 @import url(plugins/box-shadows.css);
 @import url(plugins/style-switcher.css);
 
-/*Import Footers*/
-@import url(footers/footer-v1.css);
-
 /*Import Google Font*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
 
@@ -367,104 +364,6 @@ a:hover {
 	text-decoration: underline;
 }
 
-/*Other Footer Common Classes
-------------------------------------*/
-/*Thumb Headline*/
-.thumb-headline h2 {
-	color: #eee;
-	font-size: 16px;
-}
-
-/*Footer Logo*/
-.footer-logo {
-	margin: 17px 0 20px;
-}
-
-/*Latest List*/
-.latest-list li {
-	padding: 8px 0;
-	border-top: 1px solid #353535;
-}
-
-.latest-list li:first-child {
-	padding-top: 0;
-	border-top: none;
-}
-
-.latest-list li a {
-	color: #eee;
-}
-
-.latest-list small {
-	color: #999;
-	display: block;
-}
-
-/*Link List*/
-.link-list li {
-	border-top: solid 1px #353535;
-}
-
-.link-list li:first-child {
-	border-top: none !important;
-}
-
-.link-list a {
-	color: #eee;
-	font-size: 11px;
-	padding: 6px 0px;
-	display: inline-block;
-	text-transform: uppercase;
-}
-
-.link-list li i {
-	color: #bbb;
-	float: right;
-	margin-top: 10px;
-}
-
-/*Latest Tweets*/
-.latest-tweets .latest-tweets-inner p {
-	color: #555;
-	font-size: 13px;
-}
-
-.latest-tweets .latest-tweets-inner a {
-	/*color: #3498db;*/
-	text-decoration: none;
-}
-.latest-tweets .latest-tweets-inner a:hover {
-	text-decoration: underline;
-}
-
-.latest-tweets .latest-tweets-inner i.fa {
-	top: 2px;
-	float: left;
-	color: #bbb;
-	color: #55acee;
-	font-size: 18px;
-	margin-right: 5px;
-	position: relative;
-}
-
-.latest-tweets .latest-tweets-inner small {
-	color: #777;
-	display: block;
-}
-
-/*Social Icons*/
-.social-icons {
-	margin-top: 5px;
-}
-
-.social-icons li {
-	margin: 0;
-}
-
-.social-icons li a {
-	margin: 0 3px;
-}
-
 /*Thumbnails
 ------------------------------------*/
 a.thumbnail {
@@ -695,10 +594,6 @@ a.thumbnail {
 	display: block;
 	font-size: 14px;
 	margin-bottom: 10px;
-}
-
-.about-me .social-icons {
-	margin-top: 7px;
 }
 
 /*About My Goals*/
