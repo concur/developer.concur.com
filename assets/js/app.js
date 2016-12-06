@@ -96,15 +96,7 @@ var App = function () {
                 delay: 10,
                 time: 1000
             });
-        },
-
-        //Parallax Backgrounds
-        initParallaxBg: function () {
-             jQuery(window).load(function() {
-                jQuery('.parallaxBg').parallax("50%", 0.2);
-                jQuery('.parallaxBg1').parallax("50%", 0.4);
-            });
-        },
+        }
 
     };
 
