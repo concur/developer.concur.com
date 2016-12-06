@@ -1,7 +1,3 @@
-.footer-logo {
-  margin: 0 0 20px;
-}
-
 a {
    color: #0275BC;
 }
@@ -142,7 +138,6 @@ div.container.content.last { /* ... and only apply it to the last item. */
 }
 .footer-v1 {
 	width:100%;
-	height:375px;
 	position:absolute;
 	bottom:0;
 	left:0;

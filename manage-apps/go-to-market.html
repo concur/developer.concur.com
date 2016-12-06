@@ -3,50 +3,20 @@ title: Go to Market
 layout: default
 ---
 <div class="wrapper">
-    <!--=== Slider ===-->
-    <div class="tp-banner-container">
-        <div class="tp-banner">
-            <ul>
-                <!-- SLIDE -->
-                <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Title 1">
-                    <!-- MAIN IMAGE -->
-                    <img src="{{ site.baseurl }}/assets/img/sliders/GTM1.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-
-                    <div class="tp-caption revolution-ch2 sft start"
-                        data-x="center"
-                        data-hoffset="0"
-                        data-y="100"
-                        data-speed="1500"
-                        data-start="500"
-                        data-easing="Back.easeInOut"
-                        data-endeasing="Power1.easeIn"
-                        data-endspeed="300">
-                        Concur App Center: Go to Market
-                    </div>
-
-                    <!-- LAYER -->
-                    <div class="tp-caption revolution-ch2 sft"
-                        data-x="center"
-                        data-hoffset="0"
-                        data-y="190"
-                        data-speed="1400"
-                        data-start="2000"
-                        data-easing="Power4.easeOut"
-                        data-endspeed="300"
-                        data-endeasing="Power1.easeIn"
-                        data-captionhidden="off"
-                        style="z-index: 6">
-                        Let us help you prepare for your <br/>
-                        App Center launch.
-                    </div>
-
-                </li>
-                <!-- END SLIDE -->
-            </ul>
-            <div class="tp-bannertimer tp-bottom"></div>
+    <div class="jumbotron jumbotron-go-to-market">
+        <div class="container animated fadeInDown">
+            <h2>
+                Concur App Center: Go to Market
+            </h2>
+            <h3>
+                Let us help you prepare for your <br/>
+                App Center launch.
+            </h3>
+            <div>
+                <a href="{{ site.baseurl }}/api-reference/index.html" class="btn concur-blue">Get started now</a>
+            </div>
         </div>
     </div>
-    <!--=== End Slider ===-->
 
     <!--=== Content Part ===-->
      <div class="one-page">
@@ -55,9 +25,9 @@ layout: default
                 <div class="row">
                         <h2>Overview</h2>
                         <p>Now that you’re an App Center partner it’s time to prepare for your launch! This page will provide you with the resources needed for your initial launch as well as ongoing reference.</p>
-                        <p>Please view our Go to Market presentation to learn about next steps.</p><br>
-                         <a class="fancybox-media btn-u btn-brd btn-brd-hover btn-u-light"  href="https://www.brainshark.com/concur/vu?pi=zHvzkOnZEzLUKoz0" target="_blank" onClick="ga('send', 'event', 'Video', 'Play', 'https://www.brainshark.com/concur/vu?pi=zHvzkOnZEzLUKoz0', {nonInteraction: true});">Apps for My Business</a><br>
-                         <a class="fancybox-media btn-u btn-brd btn-brd-hover btn-u-light" href="https://www.brainshark.com/concur/vu?pi=zHozvBBeazLUKoz0" target="_blank" onClick="ga('send', 'event', 'Video', 'Play', 'https://www.brainshark.com/concur/vu?pi=zHozvBBeazLUKoz0', {nonInteraction: true});">Apps for Me</a><br>
+                        <p>Please view our Go to Market presentation to learn about next steps.</p>
+                         <a class="btn white"  href="https://www.brainshark.com/concur/vu?pi=zHvzkOnZEzLUKoz0" target="_blank" onClick="ga('send', 'event', 'Video', 'Play', 'https://www.brainshark.com/concur/vu?pi=zHvzkOnZEzLUKoz0', {nonInteraction: true});">Apps for My Business</a><br>
+                         <a class="btn white" href="https://www.brainshark.com/concur/vu?pi=zHozvBBeazLUKoz0" target="_blank" onClick="ga('send', 'event', 'Video', 'Play', 'https://www.brainshark.com/concur/vu?pi=zHozvBBeazLUKoz0', {nonInteraction: true});">Apps for Me</a><br>
                          <div class="fine-print">
                            <p>*If you’re not yet a Concur App Center partner please <a href="mailto:bizdev@concur.com" onClick="ga('send', 'event', 'Email', 'Send', 'mailto:bizdev@concur.com', {nonInteraction: true});">contact our Business Development team</a> to discuss an agreement.</p>
                          </div>
@@ -70,11 +40,11 @@ layout: default
                 <div class="row">
                     <div class="col-md-6">
                         <h1>App Certification</h1>
-                        <p>As you scope and fine tune your app, you should also be preparing for your app certification and scheduling a demo with the Concur partner enablement team to showcase your app. Below are key resource documents to help you through this process.</p><br>
+                        <p>As you scope and fine tune your app, you should also be preparing for your app certification and scheduling a demo with the Concur partner enablement team to showcase your app. Below are key resource documents to help you through this process.</p>
                         <p><b>App Center Application Submission Form:</b> Review to prepare for the technical and UX components required during your app demo. After fully developing and testing your app you can submit for certification and demo scheduling.</p>
-                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/Concur_Application_Submission_Form_v4a.docx" target="_blank" class="btn-u btn-u-sm btn-u-blue" onClick="ga('send', 'event', 'View', 'PDF', 'Concur_Application_Submission_Form_v4a.docx', {nonInteraction: true});"><i class="fa fa-file-word-o"></i> Download</a><br>
+                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/Concur_Application_Submission_Form_v4a.docx" target="_blank" class="btn bright-blue" onClick="ga('send', 'event', 'View', 'PDF', 'Concur_Application_Submission_Form_v4a.docx', {nonInteraction: true});"><i class="fa fa-file-word-o"></i> Download</a>
                         <p><b>Apps for Me Release Schedule:</b> Review to understand additional requirements within the Apps for Me category. Please plan accordingly based on key target dates and deadlines.</p>
-                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/apps_for_me_release_schedule.pdf" target="_blank" class="btn-u btn-u-sm btn-u-blue" onClick="ga('send', 'event', 'View', 'PDF', 'apps_for_me_release_schedule.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
+                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/apps_for_me_release_schedule.pdf" target="_blank" class="btn bright-blue" onClick="ga('send', 'event', 'View', 'PDF', 'apps_for_me_release_schedule.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
                     </div>
                     <div class="col-md-6">
                         <img src="{{ site.baseurl }}/manage-apps/go-to-market-img/marketing-app.jpg" class="img-responsive margin-bottom-10" alt="">
@@ -92,10 +62,10 @@ layout: default
                     <div class="col-md-6">
                         <h2>Marketing Your App</h2>
                         <p>As you prepare to launch your app, please review the App Center Marketing Toolkit which will help you complete your App Center Listing Form for submission. App Center guidelines along with best practices and templates are included; please also reference for future marketing activities or listing updates.</p><br>
-                        <p><b>App Center Marketing Toolkit:</b> Included in the toolkit are guidelines for: product naming, Concur logo/brand use, App Center badge use, PR, social media, search and more. Please reference carefully as you prepare your App Center Listing Form.</p><br>
-                        <a  href="{{ site.baseurl }}/manage-apps/go-market-docs/2016_02_02_Concur-partner-toolkit_R5.pdf" target="_blank" class="btn-u btn-u-sm btn-u-default" onClick="ga('send', 'event', 'View', 'PDF', '2016_02_02_Concur-partner-toolkit_R5.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
-                        <p><b>App Center Listing Form:</b> Your listing will serve as the primary location where companies and users will learn more about your app, leading to inquiries or end user connections. Please reference the App Center Marketing Toolkit as you complete the form and submit for review to include your app in the App Center.</p><br>
-                        <a  href="{{ site.baseurl }}/manage-apps/go-market-docs/app_center_partner_listing_form.docx" target="_blank" class="btn-u btn-u-sm btn-u-default" onClick="ga('send', 'event', 'Download', 'Word Document', 'app_center_partner_listing_form.docx', {nonInteraction: true});"><i class="fa fa-file-word-o"></i> Download</a>
+                        <p><b>App Center Marketing Toolkit:</b> Included in the toolkit are guidelines for: product naming, Concur logo/brand use, App Center badge use, PR, social media, search and more. Please reference carefully as you prepare your App Center Listing Form.</p>
+                        <a  href="{{ site.baseurl }}/manage-apps/go-market-docs/2016_02_02_Concur-partner-toolkit_R5.pdf" target="_blank" class="btn white" onClick="ga('send', 'event', 'View', 'PDF', '2016_02_02_Concur-partner-toolkit_R5.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
+                        <p><b>App Center Listing Form:</b> Your listing will serve as the primary location where companies and users will learn more about your app, leading to inquiries or end user connections. Please reference the App Center Marketing Toolkit as you complete the form and submit for review to include your app in the App Center.</p>
+                        <a  href="{{ site.baseurl }}/manage-apps/go-market-docs/app_center_partner_listing_form.docx" target="_blank" class="btn white" onClick="ga('send', 'event', 'Download', 'Word Document', 'app_center_partner_listing_form.docx', {nonInteraction: true});"><i class="fa fa-file-word-o"></i> Download</a>
 
                     </div>
                 </div>
@@ -107,19 +77,19 @@ layout: default
                 <div class="row margin-bottom-10">
                     <div class="col-md-6">
                         <h2>Deploying Your App for Customers</h2>
-                        <p>Apps within our Apps for My Business category will require planning around prospecting, inquiry management, deal submissions and app deployments. Below are key resource documents to assist you in these areas.</p><br>
+                        <p>Apps within our Apps for My Business category will require planning around prospecting, inquiry management, deal submissions and app deployments. Below are key resource documents to assist you in these areas.</p>
                         <p><b>App Center FAQ’s:</b> Access to view common questions and answers to assist in Concur App Center discussions with prospects/clients.</p>
-                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/app_center_client_faq.pdf" target="_blank" class="btn-u btn-u-sm btn-u-blue" onClick="ga('send', 'event', 'View', 'PDF', 'app_center_client_faq.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a><br>
+                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/app_center_client_faq.pdf" target="_blank" class="btn bright-blue" onClick="ga('send', 'event', 'View', 'PDF', 'app_center_client_faq.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
                         <p><b>App Center Lead Submission Process:</b> Review to become familiarized with our lead submission process as well as how to accept/reject leads.</p>
-                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/app_center_lead_submission_process.pdf" target="_blank" class="btn-u btn-u-sm btn-u-blue" onClick="ga('send', 'event', 'View', 'PDF', 'app_center_lead_submission_process.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a><br>
+                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/app_center_lead_submission_process.pdf" target="_blank" class="btn bright-blue" onClick="ga('send', 'event', 'View', 'PDF', 'app_center_lead_submission_process.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
                         <p><b>Deal & Deployment Notification Form:</b> Understand the required notification form for all new deals to ensure proper tracking and deployment.</p>
-                        <a href="https://go.concur.com/AppCenter-DealTracking.html" target="_blank" class="btn-u btn-u-sm btn-u-blue" onClick="ga('send', 'event', 'View', 'PDF', 'https://go.concur.com/AppCenter-DealTracking.html', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a><br>
+                        <a href="https://go.concur.com/AppCenter-DealTracking.html" target="_blank" class="btn bright-blue" onClick="ga('send', 'event', 'View', 'PDF', 'https://go.concur.com/AppCenter-DealTracking.html', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
                         <p><b>App Center Letter of Authorization:</b> Familiarize yourself with the required document for all client deals and deployments.</p>
-                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/app_center_letter_of_authorization.pdf" target="_blank" class="btn-u btn-u-sm btn-u-blue" onClick="ga('send', 'event', 'View', 'PDF', 'app_center_letter_of_authorization.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
+                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/app_center_letter_of_authorization.pdf" target="_blank" class="btn bright-blue" onClick="ga('send', 'event', 'View', 'PDF', 'app_center_letter_of_authorization.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
                         <p><b>App Center Letter of Authorization – Customer FAQ:</b> Answers to frequently-asked questions regarding our Letter of Authorization.</p>
-                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/app_center_letter_of_authorization_faq_customer.pdf" target="_blank" class="btn-u btn-u-sm btn-u-blue" onClick="ga('send', 'event', 'View', 'PDF', 'app_center_letter_of_authorization_faq_customer.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
+                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/app_center_letter_of_authorization_faq_customer.pdf" target="_blank" class="btn bright-blue" onClick="ga('send', 'event', 'View', 'PDF', 'app_center_letter_of_authorization_faq_customer.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
                         <p><b>Enabling Apps – Client Facing Guide – Basic Configurations:</b> Share this guide with clients for quick app deployments.</p>
-                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/guide_to_enabling_app_center_solutions_basic.pdf" target="_blank" class="btn-u btn-u-sm btn-u-blue" onClick="ga('send', 'event', 'View', 'PDF', 'guide_to_enabling_app_center_solutions_basic.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
+                        <a href="{{ site.baseurl }}/manage-apps/go-market-docs/guide_to_enabling_app_center_solutions_basic.pdf" target="_blank" class="btn bright-blue" onClick="ga('send', 'event', 'View', 'PDF', 'guide_to_enabling_app_center_solutions_basic.pdf', {nonInteraction: true});"><i class="fa fa-file-pdf-o"></i> View</a>
                     </div>
                     <div class="col-md-6">
                         <img src="{{ site.baseurl }}/manage-apps/go-to-market-img/deploying-app.jpg" class="img-responsive" alt="">
@@ -136,11 +106,11 @@ layout: default
                     </div>
                     <div class="col-md-6">
                         <h2>Marketing Support</h2>
-                        <p>Join us for our monthly office hours.</p> 
+                        <p>Join us for our monthly office hours.</p>
                         <p>Learn best practices for marketing your app and ask the App Center Marketing Team any questions.</p>
                         <p>Office hours take place the first Tuesday of each month - 8:30-9:00 AM PST</p>
                         <p>
-                          <a class="btn-u btn-u-default" href="https://concur.webex.com/concur/j.php?MTID=md483b0c3f9b64a03b1e4676b40ef69c5" target="_blank">
+                          <a class="btn white" href="https://concur.webex.com/concur/j.php?MTID=md483b0c3f9b64a03b1e4676b40ef69c5" target="_blank">
                             <i class="fa fa-users" aria-hidden="true"></i>
                             Join the WebEx Meeting
                           </a>
@@ -148,10 +118,10 @@ layout: default
                         <p>Dial-in information:<br>
                            Toll-free: +1-866-668-0721<br>
                            PIN: 360-851-6019<br>
-                           <a class="btn-u btn-u-default" href="https://www.tcconline.com/listNumbersByCode.action?confCode=3608516019" target="_blank">View Global Numbers</a>
+                           <a class="btn white" href="https://www.tcconline.com/listNumbersByCode.action?confCode=3608516019" target="_blank">View Global Numbers</a>
                         </p>
                         <p>
-                          <a class="btn-u btn-u-default" href="mailto:AppCenterMarketing@concur.com" onClick="ga('send', 'event', 'Email', 'Send', 'mailto:AppCenterMarketing@concur.com', {nonInteraction: true});">
+                          <a class="btn white" href="mailto:AppCenterMarketing@concur.com" onClick="ga('send', 'event', 'Email', 'Send', 'mailto:AppCenterMarketing@concur.com', {nonInteraction: true});">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                             Contact us via email
                           </a>
