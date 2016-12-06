@@ -19,6 +19,7 @@ $link-hover-color: $concur-link-color;
 @import "components/jumbotrons";
 @import "components/breadcrumbs";
 @import "components/footer";
+@import "components/custom-skyforms";
 
 // pages
 @import "pages/shared";
@@ -26,6 +27,12 @@ $link-hover-color: $concur-link-color;
 @import "pages/go-to-market";
 @import "pages/why-concur";
 @import "pages/swagger";
+@import "pages/blog";
+@import "pages/search";
+@import "pages/markdown";
+
+// third party/vendor
+@import "vendor/github-markdown";
 
 @import "bootstrap";
 

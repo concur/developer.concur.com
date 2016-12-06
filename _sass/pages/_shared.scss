@@ -11,3 +11,24 @@
     }
   }
 }
+
+.list-group-item a {
+  color: inherit;
+}
+
+.list-group-item a:hover {
+  text-decoration: none;
+}
+
+.fine-print > p {
+  font-size: 12px;
+}
+
+.sidebar-nav-v1 ul li:hover a,
+.sidebar-nav-v1 ul li.active a {
+  color: #0275BC;
+}
+
+.container.content {
+  min-height: 100vh;
+}

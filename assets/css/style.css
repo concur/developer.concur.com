@@ -8,14 +8,9 @@
 
 /*Import Global Compulsory CSS Files*/
 @import url(app.css);
-@import url(ie8.css);
-@import url(blocks.css);
-@import url(plugins.css);
 
 /*Import CSS Plugins*/
 @import url(plugins/animate.css);
-@import url(plugins/box-shadows.css);
-@import url(plugins/style-switcher.css);
 
 /*Import Google Font*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
