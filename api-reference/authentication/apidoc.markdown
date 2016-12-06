@@ -147,7 +147,7 @@ Name | Type | Format | Description
 `client_secret`|`string` | `UUID` | **Required** The client applications client_secret supplied by App Management
 `refresh_token`|`string` | `UUID` | **Required** An existing valid refresh token to be used to request a new access token
 `scope`|`string` | | The client applications list of scopes
-`grant_type`|`string` | | **Required** The grant type instructs the Oauth2 service how to process the request. For refresh token, the value must be `refresh`
+`grant_type`|`string` | | **Required** The grant type instructs the Oauth2 service how to process the request. For refresh token, the value must be `refresh_token`
 
 **Request**
 
