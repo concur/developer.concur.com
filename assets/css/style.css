@@ -9,9 +9,6 @@
 /*Import Global Compulsory CSS Files*/
 @import url(app.css);
 
-/*Import CSS Plugins*/
-@import url(plugins/animate.css);
-
 /*Import Google Font*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
 
