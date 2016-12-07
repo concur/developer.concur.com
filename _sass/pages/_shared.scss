@@ -24,7 +24,7 @@
   .one-default p,
   .one-default h1,
   .one-default h2 {
-    color: #555;
+    color: $text-gray;
   }
 
   h1, h2 {
@@ -52,11 +52,8 @@
   font-size: 12px;
 }
 
-.sidebar-nav-v1 ul li:hover a,
-.sidebar-nav-v1 ul li.active a {
-  color: #0275BC;
-}
-
 .container.content {
   min-height: 100vh;
+  padding-top: 40px;
+  padding-bottom: 30px;
 }
