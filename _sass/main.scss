@@ -3,8 +3,10 @@
 $border-radius-base: 0;
 $font-family-base: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
 
+$headings-font-family: "Open Sans", sans-serif;
 $headings-font-weight: 200;
 $headings-font-color: #444;
+$text-color: $text-gray;
 
 $grid-float-breakpoint: 992px;
 $grid-float-breakpoint-max: $grid-float-breakpoint - 1;
@@ -21,6 +23,7 @@ $link-hover-color: $concur-link-color;
 @import "components/footer";
 @import "components/custom-skyforms";
 @import "components/back-to-top";
+@import "components/sidebar";
 
 // pages
 @import "pages/shared";
@@ -34,6 +37,7 @@ $link-hover-color: $concur-link-color;
 
 // third party/vendor
 @import "vendor/github-markdown";
+@import "vendor/animate";
 
 @import "bootstrap";
 
@@ -50,11 +54,15 @@ html {
 
 body {
   h1, h2, h3, h4, h5, h6 {
-    color: #585f69;
+    color: $text-gray;
     margin-top: 5px;
     text-shadow: none;
     font-weight: normal;
     font-family: 'Open Sans', sans-serif;
+  }
+
+  p {
+    font-size: 16px;
   }
 }
 
