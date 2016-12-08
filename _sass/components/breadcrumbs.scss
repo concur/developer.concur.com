@@ -2,16 +2,21 @@
 $breadcrumb-bg: none;
 $breadcrumb-padding-vertical: 10px;
 $breadcrumb-padding-horizontal: 0;
-$breadcrumb-color: #555;
+$breadcrumb-color: $text-gray;
+$breadcrumb-border-color: $text-off-white;
 
 .breadcrumbs {
   background: #fafafa;
-  border-bottom: solid 1px #eee;
+  border-bottom: solid 1px $breadcrumb-border-color;
   min-height: 60px;
 
   h1 {
     margin-top: 16px;
     font-size: 22px;
+  }
+
+  a {
+    color: $breadcrumb-color;
   }
 
   .breadcrumb {
