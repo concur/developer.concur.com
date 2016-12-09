@@ -1,0 +1,15 @@
+.app-management {
+  .add-uri {
+    margin-top: 10px;
+  }
+
+  .input i.icon-append {
+    cursor: pointer;
+  }
+}
+
+@media (min-width: $grid-float-breakpoint) {
+  .app-management .navbar-nav {
+    float: right;
+  }
+}

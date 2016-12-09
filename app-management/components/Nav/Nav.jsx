@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const Nav = ({ authenticated }) => {
   const links = authenticated ? (
-    <ul className="nav navbar-nav pull-right">
+    <ul className="nav navbar-nav">
       <li>
         <Link to="/" activeClassName="active" onlyActiveOnIndex>
           <i className="fa fa-list" aria-hidden="true" /> My Apps
@@ -21,7 +21,7 @@ const Nav = ({ authenticated }) => {
       </li>
     </ul>
   ) : (
-    <ul className="nav navbar-nav pull-right">
+    <ul className="nav navbar-nav">
       <li>
         <Link to="/signup" activeClassName="active">
           <i className="fa fa-user" aria-hidden="true" /> Sign Up

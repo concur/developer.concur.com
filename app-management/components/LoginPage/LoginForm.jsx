@@ -40,7 +40,7 @@ const LoginForm = ({ handleSubmit }) => (
       </div>
     </fieldset>
     <footer>
-      <button type="submit" className="button">Log in</button>
+      <button type="submit" className="btn bright-blue pull-right">Log in</button>
     </footer>
   </form>
 );

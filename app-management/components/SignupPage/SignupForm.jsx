@@ -97,7 +97,7 @@ const SignupForm = ({ handleSubmit }) => (
       <p>&#42; required field</p>
     </fieldset>
     <footer>
-      <button type="submit" className="button">Sign Up</button>
+      <button type="submit" className="btn bright-blue pull-right">Sign Up</button>
     </footer>
   </form>
 );

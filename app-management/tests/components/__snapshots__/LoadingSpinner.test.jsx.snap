@@ -1,17 +1,19 @@
 exports[`<LoadingSpinner /> should display a default message if no message is given 1`] = `
-<h2>
+<h3>
   <i
     className="fa fa-spinner fa-spin" />
+   
   Loading...
-</h2>
+</h3>
 `;
 
 exports[`<LoadingSpinner /> should display nothing if not loading 1`] = `null`;
 
 exports[`<LoadingSpinner /> should render when loading and given a message 1`] = `
-<h2>
+<h3>
   <i
     className="fa fa-spinner fa-spin" />
+   
   Fetching data
-</h2>
+</h3>
 `;

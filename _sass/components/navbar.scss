@@ -31,7 +31,7 @@ nav.navbar {
 // remove hover effects in collapsable mode
 @media (max-width: $grid-float-breakpoint-max) {
   .navbar-nav > li > a:hover {
-    border-bottom: 2px solid $navbar-default-bg;
+    border-bottom: 2px solid transparent;
   }
 }
 

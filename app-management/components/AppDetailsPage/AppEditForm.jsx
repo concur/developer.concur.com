@@ -125,8 +125,14 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, showSecret }
       </div>
     </fieldset>
     <footer>
-      <Link to="/" className="button">Cancel</Link>
-      <button type="submit" className="button" disabled={initialValues.certified}>Update</button>
+      <button
+        type="submit"
+        className="btn bright-blue pull-right"
+        disabled={initialValues.certified}
+      >
+        Update
+      </button>
+      <Link to="/" className="btn grey pull-right">Cancel</Link>
     </footer>
   </form>
 );

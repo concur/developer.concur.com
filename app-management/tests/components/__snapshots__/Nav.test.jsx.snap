@@ -2,7 +2,7 @@ exports[`<Nav /> renders all other links when authenticated 1`] = `
 <div
   className="clearfix">
   <ul
-    className="nav navbar-nav pull-right">
+    className="nav navbar-nav">
     <li>
       <Link
         activeClassName="active"
@@ -47,7 +47,7 @@ exports[`<Nav /> renders signup and login links when the user is not authenticat
 <div
   className="clearfix">
   <ul
-    className="nav navbar-nav pull-right">
+    className="nav navbar-nav">
     <li>
       <Link
         activeClassName="active"

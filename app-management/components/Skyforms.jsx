@@ -135,7 +135,7 @@ export const renderUris = ({ fields }) => (
       </div>
     )}
     <div className="add-uri">
-      <button type="button" className="button" onClick={() => fields.push('')}>Add URI</button>
+      <button type="button" className="btn bright-blue pull-right" onClick={() => fields.push('')}>Add URI</button>
     </div>
   </div>
 );

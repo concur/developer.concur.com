@@ -116,8 +116,8 @@ const NewAppForm = ({ handleSubmit, reset }) => (
       <p>&#42; required field</p>
     </fieldset>
     <footer>
-      <button type="submit" className="button">Submit</button>
-      <button type="button" className="button" onClick={reset}>Reset</button>
+      <button type="submit" className="btn bright-blue pull-right">Submit</button>
+      <button type="button" className="btn grey pull-right" onClick={reset}>Reset</button>
     </footer>
   </form>
 );

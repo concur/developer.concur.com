@@ -13,7 +13,7 @@ const AppSecret = ({ clickHandler, secret, collapsed }) => (
     }
     <button
       type="button"
-      className="btn-u btn-u-orange"
+      className="btn concur-blue"
       onClick={clickHandler}
     >
       Get New Secret

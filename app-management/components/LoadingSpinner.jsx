@@ -2,10 +2,11 @@ import React, { PropTypes } from 'react';
 
 const LoadingSpinner = ({ loading, message }) => (
   loading ? (
-    <h2>
+    <h3>
       <i className="fa fa-spinner fa-spin" />
+      &nbsp;
       {message || 'Loading...'}
-    </h2>
+    </h3>
   ) : null
 );
 
