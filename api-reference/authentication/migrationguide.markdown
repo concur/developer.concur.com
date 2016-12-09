@@ -4,7 +4,7 @@ layout: reference
 ---
 
 
-# PREVIEW - Migrating old tokens to new Oauth2 Bearer Tokens (JWT)
+# Migrating old tokens to new Oauth2 Bearer Tokens (JWT)
 
 * [Overview]()
 * [Exchanging a Token](#exchangetoken)
@@ -21,14 +21,14 @@ The new Oauth2 `accessToken` has a one hour lifetime. Once expired, applications
 
 This is significantly different from how the deprecated /net2/Oauth2's method of handling access tokens. Partner's would have to store the new Oauth2 `refreshToken` instead of the old access token. Before making a call to any of Concur's new v4 APIs, it is advisable to request for a new `accessToken` before making the API call.
 
-Applications can exchange tokens by calling the `exchangeRefreshToken` endpoint. 
+Applications can exchange tokens by calling the `exchangeRefreshToken/me` endpoint. 
 
-`POST /legacyApps/{consumerKey}/exchangeRefreshToken`
+`POST /legacyApps/{consumerKey}/exchangeRefreshToken/me`
 
 Sample Curl:
 
 ```
-curl -H 'concur-correlationid: githbuwiki' -H 'Authorization: Bearer <accessToken> -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "appId": "3a55c75e-ac1e-4515-845c-0a4978452828", "secret": "12345"}' -X POST http://us.api.concursolutions.com/api/appmgmt/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken
+curl -H 'concur-correlationid: githbuwiki' -H 'Authorization: Bearer <accessToken> -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST http://us.api.concursolutions.com/api/appmgmt/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me
 ```
 
 successful call, responds with
@@ -74,13 +74,13 @@ successful call, responds with:
 
 ## <a name="response_codes"></a>Response Codes
 
-##### HTTP Status returned by AppMgmt ** WHAT ARE THE ACTUAL ERROR CODES **
+##### HTTP Status returned by exchangeAccessToken
 
 | HTTP Status | Description                                      |
 |-------------|--------------------------------------------------|
 |   200       | OK - Successful call, response is in body.       |
-|   400       | Bad Request `(error, error_description, code)`   |
-|   401       | Unauthorized `(error, error_description, code)`  |
+|   400       | Bad Request 'JWT is missing or invalid'          |
+|   401       | Unauthorized 'Bad input or access denied'        |
 |   403       | Forbidden `(error, error_description, code)`     |
 |   404       | Not Found `(error, error_description, code)`     |
 |   500       | Server Error, error message is in body.          |
