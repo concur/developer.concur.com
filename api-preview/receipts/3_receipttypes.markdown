@@ -3,11 +3,13 @@ title: Supported Receipt Types
 layout: reference
 ---
 
+**PLEASE NOTE:** This page was a temporary page setup for preview purposes. Until redirect takes place, please use this [link](/api-reference/receipts/supported-receipt-types.html) for the permanent location of this documentation.
+
 # Receipts
 
 ## Supported Receipt Types
 
-Receipts can any of the following types
+Receipts can be any of the following types
 
  - [Air](#air-receipt)
  - [Car Rental](#car-rental-receipt)
@@ -16,7 +18,7 @@ Receipts can any of the following types
  - [Hotel](#hotel-receipt)
  - [Rail](#rail-receipt)
 
-See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema.
+See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema. Property names mentioned in __*bold italics*__ are required fields.
 
 ### Schemas
 

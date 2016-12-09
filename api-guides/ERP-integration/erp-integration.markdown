@@ -10,9 +10,9 @@ Before a partner can obtain expense report data from Concur, ensure that you hav
 
 - Ensure your app has been certified by Concur
 - Ensure your organization has obtained a signed letter of Agreement from a client stating that you can obtain that client’s expense report data using the extract file created by Concur’s service
-- Ensure your app can authenticate with Concur using either [Native Flow](https://developer.concur.com/api-reference/authentication/authentication.html#native) (preferred) or Web Flow
-- Ensure your app includes the ability to [refresh the Concur authentication token](https://developer.concur.com/api-reference/authentication/authentication.html#refreshing-access-token)
-- Ensure your app includes the ability to respond appropriately to [revoked token messages](https://developer.concur.com/api-reference/authentication/authentication.html#revoke-single-access-token)
+- Ensure your app can authenticate with Concur. See authentication docs [here](/api-reference/authentication/apidoc.html).
+- Ensure your app includes the ability to [refresh the Concur authentication token](/api-reference/authentication/apidoc.html#refresh_token)
+- Ensure your app includes the ability to respond appropriately to [revoked token messages](/api-reference/authentication/apidoc.html#revoke_token)
 
 #### Professional Edition ERP Integration
 Professional Edition ERP Integration assumes that you are working for or on behalf of a Financial Integration Company. The client we support in common may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Contact Concur to request the CTE Extract Example Cases document. Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document.  contact = pdspe@concur.com

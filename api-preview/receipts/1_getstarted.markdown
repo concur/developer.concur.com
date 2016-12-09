@@ -1,7 +1,10 @@
 ---
 title: Get Started
 layout: reference
+redirect_from: /api-preview/receipts/apidoc.html
 ---
+
+**PLEASE NOTE:** This page was a temporary page setup for preview purposes. Until redirect takes place, please use this [link](/api-reference/receipts/get-started.html) for the permanent location of this documentation.
 
 # Receipts
 

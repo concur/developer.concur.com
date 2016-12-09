@@ -128,6 +128,6 @@ The application connector has now completed the process of validating a Request,
 [7]: https://developer.concur.com/sites/default/files/RegPartApp_crop.png
 [8]: https://developer.concur.com/sites/default/files/NewPartnerApp_0.png
 [9]: https://developer.concur.com/oauth-20
-[10]: /api-reference/authentication/authentication.html
+[10]: /api-reference/authentication/apidoc.html
 [12]: https://developer.concur.com/node/518#requestdetails
 [13]: https://developer.concur.com/node/519#requestworkflow

@@ -18,10 +18,10 @@ Unlike all the other Concur API endpoints, the Receipts endpoint requires the Co
 To enable e-receipt posting to Concur, ensure that you have completed the following:
 
 - Your company must be qualified by the Concur Platform and Partner Solutions [business development team]( https://developer.concur.com/why-concur.html) and your company must have entered into a commercial agreement with Concur
-- Ensure your app supports **BOTH** Concur’s [App Center flow](https://developer.concur.com/api-reference/authentication/authentication.html) so that travelers can authenticate from within Concur’s Mobile app; and Concur’s Web flow so that users can authenticate from within your app
-- Ensure your app supports the ability to [connect your users to and from](https://developer.concur.com/api-reference/authentication/authentication.html#access-tokens) your app or website. 
-- Ensure your app supports the ability to [disconnect](https://developer.concur.com/api-reference/authentication/authentication.html#revoke-single-access-token) the user from their account with you
-- Ensure your app includes the ability to [refresh the Concur authentication token](https://developer.concur.com/api-reference/authentication/authentication.html#refreshing-access-token)
+- Ensure your app supports **BOTH** Concur’s [App Center flow](/api-reference/authentication/apidoc.html) so that travelers can authenticate from within Concur’s Mobile app; and Concur’s Web flow so that users can authenticate from within your app
+- Ensure your app supports the ability to [connect your users to and from](/api-reference/authentication/apidoc.html#access_token) your app or website. 
+- Ensure your app supports the ability to [disconnect](/api-reference/authentication/apidoc.html#revoke_token) the user from their account with you
+- Ensure your app includes the ability to [refresh the Concur authentication token](/api-reference/authentication/apidoc.html#refresh_token)
 - Ensure your app includes the ability to respond appropriately to revoked token messages 
 - Ensure that if your app currently generates a receipt image, (.png, .jpg,.tif. pdf or other image file) that you include it in your post to Concur. Concur generates a standard receipt for Partners who do not tender a receipt image. The standard receipt may not include additional fees and taxes collected the user’s locale like VAT.
 

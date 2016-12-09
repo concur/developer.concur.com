@@ -190,7 +190,7 @@
           "Resources"
         ],
         "summary": "Delete an attendee by ID",
-        "description": "Deletes the specified attendee.",
+        "description": "DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016 Deletes the specified attendee.",
         "parameters": [
           {
             "name": "id",

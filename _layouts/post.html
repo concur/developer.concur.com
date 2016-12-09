@@ -3,7 +3,7 @@ layout: blog
 comments: true
 ---
 
-<article >
+<article class="markdown-body">
   <header >
     <h1>{{ page.title }}</h1>
     <p>
@@ -15,7 +15,7 @@ comments: true
     </p>
     <p>
       {% if page.tags %}
-      <i class="glyphicon glyphicon-tags"></i>&nbsp;
+      <i class="fa fa-tags" aria-hidden="true"></i>&nbsp;
       {% for tag in page.tags %}
         {% if forloop.index == page.tags.size %}
           <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}</a></span>

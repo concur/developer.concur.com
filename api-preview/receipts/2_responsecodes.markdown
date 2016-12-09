@@ -3,6 +3,8 @@ title: Response Codes
 layout: reference
 ---
 
+**PLEASE NOTE:** This page was a temporary page setup for preview purposes. Until redirect takes place, please use this [link](/api-reference/receipts/response-codes.html) for the permanent location of this documentation.
+
 # Receipts
 
 ## Response Codes

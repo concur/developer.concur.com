@@ -24,6 +24,9 @@ exclude:
 kramdown:
   input: GFM
 
+sass:
+  style: compressed
+
 # sitemap plugin configuration
 # this config defines 2 properties - change_frequency and priority - that can be included in an
 # individual page's front matter to alter that page's settings in the sitemap.xml
@@ -45,4 +48,4 @@ jekyll-archives:
     tag: '/tag/:name/'
     category: '/category/:name/'
 
-gems: ['jekyll-paginate']
+gems: ['jekyll-paginate', 'jekyll-redirect-from', 'jekyll-bootstrap-sass']

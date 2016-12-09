@@ -6,14 +6,14 @@ layout: reference
 
 <!-- Print button -->
 <a class="btn btn-primary pull-right hidden-print" href="javascript:window.print()">
-  <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+  <span class="fa fa-print" aria-hidden="true"></span>
   Print
 </a>
 
 # CONCUR TECHNOLOGIES, INC.
 
 ### API LICENSE AND SERVICES AGREEMENT
-Effective Date: January 2015  
+Last Updated: January 2015  
 
 This API License and Services Agreement (“Agreement”) is entered into as of the Effective Date defined below by and between CONCUR TECHNOLOGIES, INC. (“Concur”) and the undersigned licensee below (“Licensee”).  In consideration of the mutual promises contained herein and for other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the parties agree as follows:
 

@@ -3,6 +3,7 @@ title: Authentication API
 layout: reference
 ---
 
+**PLEASE NOTE:** This page was a temporary page setup for preview purposes. Until redirect takes place, please use this [link](/api-reference/authentication/apidoc.html) for the permanent location of this documentation.
 
 # Authentication API (Preview)
 
@@ -19,6 +20,7 @@ layout: reference
   * [Password grant](#password_grant)
   * [Client Credentials grant](#client_credentials)
   * [One time password grant](#otp_grant)
+* [Response Codes](#response_codes)
 
 
 ## <a name="access_token"></a>Access Tokens
@@ -347,26 +349,6 @@ json
 ```
 
 
-**Response Codes**
-
-| Http Code | Code | Error | Description                                     |
-|-----------|------|------ | -------------------|
-|       200 |    - | | JWT in response                                 |
-|       400 |    2 | | user not found                                  |
-|       400 |    5 | | password mismatch                               |
-|       400 |    9 | | service account cannot logon                    |
-|       400 |   10 | | user account disabled                           |
-|       400 |   11 | | company account disabled                        |
-|       400 |   12 | | password has been force expired                 |
-|       400 |   13 | | password expired                                |
-|       400 |   14 | | user is locked out                              |
-|       400 |   16 | | User lives in another geolocation. User's geolocation will be returned in a `geolocation` field in the message body.                       |
-|       400 |   51 | | username is not supplied                        |
-|       400 |   52 | | password is not supplied                        |
-|       400 |   53 | | company is not enabled for this oauth2 client   |
-|       400 |   54 | | required scope is not a subset of reg. scope    |
-|       500 |    - | | internal_server_error                           |
-
 example bad login
 
 ```
@@ -507,22 +489,6 @@ json
 }
 ```
 
-**OTP Response Codes**
-
-HTTP Status | Response Code | Error | Description
-------------|---------------|-------|-------------
-200 | -  | otp sent |
-400 | 3  | invalid_request | otp generate failed; the number of open otp requests has been exceeded
-400 | 57 | invalid_request | channel_type was not supplied
-400 | 58 | invalid_request | channel_handle was not supplied
-400 | 61 | invalid_request | client_id is not known to us
-400 | 62 | invalid_request | client_id was not supplied
-400 | 63 | invalid_request | client_secret was not supplied
-400 | 64 | invalid_request | bad credentials for client
-403 | 60 | access_denied   |
-500 | -  | internal_server_error |
-
-
 
 **Request an access token**
 
@@ -587,23 +553,90 @@ json
 }
 ```
 
-**Token Response Codes**
+## <a name="response_codes"></a>Response Codes
 
-HTTP Status | Response Code | Error | Description
-------------|---------------|-------|-------------
-200 | - |  |
-400 | 4 | invalid_request | otp not found
-400 | 5 | invalid_request | fact verification failed
-400 | 54 | invalid_scope | requested scope is not a subset of registered scope
-400 | 55 | invalid_request | profile-service does not know about this email address
-400 | 56 | invalid_request | otp was not supplied
-400 | 57 | invalid_request | channel_type missing
-400 | 58 | invalid_request | channel_handle missing
-400 | 62 | invalid_request | client_id was not supplied
-400 | 63 | invalid_request | client_secret was not supplied
-400 | 64 | invalid_request | bad credentials for client
-400 | 65 | invalid_request | grant_type was not supplied
-403 | 59 | access_denied | client is administratively disabled
-403 | 60 | access_denied |
-500 | - | internal_server_error |
+##### HTTP Status returned by oauth2
+
+| HTTP Status | Description                                      |
+|-------------|--------------------------------------------------|
+|   200       | OK - Successful call, response is in body.       |
+|   400       | Bad Request `(error, error_description, code)`   |
+|   401       | Unauthorized `(error, error_description, code)`  |
+|   403       | Forbidden `(error, error_description, code)`     |
+|   404       | Not Found `(error, error_description, code)`     |
+|   500       | Server Error, error message is in body.          |
+|   503       | Server Timed Out, error message is in body.      |
+
+4xx class errors have a JSON response with the following fields
+
+```
+  {
+   "code": <number>,
+   "error": <error>,
+   "error_description": <error_description>
+  }
+```
+
+##### /token
+
+
+| Code | Error             | Description                                            |
+|------|-------------------|--------------------------------------------------------|
+| 5    | `invalid_grant`   | Incorrect credentials. Please Retry                    |
+| 10   | `invalid_grant`   | Account is disabled. Please contact support            |
+| 11   | `invalid_grant`   | Account is disabled. Please contact support            |
+| 12   | `invalid_grant`   | Logon Denied. Please contact support                   |
+| 13   | `invalid_grant`   | Logon Denied. Please contact support                   |
+| 14   | `invalid_grant`   | Account Locked. Please contact support                 |
+| 16   | `invalid_request` | user lives elsewhere                                   |
+| 19   | `invalid_grant`   | Incorrect credentials. Please Retry                    |
+| 51   | `invalid_request` | username was not supplied                              |
+| 52   | `invalid_request` | password was not supplied                              |
+| 53   | `invalid_client`  | company is not enabled for this client                 |
+| 54   | `invalid_scope`   | requested scope exceeds granted scope                  |
+| 55   | `invalid_request` | we don't know this email                               |
+| 56   | `invalid_request` | `otp` was not supplied                                 |
+| 57   | `invalid_request` | `channel_type` missing                                 |
+| 58   | `invalid_request` | `channel_handle` missing                               |
+| 59   | `access_denied`   | client disabled                                        |
+| 60   | `invalid_grant`   | these are not the grants you are looking for           |
+| 61   | `invalid_client`  | client not found                                       |
+| 62   | `invalid_request` | `client_id` was not supplied                           |
+| 63   | `invalid_request` | `client_secret` was not supplied                       |
+| 64   | `invalid_client`  | Incorrect credentials. Please Retry                    |
+| 65   | `invalid_request` | `grant_type` was not supplied                          |
+| 80   | `invalid_request` | invalid channel type                                   |
+| 81   | `invalid_request` | bad channel handle                                     |
+| 83   | `invalid_request` | otp not found                                          |
+| 84   | `invalid_request` | fact verification failed                               |
+| 85   | `invalid_request` | otp verification failed                                |
+| 100  | `invalid_request` | backend does not know about this username              |
+| 101  | `invalid_request` | code was not supplied                                  |
+| 102  | `invalid_request` | `redirect_uri` was not supplied                        |
+| 103  | `invalid_request` | code is bad or expired                                 |
+| 104  | `invalid_grant`   | `redirect_uri` does not match the previous grant       |
+| 105  | `invalid_grant`   | this grant was not issued to you!                      |
+| 106  | `invalid_request` | `refresh_token` was not supplied                       |
+| 107  | `invalid_request` | refresh disallowed for app                             |
+| 108  | `invalid_grant`   | bad or expired refresh token                           |
+| 109  | `invalid_request` | `loginid` was not supplied                             |
+| 115  | `invalid_request` | unauthenticated client will not be issued token!       |
+| 117  | `invalid_request` | nonce is mandatory for this `response_type`            |
+| 118  | `invalid_request` | display is invalid                                     |
+| 119  | `invalid_request` | prompt is invalid                                      |
+| 119  | `invalid_request` | prompt must be set to consent for `offline_access`     |
+
+##### /otp
+
+| Code | Error             | Description                                            |
+|------|-------------------|--------------------------------------------------------|
+| 57   | `invalid_request` | `channel_type` was not supplied                        |
+| 58   | `invalid_request` | `channel_handle` was not supplied                      |
+| 60   | `invalid_grant`   | these are not the grants you are looking for           |
+| 61   | `invalid_client`  | `client_id` is not known to us                         |
+| 62   | `invalid_request` | `client_id` was not supplied                           |
+| 63   | `invalid_request` | `client_secret` was not supplied                       |
+| 80   | `invalid_request` | invalid channel type                                   |
+| 81   | `invalid_request` | bad channel handle                                     |
+| 82   | `invalid_request` | the number of open otp requests has been exceeded      |
 

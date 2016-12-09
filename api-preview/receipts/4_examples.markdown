@@ -3,6 +3,8 @@ title: Sample Receipts
 layout: reference
 ---
 
+**PLEASE NOTE:** This page was a temporary page setup for preview purposes. Until redirect takes place, please use this [link](/api-reference/receipts/sample-receipts.html) for the permanent location of this documentation.
+
 # Receipts
 
 ## Sample Receipts

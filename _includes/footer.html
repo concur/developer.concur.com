@@ -1,112 +1,113 @@
-    <!--=== Footer Version 1 ===-->
-    <div class="footer-v1 hidden-print">
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <!-- About -->
-                    <div class="col-md-3 md-margin-bottom-40">
-                        <a href="{{ site.baseurl }}/index.html"><img id="logo-footer" class="footer-logo" src="{{ site.baseurl }}/concur_assets/img/concur_logo_symbol.png" alt=""></a>
-                        <p>
-                          Concur is a leading provider of integrated travel and expense management solutions. <a href="https://www.concur.com/en-us/about">More &gt;</a>
-                        </p>
+<footer class="hidden-print">
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 company-description">
+          <div class="col-md-3 col-xs-2">
+            <a href="{{ site.baseurl }}/index.html">
+              <img src="{{ site.baseurl }}/concur_assets/img/concur_logo_symbol.png" alt="Concur logo">
+            </a>
+          </div>
+          <div class="col-md-9 col-xs-10">
+            <p>
+              Concur is a leading provider of integrated travel and expense management solutions.
+              <a href="https://www.concur.com/en-us/about">More <i class="fa fa-angle-right"></i></a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h2 class="headline">About Concur</h2>
+          <ul class="list-unstyled link-list">
+            <li><a href="https://www.concur.com/en-us/media-resources/press-releases">Press Releases</a><i class="fa fa-angle-right"></i></li>
+            <li><a href="https://www.concur.com/en-us/about/news">In the News</a><i class="fa fa-angle-right"></i></li>
+            <li><a href="https://www.concur.com/en-us/perfect-trip-fund">Perfect Trip Fund</a><i class="fa fa-angle-right"></i></li>
+            <li><a href="https://www.concur.com/en-us/events">Events</a><i class="fa fa-angle-right"></i></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <div class="posts">
+            <h2 class="headline">Concur Blog</h2>
+            <ul class="list-unstyled link-list">
+              {% for post in site.posts | limit: 3 %}
+              <li>
+                <a class="blog-link" href="{{ post.url }}">{{ post.title }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h2 class="headline">Contact</h2>
+          <address>
+            601 108th Ave NE, Suite 1000 <br />
+            Bellevue, WA 98004 USA <br />
+            Phone: 800 401 8412 <br />
+            Fax: 425 590 5999
+          </address>
+        </div>
+      </div>
 
-                    </div><!--/col-md-3-->
-                    <!-- End About -->
+      <div class="row footer-github">
+        <div class="col-md-12 text-center">
+          <a href="{{ site.repository_url }}{{ page.path }}"><i class="fa fa-github fa-2x"></i> Edit this page on GitHub</a>
+          <span>|</span>
+          <a href="https://github.com/concur/developer.concur.com/commit/{{ site.data.git.commit }}">Produced from {{ site.data.git.commit }}</a>
+        </div>
+      </div>
 
-                    <!-- Link List -->
-                    <div class="col-md-3 md-margin-bottom-40">
-                        <div class="headline"><h2>About Concur</h2></div>
-                        <ul class="list-unstyled link-list">
-                            <li><a href="https://www.concur.com/en-us/media-resources/press-releases">Press Releases</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="https://www.concur.com/en-us/about/news">In the News</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="https://www.concur.com/en-us/perfect-trip-fund">Perfect Trip Fund</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="https://www.concur.com/en-us/events">Events</a><i class="fa fa-angle-right"></i></li>
-                        </ul>
-                    </div><!--/col-md-3-->
-                    <!-- End Link List -->
+      <div class="row footer-copyright">
+        <div class="col-md-8">
+          <p>
+            &copy; 2016 All Rights Reserved.
+            <a href="https://www.concur.com/en-us/privacy-policy">Privacy Policy</a> |
+            <a href="{{ site.baseurl }}/Terms-of-Use.html">Terms of Use</a> |
+            <a href="{{ site.baseurl }}/tools-support/reference/deprecation-policy.html">API Deprecation Policy</a>
+          </p>
+        </div>
 
-                    <!-- Latest -->
-                    <div class="col-md-3 md-margin-bottom-40">
-                        <div class="posts">
-                            <div class="headline">
-                              <h2>Concur Blog</h2>
-                            </div>
-                            <ul class="list-unstyled link-list">
-                              <li>
-                                <a class='blog-link' href="{{ site.posts[0].url }}">{{ site.posts[0].title}}</a>
-                              </li>
-                              <li>
-                                <a class='blog-link' href="{{ site.posts[1].url }}">{{ site.posts[1].title}}</a>
-                              </li>
-                              <li>
-                                <a class='blog-link' href="{{ site.posts[2].url }}">{{ site.posts[2].title}}</a>
-                              </li>
-                            </ul>
-                        </div>
-                    </div><!--/col-md-3-->
-                    <!-- End Latest -->
-
-                    <!-- Address -->
-                    <div class="col-md-3 map-img md-margin-bottom-40">
-                        <div class="headline"><h2>Contact</h2></div>
-                        <address class="md-margin-bottom-40">
-                            601 108th Ave NE, Suite 1000 <br />
-                            Bellevue, WA 98004 USA <br />
-                            Phone: 800 401 8412 <br />
-                            Fax: 425 590 5999
-                        </address>
-                    </div><!--/col-md-3-->
-                    <!-- End Address -->
-                </div>
-                <div class="row">
-                  <div class="col-md-12 text-center edit-github-link">
-                    <a href="{{ site.repository_url }}{{ page.path }}"><i id="edit-github-icon" class="fa fa-github fa-2x"></i> Edit this page on GitHub</a>
-                    <span>|</span>
-                    <a href="https://github.com/concur/developer.concur.com/commit/{{ site.data.git.commit }}">Produced from {{ site.data.git.commit }}</a>
-                  </div>
-                </div>
-            </div>
-        </div><!--/footer-->
-
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <p>
-                            2016 &copy; All Rights Reserved.
-                           <a href="https://www.concur.com/en-us/privacy-policy">Privacy Policy</a> | <a href="{{ site.baseurl }}/Terms-of-Use.html">Terms of Use</a> | <a href="{{ site.baseurl }}/tools-support/reference/deprecation-policy.html">API Deprecation Policy</a></a>
-                        </p>
-                    </div>
-
-                    <!-- Social Links -->
-                    <div class="col-md-4">
-                        <ul class="footer-socials list-inline">
-                            <li>
-                                <a href="https://www.facebook.com/Concur" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.linkedin.com/company/5822" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </li>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/concurapi" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/playlist?list=PLLNSVdjqNPVseaDkR5hSF4CDjnlLK7_nq" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="YouTube">
-                                    <i class="fa fa-youtube"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- End Social Links -->
-                </div>
-            </div>
-        </div><!--/copyright-->
-    </div>
-    <!--=== End Footer Version 1 ===-->
+        <!-- Social Links -->
+        <div class="col-md-4">
+          <ul class="list-inline social-icons">
+            <li>
+              <a href="https://www.facebook.com/Concur" target="_blank">
+                <span class="sr-only">Facebook</span>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/company/5822" target="_blank">
+                <span class="sr-only">LinkedIn</span>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/concurapi" target="_blank">
+                <span class="sr-only">Twitter</span>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/playlist?list=PLLNSVdjqNPVseaDkR5hSF4CDjnlLK7_nq" target="_blank">
+                <span class="sr-only">Youtube</span>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- End Social Links -->
+      </div> <!--/.footer-copyright-->
+    </div> <!--/.container-->
+  </div> <!--/.footer-->
+</footer>

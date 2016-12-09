@@ -116,7 +116,7 @@ Subscribes or unsubscribes the partner from notifications when the company's Pay
 #### Headers
 
 ##### Authorization header
-Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/authentication.html#web).
+Required. Authorization header with OAuth token for the desired Concur user. This token is granted as part of the [OAuth 2.0 Web flow authorization process](/api-reference/authentication/apidoc.html).
 
 ###  XML Example Request
 
@@ -181,6 +181,6 @@ The partner can use this information to make a Get Travel Profile request.
 
 `200 OK`
 
-[1]: https://developer.concur.com/oauth-20
+[1]: /api-reference/authentication/apidoc.html
 [2]: https://developer.concur.com/reference/http-codes
 [3]: https://developer.concur.com/travel-profile/profile-resource/get-travel-profile

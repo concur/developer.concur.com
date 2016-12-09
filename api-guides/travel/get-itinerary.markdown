@@ -9,7 +9,7 @@ This series of API Recipes describes API tasks associated with developing apps, 
 
 ### Before you begin
 Review the following checklist to ensure you are able to perform the task in this recipe. To see reference information, click the link in the bullet point
-- Understand the [Oath 2.0 process](https://developer.concur.com/api-reference/authentication/authentication.html)
+- Understand the [authentication process](/api-reference/authentication/getting-started.html)
 - Be able to access the [Get Trips API](https://developer.concur.com/api-reference/travel/itinerary/trip/trip-resource.html#postnt)
 - Be able to access the [Itinerary Web Service (TMC & Third Party)](https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html)
 - Ensure you have a definition [XSD](https://developer.concur.com/api-reference/travel/itinerary/ItinServices_Public_0.xsd), usable for architecting your solution
@@ -40,7 +40,7 @@ If you have not configured your sandbox to obtain access, you can make that requ
 If you have configured your sandbox, the GET List of Itineraries required for the Get Itinerary endpoint is located in the official Concur developer page [here](https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html).
 
 ##### Important
-- Use the Itinerary scope. More details [here](https://developer.concur.com/api-reference/authentication/authentication.html#web). Use the search term ITINER
+- Use the Itinerary scope. More details [here](/api-reference/authentication/apidoc.html). Use the search term ITINER
 - Use either Web flow or Apps Center flow authentication
 - Ensure that your dates are recent
 

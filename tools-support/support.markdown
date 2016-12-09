@@ -1,6 +1,7 @@
 ---
 title: Support
 layout: reference
+redirect_from: /docs-and-resources/support/
 ---
 
 #### Configuring Sandboxes:

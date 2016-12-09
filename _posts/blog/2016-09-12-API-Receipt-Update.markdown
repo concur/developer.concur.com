@@ -6,6 +6,7 @@ tags:
     - API
     - Receipts
     - Auth
+redirect_from: blog/2016/09/12/API-Receipt-Update.html
 ---
 
 
@@ -30,4 +31,3 @@ If your company currently utilizes our Receipts API to deliver digital receipts
 After the new API is generally available, Concur will be deprecating our current Receipts API consistent with our API Lifecycle and Deprecation Policy and will be deprecating the current user authentication method.  
 
 To learn more about leveraging the new API and new authentication services, along with our API lifecycle and deprecation, watch our recorded webinar [here](https://concur.webex.com/ec3000/eventcenter/recording/recordAction.do?theAction=poprecord&siteurl=concur&entappname=url3000&internalRecordTicket=4832534b00000002fa91c2fb482322e75f7f7429c616d980ef26fe44b4aa1a9b06fadd45a692ae45&renewticket=0&isurlact=true&format=short&rnd=4840420241&RCID=7721e58bf44a43f1a962e47def439bc1&rID=102277217&needFilter=false&recordID=102277217&apiname=lsr.php&AT=pb&actappname=ec3000&&SP=EC&entactname=%2FnbrRecordingURL.do&actname=%2Feventcenter%2Fframe%2Fg.do).
-
