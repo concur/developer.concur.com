@@ -13,96 +13,96 @@ redirect_from: /register/
       <fieldset>
         <div class="row">
           <section class="col col-6">
-            <label class="label">First Name &#42;</label>
-            <label class="input">
+            <label for="firstName" class="label">First Name &#42;</label>
+            <div class="input">
               <input type="text" name="firstName" id="firstName" placeholder="First Name">
-            </label>
+            </div>
           </section>
           <section class="col col-6">
-            <label class="label">Last Name &#42;</label>
-            <label class="input">
+            <label for="lastName" class="label">Last Name &#42;</label>
+            <div class="input">
               <input type="text" name="lastName" id="lastName" placeholder="Last Name">
-            </label>
+            </div>
           </section>
         </div>
         <div class="row">
           <section class="col col-6">
-            <label class="label">Email Address (Use one NOT associated with a Concur account) &#42;</label>
-            <label class="input">
+            <label for="email" class="label">Email Address (Use one NOT associated with a Concur account) &#42;</label>
+            <div class="input">
               <input type="email" name="email" id="email" placeholder="example@example.com">
-            </label>
+            </div>
           </section>
           <section class="col col-6">
-            <label class="label">Company Name &#42;</label>
-            <label class="input">
+            <label for="company" class="label">Company Name &#42;</label>
+            <div class="input">
               <input type="text" name="company" id="company" placeholder="Company Name">
-            </label>
+            </div>
           </section>
         </div>
         <div class="row">
           <section class="col col-6">
-            <label class="label">Password &#42;</label>
-            <label class="input">
+            <label for="password" class="label">Password &#42;</label>
+            <div class="input">
               <input type="password" name="password" id="password" placeholder="Password">
-            </label>
+            </div>
           </section>
           <section class="col col-6">
-            <label class="label">Verify Password &#42;</label>
-            <label class="input">
+            <label for="passwordVerify" class="label">Verify Password &#42;</label>
+            <div class="input">
               <input type="password" name="passwordVerify" id="passwordVerify" placeholder="Password">
-            </label>
+            </div>
           </section>
         </div>
         <div class="row">
           <section class="col col-6">
-            <label class="label">Business Description</label>
-            <label class="input">
+            <label for="businessDescription" class="label">Business Description</label>
+            <div class="input">
               <input type="text" name="businessDescription" id="businessDescription" placeholder="Description">
-            </label>
+            </div>
           </section>
           <section class="col col-6">
-            <label class="label">Phone Number</label>
-            <label class="input">
+            <label for="phoneNumber" class="label">Phone Number</label>
+            <div class="input">
               <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+1-555-555-5555">
-            </label>
+            </div>
           </section>
         </div>
         <div class="row">
           <section class="col col-6">
-            <label class="label">Country &#42;</label>
-            <label class="select">
+            <label for="country" class="label">Country &#42;</label>
+            <div class="select">
               <select name="country" id="country">
                 {% for country in site.data.countries %}
                 <option value="{{ country.code }}">{{ country.name }}</option>
                 {% endfor %}
               </select>
               <i></i>
-            </label>
+            </div>
           </section>
           <section class="col col-6">
-            <label class="label">Website</label>
-            <label class="input">
+            <label for="website" class="label">Website</label>
+            <div class="input">
               <input type="text" name="website" id="website" placeholder="http://example.com">
-            </label>
+            </div>
           </section>
         </div>
         <div class="row">
           <section class="col col-6">
-            <label class="label">Relationship with Concur</label>
-            <label class="select">
+            <label for="relationshipToConcur" class="label">Relationship with Concur</label>
+            <div class="select">
               <select name="relationshipToConcur" id="relationshipToConcur">
                 {% for rel in site.data.concur_relationships %}
                 <option value="{{ rel.value }}">{{ rel.title }}</option>
                 {% endfor %}
               </select>
               <i></i>
-            </label>
+            </div>
           </section>
           <section class="col col-6">
-            <label class="label">How would you like to use Concur?</label>
-            <label class="input">
+            <label for="desiredUse" class="label">How would you like to use Concur?</label>
+            <div class="input">
               <input type="text" name="desiredUse" id="desiredUse" placeholder="Desired Use">
-            </label>
+            </div>
           </section>
         </div>
         <section>
@@ -113,7 +113,8 @@ redirect_from: /register/
           </label>
         </section>
         <p>&#42; required field</p>
-        <input type="text" name="email-alt" id="email-alt">
+        <label for="email-alt" hidden>Alternate Email</label>
+        <input type="text" name="email-alt" id="email-alt" hidden>
       </fieldset>
       <footer>
         <button type="submit" class="btn bright-blue pull-right">Submit</button>
