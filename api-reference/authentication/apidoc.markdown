@@ -6,6 +6,9 @@ layout: reference
 
 # Authentication
 
+### Special Note (Please Read First)
+If you are an existing partner with an existing app, please read both the [Migration to Oauth2 Tokens](/api-reference/authentication/migrationguide.html) and [Getting Started](/api-reference/authentication/getting-started.html) documentation first. If you have any questions, please contact your Partner Enablement team representative before proceeding.
+
 * [Overview]()
 * [Tokens](#access_token)
   * [Obtaining a token](#obtain_token)
@@ -196,15 +199,9 @@ json
 
 ## <a name="revoke_token"></a>Revoking a token
 
-All refresh_tokens associated to a user for an application can be revoked by calling the `/app-mgmt/v0/apps` endpoint. You have to provide the User's `accessToken` in the Authorization Header as `Authorization: Bearer <access_token>`
+All refresh_tokens associated to a user for an application can be revoked by calling the `/appmgmt/v0/connections` endpoint with a `DELETE` action. You have to provide the User's `accessToken` in the Authorization Header as `Authorization: Bearer <access_token>`
 
-`DELETE /app-mgmt/v0/apps/{appId}/principals/me/refreshToken`
-
-**URL Parameters**
-
-Name | Type | Format | Description
------|------| ------ | -----------
-`appId`|`string` | `UUID` | **Required** The client applications client_id supplied by App Management
+`DELETE /appmgmt/v0/connections`
 
 
 **Request**
@@ -212,7 +209,7 @@ Name | Type | Format | Description
 ```
 http
 
-DELETE /app-mgmt/v0/apps/{appId}/principals/me/refreshTokens HTTP/1.1
+DELETE /appmgmt/v0/connections HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer <access_token>
 
