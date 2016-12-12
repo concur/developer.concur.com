@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-  entry: ['whatwg-fetch', './app-management/entry.jsx'],
+  entry: ['./app-management/entry.jsx'],
   output: {
     path: './concur_assets/js',
     filename: 'bundle.js'
