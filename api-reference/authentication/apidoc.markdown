@@ -43,8 +43,8 @@ Name | Type | Format | Description
 
 **Token Response**
 
-```
-http
+```http
+
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: date-requested
@@ -52,8 +52,8 @@ Content-Length: 3397
 Connection: Close
 ```
 
-```
-json
+```json
+
 {
 	"expires_in": "3600",
 	"scope": "app-scopes",
@@ -66,7 +66,8 @@ json
 
 The structure of the access_token is as follows (as an example):
 
-```
+```json
+
 Header:
 {
   "typ": "JWT",
@@ -151,8 +152,7 @@ Name | Type | Format | Description
 
 **Request**
 
-```
-http
+```http
 
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
@@ -170,8 +170,7 @@ client_id=your-client_id
 
 **Response**
 
-```
-http
+```http
 
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
@@ -180,8 +179,7 @@ Content-Length: 3397
 Connection: Close
 ```
 
-```
-json
+```json
 
 {
   "expires_in": "3600",
@@ -205,8 +203,7 @@ All refresh_tokens associated to a user for an application can be revoked by cal
 
 **Request**
 
-```
-http
+```http
 
 DELETE /appmgmt/v0/connections HTTP/1.1
 Content-Type: application/json
@@ -216,8 +213,8 @@ concur-correlationid: <application_name>
 ```
 
 Sample cURL:
-```
-curl
+
+```curl
 
 curl -X DELETE -H "Authorization: Bearer <accessToken>" -H "concur-correlationid: testapp" \
 "https://api.concursolutions.com/appmgmt/v0/connections"
@@ -226,17 +223,14 @@ curl -X DELETE -H "Authorization: Bearer <accessToken>" -H "concur-correlationid
 
 **Response**
 
-```
-http
+```http
 
 HTTP/1.1 200 OK
 Content-Type: application/json
 Date: date-requested
 Content-Length: 9
 Connection: Close
-```
 
-```
 "deleted"
 ```
  
@@ -245,7 +239,7 @@ Connection: Close
 
 Refresh Tokens are UUID4 identifiers that allow your application to obtain a fresh `accessToken` on behalf of a user to access Concur's APIs. 
 
-```
+```json
 e013335d-b4ce-4c43-a7e4-b67abc1adcb0
 ```
 
@@ -262,7 +256,7 @@ EU Production |`https://emea.api.concursolutions.com/oauth2/v0`
 
 If your application was registered with the 'openid' scope, the Authentication service will return an [OPENID](http://openid.net) compatible [ID token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
-```
+```json
 Sample id_token:
 
 {
@@ -356,8 +350,7 @@ Name | Type | Format | Description
 
 **Request**
 
-```
-http
+```http
 
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
@@ -374,8 +367,7 @@ client_id=your-client_id
 
 **Response**
 
-```
-http
+```http
 
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
@@ -384,8 +376,7 @@ Content-Length: 3397
 Connection: Close
 ```
 
-```
-json
+```json
 
 {
 	"expires_in": "3600",
@@ -401,8 +392,7 @@ json
 
 example bad login
 
-```
-json
+```json
 
 {
   "error": "invalid_grant",
@@ -427,8 +417,7 @@ Name | Type | Format | Description
 
 **Request**
 
-```
-http
+```http
 
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
@@ -441,8 +430,7 @@ client_id=your-client_id&client_secret=your-client_secret&grant_type=client_cred
 
 **Response**
 
-```
-json
+```json
 
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
@@ -506,8 +494,7 @@ If the calling application chooses to send custom parameters, all of these exact
 
 **Request**
 
-```
-http
+```http
 
 POST /oauth2/v0/otp HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
@@ -526,8 +513,7 @@ client_id=your-client_id
 
 **Response**
 
-```
-http
+```http
 
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -535,8 +521,7 @@ Content-Length: 22
 Date: date-requested
 ```
 
-```
-json
+```json
 
 {
   "message":"otp sent"
@@ -565,8 +550,7 @@ Name | Type | Format | Description
 
 **Request**
 
-```
-http
+```http
 
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
@@ -586,8 +570,7 @@ client_id=your-client_id
 
 **Response**
 
-```
-http
+```http
 
 HTTP/1.1 200 OK
 Date: date-requested
@@ -595,8 +578,7 @@ Content-Length: 1490
 Connection: keep-alive
 ```
 
-```
-json
+```json
 
 {
 	"expires_in": "3600",
@@ -625,7 +607,8 @@ json
 
 4xx class errors have a JSON response with the following fields
 
-```
+```json
+
   {
    "code": <number>,
    "error": <error>,
