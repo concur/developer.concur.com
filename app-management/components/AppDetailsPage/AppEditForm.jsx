@@ -62,8 +62,8 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, showSecret }
         <section className="col col-6">
           <AppSecret
             clickHandler={() => generateSecret(initialValues.id)}
-            secret={initialValues.secret}
-            collapsed={showSecret}
+            secret={'a-sample-secret'}
+            showSecret={showSecret}
           />
         </section>
       </div>
@@ -124,6 +124,7 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, showSecret }
         </section>
       </div>
     </fieldset>
+    {/*
     <footer>
       <button
         type="submit"
@@ -134,6 +135,7 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, showSecret }
       </button>
       <Link to="/" className="btn grey pull-right">Cancel</Link>
     </footer>
+    */}
   </form>
 );
 

@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 
-const AppSecret = ({ clickHandler, secret, collapsed }) => (
+const AppSecret = ({ clickHandler, secret, showSecret }) => (
   <div>
-    {secret && !collapsed &&
+    {secret && showSecret &&
       <p>
         <strong>
           Here is your new app secret.
@@ -24,7 +24,7 @@ const AppSecret = ({ clickHandler, secret, collapsed }) => (
 AppSecret.propTypes = {
   clickHandler: PropTypes.func.isRequired,
   secret: PropTypes.string,
-  collapsed: PropTypes.bool.isRequired,
+  showSecret: PropTypes.bool.isRequired,
 };
 
 export default AppSecret;
