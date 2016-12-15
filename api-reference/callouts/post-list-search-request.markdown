@@ -104,8 +104,9 @@ The response will include a **fetch-list-response** parent element, with an **it
 
 ####  XML Example of Response with Results
 
-```xml
+```http
 HTTPS/1.1 200 OK
+Content-Type: application/xml
 Content-Length: {length of content body}
 
 <fetch-list-response>
@@ -132,8 +133,9 @@ Content-Length: {length of content body}
 
 ####  XML Example of Response with No Results
 
-```xml
+```http
 HTTPS/1.1 200 OK
+Content-Type: application/xml
 
 <fetch-list-response>
 </fetch-list-response>

@@ -151,8 +151,8 @@ The **Attendee** child element must contain all of the elements described below.
 
 ####  XML Example of Successful Response
 
-```xml
-HTTPS/1.1 OK 200
+```http
+HTTPS/1.1 200 OK
 Content-Type: application/xml
 Content-Length: {length of content body}
 
@@ -197,8 +197,10 @@ Content-Length: {length of content body}
 
 The following example shows the expected response when no attendees match the search criteria.
 
-```xml
-HTTPS/1.1 OK
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+Content-Length: {length of content body}
 
 <?xml version="1.0" encoding="utf-8"?>
 <AttendeeSearchResponse/>
