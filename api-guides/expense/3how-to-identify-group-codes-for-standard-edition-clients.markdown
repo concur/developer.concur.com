@@ -39,10 +39,10 @@ layout: reference
 
 ### Example
 
-
- 	<ListItems xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <Items>
-          <ListItem>
+```xml
+<ListItems xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Items>
+        <ListItem>
             <ID>gWnhB0zozs4kmKXwN4sTo1soIZX$sc2jNxCw</ID>
             <URI>https://www.concursolutions.com/api/v3.0/common/listitems/gWnhB0zozs4kmKXwN4sTo1soIZX$sc2jNxCw</URI>
             <ListID>gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw</ListID>
@@ -75,9 +75,9 @@ layout: reference
             <Level8Code xsi:nil="true"/>
             <Level9Code xsi:nil="true"/>
             <Level10Code xsi:nil="true"/>
-          </ListItem>
-          <ListItem>
-           <ID>gWnhB0zozt$phQQD0yqipIfjjs$pQfCqXj$s7g</ID>
+        </ListItem>
+        <ListItem>
+            <ID>gWnhB0zozt$phQQD0yqipIfjjs$pQfCqXj$s7g</ID>
             <URI>https://www.concursolutions.com/api/v3.0/common/listitems/gWnhB0zozt$phQQD0yqipIfjjs$pQfCqXj$s7g</URI>
             <ListID>gWoAvJ67aUk8E2Ss8iPsKNxhMNBspRBc8Zw</ListID>
             <Name>NSAM</Name>
@@ -92,9 +92,8 @@ layout: reference
             <Level8Code xsi:nil="true"/>
             <Level9Code xsi:nil="true"/>
             <Level10Code xsi:nil="true"/>
-          </ListItem>
-        </Items>
-      <NextPage xsi:nil="true"/>
-    </ListItems>
-    
-
+        </ListItem>
+    </Items>
+    <NextPage xsi:nil="true"/>
+</ListItems>
+```
