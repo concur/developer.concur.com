@@ -28,7 +28,7 @@ Using the following process, you can easily create trips in your sandbox for tes
       </body>
       </html>
 
-      
+
 3. In Travel Alerts, click the **Upcoming Trips** tab.
 4. Click **Add new Itinerary manually**.The **Add New Reservation** dialog appears.
 5. **Select Create New Trip** from the drop down, **Add Reservation to Trip**.
@@ -59,16 +59,16 @@ Fields marked with * are required.
 
 ###### XML Example Request with Paging:
 
-```
-GET /api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&includeMetadata=true&ItemsPerPage=2&Page=1 HTTP 1.1
-Host: [www.concursolutions.com][1]
+```http
+GET /api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&includeMetadata=true&ItemsPerPage=2&Page=1 HTTP/1.1
+Host: www.concursolutions.com
 Authorization: OAuth {access token}
 ```
 
 ###### XML example of a successful response with Paging:
 
-```
-HTTP 1.1 200 OK
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml
 ...
 
@@ -110,8 +110,8 @@ Content-Type: application/xml
 
 ###### Test your API in your tool of choice. A successful response will look like this:
 
-```
-HTTP 1.1 200 OK
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml
 ...
 
@@ -232,7 +232,7 @@ Content-Type: application/xml
                     <NameLast>Miller</NameLast>
                 </Passenger>
             </Passengers>
-<RecordLocator>0987654321</RecordLocator>
+            <RecordLocator>0987654321</RecordLocator>
             <BookingSource>ConcurHotel</BookingSource>
             <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
             <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>

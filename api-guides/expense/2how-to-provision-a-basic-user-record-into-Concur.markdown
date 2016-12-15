@@ -118,7 +118,6 @@ This is a Pro Edition example since it does not include a field ID = < Id > PmtM
 
 ```xml
 <FormFieldsList xmlns="http://www.concursolutions.com/api/user/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-
     <FormField>
         <Id> Custom21 </Id> - Record the field ID to be used in your POST Body later.
         <Label> EmployeeGroup </Label> - Indicated this is a Pro Ed. See above for the other values.

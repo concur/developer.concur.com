@@ -89,8 +89,8 @@ There are cases when the expense entry already exists.  For example, in a CRM ap
 
 To determine if Concur has a record of external attendees, make a GET HTTPS request to the Attendees resource using the External ID search term for external attendees stored in Concur:
 
-```
-GET https://www.concursolutions.com/api/v3.0/expense/attendees?externalid={unique identifier for external attendee} HTTP/1.1
+```http
+GET https://www.concursolutions.com/api/v3.0/expense/attendees?externalid={unique_identifier_for_external_attendee} HTTP/1.1
 Authorization: OAuth {valid OAuth Access Token goes here}
 Content-Type: {application/json or application/xml goes here}
 ```
@@ -282,15 +282,13 @@ Once you obtain the ID for the attendee, make a POST request to the Entry Attend
 
 Here’s what the call looks like:
 
-```
-POST https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations?user=<URL Encoded Login ID for the Login ID for the owner of the expense entry> HTTP/1.1
+```http
+POST https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations?user={URL_Encoded_Login_ID_for_the_Login_ID_for_the_owner_of_the_expense_entry} HTTP/1.1
 Authorization: OAuth {valid OAuth Access Token goes here}
 Content-Type: application/json
 Accept: application/json
 ...
-```
 
-```json
 {
   "EntryID": "n4MrUpcqIH3ot4bFvFCNXCpk7TJOphLTH",
   "AttendeeID": "nmBwIaoDagUkD8kXZGIl7B170uK9tE6pk"
