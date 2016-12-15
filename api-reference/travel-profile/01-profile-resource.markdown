@@ -117,7 +117,7 @@ The Profile root element contains:
 The General parent element contains the following child elements.
 
 * Some elements require specific scopes be enabled to receive the data, refer to the table below.
-* Profile fields, such as cost center and division, must be enabled and populated in the Travel site for data to return. 
+* Profile fields, such as cost center and division, must be enabled and populated in the Travel site for data to return.
 
 | Element Name | Data Type | Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
@@ -378,7 +378,7 @@ The Air parent element contains the user's air travel preferences and contains t
 
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
-|  `InterRowPositionCode` |  `string` |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **DontCare**. | | | | 
+|  `InterRowPositionCode` |  `string` |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **DontCare**. | | | |
 |  `SectionPositionCode` |  `string` |  Preference for position in plane. Format: **Bulkhead**, **Forward**, **Rear**, **ExitRow**, **DontCare**. | | | |
 
 ***
@@ -448,7 +448,7 @@ The Car parent element contains the user's car travel preferences. It contains t
 |  `StatusBenefits` |  `string` |  Description of a benefit of the loyalty program at the current status. | | | |
 |  `PointTotal` |  `string` |  The user's total number of points in the loyalty program. | | | |
 |  `SegmentTotal` |  `string` |  The user's total segments in the loyalty program. | | | |
-|  `Expiration` |  `DateTime` |  The user's expiration date in the loyalty program.  | | | Min - 01/01/1753, Max - 12/31/9999 | 
+|  `Expiration` |  `DateTime` |  The user's expiration date in the loyalty program.  | | | Min - 01/01/1753, Max - 12/31/9999 |
 |  `NextStatus` |  `string` |  Name or description of next higher status level in the  loyalty program. | | | |
 |  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. | | |  |
 |  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. | | | |
@@ -467,9 +467,9 @@ The Hotel parent element contains the user's hotel travel preferences. It contai
 |  `RoomType` |  `string` |  Hotel room preference. Values are: **DontCare**, **King**, **Queen**, **Double**, **Twin**, **Single**, **Disability** | | | |
 |  `HotelOther` |  `string` |  Other Hotel related description. Format: varchar(30) | | | |
 |  `PreferFoamPillows` |  `boolean` |  Whether the user prefers foam pillows. Format: **true**\|**false**. | | |
-|  `PreferCrib` |  `boolean` |  Whether the user prefers to have a crib. Format:**true**\|**false**. | | | 
-|  `PreferRollawayBed` |  `boolean` |  Whether the user prefers to have a rollaway bed. Format:**true**\|**false**. | | | 
-|  `PreferGym` |  `boolean` |  Whether the user prefers a hotel with a gym. Format:**true**\|**false**. | | | 
+|  `PreferCrib` |  `boolean` |  Whether the user prefers to have a crib. Format:**true**\|**false**. | | |
+|  `PreferRollawayBed` |  `boolean` |  Whether the user prefers to have a rollaway bed. Format:**true**\|**false**. | | |
+|  `PreferGym` |  `boolean` |  Whether the user prefers a hotel with a gym. Format:**true**\|**false**. | | |
 |  `PreferPool` |  `boolean` |  Whether the user prefers a hotel with a pool. Format:**true**\|**false**. | | |
 |  `PreferRestaraunt` |  `boolean` |  Whether the user prefers a hotel with a restaurant. Format:**true**\|**false**. | | |
 |  `PreferWheelchairAccess` |  `boolean` |  Whether the user requires wheelchair access. Format: **true**\|**false**. | | |
@@ -515,7 +515,7 @@ A list of users associated to a user:
 | `Type attribute` | `string` |  The Arranger/Manager's role. Values are: Arranger, Manager | Required | Required | |
 | `PrimaryIndicatorFlag attribute` |  `boolean` | For Arrangers type, denotes the primary arranger. Format: **true**\|**false**. | |||
 
-* **NOTES**: 
+* **NOTES**:
 	* FirstName, LastName, and Email cannot be updated.
 	* Managers and Arrangers must be in the same company of the user to be assigned.
 	* If the PrimaryIndicatorFlag is sent in as true, the arranger will be marked as primary.
@@ -650,19 +650,22 @@ The codes and types of messages that can be returned on updates and creates:
 
 ####  Request
 
-    GET {InstanceURI}/api/travelprofile/v2.0/profile HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
-
+```http
+GET {InstanceURI}/api/travelprofile/v2.0/profile HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
 
 ####  Example 2: Get the travel profile for a user with a specific login ID
 
 #####  Request
 
-    GET https://www.concursolutions.com/api/travelprofile/v2.0/profile?
-    userid_type=login&userid_value=cm@example.com HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+GET https://www.concursolutions.com/api/travelprofile/v2.0/profile?
+userid_type=login&userid_value=cm@example.com HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
 
 ####  Examples for TMCs
 
@@ -670,19 +673,23 @@ The codes and types of messages that can be returned on updates and creates:
 
 #####  Request
 
-    GET {InstanceURI}/api/travelprofile/v2.0/profile HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+GET {InstanceURI}/api/travelprofile/v2.0/profile HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
 
 
 ####  Example 4: Get the travel profile for a user with a specific login ID
 
 #####  Request
 
-    GET https://www.concursolutions.com/api/travelprofile/v2.0/profile?
-    userid_type=login&userid_value=cm@example.com HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+GET https://www.concursolutions.com/api/travelprofile/v2.0/profile?
+userid_type=login&userid_value=cm@example.com HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
 
 #### Update and Create Examples Coming Soon
 
@@ -693,10 +700,10 @@ This endpoint provides a list of travel profile summaries that have been updated
 
 ###  Request
 
-<code>
+```http
 GET {InstanceURI}/api/travelprofile/v2.0/summary?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
 Authorization: OAuth {access token}
-</code>
+```
 
 ####  Request parameters
 
@@ -723,29 +730,28 @@ Where _access_token_ is the OAuth 2.0 access token of the user whose travel prof
 
 The data model of the response for the GET operation. The complete schema definition is also available here: [Travel Profile Summary V2 XSD][4]
 
-<pre>
-<span class="xml-tag">&lt;ConnectResponse</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Metadata</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Paging</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;TotalPages</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;TotalItems</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;Page</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;ItemsPerPage</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;PreviousPageURL</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;NextPageURL</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/Paging</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Metadata</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Data</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;ProfileSummary</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Status</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;LoginID</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;XmlProfileSyncID</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;ProfileLastModifiedUTC</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/ProfileSummary</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Data</span><span class="xml-tag">&gt;</span>
-<span class="xml-tag">&lt;/ConnectResponse</span><span class="xml-tag">&gt;</span>
-
-</pre>
+```xml
+<ConnectResponse>
+    <Metadata>
+        <Paging>
+            <TotalPages />
+            <TotalItems />
+            <Page />
+            <ItemsPerPage />
+            <PreviousPageURL />
+            <NextPageURL />
+        </Paging>
+    </Metadata>
+    <Data>
+        <ProfileSummary>
+            <Status />
+            <LoginID />
+            <XmlProfileSyncID />
+            <ProfileLastModifiedUTC />
+        </ProfileSummary>
+    </Data>
+</ConnectResponse>
+```
 
 ### Response
 
@@ -790,47 +796,46 @@ This example gets the list of travel profile summaries modified after January 1 
 
 ####  Request
 
-<samp>
-    GET {InstanceURI}/api/travelprofile/v2.0/summary?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
-</samp>
+```http
+GET {InstanceURI}/api/travelprofile/v2.0/summary?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
 
 ####  Response
 
-<pre>
-200 OK
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml
 
-<span class="xml-tag">&lt;ConnectResponse</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Metadata</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Paging</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;TotalPages</span><span class="xml-tag">&gt;</span>1<span class="xml-tag">&lt;/TotalPages</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;TotalItems</span><span class="xml-tag">&gt;</span>2<span class="xml-tag">&lt;/TotalItems</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Page</span><span class="xml-tag">&gt;</span>1<span class="xml-tag">&lt;/Page</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;ItemsPerPage</span><span class="xml-tag">&gt;</span>200<span class="xml-tag">&lt;/ItemsPerPage</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;PreviousPageURL</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;NextPageURL</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/Paging</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Metadata</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Data</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;ProfileSummary</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Status</span><span class="xml-tag">&gt;</span>Active<span class="xml-tag">&lt;/Status</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;LoginID</span><span class="xml-tag">&gt;</span>mariab@company1.com<span class="xml-tag">&lt;/LoginID</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;XmlProfileSyncID</span><span class="xml-tag">&gt;</span>`string`123<span class="xml-tag">&lt;/XmlProfileSyncID</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>2015-01-01T01:00:00<span class="xml-tag">&lt;/ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/ProfileSummary</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;ProfileSummary</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Status</span><span class="xml-tag">&gt;</span>Inactive<span class="xml-tag">&lt;/Status</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;LoginID</span><span class="xml-tag">&gt;</span>peterk@company1.com<span class="xml-tag">&lt;/LoginID</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;XmlProfileSyncID</span><span class="xml-tag">&gt;</span>`string`456<span class="xml-tag">&lt;/XmlProfileSyncID</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>2015-01-01T01:00:00<span class="xml-tag">&lt;/ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/ProfileSummary</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Data</span><span class="xml-tag">&gt;</span>
-<span class="xml-tag">&lt;/ConnectResponse</span><span class="xml-tag">&gt;</span>
+<ConnectResponse>
+    <Metadata>
+        <Paging>
+            <TotalPages>1</TotalPages>
+            <TotalItems>2</TotalItems>
+            <Page>1</Page>
+            <ItemsPerPage>200</ItemsPerPage>
+            <PreviousPageURL />
+            <NextPageURL />
+        </Paging>
+    </Metadata>
+    <Data>
+        <ProfileSummary>
+            <Status>Active</Status>
+            <LoginID>mariab@company1.com</LoginID>
+            <XmlProfileSyncID>`string`123</XmlProfileSyncID>
+            <ProfileLastModifiedUTC>2015-01-01T01:00:00</ProfileLastModifiedUTC>
+        </ProfileSummary>
+        <ProfileSummary>
+            <Status>Inactive</Status>
+            <LoginID>peterk@company1.com</LoginID>
+            <XmlProfileSyncID>`string`456</XmlProfileSyncID>
+            <ProfileLastModifiedUTC>2015-01-01T01:00:00</ProfileLastModifiedUTC>
+        </ProfileSummary>
+    </Data>
+</ConnectResponse>
+```
 
-</pre>
- 
 
 
 

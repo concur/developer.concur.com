@@ -24,7 +24,7 @@ layout: reference
 
     GET  /api/v3.0/expense/reports
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -74,7 +74,7 @@ https://www.concursolutions.com/api/v3.0/expense/reports?limit=15&user=ALL
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "Items": [
     {
@@ -138,6 +138,8 @@ https://www.concursolutions.com/api/v3.0/expense/reports?limit=15&user=ALL
       "ID": "F4F027007E814C1CA70E",
       "URI": "https://www.concursolutions.com/api/v3.0/expense/reports/F4F027007E814C1CA70E"
     }
+  ]
+}
 ```
 
 ## <a name="getID"></a>Retrieve a report by ID
@@ -161,7 +163,7 @@ https://www.concursolutions.com/api/v3.0/expense/reports/39BD9F7C5C3F4986A6A5
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "Name": "Test 02",
   "Total": 307.01,
@@ -247,7 +249,7 @@ https://www.concursolutions.com/api/v3.0/expense/reports
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "ID": "DD683A53018A4349B7CD",
   "URI": "https://www.concursolutions.com/api/v3.0/expense/reports/DD683A53018A4349B7CD"
