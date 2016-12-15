@@ -30,8 +30,8 @@ Applications can exchange tokens by calling the `exchangeRefreshToken/me` endpoi
 
 Sample Curl:
 
-```
-curl -H 'concur-correlationid: githbuwiki' -H 'Authorization: Bearer <accessToken> -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST http://us.api.concursolutions.com/api/appmgmt/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me
+```shell
+curl -H 'concur-correlationid: githbuwiki' -H 'Authorization: Bearer <accessToken>' -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST http://us.api.concursolutions.com/api/appmgmt/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me
 ```
 
 successful call, responds with

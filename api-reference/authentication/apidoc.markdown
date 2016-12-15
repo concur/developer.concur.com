@@ -238,7 +238,7 @@ Connection: Close
 
 Refresh Tokens are UUID4 identifiers that allow your application to obtain a fresh `accessToken` on behalf of a user to access Concur's APIs.
 
-```json
+```
 e013335d-b4ce-4c43-a7e4-b67abc1adcb0
 ```
 
@@ -305,7 +305,7 @@ Name | Type | Format | Description
   `redirect_uri`|`string` | | The redirect URI for your application to continue with the Oauth2 flow
   `scope`|`string` | | List of scopes that application is asking for
   `response_type`|`string` | | `code`
-  `state`|`string` | | 
+  `state`|`string` | |
 
 
 `POST /oauth2/v0/verify_creds`
