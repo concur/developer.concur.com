@@ -14,7 +14,7 @@ Scope is a parameter as defined in the OAuth 2.0 standards (RFC6749) to enable a
 
 Scopes apply to applications only. Scopes play a crucial part in defining the ultimate access to a resource by a User.
 
-`User’s Roles/permissions + Claims +  App Scopes.``
+`User’s Roles/permissions + Claims +  App Scopes.`
 
 ## <a name="v4apiscopes"></a>List of v4 API Scopes
 

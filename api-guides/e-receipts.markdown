@@ -19,10 +19,10 @@ To enable e-receipt posting to Concur, ensure that you have completed the follow
 
 - Your company must be qualified by the Concur Platform and Partner Solutions [business development team]( https://developer.concur.com/why-concur.html) and your company must have entered into a commercial agreement with Concur
 - Ensure your app supports **BOTH** Concur’s [App Center flow](/api-reference/authentication/apidoc.html) so that travelers can authenticate from within Concur’s Mobile app; and Concur’s Web flow so that users can authenticate from within your app
-- Ensure your app supports the ability to [connect your users to and from](/api-reference/authentication/apidoc.html#access_token) your app or website. 
+- Ensure your app supports the ability to [connect your users to and from](/api-reference/authentication/apidoc.html#access_token) your app or website.
 - Ensure your app supports the ability to [disconnect](/api-reference/authentication/apidoc.html#revoke_token) the user from their account with you
 - Ensure your app includes the ability to [refresh the Concur authentication token](/api-reference/authentication/apidoc.html#refresh_token)
-- Ensure your app includes the ability to respond appropriately to revoked token messages 
+- Ensure your app includes the ability to respond appropriately to revoked token messages
 - Ensure that if your app currently generates a receipt image, (.png, .jpg,.tif. pdf or other image file) that you include it in your post to Concur. Concur generates a standard receipt for Partners who do not tender a receipt image. The standard receipt may not include additional fees and taxes collected the user’s locale like VAT.
 
 
@@ -30,7 +30,7 @@ To enable e-receipt posting to Concur, ensure that you have completed the follow
 
 Currently the Receipts service supports these three types of receipts: general purpose receipts, hotel receipts for either hospitality service or accommodation and ride receipt for a ride service. It is important to remember that the Receipts service only accepts receipts up to six months old. For more information, consult the Receipts article in the [developer.concur.com API Reference](https://developer.concur.com/api-reference/expense/receipts/index.html) materials.
 
-This diagram explains how to send an e-receipt to Concur. Developers should remember to both ***STORE*** and ***USE*** the instance URL as well as the refresh token. 
+This diagram explains how to send an e-receipt to Concur. Developers should remember to both ***STORE*** and ***USE*** the instance URL as well as the refresh token.
 
 ![Send a receipt to Concur](images/Send_a_receipt_to_Concur.jpg)
 
@@ -39,14 +39,13 @@ The POST fields required for the Receipt endpoint are located in the official Co
 
 #### Important
 - Use the ERECPT scope. More details [here](https://developer.concur.com/oauth-20/web-flow) Search Term: ERECPT
-- Use the easier Native Flow authentication for Application 2 in your sandbox to retrieve the user token 
+- Use the easier Native Flow authentication for Application 2 in your sandbox to retrieve the user token
 - Ensure that your dates are recent. The Receipts endpoint rejects receipts with transaction dates older than six months
 
 
 Refer to the sample Receipt POST body below for guidance:
 
-```
-JSON
+```json
 {
   "Type": "Ride",
   "TransactionDateTime": "2014-06-16T16:03:24",
@@ -126,7 +125,7 @@ JSON
       "Value": "RideCustomField03Value"
     }
   ],
-  "ImageBase64": "<insert Base64 representation of image"
+  "ImageBase64": "<insert Base64 representation of image>"
 }
 ```
 
