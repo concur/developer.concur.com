@@ -17,11 +17,11 @@ The URI is configured on the **Register Application Connector** page in **Web Se
 The full URI for the request includes the following query string values:
 
 ```
-    https://{servername}/concur/form/v1.0/get?xcompanydomain={URL-encoded company domain}
-        &xuserid={URL-encoded login ID of interactive user}
-        &itemurl={URL-encoded url to item}
-        &nonce={URL-encoded timestamp}
-        &signature={URL-encoded signature hash}
+https://{servername}/concur/form/v1.0/get?xcompanydomain={URL-encoded company domain}
+    &xuserid={URL-encoded login ID of interactive user}
+    &itemurl={URL-encoded url to item}
+    &nonce={URL-encoded timestamp}
+    &signature={URL-encoded signature hash}
 ```
 
 ### Request Query Parameters
@@ -61,13 +61,13 @@ If the signature hashes match then you know the credentials are valid and the re
 
 ####  XML Example Request
 
-```xml
-    GET https://{URL to your custom connector and endpoint}
-    ?xcompanydomain={URL-encoded company domain}
-        &xuserid={URL-encoded login ID of interactive user}
-        &itemurl={URL-encoded url to item}
-        &nonce={URL-encoded timestamp}
-        &signature={URL-encoded signature hash}
+```
+GET https://{URL to your custom connector and endpoint}
+?xcompanydomain={URL-encoded company domain}
+    &xuserid={URL-encoded login ID of interactive user}
+    &itemurl={URL-encoded url to item}
+    &nonce={URL-encoded timestamp}
+    &signature={URL-encoded signature hash}
 ```
 
 ##  Get External URL Response

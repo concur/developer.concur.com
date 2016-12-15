@@ -38,46 +38,50 @@ The request will contain a **fetch-list-request** parent element, containing the
 
 The example uses the Fetch List web service to search a single level list for all projects beginning with Alph, and is configured to connect to an application connector located at www.example.com.
 
-    POST /concur/list/v1.2/fetch HTTPS/1.1
-    Host: example.com
-    Authorization: Basic ...
-    Content-Type: application/xml; charset=utf-8
-    Content-Length: {length of content body}
+```http
+POST /concur/list/v1.2/fetch HTTPS/1.1
+Host: example.com
+Authorization: Basic ...
+Content-Type: application/xml; charset=utf-8
+Content-Length: {length of content body}
 
-    <?xml version="1.0" ?>
-    <fetch-list-request>
-        <long-code></long-code>
-        <short-code></short-code>
-        <query>Alph*</query>
-        <search-by>TEXT</search-by>
-        <lang-code>EN</lang-code>
-        <num-to-return>500</num-to-return>		
-    </fetch-list-request>
-	
+<?xml version="1.0" ?>
+<fetch-list-request>
+    <long-code></long-code>
+    <short-code></short-code>
+    <query>Alph*</query>
+    <search-by>TEXT</search-by>
+    <lang-code>EN</lang-code>
+    <num-to-return>500</num-to-return>		
+</fetch-list-request>
+```
+
 ####  XML Example Request for Multi-level list
 
 The example uses the Fetch List web service to search a connected list for all cities under US-W-CA (United States, Western Region, California) beginning with San, and is configured to connect to an application connector located at www.example.com.
 
-    POST /concur/list/v1.2/fetch HTTPS/1.1
-    Host: example.com
-    Authorization: Basic ...
-    Content-Type: application/xml; charset=utf-8
-    Content-Length: {length of content body}
+```http
+POST /concur/list/v1.2/fetch HTTPS/1.1
+Host: example.com
+Authorization: Basic ...
+Content-Type: application/xml; charset=utf-8
+Content-Length: {length of content body}
 
-    <?xml version="1.0" ?>
-    <fetch-list-request>
-        <long-code>US-W-CA</long-code>
-        <short-code>CA</short-code>
-        <query>San*</query>
-        <search-by>TEXT</search-by>
-        <lang-code>EN</lang-code>
-        <num-to-return>500</num-to-return>
-		<code-by-level>
-            <level1>US</level1>
-            <level2>W</level2>
-            <level3>CA</level3>      
-        </code-by-level>
-    </fetch-list-request>
+<?xml version="1.0" ?>
+<fetch-list-request>
+    <long-code>US-W-CA</long-code>
+    <short-code>CA</short-code>
+    <query>San*</query>
+    <search-by>TEXT</search-by>
+    <lang-code>EN</lang-code>
+    <num-to-return>500</num-to-return>
+    <code-by-level>
+        <level1>US</level1>
+        <level2>W</level2>
+        <level3>CA</level3>      
+    </code-by-level>
+</fetch-list-request>
+```
 
 # Post List Search Response
 
@@ -100,38 +104,39 @@ The response will include a **fetch-list-response** parent element, with an **it
 
 ####  XML Example of Response with Results
 
-    200 OK HTTPS/1.1
-    Content-Length: {length of content body}
+```xml
+HTTPS/1.1 200 OK
+Content-Length: {length of content body}
 
-    <fetch-list-response>
-        <item>
-            <code>US-W-CA-SF</code>
-            <short-code>SF</short-code>
-            <text>San Francisco</text>
-            <match-value>San Francisco</match-value>
-        </item>
-        <item>
-            <code>US-W-CA-SD</code>
-            <short-code>SD</short-code>
-            <text>San Diego</text>
-            <match-value>San Diego</match-value>
-        </item>
-        <item>
-            <code>US-W-CA-SJ</code>
-            <short-code>SJ</short-code>
-            <text>San Jose</text>
-            <match-value>San Jose</match-value>
-        </item>
-    </fetch-list-response>
+<fetch-list-response>
+    <item>
+        <code>US-W-CA-SF</code>
+        <short-code>SF</short-code>
+        <text>San Francisco</text>
+        <match-value>San Francisco</match-value>
+    </item>
+    <item>
+        <code>US-W-CA-SD</code>
+        <short-code>SD</short-code>
+        <text>San Diego</text>
+        <match-value>San Diego</match-value>
+    </item>
+    <item>
+        <code>US-W-CA-SJ</code>
+        <short-code>SJ</short-code>
+        <text>San Jose</text>
+        <match-value>San Jose</match-value>
+    </item>
+</fetch-list-response>
+```
 
 ####  XML Example of Response with No Results
 
-    200 OK HTTPS/1.1
+```xml
+HTTPS/1.1 200 OK
 
-    <fetch-list-response>
-    </fetch-list-response>
-
-
-
+<fetch-list-response>
+</fetch-list-response>
+```
 
 [1]: /api-reference/authentication/apidoc.html
