@@ -1,5 +1,5 @@
 ---
-title: Update reservation with Travel 
+title: Update reservation with Travel
 layout: reference
 ---
 
@@ -24,11 +24,11 @@ application/xml
 
 Authorization header with OAuth credentials. Required. Refer to the OAuth documentation for more information.
 
-Authorization: OAuth {OAuth access token associated with the account making the call with Web Services Administrator role} 
+Authorization: OAuth {OAuth access token associated with the account making the call with Web Services Administrator role}
 
 ### Request body
 
-The request will contain a **CC_LimoPostBackRequest** parent element, containing the following child elements: 
+The request will contain a **CC_LimoPostBackRequest** parent element, containing the following child elements:
 
 |  Element |  Required? |  Description |
 |-------------|----------|----------------------|
@@ -77,7 +77,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  Element |  Description |
 |-------------|----------------------|
 |  FirstName |  The contact's first name. |
-|  LastName |  The contact's last name. | 
+|  LastName |  The contact's last name. |
 |  Phone |  The contact's phone number. |
 |  Phone2 |  The contact's backup phone number. |
 |  CellPhone |  The contact's cell phone number. |
@@ -116,7 +116,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  Element |  Description |
 |-------------|----------------------|
 |  VehicleType |  One of the following values:  <br/>100: Sedan  <br/>200: Limo  <br/>250: Stretch Limo  <br/>300: SUV  <br/>350: Stretch SUV  <br/>400: Van  <br/>450: Mini-Bus  <br/>500: Motor Coach  <br/>600: Shuttle  <br/>700: Trolley  <br/>800: Carriage  <br/>900: Any |
-|  Description |  The vehicle description. | 
+|  Description |  The vehicle description. |
 |  MaxPassengers |  The maximum number of passengers for the car. Must be greater than zero. |
 |  VehicleID |  Information to identify the specific vehicle. |
 
@@ -204,7 +204,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 
 ### XML example request
 
-```xml
+```http
 POST /api/tws/v1.0/Limo/PostBack HTTPS/1.1
 Host: app2.outtask.com/
 Authorization: Basic ...
@@ -379,8 +379,10 @@ The response will include a **CC_LimoPostBackResponse** parent element, with the
 
 ### XML example of successful response
 
-```xml
-200 OK HTTPS/1.1 
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+
 <CC_LimoPostBackResponse>
     <Success>Updated Trip Status successfully.</Success>
 </CC_LimoPostBackResponse>
