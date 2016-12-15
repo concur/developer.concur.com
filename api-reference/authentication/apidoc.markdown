@@ -308,7 +308,7 @@ Name | Type | Format | Description
   `client_id`|`string` | `UUID` | Applications client_id supplied by App Management
   `redirect_uri`|`string` | | The redirect URI for your application to continue with the Oauth2 flow
   `scope`|`string` | | List of scopes that application is asking for
-  `response_type`|`string` | | code
+  `response_type`|`string` | | `code`
   `state`|`string` | | 
 
 
@@ -331,7 +331,8 @@ Name | Type | Format | Description
 -----|------| ------ | -----------
 `client_id`|`string` | `UUID` | Applications client_id supplied by App Management
 `client_secret`|`string` | `UUID` | Applications client_secret supplied by App Management
-`redirect_uri`|`string` | `UUID` | `code`|`string` | | 
+`redirect_uri`|`string` | | The redirect_uri that is registered for the application
+`code`|`string`| `UUID`  | The authorization code provided by Auth
 `grant_type`|`string` | | `authorization_code` 
 
 
