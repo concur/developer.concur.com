@@ -22,13 +22,13 @@ layout: reference
 
 
 
-## <a name="get"></a>Retrieve all expense itemizations owned by the user 
+## <a name="get"></a>Retrieve all expense itemizations owned by the user
 
 **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
 
     GET  /api/v3.0/expense/itemizations
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -49,7 +49,7 @@ https://www.concursolutions.com/api/v3.0/expense/itemizations?limit=10&user=ALL
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "Items": [
     {
@@ -125,6 +125,8 @@ https://www.concursolutions.com/api/v3.0/expense/itemizations?limit=10&user=ALL
       "ID": "gWidFO7ikXSy$seMkLiQismjUIYkxYzCsf4g",
       "URI": "https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXSy$seMkLiQismjUIYkxYzCsf4g"
     }
+  ]
+}
 ```
 
 ## <a name="getID"></a>Retrieve an expense itemization by ID
@@ -148,7 +150,7 @@ https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXV6%24pcZ
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "EntryID": "gWidFO7ikXV6$sQxTtWGQsIhawC4KoyssTCg",
   "ReportID": "39BD9F7C5C3F4986A6A5",
@@ -245,7 +247,7 @@ https://www.concursolutions.com/api/v3.0/expense/itemizations
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "ID": "gWidFO7ikXV69FISvVWPbHe1Oj4FbCd0DCg",
   "URI": "https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXV69FISvVWPbHe1Oj4FbCd0DCg"

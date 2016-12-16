@@ -1,5 +1,5 @@
 ---
-title: Post a new reservation 
+title: Post a new reservation
 layout: reference
 ---
 
@@ -109,97 +109,97 @@ The **PaymentCard** element has the following child elements:
 
 ####  XML Example Request
 
-```xml
-    POST /concur/hotel/v1 HTTPS/1.1
-    Host: example.com
-    Authorization: Basic ...
-    Content-Type: application/xml
-    Content-Length: {length of content body}
+```http
+POST /concur/hotel/v1 HTTPS/1.1
+Host: example.com
+Authorization: Basic ...
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelResRQ.xsd" Version="1">
-        <POS>
-            <Source ISOCountry="US" ISOCurrency="USD">
-                <RequestorID Type="18" ID="7777777" />
-            </Source>
-        </POS>
-        <HotelReservations>
-            <HotelReservation>
-                <RoomStays>
-                    <RoomStay>
-                        <RoomTypes>
-                            <RoomType NumberOfUnits="1" />
-                        </RoomTypes>
-                        <RatePlans>
-                            <RatePlan RatePlanCode="222222" />
-                        </RatePlans>
-                        <GuestCounts>
-                            <GuestCount AgeQualifyingCode="10" Count="1" />
-                        </GuestCounts>
-                        <TimeSpan Start="2012-08-15" End="2010-08-17" />
-                        <Guarantee>
-                            <GuaranteesAccepted>
-                                <GuaranteeAccepted GuaranteeTypeCode="CC">
-                                    <PaymentCard CardCode="AX" CardNumber="4400000000000" ExpireDate="1215" SeriesCode="1234">
-                                        <CardHolderName>CHRIS MILLER</CardHolderName>
-                                        <Address>
-                                            <AddressLine>18400 NE UNION HILL RD.</AddressLine>
-                                            <CityName>REDMOND</CityName>
-                                            <PostalCode>98052</PostalCode>
-                                            <StateProv>WA</StateProv>
-                                            <CountryName>US</CountryName>
-                                        </Address>
-                                    </PaymentCard>
-                                </GuaranteeAccepted>
-                            </GuaranteesAccepted>
-                        </Guarantee>
-                        <BasicPropertyInfo HotelCode="HTL1111" />
-                        <Comments>
-                            <Comment>NON-SMOKING</Comment>
-                            <Comment>not close to the elevator</Comment>
-                        </Comments>
-                    </RoomStay>
-                </RoomStays>
-                <ResGuests>
-                    <ResGuest>
-                        <Profiles>
-                            <ProfileInfo>
-                                <Profile>
-                                    <Customer>
-                                        <PersonName>
-                                            <NamePrefix>Mr.</NamePrefix>
-                                            <GivenName>CHRIS</GivenName>
-                                            <Surname>MILLER</Surname>
-                                        </PersonName>
-                                        <Telephone PhoneNumber="212-555-1212" />
-                                        <Email>cmiller@example.com</Email>
-                                        <Address>
-                                            <AddressLine>18400 NE Union Hill Rd.</AddressLine>
-                                            <CityName>Redmond</CityName>
-                                            <PostalCode>98052</PostalCode>
-                                            <StateProv>WA</StateProv>
-                                            <CountryName>USA</CountryName>
-                                        </Address>
-                                    </Customer>
-                                </Profile>
-                            </ProfileInfo>
-                        </Profiles>
-                    </ResGuest>
-                </ResGuests>
-                <ResGlobalInfo>
-                    <Memberships>
-                        <Membership ProgramCode="HotelLoyaltyProgram" AccountID="987654321" />
-                    </Memberships>
-                </ResGlobalInfo>
-                <TPA_Extensions>
-                    <CustomFields>
-                        <CustomField Name="OrgUnit" Type="Profile">Sales</CustomField>
-                        <CustomField Name="XmlSyncId" Type="Profile">9293kks8drf6s8f</CustomField>
-                    </CustomFields>
-                </TPA_Extensions>
-            </HotelReservation>
-        </HotelReservations>
-    </OTA_HotelResRQ>
+<?xml version="1.0" encoding="UTF-8" ?>
+<OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelResRQ.xsd" Version="1">
+    <POS>
+        <Source ISOCountry="US" ISOCurrency="USD">
+            <RequestorID Type="18" ID="7777777" />
+        </Source>
+    </POS>
+    <HotelReservations>
+        <HotelReservation>
+            <RoomStays>
+                <RoomStay>
+                    <RoomTypes>
+                        <RoomType NumberOfUnits="1" />
+                    </RoomTypes>
+                    <RatePlans>
+                        <RatePlan RatePlanCode="222222" />
+                    </RatePlans>
+                    <GuestCounts>
+                        <GuestCount AgeQualifyingCode="10" Count="1" />
+                    </GuestCounts>
+                    <TimeSpan Start="2012-08-15" End="2010-08-17" />
+                    <Guarantee>
+                        <GuaranteesAccepted>
+                            <GuaranteeAccepted GuaranteeTypeCode="CC">
+                                <PaymentCard CardCode="AX" CardNumber="4400000000000" ExpireDate="1215" SeriesCode="1234">
+                                    <CardHolderName>CHRIS MILLER</CardHolderName>
+                                    <Address>
+                                        <AddressLine>18400 NE UNION HILL RD.</AddressLine>
+                                        <CityName>REDMOND</CityName>
+                                        <PostalCode>98052</PostalCode>
+                                        <StateProv>WA</StateProv>
+                                        <CountryName>US</CountryName>
+                                    </Address>
+                                </PaymentCard>
+                            </GuaranteeAccepted>
+                        </GuaranteesAccepted>
+                    </Guarantee>
+                    <BasicPropertyInfo HotelCode="HTL1111" />
+                    <Comments>
+                        <Comment>NON-SMOKING</Comment>
+                        <Comment>not close to the elevator</Comment>
+                    </Comments>
+                </RoomStay>
+            </RoomStays>
+            <ResGuests>
+                <ResGuest>
+                    <Profiles>
+                        <ProfileInfo>
+                            <Profile>
+                                <Customer>
+                                    <PersonName>
+                                        <NamePrefix>Mr.</NamePrefix>
+                                        <GivenName>CHRIS</GivenName>
+                                        <Surname>MILLER</Surname>
+                                    </PersonName>
+                                    <Telephone PhoneNumber="212-555-1212" />
+                                    <Email>cmiller@example.com</Email>
+                                    <Address>
+                                        <AddressLine>18400 NE Union Hill Rd.</AddressLine>
+                                        <CityName>Redmond</CityName>
+                                        <PostalCode>98052</PostalCode>
+                                        <StateProv>WA</StateProv>
+                                        <CountryName>USA</CountryName>
+                                    </Address>
+                                </Customer>
+                            </Profile>
+                        </ProfileInfo>
+                    </Profiles>
+                </ResGuest>
+            </ResGuests>
+            <ResGlobalInfo>
+                <Memberships>
+                    <Membership ProgramCode="HotelLoyaltyProgram" AccountID="987654321" />
+                </Memberships>
+            </ResGlobalInfo>
+            <TPA_Extensions>
+                <CustomFields>
+                    <CustomField Name="OrgUnit" Type="Profile">Sales</CustomField>
+                    <CustomField Name="XmlSyncId" Type="Profile">9293kks8drf6s8f</CustomField>
+                </CustomFields>
+            </TPA_Extensions>
+        </HotelReservation>
+    </HotelReservations>
+</OTA_HotelResRQ>
 ```
 
 ##  Response
@@ -273,7 +273,7 @@ The **Rate** element contains the following child elements:
 |  Element |  Description |
 |----------|---------------------------------------|
 |  AddressLine |  The first address line. |
-|  CityName |  The address city. | 
+|  CityName |  The address city. |
 |  PostalCode |  The address postal code. |
 |  CountryName |  The 3-character address country name. Format: USA |
 
@@ -284,113 +284,115 @@ The *ResGuest* response parent element contains the **ProfileInfo** child elemen
 |  Element |  Description |
 |----------|---------------------------------------|
 |  NamePrefix |  The guest's name prefix. |
-|  GivenName |  The guest's first name. | 
+|  GivenName |  The guest's first name. |
 |  Surname |  The guest's last name. |
 
 ###  XML Example of Successful Response
 
-```xml
-    200 OK HTTPS/1.1
-    Content-Length: {length of content body}
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" ResResponseType="Committed" TimeStamp="2012-01-01T19:00:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelResRS.xsd" Version="1">
-        <Success />
-        <HotelReservations>
-            <HotelReservation>
-                <RoomStays>
-                    <RoomStay>
-                        <RoomTypes>
-                            <RoomType NumberOfUnits="1">
-                                <RoomDescription>
-                                    <Text>Standard Room</Text>
-                                </RoomDescription>
-                            </RoomType>
-                        </RoomTypes>
-                        <RatePlans>
-                            <RatePlan RatePlanCode="2222222">
-                                <CancelPenalties>
-                                    <CancelPenalty>
-                                        <PenaltyDescription>
-                                            <Text>The hotel imposes the following cancellation penalty: Cancellations or changes made after 11:59 PM on Jun 18, 2012 are subject to a 1 Night Room and Tax penalty. The property makes no refunds for no shows or early checkouts.</Text>
-                                        </PenaltyDescription>
-                                    </CancelPenalty>
-                                </CancelPenalties>
-                                <RatePlanDescription>
-                                    <Text>Standard Room</Text>
-                                </RatePlanDescription>
-                            </RatePlan>
-                        </RatePlans>
-                        <RoomRates>
-                            <RoomRate RatePlanCode="2222222">
-                                <Rates>
-                                    <Rate EffectiveDate="2012-08-15" ExpireDate="2012-08-17">
-                                        <Base AmountAfterTax="100.00" CurrencyCode="USD">
-                                            <Taxes>
-                                                <Tax Amount="10.00" CurrencyCode="USD">
-                                                    <TaxDescription>
-                                                        <Text>VAT</Text>
-                                                    </TaxDescription>
-                                                </Tax>
-                                            </Taxes>
-                                        </Base>
-                                    </Rate>
-                                    <Rate EffectiveDate="2012-08-15" ExpireDate="2012-08-15">
-                                        <Base AmountAfterTax="100.00" CurrencyCode="USD" />
-                                    </Rate>
-                                    <Rate EffectiveDate="2012-08-16" ExpireDate="2012-08-16">
-                                        <Base AmountAfterTax="110.00" CurrencyCode="USD" />
-                                    </Rate>
-                                </Rates>
-                            </RoomRate>
-                        </RoomRates>
-                        <GuestCounts>
-                            <GuestCount AgeQualifyingCode="10" Count="1" />
-                        </GuestCounts>
-                        <TimeSpan Start="2012-08-15" End="2010-08-17" />
-                        <BasicPropertyInfo HotelCode="HTL1111" HotelName="Hotel Deluxe">
-                            <Address>
-                                <AddressLine>123 HOTEL ST</AddressLine>
-                                <CityName>HOTELTOWN</CityName>
-                                <PostalCode>12344</PostalCode>
-                                <CountryName>USA</CountryName>
-                            </Address>
-                        </BasicPropertyInfo>
-                    </RoomStay>
-                </RoomStays>
-                <ResGuests>
-                    <ResGuest>
-                        <Profiles>
-                            <ProfileInfo>
-                                <Profile>
-                                    <Customer>
-                                        <PersonName>
-                                            <NamePrefix>Mr.</NamePrefix>
-                                            <GivenName>CHRIS</GivenName>
-                                            <Surname>MILLER</Surname>
-                                        </PersonName>
-                                    </Customer>
-                                </Profile>
-                            </ProfileInfo>
-                        </Profiles>
-                    </ResGuest>
-                </ResGuests>
-                <ResGlobalInfo>
-                    <HotelReservationIDs>
-                        <HotelReservationID ResID_Value="888000888" />
-                    </HotelReservationIDs>
-                </ResGlobalInfo>
-                <TPA_Extensions>
-                    <CustomFields>
-                        <CustomField Name="OrgUnit" Type="Profile">Sales</CustomField>
-                        <CustomField Name="XmlSyncId" Type="Profile">9293kks8drf6s8f</CustomField>
-                    </CustomFields>
-                </TPA_Extensions>
-            </HotelReservation>
-        </HotelReservations>
-    </OTA_HotelResRS>
+<?xml version="1.0" encoding="utf-8" ?>
+<OTA_HotelResRS
+  xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" ResResponseType="Committed" TimeStamp="2012-01-01T19:00:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelResRS.xsd" Version="1">
+    <Success />
+    <HotelReservations>
+        <HotelReservation>
+            <RoomStays>
+                <RoomStay>
+                    <RoomTypes>
+                        <RoomType NumberOfUnits="1">
+                            <RoomDescription>
+                                <Text>Standard Room</Text>
+                            </RoomDescription>
+                        </RoomType>
+                    </RoomTypes>
+                    <RatePlans>
+                        <RatePlan RatePlanCode="2222222">
+                            <CancelPenalties>
+                                <CancelPenalty>
+                                    <PenaltyDescription>
+                                        <Text>The hotel imposes the following cancellation penalty: Cancellations or changes made after 11:59 PM on Jun 18, 2012 are subject to a 1 Night Room and Tax penalty. The property makes no refunds for no shows or early checkouts.</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                            <RatePlanDescription>
+                                <Text>Standard Room</Text>
+                            </RatePlanDescription>
+                        </RatePlan>
+                    </RatePlans>
+                    <RoomRates>
+                        <RoomRate RatePlanCode="2222222">
+                            <Rates>
+                                <Rate EffectiveDate="2012-08-15" ExpireDate="2012-08-17">
+                                    <Base AmountAfterTax="100.00" CurrencyCode="USD">
+                                        <Taxes>
+                                            <Tax Amount="10.00" CurrencyCode="USD">
+                                                <TaxDescription>
+                                                    <Text>VAT</Text>
+                                                </TaxDescription>
+                                            </Tax>
+                                        </Taxes>
+                                    </Base>
+                                </Rate>
+                                <Rate EffectiveDate="2012-08-15" ExpireDate="2012-08-15">
+                                    <Base AmountAfterTax="100.00" CurrencyCode="USD" />
+                                </Rate>
+                                <Rate EffectiveDate="2012-08-16" ExpireDate="2012-08-16">
+                                    <Base AmountAfterTax="110.00" CurrencyCode="USD" />
+                                </Rate>
+                            </Rates>
+                        </RoomRate>
+                    </RoomRates>
+                    <GuestCounts>
+                        <GuestCount AgeQualifyingCode="10" Count="1" />
+                    </GuestCounts>
+                    <TimeSpan Start="2012-08-15" End="2010-08-17" />
+                    <BasicPropertyInfo HotelCode="HTL1111" HotelName="Hotel Deluxe">
+                        <Address>
+                            <AddressLine>123 HOTEL ST</AddressLine>
+                            <CityName>HOTELTOWN</CityName>
+                            <PostalCode>12344</PostalCode>
+                            <CountryName>USA</CountryName>
+                        </Address>
+                    </BasicPropertyInfo>
+                </RoomStay>
+            </RoomStays>
+            <ResGuests>
+                <ResGuest>
+                    <Profiles>
+                        <ProfileInfo>
+                            <Profile>
+                                <Customer>
+                                    <PersonName>
+                                        <NamePrefix>Mr.</NamePrefix>
+                                        <GivenName>CHRIS</GivenName>
+                                        <Surname>MILLER</Surname>
+                                    </PersonName>
+                                </Customer>
+                            </Profile>
+                        </ProfileInfo>
+                    </Profiles>
+                </ResGuest>
+            </ResGuests>
+            <ResGlobalInfo>
+                <HotelReservationIDs>
+                    <HotelReservationID ResID_Value="888000888" />
+                </HotelReservationIDs>
+            </ResGlobalInfo>
+            <TPA_Extensions>
+                <CustomFields>
+                    <CustomField Name="OrgUnit" Type="Profile">Sales</CustomField>
+                    <CustomField Name="XmlSyncId" Type="Profile">9293kks8drf6s8f</CustomField>
+                </CustomFields>
+            </TPA_Extensions>
+        </HotelReservation>
+    </HotelReservations>
+</OTA_HotelResRS>
 ```
-  
+
 
 
 [1]: https://developer.concur.com/overview/partner-applications

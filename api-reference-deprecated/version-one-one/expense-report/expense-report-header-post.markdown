@@ -13,7 +13,7 @@ Posts the expense report header information for a new or existing report for the
 
 **NOTES**:
 
-* Posting expense report information is a multi-stage process. 
+* Posting expense report information is a multi-stage process.
 * Reports with the following statuses can't be modified:
     * Processing Payment
     * Paid
@@ -65,7 +65,7 @@ This request should contain a **Report** parent element with the following child
 
 ###  Post Expense Report Header Response
 
-#### Content types 
+#### Content types
 application/xml
 
 #### Content body
@@ -82,36 +82,37 @@ The response will include a **ReportDetails** parent element. This element will 
 
 ####  XML example of new report request
 
-```
-    POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report HTTP/1.1
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
 
-    Content-Type: application/xml
-    <Report xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03">
-        <Name>January Expenses</Name>
-        <Purpose>All expenses for January</Purpose>
-        <Comment>Includes Client Meetings.</Comment>
-        <OrgUnit1>US</OrgUnit1>
-        <OrgUnit2>NW</OrgUnit2>
-        <OrgUnit3>Redmond</OrgUnit3>
-        <Custom1>Client</Custom1>
-        <Custom2>Local</Custom2>
-        <UserDefinedDate>2011-03-26 15:15:07.0</UserDefinedDate>
-    </Report>
+<Report xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03">
+    <Name>January Expenses</Name>
+    <Purpose>All expenses for January</Purpose>
+    <Comment>Includes Client Meetings.</Comment>
+    <OrgUnit1>US</OrgUnit1>
+    <OrgUnit2>NW</OrgUnit2>
+    <OrgUnit3>Redmond</OrgUnit3>
+    <Custom1>Client</Custom1>
+    <Custom2>Local</Custom2>
+    <UserDefinedDate>2011-03-26 15:15:07.0</UserDefinedDate>
+</Report>
 ```
 
 ####  XML example of successful response
 
-```
-    200 OK
-    Content-Type: application/xml
-    <ReportDetails>
-        <ReportStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-            <Status>SUCCESS</Status>
-            <Report-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnRODp$sie8Hq1UviOJ2AbpS7dCP</Report-Details-Url>
-        </ReportStatus>
-    </ReportDetails>
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+
+<ReportDetails>
+    <ReportStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <Status>SUCCESS</Status>
+        <Report-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnRODp$sie8Hq1UviOJ2AbpS7dCP</Report-Details-Url>
+    </ReportStatus>
+</ReportDetails>
 ```
 
 ##  Post Report Header Batch Request
@@ -181,79 +182,78 @@ This request will return a **report-batch-result** parent element with the follo
 | Element | Description |
 | --------| ----------- |
 | Index | The header's location in the batch |
-|  LoginID |  The user's Concur login ID. | 
+|  LoginID |  The user's Concur login ID. |
 |  message |  The error message. |
 
 ### ReportStatus elements
 
 | Element | Description |
 | --------| ----------- |
-|  Status |  The status of the request. | 
+|  Status |  The status of the request. |
 |  Report-Details-Url |  The URI to use when posting report details to this report. |
 
 ### Examples
 
 ####  XML example request
 
-```
-    POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/batch HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/batch HTTP/1.1
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
 
-    Content-Type: application/xml
-    <batch xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03">
-        <Report>
-            <Index>1</Index>
-            <LoginId>cmiller@example.com</LoginId>
-            <Name>January Expenses</Name>
-            <Purpose>All expenses for January</Purpose>
-            <Comment>Includes Client Meetings.</Comment>
-            <OrgUnit1>US</OrgUnit1>
-            <OrgUnit2>NW</OrgUnit2>
-            <OrgUnit3>Redmond</OrgUnit3>
-            <Custom1>Client</Custom1>
-            <Custom2>Local</Custom2>
-            <UserDefinedDate>2011-01-26 12:15:00.0</UserDefinedDate>
-        </Report>
-        <Report>
-            <Index>2</Index>
-            <LoginId>tbrown@example.com</LoginId>
-            <Name>Trip to New York </Name>
-            <Purpose>New York Sales Meeting </Purpose>
-            <Comment></Comment>
-            <OrgUnit1>US</OrgUnit1>
-            <OrgUnit2></OrgUnit2>
-            <OrgUnit3>Tucson</OrgUnit3>
-            <Custom1>Client</Custom1>
-            <Custom2>Remote</Custom2>
-            <UserDefinedDate>2011-02-04 15:25:07.0</UserDefinedDate>
-        </Report>
-    </batch>
+<batch xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03">
+    <Report>
+        <Index>1</Index>
+        <LoginId>cmiller@example.com</LoginId>
+        <Name>January Expenses</Name>
+        <Purpose>All expenses for January</Purpose>
+        <Comment>Includes Client Meetings.</Comment>
+        <OrgUnit1>US</OrgUnit1>
+        <OrgUnit2>NW</OrgUnit2>
+        <OrgUnit3>Redmond</OrgUnit3>
+        <Custom1>Client</Custom1>
+        <Custom2>Local</Custom2>
+        <UserDefinedDate>2011-01-26 12:15:00.0</UserDefinedDate>
+    </Report>
+    <Report>
+        <Index>2</Index>
+        <LoginId>tbrown@example.com</LoginId>
+        <Name>Trip to New York </Name>
+        <Purpose>New York Sales Meeting </Purpose>
+        <Comment></Comment>
+        <OrgUnit1>US</OrgUnit1>
+        <OrgUnit2></OrgUnit2>
+        <OrgUnit3>Tucson</OrgUnit3>
+        <Custom1>Client</Custom1>
+        <Custom2>Remote</Custom2>
+        <UserDefinedDate>2011-02-04 15:25:07.0</UserDefinedDate>
+    </Report>
+</batch>
 ```
 
 ####  XML example response with success and failure
 
-```
-    200 OK
-    Content-Type: application/xml
-    <report-batch-result xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <records-succeeded>1</records-succeeded>
-        <records-failed>1</records-failed>
-        <errors>
-            <error>
-                <Index>2</Index>
-                <LoginID>tbrown@example.com</LoginID>
-                <message>Invalid Value for:OrgUnit2</message>
-            </error>
-        </errors>
-        <ReportDetails>
-            <ReportStatus >
-                <Index>1</Index>
-                <Status>SUCCESS</Status>
-                <Report-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v1.1/nxxKgLlnRODp$sie8Hq1UviOJ2AbpS7dCP</Report-Details-Url>
-            </ReportStatus>
-        </ReportDetails>
-    </report-batch-result>
-```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
 
-
+<report-batch-result xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <records-succeeded>1</records-succeeded>
+    <records-failed>1</records-failed>
+    <errors>
+        <error>
+            <Index>2</Index>
+            <LoginID>tbrown@example.com</LoginID>
+            <message>Invalid Value for:OrgUnit2</message>
+        </error>
+    </errors>
+    <ReportDetails>
+        <ReportStatus >
+            <Index>1</Index>
+            <Status>SUCCESS</Status>
+            <Report-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v1.1/nxxKgLlnRODp$sie8Hq1UviOJ2AbpS7dCP</Report-Details-Url>
+        </ReportStatus>
+    </ReportDetails>
+</report-batch-result>
+```

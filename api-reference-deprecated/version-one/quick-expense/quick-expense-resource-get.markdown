@@ -81,76 +81,76 @@ The QuickExpense child element contains details of the quick expense.
 
 #### Request with LoginID
 
-```
-    GET api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    ...
+```http
+GET api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+...
 ```
 
 #### Response
 
-```xml
-    200 OK
-    Content-Type: application/xml
-    <QuickExpensesList>
-        <QuickExpense>
-            <OwnerLoginID>cm@example.com</OwnerLoginID>
-            <OwnerName>Chris Miller</OwnerName>
-            <QuickExpenseKey>1234567890</QuickExpenseKey>
-            <ExpenseTypeKey>CARRT</ExpenseTypeKey>
-            <ExpenseTypeName>Car Rental</ExpenseTypeName>
-            <TransactionDate>2012-07-21</TransactionDate>
-            <TransactionAmount>321.45</TransactionAmount>
-            <CurrencyCode>USD</CurrencyCode>
-            <LocationName>Seattle, Washington</LocationName>
-            <VendorDescription>Avis</VendorDescription>
-            <Comment>Trip to Seattle</Comment>
-        </QuickExpense>
-        <QuickExpense>
-            <OwnerLoginID>cm@example.com</OwnerLoginID>
-            <OwnerName>Chris Miller</OwnerName>
-            <QuickExpenseKey>0987654321</QuickExpenseKey>
-            <ExpenseTypeKey>MEAL910</ExpenseTypeKey>
-            <ExpenseTypeName>Breakfast</ExpenseTypeName>
-            <TransactionDate>2012-07-21</TransactionDate>
-            <TransactionAmount>14.23</TransactionAmount>
-            <CurrencyCode>USD</CurrencyCode>
-            <LocationName>Seattle, Washington</LocationName>
-            <VendorDescription>Starbucks</VendorDescription>
-            <Comment>Trip to Seattle</Comment>
-        </QuickExpense>
-    </QuickExpensesList>
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+
+<QuickExpensesList>
+    <QuickExpense>
+        <OwnerLoginID>cm@example.com</OwnerLoginID>
+        <OwnerName>Chris Miller</OwnerName>
+        <QuickExpenseKey>1234567890</QuickExpenseKey>
+        <ExpenseTypeKey>CARRT</ExpenseTypeKey>
+        <ExpenseTypeName>Car Rental</ExpenseTypeName>
+        <TransactionDate>2012-07-21</TransactionDate>
+        <TransactionAmount>321.45</TransactionAmount>
+        <CurrencyCode>USD</CurrencyCode>
+        <LocationName>Seattle, Washington</LocationName>
+        <VendorDescription>Avis</VendorDescription>
+        <Comment>Trip to Seattle</Comment>
+    </QuickExpense>
+    <QuickExpense>
+        <OwnerLoginID>cm@example.com</OwnerLoginID>
+        <OwnerName>Chris Miller</OwnerName>
+        <QuickExpenseKey>0987654321</QuickExpenseKey>
+        <ExpenseTypeKey>MEAL910</ExpenseTypeKey>
+        <ExpenseTypeName>Breakfast</ExpenseTypeName>
+        <TransactionDate>2012-07-21</TransactionDate>
+        <TransactionAmount>14.23</TransactionAmount>
+        <CurrencyCode>USD</CurrencyCode>
+        <LocationName>Seattle, Washington</LocationName>
+        <VendorDescription>Starbucks</VendorDescription>
+        <Comment>Trip to Seattle</Comment>
+    </QuickExpense>
+</QuickExpensesList>
 ```
 
 ### Example 2: JSON
 
 #### Request
 
-```
-    GET https:
-    Authorization: OAuth {access token}
-    Accept: application/json
+```http
+GET api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS/1.1
+Accept: application/json
 ```
 
 #### Response
 
 ```json
-    [
-        {
-            "OwnerLoginID":"cm@example.com",
-            "OwnerName":"Chris Miller",
-            "QuickExpenseKey":"nuIsue2$pASZDo12345678oUuUh9Lb0",
-            "ExpenseTypeKey":"CARRT",
-            "ExpenseTypeName":"Car Rental",
-            "TransactionDate":"2012-07-21",
-            "TransactionAmount":321.45000000,
-            "CurrencyCode":"USD",
-            "LocationName":"Seattle, Washington",
-            "VendorDescription":"Avis",
-            "Comment":"Trip to Seattle",
-        }
-    ]
+[
+  {
+    "OwnerLoginID": "cm@example.com",
+    "OwnerName": "Chris Miller",
+    "QuickExpenseKey": "nuIsue2$pASZDo12345678oUuUh9Lb0",
+    "ExpenseTypeKey": "CARRT",
+    "ExpenseTypeName": "Car Rental",
+    "TransactionDate": "2012-07-21",
+    "TransactionAmount": 321.45000000,
+    "CurrencyCode": "USD",
+    "LocationName": "Seattle, Washington",
+    "VendorDescription": "Avis",
+    "Comment": "Trip to Seattle",
+  }
+]
 ```
 
 

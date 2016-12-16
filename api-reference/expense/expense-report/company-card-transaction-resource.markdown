@@ -44,7 +44,7 @@ application/xml
 
 ### Content body
 
-This request will return a **CardCharges** parent element with a **CardCharge** child element for each transaction. 
+This request will return a **CardCharges** parent element with a **CardCharge** child element for each transaction.
 
 #### CardCharge child elements
 
@@ -62,46 +62,37 @@ This request will return a **CardCharges** parent element with a **CardCharge** 
 
 ### XML example request
 
-```
-xml
-    GET https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges/ HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+GET https://www.concursolutions.com/api/expense/expensereport/v1.1/CardCharges/ HTTP/1.1
+Authorization: OAuth {access token}
+...
 ```
 
 ###  XML example of successful response
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+
+<CardCharges
+    xmlns="https://www.concursolutions.com/api/expense/expensereport/2011/03">
+    <CardCharge>
+        <CardNumber>XXXXXXXX11111</CardNumber>
+        <ExpKey>CARRT</ExpKey>
+        <ExpName>Car Rental</ExpName>
+        <Merchant>Hertz</Merchant>
+        <TransactionAmount>283.88000000</TransactionAmount>
+        <TransactionCrnCode>USD</TransactionCrnCode>
+        <TransactionDate>2010-08-19T00:00:00</TransactionDate>
+    </CardCharge>
+    <CardCharge>
+        <CardNumber>XXXXXXXX11111</CardNumber>
+        <ExpKey>UNDEF</ExpKey>
+        <ExpName>Undefined</ExpName>
+        <Merchant>King Tires</Merchant>
+        <TransactionAmount>274.13000000</TransactionAmount>
+        <TransactionCrnCode>USD</TransactionCrnCode>
+        <TransactionDate>2010-08-19T00:00:00</TransactionDate>
+    </CardCharge>
+</CardCharges>
 ```
-xml
-    200 OK
-    Content-Type: application/xml
-
-    <CardCharges
-        xmlns="https://www.concursolutions.com/api/expense/expensereport/2011/03">
-        <CardCharge>
-            <CardNumber>XXXXXXXX11111</CardNumber>
-            <ExpKey>CARRT</ExpKey>
-            <ExpName>Car Rental</ExpName>
-            <Merchant>Hertz</Merchant>
-            <TransactionAmount>283.88000000</TransactionAmount>
-            <TransactionCrnCode>USD</TransactionCrnCode>
-            <TransactionDate>2010-08-19T00:00:00</TransactionDate>
-        </CardCharge>
-        <CardCharge>
-            <CardNumber>XXXXXXXX11111</CardNumber>
-            <ExpKey>UNDEF</ExpKey>
-            <ExpName>Undefined</ExpName>
-            <Merchant>King Tires</Merchant>
-            <TransactionAmount>274.13000000</TransactionAmount>
-            <TransactionCrnCode>USD</TransactionCrnCode>
-            <TransactionDate>2010-08-19T00:00:00</TransactionDate>
-        </CardCharge>
-    </CardCharges>
-```
-  
-
-
-
-
-
-

@@ -1,5 +1,5 @@
 ---
-title: Post a reservation cancellation 
+title: Post a reservation cancellation
 layout: reference
 ---
 
@@ -19,7 +19,7 @@ The Hotel direct connect sends the relevant information to a URI that the travel
 
 `https://{servername}/concur/hotel/v1/`
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts > [Partner Applications](/docs/overviews/partner-applications.html)** for more information. 
+The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts > [Partner Applications](/docs/overviews/partner-applications.html)** for more information.
 
 ### Request headers
 
@@ -65,22 +65,22 @@ The **Source** element contains the following element:
 
 ####  XML Example Request
 
-```xml
-    POST /concur/hotel/v1 HTTPS/1.1
-    Host: example.com
-    Authorization: Basic ...
-    Content-Type: application/xml
-    Content-Length: {length of content body}
+```http
+POST /concur/hotel/v1 HTTPS/1.1
+Host: example.com
+Authorization: Basic ...
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <OTA_CancelRQ CancelType="Cancel" xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_CancelRQ.xsd" Version="1">
-        <POS>
-            <Source ISOCountry="US" ISOCurrency="USD">
-                <RequestorID Type="18" ID="7777777" />
-            </Source>
-        </POS>
-        <UniqueID ID="888000888" Type="14" />
-    </OTA_CancelRQ>
+<?xml version="1.0" encoding="utf-8" ?>
+<OTA_CancelRQ CancelType="Cancel" xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_CancelRQ.xsd" Version="1">
+    <POS>
+        <Source ISOCountry="US" ISOCurrency="USD">
+            <RequestorID Type="18" ID="7777777" />
+        </Source>
+    </POS>
+    <UniqueID ID="888000888" Type="14" />
+</OTA_CancelRQ>
 ```
 
 ##  Response
@@ -111,20 +111,21 @@ The **OTA_CancelRS** parent element contains a **Success** element if the reques
 
 ###  XML Example Request
 
-```xml
-    200 OK HTTPS/1.1
-    Content-Length: {length of content body}
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <OTA_CancelRS Status="Cancelled" xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_CancelRS.xsd" Version="1">
-        <Success />
-        <UniqueID ID="888000888" Type="14" />
-        <CancelInfoRS>
-            <UniqueID ID="1010010000" Type="14" />
-        </CancelInfoRS>
-    </OTA_CancelRS>
+<?xml version="1.0" encoding="utf-8" ?>
+<OTA_CancelRS Status="Cancelled" xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_CancelRS.xsd" Version="1">
+    <Success />
+    <UniqueID ID="888000888" Type="14" />
+    <CancelInfoRS>
+        <UniqueID ID="1010010000" Type="14" />
+    </CancelInfoRS>
+</OTA_CancelRS>
 ```
-  
+
 
 
 [1]: https://developer.concur.com/overview/partner-applications

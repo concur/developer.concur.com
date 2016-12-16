@@ -121,7 +121,7 @@ Element Name|Required/Optional|Data Type|Description|
 #### Example 1: Get forms of payment for the user associated with the specified OAuth 2.0 access token
 **Request**
 
-```
+```http
 GET {InstanceURI}/api/travelprofile/v2.0/fop HTTP/1.1
 Authorization: OAuth {access token}
 ...
@@ -130,14 +130,15 @@ Authorization: OAuth {access token}
 #### Example 2: Set forms of payment for the user associated with the specified OAuth 2.0 access token
 **Request**
 
-```
+```http
 POST {InstanceURI}/api/travelprofile/v2.0/fop HTTP/1.1
 Authorization: OAuth {access token}
 ...
 ```
 
 #### Sample XML Input
-```
+
+```xml
 <CorporateFOPResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" LoginId="developer@concur.com">
     <CreditCards>
         <CreditCard DisplayName="My Visa Card">

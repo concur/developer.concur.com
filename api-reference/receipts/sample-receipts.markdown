@@ -7,13 +7,13 @@ layout: reference
 
 ## Sample Receipts
 
-Below we have sample receipt data and the corresponding receipt image for the [Car Rental](#car-rental), [Ground Transport](#ground-transport) and [Hotel](#hotel) receipt types. 
+Below we have sample receipt data and the corresponding receipt image for the [Car Rental](#car-rental), [Ground Transport](#ground-transport) and [Hotel](#hotel) receipt types.
 
-### Car Rental 
+### Car Rental
 
 #### Receipt Data
 
-```
+```json
 {
     "taxInvoice": true,
     "reference": "ABCD1234",
@@ -141,7 +141,7 @@ Below we have sample receipt data and the corresponding receipt image for the [C
     ]
 }
 ```
-    
+
 #### Generated Receipt Image
 
 ![Car Rental Receipt Image](/api-reference/receipts/car-rental.png)
@@ -150,7 +150,7 @@ Below we have sample receipt data and the corresponding receipt image for the [C
 
 #### Receipt Data
 
-```
+```json
 {
     "taxInvoice": true,
     "reference": "6343430",
@@ -345,7 +345,7 @@ Below we have sample receipt data and the corresponding receipt image for the [C
 
 #### Receipt Data
 
-```
+```json
 {
     "taxInvoice": true,
     "reference": "ADBXTF25",
