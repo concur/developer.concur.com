@@ -6,10 +6,9 @@ layout: reference
 ## Description
 Creates or updates one or more attendee records for the specified expense entry. Attendees are additional people that benefitted from this expense.
 
-**NOTE:** Find the newer version 3.0 [here](/api-reference/expense/expense-report/expense-entry-attendee.html#post)
 
 ## Version
-2.0
+1.1
 
 **Attendee External ID Considerations**
 
@@ -21,7 +20,7 @@ Attendees that are privately owned or part of shared lists that allow manual add
 
 **NOTES:**
 
-* Posting expense report information is a multi-stage process. Refer to the [Processes](https://developer.concur.com/node/465#process) section of the Expense Report Web Service page for the steps required to post new expense reports and entries.
+* Posting expense report information is a multi-stage process. Refer to the [Reports](/api-reference/expense/expense-report/reports.html) for the steps required to post new expense reports and entries.
 
 ### Supported Content Types
 
@@ -41,7 +40,7 @@ Attendees that are privately owned or part of shared lists that allow manual add
 Example:
 `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry{entryId}/Attendees`
 
-**URI Source:** The `reportId` value is returned by the <a href="https://developer.concur.com/node/487">Get List of Reports</a> function, and as part of the **Report-Details-Url** element of the <a href="https://developer.concur.com/node/485">Post Expense Report Header</a> function. The entryId value is returned in the **RpeKey** element of the <a href="https://developer.concur.com/node/487#reportdetails">Get  Report Details</a> function.
+**URI Source:** The `reportId` value is returned by the [Get List of Reports](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html) function, and as part of the **Report-Details-Url** element of the [Post Expense Report Header](/api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html) function. The entryId value is returned in the **ReportKey** element of the [Get  Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) function.
 
 #### Optional query parameters
 
@@ -51,7 +50,7 @@ Example:
 
 Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}/Attendees/{attendeeId}`
 
-**URI Source:** The attendeeId value is returned in the **AttendeeKey** element of the <a href="https://developer.concur.com/node/487#reportdetails">Get Report Details</a> function, and as part of the **Attendee-Details-Url** value returned by this function.
+**URI Source:** The attendeeId value is returned in the **AttendeeKey** element of the [Get Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) function, and as part of the **Attendee-Details-Url** value returned by this function.
 
 ### Headers
 
@@ -68,14 +67,14 @@ This request contains an **Attendees** parent element with an **Attendee** eleme
 
 | Element Name | Required (must contain value)? | Description |
 | ------------ | ------------------------------ | ----------- |
-| AttendeeType | Y | The attendee type code that Concur uses to identify attendees. 8 alpha characters. Clients can add their own custom attendee type codes. The standard attendee type codes are: BUSGUEST, for business guests and SPOUSE, for the employee's spouse. Use the <a href="https://developer.concur.com/node/376">Get Attendee Type List</a> function of the Attendee List web service to get the full list of available types. Maximum 8 characters. |
+| AttendeeType | Y | The attendee type code that Concur uses to identify attendees. 8 alpha characters. Clients can add their own custom attendee type codes. The standard attendee type codes are: BUSGUEST, for business guests and SPOUSE, for the employee's spouse. Use the [Get Attendee Type List](/api-reference-deprecated/version-one/attendee-types/attendee-type-resource-get.html) function of the Attendee List web service to get the full list of available types. Maximum 8 characters. |
 | Amount | N | The amount of the expense that is associated with this attendee. If the attendee amounts do not add up to the full expense entry amount, the user will have to correct the entry in the Concur UI before submitting the report. |
 | LastName | Y | The attendee's last name. Maximum 132 characters. |
 | FirstName | Depends on configuration | The attendee's first name. Maximum 50 characters. |
 | Title | Depends on configuration | The attendee's job title. Maximum 32 characters. |
 | ExternalId | Y | The unique identifier for the attendee, usually provided by the client's external system of record. Maximum 48 characters. |
 | Company | Depends on configuration | The attendee's company name. Maximum 150 characters. |
-| Custom1 through Custom20 | Depends on configuration  | The custom fields on the Expense Attendee form. May be required depending on configuration. Refer to the <a href="https://developer.concur.com/node/465#process">Processes</a> > **Post Expense Report Data** section of  Expense Report for the steps necessary to gather required field information. <br><br> Maximum 48 characters for each field. <br><br> **NOTE:** If any of the custom fields are configured to contain list values, please refer to the <a href="https://developer.concur.com/node/554">Posting Custom List Items</a> page for information on how to correctly submit list item values. |
+| Custom1 through Custom20 | Depends on configuration  | The custom fields on the Expense Attendee form. May be required depending on configuration. |
 | CrnCode | Y | The <a href="http://en.wikipedia.org/wiki/ISO_4217">3-letter ISO 4217 currency code</a> for the expense transaction amount. Example: USD. Maximum 3 characters. |
 | SystemOwner | N | _For new attendees_: When set to Yes, the attendee owner is set to System. This owner is required for shared attendee lists. When not set to Yes, the attendee owner is set to the report owner. <br><br> _For existing attendees_: Must be set to Yes to update an existing system-owned attendee. The  attendee owner for non-system-owned attendees will be set to System.  When  set to No, the attendee owner is compared to the report owner. If the report owner and attendee owner match, the attendee is updated. If the report owner and attendee owner do not match, the attendee is not updated. |
 | AssociatedAttendeesCount | N | The number of attendees that are not named but are associated with this attendee. This number is included in the total count of attendees for the expense. |
