@@ -33,7 +33,8 @@ Attendees that are privately owned or part of shared lists that allow manual add
 
 #### Required query parameters
 
-| **Parameter** | **Description** |
+| Parameter | Description |
+| --------- | ----------- |
 | {_reportId_} | The unique identifier for the expense report |
 | {_entryId_}/Attendees | The unique identifier for the expense entry and the Attendees keyword |
 
@@ -44,7 +45,8 @@ Example:
 
 #### Optional query parameters
 
-| **Parameter** | **Description** |
+| Parameter | Description |
+| --------- | ----------- |
 | {_attendeeId_} | The unique identifier for the attendee. Only used in certain situations when updating an existing attendee. If the developer does not know the External ID for the Attendee, they should use this query parameter |
 
 Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}/Attendees/{attendeeId}`
@@ -64,7 +66,8 @@ Authorization header with OAuth token for valid Concur user. The OAuth Consumer 
 
 This request contains an **Attendees** parent element with an **Attendee** element for each included attendee. The update action only allows one attendee per request. The **Attendee** element contains the following child elements:
 
-| **Element Name** | **Required (must contain value)?** | **Description** |
+| Element Name | Required (must contain value)? | Description |
+| ------------ | ------------------------------ | ----------- |
 | AttendeeType | Y | The attendee type code that Concur uses to identify attendees. 8 alpha characters. Clients can add their own custom attendee type codes. The standard attendee type codes are: BUSGUEST, for business guests and SPOUSE, for the employee's spouse. Use the <a href="https://developer.concur.com/node/376">Get Attendee Type List</a> function of the Attendee List web service to get the full list of available types. Maximum 8 characters. |
 | Amount | N | The amount of the expense that is associated with this attendee. If the attendee amounts do not add up to the full expense entry amount, the user will have to correct the entry in the Concur UI before submitting the report. |
 | LastName | Y | The attendee's last name. Maximum 132 characters. |
@@ -138,7 +141,8 @@ Authorization: OAuth {access token}
 
 ## Response
 
-| **HTTP Responses** | **Supported Content Types** |
+| HTTP Responses | Supported Content Types |
+| -------------- | ----------------------- |
 | <a href="https://developer.concur.com/node/205">HTTP Status Codes</a> | application/xml |
 
 ### Response body
@@ -156,8 +160,8 @@ This request will return an **attendee-batch-result** parent element with the fo
   * **message** - The error message.
 
 ### XML Example of Successful Response
-```xml
-200 OK
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml
 
 <attendee-batch-result xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -179,8 +183,8 @@ Content-Type: application/xml
 ```
 
 ### XML Example of Response With Error
-```xml
-200 OK
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml
 
 <attendee-batch-result xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
