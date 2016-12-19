@@ -1,9 +1,9 @@
 ---
-title: Hotel Direct Connect 
+title: Hotel Direct Connect
 layout: reference
 ---
 
-## Description 
+## Description
 The Hotel Services Direct Connect from Concur Connect provides a method for Travel users to access hotel inventory.
 
 Once the hotel supplier has developed and certified their interface with Concur, their inventory will begin appearing in hotel searches by opted-in Travel users.
@@ -76,10 +76,10 @@ The variable part doesn't need to be at the end:
 `https://{servername}/concur/hotel/HotelSearch/v1/ ` <br/>
 `https://{servername}/concur/hotel/HotelAvail/v1/`
 
-## Security 
+## Security
 Concur will make calls to the application connector's endpoint using SSL. During configuration, Concur will connect to the application connector to validate that its hostname and access credentials are valid.  
 Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before Concur can access the connector.  
-Concur will use Http Basic authentication. The hotel supplier will need to provide credentials that Concur will send to the supplier's system for each message. 
+Concur will use Http Basic authentication. The hotel supplier will need to provide credentials that Concur will send to the supplier's system for each message.
 
 ##Outbound Messages
 The Concur outbound message format is based upon a subset of the <a href="http://www.opentravel.org/Specifications/SchemaIndex.aspx?FolderName=2011B" target="_blank">OTA2011B hotel standard.</a> Please refer to the Function links below for the details of the request and response format.
@@ -95,7 +95,7 @@ Please note the following general information about this format:
 o 12.129.29.0/24 and 12.129.32.0/22 (US data center)  
 o 84.14.175.224/27 and 62.23.83.128/25 (EU data center)
 
-## Functions 
+## Functions
 [Post Availability Search][3]
 
 [Post Booking Rule Search][4]
@@ -145,22 +145,22 @@ All the codes used by the Hotel Direct Connect are documented in the [Hotel Dire
 The corporate identifier will be passed as RequestorID node. The values will be configured on setup. Please keep the Type compliant with  ID Type Codes.
 
 ```xml
-    <POS>
-        <Source ISOCountry="US" ISOCurrency="USD">
-            <RequestorID Type="4" ID="7777777" ID_Context="MyHotel" />
-        </Source>
-    </POS>
+<POS>
+    <Source ISOCountry="US" ISOCurrency="USD">
+        <RequestorID Type="4" ID="7777777" ID_Context="MyHotel" />
+    </Source>
+</POS>
 ```
 
 If a vendor requires additional identification of the client system (all calls to vendor will have the same value), you can provide a second RequestorID:
 
 ```xml
-    <POS>
-        <Source ISOCountry="US" ISOCurrency="USD">
-            <RequestorID Type="4" ID="7777777" ID_Context="MyHotel" />
-            <RequestorID Type="7" ID="8172927" ID_Context="WholeTravel" />
-        </Source>
-    </POS>
+<POS>
+    <Source ISOCountry="US" ISOCurrency="USD">
+        <RequestorID Type="4" ID="7777777" ID_Context="MyHotel" />
+        <RequestorID Type="7" ID="8172927" ID_Context="WholeTravel" />
+    </Source>
+</POS>
 ```
 
 Please keep the Type compliant with  ID Type Codes. The supported codes for the Requestor ID Type are: 1,2,3,4,5,7,9,13,18,21
@@ -199,7 +199,7 @@ Please keep the Type compliant with  ID Type Codes. The supported codes for the 
 |  39 |  Contract |
 |  40 |  Confirmation number |
 
-  
+
 
 
 [3]: /api-reference/direct-connects/hotel/post-availability-search.html

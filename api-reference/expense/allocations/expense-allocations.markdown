@@ -43,7 +43,7 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
 
 ### JSON Example of a successful response
 
-```
+```json
 {
   "Items": [
     {
@@ -106,6 +106,8 @@ https://www.concursolutions.com/api/v3.0/expense/allocations?limit=10&user=ALL
       "ID": "gWmudeHM8AuFhxez1E72ExJPksvTH0KPPyw",
       "URI": "https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFhxez1E72ExJPksvTH0KPPyw"
     }
+  ]
+}
 ```
 
 ### Response
@@ -173,7 +175,7 @@ https://www.concursolutions.com/api/v3.0/expense/allocations/gWmudeHM8AuFlD9Py%2
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "EntryID": "gWidFO7ikXSy8HdaIfw32sJhcmk76TjD$p4g",
   "Percentage": "100.00000000",

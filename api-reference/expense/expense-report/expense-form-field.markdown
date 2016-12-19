@@ -49,7 +49,7 @@ application/xml
 ### Response
 
 ### Content body
-This request will return a **FormFieldsList** parent element with a **FormField** parent element for each configured form field. 
+This request will return a **FormFieldsList** parent element with a **FormField** parent element for each configured form field.
 
 #### FormField elements
 
@@ -71,8 +71,7 @@ This request will return a **FormFieldsList** parent element with a **FormField*
 
 ### XML example request
 
-```
-xml
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/Form/nAaT8$puKKO2$pEVlsXfSruLpDfZL0wVM$s7/Fields HTTP/1.1
 Authorization: OAuth {access token}
 ...
@@ -80,91 +79,88 @@ Authorization: OAuth {access token}
 
 ### XML example of successful response
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+
+<FormFieldsList xmlns="https://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <FormField>
+        <Id>Name</Id>
+        <Label>ReportName</Label>
+        <ControlType>edit</ControlType>
+        <DataType>VARCHAR</DataType>
+        <MaxLength>32</MaxLength>
+        <Required>Y</Required>
+        <Cols>32</Cols>
+        <Access>RW</Access>
+        <Width>32</Width>
+        <Custom>N</Custom>
+        <Sequence>1</Sequence>
+    </FormField>
+    <FormField>
+        <Id>ReportId</Id>
+        <Label>ReportID</Label>
+        <ControlType>static</ControlType>
+        <DataType>VARCHAR</DataType>
+        <MaxLength>32</MaxLength>
+        <Required>Y</Required>
+        <Cols />
+        <Access>RO</Access>
+        <Width />
+        <Custom>N</Custom>
+        <Sequence>2</Sequence>
+    </FormField>
+    <FormField>
+        <Id>PolKey</Id>
+        <Label>Policy</Label>
+        <ControlType>picklist</ControlType>
+        <DataType>INTEGER</DataType>
+        <MaxLength />
+        <Required>Y</Required>
+        <Cols />
+        <Access>RW</Access>
+        <Width />
+        <Custom>N</Custom>
+        <Sequence>3</Sequence>
+    </FormField>
+    <FormField>
+        <Id>EmpName</Id>
+        <Label>EmployeeName</Label>
+        <ControlType>static</ControlType>
+        <DataType>VARCHAR</DataType>
+        <MaxLength>32</MaxLength>
+        <Required>Y</Required>
+        <Cols />
+        <Access>HD</Access>
+        <Width />
+        <Custom>N</Custom>
+        <Sequence>4</Sequence>
+    </FormField>
+    <FormField>
+        <Id>UserDefinedDate</Id>
+        <Label>ReportDate</Label>
+        <ControlType>edit</ControlType>
+        <DataType>TIMESTAMP</DataType>
+        <MaxLength />
+        <Required>N</Required>
+        <Cols />
+        <Access>RW</Access>
+        <Width />
+        <Custom>N</Custom>
+        <Sequence>5</Sequence>
+    </FormField>
+    <FormField>
+        <Id>Purpose</Id>
+        <Label>BusinessPurpose</Label>
+        <ControlType>textarea</ControlType>
+        <DataType>VARCHAR</DataType>
+        <MaxLength>500</MaxLength>
+        <Required>Y</Required>
+        <Cols>32</Cols>
+        <Access>RW</Access>
+        <Width>32</Width>
+        <Custom>N</Custom>
+        <Sequence>6</Sequence>
+    </FormField>
+</FormFieldsList>
 ```
-xml
-    200 OK
-    Content-Type: application/xml
-    <FormFieldsList xmlns="https://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <FormField>
-            <Id>Name</Id>
-            <Label>ReportName</Label>
-            <ControlType>edit</ControlType>
-            <DataType>VARCHAR</DataType>
-            <MaxLength>32</MaxLength>
-            <Required>Y</Required>
-            <Cols>32</Cols>
-            <Access>RW</Access>
-            <Width>32</Width>
-            <Custom>N</Custom>
-            <Sequence>1</Sequence>
-        </FormField>
-        <FormField>
-            <Id>ReportId</Id>
-            <Label>ReportID</Label>
-            <ControlType>static</ControlType>
-            <DataType>VARCHAR</DataType>
-            <MaxLength>32</MaxLength>
-            <Required>Y</Required>
-            <Cols />
-            <Access>RO</Access>
-            <Width />
-            <Custom>N</Custom>
-            <Sequence>2</Sequence>
-        </FormField>
-        <FormField>
-            <Id>PolKey</Id>
-            <Label>Policy</Label>
-            <ControlType>picklist</ControlType>
-            <DataType>INTEGER</DataType>
-            <MaxLength />
-            <Required>Y</Required>
-            <Cols />
-            <Access>RW</Access>
-            <Width />
-            <Custom>N</Custom>
-            <Sequence>3</Sequence>
-        </FormField>
-        <FormField>
-            <Id>EmpName</Id>
-            <Label>EmployeeName</Label>
-            <ControlType>static</ControlType>
-            <DataType>VARCHAR</DataType>
-            <MaxLength>32</MaxLength>
-            <Required>Y</Required>
-            <Cols />
-            <Access>HD</Access>
-            <Width />
-            <Custom>N</Custom>
-            <Sequence>4</Sequence>
-        </FormField>
-        <FormField>
-            <Id>UserDefinedDate</Id>
-            <Label>ReportDate</Label>
-            <ControlType>edit</ControlType>
-            <DataType>TIMESTAMP</DataType>
-            <MaxLength />
-            <Required>N</Required>
-            <Cols />
-            <Access>RW</Access>
-            <Width />
-            <Custom>N</Custom>
-            <Sequence>5</Sequence>
-        </FormField>
-        <FormField>
-            <Id>Purpose</Id>
-            <Label>BusinessPurpose</Label>
-            <ControlType>textarea</ControlType>
-            <DataType>VARCHAR</DataType>
-            <MaxLength>500</MaxLength>
-            <Required>Y</Required>
-            <Cols>32</Cols>
-            <Access>RW</Access>
-            <Width>32</Width>
-            <Custom>N</Custom>
-            <Sequence>6</Sequence>
-        </FormField>
-    </FormFieldsList>
-```
-
-
-

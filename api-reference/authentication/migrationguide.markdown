@@ -18,20 +18,20 @@ Existing applications that uses the deprecated [/net2/oauth2](https://developer.
 
 ## <a name="exchangetoken"></a>Exchanging a Token
 
-In order to support new Oauth2, applications need to exchange old access token for new JWT based `accessToken` and `refreshToken` pair. Once obtained, applications should store these `refreshTokens` as part of users authorization data. 
+In order to support new Oauth2, applications need to exchange old access token for new JWT based `accessToken` and `refreshToken` pair. Once obtained, applications should store these `refreshTokens` as part of users authorization data.
 
-The new Oauth2 `accessToken` has a one hour lifetime. Once expired, applications would need to call Oauth2's `/v0/token` endpoint using a `refresh_grant`, passing in the user's `refreshtoken` to obtain a fresh `accessToken`. 
+The new Oauth2 `accessToken` has a one hour lifetime. Once expired, applications would need to call Oauth2's `/v0/token` endpoint using a `refresh_grant`, passing in the user's `refreshtoken` to obtain a fresh `accessToken`.
 
 This is significantly different from how the deprecated /net2/Oauth2's method of handling access tokens. Partner's would have to store the new Oauth2 `refreshToken` instead of the old access token. Before making a call to any of Concur's new v4 APIs, it is advisable to request for a new `accessToken` before making the API call.
 
-Applications can exchange tokens by calling the `exchangeRefreshToken/me` endpoint. 
+Applications can exchange tokens by calling the `exchangeRefreshToken/me` endpoint.
 
 `POST /legacyApps/{consumerKey}/exchangeRefreshToken/me`
 
 Sample Curl:
 
-```
-curl -H 'concur-correlationid: githbuwiki' -H 'Authorization: Bearer <accessToken> -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST http://us.api.concursolutions.com/api/appmgmt/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me
+```shell
+curl -H 'concur-correlationid: githbuwiki' -H 'Authorization: Bearer <accessToken>' -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST http://us.api.concursolutions.com/api/appmgmt/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me
 ```
 
 successful call, responds with
@@ -39,7 +39,7 @@ successful call, responds with
 ```json
 200 OK
 {
-  "token": "8c844478-745c-4c45-adf7-1e2777a50dbf", 
+  "token": "8c844478-745c-4c45-adf7-1e2777a50dbf",
   "created": 1479407196809,
   "expired": 1494959196809,
   "scopes": [
@@ -55,7 +55,8 @@ successful call, responds with
 Once you have the new `refreshToken` from the response (`8c844478-745c-4c45-adf7-1e2777a50dbf`) you can then proceed to call `/v0/token` using the refresh grant to obtain a new `accessToken`.
 
 Sample Curl:
-```
+
+```shell
 curl -X POST -H 'concur-correlationid: githbuwiki' 'https://us.api.concursolutions.com/oauth2/v0/token' --data 'client_id=3a55c75e-ac1e-4515-845c-0a4978452828&client_secret=12345&grant_type=refresh_token&refresh_token=8c844478-745c-4c45-adf7-1e2777a50dbf'
 ```
 
@@ -103,12 +104,12 @@ successful call, responds with:
 
 4xx class errors have a JSON response with the following fields
 
-```
-  {
-   "code": <number>,
-   "error": <error>,
-   "error_description": <error_description>
-  }
+```json
+{
+  "code": <number>,
+  "error": <error>,
+  "error_description": <error_description>
+}
 ```
 
 ##### /token
@@ -158,5 +159,3 @@ successful call, responds with:
 | 118  | `invalid_request` | display is invalid                                     |
 | 119  | `invalid_request` | prompt is invalid                                      |
 | 119  | `invalid_request` | prompt must be set to consent for `offline_access`     |
-
-

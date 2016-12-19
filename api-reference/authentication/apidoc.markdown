@@ -42,12 +42,11 @@ Name | Type | Format | Description
 `token_type`|`string`|-| The type of token returned. Value will be `Bearer`
 `access_token`|`string`|-|JSON Web Token (JWT) used to access pprotected resources of Concur's services.
 `refresh_token`|`string`|-|Refresh token required to request a new access token for a given user.
-`geolocation`|`string`|-|The base URL for where the user profile lives 
+`geolocation`|`string`|-|The base URL for where the user profile lives
 
 **Token Response**
 
-```
-http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: date-requested
@@ -55,28 +54,32 @@ Content-Length: 3397
 Connection: Close
 ```
 
-```
-json
+```json
 {
-	"expires_in": "3600",
-	"scope": "app-scopes",
-	"token_type": "Bearer",
-	"access_token": "access_token",
-	"refresh_token": "refresh_token",
+  "expires_in": "3600",
+  "scope": "app-scopes",
+  "token_type": "Bearer",
+  "access_token": "access_token",
+  "refresh_token": "refresh_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```
 
 The structure of the access_token is as follows (as an example):
 
-```
-Header:
+**Header:**
+
+```json
 {
   "typ": "JWT",
   "alg": "RS256",
   "kid": "1455614346"
 }
-Payload:
+```
+
+**Payload:**
+
+```json
 {
   "concur.version": 2,
   "aud": "*",
@@ -94,9 +97,9 @@ Payload:
 }
 ```
 
-* `concur.version` - is the version of the JWT schema in use. 
+* `concur.version` - is the version of the JWT schema in use.
 * `concur.type` - is the type of principal this JWT refers to. eg. user, company or application.
-* `concur.app` - a link to the app that created this token. 
+* `concur.app` - a link to the app that created this token.
 * `concur.profile` - is a link to the user's profile.
 * `concur.scopes` - the scopes that the principal permitted the app to use on its behalf
 * `sub` - is a UUID4 identifier for the subject of the JWT.
@@ -108,7 +111,7 @@ Payload:
 
 ## <a name="obtain_token"></a>Obtaining a token
 
-You can obtain a token for three different types of principals in the Concur universe. 
+You can obtain a token for three different types of principals in the Concur universe.
 
 * User
 * Application
@@ -140,7 +143,9 @@ It is recommended that the client application use the refresh grant to request a
 
 To request a new access token using a valid refresh token, use the Oauth2 /token endpoint. Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
 
-`POST /oauth2/v0/token`
+```
+POST /oauth2/v0/token
+```
 
 **Parameters**
 
@@ -154,9 +159,7 @@ Name | Type | Format | Description
 
 **Request**
 
-```
-http
-
+```http
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: us.api.concursolutions.com
@@ -168,14 +171,11 @@ client_id=your-client_id
 &grant_type=refresh_token
 &refresh_token=valid-refresh_token
 &scope=app-scope
-
 ```
 
 **Response**
 
-```
-http
-
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: date-requested
@@ -183,9 +183,7 @@ Content-Length: 3397
 Connection: Close
 ```
 
-```
-json
-
+```json
 {
   "expires_in": "3600",
   "scope": "app-scope",
@@ -194,47 +192,51 @@ json
   "refresh_token": "new-refresh_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
-
 ```
 
 ## <a name="revoke_token"></a>Revoking a token
 
-All refresh_tokens associated to a user for an application can be revoked by calling the `/appmgmt/v0/connections` endpoint with a `DELETE` action. You have to provide the User's `accessToken` in the Authorization Header as `Authorization: Bearer <access_token>`
+All refresh_tokens associated to a user for an application can be revoked by calling the `https://api.concursolutions.com/appmgmt/v0/connections` endpoint with a `DELETE` action. You have to provide the User's `accessToken` in the Authorization Header as `Authorization: Bearer <access_token>` and provide a unique string called `concur-correlationid` for logging and support purposes. This correlationid can be any string that uniquely identifies your application. Most developers will use their application name.
 
-`DELETE /appmgmt/v0/connections`
+**Note** The base URL for this endpoint is `https://api.concursolutions.com` instead of the normal `https://us.api.concursolutions.com`.
+
+```
+DELETE https://api.concursolutions.com/appmgmt/v0/connections
+```
 
 
 **Request**
 
-```
-http
-
+```http
 DELETE /appmgmt/v0/connections HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer <access_token>
+concur-correlationid: <application_name>
+```
 
+**Sample cURL:**
+
+```shell
+curl -X DELETE -H "Authorization: Bearer <accessToken>" -H "concur-correlationid: testapp" \
+"https://api.concursolutions.com/appmgmt/v0/connections"
 ```
 
 **Response**
 
-```
-http
-
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 Date: date-requested
 Content-Length: 9
 Connection: Close
-```
 
-```
 "deleted"
 ```
- 
+
 
 ## <a name="manage_token"></a>Managing tokens
 
-Refresh Tokens are UUID4 identifiers that allow your application to obtain a fresh `accessToken` on behalf of a user to access Concur's APIs. 
+Refresh Tokens are UUID4 identifiers that allow your application to obtain a fresh `accessToken` on behalf of a user to access Concur's APIs.
 
 ```
 e013335d-b4ce-4c43-a7e4-b67abc1adcb0
@@ -244,7 +246,7 @@ It is highly recommended that you store Refresh Tokens together with your user's
 
 ## <a name="base_uri"></a>Base URIs
 
-Environment | URI 
+Environment | URI
 -----|------
 US Production |`https://us.api.concursolutions.com/oauth2/v0`
 EU Production |`https://emea.api.concursolutions.com/oauth2/v0`
@@ -253,9 +255,9 @@ EU Production |`https://emea.api.concursolutions.com/oauth2/v0`
 
 If your application was registered with the 'openid' scope, the Authentication service will return an [OPENID](http://openid.net) compatible [ID token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
-```
-Sample id_token:
+**Sample id_token:**
 
+```json
 {
   "aud": "e010e25d-b4ce-4ce3-a7e4-b670cb1adcb0",
   "concur.profile": "https://us.api.concursolutions.com/profile/v1/pricipals/76459ad3-f77b-4d98-a21a-55333c9179f0",
@@ -279,13 +281,13 @@ The Authentication service exposes [JWKs](https://tools.ietf.org/html/rfc7517) t
 
 ## <a name="auth_grant"></a>Authorization grant
 
-The authorization grant is the regular 3-legged oauth2 grant and is defined in detail in [RFC6749 sec-4.1](https://tools.ietf.org/html/rfc6749#section-4.1). This grant requires the user to explicitly authenticate themselves and authorise the application initiating the grant. 
+The authorization grant is the regular 3-legged oauth2 grant and is defined in detail in [RFC6749 sec-4.1](https://tools.ietf.org/html/rfc6749#section-4.1). This grant requires the user to explicitly authenticate themselves and authorise the application initiating the grant.
 
 The users *must be* able to authenticate themselves via a Concur username & password. Users will be challenged to login by an Oauth2 HTML page.
 
 **Who should use it**
-* 3rd party "partner" websites - or - 
-* non-Concur Applications - & - 
+* 3rd party "partner" websites - or -
+* non-Concur Applications - & -
 * Applications that need explicit user authentication & authorization - & -
 * Applications that can securely store a code, access_token & refresh_token
 
@@ -302,8 +304,8 @@ Name | Type | Format | Description
   `client_id`|`string` | `UUID` | Applications client_id supplied by App Management
   `redirect_uri`|`string` | | The redirect URI for your application to continue with the Oauth2 flow
   `scope`|`string` | | List of scopes that application is asking for
-  `response_type`|`string` | | code
-  `state`|`string` | | 
+  `response_type`|`string` | | `code`
+  `state`|`string` | |
 
 
 `POST /oauth2/v0/verify_creds`
@@ -317,7 +319,7 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
-`allow` | `string` | | 
+`allow` | `string` | |
 
 `POST /oauth2/v0/token`
 
@@ -325,8 +327,9 @@ Name | Type | Format | Description
 -----|------| ------ | -----------
 `client_id`|`string` | `UUID` | Applications client_id supplied by App Management
 `client_secret`|`string` | `UUID` | Applications client_secret supplied by App Management
-`redirect_uri`|`string` | `UUID` | `code`|`string` | | 
-`grant_type`|`string` | | `authorization_code` 
+`redirect_uri`|`string` | | The redirect_uri that is registered for the application
+`code`|`string`| `UUID`  | The authorization code provided by Auth
+`grant_type`|`string` | | `authorization_code`
 
 
 ## <a name="password_grant"></a>Password grant
@@ -347,9 +350,7 @@ Name | Type | Format | Description
 
 **Request**
 
-```
-http
-
+```http
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: us.api.concursolutions.com
@@ -365,9 +366,7 @@ client_id=your-client_id
 
 **Response**
 
-```
-http
-
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: date-requested
@@ -375,26 +374,21 @@ Content-Length: 3397
 Connection: Close
 ```
 
-```
-json
-
+```json
 {
-	"expires_in": "3600",
-	"scope": "app-scopes",
-	"token_type": "Bearer",
-	"access_token": "access_token",
-	"refresh_token": "refresh_token",
+  "expires_in": "3600",
+  "scope": "app-scopes",
+  "token_type": "Bearer",
+  "access_token": "access_token",
+  "refresh_token": "refresh_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
-
 ```
 
 
 example bad login
 
-```
-json
-
+```json
 {
   "error": "invalid_grant",
   "error_description": "Incorrect Credentials. Please Retry",
@@ -418,29 +412,29 @@ Name | Type | Format | Description
 
 **Request**
 
-```
-http
-
+```http
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 127
 
-client_id=your-client_id&client_secret=your-client_secret&grant_type=client_credentials
+client_id=your-client_id
+&client_secret=your-client_secret
+&grant_type=client_credentials
 ```
 
 **Response**
 
-```
-json
-
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: date-requested
 Content-Length: 1626
 Connection: Close
+```
 
+```json
 {
   "expires_in": "3600",
   "scope": "scopes defined for application",
@@ -477,7 +471,7 @@ Name | Type | Format | Description
 `channel_handle`|`string`|-|**Required** The location (email address, phone number) where the one time token should be sent. Currently, only `email address` is valid.
 `channel_type`|`string`|-|**Required** The type of messaging system to use. Currently only `email` is valid
 `name`|`string`|-|*Optional* The name of the user that appears in the email.
-`company`|`string`|-|*Optional* The company or application name that appears in the email. 
+`company`|`string`|-|*Optional* The company or application name that appears in the email.
 `link`|`string`|-|*Optional* The callback URL that appears in the email for users to click to complete the auth flow.
 
 
@@ -497,9 +491,7 @@ If the calling application chooses to send custom parameters, all of these exact
 
 **Request**
 
-```
-http
-
+```http
 POST /oauth2/v0/otp HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Accept: application/json
@@ -512,25 +504,20 @@ client_id=your-client_id
 &channel_handle=email adress
 &channel_type=valid-email
 &link=https://example.com/callback
-
 ```
 
 **Response**
 
-```
-http
-
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 22
 Date: date-requested
 ```
 
-```
-json
-
+```json
 {
-  "message":"otp sent"
+  "message": "otp sent"
 }
 ```
 
@@ -556,9 +543,7 @@ Name | Type | Format | Description
 
 **Request**
 
-```
-http
-
+```http
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: us.api.concursolutions.com
@@ -572,29 +557,24 @@ client_id=your-client_id
 &scope=app_scope
 &grant_type=otp
 &otp=one-time-token
-
 ```
 
 **Response**
 
-```
-http
-
+```http
 HTTP/1.1 200 OK
 Date: date-requested
 Content-Length: 1490
 Connection: keep-alive
 ```
 
-```
-json
-
+```json
 {
-	"expires_in": "3600",
-	"scope": "scopes-defined",
-	"token_type": "Bearer",
-	"access_token": "access_token (JWT)",
-	"refresh_token": "refresh_token"
+  "expires_in": "3600",
+  "scope": "scopes-defined",
+  "token_type": "Bearer",
+  "access_token": "access_token (JWT)",
+  "refresh_token": "refresh_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```
@@ -616,12 +596,12 @@ json
 
 4xx class errors have a JSON response with the following fields
 
-```
-  {
-   "code": <number>,
-   "error": <error>,
-   "error_description": <error_description>
-  }
+```json
+{
+  "code": <number>,
+  "error": <error>,
+  "error_description": <error_description>
+}
 ```
 
 ##### /token
@@ -687,4 +667,3 @@ json
 | 80   | `invalid_request` | invalid channel type                                   |
 | 81   | `invalid_request` | bad channel handle                                     |
 | 82   | `invalid_request` | the number of open otp requests has been exceeded      |
-

@@ -26,7 +26,7 @@ The URI is configured by the supplier when registering the partner application. 
 application/xml
 
 #### Authorization header
-Authorization header with Basic credentials. Required. Refer to the [Security](/api-reference/direct-connects/hotel.html) documentation for more information. 
+Authorization header with Basic credentials. Required. Refer to the [Security](/api-reference/direct-connects/hotel.html) documentation for more information.
 
 ### Request body
 
@@ -72,37 +72,37 @@ The **Source** element contains the following element:
 |  Element |  Description |
 |----------|---------------------------------------|
 |  PersonName |  This parent element contains the **GivenName** and **SurName** child elements, which should match the reservation details. |
-|  TelephoneInfo |  This element has the **PhoneNumber** attribute, which contains the guest telephone number. The number should match the reservation. | 
+|  TelephoneInfo |  This element has the **PhoneNumber** attribute, which contains the guest telephone number. The number should match the reservation. |
 
 ###  XML Example Request
 
-```xml
-    POST /concur/hotel/v1 HTTPS/1.1
-    Host: example.com
-    Authorization: Basic ...
-    Content-Type: application/xml
-    Content-Length: {length of content body}
+```http
+POST /concur/hotel/v1 HTTPS/1.1
+Host: example.com
+Authorization: Basic ...
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_ReadRQ.xsd" Version="1">
-        <POS>
-            <Source ISOCountry="US" ISOCurrency="USD">
-                <RequestorID Type="18" ID="7777777" />
-            </Source>
-        </POS>
-        <ReadRequests>
-            <ReadRequest>
-                <UniqueID ID="888000888" Type="14" />
-                <Verification>
-                    <PersonName>
-                        <GivenName>CHRIS</GivenName>
-                        <Surname>MILLER</Surname>
-                    </PersonName>
-                    <TelephoneInfo PhoneNumber="212-555-1212" />
-                </Verification>
-            </ReadRequest>
-        </ReadRequests>
-    </OTA_ReadRQ>
+<?xml version="1.0" encoding="utf-8" ?>
+<OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_ReadRQ.xsd" Version="1">
+    <POS>
+        <Source ISOCountry="US" ISOCurrency="USD">
+            <RequestorID Type="18" ID="7777777" />
+        </Source>
+    </POS>
+    <ReadRequests>
+        <ReadRequest>
+            <UniqueID ID="888000888" Type="14" />
+            <Verification>
+                <PersonName>
+                    <GivenName>CHRIS</GivenName>
+                    <Surname>MILLER</Surname>
+                </PersonName>
+                <TelephoneInfo PhoneNumber="212-555-1212" />
+            </Verification>
+        </ReadRequest>
+    </ReadRequests>
+</OTA_ReadRQ>
 ```
 
 ##  Response
@@ -114,7 +114,4 @@ application/xml
 
 ### Response body
 
-The response is identical to the response for [Post New Reservation](/api-reference/direct-connects/hotel/post-new-reservation.html). 
-
-  
-
+The response is identical to the response for [Post New Reservation](/api-reference/direct-connects/hotel/post-new-reservation.html).

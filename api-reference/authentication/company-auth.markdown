@@ -17,7 +17,7 @@ layout: reference
 
 ## <a name="company"></a>Company
 
-Company is a top-level principal within Concur and you would be able to obtain an access token and a refresh token on a Company's behalf just like you would be able to with a User. Only one authorization flow is currently available for obtaining tokens for a Company, which is the [Password grant](#password_grant). 
+Company is a top-level principal within Concur and you would be able to obtain an access token and a refresh token on a Company's behalf just like you would be able to with a User. Only one authorization flow is currently available for obtaining tokens for a Company, which is the [Password grant](#password_grant).
 
 ## <a name="obtain_token"></a>Obtaining a one-time auth token
 
@@ -32,7 +32,7 @@ AppCenter will call this endpoint to obtain an `authToken`.
 
 Sample Curl:
 
-```
+```shell
 curl -E appcenter.p12:. -H 'concur-correlationid: githbuwiki' -XPOST http://us-rqa3.concurasp.com/profile-service/v1/keys/principals/08BCCA1E-0D4F-4261-9F1B-F778D96617D6/authtoken/
 ```
 
@@ -41,17 +41,16 @@ successful call, responds with
 ```json
 200 OK
 {
- "status":"PASS",
- "code":0,
- "errormsg":"",
- "token":"<authToken>"
+ "status": "PASS",
+ "code": 0,
+ "errormsg": "",
+ "token": "<authToken>"
 }
 ```
 
 **AppCenter redirects User to Client's auth handler URI and passing in the authToken**
 
 ```http
-
 301 Redirect https://client.app.url?code=3979344784714c10a35d6f1fddd869f0
 ```
 
@@ -64,14 +63,13 @@ Name | Type | Format | Description
   `grant_type`|`string` | | Specify which grant type you expect the oauth2 service to process. for password grant, the value is `password`
   `username`|`string` | | specify the `companyId` to be used in the password grant request
   `password`|`string` | | specify the `authToken` to be used in the password grant request.
-  `credtype`|`string` | | The credtype signifies to oauth2 which credential set is being submitted in the request. The value: `authtoken`. 
+  `credtype`|`string` | | The credtype signifies to oauth2 which credential set is being submitted in the request. The value: `authtoken`.
 
 
 
 **Request**
 
 ```http
-
 POST /oauth2/v0/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: us.api.concursolutions.com
@@ -88,7 +86,6 @@ client_id=your-client_id
 **Response**
 
 ```http
-
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: date-requested
@@ -97,7 +94,6 @@ Connection: Close
 ```
 
 ```json
-
 {
   "expires_in": "3600",
   "scope": "app_scopes",
@@ -106,14 +102,12 @@ Connection: Close
   "refresh_token": "refresh_token",
   "geolocation":"https://us.api.concursolutions.com"
 }
-
 ```
 
 
 example bad login
 
 ```json
-
 {
   "error": "invalid_grant",
   "error_description": "Incorrect Credentials. Please Retry",
@@ -138,12 +132,11 @@ example bad login
 4xx class errors have a JSON response with the following fields
 
 ```json
-
-  {
-   "code": <number>,
-   "error": <error>,
-   "error_description": <error_description>
-  }
+{
+  "code": <number>,
+  "error": <error>,
+  "error_description": <error_description>
+}
 ```
 
 ##### /token
@@ -193,4 +186,3 @@ example bad login
 | 118  | `invalid_request` | display is invalid                                     |
 | 119  | `invalid_request` | prompt is invalid                                      |
 | 119  | `invalid_request` | prompt must be set to consent for `offline_access`     |
-

@@ -30,11 +30,13 @@ This endpoint can be used to create/update bookings for a user that is not the O
 
 
 ## Request
-<samp>
-    POST /api/travel/booking/v1.0?tripId=12345678 HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token} 
-</samp>
+
+```http
+POST /api/travel/booking/v1.0?tripId=12345678 HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+```
+
 ### Request Parameters
 
 #### Query Parameters - Optional
@@ -46,9 +48,9 @@ The Concur login ID of the user who owns the booking. Only provided when the boo
 
 Examples:
 
-https://www.concursolutions.com/api/travel/booking/v1.1?tripId={tripId}
+`https://www.concursolutions.com/api/travel/booking/v1.1?tripId={tripId}`
 
-https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={loginID}
+`https://www.concursolutions.com/api/travel/booking/v1.1?userid_type=login_id&userid_value={loginID}`
 
 
 ### Content type
@@ -117,121 +119,122 @@ If the end user updates an existing reservation which results in a new confirmat
 ## Examples
 
 ### Example 1: XML Example Request
+
+```http
+POST /api/travel/booking/v1.0?tripId=12345678 HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+...
 ```
-    POST /api/travel/booking/v1.0?tripId=12345678 HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token} 
-    ... 
-```
-```XML
-    <Booking xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Segments>
-            <Car>
-                <Vendor>AL</Vendor> 
-                <VendorName>Alamo</VendorName> 
-                <Status>HK</Status> 
-                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal> 
-                <EndDateLocal>2013-12-23T12:00:00</EndDateLocal> 
-                <StartDateUtc>2013-12-21T20:00:00</StartDateUtc> 
-                <EndDateUtc>2013-12-23T20:00:00</EndDateUtc> 
-                <ConfirmationNumber>F16726AIUS</ConfirmationNumber> 
-                <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
-                <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
-                <StartCityCode>SEA</StartCityCode> 
-                <EndCityCode>SEA</EndCityCode> 
-                <StartLocation>SEA</StartLocation> 
-                <EndLocation>SEA</EndLocation> 
-                <Class>E</Class> 
-                <Body>C</Body> 
-                <Transmission>A</Transmission> 
-                <AirCondition>R</AirCondition> 
-                <NumPersons>1</NumPersons> 
-                <NumCars>1</NumCars> 
-                <DiscountCode>4321</DiscountCode> 
-                <DailyRate>35.0000</DailyRate> 
-                <TotalRate>105.0000</TotalRate> 
-                <RateType>D</RateType> 
-                <Currency>USD</Currency> 
-            </Car>
-        </Segments>
-        <RecordLocator>PANAMA50</RecordLocator> 
-        <BookingSource>Alamo</BookingSource> 
-        <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
-        <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
-        <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal> 
-        <Passengers>
-            <Passenger>
-                <PassengerKey>0</PassengerKey> 
-                <NameFirst>Chris</NameFirst> 
-                <NameLast>Miller</NameLast> 
-            </Passenger>
-        </Passengers>
-    </Booking>
+
+```xml
+<Booking xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Segments>
+        <Car>
+            <Vendor>AL</Vendor>
+            <VendorName>Alamo</VendorName>
+            <Status>HK</Status>
+            <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+            <EndDateLocal>2013-12-23T12:00:00</EndDateLocal>
+            <StartDateUtc>2013-12-21T20:00:00</StartDateUtc>
+            <EndDateUtc>2013-12-23T20:00:00</EndDateUtc>
+            <ConfirmationNumber>F16726AIUS</ConfirmationNumber>
+            <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
+            <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
+            <StartCityCode>SEA</StartCityCode>
+            <EndCityCode>SEA</EndCityCode>
+            <StartLocation>SEA</StartLocation>
+            <EndLocation>SEA</EndLocation>
+            <Class>E</Class>
+            <Body>C</Body>
+            <Transmission>A</Transmission>
+            <AirCondition>R</AirCondition>
+            <NumPersons>1</NumPersons>
+            <NumCars>1</NumCars>
+            <DiscountCode>4321</DiscountCode>
+            <DailyRate>35.0000</DailyRate>
+            <TotalRate>105.0000</TotalRate>
+            <RateType>D</RateType>
+            <Currency>USD</Currency>
+        </Car>
+    </Segments>
+    <RecordLocator>PANAMA50</RecordLocator>
+    <BookingSource>Alamo</BookingSource>
+    <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
+    <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
+    <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+    <Passengers>
+        <Passenger>
+            <PassengerKey>0</PassengerKey>
+            <NameFirst>Chris</NameFirst>
+            <NameLast>Miller</NameLast>
+        </Passenger>
+    </Passengers>
+</Booking>
 ```
 
 ### Example 2: XML Example of Successful Response
 
-```XML
-    <Itinerary xmlns="https://www.concursolutions.com/api/travel/trip/2010/06">
-        <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
-        <ItinLocator>CNQR1234567890</ItinLocator>
-        <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
+```xml
+<Itinerary xmlns="https://www.concursolutions.com/api/travel/trip/2010/06">
+    <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
+    <ItinLocator>CNQR1234567890</ItinLocator>
+    <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
+    <ItinSourceName>TravelSupplier</ItinSourceName>
+    <TripName>Trip to Seattle</TripName>
+    <Comments />
+    <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
+    <EndDateLocal>2013-12-23T23:59:00</EndDateLocal>
+    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+    <BookedVia>EveryGDS</BookedVia>
+    <BookedByFirstName>Chris</BookedByFirstName>
+    <BookedByLastName>Miller</BookedByLastName>
+    <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
+    <Booking>
+        <Segments>
+            <Car>
+                <Vendor>AL</Vendor>
+                <VendorName>Alamo</VendorName>
+                <Status>HK</Status>
+                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                <EndDateLocal>2013-12-23T12:00:00</EndDateLocal>
+                <StartDateUtc>2013-12-21T20:00:00</StartDateUtc>
+                <EndDateUtc>2013-12-23T20:00:00</EndDateUtc>
+                <ConfirmationNumber>F16726AIUS</ConfirmationNumber>
+                <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
+                <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
+                <StartCityCode>SEA</StartCityCode>
+                <EndCityCode>SEA</EndCityCode>
+                <StartLocation>SEA</StartLocation>
+                <EndLocation>SEA</EndLocation>
+                <Class>E</Class>
+                <Body>C</Body>
+                <Transmission>A</Transmission>
+                <AirCondition>R</AirCondition>
+                <NumPersons>1</NumPersons>
+                <NumCars>1</NumCars>
+                <DiscountCode>4321</DiscountCode>
+                <DailyRate>35.0000</DailyRate>
+                <TotalRate>105.0000</TotalRate>
+                <RateType>D</RateType>
+                <Currency>USD</Currency>
+            </Car>
+        </Segments>
+        <RecordLocator>PANAMA50</RecordLocator>
+        <BookingSource>Alamo</BookingSource>
+        <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
+        <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
+        <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
         <ItinSourceName>TravelSupplier</ItinSourceName>
-        <TripName>Trip to Seattle</TripName>
-        <Comments />
-        <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
-        <EndDateLocal>2013-12-23T23:59:00</EndDateLocal>
-        <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-        <BookedVia>EveryGDS</BookedVia>
-        <BookedByFirstName>Chris</BookedByFirstName>
-        <BookedByLastName>Miller</BookedByLastName>
-        <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
-        <Booking>
-            <Segments>
-                <Car>
-                    <Vendor>AL</Vendor> 
-                    <VendorName>Alamo</VendorName> 
-                    <Status>HK</Status> 
-                    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal> 
-                    <EndDateLocal>2013-12-23T12:00:00</EndDateLocal> 
-                    <StartDateUtc>2013-12-21T20:00:00</StartDateUtc> 
-                    <EndDateUtc>2013-12-23T20:00:00</EndDateUtc> 
-                    <ConfirmationNumber>F16726AIUS</ConfirmationNumber> 
-                    <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
-                    <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
-                    <StartCityCode>SEA</StartCityCode> 
-                    <EndCityCode>SEA</EndCityCode> 
-                    <StartLocation>SEA</StartLocation> 
-                    <EndLocation>SEA</EndLocation> 
-                    <Class>E</Class> 
-                    <Body>C</Body> 
-                    <Transmission>A</Transmission> 
-                    <AirCondition>R</AirCondition> 
-                    <NumPersons>1</NumPersons> 
-                    <NumCars>1</NumCars> 
-                    <DiscountCode>4321</DiscountCode> 
-                    <DailyRate>35.0000</DailyRate> 
-                    <TotalRate>105.0000</TotalRate> 
-                    <RateType>D</RateType> 
-                    <Currency>USD</Currency> 
-                </Car>
-            </Segments>
-            <RecordLocator>PANAMA50</RecordLocator> 
-            <BookingSource>Alamo</BookingSource> 
-            <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
-            <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
-            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal> 
-            <ItinSourceName>TravelSupplier</ItinSourceName> 
-            <Passengers>
-                <Passenger>
-                    <PassengerKey>0</PassengerKey> 
-                    <NameFirst>Chris</NameFirst> 
-                    <NameLast>Miller</NameLast> 
-                </Passenger>
-            </Passengers>
-        </Booking>
-    </Itinerary>
-
+        <Passengers>
+            <Passenger>
+                <PassengerKey>0</PassengerKey>
+                <NameFirst>Chris</NameFirst>
+                <NameLast>Miller</NameLast>
+            </Passenger>
+        </Passengers>
+    </Booking>
+</Itinerary>
 ```
 
 # Post Booking Cancellation
@@ -239,20 +242,22 @@ If the end user updates an existing reservation which results in a new confirmat
 ## Description
 Cancels an existing booking. By default, the OAuth consumer should be the owner of the booking. This endpoint can also be used to cancel bookings that the OAuth consumer does not own. This is most often done when a Travel Management Company needs to cancel bookings on behalf of a user. The TMC must be registered with Concur and have a Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
-**NOTE:** 
+**NOTE:**
+
 * Booking records can only be updated by the booking source that created them. Concur verifies the source information before processing the request.
 
 
 ## Request
 
-    POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431}
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token} 
-
+```http
+POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431} HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+```
 
 ### Request parameters
 
-####Query Parameters - Required
+#### Query Parameters - Required
 * **cancel?bookingSource={Supplier}**
 
 The cancel keyword and the unique identifier for the supplier, configured by Concur during the application review. The bookingSource must match the Supplier Name associated with the booking.
@@ -261,16 +266,16 @@ The cancel keyword and the unique identifier for the supplier, configured by Con
 
 The confirmation number for the booking to cancel.
 
-Example: 
-https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}
+Example:
+`https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}`
 
-####Query Parameters - Optional
+#### Query Parameters - Optional
 * **userid_type=login_id&userid_value={loginID}**
 
 The Concur login ID of the user who owns the booking. Only provided when the booking owner is not the OAuth consumer. Can only be used when the OAuth consumer has the required user role.
 
 Example:
-https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}&userid_type=login_id&userid_value={loginID}
+`https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}&userid_type=login_id&userid_value={loginID}`
 
 
 ### Content type
@@ -293,69 +298,72 @@ If the booking is not found, the function returns a HTTP 404 error and the follo
 
 ### Examples 1: XML Example Request
 
-    POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431}
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token} 
-
+```http
+POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431} HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+```
 
 ### Examples 2: XML Example of Successful Response
 
-    <Car>
-        <Vendor>ZE</Vendor>
-        <Status>HK</Status>
-        <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-        <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
-        <TimeZoneId xsi:nil="true"/>
-        <StartDateUtc>2013-12-21T20:00:00</StartDateUtc>
-        <EndDateUtc>2013-12-24T20:00:00</EndDateUtc>
-        <ConfirmationNumber>0987654321</ConfirmationNumber>
-        <CancellationNumber>1029384756</CancellationNumber>
-        <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
-        <DateCancelledUtc>2012-07-25T14:21:35</DateCancelledUtc>
-        <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
-        <UpgradedDateTime xsi:nil="true"/>
-        <IsUpgradeAllowed xsi:nil="true"/>
-        <FrequentTravelerId/>
-        <StartCityCode>SEA</StartCityCode>
-        <EndCityCode>SEA</EndCityCode>
-        <StartLocation>SEA</StartLocation>
-        <EndLocation>SEA</EndLocation>
-        <Class>E</Class>
-        <Body>C</Body>
-        <Transmission>M</Transmission>
-        <AirCondition>R</AirCondition>
-        <PhoneNumber/>
-        <NumPersons xsi:nil="true"/>
-        <NumCars>1</NumCars>
-        <DiscountCode>346660</DiscountCode>
-        <Charges>
-            <Fixed>
-                <Description>Dropoff Fee</Description>
-                <Currency>USD</Currency>
-                <Amount>0.0000</Amount>
-                <StartDateLocal xsi:nil="true"/>
-                <IsPaid xsi:nil="true"/>
-                <SemanticsCode>DROPOFFFEE</SemanticsCode>
-                <SemanticsVendorType>C</SemanticsVendorType>
-            </Fixed>
-            <RateWithAllowance>
-                <Currency>USD</Currency>
-                <Amount>44.0000</Amount>
-                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                <IsPaid xsi:nil="true"/>
-                <SemanticsCode>DAYS</SemanticsCode>
-                <SemanticsVendorType>C</SemanticsVendorType>
-                <PerUnit>DAY</PerUnit>
-                <NumUnits>1.0000</NumUnits>
-                <AllowanceUnit/>
-                <AllowanceNumUnits>250.0000</AllowanceNumUnits>
-                <AllowanceAmount>0.2400</AllowanceAmount>
-                <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
-            </RateWithAllowance>
-        </Charges>
-        <Remarks/>
-        <PerDiemLocation/>
-    </Car>
+```xml
+<Car>
+    <Vendor>ZE</Vendor>
+    <Status>HK</Status>
+    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+    <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
+    <TimeZoneId xsi:nil="true"/>
+    <StartDateUtc>2013-12-21T20:00:00</StartDateUtc>
+    <EndDateUtc>2013-12-24T20:00:00</EndDateUtc>
+    <ConfirmationNumber>0987654321</ConfirmationNumber>
+    <CancellationNumber>1029384756</CancellationNumber>
+    <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
+    <DateCancelledUtc>2012-07-25T14:21:35</DateCancelledUtc>
+    <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
+    <UpgradedDateTime xsi:nil="true"/>
+    <IsUpgradeAllowed xsi:nil="true"/>
+    <FrequentTravelerId/>
+    <StartCityCode>SEA</StartCityCode>
+    <EndCityCode>SEA</EndCityCode>
+    <StartLocation>SEA</StartLocation>
+    <EndLocation>SEA</EndLocation>
+    <Class>E</Class>
+    <Body>C</Body>
+    <Transmission>M</Transmission>
+    <AirCondition>R</AirCondition>
+    <PhoneNumber/>
+    <NumPersons xsi:nil="true"/>
+    <NumCars>1</NumCars>
+    <DiscountCode>346660</DiscountCode>
+    <Charges>
+        <Fixed>
+            <Description>Dropoff Fee</Description>
+            <Currency>USD</Currency>
+            <Amount>0.0000</Amount>
+            <StartDateLocal xsi:nil="true"/>
+            <IsPaid xsi:nil="true"/>
+            <SemanticsCode>DROPOFFFEE</SemanticsCode>
+            <SemanticsVendorType>C</SemanticsVendorType>
+        </Fixed>
+        <RateWithAllowance>
+            <Currency>USD</Currency>
+            <Amount>44.0000</Amount>
+            <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+            <IsPaid xsi:nil="true"/>
+            <SemanticsCode>DAYS</SemanticsCode>
+            <SemanticsVendorType>C</SemanticsVendorType>
+            <PerUnit>DAY</PerUnit>
+            <NumUnits>1.0000</NumUnits>
+            <AllowanceUnit/>
+            <AllowanceNumUnits>250.0000</AllowanceNumUnits>
+            <AllowanceAmount>0.2400</AllowanceAmount>
+            <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
+        </RateWithAllowance>
+    </Charges>
+    <Remarks/>
+    <PerDiemLocation/>
+</Car>
+```
 
 ## See Also
 

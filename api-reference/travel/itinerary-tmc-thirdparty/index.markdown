@@ -56,29 +56,37 @@ https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&en
 
 ####  XML Example Request by Start and End Date
 
-    GET /api/travel/trip/v1.1/?startDate=2012%2F02%2F01&endDate=2013%2F12%2F31 HTTP 1.1
-    Host: [www.concursolutions.com][1]
-    Authorization: OAuth {access token}
-    ...
+```http
+GET /api/travel/trip/v1.1/?startDate=2012%2F02%2F01&endDate=2013%2F12%2F31 HTTP/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+...
+```
 
 ####  XML Example Request by Booking Type and Start Date
 
-    GET /api/travel/trip/v1.1/?startDate=2012%2F02%2F01&bookingType=Air HTTP 1.1
-    Host: [www.concursolutions.com][1]
-    Authorization: OAuth {access token}
-    ...
+```http
+GET /api/travel/trip/v1.1/?startDate=2012%2F02%2F01&bookingType=Air HTTP/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+...
+```
 
 ####  XML Example Request by Created Date
 
-    GET /api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01 HTTP 1.1
-    Host: [www.concursolutions.com][1]
-    Authorization: OAuth {access token}
+```http
+GET /api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01 HTTP/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+```
 
 ####  XML Example Request with Paging
 
-    GET /api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&includeMetadata=true&ItemsPerPage=2&Page=1 HTTP 1.1
-    Host: [www.concursolutions.com][1]
-    Authorization: OAuth {access token}
+```http
+GET /api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&includeMetadata=true&ItemsPerPage=2&Page=1 HTTP/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+```
 
 
 ##  Get List of Itineraries Response
@@ -89,10 +97,10 @@ This request will return an **ItineraryInfoList** parent element with an **Itine
 Name |  Description
 -----| ------------		
 `TripId` |  Encrypted trip identifier value.
-`TripName` |  Name of the trip 
+`TripName` |  Name of the trip
 `TripStatus` |  The status of the trip. This element only appears if the **includeCanceledTrips** query parameter is used in the request.
 `StartDateLocal` |  The start date of the trip in the starting location's timezone. Format: YYYY-MM-DDThh:mm:ss.
-`EndDateLocal` |  The end date of the trip in the ending location's timezone. Format: YYYY-MM-DDThh:mm:ss. 
+`EndDateLocal` |  The end date of the trip in the ending location's timezone. Format: YYYY-MM-DDThh:mm:ss.
 `UserLoginId` |  The user's login to Concur. Only appears when the OAuth consumer has one of the specified admin roles. `
 `DateModifiedUtc` |  The UTC date that this trip was last modified. Format: YYYY-MM-DDThh:mm:ss.`
 `id` |  Trip ID URI with encrypted ID.
@@ -110,7 +118,7 @@ Name |  Description
 The parent element of the paging information. Contains the following child elements:
 
 Name |  Description
------| ------------	
+-----| ------------
 `TotalPages` | The total number of pages the query returned.
 `TotalItems` | The total number of itineraries the query returned.  
 `CurrentPage` | The page number for the set of results in the current response.  
@@ -122,73 +130,76 @@ Name |  Description
 
 ####  XML Example of Successful Response
 
-    HTTP 1.1 200 OK
-    Content-Type: application/xml
-    ...
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ItineraryInfoList xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <ItineraryInfo>
-            <TripId>naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</TripId>
-            <TripName>Trip from Baltimore to New York</TripName>
-            <StartDateLocal>2012-02-15T09:00:00</StartDateLocal>
-            <EndDateLocal>2012-02-21T17:30:00</EndDateLocal>
-            <UserLoginId>cm@example.com</UserLoginId>
-            <DateModifiedUtc>2012-02-14T17:13:07</DateModifiedUtc>
-            <id>https://www.concursolutions.com/api/travel/trip/v1.1/naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</id>
-        </ItineraryInfo>
-        <ItineraryInfo>
-            <TripId>I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</TripId>
-            <TripName>Trip from Baltimore to Seattle</TripName>
-            <StartDateLocal>2012-03-26T09:00:00</StartDateLocal>
-            <EndDateLocal>2012-03-29T17:30:00</EndDateLocal>
-            <DateModifiedUtc>2012-03-24T19:00:00</DateModifiedUtc>
-            <UserLoginId>cm@example.com</UserLoginId>
-            <id>https://www.concursolutions.com/api/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</id>
-        </ItineraryInfo>
-    </ItineraryInfoList>
+<?xml version="1.0" encoding="utf-8"?>
+<ItineraryInfoList xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ItineraryInfo>
+        <TripId>naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</TripId>
+        <TripName>Trip from Baltimore to New York</TripName>
+        <StartDateLocal>2012-02-15T09:00:00</StartDateLocal>
+        <EndDateLocal>2012-02-21T17:30:00</EndDateLocal>
+        <UserLoginId>cm@example.com</UserLoginId>
+        <DateModifiedUtc>2012-02-14T17:13:07</DateModifiedUtc>
+        <id>https://www.concursolutions.com/api/travel/trip/v1.1/naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</id>
+    </ItineraryInfo>
+    <ItineraryInfo>
+        <TripId>I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</TripId>
+        <TripName>Trip from Baltimore to Seattle</TripName>
+        <StartDateLocal>2012-03-26T09:00:00</StartDateLocal>
+        <EndDateLocal>2012-03-29T17:30:00</EndDateLocal>
+        <DateModifiedUtc>2012-03-24T19:00:00</DateModifiedUtc>
+        <UserLoginId>cm@example.com</UserLoginId>
+        <id>https://www.concursolutions.com/api/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</id>
+    </ItineraryInfo>
+</ItineraryInfoList>
+```
 
 ####  XML Example of Successful Response with Paging
 
-    HTTP 1.1 200 OK
-    Content-Type: application/xml
-    ...
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
 
-    <ConnectResponse>
-        <Metadata>
-            <Paging>
-                <TotalPages>38</TotalPages>
-                <TotalItems>187</TotalItems>
-                <CurrentPage>2</CurrentPage>
-                <ItemsPerPage>2</ItemsPerPage>
-                <PreviousPageURL>https://www.concursolutions.com/api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&amp;itemsPerPage=5&amp;page=3&amp;includeMetaData=true</PreviousPageURL>
-                <NextPageURL>https://www.concursolutions.com/api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&amp;itemsPerPage=5&amp;page=1&amp;includeMetaData=true</NextPageURL>
-            </Paging>
-        </Metadata>
-        <Data>
-            <ItineraryInfoList xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-                <ItineraryInfo>
-                    <TripId>naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</TripId>
-                    <TripName>Trip from Baltimore to New York</TripName>
-                    <StartDateLocal>2012-02-15T09:00:00</StartDateLocal>
-                    <EndDateLocal>2012-02-21T17:30:00</EndDateLocal>
-                    <UserLoginId>cm@example.com</UserLoginId>
-                    <DateModifiedUtc>2012-02-14T17:13:07</DateModifiedUtc>
-                    <id>https://www.concursolutions.com/api/travel/trip/v1.1/naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</id>
-                </ItineraryInfo>
-                <ItineraryInfo>
-                    <TripId>I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</TripId>
-                    <TripName>Trip from Baltimore to Seattle</TripName>
-                    <StartDateLocal>2012-03-26T09:00:00</StartDateLocal>
-                    <EndDateLocal>2012-03-29T17:30:00</EndDateLocal>
-                    <DateModifiedUtc>2012-03-24T19:00:00</DateModifiedUtc>
-                    <UserLoginId>cm@example.com</UserLoginId>
-                    <id>https://www.concursolutions.com/api/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</id>
-                </ItineraryInfo>
-            </ItineraryInfoList>
-        </Data>
-    </ConnectResponse>
-
+<ConnectResponse>
+    <Metadata>
+        <Paging>
+            <TotalPages>38</TotalPages>
+            <TotalItems>187</TotalItems>
+            <CurrentPage>2</CurrentPage>
+            <ItemsPerPage>2</ItemsPerPage>
+            <PreviousPageURL>https://www.concursolutions.com/api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&amp;itemsPerPage=5&amp;page=3&amp;includeMetaData=true</PreviousPageURL>
+            <NextPageURL>https://www.concursolutions.com/api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&amp;itemsPerPage=5&amp;page=1&amp;includeMetaData=true</NextPageURL>
+        </Paging>
+    </Metadata>
+    <Data>
+        <ItineraryInfoList xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+            <ItineraryInfo>
+                <TripId>naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</TripId>
+                <TripName>Trip from Baltimore to New York</TripName>
+                <StartDateLocal>2012-02-15T09:00:00</StartDateLocal>
+                <EndDateLocal>2012-02-21T17:30:00</EndDateLocal>
+                <UserLoginId>cm@example.com</UserLoginId>
+                <DateModifiedUtc>2012-02-14T17:13:07</DateModifiedUtc>
+                <id>https://www.concursolutions.com/api/travel/trip/v1.1/naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</id>
+            </ItineraryInfo>
+            <ItineraryInfo>
+                <TripId>I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</TripId>
+                <TripName>Trip from Baltimore to Seattle</TripName>
+                <StartDateLocal>2012-03-26T09:00:00</StartDateLocal>
+                <EndDateLocal>2012-03-29T17:30:00</EndDateLocal>
+                <DateModifiedUtc>2012-03-24T19:00:00</DateModifiedUtc>
+                <UserLoginId>cm@example.com</UserLoginId>
+                <id>https://www.concursolutions.com/api/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</id>
+            </ItineraryInfo>
+        </ItineraryInfoList>
+    </Data>
+</ConnectResponse>
+```
 
 
 ##  <a name="getdetails"></a>GET Itinerary Details
@@ -219,7 +230,7 @@ This request will return an **Itinerary** parent element with a subset of the fo
 ### Parameters
 
 Name |  Description
------| ------------	
+-----| ------------
 `BookedByFirstName` |  The first name of the person who booked the trip.
 `BookedByLastName` |  The last name of the person who booked the trip.
 `BookedVia` |  The booking method for the trip.
@@ -227,10 +238,10 @@ Name |  Description
 `Comments` |  Optional comments. Maximum length: 512 characters.
 `DateBookedLocal` |  The date the trip was booked, in the local time of the booking location. Format: YYYY-MM-DDThh:mm:ss
 `DateCreatedUtc` |  The date that this trip was created, in UTC. Format: YYYY-MM-DDThh:mm:ss
-`DateModifiedUtc` |  The date that this trip was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss 
+`DateModifiedUtc` |  The date that this trip was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss
 `Description` |  The trip description. Maximum length: 512 characters.
 `EndDateLocal` |  The end date of the trip in the ending location's timezone. Format: YYYY-MM-DDThh:mm:ss
-`EndDateUtc` |  The end date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss 
+`EndDateUtc` |  The end date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss
 `IsPersonal` |  Whether the trip is a Business or Leisure trip. Format: true/false. |
 `ProjectName` |  The associated project name for the trip. Maximum length: 255 characters. |
 `StartDateLocal` |  The start date of the trip in the starting location's timezone. Format: YYYY-MM-DDThh:mm:ss |
@@ -244,7 +255,7 @@ Name |  Description
 ### Booking Child Elements
 
 Name |  Description
------| ------------	
+-----| ------------
 `BookingSource` |  The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place. |
 `DateBookedLocal` |  The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 `DateCreatedUtc` |  The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -259,11 +270,11 @@ Name |  Description
 `TicketPickupNumber` |  The confirmation number to pick up the booked ticket, if any. |
 `AirfareQuotes` |  List of stored airfare quotes. This parent element has a **Quote** child element for each airfare quote. The **Quote** parent element contains [Airfare Quotes Child Elements](#afchild)
 `AirlineTickets` |  List of Airline Tickets. This parent element contains [Airline Tickets Child Elements](#alchild)
-`Charges` |  The charges for the booking. 
+`Charges` |  The charges for the booking.
 `MiscChargeOrders` |  This parent element has a **MiscellaneousChargeOrder** child element for each included miscellaneous charge. The **MiscellaneousChargeOrder** parent element cotains [Miscellaneous Charge Order Child Elements](#mcchild)
 `Passengers` |  This parent element has a **Passenger** child element for each included passenger. Refer to the [Passenger Child Elements](#pchild)
 `PassPrograms` |  This parent element has [**Pass Program** child elements](#ppchild) for each pass program associated with the booking.
-`PhoneNumbers` |  This parent element has [**Phone Number Data** child elements](#phone) for each phone number associated with the booking. 
+`PhoneNumbers` |  This parent element has [**Phone Number Data** child elements](#phone) for each phone number associated with the booking.
 `RailPayments` |  This parent element has [Rail Payment Child Elements](#rail)
 `Segments` |  This parent element will contain at least one of the following child elements: **Air**, **Car**, **Hotel**, **Dining**, **Ride**, **Rail**, **Parking**.
 `Delivery` |  The method used to deliver this booking. Refer to the [Delivery Method Child Elements](#delivery)
@@ -277,9 +288,9 @@ Name |  Description
 ### <a name="afchild"></a>Airfare Quotes Child Elements
 
 Name |  Description
------| ------------	
+-----| ------------
 `BaseFare` |  The base fare of the booking quote. |
-`BaseFareCurrency` |  The [3-letter ISO 4217 currency code][5] for the booking quote. | 
+`BaseFareCurrency` |  The [3-letter ISO 4217 currency code][5] for the booking quote. |
 `BaseFareNuc` |  The base fare in [NUC][6]. |
 `BaseFareNucCurrency` |  The [3-letter ISO 4217 currency code][5] for the base fare in NUC. |
 `DateCreatedUtc` |  The date the quote was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -295,16 +306,16 @@ Name |  Description
 ### <a name="alchild"></a>Airline Tickets Child Elements
 
 Name |  Description
------| ------------	
-`ManualAirlineTicket` |  The manual airline ticket for the booking. 
-`AirlineTicket |  The airline ticket for the booking. 
-`AirlineAdjustment` |  Any adjustment made to the booking. 
+-----| ------------
+`ManualAirlineTicket` |  The manual airline ticket for the booking.
+`AirlineTicket |  The airline ticket for the booking.
+`AirlineAdjustment` |  Any adjustment made to the booking.
 
 
 ### <a name="mcchild"></a>Miscellaneous Charge Order Child Elements
 
 Name |  Description
------| ------------	
+-----| ------------
 `DateCreatedUtc` |  The date the charge order was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 `DateModifiedUtc` |  The date the charge order was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 `IssueDate` |  The date the charge order was issued. Format: YYYY-MM-DDThh:mm:ss |
@@ -318,9 +329,9 @@ Name |  Description
 ### <a name="ppchild"></a>Pass Programs Child Elements
 
 Name |  Description
------| ------------	
+-----| ------------
 `Amount` |  The program amount. |
-`Name` |  The program name. | 
+`Name` |  The program name. |
 `Type` |  The program type. |
 `UserFirstName` |  The first name of the passenger. |
 `UserLastName` |  The last name of the passenger. |
@@ -329,7 +340,7 @@ Name |  Description
 ### <a name="phone"></a>Phone Number Data Child Elements
 
 Name |  Description
------| ------------	
+-----| ------------
 `PassengerRPH` |  Indicates the passenger to whom this phone number belongs. |
 `PhoneNumber` |  The passenger's phone number. |
 `Type` |  The type of phone number. |
@@ -339,8 +350,8 @@ Name |  Description
 ### <a name="rail"></a>Rail Payments Child Elements
 
 Name |  Description
------| ------------	
-`RailPayment` |  The payment information for a rail booking. 
+-----| ------------
+`RailPayment` |  The payment information for a rail booking.
 `RailAdjustment` |  The amount adjusted for a rail booking. Refer to the [Public Itinerary XSD](/api-reference/travel/itinerary/ItinServices_Public_0.xsd) for more information.
 
 
@@ -348,7 +359,7 @@ Name |  Description
 ### <a name="delivery"></a>Delivery Method Child Elements
 
 Name |  Description
------| ------------	
+-----| ------------
 `LocationAdditionalDetails` |  Additional information about the delivery location. |
 `AddressLine1` |  The delivery address.
 `AddressLine2` |  The delivery address. |
@@ -371,7 +382,7 @@ Name |  Description
 ### <a name="web"></a>Web Address Data Child Elements
 
 Name |  Description
------| ------------	
+-----| ------------
 `PassengerRPH` |  Indicates the passenger to whom this web address belongs. |
 `WebAddress` |  Web address. Format: email address or URL. Maximum length: 250 characters. |   
 `Format` |  Format of the web address. Format: E=Email, U=URL, I=IM |
@@ -382,7 +393,7 @@ Name |  Description
 ### <a name="pchild"></a>Passenger Child Elements
 
 Name |  Description
------| ------------	
+-----| ------------
 `FirstNameNumber` |  The number of characters in the passenger's first name. |
 `LastNameNumber` |  The number of characters in the passenger's last name. |
 `NameFirst` |  The passenger's first name. |
@@ -401,258 +412,261 @@ Name |  Description
 ### <a name="ffchild"></a>Frequent Flyer Child Elements
 
 Name |  Description
------| ------------	
-`AirlineVendor` |  The vendor of the frequent flyer program. 
-`Description` |  The program description. 
-`DiscountProgramExpirationDate` |  The date the discount program enrollment expires. Format: YYYY-MM-DDThh:mm:ss 
-`DiscountProgramType` |  The type of discount program. 
-`FrequentFlyerNumber` |  The passenger's identifier for the program. 
-`ProgramVendor` |  The program vendor. 
-`Status` |  The passenger's program status. 
-`StatusExpirationDate` |  The expiration date for the passenger's program status. 
+-----| ------------
+`AirlineVendor` |  The vendor of the frequent flyer program.
+`Description` |  The program description.
+`DiscountProgramExpirationDate` |  The date the discount program enrollment expires. Format: YYYY-MM-DDThh:mm:ss
+`DiscountProgramType` |  The type of discount program.
+`FrequentFlyerNumber` |  The passenger's identifier for the program.
+`ProgramVendor` |  The program vendor.
+`Status` |  The passenger's program status.
+`StatusExpirationDate` |  The expiration date for the passenger's program status.
 
 
 ### <a name="rpchild"></a>Rail Program Child Elements
 
 Name |  Description
------| ------------	
-`Description` |  Description of the discount program. 
-`DiscountProgramExpirationDate` |  The date the discount program enrollment expires. Format: YYYY-MM-DDThh:mm:ss 
-`DiscountProgramType` |  The type of discount program. 
-`ProgramNumber` |  The passenger's identifier for the program. 
-`ProgramVendor` |  The program vendor. 
-`Status` |  The passenger's program status. 
+-----| ------------
+`Description` |  Description of the discount program.
+`DiscountProgramExpirationDate` |  The date the discount program enrollment expires. Format: YYYY-MM-DDThh:mm:ss
+`DiscountProgramType` |  The type of discount program.
+`ProgramNumber` |  The passenger's identifier for the program.
+`ProgramVendor` |  The program vendor.
+`Status` |  The passenger's program status.
 `StatusExpirationDate` |  The expiration date for the passenger's program status.
 
 
 ####  XML Example of Successful Response
 
-    HTTP 1.1 200 OK
-    Content-Type: application/xml
-    ...
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
-        <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
-        <ItinLocator>CNQR1234567890</ItinLocator>
-        <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
-        <ItinSourceName>ConcurTravel</ItinSourceName>
-        <TripName>Trip from Dallas to Seattle</TripName>
-        <Comments />
-        <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
-        <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-        <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-        <BookedVia>EveryGDS</BookedVia>
-        <BookedByFirstName>Chris</BookedByFirstName>
-        <BookedByLastName>Miller</BookedByLastName>
-        <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
-        <Bookings>
-            <Booking>
-                <Segments>
-                    <Car>
-                        <Vendor>CQ</Vendor>
-                        <Status>HK</Status>
-                        <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                        <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
-                        <ConfirmationNumber>F1672664579</ConfirmationNumber>
-                        <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                        <StartCityCode>SEA</StartCityCode>
-                        <EndCityCode>SEA</EndCityCode>
-                        <StartLocation>SEA</StartLocation>
-                        <EndLocation>SEA</EndLocation>
-                        <Class>E</Class>
-                        <Body>C</Body>
-                        <Transmission>M</Transmission>
-                        <AirCondition>R</AirCondition>
-                        <NumCars>1</NumCars>
-                        <DiscountCode>346660</DiscountCode>
-                        <DailyRate>44.0000</DailyRate>
-                        <TotalRate>44.0000</TotalRate>
-                        <RateType>D</RateType>
-                        <Currency>USD</Currency>
-                        <Charges>
-                            <Fixed>
-                                <Description>Dropoff Fee</Description>
-                                <Currency>USD</Currency>
-                                <Amount>0.0000</Amount>
-                                <IsPrimary>false</IsPrimary>
-                                <SemanticsCode>DROPOFFFEE</SemanticsCode>
-                                <SemanticsVendorType>C</SemanticsVendorType>
-                            </Fixed>
-                            <RateWithAllowance>
-                                <Currency>USD</Currency>
-                                <Amount>44.0000</Amount>
-                                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                                <IsPrimary>true</IsPrimary>
-                                <SemanticsCode>DAYS</SemanticsCode>
-                                <SemanticsVendorType>C</SemanticsVendorType>
-                                <PerUnit>DAY</PerUnit>
-                                <NumUnits>1.0000</NumUnits>
-                                <AllowanceNumUnits>250.0000</AllowanceNumUnits>
-                                <AllowanceAmount>0.2400</AllowanceAmount>
-                                <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
-                            </RateWithAllowance>
-                        </Charges>
-                    </Car>
-                </Segments>
-                <Passengers>
-                    <Passenger>
-                        <NameFirst>Chris</NameFirst>
-                        <NameLast>Miller</NameLast>
-                    </Passenger>
-                </Passengers>
-                <RecordLocator>C123456789</RecordLocator>
-                <BookingSource>ConcurCars</BookingSource>
-                <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-                <ItinSourceName>TravelSupplier</ItinSourceName>
-                <PassengerCount>1</PassengerCount>
-            </Booking>
-            <Booking>
-                <Segments>
-                    <Hotel>
-                        <Vendor>CQ</Vendor>
-                        <Status>GK</Status>
-                        <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
-                        <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-                        <ConfirmationNumber>3364214265</ConfirmationNumber>
-                        <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                        <RateCode>LV4</RateCode>
-                        <Name>CONCUR HOTEL</Name>
-                        <HotelPropertyId>CONQ</HotelPropertyId>
-                        <CheckinTime>00:00</CheckinTime>
-                        <CheckoutTime>00:00</CheckoutTime>
-                        <NumPersons>1</NumPersons>
-                        <NumRooms>1</NumRooms>
-                        <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
-                        <DailyRate>240.3500</DailyRate>
-                        <Currency>USD</Currency>
-                        <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
-                        <Charges>
-                            <Rate>
-                                <Currency>USD</Currency>
-                                <Amount>240.3500</Amount>
-                                <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
-                                <IsPrimary>false</IsPrimary>
-                                <SemanticsCode>ROOMRATE</SemanticsCode>
-                                <SemanticsVendorType>H</SemanticsVendorType>
-                                <PerUnit>DAY</PerUnit>
-                                <NumUnits>3.0000</NumUnits>
-                            </Rate>
-                        </Charges>
-                    </Hotel>
-                </Segments>
-                <Passengers>
-                    <Passenger>
-                        <NameFirst>Chris</NameFirst>
-                        <NameLast>Miller</NameLast>
-                    </Passenger>
-                </Passengers>
-                <RecordLocator>0987654321</RecordLocator>
-                <BookingSource>ConcurHotel</BookingSource>
-                <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-                <OriginalItinLocator>33491211</OriginalItinLocator>
-                <ItinSourceName>ConcurTravel</ItinSourceName>
-                <PassengerCount>1</PassengerCount>
-            </Booking>
-        </Bookings>
-    </Itinerary>
+<?xml version="1.0" encoding="utf-8"?>
+<Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
+    <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
+    <ItinLocator>CNQR1234567890</ItinLocator>
+    <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
+    <ItinSourceName>ConcurTravel</ItinSourceName>
+    <TripName>Trip from Dallas to Seattle</TripName>
+    <Comments />
+    <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
+    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+    <BookedVia>EveryGDS</BookedVia>
+    <BookedByFirstName>Chris</BookedByFirstName>
+    <BookedByLastName>Miller</BookedByLastName>
+    <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
+    <Bookings>
+        <Booking>
+            <Segments>
+                <Car>
+                    <Vendor>CQ</Vendor>
+                    <Status>HK</Status>
+                    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                    <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
+                    <ConfirmationNumber>F1672664579</ConfirmationNumber>
+                    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+                    <StartCityCode>SEA</StartCityCode>
+                    <EndCityCode>SEA</EndCityCode>
+                    <StartLocation>SEA</StartLocation>
+                    <EndLocation>SEA</EndLocation>
+                    <Class>E</Class>
+                    <Body>C</Body>
+                    <Transmission>M</Transmission>
+                    <AirCondition>R</AirCondition>
+                    <NumCars>1</NumCars>
+                    <DiscountCode>346660</DiscountCode>
+                    <DailyRate>44.0000</DailyRate>
+                    <TotalRate>44.0000</TotalRate>
+                    <RateType>D</RateType>
+                    <Currency>USD</Currency>
+                    <Charges>
+                        <Fixed>
+                            <Description>Dropoff Fee</Description>
+                            <Currency>USD</Currency>
+                            <Amount>0.0000</Amount>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>DROPOFFFEE</SemanticsCode>
+                            <SemanticsVendorType>C</SemanticsVendorType>
+                        </Fixed>
+                        <RateWithAllowance>
+                            <Currency>USD</Currency>
+                            <Amount>44.0000</Amount>
+                            <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                            <IsPrimary>true</IsPrimary>
+                            <SemanticsCode>DAYS</SemanticsCode>
+                            <SemanticsVendorType>C</SemanticsVendorType>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>1.0000</NumUnits>
+                            <AllowanceNumUnits>250.0000</AllowanceNumUnits>
+                            <AllowanceAmount>0.2400</AllowanceAmount>
+                            <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
+                        </RateWithAllowance>
+                    </Charges>
+                </Car>
+            </Segments>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>C123456789</RecordLocator>
+            <BookingSource>ConcurCars</BookingSource>
+            <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <ItinSourceName>TravelSupplier</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+        <Booking>
+            <Segments>
+                <Hotel>
+                    <Vendor>CQ</Vendor>
+                    <Status>GK</Status>
+                    <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
+                    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+                    <ConfirmationNumber>3364214265</ConfirmationNumber>
+                    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+                    <RateCode>LV4</RateCode>
+                    <Name>CONCUR HOTEL</Name>
+                    <HotelPropertyId>CONQ</HotelPropertyId>
+                    <CheckinTime>00:00</CheckinTime>
+                    <CheckoutTime>00:00</CheckoutTime>
+                    <NumPersons>1</NumPersons>
+                    <NumRooms>1</NumRooms>
+                    <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
+                    <DailyRate>240.3500</DailyRate>
+                    <Currency>USD</Currency>
+                    <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
+                    <Charges>
+                        <Rate>
+                            <Currency>USD</Currency>
+                            <Amount>240.3500</Amount>
+                            <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>ROOMRATE</SemanticsCode>
+                            <SemanticsVendorType>H</SemanticsVendorType>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>3.0000</NumUnits>
+                        </Rate>
+                    </Charges>
+                </Hotel>
+            </Segments>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>0987654321</RecordLocator>
+            <BookingSource>ConcurHotel</BookingSource>
+            <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <OriginalItinLocator>33491211</OriginalItinLocator>
+            <ItinSourceName>ConcurTravel</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+    </Bookings>
+</Itinerary>
+```
 
 ####  XML Response in TripIt Format
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <Response>
-        <Trip>
-            <id>73014481752</id>
-            <relative_url>/api/travel/trip/v1.1/73014481752</relative_url>
-            <start_date>2013-08-21</start_date>
-            <end_date>2013-08-24</end_date>
-            <display_name>Strategy Team meeting</display_name>
-            <is_private>true</is_private>
-        </Trip>
-        <AirObject>
-            <booking_site_conf_num>RL10001005</booking_site_conf_num>
-            <booking_site_name>Concur Travel</booking_site_name>
-            <booking_site_phone></booking_site_phone>
-            <booking_site_url>https://www.concursolutions.com</booking_site_url>
-            <record_locator>4294993825</record_locator>
-            <supplier_conf_num>CN10001005</supplier_conf_num>
-            <supplier_contact></supplier_contact>
-            <supplier_email_address></supplier_email_address>
-            <supplier_name></supplier_name>
-            <supplier_phone></supplier_phone>
-            <supplier_url></supplier_url>
-            <is_purchased>1</is_purchased>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Response>
+    <Trip>
+        <id>73014481752</id>
+        <relative_url>/api/travel/trip/v1.1/73014481752</relative_url>
+        <start_date>2013-08-21</start_date>
+        <end_date>2013-08-24</end_date>
+        <display_name>Strategy Team meeting</display_name>
+        <is_private>true</is_private>
+    </Trip>
+    <AirObject>
+        <booking_site_conf_num>RL10001005</booking_site_conf_num>
+        <booking_site_name>Concur Travel</booking_site_name>
+        <booking_site_phone></booking_site_phone>
+        <booking_site_url>https://www.concursolutions.com</booking_site_url>
+        <record_locator>4294993825</record_locator>
+        <supplier_conf_num>CN10001005</supplier_conf_num>
+        <supplier_contact></supplier_contact>
+        <supplier_email_address></supplier_email_address>
+        <supplier_name></supplier_name>
+        <supplier_phone></supplier_phone>
+        <supplier_url></supplier_url>
+        <is_purchased>1</is_purchased>
+        <notes></notes>
+        <restrictions></restrictions>
+        <total_cost></total_cost>
+        <Segment>
+            <StartDateTime>
+                <date>2013-08-21</date>
+                <time>07:45:00</time>
+            </StartDateTime>
+            <EndDateTime>
+                <date>2013-08-21</date>
+                <time>13:03:00</time>
+            </EndDateTime>
+            <start_airport_code>PHX</start_airport_code>
+            <start_gate>A11</start_gate>
+            <start_terminal>4</start_terminal>
+            <end_airport_code>ORD</end_airport_code>
+            <end_gate>F8</end_gate>
+            <end_terminal>2</end_terminal>
+            <marketing_airline>US</marketing_airline>
+            <marketing_flight_number>1</marketing_flight_number>
+            <aircraft>320</aircraft>
+            <duration></duration>
+            <distance>1433</distance>
             <notes></notes>
-            <restrictions></restrictions>
-            <total_cost></total_cost>
-            <Segment>
-                <StartDateTime>
-                    <date>2013-08-21</date>
-                    <time>07:45:00</time>
-                </StartDateTime>
-                <EndDateTime>
-                    <date>2013-08-21</date>
-                    <time>13:03:00</time>
-                </EndDateTime>
-                <start_airport_code>PHX</start_airport_code>
-                <start_gate>A11</start_gate>
-                <start_terminal>4</start_terminal>
-                <end_airport_code>ORD</end_airport_code>
-                <end_gate>F8</end_gate>
-                <end_terminal>2</end_terminal>
-                <marketing_airline>US</marketing_airline>
-                <marketing_flight_number>1</marketing_flight_number>
-                <aircraft>320</aircraft>
-                <duration></duration>
-                <distance>1433</distance>
-                <notes></notes>
-                <seats></seats>
-                <service_class>Economy</service_class>
-                <stops>Nonstop</stops>
-            </Segment>
-            <Segment>
-                <StartDateTime>
-                    <date>2013-08-24</date>
-                    <time>13:55:00</time>
-                </StartDateTime>
-                <EndDateTime>
-                    <date>2013-08-24</date>
-                    <time>16:58:00</time>
-                </EndDateTime>
-                <start_airport_code>ORD</start_airport_code>
-                <start_gate></start_gate>
-                <start_terminal></start_terminal>
-                <end_airport_code>PHX</end_airport_code>
-                <end_gate></end_gate>
-                <end_terminal></end_terminal>
-                <marketing_airline>US</marketing_airline>
-                <marketing_flight_number>1728</marketing_flight_number>
-                <aircraft>A320</aircraft>
-                <duration></duration>
-                <distance></distance>
-                <notes></notes>
-                <seats></seats>
-                <service_class>Economy</service_class>
-                <stops> stops</stops>
-            </Segment>
-            <Traveler>
-                <first_name>William</first_name>
-                <middle_name></middle_name>
-                <last_name>Never</last_name>
-                <frequent_traveler_num></frequent_traveler_num>
-                <frequent_traveler_supplier></frequent_traveler_supplier>
-                <ticket_num></ticket_num>
-            </Traveler>
-        </AirObject>
-    </Response>
-
+            <seats></seats>
+            <service_class>Economy</service_class>
+            <stops>Nonstop</stops>
+        </Segment>
+        <Segment>
+            <StartDateTime>
+                <date>2013-08-24</date>
+                <time>13:55:00</time>
+            </StartDateTime>
+            <EndDateTime>
+                <date>2013-08-24</date>
+                <time>16:58:00</time>
+            </EndDateTime>
+            <start_airport_code>ORD</start_airport_code>
+            <start_gate></start_gate>
+            <start_terminal></start_terminal>
+            <end_airport_code>PHX</end_airport_code>
+            <end_gate></end_gate>
+            <end_terminal></end_terminal>
+            <marketing_airline>US</marketing_airline>
+            <marketing_flight_number>1728</marketing_flight_number>
+            <aircraft>A320</aircraft>
+            <duration></duration>
+            <distance></distance>
+            <notes></notes>
+            <seats></seats>
+            <service_class>Economy</service_class>
+            <stops> stops</stops>
+        </Segment>
+        <Traveler>
+            <first_name>William</first_name>
+            <middle_name></middle_name>
+            <last_name>Never</last_name>
+            <frequent_traveler_num></frequent_traveler_num>
+            <frequent_traveler_supplier></frequent_traveler_supplier>
+            <ticket_num></ticket_num>
+        </Traveler>
+    </AirObject>
+</Response>
+```
 
 
 ## <a name="postdetails"></a>POST Itinerary Details
 
-### Description 
+### Description
 
 Creates a new trip or updates an existing trip. A new trip will be created if the trip dates span no existing trip and the request doesn't include a tripId. If a tripId is included in the uri it will update the specified trip. The full trip information is included in the update request, which replaces the existing trip.
 
@@ -674,14 +688,14 @@ The identifier for the desired trip. Provided if the request is updating an exis
 The Concur loginID of the user that owns the trip. Can be used when creating a new trip or updating an existing trip. The userid_type and userid_value parameters can only be used if the OAuth consumer has the user role listed above.
 
 Examples:  
-****To post a new trip for the OAuth consumer:****  
-https://www.concursolutions.com/api/travel/trip/v1.1
+**To post a new trip for the OAuth consumer:**  
+`https://www.concursolutions.com/api/travel/trip/v1.1`
 
-****To update a trip for the OAuth consumer:****  
-https://www.concursolutions.com/api/travel/trip/v1.1?tripId={_tripId_}
+**To update a trip for the OAuth consumer:**  
+`https://www.concursolutions.com/api/travel/trip/v1.1?tripId={_tripId_}`
 
-****To post a trip for a user other than the OAuth consumer:****  
-https://www.concursolutions.com/api/travel/trip/v1.1?userid_type=login_id&userid_value={_loginID_}
+**To post a trip for a user other than the OAuth consumer:**  
+`https://www.concursolutions.com/api/travel/trip/v1.1?userid_type=login_id&userid_value={_loginID_}`
 
 | Request Headers - Required | Request Headers - Optional |
 | -------------------------- | -------------------------- |
@@ -717,8 +731,8 @@ This function requires as its arguments an **Itinerary** parent element. The par
 |**Numeric**|**ProposalSequenceIndex**|1 to 3|The index of the proposal in the batch of proposals.|
 |**Text**|**AutoSelectProposal**|True, False|If true, then the proposal will be selected accordingly and replace the segments previously entered by the user. <br> If False, then the proposal will be up to the user to decide which proposal s/he wants to manually select.|
 |**Text**|**TicketIssued**|True, False| Are the tickets for this proposal issued or not.|
-|Text |**DisplayOnItinerary**| True |The value for this element has to be 'True'.| 
-|N/A |**DisplayTitle**| N/A |This element should be empty.| 
+|Text |**DisplayOnItinerary**| True |The value for this element has to be 'True'.|
+|N/A |**DisplayTitle**| N/A |This element should be empty.|
 |N/A |**ExternalId**| N/A | This element should be empty.|
 
 
@@ -772,272 +786,278 @@ This function requires as its arguments an **Itinerary** parent element. The par
 
 ###  XML Example Request
 
-    POST /api/travel/trip/v1.1?userid_type=login_id&userid_value=cm@example.com HTTPS 1.1
-    Host: [www.concursolutions.com][3]
-    Authorization: OAuth {access token}
-    ...
+```http
+POST /api/travel/trip/v1.1?userid_type=login_id&userid_value=cm@example.com HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
 
-    <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
-        <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
-        <ItinSourceName>ConcurConnectAPI</ItinSourceName>
-        <TripName>Trip from Dallas to Seattle</TripName>
-        <Comments />
-        <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
-        <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-        <BookedByFirstName>Chris</BookedByFirstName>
-        <BookedByLastName>Miller</BookedByLastName>
-        <Bookings>
-            <Booking>
-                <Segments>
-                    <Car>
-                        <Vendor>CQ</Vendor>
-                        <Status>HK</Status>
-                        <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                        <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
-                        <ConfirmationNumber>F1672664579</ConfirmationNumber>
-                        <StartCityCode>SEA</StartCityCode>
-                        <EndCityCode>SEA</EndCityCode>
-                        <StartLocation>SEA</StartLocation>
-                        <EndLocation>SEA</EndLocation>
-                        <Class>E</Class>
-                        <Body>C</Body>
-                        <Transmission>M</Transmission>
-                        <AirCondition>R</AirCondition>
-                        <NumCars>1</NumCars>
-                        <DiscountCode>346660</DiscountCode>
-                        <DailyRate>44.0000</DailyRate>
-                        <TotalRate>44.0000</TotalRate>
-                        <RateType>D</RateType>
-                        <Currency>USD</Currency>
-                        <Charges>
-                            <Fixed>
-                                <Description>Dropoff Fee</Description>
-                                <Currency>USD</Currency>
-                                <Amount>0.0000</Amount>
-                                <IsPrimary>false</IsPrimary>
-                                <SemanticsCode>DROPOFFFEE</SemanticsCode>
-                                <SemanticsVendorType>C</SemanticsVendorType>
-                            </Fixed>
-                            <RateWithAllowance>
-                                <Currency>USD</Currency>
-                                <Amount>44.0000</Amount>
-                                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                                <IsPrimary>true</IsPrimary>
-                                <SemanticsCode>DAYS</SemanticsCode>
-                                <SemanticsVendorType>C</SemanticsVendorType>
-                                <PerUnit>DAY</PerUnit>
-                                <NumUnits>1.0000</NumUnits>
-                                <AllowanceNumUnits>250.0000</AllowanceNumUnits>
-                                <AllowanceAmount>0.2400</AllowanceAmount>
-                                <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
-                            </RateWithAllowance>
-                        </Charges>
-                    </Car>
-                </Segments>
-                <Passengers>
-                    <Passenger>
-                        <NameFirst>Chris</NameFirst>
-                        <NameLast>Miller</NameLast>
-                    </Passenger>
-                </Passengers>
-                <RecordLocator>C123456789</RecordLocator>
-                <BookingSource>TravelBookings.com</BookingSource>
-                <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-                <ItinSourceName>ConcurConnectAPI</ItinSourceName>
-                <PassengerCount>1</PassengerCount>
-            </Booking>
-            <Booking>
-                <Segments>
-                    <Hotel>
-                        <Vendor>CQ</Vendor>
-                        <Status>GK</Status>
-                        <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
-                        <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-                        <ConfirmationNumber>3364214265</ConfirmationNumber>
-                        <RateCode>LV4</RateCode>
-                        <Name>CONCUR HOTEL</Name>
-                        <HotelPropertyId>CONQ</HotelPropertyId>
-                        <CheckinTime>03:00 PM</CheckinTime>
-                        <CheckoutTime>12:00 PM</CheckoutTime>
-                        <NumPersons>1</NumPersons>
-                        <NumRooms>1</NumRooms>
-                        <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
-                        <DailyRate>240.3500</DailyRate>
-                        <Currency>USD</Currency>
-                        <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
-                        <Charges>
-                            <Rate>
-                                <Currency>USD</Currency>
-                                <Amount>240.3500</Amount>
-                                <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
-                                <IsPrimary>false</IsPrimary>
-                                <SemanticsCode>ROOMRATE</SemanticsCode>
-                                <SemanticsVendorType>H</SemanticsVendorType>
-                                <PerUnit>DAY</PerUnit>
-                                <NumUnits>3.0000</NumUnits>
-                            </Rate>
-                        </Charges>
-                    </Hotel>
-                </Segments>
-                <Passengers>
-                    <Passenger>
-                        <NameFirst>Chris</NameFirst>
-                        <NameLast>Miller</NameLast>
-                    </Passenger>
-                </Passengers>
-                <RecordLocator>0987654321</RecordLocator>
-                <BookingSource>TravelBookings.com</BookingSource>
-                <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-                <OriginalItinLocator>33491211</OriginalItinLocator>
-                <ItinSourceName>ConcurConnectAPI</ItinSourceName>
-                <PassengerCount>1</PassengerCount>
-            </Booking>
-        </Bookings>
-    </Itinerary>
+<Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
+    <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
+    <ItinSourceName>ConcurConnectAPI</ItinSourceName>
+    <TripName>Trip from Dallas to Seattle</TripName>
+    <Comments />
+    <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
+    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+    <BookedByFirstName>Chris</BookedByFirstName>
+    <BookedByLastName>Miller</BookedByLastName>
+    <Bookings>
+        <Booking>
+            <Segments>
+                <Car>
+                    <Vendor>CQ</Vendor>
+                    <Status>HK</Status>
+                    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                    <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
+                    <ConfirmationNumber>F1672664579</ConfirmationNumber>
+                    <StartCityCode>SEA</StartCityCode>
+                    <EndCityCode>SEA</EndCityCode>
+                    <StartLocation>SEA</StartLocation>
+                    <EndLocation>SEA</EndLocation>
+                    <Class>E</Class>
+                    <Body>C</Body>
+                    <Transmission>M</Transmission>
+                    <AirCondition>R</AirCondition>
+                    <NumCars>1</NumCars>
+                    <DiscountCode>346660</DiscountCode>
+                    <DailyRate>44.0000</DailyRate>
+                    <TotalRate>44.0000</TotalRate>
+                    <RateType>D</RateType>
+                    <Currency>USD</Currency>
+                    <Charges>
+                        <Fixed>
+                            <Description>Dropoff Fee</Description>
+                            <Currency>USD</Currency>
+                            <Amount>0.0000</Amount>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>DROPOFFFEE</SemanticsCode>
+                            <SemanticsVendorType>C</SemanticsVendorType>
+                        </Fixed>
+                        <RateWithAllowance>
+                            <Currency>USD</Currency>
+                            <Amount>44.0000</Amount>
+                            <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                            <IsPrimary>true</IsPrimary>
+                            <SemanticsCode>DAYS</SemanticsCode>
+                            <SemanticsVendorType>C</SemanticsVendorType>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>1.0000</NumUnits>
+                            <AllowanceNumUnits>250.0000</AllowanceNumUnits>
+                            <AllowanceAmount>0.2400</AllowanceAmount>
+                            <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
+                        </RateWithAllowance>
+                    </Charges>
+                </Car>
+            </Segments>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>C123456789</RecordLocator>
+            <BookingSource>TravelBookings.com</BookingSource>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <ItinSourceName>ConcurConnectAPI</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+        <Booking>
+            <Segments>
+                <Hotel>
+                    <Vendor>CQ</Vendor>
+                    <Status>GK</Status>
+                    <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
+                    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+                    <ConfirmationNumber>3364214265</ConfirmationNumber>
+                    <RateCode>LV4</RateCode>
+                    <Name>CONCUR HOTEL</Name>
+                    <HotelPropertyId>CONQ</HotelPropertyId>
+                    <CheckinTime>03:00 PM</CheckinTime>
+                    <CheckoutTime>12:00 PM</CheckoutTime>
+                    <NumPersons>1</NumPersons>
+                    <NumRooms>1</NumRooms>
+                    <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
+                    <DailyRate>240.3500</DailyRate>
+                    <Currency>USD</Currency>
+                    <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
+                    <Charges>
+                        <Rate>
+                            <Currency>USD</Currency>
+                            <Amount>240.3500</Amount>
+                            <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>ROOMRATE</SemanticsCode>
+                            <SemanticsVendorType>H</SemanticsVendorType>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>3.0000</NumUnits>
+                        </Rate>
+                    </Charges>
+                </Hotel>
+            </Segments>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>0987654321</RecordLocator>
+            <BookingSource>TravelBookings.com</BookingSource>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <OriginalItinLocator>33491211</OriginalItinLocator>
+            <ItinSourceName>ConcurConnectAPI</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+    </Bookings>
+</Itinerary>
+```
 
 ###  XML Example Request of Agency Proposal
 
-    POST https://www.concursolutions.com/api/travel/trip/v1.1?userid_type=login_id&userid_value=cm@example.com HTTPS 1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+POST https://www.concursolutions.com/api/travel/trip/v1.1?userid_type=login_id&userid_value=cm@example.com HTTPS/1.1
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
 
-    <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
-        <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
-        <ItinSourceName>ConcurConnectAPI</ItinSourceName>
-        <TripName>Trip from Dallas to Seattle</TripName>
-        <Comments />
-        <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
-        <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-        <BookedByFirstName>Chris</BookedByFirstName>
-        <BookedByLastName>Miller</BookedByLastName>
-        <TripStatus>7</TripStatus>
-        <TravelRequestId>3339</TravelRequestId>
-        <CustomAttributes>
-            <CustomAttribute>
-                <ExternalId />
-                <DataType>Numeric</DataType>
-                <Name>ProposalBatchSize</Name>
-                <DisplayTitle />
-                <Data>3</Data>
-                <DisplayOnItinerary>true</DisplayOnItinerary>
-            </CustomAttribute>
-            <CustomAttribute>
-                <ExternalId />
-                <DataType>Numeric</DataType>
-                <Name>ProposalSequenceIndex</Name>
-                <DisplayTitle />
-                <Data>1</Data>
-                <DisplayOnItinerary>true</DisplayOnItinerary>
-            </CustomAttribute>
-        </CustomAttributes>
-        <Bookings>
-            <Booking>
-                <Segments>
-                    <Car>
-                        <Vendor>CQ</Vendor>
-                        <Status>HK</Status>
-                        <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                        <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
-                        <ConfirmationNumber>F1672664579</ConfirmationNumber>
-                        <StartCityCode>SEA</StartCityCode>
-                        <EndCityCode>SEA</EndCityCode>
-                        <StartLocation>SEA</StartLocation>
-                        <EndLocation>SEA</EndLocation>
-                        <Class>E</Class>
-                        <Body>C</Body>
-                        <Transmission>M</Transmission>
-                        <AirCondition>R</AirCondition>
-                        <NumCars>1</NumCars>
-                        <DiscountCode>346660</DiscountCode>
-                        <DailyRate>44.0000</DailyRate>
-                        <TotalRate>44.0000</TotalRate>
-                        <RateType>D</RateType>
-                        <Currency>USD</Currency>
-                        <Charges>
-                            <Fixed>
-                                <Description>Dropoff Fee</Description>
-                                <Currency>USD</Currency>
-                                <Amount>0.0000</Amount>
-                                <IsPrimary>false</IsPrimary>
-                                <SemanticsCode>DROPOFFFEE</SemanticsCode>
-                                <SemanticsVendorType>C</SemanticsVendorType>
-                            </Fixed>
-                            <RateWithAllowance>
-                                <Currency>USD</Currency>
-                                <Amount>44.0000</Amount>
-                                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                                <IsPrimary>true</IsPrimary>
-                                <SemanticsCode>DAYS</SemanticsCode>
-                                <SemanticsVendorType>C</SemanticsVendorType>
-                                <PerUnit>DAY</PerUnit>
-                                <NumUnits>1.0000</NumUnits>
-                                <AllowanceNumUnits>250.0000</AllowanceNumUnits>
-                                <AllowanceAmount>0.2400</AllowanceAmount>
-                                <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
-                            </RateWithAllowance>
-                        </Charges>
-                    </Car>
-                </Segments>
-                <Passengers>
-                    <Passenger>
-                        <NameFirst>Chris</NameFirst>
-                        <NameLast>Miller</NameLast>
-                    </Passenger>
-                </Passengers>
-                <RecordLocator>C123456789</RecordLocator>
-                <BookingSource>TravelBookings.com</BookingSource>
-                <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-                <ItinSourceName>ConcurConnectAPI</ItinSourceName>
-                <PassengerCount>1</PassengerCount>
-            </Booking>
-            <Booking>
-                <Segments>
-                    <Hotel>
-                        <Vendor>CQ</Vendor>
-                        <Status>GK</Status>
-                        <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
-                        <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-                        <ConfirmationNumber>3364214265</ConfirmationNumber>
-                        <RateCode>LV4</RateCode>
-                        <Name>CONCUR HOTEL</Name>
-                        <HotelPropertyId>CONQ</HotelPropertyId>
-                        <CheckinTime>03:00 PM</CheckinTime>
-                        <CheckoutTime>12:00 PM</CheckoutTime>
-                        <NumPersons>1</NumPersons>
-                        <NumRooms>1</NumRooms>
-                        <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
-                        <DailyRate>240.3500</DailyRate>
-                        <Currency>USD</Currency>
-                        <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
-                        <Charges>
-                            <Rate>
-                                <Currency>USD</Currency>
-                                <Amount>240.3500</Amount>
-                                <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
-                                <IsPrimary>false</IsPrimary>
-                                <SemanticsCode>ROOMRATE</SemanticsCode>
-                                <SemanticsVendorType>H</SemanticsVendorType>
-                                <PerUnit>DAY</PerUnit>
-                                <NumUnits>3.0000</NumUnits>
-                            </Rate>
-                        </Charges>
-                    </Hotel>
-                </Segments>
-                <Passengers>
-                    <Passenger>
-                        <NameFirst>Chris</NameFirst>
-                        <NameLast>Miller</NameLast>
-                    </Passenger>
-                </Passengers>
-                <RecordLocator>0987654321</RecordLocator>
-                <BookingSource>TravelBookings.com</BookingSource>
-                <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-                <OriginalItinLocator>33491211</OriginalItinLocator>
-                <ItinSourceName>ConcurConnectAPI</ItinSourceName>
-                <PassengerCount>1</PassengerCount>
-            </Booking>
-        </Bookings>
-    </Itinerary>
+<Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
+    <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
+    <ItinSourceName>ConcurConnectAPI</ItinSourceName>
+    <TripName>Trip from Dallas to Seattle</TripName>
+    <Comments />
+    <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
+    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+    <BookedByFirstName>Chris</BookedByFirstName>
+    <BookedByLastName>Miller</BookedByLastName>
+    <TripStatus>7</TripStatus>
+    <TravelRequestId>3339</TravelRequestId>
+    <CustomAttributes>
+        <CustomAttribute>
+            <ExternalId />
+            <DataType>Numeric</DataType>
+            <Name>ProposalBatchSize</Name>
+            <DisplayTitle />
+            <Data>3</Data>
+            <DisplayOnItinerary>true</DisplayOnItinerary>
+        </CustomAttribute>
+        <CustomAttribute>
+            <ExternalId />
+            <DataType>Numeric</DataType>
+            <Name>ProposalSequenceIndex</Name>
+            <DisplayTitle />
+            <Data>1</Data>
+            <DisplayOnItinerary>true</DisplayOnItinerary>
+        </CustomAttribute>
+    </CustomAttributes>
+    <Bookings>
+        <Booking>
+            <Segments>
+                <Car>
+                    <Vendor>CQ</Vendor>
+                    <Status>HK</Status>
+                    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                    <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
+                    <ConfirmationNumber>F1672664579</ConfirmationNumber>
+                    <StartCityCode>SEA</StartCityCode>
+                    <EndCityCode>SEA</EndCityCode>
+                    <StartLocation>SEA</StartLocation>
+                    <EndLocation>SEA</EndLocation>
+                    <Class>E</Class>
+                    <Body>C</Body>
+                    <Transmission>M</Transmission>
+                    <AirCondition>R</AirCondition>
+                    <NumCars>1</NumCars>
+                    <DiscountCode>346660</DiscountCode>
+                    <DailyRate>44.0000</DailyRate>
+                    <TotalRate>44.0000</TotalRate>
+                    <RateType>D</RateType>
+                    <Currency>USD</Currency>
+                    <Charges>
+                        <Fixed>
+                            <Description>Dropoff Fee</Description>
+                            <Currency>USD</Currency>
+                            <Amount>0.0000</Amount>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>DROPOFFFEE</SemanticsCode>
+                            <SemanticsVendorType>C</SemanticsVendorType>
+                        </Fixed>
+                        <RateWithAllowance>
+                            <Currency>USD</Currency>
+                            <Amount>44.0000</Amount>
+                            <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                            <IsPrimary>true</IsPrimary>
+                            <SemanticsCode>DAYS</SemanticsCode>
+                            <SemanticsVendorType>C</SemanticsVendorType>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>1.0000</NumUnits>
+                            <AllowanceNumUnits>250.0000</AllowanceNumUnits>
+                            <AllowanceAmount>0.2400</AllowanceAmount>
+                            <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
+                        </RateWithAllowance>
+                    </Charges>
+                </Car>
+            </Segments>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>C123456789</RecordLocator>
+            <BookingSource>TravelBookings.com</BookingSource>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <ItinSourceName>ConcurConnectAPI</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+        <Booking>
+            <Segments>
+                <Hotel>
+                    <Vendor>CQ</Vendor>
+                    <Status>GK</Status>
+                    <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
+                    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+                    <ConfirmationNumber>3364214265</ConfirmationNumber>
+                    <RateCode>LV4</RateCode>
+                    <Name>CONCUR HOTEL</Name>
+                    <HotelPropertyId>CONQ</HotelPropertyId>
+                    <CheckinTime>03:00 PM</CheckinTime>
+                    <CheckoutTime>12:00 PM</CheckoutTime>
+                    <NumPersons>1</NumPersons>
+                    <NumRooms>1</NumRooms>
+                    <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
+                    <DailyRate>240.3500</DailyRate>
+                    <Currency>USD</Currency>
+                    <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
+                    <Charges>
+                        <Rate>
+                            <Currency>USD</Currency>
+                            <Amount>240.3500</Amount>
+                            <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>ROOMRATE</SemanticsCode>
+                            <SemanticsVendorType>H</SemanticsVendorType>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>3.0000</NumUnits>
+                        </Rate>
+                    </Charges>
+                </Hotel>
+            </Segments>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>0987654321</RecordLocator>
+            <BookingSource>TravelBookings.com</BookingSource>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <OriginalItinLocator>33491211</OriginalItinLocator>
+            <ItinSourceName>ConcurConnectAPI</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+    </Bookings>
+</Itinerary>
+```
 
 ##  Post Itinerary Details Response
 
@@ -1062,279 +1082,283 @@ The response will include the **CustomAttributes** element and its child element
 
 ###  XML Example of Successful Response
 
-    <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
-        <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
-        <ItinLocator>CNQR1234567890</ItinLocator>
-        <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
-        <ItinSourceName>ConcurTravel</ItinSourceName>
-        <TripName>Trip from Dallas to Seattle</TripName>
-        <Comments />
-        <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
-        <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-        <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-        <BookedVia>EveryGDS</BookedVia>
-        <BookedByFirstName>Chris</BookedByFirstName>
-        <BookedByLastName>Miller</BookedByLastName>
-        <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
-        <Bookings>
-            <Booking>
-                <Segments>
-                    <Car>
-                        <Vendor>CQ</Vendor>
-                        <Status>HK</Status>
-                        <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                        <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
-                        <ConfirmationNumber>F1672664579</ConfirmationNumber>
-                        <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                        <StartCityCode>SEA</StartCityCode>
-                        <EndCityCode>SEA</EndCityCode>
-                        <StartLocation>SEA</StartLocation>
-                        <EndLocation>SEA</EndLocation>
-                        <Class>E</Class>
-                        <Body>C</Body>
-                        <Transmission>M</Transmission>
-                        <AirCondition>R</AirCondition>
-                        <NumCars>1</NumCars>
-                        <DiscountCode>346660</DiscountCode>
-                        <DailyRate>44.0000</DailyRate>
-                        <TotalRate>44.0000</TotalRate>
-                        <RateType>D</RateType>
-                        <Currency>USD</Currency>
-                        <Charges>
-                            <Fixed>
-                                <Description>Dropoff Fee</Description>
-                                <Currency>USD</Currency>
-                                <Amount>0.0000</Amount>
-                                <IsPrimary>false</IsPrimary>
-                                <SemanticsCode>DROPOFFFEE</SemanticsCode>
-                                <SemanticsVendorType>C</SemanticsVendorType>
-                            </Fixed>
-                            <RateWithAllowance>
-                                <Currency>USD</Currency>
-                                <Amount>44.0000</Amount>
-                                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                                <IsPrimary>true</IsPrimary>
-                                <SemanticsCode>DAYS</SemanticsCode>
-                                <SemanticsVendorType>C</SemanticsVendorType>
-                                <PerUnit>DAY</PerUnit>
-                                <NumUnits>1.0000</NumUnits>
-                                <AllowanceNumUnits>250.0000</AllowanceNumUnits>
-                                <AllowanceAmount>0.2400</AllowanceAmount>
-                                <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
-                            </RateWithAllowance>
-                        </Charges>
-                    </Car>
-                </Segments>
-                <Passengers>
-                    <Passenger>
-                        <NameFirst>Chris</NameFirst>
-                        <NameLast>Miller</NameLast>
-                    </Passenger>
-                </Passengers>
-                <RecordLocator>C123456789</RecordLocator>
-                <BookingSource>ConcurCars</BookingSource>
-                <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-                <ItinSourceName>TravelSupplier</ItinSourceName>
-                <PassengerCount>1</PassengerCount>
-            </Booking>
-            <Booking>
-                <Segments>
-                    <Hotel>
-                        <Vendor>CQ</Vendor>
-                        <Status>GK</Status>
-                        <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
-                        <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-                        <ConfirmationNumber>3364214265</ConfirmationNumber>
-                        <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                        <RateCode>LV4</RateCode>
-                        <Name>CONCUR HOTEL</Name>
-                        <HotelPropertyId>CONQ</HotelPropertyId>
-                        <CheckinTime>00:00</CheckinTime>
-                        <CheckoutTime>00:00</CheckoutTime>
-                        <NumPersons>1</NumPersons>
-                        <NumRooms>1</NumRooms>
-                        <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
-                        <DailyRate>240.3500</DailyRate>
-                        <Currency>USD</Currency>
-                        <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
-                        <Charges>
-                            <Rate>
-                                <Currency>USD</Currency>
-                                <Amount>240.3500</Amount>
-                                <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
-                                <IsPrimary>false</IsPrimary>
-                                <SemanticsCode>ROOMRATE</SemanticsCode>
-                                <SemanticsVendorType>H</SemanticsVendorType>
-                                <PerUnit>DAY</PerUnit>
-                                <NumUnits>3.0000</NumUnits>
-                            </Rate>
-                        </Charges>
-                    </Hotel>
-                </Segments>
-                <Passengers>
-                    <Passenger>
-                        <NameFirst>Chris</NameFirst>
-                        <NameLast>Miller</NameLast>
-                    </Passenger>
-                </Passengers>
-                <RecordLocator>0987654321</RecordLocator>
-                <BookingSource>ConcurHotel</BookingSource>
-                <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-                <OriginalItinLocator>33491211</OriginalItinLocator>
-                <ItinSourceName>ConcurTravel</ItinSourceName>
-                <PassengerCount>1</PassengerCount>
-            </Booking>
-        </Bookings>
-    </Itinerary>
+```xml
+<Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
+    <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
+    <ItinLocator>CNQR1234567890</ItinLocator>
+    <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
+    <ItinSourceName>ConcurTravel</ItinSourceName>
+    <TripName>Trip from Dallas to Seattle</TripName>
+    <Comments />
+    <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
+    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+    <BookedVia>EveryGDS</BookedVia>
+    <BookedByFirstName>Chris</BookedByFirstName>
+    <BookedByLastName>Miller</BookedByLastName>
+    <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
+    <Bookings>
+        <Booking>
+            <Segments>
+                <Car>
+                    <Vendor>CQ</Vendor>
+                    <Status>HK</Status>
+                    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                    <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
+                    <ConfirmationNumber>F1672664579</ConfirmationNumber>
+                    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+                    <StartCityCode>SEA</StartCityCode>
+                    <EndCityCode>SEA</EndCityCode>
+                    <StartLocation>SEA</StartLocation>
+                    <EndLocation>SEA</EndLocation>
+                    <Class>E</Class>
+                    <Body>C</Body>
+                    <Transmission>M</Transmission>
+                    <AirCondition>R</AirCondition>
+                    <NumCars>1</NumCars>
+                    <DiscountCode>346660</DiscountCode>
+                    <DailyRate>44.0000</DailyRate>
+                    <TotalRate>44.0000</TotalRate>
+                    <RateType>D</RateType>
+                    <Currency>USD</Currency>
+                    <Charges>
+                        <Fixed>
+                            <Description>Dropoff Fee</Description>
+                            <Currency>USD</Currency>
+                            <Amount>0.0000</Amount>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>DROPOFFFEE</SemanticsCode>
+                            <SemanticsVendorType>C</SemanticsVendorType>
+                        </Fixed>
+                        <RateWithAllowance>
+                            <Currency>USD</Currency>
+                            <Amount>44.0000</Amount>
+                            <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                            <IsPrimary>true</IsPrimary>
+                            <SemanticsCode>DAYS</SemanticsCode>
+                            <SemanticsVendorType>C</SemanticsVendorType>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>1.0000</NumUnits>
+                            <AllowanceNumUnits>250.0000</AllowanceNumUnits>
+                            <AllowanceAmount>0.2400</AllowanceAmount>
+                            <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
+                        </RateWithAllowance>
+                    </Charges>
+                </Car>
+            </Segments>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>C123456789</RecordLocator>
+            <BookingSource>ConcurCars</BookingSource>
+            <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <ItinSourceName>TravelSupplier</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+        <Booking>
+            <Segments>
+                <Hotel>
+                    <Vendor>CQ</Vendor>
+                    <Status>GK</Status>
+                    <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
+                    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+                    <ConfirmationNumber>3364214265</ConfirmationNumber>
+                    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+                    <RateCode>LV4</RateCode>
+                    <Name>CONCUR HOTEL</Name>
+                    <HotelPropertyId>CONQ</HotelPropertyId>
+                    <CheckinTime>00:00</CheckinTime>
+                    <CheckoutTime>00:00</CheckoutTime>
+                    <NumPersons>1</NumPersons>
+                    <NumRooms>1</NumRooms>
+                    <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
+                    <DailyRate>240.3500</DailyRate>
+                    <Currency>USD</Currency>
+                    <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
+                    <Charges>
+                        <Rate>
+                            <Currency>USD</Currency>
+                            <Amount>240.3500</Amount>
+                            <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>ROOMRATE</SemanticsCode>
+                            <SemanticsVendorType>H</SemanticsVendorType>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>3.0000</NumUnits>
+                        </Rate>
+                    </Charges>
+                </Hotel>
+            </Segments>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>0987654321</RecordLocator>
+            <BookingSource>ConcurHotel</BookingSource>
+            <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <OriginalItinLocator>33491211</OriginalItinLocator>
+            <ItinSourceName>ConcurTravel</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+    </Bookings>
+</Itinerary>
+```
 
 ###  XML Example of Successful Response for Agency Proposal
 
-    <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
-        <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
-        <ItinLocator>CNQR1234567890</ItinLocator>
-        <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
-        <ItinSourceName>ConcurTravel</ItinSourceName>
-        <TripName>Trip from Dallas to Seattle</TripName>
-        <Comments />
-        <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
-        <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-        <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-        <BookedVia>EveryGDS</BookedVia>
-        <BookedByFirstName>Chris</BookedByFirstName>
-        <BookedByLastName>Miller</BookedByLastName>
-        <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
-        <Bookings>
-            <Booking>
-                <Segments>
-                    <Car>
-                        <Vendor>CQ</Vendor>
-                        <Status>HK</Status>
-                        <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                        <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
-                        <ConfirmationNumber>F1672664579</ConfirmationNumber>
-                        <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                        <StartCityCode>SEA</StartCityCode>
-                        <EndCityCode>SEA</EndCityCode>
-                        <StartLocation>SEA</StartLocation>
-                        <EndLocation>SEA</EndLocation>
-                        <Class>E</Class>
-                        <Body>C</Body>
-                        <Transmission>M</Transmission>
-                        <AirCondition>R</AirCondition>
-                        <NumCars>1</NumCars>
-                        <DiscountCode>346660</DiscountCode>
-                        <DailyRate>44.0000</DailyRate>
-                        <TotalRate>44.0000</TotalRate>
-                        <RateType>D</RateType>
-                        <Currency>USD</Currency>
-                        <Charges>
-                            <Fixed>
-                                <Description>Dropoff Fee</Description>
-                                <Currency>USD</Currency>
-                                <Amount>0.0000</Amount>
-                                <IsPrimary>false</IsPrimary>
-                                <SemanticsCode>DROPOFFFEE</SemanticsCode>
-                                <SemanticsVendorType>C</SemanticsVendorType>
-                            </Fixed>
-                            <RateWithAllowance>
-                                <Currency>USD</Currency>
-                                <Amount>44.0000</Amount>
-                                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                                <IsPrimary>true</IsPrimary>
-                                <SemanticsCode>DAYS</SemanticsCode>
-                                <SemanticsVendorType>C</SemanticsVendorType>
-                                <PerUnit>DAY</PerUnit>
-                                <NumUnits>1.0000</NumUnits>
-                                <AllowanceNumUnits>250.0000</AllowanceNumUnits>
-                                <AllowanceAmount>0.2400</AllowanceAmount>
-                                <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
-                            </RateWithAllowance>
-                        </Charges>
-                    </Car>
-                </Segments>
-                <Passengers>
-                    <Passenger>
-                        <NameFirst>Chris</NameFirst>
-                        <NameLast>Miller</NameLast>
-                    </Passenger>
-                </Passengers>
-                <RecordLocator>C123456789</RecordLocator>
-                <BookingSource>ConcurCars</BookingSource>
-                <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-                <ItinSourceName>TravelSupplier</ItinSourceName>
-                <PassengerCount>1</PassengerCount>
-            </Booking>
-            <Booking>
-                <Segments>
-                    <Hotel>
-                        <Vendor>CQ</Vendor>
-                        <Status>GK</Status>
-                        <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
-                        <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-                        <ConfirmationNumber>3364214265</ConfirmationNumber>
-                        <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                        <RateCode>LV4</RateCode>
-                        <Name>CONCUR HOTEL</Name>
-                        <HotelPropertyId>CONQ</HotelPropertyId>
-                        <CheckinTime>00:00</CheckinTime>
-                        <CheckoutTime>00:00</CheckoutTime>
-                        <NumPersons>1</NumPersons>
-                        <NumRooms>1</NumRooms>
-                        <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
-                        <DailyRate>240.3500</DailyRate>
-                        <Currency>USD</Currency>
-                        <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
-                        <Charges>
-                            <Rate>
-                                <Currency>USD</Currency>
-                                <Amount>240.3500</Amount>
-                                <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
-                                <IsPrimary>false</IsPrimary>
-                                <SemanticsCode>ROOMRATE</SemanticsCode>
-                                <SemanticsVendorType>H</SemanticsVendorType>
-                                <PerUnit>DAY</PerUnit>
-                                <NumUnits>3.0000</NumUnits>
-                            </Rate>
-                        </Charges>
-                    </Hotel>
-                </Segments>
-                <Passengers>
-                    <Passenger>
-                        <NameFirst>Chris</NameFirst>
-                        <NameLast>Miller</NameLast>
-                    </Passenger>
-                </Passengers>
-                <RecordLocator>0987654321</RecordLocator>
-                <BookingSource>ConcurHotel</BookingSource>
-                <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-                <OriginalItinLocator>33491211</OriginalItinLocator>
-                <ItinSourceName>ConcurTravel</ItinSourceName>
-                <PassengerCount>1</PassengerCount>
-            </Booking>
-        </Bookings>
-        <CustomAttributes>
-            <CustomAttribute>
-                <ExternalId />
-                <DataType>Numeric</DataType>
-                <Name>ProposalBatchSize</Name>
-                <DisplayTitle />
-                <Data>3</Data>
-                <DisplayOnItinerary>true</DisplayOnItinerary>
-            </CustomAttribute>
-            <CustomAttribute>
-                <ExternalId />
-                <DataType>Numeric</DataType>
-                <Name>ProposalSequenceIndex</Name>
-                <DisplayTitle />
-                <Data>1</Data>
-                <DisplayOnItinerary>true</DisplayOnItinerary>
-            </CustomAttribute>
-        </CustomAttributes>
-    </Itinerary>
+```xml
+<Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
+    <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
+    <ItinLocator>CNQR1234567890</ItinLocator>
+    <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
+    <ItinSourceName>ConcurTravel</ItinSourceName>
+    <TripName>Trip from Dallas to Seattle</TripName>
+    <Comments />
+    <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
+    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+    <BookedVia>EveryGDS</BookedVia>
+    <BookedByFirstName>Chris</BookedByFirstName>
+    <BookedByLastName>Miller</BookedByLastName>
+    <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
+    <Bookings>
+        <Booking>
+            <Segments>
+                <Car>
+                    <Vendor>CQ</Vendor>
+                    <Status>HK</Status>
+                    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                    <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
+                    <ConfirmationNumber>F1672664579</ConfirmationNumber>
+                    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+                    <StartCityCode>SEA</StartCityCode>
+                    <EndCityCode>SEA</EndCityCode>
+                    <StartLocation>SEA</StartLocation>
+                    <EndLocation>SEA</EndLocation>
+                    <Class>E</Class>
+                    <Body>C</Body>
+                    <Transmission>M</Transmission>
+                    <AirCondition>R</AirCondition>
+                    <NumCars>1</NumCars>
+                    <DiscountCode>346660</DiscountCode>
+                    <DailyRate>44.0000</DailyRate>
+                    <TotalRate>44.0000</TotalRate>
+                    <RateType>D</RateType>
+                    <Currency>USD</Currency>
+                    <Charges>
+                        <Fixed>
+                            <Description>Dropoff Fee</Description>
+                            <Currency>USD</Currency>
+                            <Amount>0.0000</Amount>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>DROPOFFFEE</SemanticsCode>
+                            <SemanticsVendorType>C</SemanticsVendorType>
+                        </Fixed>
+                        <RateWithAllowance>
+                            <Currency>USD</Currency>
+                            <Amount>44.0000</Amount>
+                            <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                            <IsPrimary>true</IsPrimary>
+                            <SemanticsCode>DAYS</SemanticsCode>
+                            <SemanticsVendorType>C</SemanticsVendorType>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>1.0000</NumUnits>
+                            <AllowanceNumUnits>250.0000</AllowanceNumUnits>
+                            <AllowanceAmount>0.2400</AllowanceAmount>
+                            <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
+                        </RateWithAllowance>
+                    </Charges>
+                </Car>
+            </Segments>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>C123456789</RecordLocator>
+            <BookingSource>ConcurCars</BookingSource>
+            <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <ItinSourceName>TravelSupplier</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+        <Booking>
+            <Segments>
+                <Hotel>
+                    <Vendor>CQ</Vendor>
+                    <Status>GK</Status>
+                    <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
+                    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+                    <ConfirmationNumber>3364214265</ConfirmationNumber>
+                    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+                    <RateCode>LV4</RateCode>
+                    <Name>CONCUR HOTEL</Name>
+                    <HotelPropertyId>CONQ</HotelPropertyId>
+                    <CheckinTime>00:00</CheckinTime>
+                    <CheckoutTime>00:00</CheckoutTime>
+                    <NumPersons>1</NumPersons>
+                    <NumRooms>1</NumRooms>
+                    <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
+                    <DailyRate>240.3500</DailyRate>
+                    <Currency>USD</Currency>
+                    <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
+                    <Charges>
+                        <Rate>
+                            <Currency>USD</Currency>
+                            <Amount>240.3500</Amount>
+                            <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>ROOMRATE</SemanticsCode>
+                            <SemanticsVendorType>H</SemanticsVendorType>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>3.0000</NumUnits>
+                        </Rate>
+                    </Charges>
+                </Hotel>
+            </Segments>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>0987654321</RecordLocator>
+            <BookingSource>ConcurHotel</BookingSource>
+            <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <OriginalItinLocator>33491211</OriginalItinLocator>
+            <ItinSourceName>ConcurTravel</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+    </Bookings>
+    <CustomAttributes>
+        <CustomAttribute>
+            <ExternalId />
+            <DataType>Numeric</DataType>
+            <Name>ProposalBatchSize</Name>
+            <DisplayTitle />
+            <Data>3</Data>
+            <DisplayOnItinerary>true</DisplayOnItinerary>
+        </CustomAttribute>
+        <CustomAttribute>
+            <ExternalId />
+            <DataType>Numeric</DataType>
+            <Name>ProposalSequenceIndex</Name>
+            <DisplayTitle />
+            <Data>1</Data>
+            <DisplayOnItinerary>true</DisplayOnItinerary>
+        </CustomAttribute>
+    </CustomAttributes>
+</Itinerary>
+```
 
 ###  Post Itinerary Cancellation Request
 
@@ -1348,7 +1372,7 @@ The response will include the **CustomAttributes** element and its child element
 The identifier for the desired trip and the cancel keyword.
 
 Example:  
-https://www.concursolutions.com/api/travel/trip/v1.1/cancel?tripId={_tripId_}
+`https://www.concursolutions.com/api/travel/trip/v1.1/cancel?tripId={_tripId_}`
 
 
 ### Query Parameters - Optional
@@ -1357,7 +1381,7 @@ https://www.concursolutions.com/api/travel/trip/v1.1/cancel?tripId={_tripId_}
 The Concur loginID of the user that owns the trip. The userid_type and userid_value parameters can only be used if the OAuth consumer has the user role listed above.
 
 Example:  
-https://www.concursolutions.com/api/travel/trip/v1.1/cancel?tripId={_tripId_}&userid_type=login_id&userid_value={_loginID_}
+`https://www.concursolutions.com/api/travel/trip/v1.1/cancel?tripId={_tripId_}&userid_type=login_id&userid_value={_loginID_}`
 
 | Request Headers - Required | Request Headers - Optional |
 | -------------------------- | -------------------------- |
@@ -1365,13 +1389,12 @@ https://www.concursolutions.com/api/travel/trip/v1.1/cancel?tripId={_tripId_}&us
 
 ###  XML Example Request
 
-    POST /api/travel/trip/v1.1/cancel?tripId=CNQR1234567890 HTTPS 1.1
-    Host: [www.concursolutions.com][3]
-    Authorization: OAuth {access token}
-    ...
-
-
-
+```http
+POST /api/travel/trip/v1.1/cancel?tripId=CNQR1234567890 HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+...
+```
 
 ##  <a name="postcancel"></a>POST Itinerary Cancellation
 
@@ -1384,7 +1407,7 @@ The request will return the full trip details for the cancelled trip. The trip w
 
 | Element | Description |
 | ------- | ----------- |
-| id | The URI containing the trip ID. | 
+| id | The URI containing the trip ID. |
 | ItinLocator | The Itinerary Locator value (trip ID without the URL). |
 | ClientLocator | The identifier for the client. |
 | DateModifiedUtc | The UTC formatted date that this booking was last modified. |
@@ -1393,67 +1416,67 @@ The request will return the full trip details for the cancelled trip. The trip w
 
 ###  XML Example of Successful Response
 
-    <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
-        <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
-        <ItinLocator>CNQR1234567890</ItinLocator>
-        <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
-        <ItinSourceName>ConcurTravel</ItinSourceName>
-        <TripName>Trip from Dallas to Seattle</TripName>
-        <Comments />
-        <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
-        <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-        <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-        <BookedVia>EveryGDS</BookedVia>
-        <BookedByFirstName>Chris</BookedByFirstName>
-        <BookedByLastName>Miller</BookedByLastName>
-        <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
-        <Bookings>
-            <Booking>
-                <Segments/>
-                <Passengers>
-                    <Passenger>
-                        <NameFirst>Chris</NameFirst>
-                        <NameLast>Miller</NameLast>
-                    </Passenger>
-                </Passengers>
-                <RecordLocator>C123456789</RecordLocator>
-                <BookingSource>ConcurCars</BookingSource>
-                <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-                <ItinSourceName>TravelSupplier</ItinSourceName>
-                <PassengerCount>1</PassengerCount>
-            </Booking>
-            <Booking>
-                <Segments/>
-                <Passengers>
-                    <Passenger>
-                        <NameFirst>Chris</NameFirst>
-                        <NameLast>Miller</NameLast>
-                    </Passenger>
-                </Passengers>
-                <RecordLocator>0987654321</RecordLocator>
-                <BookingSource>ConcurHotel</BookingSource>
-                <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-                <OriginalItinLocator>33491211</OriginalItinLocator>
-                <ItinSourceName>ConcurTravel</ItinSourceName>
-                <PassengerCount>1</PassengerCount>
-            </Booking>
-        </Bookings>
-    </Itinerary>
-
-
-
+```xml
+<Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
+    <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
+    <ItinLocator>CNQR1234567890</ItinLocator>
+    <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
+    <ItinSourceName>ConcurTravel</ItinSourceName>
+    <TripName>Trip from Dallas to Seattle</TripName>
+    <Comments />
+    <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
+    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+    <BookedVia>EveryGDS</BookedVia>
+    <BookedByFirstName>Chris</BookedByFirstName>
+    <BookedByLastName>Miller</BookedByLastName>
+    <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
+    <Bookings>
+        <Booking>
+            <Segments/>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>C123456789</RecordLocator>
+            <BookingSource>ConcurCars</BookingSource>
+            <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <ItinSourceName>TravelSupplier</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+        <Booking>
+            <Segments/>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>0987654321</RecordLocator>
+            <BookingSource>ConcurHotel</BookingSource>
+            <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <OriginalItinLocator>33491211</OriginalItinLocator>
+            <ItinSourceName>ConcurTravel</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+    </Bookings>
+</Itinerary>
+```
 
 ## <a name="post"></a>POST Booking Details
 Creates a new booking or updates an existing booking. A new booking will be assigned to the specified trip, or if no trip is specified, the first itinerary that spans the booking dates. If no trip is specified and no itinerary exists that spans the booking dates, a new itinerary will be created.  
 
 This endpoint can be used to create/update bookings for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to create/update a booking on behalf of a user. The supplier or TMC must be registered with Concur, and must have an account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
-  
-  
-    POST /api/travel/booking/v1.0?tripId=12345678 HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token} 
+
+```http
+POST /api/travel/booking/v1.0?tripId=12345678 HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+```
 
 ### Request Parameters
 
@@ -1534,120 +1557,122 @@ If the end user updates an existing reservation which results in a new confirmat
 
 #### Example 1: XML Example Request
 
-    POST /api/travel/booking/v1.0?tripId=12345678 HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token} 
-    ... 
-        
-    <Booking xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Segments>
-            <Car>
-                <Vendor>AL</Vendor> 
-                <VendorName>Alamo</VendorName> 
-                <Status>HK</Status> 
-                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal> 
-                <EndDateLocal>2013-12-23T12:00:00</EndDateLocal> 
-                <StartDateUtc>2013-12-21T20:00:00</StartDateUtc> 
-                <EndDateUtc>2013-12-23T20:00:00</EndDateUtc> 
-                <ConfirmationNumber>F16726AIUS</ConfirmationNumber> 
-                <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
-                <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
-                <StartCityCode>SEA</StartCityCode> 
-                <EndCityCode>SEA</EndCityCode> 
-                <StartLocation>SEA</StartLocation> 
-                <EndLocation>SEA</EndLocation> 
-                <Class>E</Class> 
-                <Body>C</Body> 
-                <Transmission>A</Transmission> 
-                <AirCondition>R</AirCondition> 
-                <NumPersons>1</NumPersons> 
-                <NumCars>1</NumCars> 
-                <DiscountCode>4321</DiscountCode> 
-                <DailyRate>35.0000</DailyRate> 
-                <TotalRate>105.0000</TotalRate> 
-                <RateType>D</RateType> 
-                <Currency>USD</Currency> 
-            </Car>
-        </Segments>
-        <RecordLocator>PANAMA50</RecordLocator> 
-        <BookingSource>Alamo</BookingSource> 
-        <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
-        <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
-        <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal> 
-        <ItinSourceName>TravelSupplier</ItinSourceName> 
-        <Passengers>
-            <Passenger>
-                <PassengerKey>0</PassengerKey> 
-                <NameFirst>Chris</NameFirst> 
-                <NameLast>Miller</NameLast> 
-            </Passenger>
-        </Passengers>
-    </Booking>
+```http
+POST /api/travel/booking/v1.0?tripId=12345678 HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
 
+<Booking xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Segments>
+        <Car>
+            <Vendor>AL</Vendor>
+            <VendorName>Alamo</VendorName>
+            <Status>HK</Status>
+            <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+            <EndDateLocal>2013-12-23T12:00:00</EndDateLocal>
+            <StartDateUtc>2013-12-21T20:00:00</StartDateUtc>
+            <EndDateUtc>2013-12-23T20:00:00</EndDateUtc>
+            <ConfirmationNumber>F16726AIUS</ConfirmationNumber>
+            <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
+            <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
+            <StartCityCode>SEA</StartCityCode>
+            <EndCityCode>SEA</EndCityCode>
+            <StartLocation>SEA</StartLocation>
+            <EndLocation>SEA</EndLocation>
+            <Class>E</Class>
+            <Body>C</Body>
+            <Transmission>A</Transmission>
+            <AirCondition>R</AirCondition>
+            <NumPersons>1</NumPersons>
+            <NumCars>1</NumCars>
+            <DiscountCode>4321</DiscountCode>
+            <DailyRate>35.0000</DailyRate>
+            <TotalRate>105.0000</TotalRate>
+            <RateType>D</RateType>
+            <Currency>USD</Currency>
+        </Car>
+    </Segments>
+    <RecordLocator>PANAMA50</RecordLocator>
+    <BookingSource>Alamo</BookingSource>
+    <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
+    <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
+    <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+    <ItinSourceName>TravelSupplier</ItinSourceName>
+    <Passengers>
+        <Passenger>
+            <PassengerKey>0</PassengerKey>
+            <NameFirst>Chris</NameFirst>
+            <NameLast>Miller</NameLast>
+        </Passenger>
+    </Passengers>
+</Booking>
+```
 
 #### Example 2: XML Example of Successful Response
 
-    <Itinerary xmlns="https://www.concursolutions.com/api/travel/trip/2010/06">
-        <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
-        <ItinLocator>CNQR1234567890</ItinLocator>
-        <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
+```xml
+<Itinerary xmlns="https://www.concursolutions.com/api/travel/trip/2010/06">
+    <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
+    <ItinLocator>CNQR1234567890</ItinLocator>
+    <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
+    <ItinSourceName>TravelSupplier</ItinSourceName>
+    <TripName>Trip to Seattle</TripName>
+    <Comments />
+    <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
+    <EndDateLocal>2013-12-23T23:59:00</EndDateLocal>
+    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+    <BookedVia>EveryGDS</BookedVia>
+    <BookedByFirstName>Chris</BookedByFirstName>
+    <BookedByLastName>Miller</BookedByLastName>
+    <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
+    <Booking>
+        <Segments>
+            <Car>
+                <Vendor>AL</Vendor>
+                <VendorName>Alamo</VendorName>
+                <Status>HK</Status>
+                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                <EndDateLocal>2013-12-23T12:00:00</EndDateLocal>
+                <StartDateUtc>2013-12-21T20:00:00</StartDateUtc>
+                <EndDateUtc>2013-12-23T20:00:00</EndDateUtc>
+                <ConfirmationNumber>F16726AIUS</ConfirmationNumber>
+                <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
+                <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
+                <StartCityCode>SEA</StartCityCode>
+                <EndCityCode>SEA</EndCityCode>
+                <StartLocation>SEA</StartLocation>
+                <EndLocation>SEA</EndLocation>
+                <Class>E</Class>
+                <Body>C</Body>
+                <Transmission>A</Transmission>
+                <AirCondition>R</AirCondition>
+                <NumPersons>1</NumPersons>
+                <NumCars>1</NumCars>
+                <DiscountCode>4321</DiscountCode>
+                <DailyRate>35.0000</DailyRate>
+                <TotalRate>105.0000</TotalRate>
+                <RateType>D</RateType>
+                <Currency>USD</Currency>
+            </Car>
+        </Segments>
+        <RecordLocator>PANAMA50</RecordLocator>
+        <BookingSource>Alamo</BookingSource>
+        <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
+        <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
+        <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
         <ItinSourceName>TravelSupplier</ItinSourceName>
-        <TripName>Trip to Seattle</TripName>
-        <Comments />
-        <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
-        <EndDateLocal>2013-12-23T23:59:00</EndDateLocal>
-        <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-        <BookedVia>EveryGDS</BookedVia>
-        <BookedByFirstName>Chris</BookedByFirstName>
-        <BookedByLastName>Miller</BookedByLastName>
-        <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
-        <Booking>
-            <Segments>
-                <Car>
-                    <Vendor>AL</Vendor> 
-                    <VendorName>Alamo</VendorName> 
-                    <Status>HK</Status> 
-                    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal> 
-                    <EndDateLocal>2013-12-23T12:00:00</EndDateLocal> 
-                    <StartDateUtc>2013-12-21T20:00:00</StartDateUtc> 
-                    <EndDateUtc>2013-12-23T20:00:00</EndDateUtc> 
-                    <ConfirmationNumber>F16726AIUS</ConfirmationNumber> 
-                    <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
-                    <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
-                    <StartCityCode>SEA</StartCityCode> 
-                    <EndCityCode>SEA</EndCityCode> 
-                    <StartLocation>SEA</StartLocation> 
-                    <EndLocation>SEA</EndLocation> 
-                    <Class>E</Class> 
-                    <Body>C</Body> 
-                    <Transmission>A</Transmission> 
-                    <AirCondition>R</AirCondition> 
-                    <NumPersons>1</NumPersons> 
-                    <NumCars>1</NumCars> 
-                    <DiscountCode>4321</DiscountCode> 
-                    <DailyRate>35.0000</DailyRate> 
-                    <TotalRate>105.0000</TotalRate> 
-                    <RateType>D</RateType> 
-                    <Currency>USD</Currency> 
-                </Car>
-            </Segments>
-            <RecordLocator>PANAMA50</RecordLocator> 
-            <BookingSource>Alamo</BookingSource> 
-            <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc> 
-            <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc> 
-            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal> 
-            <ItinSourceName>TravelSupplier</ItinSourceName> 
-            <Passengers>
-                <Passenger>
-                    <PassengerKey>0</PassengerKey> 
-                    <NameFirst>Chris</NameFirst> 
-                    <NameLast>Miller</NameLast> 
-                </Passenger>
-            </Passengers>
-        </Booking>
-    </Itinerary>
-
-
+        <Passengers>
+            <Passenger>
+                <PassengerKey>0</PassengerKey>
+                <NameFirst>Chris</NameFirst>
+                <NameLast>Miller</NameLast>
+            </Passenger>
+        </Passengers>
+    </Booking>
+</Itinerary>
+```
 
 ## <a name="cancel"></a>POST Booking Cancellation
 
@@ -1656,15 +1681,15 @@ Cancels an existing booking. By default, the OAuth consumer should be the owner 
 **NOTE:**  
 Booking records can only be updated by the booking source that created them. Concur verifies the source information before processing the request.
 
-
-    POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431}
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token} 
-
+```http
+POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431} HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+```
 
 ### Request parameters
 
-####Query Parameters - Required
+#### Query Parameters - Required
 * **cancel?bookingSource={Supplier}**
 
 The cancel keyword and the unique identifier for the supplier, configured by Concur during the application review. The bookingSource must match the Supplier Name associated with the booking.
@@ -1673,16 +1698,16 @@ The cancel keyword and the unique identifier for the supplier, configured by Con
 
 The confirmation number for the booking to cancel.
 
-Example: 
-https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}
+Example:
+`https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}`
 
-####Query Parameters - Optional
+#### Query Parameters - Optional
 * **userid_type=login_id&userid_value={loginID}**
 
 The Concur login ID of the user who owns the booking. Only provided when the booking owner is not the OAuth consumer. Can only be used when the OAuth consumer has the required user role.
 
 Example:
-https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}&userid_type=login_id&userid_value={loginID}
+`https://www.concursolutions.com/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}&userid_type=login_id&userid_value={loginID}`
 
 
 ### Content type
@@ -1706,69 +1731,72 @@ If the booking is not found, the function returns a HTTP 404 error and the follo
 
 #### Examples 1: XML Example Request
 
-    POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431}
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token} 
-
+```http
+POST /api/travel/booking/v1.1/cancel?bookingSource={FastTravel}&confirmationNumber={098765431} HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+```
 
 #### Examples 2: XML Example of Successful Response
 
-    <Car>
-        <Vendor>ZE</Vendor>
-        <Status>HK</Status>
-        <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-        <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
-        <TimeZoneId xsi:nil="true"/>
-        <StartDateUtc>2013-12-21T20:00:00</StartDateUtc>
-        <EndDateUtc>2013-12-24T20:00:00</EndDateUtc>
-        <ConfirmationNumber>0987654321</ConfirmationNumber>
-        <CancellationNumber>1029384756</CancellationNumber>
-        <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
-        <DateCancelledUtc>2012-07-25T14:21:35</DateCancelledUtc>
-        <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
-        <UpgradedDateTime xsi:nil="true"/>
-        <IsUpgradeAllowed xsi:nil="true"/>
-        <FrequentTravelerId/>
-        <StartCityCode>SEA</StartCityCode>
-        <EndCityCode>SEA</EndCityCode>
-        <StartLocation>SEA</StartLocation>
-        <EndLocation>SEA</EndLocation>
-        <Class>E</Class>
-        <Body>C</Body>
-        <Transmission>M</Transmission>
-        <AirCondition>R</AirCondition>
-        <PhoneNumber/>
-        <NumPersons xsi:nil="true"/>
-        <NumCars>1</NumCars>
-        <DiscountCode>346660</DiscountCode>
-        <Charges>
-            <Fixed>
-                <Description>Dropoff Fee</Description>
-                <Currency>USD</Currency>
-                <Amount>0.0000</Amount>
-                <StartDateLocal xsi:nil="true"/>
-                <IsPaid xsi:nil="true"/>
-                <SemanticsCode>DROPOFFFEE</SemanticsCode>
-                <SemanticsVendorType>C</SemanticsVendorType>
-            </Fixed>
-            <RateWithAllowance>
-                <Currency>USD</Currency>
-                <Amount>44.0000</Amount>
-                <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                <IsPaid xsi:nil="true"/>
-                <SemanticsCode>DAYS</SemanticsCode>
-                <SemanticsVendorType>C</SemanticsVendorType>
-                <PerUnit>DAY</PerUnit>
-                <NumUnits>1.0000</NumUnits>
-                <AllowanceUnit/>
-                <AllowanceNumUnits>250.0000</AllowanceNumUnits>
-                <AllowanceAmount>0.2400</AllowanceAmount>
-                <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
-            </RateWithAllowance>
-        </Charges>
-        <Remarks/>
-        <PerDiemLocation/>
-    </Car>
+```xml
+<Car>
+    <Vendor>ZE</Vendor>
+    <Status>HK</Status>
+    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+    <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
+    <TimeZoneId xsi:nil="true"/>
+    <StartDateUtc>2013-12-21T20:00:00</StartDateUtc>
+    <EndDateUtc>2013-12-24T20:00:00</EndDateUtc>
+    <ConfirmationNumber>0987654321</ConfirmationNumber>
+    <CancellationNumber>1029384756</CancellationNumber>
+    <DateCreatedUtc>2012-07-22T11:55:42</DateCreatedUtc>
+    <DateCancelledUtc>2012-07-25T14:21:35</DateCancelledUtc>
+    <DateModifiedUtc>2012-07-22T11:55:42</DateModifiedUtc>
+    <UpgradedDateTime xsi:nil="true"/>
+    <IsUpgradeAllowed xsi:nil="true"/>
+    <FrequentTravelerId/>
+    <StartCityCode>SEA</StartCityCode>
+    <EndCityCode>SEA</EndCityCode>
+    <StartLocation>SEA</StartLocation>
+    <EndLocation>SEA</EndLocation>
+    <Class>E</Class>
+    <Body>C</Body>
+    <Transmission>M</Transmission>
+    <AirCondition>R</AirCondition>
+    <PhoneNumber/>
+    <NumPersons xsi:nil="true"/>
+    <NumCars>1</NumCars>
+    <DiscountCode>346660</DiscountCode>
+    <Charges>
+        <Fixed>
+            <Description>Dropoff Fee</Description>
+            <Currency>USD</Currency>
+            <Amount>0.0000</Amount>
+            <StartDateLocal xsi:nil="true"/>
+            <IsPaid xsi:nil="true"/>
+            <SemanticsCode>DROPOFFFEE</SemanticsCode>
+            <SemanticsVendorType>C</SemanticsVendorType>
+        </Fixed>
+        <RateWithAllowance>
+            <Currency>USD</Currency>
+            <Amount>44.0000</Amount>
+            <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+            <IsPaid xsi:nil="true"/>
+            <SemanticsCode>DAYS</SemanticsCode>
+            <SemanticsVendorType>C</SemanticsVendorType>
+            <PerUnit>DAY</PerUnit>
+            <NumUnits>1.0000</NumUnits>
+            <AllowanceUnit/>
+            <AllowanceNumUnits>250.0000</AllowanceNumUnits>
+            <AllowanceAmount>0.2400</AllowanceAmount>
+            <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
+        </RateWithAllowance>
+    </Charges>
+    <Remarks/>
+    <PerDiemLocation/>
+</Car>
+```
 
 # <a name="objects"></a>Booking Object Elements
 
@@ -1780,7 +1808,7 @@ The booking elements contain many child elements. For ease of use, these element
 ###  Air Booking Elements
 
 ####  Core Elements - Required
-  
+
 |  Element | Description |
 |----------|-------------|
 |  ClassOfService |  The class of the booking. |
@@ -1943,7 +1971,7 @@ The booking elements contain many child elements. For ease of use, these element
 
 ###  Hotel Booking Elements
 
-#### Core Elements - Required 
+#### Core Elements - Required
 
 |  Element |  Description |
 |----------|-------------|
@@ -2216,7 +2244,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  Element |  Description |
 |----------|-------------|
 |  Amenities |  The amenities for the seat. |
-|  BerthPosition |  The berth location of the seat. | 
+|  BerthPosition |  The berth location of the seat. |
 |  Deck |  Which deck the seat is on. |
 |  FacingForward |  Whether the seat is facing forward. |
 |  FareSpaceComfort |  The space around the seat. |
@@ -2415,7 +2443,7 @@ The booking elements contain many child elements. For ease of use, these element
 #### Olson Time Zones
 
 |       |       |          |           |
-|-------|-------|----------|-----------| 
+|-------|-------|----------|-----------|
 | Africa/Cairo |  Africa/Casablanca |  Africa/Harare |  Africa/Luanda |
 |  Africa/Nairobi |  Africa/Windhoek |  America/Anchorage |  America/Argentina/Buenos_Aires |
 |  America/Asuncion |  America/Bahia |  America/Bogota |  America/Buenos_Aires |
@@ -2446,7 +2474,7 @@ The booking elements contain many child elements. For ease of use, these element
 #### Windows Time Zones
 
 |       |       |          |           |
-|-------|-------|----------|-----------| 
+|-------|-------|----------|-----------|
 |  Africa/Cairo |  Africa/Casablanca |  Africa/Harare |  Africa/Luanda |
 |  Africa/Nairobi |  Africa/Windhoek |  America/Anchorage |  America/Argentina/Buenos_Aires |
 |  America/Asuncion |  America/Bahia |  America/Bogota |  America/Buenos_Aires |
@@ -2480,9 +2508,3 @@ The booking elements contain many child elements. For ease of use, these element
 [4]: https://www.tripit.com/developer
 [5]: https://en.wikipedia.org/wiki/ISO_4217
 [6]: https://en.wikipedia.org/wiki/Neutral_unit_of_construction_(airlines)
-
-
-
-
-
-
