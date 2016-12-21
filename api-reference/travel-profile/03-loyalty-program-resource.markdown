@@ -81,72 +81,72 @@ This request contains the **LoyaltyMembershipUpdate** parent element with a **Me
 
 ###  XML Example Request From Travel Supplier
 
-```
-    POST https://www.concursolutions.com/api/travelprofile/v1.0/loyalty HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+POST https://www.concursolutions.com/api/travelprofile/v1.0/loyalty HTTP/1.1
+Authorization: OAuth {access token}
+...
 ```
 
 ```xml
-    <LoyaltyMembershipUpdate>
-        <Membership UniqueID="Frequent Flier">
-            <AccountNo>1234567890</AccountNo>
-            <Status>Gold</Status>
-            <StatusBenefits>Early flight check-in.</StatusBenefits>
-            <PointTotal>123456</PointTotal>
-            <SegmentTotal>150</SegmentTotal>
-            <NextStatus>Platinum</NextStatus>
-            <PointsUntilNextStatus>100000</PointsUntilNextStatus>
-            <SegmentsUntilNextStatus>100</SegmentsUntilNextStatus>
-        </Membership>
-        <Membership UniqueID="Business Traveler">
-            <AccountNo>0987654321</AccountNo>
-            <Status>Preferred</Status>
-            <StatusBenefits>Free upgrade to Business Class where available.</StatusBenefits>
-            <PointTotal>334002</PointTotal>
-            <SegmentTotal>340</SegmentTotal>
-            <NextStatus>Premier</NextStatus>
-            <PointsUntilNextStatus>200998</PointsUntilNextStatus>
-            <SegmentsUntilNextStatus>110</SegmentsUntilNextStatus>
-        </Membership>
-    </LoyaltyMembershipUpdate>
+<LoyaltyMembershipUpdate>
+    <Membership UniqueID="Frequent Flier">
+        <AccountNo>1234567890</AccountNo>
+        <Status>Gold</Status>
+        <StatusBenefits>Early flight check-in.</StatusBenefits>
+        <PointTotal>123456</PointTotal>
+        <SegmentTotal>150</SegmentTotal>
+        <NextStatus>Platinum</NextStatus>
+        <PointsUntilNextStatus>100000</PointsUntilNextStatus>
+        <SegmentsUntilNextStatus>100</SegmentsUntilNextStatus>
+    </Membership>
+    <Membership UniqueID="Business Traveler">
+        <AccountNo>0987654321</AccountNo>
+        <Status>Preferred</Status>
+        <StatusBenefits>Free upgrade to Business Class where available.</StatusBenefits>
+        <PointTotal>334002</PointTotal>
+        <SegmentTotal>340</SegmentTotal>
+        <NextStatus>Premier</NextStatus>
+        <PointsUntilNextStatus>200998</PointsUntilNextStatus>
+        <SegmentsUntilNextStatus>110</SegmentsUntilNextStatus>
+    </Membership>
+</LoyaltyMembershipUpdate>
 ```
 
 ###  XML Example Request From TMC
 
-```
-    POST https://www.concursolutions.com/api/travelprofile/v1.0/loyalty HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+POST https://www.concursolutions.com/api/travelprofile/v1.0/loyalty HTTP/1.1
+Authorization: OAuth {access token}
+...
 ```
 
 ```xml
-    <LoyaltyMembershipUpdate>
-        <Membership UniqueID="Frequent Flier">
-            <VendorCode>AA</VendorCode>
-            <VendorType>A</VendorType>
-            <AccountNo>1234567890</AccountNo>
-            <Status>Gold</Status>
-            <StatusBenefits>Early flight check-in.</StatusBenefits>
-            <PointTotal>123456</PointTotal>
-            <SegmentTotal>150</SegmentTotal>
-            <NextStatus>Platinum</NextStatus>
-            <PointsUntilNextStatus>100000</PointsUntilNextStatus>
-            <SegmentsUntilNextStatus>100</SegmentsUntilNextStatus>
-        </Membership>
-        <Membership UniqueID="Business Traveler">
-            <VendorCode>TR</VendorCode>
-            <VendorType>C</VendorType>
-            <AccountNo>991823728</AccountNo>
-            <Status>Preferred</Status>
-            <StatusBenefits>Free upgrade to larger car when available.</StatusBenefits>
-            <PointTotal>822311</PointTotal>
-            <SegmentTotal>340</SegmentTotal>
-            <NextStatus>Premier</NextStatus>
-            <PointsUntilNextStatus>200998</PointsUntilNextStatus>
-            <SegmentsUntilNextStatus>110</SegmentsUntilNextStatus>
-        </Membership>
-    </LoyaltyMembershipUpdate>
+<LoyaltyMembershipUpdate>
+    <Membership UniqueID="Frequent Flier">
+        <VendorCode>AA</VendorCode>
+        <VendorType>A</VendorType>
+        <AccountNo>1234567890</AccountNo>
+        <Status>Gold</Status>
+        <StatusBenefits>Early flight check-in.</StatusBenefits>
+        <PointTotal>123456</PointTotal>
+        <SegmentTotal>150</SegmentTotal>
+        <NextStatus>Platinum</NextStatus>
+        <PointsUntilNextStatus>100000</PointsUntilNextStatus>
+        <SegmentsUntilNextStatus>100</SegmentsUntilNextStatus>
+    </Membership>
+    <Membership UniqueID="Business Traveler">
+        <VendorCode>TR</VendorCode>
+        <VendorType>C</VendorType>
+        <AccountNo>991823728</AccountNo>
+        <Status>Preferred</Status>
+        <StatusBenefits>Free upgrade to larger car when available.</StatusBenefits>
+        <PointTotal>822311</PointTotal>
+        <SegmentTotal>340</SegmentTotal>
+        <NextStatus>Premier</NextStatus>
+        <PointsUntilNextStatus>200998</PointsUntilNextStatus>
+        <SegmentsUntilNextStatus>110</SegmentsUntilNextStatus>
+    </Membership>
+</LoyaltyMembershipUpdate>
 ```
 
 ##  Response
@@ -166,14 +166,14 @@ This request will return a **LoyaltyMembershipResponse** parent element with the
 
 ###  XML Example of Successful Response
 
-```xml
-    200 OK
-    Content-Type: application/xml
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
 
-    <LoyaltyMembershipResponse>
-        <Status>OK</Status>
-        <ErrorDescription />
-    </LoyaltyMembershipResponse>
+<LoyaltyMembershipResponse>
+    <Status>OK</Status>
+    <ErrorDescription />
+</LoyaltyMembershipResponse>
 ```
 
 [1]: http://concur.github.io/developer.concur.com/api-reference/authentication/oauth-20-overview

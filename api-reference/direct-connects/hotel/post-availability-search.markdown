@@ -1,5 +1,5 @@
 ---
-title: Post an availability search 
+title: Post an availability search
 layout: reference
 ---
 
@@ -71,39 +71,39 @@ This parent element contains an AvailRequestSegment element for the requested av
 
 ####  XML Example Request
 
-```xml
-    POST /concur/hotel/v1 HTTPS/1.1
-    Host: example.com
-    Authorization: Basic ...
-    Content-Type: application/xml
-    Content-Length: {length of content body}
+```http
+POST /concur/hotel/v1 HTTPS/1.1
+Host: example.com
+Authorization: Basic ...
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelAvailRQ.xsd" Version="1">
-        <POS>
-            <Source ISOCountry="US" ISOCurrency="USD">
-                <RequestorID Type="18" ID="7777777" />
-            </Source>
-        </POS>
-        <AvailRequestSegments>
-            <AvailRequestSegment>
-                <HotelSearchCriteria>
-                    <Criterion>
-                        <HotelRef ChainCode="ZZ" HotelCode="HTL1111" />
-                        <HotelRef ChainCode="ZZ" HotelCode="HTL2222" />
-                    </Criterion>
-                </HotelSearchCriteria>
-                <StayDateRange Start="2012-08-15" End="2010-08-17" />
-                <RoomStayCandidates>
-                    <RoomStayCandidate Quantity="1">
-                        <GuestCounts>
-                            <GuestCount AgeQualifyingCode="10" Count="1" />
-                        </GuestCounts>
-                    </RoomStayCandidate>
-                </RoomStayCandidates>
-            </AvailRequestSegment>
-        </AvailRequestSegments>
-    </OTA_HotelAvailRQ>
+<?xml version="1.0" encoding="utf-8" ?>
+<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelAvailRQ.xsd" Version="1">
+    <POS>
+        <Source ISOCountry="US" ISOCurrency="USD">
+            <RequestorID Type="18" ID="7777777" />
+        </Source>
+    </POS>
+    <AvailRequestSegments>
+        <AvailRequestSegment>
+            <HotelSearchCriteria>
+                <Criterion>
+                    <HotelRef ChainCode="ZZ" HotelCode="HTL1111" />
+                    <HotelRef ChainCode="ZZ" HotelCode="HTL2222" />
+                </Criterion>
+            </HotelSearchCriteria>
+            <StayDateRange Start="2012-08-15" End="2010-08-17" />
+            <RoomStayCandidates>
+                <RoomStayCandidate Quantity="1">
+                    <GuestCounts>
+                        <GuestCount AgeQualifyingCode="10" Count="1" />
+                    </GuestCounts>
+                </RoomStayCandidate>
+            </RoomStayCandidates>
+        </AvailRequestSegment>
+    </AvailRequestSegments>
+</OTA_HotelAvailRQ>
 ```
 
 ##  Response
@@ -165,76 +165,77 @@ The **OTA_HotelAvailRS** parent element has the following child elements:
 
 ###  XML Example of Successful Response
 
-```xml
-    200 OK HTTPS/1.1
-    Content-Length: {length of content body}
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelAvailRS.xsd" Version="1">
-        <Success />
-        <RoomStays>
-            <RoomStay>
-                <RatePlans>
-                    <RatePlan RatePlanCode="2222222" />
-                </RatePlans>
-                <RoomRates>
-                    <RoomRate>
-                        <Rates>
-                            <Rate EffectiveDate="2012-08-15" ExpireDate="2010-08-17">
-                                <Base AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
-                                <RateDescription>
-                                    <Text>CORPORATE RATE*KING</Text>
-                                </RateDescription>
-                            </Rate>
-                        </Rates>
-                    </RoomRate>
-                </RoomRates>
-                <BasicPropertyInfo HotelCode="HTL1111" />
-            </RoomStay>
-            <RoomStay>
-                <RatePlans>
-                    <RatePlan RatePlanCode="3333333" />
-                </RatePlans>
-                <RoomRates>
-                    <RoomRate>
-                        <Rates>
-                            <Rate EffectiveDate="2012-08-15" ExpireDate="2010-08-17">
-                                <Base AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
-                                <RateDescription>
-                                    <Text>CORPORATE RATE*DOUBLE FREE INTERNET</Text>
-                                </RateDescription>
-                            </Rate>
-                        </Rates>
-                    </RoomRate>
-                </RoomRates>
-                <BasicPropertyInfo HotelCode="HTL1111" />
-            </RoomStay>
-            <RoomStay>
-                <RatePlans>
-                    <RatePlan RatePlanCode="4444444" />
-                </RatePlans>
-                <RoomRates>
-                    <RoomRate>
-                        <Rates>
-                            <Rate EffectiveDate="2012-08-15" ExpireDate="2010-08-17">
-                                <Base AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
-                                <RateDescription>
-                                    <Text>REGULAR RATE*KING</Text>
-                                </RateDescription>
-                            </Rate>
-                        </Rates>
-                    </RoomRate>
-                </RoomRates>
-                <BasicPropertyInfo HotelCode="HTL2222" />
-                <TPA_Extensions>
-                    <RequireSeriesCode>true</RequireSeriesCode>
-                    <GuaranteeRequired>always</GuaranteeRequired>
-                </TPA_Extensions>
-            </RoomStay>
-        </RoomStays>
-    </OTA_HotelAvailRS>
+<?xml version="1.0" encoding="utf-8" ?>
+<OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelAvailRS.xsd" Version="1">
+    <Success />
+    <RoomStays>
+        <RoomStay>
+            <RatePlans>
+                <RatePlan RatePlanCode="2222222" />
+            </RatePlans>
+            <RoomRates>
+                <RoomRate>
+                    <Rates>
+                        <Rate EffectiveDate="2012-08-15" ExpireDate="2010-08-17">
+                            <Base AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
+                            <RateDescription>
+                                <Text>CORPORATE RATE*KING</Text>
+                            </RateDescription>
+                        </Rate>
+                    </Rates>
+                </RoomRate>
+            </RoomRates>
+            <BasicPropertyInfo HotelCode="HTL1111" />
+        </RoomStay>
+        <RoomStay>
+            <RatePlans>
+                <RatePlan RatePlanCode="3333333" />
+            </RatePlans>
+            <RoomRates>
+                <RoomRate>
+                    <Rates>
+                        <Rate EffectiveDate="2012-08-15" ExpireDate="2010-08-17">
+                            <Base AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
+                            <RateDescription>
+                                <Text>CORPORATE RATE*DOUBLE FREE INTERNET</Text>
+                            </RateDescription>
+                        </Rate>
+                    </Rates>
+                </RoomRate>
+            </RoomRates>
+            <BasicPropertyInfo HotelCode="HTL1111" />
+        </RoomStay>
+        <RoomStay>
+            <RatePlans>
+                <RatePlan RatePlanCode="4444444" />
+            </RatePlans>
+            <RoomRates>
+                <RoomRate>
+                    <Rates>
+                        <Rate EffectiveDate="2012-08-15" ExpireDate="2010-08-17">
+                            <Base AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
+                            <RateDescription>
+                                <Text>REGULAR RATE*KING</Text>
+                            </RateDescription>
+                        </Rate>
+                    </Rates>
+                </RoomRate>
+            </RoomRates>
+            <BasicPropertyInfo HotelCode="HTL2222" />
+            <TPA_Extensions>
+                <RequireSeriesCode>true</RequireSeriesCode>
+                <GuaranteeRequired>always</GuaranteeRequired>
+            </TPA_Extensions>
+        </RoomStay>
+    </RoomStays>
+</OTA_HotelAvailRS>
 ```
-  
+
 
 
 [1]: https://developer.concur.com/overview/partner-applications

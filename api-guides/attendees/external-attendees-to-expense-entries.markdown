@@ -89,12 +89,11 @@ There are cases when the expense entry already exists.  For example, in a CRM ap
 
 To determine if Concur has a record of external attendees, make a GET HTTPS request to the Attendees resource using the External ID search term for external attendees stored in Concur:
 
-```
-GET https://www.concursolutions.com/api/v3.0/expense/attendees?externalid={unique identifier for external attendee) HTTP/1.1
+```http
+GET https://www.concursolutions.com/api/v3.0/expense/attendees?externalid={unique_identifier_for_external_attendee} HTTP/1.1
 Authorization: OAuth {valid OAuth Access Token goes here}
 Content-Type: {application/json or application/xml goes here}
 ```
-
 
 Where:
 
@@ -106,9 +105,8 @@ Here’s an example for how to look for the Concur record for an external attend
 
 Make a GET HTTP request to the attendees endpoint:
 
-```
-GET https://www.concursolutions.com/api/v3.0/expense/attendees
-?externalid=5575592349 HTTP/1.1
+```http
+GET https://www.concursolutions.com/api/v3.0/expense/attendees?externalid=5575592349 HTTP/1.1
 Authorization: OAuth pBA8nW1qGJcd4AZp9sGxti374Cc=
 Content-Type: application/json
 ```
@@ -117,59 +115,57 @@ If Concur has a record of the external attendee, its unique identifier in Concur
 
 A successful response when Concur has a record of the external attendee looks like this:
 
-```
-json
+```json
 {
-    "Items":[
-        {
-            "AttendeeTypeCode":"HCP",
-            "AttendeeTypeID":"niJ6GaAD60bAetp3vtK6$sGRgCi1s",
-            "FirstName":"Emilie",
-            "LastName":"Cass",
-            "MiddleInitial":null,
-            "Suffix":null,
-            " Company":"Life Care Center of Action",
-            "Title":"Gynecology and Obstetrics",
-            "ExternalID":"5575592349",
-            "HasExceptionsPrevYear":false,
-            "HasExceptionsYTD":false,
-            "Tot alAmountPrevYear":0.00000000,
-            "TotalAmountYTD":0.00000000,
-            "VersionNumber":1,
-            "OwnerName":"System, Concur",
-            "OwnerLoginID":"ConcurSystem",
-            "CurrencyCode":"USD",
-            "Cust om1":null,
-            "Custom2":null,
-            "Custom3":null,
-            "Custom4":null,
-            "Custom5":null,
-            "Custom6":null,
-            "Custom7":null,
-            "Custom8":null,
-            "Custom9":null,
-            "Custom10":null,
-            "Custom11":null,
-            "Custom12":null,
-            "Custom13":null,
-            "Custom14":null,
-            "Custom15":null,
-            "Custom16":null,
-            "Custom17":null,
-            "Custom18":null,
-            "Custom19":null,
-            "Custom20":null,
-            "Custom21":null,
-            "Custom22":null,
-            "Custom23":null,
-            "Custom24":null,
-            "Custom25":null,
-            "ID":"nmBwIaoDagUkD8kXZGIl7B170uK9tE6pk",
-            "URI":"https://rqa3-cb.concurtech.net/
-api/v3.0/expense/attendees/nmBwIaoDagUkD8kXZGIl7B170uK9tE6pk"
-        }
-    ],
-    "NextPage":null
+  "Items": [
+    {
+      "AttendeeTypeCode": "HCP",
+      "AttendeeTypeID": "niJ6GaAD60bAetp3vtK6$sGRgCi1s",
+      "FirstName": "Emilie",
+      "LastName": "Cass",
+      "MiddleInitial": null,
+      "Suffix": null,
+      "Company": "Life Care Center of Action",
+      "Title": "Gynecology and Obstetrics",
+      "ExternalID": "5575592349",
+      "HasExceptionsPrevYear": false,
+      "HasExceptionsYTD": false,
+      "TotalAmountPrevYear": 0.00000000,
+      "TotalAmountYTD": 0.00000000,
+      "VersionNumber": 1,
+      "OwnerName": "System, Concur",
+      "OwnerLoginID": "ConcurSystem",
+      "CurrencyCode": "USD",
+      "Cust om1": null,
+      "Custom2": null,
+      "Custom3": null,
+      "Custom4": null,
+      "Custom5": null,
+      "Custom6": null,
+      "Custom7": null,
+      "Custom8": null,
+      "Custom9": null,
+      "Custom10": null,
+      "Custom11": null,
+      "Custom12": null,
+      "Custom13": null,
+      "Custom14": null,
+      "Custom15": null,
+      "Custom16": null,
+      "Custom17": null,
+      "Custom18": null,
+      "Custom19": null,
+      "Custom20": null,
+      "Custom21": null,
+      "Custom22": null,
+      "Custom23": null,
+      "Custom24": null,
+      "Custom25": null,
+      "ID": "nmBwIaoDagUkD8kXZGIl7B170uK9tE6pk",
+      "URI": "https://rqa3-cb.concurtech.net/api/v3.0/expense/attendees/nmBwIaoDagUkD8kXZGIl7B170uK9tE6pk"
+    }
+  ],
+  "NextPage": null
 }
 ```
 
@@ -177,7 +173,7 @@ api/v3.0/expense/attendees/nmBwIaoDagUkD8kXZGIl7B170uK9tE6pk"
 
 If the attendee doesn’t exist in Concur, make a POST request to the Attendees resource to create a new attendee in Concur:
 
-```
+```http
 POST https://www.concursolutions.com/api/v3.0/expense/attendees HTTP/1.1
 Authorization: OAuth {valid OAuth Access Token goes here}
 Content-Type: {application/json or application/xml goes here}
@@ -185,22 +181,21 @@ Content-Type: {application/json or application/xml goes here}
 
 The request content body includes the details about the attendee. For example:
 
-```
-json
+```json
 {
-    "AttendeeTypeID":"ID for the attendee type",
-    "FirstName":"Taylor",
-    "LastName":"Hernandez",
-    "MiddleInitial":"E",
-    "Company":"Life Care Center of Action",
-    "Title":"Anaesthetics",
-    "ExternalID":"6164704601"
+  "AttendeeTypeID": "ID for the attendee type",
+  "FirstName": "Taylor",
+  "LastName": "Hernandez",
+  "MiddleInitial": "E",
+  "Company": "Life Care Center of Action",
+  "Title": "Anaesthetics",
+  "ExternalID": "6164704601"
 }
 ```
 
 To determine the value you need to enter for the AttendeeTypeID element in the content body of the POST request, make a GET request to the AttendeeTypes resource. For example:
 
-```
+```http
 GET https://www.concursolutions.com/api/v3.0/expense/attendeetypes HTTP/1.1
 Authorization: OAuth pBA8nW1qGJcd4AZp9sGxti374Cc=
 Content-Type: application/json
@@ -208,8 +203,7 @@ Content-Type: application/json
 
 In this example, we’re looking for the attendee type ID for Business Guest attendee types. A successful response looks like this:
 
-```
-json
+```json
 {
   "Items": [
     {
@@ -245,14 +239,15 @@ json
       "AllowAttendeeCountEditing": false,
       "ID": "gWjYs6nUm$ptrgvkjvwYt2B3SN",
       "URI": " https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYs6nUm$ptrgvkjvwYt2B3SN"
-    },
+    }
+  ],
   "NextPage": null
 }
 ```
 
 Now we can make our POST request to the /api/v3.0/expense/attendees endpoint:
 
-```
+```http
 POST https://www.concursolutions.com/api/v3.0/expense/attendees HTTP/1.1
 Authorization: OAuth pBA8nW1qGJcd4AZp9sGxti374Cc=
 Content-Type: application/json
@@ -260,27 +255,24 @@ Content-Type: application/json
 
 With this request body:
 
-```
-json
+```json
 {
-    "AttendeeTypeID":"ID":"gWjUHBxUY4iQLA9KTkbtUD6pc",
-    "FirstName":"Taylor",
-    "LastName":"Hernandez",
-    "MiddleInitial":"E",
-    "Company":"Life Care Center of Action",
-    "Title":"Anaesthetics",
-    "ExternalID":"6164704601"
+  "AttendeeTypeID": "gWjUHBxUY4iQLA9KTkbtUD6pc",
+  "FirstName": "Taylor",
+  "LastName": "Hernandez",
+  "MiddleInitial": "E",
+  "Company": "Life Care Center of Action",
+  "Title": "Anaesthetics",
+  "ExternalID": "6164704601"
 }
 ```
 
 A successful response looks like this:
 
-```
-json
+```json
 {
-    "ID":"nmBwIaoDagUvXYaxgYZp$pWlPZOvpzUfsM",
-    "URI": https://www.concursolutions.com/api/v3.0/expense/attendees
-           /nmBwIaoDagUvXYaxgYZp$pWlPZOvpzUfsM
+  "ID":"nmBwIaoDagUvXYaxgYZp$pWlPZOvpzUfsM",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/attendees/nmBwIaoDagUvXYaxgYZp$pWlPZOvpzUfsM"
 }
 ```
 
@@ -290,17 +282,16 @@ Once you obtain the ID for the attendee, make a POST request to the Entry Attend
 
 Here’s what the call looks like:
 
-```
-json
-POST https://www.concursolutions.com/api/v3.0/expense /entryattendeeassociations?user=<URL Encoded Login ID for the Login ID for the owner of the expense entry> HTTP/1.1
+```http
+POST https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations?user={URL_Encoded_Login_ID_for_the_Login_ID_for_the_owner_of_the_expense_entry} HTTP/1.1
 Authorization: OAuth {valid OAuth Access Token goes here}
 Content-Type: application/json
 Accept: application/json
 ...
 
 {
-	"EntryID":"n4MrUpcqIH3ot4bFvFCNXCpk7TJOphLTH",
-	"AttendeeID":"nmBwIaoDagUkD8kXZGI l7B170uK9tE6pk"
+  "EntryID": "n4MrUpcqIH3ot4bFvFCNXCpk7TJOphLTH",
+  "AttendeeID": "nmBwIaoDagUkD8kXZGIl7B170uK9tE6pk"
 }
 ```
 

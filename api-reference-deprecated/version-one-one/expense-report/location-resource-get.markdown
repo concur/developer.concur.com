@@ -52,7 +52,7 @@ This request will return a **LocationsList** parent element with a **Location** 
 
 ### XML example request
 
-```
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/Locations?city={_searchstring_} HTTP/1.1
 Authorization: OAuth {access token}
 ...
@@ -60,31 +60,29 @@ Authorization: OAuth {access token}
 
 ### XML example of successful response
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+
+<LocationList xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03"    
+xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Location>
+        <Country>UNITED STATES</Country>
+        <LocationID>nXipdPDzr4oCPylSOd91NQqQ$sqmnQrQxR</LocationID>
+        <Name>Redmond</Name>
+        <State>Washington</State>
+    </Location>
+    <Location>
+        <Country>UNITED STATES</Country>
+        <LocationID>8WWeksu7dEoHlsiIE$28kkj3ED8swhgGgye</LocationID>
+        <Name>Redmond</Name>
+        <State>Oregon</State>
+    </Location>
+    <Location>
+        <Country>UNITED STATES</Country>
+        <LocationID>Oe11hKEi$lslPncYAe2k2h7s67sdkkLEigUIF$</LocationID>
+        <Name>Redmond</Name>
+        <State>Utah</State>
+    </Location>
+</LocationList>
 ```
-200 OK
-    Content-Type: application/xml
-
-    <LocationList xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03"    
-    xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Location>
-            <Country>UNITED STATES</Country>
-            <LocationID>nXipdPDzr4oCPylSOd91NQqQ$sqmnQrQxR</LocationID>
-            <Name>Redmond</Name>
-            <State>Washington</State>
-        </Location>
-        <Location>
-            <Country>UNITED STATES</Country>
-            <LocationID>8WWeksu7dEoHlsiIE$28kkj3ED8swhgGgye</LocationID>
-            <Name>Redmond</Name>
-            <State>Oregon</State>
-        </Location>
-        <Location>
-            <Country>UNITED STATES</Country>
-            <LocationID>Oe11hKEi$lslPncYAe2k2h7s67sdkkLEigUIF$</LocationID>
-            <Name>Redmond</Name>
-            <State>Utah</State>
-        </Location>
-    </LocationList>
- ```
-
-

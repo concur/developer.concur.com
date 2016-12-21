@@ -35,18 +35,21 @@ The Concur platform undergoes routine maintenance according to the following sch
 ##### Weekly maintenance window
 Every week, starting Friday at 9 PM PST and ending at 1 AM PST on Saturday
 
-##### Monthly maintenance schedule for 2016
+##### Monthly maintenance schedule for 2017
 The service may be unavailable starting at 6 PM PST and ending at 11 PM PST on the following dates:
 
-* April 14
-* May 12
-* June 9
-* July 7
-* August 11
-* September 8
-* October 13
-* November 3
-* December 8
+* January 19
+* February 16
+* March 18
+* April 22
+* May 20
+* June 24
+* July 22
+* August 19
+* September 16
+* October 14
+* November 4
+* December 9
 
 ---
 

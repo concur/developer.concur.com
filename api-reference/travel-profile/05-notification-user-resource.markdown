@@ -10,9 +10,9 @@ A subscription to a notification when the Concur user changes the specified feat
 
 ## Resource URI
 * To subscribe
-    <samp>https://www.concursolutions.com/api/user/v1.0/subscribe</samp>
+    `https://www.concursolutions.com/api/user/v1.0/subscribe`
 * To unsubscribe:
-    <samp>https://www.concursolutions.com/api/user/v1.0/unsubscribe</samp>
+    `https://www.concursolutions.com/api/user/v1.0/unsubscribe`
 
 ## Headers
 
@@ -34,8 +34,8 @@ Subscribes or unsubscribes the travel supplier from notifications when the user 
 
 ## Request
 
-* To subscribe:<sample>https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=itinerary</sample>
-* To unsubscribe:<sample>https://www.concursolutions.com/api/travelprofile/v1.0/unsubscribe?type=itinerary</sample>
+* To subscribe: `https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=itinerary`
+* To unsubscribe: `https://www.concursolutions.com/api/travelprofile/v1.0/unsubscribe?type=itinerary`
 
 ### Request parameters
 
@@ -49,10 +49,10 @@ Required. Authorization header with OAuth token for the desired Concur user. Thi
 
 ###  Example: Subscribe to itinerary changes
 
-```xml
-    POST https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=itinerary HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+POST https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=itinerary HTTP/1.1
+Authorization: OAuth {access token}
+...
 ```
 
 ##  Post notification subscription for itinerary changes response
@@ -61,7 +61,7 @@ Required. Authorization header with OAuth token for the desired Concur user. Thi
 
 The notification will be sent to the Postback URL that the supplier has registered with Concur during application review. Suppliers can only have one postback URL for all notification types. The notification will include the **type** and **oauth_token_key** query parameters, specifying the OAuth information for the updated user:
 
-<samp>https://postbackurl.com?type=Itinerary&oauth_token_key={oauth_token}</samp>
+`https://postbackurl.com?type=Itinerary&oauth_token_key={oauth_token}`
 
 ### Response body root elements
 
@@ -78,19 +78,20 @@ The request will include a **Notification** parent element, with the following c
 
 ###  Example: Post a of notification in XML format
 
-```xml
-    POST https://www.postbackurl.com?type=itinerary&oauth_token_key={oauthtoken} HTTP/1.1
-    Authorization: OAuth {access token}
+```http
+POST https://www.postbackurl.com?type=itinerary&oauth_token_key={oauthtoken} HTTP/1.1
+Authorization: OAuth {access token}
+Content-Type: application/xml
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <Notification>
-        <ObjectType>ITINERARY</ObjectType>
-        <ObjectURI>https://www.concursolutions.com/api/travel/trip/v1.1/naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</ObjectURI>
-        <EventDateTime>2013-02-13T08:12:35</EventDateTime>
-        <EventType>CREATE</EventType>
-        <Context/>
-        <TripId>naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</TripId>
-    </Notification>
+<?xml version="1.0" encoding="utf-8"?>
+<Notification>
+    <ObjectType>ITINERARY</ObjectType>
+    <ObjectURI>https://www.concursolutions.com/api/travel/trip/v1.1/naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</ObjectURI>
+    <EventDateTime>2013-02-13T08:12:35</EventDateTime>
+    <EventType>CREATE</EventType>
+    <Context/>
+    <TripId>naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</TripId>
+</Notification>
 ```
 
 ###  XML Example of Successful Response for Itinerary Changes
@@ -119,9 +120,9 @@ Required. Authorization header with OAuth token for the desired Concur user. Thi
 
 ###  XML Example Request
 
-```
-    POST https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=fop HTTP/1.1
-    Authorization: OAuth {access token}
+```http
+POST https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=fop HTTP/1.1
+Authorization: OAuth {access token}
 ```
 
 ###  Post notification subscription for form of payment changes response
@@ -147,7 +148,10 @@ Subscribes or unsubscribes the travel supplier from notifications when the user'
 
 **type=profile**<br>The type of subscription. Required.
 
-**Examples**<br>To subscribe:<br>`https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=profile`<br>To unsubscribe:<br>`https://www.concursolutions.com/api/travelprofile/v1.0/unsubscribe?type=profile`
+**Examples**
+
+* To subscribe: `https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=profile`
+* To unsubscribe: `https://www.concursolutions.com/api/travelprofile/v1.0/unsubscribe?type=profile`
 
 #### Headers
 
@@ -156,9 +160,9 @@ Required. Authorization header with OAuth token for the desired Concur user. Thi
 
 ###  Request
 
-```
-    POST https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=profile HTTP/1.1
-    Authorization: OAuth {access token}
+```http
+POST https://www.concursolutions.com/api/travelprofile/v1.0/subscribe?type=profile HTTP/1.1
+Authorization: OAuth {access token}
 ```
 
 ###  Response
@@ -166,10 +170,8 @@ Required. Authorization header with OAuth token for the desired Concur user. Thi
 #### Notification Format
 The notification will be sent to the Postback URL that the supplier has registered with Concur during application review. Suppliers can only have one postback URL for all notification types. The notification will include the **type** and **oauth_token_key** query parameters, specifying the OAuth information for the updated user:
 
-<samp>https://postbackurl.com?type=Profile&oauth_token_key={oauth_token}</samp>
+`https://postbackurl.com?type=Profile&oauth_token_key={oauth_token}`
 
 ####  XML Example of Successful Response
 
 `200 OK`
-
-
