@@ -211,18 +211,13 @@ DELETE https://api.concursolutions.com/appmgmt/v0/connections
 DELETE /appmgmt/v0/connections HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer <access_token>
-concur-correlationid: <application_name>
 ```
 
 **Sample cURL:**
 
-<<<<<<< HEAD
-curl -X DELETE -H "Authorization: Bearer <accessToken>" \
-=======
-```shell
-curl -X DELETE -H "Authorization: Bearer <accessToken>" -H "concur-correlationid: testapp" \
->>>>>>> preview
-"https://api.concursolutions.com/appmgmt/v0/connections"
+```http
+
+curl -X DELETE -H "Authorization: Bearer <accessToken>" "https://api.concursolutions.com/appmgmt/v0/connections"
 ```
 
 **Response**
