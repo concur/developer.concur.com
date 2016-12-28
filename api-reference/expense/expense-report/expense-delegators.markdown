@@ -16,7 +16,7 @@ Users that have granted delegate permissions to the another Expense user.
 
 ## Operations
 [GET](#get)  
- 
+
 
 
 ## <a name="get"></a>Get expense delegators
@@ -45,7 +45,7 @@ application/xml
 
 #### Content body
 
-This request will return a **DelegatorsList** parent element with a **Delegator** parent element for each user that has granted delegate rights to the OAuth consumer. 
+This request will return a **DelegatorsList** parent element with a **Delegator** parent element for each user that has granted delegate rights to the OAuth consumer.
 
 #### Delegator elements
 
@@ -64,8 +64,7 @@ This request will return a **DelegatorsList** parent element with a **Delegator*
 
 #### XML Example Request
 
-```
-xml
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/Delegators HTTP/1.1
 Authorization: OAuth {access token}
 ...
@@ -73,35 +72,30 @@ Authorization: OAuth {access token}
 
 ### XML example of successful response
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+
+<DelegatorsList xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Delegator>
+        <CanApprove>N</CanApprove>
+        <CanPrepare>Y</CanPrepare>
+        <CanSubmit>Y</CanSubmit>
+        <CanTemporaryApprove>N</CanTemporaryApprove>
+        <CanViewReceipts>Y</CanViewReceipts>
+        <ReceiveApprovalEmails>N</ReceiveApprovalEmails>
+        <ReceivesEmails>N</ReceivesEmails>
+        <DelegatorXUserID>terryb@example.com</DelegatorXUserID>
+    </Delegator>
+    <Delegator>
+        <CanApprove>N</CanApprove>
+        <CanPrepare>Y</CanPrepare>
+        <CanSubmit>Y</CanSubmit>
+        <CanTemporaryApprove>N</CanTemporaryApprove>
+        <CanViewReceipts>N</CanViewReceipts>
+        <ReceiveApprovalEmails>N</ReceiveApprovalEmails>
+        <ReceivesEmails>N</ReceivesEmails>
+        <DelegatorXUserID>patd@example.com</DelegatorXUserID>
+    </Delegator>
+</DelegatorsList>
 ```
-xml
-    200 OK
-    Content-Type: application/xml
-
-    <DelegatorsList xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Delegator>
-            <CanApprove>N</CanApprove>
-            <CanPrepare>Y</CanPrepare>
-            <CanSubmit>Y</CanSubmit>
-            <CanTemporaryApprove>N</CanTemporaryApprove>
-            <CanViewReceipts>Y</CanViewReceipts>
-            <ReceiveApprovalEmails>N</ReceiveApprovalEmails>
-            <ReceivesEmails>N</ReceivesEmails>
-            <DelegatorXUserID>terryb@example.com</DelegatorXUserID>
-        </Delegator>
-        <Delegator>
-            <CanApprove>N</CanApprove>
-            <CanPrepare>Y</CanPrepare>
-            <CanSubmit>Y</CanSubmit>
-            <CanTemporaryApprove>N</CanTemporaryApprove>
-            <CanViewReceipts>N</CanViewReceipts>
-            <ReceiveApprovalEmails>N</ReceiveApprovalEmails>
-            <ReceivesEmails>N</ReceivesEmails>
-            <DelegatorXUserID>patd@example.com</DelegatorXUserID>
-        </Delegator>
-    </DelegatorsList>
-```
-
-
-
-

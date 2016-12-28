@@ -1,0 +1,79 @@
+.footer {
+  padding: 30px 0;
+  background-color: $off-black;
+  color: $text-off-white;
+
+  p {
+    color: $text-off-white;
+  }
+}
+
+.headline {
+  margin: 10px 0 25px 0;
+  border-bottom: 2px solid $concur-blue;
+  padding-bottom: 5px;
+  font-size: 22px;
+  color: $text-off-white;
+}
+
+.footer-copyright {
+  margin-top: 20px;
+}
+
+.social-icons {
+  float: right;
+}
+
+.social-icons a {
+  color: $text-gray;
+}
+
+@media (max-width: $grid-float-breakpoint-max) {
+  .footer-copyright,
+  .social-icons {
+    float: none;
+    text-align: center;
+  }
+}
+
+.footer-github {
+  margin: 30px 0;
+
+  span {
+    margin: 0 10px;
+  }
+
+  * {
+    color: $text-off-white;
+  }
+}
+
+.company-description {
+  margin-bottom: 65px;
+}
+
+.link-list li {
+  border-top: solid 1px #353535;
+
+  &:first-child {
+    border-top: none !important;
+  }
+
+  i {
+    color: #bbb;
+    float: right;
+    margin-top: 10px;
+  }
+}
+
+.link-list a {
+  color: $text-off-white;
+  font-size: 11px;
+  padding: 6px 0px;
+  display: inline-block;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $text-off-white;
+  }
+}

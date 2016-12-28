@@ -1,5 +1,5 @@
 ---
-title: Update reservation with supplier 
+title: Update reservation with supplier
 layout: reference
 ---
 
@@ -31,7 +31,7 @@ Authorization: Basic {Base64 encoded LoginID:Password}
 
 #### Request body
 
-The request will contain a **CC_LimoUpdateRequest** parent element, containing the following child elements: 
+The request will contain a **CC_LimoUpdateRequest** parent element, containing the following child elements:
 
 |  Element |  Required? |  Description |
 |-------------|----------|----------------------|
@@ -72,7 +72,7 @@ The request will contain a **CC_LimoUpdateRequest** parent element, containing t
 |  Element |  Description |
 |-------------|----------------------|
 |  FirstName |  The contact's first name. |
-|  LastName |  The contact's last name. | 
+|  LastName |  The contact's last name. |
 |  Phone |  The contact's phone number. |
 |  Phone2 |  The contact's backup phone number. |
 |  CellPhone |  The contact's cell phone number. |
@@ -230,7 +230,7 @@ The response will include a **CC_LimoUpdateReply** parent element, with the foll
 |  Element |  Description |
 |-------------|----------------------|
 |  VehicleType |  One of the following values:  <br/>100: Sedan  <br/>200: Limo  <br/>250: Stretch Limo  <br/>300: SUV  <br/>350: Stretch SUV  <br/>400: Van  <br/>450: Mini-Bus  <br/>500: Motor Coach  <br/>600: Shuttle  <br/>700: Trolley  <br/>800: Carriage  <br/>900: Any |
-|  Description |  The vehicle description. | 
+|  Description |  The vehicle description. |
 |  MaxPassengers |  The maximum number of passengers for the car. Must be greater than zero. |
 |  VehicleID |  Information to identify the specific vehicle. |
 
@@ -320,7 +320,7 @@ The response will include a **CC_LimoUpdateReply** parent element, with the foll
 
 ### XML example request
 
-```xml
+```http
 POST /concur/groundtransportation HTTPS/1.1
 Host: example.com
 Authorization: Basic ...
@@ -444,8 +444,9 @@ Content-Length: {length of content body}
 
 ### XML example of successful response
 
-```xml
-200 OK HTTPS/1.1
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
 Content-Length: {length of content body}
 
 <CC_LimoUpdateReply>

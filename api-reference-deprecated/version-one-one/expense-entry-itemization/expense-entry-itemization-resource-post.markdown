@@ -22,13 +22,15 @@ Creates or updates an itemization record for the specified expense entry.
 |{_entryId_}/Itemization | required | The unique identifier for the expense entry and the Itemization keyword.|
 |{_itemizationID_} | optional | The unique identifier for the itemization. |
 
-Examples: <br/>
-`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}/itemization`<br/>
-`Example: https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}/itemization/{itemizationId}`
+Examples:
 
-**URI Sources**: 
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}/itemization`
 
-* The reportId value is returned by the Get List of Reports function, and as part of the **Report-Details-Url** element of the Post Expense Report Header function. 
+`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}/itemization/{itemizationId}`
+
+**URI Sources**:
+
+* The reportId value is returned by the Get List of Reports function, and as part of the **Report-Details-Url** element of the Post Expense Report Header function.
 * The entryId value is returned in the **RpeKey** element of the Get Report Details function.
 * The itemizationId is returned as part of the **Itemization-Url** value returned by this function.
 
@@ -82,63 +84,64 @@ This request will return an **ItemizationStatusList** parent element with an **I
 
 ### XML example request
 
-```xml
-POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz$sQ6SKJFjLNs4OWBErcJ8yX/entry/nE0avYnILNNi9qkVyS3lYPuv4Mop4QmVs/Itemization  HTTP/1.1
+```http
+POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz$sQ6SKJFjLNs4OWBErcJ8yX/entry/nE0avYnILNNi9qkVyS3lYPuv4Mop4QmVs/Itemization HTTP/1.1
 Authorization: OAuth {access token}
- ...
-    <ExpenseItemizations xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03">
-        <Itemization>
-            <ExpKey>DINNR</ExpKey>
-            <Description>Dinner</Description>
-            <TransactionAmount>56.00</TransactionAmount>
-            <PostedAmount>56.00</PostedAmount>
-            <Comment>Dinner</Comment>
-            <Custom1>Dinner</Custom1>
-            <Custom2>Room Service</Custom2>
-            <Custom5>Too late for restaurant</Custom5>
-            <IsPersonal>N</IsPersonal>
-        </Itemization>
-        <Itemization>
-            <ExpKey>LUNCH</ExpKey>
-            <Description>Lunch</Description>
-            <TransactionAmount>24.64</TransactionAmount>
-            <PostedAmount>24.64</PostedAmount>
-            <Comment>Lunch</Comment>
-            <IsPersonal>N</IsPersonal>
-        </Itemization>
-        <Itemization>
-            <ExpKey>BRKFT</ExpKey>
-            <Description>BreakFast</Description>
-            <TransactionAmount>15.34</TransactionAmount>
-            <PostedAmount>15.34</PostedAmount>
-            <Comment>Breakfast</Comment>
-            <IsPersonal>N</IsPersonal>
-        </Itemization>
-    </ExpenseItemizations>
+Content-Type: application/xml
+...
+
+<ExpenseItemizations xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03">
+    <Itemization>
+        <ExpKey>DINNR</ExpKey>
+        <Description>Dinner</Description>
+        <TransactionAmount>56.00</TransactionAmount>
+        <PostedAmount>56.00</PostedAmount>
+        <Comment>Dinner</Comment>
+        <Custom1>Dinner</Custom1>
+        <Custom2>Room Service</Custom2>
+        <Custom5>Too late for restaurant</Custom5>
+        <IsPersonal>N</IsPersonal>
+    </Itemization>
+    <Itemization>
+        <ExpKey>LUNCH</ExpKey>
+        <Description>Lunch</Description>
+        <TransactionAmount>24.64</TransactionAmount>
+        <PostedAmount>24.64</PostedAmount>
+        <Comment>Lunch</Comment>
+        <IsPersonal>N</IsPersonal>
+    </Itemization>
+    <Itemization>
+        <ExpKey>BRKFT</ExpKey>
+        <Description>BreakFast</Description>
+        <TransactionAmount>15.34</TransactionAmount>
+        <PostedAmount>15.34</PostedAmount>
+        <Comment>Breakfast</Comment>
+        <IsPersonal>N</IsPersonal>
+    </Itemization>
+</ExpenseItemizations>
 ```
 
 ### XML example response
 
-```xml
-    200 OK
-    Content-Type: application/xml
-    <ItemizationStatusList xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <ItemizationStatus>
-            <Index>1</Index>
-            <Status>SUCCESS</Status>
-            <ItemizedEntry-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz3zHJBCRk$puJLmXp25RsAwp/entry/nE0avYnILNNi9qkVyS3lYPuv4Mop4QmVs/itemization/nE0avYnILN69JgpJGuSCy5qqirEfFcds4</ItemizedEntry-Details-Url>
-        </ItemizationStatus>
-        <ItemizationStatus>
-            <Index>2</Index>
-            <Status>SUCCESS</Status>
-            <ItemizedEntry-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz3zHJBCRk$puJLmXp25RsAwp/entry/nE0avYnILNNi9qkVyS3lYPuv4Mop4QmVs/itemization/nE0avYnILN65lGE4Zka1YOp608re6ASJb</ItemizedEntry-Details-Url>
-        </ItemizationStatus>
-        <ItemizationStatus>
-            <Index>3</Index>
-            <Status>SUCCESS</Status>
-            <ItemizedEntry-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz3zHJBCRk$puJLmXp25RsAwp/entry/nE0avYnILNNi9qkVyS3lYPuv4Mop4QmVs/itemization/nE0avYnILN6nw6Hi0jhAuYXAXiXNej7zb</ItemizedEntry-Details-Url>
-        </ItemizationStatus>
-    </ItemizationStatusList>
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+
+<ItemizationStatusList xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <ItemizationStatus>
+        <Index>1</Index>
+        <Status>SUCCESS</Status>
+        <ItemizedEntry-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz3zHJBCRk$puJLmXp25RsAwp/entry/nE0avYnILNNi9qkVyS3lYPuv4Mop4QmVs/itemization/nE0avYnILN69JgpJGuSCy5qqirEfFcds4</ItemizedEntry-Details-Url>
+    </ItemizationStatus>
+    <ItemizationStatus>
+        <Index>2</Index>
+        <Status>SUCCESS</Status>
+        <ItemizedEntry-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz3zHJBCRk$puJLmXp25RsAwp/entry/nE0avYnILNNi9qkVyS3lYPuv4Mop4QmVs/itemization/nE0avYnILN65lGE4Zka1YOp608re6ASJb</ItemizedEntry-Details-Url>
+    </ItemizationStatus>
+    <ItemizationStatus>
+        <Index>3</Index>
+        <Status>SUCCESS</Status>
+        <ItemizedEntry-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz3zHJBCRk$puJLmXp25RsAwp/entry/nE0avYnILNNi9qkVyS3lYPuv4Mop4QmVs/itemization/nE0avYnILN6nw6Hi0jhAuYXAXiXNej7zb</ItemizedEntry-Details-Url>
+    </ItemizationStatus>
+</ItemizationStatusList>
 ```
-
-

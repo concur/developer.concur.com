@@ -18,9 +18,9 @@ layout: reference
 
 ## <a name="get"></a>Retrieve all attendees owned by the specified user
 
-    GET  /api/v3.0/expense/attendees	
+    GET  /api/v3.0/expense/attendees
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -39,7 +39,7 @@ https://www.concursolutions.com/api/v3.0/expense/attendees?limit=15
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "Items": [
     {
@@ -88,6 +88,8 @@ https://www.concursolutions.com/api/v3.0/expense/attendees?limit=15
       "ID": "gWj3IHRYiHZGUtIO83ILhbNHqCsjMmkvj$pQ",
       "URI": "https://www.concursolutions.com/api/v3.0/expense/attendees/gWj3IHRYiHZGUtIO83ILhbNHqCsjMmkvj$pQ"
     }
+  ]
+}
 ```
 
 
@@ -112,7 +114,7 @@ https://www.concursolutions.com/api/v3.0/expense/attendees/gWj3IHRYiHZGd0HJy%24p
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "AttendeeTypeCode": "PRIVATE",
   "AttendeeTypeID": "gWjYOjoa7Fe0HsTGEk417OCzqUf1A",
@@ -189,7 +191,7 @@ https://www.concursolutions.com/api/v3.0/expense/attendees
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "ID": "gWj3IHRYiHZOQ2T9NNdJ$plN$s7$sG8LhZwjoQ",
   "URI": "https://www.concursolutions.com/api/v3.0/expense/attendees/gWj3IHRYiHZOQ2T9NNdJ$plN$s7$sG8LhZwjoQ"
@@ -285,4 +287,3 @@ Name | Type | Format | Description
 ```
 https://www.concursolutions.com/api/v3.0/expense/attendees/gWj3IHRYiHZOQ2T9NNdJ%24plN%24s7%24sG8LhZwjoQ
 ```
-

@@ -9,6 +9,7 @@ This series of API Recipes describes API tasks associated with developing apps, 
 
 ### Before you begin
 Review the following checklist to ensure you are able to perform the task in this recipe. To see reference information, click the link in the bullet point
+
 - Understand the [authentication process](/api-reference/authentication/getting-started.html)
 - Be able to access the [Get Trips API](https://developer.concur.com/api-reference/travel/itinerary/trip/trip-resource.html#postnt)
 - Be able to access the [Itinerary Web Service (TMC & Third Party)](https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html)
@@ -51,7 +52,6 @@ This task retrieves trip summaries for the traveler specified in the Oauth token
 
 ```
 https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={startdate}&endDate={enddate}&_createdAfterDate={_date}&createdBeforeDate={date}&lastModifiedDate={date}&bookingType={type}&userid_type=login&userid_value=ALL
-
 ```
 
 Individual user (Oauth consumer)
@@ -134,7 +134,7 @@ For more information on how to GET a trip list for a user by using their Oauth t
 
 #### Example Get List of Trips request:
 
-```
+```http
 GET https://{InstanceURL}/api/travel/trip/v1.1 HTTP/1.1
 Authorization: OAuth {user's access token}
 Accept: application/xml
@@ -144,7 +144,7 @@ The Get Trip List response includes the unique TripID for each trip.
 
 #### Example trip details request
 
-```
+```http
 GET https://{InstanceURL}/api/travel/trip/v1.1/{TripID} HTTP/1.1
 Authorization: OAuth {user's access token}
 Accept: application/xml
@@ -199,10 +199,10 @@ To create this request, use the following example as a template. Notice that the
 
 XML Example request to subscribe:
 
-```
+```http
 POST http://www.concursolutions.com/api/company/v1.0/subscribe?type=itinerary HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+Authorization: OAuth {access token}
+...
 ```
 
 The notification is sent to the Postback URL that the partner has registered with Concur during application review. Partners can only have one postback URL for all notification types. The notification will include the type, oauth_token_key, userid_type, and userid_value query parameters, specifying the updated user as seen in the example:

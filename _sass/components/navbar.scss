@@ -1,3 +1,4 @@
+// bootstrap overrides
 $navbar-default-bg: $off-black;
 $navbar-height: 70px;
 $navbar-border-radius: 0;
@@ -44,7 +45,7 @@ a.navbar-brand {
   .app-name {
     display: inline-block;
     padding-top: 25px;
-    font-size: 0.8em;
+    font-size: 20px;
 
     &:hover {
       color: $concur-blue;

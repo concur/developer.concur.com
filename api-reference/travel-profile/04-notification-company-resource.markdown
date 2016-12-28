@@ -50,10 +50,10 @@ Required. Authorization header with OAuth token for an administrative user at th
 
 ####  XML Example Request
 
-```
+```http
 POST http://www.concursolutions.com/api/company/v1.0/subscribe?type=itinerary HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+Authorization: OAuth {access token}
+...
 ```
 
 ###  Post Company Notification Subscription for Itinerary Changes Response
@@ -83,18 +83,19 @@ The response body will include a **Notification** parent element, with the follo
 
 ####  XML Example of Notification
 
-```
+```http
 POST https://www.postbackurl.com?type=itinerary&oauth_token_key={oauthtoken}&userid_type=login&userid_value=cm@example.com HTTP/1.1
+Content-Type: application/xml
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <Notification>
-        <ObjectType>ITINERARY</ObjectType>
-        <ObjectURI>https://www.concursolutions.com/api/travel/trip/v1.1/naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</ObjectURI>
-        <EventDateTime>2013-02-13T08:12:35</EventDateTime>
-        <EventType>CREATE</EventType>
-        <Context/>
-        <TripId>naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</TripId>
-    </Notification>
+<?xml version="1.0" encoding="utf-8"?>
+<Notification>
+    <ObjectType>ITINERARY</ObjectType>
+    <ObjectURI>https://www.concursolutions.com/api/travel/trip/v1.1/naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</ObjectURI>
+    <EventDateTime>2013-02-13T08:12:35</EventDateTime>
+    <EventType>CREATE</EventType>
+    <Context/>
+    <TripId>naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</TripId>
+</Notification>
 ```
 
 ##  <a name="a2">Post Company Notification Subscription for Payment Changes</a>
@@ -120,9 +121,9 @@ Required. Authorization header with OAuth token for the desired Concur user. Thi
 
 ###  XML Example Request
 
-```
-    POST https://www.concursolutions.com/api/company/v1.0/subscribe?type=fop HTTP/1.1
-    Authorization: OAuth {access token}
+```http
+POST https://www.concursolutions.com/api/company/v1.0/subscribe?type=fop HTTP/1.1
+Authorization: OAuth {access token}
 ```
 
 ###  Post notification subscription for form of payment changes response
@@ -161,10 +162,10 @@ Required. Authorization header with OAuth token for an administrative user at th
 
 ####  XML Example Request
 
-```
-    POST <https://www.concursolutions.com/api/company/v1.0/subscribe?type=profile> HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+POST <https://www.concursolutions.com/api/company/v1.0/subscribe?type=profile> HTTP/1.1
+Authorization: OAuth {access token}
+...
 ```
 
 ###  Post Company Notification Subscription for Travel Profile Changes Response

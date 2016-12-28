@@ -49,53 +49,52 @@ The request body contains an **AttendeeSearchRequest** parent element with an **
 
 ####  XML Example Request
 
-```
-xml
-    POST /concur/attendee/v1.0/fetch HTTPS/1.1
-    Host: example.com
-    Authorization: Basic ...
-    Content-Type: application/xml; charset=utf-8
-    Content-Length: {length of content body}
+```http
+POST /concur/attendee/v1.0/fetch HTTPS/1.1
+Host: example.com
+Authorization: Basic ...
+Content-Type: application/xml; charset=utf-8
+Content-Length: {length of content body}
 
-    <AttendeeSearchRequest>
-        <Attendee>
-            <AttendeeTypeCode>BUSGUEST</AttendeeTypeCode>
-            <FirstName>Chris</FirstName>
-            <MiddleInitial />
-            <LastName>Miller</LastName>
-            <Suffix />
-            <Title>CFO</Title>
-            <Company>Len Dev</Company>
-            <ExternalID />
-            <OwnerLoginID>cm@example.com</OwnerLoginID>
-            <MaximumNumberRecords>500</MaximumNumberRecords>
-            <Custom1 />
-            <Custom2 />
-            <Custom3 />
-            <Custom4 />
-            <Custom5 />
-            <Custom6 />
-            <Custom7 />
-            <Custom8>North America</Custom8>
-            <Custom9> />
-                <Custom10 />
-                <Custom11 />
-                <Custom12 />
-                <Custom13 />
-                <Custom14 />
-                <Custom15 />
-                <Custom16 />
-                <Custom17 />
-                <Custom18 />
-                <Custom19 />
-                <Custom20 />
-                <Custom21 />
-                <Custom22 />
-                <Custom23 />
-                <Custom24 />
-                <Custom25 />
-        </Attendee>
-    </AttendeeSearchRequest>
+<AttendeeSearchRequest>
+    <Attendee>
+        <AttendeeTypeCode>BUSGUEST</AttendeeTypeCode>
+        <FirstName>Chris</FirstName>
+        <MiddleInitial />
+        <LastName>Miller</LastName>
+        <Suffix />
+        <Title>CFO</Title>
+        <Company>Len Dev</Company>
+        <ExternalID />
+        <OwnerLoginID>cm@example.com</OwnerLoginID>
+        <MaximumNumberRecords>500</MaximumNumberRecords>
+        <Custom1 />
+        <Custom2 />
+        <Custom3 />
+        <Custom4 />
+        <Custom5 />
+        <Custom6 />
+        <Custom7 />
+        <Custom8>North America</Custom8>
+        <Custom9> />
+        <Custom10 />
+        <Custom11 />
+        <Custom12 />
+        <Custom13 />
+        <Custom14 />
+        <Custom15 />
+        <Custom16 />
+        <Custom17 />
+        <Custom18 />
+        <Custom19 />
+        <Custom20 />
+        <Custom21 />
+        <Custom22 />
+        <Custom23 />
+        <Custom24 />
+        <Custom25 />
+    </Attendee>
+</AttendeeSearchRequest>
 ```
 
 ##  Post Attendee Search Response
@@ -131,7 +130,7 @@ The **Attendee** child element must contain all of the elements described below.
 |Field | Description |
 |------|-------|
 |  Custom7 |  License Number |
-|  Custom8 |  State of License |   | |
+|  Custom8 |  State of License |
 |  Custom9 |  Specialty Description |
 |  Custom13 |  Recipient Type/Professional Designation |
 |  Custom14 |  NPI Number |
@@ -149,63 +148,62 @@ The **Attendee** child element must contain all of the elements described below.
 
 * When implementing the search logic, the search criteria should use logical AND between the fields, not logical OR. For example, if in the search dialog the user specifies Doe in the last name field and Acme in the company field, the connector must return only records where the Acme company has contacts with the last name of Doe. It must not return records for contacts with the last name Doe who belong to another company such as Apex.
 * If the application connector does not respond or returns an error, the user is notified in a popup window within Expense. Concur will not resend the request unless the user manually initiates the search again.
- |
 
 ####  XML Example of Successful Response
 
-```
-xml
-    HTTPS/1.1 OK 200
-    Content-Type: application/xml
-    Content-Length: {length of content body}
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <AttendeeSearchResponse>
-        <Attendee>
-            <ExternalID>1234567890</ExternalID>
-            <FirstName>Chris</FirstName>
-            <MiddleInitial>T</MiddleInitial>
-            <LastName>Miller</LastName>
-            <Suffix/>
-            <Company>Len Dev</Company>
-            <AttendeeTypeCode>BUSGUEST</AttendeeTypeCode>
-            <Title>CFO</Title>
-            <Custom1/>
-            <Custom2/>
-            <Custom3/>
-            <Custom4/>
-            <Custom5/>
-            <Custom6/>
-            <Custom7>RD</Custom7>
-            <Custom8>North America</Custom8>
-            <Custom9>Internal Medicine</Custom9>
-            <Custom10/>
-            <Custom11/>
-            <Custom12/>
-            <Custom13/>
-            <Custom14/>
-            <Custom15>100 Main Street, Bellevue, WA 98040</Custom15>
-            <Custom16/>
-            <Custom17/>
-            <Custom18/>
-            <Custom19/>
-            <Custom20/>
-            <Custom21>Tax ID 1234</Custom21>
-            <Custom22/>
-            <Custom23>Patient ID 576</Custom23>
-            <Custom24/>
-            <Custom25/>
-        </Attendee>
-    </AttendeeSearchResponse>
+<AttendeeSearchResponse>
+    <Attendee>
+        <ExternalID>1234567890</ExternalID>
+        <FirstName>Chris</FirstName>
+        <MiddleInitial>T</MiddleInitial>
+        <LastName>Miller</LastName>
+        <Suffix/>
+        <Company>Len Dev</Company>
+        <AttendeeTypeCode>BUSGUEST</AttendeeTypeCode>
+        <Title>CFO</Title>
+        <Custom1/>
+        <Custom2/>
+        <Custom3/>
+        <Custom4/>
+        <Custom5/>
+        <Custom6/>
+        <Custom7>RD</Custom7>
+        <Custom8>North America</Custom8>
+        <Custom9>Internal Medicine</Custom9>
+        <Custom10/>
+        <Custom11/>
+        <Custom12/>
+        <Custom13/>
+        <Custom14/>
+        <Custom15>100 Main Street, Bellevue, WA 98040</Custom15>
+        <Custom16/>
+        <Custom17/>
+        <Custom18/>
+        <Custom19/>
+        <Custom20/>
+        <Custom21>Tax ID 1234</Custom21>
+        <Custom22/>
+        <Custom23>Patient ID 576</Custom23>
+        <Custom24/>
+        <Custom25/>
+    </Attendee>
+</AttendeeSearchResponse>
 ```
 
 The following example shows the expected response when no attendees match the search criteria.
 
-```
-xml
-    HTTPS/1.1 OK
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <AttendeeSearchResponse/>
+<?xml version="1.0" encoding="utf-8"?>
+<AttendeeSearchResponse/>
 ```
 
 

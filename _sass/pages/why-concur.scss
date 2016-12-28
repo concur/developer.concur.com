@@ -1,0 +1,10 @@
+$why-concur-image: url('/assets/img/sliders/nyc_timessquare.jpg');
+$why-concur-bg: rgba(0, 0, 0, 0.3);
+
+.jumbotron-why-concur {
+  background: -webkit-linear-gradient($why-concur-bg, $why-concur-bg), $why-concur-image;
+  background:    -moz-linear-gradient($why-concur-bg, $why-concur-bg), $why-concur-image;
+  background:      -o-linear-gradient($why-concur-bg, $why-concur-bg), $why-concur-image;
+  background:         linear-gradient($why-concur-bg, $why-concur-bg), $why-concur-image;
+  background-size: cover;
+}

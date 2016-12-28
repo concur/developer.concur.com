@@ -36,7 +36,7 @@ layout: reference
 | [September](AppCenter_ReleaseNotes_Sept 2016_FINAL.pdf) | [September](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September][1-5] |
 | [October](AppCenter_ReleaseNotes_Oct 2016_FINAL.pdf) | [October](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October][1-6] |
 | [November](AppCenter_ReleaseNotes_Nov 2016_FINAL.pdf) | -- | [November][1-7] |
-| -- | [December](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December][1-8] |
+| [December](AppCenter_ReleaseNotes_Dec 2016_FINAL.pdf) | [December](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December][1-8] |
 
 
 # Combined App Center and Developer Platform Release Notes

@@ -196,9 +196,11 @@ Name | Type | Format | Description
 
 ### Example
 
-     <UserBatch xmlns="http://www.concursolutions.com/api/user/2011/02">
-      <UserProfile>
-          <loginid>loginID/loginid>
-          <password>password</password>
-      </UserProfile>
-    </UserBatch>
+```xml
+<UserBatch xmlns="http://www.concursolutions.com/api/user/2011/02">
+    <UserProfile>
+        <loginid>loginID/loginid>
+        <password>password</password>
+    </UserProfile>
+</UserBatch>
+```

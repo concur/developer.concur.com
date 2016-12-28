@@ -23,7 +23,7 @@ layout: reference
 
 ### Version
 
-- 4.0 
+- 4.0
 - [3.0](https://developer.concur.com/api-reference-deprecated/version-three/receipts.html) [Deprecation Notice](https://developer.concur.com/changelog/2016/11/07/receipts-version-three-deprecation.html).
 
 #### Overview of Version 4.0
@@ -47,8 +47,7 @@ https://emea.api.concursolutions.com/receipts/
 1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
 2. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
 
-Once you have registered your application, read about the [API endpoints](#endpoints) below, or click the button to download a request collection for [Postman](https://www.getpostman.com/docs/introduction).
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5782fa347917ac1568e6)
+Once you have registered your application, read about the [API endpoints](#endpoints) below, or click the button to download a request collection for [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/56acd8062493df1bb6de).
 
 #### Endpoints
 
@@ -71,13 +70,13 @@ Examples:
 
 cURL:
 
-```
+```shell
 curl -d "client_secret={YOUR SECRET}&client_id={YOUR CLIENT ID}&grant_type=password&username={YOUR USERNAME}&password={YOUR PASSWORD}" https://us.api.concursolutions.com/oauth2/v0/token
 ```
 
 HTTPie:
 
-```
+```shell
 http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={YOUR SECRET} client_id={YOUR CLIENT ID} grant_type=password username={YOUR USERNAME} password=P{YOUR PASSWORD}
 ```
 
@@ -91,19 +90,19 @@ _Example Requests:_
 
 cURL:
 
-```
+```shell
 curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/
 ```
 
 HTTPie:
 
-```
+```shell
 http https://us.api.concursolutions.com/receipts/ 'Authorization:Bearer {YOUR ACCESS TOKEN}'
 ```
 
 _Example Response:_
 
-```
+```json
 {
   "links": [
     {
@@ -154,31 +153,31 @@ _Example Requests:_
 
 cURL for the schema index:
 
-```
+```shell
 curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/schemas/
 ```
 
 HTTPie for the schema index:
 
-```
+```shell
 http https://us.api.concursolutions.com/receipts/schemas 'Authorization:Bearer {YOUR ACCESS TOKEN}'
 ```
 
 cURL for a single schema:
 
-```
+```shell
 curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/schemas/car-rental-receipt.schema.json
 ```
 
 HTTPie for a single schema:
 
-```
+```shell
 http https://us.api.concursolutions.com/receipts/schemas/car-rental-receipt.schema.json 'Authorization:Bearer {YOUR ACCESS TOKEN}'
 ```
 
 _Example Response:_
 
-```
+```json
 {
   "receiptSchemas": [
     {
@@ -296,7 +295,7 @@ _Example Requests:_
 
 cURL data without image:
 
-```
+```shell
 curl -v -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN} \
 -H "Authorization: Bearer {YOUR ACCESS TOKEN}" \
 -H "Content-Type: application/json" \
@@ -306,7 +305,7 @@ curl -v -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FR
 
 cURL data and image:
 
-```
+```shell
 curl -v -k -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN} \
 -H "Authorization: Bearer {YOUR ACCESS TOKEN}" \
 -H "Content-Type:multipart/form-data" \
@@ -317,7 +316,7 @@ curl -v -k -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID
 
 HTTPie data without image:
 
-```
+```shell
 http POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN} \
 "Authorization:Bearer {YOUR ACCESS TOKEN}" \
 "Content-Type: application/json" \
@@ -327,12 +326,12 @@ http POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOU
 
 _Example Response:_
 
-```
-< HTTP/1.1 201 Created
-< Link: <http://schema.concursolutions.com/car-rental-receipt.schema.json>; rel="describedBy"
-< Location: https://us.api.concursolutions.com/receipts/v4/b0a4ab2bce8a49a08cf177cb997bf2ee
-< Content-Length: 0
-< Connection: keep-alive
+```http
+HTTP/1.1 201 Created
+Link: <http://schema.concursolutions.com/car-rental-receipt.schema.json>; rel="describedBy"
+Location: https://us.api.concursolutions.com/receipts/v4/b0a4ab2bce8a49a08cf177cb997bf2ee
+Content-Length: 0
+Connection: keep-alive
 ```
 
 [Back to Top](#endpoints)
@@ -351,19 +350,19 @@ _Example Requests:_
 
 cURL:
 
-```
+```shell
 curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}
 ```
 
 HTTPie:
 
-```
+```shell
 http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID} "Authorization: Bearer {YOUR ACCESS TOKEN}"
 ```
 
 _Example Response_
 
-```
+```json
 {
   "dateTimeReceived": "2016-09-28T21:41:21.087Z",
   "id": "85b76a2bf51a4ed7b8b252994d7d9e2b",
@@ -395,19 +394,19 @@ _Example Requests:_
 
 cURL:
 
-```
+```shell
 curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/v4/users/{USER ID}
 ```
 
 HTTPie:
 
-```
+```shell
 http https://us.api.concursolutions.com/receipts/v4/users/{USER ID} "Authorization: Bearer {YOUR ACCESS TOKEN}"
 ```
 
 _Example Response:_
 
-```
+```json
 {
   "receipts": [
     {
@@ -455,13 +454,13 @@ _Example Requests:_
 
 cURL:
 
-```
+```shell
 curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image
 ```
 
 HTTPie:
 
-```
+```shell
 http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authorization: Bearer {YOUR ACCESS TOKEN}"
 ```
 
