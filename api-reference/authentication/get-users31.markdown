@@ -24,7 +24,7 @@ Once you have the Company Token, you would call the `/users` endpoint to retriev
 
 `GET /users`
 
-**Parameters**
+**Query Parameters**
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
@@ -40,16 +40,18 @@ GET /users HTTP/1.1
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: us.api.concursolutions.com
 
-offset=0
-&limit=100
-
 ```
 
 Sample Curl:
 
 ```
-curl -X GET -H "Authorization: Bearer $company_token" -H "Accept: application/json" "https://us.api.concursolutions.com/users?offset=0&limit=100"
+curl -v -X GET -H "Authorization: Bearer $token" \
+-H "Accept: application/json"
+-H "concur-correlationid: testClient" \
+'https://us.api.concursolutions.com/users?offset=0&limit=100'
 ```
+
+* `concur-correlationid` is a unique string to identify your client application name for troubleshooting purposes. 
 
 successful call, responds with
 
