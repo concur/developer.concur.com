@@ -44,7 +44,7 @@ Host: us.api.concursolutions.com
 
 Sample Curl:
 
-```
+```shell
 curl -v -X GET -H "Authorization: Bearer $token" \
 -H "Accept: application/json"
 -H "concur-correlationid: testClient" \
