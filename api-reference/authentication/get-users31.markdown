@@ -29,7 +29,7 @@ Once you have the Company Token, you would call the `/users` endpoint to retriev
 Name | Type | Format | Description
 -----|------| ------ | -----------
 `offset`|`string` |  | **Optional** The offset to begin returning the list of users
-`limit`|`string` |  | **Optional** The maximum number of user records to return
+`limit`|`string` |  | **Optional** The number of user records to return in that call. Max: 100
 
 
 **Request**
@@ -76,7 +76,7 @@ successful call, responds with
       "Active": true,
       "CellPhoneNumber": null,
       "PrimaryEmail": "janedoe@gmail.com",
-      "EmployeeID": "",
+      "EmployeeID": "janedoe@gmail.com",
       "ID": "55FFF504-C7B8-49FF-9E15-6248FFFFFCDB",
       "OrganizationUnit": null,
       "MiddleName": "",
@@ -88,5 +88,5 @@ successful call, responds with
 }
 ```
 
-
+* `total` - is the total number of users within the company.
 
