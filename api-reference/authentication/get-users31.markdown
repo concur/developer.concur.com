@@ -47,11 +47,8 @@ Sample Curl:
 ```shell
 curl -v -X GET -H "Authorization: Bearer $token" \
 -H "Accept: application/json"
--H "concur-correlationid: testClient" \
 'https://us.api.concursolutions.com/users?offset=0&limit=100'
 ```
-
-* `concur-correlationid` is a unique string to identify your client application name for troubleshooting purposes. 
 
 successful call, responds with
 
