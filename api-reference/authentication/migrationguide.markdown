@@ -29,7 +29,7 @@ Applications can exchange tokens by calling the `exchangeRefreshToken/me` endpoi
 
 **Step 2: Call exchangeRefreshToken**
 
-`POST /legacyApps/{oldConsumerKey}/exchangeRefreshToken/me`
+`POST /appmgmt/v0/legacyApps/{oldConsumerKey}/exchangeRefreshToken/me`
 
 **Request Header**
 
@@ -49,7 +49,7 @@ Name | Type | Format | Description
 Sample Curl:
 
 ```shell
-curl -H 'Authorization: Bearer <accessToken>' -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST http://us.api.concursolutions.com/api/appmgmt/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me
+curl -H 'Authorization: Bearer <accessToken>' -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST http://us.api.concursolutions.com/appmgmt/v0/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me
 ```
 
 successful call, responds with
