@@ -7,8 +7,6 @@
         url: /api-reference/authentication/apidoc.html
       - title: Company Level Authentication
         url: /api-reference/authentication/company-auth.html
-      - title: GET Users Bulk API
-        url: /api-reference/authentication/get-users31.html
       - title: Getting Started
         url: /api-reference/authentication/getting-started.html
       - title: Migrating to Oauth2 Tokens
