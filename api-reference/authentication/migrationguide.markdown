@@ -35,7 +35,7 @@ Applications can exchange tokens by calling the `exchangeRefreshToken/me` endpoi
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
-`Authorization:`|`string` | Bearer <accessToken> | **Required** The new client_credentials accessToken.
+`Authorization`|`string` | `Bearer <accessToken>` | **Required** The new client_credentials accessToken.
 
 
 **Request Body**
@@ -77,7 +77,7 @@ Once you have the new `refreshToken` from the response (`8c844478-745c-4c45-adf7
 Sample Curl:
 
 ```shell
-curl -X POST 'https://us.api.concursolutions.com/oauth2/v0/token' --data 'client_id=3a55c75e-ac1e-4515-845c-0a4978452828&client_secret=12345&grant_type=refresh_token&refresh_token=8c844478-745c-4c45-adf7-1e2777a50dbf'
+curl -X POST 'https://us.api.concursolutions.com/oauth2/v0/token' -d 'client_id=3a55c75e-ac1e-4515-845c-0a4978452828&client_secret=12345&grant_type=refresh_token&refresh_token=8c844478-745c-4c45-adf7-1e2777a50dbf'
 ```
 
 successful call, responds with:
