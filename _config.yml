@@ -35,7 +35,7 @@ sitemap:
 
 pagination:
   per_page: 5
-  permalink: '/page:num'
+  permalink: '/page:num/'
 
 jekyll-archives:
   enabled: all
