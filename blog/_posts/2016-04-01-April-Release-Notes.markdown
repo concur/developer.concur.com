@@ -10,6 +10,7 @@ references:
     - url: /api-reference/travel/travel-profile/form-payment-resource.html
       link: Form of Payment
 author: Concur Travel
+redirect_from: 2016/04/01/April-Release-Notes.html
 ---
 
 

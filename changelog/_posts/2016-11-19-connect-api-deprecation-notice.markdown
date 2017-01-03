@@ -9,8 +9,6 @@ tags:
 references:
     - url: /tools-support/reference/deprecation-policy.html
       link: Concur API Deprecation Policy
-categories:
-    - changelog
 ---
 
 ### Reminder: Support Ending for Deprecated APIs

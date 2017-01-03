@@ -11,6 +11,7 @@ references:
     - url: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource-post.html
       link: Quick Expense POST v1
 author: Sarra Loew
+redirect_from: 2016/03/18/quick-expense-api-payment-type.html
 ---
 
 Concur has updated the Quick Expense API to correct the behavior of the PaymentTypeCode element. Prior to this release, the payment type code of a new quick expense would default to Cash, regardless of the value sent. In the March 2016 release, the Quick Expense API now applies the value sent in the PaymentTypeCode element, if the company’s configuration supports it.  
