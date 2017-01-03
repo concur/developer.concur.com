@@ -5,6 +5,7 @@ date: 2016-03-16
 tags:
     - Sandbox
 author: Henry Yamamoto
+redirect_from: 2016/03/16/sandbox-workaround.html
 ---
 
 We are currently experiencing an issue in creating new standard [sandboxes](https://developer.concur.com/manage-apps/register.html) where users are unable to setup employee reimbursements. We are actively working on resolving this issue as soon as possible. In the meantime, the following is a workaround to configure employee reimbursements:

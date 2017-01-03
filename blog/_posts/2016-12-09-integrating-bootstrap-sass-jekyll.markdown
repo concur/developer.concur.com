@@ -6,6 +6,7 @@ tags:
     - UI
     - Documentation
 author: Brian Hague
+redirect_from: 2016/12/09/integrating-bootstrap-sass-jekyll.html
 ---
 
 Recently, the Concur Developer Center has gone through some significant UI changes. As the amount of developer content and resources has grown, the UI has become a more important component when delivering developer documentation. This holds true across other documentation sites as well. See how [Stripe separates content from code in their 3-column layout](https://stripe.com/docs/api){:target="_blank"}, or how [Firebase organizes their documentation by platform](https://firebase.google.com/docs/reference/){:target="_blank"}. In both instances, the UI plays a major role in effectively communicating ideas to developers.
