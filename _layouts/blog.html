@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign location = page.url | split :'/' %}
+{% assign location = page.url | split : '/' %}
 
 {% if location contains 'changelog' %}
   {% assign path = 'changelog' %}
@@ -12,75 +12,64 @@ layout: default
   {% assign pagetitle = 'Developer Blog' %}
 {% endif %}
 
-{% assign path_posts = "" | split:"|"  %}
-{% for post in site.posts limit: 10 %}
-  {% if pagetitle == 'Change Log' %}
-    {% if post.categories contains 'changelog' %}
-      {% assign path_posts = path_posts | push: post %}
-    {% endif %}
-  {% else %}
-    {% unless post.categories contains 'changelog' %}
-      {% assign path_posts = path_posts | push: post %}
-    {% endunless %}
-  {% endif %}
-{% endfor %}
-
-
 <div class="breadcrumbs">
   <div class="container">
-    <h1 class="pull-left"><a href='/{{path}}'>{{ pagetitle }}</a>{% if page.title %} | <a href='{{page.url}}'>{{ page.title}} {% endif %}</a></h1>
+    <h1 class="pull-left">
+      <a href="/{{ path }}">{{ pagetitle }}</a>
+      {% if page.title %} | <a href="{{ page.url }}">{{ page.title }}</a>{% endif %}
+    </h1>
   </div>
 </div>
-<br>
+
 <div class="container content">
   <div class="container">
     <div class="row">
       <div class="col-md-3">
         <h1>Latest Posts</h1>
-        <div class='latestposts'>
+        <div class="latestposts">
 
-          {% for post in path_posts limit: 10 %}
+          {% for post in site.categories[path] limit: 10 %}
 
             <div>
-              <h4><a href='{{ post.url }}'> {{ post.title }}</a></h4>
+              <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
                 {% if post.tags %}
                 <i class="fa fa-tags" aria-hidden="true"></i>&nbsp;
                   {% for tag in post.tags %}
-                    {% if forloop.index == post.tags.size %}
-                      <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag | replace: "-", " " }}</a></span>
+                    {% if forloop.last %}
+                      <span class="navtags"><a href="/blog/tag/{{ tag }}">{{ tag | replace: "-", " " }}</a></span>
                     {% else %}
-                      <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag | replace: "-", " " }}, </a></span>
+                      <span class="navtags"><a href="/blog/tag/{{ tag }}">{{ tag | replace: "-", " " }}, </a></span>
                     {% endif %}
                   {% endfor %}
                 {% endif %}
                 <br>
                 {% if post.author %}
-                  By {{ post.author }} • {{ post.date | date: "%A, %B %-d"}}
+                  By {{ post.author }} • {{ post.date | date: "%A, %B %-d" }}
                   <br>
                 {% else %}
-                  {{ post.date | date: "%A, %B %-d"}}
+                  {{ post.date | date: "%A, %B %-d" }}
                 {% endif %}
             </div>
             <br>
           {% endfor %}
           {% if pagetitle == 'Developer Blog' %}
           <div>
-            <h4><a href="/{{path}}/tags">Posts By Tag</a></h4>
+            <h4><a href="/{{ path }}/tags">Posts By Tag</a></h4>
           </div>
           {% endif %}
           <div>
-            <h4><a href="/{{path}}/archives.html">Archives</a></h4>
+            <h4><a href="/{{ path }}/archives.html">Archives</a></h4>
           </div>
           {% if pagetitle == 'Developer Blog' %}
           <div>
-            <a href='https://feedly.com/i/subscription/feed/https://developer.concur.com/feed.xml' target='blank' data-toggle="popover" data-placement="bottom" data-content="Follow On Feedly" data-trigger='hover' id='feedly'><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png' alt='follow us in feedly' width='28' height='28'></a>
+            <a href="https://feedly.com/i/subscription/feed/https://developer.concur.com/feed.xml" target="blank" data-toggle="popover" data-placement="bottom" data-content="Follow On Feedly" data-trigger="hover" id="feedly"><img id="feedlyFollow" src="http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" alt="follow us in feedly" width="28" height="28"></a>
           </div>
           {% endif %}
 
         </div>
       </div>
       <div class="col-md-9">
-        {{content}}
+        {{ content }}
       </div>
     </div>
   </div>

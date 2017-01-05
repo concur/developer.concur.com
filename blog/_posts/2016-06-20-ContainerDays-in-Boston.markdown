@@ -8,6 +8,7 @@ tags:
   - aws
   - kubernetes
 author: Dale Ragan
+redirect_from: 2016/06/20/ContainerDays-in-Boston.html
 ---
 
 
