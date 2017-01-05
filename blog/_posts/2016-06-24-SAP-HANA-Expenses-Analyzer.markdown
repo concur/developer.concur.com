@@ -8,6 +8,7 @@ tags:
     - Cloud
     - Integration
 author: Ekatarina Mitova
+redirect_from: 2016/06/24/SAP-HANA-Expenses-Analyzer.html
 ---
 
 ## Expenses Analyzer for Concur that runs on SAP HANA Cloud Platform
@@ -34,4 +35,3 @@ In short, these are the steps you need to do, to use this extension application:
 
 All these steps are explained in more details [here](https://github.com/SAP/cloud-concur-expenses-analyzer-ext/blob/master/README.md), and you can download and test the application itself from [this GitHub repository](https://github.com/SAP/cloud-concur-expenses-analyzer-ext).
 Feel free to use the comments section bellow, to give us your feedback.
- 

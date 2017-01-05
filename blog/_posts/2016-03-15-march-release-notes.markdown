@@ -10,6 +10,7 @@ references:
     - url: /api-reference/expense/allocations/expense-allocations.html
       link: Allocations
 author: Concur Expense
+redirect_from: 2016/03/15/march-release-notes.html
 ---
 
 ## Allocations v3.0

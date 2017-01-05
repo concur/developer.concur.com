@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/concur/paginate.git
+  revision: 77e91b2f44b50dd89c200b1b9c3941acb377697d
+  branch: deprecation-warning-fix
+  specs:
+    octopress-paginate (1.2.0)
+      octopress-hooks
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -109,6 +117,8 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     octokit (4.2.0)
       sawyer (~> 0.6.0, >= 0.5.3)
+    octopress-hooks (2.6.2)
+      jekyll (>= 2.0)
     public_suffix (1.5.3)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.5)
@@ -140,6 +150,7 @@ DEPENDENCIES
   github-pages
   jekyll-bootstrap-sass
   jekyll-redirect-from
+  octopress-paginate!
   therubyracer
 
 BUNDLED WITH

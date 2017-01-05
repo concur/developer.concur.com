@@ -6,7 +6,7 @@ tags:
     - API
     - Receipts
     - Auth
-redirect_from: blog/2016/09/12/API-Receipt-Update.html
+redirect_from: 2016/09/12/API-Receipt-Update.html
 ---
 
 

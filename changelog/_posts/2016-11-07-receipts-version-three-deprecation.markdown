@@ -8,8 +8,6 @@ tags:
 references:
     - url: /api-reference/expense/receipts/
       link: Receipts
-categories:
-    - changelog
 ---
 
 
