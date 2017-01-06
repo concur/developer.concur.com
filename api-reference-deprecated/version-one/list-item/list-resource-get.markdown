@@ -17,10 +17,12 @@ Retrieves the list of configured lists.
 
 ### Get Lists Request
 
-    GET /api/expense/list/v1.0/ HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    Content-Type: application/xml
+```http
+GET /api/expense/list/v1.0/ HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+Content-Type: application/xml
+```
 
 #### Request parameters
 None.
@@ -47,7 +49,7 @@ This request will return a **lists** parent element containing a **list** child 
 
 |  Element |  Description |
 |---------|--------------|
-|  id |  The list URI with encrypted ID. | 
+|  id |  The list URI with encrypted ID. |
 |  items-link |  The list item URI with encrypted ID. |
 |  batch-link |  The batch URI associated with this list, with encrypted ID. |
 |  name |  The name of the list as it appears in the user interface. |
@@ -57,47 +59,52 @@ This request will return a **lists** parent element containing a **list** child 
 
 ####  XML Example of Successful Response
 
-    200 OK
-    Content-Type: application/xml
-    <lists xmlns="http://www.concursolutions.com/api/expense/list/2010/02">
-        <list>
-            <id>http://www.concursolutions.com/api/expense/list/v1.0/I8pq1l$rdSmdrEW23deOjPjyr4Wso0Wq$a</id>
-            <batch-link>http://www.concursolutions.com/api/expense/list/v1.0/I8pq1l$rdSmdrEW23deOjPjyr4Wso0Wq$a/batch</batch-link>
-            <name>Widget List</name>
-            <is-vendor>false</is-vendor>
-            <levels>1</levels>
-            <items-link>http://www.concursolutions.com/api/expense/list/v1.0/I8pq1l$rdSmdrEW23deOjPjyr4Wso0Wq$a/items/</items-link>
-        </list>
-        <list>
-            <id>http://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato</id>
-            <batch-link>http://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/batch</batch-link>
-            <name>Organization List</name>
-            <is-vendor>false</is-vendor>
-            <levels>4</levels>
-            <items-link>http://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items/</items-link>
-        </list>
-        <list>
-            <id>http://www.concursolutions.com/api/expense/list/v1.0/4q2Hy86r45Klls$pseQEhNpz8Oxal7ytRe</id>
-            <batch-link>http://www.concursolutions.com/api/expense/list/v1.0/4q2Hy86r45Klls$pseQEhNpz8Oxal7ytRe/batch</batch-link>
-            <name>Airlines</name>
-            <is-vendor>true</is-vendor>
-            <levels>1</levels>
-            <items-link>http://www.concursolutions.com/api/expense/list/v1.0/4q2Hy86r45Klls$pseQEhNpz8Oxal7ytRe/items/</items-link>
-        </list>
-    </lists>
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+
+<lists xmlns="http://www.concursolutions.com/api/expense/list/2010/02">
+    <list>
+        <id>http://www.concursolutions.com/api/expense/list/v1.0/I8pq1l$rdSmdrEW23deOjPjyr4Wso0Wq$a</id>
+        <batch-link>http://www.concursolutions.com/api/expense/list/v1.0/I8pq1l$rdSmdrEW23deOjPjyr4Wso0Wq$a/batch</batch-link>
+        <name>Widget List</name>
+        <is-vendor>false</is-vendor>
+        <levels>1</levels>
+        <items-link>http://www.concursolutions.com/api/expense/list/v1.0/I8pq1l$rdSmdrEW23deOjPjyr4Wso0Wq$a/items/</items-link>
+    </list>
+    <list>
+        <id>http://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato</id>
+        <batch-link>http://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/batch</batch-link>
+        <name>Organization List</name>
+        <is-vendor>false</is-vendor>
+        <levels>4</levels>
+        <items-link>http://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items/</items-link>
+    </list>
+    <list>
+        <id>http://www.concursolutions.com/api/expense/list/v1.0/4q2Hy86r45Klls$pseQEhNpz8Oxal7ytRe</id>
+        <batch-link>http://www.concursolutions.com/api/expense/list/v1.0/4q2Hy86r45Klls$pseQEhNpz8Oxal7ytRe/batch</batch-link>
+        <name>Airlines</name>
+        <is-vendor>true</is-vendor>
+        <levels>1</levels>
+        <items-link>http://www.concursolutions.com/api/expense/list/v1.0/4q2Hy86r45Klls$pseQEhNpz8Oxal7ytRe/items/</items-link>
+    </list>
+</lists>
+```
 
 ##  Get List Details
 
-###Description
+### Description
 
 Retrieves the list details for a specified list. Includes configuration information, not the list items.
 
 ### Get List Details Request
 
-    GET /api/expense/list/v1.0/_{listID}_ HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    Content-Type: application/xml
+```http
+GET /api/expense/list/v1.0/_{listID}_ HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+Content-Type: application/xml
+```
 
 #### Request parameters
 
@@ -115,15 +122,15 @@ application/xml
 
 ###  Get List Details Response
 
-####HTTP Responses
+#### HTTP Responses
 
 * [HTTP Status Codes][1]
 * [List Item Error Codes][2]
 
-####Content types
+#### Content types
 application/xml
 
-###Root elements
+### Root elements
 This request will return a **list** parent element. The **list** element will contain the following child elements.
 
 #### list child elements
@@ -139,18 +146,20 @@ This request will return a **list** parent element. The **list** element will co
 
 ####  XML Example of Successful Response
 
-    <list xmlns="http://www.concursolutions.com/api/expense/list/2010/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <batch-link>https://www.concursolutions.com/api/expense/list/v1.0/nqd1YesaKhCWCFIhY8JeBJYf2UGdpwJ2r/batch</batch-link>
-        <id>https://www.concursolutions.com/api/expense/list/v1.0/nqd1YesaKhCWCFIhY8JeBJYf2UGdpwJ2r</id>
-        <is-vendor>true</is-vendor>
-        <items-link>https://www.concursolutions.com/api/expense/list/v1.0/nqd1YesaKhCWCFIhY8JeBJYf2UGdpwJ2r/items</items-link>
-        <levels>1</levels>
-        <name>Travel Agents</name>
-    </list>
+```xml
+<list xmlns="http://www.concursolutions.com/api/expense/list/2010/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <batch-link>https://www.concursolutions.com/api/expense/list/v1.0/nqd1YesaKhCWCFIhY8JeBJYf2UGdpwJ2r/batch</batch-link>
+    <id>https://www.concursolutions.com/api/expense/list/v1.0/nqd1YesaKhCWCFIhY8JeBJYf2UGdpwJ2r</id>
+    <is-vendor>true</is-vendor>
+    <items-link>https://www.concursolutions.com/api/expense/list/v1.0/nqd1YesaKhCWCFIhY8JeBJYf2UGdpwJ2r/items</items-link>
+    <levels>1</levels>
+    <name>Travel Agents</name>
+</list>
+```
 
 ##  Get List Items
 
-###Description
+### Description
 Retrieves the list items for the specified list. A request sent without a specified parent list item code returns all level 1 list items. A request sent with a parent list item code returns all list items below that parent item. The result set can be filtered by passing in a filter string.
 
 ### Get List Items Request
@@ -172,33 +181,39 @@ application/xml
 
 ####  XML Example Request
 
-    GET /api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items/ HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    Content-Type: application/xml
+```http
+GET /api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items/ HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+Content-Type: application/xml
+```
 
 ####  XML Example Request with Parent Code
 
-    GET /api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items?parentCode=US HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    Content-Type: application/xml
+```http
+GET /api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items?parentCode=US HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+Content-Type: application/xml
+```
 
 ####  XML Example Request with Filter
 
-    GET /api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items?filter=United HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    Content-Type: application/xml
+```http
+GET /api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items?filter=United HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+Content-Type: application/xml
+```
 
 ###  Get List Items Response
 
-####HTTP Responses
+#### HTTP Responses
 
 * [HTTP Status Codes][1]
 * [List Item Error Codes][2]
 
-####Response body root elements
+#### Response body root elements
 This request will return a **list-items** parent element, with a **list-item** child element for each item returned. The **list-item** elements will contain the following child elements.
 
 ##### list-item child elements
@@ -212,31 +227,30 @@ This request will return a **list-items** parent element, with a **list-item** c
 
 ####  XML Example of Successful Response
 
-    <list-items xmlns="http://www.concursolutions.com/api/expense/list/2010/02">
-        <list-item>
-            <name>United States</name>
-            <level1code>US</level1code>
-            <items-link>https://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items/US/</items-link>
-        </list-item>
-        <list-item>
-            <name>United Kingdom</name>
-            <level1code>UK</level1code>
-            <items-link>https://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items/UK/</items-link>
-        </list-item>
-        <list-item>
-            <name>Canada</name>
-            <level1code>CA</level1code>
-            <items-link>https://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items/CA/</items-link>
-        </list-item>
-        <list-item>
-            <name>Mexico</name>
-            <level1code>MX</level1code>
-            <items-link>https://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items/MX/</items-link>
-        </list-item>
-    </list-items>
-
-  
-
+```xml
+<list-items xmlns="http://www.concursolutions.com/api/expense/list/2010/02">
+    <list-item>
+        <name>United States</name>
+        <level1code>US</level1code>
+        <items-link>https://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items/US/</items-link>
+    </list-item>
+    <list-item>
+        <name>United Kingdom</name>
+        <level1code>UK</level1code>
+        <items-link>https://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items/UK/</items-link>
+    </list-item>
+    <list-item>
+        <name>Canada</name>
+        <level1code>CA</level1code>
+        <items-link>https://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items/CA/</items-link>
+    </list-item>
+    <list-item>
+        <name>Mexico</name>
+        <level1code>MX</level1code>
+        <items-link>https://www.concursolutions.com/api/expense/list/v1.0/jUwq11frTd$sweNd7s6s8O0fYi$piWwato/items/MX/</items-link>
+    </list-item>
+</list-items>
+```
 
 [1]: /tools-support/reference/http-codes.html
 [2]: /tools-support/reference/custom-list-items.html

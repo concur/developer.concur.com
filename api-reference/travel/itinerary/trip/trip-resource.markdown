@@ -1,5 +1,5 @@
 ---
-title: Trips 
+title: Trips
 layout: reference
 ---
 
@@ -33,10 +33,10 @@ The Get Itinerary Summaries endpoint is used for retrieving trip summaries for t
 
 ## Request
 
-	GET /travel/trip/v1.1/{query_parameters}
+  GET /travel/trip/v1.1/{query_parameters}
 
 ### Query paramenters
-All query paramenters are optional. 
+All query paramenters are optional.
 To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters:
 
 |Parameter Name|Parameter Type|Data Type|Description|
@@ -48,7 +48,7 @@ To identify a specific user by login ID or XMLSyncID, you can specify the follow
 |lastModifiedDate|date|dateTime	|The last modified UTC date of the trips and any their associated bookings. This query string will return only the trips where the trip or any of its associated bookings have a last modified date that is greater or equal to the supplied time. The provided date/time can be anytime between now and the first date of trip creation in the database. The format is either the date or the date and time combined.
 |bookingType|type	|string	|The trip includes at least one booking of this type. Format: Air, Car, Dining, Hotel, Parking, Rail, or Ride
 |userid_type=login|userid|string|The loginID is the user's Concur login ID.This parameter can only be used if the OAuth consumer has one of the user roles listed above.
-|userid_value|userid|string	|The userid_value of ALL can be sent to get trip summaries for all users at the company. This parameter can only be used if the OAuth consumer has one of the user roles listed above. 
+|userid_value|userid|string	|The userid_value of ALL can be sent to get trip summaries for all users at the company. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
 |includeMetadata|true/false|string|The includeMetadata query parameter combined with the ItemsPerPage and Page query parameters cause the response to be divided into pages. The response is wrapped in a ConcurResponse parent element, with both the response details and the paging metadata included. If the ItemsPerPage query parameter is not sent, the response will default to 200 if the Page query parameter is sent, or 1000 if the Page query parameter is not set. If the Page query parameter is not sent, the response will default to page 1.|
 |ItemsPerPage|number|integer|The includeMetadata query parameter combined with the ItemsPerPage and Page query parameters will cause the response to be divided into pages. The response will be wrapped in a ConcurResponse parent element, with both the response details and the paging metadata included. If the ItemsPerPage query parameter is not sent, the response will default to 200 if the Page query parameter is sent, or 1000 if the Page query parameter is not set. If the Page query parameter is not sent, the response will default to page 1.|
 |includeVirtualTrip|flag|integer	|Virtual trips are segments booked offline through the Travel Request product. Set the includeVirtualTrip query parameter to 1 to include those trips in the list.|
@@ -136,159 +136,173 @@ The parent element of the paging information (Paging elements).
 
 #### Request
 
-	GET /api/travel/trip/v1.1/?startDate=2012%2F02%2F01&endDate=2013%2F12%2F31 HTTP 1.1
-	Host: www.concursolutions.com
-	Authorization: OAuth {access token} 
-	...
+```http
+GET /api/travel/trip/v1.1/?startDate=2012%2F02%2F01&endDate=2013%2F12%2F31 HTTP/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+...
+```
 
 #### Response
-	HTTP 1.1 200 OK
-	Content-Type: application/xml
-	...
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<ItineraryInfoList xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    	<ItineraryInfo>
-        	<TripId>naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</TripId>
-        	<TripName>Trip from Baltimore to New York</TripName>
-        	<StartDateLocal>2012-02-15T09:00:00</StartDateLocal>
-        	<EndDateLocal>2012-02-21T17:30:00</EndDateLocal>
-        	<UserLoginId>cm@example.com</UserLoginId>
-        	<DateModifiedUtc>2012-02-14T17:13:07</DateModifiedUtc>
-        	<id>https://www.concursolutions.com/api/travel/trip/
-        	v1.1/naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</id>
-    	</ItineraryInfo>
-    	<ItineraryInfo>
-        	<TripId>I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</TripId>
-        	<TripName>Trip from Baltimore to Seattle</TripName>
-        	<StartDateLocal>2012-03-26T09:00:00</StartDateLocal>
-        	<EndDateLocal>2012-03-29T17:30:00</EndDateLocal>
-        	<DateModifiedUtc>2012-03-24T19:00:00</DateModifiedUtc>
-        	<UserLoginId>cm@example.com</UserLoginId>
-        	<id>https://www.concursolutions.com/api/travel/trip/
-        	v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</id>
-    	</ItineraryInfo>
-	</ItineraryInfoList>
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
+
+<?xml version="1.0" encoding="utf-8"?>
+<ItineraryInfoList xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ItineraryInfo>
+        <TripId>naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</TripId>
+        <TripName>Trip from Baltimore to New York</TripName>
+        <StartDateLocal>2012-02-15T09:00:00</StartDateLocal>
+        <EndDateLocal>2012-02-21T17:30:00</EndDateLocal>
+        <UserLoginId>cm@example.com</UserLoginId>
+        <DateModifiedUtc>2012-02-14T17:13:07</DateModifiedUtc>
+        <id>https://www.concursolutions.com/api/travel/trip/v1.1/naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</id>
+    </ItineraryInfo>
+    <ItineraryInfo>
+        <TripId>I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</TripId>
+        <TripName>Trip from Baltimore to Seattle</TripName>
+        <StartDateLocal>2012-03-26T09:00:00</StartDateLocal>
+        <EndDateLocal>2012-03-29T17:30:00</EndDateLocal>
+        <DateModifiedUtc>2012-03-24T19:00:00</DateModifiedUtc>
+        <UserLoginId>cm@example.com</UserLoginId>
+        <id>https://www.concursolutions.com/api/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</id>
+    </ItineraryInfo>
+</ItineraryInfoList>
+```
 
 ### Example 2: Get trip summary by booking type and start date Request
 This request returns trip summaries for trips that started by the specified date for the specified booking type.
 
 #### Request
 
-	GET /api/travel/trip/v1.1/?startDate=2015%2F01%2F01&bookingType=Air HTTP 1.1
-	Host: www.concursolutions.com
-	Authorization: OAuth {access token} 
-	...
+```http
+GET /api/travel/trip/v1.1/?startDate=2015%2F01%2F01&bookingType=Air HTTP/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+...
+```
 
 #### Response
 
-	HTTP 1.1 200 OK
-	Content-Type: application/xml
-	...
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<ItineraryInfoList xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    	<ItineraryInfo>
-        	<TripId>I2uwiJJw8r7OwCIQOb2SHTsozwBsSie9W</TripId>
-        	<TripName>Trip by air from Seattle to San Francisco</TripName>
-        	<StartDateLocal>2015-01-01T12:30:00</StartDateLocal>
-        	<EndDateLocal>2015-01-05T10:30:00</EndDateLocal>
-        	<UserLoginId>cm@example.com</UserLoginId>
-        	<DateModifiedUtc>2014-12-23T11:10:00</DateModifiedUtc>
-        	<id>https://www.concursolutions.com/api/travel/trip/
-        	v1.1/I2uwiJJw8r7OwCIQOb2SHTsozwBsSie9W</id>
-    	</ItineraryInfo>
-	</ItineraryInfoList>
+<?xml version="1.0" encoding="utf-8"?>
+<ItineraryInfoList xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ItineraryInfo>
+        <TripId>I2uwiJJw8r7OwCIQOb2SHTsozwBsSie9W</TripId>
+        <TripName>Trip by air from Seattle to San Francisco</TripName>
+        <StartDateLocal>2015-01-01T12:30:00</StartDateLocal>
+        <EndDateLocal>2015-01-05T10:30:00</EndDateLocal>
+        <UserLoginId>cm@example.com</UserLoginId>
+        <DateModifiedUtc>2014-12-23T11:10:00</DateModifiedUtc>
+        <id>https://www.concursolutions.com/api/travel/trip/
+        v1.1/I2uwiJJw8r7OwCIQOb2SHTsozwBsSie9W</id>
+    </ItineraryInfo>
+</ItineraryInfoList>
+```
 
 ### Example 3: Get trip summary by created date
 This requests returns trip summaries created after the specified date.
 
 #### Request
 
-	GET /api/travel/trip/v1.1/?createdAfterDate=2015%2F02%2F13 HTTP 1.1
-	Host: www.concursolutions.com
-	Authorization: OAuth {access token}
+```http
+GET /api/travel/trip/v1.1/?createdAfterDate=2015%2F02%2F13 HTTP/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+```
 
 #### Response
 
-	HTTP 1.1 200 OK
-	Content-Type: application/xml
-	...
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<ItineraryInfoList xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    	<ItineraryInfo>
-        	<TripId>BWjCIJJw8r7OwCIQOb2SHTsozwBsWlSie9</TripId>
-        	<TripName>Trip by air from Los Angeles to Mexico City</TripName>
-        	<StartDateLocal>2015-03-09T18:45:00</StartDateLocal>
-        	<EndDateLocal>2015-03-30T08:00:00</EndDateLocal>
-        	<UserLoginId>cm@example.com</UserLoginId>
-        	<DateModifiedUtc>2015-01-28T09:30:00</DateModifiedUtc>
-        	<id>https://www.concursolutions.com/api/travel/trip/
-        	v1.1/BWjCIJJw8r7OwCIQOb2SHTsozwBsWlSie9</id>
-    	</ItineraryInfo>
-	</ItineraryInfoList>
+<?xml version="1.0" encoding="utf-8"?>
+<ItineraryInfoList xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ItineraryInfo>
+        <TripId>BWjCIJJw8r7OwCIQOb2SHTsozwBsWlSie9</TripId>
+        <TripName>Trip by air from Los Angeles to Mexico City</TripName>
+        <StartDateLocal>2015-03-09T18:45:00</StartDateLocal>
+        <EndDateLocal>2015-03-30T08:00:00</EndDateLocal>
+        <UserLoginId>cm@example.com</UserLoginId>
+        <DateModifiedUtc>2015-01-28T09:30:00</DateModifiedUtc>
+        <id>https://www.concursolutions.com/api/travel/trip/
+        v1.1/BWjCIJJw8r7OwCIQOb2SHTsozwBsWlSie9</id>
+    </ItineraryInfo>
+</ItineraryInfoList>
+```
 
 ### Example 4: Get trip summary with paging
 
 #### Request
 This request is used for dividing the response into pages for easier processing.
 
-	GET /api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&includeMetadata=true&ItemsPerPage=2&Page=1 HTTP 1.1
-	Host: www.concursolutions.com
-	Authorization: OAuth {access token}
+```http
+GET /api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&includeMetadata=true&ItemsPerPage=2&Page=1 HTTP/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+```
 
 #### Response
 The response returns a ConnectResponse parent element which contains a MetaData element with paging information and a Data element with an ItineraryInfoList child element.
 
-	HTTP 1.1 200 OK
-	Content-Type: application/xml
-	...
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
 
-	<ConnectResponse>
-    	<Metadata>
-        	<Paging>
-           		<TotalPages>38</TotalPages>
-            	<TotalItems>187</TotalItems>
-            	<CurrentPage>2</CurrentPage>
-            	<ItemsPerPage>2</ItemsPerPage>
-            	<PreviousPageURL>https://www.concursolutions.com/api/travel/trip/v1.1/?
-            	createdAfterDate=2012%2F02%2F01&amp;
-                  itemsPerPage=5&amp;page=3&amp;includeMetaData=true</PreviousPageURL>
-            	<NextPageURL>https://www.concursolutions.com/api/travel/trip/v1.1/?
-            	createdAfterDate=2012%2F02%2F01&amp;
-                        itemsPerPage=5&amp;page=1&amp;includeMetaData=true</NextPageURL>
-        	</Paging>
-    	</Metadata>
-    	<Data>
-       	 <ItineraryInfoList xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-            	<ItineraryInfo>
-                	<TripId>naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</TripId>
-                	<TripName>Trip from Baltimore to New York</TripName>
-                	<StartDateLocal>2012-02-15T09:00:00</StartDateLocal>
-                	<EndDateLocal>2012-02-21T17:30:00</EndDateLocal>
-                	<UserLoginId>cm@example.com</UserLoginId>
-                	<DateModifiedUtc>2012-02-14T17:13:07</DateModifiedUtc>
-               		<id>https://www.concursolutions.com/api/travel/trip/v1.1/naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</id>
-            	</ItineraryInfo>
-            	<ItineraryInfo>
-                	<TripId>I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</TripId>
-                	<TripName>Trip from Baltimore to Seattle</TripName>
-                	<StartDateLocal>2012-03-26T09:00:00</StartDateLocal>
-                	<EndDateLocal>2012-03-29T17:30:00</EndDateLocal>
-                	<DateModifiedUtc>2012-03-24T19:00:00</DateModifiedUtc>
-                	<UserLoginId>cm@example.com</UserLoginId>
-                	<id>https://www.concursolutions.com/api/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</id>
-            	</ItineraryInfo>
-        	</ItineraryInfoList>
-    	</Data>
-	</ConnectResponse>
-
-
+<ConnectResponse>
+    <Metadata>
+        <Paging>
+            <TotalPages>38</TotalPages>
+            <TotalItems>187</TotalItems>
+            <CurrentPage>2</CurrentPage>
+            <ItemsPerPage>2</ItemsPerPage>
+            <PreviousPageURL>https://www.concursolutions.com/api/travel/trip/v1.1/?
+                createdAfterDate=2012%2F02%2F01&amp;
+                itemsPerPage=5&amp;page=3&amp;includeMetaData=true</PreviousPageURL>
+            <NextPageURL>https://www.concursolutions.com/api/travel/trip/v1.1/?
+                createdAfterDate=2012%2F02%2F01&amp;
+                itemsPerPage=5&amp;page=1&amp;includeMetaData=true</NextPageURL>
+        </Paging>
+    </Metadata>
+    <Data>
+        <ItineraryInfoList xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+            <ItineraryInfo>
+                <TripId>naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</TripId>
+                <TripName>Trip from Baltimore to New York</TripName>
+                <StartDateLocal>2012-02-15T09:00:00</StartDateLocal>
+                <EndDateLocal>2012-02-21T17:30:00</EndDateLocal>
+                <UserLoginId>cm@example.com</UserLoginId>
+                <DateModifiedUtc>2012-02-14T17:13:07</DateModifiedUtc>
+                <id>https://www.concursolutions.com/api/travel/trip/v1.1/naIzQJ0y2DBWjCIQOb2SHTsozwBsHDkdP</id>
+            </ItineraryInfo>
+            <ItineraryInfo>
+                <TripId>I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</TripId>
+                <TripName>Trip from Baltimore to Seattle</TripName>
+                <StartDateLocal>2012-03-26T09:00:00</StartDateLocal>
+                <EndDateLocal>2012-03-29T17:30:00</EndDateLocal>
+                <DateModifiedUtc>2012-03-24T19:00:00</DateModifiedUtc>
+                <UserLoginId>cm@example.com</UserLoginId>
+                <id>https://www.concursolutions.com/api/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL</id>
+            </ItineraryInfo>
+        </ItineraryInfoList>
+    </Data>
+</ConnectResponse>
+```
 
 ## <a name="gettd"></a>Get trip details
 
 The Get Itinerary Details endpoint is used for getting details for the specified trip. The elements included in the response vary as follows:
+
 * Some elements, such as AirlineTickets or RailPayments, appear only for bookings of the appropriate type. For example AirlineTickets appears in the reponse only for air bookings and RailPayments, for rail bookings.
 * Amount values, such as Rate or Tax, appear onlyif the requestor is the source of the booking. All other suppliers will not receive the amount elements associated with the bookings.
 * Some elements, such as SabreDKNumber, appear onlyif the booking was created by the relevant GDS.
@@ -300,20 +314,20 @@ By default, when calling this API, the Concur account associated the OAuth acces
 
 ## Request
 
-	GET /travel/trip/v1.1/trip_ID?[systemFormat=system_format|&userid_type=login|&user_id=login_ID]
+  GET /travel/trip/v1.1/trip_ID?[systemFormat=system_format|&userid_type=login|&user_id=login_ID]
 
 ## Path Parameters
 
-| Parameter Name | Data Type |Description 
-| --------- | --------- | ------- 
+| Parameter Name | Data Type |Description
+| --------- | --------- | -------
 | trip_ID (required) | string  |  The identifier for the desired trip. This identifier is returned as the value of the id element when getting trip summaries. For example, if the returned value of the id element is I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL, then the URI for the request is `/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwi`
 
 
 ## Query Paramenters
 
-| Parameter Name |Data Type |Description 
-| --------- | --------- | ------- 
-| systemFormat (optional) | string  |  Format of the response for a different system. The supported value is Tripit. The format for the request URI using this query paramenter is `/travel/trip/v1.1/trip_ID?systemFormat=Tripit` 
+| Parameter Name |Data Type |Description
+| --------- | --------- | -------
+| systemFormat (optional) | string  |  Format of the response for a different system. The supported value is Tripit. The format for the request URI using this query paramenter is `/travel/trip/v1.1/trip_ID?systemFormat=Tripit`
 | userid_type (optional)  |  string  |  The type of user identification to use. Possible value is: login
 | userid_value (optional)  | string  |  The user's login ID. This parameter must be provided in conjunction with the userid_type parameter. The userid_type and userid_value parameters can only be used if the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the userid_type and userid_value query paramenters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`
 
@@ -333,7 +347,7 @@ The response returns subset of the elements described in the following tables de
 
 ### Parent Elements
 
-| Element Name | Data Type |Description 
+| Element Name | Data Type |Description
 | --------- | --------- | -------
 | id	|string	|Trip ID URI with encrypted ID.
 |ItinLocator | string	|The itinerary locator. This element is now deprecated and only supported for backward compatibility.
@@ -362,7 +376,7 @@ The response returns subset of the elements described in the following tables de
 ### Booking Element
 The Booking element contains the following elements:
 
-| Element Name | Data Type |Description 
+| Element Name | Data Type |Description
 | --------- | --------- | -------
 |Segments	|array	|List of Segments in this booking. The child elements included in this element vary depending on wheter a TMC, third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs and third-party developers**, the Segments element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements. **For TripLink suppliers**, the Segments element contains one or more Air, Car, Hotel, or Ride parent element.
 |Passengers	|array	|Contains a Passenger child element for each included passenger. For the descriptions of these elements, see Passengers Elements
@@ -379,159 +393,164 @@ The Booking element contains the following elements:
 
 #### Request
 
-	GET /api/travel/trip/v1.1/CNQR1234567890
-	Host: www.concursolutions.com
-	Authorization: OAuth {access token} 
-	...
+```http
+GET /api/travel/trip/v1.1/CNQR1234567890 HTTP/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+...
+```
 
 #### Response
 
-	HTTP 1.1 200 OK
-	Content-Type: application/xml
-	...
-```    
-	<?xml version="1.0" encoding="utf-8"?>
-	<Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
-    	<id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
-    	<ItinLocator>CNQR1234567890</ItinLocator>
-    	<ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
-    	<ItinSourceName>ConcurTravel</ItinSourceName>
-    	<TripName>Trip from Dallas to Seattle</TripName>
-    	<Comments />
-    	<StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
-    	<EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-    	<DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-    	<BookedVia>EveryGDS</BookedVia>
-    	<BookedByFirstName>Chris</BookedByFirstName>
- 	   <BookedByLastName>Miller</BookedByLastName>
-    	<DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
-    	<Bookings>
-       	 	<Booking>
-       	     <Segments>
-        	        <Car>
-            	        <Vendor>CQ</Vendor>
-                	    <Status>HK</Status>
-                	    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-               	     	<EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
-                    	<ConfirmationNumber>F1672664579</ConfirmationNumber>
-                    	<DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                    	<StartCityCode>SEA</StartCityCode>
-                    	<EndCityCode>SEA</EndCityCode>
-                    	<StartLocation>SEA</StartLocation>
-                    	<EndLocation>SEA</EndLocation>
-                    	<Class>E</Class>
-                    	<Body>C</Body>
-                    	<Transmission>M</Transmission>
-                    	<AirCondition>R</AirCondition>
-                    	<NumCars>1</NumCars>
-                    	<DiscountCode>346660</DiscountCode>
-                    	<DailyRate>44.0000</DailyRate>
-                    	<TotalRate>44.0000</TotalRate>
-                    	<RateType>D</RateType>
-                    	<Currency>USD</Currency>
-                    	<Charges>
-                        	<Fixed>
-                            	<Description>Dropoff Fee</Description>
-                            	<Currency>USD</Currency>
-                            	<Amount>0.0000</Amount>
-                            	<IsPrimary>false</IsPrimary>
-                            	<SemanticsCode>DROPOFFFEE</SemanticsCode>
-                            	<SemanticsVendorType>C</SemanticsVendorType>
-                        	</Fixed>
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
 
-                        	<RateWithAllowance>
-                            	<Currency>USD</Currency>
-                            	<Amount>44.0000</Amount>
-                            	<StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
-                            	<IsPrimary>true</IsPrimary>
-                            	<SemanticsCode>DAYS</SemanticsCode>
-                            	<SemanticsVendorType>C</SemanticsVendorType>
-                            	<PerUnit>DAY</PerUnit>
-                            	<NumUnits>1.0000</NumUnits>
-                            	<AllowanceNumUnits>250.0000</AllowanceNumUnits>
-                            	<AllowanceAmount>0.2400</AllowanceAmount>
-                            	<AllowanceIsUnlimited>false</AllowanceIsUnlimited>
-                        	</RateWithAllowance>
-                    	</Charges>
-                	</Car>
-            	</Segments>
-            	<Passengers>
-                	<Passenger>
-                    	<NameFirst>Chris</NameFirst>
-                    	<NameLast>Miller</NameLast>
-                	</Passenger>
-            	</Passengers>
-            	<RecordLocator>C123456789</RecordLocator>
-            	<BookingSource>ConcurCars</BookingSource>
-            	<DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-            	<DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-            	<ItinSourceName>TravelSupplier</ItinSourceName>
-            	<PassengerCount>1</PassengerCount>
-        	</Booking>
-        	<Booking>
-            	<Segments>
-                	<Hotel>
-                    	<Vendor>CQ</Vendor>
-                    	<Status>GK</Status>
-                    	<StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
-                    	<EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
-                    	<ConfirmationNumber>3364214265</ConfirmationNumber>
-                    	<DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-                    	<RateCode>LV4</RateCode>
-                    	<Name>CONCUR HOTEL</Name>
-                    	<HotelPropertyId>CONQ</HotelPropertyId>
-                    	<CheckinTime>00:00</CheckinTime>
-                    	<CheckoutTime>00:00</CheckoutTime>
-                    	<NumPersons>1</NumPersons>
-                    	<NumRooms>1</NumRooms>
-                    	<CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
-                    	<DailyRate>240.3500</DailyRate>
-                    	<Currency>USD</Currency>
-                    	<RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
-                    	<Charges>
-                        	<Rate>
-                            	<Currency>USD</Currency>
-                            	<Amount>240.3500</Amount>
-                            	<StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
-                            	<IsPrimary>false</IsPrimary>
-                            	<SemanticsCode>ROOMRATE</SemanticsCode>
-                            	<SemanticsVendorType>H</SemanticsVendorType>
-                            	<PerUnit>DAY</PerUnit>
-                            	<NumUnits>3.0000</NumUnits>
-                        	</Rate>
-                    	</Charges>
-                	</Hotel>
-            	</Segments>
-            	<Passengers>
-                	<Passenger>
-                    	<NameFirst>Chris</NameFirst>
-                    	<NameLast>Miller</NameLast>
-                	</Passenger>
-            	</Passengers>
-            	<RecordLocator>0987654321</RecordLocator>
-            	<BookingSource>ConcurHotel</BookingSource>
-            	<DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
-            	<DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
-            	<OriginalItinLocator>33491211</OriginalItinLocator>
-            	<ItinSourceName>ConcurTravel</ItinSourceName>
-            	<PassengerCount>1</PassengerCount>
-        	</Booking>
-    	</Bookings>
-	</Itinerary>
+<?xml version="1.0" encoding="utf-8"?>
+<Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
+    <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
+    <ItinLocator>CNQR1234567890</ItinLocator>
+    <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
+    <ItinSourceName>ConcurTravel</ItinSourceName>
+    <TripName>Trip from Dallas to Seattle</TripName>
+    <Comments />
+    <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
+    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+    <BookedVia>EveryGDS</BookedVia>
+    <BookedByFirstName>Chris</BookedByFirstName>
+    <BookedByLastName>Miller</BookedByLastName>
+    <DateBookedLocal>2012-07-24T19:15:52</DateBookedLocal>
+    <Bookings>
+        <Booking>
+            <Segments>
+                <Car>
+                    <Vendor>CQ</Vendor>
+                    <Status>HK</Status>
+                    <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                    <EndDateLocal>2013-12-24T12:00:00</EndDateLocal>
+                    <ConfirmationNumber>F1672664579</ConfirmationNumber>
+                    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+                    <StartCityCode>SEA</StartCityCode>
+                    <EndCityCode>SEA</EndCityCode>
+                    <StartLocation>SEA</StartLocation>
+                    <EndLocation>SEA</EndLocation>
+                    <Class>E</Class>
+                    <Body>C</Body>
+                    <Transmission>M</Transmission>
+                    <AirCondition>R</AirCondition>
+                    <NumCars>1</NumCars>
+                    <DiscountCode>346660</DiscountCode>
+                    <DailyRate>44.0000</DailyRate>
+                    <TotalRate>44.0000</TotalRate>
+                    <RateType>D</RateType>
+                    <Currency>USD</Currency>
+                    <Charges>
+                        <Fixed>
+                            <Description>Dropoff Fee</Description>
+                            <Currency>USD</Currency>
+                            <Amount>0.0000</Amount>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>DROPOFFFEE</SemanticsCode>
+                            <SemanticsVendorType>C</SemanticsVendorType>
+                        </Fixed>
+
+                        <RateWithAllowance>
+                            <Currency>USD</Currency>
+                            <Amount>44.0000</Amount>
+                            <StartDateLocal>2013-12-21T12:00:00</StartDateLocal>
+                            <IsPrimary>true</IsPrimary>
+                            <SemanticsCode>DAYS</SemanticsCode>
+                            <SemanticsVendorType>C</SemanticsVendorType>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>1.0000</NumUnits>
+                            <AllowanceNumUnits>250.0000</AllowanceNumUnits>
+                            <AllowanceAmount>0.2400</AllowanceAmount>
+                            <AllowanceIsUnlimited>false</AllowanceIsUnlimited>
+                        </RateWithAllowance>
+                    </Charges>
+                </Car>
+            </Segments>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>C123456789</RecordLocator>
+            <BookingSource>ConcurCars</BookingSource>
+            <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <ItinSourceName>TravelSupplier</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+        <Booking>
+            <Segments>
+                <Hotel>
+                    <Vendor>CQ</Vendor>
+                    <Status>GK</Status>
+                    <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
+                    <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
+                    <ConfirmationNumber>3364214265</ConfirmationNumber>
+                    <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+                    <RateCode>LV4</RateCode>
+                    <Name>CONCUR HOTEL</Name>
+                    <HotelPropertyId>CONQ</HotelPropertyId>
+                    <CheckinTime>00:00</CheckinTime>
+                    <CheckoutTime>00:00</CheckoutTime>
+                    <NumPersons>1</NumPersons>
+                    <NumRooms>1</NumRooms>
+                    <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
+                    <DailyRate>240.3500</DailyRate>
+                    <Currency>USD</Currency>
+                    <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
+                    <Charges>
+                        <Rate>
+                            <Currency>USD</Currency>
+                            <Amount>240.3500</Amount>
+                            <StartDateLocal>2013-12-21T23:59:00</StartDateLocal>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>ROOMRATE</SemanticsCode>
+                            <SemanticsVendorType>H</SemanticsVendorType>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>3.0000</NumUnits>
+                        </Rate>
+                    </Charges>
+                </Hotel>
+            </Segments>
+            <Passengers>
+                <Passenger>
+                    <NameFirst>Chris</NameFirst>
+                    <NameLast>Miller</NameLast>
+                </Passenger>
+            </Passengers>
+            <RecordLocator>0987654321</RecordLocator>
+            <BookingSource>ConcurHotel</BookingSource>
+            <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
+            <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>
+            <OriginalItinLocator>33491211</OriginalItinLocator>
+            <ItinSourceName>ConcurTravel</ItinSourceName>
+            <PassengerCount>1</PassengerCount>
+        </Booking>
+    </Bookings>
+</Itinerary>
 ```
 
 ### Example 2: Get trip details in TripIt format
 
 #### Request
 
-	GET /api/travel/trip/v1.1/CNQR1234567890 /travel/trip/v1.1/73014481752?systemFormat=Tripit
-	Host: www.concursolutions.com
-	Authorization: OAuth {access token} 
- 	...
+```http
+GET /travel/trip/v1.1/73014481752?systemFormat=Tripit HTTP/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+...
+```
 
 #### Response
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Response>
     <Trip>
@@ -627,12 +646,12 @@ This endpoint is used for creating a new trip. To create a new trip, the specifi
 
 ## Request
 
-	POST /travel/trip/v1.1?[userid_type=login&user_id=login_ID]
+    POST /travel/trip/v1.1?[userid_type=login&user_id=login_ID]
 
 ### Request Parameters
 
-| Parameter Name |Data Type |Description 
-| --------- | --------- | ------- 
+| Parameter Name |Data Type |Description
+| --------- | --------- | -------
 | userid_type (optional) | string	| The type of user identification to use. Possible value is: `login_id`
 | userid_value (optional) | string	| The value for the user identification type. Currently the only available type is `login_id` so the value is the login credentials. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value` parameters can only be used if the user account associated with the OAuth 2.0 access token is associated with a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query paramenters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`
 
@@ -646,7 +665,7 @@ Where access_token is the OAuth 2.0 access token of the user whose trip you want
 
 ### Request
 
-| Element Name | Required or Optional | TripLink | Data Type | Description 
+| Element Name | Required or Optional | TripLink | Data Type | Description
 | --------- | --------- | ------- | -------- | ---------
 | Itinerary | required | Y | ItineraryType	| The root element for a trip. For this endpoint, it contains the following elements: ClientLocator, ItinSourceName, TripName, Comments, StartDateLocal, EndDateLocal, BookedByFirstName, BookedByLastName, Bookings.
 | TripName | required | Y | string | Name of the trip. Maximum length: 255 characters.
@@ -677,9 +696,9 @@ Where access_token is the OAuth 2.0 access token of the user whose trip you want
 | Passengers | optional | Y | array	| Contains a Passenger child element for each included passenger. The Passenger child element in turn contains the following **required child elements**: NameFirst; NameLast; and the following **optional elements**: NameMiddle; NamePrefix; NameRemark; NameSuffix; NameTitle; TextName; FrequentTravelerProgram
 | PassPrograms | optional | - | array | List of Pass Programs for this booking. This parent element has a PassProgram child element for each pass program associated with the booking. The PassProgram parent element has the following child elements: Amount, Name, Type, UserFirstName, and UserLastname
 | PhoneNumbers | optional | - | array | List of Phone numbers associated with this booking. This parent element has a PhoneNumberData child element for each phone number associated with the booking. The PhoneNumberData parent element has the following child elements: PassengerRPH, PhoneNumber, Type, and Description.
-| RailPayments | optional | - | array	| List of Rail payments associated with rail segments in this booking. It has the following child elements: RailPaymment that represents the payment information for a rail booking and RailAdjustment for the amount adjusted for a rail booking. 
+| RailPayments | optional | - | array	| List of Rail payments associated with rail segments in this booking. It has the following child elements: RailPaymment that represents the payment information for a rail booking and RailAdjustment for the amount adjusted for a rail booking.
 | Segments | optional | Y | array | List of Segments in this booking. The child elements included in this element vary depending on wheter a TMC, third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs and third-party developers**, the Segments element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements. **For TripLink suppliers**, the Segments element contains one or more Air, Car, Hotel, or Ride parent element.
-| Delivery | optional | - | - | The method this booking was delivered. 
+| Delivery | optional | - | - | The method this booking was delivered.
 | WaitListSegments | optional | - | - | The segments that the traveler is waitlisted for this booking.
 | Warning | optional | - | - | The warnings associated with the booking.
 | WebAddresses |optional | - | - | List of web addresses such as emails, pick-up URLs, and so on associated with this booking.
@@ -688,7 +707,7 @@ Where access_token is the OAuth 2.0 access token of the user whose trip you want
 ### Response
 The response returns an HTTP status code and if the trip is created successfully, it also returns the full posted trip details with the following additional elements inside the Itinerary parent element:
 
-| Element Name | Data Type | TripLink | Description 
+| Element Name | Data Type | TripLink | Description
 | --------- | --------- | ------- | --------
 |id | string | Y| The URI including the trip ID.
 | ItinLocator | string | Y | The Itinerary Locator value (trip ID without the URL). The ItinLocator value is used when updating an existing trip.
@@ -703,12 +722,13 @@ This example shows how to create a trip for a user using their login credentials
 
 #### Request
 
-```
-POST /api/travel/trip/v1.1?userid_type=login_id&userid_value=cm@example.com HTTPS 1.1
+```http
+POST /api/travel/trip/v1.1?userid_type=login_id&userid_value=cm@example.com HTTPS/1.1
 Host: www.concursolutions.com
-Authorization: OAuth {access token} 
-... 
-    
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
+
 <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
     <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
     <ItinSourceName>ConcurConnectAPI</ItinSourceName>
@@ -830,7 +850,7 @@ Authorization: OAuth {access token}
 
 #### Response
 
-```
+```xml
 <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
     <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
     <ItinLocator>CNQR1234567890</ItinLocator>
@@ -964,12 +984,13 @@ This example shows how a TripLink supplier create a trip.
 
 #### Request
 
-```
-POST /api/travel/trip/v1.1/ HTTPS 1.1
+```http
+POST /api/travel/trip/v1.1/ HTTPS/1.1
 Host: www.concursolutions.com
-Authorization: OAuth {access token} 
-... 
-    
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
+
 <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
     <TripName>Trip from Dallas to Seattle</TripName>
     <TripStatus>HK</TripStatus>
@@ -1027,7 +1048,7 @@ Authorization: OAuth {access token}
 
 #### Response
 
-```
+```xml
 <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
     <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
     <ItinLocator>CNQR1234567890</ItinLocator>
@@ -1093,11 +1114,12 @@ This example shows how to create a trip for a user whose account is associated w
 
 #### Request
 
-```
-POST https://www.concursolutions.com/api/travel/trip/v1.1 HTTPS 1.1
-Authorization: OAuth {access token} 
-... 
-    
+```http
+POST https://www.concursolutions.com/api/travel/trip/v1.1 HTTPS/1.1
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
+
 <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
     <ClientLocator>KK-CNQ-1M1P6-5HJ</ClientLocator>
     <ItinSourceName>ConcurConnectAPI</ItinSourceName>
@@ -1106,25 +1128,25 @@ Authorization: OAuth {access token}
     <StartDateLocal>2013-12-21T07:25:00</StartDateLocal>
     <EndDateLocal>2013-12-24T23:59:00</EndDateLocal>
     <BookedByFirstName>Chris</BookedByFirstName>
-    <BookedByLastName>Miller</BookedByLastName> 
-    <TripStatus>7</TripStatus> 
-    <TravelRequestId>3339</TravelRequestId> 
+    <BookedByLastName>Miller</BookedByLastName>
+    <TripStatus>7</TripStatus>
+    <TravelRequestId>3339</TravelRequestId>
     <CustomAttributes>
         <CustomAttribute>
-            <ExternalId /> 
-            <DataType>Numeric</DataType> 
-            <Name>ProposalBatchSize</Name> 
-            <DisplayTitle /> 
-            <Data>3</Data> 
-            <DisplayOnItinerary>true</DisplayOnItinerary> 
-        </CustomAttribute> 
+            <ExternalId />
+            <DataType>Numeric</DataType>
+            <Name>ProposalBatchSize</Name>
+            <DisplayTitle />
+            <Data>3</Data>
+            <DisplayOnItinerary>true</DisplayOnItinerary>
+        </CustomAttribute>
         <CustomAttribute>
-            <ExternalId /> 
-            <DataType>Numeric</DataType> 
-            <Name>ProposalSequenceIndex</Name> 
-            <DisplayTitle /> 
-            <Data>1</Data> 
-            <DisplayOnItinerary>true</DisplayOnItinerary> 
+            <ExternalId />
+            <DataType>Numeric</DataType>
+            <Name>ProposalSequenceIndex</Name>
+            <DisplayTitle />
+            <Data>1</Data>
+            <DisplayOnItinerary>true</DisplayOnItinerary>
         </CustomAttribute>
     </CustomAttributes>
     <Bookings>
@@ -1253,17 +1275,17 @@ This endpoint can be used to create trips for a user that is not the OAuth consu
 This endpoint can be used to cancel all segments in a trip. To cancel a trip on behalf of a user, the OAuth access token used to make the API call should be associated with the Concur account of that user. The TripLink supplier or TMC must be registered with Concur and have a Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
 ## Request
-	POST /travel/trip/v1.1/cancel?tripid=trip_ID[&userid_type=login&userid_value=login_ID]
+    POST /travel/trip/v1.1/cancel?tripid=trip_ID[&userid_type=login&userid_value=login_ID]
 
 ### Path Parameters
 
-| Parameter Name | Data Type |Description 
+| Parameter Name | Data Type |Description
 | --------- | --------- | -------
 | cancel | required | string | The URI path modifier for canceling a trip. The format for the request is `/travel/trip/v1.1/cancel?tripid=trip_ID[&userid_type=login&userid_value=login_ID]`
 
 ### Request Parameters
 
-| Parameter Name | Data Type |Description 
+| Parameter Name | Data Type |Description
 | --------- | --------- | -------
 | tripid (optional) | string | The identifier for the trip to be updated. For example, if the value of tripid is `I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`, then the request is `POST /travel/trip/v1.1?tripid=I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`
 | userid_type (optional) |string | The type of user identification to use. Possible value is: `login_id`
@@ -1283,7 +1305,7 @@ None.
 ### Response
 The request returns the full trip details for the cancelled trip. If the request is successful, the response trip will not contain any segments because they have been cancelled. The response includes the following additional elements inside the Itinerary parent element:
 
-| Parameter Name | Data Type |Description 
+| Parameter Name | Data Type |Description
 | --------- | --------- | -------
 | id | string | The URI including the trip ID.
 | ItinLocator | string | The Itinerary Locator value (trip ID without the URL). The ItinLocator value is used when updating an existing trip.
@@ -1298,16 +1320,16 @@ The request returns the full trip details for the cancelled trip. If the request
 
 #### Request
 
-```
-POST /api/travel/trip/v1.1/cancel?tripId=CNQR1234567890 HTTPS 1.1
+```http
+POST /api/travel/trip/v1.1/cancel?tripId=CNQR1234567890 HTTPS/1.1
 Host: www.concursolutions.com
 Authorization: OAuth {access token}
-... 
+...
 ```
 
 #### Response
 
-```
+```xml
 <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
     <id>https://www.concursolutions.com/api/travel/trip/v1.1/CNQR1234567890</id>
     <ItinLocator>CNQR1234567890</ItinLocator>

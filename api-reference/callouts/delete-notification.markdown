@@ -36,7 +36,7 @@ The OAuth consumer must have one of the following user roles in Concur: Company 
 
 ####  XML Example Request
 
-```xml
+```http
 DELETE https://www.concursolutions.com/api/platform/notifications/v1.0/notification/nOB1KNTDSV0UqiYeTsy6su$praZSogRJB6 HTTP/1.1
 Authorization: OAuth {access token}
 ```

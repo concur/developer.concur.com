@@ -1,8 +1,11 @@
 ---
 layout: blog
+paginate:
+    category: blog
 ---
+
 {% for post in paginator.posts %}
-{% unless post.categories contains 'changelog' %}
+
   <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
   <p class="author">
     {% if post.author %}
@@ -12,9 +15,9 @@ layout: blog
   </p>
 
   <p>{{ post.excerpt }}</p>
-  <p><strong><a href='{{ post.url }}'>Read more...</a></strong></p>
+  <p><strong><a href="{{ post.url }}">Read more...</a></strong></p>
   <hr>
-{% endunless %}
+
 {% endfor %}
 
 <div class="pagination">

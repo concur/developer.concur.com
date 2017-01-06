@@ -1,5 +1,5 @@
 ---
-title: Post a reservation update 
+title: Post a reservation update
 layout: reference
 ---
 
@@ -11,10 +11,10 @@ This request is sent when the Travel user updates their reservation. The respons
 
 ##  Request
 
-###Encoding
+### Encoding
 UTF-8
 
-###Request URI
+### Request URI
 The Hotel direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
 `https://{servername}/concur/hotel/v1/`
@@ -101,7 +101,7 @@ The **ResGuest** element contains a **Profiles** child element with information 
 |  Element |  Description |
 |----------|---------------------------------------|
 |  PersonName |  This element contains the following child elements:**GivenName**: The guest's given name. <br/>**Surname**: The guest's surname. |
-|  Telephone |  This element has a PhoneNumber attribute containing the guest's phone number. | 
+|  Telephone |  This element has a PhoneNumber attribute containing the guest's phone number. |
 |  Email |  The guest's email address. |
 |  Address |  This parent element has the following child elements:<br/>**AddressLine**: The first address line.<br/>**CityName**: The address city. <br/>**PostalCode**: The address postal code. <br/>**StateProv**: The address state/province. <br/>**CountryName**: The 2-character address country name. Format: US |
 
@@ -109,7 +109,7 @@ The **ResGuest** element contains a **Profiles** child element with information 
 
 The **PaymentCard** element has the following attributes:
 
-* **CardCode**: The type of card. 
+* **CardCode**: The type of card.
 * **CardNumber**: The card number.
 
 The **PaymentCard** element has the following child elements:
@@ -121,87 +121,87 @@ The **PaymentCard** element has the following child elements:
 
 ###  XML Example Request
 
-```xml
-    POST /concur/hotel/v1 HTTPS/1.1
-    Host: example.com
-    Authorization: Basic ...
-    Content-Type: application/xml
-    Content-Length: {length of content body}
+```http
+POST /concur/hotel/v1 HTTPS/1.1
+Host: example.com
+Authorization: Basic ...
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <OTA_HotelResModifyRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelResModifyRQ.xsd" Version="1">
-        <POS>
-            <Source ISOCountry="US" ISOCurrency="USD">
-                <RequestorID Type="18" ID="7777777" />
-            </Source>
-        </POS>
-        <HotelResModifies>
-            <HotelResModify RoomStayReservation="true" CreateDateTime="2003-03-11T17:29:00-08:00" CreatorID="Expedia">
-                <RoomStays>
-                    <RoomStay>
-                        <RoomTypes>
-                            <RoomType NumberOfUnits="1" />
-                        </RoomTypes>
+<?xml version="1.0" encoding="UTF-8" ?>
+<OTA_HotelResModifyRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelResModifyRQ.xsd" Version="1">
+    <POS>
+        <Source ISOCountry="US" ISOCurrency="USD">
+            <RequestorID Type="18" ID="7777777" />
+        </Source>
+    </POS>
+    <HotelResModifies>
+        <HotelResModify RoomStayReservation="true" CreateDateTime="2003-03-11T17:29:00-08:00" CreatorID="Expedia">
+            <RoomStays>
+                <RoomStay>
+                    <RoomTypes>
+                        <RoomType NumberOfUnits="1" />
+                    </RoomTypes>
 
-                        <RatePlans>
-                            <RatePlan RatePlanCode="2222222" />
-                        </RatePlans>
-                        <GuestCounts>
-                            <GuestCount AgeQualifyingCode="10" Count="1" />
-                        </GuestCounts>
-                        <TimeSpan Start="2012-08-15" End="2010-08-16" />
-                        <Guarantee>
-                            <GuaranteesAccepted>
-                                <GuaranteeAccepted GuaranteeTypeCode="CC">
-                                    <PaymentCard CardCode="AX" CardNumber="4400000000000000" ExpireDate="1215">
-                                        <CardHolderName>CHRIS MILLER</CardHolderName>
-                                        <Address>
-                                            <AddressLine>18400 NE UNION HILL RD.</AddressLine>
-                                            <CityName>REDMOND</CityName>
-                                            <PostalCode>98052</PostalCode>
-                                            <StateProv>WA</StateProv>
-                                            <CountryName>US</CountryName>
-                                        </Address>
-                                    </PaymentCard>
-                                </GuaranteeAccepted>
-                            </GuaranteesAccepted>
-                        </Guarantee>
-                        <BasicPropertyInfo HotelCode="HTL1111" />
-                    </RoomStay>
-                </RoomStays>
-                <ResGuests>
-                    <ResGuest ResGuestRPH="1" AgeQualifyingCode="10">
-                        <Profiles>
-                            <ProfileInfo>
-                                <Profile>
-                                    <Customer>
-                                        <PersonName>
-                                            <GivenName>CHRIS</GivenName>
-                                            <Surname>MILLER</Surname>
-                                        </PersonName>
-                                        <Telephone PhoneNumber="212-555-1212" />
-                                        <Email>cmiller@example.com</Email>
-                                        <Address>
-                                            <AddressLine>18400 NE Union Hill Rd.</AddressLine>
-                                            <CityName>Redmond</CityName>
-                                            <PostalCode>98052</PostalCode>
-                                            <StateProv>WA</StateProv>
-                                            <CountryName>USA</CountryName>
-                                        </Address>
-                                    </Customer>
-                                </Profile>
-                            </ProfileInfo>
-                        </Profiles>
-                    </ResGuest>
-                </ResGuests>
-                <ResGlobalInfo>
-                    <HotelReservationIDs>
-                        <HotelReservationID ResID_Value="888000888" />
-                    </HotelReservationIDs>
-                </ResGlobalInfo>
-            </HotelResModify>
-        </HotelResModifies>
-    </OTA_HotelResModifyRQ>
+                    <RatePlans>
+                        <RatePlan RatePlanCode="2222222" />
+                    </RatePlans>
+                    <GuestCounts>
+                        <GuestCount AgeQualifyingCode="10" Count="1" />
+                    </GuestCounts>
+                    <TimeSpan Start="2012-08-15" End="2010-08-16" />
+                    <Guarantee>
+                        <GuaranteesAccepted>
+                            <GuaranteeAccepted GuaranteeTypeCode="CC">
+                                <PaymentCard CardCode="AX" CardNumber="4400000000000000" ExpireDate="1215">
+                                    <CardHolderName>CHRIS MILLER</CardHolderName>
+                                    <Address>
+                                        <AddressLine>18400 NE UNION HILL RD.</AddressLine>
+                                        <CityName>REDMOND</CityName>
+                                        <PostalCode>98052</PostalCode>
+                                        <StateProv>WA</StateProv>
+                                        <CountryName>US</CountryName>
+                                    </Address>
+                                </PaymentCard>
+                            </GuaranteeAccepted>
+                        </GuaranteesAccepted>
+                    </Guarantee>
+                    <BasicPropertyInfo HotelCode="HTL1111" />
+                </RoomStay>
+            </RoomStays>
+            <ResGuests>
+                <ResGuest ResGuestRPH="1" AgeQualifyingCode="10">
+                    <Profiles>
+                        <ProfileInfo>
+                            <Profile>
+                                <Customer>
+                                    <PersonName>
+                                        <GivenName>CHRIS</GivenName>
+                                        <Surname>MILLER</Surname>
+                                    </PersonName>
+                                    <Telephone PhoneNumber="212-555-1212" />
+                                    <Email>cmiller@example.com</Email>
+                                    <Address>
+                                        <AddressLine>18400 NE Union Hill Rd.</AddressLine>
+                                        <CityName>Redmond</CityName>
+                                        <PostalCode>98052</PostalCode>
+                                        <StateProv>WA</StateProv>
+                                        <CountryName>USA</CountryName>
+                                    </Address>
+                                </Customer>
+                            </Profile>
+                        </ProfileInfo>
+                    </Profiles>
+                </ResGuest>
+            </ResGuests>
+            <ResGlobalInfo>
+                <HotelReservationIDs>
+                    <HotelReservationID ResID_Value="888000888" />
+                </HotelReservationIDs>
+            </ResGlobalInfo>
+        </HotelResModify>
+    </HotelResModifies>
+</OTA_HotelResModifyRQ>
 ```
 
 ##  Response
@@ -226,24 +226,23 @@ The **OTA_HotelResModifyRS** parent element contains a **Success** element if th
 
 ###  XML Example of Successful Response
 
-```xml
-    200 OK HTTPS/1.1
-    Content-Length: {length of content body}
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <OTA_HotelResModifyRS xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelResModifyRS.xsd" Version="1">
-        <Success />
-        <HotelResModifies>
-            <HotelResModify>
-                <ResGlobalInfo>
-                    <HotelReservationIDs>
-                        <HotelReservationID ResID_Value="888000888" />
-                        <HotelReservationID ResID_Value="999000999" />
-                    </HotelReservationIDs>
-                </ResGlobalInfo>
-            </HotelResModify>
-        </HotelResModifies>
-    </OTA_HotelResModifyRS>
+<?xml version="1.0" encoding="UTF-8" ?>
+<OTA_HotelResModifyRS xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelResModifyRS.xsd" Version="1">
+    <Success />
+    <HotelResModifies>
+        <HotelResModify>
+            <ResGlobalInfo>
+                <HotelReservationIDs>
+                    <HotelReservationID ResID_Value="888000888" />
+                    <HotelReservationID ResID_Value="999000999" />
+                </HotelReservationIDs>
+            </ResGlobalInfo>
+        </HotelResModify>
+    </HotelResModifies>
+</OTA_HotelResModifyRS>
 ```
-
-

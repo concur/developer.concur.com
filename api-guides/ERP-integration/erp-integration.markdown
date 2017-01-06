@@ -40,8 +40,8 @@ Professional Edition:
 
     XML example of a successful response:
 
-    ```xml
-    200 OK
+    ```http
+    HTTP/1.1 200 OK
     Content-Type: application/xml
 
     <definitions xmlns="http://www.concursolutions.com/api/expense/extract/2010/02">
@@ -74,8 +74,8 @@ Professional Edition:
 
     XML example of a successful response:
 
-    ```xml
-    200 OK
+    ```http
+    HTTP/1.1 200 OK
     Content-Type: application/xml
 
     <definition xmlns="http://www.concursolutions.com/api/expense/extract/2010/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -98,8 +98,8 @@ This will request a list of the last 100 extract jobs run for the specified extr
 
     XML example of a successful response:
 
-    ```xml
-    200 OK
+    ```http
+    HTTP/1.1 200 OK
     Content-Type: application/xml
 
     <jobs xmlns="...">
@@ -138,8 +138,8 @@ This will request a list of the last 100 extract jobs run for the specified extr
 
     XML example of a successful response:
 
-    ```xml
-    200 OK
+    ```http
+    HTTP/1.1 200 OK
     Content-Type: application/xml
 
     <job xmlns="http://www.concursolutions.com/api/expense/extract/2010/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -162,8 +162,8 @@ This will request a list of the last 100 extract jobs run for the specified extr
 
     XML example of a successful response for a single extract file:
 
-    ```
-    200 OK
+    ```http
+    HTTP/1.1 200 OK
     Content-Type: text/csv
 
     100,AAA,BBBB,CCCC,...<rest of file>
@@ -171,8 +171,8 @@ This will request a list of the last 100 extract jobs run for the specified extr
 
     XML example of a successful response for multiple extract files:
 
-    ```
-    200 OK
+    ```http
+    HTTP/1.1 200 OK
     Content-Type: application/zip
 
     <zip file contents>

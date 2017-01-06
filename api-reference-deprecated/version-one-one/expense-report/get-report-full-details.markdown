@@ -9,29 +9,29 @@ Retrieves the full set of information for the report. Includes the Report Header
 
 ## Request
 
-### HTTP Request Type: 
+### HTTP Request Type:
 GET
 
-### URI: 
+### URI:
 `https://www.concursolutions.com/api/expense/expensereport/v1.1/reportfulldetails/_{reportKey}_`
 
-### URI Source: 
+### URI Source:
 This URI is returned in the `Report-Full-Details-Url` element by the [Get Reports List](/api-reference-deprecated/version-one-one/expense-report/get-list-of-reports.html) function. The report key is the encrypted database key for the report.
 
-### Request Media Type: 
+### Request Media Type:
 application/xml
 
 ## Response
 
-### Response Media Type: 
+### Response Media Type:
 application/xml
 
-### Return Value: 
+### Return Value:
 This request will return a  <ReportDetails  parent element with an xmlns version attribute and the following child elements:
 
 | Element | Description |
 | ----- | ----------
-| `X-UserID`| The user ID of the report owner. 
+| `X-UserID`| The user ID of the report owner.
 | `ReportId` | The unique identifier for the report, which appears in the Concur Expense UI.
 | `ReportName` | The name of the report.
 | `Purpose` | The information from the Business Purpose field.
@@ -63,7 +63,7 @@ This request will return a  <ReportDetails  parent element with an xmlns version
 | `WorkflowActionURL` | The URL to post a workflow action to the report using the [Post Report Workflow Action](https://developer.concur.com/node/168) endpoint. |
 |  `Entries`  | This parent element has a Count attribute indicating the number of entries (not including itemization entries) that are included in the report. It has an  `ExpenseEntry`  child element for each entry. Refer to the [Expense Entry Child Elements](#expentrychild) table for more information. |
 
-####<a name="expentrychild" id="expentrychild"></a>Expense Entry Child Elements
+#### <a name="expentrychild" id="expentrychild"></a>Expense Entry Child Elements
 
 | Element | Description |
 | ------- | ------------
@@ -77,7 +77,7 @@ This request will return a  <ReportDetails  parent element with an xmlns version
 | `FormKey`  | The key for the expense entry form. |
 | `ReceiptImageId`  | The unique identifier for the image associated with the entry. |
 | `ExpName`  | The expense type name. |
-| `SpendCategory` | The spend category specified for this expense type. Varies by client, used in reporting. 
+| `SpendCategory` | The spend category specified for this expense type. Varies by client, used in reporting.
 | `BusinessPurpose` | The text from the Business Purpose field of the entry. |
 |  `HasVat`  | Whether the entry contains VAT data. |
 |  `ExchangeRate`  | The exchange rate that applies to the entry. |
@@ -104,10 +104,10 @@ This request will return a  <ReportDetails  parent element with an xmlns version
 |  `TransactionDate`  | The date of the expense entry. |
 |  `LastModifiedDate`  | The date the expense entry was last changed. |
 | `ItemizationList` | The list of itemizations for the expense entry. This parent element is empty if there are no itemizations. When the report has itemizations, this element contains an `ItemizationEntry` Details element for each itemization. Refer to the [Itemization Entry Details Child Elements](#itementrychild) table for more information. |
- 
- 
+
+
 #### <a name="itementrychild" id="itementrychild"></a>Itemization Entry Details Child Elements
- 
+
 | Element | Description |
 | ------ | ---------------
 | `Custom1` through `Custom40` | The custom fields associated with the itemization. These may not have data, depending on your configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: <Custom1>(1234) Project 1234 </Custom1>
@@ -145,7 +145,7 @@ This request will return a  <ReportDetails  parent element with an xmlns version
 | `AccountCode2`  | The second account code for the allocation. This is only populated in rare cases, such as when using travel allowance, where one expense might have an account code for the allowed amount, and a second account code for the overage.
 | `allocKey`  | The unique alphanumeric identifier for the allocation.
 | `percentage` | The percentage of the expense that is included in this allocation.
- 
+
 
 #### <a name="attchild" id="attchild"></a>Attendee Details Child Elements
 
@@ -166,23 +166,26 @@ This request will return a  <ReportDetails  parent element with an xmlns version
 | `TotalAmountYtd` | The total amount spent on the attendee in the current calendar year.
 | `VersionNumber` | The attendee's version number.
 | `AttendeeKey` | Attendee unique identifier within Concur.
- 
- 
+
+
 ### Example
- 
+
 #### Request
- 
-	GET http://www.concursolutions.com/api/expense/expensereport/v1.1/reportfulldetails/n6ujbuLd1Arwe45lT7As3ThJYJf2dAsrrEW HTTPS 1.1
-	Host: www.concursolutions.com
-	Authentication: OAuth ...</pre>
- 
+
+```http
+GET http://www.concursolutions.com/api/expense/expensereport/v1.1/reportfulldetails/n6ujbuLd1Arwe45lT7As3ThJYJf2dAsrrEW HTTPS/1.1
+Host: www.concursolutions.com
+Authentication: OAuth ...
+```
+
 #### Response
 
-	200 OK
-	Content-Type: application/xml
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
 
-	<ReportDetails xmlns:ns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-    <X_UserID>cmiller@example.com</X_UserID> 
+<ReportDetails xmlns:ns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <X_UserID>cmiller@example.com</X_UserID>
     <ReportId>4681D8C33A284E91A46E</ReportId>
     <ReportName>Client Meeting </ReportName>
     <Purpose>Sales meeting</Purpose>
@@ -693,7 +696,7 @@ This request will return a  <ReportDetails  parent element with an xmlns version
             </Allocations>
         </ExpenseEntry>
     </Entries>
-	</ReportDetails>
-	</sample>
-	
+</ReportDetails>
+```
+
 Last Modified: 3/21/2014 1:16 AM PST

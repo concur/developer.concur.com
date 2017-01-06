@@ -1,5 +1,5 @@
 ---
-title: Trip Approval 
+title: Trip Approval
 layout: reference
 ---
 
@@ -8,7 +8,8 @@ layout: reference
 The Trip Approval resource allows clients to approve or reject trips. Clients send the unique identifier for the trip, the approver email and the workflow action to be performed (either approve or reject).
 
 ## Resource URI
-<samp>https://www.concursolutions.com/api/tws/v1.0/TripApproval/DoApproval</samp>
+
+    https://www.concursolutions.com/api/tws/v1.0/TripApproval/DoApproval
 
 ## Supported Content Types
 * application/xml
@@ -24,9 +25,12 @@ The Trip Approval resource allows clients to approve or reject trips. Clients se
 Updates the specified trip as approved or rejected by the supplied approver. Can supply either the ItinLocator or the RecordLocator value.
 
 ### Request
-    POST /api/tws/v1.0/TripApproval/DoApproval HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
+
+```http
+POST /api/tws/v1.0/TripApproval/DoApproval HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+```
 
 ### Content type
 application/xml
@@ -63,56 +67,63 @@ This request will return a TripApprovalRS parent element with a matching Transac
 #### Example 1: Update a trip as approved with successful response
 
 ##### Request
-```
-POST /api/tws/v1.0/TripApproval/DoApproval HTTPS 1.1
+
+```http
+POST /api/tws/v1.0/TripApproval/DoApproval HTTPS/1.1
 Host: www.concursolutions.com
 Authorization: OAuth {access token}
+Content-Type: application/xml
 ...
-```  
-```XML
-        <TripApprovalRQ TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
-            <Version>1.0</Version>
-            <ItinLocator>CQ-BB8-16JED-3ZW</ItinLocator>
-            <ApproverLogin>cm@example.com</ApproverLogin>
-            <Action>approve</Action>
-        </TripApprovalRQ>
+
+<TripApprovalRQ TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
+    <Version>1.0</Version>
+    <ItinLocator>CQ-BB8-16JED-3ZW</ItinLocator>
+    <ApproverLogin>cm@example.com</ApproverLogin>
+    <Action>approve</Action>
+</TripApprovalRQ>
 ```
+
 ##### Response
-    200 OK
-    Content-Type: application/xml
-```XML
-        <TripApprovalRS TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
-            <Version>1.0</Version>
-            <Status>success</Status>
-        </TripApprovalRS>
+
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+
+<TripApprovalRS TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
+    <Version>1.0</Version>
+    <Status>success</Status>
+</TripApprovalRS>
 ```
+
 #### Example 2: Update a trip as approved with error
 
 ##### Request
 
-```
-POST /api/tws/v1.0/TripApproval/DoApproval HTTPS 1.1
+```http
+POST /api/tws/v1.0/TripApproval/DoApproval HTTPS/1.1
 Host: www.concursolutions.com
 Authorization: OAuth {access token}
-...
+Content-Type: application/xml
+
+<TripApprovalRQ TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
+    <Version>1.0</Version>
+    <ItinLocator>CQ-BB8-16JED-3ZW</ItinLocator>
+    <ApproverLogin>cm@example.com</ApproverLogin>
+    <Action>approve</Action>
+</TripApprovalRQ>
 ```
-```XML
-        <TripApprovalRQ TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
-            <Version>1.0</Version>
-            <ItinLocator>CQ-BB8-16JED-3ZW</ItinLocator>
-            <ApproverLogin>cm@example.com</ApproverLogin>
-            <Action>approve</Action>
-        </TripApprovalRQ>
-```
+
 ##### Response
-    200 OK
-    Content-Type: application/xml
-```XML
-        <TripApprovalRS TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
-            <Version>1.0</Version>
-            <Status>failure</Status>
-            <Error Code="506">No tripId found for this ItinLocator or RecordLocator.</Error>
-        </TripApprovalRS>
+
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+
+<TripApprovalRS TransactionId="1cc6ea2d-c711-409e-bb51-63b2bdd485fc">
+    <Version>1.0</Version>
+    <Status>failure</Status>
+    <Error Code="506">No tripId found for this ItinLocator or RecordLocator.</Error>
+</TripApprovalRS>
 ```
 
 
@@ -131,6 +142,3 @@ Authorization: OAuth {access token}
 |  510 |  TripLocator ir RecordLocator was not found |
 |  600 |  An error occured while approving the trip. |
 |  700 |  An error occured while rejecting the trip. |
-
-
-

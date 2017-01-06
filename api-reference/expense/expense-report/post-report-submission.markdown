@@ -64,18 +64,16 @@ If the report submission triggered an exception, a **ReportExceptions** parent e
 
 ### XML example request
 
-```
-xml
+```http
 POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz$sQ6SKJFjLNs4OWBErcJ8yX/submit HTTP/1.1
 Authorization: OAuth {access token}
-X-UserID: [cmiller@example.com][5]
+X-UserID: cmiller@example.com
 ...
 ```
 
 ### XML example of successful response
 
-```
-xml
+```xml
 <ReportStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
     <Status>SUCCESS</Status>
 </ReportStatus>
@@ -85,5 +83,4 @@ xml
 [2]: /api-reference/expense/expense-report/reports.html#get
 [3]: /api-reference/expense/expense-report/reports.html#getID
 [4]: /api-reference/expense/expense-report/reports.html#post
-[5]: mailto:cmiller@example.com
 [6]: https://developer.concur.com/reference/http-codes

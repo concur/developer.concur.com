@@ -5,7 +5,7 @@ layout: reference
 
 ##  Post Event Notification Request
 
-### Supported Accept Types 
+### Supported Accept Types
 * application/xml
 
 ### Request URI
@@ -17,7 +17,7 @@ The URI is configured on the **Register Application Connector** page in** Web Se
 
 
 ### Request Headers - Required
-Authorization header with Basic authorization for endpoint. Refer to [Authentication][2] for more information. 
+Authorization header with Basic authorization for endpoint. Refer to [Authentication][2] for more information.
 
 ### Request Headers - Optional
 None
@@ -35,18 +35,21 @@ The request will include a **Notification** parent element, with the following c
 
 ###  XML Example Request
 
-    POST /concur/v1.0/notify HTTPS /1.1
-    Host: www.example.com
-    Authorization: Basic Y29uY3VyOmNvbmN1cg==
-    ...
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <Notification>
-        <EventType>Report Entered Expense Report Workflow Step - SUBMIT</EventType>
-        <ObjectType>EXPRPT</ObjectType>
-        <ObjectURI>https://www.concursolutions.com/api/expense/expensereport/v1.1/reportfulldetails/3%Rek29$wsIY12Di3LS9$gjei%KL23</ObjectURI>
-        <EventDateTime>2012-05-01</EventDateTime>
-        <Context/>
-    </Notification>
+```http
+POST /concur/v1.0/notify HTTPS/1.1
+Host: www.example.com
+Authorization: Basic Y29uY3VyOmNvbmN1cg==
+...
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<Notification>
+    <EventType>Report Entered Expense Report Workflow Step - SUBMIT</EventType>
+    <ObjectType>EXPRPT</ObjectType>
+    <ObjectURI>https://www.concursolutions.com/api/expense/expensereport/v1.1/reportfulldetails/3%Rek29$wsIY12Di3LS9$gjei%KL23</ObjectURI>
+    <EventDateTime>2012-05-01</EventDateTime>
+    <Context/>
+</Notification>
+```
 
 ##  Post Event Notification Response
 

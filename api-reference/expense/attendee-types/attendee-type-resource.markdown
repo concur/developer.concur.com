@@ -24,7 +24,7 @@ The Attendee Type resource represents the type of attendee as configured in Conc
 
     GET  /api/v3.0/expense/attendeetypes/
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -42,7 +42,7 @@ https://www.concursolutions.com/api/v3.0/expense/attendeetypes?limit=10
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "Items": [
     {
@@ -87,6 +87,8 @@ https://www.concursolutions.com/api/v3.0/expense/attendeetypes?limit=10
       "ID": "gWjYOjoOorT3dhpHGto5H$poJuoa0m",
       "URI": "https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjoOorT3dhpHGto5H$poJuoa0m"
     }
+  ]
+}
 ```
 
 
@@ -110,7 +112,7 @@ https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjoOorT3dhpHG
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "Name": "Healthcare Professional",
   "Code": "HCP",
@@ -171,7 +173,7 @@ https://www.concursolutions.com/api/v3.0/expense/attendeetypes
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "ID": "gWjYOj4JuT5VB$paQnF31149$sKgaM$p",
   "URI": "https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOj4JuT5VB$paQnF31149$sKgaM$p"
@@ -248,4 +250,3 @@ Name | Type | Format | Description
 `ID`	|	`string`	|	-	|	The unique identifier of the resource.
 `Name`	|	`string`	|	-	|	The name for the attendee type. This name must be unique. Maximum length: 40 characters
 `URI`	|	`string`	|	-	|	The URI to the resource.
-

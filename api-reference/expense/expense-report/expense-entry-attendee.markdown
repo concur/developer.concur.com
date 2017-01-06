@@ -16,7 +16,7 @@ layout: reference
 ## Version  
 
 3.0  
-  
+
 2.0 documentation is available [here.](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource.html)
 
 
@@ -24,7 +24,7 @@ layout: reference
 
     GET  /api/v3.0/expense/entryattendeeassociations
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -42,7 +42,7 @@ https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations?limit
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "Items": [
     {
@@ -71,6 +71,8 @@ https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations?limit
       "ID": "gWgOOsCJrozFymvWtfB5Ri1WD$ste9",
       "URI": "https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgOOsCJrozFymvWtfB5Ri1WD$ste9"
     }
+  ]
+}
 ```
 
 ## <a name="getID"></a>Retrieve an entry-attendee association by ID
@@ -94,7 +96,7 @@ https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "EntryID": "gWidFO7ikXV67u6QrT2w1Yhqzh4a8j$pEjCg",
   "AttendeeID": "gWj3IHRYiHZOTjq8PONWIqyRFfGz4RoozoQ",
@@ -130,7 +132,7 @@ https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "ID": "gWgSM$s2kvfcQ8xC$p6uaPsY6V6qB7FqOU",
   "URI": "https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM$s2kvfcQ8xC$p6uaPsY6V6qB7FqOU"
@@ -197,4 +199,3 @@ Name | Type | Format | Description
 `EntryID`	|	`string`	|	-	|	The unique identifier of the associated entry. To obtain the attendee ID value, use the GET /expense/entries endpoint. The value of the ID element in the response is the entry ID.
 `ID`	|	`string`	|	-	|	The unique identifier of the resource.
 `URI`	|	`string`	|	-	|	The URI to the resource.
-

@@ -9,8 +9,6 @@ tags:
 references:
     - url: /api-reference/user/
       link: User
-categories:
-    - changelog
 ---
 
 

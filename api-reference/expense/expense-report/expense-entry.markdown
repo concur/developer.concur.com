@@ -12,9 +12,9 @@ layout: reference
 * [Delete an expense entry](#delete)
 * [Schema](#schema)
 
- 
+
 1.1 documentation is available [here.](/api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html)  
-  
+
 
 ## <a name="get"></a>Retrieve all expense entries
 
@@ -23,7 +23,7 @@ In order to retrieve all expense entries, you must use [version 2.0.](/api-refer
 <!--- 3.0 NOT READY
     GET /expense/entries/
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -66,7 +66,7 @@ https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "ReportID": "39BD9F7C5C3F4986A6A5",
   "ReportOwnerID": "jimadmin@concurconnect2.com",
@@ -185,7 +185,7 @@ https://www.concursolutions.com/api/v3.0/expense/entries
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "ID": "gWidFO7ikXV647DRpQmvCXeFNA4VPTOczCg",
   "URI": "https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV647DRpQmvCXeFNA4VPTOczCg"
@@ -314,8 +314,8 @@ Name | Type | Format | Description
 `ListItemID`	|	`string`	|	-	|	For list fields, this is the list item ID.
 `Type`	|	`string`	|	-	|	The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text
 `Value`	|	`string`	|	-	|	The value in the Org Unit or Custom field. For list fields, this is the name of the list item. Maximum length: 48 characters
-						
-						
+
+
 ### <a name="journey"></a>Journey
 
 Name | Type | Format | Description
@@ -330,5 +330,4 @@ Name | Type | Format | Description
 `UnitOfMeasure`	|	`string`	|	-	|	**Required** The unit of measure for distance and odometer values. Possible values: M - miles, K - kilometers
 
 
-NOTE: Clients that have Car Configurations that include variable rates are not currently supported.  We only support Car Configurations that include Personal Car One-Rate definitions where Google Maps is not set as mandatory. 
-
+NOTE: Clients that have Car Configurations that include variable rates are not currently supported.  We only support Car Configurations that include Personal Car One-Rate definitions where Google Maps is not set as mandatory.

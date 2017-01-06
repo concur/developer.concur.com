@@ -24,14 +24,32 @@ The new Oauth2 `accessToken` has a one hour lifetime. Once expired, applications
 
 This is significantly different from how the deprecated /net2/Oauth2's method of handling access tokens. Partner's would have to store the new Oauth2 `refreshToken` instead of the old access token. Before making a call to any of Concur's new v4 APIs, it is advisable to request for a new `accessToken` before making the API call.
 
-Applications can exchange tokens by calling the `exchangeRefreshToken/me` endpoint.
+**Step 1: Obtain Application Token**
+Applications can exchange tokens by calling the `exchangeRefreshToken/me` endpoint. In order to call this endpoint, you would first need to obtain an Application Token by calling the `/v0/token` endpoint with the [client_credentials](https://developer.concur.com/api-reference/authentication/apidoc.html#client_credentials) grant. 
 
-`POST /legacyApps/{consumerKey}/exchangeRefreshToken/me`
+**Step 2: Call exchangeRefreshToken**
+
+`POST /appmgmt/v0/legacyApps/{oldConsumerKey}/exchangeRefreshToken/me`
+
+**Request Header**
+
+Name | Type | Format | Description
+-----|------| ------ | -----------
+`Authorization`|`string` | `Bearer <accessToken>` | **Required** The new client_credentials accessToken.
+
+
+**Request Body**
+
+Name | Type | Format | Description
+-----|------| ------ | -----------
+`token`|`string` |  | **Required** The old refreshToken
+`secret`|`string` |  | **Required** The new application client_secret
+
 
 Sample Curl:
 
 ```shell
-curl -H 'concur-correlationid: githbuwiki' -H 'Authorization: Bearer <accessToken>' -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST http://us.api.concursolutions.com/api/appmgmt/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me
+curl -H 'Authorization: Bearer <accessToken>' -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST http://us.api.concursolutions.com/appmgmt/v0/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me
 ```
 
 successful call, responds with
@@ -52,12 +70,14 @@ successful call, responds with
 }
 ```
 
+**Step 3: Obtain New Access Token**
+
 Once you have the new `refreshToken` from the response (`8c844478-745c-4c45-adf7-1e2777a50dbf`) you can then proceed to call `/v0/token` using the refresh grant to obtain a new `accessToken`.
 
 Sample Curl:
 
 ```shell
-curl -X POST -H 'concur-correlationid: githbuwiki' 'https://us.api.concursolutions.com/oauth2/v0/token' --data 'client_id=3a55c75e-ac1e-4515-845c-0a4978452828&client_secret=12345&grant_type=refresh_token&refresh_token=8c844478-745c-4c45-adf7-1e2777a50dbf'
+curl -X POST 'https://us.api.concursolutions.com/oauth2/v0/token' -d 'client_id=3a55c75e-ac1e-4515-845c-0a4978452828&client_secret=12345&grant_type=refresh_token&refresh_token=8c844478-745c-4c45-adf7-1e2777a50dbf'
 ```
 
 successful call, responds with:

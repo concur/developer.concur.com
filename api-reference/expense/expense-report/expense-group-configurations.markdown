@@ -28,7 +28,7 @@ NOTE: The Concur Expense product is highly configurable, and each client may hav
 
     GET  /api/v3.0/expense/expensegroupconfigurations
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -45,7 +45,7 @@ https://www.concursolutions.com/api/v3.0/expense/expensegroupconfigurations?user
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "Items": [
     {
@@ -84,11 +84,17 @@ https://www.concursolutions.com/api/v3.0/expense/expensegroupconfigurations?user
               "Name": "Hotel",
               "ExpenseCode": "LODGING"
             }
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ## <a name="getID"></a>Retrieve an expense group configuration by ID
 
-    GET  /api/v3.0/expense/expensegroupconfigurations{id}
+    GET  /api/v3.0/expense/expensegroupconfigurations/{id}
 
 
 ### Parameters
@@ -173,13 +179,14 @@ Name | Type | Format | Description
 `ExpenseCode`	|	`string`	|	-	|	The code for the expense category. The expense category code controls the function of an expense entry. Format: OTHER - Standard, COCARMILE - Company Car, PCARMILE - Personal Car, MFUEL - Fuel For Mileage, LODGING - Lodging, MEALS - Meals, OTHERNP - Other Not Partially Approvable, JPYPTRAN - Japanese Public Transportation
 `Name`	|	`string`	|	-	|	The name of the expense type.
 
-###Request URL
+### Request URL
 ```
 https://www.concursolutions.com/api/v3.0/expense/expensegroupconfigurations/gWv5bj%24sPY1weV9audTTRp7PkBlea3Y6aizg
 ```
 
-###JSON example of a successful response
-```
+### JSON example of a successful response
+
+```json
 {
   "Name": "United Kingdom",
   "AttendeeListFormID": "gWh2aF2cfwJElRBMIJ9ahYnTVXDIp1fQUdg",

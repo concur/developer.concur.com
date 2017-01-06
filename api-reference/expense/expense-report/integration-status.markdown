@@ -65,7 +65,7 @@ The response will include an **ActionStatus** parent element (XML), or an object
 
 ### XML example request
 
-```xml
+```http
 POST https://www.concursolutions.com/api/expense/expensereport/v2.0/integrationstatus/report/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a454QitqQ HTTP/1.1
 Authorization: OAuth {access token}
 Accept: application/xml
@@ -74,36 +74,36 @@ Accept: application/xml
 
 ### XML example of successful response
 
-```
-xml
-    HTTP/1.1 200 OK
-    Content-Type: application/xml
-    <ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Message>SUCCESS</Message>
-        <Status>SUCCESS</Status>
-    </ActionStatus>
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+
+<ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Message>SUCCESS</Message>
+    <Status>SUCCESS</Status>
+</ActionStatus>
 ```
 
 ###  JSON example of successful response
 
-```json
-    HTTP/1.1 200 OK
-    Content-Type: application/json
-    {"Status":"SUCCESS","Message":"SUCCESS"}
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "Status": "SUCCESS",
+  "Message": "SUCCESS"
+}
 ```
 
 ###  JSON example of response With error
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "Status": "FAILURE",
+  "Message": "To use the POST Expense Journal Entry Job Key the report must be at the Processing Payment or Payment Confirmed Payment Status."
+}
 ```
-xml
-    HTTP/1.1 200 OK
-    Content-Type: application/json
-    {"Status":"FAILURE","Message":"To use the POST Expense Journal Entry Job Key the
-        report must be at the Processing Payment or Payment Confirmed Payment Status."}
-```
-
-
-
-
-
-

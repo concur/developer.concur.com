@@ -282,7 +282,7 @@ Format: YYYY-MM-DD |
 
 ### XML example request
 
-```
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/n6ujbuLd1Arwe45lT7As3ThJYJf2dAsrrEW HTTP/1.1
 Authorization: OAuth {access token}
 ...
@@ -290,8 +290,8 @@ Authorization: OAuth {access token}
 
 ### XML example of successful response
 
-```
-200 OK
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml
 
 <?xml version="1.0" encoding="utf-8"?>

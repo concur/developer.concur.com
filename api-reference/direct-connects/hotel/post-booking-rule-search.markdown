@@ -11,7 +11,7 @@ This request is sent when the Travel user selects a rate for the hotel. The resp
 ##  Request
 
 ### Encoding
-UTF-8 
+UTF-8
 
 ### URI
 
@@ -19,7 +19,7 @@ The Hotel direct connect sends the relevant information to a URI that the travel
 
 `https://{servername}/concur/hotel/v1/`
 
-The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts** > [Partner Applications](/docs/overviews/partner-applications.html) for more information. 
+The URI is configured by the supplier when registering the partner application. Refer to **Core Concepts** > [Partner Applications](/docs/overviews/partner-applications.html) for more information.
 
 ### Headers
 
@@ -73,24 +73,24 @@ This element has the following attributes:
 
 ####  XML Example Request
 
-```xml
-    POST /concur/hotel/v1 HTTPS/1.1
-    Host: example.com
-    Authorization: Basic ...
-    Content-Type: application/xml
-    Content-Length: {length of content body}
+```http
+POST /concur/hotel/v1 HTTPS/1.1
+Host: example.com
+Authorization: Basic ...
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <OTA_HotelBookingRuleRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelBookingRuleRQ.xsd" Version="1">
-        <POS>
-            <Source ISOCountry="US" ISOCurrency="USD">
-                <RequestorID Type="18" ID="7777777" />
-            </Source>
-        </POS>
-        <RuleMessage HotelCode="HTL1111">
-            <StatusApplication Start="2012-08-15" End="2010-08-17" RatePlanCode="HTL1_1" />
-        </RuleMessage>
-    </OTA_HotelBookingRuleRQ>
+<?xml version="1.0" encoding="UTF-8" ?>
+<OTA_HotelBookingRuleRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelBookingRuleRQ.xsd" Version="1">
+    <POS>
+        <Source ISOCountry="US" ISOCurrency="USD">
+            <RequestorID Type="18" ID="7777777" />
+        </Source>
+    </POS>
+    <RuleMessage HotelCode="HTL1111">
+        <StatusApplication Start="2012-08-15" End="2010-08-17" RatePlanCode="HTL1_1" />
+    </RuleMessage>
+</OTA_HotelBookingRuleRQ>
 ```
 
 ##  Response
@@ -151,55 +151,56 @@ The **AcceptableGuarantee** element has the GuaranteeCode attribute and the foll
 
 ####  XML Example of Successful Response
 
-```xml
-    200 OK HTTPS/1.1
-    Content-Length: {length of content body}
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <OTA_HotelBookingRuleRS xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelBookingRuleRS.xsd" Version="1">
-        <Success />
-        <RuleMessage HotelCode="HTL1111" HotelName="HOTEL1">
-            <StatusApplication Start="2012-08-15" End="2010-08-17" RatePlanCode="HTL1_1">
-                <RoomRates>
-                    <RoomRate Amount="100.00" CurrencyCode="USD">
-                        <RateDescription>
-                            <Text>Standard Room</Text>
-                        </RateDescription>
-                    </RoomRate>
-                </RoomRates>
-            </StatusApplication>
-            <GuestCounts>
-                <GuestCount AgeQualifyingCode="10" Count="1" />
-            </GuestCounts>
-            <BookingRules>
-                <BookingRule>
-                    <AcceptableGuarantees>
-                        <AcceptableGuarantee GuaranteeCode="1">
-                            <GuaranteeDescription>
-                                <Text>Credit Card WILL BE CHARGED IMMEDIATELY FOR THE FULL AMOUNT of the reservation.</Text>
-                            </GuaranteeDescription>
-                        </AcceptableGuarantee>
-                    </AcceptableGuarantees>
-                    <CancelPenalties>
-                        <CancelPenalty>
-                            <PenaltyDescription>
-                                <Text>The hotel imposes the following cancellation penalty: Cancellations or changes made after 11:59 PM on Jun 18, 2012 are subject to a 1 Night Room and Tax penalty. The property makes no refunds for no shows or early checkouts.</Text>
-                            </PenaltyDescription>
-                        </CancelPenalty>
-                    </CancelPenalties>
-                    <RequiredPaymts>
-                        <GuaranteePayment PaymentCode="2">
-                            <Description>
-                                <Text>Prepayment required</Text>
-                            </Description>
-                        </GuaranteePayment>
-                    </RequiredPaymts>
-                </BookingRule>
-            </BookingRules>
-        </RuleMessage>
-    </OTA_HotelBookingRuleRS>
+<?xml version="1.0" encoding="UTF-8" ?>
+<OTA_HotelBookingRuleRS xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelBookingRuleRS.xsd" Version="1">
+    <Success />
+    <RuleMessage HotelCode="HTL1111" HotelName="HOTEL1">
+        <StatusApplication Start="2012-08-15" End="2010-08-17" RatePlanCode="HTL1_1">
+            <RoomRates>
+                <RoomRate Amount="100.00" CurrencyCode="USD">
+                    <RateDescription>
+                        <Text>Standard Room</Text>
+                    </RateDescription>
+                </RoomRate>
+            </RoomRates>
+        </StatusApplication>
+        <GuestCounts>
+            <GuestCount AgeQualifyingCode="10" Count="1" />
+        </GuestCounts>
+        <BookingRules>
+            <BookingRule>
+                <AcceptableGuarantees>
+                    <AcceptableGuarantee GuaranteeCode="1">
+                        <GuaranteeDescription>
+                            <Text>Credit Card WILL BE CHARGED IMMEDIATELY FOR THE FULL AMOUNT of the reservation.</Text>
+                        </GuaranteeDescription>
+                    </AcceptableGuarantee>
+                </AcceptableGuarantees>
+                <CancelPenalties>
+                    <CancelPenalty>
+                        <PenaltyDescription>
+                            <Text>The hotel imposes the following cancellation penalty: Cancellations or changes made after 11:59 PM on Jun 18, 2012 are subject to a 1 Night Room and Tax penalty. The property makes no refunds for no shows or early checkouts.</Text>
+                        </PenaltyDescription>
+                    </CancelPenalty>
+                </CancelPenalties>
+                <RequiredPaymts>
+                    <GuaranteePayment PaymentCode="2">
+                        <Description>
+                            <Text>Prepayment required</Text>
+                        </Description>
+                    </GuaranteePayment>
+                </RequiredPaymts>
+            </BookingRule>
+        </BookingRules>
+    </RuleMessage>
+</OTA_HotelBookingRuleRS>
 ```
-  
+
 
 
 [1]: https://developer.concur.com/overview/partner-applications

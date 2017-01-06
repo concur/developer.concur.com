@@ -10,50 +10,51 @@ title: Developer Newsletter Signup
   <form action="{{ site.data.forms.server }}/newsletter-request" method="POST" id="newsletterRequest" class="sky-form" novalidate="novalidate">
     <fieldset>
       <section>
-        <label class="label">First Name</label>
-        <label class="input">
+        <label for="firstName" class="label">First Name</label>
+        <div class="input">
           <input type="text" name="firstName" id="firstName" placeholder="First Name">
-        </label>
+        </div>
       </section>
 
       <section>
-        <label class="label">Last Name</label>
-        <label class="input">
+        <label for="lastName" class="label">Last Name</label>
+        <div class="input">
           <input type="text" name="lastName" id="lastName" placeholder="Last Name">
-        </label>
+        </div>
       </section>
 
       <section>
-        <label class="label">Email Address</label>
-        <label class="input">
+        <label for="email" class="label">Email Address</label>
+        <div class="input">
           <input type="text" name="email" id="email" placeholder="example@example.com">
-        </label>
+        </div>
       </section>
 
       <section>
-        <label class="label">Country</label>
-        <label class="select">
+        <label for="country" class="label">Country</label>
+        <div class="select">
           <select name="country" id="country">
             {% for country in site.data.countries %}
             <option value="{{ country.code }}">{{ country.name }}</option>
             {% endfor %}
           </select>
           <i></i>
-        </label>
+        </div>
       </section>
 
       <section>
-        <label class="label">State</label>
-        <label class="select">
+        <label for="state" class="label">State</label>
+        <div class="select">
           <select name="state" id="state">
             {% for state in site.data.states %}
             <option value="{{ state.code }}">{{ state.name }}</option>
             {% endfor %}
           </select>
           <i></i>
-        </label>
+        </div>
       </section>
-      <input type="text" name="email-alt" id="email-alt">
+      <label for="email-alt" hidden>Alternate Email</label>
+      <input type="text" name="email-alt" id="email-alt" hidden>
     </fieldset>
     <footer>
       <button type="submit" class="btn bright-blue pull-right">Submit</button>
