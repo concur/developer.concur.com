@@ -103,8 +103,8 @@ successful call, responds with:
 | HTTP Status | Description                                      |
 |-------------|--------------------------------------------------|
 |   200       | OK - Successful call, response is in body.       |
-|   400       | Bad Request 'JWT is missing or invalid'          |
-|   401       | Unauthorized 'Bad input or access denied'        |
+|   400       | Bad Request `JWT is missing or invalid'`          |
+|   401       | Unauthorized `Bad input or access denied or revoked token`       |
 |   403       | Forbidden `(error, error_description, code)`     |
 |   404       | Not Found `(error, error_description, code)`     |
 |   500       | Server Error, error message is in body.          |
