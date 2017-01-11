@@ -7,7 +7,7 @@
   - OrgUnit1
   - **You will need to include valid values into the above fields when you construct your USER Post body.**
 
-#### Steps to obtain Standard Group Codes
+### Steps to obtain Standard Group Codes
 
 1.	**GET List of Lists**
   - URL: <https://www.concursolutions.com/api/expense/list/v1.0/>

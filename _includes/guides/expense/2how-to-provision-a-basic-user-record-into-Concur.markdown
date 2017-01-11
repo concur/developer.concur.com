@@ -6,42 +6,42 @@ Concur comes in 3 Editions: Standard, Professional, and Standard-to-Professional
 
 The Partner can determine the Edition type by the field Label value populated in Custom21:
 
-1.  Standard Edition:
+> Standard Edition:
 
-    ```xml
-    <Id> Custom21 </Id>
-    <Label> EmployeeAdministrationCountry </Label>
-    ```
+```xml
+<Id> Custom21 </Id>
+<Label> EmployeeAdministrationCountry </Label>
+```
 
-2.  Professional Edition:
+> Professional Edition:
 
-    ```xml
-    <Id> Custom21 </Id>
-    <Label> EmployeeGroup </Label>
-    ```
+```xml
+<Id> Custom21 </Id>
+<Label> EmployeeGroup </Label>
+```
 
-3.  Standard-to-Professional Upgrade Edition:
+> Standard-to-Professional Upgrade Edition:
 
-    ```xml
-    <Id> Custom21 </Id>
-    <Label> EmployeeGroup </Label>
-    ```
+```xml
+<Id> Custom21 </Id>
+<Label> EmployeeGroup </Label>
+```
 
-    In addition, these clients will have this field & Label:
+> In addition, these clients will have this field & Label:
 
-    ```xml
-    <Id> PmtMethodCode </Id>
-    <Label> ReimbursementMethod </Label>
-    ```
+```xml
+<Id> PmtMethodCode </Id>
+<Label> ReimbursementMethod </Label>
+```
 
 There are subtle differences between the Editions when adding a base User record:
 
-#### Ledger Code Value (must be exact)
+### Ledger Code Value (must be exact)
 
 1.	Standard Edition - DEFAULT is the code value to use for all Standard Edition clients. All caps.
 2.	Professional Edition - The Ledger code must be obtained from Concur since the Code is not available in the API and it is not exposed to the client administrator in the Concur UI (Accounting Administration menu).
 
-#### Custom Fields:
+### Custom Fields:
 
 1.	The Partner has to identify all required fields on the Concur employee form(s), otherwise the record will fail.
     * Standard Edition – there will only be one Employee Form per client
@@ -55,7 +55,7 @@ There are subtle differences between the Editions when adding a base User record
 See how to determine if the Employee Form Fields are lists and connected lists below.
 
 
-#### Employee Group:
+### Employee Group:
 
 1.  The employee group values are obtained from the List API results.
 2.  An Employee Form is assigned to an Employee Group.  The same form can be assigned to more than one Group, but a Group cannot have more than form assigned to it.  This form dictates which fields need populated.

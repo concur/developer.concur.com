@@ -29,32 +29,32 @@ A client can determine the Edition-type by having their administrator login to t
 
 ![Expense Menu](/api-guides/images/create_user.jpg)
 
-A Partner can determine the Edition type by the field Label value populated in Custom21 data element.  This data element can be obtained by making a GET request to this API:	https://www.concursolutions.com/api/user/v1.0/FormFields
+A Partner can determine the Edition type by the field Label value populated in Custom21 data element.  This data element can be obtained by making a GET request to this API:	`https://www.concursolutions.com/api/user/v1.0/FormFields`
 
 
-  1.  Standard Edition:
+> Standard Edition:
 
-      ```xml
-      <Id> Custom21 </Id>
-      <Label> EmployeeAdministrationCountry </Label>
-      ```
+```xml
+<Id> Custom21 </Id>
+<Label> EmployeeAdministrationCountry </Label>
+```
 
-  2.  Professional Edition:
+> Professional Edition:
 
-      ```xml
-      <Id> Custom21 </Id>
-      <Label> EmployeeGroup </Label>
-      ```
+```xml
+<Id> Custom21 </Id>
+<Label> EmployeeGroup </Label>
+```
 
-  3.  Standard-to-Professional Upgrade Edition:
+> Standard-to-Professional Upgrade Edition:
 
-      ```xml
-      <Id> Custom21 </Id>
-      <Label> EmployeeGroup </Label>
-      In addition, these clients will have this field & Label:
-      <Id> PmtMethodCode </Id>
-      <Label> ReimbursementMethod </Label>
-      ```
+```xml
+<Id> Custom21 </Id>
+<Label> EmployeeGroup </Label>
+In addition, these clients will have this field & Label:
+<Id> PmtMethodCode </Id>
+<Label> ReimbursementMethod </Label>
+```
 
 ### Import Notes across the Edition Types:
 

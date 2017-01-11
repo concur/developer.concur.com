@@ -135,5 +135,6 @@ Test your API in the [API Explorer](https://concurapi.readme.io/docs/post-e-rece
 
 ![App Center Flow](images/Normal-flow.jpg)
 
-#### Make us better at making your experience easier.
-Share a Concur API process issue we can do better. Provide us with an explanation, screen shots and your recommendation [here](http://forum.developer.concur.com/).
+<aside class="notice">
+  <strong>Make us better at making your experience easier.</strong> Share a Concur API process issue we can do better. Provide us with an explanation, screen shots and your recommendation on the <a href="https://forum.developer.concur.com/">Developer Forum</a>.
+</aside>

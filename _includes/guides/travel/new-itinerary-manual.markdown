@@ -3,14 +3,14 @@
 ### API Recipes: API Tasks
 This series of API Recipes describes API tasks associated with Apps for Travel Management Companies, (TMC), Travel Suppliers and business who need to get data about their employees' travel related booking.  This recipe assumes you are a current Concur customer or platform partner.
 
-#### Before you begin
+### Before you begin
 Review the following checklist to ensure you are able to perform the task in this recipe. To see reference information, click the link in the bullet point.
 
 - Understand the [authentication process](/api-reference/authentication/apidoc.html)
 - Be able to access the [Get Trips API](https://developer.concur.com/api-reference/travel/itinerary/trip/trip-resource.html#postnt)
 - Ensure you have a definition [XSD](https://developer.concur.com/api-reference/travel/itinerary/ItinServices_Public_0.xsd), usable for architecting your solution
 
-#### Manually add a new itinerary
+### Manually add a new itinerary
 Manually adding a new itinerary will give you the means to perform a range of secondary tasks like pulling trip information to associate a hotel reservation done through Concur with a rental car reservation done through the rental car agency's website. It can be used to expose that data to an app in the App Center like Visage, an app that pushes international travel alerts.
 
 Using the following process, you can easily create trips in your sandbox for test purposes.
@@ -52,9 +52,9 @@ Fields marked with * are required.
 7. Click **Save and Close** to save your data.
 8. Click **Trip Library** to see your manually created itinerary.
 
-#### Refer to the sample GET Itinerary Details body below for guidance:
+### Refer to the sample GET Itinerary Details body below for guidance:
 
-###### XML Example Request with Paging:
+#### XML Example Request with Paging:
 
 ```http
 GET /api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&includeMetadata=true&ItemsPerPage=2&Page=1 HTTP/1.1
@@ -62,7 +62,7 @@ Host: www.concursolutions.com
 Authorization: OAuth {access token}
 ```
 
-###### XML example of a successful response with Paging:
+#### XML example of a successful response with Paging:
 
 ```http
 HTTP/1.1 200 OK
@@ -105,7 +105,7 @@ Content-Type: application/xml
 </ConnectResponse>
 ```
 
-###### Test your API in your tool of choice. A successful response will look like this:
+#### Test your API in your tool of choice. A successful response will look like this:
 
 ```http
 HTTP/1.1 200 OK
@@ -241,5 +241,6 @@ Content-Type: application/xml
 </Itinerary>
 ```
 
-#### Make us better at making your experience easier.
-Share a Concur API process issue we can do better. Provide us with an explanation, screen shots and your recommendation [here](http://forum.developer.concur.com/).
+<aside class="notice">
+  <strong>Make us better at making your experience easier.</strong> Share a Concur API process issue we can do better. Provide us with an explanation, screen shots and your recommendation on the <a href="https://forum.developer.concur.com/">Developer Forum</a>.
+</aside>

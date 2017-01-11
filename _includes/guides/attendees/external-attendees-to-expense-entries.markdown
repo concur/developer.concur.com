@@ -44,7 +44,7 @@ The sequence of events is as follows:
 3. The search result returns information that indicates whether or not Concur has a record for the attendee.
 4. If Concur has it, the app gets the ID Concur assigned to the attendee from the search results.  Skip to Step 7.
 5. If Concur doesn’t have it, the app needs to make an API call to the GET /expense/attendeetypes endpoint to obtain the ID for the attendee types.
-6. Make an API call to the POST /expense/attendees endpoint to create an attendee in the Concur system. Use the ID value obtained in step 5 for the AttendeeTypeID.
+6. Make an API call to the `POST /expense/attendees` endpoint to create an attendee in the Concur system. Use the ID value obtained in step 5 for the AttendeeTypeID.
 7. Concur responds with the just created attendee’s ID.
 8. The app associates the attendee with the expense entry.
 9. The loop repeats Step 2 through 7 for each attendee.
@@ -53,29 +53,28 @@ The following sections provide the details for each API call.
 
 ### 1.	Identify the expense entry
 
-The method for identifying an expense entry depends on whether the expense entry needs to be created or it already exists. Regardless of whether you create a new expense entry or you search for an existing one, you can use the GET Reports API followed by the GET Report Details API to obtain the unique identifier for the expense entry.  
- 1. https://developer.concur.com/api-reference/expense/expense-report/reports.html
- 2. https://developer.concur.com/api-reference-deprecated/version-two/expense-reports/expense-report-get.html
+The method for identifying an expense entry depends on whether the expense entry needs to be created or it already exists. Regardless of whether you create a new expense entry or you search for an existing one, you can use the [GET Reports API](/api-reference/expense/expense-report/reports.html) followed by the [GET Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) API to obtain the unique identifier for the expense entry.
 
 #### New Expense Entries
 
-When creating a new expense entry, the Concur Platform returns to the developer the unique identifier for the expense entry. In some cases a developer needs to create an expense entry.  For example, in a CRM application there is an object called Sales Call that allows sales professionals to record expenses and contacts involved in a sales call they make for a prospective opportunity.  In this case the developer creates an expense entry in Concur Expense to record the expense in the sales call.  For details on how to create a new expense entry in Concur Expense, see these APIs (recipe coming soon)...  
- 1. User to identify the Group value:
-   1. https://developer.concur.com/api-reference/user/company-notification-subscription-resource/user.html#getUser
- 2. Group Configuration to identify Policy IDs, Payment Type IDs, Expense Type code
-   1. https://developer.concur.com/api-reference/expense/expense-report/expense-group-configurations.html
- 3. Expense Form to identify the Form Name and Form Code
-   1. https://developer.concur.com/api-reference/expense/expense-report/expense-form.html#get
- 4. Obtain Form Data for each form you need to post to
-   1. https://developer.concur.com/api-reference/expense/expense-report/expense-form.html#get
- 5. Obtain Form Field Details to identify the fields and their corresponding attributes
-   1.  https://www.concursolutions.com/api/user/v1.0/FormFields
- 6. List Items for fields defined as a list
-   1. List name: https://developer.concur.com/api-explorer/v3-0/Lists.html
-   2. List Items within a desired list: https://developer.concur.com/api-explorer/v3-0/ListItems.html
- 7. Now you should have enough informaiton to Post a new report and an entry within the report:
-   1. https://developer.concur.com/api-explorer/v3-0/Reports.html
-   2. https://developer.concur.com/api-explorer/v3-0/Entries.html
+When creating a new expense entry, the Concur Platform returns to the developer the unique identifier for the expense entry. In some cases a developer needs to create an expense entry.  For example, in a CRM application there is an object called Sales Call that allows sales professionals to record expenses and contacts involved in a sales call they make for a prospective opportunity.  In this case the developer creates an expense entry in Concur Expense to record the expense in the sales call.  For details on how to create a new expense entry in Concur Expense, see these APIs (recipe coming soon)...
+
+1. User to identify the Group value:
+  * https://developer.concur.com/api-reference/user/company-notification-subscription-resource/user.html#getUser
+2. Group Configuration to identify Policy IDs, Payment Type IDs, Expense Type code
+  * https://developer.concur.com/api-reference/expense/expense-report/expense-group-configurations.html
+3. Expense Form to identify the Form Name and Form Code
+  * https://developer.concur.com/api-reference/expense/expense-report/expense-form.html#get
+4. Obtain Form Data for each form you need to post to
+  * https://developer.concur.com/api-reference/expense/expense-report/expense-form.html#get
+5. Obtain Form Field Details to identify the fields and their corresponding attributes
+  * https://www.concursolutions.com/api/user/v1.0/FormFields
+6. List Items for fields defined as a list
+  * List name: https://developer.concur.com/api-explorer/v3-0/Lists.html
+  * List Items within a desired list: https://developer.concur.com/api-explorer/v3-0/ListItems.html
+7. Now you should have enough informaiton to Post a new report and an entry within the report:
+  * https://developer.concur.com/api-explorer/v3-0/Reports.html
+  * https://developer.concur.com/api-explorer/v3-0/Entries.html
 
 
 
