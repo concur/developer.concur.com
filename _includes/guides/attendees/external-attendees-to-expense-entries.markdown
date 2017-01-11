@@ -60,21 +60,21 @@ The method for identifying an expense entry depends on whether the expense entry
 When creating a new expense entry, the Concur Platform returns to the developer the unique identifier for the expense entry. In some cases a developer needs to create an expense entry.  For example, in a CRM application there is an object called Sales Call that allows sales professionals to record expenses and contacts involved in a sales call they make for a prospective opportunity.  In this case the developer creates an expense entry in Concur Expense to record the expense in the sales call.  For details on how to create a new expense entry in Concur Expense, see these APIs (recipe coming soon)...
 
 1. User to identify the Group value:
-  * https://developer.concur.com/api-reference/user/company-notification-subscription-resource/user.html#getUser
+  * <https://developer.concur.com/api-reference/user/company-notification-subscription-resource/user.html#getUser>
 2. Group Configuration to identify Policy IDs, Payment Type IDs, Expense Type code
-  * https://developer.concur.com/api-reference/expense/expense-report/expense-group-configurations.html
+  * <https://developer.concur.com/api-reference/expense/expense-report/expense-group-configurations.html>
 3. Expense Form to identify the Form Name and Form Code
-  * https://developer.concur.com/api-reference/expense/expense-report/expense-form.html#get
+  * <https://developer.concur.com/api-reference/expense/expense-report/expense-form.html#get>
 4. Obtain Form Data for each form you need to post to
-  * https://developer.concur.com/api-reference/expense/expense-report/expense-form.html#get
+  * <https://developer.concur.com/api-reference/expense/expense-report/expense-form.html#get>
 5. Obtain Form Field Details to identify the fields and their corresponding attributes
-  * https://www.concursolutions.com/api/user/v1.0/FormFields
+  * <https://www.concursolutions.com/api/user/v1.0/FormFields>
 6. List Items for fields defined as a list
-  * List name: https://developer.concur.com/api-explorer/v3-0/Lists.html
-  * List Items within a desired list: https://developer.concur.com/api-explorer/v3-0/ListItems.html
+  * List name: <https://developer.concur.com/api-explorer/v3-0/Lists.html>
+  * List Items within a desired list: <https://developer.concur.com/api-explorer/v3-0/ListItems.html>
 7. Now you should have enough informaiton to Post a new report and an entry within the report:
-  * https://developer.concur.com/api-explorer/v3-0/Reports.html
-  * https://developer.concur.com/api-explorer/v3-0/Entries.html
+  * <https://developer.concur.com/api-explorer/v3-0/Reports.html>
+  * <https://developer.concur.com/api-explorer/v3-0/Entries.html>
 
 
 
@@ -86,6 +86,8 @@ There are cases when the expense entry already exists.  For example, in a CRM ap
 
 To determine if Concur has a record of external attendees, make a GET HTTPS request to the Attendees resource using the External ID search term for external attendees stored in Concur:
 
+#### GET /expense/attendees
+
 ```http
 GET https://www.concursolutions.com/api/v3.0/expense/attendees?externalid={unique_identifier_for_external_attendee} HTTP/1.1
 Authorization: OAuth {valid OAuth Access Token goes here}
@@ -96,7 +98,7 @@ Where:
 
 **externalID** is the unique identifier record for the external attendee assigned by the system of record. If the attendee with this external ID exists, the response includes the details about the attendee including its ID.
 
-#### Example
+#### Example Request
 
 Here’s an example for how to look for the Concur record for an external attendee with an ID of 5575592349 in a business system outside of Concur.
 
@@ -109,6 +111,8 @@ Content-Type: application/json
 ```
 
 If Concur has a record of the external attendee, its unique identifier in Concur is returned in the ID element and you can skip to step 4. If Concur does not have a record, the Items element will be empty and you need to add the external attendee in Concur as prescribed in step 3.
+
+#### Example Response
 
 A successful response when Concur has a record of the external attendee looks like this:
 
@@ -168,13 +172,17 @@ A successful response when Concur has a record of the external attendee looks li
 
 ### 3.	Add external attendees that are missing
 
-If the attendee doesn’t exist in Concur, make a POST request to the Attendees resource to create a new attendee in Concur:
+#### POST /expense/attendees
 
 ```http
 POST https://www.concursolutions.com/api/v3.0/expense/attendees HTTP/1.1
 Authorization: OAuth {valid OAuth Access Token goes here}
 Content-Type: {application/json or application/xml goes here}
 ```
+
+If the attendee doesn’t exist in Concur, make a POST request to the Attendees resource to create a new attendee in Concur.
+
+#### Request Body
 
 The request content body includes the details about the attendee. For example:
 
@@ -190,7 +198,7 @@ The request content body includes the details about the attendee. For example:
 }
 ```
 
-To determine the value you need to enter for the AttendeeTypeID element in the content body of the POST request, make a GET request to the AttendeeTypes resource. For example:
+#### GET /expense/attendeetypes
 
 ```http
 GET https://www.concursolutions.com/api/v3.0/expense/attendeetypes HTTP/1.1
@@ -198,7 +206,13 @@ Authorization: OAuth pBA8nW1qGJcd4AZp9sGxti374Cc=
 Content-Type: application/json
 ```
 
-In this example, we’re looking for the attendee type ID for Business Guest attendee types. A successful response looks like this:
+To determine the value you need to enter for the AttendeeTypeID element in the content body of the POST request, make a GET request to the AttendeeTypes resource.
+
+In this example, we’re looking for the attendee type ID for Business Guest attendee types.
+
+#### Example Response
+
+A successful response looks like this:
 
 ```json
 {
@@ -242,6 +256,8 @@ In this example, we’re looking for the attendee type ID for Business Guest att
 }
 ```
 
+#### POST /expense/attendees
+
 Now we can make our POST request to the /api/v3.0/expense/attendees endpoint:
 
 ```http
@@ -250,7 +266,7 @@ Authorization: OAuth pBA8nW1qGJcd4AZp9sGxti374Cc=
 Content-Type: application/json
 ```
 
-With this request body:
+#### Request Body
 
 ```json
 {
@@ -263,6 +279,8 @@ With this request body:
   "ExternalID": "6164704601"
 }
 ```
+
+#### Example Response
 
 A successful response looks like this:
 
@@ -277,7 +295,7 @@ A successful response looks like this:
 
 Once you obtain the ID for the attendee, make a POST request to the Entry Attendee Associations resource. To make this call, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
-Here’s what the call looks like:
+#### Example Request
 
 ```http
 POST https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations?user={URL_Encoded_Login_ID_for_the_Login_ID_for_the_owner_of_the_expense_entry} HTTP/1.1
