@@ -343,7 +343,7 @@ under the License.
   }
 
   // the div is the tocify hidden div for placeholding stuff
-  &>h1, &>h2, &>h3, &>div {
+  &>h1, &>h2, &>h3, &>h4, &>div {
     clear:both;
   }
 
@@ -384,13 +384,8 @@ under the License.
 
   h3, h4, h5, h6 {
     @extend %header-font;
-    font-size: 15px;
-    margin-top: 2.5em;
+    margin-top: 3em;
     margin-bottom: 0.8em;
-  }
-
-  h4, h5, h6 {
-    font-size: 10px;
   }
 
   hr {
@@ -470,7 +465,7 @@ under the License.
     line-height: 1.6;
 
     &.warning {
-      background-color: $aside-warning-bg;
+      background-color: lighten($aside-warning-bg, 5%);
       text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
     }
 
