@@ -1,9 +1,6 @@
----
-title: Itinerary - Add a New Itinerary Manually
-layout: reference
----
+## Itinerary - Add a New Itinerary Manually
 
-## API Recipes: API Tasks
+### API Recipes: API Tasks
 This series of API Recipes describes API tasks associated with Apps for Travel Management Companies, (TMC), Travel Suppliers and business who need to get data about their employees' travel related booking.  This recipe assumes you are a current Concur customer or platform partner.
 
 #### Before you begin

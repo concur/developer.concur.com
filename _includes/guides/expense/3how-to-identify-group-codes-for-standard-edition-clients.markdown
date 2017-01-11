@@ -1,9 +1,4 @@
----
-title: 3. How To Identify Group Codes for Standard Edition Clients
-layout: reference
----
-
-### 3. How to Identify Group Codes for Standard Edition Clients
+## 3. How to Identify Group Codes for Standard Edition Clients
 
 1. Standard Edition uses a 2-level connected list for its Group Structure.
 2. List Name = Employee Groups (Do not change-contact Client Support)

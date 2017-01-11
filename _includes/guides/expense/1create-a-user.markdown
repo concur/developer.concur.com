@@ -1,7 +1,4 @@
----
-title: 1. READ First
-layout: reference
----
+# Expense
 
 ## 1. READ First
 

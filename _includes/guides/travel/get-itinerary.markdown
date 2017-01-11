@@ -1,8 +1,6 @@
----
-title: Itinerary - GET Itinerary & Trip Details
-layout: reference
+# Travel
 
----
+## Itinerary - GET Itinerary & Trip Details
 
 ## API Recipes: API Tasks
 This series of API Recipes describes API tasks associated with developing apps,  apps for Travel Management Companies, (TMC), Travel Suppliers and businesses who need to get data about their employees' travel related booking.  This recipe assumes you are a current Concur customer or platform partner.

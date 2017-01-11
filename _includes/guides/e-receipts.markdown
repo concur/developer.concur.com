@@ -1,9 +1,4 @@
----
-title: eReceipts Recipe
-layout: reference
----
-
-## Posting an eReceipt
+# eReceipts Recipe
 
 
 At Concur, e-receipts are digital representations of receipts with both a receipt image and structured data. The e-receipts come from pre-authorized and trusted merchants and are transmitted to Concur using our **Receipt** API (not email) on behalf of individual users who have connected their accounts/profiles between Concur and the merchant in advance.

@@ -1,9 +1,4 @@
----
-title: 2. How To Provision A Basic User Record Into Concur
-layout: reference
----
-
-### 2. How To Provision A Basic User Record Into Concur
+## 2. How To Provision A Basic User Record Into Concur
 
 This document will guide the developer through the process to successfully add a BASE User record to a Concur site.  Clients should be made aware that they will need to import additional employee data (via files) in order to make use of Concur functionality that is not covered by the basic User Provisioning process.  Clients should consult with their Concur Implementation Technical Consultant for more information.
 

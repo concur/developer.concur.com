@@ -1,14 +1,12 @@
----
-title: Expense - Associating External Attendees to Expense Entries
-layout: reference  
----
+# Attendees
 
+## Expense - Associating External Attendees to Expense Entries
 
-## About this recipe
+### About this recipe
 
 This recipe prescribes how to associate external attendees to expense entries in Concur Expense. It assumes you are familiar with Concur Expense and the system of record for the external attendees.  It also assumes that you have created a developer sandbox, registered your application, and that you know how to make API calls to the Concur Platform.
 
-## APIs used in this recipe
+### APIs used in this recipe
 
 `Base URL: https://www.concursolutions.com/api/v3.0`
 
@@ -16,10 +14,10 @@ This recipe prescribes how to associate external attendees to expense entries in
 *	/expense/entryattendeeassociations
 *	/expense/attendeetypes
 
-## Context
+### Context
 For certain types of expenses such as entertainment, business meals, and events, the person filing the expense report must identify all the people who participated in the event. In Concur Expense, the participants are called _attendees_.  Often, attendees are tracked and managed in a business system outside of Concur such as a customer-relationship management (CRM) application.  Concur Expense refers to these attendees as _external attendees_.
 
-## Solution summary
+### Solution summary
 
 To successfully associate attendees to an expense entry, the attendees and the expense entry must already exist in Concur. Associating external attendees to an expense entry consists of these steps:
 
@@ -29,7 +27,7 @@ To successfully associate attendees to an expense entry, the attendees and the e
 4. Getting the unique identifier Concur has for each attendee.
 5. Associating the Concur attendees to the expense entry.
 
-## Solution details
+### Solution details
 
 This section provides details of the Concur API calls you need to make to associate external attendees to expense entries.
 
