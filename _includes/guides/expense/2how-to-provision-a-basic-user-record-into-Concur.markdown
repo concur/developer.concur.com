@@ -61,26 +61,28 @@ See how to determine if the Employee Form Fields are lists and connected lists b
 2.  An Employee Form is assigned to an Employee Group.  The same form can be assigned to more than one Group, but a Group cannot have more than form assigned to it.  This form dictates which fields need populated.
 3.  Standard Edition Clients
     * The grouping feature may not be configured.
-    * If it is configured, the Group codes will populate 2 fields: Custom21 and OrgUnit1.  The fields will be called:
-
-      ```xml
-      <Id> Custom21 </Id>
-      <Label> EmployeeAdministrationCountry </Label>
-      <Id> OrgUnit1 </Id>
-      <Label> ExpensePolicyGroup </Label>
-      ```
-
+    * If it is configured, the Group codes will populate 2 fields: Custom21 and OrgUnit1. See code snippets.
     * See the Reminder section below for a document that explains how to obtain Standard Edition Group values.
-
-4.  Professional Edition Clients - the grouping feature will be configured for all Pro Edition clients.  Custom21 will be used and the field will be called:
-
-    ```xml
-    <Id> Custom21 </Id>
-    <Label> EmployeeGroup </Label>
-    ```
-
+4.  Professional Edition Clients - the grouping feature will be configured for all Pro Edition clients.  Custom21 will be used. See code snippets.
 5.	Standard-to-Professional Edition Clients
     * Same as #4 Pro Edition, but also consider the “Reimbursement Method” field topic highlighted below.
+
+> Standard Edition Employee Group
+
+```xml
+<Id> Custom21 </Id>
+<Label> EmployeeAdministrationCountry </Label>
+<Id> OrgUnit1 </Id>
+<Label> ExpensePolicyGroup </Label>
+```
+
+> Professional Edition Employee Group
+
+```xml
+<Id> Custom21 </Id>
+<Label> EmployeeGroup </Label>
+```
+
 
 ### Add A User
 
@@ -97,19 +99,18 @@ See how to determine if the Employee Form Fields are lists and connected lists b
               1.	Standard Edition: if used, will be a 2-level list
               2.	Pro Edition: will always be used in Custom21 only
   - If the Field Label for Custom 21 = EmployeeGroup, then this client is on Professional Edition
-  - Standard Edition clients will also have this Field ID:
+  - Standard Edition clients will also have this Field ID (see code snippet):
 
-    ```xml
-    <Id> PmtMethodCode </Id>
-    <Label> ReimbursementMethod </Label>
-    ```
+```xml
+<Id> PmtMethodCode </Id>
+<Label> ReimbursementMethod </Label>
+```
 
-
-**URI:**	https://www.concursolutions.com/api/user/v1.0/FormFields
+**URI:**	`https://www.concursolutions.com/api/user/v1.0/FormFields`
 **Verb:**	GET
 **Response:** This is just an excerpt of the full response. You will need to identify all required fields in order to create a successful POST User body.
 
-This is a Pro Edition example since it does not include a field ID = < Id > PmtMethodCode </ Id >
+This is a Pro Edition example since it does not include a field ID = `<Id> PmtMethodCode </Id>`
 
 ```xml
 <FormFieldsList xmlns="http://www.concursolutions.com/api/user/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -222,10 +223,11 @@ This is a Pro Edition example since it does not include a field ID = < Id > PmtM
 
 #### Step 2: Identify the List values for fields that are defined as Lists
 
-2.1	Get the list of Lists
+##### 2.1	Get the list of Lists
 
-**URL:** https://www.concursolutions.com/api/expense/list/v1.0/
-**Response:**	This is a partial result….
+`GET https://www.concursolutions.com/api/expense/list/v1.0/`
+
+##### Example Response
 
 ```xml
 <list>
@@ -238,12 +240,11 @@ This is a Pro Edition example since it does not include a field ID = < Id > PmtM
 </list>
 ```
 
-2.2	Get List Item codes for desired List ID (using the List ID provided in the response above)
+##### 2.2	Get List Item codes for desired List ID (using the List ID provided in the response above)
 
-**URL:** https://www.concursolutions.com/api/v3.0/common/listitems?limit=100&listId=gWuW7w9hQETSPkK%24sQOSMu7HH31M2KcW587w
-**Response:**	This is a partial result….
+`GET https://www.concursolutions.com/api/v3.0/common/listitems?limit=100&listId=gWuW7w9hQETSPkK%24sQOSMu7HH31M2KcW587w`
 
-In this example, there is a 3-level connected list. Notice how the list grows until it reaches the bottom level and then cycles through all of the values such as A-100-10 and A-100-20
+##### Example Response
 
 ```json
 {
@@ -312,6 +313,8 @@ In this example, there is a 3-level connected list. Notice how the list grows un
 }
 ```
 
+In this example, there is a 3-level connected list. Notice how the list grows until it reaches the bottom level and then cycles through all of the values such as A-100-10 and A-100-20
+
 Repeat the above until you have obtained all of the List value CODES for all of the required fields that are defined as lists.
 
 
@@ -329,35 +332,31 @@ Repeat the above until you have obtained all of the List value CODES for all of 
 3.	Other required fields
   -	All required fields must be populated in the POST User request body
 4.	Reimbursement Method field for the Standard-to-Professional Edition upgrade:
-  -	From above, determine the Edition type:
-
-    Standard-to-Professional Upgrade Edition:
-
-    ```xml
-    <Id> Custom21 </Id>
-    <Label> EmployeeGroup </Label>
-    ```
-
-    In addition, these clients will have this field & Label:
-
-    ```xml
-    <Id> PmtMethodCode </Id>
-    <Label> ReimbursementMethod </Label>
-    ```
-
+  -	From above, determine the Edition type (see code snippets)
   - If you determine the client is a Standard to Professional Upgrade client, please contact Concur at: PDSPE@concur.com
   - Notes:
-
     1. If a client has migrated from Standard to Professional this field can be removed only if the client has moved to the single level SAE file. If the client is still using the G/L files they used while on Standard, you can’t remove the Reimbursement Method field because those files require that field. Once the client is put on the single level SAE file, the Reimbursement Method field is no longer needed and can be removed from the Employee Form.
-
     2. If the client still uses their Standard Edition files, then this is an issue due to an outstanding issue where the POST User API does not populate the field.
 
+> Standard-to-Professional Upgrade Edition:
+
+```xml
+<Id> Custom21 </Id>
+<Label> EmployeeGroup </Label>
+```
+
+> In addition, these clients will have this field & Label:
+
+```xml
+<Id> PmtMethodCode </Id>
+<Label> ReimbursementMethod </Label>
+```
 
 #### Step 3: Post User
 
-**URL:**	https://www.concursolutions.com/api/user/v1.0/Users
+`POST https://www.concursolutions.com/api/user/v1.0/Users`
 
-POST Body example:
+##### Example Body
 
 ```xml
 <batch xmlns="http://www.concursolutions.com/api/user/2011/02">
@@ -386,7 +385,7 @@ POST Body example:
 </batch>
 ```
 
-Step 3.1: Post User Body for Standard Edition that Has Groups:
+##### Step 3.1: Post User Body for Standard Edition that Has Groups:
 
 ```xml
 <batch xmlns="http://www.concursolutions.com/api/user/2011/02">

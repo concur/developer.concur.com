@@ -196,7 +196,7 @@ To subscribe to notifications to be alerted whenever employees who have booked t
 
 To create this request, use the following example as a template. Notice that the request parameter is **Itinerary**. The Request XML string also requires an Oath token for an administrative user in the company. The user must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
-XML Example request to subscribe:
+##### XML Example request to subscribe:
 
 ```http
 POST http://www.concursolutions.com/api/company/v1.0/subscribe?type=itinerary HTTP/1.1
@@ -206,9 +206,7 @@ Authorization: OAuth {access token}
 
 The notification is sent to the Postback URL that the partner has registered with Concur during application review. Partners can only have one postback URL for all notification types. The notification will include the type, oauth_token_key, userid_type, and userid_value query parameters, specifying the updated user as seen in the example:
 
-```
-https://postbackurl.com?type=itinerary&oauth_token_key={oauthtoken}&userid_type=login&userid_value=cm@example.com
-```
+`https://postbackurl.com?type=itinerary&oauth_token_key={oauthtoken}&userid_type=login&userid_value=cm@example.com`
 
 While the response body includes a Notification parent element, there are several child elements.
 
@@ -223,9 +221,7 @@ TripID	| The unique identifier for the trip. Format: String
 
 XML Example request to unsubscribe from Itinerary Changes:
 
-```
-https://www.concursolutions.com/api/company/v1.0/unsubscribe?type=itinerary
-```
+`https://www.concursolutions.com/api/company/v1.0/unsubscribe?type=itinerary`
 
 Refer to the sample [Post Company Notification Subscription for Itinerary Changes Response](/api-reference/user/company-notification-subscription-resource/company-notification-subscription-resource-post.html) for guidance.
 

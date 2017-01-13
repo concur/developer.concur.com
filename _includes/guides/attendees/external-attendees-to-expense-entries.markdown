@@ -100,15 +100,16 @@ Where:
 
 #### Example Request
 
-Here’s an example for how to look for the Concur record for an external attendee with an ID of 5575592349 in a business system outside of Concur.
-
-Make a GET HTTP request to the attendees endpoint:
-
 ```http
 GET https://www.concursolutions.com/api/v3.0/expense/attendees?externalid=5575592349 HTTP/1.1
 Authorization: OAuth pBA8nW1qGJcd4AZp9sGxti374Cc=
 Content-Type: application/json
 ```
+
+Here’s an example for how to look for the Concur record for an external attendee with an ID of 5575592349 in a business system outside of Concur.
+
+Make a GET HTTP request to the attendees endpoint:
+
 
 If Concur has a record of the external attendee, its unique identifier in Concur is returned in the ID element and you can skip to step 4. If Concur does not have a record, the Items element will be empty and you need to add the external attendee in Concur as prescribed in step 3.
 
