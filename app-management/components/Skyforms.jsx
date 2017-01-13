@@ -7,7 +7,7 @@ import Select from 'react-select';
 import { Field } from 'redux-form';
 
 // Wrap each render component with a label and Skyform classes needed for errors
-export const FieldWrapper = ({ name, label, touched, error, classNames, children }) => (
+export const FieldWrapper = ({ label, name, touched, error, classNames, children }) => (
   <div>
     <label className="label" htmlFor={name}>{label}</label>
     <div className={touched && error ? `${classNames} state-error` : classNames}>
@@ -26,40 +26,38 @@ FieldWrapper.propTypes = {
   children: PropTypes.any.isRequired,
 };
 
-export const renderInput = ({ input, name, type, label, meta: { touched, error }, children }) => (
-  <FieldWrapper name={name} label={label} touched={touched} error={error} classNames="input">
-    <input {...input} id={name} type={type} />
+export const renderInput = ({ input, type, label, meta: { touched, error }, children }) => (
+  <FieldWrapper name={input.name} label={label} touched={touched} error={error} classNames="input">
+    <input {...input} id={input.name} type={type} />
     {children}
   </FieldWrapper>
 );
 
 renderInput.propTypes = {
   input: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   meta: PropTypes.object.isRequired,
   children: PropTypes.any,
 };
 
-export const renderTextarea = ({ input, name, label, meta: { touched, error } }) => (
-  <FieldWrapper name={name} label={label} touched={touched} error={error} classNames="textarea">
-    <textarea {...input} id={name} />
+export const renderTextarea = ({ input, label, meta: { touched, error } }) => (
+  <FieldWrapper name={input.name} label={label} touched={touched} error={error} classNames="textarea">
+    <textarea {...input} id={input.name} />
   </FieldWrapper>
 );
 
 renderTextarea.propTypes = {
   input: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   meta: PropTypes.object.isRequired,
 };
 
-export const renderSelect = ({ input, name, label, options, meta: { touched, error } }) => (
-  <FieldWrapper name={name} label={label} touched={touched} error={error}>
+export const renderSelect = ({ input, label, options, meta: { touched, error } }) => (
+  <FieldWrapper name={input.name} label={label} touched={touched} error={error}>
     <Select
       {...input}
-      id={name}
+      id={input.name}
       options={options}
       onBlur={() => input.onBlur(input.value)}
     />
@@ -68,17 +66,16 @@ export const renderSelect = ({ input, name, label, options, meta: { touched, err
 
 renderSelect.propTypes = {
   input: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   meta: PropTypes.object.isRequired,
 };
 
-export const renderMultiSelect = ({ input, name, label, options, meta: { touched, error } }) => (
-  <FieldWrapper name={name} label={label} touched={touched} error={error}>
+export const renderMultiSelect = ({ input, label, options, meta: { touched, error } }) => (
+  <FieldWrapper name={input.name} label={label} touched={touched} error={error}>
     <Select
       {...input}
-      id={name}
+      id={input.name}
       multi
       options={options}
       onBlur={() => input.onBlur(input.value)}
@@ -88,27 +85,25 @@ export const renderMultiSelect = ({ input, name, label, options, meta: { touched
 
 renderMultiSelect.propTypes = {
   input: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   meta: PropTypes.object.isRequired,
 };
 
 // Due to the checkbox being wrapped by a label, this component doesn't use FieldWrapper
-export const renderCheckbox = ({ input, name, type, meta: { touched, error }, children }) => (
+export const renderCheckbox = ({ input, type, meta: { touched, error }, children }) => (
   <div>
-    <label className={touched && error ? 'checkbox state-error' : 'checkbox'} htmlFor={name}>
-      <input {...input} id={name} type={type} />
+    <label className={touched && error ? 'checkbox state-error' : 'checkbox'} htmlFor={input.name}>
+      <input {...input} id={input.name} type={type} />
       <i />
       {children}
     </label>
-    {touched && error && <em htmlFor={name} className="invalid">{error}</em>}
+    {touched && error && <em htmlFor={input.name} className="invalid">{error}</em>}
   </div>
 );
 
 renderCheckbox.propTypes = {
   input: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   meta: PropTypes.object.isRequired,
   children: PropTypes.any,
