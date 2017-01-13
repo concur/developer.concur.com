@@ -340,6 +340,7 @@ under the License.
 
   &>ul, &>ol {
     padding-left: $main-padding + 30px;
+    font-size: 15px;
   }
 
   // the div is the tocify hidden div for placeholding stuff
@@ -477,7 +478,7 @@ under the License.
 
   aside:before {
     vertical-align: middle;
-    padding-right: 0.5em;
+    padding-right: 0.2em;
     font-size: 14px;
   }
 
