@@ -449,11 +449,11 @@ PendingCancellation |
 
 ## <a name="method8"></a>Preference Levels
 
-Value | Text Value | Display
------|----- | -----
-1 |company_less_preferred | ---
-2 |company_preferred Two silver |diamonds
-3 |company_most_preferred |Three silver diamonds
-4 |less_preferred |One golden diamond
-5 |preferred |Two golden diamonds
+Value | Text Value
+-----|-----
+1 |company_less_preferred
+2 |company_preferred Two silver
+3 |company_most_preferred
+4 |less_preferred
+5 |preferred
 10| most_preferred |Three golden diamonds 

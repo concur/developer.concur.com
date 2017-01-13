@@ -70,7 +70,7 @@ ACCOUNTINGREVIEW	| Returns approved reports pending accounting review. These rep
 PROCESSING	| Returns processed reports pending financial integration. These reports have an Approval Status of Final Approval and a Payment Status of Unpaid.
 INTEGRATED	| Returns reports with financial integration completed. These reports have a Payment Status of Paid.
 PENDINGEXTERNALVALIDATION	| Returns reports that are at the Pending External Validation workflow step. This workflow step can be added after report submission and before the report is extracted for payment.
-PAYMENTCONFIRMED	| Returns reports with confirmed payments. These reports have a Payment Status of Payment Confirmed. 
+PAYMENTCONFIRMED	| Returns reports with confirmed payments. These reports have a Payment Status of Payment Confirmed.
 
 **Report Currency:** The ReportCurrency identifies the reimbursement currency of the report. This value matches the reimbursement currency of the user who submitted the report. Format: 3-letter ISO 4217 currency code. Example: USD  
 
@@ -90,75 +90,94 @@ PAYMENTCONFIRMED	| Returns reports with confirmed payments. These reports have a
 **Login ID:** The LoginID is the Concur login for a report owner that is not the OAuth consumer. This limits the response to reports owned by the specified user.  
 
 **Modified After Date:** This returns reports including their associated dependents (entries, itemizations, allocations, and attendees) that were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss  
-  
-/api/expense/expensereport/v2.0/Reports/?modifiedafterdate=2012-01-01T00:00:00  
-  
+
+`/api/expense/expensereport/v2.0/Reports/?modifiedafterdate=2012-01-01T00:00:00`
+
 **Modified Before Date:** This returns reports including their associated dependents (entries, itemizations, allocations, and attendees) that were modified before the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss  
-  
-/api/expense/expensereport/v2.0/Reports/?modifiedbeforedate=2012-01-01T00:00:00  
-  
+
+`/api/expense/expensereport/v2.0/Reports/?modifiedbeforedate=2012-01-01T00:00:00`
+
 Request Headers - Required | Request Headers - Optional
 -----|------
 Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company | none
 
 #### XML Example Request by Status
-```
+
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/Reports/?status=PROCESSING  HTTP/1.1
-Authorization: OAuth {access token} 
+Authorization: OAuth {access token}
 ...
 ```
+
 #### XML Example Request by BatchID
-```
+
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/Reports/?batchid=5jj374sh$W2Lsa9y28w12  HTTP/1.1
-Authorization: OAuth {access token} 
+Authorization: OAuth {access token}
 ...
 ```
+
 #### XML Example Request for Reports with Attendees
-```
+
+```http
 GET https://www.concursolutions.com/api/expense/expenserepo/v2.0/Reports/?HasAttendees=true HTTP/1.1
-Authorization: OAuth {access token} 
+Authorization: OAuth {access token}
 ...
 ```
+
 #### XML Example Request by Job Key
-```
+
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/Reports/?jobkey=5jj374sh9y28w12  HTTP/1.1
-Authorization: OAuth {access token} 
+Authorization: OAuth {access token}
 ...
 ```
+
 #### XML Example Request by Report Currency
-```
+
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/Reports/?ReportCurrency=USD  HTTP/1.1
-Authorization: OAuth {access token} 
+Authorization: OAuth {access token}
 ...
 ```
+
 #### XML Example Request by Payment Type ID
-```
+
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/Reports/?PaymentTypeID=nr74tQrD8PorkF6yvS0Sm8ZeSGsw  HTTP/1.1
-Authorization: OAuth {access token} 
+Authorization: OAuth {access token}
 ...
 ```
+
 #### XML Example Request by Reimbursement Method and Payment Type
-```
+
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/Reports/?ReimbursementMethod=CNQRPAY&PaymentTypeID=nr74tQrD8PorkF6yvS0Sm8ZeSGsw  HTTP/1.1
-Authorization: OAuth {access token} 
+Authorization: OAuth {access token}
 ...
 ```
+
 #### XML Example Request by Report Country
-```
+
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/Reports/?reportcountry=US  HTTP/1.1
-Authorization: OAuth {access token} 
+Authorization: OAuth {access token}
 ...
 ```
+
 #### XML Example Request by Login ID
-```
+
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/Reports/?loginid=cm@example.com  HTTP/1.1
-Authorization: OAuth {access token} 
+Authorization: OAuth {access token}
 ...
 ```
+
 #### XML Example Request by Modified Date
-```
+
+```http
 GET https://www.concursolutions.com/api/expense/expenserepo/v2.0/Reports/?modifiedafterdate=2012-01-01T00:00:00 HTTP/1.1
-Authorization: OAuth {access token} 
+Authorization: OAuth {access token}
 ...
 ```
 
@@ -191,15 +210,16 @@ NOTE: The ApprovalURL provides a link to Expense that can be used with SSO. The 
 The company uses a Concur-supported SSO platform (and does not use the Enforce option)  
 - and -  
 The approver is currently on the company network or is using VPN  
-  
+
 Otherwise, when the approver clicks the link, the Expense login page appears. The approver logs in and follows the normal steps for approving reports.  
 
 #### XML Example of Successful Response
-```
-200 OK
+
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml
 
-<ReportsList 
+<ReportsList
     xmlns="http://www.concursolutions.com/api/expense/expensereport/2012/06">
     <ReportSummary>
         <ReportName>Client Meeting</ReportName>
@@ -221,7 +241,7 @@ Content-Type: application/xml
         <ReportTotal>1212.72000000</ReportTotal>
         <ReportCurrency>USD</ReportCurrency>
         <ReportDate>2012-07-17T08:11:56</ReportDate>
-        <LastComment></LastComment> 
+        <LastComment></LastComment>
         <Report-Full-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v2.0/report/k1jDJ82H2h9as826h8hh2lk</Report-Full-Details-Url>
         <ExpenseUserLoginID>tbrown@example.com</ExpenseUserLoginID>
         <ApproverLoginID>pdavis@example.com</ApproverLoginID>
@@ -237,19 +257,20 @@ Content-Type: application/xml
 Description | Supported Accept Types
 -----|------
 Retrieves the full set of information for the report. Includes the Report Header, Entry, Attendee, Itemization and Allocation details. NOTE: Some elements will appear only if the OAuth consumer has the Web Services Admin role. These include: The ReportKey element, the employee's credit card information, and the employee's bank account information, VAT information, Journal entries. Connectors that utilize this information go through a review process with Concur that includes verification of secure data handling. | * application/xml  
-  
+
 Query Parameters - Required | Query Parameters - Optional
 -----|------
 {reportId} The identifier for the desired report. Example: https://www.concursolutions.com/api/expense/expensereport/v2.0/report/{reportId} URI Source: The ReportId is returned in the ReportId element of the Get List of Reports function. | None
-  
+
 Request Headers - Required | Request Headers - Optional
 -----|------
 Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company. | None
 
 #### XML Example Request
-```
+
+```http
 GET https://www.concursolutions.com/api/expense/expensereport/v2.0/report/n6ujbuLd1Arwe45lT7As3ThJYJf2dAsrrEW HTTP/1.1
-Authorization: OAuth {access token} 
+Authorization: OAuth {access token}
 ...
 ```
 
@@ -258,8 +279,8 @@ Authorization: OAuth {access token}
 HTTP Responses | Supported Content Types
 -----|------
 HTTP Status Codes | * application/xm
-  
-**Content Body:** This request will return a ReportDetails parent element with the following child elements: 
+
+**Content Body:** This request will return a ReportDetails parent element with the following child elements:
 
 Element | Description
 -----|------
@@ -299,7 +320,7 @@ ReceiptsReceived	| If Y, then this report has its receipt receipt confirmed by t
 ReportOwner	| This parent element includes details about the employee who is the report owner. It saves the caller from calling the Get User Information function to get employee information commonly used in accounting integration. The ReportOwner element includes the most recent information about the report owner, at the time the report is requested. The ReportOwner parent element includes the following child elements: EmployeeCustom21 (The report owner's group ID. Maximum 48 characters.), EmployeeID	(Employee ID often also serves as the employee's Vendor ID for AP system integrations or Payroll ID for Payroll integrations. Maximum 48 characters.), EmployeeOrgUnit1 through EmployeeOrgUnit6 (The report owner's organizational unit information. Maximum 48 characters for each field. FirstName (The report owner's first name. Maximum 32 characters.), LastName (The report owner's last name. Maximum 32 characters.), MiddleInitial (The report owner's middle initial. Maximum 1 character.), ReimbursementMethodCode (The report owner's reimbursement method code, as defined in the employee's Profile.)
 EmployeeBankAccount	| This parent element includes the bank account data found on the Bank Information page in Profile. This data is used in Payment System integrations where the payment system reimburses the employee via this bank account. The EmployeeBankAccount parent element contains the following child elements: BankNumber (The bank identification number entered on the Bank Information page. Maximum 11 characters.), BankName (The bank name entered on the Bank Information page. Maximum 48 characters.), BranchLocation (The branch location entered on the Bank Information page. Maximum 30 characters.), AccountNumber (The bank account number entered on the Bank Information page. Maximum 100 characters.), AccountName (The name on the account entered on the Bank Information page.), PostalAddressLine1 (The postal address line 1 entered on the Bank Information page. Maximum 48 characters.), PostalAddressLine2 (The postal address line 2 entered on the Bank Information page. Maximum 48 characters.), PostalAddressCity (The postal address city entered on the Bank Information page. Maximum 24 characters.), PostalAddressRegion (The postal address region entered on the Bank Information page. Maximum 24 characters.), PostalAddressCode (The postal address code entered on the Bank Information page. Maximum 20 characters.), PostalAddressCountry	(The postal address country entered on the Bank Information page. Maximum 2 characters. Format: The The ISO 3166-1 alpha-2 country code. Example: United States is US.)
 
-  
+
 #### Expense Entry Child Elements
 
 Element | Description
@@ -459,8 +480,9 @@ ExchangeRateFromBillingToEmployeeCurrency	| Currency exchange rate used between 
 BillingAmount	| Amount due to the company card from the employee or company (depending on who is responsible for the bill) for this detail row. Maximum 23 characters.
 
 #### XML Example of Successful Response
-```
-200 OK
+
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -816,9 +838,3 @@ Content-Type: application/xml
     </ReportOwner>
 </ReportDetails>
 ```
-
-
-
-
-
-

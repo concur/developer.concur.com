@@ -27,7 +27,7 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 * [Schema](#schema)
 
 ### Version
-3.0 
+3.0
 
 **DEPRECATION PROCESS NOTICE:** Receipts version 3.0 is scheduled to be deprecated on February 7, 2017. Please contact your Partner Enablement representative before starting any new development to ensure a smooth and successful certification process.  
 
@@ -133,7 +133,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------							
 `Location`	|	`Location`	|	-	|	**Required** The parent element for the provider location.
-`Name`	|	`string`	|	-	|	**Required** The name of the provider (``Merchant`). Maximum length: 64 characters
+`Name`	|	`string`	|	-	|	**Required** The name of the provider (`Merchant`). Maximum length: 64 characters
 
 
 ### Location
@@ -186,7 +186,7 @@ https://www.concursolutions.com/api/v3.0/common/receipts
 
 ### JSON example of a successful response
 
-```
+```json
 {
   "ID": "270583561310",
   "URI": ""

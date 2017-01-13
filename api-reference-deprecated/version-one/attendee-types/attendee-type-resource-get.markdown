@@ -30,7 +30,7 @@ The OAuth consumer must have one of the following user roles in Concur: Company 
 * [Attendee List Errors][2]
 
 ### Content body
-This request will return an **attendee-types** parent element containing an **attendee-type** child element for each attendee type. 
+This request will return an **attendee-types** parent element containing an **attendee-type** child element for each attendee type.
 
 #### attendee-type elements
 
@@ -44,27 +44,27 @@ This request will return an **attendee-types** parent element containing an **at
 
 ### XML Example Request
 
-```xml
-    GET https://www.concursolutions.com/api/expense/attendee/v1.0/type HTTP/1.1 
-    Authorization: OAuth {access token}
+```http
+GET https://www.concursolutions.com/api/expense/attendee/v1.0/type HTTP/1.1
+Authorization: OAuth {access token}
 ```
 
 ### XML Example of Successful Response
 
-```XML
-    200 OK
-    Content-Type: application/xml
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
 
-    <attendee-types xmlns="http://www.concursolutions.com/api/expense/attendee/2010/05" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-      <attendee-type>
-        <type>BUSGUEST</type>
-        <name>Business Guest</name>
-      </attendee-type>
-      <attendee-type>
-        <type>EMPLOYEE</type>
-        <name>Employee</name>
-      </attendee-type>
-    </attendee-types>
+<attendee-types xmlns="http://www.concursolutions.com/api/expense/attendee/2010/05" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <attendee-type>
+    <type>BUSGUEST</type>
+    <name>Business Guest</name>
+  </attendee-type>
+  <attendee-type>
+    <type>EMPLOYEE</type>
+    <name>Employee</name>
+  </attendee-type>
+</attendee-types>
 ```
 
 [1]: /tools-support/reference/http-codes.html

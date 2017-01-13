@@ -26,9 +26,9 @@ The request will contain a CC_LimoReservationDetailRequest parent element, conta
 |ReservationID| | |The unique identifier for the reservation. Returned in the ReservationID element by the response of the Post Reservation Sell function.|
 
 
-####XML Example Request
+#### XML Example Request
 
-```
+```http
 POST /concur/groundtransportation HTTPS/1.1
 Host: example.com
 Authorization: Basic ...
@@ -102,12 +102,12 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |CellPhone | | |The contact's cell phone number.|
 |EmailAddress | | |The contact's email address. |
 
-###PickupLocation <a name="PickupLocation"></a>
+### PickupLocation <a name="PickupLocation"></a>
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 | LocationType |  | |One of the following: 100 - Address, 200 - Airport, 300 - Train station. |
-| Airport |  | |Refer to the Airport Elements table. Provided if the LocationType = 200. |   | | |
+| Airport |  | |Refer to the Airport Elements table. Provided if the LocationType = 200. |
 | TrainStation |  | |Refer to the Train Station Elements table. Provided if the LocationType = 300. |
 | Address |  | |The street address of the location. Provided if the LocationType = 100. |
 | City |  | |The location city. |
@@ -116,12 +116,12 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | PostalCode |  | |The location postal code. |
 | ExtraNotes |  | |Additional notes about the location. Example: Ring doorbell, Holiday Inn, etc. |
 
-###PickupLocation <a name="DropoffLocation"></a>
+### PickupLocation <a name="DropoffLocation"></a>
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |LocationType | | |One of the following: 100 - Address, 200 - Airport, 300 - Train station, 400 - As directed. |
-| Airport |  | |Refer to the Airport Elements table. Provided if the LocationType = 200. |   | | |
+| Airport |  | |Refer to the Airport Elements table. Provided if the LocationType = 200. |
 | TrainStation |  | |Refer to the Train Station Elements table. Provided if the LocationType = 300. |
 | Address |  | |The street address of the location. Provided if the LocationType = 100. |
 | City |  | |The location city. |
@@ -149,12 +149,12 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | PhoneNumber |  | |The vendor's phone number. |
 
 
-### FormOfPayment Child Elements <a name="formofpaymetn"></a>
+### FormOfPayment Child Elements <a name="formofpayment"></a>
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 |CreditCard | | |If present, the passenger will pay with credit card. Refer to the Reply Credit Card Elements table for the child elements. |
-|Cash |  | |If present, the passenger will pay cash. |   | | |
+|Cash |  | |If present, the passenger will pay cash. |
 |Check |  | |If present, the passenger will pay with a check. |
 |DirectBilling |  | |If present, the passenger will pay through direct billing. |
 
@@ -223,10 +223,11 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |ArrivalDateTime| | |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
 |DepartureDateTime| | |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
 
-##XML Example of Successful Response
+## XML Example of Successful Response
 
-```
-200 OK HTTPS/1.1 
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
 Content-Length: {length of content body}
 
 <CC_LimoReservationDetailReply>

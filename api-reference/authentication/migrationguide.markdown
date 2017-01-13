@@ -4,7 +4,10 @@ layout: reference
 ---
 
 
-# PREVIEW - Migrating old tokens to new Oauth2 Bearer Tokens (JWT)
+# Migrating old tokens to new Oauth2 Bearer Tokens (JWT)
+
+### Special Note (Please Read First)
+**This documentation is presented for early preview purposes only as is NOT final.** If you have any questions, please contact your Partner Enablement team representative before proceeding.
 
 * [Overview]()
 * [Exchanging a Token](#exchangetoken)
@@ -15,20 +18,38 @@ Existing applications that uses the deprecated [/net2/oauth2](https://developer.
 
 ## <a name="exchangetoken"></a>Exchanging a Token
 
-In order to support new Oauth2, applications need to exchange old access token for new JWT based `accessToken` and `refreshToken` pair. Once obtained, applications should store these `refreshTokens` as part of users authorization data. 
+In order to support new Oauth2, applications need to exchange old access token for new JWT based `accessToken` and `refreshToken` pair. Once obtained, applications should store these `refreshTokens` as part of users authorization data.
 
-The new Oauth2 `accessToken` has a one hour lifetime. Once expired, applications would need to call Oauth2's `/v0/token` endpoint using a `refresh_grant`, passing in the user's `refreshtoken` to obtain a fresh `accessToken`. 
+The new Oauth2 `accessToken` has a one hour lifetime. Once expired, applications would need to call Oauth2's `/v0/token` endpoint using a `refresh_grant`, passing in the user's `refreshtoken` to obtain a fresh `accessToken`.
 
 This is significantly different from how the deprecated /net2/Oauth2's method of handling access tokens. Partner's would have to store the new Oauth2 `refreshToken` instead of the old access token. Before making a call to any of Concur's new v4 APIs, it is advisable to request for a new `accessToken` before making the API call.
 
-Applications can exchange tokens by calling the `exchangeRefreshToken` endpoint. 
+**Step 1: Obtain Application Token**
+Applications can exchange tokens by calling the `exchangeRefreshToken/me` endpoint. In order to call this endpoint, you would first need to obtain an Application Token by calling the `/v0/token` endpoint with the [client_credentials](https://developer.concur.com/api-reference/authentication/apidoc.html#client_credentials) grant. 
 
-`POST /legacyApps/{consumerKey}/exchangeRefreshToken`
+**Step 2: Call exchangeRefreshToken**
+
+`POST /appmgmt/v0/legacyApps/{oldConsumerKey}/exchangeRefreshToken/me`
+
+**Request Header**
+
+Name | Type | Format | Description
+-----|------| ------ | -----------
+`Authorization`|`string` | `Bearer <accessToken>` | **Required** The new client_credentials accessToken.
+
+
+**Request Body**
+
+Name | Type | Format | Description
+-----|------| ------ | -----------
+`token`|`string` |  | **Required** The old refreshToken
+`secret`|`string` |  | **Required** The new application client_secret
+
 
 Sample Curl:
 
-```
-curl -H 'concur-correlationid: githbuwiki' -H 'Authorization: Bearer <accessToken> -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "appId": "3a55c75e-ac1e-4515-845c-0a4978452828", "secret": "12345"}' -X POST http://us.api.concursolutions.com/api/appmgmt/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken
+```shell
+curl -H 'Authorization: Bearer <accessToken>' -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST http://us.api.concursolutions.com/appmgmt/v0/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me
 ```
 
 successful call, responds with
@@ -36,7 +57,7 @@ successful call, responds with
 ```json
 200 OK
 {
-  "token": "8c844478-745c-4c45-adf7-1e2777a50dbf", 
+  "token": "8c844478-745c-4c45-adf7-1e2777a50dbf",
   "created": 1479407196809,
   "expired": 1494959196809,
   "scopes": [
@@ -49,11 +70,14 @@ successful call, responds with
 }
 ```
 
+**Step 3: Obtain New Access Token**
+
 Once you have the new `refreshToken` from the response (`8c844478-745c-4c45-adf7-1e2777a50dbf`) you can then proceed to call `/v0/token` using the refresh grant to obtain a new `accessToken`.
 
 Sample Curl:
-```
-curl -X POST -H 'concur-correlationid: githbuwiki' 'https://us.api.concursolutions.com/oauth2/v0/token' --data 'client_id=3a55c75e-ac1e-4515-845c-0a4978452828&client_secret=12345&grant_type=refresh_token&refresh_token=8c844478-745c-4c45-adf7-1e2777a50dbf'
+
+```shell
+curl -X POST 'https://us.api.concursolutions.com/oauth2/v0/token' -d 'client_id=3a55c75e-ac1e-4515-845c-0a4978452828&client_secret=12345&grant_type=refresh_token&refresh_token=8c844478-745c-4c45-adf7-1e2777a50dbf'
 ```
 
 successful call, responds with:
@@ -74,13 +98,13 @@ successful call, responds with:
 
 ## <a name="response_codes"></a>Response Codes
 
-##### HTTP Status returned by AppMgmt ** WHAT ARE THE ACTUAL ERROR CODES **
+##### HTTP Status returned by exchangeAccessToken
 
 | HTTP Status | Description                                      |
 |-------------|--------------------------------------------------|
 |   200       | OK - Successful call, response is in body.       |
-|   400       | Bad Request `(error, error_description, code)`   |
-|   401       | Unauthorized `(error, error_description, code)`  |
+|   400       | Bad Request `JWT is missing or invalid'`          |
+|   401       | Unauthorized `Bad input or access denied or revoked token`       |
 |   403       | Forbidden `(error, error_description, code)`     |
 |   404       | Not Found `(error, error_description, code)`     |
 |   500       | Server Error, error message is in body.          |
@@ -100,12 +124,12 @@ successful call, responds with:
 
 4xx class errors have a JSON response with the following fields
 
-```
-  {
-   "code": <number>,
-   "error": <error>,
-   "error_description": <error_description>
-  }
+```json
+{
+  "code": <number>,
+  "error": <error>,
+  "error_description": <error_description>
+}
 ```
 
 ##### /token
@@ -155,5 +179,3 @@ successful call, responds with:
 | 118  | `invalid_request` | display is invalid                                     |
 | 119  | `invalid_request` | prompt is invalid                                      |
 | 119  | `invalid_request` | prompt must be set to consent for `offline_access`     |
-
-
