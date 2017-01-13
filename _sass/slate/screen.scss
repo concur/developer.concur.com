@@ -461,11 +461,11 @@ under the License.
     text-shadow: 0 1px 0 lighten($aside-notice-bg, 15%);
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    background: $aside-notice-bg;
+    background: lighten($aside-notice-bg, 10%);
     line-height: 1.6;
 
     &.warning {
-      background-color: lighten($aside-warning-bg, 5%);
+      background-color: lighten($aside-warning-bg, 15%);
       text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
     }
 
