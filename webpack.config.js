@@ -3,7 +3,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: ['./app-management/entry.jsx'],
   output: {
-    path: './concur_assets/js',
+    path: './assets/js',
     filename: 'bundle.js'
   },
   resolve: {
