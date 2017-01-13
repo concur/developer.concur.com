@@ -52,5 +52,11 @@
     $('.content').imagesLoaded( function() {
       global.toc.calculateHeights();
     });
+
+    $('.tocify-item').on('click', function() {
+      ga('send', 'pageview', {
+        page: location.pathname + location.search + location.hash
+      });
+    });
   });
 })(window);
