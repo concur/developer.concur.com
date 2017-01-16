@@ -1,5 +1,6 @@
 ---
 layout: new-reference
+title: API Guides
 
 toc_footers:
   - <a href="/manage-apps/register.html">Create a Development Sandbox</a>
@@ -7,8 +8,8 @@ toc_footers:
 
 toc_headers:
   - <a href="/api-reference">API Reference</a>
-  - <a href="/api-reference">API Explorer</a>
-  - <a href="/api-guides/">API Guides</a>
+  - <a href="/api-explorer">API Explorer</a>
+  - <a href="/api-guides">API Guides</a>
 ---
 
 {% include guides/index.markdown %}
