@@ -511,7 +511,6 @@ under the License.
 
 .content {
   pre, blockquote {
-    background-color: $code-bg;
     color: #fff;
 
     padding: 2em $main-padding;
@@ -547,12 +546,7 @@ under the License.
 
   blockquote {
     &>p {
-      background-color: $code-annotation-bg;
-      border-radius: 5px;
-      padding: $code-annotation-padding;
       color: #ccc;
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #404040;
     }
   }
 }
