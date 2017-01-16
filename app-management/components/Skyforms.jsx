@@ -42,7 +42,13 @@ renderInput.propTypes = {
 };
 
 export const renderTextarea = ({ input, label, meta: { touched, error } }) => (
-  <FieldWrapper name={input.name} label={label} touched={touched} error={error} classNames="textarea">
+  <FieldWrapper
+    name={input.name}
+    label={label}
+    touched={touched}
+    error={error}
+    classNames="textarea"
+  >
     <textarea {...input} id={input.name} />
   </FieldWrapper>
 );
@@ -117,7 +123,7 @@ export const renderUris = ({ fields }) => (
           component={renderInput}
           type="url"
           name={uri}
-          label={`Redirect URI ${idx + 1}`}
+          label={idx === 0 ? 'Redirect URI' : null}
           placeholder="Redirect URI"
         >
           {idx ? (

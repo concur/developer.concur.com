@@ -11,7 +11,7 @@ const Nav = ({ authenticated }) => {
       </li>
       <li>
         <Link to="/new" activeClassName="active">
-          <i className="fa fa-plus" aria-hidden="true" /> New App
+          <i className="fa fa-plus" aria-hidden="true" /> Create an App
         </Link>
       </li>
       <li>

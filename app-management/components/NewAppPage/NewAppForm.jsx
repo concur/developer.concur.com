@@ -75,8 +75,8 @@ const NewAppForm = ({ handleSubmit, reset }) => (
           <Field
             component={renderSelect}
             name="appType"
-            label="Application Type &#42;"
-            placeholder="Application Type"
+            label="App Type &#42;"
+            placeholder="App Type"
             options={applicationTypes}
           />
         </section>

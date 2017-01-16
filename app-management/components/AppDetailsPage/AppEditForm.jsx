@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
-import { Link } from 'react-router';
 
 import { formValidator } from '../../utils/formValidator';
 import { renderInput, renderTextarea, renderCheckbox, renderSelect, renderMultiSelect, renderUris } from '../Skyforms';
