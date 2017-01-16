@@ -19,7 +19,7 @@ export const FieldWrapper = ({ label, name, touched, error, classNames, children
 
 FieldWrapper.propTypes = {
   name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   touched: PropTypes.bool.isRequired,
   error: PropTypes.any,
   classNames: PropTypes.string,
@@ -36,7 +36,7 @@ export const renderInput = ({ input, type, label, meta: { touched, error }, chil
 renderInput.propTypes = {
   input: PropTypes.object.isRequired,
   type: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   meta: PropTypes.object.isRequired,
   children: PropTypes.any,
 };

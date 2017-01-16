@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import LoadingSpinner from '../LoadingSpinner';
 import ErrorAlert from '../ErrorAlert';
 import AppPreview from './AppPreview';
+import NewAppInstructions from '../NewAppPage/NewAppInstructions';
 
 class AppListing extends React.Component {
   componentWillMount() {
@@ -14,8 +15,10 @@ class AppListing extends React.Component {
 
     if (isFetching) {
       content = <LoadingSpinner loading={isFetching} />;
-    } else {
+    } else if (apps.length > 0) {
       content = apps.map(app => <AppPreview app={app} key={app.id} />);
+    } else {
+      content = <NewAppInstructions />;
     }
 
     return (

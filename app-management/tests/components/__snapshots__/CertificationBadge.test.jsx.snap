@@ -1,5 +1,6 @@
 exports[`<CertificationBadge /> renders "CERTIFIED" if certified 1`] = `
-<small>
+<small
+  className="certification-badge certified">
   <i
     aria-hidden="true"
     className="fa fa-check-circle" />
@@ -8,7 +9,8 @@ exports[`<CertificationBadge /> renders "CERTIFIED" if certified 1`] = `
 `;
 
 exports[`<CertificationBadge /> renders "NOT CERTIFIED" if not certified 1`] = `
-<small>
+<small
+  className="certification-badge not-certified">
   <i
     aria-hidden="true"
     className="fa fa-times-circle" />
