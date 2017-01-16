@@ -6,6 +6,16 @@
   .input i.icon-append {
     cursor: pointer;
   }
+
+  .certification-badge {
+    &.certified {
+      color: $dark-green;
+    }
+
+    &.not-certified {
+      color: $orange;
+    }
+  }
 }
 
 @media (min-width: $grid-float-breakpoint) {
