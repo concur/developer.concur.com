@@ -581,6 +581,10 @@ under the License.
 }
 
 @media (max-width: $phone-width) {
+  blockquote {
+    background-color: $examples-bg;
+  }
+
   .dark-box {
     display: none;
   }
