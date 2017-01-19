@@ -52,4 +52,10 @@
       console.log.apply(console, arguments);
     }
   }
+
+  $(document).ready(function() {
+    $('.load-swagger-ui').each(function() {
+      loadSwaggerUi($(this).data('spec'), $(this).attr('id'));
+    })
+  });
 })();
