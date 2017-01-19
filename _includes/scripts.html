@@ -10,14 +10,14 @@
 <!-- Swagger -->
 <!-- <script src="/swagger-ui/lib/jquery-1.8.0.min.js" type="text/javascript"></script> -->
 
-{% if site.data.branch.branchname ==  'preview' %}
+{% if site.data.branch.branchname == 'preview' %}
   {% assign URL = 'preview.developer.concur.com/api-explorer-proxy' %}
 {% else %}
   {% assign URL = 'developer.concur.com/api-explorer-proxy' %}
 {% endif %}
 
 <script>
-  var replacementURL = "{{URL}}";
+  var replacementURL = "{{ URL }}";
 </script>
 
 {% if page.reference-type == 'swagger' %}
