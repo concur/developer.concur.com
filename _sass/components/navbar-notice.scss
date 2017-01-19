@@ -1,12 +1,13 @@
-$notice-color: #333;
+$notice-color: $dark-gray;
 $notice-text-color: $white;
+$notice-height: 32px;
 
 .navbar-notice {
+  height: $notice-height;
   padding: 5px 0;
   background-color: $notice-color;
   color: $notice-text-color;
   font-weight: 200;
-  opacity: 0.6;
 
   a, a:hover {
     color: $notice-text-color;

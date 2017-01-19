@@ -7,7 +7,7 @@ title: Contact Support
   <h2>Concur Connect Partners and Developers</h2>
   <p> As a Concur partner or developer, you can request marketing assistance by completing and submitting the form below.</p><br>
   {% include form-success.html %}
-  <form id="sandboxAssistance" class="sky-form" novalidate="novalidate">
+  <form id="contactSupport" class="sky-form" novalidate="novalidate">
     <fieldset>
       <section>
         <label for="firstName" class="label">First Name</label>
@@ -59,51 +59,3 @@ title: Contact Support
     </footer>
   </form>
 </div><!--/col-md-12-->
-
-<script>
-  $("#sandboxAssistance").validate({
-    // Rules for form validation
-    rules: {
-      firstName: { required: true },
-      lastName: { required: true },
-      email: {
-        required: true,
-        email: true
-      },
-      company: { required: true },
-      phoneNumber: { required: true },
-      message: { required: true }
-    },
-
-    // Messages for form validation
-    messages: {
-      firstName: { required: 'Please enter your first name' },
-      lastName: { required: 'Please enter your last name' },
-      email: { required: 'Please enter a valid email address' },
-      company: { required: 'Please enter your company name' },
-      phoneNumber: { required: 'Please enter a valid phone number' },
-      message: { required: 'Please enter the message details for this request' }
-    },
-
-    // Ajax form submition
-    submitHandler: function(form) {
-      if($('#email-alt').val()) {
-        return;
-      }
-      $(form).ajaxSubmit({
-        beforeSend: function() {
-          $('#sandboxAssistance button[type="submit"]').attr('disabled', true);
-        },
-        success: function() {
-          $("#sandboxAssistance").addClass('submited');
-          $('#form-success').removeClass('form-success-hidden');
-        }
-      });
-    },
-
-    // Do not change code below
-    errorPlacement: function(error, element) {
-      error.insertAfter(element.parent());
-    }
-  });
-</script>
