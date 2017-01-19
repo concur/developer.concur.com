@@ -4,23 +4,13 @@ title: Sandbox Registration
 redirect_from: /register/
 ---
 
-<div class="alert alert-danger" role="alert">
-  <h3>Sandbox Creation Down</h3>
-  <p>
-    We are currently investigating an issue that is preventing the successful creation of new sandboxes.
-    We apologize for the inconvenience this may cause and will update via our <a href="/changelog">Changelog</a> as soon as we have an update.
-  </p>
-  <p>Existing sandboxes are not affected.</p>
-</div>
-
-
 <div class="col-md-12">
     <h2>Sandbox Creation Form</h2>
     <p> As a Concur customer, partner or developer, you can create a development sandbox by filling out and submitting this form. NOTE: Please log out of all Concur products before proceeding.</p><br>
     {% include form-error.html %}
     {% include form-wait.html %}
     <form action="{{ site.data.forms.server }}/register" method="POST" id="sandboxRegistration" class="sky-form" novalidate="novalidate">
-      <fieldset disabled>
+      <fieldset>
         <div class="row">
           <section class="col col-6">
             <label for="firstName" class="label">First Name &#42;</label>
@@ -127,7 +117,7 @@ redirect_from: /register/
         <input type="text" name="email-alt" id="email-alt" hidden>
       </fieldset>
       <footer>
-        <button type="submit" class="btn bright-blue pull-right" disabled>Submit</button>
+        <button type="submit" class="btn bright-blue pull-right">Submit</button>
       </footer>
     </form><br>
     <div>
