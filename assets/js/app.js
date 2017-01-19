@@ -17,10 +17,26 @@ var App = (function() {
     });
   }
 
+  // Initialize Feedly popover
+  function handleFeedlyPopover() {
+    $("#feedly").popover({ trigger: "hover" });
+  }
+
+  // Initialize API Reference key input
+  function handleApiKey() {
+    localStorage.api_key ? $('#input_apiKey').val(localStorage.api_key) : null;
+
+    $('#input_apiKey').change(function(){
+      localStorage.setItem('api_key', $('#input_apiKey').val());
+    });
+  }
+
   return {
     init: function() {
       handleSearch();
       handleToggle();
+      handleApiKey();
+      handleFeedlyPopover();
     }
   };
 })();
