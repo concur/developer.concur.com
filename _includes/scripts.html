@@ -1,9 +1,20 @@
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- forms -->
+<script src="{{ site.baseurl }}/assets/plugins/sky-forms/version-2.0.1/js/jquery.validate.min.js"></script>
+<script src="{{ site.baseurl }}/assets/plugins/sky-forms/version-2.0.1/js/jquery.form.min.js"></script>
+
 <!-- JS Implementing Plugins -->
 <script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/back-to-top.js"></script>
 <!-- JS Page Level -->
 <script type="text/javascript" src="{{ site.baseurl }}/assets/js/app.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/assets/js/forms.js"></script>
 <script type="text/javascript">
   jQuery(document).ready(function() {
     App.init();
+    DevcenterForms.init();
   });
 </script>
