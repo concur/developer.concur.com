@@ -1,8 +1,13 @@
-## Get attendee types
+### Get attendee types
+
+```bash
+# Endpoint
+GET /api/expense/attendee/v1.0/type
+```
 
 Retrieves the list of attendee types for the company.
 
-### Request
+#### Request
 
 ```http
 GET https://www.concursolutions.com/api/expense/attendee/v1.0/type HTTP/1.1
@@ -17,10 +22,10 @@ None.
 
 | Name | Description |
 | ---- | ----------- |
-| `Content-Type` | `application/xml` |
+| `Accept` | `application/xml` |
 | `Authorization` | The authorization header must have an OAuth token for a valid Concur user. <br><br> The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company. |
 
-### Response
+#### Response
 
 ```http
 HTTP/1.1 200 OK
