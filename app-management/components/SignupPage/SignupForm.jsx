@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import { formValidator } from '../../utils/formValidator';
-import { renderInput } from '../Skyforms';
+import { InputField } from '../FormFields';
 
 const constraints = {
   firstName: {
@@ -32,21 +32,21 @@ const constraints = {
 };
 
 const SignupForm = ({ handleSubmit }) => (
-  <form className="sky-form" onSubmit={handleSubmit}>
+  <form onSubmit={handleSubmit}>
     <fieldset>
       <div className="row">
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderInput}
+            component={InputField}
             type="text"
             name="firstName"
             label="First Name &#42;"
             placeholder="First Name"
           />
         </section>
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderInput}
+            component={InputField}
             type="text"
             name="lastName"
             label="Last Name &#42;"
@@ -55,18 +55,18 @@ const SignupForm = ({ handleSubmit }) => (
         </section>
       </div>
       <div className="row">
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderInput}
+            component={InputField}
             type="text"
             name="username"
             label="Username &#42;"
             placeholder="Username"
           />
         </section>
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderInput}
+            component={InputField}
             type="email"
             name="email"
             label="Email Address &#42;"
@@ -75,18 +75,18 @@ const SignupForm = ({ handleSubmit }) => (
         </section>
       </div>
       <div className="row">
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderInput}
+            component={InputField}
             type="password"
             name="password"
             label="Password &#42;"
             placeholder="Password"
           />
         </section>
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderInput}
+            component={InputField}
             type="password"
             name="passwordConfirm"
             label="Confirm Password &#42;"

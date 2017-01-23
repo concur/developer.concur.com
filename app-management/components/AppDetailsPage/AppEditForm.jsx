@@ -2,7 +2,14 @@ import React, { PropTypes } from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 
 import { formValidator } from '../../utils/formValidator';
-import { renderInput, renderTextarea, renderCheckbox, renderSelect, renderMultiSelect, renderUris } from '../Skyforms';
+import {
+  InputField,
+  TextareaField,
+  CheckboxField,
+  SelectField,
+  MultiselectField,
+  RedirectUris,
+} from '../FormFields';
 import AppSecret from './AppSecret';
 
 // All selectable grants and scopes
@@ -46,19 +53,19 @@ const constraints = {
 };
 
 const EditAppForm = ({ handleSubmit, generateSecret, initialValues, showSecret }) => (
-  <form className="sky-form" onSubmit={handleSubmit}>
+  <form onSubmit={handleSubmit}>
     <fieldset>
       <div className="row">
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderCheckbox}
+            component={CheckboxField}
             type="checkbox"
             name="enabled"
           >
             Enabled
           </Field>
         </section>
-        <section className="col col-6">
+        <section className="col-md-6">
           <AppSecret
             clickHandler={() => generateSecret(initialValues.id)}
             secret={'a-sample-secret'}
@@ -67,18 +74,18 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, showSecret }
         </section>
       </div>
       <div className="row">
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderInput}
+            component={InputField}
             type="text"
             name="name"
             label="App Name"
             placeholder="App Name"
           />
         </section>
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderTextarea}
+            component={TextareaField}
             name="description"
             label="App Description"
             placeholder="App Description"
@@ -86,9 +93,9 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, showSecret }
         </section>
       </div>
       <div className="row">
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderSelect}
+            component={SelectField}
             name="appType"
             label="Application Type"
             placeholder="Application Type"
@@ -96,14 +103,14 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, showSecret }
             simpleValue
           />
         </section>
-        <section className="col col-6">
-          <FieldArray component={renderUris} name="redirectUris" />
+        <section className="col-md-6">
+          <FieldArray component={RedirectUris} name="redirectUris" />
         </section>
       </div>
       <div className="row">
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderMultiSelect}
+            component={MultiselectField}
             type="select-multiple"
             name="allowedGrants"
             label="Allowed Grants"
@@ -111,9 +118,9 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, showSecret }
             simpleValue
           />
         </section>
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderMultiSelect}
+            component={MultiselectField}
             type="select-multiple"
             name="allowedScopes"
             label="Allowed Scopes"

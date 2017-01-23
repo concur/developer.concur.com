@@ -1,9 +1,5 @@
 .app-management {
-  .add-uri {
-    margin-top: 10px;
-  }
-
-  .input i.icon-append {
+  .input .input-group-addon {
     cursor: pointer;
   }
 
@@ -15,6 +11,10 @@
     &.not-certified {
       color: $orange;
     }
+  }
+
+  .has-error .Select-control {
+    border-color: #a94442;
   }
 }
 

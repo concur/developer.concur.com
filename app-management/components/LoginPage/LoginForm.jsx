@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import { formValidator } from '../../utils/formValidator';
-import { renderInput } from '../Skyforms';
+import { InputField } from '../FormFields';
 
 const constraints = {
   username: {
@@ -14,12 +14,12 @@ const constraints = {
 };
 
 const LoginForm = ({ handleSubmit }) => (
-  <form className="sky-form" onSubmit={handleSubmit}>
+  <form onSubmit={handleSubmit}>
     <fieldset>
       <div className="row">
         <section>
           <Field
-            component={renderInput}
+            component={InputField}
             type="text"
             name="username"
             label="Username"
@@ -30,7 +30,7 @@ const LoginForm = ({ handleSubmit }) => (
       <div className="row">
         <section>
           <Field
-            component={renderInput}
+            component={InputField}
             type="password"
             name="password"
             label="Password"

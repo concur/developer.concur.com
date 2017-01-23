@@ -2,7 +2,14 @@ import React, { PropTypes } from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 
 import { formValidator } from '../../utils/formValidator';
-import { renderInput, renderTextarea, renderCheckbox, renderSelect, renderMultiSelect, renderUris } from '../Skyforms';
+import {
+  InputField,
+  TextareaField,
+  CheckboxField,
+  SelectField,
+  MultiselectField,
+  RedirectUris,
+} from '../FormFields';
 
 // All selectable grants and scopes
 import grants from '../../data/grants.json';
@@ -49,21 +56,21 @@ const constraints = {
 };
 
 const NewAppForm = ({ handleSubmit, reset }) => (
-  <form className="sky-form" onSubmit={handleSubmit}>
+  <form onSubmit={handleSubmit}>
     <fieldset>
       <div className="row">
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderInput}
+            component={InputField}
             type="text"
             name="appName"
             label="App Name &#42;"
             placeholder="App Name"
           />
         </section>
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderTextarea}
+            component={TextareaField}
             name="appDescription"
             label="App Description &#42;"
             placeholder="App Description"
@@ -71,32 +78,32 @@ const NewAppForm = ({ handleSubmit, reset }) => (
         </section>
       </div>
       <div className="row">
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderSelect}
+            component={SelectField}
             name="appType"
             label="App Type &#42;"
             placeholder="App Type"
             options={applicationTypes}
           />
         </section>
-        <section className="col col-6">
-          <FieldArray component={renderUris} name="redirectUris" />
+        <section className="col-md-6">
+          <FieldArray component={RedirectUris} name="redirectUris" />
         </section>
       </div>
       <div className="row">
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderMultiSelect}
+            component={MultiselectField}
             type="select-multiple"
             name="allowedGrants"
             label="Allowed Grants &#42;"
             options={grants}
           />
         </section>
-        <section className="col col-6">
+        <section className="col-md-6">
           <Field
-            component={renderMultiSelect}
+            component={MultiselectField}
             type="select-multiple"
             name="allowedScopes"
             label="Allowed Scopes &#42;"
@@ -106,8 +113,7 @@ const NewAppForm = ({ handleSubmit, reset }) => (
       </div>
       <section>
         <Field
-          component={renderCheckbox}
-          type="checkbox"
+          component={CheckboxField}
           name="termsOfUseAgreement"
         >
           I Agree to the <a href="/Terms-of-Use.html" target="_blank" rel="noopener noreferrer">Terms of Use</a> and <a href="https://www.concur.com/en-us/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>

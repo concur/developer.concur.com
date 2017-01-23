@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import NewAppForm from '../../../components/NewAppPage/NewAppForm';
-import { renderCheckbox, renderInput, renderSelect, renderMultiSelect } from '../../../components/Skyforms';
+import { CheckboxField, FieldError } from '../../../components/FormFields';
 import appReducer from '../../../reducers';
 
 describe('<NewAppForm />', () => {
@@ -44,7 +44,7 @@ describe('<NewAppForm />', () => {
 
       expect(formData.redirectUris.length).toBe(2);
 
-      form.find('i.icon-append').simulate('click');
+      form.find('.input-group-addon').simulate('click');
 
       state = store.getState();
       formData = state.form.newApp.values;
@@ -55,9 +55,9 @@ describe('<NewAppForm />', () => {
 
   describe('Terms of Agreement checkbox', () => {
     it('should render an error message if touched and unchecked', () => {
-      const checkbox = form.find(renderCheckbox);
+      const checkbox = form.find(CheckboxField);
       checkbox.find('input').simulate('blur');
-      const errorMessage = checkbox.find('em');
+      const errorMessage = checkbox.find(FieldError);
 
       expect(errorMessage.length).toBe(1);
       expect(errorMessage.text()).toBe('Terms of use agreement is required');

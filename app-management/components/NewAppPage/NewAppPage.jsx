@@ -22,7 +22,8 @@ const NewAppPage = ({ handleSubmit, isFetching, error }) => (
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="/api-reference/authentication/getting-started.html"> authentication
+            href="/api-reference/authentication/getting-started.html"
+          > authentication
           </a>
         </p>
       </div>
