@@ -7,12 +7,11 @@
 https://www.concursolutions.com/api/travelprofile/v1.0/fop/
 ```
 
-<span style="background-color:red; font-size:24pt"> **This version (1.0) has been deprecated effective 04/01/2016**</span>  
-Access a new version: [Form of Payment 2.0](/api-reference/travel-profile/02-form-payment-resource.html)
+<aside class="warning">
+  <strong>This version (1.0) has been deprecated effective 04/01/2016.</strong> Access a new version: <a href="/api-reference/travel-profile/02-form-payment-resource.html">Form of Payment 2.0</a>
+</aside>
 
-The Form of Payment resource represents the form of payment a Concur user uses by default during travel. You can use this resource to obtain information associated with a user's preferred method of payment such as card display name, credit card number, expiration date, and billiting address. **This version (1.0) has been deprecated effective 04/01/2016**  
-
-**Click [here](/api-reference/travel/travel-profile/form-payment-resource.html) to access a newer version.**
+The Form of Payment resource represents the form of payment a Concur user uses by default during travel. You can use this resource to obtain information associated with a user's preferred method of payment such as card display name, credit card number, expiration date, and billing address.
 
 ### Who can use this resource?
 This endpoint can be used by travel suppliers or travel management companies (TMC). The scope of information returned varies depending on who makes the request.
@@ -48,7 +47,8 @@ Authorization: OAuth {access token}
 ```
 
 **Request parameters**
-None.
+
+* None.
 
 **Headers**
 
@@ -61,31 +61,32 @@ None.
 #### Response
 
 ##### Content Types
-application/xml
+
+* application/xml
 
 **Content Body**
 This request will return a **CorporateFOPResponse** parent element with the **uniqueID** attribute and a **CreditCards** parent element containing a **CreditCard** element for each included credit card. The **CreditCards** element will only appear if the user has a credit card that is available to the supplier. The **CreditCard** element has the **DisplayName** attribute and contains the following child elements.
 
-**CreditCard element**
+* **`CreditCard` element**
 
-|Element Name|Required/Optional|Data Type| Description |
-|------------|-----------------|---------|-------------|
-|Vendor | | |The card vendor. One of the following options: Unknown, AX, DC, DS, CA, VI, CB, ER, TP, JC, AA, DL, NW, TW, UC, UA, EC, CP, AS, PO, AWRDCR |  
-|AccountNo | | |The credit card account number. |
-|ExpDate |  | |The expiration date of the credit card. Format: YYYY-MM |
-|NameOnCard | | |The name on the credit card. |
-|Usages | | |This element contains a comma separated list of the selected uses for this card. |
-|BillingAddress | | |This parent element contains information about the billing address. For information about the child elements of this parent element, see the **BillingAddress element** table below. |
+  |Element Name|Required/Optional|Data Type| Description |
+  |------------|-----------------|---------|-------------|
+  |Vendor | | |The card vendor. One of the following options: Unknown, AX, DC, DS, CA, VI, CB, ER, TP, JC, AA, DL, NW, TW, UC, UA, EC, CP, AS, PO, AWRDCR |  
+  |AccountNo | | |The credit card account number. |
+  |ExpDate |  | |The expiration date of the credit card. Format: YYYY-MM |
+  |NameOnCard | | |The name on the credit card. |
+  |Usages | | |This element contains a comma separated list of the selected uses for this card. |
+  |BillingAddress | | |This parent element contains information about the billing address. For information about the child elements of this parent element, see the **BillingAddress element** table below. |
 
-**BillingAddress element**
+* **BillingAddress element**
 
-|Element Name|Required/Optional|Data Type|Description|
-|------------|-----------------|---------|-----------|
-|StreetAddress | | |The street and unit information for the billing address.|
-|City | | |The city information for the billing address.|   
-|StateProvince | | |The state or province information for the billing address.|
-|Country| | |The country information for the billing address.|
-|ZipCode| | |The zip code information for the billing address.|
+  |Element Name|Required/Optional|Data Type|Description|
+  |------------|-----------------|---------|-----------|
+  |StreetAddress | | |The street and unit information for the billing address.|
+  |City | | |The city information for the billing address.|   
+  |StateProvince | | |The state or province information for the billing address.|
+  |Country| | |The country information for the billing address.|
+  |ZipCode| | |The zip code information for the billing address.|
 
 
 > XML Example of Successful Response for Air Travel Supplier

@@ -55,15 +55,11 @@ HttpWebResponse webresponse = request.GetResponse();
 
 ### See also
 
-The version 3.0 documentation includes the data model and tools to send test requests to your developer sandbox:
-
-[Version 3.0 Receipt Images ][3]
-
-Version 1.0 documentation includes the data model and example requests and responses:
-
-[Version 1.0 Image][4]
-
-[Version 1.0 Image URL][5]
+* The version 3.0 documentation includes the data model and tools to send test requests to your developer sandbox:
+  * [Version 3.0 Receipt Images ][3]
+* Version 1.0 documentation includes the data model and example requests and responses:
+  * [Version 1.0 Image][4]
+  * [Version 1.0 Image URL][5]
 
 
 ## Resources

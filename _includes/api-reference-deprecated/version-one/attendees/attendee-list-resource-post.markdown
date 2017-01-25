@@ -64,19 +64,19 @@ This function requires as its arguments an **attendee-batch** element containing
 NOTE: The element names are case-sensitive.
 </aside>
 
-**`attendee` elements**
+* **`attendee` elements**
 
-| Element | Required/Optional | Description |
-|-----------|-----------|--------------------|
-|external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
-| type | required  | The attendee type code. Refer to the [Attendee Type][1] resource documentation. Maximum 8 characters. |
-| last-name | required  | The last name of the attendee. Maximum 132 characters. |
-| first-name | optional  | The first name of the attendee. Maximum 50 characters. |
-| company | optional  | The name of the attendee’s company. Maximum 150 characters. |
-| title | optional  | The attendee's title. Maximum 32 characters. |
-| total-amount-ytd | optional  | The year to date total amount for the attendee. This sets the starting value for year to date attendee spend amount calculations. |
-| currency-code | required, if total-amount-ytd is supplied | Defines the currency to be used when totaling costs for the attendee. Must be a [3-letter ISO 4217 currency code][2] for the currency. Maximum 3 characters. |
-| customx | required, if the field is required on the Attendee form  | There can be one element for each custom field that is configured on the attendee form. There are 20 possible custom fields for attendee forms. The numbering matches the Concur custom field numbering and is not necessarily sequential. If the attendee form has custom 1, custom 3 and custom 10 on it, the custom1, custom3, and custom10 elements should be included. Concur Expense is vastly configurable. Use the following process to get the list of custom fields configured for the Attendee form:<br/>1. Use the [Get Available Form Types][3] function to get the code associated with the Attendee Detail View form.<br/>2. Use the [Get Form Data][4] function to get the FormId for the specific attendee form that you wish to use.<br/>3. Use the [Get Form Field Details][5] function to get the list of configured fields (including custom fields) for the attendee form.<br/><br/>Maximum 100 characters. |
+  | Element | Required/Optional | Description |
+  |-----------|-----------|--------------------|
+  |external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
+  | type | required  | The attendee type code. Refer to the [Attendee Type][1] resource documentation. Maximum 8 characters. |
+  | last-name | required  | The last name of the attendee. Maximum 132 characters. |
+  | first-name | optional  | The first name of the attendee. Maximum 50 characters. |
+  | company | optional  | The name of the attendee’s company. Maximum 150 characters. |
+  | title | optional  | The attendee's title. Maximum 32 characters. |
+  | total-amount-ytd | optional  | The year to date total amount for the attendee. This sets the starting value for year to date attendee spend amount calculations. |
+  | currency-code | required, if total-amount-ytd is supplied | Defines the currency to be used when totaling costs for the attendee. Must be a [3-letter ISO 4217 currency code][2] for the currency. Maximum 3 characters. |
+  | customx | required, if the field is required on the Attendee form  | There can be one element for each custom field that is configured on the attendee form. There are 20 possible custom fields for attendee forms. The numbering matches the Concur custom field numbering and is not necessarily sequential. If the attendee form has custom 1, custom 3 and custom 10 on it, the custom1, custom3, and custom10 elements should be included. Concur Expense is vastly configurable. Use the following process to get the list of custom fields configured for the Attendee form:<br/>1. Use the [Get Available Form Types][3] function to get the code associated with the Attendee Detail View form.<br/>2. Use the [Get Form Data][4] function to get the FormId for the specific attendee form that you wish to use.<br/>3. Use the [Get Form Field Details][5] function to get the list of configured fields (including custom fields) for the attendee form.<br/><br/>Maximum 100 characters. |
 
 #### Response
 
@@ -104,27 +104,27 @@ Content-Type: application/xml
 
 **HTTP errors**
 
-[Attendee List Errors][6]
+* [Attendee List Errors][6]
 
 **Response body**
 
 This request will return an **attendee-batch-result** parent element.
 
-**`attendee-batch-result` elements**
+* **`attendee-batch-result` elements**
 
-| Element | Description |
-|-----------|--------------------|
-| records-succeeded | The number of records processed that were successfully added. |
-| records-failed | The number of records processed that were not successfully added. |
-| errors | This will contain an **error** parent element for each record failure. |
+  | Element | Description |
+  |-----------|--------------------|
+  | records-succeeded | The number of records processed that were successfully added. |
+  | records-failed | The number of records processed that were not successfully added. |
+  | errors | This will contain an **error** parent element for each record failure. |
 
-**error elements**
+* **`error` elements**
 
-| Element | Description |
-|-----------|--------------------|
-| code | The code associated with the error. |
-| external-id | The external ID of the record that failed. |
-| message | The error message. |
+  | Element | Description |
+  |-----------|--------------------|
+  | code | The code associated with the error. |
+  | external-id | The external ID of the record that failed. |
+  | message | The error message. |
 
 
 ### Post attendee update list
@@ -183,19 +183,19 @@ This function requires as its arguments an **attendee-batch** element containing
 NOTE: The element names are case-sensitive.
 </aside>
 
-**`attendee` elements**
+* **`attendee` elements**
 
-| Element | Required/Optional | Description |
-|-----------|-----------|--------------------|
-|external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
-| type | required  | The attendee type code. Refer to the [Attendee Type][1] resource documentation. Maximum 8 characters. |
-| last-name | required  | The last name of the attendee. Maximum 132 characters. |
-| first-name | optional  | The first name of the attendee. Maximum 50 characters. |
-| company | optional  | The name of the attendee’s company. Maximum 150 characters. |
-| title | optional  | The attendee's title. Maximum 32 characters. |
-| total-amount-ytd | optional  | The year to date total amount for the attendee. This sets the starting value for year to date attendee spend amount calculations. |
-| currency-code | required, if total-amount-ytd is supplied | Defines the currency to be used when totaling costs for the attendee. Must be a [3-letter ISO 4217 currency code][2] for the currency. Maximum 3 characters. |
-| customx | required, if the field is required on the Attendee form  | There can be one element for each custom field that is configured on the attendee form. There are 20 possible custom fields for attendee forms. The numbering matches the Concur custom field numbering and is not necessarily sequential. If the attendee form has custom 1, custom 3 and custom 10 on it, the custom1, custom3, and custom10 elements should be included. Concur Expense is vastly configurable. Use the following process to get the list of custom fields configured for the Attendee form:<br/>1. Use the [Get Available Form Types][3] function to get the code associated with the Attendee Detail View form.<br/>2. Use the [Get Form Data][4] function to get the FormId for the specific attendee form that you wish to use.<br/>3. Use the [Get Form Field Details][5] function to get the list of configured fields (including custom fields) for the attendee form.<br/><br/>Maximum 100 characters. |
+  | Element | Required/Optional | Description |
+  |-----------|-----------|--------------------|
+  |external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
+  | type | required  | The attendee type code. Refer to the [Attendee Type][1] resource documentation. Maximum 8 characters. |
+  | last-name | required  | The last name of the attendee. Maximum 132 characters. |
+  | first-name | optional  | The first name of the attendee. Maximum 50 characters. |
+  | company | optional  | The name of the attendee’s company. Maximum 150 characters. |
+  | title | optional  | The attendee's title. Maximum 32 characters. |
+  | total-amount-ytd | optional  | The year to date total amount for the attendee. This sets the starting value for year to date attendee spend amount calculations. |
+  | currency-code | required, if total-amount-ytd is supplied | Defines the currency to be used when totaling costs for the attendee. Must be a [3-letter ISO 4217 currency code][2] for the currency. Maximum 3 characters. |
+  | customx | required, if the field is required on the Attendee form  | There can be one element for each custom field that is configured on the attendee form. There are 20 possible custom fields for attendee forms. The numbering matches the Concur custom field numbering and is not necessarily sequential. If the attendee form has custom 1, custom 3 and custom 10 on it, the custom1, custom3, and custom10 elements should be included. Concur Expense is vastly configurable. Use the following process to get the list of custom fields configured for the Attendee form:<br/>1. Use the [Get Available Form Types][3] function to get the code associated with the Attendee Detail View form.<br/>2. Use the [Get Form Data][4] function to get the FormId for the specific attendee form that you wish to use.<br/>3. Use the [Get Form Field Details][5] function to get the list of configured fields (including custom fields) for the attendee form.<br/><br/>Maximum 100 characters. |
 
 #### Response
 
@@ -216,27 +216,27 @@ Content-Type: application/xml
 
 **HTTP errors**
 
-[Attendee List Errors][6]
+* [Attendee List Errors][6]
 
 **Response body**
 
 This request will return an **attendee-batch-result** parent element.
 
-**`attendee-batch-result` elements**
+* **`attendee-batch-result` elements**
 
-| Element | Description |
-|-----------|--------------------|
-| records-succeeded | The number of records processed that were successfully updated. |
-| records-failed | The number of records processed that were not successfully updated. |
-| errors | This will contain an **error** parent element for each record failure. |
+  | Element | Description |
+  |-----------|--------------------|
+  | records-succeeded | The number of records processed that were successfully updated. |
+  | records-failed | The number of records processed that were not successfully updated. |
+  | errors | This will contain an **error** parent element for each record failure. |
 
-**error elements**
+* **`error` elements**
 
-| Element | Description |
-|-----------|--------------------|
-| code | The code associated with the error. |
-| external-id | The external ID of the record that failed. |
-| message | The error message. |
+  | Element | Description |
+  |-----------|--------------------|
+  | code | The code associated with the error. |
+  | external-id | The external ID of the record that failed. |
+  | message | The error message. |
 
 ### Post an attendee inactivation list
 
@@ -287,12 +287,12 @@ This function requires as its arguments an **attendee-batch** element containing
 
 NOTE: The element names are case-sensitive.
 
-**`attendee` elements**
+* **`attendee` elements**
 
-| Element | Required/Optional | Description |
-|-----------|-----------|--------------------|
-|external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
-| inactive | required | This is set to true to inactivate the attendee. Format: true/false |
+  | Element | Required/Optional | Description |
+  |-----------|-----------|--------------------|
+  |external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
+  | inactive | required | This is set to true to inactivate the attendee. Format: true/false |
 
 #### Response
 
@@ -313,27 +313,27 @@ Content-Type: application/xml
 
 **HTTP errors**
 
-[Attendee List Errors][6]
+* [Attendee List Errors][6]
 
 **Response body**
 
 This request will return an **list-item-batch-result** parent element.
 
-**`list-item-batch-result` elements**
+* **`list-item-batch-result` elements**
 
-| Element | Description |
-|-----------|--------------------|
-| records-succeeded | The number of records processed that were successfully inactivated. |
-| records-failed | The number of records processed that were not successfully inactivated. |
-| errors | This will contain an **error** parent element for each record failure. |
+  | Element | Description |
+  |-----------|--------------------|
+  | records-succeeded | The number of records processed that were successfully inactivated. |
+  | records-failed | The number of records processed that were not successfully inactivated. |
+  | errors | This will contain an **error** parent element for each record failure. |
 
-**error elements**
+* **`error` elements**
 
-| Element | Description |
-|-----------|--------------------|
-| code | The code associated with the error. |
-| external-id | The external ID of the record that failed. |
-| message | The error message. |
+  | Element | Description |
+  |-----------|--------------------|
+  | code | The code associated with the error. |
+  | external-id | The external ID of the record that failed. |
+  | message | The error message. |
 
 [1]: https://developer.concur.com/attendee/attendee-type-resource
 [2]: http://en.wikipedia.org/wiki/ISO_4217

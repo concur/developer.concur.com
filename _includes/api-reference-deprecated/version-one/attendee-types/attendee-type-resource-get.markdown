@@ -50,12 +50,12 @@ Content-Type: application/xml
 
 This request will return an **attendee-types** parent element containing an **attendee-type** child element for each attendee type.
 
-**`attendee-type` elements**
+* **`attendee-type` elements**
 
-| Element | Description |
-|:------------|:-----------------------|
-| type | The attendee type code. |
-| name | The attendee type name. |
+  | Element | Description |
+  |:------------|:-----------------------|
+  | type | The attendee type code. |
+  | name | The attendee type name. |
 
 
 [1]: /tools-support/reference/http-codes.html

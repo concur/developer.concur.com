@@ -406,15 +406,17 @@ under the License.
   table {
     margin-bottom: 1em;
     overflow: auto;
+
     th,td {
       text-align: left;
       vertical-align: top;
       line-height: 1.6;
+      border: 1px solid #ccc;
     }
 
     th {
       padding: 5px 10px;
-      border-bottom: 1px solid #ccc;
+      border: 1px solid #ccc;
       vertical-align: bottom;
     }
 
@@ -422,8 +424,8 @@ under the License.
       padding: 10px;
     }
 
-    tr:last-child {
-      border-bottom: 1px solid #ccc;
+    tr {
+      border: 1px solid #ccc;
     }
 
     tr:nth-child(odd)>td {

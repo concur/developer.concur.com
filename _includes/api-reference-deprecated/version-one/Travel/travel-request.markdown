@@ -27,9 +27,18 @@ GET /api/travelrequest/v1.0/requestslist/
 
 #### Request
 
-**Request parameters**
+**Path parameters**
 
-**requestslist**: The requestslist keyword. Required.
+| Parameter | Required/Optional | Description |
+|-----------|-----------|---------------------|
+| `requestslist` | required | The requestslist keyword. |
+
+**Query parameters**
+
+```bash
+# Multiple parameter example:
+https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?status={status}&loginid={loginID}
+```
 
 The request can include any number of the following optional query parameters to refine the search:
 
@@ -38,45 +47,47 @@ The request can include any number of the following optional query parameters to
 * **modifiedafterdate**
 * **modifiedbeforedate**
 
-> Multiple parameter example:
-
 ```bash
-https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?status={status}&loginid={loginID}
+# Status Example:  
+https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?status={status}
 ```
 
-**Status**: The **Status** search term specifies which travel request or approval status to return. If no **Status** value is sent, the default status of Active will be used.
+* **Status**: The **Status** search term specifies which travel request or approval status to return. If no **Status** value is sent, the default status of Active will be used.
 
-|  Value |  Description |
-|--------|---------------|
-|  ACTIVE |  Returns all active travel requests.  |
-|  UNSUBMITTED |  Returns unsubmitted travel requests. |
-|  PENDING |  Returns submitted travel requests pending approval. |
-|  VALIDATED |  Returns approved travel requests. |
-|  CANCELED |  Returns cancelled travel requests. |
-|  CLOSED |  Returns closed travel requests. |
-|  SUBMITTED |  Returns submitted travel requests. |
-|  TOAPPROVE |  Returns travel requests pending approval. If you use this search term with the Login ID search term, you should supply the approver's login ID. |
-|  APPROVED |  Returns approved travel requests. If you use this search term with the Login ID search term, you should supply the approver's login ID. |
+  |  Value |  Description |
+  |--------|---------------|
+  |  ACTIVE |  Returns all active travel requests.  |
+  |  UNSUBMITTED |  Returns unsubmitted travel requests. |
+  |  PENDING |  Returns submitted travel requests pending approval. |
+  |  VALIDATED |  Returns approved travel requests. |
+  |  CANCELED |  Returns cancelled travel requests. |
+  |  CLOSED |  Returns closed travel requests. |
+  |  SUBMITTED |  Returns submitted travel requests. |
+  |  TOAPPROVE |  Returns travel requests pending approval. If you use this search term with the Login ID search term, you should supply the approver's login ID. |
+  |  APPROVED |  Returns approved travel requests. If you use this search term with the Login ID search term, you should supply the approver's login ID. |
 
-Example:  
-`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?status={status}`
+```bash
+# Login ID Example:
+https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?loginid={loginID}
+```
 
-**Login ID**: The LoginID is the Concur login for a travel request owner that is not the OAuth consumer. This limits the response to travel requests owned by the specified user. If you use this with the TOAPPROVE or APPROVED Status search term, you should send the travel request approver's login ID.
+* **Login ID**: The LoginID is the Concur login for a travel request owner that is not the OAuth consumer. This limits the response to travel requests owned by the specified user. If you use this with the TOAPPROVE or APPROVED Status search term, you should send the travel request approver's login ID.
 
-Example:  
-`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?loginid={loginID}`
+```bash
+# Modified After Date Examples:  
+https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate={date}
+https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate=2012-01-01T00:00:00
+```
 
-**Modified After Date**: This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss
+* **Modified After Date**: This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss
 
-Examples:  
-`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate={date}`
-`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate=2012-01-01T00:00:00`
+```bash
+# Modified Before Date Examples:
+https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedbeforedate={date}
+https://www.concursolutions.com//api/travelrequest/v1.0/requestslist/?modifiedbeforedate=2012-01-01T00:00:00
+```
 
-**Modified Before Date**: This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss
-
-Examples:  
-`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedbeforedate={date} `
-`https://www.concursolutions.com//api/travelrequest/v1.0/requestslist/?modifiedbeforedate=2012-01-01T00:00:00`
+* **Modified Before Date**: This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss
 
 **Headers**
 
@@ -85,28 +96,28 @@ Examples:
 | `Accept` | `application/xml` |
 | `Authorization` | The authorization header must contain an OAuth token for a valid Concur user. The OAuth Consumer must have the following role: Web Services Administrator for Professional/Premium. |
 
-##### Response
+#### Response
 
 This request will return a **RequestsWithCount** parent element with the **RequestsList** and **TotalCount** child elements. The **RequestsList** parent element contains a **RequestSummary** child element for each travel request. The **RequestSummary** elements will have the following child elements.
 
-###### RequestSummary elements
+* **`RequestSummary` elements**
 
-|  Element Name | Required/Optional | Data Type |  Description |
-|---------------|-------------------|------------|--------------------|
-|  RequestID |  |  |  The unique identifier for the travel request, which appears in the Concur UI.   |
-|  RequestName | |  |  The name of the travel request. |
-|  Purpose | |  |  The purpose of the travel request. |
-|  RequestCurrency | |  |  The [3-letter ISO 4217 currency code][4] for the travel request currency. |
-|  RequestTotal | |  |  The total amount of the travel request. |
-|  RequestDate | |  |   The create date of the travel request. |
-|  StartDate | |  |   Start date of the travel request. |
-|  EndDate | |  |  End date of the travel request. |
-|  LastComment | |  |  The text of the most recent comment on the travel request. |
-|  RequestDetailsURL | |  |  The URL to access the travel request details. |
-|  RequestUserLoginID | |  |  The Login ID of the user this travel request belongs to. |
-|  ApproverLoginID | |  |   The Login ID of the user's travel request approver. |
-|  EmployeeName | |  |  The name of the travel request owner. |
-|  ApprovalStatus | |  |  The travel request's approval status, in the OAuth consumer's language. |
+  |  Element Name | Required/Optional | Data Type |  Description |
+  |---------------|-------------------|------------|--------------------|
+  |  RequestID |  |  |  The unique identifier for the travel request, which appears in the Concur UI.   |
+  |  RequestName | |  |  The name of the travel request. |
+  |  Purpose | |  |  The purpose of the travel request. |
+  |  RequestCurrency | |  |  The [3-letter ISO 4217 currency code][4] for the travel request currency. |
+  |  RequestTotal | |  |  The total amount of the travel request. |
+  |  RequestDate | |  |   The create date of the travel request. |
+  |  StartDate | |  |   Start date of the travel request. |
+  |  EndDate | |  |  End date of the travel request. |
+  |  LastComment | |  |  The text of the most recent comment on the travel request. |
+  |  RequestDetailsURL | |  |  The URL to access the travel request details. |
+  |  RequestUserLoginID | |  |  The Login ID of the user this travel request belongs to. |
+  |  ApproverLoginID | |  |   The Login ID of the user's travel request approver. |
+  |  EmployeeName | |  |  The name of the travel request owner. |
+  |  ApprovalStatus | |  |  The travel request's approval status, in the OAuth consumer's language. |
 
 ### Get travel request details
 
@@ -121,7 +132,9 @@ Retrieves the full set of information for the travel request. Includes the trave
 
 **Request parameters**
 
-**requests/{_requestKey_}**: The requests keyword and the identifier for the desired travel request. Required.
+| Parameter | Required/Optional | Description |
+|-----------|-----------|---------------------|
+| `requests/{requestKey}` | required | The requests keyword and the identifier for the desired travel request. |
 
 **URI Source**: The URI is provided in the **ObjectURI** element of the [Event Notification](/api-reference/callouts/event-notification.html) request.
 
@@ -136,157 +149,157 @@ Retrieves the full set of information for the travel request. Includes the trave
 
 This request will return a **TravelRequestDetails** parent element with the following child elements.
 
-##### TravelRequestDetails elements
+* **`TravelRequestDetails` elements**
 
-|  Element Name | Required/Optional | Data Type |  Description |
-|---------------|-------------------|------------|--------------------|
-|  LoginID | |  |  The Concur Login ID of the travel request owner.   |
-|  RequestID | |  |  The unique key for the travel request. |
-|  RequestKey | |  | The encrypted database key for the travel request. |
-|  RequestName | |  | The name of the travel request. |
-|  Purpose | |  | The information from the Purpose field. |
-|  CurrencyCode | |  | The [3-letter ISO 4217 currency code][4] for the travel request currency. The travel request currency is defined as the travel request creator's default reimbursement currency. |
-|  CreationDate | |  | The date the travel request was created. |
-|  HasException | |  | Whether the travel request has exceptions. Format: Y/N |
-|  EverSentBack | |  | Whether the travel request has ever been sent back to the employee. Format: Y/N |
-|  EmployeeName | |  | The first, middle (or middle initial), and last name of the employee who created the travel request. |
-|  ApprovalStatusName | |  | The approval status of the travel request . |
-|  ApprovalStatusKey | |  | The approval status key. |
-|  AuthorizedDate | |  | The date the travel request was authorized. This element has an attribute named i:nil. If the value for this element is null, the i:nil attribute will be set to true. Format: YYYY-MM-DDThh:mm:ss |
-|  SubmitDate | |  | The date the travel request was submitted. Format: YYYY-MM-DDThh:mm:ss |
-|  LastModifiedDate | |  | The date the travel request was last modified. Format: YYYY-MM-DDThh:mm:ss |
-|  SegmentCount | |  | The number of segments in the travel request. |
-|  Custom1 through Custom20 | |  | The details from the Custom fields. These may not have data, depending on configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: `<Custom1>(1234) Project 1234</Custom1>` |
-|  TravelRequestPolicyKey | |  | The unique identifier for the policy that applies to the travel request. |
-|  ExpensePolicyKey | |  | The unique identifier of the Expense policy that is related to the travel request policy. |
-|  RequestTotal | |  | The total amount of the travel request. |
-|  TotalApprovedAmount | |  | The total amount of approved expenses in the travel request. |
-|  TotalRemainingAmount | |  | The total amount remaining in the travel request. |
-|  ApprovalLimitDate | |  | The date the travel request must be approved by. Appears only when integrated with Concur Travel.|
-|  AgencyOfficeKey | |  | The Agency Office key. |
-|  AgencyOfficeName | |  |  The Agency Office name. |
-|  StartDate | |  | The start date for the travel request. |
-|  EndDate | |  | The end date for the travel request. |
-|  StartTime | |  | The start time for the travel request. |
-|  EndTime | |  | The end time for the travel request. |
-|  ExtensionOf | |  |  The ID of the initial travel request that this travel request is an extension of or adendum to. |
-|  WorkflowActionURL | |  | The URL to post a workflow action to the travel request using the [Post Request Workflow Action](/api-reference-deprecated/version-one/Travel/travel-request.html#a5) function. |
-|  CommentCount | |  | The number of comments associated with the travel request header. |
-|  CommentsList | |  | This parent element has a Count attribute indicating the number of comments that are included in the travel request header. It has a **Comment** child element for each comment. Refer to the Comment Child Elements table for the full list of child elements. |
-|  ExceptionCount | |  | The number of exceptions associated with the travel request header. |
-|  ExceptionsList | |  | This parent element has a Count attribute indicating the number of exceptions that are included in the travel request entry. It has an **Exception** child element for each exception. Refer to the Exception Child Elements table for the full list of child elements. |
-|  EntriesList | |  | This parent element has a Count attribute indicating the number of travel request entries that are included in the travel request. It has a **RequestEntry** child element for each entry. Refer to the RequestEntry Child Elements table for the full list of child elements. |
-|  CashAdvancesList | |  | This parent element has a Count attribute indicating the number of cash advances that are included in the travel request. It has a **CashAdvance** child element for each cash advance. Refer to the CashAdvance Child Elements table for the full list of child elements. |
+  |  Element Name | Required/Optional | Data Type |  Description |
+  |---------------|-------------------|------------|--------------------|
+  |  LoginID | |  |  The Concur Login ID of the travel request owner.   |
+  |  RequestID | |  |  The unique key for the travel request. |
+  |  RequestKey | |  | The encrypted database key for the travel request. |
+  |  RequestName | |  | The name of the travel request. |
+  |  Purpose | |  | The information from the Purpose field. |
+  |  CurrencyCode | |  | The [3-letter ISO 4217 currency code][4] for the travel request currency. The travel request currency is defined as the travel request creator's default reimbursement currency. |
+  |  CreationDate | |  | The date the travel request was created. |
+  |  HasException | |  | Whether the travel request has exceptions. Format: Y/N |
+  |  EverSentBack | |  | Whether the travel request has ever been sent back to the employee. Format: Y/N |
+  |  EmployeeName | |  | The first, middle (or middle initial), and last name of the employee who created the travel request. |
+  |  ApprovalStatusName | |  | The approval status of the travel request . |
+  |  ApprovalStatusKey | |  | The approval status key. |
+  |  AuthorizedDate | |  | The date the travel request was authorized. This element has an attribute named i:nil. If the value for this element is null, the i:nil attribute will be set to true. Format: YYYY-MM-DDThh:mm:ss |
+  |  SubmitDate | |  | The date the travel request was submitted. Format: YYYY-MM-DDThh:mm:ss |
+  |  LastModifiedDate | |  | The date the travel request was last modified. Format: YYYY-MM-DDThh:mm:ss |
+  |  SegmentCount | |  | The number of segments in the travel request. |
+  |  Custom1 through Custom20 | |  | The details from the Custom fields. These may not have data, depending on configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: `<Custom1>(1234) Project 1234</Custom1>` |
+  |  TravelRequestPolicyKey | |  | The unique identifier for the policy that applies to the travel request. |
+  |  ExpensePolicyKey | |  | The unique identifier of the Expense policy that is related to the travel request policy. |
+  |  RequestTotal | |  | The total amount of the travel request. |
+  |  TotalApprovedAmount | |  | The total amount of approved expenses in the travel request. |
+  |  TotalRemainingAmount | |  | The total amount remaining in the travel request. |
+  |  ApprovalLimitDate | |  | The date the travel request must be approved by. Appears only when integrated with Concur Travel.|
+  |  AgencyOfficeKey | |  | The Agency Office key. |
+  |  AgencyOfficeName | |  |  The Agency Office name. |
+  |  StartDate | |  | The start date for the travel request. |
+  |  EndDate | |  | The end date for the travel request. |
+  |  StartTime | |  | The start time for the travel request. |
+  |  EndTime | |  | The end time for the travel request. |
+  |  ExtensionOf | |  |  The ID of the initial travel request that this travel request is an extension of or adendum to. |
+  |  WorkflowActionURL | |  | The URL to post a workflow action to the travel request using the [Post Request Workflow Action](/api-reference-deprecated/version-one/Travel/travel-request.html#a5) function. |
+  |  CommentCount | |  | The number of comments associated with the travel request header. |
+  |  CommentsList | |  | This parent element has a Count attribute indicating the number of comments that are included in the travel request header. It has a **Comment** child element for each comment. Refer to the Comment Child Elements table for the full list of child elements. |
+  |  ExceptionCount | |  | The number of exceptions associated with the travel request header. |
+  |  ExceptionsList | |  | This parent element has a Count attribute indicating the number of exceptions that are included in the travel request entry. It has an **Exception** child element for each exception. Refer to the Exception Child Elements table for the full list of child elements. |
+  |  EntriesList | |  | This parent element has a Count attribute indicating the number of travel request entries that are included in the travel request. It has a **RequestEntry** child element for each entry. Refer to the RequestEntry Child Elements table for the full list of child elements. |
+  |  CashAdvancesList | |  | This parent element has a Count attribute indicating the number of cash advances that are included in the travel request. It has a **CashAdvance** child element for each cash advance. Refer to the CashAdvance Child Elements table for the full list of child elements. |
 
-##### Comment elements
+* **`Comment` elements**
 
-|  Element Name | Required/Optional | Data Type |  Description |
-|---------------|-------------------|------------|--------------------|
-|  Comment | | |  The text of the travel request header comment. |
-|  FirstName | | |  The first name of the person who made the comment. |
-|  LastName | | |  The last name of the person who made the comment. |
-|  DateTime | | | Time, in GMT, when the user made the comment. |
+  |  Element Name | Required/Optional | Data Type |  Description |
+  |---------------|-------------------|------------|--------------------|
+  |  Comment | | |  The text of the travel request header comment. |
+  |  FirstName | | |  The first name of the person who made the comment. |
+  |  LastName | | |  The last name of the person who made the comment. |
+  |  DateTime | | | Time, in GMT, when the user made the comment. |
 
-##### Exception elements
+* **`Exception` elements**
 
-|  Element Name | Required/Optional | Data Type |  Description |
-|---------------|-------------------|------------|--------------------|
-|  ExceptionCode | |  |  The system exception code defined for the exception. Example: BADCODE |
-|  ExceptionMessage | |  | The user-facing message defined for the exception. |
-|  ExceptionLevel | |  | The numeric level associated with the exception. Example: 99 |
+  |  Element Name | Required/Optional | Data Type |  Description |
+  |---------------|-------------------|------------|--------------------|
+  |  ExceptionCode | |  |  The system exception code defined for the exception. Example: BADCODE |
+  |  ExceptionMessage | |  | The user-facing message defined for the exception. |
+  |  ExceptionLevel | |  | The numeric level associated with the exception. Example: 99 |
 
-##### RequestEntry elements
+* **`RequestEntry` elements**
 
-|  Element Name | Required/Optional | Data Type |  Description |
-|---------------|-------------------|------------|--------------------|
-|  RequestEntryKey | |  | The unique identifier for the travel request entry. |
-|  EntryDescription | |  | The text from the Description field for the entry. |
-|  TransactionDate | |  | The date of the travel request entry. |
-|  RequestKey | |  | The unique identifier for the travel request. |
-|  FormKey | |  | The unique identifier for the travel request entry form. |
-|  ExpenseTypeKey | |  | The unique identifier for the expense type. |
-|  ExpenseTypeName | |  | The expense type name. |
-|  ExchangeRate | |  | The exchange rate that applies to the entry. |
-|  ForeignAmount | |  | The foreign currency amount of the travel request entry. |
-|  ForeignCurrencyName | |  | The name of the currency for the foreign amount. |
-|  PostedAmount | |  | The posted amount of the travel request entry in the travel request currency. |
-|  ApprovedAmount | |  | The approved amount of the travel request entry in the travel request currency. |
-|  RemainingAmount | |  | The remaining amount of the travel request entry in the travel request currency. |
-|  LastModifiedDate | |  | The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss |
-|  OrgUnit1 through OrgUnit6 | |  |  The details from the Org Unit custom fields. These may not have data, depending on configuration. |
-|  Custom1 through Custom40 | |  | The details from the Custom fields. These may not have data, depending on configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: `<Custom1>(1234) Project 1234</Custom1>` |
-|  AllocationsList | |  | This parent element has an **Allocation** child element for each associated allocation. Refer to the Allocation child elements table for the full list of child elements. |
-|  CommentCount | |  | The number of comments associated with the travel request entry. |
-|  CommentsList | |  | This parent element has a Count attribute indicating the number of comments that are included in the travel request entry. It has a **Comment** child element for each comment. Refer to the Comment Child Elements table for the full list of child elements. |
-|  ExceptionCount | |  | The number of exceptions associated with the travel request entry. |
-|  ExceptionsList | |  | This parent element has a Count attribute indicating the number of exceptions that are included in the travel request entry. It has an **Exception** child element for each exception. Refer to the Exception Child Elements table for the full list of child elements. |
-|  SegmentCount | |  | The number of segments associated with the travel request entry. |
-|  SegmentsList | |  | This parent element contains a **Segment** child element for each segment associated with the travel request. Refer to the Segment Child Elements table for the full list of child elements. |
+  |  Element Name | Required/Optional | Data Type |  Description |
+  |---------------|-------------------|------------|--------------------|
+  |  RequestEntryKey | |  | The unique identifier for the travel request entry. |
+  |  EntryDescription | |  | The text from the Description field for the entry. |
+  |  TransactionDate | |  | The date of the travel request entry. |
+  |  RequestKey | |  | The unique identifier for the travel request. |
+  |  FormKey | |  | The unique identifier for the travel request entry form. |
+  |  ExpenseTypeKey | |  | The unique identifier for the expense type. |
+  |  ExpenseTypeName | |  | The expense type name. |
+  |  ExchangeRate | |  | The exchange rate that applies to the entry. |
+  |  ForeignAmount | |  | The foreign currency amount of the travel request entry. |
+  |  ForeignCurrencyName | |  | The name of the currency for the foreign amount. |
+  |  PostedAmount | |  | The posted amount of the travel request entry in the travel request currency. |
+  |  ApprovedAmount | |  | The approved amount of the travel request entry in the travel request currency. |
+  |  RemainingAmount | |  | The remaining amount of the travel request entry in the travel request currency. |
+  |  LastModifiedDate | |  | The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss |
+  |  OrgUnit1 through OrgUnit6 | |  |  The details from the Org Unit custom fields. These may not have data, depending on configuration. |
+  |  Custom1 through Custom40 | |  | The details from the Custom fields. These may not have data, depending on configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: `<Custom1>(1234) Project 1234</Custom1>` |
+  |  AllocationsList | |  | This parent element has an **Allocation** child element for each associated allocation. Refer to the Allocation child elements table for the full list of child elements. |
+  |  CommentCount | |  | The number of comments associated with the travel request entry. |
+  |  CommentsList | |  | This parent element has a Count attribute indicating the number of comments that are included in the travel request entry. It has a **Comment** child element for each comment. Refer to the Comment Child Elements table for the full list of child elements. |
+  |  ExceptionCount | |  | The number of exceptions associated with the travel request entry. |
+  |  ExceptionsList | |  | This parent element has a Count attribute indicating the number of exceptions that are included in the travel request entry. It has an **Exception** child element for each exception. Refer to the Exception Child Elements table for the full list of child elements. |
+  |  SegmentCount | |  | The number of segments associated with the travel request entry. |
+  |  SegmentsList | |  | This parent element contains a **Segment** child element for each segment associated with the travel request. Refer to the Segment Child Elements table for the full list of child elements. |
 
-##### Allocation child elements
+* **`Allocation` child elements**
 
-|  Element Name | Required/Optional | Data Type |  Description |
-|---------------|-------------------|------------|--------------------|
-|  Custom1 through Custom20 | |  |   The custom fields associated with the allocation. These may not have data, depending on your configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: `<Custom1>(1234) Project 1234</Custom1>` |
-|  AllocationKey | |  |  The unique identifier for the allocation. |
-|  Percentage | |  |  The percentage of the expense that is included in this allocation. |
+  |  Element Name | Required/Optional | Data Type |  Description |
+  |---------------|-------------------|------------|--------------------|
+  |  Custom1 through Custom20 | |  |   The custom fields associated with the allocation. These may not have data, depending on your configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: `<Custom1>(1234) Project 1234</Custom1>` |
+  |  AllocationKey | |  |  The unique identifier for the allocation. |
+  |  Percentage | |  |  The percentage of the expense that is included in this allocation. |
 
-##### Segment child elements
+* **`Segment` child elements**
 
-|  Element Name | Required/Optional | Data Type |  Description |
-|---------------|-------------------|------------|--------------------|
-|  SegmentKey |  | | The encrypted database primary key for the Segment table. The unique identifier for the segment. |
-|  SegmentType | | |  The type of itinerary segment. Format: air, car, hotel, rail, dining, event, limo, taxi, parking, other |
-|  RecordLocator |  | | Appears only when travel request is integrated with Concur Travel. |
-|  DepartureDate |  | | The departure date of the segment. |
-|  DepartureTime |  | | The departure time of the segment. |
-|  ArrivalDate |  | | The arrival date of the segment. |
-|  ArrivalTime |  | | The arrival time of the segment. |
-|  FromLocationName |  | | The name of the starting location. |
-|  FromLocationDetail |  | | The code of starting location. |
-|  ToLocationName | | |  The name of the ending location. |
-|  ToLocationDetail |  | | The code of the ending location. |
-|  FlightNumber |  | | The flight number for air segments. Appears only when travel request is integrated with Concur Travel.|
-|  ClassOfServiceCode |  | | The Class of Service Code from Concur Travel. Appears only when travel request is integrated with Concur Travel. |
-|  TripLocator |  | | The unique identifier for the Concur Travel trip associated with this segment. Appears only when travel request is integrated with Concur Travel. |
-|  SegmentLocator |  | |  The unique identifier for Concur Travel segment associated with this segment. Appears only when travel request is integrated with Concur Travel. |
-|  ExchangeRate |  | | The exchange rate that applies to the segment. |
-|  ForeignAmount |  | | The foreign currency amount of the segment. |
-|  ForeignCurrencyName |  | | The name of the currency for the foreign amount of the segment. |
-|  PostedAmount |  | | The posted amount of the segment in the travel request currency. |
-|  ApprovedAmount |  | | The approved amount of the segment in the travel request currency. |
-|  RemainingAmount |  | | The remaining amount of the segment in the travel request currency. |
-|  IsAgencyBooked |  | | Whether the air segment was agency booked. Format: Y/N. |
-|  IsSelfBooked |  | | Whether the air segment was self booked. Format: Y/N |
-|  LastModifiedDate |  | | The date the segment was last modified. Format: YYYY-MM-DDThh:mm:ss |
-|  Custom1 through Custom40 |  | | The custom fields associated with the segment. These may not have data, depending on your configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: `<Custom1>(1234) Project 1234</Custom1>` |
-|  CommentCount |  | | The number of comments associated with the segment. |
-|  CommentsList |  | | This parent element has a Count attribute indicating the number of comments that are included in the segment. It has a **Comment** child element for each comment. Refer to the Comment Child Elements table for the full list of child elements. |
-|  ExceptionCount | | |  The number of exceptions associated with the travel request segment. |
-|  ExceptionsList |  | | This parent element has a Count attribute indicating the number of exceptions that are included in the travel request segment. It has an **Exception** child element for each exception. Refer to the Exception Child Elements table for the full list of child elements. |
+  |  Element Name | Required/Optional | Data Type |  Description |
+  |---------------|-------------------|------------|--------------------|
+  |  SegmentKey |  | | The encrypted database primary key for the Segment table. The unique identifier for the segment. |
+  |  SegmentType | | |  The type of itinerary segment. Format: air, car, hotel, rail, dining, event, limo, taxi, parking, other |
+  |  RecordLocator |  | | Appears only when travel request is integrated with Concur Travel. |
+  |  DepartureDate |  | | The departure date of the segment. |
+  |  DepartureTime |  | | The departure time of the segment. |
+  |  ArrivalDate |  | | The arrival date of the segment. |
+  |  ArrivalTime |  | | The arrival time of the segment. |
+  |  FromLocationName |  | | The name of the starting location. |
+  |  FromLocationDetail |  | | The code of starting location. |
+  |  ToLocationName | | |  The name of the ending location. |
+  |  ToLocationDetail |  | | The code of the ending location. |
+  |  FlightNumber |  | | The flight number for air segments. Appears only when travel request is integrated with Concur Travel.|
+  |  ClassOfServiceCode |  | | The Class of Service Code from Concur Travel. Appears only when travel request is integrated with Concur Travel. |
+  |  TripLocator |  | | The unique identifier for the Concur Travel trip associated with this segment. Appears only when travel request is integrated with Concur Travel. |
+  |  SegmentLocator |  | |  The unique identifier for Concur Travel segment associated with this segment. Appears only when travel request is integrated with Concur Travel. |
+  |  ExchangeRate |  | | The exchange rate that applies to the segment. |
+  |  ForeignAmount |  | | The foreign currency amount of the segment. |
+  |  ForeignCurrencyName |  | | The name of the currency for the foreign amount of the segment. |
+  |  PostedAmount |  | | The posted amount of the segment in the travel request currency. |
+  |  ApprovedAmount |  | | The approved amount of the segment in the travel request currency. |
+  |  RemainingAmount |  | | The remaining amount of the segment in the travel request currency. |
+  |  IsAgencyBooked |  | | Whether the air segment was agency booked. Format: Y/N. |
+  |  IsSelfBooked |  | | Whether the air segment was self booked. Format: Y/N |
+  |  LastModifiedDate |  | | The date the segment was last modified. Format: YYYY-MM-DDThh:mm:ss |
+  |  Custom1 through Custom40 |  | | The custom fields associated with the segment. These may not have data, depending on your configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: `<Custom1>(1234) Project 1234</Custom1>` |
+  |  CommentCount |  | | The number of comments associated with the segment. |
+  |  CommentsList |  | | This parent element has a Count attribute indicating the number of comments that are included in the segment. It has a **Comment** child element for each comment. Refer to the Comment Child Elements table for the full list of child elements. |
+  |  ExceptionCount | | |  The number of exceptions associated with the travel request segment. |
+  |  ExceptionsList |  | | This parent element has a Count attribute indicating the number of exceptions that are included in the travel request segment. It has an **Exception** child element for each exception. Refer to the Exception Child Elements table for the full list of child elements. |
 
-#### CashAdvance child elements
+* **`CashAdvance` child elements**
 
-|  Element Name | Required/Optional | Data Type |  Description |
-|---------------|-------------------|------------|--------------------|
-|  CashAdvanceKey | | |  The unique identifier for the cash advance. |
-|  AmountRequested | | |   The amount requested in the cash advance, in the currency listed in the **CurrencyCode** element.|
-|  CurrencyCode | | |  The [3-letter ISO 4217 currency code][4] for the cash advance currency. |
-|  CurrencyName | | |  The name of the currency for the cash advance. |
-|  ExchangeRate | | |  The exchange rate that applies to the cash advance. |
-|  RequestDate | | |  Date of cash advance request from the detailed cash advance record. |
-|  IssueDate | | |  The issue date for the cash advance. |
-|  StartingBalance | | |   The initial balance for the cash advance. |
-|  ApprovalStatusName | | |  The approval status of the cash advance. |
-|  ApprovalStatusKey | | |  The unique identifier for the approval status of the cash advance. |
-|  EmployeeCurrencyCode | | |  The [3-letter ISO 4217 currency code][4] for the employee's currency ("home currency"). |
-|  EmployeeCurrencyName | | |  The name of the employee's currency ("home currency"). |
+  |  Element Name | Required/Optional | Data Type |  Description |
+  |---------------|-------------------|------------|--------------------|
+  |  CashAdvanceKey | | |  The unique identifier for the cash advance. |
+  |  AmountRequested | | |   The amount requested in the cash advance, in the currency listed in the **CurrencyCode** element.|
+  |  CurrencyCode | | |  The [3-letter ISO 4217 currency code][4] for the cash advance currency. |
+  |  CurrencyName | | |  The name of the currency for the cash advance. |
+  |  ExchangeRate | | |  The exchange rate that applies to the cash advance. |
+  |  RequestDate | | |  Date of cash advance request from the detailed cash advance record. |
+  |  IssueDate | | |  The issue date for the cash advance. |
+  |  StartingBalance | | |   The initial balance for the cash advance. |
+  |  ApprovalStatusName | | |  The approval status of the cash advance. |
+  |  ApprovalStatusKey | | |  The unique identifier for the approval status of the cash advance. |
+  |  EmployeeCurrencyCode | | |  The [3-letter ISO 4217 currency code][4] for the employee's currency ("home currency"). |
+  |  EmployeeCurrencyName | | |  The name of the employee's currency ("home currency"). |
 
 #### Examples
 
-####  Example 1: Get list of travel requests
+##### Example 1: Get list of travel requests
 
-##### Request
+> Request
 
 ```http
 GET api/travelrequest/v1.0/requestslist/?status=SUBMITTED HTTPS/1.1
@@ -295,7 +308,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-#####  Response
+> Response
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -320,9 +333,9 @@ Authorization: OAuth {access token}
 </RequestsWithCount>
 ```
 
-####  Example 2: Get travel request details
+#### Example 2: Get travel request details
 
-#####  Request
+> Request
 
 ```http
 GET api/travelrequest/v1.0/requests/nxxKgLlnROz3zHJBCRksaas23dsfs HTTPS/1.1
@@ -331,7 +344,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-####  Response
+> Response
 
 ```xml
 <TravelRequestDetails xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -894,50 +907,6 @@ Posts the travel request header information for a new or existing travel request
 
 #### Request
 
-**Request parameters**
-
-**requests**  The requests keyword. Required.
-
-Example: `https://www.concursolutions.com/api/travelrequest/v1.0/requests`
-
-**{_requestID_}**: The unique identifier for the desired travel request. Supplied when updating an existing travel request. Optional.
-
-Example:  
-`https://www.concursolutions.com/api/travelrequest/v1.0/requests/{requestID}`
-
-**URI Source**: The requestId value is returned by [Get Request Details](#a3) function, and the **Request-Url** element in this function.
-
-**Headers**
-
-##### Authorization header
-
-Authorization header with OAuth token for valid Concur user. Required.
-
-The OAuth consumer for this request must have the following role in Travel Request: Request User. This role allows the user to create travel requests.
-
-##### Content-Type header
-
-application/xml
-
-**Request body**
-
-This request should contain a **Request** parent element with the following child elements:
-
-|  Element |  Required (must contain value)? |  Description |
-|----------|---------------------------------|--------------|
-|  Name    |  Y                              |  The travel request name. |
-|  Purpose |  Depends on configuration       |  The business purpose of the travel request. Maximum length: 2000. |
-|  Comment |  Depends on configuration       |  The travel request header comment. |
-|  Custom1 through Custom20 |  Depends on configuration | The custom fields on the travel request Header form. May be required depending on configuration.<br/>  **NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][2] page for information on how to correctly submit list item values.|
-|  StartDate |  Depends on configuration |  The start date for the travel request. Format: YYYY-MM-DD |
-|  StartTime |  Depends on configuration |  The start time for the travel request. Format: hh:mm:ss |
-|  EndDate   |  Depends on configuration |  The end date for the travel request. Format: YYYY-MM-DD |
-|  EndTime   |  Depends on configuration |  The end time for the travel request. Format: hh:mm:ss |
-
-**NOTE**: Refer to the Travel Request Admin user interface for the list of required fields and formats.
-
-#### XML Example Request
-
 ```http
 POST /api/travelrequest/v1.0/requests HTTPS/1.1
 Host: www.concursolutions.com
@@ -956,35 +925,40 @@ Content-Type: application/xml
 </Request>
 ```
 
-####  Response
+**Request parameters**
 
-#### Supported Content Types
-application/xml
+| Parameter | Required/Optional | Description |
+|-----------|-----------|---------------------|
+| `requests` | required | The requests keyword. |
+| `requestID` | optional | The unique identifier for the desired travel request. Supplied when updating an existing travel request. |
 
-#### Response body root elements
+**URI Source**: The requestId value is returned by [Get Request Details](#a3) function, and the **Request-Url** element in this function.
 
-This request will return a **RequestStatus** parent element with the following child elements:
+**Headers**
 
-|  Element     |  Description |
-|--------------|--------------|
-|  Status      |  The status of the travel request. |
-|  Request-Url |  The URI to use when posting travel request header details to this travel request. |
+| Name | Description |
+| ---- | ----------- |
+| `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The OAuth consumer for this request must have the following role in Travel Request: Request User. This role allows the user to create travel requests. |
+| `Content-Type` | `application/xml` |
 
-If saving the travel request header triggers an exception, a **RequestExceptions** parent element will be provided, with a **RequestException** parent element for each exception. The **RequestException** element contains the following elements.
+**Request body**
 
-##### RequestException child elements
+This request should contain a **`Request`** parent element with the following child elements:
 
-|  Element          |  Description |
-|-------------------|--------------|
-|  EventCode        |  The event that resulted in the exception. |
-|  ExceptionCod     |  The company-defined exception code. |
-|  ExceptionMessage |  The company-defined exception message. In the case of the system MISREQFLD exception the message will list the required fields that are missing values. |
-|  ExceptionVisibility |  Which users are able to see the exception. |
-|  IsCleared           |  Whether the exception has been cleared by the Request Processor. |
-|  SeverityLevel       |  A numeric value indicating the severity level of the exception. The value threshold is configurable. |
+|  Element |  Required (must contain value)? |  Description |
+|----------|---------------------------------|--------------|
+|  Name    |  Y                              |  The travel request name. |
+|  Purpose |  Depends on configuration       |  The business purpose of the travel request. Maximum length: 2000. |
+|  Comment |  Depends on configuration       |  The travel request header comment. |
+|  Custom1 through Custom20 |  Depends on configuration | The custom fields on the travel request Header form. May be required depending on configuration.<br/>  **NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][2] page for information on how to correctly submit list item values.|
+|  StartDate |  Depends on configuration |  The start date for the travel request. Format: YYYY-MM-DD |
+|  StartTime |  Depends on configuration |  The start time for the travel request. Format: hh:mm:ss |
+|  EndDate   |  Depends on configuration |  The end date for the travel request. Format: YYYY-MM-DD |
+|  EndTime   |  Depends on configuration |  The end time for the travel request. Format: hh:mm:ss |
 
+**NOTE**: Refer to the Travel Request Admin user interface for the list of required fields and formats.
 
-#### XML Example of Response with Successful Travel Request Creation and Exception
+#### Response
 
 ```xml
 <RequestStatus xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -1005,7 +979,39 @@ If saving the travel request header triggers an exception, a **RequestExceptions
 </RequestStatus>
 ```
 
-### <a name="a5">Post travel request workflow action</a>
+**Supported Content Types**
+
+* application/xml
+
+**Response body root elements**
+
+* This request will return a **`RequestStatus`** parent element with the following child elements:
+
+  |  Element     |  Description |
+  |--------------|--------------|
+  |  Status      |  The status of the travel request. |
+  |  Request-Url |  The URI to use when posting travel request header details to this travel request. |
+
+  If saving the travel request header triggers an exception, a **RequestExceptions** parent element will be provided, with a **RequestException** parent element for each exception. The **RequestException** element contains the following elements.
+
+* **`RequestException` child elements**
+
+  |  Element          |  Description |
+  |-------------------|--------------|
+  |  EventCode        |  The event that resulted in the exception. |
+  |  ExceptionCod     |  The company-defined exception code. |
+  |  ExceptionMessage |  The company-defined exception message. In the case of the system MISREQFLD exception the message will list the required fields that are missing values. |
+  |  ExceptionVisibility |  Which users are able to see the exception. |
+  |  IsCleared           |  Whether the exception has been cleared by the Request Processor. |
+  |  SeverityLevel       |  A numeric value indicating the severity level of the exception. The value threshold is configurable. |
+
+
+### Post travel request workflow action
+
+```bash
+# Endpoint
+POST /api/travelrequest/v1.0/requests/{workflowstepId}/workflowaction
+```
 
 Posts a workflow action for the supplied travel request. The workflow action moves the travel request through the workflow process. The available actions are:
 
@@ -1021,34 +1027,6 @@ The Approver role is used when the workflow step requires an individual to perfo
 
 #### Request
 
-#### Request parameters
-
-**requests/{_workflowstepId_}/workflowaction**: The requests and workflowaction keywords and the unique identifier for the desired workflow step. Required.
-
-Example: `https://www.concursolutions.com/api/travelrequest/v1.0/requests/{workflowstepId}/workflowaction`
-
-**URI Source**: The URI is the **WorkflowStepURL** element found in the response of the [Get Request Details](#a3) endpoint. The workflowstepId must match the current workflow step of the travel request. Use the [Get Requests Details](#a3) endpoint immediately prior to sending this request to guarantee that you have the current **WorkflowStepURL**.
-
-#### Headers
-
-##### Authorization header
-
-Authorization header with OAuth token for valid Concur user. Required. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
-
-###### Content-Type header
-
-application/xml
-
-#### Request body
-
-This request should contain a **WorkflowAction** parent element with the following child elements:
-
-|  Element |  Required (must contain value)? |  Description |
-|  Action |  Y |  The name of the workflow action. Possible values are: **Approve**, ** Send Back to Employee**, or **Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Request Admin, Workflow to learn details. |
-|  Comment |  Y, for Send Back to Employee |  Must be used with the Send Back to Employee workflow action. This comment is visible wherever travel request comments are available to the employee, approver, and/or processor. |
-
-####  XML Example Request
-
 ```http
 POST api/travelrequest/v1.0/requests/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a4qQ/workflowaction HTTPS/1.1
 Host: www.concursolutions.com
@@ -1062,21 +1040,45 @@ Content-Type: application/xml
 </WorkflowAction>
 ```
 
-####  Response
+**Request parameters**
 
-#### Supported Content Types
-application/xml
+| Parameter | Required/Optional | Description |
+|-----------|-----------|---------------------|
+| `requests/{workflowstepId}/workflowaction` | required | The requests and workflowaction keywords and the unique identifier for the desired workflow step. |
 
-#### Response body root elements
+**URI Source**: The URI is the **WorkflowStepURL** element found in the response of the [Get Request Details](#a3) endpoint. The workflowstepId must match the current workflow step of the travel request. Use the [Get Requests Details](#a3) endpoint immediately prior to sending this request to guarantee that you have the current **WorkflowStepURL**.
 
-This request will return an **ActionStatus** parent element with the following child elements:
+**Headers**
 
-|  Element |  Description |
-|----------|--------------|
-|  Message |  The error message. Only appears if a workflow action error was generated |
-|  Status  |  The status of the travel request workflow action. |
+| Name | Description |
+| ---- | ----------- |
+| `Authorization` | Authorization header with OAuth token for valid Concur user. Required. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |
+| `Content-Type` | `application/xml` |
 
-####  XML Example of Successful Response
+**Request body**
+
+This request should contain a **WorkflowAction** parent element with the following child elements:
+
+|  Element |  Required (must contain value)? |  Description |
+|  Action |  Y |  The name of the workflow action. Possible values are: **Approve**, ** Send Back to Employee**, or **Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Request Admin, Workflow to learn details. |
+|  Comment |  Y, for Send Back to Employee |  Must be used with the Send Back to Employee workflow action. This comment is visible wherever travel request comments are available to the employee, approver, and/or processor. |
+
+#### Response
+
+**Supported Content Types**
+
+* application/xml
+
+**Response body root elements**
+
+* This request will return an **`ActionStatus`** parent element with the following child elements:
+
+  |  Element |  Description |
+  |----------|--------------|
+  |  Message |  The error message. Only appears if a workflow action error was generated |
+  |  Status  |  The status of the travel request workflow action. |
+
+> XML Example of Successful Response
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -1086,7 +1088,7 @@ This request will return an **ActionStatus** parent element with the following c
 </ActionStatus>
 ```
 
-####  XML Example of a Response with a Failure
+> XML Example of a Response with a Failure
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

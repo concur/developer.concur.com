@@ -7,13 +7,17 @@ POST /api/expense/expensereport/v1.0/quickexpense/?loginID={loginID}
 
 Posts a quick expense to Concur for the OAuth consumer. Administrative users can provide a different Concur login as owner of the expense.
 
-**NOTE**: Documentation for the v3.0 resource is [here][1].
+<aside class="notice">
+  <strong>NOTE:</strong> Documentation for the v3.0 resource is <a href="/api-reference/expense/quick-expense/index.html#post">here</a>.
+</aside>
 
 ### Request
 
-**Request parameters**
+**Query parameters**
 
-**loginID={_loginID_}**: The Concur login for the user that will own the quick expense. Optional.
+| Parameter | Required/Optional | Description |
+|-----------|-----------|---------------------|
+| `{loginID}` | optional | The Concur login for the user that will own the quick expense. |
 
 **Headers**
 
@@ -26,40 +30,40 @@ Posts a quick expense to Concur for the OAuth consumer. Administrative users can
 
 The request contains a QuickExpense parent element with the following child elements.
 
-### QuickExpense child elements
+* **`QuickExpense` child elements**
 
-|Element Name|Required/Optional|Data Type|Description
-|------------|-----------------|---------|------------|
-|  CurrencyCode |required |  |  The [3-letter ISO 4217 currency code][2] for the expense transaction amount. Example: USD. |
-|  TransactionAmount |required  |  |  The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654 |
-|  TransactionDate |required |   |  The date the expense was incurred. Format: YYYY-MM-DD |
-|  ExpenseTypeCode | optional|    | The code for the expense type in the company's expense management system. Currently supports Concur Expense. The Expense Type Code is returned in the **ExpKey** element of the [Get Expense Group Configuration][3] function response. |
-|  SpendCategoryCode | optional|  | The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting. The spend category can be used to automatically select the correct Expense Type for the entry. This functionality happens when spend categories have only one expense type included in the category. This is common with the Air, Car, and Hotel spend categories. If there are multiple expense types included in the selected spend category, the expense type will be set to Undefined so the user can select the correct expense type in the Concur user interface. Format: One of the Code values in the [Spend Category Code List][4]. Developers can view the configured Spend Category/Expense Type mappings by using the [Get Expense Group Configuration][3] function. |
-|  PaymentType | optional|  | This element specifies the method of payment for the expense. Format: CASHX, CPAID, PENDC. CASHX = Cash, CPAID = Company Paid, or PENDC = Pending Card Transaction. When not supplied, the value defaults to PENDC. |
-|  LocationCity | optional|   | The city where the expense was incurred. This can be used to determine the Location ID when the quick expense is converted into an expense entry.<br> **NOTES**: If you provide both the **LocationCity** and **LocationCountry** values, Concur will try to match them with the company's list of locations. If they are matched successfully, the full location details including country will be saved with the expense. If a **LocationCity** is provided, the **LocationCountry** and **LocationSubdivision** must be provided. If a country does not have subdivisions, the **LocationSubdivision** field may be omitted.|
-|  LocationSubdivision | optional|  |  The state, province, or other country subdivision where the expense was incurred. This can be used to determine the Location ID when the quick expense is converted into an expense entry. Format: [ISO 3166-2:2007][5] country subdivision. |
-|  LocationCountry | optional|  |  The country where the expense was incurred. This can be used to determine the Location ID when the quick expense is converted into an expense entry. Format:[ 2-letter ISO 3166-1][6] country code.<br> **NOTE**: If you provide both the **LocationCity** and **LocationCountry** values, Concur will try to match them with the company's list of locations. If they are matched successfully, the full location details including country will be saved with the expense. |
-|  VendorDescription | optional|  |  This element contains the descriptive text for the vendor for the quick expense. It often matches the Merchant Name found in a credit card transaction. So, it can be helpful when matching a quick expense to an imported credit card transaction. It is mapped to the Vendor Description field in an expense entry when the quick expense is converted into an expense entry. Max Length: 64 |
-|  Comment | optional|  |  A comment that describes the expense. It becomes a Comment when converted into an expense entry. Max Length: 2000 |
-|  ImageBase64 | optional|  |  Binary receipt image in Base 64 encoding |
+  |Element Name|Required/Optional|Data Type|Description
+  |------------|-----------------|---------|------------|
+  |  CurrencyCode |required |  |  The [3-letter ISO 4217 currency code][2] for the expense transaction amount. Example: USD. |
+  |  TransactionAmount |required  |  |  The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654 |
+  |  TransactionDate |required |   |  The date the expense was incurred. Format: YYYY-MM-DD |
+  |  ExpenseTypeCode | optional|    | The code for the expense type in the company's expense management system. Currently supports Concur Expense. The Expense Type Code is returned in the **ExpKey** element of the [Get Expense Group Configuration][3] function response. |
+  |  SpendCategoryCode | optional|  | The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting. The spend category can be used to automatically select the correct Expense Type for the entry. This functionality happens when spend categories have only one expense type included in the category. This is common with the Air, Car, and Hotel spend categories. If there are multiple expense types included in the selected spend category, the expense type will be set to Undefined so the user can select the correct expense type in the Concur user interface. Format: One of the Code values in the [Spend Category Code List][4]. Developers can view the configured Spend Category/Expense Type mappings by using the [Get Expense Group Configuration][3] function. |
+  |  PaymentType | optional|  | This element specifies the method of payment for the expense. Format: CASHX, CPAID, PENDC. CASHX = Cash, CPAID = Company Paid, or PENDC = Pending Card Transaction. When not supplied, the value defaults to PENDC. |
+  |  LocationCity | optional|   | The city where the expense was incurred. This can be used to determine the Location ID when the quick expense is converted into an expense entry.<br> **NOTES**: If you provide both the **LocationCity** and **LocationCountry** values, Concur will try to match them with the company's list of locations. If they are matched successfully, the full location details including country will be saved with the expense. If a **LocationCity** is provided, the **LocationCountry** and **LocationSubdivision** must be provided. If a country does not have subdivisions, the **LocationSubdivision** field may be omitted.|
+  |  LocationSubdivision | optional|  |  The state, province, or other country subdivision where the expense was incurred. This can be used to determine the Location ID when the quick expense is converted into an expense entry. Format: [ISO 3166-2:2007][5] country subdivision. |
+  |  LocationCountry | optional|  |  The country where the expense was incurred. This can be used to determine the Location ID when the quick expense is converted into an expense entry. Format:[ 2-letter ISO 3166-1][6] country code.<br> **NOTE**: If you provide both the **LocationCity** and **LocationCountry** values, Concur will try to match them with the company's list of locations. If they are matched successfully, the full location details including country will be saved with the expense. |
+  |  VendorDescription | optional|  |  This element contains the descriptive text for the vendor for the quick expense. It often matches the Merchant Name found in a credit card transaction. So, it can be helpful when matching a quick expense to an imported credit card transaction. It is mapped to the Vendor Description field in an expense entry when the quick expense is converted into an expense entry. Max Length: 64 |
+  |  Comment | optional|  |  A comment that describes the expense. It becomes a Comment when converted into an expense entry. Max Length: 2000 |
+  |  ImageBase64 | optional|  |  Binary receipt image in Base 64 encoding |
 
 ### Response
 
-The response returns a **QuickExpenseStatus** parent element with the following child elements.
+The response returns a **`QuickExpenseStatus`** parent element with the following child elements.
 
-**`QuickExpenseStatus` child elements**
+* **`QuickExpenseStatus` child elements**
 
-|Element Name|Required/Optional|Data Type|Description
-|------------|-----------------|---------|------------|
-|  Status | | |  The status of the request.Either SUCCESS or FAILURE  |
-|  Message | | |  When the status is FAILURE, the details of the failure appear in this element. |
-|  QuickExpenseID | | |  The unique identifier for the quick expense. |
+  |Element Name|Required/Optional|Data Type|Description
+  |------------|-----------------|---------|------------|
+  |  Status | | |  The status of the request.Either SUCCESS or FAILURE  |
+  |  Message | | |  When the status is FAILURE, the details of the failure appear in this element. |
+  |  QuickExpenseID | | |  The unique identifier for the quick expense. |
 
 ### Examples
 
-### Example 1: XML request and response
+#### Example 1: XML request and response
 
-#### XML request with required fields
+> XML request with required fields
 
 ```http
 POST api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS/1.1
@@ -75,7 +79,7 @@ Content-Type: application/xml
 </QuickExpense>
 ```
 
-####  XML request with optional fields
+>  XML request with optional fields
 
 ```http
 POST api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS/1.1
@@ -100,7 +104,7 @@ Content-Type: application/xml
 </QuickExpense>
 ```
 
-#### XML successful response
+> XML successful response
 
 ```http
 HTTPS/1.1 200 OK
@@ -113,7 +117,7 @@ Content-Type: application/xml
 </QuickExpenseStatus>
 ```
 
-####  XML response with error
+> XML response with error
 
 ```http
 HTTPS/1.1 200 OK
@@ -126,9 +130,9 @@ Content-Type: application/xml
 </QuickExpenseStatus>
 ```
 
-### Example 2: JSON request and response
+#### Example 2: JSON request and response
 
-####  JSON request with required fields
+> JSON request with required fields
 
 ```http
 POST api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS/1.1
@@ -145,7 +149,7 @@ Accept: application/json
 ]
 ```
 
-####  JSON request with optional fields
+> JSON request with optional fields
 
 ```http
 POST api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS/1.1
@@ -171,7 +175,7 @@ Accept: application/json
 ]
 ```
 
-####  JSON successful response
+> JSON successful response
 
 ```json
 [
@@ -183,7 +187,7 @@ Accept: application/json
 ]
 ```
 
-####  JSON response with error
+> JSON response with error
 
 ```json
 [

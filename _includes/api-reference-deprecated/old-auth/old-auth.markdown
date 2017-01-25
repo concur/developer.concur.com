@@ -52,15 +52,15 @@ Expiration_Date|`string`|-|The Universal Coordinated Time (UTC) date and time wh
 
 ### <a name="refreshing-access-token"></a>Refreshing an access token
 
+<aside class="notice">
+NOTE: The token being refreshed must be used to make the refresh call.
+</aside>
+
 #### Request
 
 ```http
 GET https://{InstanceURL}/net2/oauth2/getaccesstoken.ashx?refresh_token={your_refresh_token}&client_id={your_client_id}&client_secret={your_client_secret} HTTP/1.1
 ```
-
-<aside class="notice">
-NOTE: The token being refreshed must be used to make the refresh call.
-</aside>
 
 **Parameters**
 

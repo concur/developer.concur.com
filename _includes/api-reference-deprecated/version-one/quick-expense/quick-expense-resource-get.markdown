@@ -11,9 +11,11 @@ Retrieves the list of quick expenses for the supplied user or for the entire com
 
 ### Request
 
-**Request parameters**
+**Query parameters**
 
-**loginID={_loginID_}**: The Concur login for the user that owns the quick expenses. Optional.
+| Parameter | Required/Optional | Description |
+|-----------|-----------|---------------------|
+| `{loginID}` | optional | The Concur login for the user that owns the quick expenses. |
 
 **Headers**
 
@@ -44,29 +46,29 @@ This request will return a **QuickExpensesList** parent element with a **QuickEx
 </QuickExpensesList>
 ```
 
-### QuickExpense child elements
+* **`QuickExpense` child elements**
 
-The QuickExpense child element contains details of the quick expense.
+  The QuickExpense child element contains details of the quick expense.
 
-|Element Name|Required/Optional|Data Type| Description|
-|-------------|-----------------|----------|-----------|
-|  OwnerLoginID |  |  |  The Concur login ID for the expense owner. Useful for system to system integration when there are expenses for multiple users.   |
-|  OwnerName |  |  |  The first and last name for the expense owner. Useful for system to system integration when there are expenses for multiple users. |
-|  QuickExpenseKey |  |  |  The unique identifier for the quick expense. |
-|  ExpenseTypeKey |  |  |  The unique identifier for the expense type associated with the quick expense. |
-|  ExpenseTypeName |  |  |  The name of the expense type associated with the quick expense. |
-|  TransactionDate |  |  |  The date the expense was incurred. Format: YYYY-MM-DD |
-|  TransactionAmount |  |  |  The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654 |
-|  CurrencyCode |  |  |  The [3-letter ISO 4217 currency code ][3]for the expense transaction amount. Example: USD. |
-|  LocationName |  |  |  The name of the location where the expense was incurred. |
-|  VendorDescription |  |  |  This element contains the descriptive text for the vendor for the expense. |
-|  Comment |  |  |  The comment for this expense. |
+  |Element Name|Required/Optional|Data Type| Description|
+  |-------------|-----------------|----------|-----------|
+  |  OwnerLoginID |  |  |  The Concur login ID for the expense owner. Useful for system to system integration when there are expenses for multiple users.   |
+  |  OwnerName |  |  |  The first and last name for the expense owner. Useful for system to system integration when there are expenses for multiple users. |
+  |  QuickExpenseKey |  |  |  The unique identifier for the quick expense. |
+  |  ExpenseTypeKey |  |  |  The unique identifier for the expense type associated with the quick expense. |
+  |  ExpenseTypeName |  |  |  The name of the expense type associated with the quick expense. |
+  |  TransactionDate |  |  |  The date the expense was incurred. Format: YYYY-MM-DD |
+  |  TransactionAmount |  |  |  The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654 |
+  |  CurrencyCode |  |  |  The [3-letter ISO 4217 currency code ][3]for the expense transaction amount. Example: USD. |
+  |  LocationName |  |  |  The name of the location where the expense was incurred. |
+  |  VendorDescription |  |  |  This element contains the descriptive text for the vendor for the expense. |
+  |  Comment |  |  |  The comment for this expense. |
 
 ### Examples
 
-### Example 1: XML
+#### Example 1: XML
 
-#### Request with LoginID
+> Request with LoginID
 
 ```http
 GET api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS/1.1
@@ -75,7 +77,7 @@ Authorization: OAuth {access token}
 ...
 ```
 
-#### Response
+> Response
 
 ```http
 HTTPS/1.1 200 OK
@@ -111,16 +113,16 @@ Content-Type: application/xml
 </QuickExpensesList>
 ```
 
-### Example 2: JSON
+#### Example 2: JSON
 
-#### Request
+> Request
 
 ```http
 GET api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS/1.1
 Accept: application/json
 ```
 
-#### Response
+> Response
 
 ```json
 [
@@ -135,7 +137,7 @@ Accept: application/json
     "CurrencyCode": "USD",
     "LocationName": "Seattle, Washington",
     "VendorDescription": "Avis",
-    "Comment": "Trip to Seattle",
+    "Comment": "Trip to Seattle"
   }
 ]
 ```

@@ -25,7 +25,8 @@ Content-Type: application/xml
 ```
 
 **Request parameters**
-None.
+
+* None.
 
 **Headers**
 
@@ -76,16 +77,16 @@ Content-Type: application/xml
 **Root elements**
 This request will return a **lists** parent element containing a **list** child element for each configured list. The **list** element will contain the following child elements.  
 
-**`list` child elements**
+* **`list` child elements**
 
-|  Element |  Description |
-|---------|--------------|
-|  id |  The list URI with encrypted ID. |
-|  items-link |  The list item URI with encrypted ID. |
-|  batch-link |  The batch URI associated with this list, with encrypted ID. |
-|  name |  The name of the list as it appears in the user interface. |
-|  is-vendor |  Whether this is a vendor list. Format: true/false |
-|  levels |  The number of levels the list contains. |
+  |  Element |  Description |
+  |---------|--------------|
+  |  id |  The list URI with encrypted ID. |
+  |  items-link |  The list item URI with encrypted ID. |
+  |  batch-link |  The batch URI associated with this list, with encrypted ID. |
+  |  name |  The name of the list as it appears in the user interface. |
+  |  is-vendor |  Whether this is a vendor list. Format: true/false |
+  |  levels |  The number of levels the list contains. |
 
 ### Get List Details
 
@@ -107,8 +108,11 @@ Content-Type: application/xml
 
 **Path Parameters**
 
-* **{_listID_}**: Required. The identifier for the desired list.<br>
-* **URI Source**: This URI is returned in the **id** element by the Get List of Lists function.
+| Parameter | Required/Optional | Description |
+|-----------|-----------|---------------------|
+| listID | required | The identifier for the desired list. |
+
+**URI Source**: This URI is returned in the **id** element by the Get List of Lists function.
 
 **Headers**
 
@@ -142,16 +146,16 @@ Content-Type: application/xml
 **Root elements**
 This request will return a **list** parent element. The **list** element will contain the following child elements.
 
-**`list` child elements**
+* **`list` child elements**
 
-|  Element |  Description |
-|----------|------------|
-|  batch-link |  The batch URI associated with this list, with encrypted ID. |
-|  id |  The list URI with encrypted ID. |
-|  is-vendor |  Whether this is a vendor list. Format: true/false. |
-|  items-link |  The list item URI with encrypted ID. |
-|  levels |  The number of levels the list contains. |
-|  name |  The name of the list as it appears in the user interface. |
+  |  Element |  Description |
+  |----------|------------|
+  |  batch-link |  The batch URI associated with this list, with encrypted ID. |
+  |  id |  The list URI with encrypted ID. |
+  |  is-vendor |  Whether this is a vendor list. Format: true/false. |
+  |  items-link |  The list item URI with encrypted ID. |
+  |  levels |  The number of levels the list contains. |
+  |  name |  The name of the list as it appears in the user interface. |
 
 
 ### Get List Items
@@ -167,9 +171,11 @@ Retrieves the list items for the specified list. A request sent without a specif
 
 **Path Parameters**
 
-* **{_listID_}/items**: Required. The identifier for the desired list, and the items keyword to indicate the request is for the list items.:
-* **{_parentCode_}**: Optional. The parent list item code. If this is included, the request will return all items below this list item:  parent code must be URL encoded.
-* **filter={_filter_}**: Optional. The result filter. The string value entered will be compared against the list item name and code fields, and only matching results will be returned.<br/>
+| Parameter | Required/Optional | Description |
+|-----------|-----------|---------------------|
+| {_listID_}/items | required | The identifier for the desired list, and the items keyword to indicate the request is for the list items. |
+| {_parentCode_} | optional | The parent list item code. If this is included, the request will return all items below this list item:  parent code must be URL encoded. |
+| filter={_filter_} | optional | The result filter. The string value entered will be compared against the list item name and code fields, and only matching results will be returned. |
 
 **Headers**
 
@@ -240,13 +246,13 @@ Content-Type: application/xml
 **Response body root elements**
 This request will return a **list-items** parent element, with a **list-item** child element for each item returned. The **list-item** elements will contain the following child elements.
 
-**`list-item` child elements**
+* **`list-item` child elements**
 
-|  Element |  Description |
-|-----|------|
-|  name |  The list item name. |
-|  levelxcode |  The item code for all specified levels, where x is replaced with the level number. If the request is for the children of a level 2 item, the **level1code**, **level2code**, and **level3code** elements will be returned. |
-|  items-link |  The URI, including the parent code value, to request the list items beneath this list item. |
+  |  Element |  Description |
+  |-----|------|
+  |  name |  The list item name. |
+  |  levelxcode |  The item code for all specified levels, where x is replaced with the level number. If the request is for the children of a level 2 item, the **level1code**, **level2code**, and **level3code** elements will be returned. |
+  |  items-link |  The URI, including the parent code value, to request the list items beneath this list item. |
 
 [1]: /tools-support/reference/http-codes.html
 [2]: /tools-support/reference/custom-list-items.html
