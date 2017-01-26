@@ -18,9 +18,5 @@
   {
     "label": "Password",
     "value": "password"
-  },
-  {
-    "label": "OTP",
-    "value": "otp"
   }
 ]
