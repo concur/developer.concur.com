@@ -185,6 +185,10 @@ under the License.
       font-size: 12px;
     }
 
+    &[data-tag="3"] {
+      background-color: grey;
+    }
+
     // for embossed look:
     @include embossed-bg;
     &>li:last-child {
@@ -376,6 +380,10 @@ under the License.
     background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
   }
 
+  h3 {
+    padding-top: 1em;
+  }
+
   // h2s right after h1s should bump right up
   // against the h1s.
   h1 + h2, h1 + div + h2 {
@@ -398,15 +406,17 @@ under the License.
   table {
     margin-bottom: 1em;
     overflow: auto;
+
     th,td {
       text-align: left;
       vertical-align: top;
       line-height: 1.6;
+      border: 1px solid #ccc;
     }
 
     th {
       padding: 5px 10px;
-      border-bottom: 1px solid #ccc;
+      border: 1px solid #ccc;
       vertical-align: bottom;
     }
 
@@ -414,8 +424,8 @@ under the License.
       padding: 10px;
     }
 
-    tr:last-child {
-      border-bottom: 1px solid #ccc;
+    tr {
+      border: 1px solid #ccc;
     }
 
     tr:nth-child(odd)>td {
@@ -438,6 +448,10 @@ under the License.
   p, li, dt, dd {
     line-height: 1.6;
     margin-top: 0;
+  }
+
+  strong {
+    font-size: 14px;
   }
 
   img {
