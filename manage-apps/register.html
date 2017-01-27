@@ -9,109 +9,82 @@ redirect_from: /register/
     <p> As a Concur customer, partner or developer, you can create a development sandbox by filling out and submitting this form. NOTE: Please log out of all Concur products before proceeding.</p><br>
     {% include form-error.html %}
     {% include form-wait.html %}
-    <form action="{{ site.data.forms.server }}/register" method="POST" id="sandboxRegistration" class="sky-form" novalidate="novalidate">
+    <form action="{{ site.data.forms.server }}/register" method="POST" id="sandboxRegistration" novalidate="novalidate">
       <fieldset>
         <div class="row">
-          <section class="col col-6">
-            <label for="firstName" class="label">First Name &#42;</label>
-            <div class="input">
-              <input type="text" name="firstName" id="firstName" placeholder="First Name">
-            </div>
-          </section>
-          <section class="col col-6">
-            <label for="lastName" class="label">Last Name &#42;</label>
-            <div class="input">
-              <input type="text" name="lastName" id="lastName" placeholder="Last Name">
-            </div>
-          </section>
+          <div class="form-group col-md-6">
+            <label for="firstName">First Name &#42;</label>
+            <input type="text" name="firstName" id="firstName" placeholder="First Name" class="form-control">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lastName">Last Name &#42;</label>
+            <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="form-control">
+          </div>
         </div>
         <div class="row">
-          <section class="col col-6">
-            <label for="email" class="label">Email Address (Use one NOT associated with a Concur account) &#42;</label>
-            <div class="input">
-              <input type="email" name="email" id="email" placeholder="example@example.com">
-            </div>
-          </section>
-          <section class="col col-6">
-            <label for="company" class="label">Company Name &#42;</label>
-            <div class="input">
-              <input type="text" name="company" id="company" placeholder="Company Name">
-            </div>
-          </section>
+          <div class="form-group col-md-6">
+            <label for="email">Email Address (Use one NOT associated with a Concur account) &#42;</label>
+            <input type="email" name="email" id="email" placeholder="example@example.com" class="form-control">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="company">Company Name &#42;</label>
+            <input type="text" name="company" id="company" placeholder="Company Name" class="form-control">
+          </div>
         </div>
         <div class="row">
-          <section class="col col-6">
-            <label for="password" class="label">Password &#42;</label>
-            <div class="input">
-              <input type="password" name="password" id="password" placeholder="Password">
-            </div>
-          </section>
-          <section class="col col-6">
-            <label for="passwordVerify" class="label">Verify Password &#42;</label>
-            <div class="input">
-              <input type="password" name="passwordVerify" id="passwordVerify" placeholder="Password">
-            </div>
-          </section>
+          <div class="form-group col-md-6">
+            <label for="password">Password &#42;</label>
+            <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="passwordVerify">Verify Password &#42;</label>
+            <input type="password" name="passwordVerify" id="passwordVerify" placeholder="Password" class="form-control">
+          </div>
         </div>
         <div class="row">
-          <section class="col col-6">
-            <label for="businessDescription" class="label">Business Description</label>
-            <div class="input">
-              <input type="text" name="businessDescription" id="businessDescription" placeholder="Description">
-            </div>
-          </section>
-          <section class="col col-6">
-            <label for="phoneNumber" class="label">Phone Number</label>
-            <div class="input">
-              <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+1-555-555-5555">
-            </div>
-          </section>
+          <div class="form-group col-md-6">
+            <label for="businessDescription">Business Description</label>
+            <input type="text" name="businessDescription" id="businessDescription" placeholder="Description" class="form-control">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+1-555-555-5555" class="form-control">
+          </div>
         </div>
         <div class="row">
-          <section class="col col-6">
-            <label for="country" class="label">Country &#42;</label>
-            <div class="select">
-              <select name="country" id="country">
-                {% for country in site.data.countries %}
-                <option value="{{ country.code }}">{{ country.name }}</option>
-                {% endfor %}
-              </select>
-              <i></i>
-            </div>
-          </section>
-          <section class="col col-6">
-            <label for="website" class="label">Website</label>
-            <div class="input">
-              <input type="text" name="website" id="website" placeholder="http://example.com">
-            </div>
-          </section>
+          <div class="form-group col-md-6">
+            <label for="country">Country &#42;</label>
+            <select name="country" id="country" class="form-control">
+              {% for country in site.data.countries %}
+              <option value="{{ country.code }}">{{ country.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="website">Website</label>
+            <input type="text" name="website" id="website" placeholder="http://example.com" class="form-control">
+          </div>
         </div>
         <div class="row">
-          <section class="col col-6">
-            <label for="relationshipToConcur" class="label">Relationship with Concur</label>
-            <div class="select">
-              <select name="relationshipToConcur" id="relationshipToConcur">
-                {% for rel in site.data.concur_relationships %}
-                <option value="{{ rel.value }}">{{ rel.title }}</option>
-                {% endfor %}
-              </select>
-              <i></i>
-            </div>
-          </section>
-          <section class="col col-6">
-            <label for="desiredUse" class="label">How would you like to use Concur?</label>
-            <div class="input">
-              <input type="text" name="desiredUse" id="desiredUse" placeholder="Desired Use">
-            </div>
-          </section>
+          <div class="form-group col-md-6">
+            <label for="relationshipToConcur">Relationship with Concur</label>
+            <select name="relationshipToConcur" id="relationshipToConcur" class="form-control">
+              {% for rel in site.data.concur_relationships %}
+              <option value="{{ rel.value }}">{{ rel.title }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="desiredUse">How would you like to use Concur?</label>
+            <input type="text" name="desiredUse" id="desiredUse" placeholder="Desired Use" class="form-control">
+          </div>
         </div>
-        <section>
-          <label class="checkbox">
+        <div class="form-group checkbox">
+          <label>
             <input type="checkbox" name="termsOfUseAgreement">
-            <i></i>
             I Agree to the <a href="{{ site.baseurl }}/Terms-of-Use.html">Terms of Use</a> and <a href="https://www.concur.com/en-us/privacy-policy">Privacy Policy</a>
           </label>
-        </section>
+        </div>
         <p>&#42; required field</p>
         <label for="email-alt" hidden>Alternate Email</label>
         <input type="text" name="email-alt" id="email-alt" hidden>
@@ -123,7 +96,7 @@ redirect_from: /register/
     <div>
       <h3>Before You Start</h3>
       <ul>
-          <li>Do not use an email address that is currently used in any Concur product, is likely to be used in any Concur product in the future, or is an existing Concur email address; the email address must be unique within the Concur platform.</li>
+        <li>Do not use an email address that is currently used in any Concur product, is likely to be used in any Concur product in the future, or is an existing Concur email address; the email address must be unique within the Concur platform.</li>
       </ul>
 
       <h3>About Creating a Sandbox</h3>
