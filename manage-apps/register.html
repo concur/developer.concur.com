@@ -5,124 +5,132 @@ redirect_from: /register/
 ---
 
 <div class="col-md-12">
-    <h2>Sandbox Creation Form</h2>
-    <p> As a Concur customer, partner or developer, you can create a development sandbox by filling out and submitting this form. NOTE: Please log out of all Concur products before proceeding.</p><br>
-    {% include form-error.html %}
-    {% include form-wait.html %}
-    <form action="{{ site.data.forms.server }}/register" method="POST" id="sandboxRegistration" novalidate="novalidate">
-      <fieldset>
-        <div class="row">
-          <div class="form-group col-md-6">
-            <label for="firstName">First Name &#42;</label>
-            <input type="text" name="firstName" id="firstName" placeholder="First Name" class="form-control">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="lastName">Last Name &#42;</label>
-            <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="form-control">
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-md-6">
-            <label for="email">Email Address (Use one NOT associated with a Concur account) &#42;</label>
-            <input type="email" name="email" id="email" placeholder="example@example.com" class="form-control">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="company">Company Name &#42;</label>
-            <input type="text" name="company" id="company" placeholder="Company Name" class="form-control">
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-md-6">
-            <label for="password">Password &#42;</label>
-            <input type="password" name="password" id="password" placeholder="Password" class="form-control">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="passwordVerify">Verify Password &#42;</label>
-            <input type="password" name="passwordVerify" id="passwordVerify" placeholder="Password" class="form-control">
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-md-6">
-            <label for="businessDescription">Business Description</label>
-            <input type="text" name="businessDescription" id="businessDescription" placeholder="Description" class="form-control">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="phoneNumber">Phone Number</label>
-            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+1-555-555-5555" class="form-control">
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-md-6">
-            <label for="country">Country &#42;</label>
-            <select name="country" id="country" class="form-control">
-              {% for country in site.data.countries %}
-              <option value="{{ country.code }}">{{ country.name }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="website">Website</label>
-            <input type="text" name="website" id="website" placeholder="http://example.com" class="form-control">
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-md-6">
-            <label for="relationshipToConcur">Relationship with Concur</label>
-            <select name="relationshipToConcur" id="relationshipToConcur" class="form-control">
-              {% for rel in site.data.concur_relationships %}
-              <option value="{{ rel.value }}">{{ rel.title }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="desiredUse">How would you like to use Concur?</label>
-            <input type="text" name="desiredUse" id="desiredUse" placeholder="Desired Use" class="form-control">
-          </div>
-        </div>
-        <div class="form-group checkbox">
-          <label>
-            <input type="checkbox" name="termsOfUseAgreement">
-            I Agree to the <a href="{{ site.baseurl }}/Terms-of-Use.html">Terms of Use</a> and <a href="https://www.concur.com/en-us/privacy-policy">Privacy Policy</a>
-          </label>
-        </div>
-        <p>&#42; required field</p>
-        <label for="email-alt" hidden>Alternate Email</label>
-        <input type="text" name="email-alt" id="email-alt" hidden>
-      </fieldset>
-      <footer>
-        <button type="submit" class="btn bright-blue pull-right">Submit</button>
-      </footer>
-    </form><br>
-    <div>
-      <h3>Before You Start</h3>
-      <ul>
-        <li>Do not use an email address that is currently used in any Concur product, is likely to be used in any Concur product in the future, or is an existing Concur email address; the email address must be unique within the Concur platform.</li>
-      </ul>
+  <h2>Sandbox Creation Form</h2>
+  <p> As a Concur customer, partner or developer, you can create a development sandbox by filling out and submitting the form below. NOTE: Please log out of all Concur products before proceeding.</p>
 
-      <h3>About Creating a Sandbox</h3>
-      <div>
-        When you register, Concur will create a sandbox company for testing applications. This test company provides access to the Concur expense reporting experience by default, and can be configured to access additional services. In your test company, you can create two (2) more user accounts to test functionality at three different access levels: end user, expense report approver, and administrator.
-      </div>
+  <hr>
 
-      <div>
-        The sandbox test company can be used with the following APIs:
-        <ul>
-          <li>Attendee</li>
-          <li>Expense</li>
-          <li>Imaging</li>
-          <li>Itinerary</li>
-          <li>List Item</li>
-          <li>Payment Batch File</li>
-          <li>Travel Profile</li>
-          <li>User</li>
-        </ul>
-
-        To configure your sandbox for additional products or APIs, go to <a href="https://forum.developer.concur.com/c/sandbox">Concur Forums</a>.
-      </div>
-
-      <h3>When You Login</h3>
-      <ul>
-        <li>IMPORTANT: DO NOT use the information that appears in the pop-up when you successfully sign on for the first time. You will need to contact your Partner Enablement repesenative for the information required to create your app. We are currently in the process of streamlining and creating a self-service process that will be available in early 2017. We apologize for this manual process in the meantime.</li>
-      </ul>
+  <div>
+    <h3>Before You Start</h3>
+    <div class="alert alert-warning">
+      <i class="fa fa-exclamation-circle"></i>
+      Do not use an email address that is currently used in any Concur product, is likely to be used in any Concur product in the future, or is an existing Concur email address; the email address must be unique within the Concur platform.
     </div>
-  </div><!--/col-md-12-->
+
+    <h3>About Creating a Sandbox</h3>
+    <p>
+      When you register, Concur will create a sandbox company for testing applications. This test company provides access to the Concur expense reporting experience by default, and can be configured to access additional services. In your test company, you can create two (2) more user accounts to test functionality at three different access levels: end user, expense report approver, and administrator.
+    </p>
+
+    <p>
+      The sandbox test company can be used with the following APIs:
+    </p>
+    <ul>
+      <li>Attendee</li>
+      <li>Expense</li>
+      <li>Imaging</li>
+      <li>Itinerary</li>
+      <li>List Item</li>
+      <li>Payment Batch File</li>
+      <li>Travel Profile</li>
+      <li>User</li>
+    </ul>
+    <p>
+      To configure your sandbox for additional products or APIs, go to <a href="https://forum.developer.concur.com/c/sandbox">Concur Forums</a>.
+    </p>
+
+    <h3>When You Login</h3>
+    <div class="alert alert-warning">
+      <i class="fa fa-exclamation-circle"></i>
+      <strong>IMPORTANT:</strong> DO NOT use the information that appears in the pop-up when you successfully sign on for the first time. You will need to contact your Partner Enablement repesenative for the information required to create your app. We are currently in the process of streamlining and creating a self-service process that will be available in early 2017. We apologize for this manual process in the meantime.
+    </div>
+  </div>
+
+  {% include form-error.html %}
+  {% include form-wait.html %}
+
+  <form action="{{ site.data.forms.server }}/register" method="POST" id="sandboxRegistration" novalidate="novalidate">
+    <fieldset>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="firstName">First Name &#42;</label>
+          <input type="text" name="firstName" id="firstName" placeholder="First Name" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastName">Last Name &#42;</label>
+          <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="email">Email Address (Use one NOT associated with a Concur account) &#42;</label>
+          <input type="email" name="email" id="email" placeholder="example@example.com" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="company">Company Name &#42;</label>
+          <input type="text" name="company" id="company" placeholder="Company Name" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="password">Password &#42;</label>
+          <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="passwordVerify">Verify Password &#42;</label>
+          <input type="password" name="passwordVerify" id="passwordVerify" placeholder="Password" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="businessDescription">Business Description</label>
+          <input type="text" name="businessDescription" id="businessDescription" placeholder="Description" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+1-555-555-5555" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="country">Country &#42;</label>
+          <select name="country" id="country" class="form-control">
+            {% for country in site.data.countries %}
+            <option value="{{ country.code }}">{{ country.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="website">Website</label>
+          <input type="text" name="website" id="website" placeholder="http://example.com" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="relationshipToConcur">Relationship with Concur</label>
+          <select name="relationshipToConcur" id="relationshipToConcur" class="form-control">
+            {% for rel in site.data.concur_relationships %}
+            <option value="{{ rel.value }}">{{ rel.title }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="desiredUse">How would you like to use Concur?</label>
+          <input type="text" name="desiredUse" id="desiredUse" placeholder="Desired Use" class="form-control">
+        </div>
+      </div>
+      <div class="form-group checkbox">
+        <label>
+          <input type="checkbox" name="termsOfUseAgreement">
+          I Agree to the <a href="{{ site.baseurl }}/Terms-of-Use.html">Terms of Use</a> and <a href="https://www.concur.com/en-us/privacy-policy">Privacy Policy</a>
+        </label>
+      </div>
+      <p>&#42; required field</p>
+      <label for="email-alt" hidden>Alternate Email</label>
+      <input type="text" name="email-alt" id="email-alt" hidden>
+    </fieldset>
+    <footer>
+      <button type="submit" class="btn bright-blue pull-right">Submit</button>
+    </footer>
+  </form><br>
+</div><!--/col-md-12-->
