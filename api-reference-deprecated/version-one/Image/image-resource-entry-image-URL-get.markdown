@@ -18,7 +18,7 @@ Retrieves the URL for the receipt image associated with the expense entry that m
 
 Example: `https://www.concursolutions.com/api/image/v1.0/expenseentry/{entryId}`
 
-**URI Source**: The entryId is returned in the **RpeKey** element within the **ExpenseEntry** element of the [Get Report Details][1] response.
+**URI Source**: The entryId is returned in the **RpeKey** element within the **ExpenseEntry** element of the [Get Report Details](/api-reference-deprecated/version-one-one/expense-report/get-report-full-details.html) response.
 
 ### Headers
 
@@ -66,5 +66,3 @@ Content-Type: application/xml
       <Url>https://api.example.com/getImage?cid=able999999&amp;val=F9B35244G86</Url>
 </Image>
 ```
-
-[1]: /api-reference/expense/expense-report/expense-form-resource/expense-form-resource-get.html
