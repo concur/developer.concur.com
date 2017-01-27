@@ -1,4 +1,22 @@
-var DevcenterForms = (function() {
+var DevcenterForms = (function($) {
+  $.validator.setDefaults({
+    highlight: function(element) {
+      $(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function(element) {
+      $(element).closest('.form-group').removeClass('has-error');
+    },
+    errorElement: 'span',
+    errorClass: 'help-block',
+    errorPlacement: function(error, element) {
+      if (element.parent('.input-group, label').length) {
+        error.insertAfter(element.parent());
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
   // Handle form validation and submission
   function handleConcurCommunityForm() {
     $("#concurCommunity").validate({
@@ -36,17 +54,12 @@ var DevcenterForms = (function() {
             $('#form-success').removeClass('form-success-hidden');
           }
         });
-      },
-
-      // Do not change code below
-      errorPlacement: function(error, element) {
-        error.insertAfter(element.parent());
       }
     });
   }
 
   function handleNewsletterRequestForm() {
-    $("#newsletterRequest").change(function(){
+    $("#newsletterRequest").change(function() {
       ($("#country").val() !== "USA") ? $("#state").attr("disabled", true) && $("#state").val("") : $("#state").attr("disabled", false);
     });
 
@@ -82,11 +95,6 @@ var DevcenterForms = (function() {
             $('#form-success').removeClass('form-success-hidden');
           }
         });
-      },
-
-      // Do not change code below
-      errorPlacement: function(error, element) {
-        error.insertAfter(element.parent());
       }
     });
   }
@@ -127,11 +135,6 @@ var DevcenterForms = (function() {
             $('#form-success').removeClass('form-success-hidden');
           }
         });
-      },
-
-      // Do not change code below
-      errorPlacement: function(error, element) {
-        error.insertAfter(element.parent());
       }
     });
   }
@@ -175,11 +178,6 @@ var DevcenterForms = (function() {
             $('#form-success').removeClass('form-success-hidden');
           }
         });
-      },
-
-      // Do not change code below
-      errorPlacement: function(error, element) {
-        error.insertAfter(element.parent());
       }
     });
   }
@@ -269,11 +267,6 @@ var DevcenterForms = (function() {
               hiddenForm.appendTo('body').submit();
           }
         });
-      },
-
-      // Do not change code below
-      errorPlacement: function(error, element) {
-        error.insertAfter(element.parent());
       }
     });
   }
@@ -287,4 +280,4 @@ var DevcenterForms = (function() {
       handleContactSupportForm();
     }
   }
-})();
+})(jQuery);
