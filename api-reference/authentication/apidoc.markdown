@@ -596,6 +596,7 @@ Connection: keep-alive
   "code": <number>,
   "error": <error>,
   "error_description": <error_description>
+  "geolocation": <geolocation url where user lives>
 }
 ```
 
@@ -653,6 +654,7 @@ Connection: keep-alive
 
 | Code | Error             | Description                                            |
 |------|-------------------|--------------------------------------------------------|
+| 16   | `invalid_request` | user lives elsewhere                                   |
 | 57   | `invalid_request` | `channel_type` was not supplied                        |
 | 58   | `invalid_request` | `channel_handle` was not supplied                      |
 | 60   | `invalid_grant`   | these are not the grants you are looking for           |
