@@ -61,7 +61,7 @@ Content-Type: application/xml
 This function requires as its arguments an **attendee-batch** element containing an **attendee** child element for each attendee to be added. All batch operations allow up to 1000 attendees per batch. If a batch request with over 1000 attendees is sent, only the first 1000 attendees in the batch will be processed.
 
 <aside class="notice">
-NOTE: The element names are case-sensitive.
+  <strong>NOTE:</strong> The element names are case-sensitive.
 </aside>
 
 * **`attendee` elements**
@@ -69,14 +69,14 @@ NOTE: The element names are case-sensitive.
   | Element | Required/Optional | Description |
   |-----------|-----------|--------------------|
   |external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
-  | type | required  | The attendee type code. Refer to the [Attendee Type][1] resource documentation. Maximum 8 characters. |
+  | type | required  | The attendee type code. Refer to the [Attendee Type](#attendee-type) resource documentation. Maximum 8 characters. |
   | last-name | required  | The last name of the attendee. Maximum 132 characters. |
   | first-name | optional  | The first name of the attendee. Maximum 50 characters. |
   | company | optional  | The name of the attendee’s company. Maximum 150 characters. |
   | title | optional  | The attendee's title. Maximum 32 characters. |
   | total-amount-ytd | optional  | The year to date total amount for the attendee. This sets the starting value for year to date attendee spend amount calculations. |
-  | currency-code | required, if total-amount-ytd is supplied | Defines the currency to be used when totaling costs for the attendee. Must be a [3-letter ISO 4217 currency code][2] for the currency. Maximum 3 characters. |
-  | customx | required, if the field is required on the Attendee form  | There can be one element for each custom field that is configured on the attendee form. There are 20 possible custom fields for attendee forms. The numbering matches the Concur custom field numbering and is not necessarily sequential. If the attendee form has custom 1, custom 3 and custom 10 on it, the custom1, custom3, and custom10 elements should be included. Concur Expense is vastly configurable. Use the following process to get the list of custom fields configured for the Attendee form:<br/>1. Use the [Get Available Form Types][3] function to get the code associated with the Attendee Detail View form.<br/>2. Use the [Get Form Data][4] function to get the FormId for the specific attendee form that you wish to use.<br/>3. Use the [Get Form Field Details][5] function to get the list of configured fields (including custom fields) for the attendee form.<br/><br/>Maximum 100 characters. |
+  | currency-code | required, if total-amount-ytd is supplied | Defines the currency to be used when totaling costs for the attendee. Must be a [3-letter ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the currency. Maximum 3 characters. |
+  | customx | required, if the field is required on the Attendee form  | There can be one element for each custom field that is configured on the attendee form. There are 20 possible custom fields for attendee forms. The numbering matches the Concur custom field numbering and is not necessarily sequential. If the attendee form has custom 1, custom 3 and custom 10 on it, the custom1, custom3, and custom10 elements should be included. Concur Expense is vastly configurable. Use the following process to get the list of custom fields configured for the Attendee form:<br/>1. Use the [Get Available Form Types](/api-reference/expense/expense-report/expense-form.html) function to get the code associated with the Attendee Detail View form.<br/>2. Use the [Get Form Data](/api-reference/expense/expense-report/expense-form.html) function to get the FormId for the specific attendee form that you wish to use.<br/>3. Use the [Get Form Field Details](/api-reference/expense/expense-report/expense-form-field.html) function to get the list of configured fields (including custom fields) for the attendee form.<br/><br/>Maximum 100 characters. |
 
 #### Response
 
@@ -104,7 +104,7 @@ Content-Type: application/xml
 
 **HTTP errors**
 
-* [Attendee List Errors][6]
+* [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
 
 **Response body**
 
@@ -188,14 +188,14 @@ NOTE: The element names are case-sensitive.
   | Element | Required/Optional | Description |
   |-----------|-----------|--------------------|
   |external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
-  | type | required  | The attendee type code. Refer to the [Attendee Type][1] resource documentation. Maximum 8 characters. |
+  | type | required  | The attendee type code. Refer to the [Attendee Type](#attendee-type) resource documentation. Maximum 8 characters. |
   | last-name | required  | The last name of the attendee. Maximum 132 characters. |
   | first-name | optional  | The first name of the attendee. Maximum 50 characters. |
   | company | optional  | The name of the attendee’s company. Maximum 150 characters. |
   | title | optional  | The attendee's title. Maximum 32 characters. |
   | total-amount-ytd | optional  | The year to date total amount for the attendee. This sets the starting value for year to date attendee spend amount calculations. |
-  | currency-code | required, if total-amount-ytd is supplied | Defines the currency to be used when totaling costs for the attendee. Must be a [3-letter ISO 4217 currency code][2] for the currency. Maximum 3 characters. |
-  | customx | required, if the field is required on the Attendee form  | There can be one element for each custom field that is configured on the attendee form. There are 20 possible custom fields for attendee forms. The numbering matches the Concur custom field numbering and is not necessarily sequential. If the attendee form has custom 1, custom 3 and custom 10 on it, the custom1, custom3, and custom10 elements should be included. Concur Expense is vastly configurable. Use the following process to get the list of custom fields configured for the Attendee form:<br/>1. Use the [Get Available Form Types][3] function to get the code associated with the Attendee Detail View form.<br/>2. Use the [Get Form Data][4] function to get the FormId for the specific attendee form that you wish to use.<br/>3. Use the [Get Form Field Details][5] function to get the list of configured fields (including custom fields) for the attendee form.<br/><br/>Maximum 100 characters. |
+  | currency-code | required, if total-amount-ytd is supplied | Defines the currency to be used when totaling costs for the attendee. Must be a [3-letter ISO 4217 currency code](http://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the currency. Maximum 3 characters. |
+  | customx | required, if the field is required on the Attendee form  | There can be one element for each custom field that is configured on the attendee form. There are 20 possible custom fields for attendee forms. The numbering matches the Concur custom field numbering and is not necessarily sequential. If the attendee form has custom 1, custom 3 and custom 10 on it, the custom1, custom3, and custom10 elements should be included. Concur Expense is vastly configurable. Use the following process to get the list of custom fields configured for the Attendee form:<br/>1. Use the [Get Available Form Types](/api-reference/expense/expense-report/expense-form.html) function to get the code associated with the Attendee Detail View form.<br/>2. Use the [Get Form Data](/api-reference/expense/expense-report/expense-form.html) function to get the FormId for the specific attendee form that you wish to use.<br/>3. Use the [Get Form Field Details](/api-reference/expense/expense-report/expense-form-field.html) function to get the list of configured fields (including custom fields) for the attendee form.<br/><br/>Maximum 100 characters. |
 
 #### Response
 
@@ -216,7 +216,7 @@ Content-Type: application/xml
 
 **HTTP errors**
 
-* [Attendee List Errors][6]
+* [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
 
 **Response body**
 
@@ -313,7 +313,7 @@ Content-Type: application/xml
 
 **HTTP errors**
 
-* [Attendee List Errors][6]
+* [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
 
 **Response body**
 
@@ -334,10 +334,3 @@ This request will return an **list-item-batch-result** parent element.
   | code | The code associated with the error. |
   | external-id | The external ID of the record that failed. |
   | message | The error message. |
-
-[1]: https://developer.concur.com/attendee/attendee-type-resource
-[2]: http://en.wikipedia.org/wiki/ISO_4217
-[3]: https://developer.concur.com/expense-report/expense-form-resource/expense-form-resource-get
-[4]: https://developer.concur.com/expense-report/expense-form-resource/expense-form-resource-get
-[5]: https://developer.concur.com/expense-report/expense-form-field-resource/expense-form-field-resource-get
-[6]: https://developer.concur.com/attendee

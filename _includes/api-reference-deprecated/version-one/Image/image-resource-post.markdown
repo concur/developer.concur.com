@@ -43,7 +43,7 @@ Content-Type: image/jpeg
 
 **Content body**
 
-A [byte array][2] containing the image data.
+A [byte array](#imaging-web-service) containing the image data.
 
 #### Response
 
@@ -135,7 +135,7 @@ ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACo4J4bq3iuL
 
 **Content body**
 
-A [byte array][2] containing the image data.
+A [byte array](#imaging-web-service) containing the image data.
 
 #### Response
 
@@ -207,7 +207,7 @@ Content-Type: image/jpeg
 
 **Content body**
 
-A [byte array][2] containing the image data.
+A [byte array](#imaging-web-service) containing the image data.
 
 #### Response
 
@@ -223,7 +223,8 @@ Content-Type: application/xml
 ```
 
 **Content types**
-application/xml
+
+* application/xml
 
 **Response body**
 
@@ -275,7 +276,7 @@ Content-Type: image/jpeg
 
 **Content body**
 
-A [byte array][2] containing the image data.
+A [byte array](#imaging-web-service) containing the image data.
 
 #### Response
 
@@ -304,7 +305,3 @@ The response will contain an **Image** parent element, with the following child 
   | -------- | ------------ |
   |  Id |  The unique identifier of the image. |
   |  Url |  The URL for the image. This element is empty when uploading images. |
-
-
-[2]: /api-reference-deprecated/version-one/Image/index.html
-[3]: /tools-support/reference/http-codes.html

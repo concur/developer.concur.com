@@ -21,7 +21,7 @@ Authorization: OAuth {access token}
 |-----------|-----------|---------------------|
 | expenseentry/{_entryId_} | required | The identifier for the desired entry, and the expenseentry keyword. |
 
-**URI Source**: The entryId is returned in the **RpeKey** element within the **ExpenseEntry** element of the [Get Report Details][1] response.
+**URI Source**: The entryId is returned in the **RpeKey** element within the **ExpenseEntry** element of the [Get Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) response.
 
 **Headers**
 
@@ -56,5 +56,3 @@ This request will return an **Image** parent element.
 |-----------|---------------------|
 | Id | The unique identifier of the image. |
 | Url | The URL for the entry image. Note that special characters will be XML-encoded. You will need to unencode any special characters before using the link.|
-
-[1]: /api-reference/expense/expense-report/expense-form-resource/expense-form-resource-get.html

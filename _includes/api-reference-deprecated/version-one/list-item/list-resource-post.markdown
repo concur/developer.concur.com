@@ -39,7 +39,7 @@ This function requires as its arguments a **list-item-batch** element containing
   |  Element |  Required (must contain value)? |  Description |
   |---|---|
   |  name |  Y |  The name of the list item as it appears in the user interface. Maximum 64 characters. |  
-  |  levelxcode |  Y, for each list level |There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][1] for more information.|
+  |  levelxcode |  Y, for each list level |There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code](#list-item-web-service) for more information.|
   |  start-date |  N |  The effective date when the list item should be active. Format: YYYY-MM-DD. |
   |  end-date |  N |  The effective date when the list item should be inactive. Format: YYYY-MM-DD. |
 
@@ -139,8 +139,8 @@ Content-Type: application/xml
 
 **HTTP Responses**
 
-* [HTTP Status Codes][2]
-* [List Item Error Codes][3]
+* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [List Item Error Codes](#list-item-web-service)
 
 **Content Types**
 
@@ -161,7 +161,7 @@ This request will return a **list-item-batch-result** parent element with the fo
 
   |  Element |  Description |
   |--------|----------|
-  |  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes.|
+  |  code |  The code associated with the error. Refer to [Responses and Errors](#list-item-web-service) for the full list of possible error codes.|
   |  list-item-code |  The level code of the record that failed. |
   |  message |  The error message. |
 
@@ -223,7 +223,7 @@ The request includes a **list-item-batch** element containing a **list-item** ch
   |  Element |  Required (must contain value)? |  Description |
   |----|----|----|
   |  name |  Y |  The name of the list item as it appears in the user interface. Maximum 64 characters. |   |
-  |  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][4] for more information.|
+  |  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code](#list-item-web-service) for more information.|
   |  start-date |  N |  The effective date when the list item should be active. Format: YYYY-MM-DD.|
   |  end-date |  N |  The effective date when the list item should be inactive. Format: YYYY-MM-DD.|
 
@@ -263,8 +263,8 @@ Content-Type: application/xml
 
 **HTTP Responses**
 
-* [HTTP Status Codes][2]
-* [List Item Error Codes][3]
+* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [List Item Error Codes](#list-item-web-service)
 
 **Content Types**
 
@@ -285,7 +285,7 @@ This request will return a **list-item-batch-result** parent element with the fo
 
   |Element| Description|
   |-----|------|
-  |  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes.|
+  |  code |  The code associated with the error. Refer to [Responses and Errors](#list-item-web-service) for the full list of possible error codes.|
   |  list-item-code |  The level code of the record that failed. |
   |  message |  The error message. |
 
@@ -340,7 +340,7 @@ The request includes a **list-item-batch** element containing a **list-item** ch
   |  Element |  Required (must contain value)? |  Description |
   |--------|-----------|-----------|
   |  name |  N |  The name of the list item as it appears in the user interface. Maximum 64 characters. |
-  |  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][4] for more information.
+  |  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code](#list-item-web-service) for more information.
 
 
 #### Response
@@ -357,8 +357,8 @@ Content-Type: application/xml
 
 **HTTP Responses**
 
-* [HTTP Status Codes][2]
-* [List Item Error Codes][3]
+* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [List Item Error Codes](#list-item-web-service)
 
 **Content Types**
 
@@ -379,11 +379,6 @@ This request will return a **list-item-batch-result** parent element with the fo
 
   |  Element |  Description |
   |----------|-------------|
-  |  code |  The code associated with the error. Refer to [Responses and Errors][3] for the full list of possible error codes.|
+  |  code |  The code associated with the error. Refer to [Responses and Errors](#list-item-web-service) for the full list of possible error codes.|
   |  list-item-code |  The level code of the record that failed. |
   |  message |  The error message. |
-
-[1]: /api-reference-deprecated/version-one/list-item/index.html
-[2]: /tools-support/reference/http-codes.html
-[3]: /api-reference-deprecated/version-one/list-item/index.html
-[4]: /api-reference-deprecated/version-one/list-item/index.html

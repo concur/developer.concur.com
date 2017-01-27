@@ -30,11 +30,9 @@ Developers who gather basic expense data and untrusted receipts (such as picture
 This web service does not require Concur Expense.
 
 **Authentication**
-The Quick Expense web service supports the OAuth 2.0 authentication model. This authentication model is covered in detail in **Web Services** > [OAuth with Concur][3]. Any additional required elements for the web service requests are covered in the API documentation.
+The Quick Expense web service supports the OAuth 2.0 authentication model. This authentication model is covered in detail in the [Authentication section](#authentication) Any additional required elements for the web service requests are covered in the API documentation.
 
 **Resources**
 The version 3.0 documentation includes the data model and tools to send test requests to your developer sandbox:
 
-[Version 3.0 Quick Expenses][4]
-
-[4]: /api-reference/expense/quick-expense/index.html
+[Version 3.0 Quick Expenses](/api-reference/expense/quick-expense/index.html)

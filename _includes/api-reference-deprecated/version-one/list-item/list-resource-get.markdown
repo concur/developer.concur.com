@@ -71,8 +71,8 @@ Content-Type: application/xml
 
 **HTTP Responses**
 
-* [HTTP Status Codes][1]
-* [List Item Error Codes][2]
+* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [List Item Error Codes](/tools-support/reference/custom-list-items.html)
 
 **Root elements**
 This request will return a **lists** parent element containing a **list** child element for each configured list. The **list** element will contain the following child elements.  
@@ -136,8 +136,8 @@ Content-Type: application/xml
 
 **HTTP Responses**
 
-* [HTTP Status Codes][1]
-* [List Item Error Codes][2]
+* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [List Item Error Codes](/tools-support/reference/custom-list-items.html)
 
 **Content types**
 
@@ -240,8 +240,8 @@ Content-Type: application/xml
 
 **HTTP Responses**
 
-* [HTTP Status Codes][1]
-* [List Item Error Codes][2]
+* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [List Item Error Codes](/tools-support/reference/custom-list-items.html)
 
 **Response body root elements**
 This request will return a **list-items** parent element, with a **list-item** child element for each item returned. The **list-item** elements will contain the following child elements.
@@ -253,6 +253,3 @@ This request will return a **list-items** parent element, with a **list-item** c
   |  name |  The list item name. |
   |  levelxcode |  The item code for all specified levels, where x is replaced with the level number. If the request is for the children of a level 2 item, the **level1code**, **level2code**, and **level3code** elements will be returned. |
   |  items-link |  The URI, including the parent code value, to request the list items beneath this list item. |
-
-[1]: /tools-support/reference/http-codes.html
-[2]: /tools-support/reference/custom-list-items.html

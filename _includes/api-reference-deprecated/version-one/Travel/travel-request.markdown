@@ -107,7 +107,7 @@ This request will return a **RequestsWithCount** parent element with the **Reque
   |  RequestID |  |  |  The unique identifier for the travel request, which appears in the Concur UI.   |
   |  RequestName | |  |  The name of the travel request. |
   |  Purpose | |  |  The purpose of the travel request. |
-  |  RequestCurrency | |  |  The [3-letter ISO 4217 currency code][4] for the travel request currency. |
+  |  RequestCurrency | |  |  The [3-letter ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the travel request currency. |
   |  RequestTotal | |  |  The total amount of the travel request. |
   |  RequestDate | |  |   The create date of the travel request. |
   |  StartDate | |  |   Start date of the travel request. |
@@ -119,7 +119,7 @@ This request will return a **RequestsWithCount** parent element with the **Reque
   |  EmployeeName | |  |  The name of the travel request owner. |
   |  ApprovalStatus | |  |  The travel request's approval status, in the OAuth consumer's language. |
 
-### Get travel request details
+### <a name="a3"></a> Get travel request details
 
 ```bash
 # Endpoint
@@ -158,7 +158,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
   |  RequestKey | |  | The encrypted database key for the travel request. |
   |  RequestName | |  | The name of the travel request. |
   |  Purpose | |  | The information from the Purpose field. |
-  |  CurrencyCode | |  | The [3-letter ISO 4217 currency code][4] for the travel request currency. The travel request currency is defined as the travel request creator's default reimbursement currency. |
+  |  CurrencyCode | |  | The [3-letter ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the travel request currency. The travel request currency is defined as the travel request creator's default reimbursement currency. |
   |  CreationDate | |  | The date the travel request was created. |
   |  HasException | |  | Whether the travel request has exceptions. Format: Y/N |
   |  EverSentBack | |  | Whether the travel request has ever been sent back to the employee. Format: Y/N |
@@ -183,7 +183,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
   |  StartTime | |  | The start time for the travel request. |
   |  EndTime | |  | The end time for the travel request. |
   |  ExtensionOf | |  |  The ID of the initial travel request that this travel request is an extension of or adendum to. |
-  |  WorkflowActionURL | |  | The URL to post a workflow action to the travel request using the [Post Request Workflow Action](/api-reference-deprecated/version-one/Travel/travel-request.html#a5) function. |
+  |  WorkflowActionURL | |  | The URL to post a workflow action to the travel request using the [Post Request Workflow Action](#a5) function. |
   |  CommentCount | |  | The number of comments associated with the travel request header. |
   |  CommentsList | |  | This parent element has a Count attribute indicating the number of comments that are included in the travel request header. It has a **Comment** child element for each comment. Refer to the Comment Child Elements table for the full list of child elements. |
   |  ExceptionCount | |  | The number of exceptions associated with the travel request header. |
@@ -284,7 +284,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
   |---------------|-------------------|------------|--------------------|
   |  CashAdvanceKey | | |  The unique identifier for the cash advance. |
   |  AmountRequested | | |   The amount requested in the cash advance, in the currency listed in the **CurrencyCode** element.|
-  |  CurrencyCode | | |  The [3-letter ISO 4217 currency code][4] for the cash advance currency. |
+  |  CurrencyCode | | |  The [3-letter ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the cash advance currency. |
   |  CurrencyName | | |  The name of the currency for the cash advance. |
   |  ExchangeRate | | |  The exchange rate that applies to the cash advance. |
   |  RequestDate | | |  Date of cash advance request from the detailed cash advance record. |
@@ -292,7 +292,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
   |  StartingBalance | | |   The initial balance for the cash advance. |
   |  ApprovalStatusName | | |  The approval status of the cash advance. |
   |  ApprovalStatusKey | | |  The unique identifier for the approval status of the cash advance. |
-  |  EmployeeCurrencyCode | | |  The [3-letter ISO 4217 currency code][4] for the employee's currency ("home currency"). |
+  |  EmployeeCurrencyCode | | |  The [3-letter ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the employee's currency ("home currency"). |
   |  EmployeeCurrencyName | | |  The name of the employee's currency ("home currency"). |
 
 #### Examples
@@ -1006,7 +1006,7 @@ This request should contain a **`Request`** parent element with the following ch
   |  SeverityLevel       |  A numeric value indicating the severity level of the exception. The value threshold is configurable. |
 
 
-### Post travel request workflow action
+### <a name="a5"></a> Post travel request workflow action
 
 ```bash
 # Endpoint
@@ -1097,7 +1097,3 @@ This request should contain a **WorkflowAction** parent element with the followi
     <Status>FAILURE</Status>
 </ActionStatus>
 ```
-
-[1]: /api-reference/request/request.html
-[3]: http://concur.github.io/developer.concur.com/docs/reference/http-codes
-[4]: http://en.wikipedia.org/wiki/ISO_4217

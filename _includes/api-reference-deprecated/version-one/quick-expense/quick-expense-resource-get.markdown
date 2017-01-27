@@ -7,7 +7,7 @@ GET /api/expense/expensereport/v1.0/quickexpense/?loginID={loginID}
 
 Retrieves the list of quick expenses for the supplied user or for the entire company. In order to view the company-wide expense list, the OAuth Consumer must have the Web Services Admin (Professional) or Can Administer (Standard) user role.
 
-**NOTE**: Documentation for the v3.0 resource is [here][1].
+**NOTE**: Documentation for the v3.0 resource is [here](/api-reference/expense/quick-expense/).
 
 ### Request
 
@@ -59,7 +59,7 @@ This request will return a **QuickExpensesList** parent element with a **QuickEx
   |  ExpenseTypeName |  |  |  The name of the expense type associated with the quick expense. |
   |  TransactionDate |  |  |  The date the expense was incurred. Format: YYYY-MM-DD |
   |  TransactionAmount |  |  |  The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654 |
-  |  CurrencyCode |  |  |  The [3-letter ISO 4217 currency code ][3]for the expense transaction amount. Example: USD. |
+  |  CurrencyCode |  |  |  The [3-letter ISO 4217 currency code ](https://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the expense transaction amount. Example: USD. |
   |  LocationName |  |  |  The name of the location where the expense was incurred. |
   |  VendorDescription |  |  |  This element contains the descriptive text for the vendor for the expense. |
   |  Comment |  |  |  The comment for this expense. |
@@ -141,9 +141,3 @@ Accept: application/json
   }
 ]
 ```
-
-
-
-[1]: /api-reference/expense/quick-expense/
-[2]: https://developer.concur.com/reference/http-codes
-[3]: http://en.wikipedia.org/wiki/ISO_4217

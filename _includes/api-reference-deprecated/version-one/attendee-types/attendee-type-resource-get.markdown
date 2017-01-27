@@ -43,8 +43,8 @@ Content-Type: application/xml
 </attendee-types>
 ```
 
-* [HTTP Status Codes][1]
-* [Attendee List Errors][2]
+* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
 
 **Content Body**
 
@@ -56,7 +56,3 @@ This request will return an **attendee-types** parent element containing an **at
   |:------------|:-----------------------|
   | type | The attendee type code. |
   | name | The attendee type name. |
-
-
-[1]: /tools-support/reference/http-codes.html
-[2]: /api-reference-deprecated/version-two/attendees/index.html

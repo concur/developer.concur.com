@@ -22,7 +22,7 @@ Partner developers must determine which configurations are required for their so
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
 ### Resources
-[List][3]
+* [List](#list)
 
 ### Responses and errors
 
@@ -73,8 +73,4 @@ To change a list item's level code, the original list item must be deleted (usin
 **NOTE**: When you delete a list item, the system deactivates it, but keeps a copy in case the item has been used in any expense reports, invoices or requests. Existing reports, invoices or requests will still show the old list item. Any reports, invoices or requests created after the list item has been deleted will no longer show it in the list.
 
 ### See also
-[Posting Custom List Items][4]
-
-
-[3]: /api-reference-deprecated/version-one/list-item/list-resource.html
-[4]: /tools-support/reference/custom-list-items.html
+* [Posting Custom List Items](/tools-support/reference/custom-list-items.html)
