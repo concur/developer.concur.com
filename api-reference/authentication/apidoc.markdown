@@ -595,7 +595,7 @@ Connection: keep-alive
 {
   "code": <number>,
   "error": <error>,
-  "error_description": <error_description>
+  "error_description": <error_description>,
   "geolocation": <geolocation url where user lives>
 }
 ```
