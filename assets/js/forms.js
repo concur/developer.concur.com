@@ -1,4 +1,22 @@
-var DevcenterForms = (function() {
+var DevcenterForms = (function($) {
+  $.validator.setDefaults({
+    highlight: function(element) {
+      $(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function(element) {
+      $(element).closest('.form-group').removeClass('has-error');
+    },
+    errorElement: 'span',
+    errorClass: 'help-block',
+    errorPlacement: function(error, element) {
+      if (element.parent('.input-group, label').length) {
+        error.insertAfter(element.parent());
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
+
   // Handle form validation and submission
   function handleConcurCommunityForm() {
     $("#concurCommunity").validate({
@@ -32,21 +50,20 @@ var DevcenterForms = (function() {
             $('#concurCommunity button[type="submit"]').attr('disabled', true);
           },
           success: function() {
+            ga('send', 'event', 'Form', 'Submit', 'Community Form');
             $("#concurCommunity").addClass('submited');
             $('#form-success').removeClass('form-success-hidden');
+          },
+          error: function() {
+            ga('send', 'event', 'Form', 'Error', 'Community Form');
           }
         });
-      },
-
-      // Do not change code below
-      errorPlacement: function(error, element) {
-        error.insertAfter(element.parent());
       }
     });
   }
 
   function handleNewsletterRequestForm() {
-    $("#newsletterRequest").change(function(){
+    $("#newsletterRequest").change(function() {
       ($("#country").val() !== "USA") ? $("#state").attr("disabled", true) && $("#state").val("") : $("#state").attr("disabled", false);
     });
 
@@ -78,15 +95,14 @@ var DevcenterForms = (function() {
             $('#newsletterRequest button[type="submit"]').attr('disabled', true);
           },
           success: function() {
+            ga('send', 'event', 'Form', 'Submit', 'Newsletter Request');
             $("#newsletterRequest").addClass('submited');
             $('#form-success').removeClass('form-success-hidden');
+          },
+          error: function() {
+            ga('send', 'event', 'Form', 'Error', 'Newsletter Request');
           }
         });
-      },
-
-      // Do not change code below
-      errorPlacement: function(error, element) {
-        error.insertAfter(element.parent());
       }
     });
   }
@@ -123,15 +139,14 @@ var DevcenterForms = (function() {
             $('#sandboxAssistance button[type="submit"]').attr('disabled', true);
           },
           success: function() {
+            ga('send', 'event', 'Form', 'Submit', 'Sandbox Assistance');
             $("#sandboxAssistance").addClass('submited');
             $('#form-success').removeClass('form-success-hidden');
+          },
+          error: function() {
+            ga('send', 'event', 'Form', 'Error', 'Sandbox Assistance');
           }
         });
-      },
-
-      // Do not change code below
-      errorPlacement: function(error, element) {
-        error.insertAfter(element.parent());
       }
     });
   }
@@ -171,15 +186,14 @@ var DevcenterForms = (function() {
             $('#contactSupport button[type="submit"]').attr('disabled', true);
           },
           success: function() {
+            ga('send', 'event', 'Form', 'Submit', 'Contact Support');
             $("#contactSupport").addClass('submited');
             $('#form-success').removeClass('form-success-hidden');
+          },
+          error: function() {
+            ga('send', 'event', 'Form', 'Error', 'Contact Support');
           }
         });
-      },
-
-      // Do not change code below
-      errorPlacement: function(error, element) {
-        error.insertAfter(element.parent());
       }
     });
   }
@@ -233,6 +247,7 @@ var DevcenterForms = (function() {
             $('#sandboxRegistration button[type="submit"]').attr('disabled', true);
           },
           error: function(res) {
+            ga('send', 'event', 'Form', 'Error', 'Sandbox Registration');
             $('#status-modal').modal('hide');
             $('#form-error').removeClass('form-error-hidden');
             $('#form-error > h3').append(res.responseText);
@@ -241,6 +256,7 @@ var DevcenterForms = (function() {
             }
           },
           success: function(data) {
+            ga('send', 'event', 'Form', 'Submit', 'Sandbox Registration');
             $("#sandboxRegistration").addClass('submited');
             $('#form-success').removeClass('form-success-hidden');
 
@@ -269,11 +285,6 @@ var DevcenterForms = (function() {
               hiddenForm.appendTo('body').submit();
           }
         });
-      },
-
-      // Do not change code below
-      errorPlacement: function(error, element) {
-        error.insertAfter(element.parent());
       }
     });
   }
@@ -287,4 +298,4 @@ var DevcenterForms = (function() {
       handleContactSupportForm();
     }
   }
-})();
+})(jQuery);

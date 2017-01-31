@@ -259,19 +259,15 @@ If your application was registered with the 'openid' scope, the Authentication s
 ```json
 {
   "aud": "e010e25d-b4ce-4ce3-a7e4-b670cb1adcb0",
-  "concur.profile": "https://us.api.concursolutions.com/profile/v1/pricipals/76459ad3-f77b-4d98-a21a-55333c9179f0",
+  "concur.profile": "https://us.api.concursolutions.com/profile/v1/principals/76459ad3-f77b-4d98-a21a-55333c9179f0",
   "concur.version": 2,
   "concur.type": "user",
   "sub": "76459ad3-f77b-4d98-a21a-55333c9179f0",
   "iss": "https://us.api.concursolutions.com",
-  "exp": 1476215558,
-  "userURI": "https://us.api.concursolutions.com/profile/v1/users/76459ad3-f77b-4d98-a21a-55333c9179f0",
-  "useruuid": "76459ad3-f77b-4d98-a21a-55333c9179f0",
-  "nbf": 1476211958,
-  "at_hash": "a1959060c9b623c8",
-  "type": "id-token",
-  "https://api.concursolutions.com/user": "https://us.api.concursolutions.com/profile/v1/users/76459ad3-f77b-4d98-a21a-55333c9179f0",
-  "iat": 1476211958
+  "exp": 1485485529,
+  "nbf": 1485481929,
+  "at_hash": "351515a6482f4ee1",
+  "iat": 1485481929
 }
 ```
 
@@ -599,7 +595,8 @@ Connection: keep-alive
 {
   "code": <number>,
   "error": <error>,
-  "error_description": <error_description>
+  "error_description": <error_description>,
+  "geolocation": <geolocation url where user lives>
 }
 ```
 
@@ -657,6 +654,7 @@ Connection: keep-alive
 
 | Code | Error             | Description                                            |
 |------|-------------------|--------------------------------------------------------|
+| 16   | `invalid_request` | user lives elsewhere                                   |
 | 57   | `invalid_request` | `channel_type` was not supplied                        |
 | 58   | `invalid_request` | `channel_handle` was not supplied                      |
 | 60   | `invalid_grant`   | these are not the grants you are looking for           |
