@@ -25,25 +25,25 @@ The new Oauth2 `accessToken` has a one hour lifetime. Once expired, applications
 This is significantly different from how the deprecated /net2/Oauth2's method of handling access tokens. Partner's would have to store the new Oauth2 `refreshToken` instead of the old access token. Before making a call to any of Concur's new v4 APIs, it is advisable to request for a new `accessToken` before making the API call.
 
 **Step 1: Obtain Application Token**
-Applications can exchange tokens by calling the `exchangeRefreshToken/me` endpoint. In order to call this endpoint, you would first need to obtain an Application Token by calling the `/v0/token` endpoint with the [client_credentials](https://developer.concur.com/api-reference/authentication/apidoc.html#client_credentials) grant. 
+Clients can exchange OLD tokens for NEW Oauth2 tokens by calling the `exchangeRefreshToken/me` endpoint. In order to call this endpoint, you would first need to obtain an Application Token by calling the `/v0/token` endpoint with the [client_credentials](https://developer.concur.com/api-reference/authentication/apidoc.html#client_credentials) grant. 
 
 **Step 2: Call exchangeRefreshToken**
 
-`POST /appmgmt/v0/legacyApps/{oldConsumerKey}/exchangeRefreshToken/me`
+`POST /appmgmt/v0/legacyApps/{OLDConsumerKey}/exchangeRefreshToken/me`
 
 **Request Header**
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
-`Authorization`|`string` | `Bearer <accessToken>` | **Required** The new client_credentials accessToken.
+`Authorization`|`string` | `Bearer <accessToken>` | **Required** The NEW client_credentials accessToken.
 
 
 **Request Body**
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
-`token`|`string` |  | **Required** The old refreshToken
-`secret`|`string` |  | **Required** The new application client_secret
+`token`|`string` |  | **Required** The OLD refreshToken
+`secret`|`string` |  | **Required** The NEW application client_secret
 
 
 Sample Curl:
@@ -72,7 +72,7 @@ successful call, responds with
 
 **Step 3: Obtain New Access Token**
 
-Once you have the new `refreshToken` from the response (`8c844478-745c-4c45-adf7-1e2777a50dbf`) you can then proceed to call `/v0/token` using the refresh grant to obtain a new `accessToken`.
+Once you have the NEW `refreshToken` from the response (`8c844478-745c-4c45-adf7-1e2777a50dbf`) you can then proceed to call `/v0/token` using the refresh grant to obtain a NEW Oauth2 `accessToken`.
 
 Sample Curl:
 

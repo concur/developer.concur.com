@@ -3,12 +3,12 @@
 - title: Authentication
   url: ''
   children:
+      - title: Getting Started
+        url: /api-reference/authentication/getting-started.html
       - title: Authentication
         url: /api-reference/authentication/apidoc.html
       - title: Company Level Authentication
         url: /api-reference/authentication/company-auth.html
-      - title: Getting Started
-        url: /api-reference/authentication/getting-started.html
       - title: Migrating to Oauth2 Tokens
         url: /api-reference/authentication/migrationguide.html
       - title: Scopes
@@ -156,12 +156,12 @@
   children:
       - title: Get Started
         url: /api-reference/receipts/get-started.html
-      - title: Response Codes
-        url: /api-reference/receipts/response-codes.html
-      - title: Sample Receipts
-        url: /api-reference/receipts/sample-receipts.html
       - title: Supported Receipt Types
         url: /api-reference/receipts/supported-receipt-types.html
+      - title: Sample Receipts
+        url: /api-reference/receipts/sample-receipts.html
+      - title: Response Codes
+        url: /api-reference/receipts/response-codes.html
 - title: Request
   url: /api-reference/request/request.html
 - title: Travel Profile

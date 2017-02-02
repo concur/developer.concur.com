@@ -14,6 +14,8 @@ Callouts from Concur allow clients to add an interaction with an outside system 
 
 Third-party developers can create callouts to provide Concur clients access to information systems they manage. These developers partner with Concur to have their application connectors reviewed. Once reviewed, applications are available for Concur clients to purchase and configure.
 
+Partner apps that want to use callout services must have their endpoint server(s) whitelisted with Concur.
+
 The available callouts are:
 
 * Fetch Attendee Data

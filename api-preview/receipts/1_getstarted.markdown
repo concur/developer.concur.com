@@ -51,7 +51,13 @@ https://emea.api.concursolutions.com/receipts/
 2. Read the [Getting Started](https://developer.concur.com/api-preview/auth/gettingstarted.html) section of [Authentication API](https://developer.concur.com/api-preview/auth/apidoc.html).
 
 Once you have registered your application, read about the [API endpoints](#endpoints) below, or click the button to download a request collection for [Postman](https://www.getpostman.com/docs/introduction).
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5782fa347917ac1568e6)
+
+<a href="https://app.getpostman.com/run-collection/5782fa347917ac1568e6"
+   target="_blank"
+   onclick="ga('send', 'event', 'Postman', 'Click', 'https://app.getpostman.com/run-collection/5782fa347917ac1568e6');"
+>
+  ![Run in Postman](https://run.pstmn.io/button.svg)
+</a>
 
 #### Endpoints
 
