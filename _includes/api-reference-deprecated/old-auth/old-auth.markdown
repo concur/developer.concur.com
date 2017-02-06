@@ -53,7 +53,7 @@ Expiration_Date|`string`|-|The Universal Coordinated Time (UTC) date and time wh
 ### <a name="refreshing-access-token"></a>Refreshing an access token
 
 <aside class="notice">
-NOTE: The token being refreshed must be used to make the refresh call.
+  <strong>NOTE:</strong> The token being refreshed must be used to make the refresh call.
 </aside>
 
 #### Request
@@ -223,7 +223,10 @@ Name | Type | Format | Description
 `USER`|User Web Service
 
 #### <a name="parse-inbound-http-request"></a>Parse of a inbound HTTP request from the Concur system to an application specified endpoint.
-`http://{redirect_uri}?{parameters}`
+
+```
+http://{redirect_uri}?{parameters}
+```
 
 * If access is denied the `error` and `error_description` parameters are used.
 * If access is granted the `code` parameter is used.

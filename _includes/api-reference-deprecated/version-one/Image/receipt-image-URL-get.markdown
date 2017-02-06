@@ -16,18 +16,18 @@ Authorization: OAuth {access token}
 ...
 ```
 
-**Path parameters**
+* **Path parameters**
 
-| Parameter | Required/Optional | Description |
-|-----------|-----------|---------------------|
-|receipt/{_imageId_} | required | The identifier for the image and the receipt keyword. |
+  | Parameter | Required/Optional | Description |
+  |-----------|-----------|---------------------|
+  | `receipt/{imageId}` | required | The identifier for the image and the `receipt` keyword. |
 
-**Headers**
+* **Headers**
 
-| Name | Description |
-| ---- | ----------- |
-| `Accept` | application/xml |
-| `Authorization` | Authorization header with OAuth token for valid Concur user. Required. The OAuth consumer must be the owner of the report that the image belongs to. |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Accept` | application/xml |
+  | `Authorization` | Authorization header with OAuth token for valid Concur user. Required. The OAuth consumer must be the owner of the report that the image belongs to. |
 
 #### Response
 
@@ -42,15 +42,14 @@ Content-Type: application/xml
 </Image>  
 ```
 
-**Content-Types**
-application/xml
+* **Content-Types**
+  * application/xml
+* **Content body**
+  This request will return an **`Image`** parent element.
 
-**Content body**
-This request will return an **Image** parent element.
+  * **`Image` elements**
 
-**Image elements**
-
-| Element |  Description |
-|-----------|---------------------|
-| Id | The unique identifier of the image. |
-| Url | The URL for the receipt image. Note that special characters will be XML-encoded. You will need to unencode any special characters before using the link.|
+    | Element |  Description |
+    |-----------|---------------------|
+    | `Id` | The unique identifier of the image. |
+    | `Url` | The URL for the receipt image. Note that special characters will be XML-encoded. You will need to unencode any special characters before using the link.|

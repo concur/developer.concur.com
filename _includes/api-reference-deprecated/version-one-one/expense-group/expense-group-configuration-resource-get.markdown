@@ -1,61 +1,15 @@
----
-title: Get expense group configuration details
-layout: reference
----
+### Get expense group configuration details
 
-## Description
-Retrieves the list of Expense Polices, Expense Types and Payment Types for the Expense Group the user specified in the OAuth access token is assigned to. Each Expense Policy contains a list of valid Expense Types. The Payment Types are associated with the user's Expense Group and apply to all the returned policies. Only the payment types that are valid for the [Post Expense Entry][2] endpoint are returned.
+```http
+GET /api/expense/expensereport/v1.1/ExpenseGroupConfiguration/ HTTP/1.1
+Host: www.concursolutions.com
+```
+
+Retrieves the list of Expense Polices, Expense Types and Payment Types for the Expense Group the user specified in the OAuth access token is assigned to. Each Expense Policy contains a list of valid Expense Types. The Payment Types are associated with the user's Expense Group and apply to all the returned policies. Only the payment types that are valid for the Post Expense Entry endpoint are returned.
 
 **NOTE**: The Concur Expense product is highly configurable, and each client may have a unique set of payment types. If a payment type is not included in the response, it is not available for use with this client.
 
-## Request
-
-### Request parameters
-None.
-
-### Headers
-
-#### Authorization header
-Authorization header with OAuth token for valid Concur user.
-
-#### Accept header
-application/xml
-
-## Response
-
-### Content body
-This request will return an **ExpenseGroupConfiguration** parent element. The **ExpenseGroupConfiguration** has a **PaymentTypes** child element and a **PolicyAndExpenseTypesList** child element.
-
-The **PaymentTypes** child element has a **PaymentType** child element for each configured payment type. The **PolicyAndExpenseTypesList** child element has a **PolicyandExpenseTypes** child element for each policy configured for this expense group.
-
-#### PaymentType elements
-
-|  Element |  Description |
-| -------- | ------------ |
-|  PaymentTypeID |  The encrypted key for the payment type. This is the unique identifier for the payment type. |
-|  PaymentTypeName |  The name of the payment type. |
-
-#### PolicyandExpenseTypes elements
-
-|  Element |  Description |
-| -------- | ------------ |
-|  PolicyKey |  The ID value of the policy. |
-|  PolicyName |  The name of the policy. |
-|  ExpenseTypes |  The parent element for the list of expense types in the policy. It contains an **ExpenseType** child element for each expense type in the policy. |
-
-#### ExpenseType elements
-
-|  Element |  Description |
-| -------- | ------------ |
-|  ExpKey |  The expense type key. |
-|  ExpName |  The label of the expense type. |
-|  ParentExpKey |  The code of the expense type's parent. |
-|  ParentExpName |  The label of the expense type's parent. |
-|  SpendCategory |  The spend category assigned to the expense type for reporting purposes. |
-
-## Examples
-
-### XML example request
+#### Request
 
 ```http
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/ExpenseGroupConfiguration/ HTTP/1.1
@@ -63,7 +17,17 @@ Authorization: OAuth {access token}
 ...
 ```
 
-### XML example of successful response
+* **Parameters**
+  * None.
+
+* **Headers**
+
+  | Name | Description |
+  | ---- | ----------- |
+  | `Authorization` | Authorization header with OAuth token for valid Concur user. |
+  | `Accept` | `application/xml` |
+
+#### Response
 
 ```http
 HTTP/1.1 200 OK
@@ -109,4 +73,33 @@ Content-Type: application/xml
 </ExpenseGroupConfiguration>
 ```
 
-[2]: /api-reference/expense/expense-report/expense-entry-itemization-resource-post.html
+* **Content body**
+
+  This request will return an `ExpenseGroupConfiguration` parent element. The `ExpenseGroupConfiguration` has a `PaymentTypes` child element and a `PolicyAndExpenseTypesList` child element.
+
+  The `PaymentTypes` child element has a `PaymentType` child element for each configured payment type. The `PolicyAndExpenseTypesList` child element has a `PolicyandExpenseTypes` child element for each policy configured for this expense group.
+
+  * **`PaymentType` elements**
+
+    |  Element |  Description |
+    | -------- | ------------ |
+    |  PaymentTypeID |  The encrypted key for the payment type. This is the unique identifier for the payment type. |
+    |  PaymentTypeName |  The name of the payment type. |
+
+  * **`PolicyandExpenseTypes` elements**
+
+    |  Element |  Description |
+    | -------- | ------------ |
+    |  PolicyKey |  The ID value of the policy. |
+    |  PolicyName |  The name of the policy. |
+    |  ExpenseTypes |  The parent element for the list of expense types in the policy. It contains an **ExpenseType** child element for each expense type in the policy. |
+
+  * **`ExpenseType` elements**
+
+    |  Element |  Description |
+    | -------- | ------------ |
+    |  ExpKey |  The expense type key. |
+    |  ExpName |  The label of the expense type. |
+    |  ParentExpKey |  The code of the expense type's parent. |
+    |  ParentExpName |  The label of the expense type's parent. |
+    |  SpendCategory |  The spend category assigned to the expense type for reporting purposes. |

@@ -36,7 +36,7 @@ This endpoint returns the OAuth consumer's preferred Form of Payment for the tra
 This endpoint returns the OAuth consumer's full list of default Forms of Payment, regardless of type of travel. The user must have selected the form of payment as a default for at least one travel type for it to be returned in the response.
 
 #### Who can use this resource?
-This endpoint is intended for use by Travel Suppliers or Travel Management Companies, to make travel booking easier. This endpoint is only available to suppliers or TMCs who have completed the [Concur application review process][4]. Travel suppliers or TMCs must provide evidence of PCI compliance and meet other security related terms and conditions before accessing form of payment information. Compliance will be confirmed during the application review process.
+This endpoint is intended for use by Travel Suppliers or Travel Management Companies, to make travel booking easier. This endpoint is only available to suppliers or TMCs who have completed the [Concur application review process](/manage-apps/app-certification.html). Travel suppliers or TMCs must provide evidence of PCI compliance and meet other security related terms and conditions before accessing form of payment information. Compliance will be confirmed during the application review process.
 
 #### Request
 
@@ -46,47 +46,43 @@ Authorization: OAuth {access token}
 ...
 ```
 
-**Request parameters**
+* **Request parameters**
+  * None.
+* **Headers**
 
-* None.
-
-**Headers**
-
-| Name | Description |
-| ---- | ----------- |
-| `Accept` | `application/xml` |
-| `Authorization` | `Authorization: OAuth {access_token}` |
-| `Content-Type` | `application/xml` |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Accept` | `application/xml` |
+  | `Authorization` | `Authorization: OAuth {access_token}` |
+  | `Content-Type` | `application/xml` |
 
 #### Response
 
-##### Content Types
+* **Content Types**
+  * application/xml
+* **Content Body**
+  This request will return a **`CorporateFOPResponse`** parent element with the **uniqueID** attribute and a **`CreditCards`** parent element containing a **`CreditCard`** element for each included credit card. The **`CreditCards`** element will only appear if the user has a credit card that is available to the supplier. The **`CreditCard`** element has the **DisplayName** attribute and contains the following child elements.
 
-* application/xml
+  * **`CreditCard` element**
 
-**Content Body**
-This request will return a **CorporateFOPResponse** parent element with the **uniqueID** attribute and a **CreditCards** parent element containing a **CreditCard** element for each included credit card. The **CreditCards** element will only appear if the user has a credit card that is available to the supplier. The **CreditCard** element has the **DisplayName** attribute and contains the following child elements.
+    |Element Name|Required/Optional|Data Type| Description |
+    |------------|-----------------|---------|-------------|
+    |`Vendor` | | |The card vendor. One of the following options: Unknown, AX, DC, DS, CA, VI, CB, ER, TP, JC, AA, DL, NW, TW, UC, UA, EC, CP, AS, PO, AWRDCR |  
+    |`AccountNo` | | |The credit card account number. |
+    |`ExpDate` |  | |The expiration date of the credit card. Format: YYYY-MM |
+    |`NameOnCard` | | |The name on the credit card. |
+    |`Usages` | | |This element contains a comma separated list of the selected uses for this card. |
+    |`BillingAddress` | | |This parent element contains information about the billing address. For information about the child elements of this parent element, see the **`BillingAddress` element** table below. |
 
-* **`CreditCard` element**
+  * **`BillingAddress` element**
 
-  |Element Name|Required/Optional|Data Type| Description |
-  |------------|-----------------|---------|-------------|
-  |Vendor | | |The card vendor. One of the following options: Unknown, AX, DC, DS, CA, VI, CB, ER, TP, JC, AA, DL, NW, TW, UC, UA, EC, CP, AS, PO, AWRDCR |  
-  |AccountNo | | |The credit card account number. |
-  |ExpDate |  | |The expiration date of the credit card. Format: YYYY-MM |
-  |NameOnCard | | |The name on the credit card. |
-  |Usages | | |This element contains a comma separated list of the selected uses for this card. |
-  |BillingAddress | | |This parent element contains information about the billing address. For information about the child elements of this parent element, see the **BillingAddress element** table below. |
-
-* **BillingAddress element**
-
-  |Element Name|Required/Optional|Data Type|Description|
-  |------------|-----------------|---------|-----------|
-  |StreetAddress | | |The street and unit information for the billing address.|
-  |City | | |The city information for the billing address.|   
-  |StateProvince | | |The state or province information for the billing address.|
-  |Country| | |The country information for the billing address.|
-  |ZipCode| | |The zip code information for the billing address.|
+    |Element Name|Required/Optional|Data Type|Description|
+    |------------|-----------------|---------|-----------|
+    |`StreetAddress` | | |The street and unit information for the billing address.|
+    |`City` | | |The city information for the billing address.|   
+    |`StateProvince` | | |The state or province information for the billing address.|
+    |`Country`| | |The country information for the billing address.|
+    |`ZipCode`| | |The zip code information for the billing address.|
 
 
 > XML Example of Successful Response for Air Travel Supplier
