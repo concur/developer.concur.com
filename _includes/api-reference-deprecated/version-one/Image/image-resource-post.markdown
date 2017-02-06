@@ -24,26 +24,26 @@ Content-Type: image/jpeg
 ... image ...
 ```
 
-**Path parameters**
+* **Path parameters**
 
-| Parameter |Required/Optional| Description |
-|-----------------|--------|-----------------------------|
-| receipt | required | Keyword specifying this is a receipt image. |
+  | Parameter |Required/Optional| Description |
+  |-----------------|--------|-----------------------------|
+  | `receipt` | required | Keyword specifying this is a receipt image. |
 
-**Headers**
+* **Headers**
 
-| Name | Description |
-| ---- | ----------- |
-| `Content-Type` | - `application/pdf` <br> - `image/jpg` <br> - `image/jpeg` <br> - `image/png` |
-| `Authorization` | Authorization header with OAuth token for valid Concur user. Required. |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Content-Type` | - `application/pdf` <br> - `image/jpg` <br> - `image/jpeg` <br> - `image/png` |
+  | `Authorization` | Authorization header with OAuth token for valid Concur user. Required. |
 
 <aside class="warning">
   <strong>NOTE:</strong> PDF images cannot be encrypted or password protected.
 </aside>
 
-**Content body**
+* **Content body**
 
-A [byte array](#imaging-web-service) containing the image data.
+  A [byte array](#imaging-web-service) containing the image data.
 
 #### Response
 
@@ -58,20 +58,17 @@ Content-Type: application/xml
 </Image>
 ```
 
-**Content Types**
+* **Content Types**
+  * application/xml
+* **Response body**
+  The response will contain an **Image** parent element, with the following child elements.
 
-* application/xml
+  * **`Image` elements**
 
-**Response body**
-
-The response will contain an **Image** parent element, with the following child elements.
-
-* **`Image` elements**
-
-  |  Element |  Description |
-  | -------- | ------------ |
-  |  Id |  The unique identifier of the image. |
-  |  Url |  The URL for the image. This element is empty when uploading images. |
+    |  Element |  Description |
+    | -------- | ------------ |
+    | `Id` | The unique identifier of the image. |
+    | `Url` | The URL for the image. This element is empty when uploading images. |
 
 
 ### Post Image to Entry
@@ -116,26 +113,25 @@ ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACo4J4bq3iuL
 ......
 ```
 
-**Path parameters**
+* **Path parameters**
 
-| Parameter |Required/Optional| Description |
-|-----------------|--------|-----------------------------|
-| expenseentry/{_entryID_} | required | Unique identifier for the entry and **expenseentry** keyword. |
+  | Parameter |Required/Optional| Description |
+  |-----------------|--------|-----------------------------|
+  | `expenseentry/{entryID}` | required | Unique identifier for the entry and `expenseentry` keyword. |
 
-**Headers**
+* **Headers**
 
-| Name | Description |
-| ---- | ----------- |
-| `Content-Type` | - `application/pdf` <br> - `image/jpg` <br> - `image/jpeg` <br> - `image/png` |
-| `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The Concur user that authenticates during the OAuth process for this request must either be the user associated with this image, or have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. <br><br> These administrative roles allow the user to manage data for the entire company. |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Content-Type` | - `application/pdf` <br> - `image/jpg` <br> - `image/jpeg` <br> - `image/png` |
+  | `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The Concur user that authenticates during the OAuth process for this request must either be the user associated with this image, or have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. <br><br> These administrative roles allow the user to manage data for the entire company. |
 
 <aside class="warning">
   <strong>NOTE:</strong> PDF images cannot be encrypted or password protected.
 </aside>
 
-**Content body**
-
-A [byte array](#imaging-web-service) containing the image data.
+* **Content body**
+  A [byte array](#imaging-web-service) containing the image data.
 
 #### Response
 
@@ -150,20 +146,17 @@ Content-Type: application/xml
 </Image>
 ```
 
-**Content types**
+* **Content types**
+  * application/xml
+* **Response body**
+  The response will contain an **Image** parent element, with the following child elements.
 
-* application/xml
+  * **`Image` elements**
 
-**Response body**
-
-The response will contain an **Image** parent element, with the following child elements.
-
-* **`Image` elements**
-
-  |  Element |  Description |
-  | -------- | ------------ |
-  |  Id |  The unique identifier of the image. |
-  |  Url |  The URL for the image. This element is empty when uploading images. |
+    |  Element |  Description |
+    | -------- | ------------ |
+    | `Id` | The unique identifier of the image. |
+    | `Url` | The URL for the image. This element is empty when uploading images. |
 
 
 ### Post Image to Payment Request
@@ -175,7 +168,9 @@ POST /api/image/v1.0/invoice/{requestId}
 
 Uploads an invoice image and associates it with the invoice that matches the supplied request ID. Each invoice is uniquely identified by the request ID value. Once an image is attached to the invoice, you cannot append additional images.
 
-**NOTE**: The Concur Invoice product is required to use this endpoint. Currently you must use the Invoice user interface to get the Request ID value.
+<aside class="notice">
+  <strong>NOTE:</strong> The Concur Invoice product is required to use this endpoint. Currently you must use the Invoice user interface to get the Request ID value.
+</aside>
 
 #### Request
 
@@ -188,26 +183,25 @@ Content-Type: image/jpeg
 ... image ...
 ```
 
-**Path parameters**
+* **Path parameters**
 
-| Parameter |Required/Optional| Description |
-|-----------------|--------|-----------------------------|
-| invoice/{_requestID_} | required | The identifier for the invoice and the invoice keyword.|
+  | Parameter |Required/Optional| Description |
+  |-----------------|--------|-----------------------------|
+  | `invoice/{requestID}` | required | The identifier for the invoice and the invoice keyword.|
 
-**Headers**
+* **Headers**
 
-| Name | Description |
-| ---- | ----------- |
-| `Content-Type` | - `application/pdf` <br> - `image/jpg` <br> - `image/jpeg` <br> - `image/png` |
-| `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The Concur user that authenticates during the OAuth process for this request must either be the user associated with this image, or have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. <br><br> These administrative roles allow the user to manage data for the entire company. |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Content-Type` | - `application/pdf` <br> - `image/jpg` <br> - `image/jpeg` <br> - `image/png` |
+  | `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The Concur user that authenticates during the OAuth process for this request must either be the user associated with this image, or have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. <br><br> These administrative roles allow the user to manage data for the entire company. |
 
 <aside class="warning">
   <strong>NOTE:</strong> PDF images cannot be encrypted or password protected.
 </aside>
 
-**Content body**
-
-A [byte array](#imaging-web-service) containing the image data.
+* **Content body**
+  A [byte array](#imaging-web-service) containing the image data.
 
 #### Response
 
@@ -222,20 +216,18 @@ Content-Type: application/xml
 </Image>
 ```
 
-**Content types**
+* **Content types**
+  * application/xml
 
-* application/xml
+* **Response body**
+  The response will contain an **`Image`** parent element, with the following child elements.
 
-**Response body**
+  * **`Image` elements**
 
-The response will contain an **Image** parent element, with the following child elements.
-
-* **`Image` elements**
-
-  |  Element |  Description |
-  | -------- | ------------ |
-  |  Id |  The unique identifier of the image. |
-  |  Url |  The URL for the image. This element is empty when uploading images. |
+    |  Element |  Description |
+    | -------- | ------------ |
+    | `Id` | The unique identifier of the image. |
+    | `Url` | The URL for the image. This element is empty when uploading images. |
 
 ### Post Image to Report
 
@@ -257,26 +249,25 @@ Content-Type: image/jpeg
 ... image ...
 ```
 
-**Path parameters**
+* **Path parameters**
 
-| Parameter |Required/Optional| Description |
-|-----------------|--------|-----------------------------|
-| report/{_reportID_} | required | The identifier for the report and the **report** keyword.
+  | Parameter |Required/Optional| Description |
+  |-----------------|--------|-----------------------------|
+  | `report/{reportID}` | required | The identifier for the report and the `report` keyword.
 
-**Headers**
+* **Headers**
 
-| Name | Description |
-| ---- | ----------- |
-| `Content-Type` | - `application/pdf` <br> - `image/jpg` <br> - `image/jpeg` <br> - `image/png` |
-| `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The Concur user that authenticates during the OAuth process for this request must either be the user associated with this image, or have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. <br><br> These administrative roles allow the user to manage data for the entire company. |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Content-Type` | - `application/pdf` <br> - `image/jpg` <br> - `image/jpeg` <br> - `image/png` |
+  | `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The Concur user that authenticates during the OAuth process for this request must either be the user associated with this image, or have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. <br><br> These administrative roles allow the user to manage data for the entire company. |
 
 <aside class="warning">
   <strong>NOTE:</strong> PDF images cannot be encrypted or password protected.
 </aside>
 
-**Content body**
-
-A [byte array](#imaging-web-service) containing the image data.
+* **Content body**
+  A [byte array](#imaging-web-service) containing the image data.
 
 #### Response
 
@@ -291,17 +282,15 @@ Content-Type: application/xml
 </Image>
 ```
 
-**Content types**
+* **Content types**
+  * application/xml
 
-* application/xml
+* **Response body**
+  The response will contain an **Image** parent element, with the following child elements.
 
-**Response body**
+  * **`Image` elements**
 
-The response will contain an **Image** parent element, with the following child elements.
-
-* **`Image` elements**
-
-  |  Element |  Description |
-  | -------- | ------------ |
-  |  Id |  The unique identifier of the image. |
-  |  Url |  The URL for the image. This element is empty when uploading images. |
+    |  Element |  Description |
+    | -------- | ------------ |
+    | `Id` | The unique identifier of the image. |
+    | `Url` | The URL for the image. This element is empty when uploading images. |

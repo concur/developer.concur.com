@@ -7,7 +7,9 @@ Host: www.concursolutions.com
 
 Retrieves the expense entry attendees for the specified expense entry. This function requires the v2.0 expense entry attendee resource.
 
-**NOTE:** Find the newer version 3.0 [here.](/api-reference/expense/expense-report/expense-entry-attendee.html#get)
+<aside class="notice">
+  <strong>NOTE:</strong> Find the newer version 3.0 <a href="/api-reference/expense/expense-report/expense-entry-attendee.html#get">here.</a>
+</aside>
 
 #### Request
 
@@ -21,8 +23,8 @@ Authorization: OAuth {access token}
 
   | Parameter |Required/Optional| Description |
   |-----------------|--------|-----------------------------|
-  | {reportId} | required | The unique identifier for the expense report. This value is returned in the `ReportID` element by the Get Report Details function. |
-  | {entryId}/attendees | required | The unique identifier for the expense entry and the Attendees keyword. This value is returned in the `ReportEntryID` element by the Get Report Details function. |
+  | `{reportId}` | required | The unique identifier for the expense report. This value is returned in the `ReportID` element by the [Get Report Details](#get-report-details) function. |
+  | `{entryId}/attendees` | required | The unique identifier for the expense entry and the `attendees` keyword. This value is returned in the `ReportEntryID` element by the [Get Report Details](#get-report-details) function. |
 
 * **Headers**
 
@@ -39,20 +41,20 @@ Authorization: OAuth {access token}
 
 * **Response body**
 
-  This request will return an **Attendees** parent element with an **Attendee** child element for each attendee. The **Attendee** element will have the following child elements.
+  This request will return an **`Attendees`** parent element with an **`Attendee`** child element for each attendee. The **`Attendee`** element will have the following child elements.
 
   * **`Attendee` elements**
 
     |       Element Name      | Data Type | Description |
     | ----------------------- | --------- | ----------- |
-    | Amount                   | decimal   | The portion of the Entry Transaction Amount assigned to this attendee.|
-    | AssociatedAttendeeCount  | int       | The count of attendees associated to this attendee. A count greater than 1 means there are unnamed attendees associated with this attendee.            |
-    | AttendeeID               | string    | The unique identifier for the attendee.|
-    | EntryAttendeeCustom1     | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
-    | EntryAttendeeCustom2  | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
-    | EntryAttendeeCustom3  | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
-    | EntryAttendeeCustom4   | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
-    | EntryAttendeeCustom5   | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
+    | `Amount`                   | decimal   | The portion of the Entry Transaction Amount assigned to this attendee.|
+    | `AssociatedAttendeeCount`  | int       | The count of attendees associated to this attendee. A count greater than 1 means there are unnamed attendees associated with this attendee.            |
+    | `AttendeeID`               | string    | The unique identifier for the attendee.|
+    | `EntryAttendeeCustom1`     | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
+    | `EntryAttendeeCustom2`  | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
+    | `EntryAttendeeCustom3`  | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
+    | `EntryAttendeeCustom4`   | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
+    | `EntryAttendeeCustom5`   | string    | The value for Entry-Attendee custom fields 1-5. Varies based on configuration.|
 
 > XML example response
 

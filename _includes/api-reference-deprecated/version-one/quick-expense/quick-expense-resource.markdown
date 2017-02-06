@@ -1,4 +1,4 @@
-# Quick Expense Resource
+# Quick Expense
 
 ## Overview
 
@@ -14,7 +14,9 @@ A basic expense with minimal fields. Can be added to expense reports from within
 * **Expense** for Concur Professional/Premium
 * **Expense** for Concur Standard
 
-For v3.0 documentation, go [here](/api-reference/expense/quick-expense/index.html).
+<aside class="notice">
+  For v3.0 documentation, go <a href="/api-reference/expense/quick-expense/index.html">here</a>.
+</aside>
 
 **Headers**
 

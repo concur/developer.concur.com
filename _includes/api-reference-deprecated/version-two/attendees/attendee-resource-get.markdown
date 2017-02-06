@@ -13,13 +13,13 @@ Retrieves the attendees matching the specified search criteria. Developers can s
 
   | Parameter |Required/Optional| Description |
   |-----------------|--------|-----------------------------|
-  |attendeeID  | optional  |The unique identifier for the attendee in Concur. This information is returned in the **AttendeeID** element of the response of the [Get Report Details][1] function.|
+  | `attendeeID` | optional | The unique identifier for the attendee in Concur. This information is returned in the **AttendeeID** element of the response of the [Get Report Details](#get-report-details) function.|
 
 * **Query parameters**
 
   | Parameter |Required/Optional| Description |
   |-----------------|--------|-----------------------------|
-  | externalid  | optional |The unique identifier for the attendee outside of Concur. This information is returned in the **ExternalID** element of the response of the [Get Report Details][1] function. Up to 10 external IDs can be supplied in a comma separated list.|
+  | `externalid` | optional | The unique identifier for the attendee outside of Concur. This information is returned in the **ExternalID** element of the response of the [Get Report Details](#get-report-details) function. Up to 10 external IDs can be supplied in a comma separated list.|
 
 > Example Query Parameter usage
 
@@ -111,31 +111,29 @@ Content-Type: application/xml
 
     | Element | Description |
     |-----------------------|-------------------------------------|
-    |AttendeeType |  The type of attendee. Maximum 40 characters.|
-    |FirstName |  The attendee's first name. Maximum 50 characters.|
-    |LastName |  The attendee's last name. Maximum 132 characters.|
-    |Company |  The attendee's company name. Maximum 150 characters.|
-    |Title |  The attendee's title. Maximum 32 characters.|
-    |ExternalID |  The unique identifier for the attendee, managed outside Concur. Maximum 48 characters.|
-    |Custom1 through Custom20 |  The details from the Custom fields. These may not have data, depending on configuration. For information about the child elements of this parent element, see the **`Custom` child elements** table below. |
-    |  HasExceptionsPrevYear |  Whether the attendee has exceptions in the previous year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
-    |  HasExceptionsYTD |  Whether the attendee has exceptions in the current year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
-    |  IsDeleted |  Whether the attendee is marked as deleted. Maximum 1 character. Format: Y/N |
-    |  OwnerEmpName |  The name of the employee that owns the attendee record. |
-    |  TotalAmountPrevYear |  The total amount spent on the attendee in the previous calendar year. |
-    |  TotalAmountYTD |  The total amount spent on the attendee in the current calendar year. |
-    |  VersionNumber |  The attendee's version number. |
-    |  AttendeeID |  Attendee unique identifier within Concur. |
-    |  AttendeeTypeCode |  The unique identifier for the attendee type. |
-    |  AttendeeOwnerID |  The unique identifier for the person or system that owns the attendee. |
-    |  CurrencyCode |  The [3-letter ISO 4217 currency code](http://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for attendee related amounts. |
+    | `AttendeeType` |  The type of attendee. Maximum 40 characters.|
+    | `FirstName` |  The attendee's first name. Maximum 50 characters.|
+    | `LastName` |  The attendee's last name. Maximum 132 characters.|
+    | `Company` |  The attendee's company name. Maximum 150 characters.|
+    | `Title` |  The attendee's title. Maximum 32 characters.|
+    | `ExternalID` |  The unique identifier for the attendee, managed outside Concur. Maximum 48 characters.|
+    | `Custom1` through `Custom20` |  The details from the Custom fields. These may not have data, depending on configuration. For information about the child elements of this parent element, see the **`Custom` child elements** table below. |
+    | `HasExceptionsPrevYear` |  Whether the attendee has exceptions in the previous year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
+    | `HasExceptionsYTD` |  Whether the attendee has exceptions in the current year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
+    | `IsDeleted` |  Whether the attendee is marked as deleted. Maximum 1 character. Format: Y/N |
+    | `OwnerEmpName` |  The name of the employee that owns the attendee record. |
+    | `TotalAmountPrevYear` |  The total amount spent on the attendee in the previous calendar year. |
+    | `TotalAmountYTD` |  The total amount spent on the attendee in the current calendar year. |
+    | `VersionNumber` |  The attendee's version number. |
+    | `AttendeeID` |  Attendee unique identifier within Concur. |
+    | `AttendeeTypeCode` |  The unique identifier for the attendee type. |
+    | `AttendeeOwnerID` |  The unique identifier for the person or system that owns the attendee. |
+    | `CurrencyCode` |  The [3-letter ISO 4217 currency code](http://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for attendee related amounts. |
 
   * **`Custom` elements**
 
     | Element | Description |
     |-----------------------|-------------------------------------|
-    | Type | The custom field type. Will be one of the following: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text.  |
-    |Value |  The value in the custom field. Maximum 100 characters.  |
-    | Code |  Custom list fields will include the list item code in this element.  |
-
-[1]: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html
+    | `Type` | The custom field type. Will be one of the following: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text.  |
+    | `Value` | The value in the custom field. Maximum 100 characters.  |
+    | `Code` | Custom list fields will include the list item code in this element.  |

@@ -18,16 +18,16 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 
 ### Resources
 
-[Attendee][3]
+[Attendee](#attendee)
 
-[Attendee List][4]
+[Attendee List](/api-reference-deprecated/v1.html#attendee-list)
 
-[Attendee Type][5]
+[Attendee Type](/api-reference-deprecated/v1.html#attendee-type)
 
 
 ### Responses and Errors
 
-Refer to the [HTTP Codes][6] page for details of the common responses and errors.
+Refer to the [HTTP Codes](/tools-support/reference/http-codes.html) page for details of the common responses and errors.
 
 
 #### Attendee List Errors
@@ -69,10 +69,3 @@ When there are errors with batch items, the first ten errors are returned in the
 |  1303 |  Unexpected error getting attendee type list |
 |  1304 |  Unexpected error processing batch request. |
 |  1305 |  Cannot update the attendee data for a non existing attendee. |
-
-
-
-[3]: /api-reference-deprecated/version-two/attendees/attendee-resource.html
-[4]: /api-reference-deprecated/version-one/attendees/attendee-list-resource.html
-[5]: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html
-[6]: /tools-support/reference/http-codes.html

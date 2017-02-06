@@ -32,25 +32,23 @@ Gets the travel profile information for the specified user. The travel profile i
 
 #### Request
 
-**Parameters**
+* **Parameters**
 
-All request paramenters are optional. To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters:
+  All request parameters are optional. To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters:
 
-|  Parameter Name |  Parameter Type |  Data Type |  Description |
-| :----- | :----- | :----- |:-----|
-|  userid_type |  Path |  String |  The type of user identification to use. Possible values are: **login** and **xmlsyncid** |
-|  userid_value |  Path |  String |  The user's login ID or XMLSync ID, depending on which user type is selected. This parameter must be provided in conjunction with the **userid_type** parameter. |
+  |  Parameter Name |  Parameter Type |  Data Type |  Description |
+  | :----- | :----- | :----- |:-----|
+  |  `userid_type` |  Path |  String |  The type of user identification to use. Possible values are: **login** and **xmlsyncid** |
+  |  `userid_value` |  Path |  String |  The user's login ID or XMLSync ID, depending on which user type is selected. This parameter must be provided in conjunction with the `userid_type` parameter. |
 
-**Headers**
+* **Headers**
 
-| Name | Description |
-| ---- | ----------- |
-| `Authorization` | `Authorization: OAuth {access_token}` |
-| `Content-Type` | `application/xml` |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Authorization` | `Authorization: OAuth {access_token}` <br><br> Where `{access_token}` is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. |
+  | `Content-Type` | `application/xml` |
 
-Where *access_token* is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
-
-**Data model**
+* **Data model**
 
 The data model of the response for the GET operation.
 
@@ -196,19 +194,19 @@ The ProfileResponse root element contains the General, Telephones, Addresses, Dr
 
   |  Element Name |  Data Type |  Description |
   | :----- | :----- | :----- |
-  |  NamePrefix |  String |  The user's name prefix. Format: Varchar(60) |
-  |  FirstName |  String |  The user's first name. Format: Varchar(32) |
-  |  MiddleName |  String |  The user's middle name. Format: Varchar(32) |
-  |  LastName |  String |  The user's last name. Format: Varchar(32) |
-  |  NameSuffix |  String |  The user's name suffix. Format: Varchar(60) |
-  |  PreferredName |  String |  The user's preferred name. Format: Varchar(60) |
-  |  JobTitle |  String |  The user's job title. Format: Nvarchar(255) |
-  |  PreferredLanguage |  String |  The user's preferred language locale. Example: United States English is en-US. Format: Varchar(20) |
-  |  EReceiptOptIn |  String |  Whether the user has opted in to receive e-receipts. Format: **True**\|**False** |
-  |  MarketingOptIn |  String |  Whether the user has opted in to receive marketing information. Format: **True**\|**False** |
-  |  HasOpenBooking |  Boolean |  Whether the user has the TripLink User (formerly Open Booking User) permission. Format: **true**\|**false** |
-  |  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2){:target="_blank"} specification. Format: Char(2) |
-  |  CompanyName |  String |  The user's company name. |
+  |  `NamePrefix` |  String |  The user's name prefix. Format: Varchar(60) |
+  |  `FirstName` |  String |  The user's first name. Format: Varchar(32) |
+  |  `MiddleName` |  String |  The user's middle name. Format: Varchar(32) |
+  |  `LastName` |  String |  The user's last name. Format: Varchar(32) |
+  |  `NameSuffix` |  String |  The user's name suffix. Format: Varchar(60) |
+  |  `PreferredName` |  String |  The user's preferred name. Format: Varchar(60) |
+  |  `JobTitle` |  String |  The user's job title. Format: Nvarchar(255) |
+  |  `PreferredLanguage` |  String |  The user's preferred language locale. Example: United States English is en-US. Format: Varchar(20) |
+  |  `EReceiptOptIn` |  String |  Whether the user has opted in to receive e-receipts. Format: **True**\|**False** |
+  |  `MarketingOptIn` |  String |  Whether the user has opted in to receive marketing information. Format: **True**\|**False** |
+  |  `HasOpenBooking` |  Boolean |  Whether the user has the TripLink User (formerly Open Booking User) permission. Format: **true**\|**false** |
+  |  `CountryCode` |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2){:target="_blank"} specification. Format: Char(2) |
+  |  `CompanyName` |  String |  The user's company name. |
 
 * **`Telephones` elements**
 
@@ -216,10 +214,10 @@ The ProfileResponse root element contains the General, Telephones, Addresses, Dr
 
   |  Element Name |  Data Type |  Description |
   | :----- | :----- | :----- |
-  |  ContactOptIn |  String |  Whether the user has opted in to being contacted on this phone. Only appears when the phone type is Cell or Primary Mobile Phone. Format: **True**\|**False** |
-  |  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2){:target="_blank"} specification. Format: Char(2) |
-  |  PhoneNumber |  String | The phone number as entered by the user, which may contain characters such as () or -. Format: Char(60) <br> **NOTE**: The user phone number may sometimes be incorrectly parsed if there are data input issues.|
-  |  Extension |  String |  The phone extension. Format: Varchar(60) |
+  |  `ContactOptIn` |  String |  Whether the user has opted in to being contacted on this phone. Only appears when the phone type is Cell or Primary Mobile Phone. Format: **True**\|**False** |
+  |  `CountryCode` |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2){:target="_blank"} specification. Format: Char(2) |
+  |  `PhoneNumber` |  String | The phone number as entered by the user, which may contain characters such as () or -. Format: Char(60) <br> **NOTE**: The user phone number may sometimes be incorrectly parsed if there are data input issues.|
+  |  `Extension` |  String |  The phone extension. Format: Varchar(60) |
 
 * **`Addresses` elements**
 
@@ -229,17 +227,17 @@ The ProfileResponse root element contains the General, Telephones, Addresses, Dr
 
   |  Element Name |  Data Type |  Description |
   | :----- | :----- | :----- |
-  |  AttentionLine |  String |  Attention Line in the address. Format: Nvarchar(Unlimited) |
-  |  Line1 |  String |  Address line 1. Format: Nvarchar(Unlimited) |
-  |  Line2 |  String |  Address line 2. Format: Nvarchar(Unlimited) |
-  |  Line3 |  String |  Address line 3. Format: Nvarchar(Unlimited) |
-  |  MailStop |  String |  Address mail stop. Format: Nvarchar(Unlimited) |
-  |  City |  String |  The city name. Format: Nvarchar(Unlimited) |
-  |  StateProvince |  String |  The state or province. Format: Nvarchar(Unlimited) |
-  |  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2){:target="_blank"} specification. Format: Char(2)|
-  |  ZipCode |  String |  The zip code. Format: Varchar(20) |
-  |  Longitude |  String |  Longitude value of Work Address. |
-  |  Latitude |  String |  Latitude value of Work Address. |
+  |  `AttentionLine` |  String |  Attention Line in the address. Format: Nvarchar(Unlimited) |
+  |  `Line1` |  String |  Address line 1. Format: Nvarchar(Unlimited) |
+  |  `Line2` |  String |  Address line 2. Format: Nvarchar(Unlimited) |
+  |  `Line3` |  String |  Address line 3. Format: Nvarchar(Unlimited) |
+  |  `MailStop` |  String |  Address mail stop. Format: Nvarchar(Unlimited) |
+  |  `City` |  String |  The city name. Format: Nvarchar(Unlimited) |
+  |  `StateProvince` |  String |  The state or province. Format: Nvarchar(Unlimited) |
+  |  `CountryCode` |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2){:target="_blank"} specification. Format: Char(2)|
+  |  `ZipCode` |  String |  The zip code. Format: Varchar(20) |
+  |  `Longitude` |  String |  Longitude value of Work Address. |
+  |  `Latitude` |  String |  Latitude value of Work Address. |
 
 * **`DriversLicenses` elements**
 
@@ -247,10 +245,10 @@ The ProfileResponse root element contains the General, Telephones, Addresses, Dr
 
   |  Element Name |  Data Type |  Description |
   | :----- | :----- | :----- |
-  |  DriversLicenseNumber |  String |  The user's driver license identification number. Format: Varchar(30) |
-  |  IssuingCountry |  String |  The country the license was issued in. Format: Char(2) |
-  |  IssuingState |  String |  The state the license was issued in. Format: Varchar(2) |
-  |  Expiration |  String |  The expiration date of the license. Format: YYYY-MM-DD |
+  |  `DriversLicenseNumber` |  String |  The user's driver license identification number. Format: Varchar(30) |
+  |  `IssuingCountry` |  String |  The country the license was issued in. Format: Char(2) |
+  |  `IssuingState` |  String |  The state the license was issued in. Format: Varchar(2) |
+  |  `Expiration` |  String |  The expiration date of the license. Format: YYYY-MM-DD |
 
 * **`EmailAddresses` elements**
 
@@ -258,17 +256,17 @@ The ProfileResponse root element contains the General, Telephones, Addresses, Dr
 
   |  Element Name |  Data Type |  Description |
   | :----- | :----- | :----- |
-  |  EmailAddress |  String | The the user's email address. The EmailAddress element has two attributes: Type and Contact. The Type attribute specifies the type of email address and the possible values are: **Business**, **Business2**, **Personal**. The Contact attribute specifies whether the email address should be used for travel notifications and the possible values are **True** or **False**. Format: Varchar(255)|
+  |  `EmailAddress` |  String | The the user's email address. The EmailAddress element has two attributes: Type and Contact. The Type attribute specifies the type of email address and the possible values are: **Business**, **Business2**, **Personal**. The Contact attribute specifies whether the email address should be used for travel notifications and the possible values are **True** or **False**. Format: Varchar(255)|
 
 * **`RatePreferences` elements**
   The RatePreferences parent element contains the following child element:
 
   |  Element Name |  Data Type |  Description |
   | :----- | :----- | :----- |
-  |  AAARate |  Boolean |  Whether the user is eligible for the AAA rate. Format: **true**\|**false** |
-  |  AARPRate |  Boolean |  Whether the user is eligible for the AARP rate. Format: **true**\|**false** |
-  |  GovtRate |  Boolean |  Whether the user is eligible for the Government rate. Format: **true**\|**false** |
-  |  MilitaryRate |  Boolean |  Whether the user is eligible for the Military rate. Format: **true**\|**false** |
+  |  `AAARate` |  Boolean |  Whether the user is eligible for the AAA rate. Format: **true**\|**false** |
+  |  `AARPRate` |  Boolean |  Whether the user is eligible for the AARP rate. Format: **true**\|**false** |
+  |  `GovtRate` |  Boolean |  Whether the user is eligible for the Government rate. Format: **true**\|**false** |
+  |  `MilitaryRate` |  Boolean |  Whether the user is eligible for the Military rate. Format: **true**\|**false** |
 
 * **`DiscountCodes` elements**
 
@@ -276,7 +274,7 @@ The ProfileResponse root element contains the General, Telephones, Addresses, Dr
 
   |  Element Name |  Data Type |  Description |
   | :----- | :----- | :----- |
-  |  DiscountCode |  String | The discount code for the specified vendor.The DiscountCode element has a Vendor attribute that specifies the name of the vendor for the discount code.|
+  |  `DiscountCode` |  String | The discount code for the specified vendor.The DiscountCode element has a Vendor attribute that specifies the name of the vendor for the discount code.|
 
 * **`Air` elements**
 
@@ -284,35 +282,35 @@ The ProfileResponse root element contains the General, Telephones, Addresses, Dr
 
   |  Element Name |  Data Type |  Description |
   | :----- | :----- | :----- |
-  |  AirSmokingCode |  String |  Whether the user wants a flight with smoking allowed. Legacy. Format: **S**, **N**, **D**. |
-  |  AirMemberships | Membership   | The AirMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains an AirMembership child element for each included membership and includes the following child elements: |
-  |  Seat |    | This parent element contains the user's Car travel preferences. The **Car** element contains the following child elements: |
-  |  Meals |    | This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are: <br> AVML = Vegetarian Hindu Meal <br> BBML = Baby Meal  <br> BLML = Bland Meal  <br> CHML = Child Meal  <br> DBML = Diabetic Meal  <br> FPML = Fruit Platter  <br> GFML = Gluten Intolerant Meal  <br> HNML = Hindu Meal  <br> KSML = Kosher Meal  <br> LCML = Low Calorie Meal  <br> LFML = Low Fat Meal  <br> LSML = Low Salt Meal  <br> MOML = Muslim Meal  <br> NLML = Low Lactose Meal  <br> NSML = No Salt Meal  <br> PFML = Peanut Free Meal  <br> SFML = Seafood Meal  <br> SPML = Special Request Meal <br>  VGML = Vegetarian  <br> RVML = Vegetarian Raw Vegan Meal  <br> VLML = Vegetarian Lacto-Ovo  <br> VJML = Vegetarian Jain Meal  <br> VOML = Vegetarian Oriental Meal <br> <br> **Note**: Regular Meal will not return a value for this preference. |
-  |  HomeAirport |  String |  The user's home airport |
-  |  DHSRedressNumber |  String |  TSA Redress Number |
-  |  DHSKnownTravelerNumber |  String |  TSA Known Traveler Number |
-  |  AirOther |  String |  Other Air related description |
+  |  `AirSmokingCode` |  String |  Whether the user wants a flight with smoking allowed. Legacy. Format: **S**, **N**, **D**. |
+  |  `AirMemberships` | Membership   | The AirMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains an AirMembership child element for each included membership and includes the following child elements: |
+  |  `Seat` |    | This parent element contains the user's Car travel preferences. The **Car** element contains the following child elements: |
+  |  `Meals` |    | This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are: <br> AVML = Vegetarian Hindu Meal <br> BBML = Baby Meal  <br> BLML = Bland Meal  <br> CHML = Child Meal  <br> DBML = Diabetic Meal  <br> FPML = Fruit Platter  <br> GFML = Gluten Intolerant Meal  <br> HNML = Hindu Meal  <br> KSML = Kosher Meal  <br> LCML = Low Calorie Meal  <br> LFML = Low Fat Meal  <br> LSML = Low Salt Meal  <br> MOML = Muslim Meal  <br> NLML = Low Lactose Meal  <br> NSML = No Salt Meal  <br> PFML = Peanut Free Meal  <br> SFML = Seafood Meal  <br> SPML = Special Request Meal <br>  VGML = Vegetarian  <br> RVML = Vegetarian Raw Vegan Meal  <br> VLML = Vegetarian Lacto-Ovo  <br> VJML = Vegetarian Jain Meal  <br> VOML = Vegetarian Oriental Meal <br> <br> **Note**: Regular Meal will not return a value for this preference. |
+  |  `HomeAirport` |  String |  The user's home airport |
+  |  `DHSRedressNumber` |  String |  TSA Redress Number |
+  |  `DHSKnownTravelerNumber` |  String |  TSA Known Traveler Number |
+  |  `AirOther` |  String |  Other Air related description |
 
   * **`AirMemberships` elements**
 
     |  Element Name |  Data Type |  Description |
     | :----- | :----- | :----- |
-    |  VendorCode |  String |  The code for the vendor that manages the loyalty program.|
-    |  AccountNo |  String |  The user's account identifier in the loyalty program. |
-    |  Status |  String |  Name of the user's current level in the loyalty program. |
-    |  StatusBenefits |  String |  Description of a benefit of the loyalty program at the current status. |
-    |  PointTotal |  String |  The user's total number of points in the loyalty program. |
-    |  SegmentTotal |  String |  The user's total segments in the loyalty program. |
-    |  NextStatus |  String |  Name or description of next higher status level in the  loyalty program. |
-    |  PointsUntilNextStatus |  String |  Loyalty points required to next status level. |
-    |  SegmentsUntilNextStatus |  String |  Booking segment to next status level. |
+    |  `VendorCode` |  String |  The code for the vendor that manages the loyalty program.|
+    |  `AccountNo` |  String |  The user's account identifier in the loyalty program. |
+    |  `Status` |  String |  Name of the user's current level in the loyalty program. |
+    |  `StatusBenefits` |  String |  Description of a benefit of the loyalty program at the current status. |
+    |  `PointTotal` |  String |  The user's total number of points in the loyalty program. |
+    |  `SegmentTotal` |  String |  The user's total segments in the loyalty program. |
+    |  `NextStatus` |  String |  Name or description of next higher status level in the  loyalty program. |
+    |  `PointsUntilNextStatus` |  String |  Loyalty points required to next status level. |
+    |  `SegmentsUntilNextStatus` |  String |  Booking segment to next status level. |
 
   * **`Seat` elements**
 
     |  Element Name |  Data Type |  Description |
     | :----- | :----- | :----- |
-    |  InterRowPositionCode |  String |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **Isolated**, **DontCare**. |
-    |  SectionPositionCode |  String |  Preference for position in plane. Format: **F**, **B**, **R**, **D**. |
+    |  `InterRowPositionCode` |  String |  Preferred position in an airplane row. Format: **Window**, **Aisle**, **Middle**, **Isolated**, **DontCare**. |
+    |  `SectionPositionCode` |  String |  Preference for position in plane. Format: **F**, **B**, **R**, **D**. |
 
 * **`Car` elements**
 
@@ -320,26 +318,26 @@ The ProfileResponse root element contains the General, Telephones, Addresses, Dr
 
   |  Element Name |  Data Type |  Description |
   | :----- | :----- | :----- |
-  |  CarSmokingCode |  String |  Smoking car preferred. Format: **S**, **N**, **O** |
-  |  CarGPS |  String |  Car GPS preference. Format: **True**\|**False**. |
-  |  CarOption |  String |  Car option preference. Format: Char(3) |
-  |  CarMemberships | Membership   | The CarMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains a CarMembership child element for each included membership. The CarMembership element has the following child elements: |
-  |  CarOther |  String |  Other Car related description. Format: Char(30) |
-  |  CarSkiRack |  String |  Car ski rack preference. Format: **True**\|**False**. |
+  |  `CarSmokingCode` |  String |  Smoking car preferred. Format: **S**, **N**, **O** |
+  |  `CarGPS` |  String |  Car GPS preference. Format: **True**\|**False**. |
+  |  `CarOption` |  String |  Car option preference. Format: Char(3) |
+  |  `CarMemberships` | Membership   | The CarMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains a CarMembership child element for each included membership. The CarMembership element has the following child elements: |
+  |  `CarOther` |  String |  Other Car related description. Format: Char(30) |
+  |  `CarSkiRack` |  String |  Car ski rack preference. Format: **True**\|**False**. |
 
   * **`CarMemberships` elements**
 
     |  Element Name |  Data Type |  Description |
     | :----- | :----- | :----- |
-    |  VendorCode |  String |  The code for the vendor that manages the loyalty program. |   | | |
-    |  AccountNo |  String |  The user's account identifier in the loyalty program. |
-    |  Status |  String |  Name of the user's current level in the loyalty program. |
-    |  StatusBenefits |  String |  Description of a benefit of the loyalty program at the current status.  |
-    |  PointTotal |  String |  The user's total number of points in the loyalty program. |
-    |  SegmentTotal |  String |  The user's total segments in the loyalty program. |
-    |  NextStatus |  String |  Name or description of next higher status level in the  loyalty program. |
-    |  PointsUntilNextStatus |  String |  Loyalty points required to next status level. |
-    |  SegmentsUntilNextStatus |  String |  Booking segment to next status level. |
+    |  `VendorCode` |  String |  The code for the vendor that manages the loyalty program. |   | | |
+    |  `AccountNo` |  String |  The user's account identifier in the loyalty program. |
+    |  `Status` |  String |  Name of the user's current level in the loyalty program. |
+    |  `StatusBenefits` |  String |  Description of a benefit of the loyalty program at the current status.  |
+    |  `PointTotal` |  String |  The user's total number of points in the loyalty program. |
+    |  `SegmentTotal` |  String |  The user's total segments in the loyalty program. |
+    |  `NextStatus` |  String |  Name or description of next higher status level in the  loyalty program. |
+    |  `PointsUntilNextStatus` |  String |  Loyalty points required to next status level. |
+    |  `SegmentsUntilNextStatus` |  String |  Booking segment to next status level. |
 
 * **`Hotel` elements**
 
@@ -347,34 +345,34 @@ The ProfileResponse root element contains the General, Telephones, Addresses, Dr
 
   |  Element Name |  Data Type |  Description |
   | :----- | :----- | :----- |
-  |  SmokingCode |  String |  Smoking room preference. Format: **S**, **N**,**D** |
-  |  HotelMemberships |    | This parent element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains a HotelMembership child element for each included membership. The HotelMembership element has the following child elements: |
-  |  RoomType |  String |  Hotel room preference. Values are: H, 2, K, Q, 1, T |
-  |  HotelOther |  String |  Other Hotel related description. Format: Varchar(30) |
-  |  PreferFoamPillows |  String |  Whether the user prefers foam pillows. Format: **True**\|**False**. |
-  |  PreferCrib |  String |  Whether the user prefers to have a crib. Format:**True**\|**False**. |
-  |  PreferRollawayBed |  String |  Whether the user prefers to have a rollaway bed. Format:**True**\|**False**. |
-  |  PreferGym |  String |  Whether the user prefers a hotel with a gym. Format:**True**\|**False**. |
-  |  preferPool |  String |  Whether the user prefers a hotel with a pool. Format:**True**\|**False**. |
-  |  preferRestaraunt |  String |  Whether the user prefers a hotel with a restaurant. Format:**True**\|**False**. |
-  |  preferWheelchairAccess |  String |  Whether the user requires wheelchair access. Format: **True**\|**False**. |
-  |  preferAccessForBlind |  String |  Whether the user requires a room with access for blind guests. Format:**True**\|**False**. |
-  |  preferRoomService |  String |  Whether the user prefers a hotel with room service. Format:**True**\|**False**. |
-  |  preferEarlyCheckIn |  String |  Whether the user prefers a hotel with early check in. Format:**True**\|**False**. |
+  |  `SmokingCode` |  String |  Smoking room preference. Format: **S**, **N**,**D** |
+  |  `HotelMemberships` |    | This parent element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains a HotelMembership child element for each included membership. The HotelMembership element has the following child elements: |
+  |  `RoomType` |  String |  Hotel room preference. Values are: H, 2, K, Q, 1, T |
+  |  `HotelOther` |  String |  Other Hotel related description. Format: Varchar(30) |
+  |  `PreferFoamPillows` |  String |  Whether the user prefers foam pillows. Format: **True**\|**False**. |
+  |  `PreferCrib` |  String |  Whether the user prefers to have a crib. Format:**True**\|**False**. |
+  |  `PreferRollawayBed` |  String |  Whether the user prefers to have a rollaway bed. Format:**True**\|**False**. |
+  |  `PreferGym` |  String |  Whether the user prefers a hotel with a gym. Format:**True**\|**False**. |
+  |  `preferPool` |  String |  Whether the user prefers a hotel with a pool. Format:**True**\|**False**. |
+  |  `preferRestaraunt` |  String |  Whether the user prefers a hotel with a restaurant. Format:**True**\|**False**. |
+  |  `preferWheelchairAccess` |  String |  Whether the user requires wheelchair access. Format: **True**\|**False**. |
+  |  `preferAccessForBlind` |  String |  Whether the user requires a room with access for blind guests. Format:**True**\|**False**. |
+  |  `preferRoomService` |  String |  Whether the user prefers a hotel with room service. Format:**True**\|**False**. |
+  |  `preferEarlyCheckIn` |  String |  Whether the user prefers a hotel with early check in. Format:**True**\|**False**. |
 
   * **`HotelMemberships` elements**
 
     |  Element Name |  Data Type |  Description |
     | :----- | :----- | :----- |
-    |  VendorCode |  String |  The code for the vendor that manages the loyalty program. |   | | |
-    |  AccountNo |  String |  The user's account identifier in the loyalty program. |
-    |  Status |  String |  Name of the user's current level in the loyalty program. |
-    |  StatusBenefits |  String |  Description of a benefit of the loyalty program at the current status. |
-    |  PointTotal |  String |  The user's total number of points in the loyalty program. |
-    |  SegmentTotal |  String |  The user's total segments in the loyalty program. |
-    |  NextStatus |  String |  Name or description of next higher status level in the  loyalty program. |
-    |  PointsUntilNextStatus |  String |  Loyalty points required to next status level. |
-    |  SegmentsUntilNextStatus |  String |  Booking segment to next status level. |
+    |  `VendorCode` |  String |  The code for the vendor that manages the loyalty program. |   | | |
+    |  `AccountNo` |  String |  The user's account identifier in the loyalty program. |
+    |  `Status` |  String |  Name of the user's current level in the loyalty program. |
+    |  `StatusBenefits` |  String |  Description of a benefit of the loyalty program at the current status. |
+    |  `PointTotal` |  String |  The user's total number of points in the loyalty program. |
+    |  `SegmentTotal` |  String |  The user's total segments in the loyalty program. |
+    |  `NextStatus` |  String |  Name or description of next higher status level in the  loyalty program. |
+    |  `PointsUntilNextStatus` |  String |  Loyalty points required to next status level. |
+    |  `SegmentsUntilNextStatus` |  String |  Booking segment to next status level. |
 
 * **`CustomFields` elements**
   The CustomFields parent element contains child elements that specify custom fields in a travel profile. It contains a CustomField child element for each custom field. To retrieve this information, the **Travel Profile**, **Custom Fields** scope must be selected in the **Register Partner Application** page under **Web Services**.
@@ -384,8 +382,8 @@ The ProfileResponse root element contains the General, Telephones, Addresses, Dr
 
   |  Element Name |  Data Type |  Description |
   | :----- | :----- | :----- |
-  |  Name |  String |  The name of the custom field. For example, Employee, Cost Centre, Fund, PassportNumber, Visa, and Assistants. |
-  |  Value |  String |  The value of the custom field. If the value is null, the Value child element is omitted. |
+  |  `Name` |  String |  The name of the custom field. For example, Employee, Cost Centre, Fund, PassportNumber, Visa, and Assistants. |
+  |  `Value` |  String |  The value of the custom field. If the value is null, the Value child element is omitted. |
 
 
 ####  Examples for Travel Suppliers
@@ -820,24 +818,22 @@ GET {InstanceURI}/api/travelprofile/v1.0/profile?LastModifiedDate=2015-01-01T01:
 Authorization: OAuth {access token}
 ```
 
-**Request parameters**
+* **Request parameters**
 
-All request paramenters are optional. To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters.
+  All request parameters are optional. To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters.
 
-|  Parameter Name |  Required/Optional | Parameter Type |  Data Type |  Description |
-| :----- | :----- | :----- | :----- | :----- |
-|  LastModifiedDate | Required |  path |  string |  The date and time, in UTC, that the profiles must be updated after to be included in the response. Format: YYYY-MM-DDThh:mm:ss |
-|  Page | Optional |  path |  string |  The number of pages to retrieve. If the page is outside the number of existing pages, the response elements will be empty |
-|  ItemsPerPage | Optional |  path |  string |  The number of travel profiles per page. The maximum value is 200. The default value is 200. |
+  |  Parameter Name |  Required/Optional | Parameter Type |  Data Type |  Description |
+  | :----- | :----- | :----- | :----- | :----- |
+  |  `LastModifiedDate` | Required |  path |  string |  The date and time, in UTC, that the profiles must be updated after to be included in the response. Format: `YYYY-MM-DDThh:mm:ss` |
+  |  `Page` | Optional |  path |  string |  The number of pages to retrieve. If the page is outside the number of existing pages, the response elements will be empty |
+  |  `ItemsPerPage` | Optional |  path |  string |  The number of travel profiles per page. The maximum value is 200. The default value is 200. |
 
-**Headers**
+* **Headers**
 
-| Name | Description |
-| ---- | ----------- |
-| `Accept` | `application/xml` |
-| `Authorization` | `Authorization: OAuth {access_token}` |
-
-Where _access_token_ is the OAuth 2.0 access token of the user whose travel profile summaries you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
+  | Name | Description |
+  | ---- | ----------- |
+  | `Accept` | `application/xml` |
+  | `Authorization` | `Authorization: OAuth {access_token}` <br><br> Where `{access_token}` is the OAuth 2.0 access token of the user whose travel profile summaries you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. |
 
 #### Data model
 
@@ -881,12 +877,12 @@ The data model of the response for the GET operation.
 
   |  Element Name |  Data Type |  Description |
   | :----- | :----- | :----- | :----- |
-  |  TotalPages |  String |  The total number of pages to return. |
-  |  TotalItems |  String |  The total number of profiles the query returned. |
-  |  Page |  String |  The page number for the set of results in the current response. |
-  |  ItemsPerPage |  String |  The number of items set to display per page. |
-  |  PreviousPageURL |  String |  The URI to the previous page of results. This element will be empty when there are no previous pages. |
-  |  NextPageURL |  String |  The URI to the next set of results. This element will be empty when there are no next pages |
+  | `TotalPages` |  String |  The total number of pages to return. |
+  | `TotalItems` |  String |  The total number of profiles the query returned. |
+  | `Page` |  String |  The page number for the set of results in the current response. |
+  | `ItemsPerPage` |  String |  The number of items set to display per page. |
+  | `PreviousPageURL` |  String |  The URI to the previous page of results. This element will be empty when there are no previous pages. |
+  | `NextPageURL` |  String |  The URI to the next set of results. This element will be empty when there are no next pages |
 
 * **`Data` element**
 
@@ -898,9 +894,9 @@ The data model of the response for the GET operation.
 
     |  Element Name |  Data Type |  Description |
     | :----- | :----- | :----- | :----- |
-    |  LoginID |  String |  The Concur user login ID. |
-    |  XMLProfileSyncID |  String |  TThe user's XML Profile Sync ID, if available. |
-    |  ProfileLastModifiedUTC |  String |  The date, in UTC, when the travel profile was last modified. Format: YYYY-MM-DDThh:mm:ss. |
+    |  `LoginID` |  String |  The Concur user login ID. |
+    |  `XMLProfileSyncID` |  String |  TThe user's XML Profile Sync ID, if available. |
+    |  `ProfileLastModifiedUTC` |  String |  The date, in UTC, when the travel profile was last modified. Format: `YYYY-MM-DDThh:mm:ss`. |
 
 ####  Example
 This example gets the list of travel profile summaries modified after January 1 2015.

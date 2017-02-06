@@ -37,46 +37,46 @@ Content-Type: application/xml
 </attendee-batch>
 ```
 
-**Path parameters**
+* **Path parameters**
 
-| Parameter | Required/Optional | Description |
-|-----------|-----------|---------------------|
-| batch | required | The **batch** keyword. |
+  | Parameter | Required/Optional | Description |
+  |-----------|-----------|---------------------|
+  | `batch` | required | The `batch` keyword. |
 
-**Query parameters**
+* **Query parameters**
 
-| Parameter | Required/Optional | Description |
-|-----------|-----------|---------------------|
-| type | required | The type of batch operation to complete. Should be **create**. |
+  | Parameter | Required/Optional | Description |
+  |-----------|-----------|---------------------|
+  | `type` | required | The type of batch operation to complete. Should be `create`. |
 
-**Headers**
+* **Headers**
 
-| Name | Description |
-| ---- | ----------- |
-| `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company. |
-| `Accept` | `application/xml` |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company. |
+  | `Accept` | `application/xml` |
 
-**Request Body**
+* **Request Body**
 
-This function requires as its arguments an **attendee-batch** element containing an **attendee** child element for each attendee to be added. All batch operations allow up to 1000 attendees per batch. If a batch request with over 1000 attendees is sent, only the first 1000 attendees in the batch will be processed.
+  This function requires as its arguments an **attendee-batch** element containing an **attendee** child element for each attendee to be added. All batch operations allow up to 1000 attendees per batch. If a batch request with over 1000 attendees is sent, only the first 1000 attendees in the batch will be processed.
+
+  * **`attendee` elements**
+
+    | Element | Required/Optional | Description |
+    |-----------|-----------|--------------------|
+    | `external-id` | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
+    | `type` | required  | The attendee type code. Refer to the [Attendee Type](#attendee-type) resource documentation. Maximum 8 characters. |
+    | `last-name` | required  | The last name of the attendee. Maximum 132 characters. |
+    | `first-name` | optional  | The first name of the attendee. Maximum 50 characters. |
+    | `company` | optional  | The name of the attendee’s company. Maximum 150 characters. |
+    | `title` | optional  | The attendee's title. Maximum 32 characters. |
+    | `total-amount-ytd` | optional  | The year to date total amount for the attendee. This sets the starting value for year to date attendee spend amount calculations. |
+    | `currency-code` | required, if total-amount-ytd is supplied | Defines the currency to be used when totaling costs for the attendee. Must be a [3-letter ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the currency. Maximum 3 characters. |
+    | `customx` | required, if the field is required on the Attendee form  | There can be one element for each custom field that is configured on the attendee form. There are 20 possible custom fields for attendee forms. The numbering matches the Concur custom field numbering and is not necessarily sequential. If the attendee form has custom 1, custom 3 and custom 10 on it, the custom1, custom3, and custom10 elements should be included. Concur Expense is vastly configurable. Use the following process to get the list of custom fields configured for the Attendee form:<br/>1. Use the [Get Available Form Types](/api-reference/expense/expense-report/expense-form.html) function to get the code associated with the Attendee Detail View form.<br/>2. Use the [Get Form Data](/api-reference/expense/expense-report/expense-form.html) function to get the FormId for the specific attendee form that you wish to use.<br/>3. Use the [Get Form Field Details](/api-reference/expense/expense-report/expense-form-field.html) function to get the list of configured fields (including custom fields) for the attendee form.<br/><br/>Maximum 100 characters. |
 
 <aside class="notice">
   <strong>NOTE:</strong> The element names are case-sensitive.
 </aside>
-
-* **`attendee` elements**
-
-  | Element | Required/Optional | Description |
-  |-----------|-----------|--------------------|
-  |external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
-  | type | required  | The attendee type code. Refer to the [Attendee Type](#attendee-type) resource documentation. Maximum 8 characters. |
-  | last-name | required  | The last name of the attendee. Maximum 132 characters. |
-  | first-name | optional  | The first name of the attendee. Maximum 50 characters. |
-  | company | optional  | The name of the attendee’s company. Maximum 150 characters. |
-  | title | optional  | The attendee's title. Maximum 32 characters. |
-  | total-amount-ytd | optional  | The year to date total amount for the attendee. This sets the starting value for year to date attendee spend amount calculations. |
-  | currency-code | required, if total-amount-ytd is supplied | Defines the currency to be used when totaling costs for the attendee. Must be a [3-letter ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the currency. Maximum 3 characters. |
-  | customx | required, if the field is required on the Attendee form  | There can be one element for each custom field that is configured on the attendee form. There are 20 possible custom fields for attendee forms. The numbering matches the Concur custom field numbering and is not necessarily sequential. If the attendee form has custom 1, custom 3 and custom 10 on it, the custom1, custom3, and custom10 elements should be included. Concur Expense is vastly configurable. Use the following process to get the list of custom fields configured for the Attendee form:<br/>1. Use the [Get Available Form Types](/api-reference/expense/expense-report/expense-form.html) function to get the code associated with the Attendee Detail View form.<br/>2. Use the [Get Form Data](/api-reference/expense/expense-report/expense-form.html) function to get the FormId for the specific attendee form that you wish to use.<br/>3. Use the [Get Form Field Details](/api-reference/expense/expense-report/expense-form-field.html) function to get the list of configured fields (including custom fields) for the attendee form.<br/><br/>Maximum 100 characters. |
 
 #### Response
 
@@ -98,33 +98,29 @@ Content-Type: application/xml
 </attendee-batch-result>
 ```
 
-**Content-Types**
+* **Content-Types**
+  * application/xml
+* **HTTP errors**
+  * [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
 
-* application/xml
+* **Response body**
+  This request will return an **attendee-batch-result** parent element.
 
-**HTTP errors**
+  * **`attendee-batch-result` elements**
 
-* [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
+    | Element | Description |
+    |-----------|--------------------|
+    | `records-succeeded` | The number of records processed that were successfully added. |
+    | `records-failed` | The number of records processed that were not successfully added. |
+    | `errors` | This will contain an **error** parent element for each record failure. |
 
-**Response body**
+  * **`error` elements**
 
-This request will return an **attendee-batch-result** parent element.
-
-* **`attendee-batch-result` elements**
-
-  | Element | Description |
-  |-----------|--------------------|
-  | records-succeeded | The number of records processed that were successfully added. |
-  | records-failed | The number of records processed that were not successfully added. |
-  | errors | This will contain an **error** parent element for each record failure. |
-
-* **`error` elements**
-
-  | Element | Description |
-  |-----------|--------------------|
-  | code | The code associated with the error. |
-  | external-id | The external ID of the record that failed. |
-  | message | The error message. |
+    | Element | Description |
+    |-----------|--------------------|
+    | `code` | The code associated with the error. |
+    | `external-id` | The external ID of the record that failed. |
+    | `message` | The error message. |
 
 
 ### Post attendee update list
@@ -157,24 +153,24 @@ Content-Type: application/xml
 </attendee-batch>
 ```
 
-**Path parameters**
+* **Path parameters**
 
-| Parameter | Required/Optional | Description |
-|-----------|-----------|---------------------|
-| batch | required | The **batch** keyword. |
+  | Parameter | Required/Optional | Description |
+  |-----------|-----------|---------------------|
+  | `batch` | required | The `batch` keyword. |
 
-**Query parameters**
+* **Query parameters**
 
-| Parameter | Required/Optional | Description |
-|-----------|-----------|---------------------|
-| type | required | The type of batch operation to complete. Should be **update**. |
+  | Parameter | Required/Optional | Description |
+  |-----------|-----------|---------------------|
+  | `type` | required | The type of batch operation to complete. Should be `update`. |
 
-**Headers**
+* **Headers**
 
-| Name | Description |
-| ---- | ----------- |
-| `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company. |
-| `Accept` | `application/xml` |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company. |
+  | `Accept` | `application/xml` |
 
 **Request body**
 This function requires as its arguments an **attendee-batch** element containing an **attendee** child element for each attendee to be updated. All batch operations allow up to 1000 attendees per batch. If a batch request with over 1000 attendees is sent, only the first 1000 attendees in the batch will be processed.
@@ -187,15 +183,15 @@ NOTE: The element names are case-sensitive.
 
   | Element | Required/Optional | Description |
   |-----------|-----------|--------------------|
-  |external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
-  | type | required  | The attendee type code. Refer to the [Attendee Type](#attendee-type) resource documentation. Maximum 8 characters. |
-  | last-name | required  | The last name of the attendee. Maximum 132 characters. |
-  | first-name | optional  | The first name of the attendee. Maximum 50 characters. |
-  | company | optional  | The name of the attendee’s company. Maximum 150 characters. |
-  | title | optional  | The attendee's title. Maximum 32 characters. |
-  | total-amount-ytd | optional  | The year to date total amount for the attendee. This sets the starting value for year to date attendee spend amount calculations. |
-  | currency-code | required, if total-amount-ytd is supplied | Defines the currency to be used when totaling costs for the attendee. Must be a [3-letter ISO 4217 currency code](http://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the currency. Maximum 3 characters. |
-  | customx | required, if the field is required on the Attendee form  | There can be one element for each custom field that is configured on the attendee form. There are 20 possible custom fields for attendee forms. The numbering matches the Concur custom field numbering and is not necessarily sequential. If the attendee form has custom 1, custom 3 and custom 10 on it, the custom1, custom3, and custom10 elements should be included. Concur Expense is vastly configurable. Use the following process to get the list of custom fields configured for the Attendee form:<br/>1. Use the [Get Available Form Types](/api-reference/expense/expense-report/expense-form.html) function to get the code associated with the Attendee Detail View form.<br/>2. Use the [Get Form Data](/api-reference/expense/expense-report/expense-form.html) function to get the FormId for the specific attendee form that you wish to use.<br/>3. Use the [Get Form Field Details](/api-reference/expense/expense-report/expense-form-field.html) function to get the list of configured fields (including custom fields) for the attendee form.<br/><br/>Maximum 100 characters. |
+  | `external-id` | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
+  | `type` | required  | The attendee type code. Refer to the [Attendee Type](#attendee-type) resource documentation. Maximum 8 characters. |
+  | `last-name` | required  | The last name of the attendee. Maximum 132 characters. |
+  | `first-name` | optional  | The first name of the attendee. Maximum 50 characters. |
+  | `company` | optional  | The name of the attendee’s company. Maximum 150 characters. |
+  | `title` | optional  | The attendee's title. Maximum 32 characters. |
+  | `total-amount-ytd` | optional  | The year to date total amount for the attendee. This sets the starting value for year to date attendee spend amount calculations. |
+  | `currency-code` | required, if total-amount-ytd is supplied | Defines the currency to be used when totaling costs for the attendee. Must be a [3-letter ISO 4217 currency code](http://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the currency. Maximum 3 characters. |
+  | `customx` | required, if the field is required on the Attendee form  | There can be one element for each custom field that is configured on the attendee form. There are 20 possible custom fields for attendee forms. The numbering matches the Concur custom field numbering and is not necessarily sequential. If the attendee form has custom 1, custom 3 and custom 10 on it, the custom1, custom3, and custom10 elements should be included. Concur Expense is vastly configurable. Use the following process to get the list of custom fields configured for the Attendee form:<br/>1. Use the [Get Available Form Types](/api-reference/expense/expense-report/expense-form.html) function to get the code associated with the Attendee Detail View form.<br/>2. Use the [Get Form Data](/api-reference/expense/expense-report/expense-form.html) function to get the FormId for the specific attendee form that you wish to use.<br/>3. Use the [Get Form Field Details](/api-reference/expense/expense-report/expense-form-field.html) function to get the list of configured fields (including custom fields) for the attendee form.<br/><br/>Maximum 100 characters. |
 
 #### Response
 
@@ -210,33 +206,28 @@ Content-Type: application/xml
 </attendee-batch-result>
 ```
 
-**Content-Types**
+* **Content-Types**
+  * application/xml
+* **HTTP errors**
+  * [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
+* **Response body**
+  This request will return an **attendee-batch-result** parent element.
 
-* application/xml
+  * **`attendee-batch-result` elements**
 
-**HTTP errors**
+    | Element | Description |
+    |-----------|--------------------|
+    | `records-succeeded` | The number of records processed that were successfully updated. |
+    | `records-failed` | The number of records processed that were not successfully updated. |
+    | `errors` | This will contain an **error** parent element for each record failure. |
 
-* [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
+  * **`error` elements**
 
-**Response body**
-
-This request will return an **attendee-batch-result** parent element.
-
-* **`attendee-batch-result` elements**
-
-  | Element | Description |
-  |-----------|--------------------|
-  | records-succeeded | The number of records processed that were successfully updated. |
-  | records-failed | The number of records processed that were not successfully updated. |
-  | errors | This will contain an **error** parent element for each record failure. |
-
-* **`error` elements**
-
-  | Element | Description |
-  |-----------|--------------------|
-  | code | The code associated with the error. |
-  | external-id | The external ID of the record that failed. |
-  | message | The error message. |
+    | Element | Description |
+    |-----------|--------------------|
+    | `code` | The code associated with the error. |
+    | `external-id` | The external ID of the record that failed. |
+    | `message` | The error message. |
 
 ### Post an attendee inactivation list
 
@@ -263,36 +254,38 @@ Content-Type: application/xml
 </attendee-batch>
 ```
 
-**Path parameters**
+* **Path parameters**
 
-| Parameter | Required/Optional | Description |
-|-----------|-----------|---------------------|
-| batch | required | The **batch** keyword. |
+  | Parameter | Required/Optional | Description |
+  |-----------|-----------|---------------------|
+  | `batch` | required | The `batch` keyword. |
 
-**Query parameters**
+* **Query parameters**
 
-| Parameter | Required/Optional | Description |
-|-----------|-----------|---------------------|
-| type | required | The type of batch operation to complete. Should be **update**. |
+  | Parameter | Required/Optional | Description |
+  |-----------|-----------|---------------------|
+  | `type` | required | The type of batch operation to complete. Should be `update`. |
 
-**Headers**
+* **Headers**
 
-| Name | Description |
-| ---- | ----------- |
-| `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company. |
-| `Accept` | `application/xml` |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Authorization` | Authorization header with OAuth token for valid Concur user. Required. <br><br> The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company. |
+  | `Accept` | `application/xml` |
 
-**Request body**
-This function requires as its arguments an **attendee-batch** element containing an **attendee** child element for each attendee to be inactivated. All batch operations allow up to 1000 attendees per batch. If a batch request with over 1000 attendees is sent, only the first 1000 attendees in the batch will be processed.
+* **Request body**
+  This function requires as its arguments an **attendee-batch** element containing an **attendee** child element for each attendee to be inactivated. All batch operations allow up to 1000 attendees per batch. If a batch request with over 1000 attendees is sent, only the first 1000 attendees in the batch will be processed.
 
-NOTE: The element names are case-sensitive.
+  * **`attendee` elements**
 
-* **`attendee` elements**
+    | Element | Required/Optional | Description |
+    |-----------|-----------|--------------------|
+    | `external-id` | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
+    | `inactive` | required | This is set to true to inactivate the attendee. Format: true/false |
 
-  | Element | Required/Optional | Description |
-  |-----------|-----------|--------------------|
-  |external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
-  | inactive | required | This is set to true to inactivate the attendee. Format: true/false |
+<aside class="notice">
+  <strong>NOTE:</strong> The element names are case-sensitive.
+</aside>
 
 #### Response
 
@@ -307,30 +300,25 @@ Content-Type: application/xml
 </attendee-batch-result>
 ```
 
-**Content-Types**
+* **Content-Types**
+  * application/xml
+* **HTTP errors**
+  * [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
+* **Response body**
+  This request will return an **list-item-batch-result** parent element.
 
-* application/xml
+  * **`list-item-batch-result` elements**
 
-**HTTP errors**
+    | Element | Description |
+    |-----------|--------------------|
+    | `records-succeeded` | The number of records processed that were successfully inactivated. |
+    | `records-failed` | The number of records processed that were not successfully inactivated. |
+    | `errors` | This will contain an **error** parent element for each record failure. |
 
-* [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
+  * **`error` elements**
 
-**Response body**
-
-This request will return an **list-item-batch-result** parent element.
-
-* **`list-item-batch-result` elements**
-
-  | Element | Description |
-  |-----------|--------------------|
-  | records-succeeded | The number of records processed that were successfully inactivated. |
-  | records-failed | The number of records processed that were not successfully inactivated. |
-  | errors | This will contain an **error** parent element for each record failure. |
-
-* **`error` elements**
-
-  | Element | Description |
-  |-----------|--------------------|
-  | code | The code associated with the error. |
-  | external-id | The external ID of the record that failed. |
-  | message | The error message. |
+    | Element | Description |
+    |-----------|--------------------|
+    | `code` | The code associated with the error. |
+    | `external-id` | The external ID of the record that failed. |
+    | `message` | The error message. |

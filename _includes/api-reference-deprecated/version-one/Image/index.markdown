@@ -14,10 +14,10 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 ### Image Format
 The Imaging web service supports the following image formats:
 
-* application/pdf
-* image/jpg
-* image/jpeg
-* image/png
+* `application/pdf`
+* `image/jpg`
+* `image/jpeg`
+* `image/png`
 
 The maximum file size allowed is 10 MB.
 

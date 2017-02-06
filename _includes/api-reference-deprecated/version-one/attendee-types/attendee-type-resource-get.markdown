@@ -14,16 +14,15 @@ GET https://www.concursolutions.com/api/expense/attendee/v1.0/type HTTP/1.1
 Authorization: OAuth {access token}
 ```
 
-**Request parameters**
+* **Request parameters**
+  * None
 
-None.
+* **Headers**
 
-**Headers**
-
-| Name | Description |
-| ---- | ----------- |
-| `Accept` | `application/xml` |
-| `Authorization` | The authorization header must have an OAuth token for a valid Concur user. <br><br> The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company. |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Accept` | `application/xml` |
+  | `Authorization` | The authorization header must have an OAuth token for a valid Concur user. <br><br> The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company. |
 
 #### Response
 
@@ -46,13 +45,13 @@ Content-Type: application/xml
 * [HTTP Status Codes](/tools-support/reference/http-codes.html)
 * [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
 
-**Content Body**
+* **Content Body**
 
-This request will return an **attendee-types** parent element containing an **attendee-type** child element for each attendee type.
+  This request will return an **attendee-types** parent element containing an **attendee-type** child element for each attendee type.
 
-* **`attendee-type` elements**
+  * **`attendee-type` elements**
 
-  | Element | Description |
-  |:------------|:-----------------------|
-  | type | The attendee type code. |
-  | name | The attendee type name. |
+    | Element | Description |
+    |:------------|:-----------------------|
+    | `type` | The attendee type code. |
+    | `name` | The attendee type name. |

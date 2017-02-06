@@ -7,26 +7,28 @@ GET /api/expense/expensereport/v1.0/quickexpense/?loginID={loginID}
 
 Retrieves the list of quick expenses for the supplied user or for the entire company. In order to view the company-wide expense list, the OAuth Consumer must have the Web Services Admin (Professional) or Can Administer (Standard) user role.
 
-**NOTE**: Documentation for the v3.0 resource is [here](/api-reference/expense/quick-expense/).
+<aside class="notice">
+  <strong>NOTE:</strong> Documentation for the v3.0 resource is <a href="/api-reference/expense/quick-expense/">here</a>.
+</aside>
 
 ### Request
 
-**Query parameters**
+* **Query parameters**
 
-| Parameter | Required/Optional | Description |
-|-----------|-----------|---------------------|
-| `{loginID}` | optional | The Concur login for the user that owns the quick expenses. |
+  | Parameter | Required/Optional | Description |
+  |-----------|-----------|---------------------|
+  | `{loginID}` | optional | The Concur login for the user that owns the quick expenses. |
 
-**Headers**
+* **Headers**
 
-| Name | Description |
-| ---- | ----------- |
-| `Accept` | - `application/xml` <br> - `application/json` |
-| `Authorization` | The authorization header must contain an OAuth token for a valid Concur user. <br><br> To view company-wide data, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Accept` | - `application/xml` <br> - `application/json` |
+  | `Authorization` | The authorization header must contain an OAuth token for a valid Concur user. <br><br> To view company-wide data, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. |
 
 ### Response
 
-This request will return a **QuickExpensesList** parent element with a **QuickExpense** child element for each quick expense.
+This request will return a **`QuickExpensesList`** parent element with a **`QuickExpense`** child element for each quick expense.
 
 ```xml
 <QuickExpensesList>
@@ -52,17 +54,17 @@ This request will return a **QuickExpensesList** parent element with a **QuickEx
 
   |Element Name|Required/Optional|Data Type| Description|
   |-------------|-----------------|----------|-----------|
-  |  OwnerLoginID |  |  |  The Concur login ID for the expense owner. Useful for system to system integration when there are expenses for multiple users.   |
-  |  OwnerName |  |  |  The first and last name for the expense owner. Useful for system to system integration when there are expenses for multiple users. |
-  |  QuickExpenseKey |  |  |  The unique identifier for the quick expense. |
-  |  ExpenseTypeKey |  |  |  The unique identifier for the expense type associated with the quick expense. |
-  |  ExpenseTypeName |  |  |  The name of the expense type associated with the quick expense. |
-  |  TransactionDate |  |  |  The date the expense was incurred. Format: YYYY-MM-DD |
-  |  TransactionAmount |  |  |  The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654 |
-  |  CurrencyCode |  |  |  The [3-letter ISO 4217 currency code ](https://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the expense transaction amount. Example: USD. |
-  |  LocationName |  |  |  The name of the location where the expense was incurred. |
-  |  VendorDescription |  |  |  This element contains the descriptive text for the vendor for the expense. |
-  |  Comment |  |  |  The comment for this expense. |
+  |  `OwnerLoginID` |  |  |  The Concur login ID for the expense owner. Useful for system to system integration when there are expenses for multiple users.   |
+  |  `OwnerName` |  |  |  The first and last name for the expense owner. Useful for system to system integration when there are expenses for multiple users. |
+  |  `QuickExpenseKey` |  |  |  The unique identifier for the quick expense. |
+  |  `ExpenseTypeKey` |  |  |  The unique identifier for the expense type associated with the quick expense. |
+  |  `ExpenseTypeName` |  |  |  The name of the expense type associated with the quick expense. |
+  |  `TransactionDate` |  |  |  The date the expense was incurred. Format: YYYY-MM-DD |
+  |  `TransactionAmount` |  |  |  The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654 |
+  |  `CurrencyCode` |  |  |  The [3-letter ISO 4217 currency code ](https://en.wikipedia.org/wiki/ISO_4217){:target="_blank"} for the expense transaction amount. Example: USD. |
+  |  `LocationName` |  |  |  The name of the location where the expense was incurred. |
+  |  `VendorDescription` |  |  |  This element contains the descriptive text for the vendor for the expense. |
+  |  `Comment` |  |  |  The comment for this expense. |
 
 ### Examples
 
