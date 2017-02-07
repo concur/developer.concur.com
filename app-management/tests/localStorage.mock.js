@@ -6,9 +6,9 @@ const LocalStorage = () => {
   const storage = {};
 
   return {
-    getItem: (key) => storage[key] || null,
+    getItem: key => storage[key] || null,
     setItem: (key, item) => storage[key] = item,
-    removeItem: (key) => delete storage[key],
+    removeItem: key => delete storage[key],
   };
 };
 
