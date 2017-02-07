@@ -13,7 +13,7 @@ class AppDetailsPage extends React.Component {
   }
 
   render () {
-    const { isFetching, error, app, handleSubmit, generateSecret, showSecret } = this.props;
+    const { isFetching, error, app, handleSubmit } = this.props;
     let content;
 
     if (isFetching) {
@@ -31,8 +31,6 @@ class AppDetailsPage extends React.Component {
           <AppEditForm
             initialValues={app}
             onSubmit={handleSubmit}
-            generateSecret={generateSecret}
-            showSecret={showSecret}
           />
         </div>
       );
@@ -54,11 +52,9 @@ AppDetailsPage.propTypes = {
   params: PropTypes.shape({
     id: PropTypes.string.isRequired,
   }),
-  generateSecret: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
   app: PropTypes.object.isRequired,
-  showSecret: PropTypes.bool.isRequired,
 };
 
 export default AppDetailsPage;

@@ -12,9 +12,6 @@ const store = createStore(appReducer);
 const props = {
   handleSubmit: jest.fn(),
   initialValues: appFactory('id-1'),
-  generateSecret: jest.fn(),
-  showSecret: false,
-  collapsed: false,
 };
 
 describe('<AppEditForm />', () => {
@@ -33,11 +30,5 @@ describe('<AppEditForm />', () => {
     form.find('form').simulate('submit');
 
     expect(props.handleSubmit).toHaveBeenCalled();
-  });
-
-  it('should call the function to generate a secret', () => {
-    form.find(AppSecret).find('button').simulate('click');
-
-    expect(props.generateSecret).toHaveBeenCalled();
   });
 });

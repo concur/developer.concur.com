@@ -1,6 +1,6 @@
 import appDetailsReducer from '../../reducers/appDetails';
 import {
-  appDetailsRequest, appDetailsFailure, appDetailsSuccess, showSecret, hideSecret,
+  appDetailsRequest, appDetailsFailure, appDetailsSuccess,
 } from '../../actions/appDetails';
 import appFactory from '../app.mock';
 
@@ -12,7 +12,6 @@ describe('appDetails reducer', () => {
       app: {},
       isFetching: false,
       error: '',
-      showSecret: false,
     });
   });
 
@@ -24,7 +23,6 @@ describe('appDetails reducer', () => {
       app: {},
       isFetching: true,
       error: '',
-      showSecret: false,
     });
   });
 
@@ -37,7 +35,6 @@ describe('appDetails reducer', () => {
       app: {},
       isFetching: false,
       error: message,
-      showSecret: false,
     });
   });
 
@@ -50,31 +47,6 @@ describe('appDetails reducer', () => {
       app: app,
       isFetching: false,
       error: '',
-      showSecret: false,
-    });
-  });
-
-  it('should handle APP_DETAILS_SHOW_SECRET', () => {
-    const action = showSecret();
-    const state = appDetailsReducer(undefined, action);
-
-    expect(state).toEqual({
-      app: {},
-      isFetching: false,
-      error: '',
-      showSecret: true,
-    });
-  });
-
-  it('should handle APP_DETAILS_HIDE_SECRET', () => {
-    const action = hideSecret();
-    const state = appDetailsReducer(undefined, action);
-
-    expect(state).toEqual({
-      app: {},
-      isFetching: false,
-      error: '',
-      showSecret: false,
     });
   });
 });

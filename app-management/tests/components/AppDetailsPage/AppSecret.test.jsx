@@ -8,7 +8,6 @@ describe('<AppSecret />', () => {
   const defaultProps = {
     clickHandler: jest.fn(),
     secret: 'a-test-secret',
-    showSecret: false,
   };
 
   it('should call the click handler when "Get New Secret" is pressed', () => {
@@ -23,16 +22,6 @@ describe('<AppSecret />', () => {
     const props = {
       ...defaultProps,
       secret: null,
-    };
-    const secret = shallow(<AppSecret {...props} />);
-
-    expect(shallowToJson(secret)).toMatchSnapshot();
-  });
-
-  it('should not display the secret if showSecret is false', () => {
-    const props = {
-      ...defaultProps,
-      showSecret: true,
     };
     const secret = shallow(<AppSecret {...props} />);
 

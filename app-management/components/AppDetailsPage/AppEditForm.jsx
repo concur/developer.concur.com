@@ -52,7 +52,7 @@ const constraints = {
   },
 };
 
-const EditAppForm = ({ handleSubmit, generateSecret, initialValues, showSecret }) => (
+const EditAppForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit}>
     <fieldset>
       <div className="row">
@@ -67,9 +67,7 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, showSecret }
         </section>
         <section className="col-md-6">
           <AppSecret
-            clickHandler={() => generateSecret(initialValues.id)}
-            secret={'a-sample-secret'}
-            showSecret={showSecret}
+            clickHandler={() => console.log('TODO: Implement')}
           />
         </section>
       </div>
@@ -147,9 +145,6 @@ const EditAppForm = ({ handleSubmit, generateSecret, initialValues, showSecret }
 
 EditAppForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  generateSecret: PropTypes.func.isRequired,
-  initialValues: PropTypes.object,
-  showSecret: PropTypes.bool.isRequired,
 };
 
 export default reduxForm({

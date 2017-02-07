@@ -18,8 +18,6 @@ const defaultProps = {
   error: '',
   app: appFactory('id-1'),
   handleSubmit: jest.fn(),
-  generateSecret: jest.fn(),
-  showSecret: false,
   params: { id: 'id-1' }, // mock for React Router params
 };
 
@@ -96,28 +94,6 @@ describe('<AppdetailsPage />', () => {
 
       expect(state.handleSubmit).toBeDefined();
       expect(dispatcher).toHaveBeenCalled();
-    });
-
-    it('returns generateSecret handler', () => {
-      state.generateSecret('app-id');
-
-      expect(state.generateSecret).toBeDefined();
-    });
-
-    it('dispatches action if user confirms generateSecret', () => {
-      window.confirm = () => true; // window.confirm mock
-      state.generateSecret('app-id');
-
-      expect(state.generateSecret).toBeDefined();
-      expect(dispatcher).toHaveBeenCalled();
-    });
-
-    it('returns undefined if user confirms generateSecret', () => {
-      window.confirm = () => false; // window.confirm mock
-      const result = state.generateSecret('app-id');
-
-      expect(state.generateSecret).toBeDefined();
-      expect(result).toBeUndefined();
     });
   });
 });

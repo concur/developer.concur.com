@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 
-const AppSecret = ({ clickHandler, secret, showSecret }) => (
+const AppSecret = ({ clickHandler, secret }) => (
   <div className="alert alert-warning">
     <p>
-      If you forgot your application secret, you can regenerate the secret below.
-      This process will clear your old secret and require updated to your
+      You can regenerate your clientSecret below.
+      This process will clear your old clientSecret and require updated to your
       apps or scripts.
     </p>
     <button
@@ -12,12 +12,12 @@ const AppSecret = ({ clickHandler, secret, showSecret }) => (
       className="btn orange"
       onClick={clickHandler}
     >
-      Regenerate Application Secret
+      Regenerate Application clientSecret
     </button>
-    {secret && showSecret &&
+    {secret &&
       <p>
         <strong>
-          Here is your new app secret.
+          Here is your new clientSecret.
         </strong>
         <br />
         <code>{secret}</code>
@@ -29,7 +29,6 @@ const AppSecret = ({ clickHandler, secret, showSecret }) => (
 AppSecret.propTypes = {
   clickHandler: PropTypes.func.isRequired,
   secret: PropTypes.string,
-  showSecret: PropTypes.bool.isRequired,
 };
 
 export default AppSecret;
