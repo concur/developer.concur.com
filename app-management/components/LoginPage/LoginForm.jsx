@@ -16,28 +16,24 @@ const constraints = {
 const LoginForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit}>
     <fieldset>
-      <div className="row">
-        <section>
-          <Field
-            component={InputField}
-            type="text"
-            name="username"
-            label="Username"
-            placeholder="Username"
-          />
-        </section>
-      </div>
-      <div className="row">
-        <section>
-          <Field
-            component={InputField}
-            type="password"
-            name="password"
-            label="Password"
-            placeholder="Password"
-          />
-        </section>
-      </div>
+      <section>
+        <Field
+          component={InputField}
+          type="text"
+          name="username"
+          label="Username"
+          placeholder="Username"
+        />
+      </section>
+      <section>
+        <Field
+          component={InputField}
+          type="password"
+          name="password"
+          label="Password"
+          placeholder="Password"
+        />
+      </section>
     </fieldset>
     <footer>
       <button type="submit" className="btn bright-blue pull-right">Log in</button>
