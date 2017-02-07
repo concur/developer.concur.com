@@ -142,7 +142,7 @@ Authorization: OAuth {access token}
 
 | HTTP Responses | Supported Content Types |
 | -------------- | ----------------------- |
-| <a href="https://developer.concur.com/node/205">HTTP Status Codes</a> | application/xml |
+| [HTTP Status Codes](/tools-support/reference/http-codes.html) | application/xml |
 
 ### Response body
 

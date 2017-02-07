@@ -7,51 +7,38 @@ title: Sandbox Configuration Assistance
     <h2>Concur Connect Partners and Developers</h2>
     <p> As a Concur partner or developer, you can request assistance for your developer sandbox configuration by filling out and submitting this form.</p><br>
     {% include form-success.html %}
-    <form action="{{ site.data.forms.server }}/sandbox-cfg-assistance" method="POST" id="sandboxAssistance" class="sky-form" novalidate="novalidate">
+    <form action="{{ site.data.forms.server }}/sandbox-cfg-assistance" method="POST" id="sandboxAssistance" novalidate="novalidate">
       <fieldset>
 
-        <section>
-          <label for="firstName" class="label">First Name</label>
-          <div class="input">
-            <input type="text" name="firstName" id="firstName">
-          </div>
-        </section>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" name="firstName" id="firstName" class="form-control">
+        </div>
 
-        <section>
-          <label for="lastName" class="label">Last Name</label>
-          <div class="input">
-            <input type="text" name="lastName" id="lastName">
-          </div>
-        </section>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" name="lastName" id="lastName" class="form-control">
+        </div>
 
-        <section>
-          <label for="email" class="label">Email Address</label>
-          <div class="input">
-            <input type="text" name="email" id="email">
-          </div>
-        </section>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="text" name="email" id="email" class="form-control">
+        </div>
 
-        <section>
-          <label for="company" class="label">Company Name</label>
-          <div class="input">
-            <input type="text" name="company" id="company">
-          </div>
-        </section>
+        <div class="form-group">
+          <label for="company">Company Name</label>
+          <input type="text" name="company" id="company" class="form-control">
+        </div>
 
-        <section>
-          <label for="phoneNumber" class="label">Phone Number</label>
-          <div class="input">
-            <input type="text" name="phoneNumber" id="phoneNumber">
-          </div>
-        </section>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="text" name="phoneNumber" id="phoneNumber" class="form-control">
+        </div>
 
-        <section>
-          <label for="details" class="label">Concur Partner or Developer Request Details (Do not use this form for customer or individual user requests)</label>
-          <div class="textarea">
-            <textarea name="details" id="details" rows="3"></textarea>
-            <i></i>
-          </div>
-        </section>
+        <div class="form-group">
+          <label for="details">Concur Partner or Developer Request Details (Do not use this form for customer or individual user requests)</label>
+          <textarea name="details" id="details" rows="3" class="form-control"></textarea>
+        </div>
 
       </fieldset>
       <footer>
@@ -60,47 +47,3 @@ title: Sandbox Configuration Assistance
     </form>
 
   </div><!--/col-md-12-->
-<script>
-  $("#sandboxAssistance").validate({
-    // Rules for form validation
-    rules: {
-      firstName: { required: true },
-      lastName: { required: true },
-      email: {
-        required: true,
-        email: true
-      },
-      company: { required: true },
-      phoneNumber: { required: true },
-      details: { required: true }
-    },
-
-    // Messages for form validation
-    messages: {
-      firstName: { required: 'Please enter your first name' },
-      lastName: { required: 'Please enter your last name' },
-      email: { required: 'Please enter a valid email address' },
-      company: { required: 'Please enter your company name' },
-      phoneNumber: { required: 'Please enter a valid phone number' },
-      details: { required: 'Please enter the details for this request' }
-    },
-
-    // Ajax form submition
-    submitHandler: function(form) {
-      $(form).ajaxSubmit({
-        beforeSend: function() {
-          $('#sandboxAssistance button[type="submit"]').attr('disabled', true);
-        },
-        success: function() {
-          $("#sandboxAssistance").addClass('submited');
-          $('#form-success').removeClass('form-success-hidden');
-        }
-      });
-    },
-
-    // Do not change code below
-    errorPlacement: function(error, element) {
-      error.insertAfter(element.parent());
-    }
-  });
-</script>

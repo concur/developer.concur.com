@@ -2,7 +2,7 @@
 layout: blog
 ---
 
-{% assign location = page.url | split :'/' %}
+{% assign location = page.url | split : '/' %}
 
 {% if location contains 'changelog' %}
   {% assign path = 'tools-support/changelog' %}
@@ -12,7 +12,7 @@ layout: blog
   {% assign pagetitle = 'Developer Blog' %}
 {% endif %}
 
-{% assign path_posts = "" | split:"|"  %}
+{% assign path_posts = "" | split: "|"  %}
 {% for post in site.posts limit: 10 %}
   {% if pagetitle == 'Change Log' %}
     {% if post.categories contains 'changelog' %}
@@ -109,9 +109,6 @@ layout: blog
           {% endif %}
 
         {% endfor %}
-
-
-
 
     {% endfor %} <!-- Close Year Loop -->
   </div>
