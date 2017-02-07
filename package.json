@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack && bundle install && bundle exec jekyll serve --incremental & webpack -w & wait",
     "build": "NODE_ENV=production webpack -p && bundle install && bundle exec jekyll build",
+    "build:webpack": "NODE_ENV=production webpack -p",
     "test": "jest",
     "test:watch": "jest --watch"
   },
