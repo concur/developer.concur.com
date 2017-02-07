@@ -1,0 +1,206 @@
+[
+  {
+    "label": "receipts.read",
+    "value": "receipts.read"
+  },
+  {
+    "label": "receipts.write",
+    "value": "receipts.write"
+  },
+  {
+    "label": "receipts.writeonly",
+    "value": "receipts.writeonly"
+  },
+  {
+    "label": "user.read",
+    "value": "user.read"
+  },
+  {
+    "label": "user.write",
+    "value": "user.write"
+  },
+  {
+    "label": "company.read",
+    "value": "company.read"
+  },
+  {
+    "label": "company.write",
+    "value": "company.write"
+  },
+  {
+    "label": "creditcardaccount.read",
+    "value": "creditcardaccount.read"
+  },
+  {
+    "label": "travelrequest.write",
+    "value": "travelrequest.write"
+  },
+  {
+    "label": "openid",
+    "value": "openid"
+  },
+  {
+    "label": "ATTEND",
+    "value": "ATTEND"
+  },
+  {
+    "label": "CONFIG",
+    "value": "CONFIG"
+  },
+  {
+    "label": "CONREQ",
+    "value": "CONREQ"
+  },
+  {
+    "label": "ERECPT",
+    "value": "ERECPT"
+  },
+  {
+    "label": "EVS",
+    "value": "EVS"
+  },
+  {
+    "label": "EXPRPT",
+    "value": "EXPRPT"
+  },
+  {
+    "label": "CCARD",
+    "value": "CCARD"
+  },
+  {
+    "label": "BANK",
+    "value": "BANK"
+  },
+  {
+    "label": "EXTRCT",
+    "value": "EXTRCT"
+  },
+  {
+    "label": "FISVC",
+    "value": "FISVC"
+  },
+  {
+    "label": "FOP",
+    "value": "FOP"
+  },
+  {
+    "label": "GHOST",
+    "value": "GHOST"
+  },
+  {
+    "label": "IMAGE",
+    "value": "IMAGE"
+  },
+  {
+    "label": "INSGHT",
+    "value": "INSGHT"
+  },
+  {
+    "label": "INVPMT",
+    "value": "INVPMT"
+  },
+  {
+    "label": "INVPO",
+    "value": "INVPO"
+  },
+  {
+    "label": "INVTV",
+    "value": "INVTV"
+  },
+  {
+    "label": "INVVEN",
+    "value": "INVVEN"
+  },
+  {
+    "label": "ITINER",
+    "value": "ITINER"
+  },
+  {
+    "label": "JOBLOG",
+    "value": "JOBLOG"
+  },
+  {
+    "label": "LIST",
+    "value": "LIST"
+  },
+  {
+    "label": "MTNG",
+    "value": "MTNG"
+  },
+  {
+    "label": "NOTIF",
+    "value": "NOTIF"
+  },
+  {
+    "label": "PAYBAT",
+    "value": "PAYBAT"
+  },
+  {
+    "label": "RCTIMG",
+    "value": "RCTIMG"
+  },
+  {
+    "label": "SUPSVC",
+    "value": "SUPSVC"
+  },
+  {
+    "label": "TAXINV",
+    "value": "TAXINV"
+  },
+  {
+    "label": "TRVPRF",
+    "value": "TRVPRF"
+  },
+  {
+    "label": "PASSV",
+    "value": "PASSV"
+  },
+  {
+    "label": "COMPD",
+    "value": "COMPD"
+  },
+  {
+    "label": "EMERG",
+    "value": "EMERG"
+  },
+  {
+    "label": "TSAI",
+    "value": "TSAI"
+  },
+  {
+    "label": "TMCSP",
+    "value": "TMCSP"
+  },
+  {
+    "label": "MEDIC",
+    "value": "MEDIC"
+  },
+  {
+    "label": "UNUTX",
+    "value": "UNUTX"
+  },
+  {
+    "label": "TRVPTS",
+    "value": "TRVPTS"
+  },
+  {
+    "label": "TRVREQ",
+    "value": "TRVREQ"
+  },
+  {
+    "label": "TWS",
+    "value": "TWS"
+  },
+  {
+    "label": "USER",
+    "value": "USER"
+  },
+  {
+    "label": "TRIPIT",
+    "value": "TRIPIT"
+  },
+  {
+    "label": "COMPANY",
+    "value": "COMPANY"
+  }
+]

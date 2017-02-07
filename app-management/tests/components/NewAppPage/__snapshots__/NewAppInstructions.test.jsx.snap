@@ -1,0 +1,16 @@
+exports[`<NewAppInstructions /> renders with instructions on making a new app 1`] = `
+<div>
+  <h3>
+    Welcome to App Management
+  </h3>
+  <p>
+    Create a new app by going to the 
+    <Link
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/new">
+      Create an App form
+    </Link>
+  </p>
+</div>
+`;
