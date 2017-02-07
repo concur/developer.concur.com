@@ -91,8 +91,8 @@ describe('fetchAppDetails', () => {
   });
 
   it('creates an appDetailsSuccess action when fetching is successful', () => {
-    nock(process.env.API_SERVER)
-      .get(`/apps/${app.id}`)
+    nock(process.env.DEVCENTER_API_ORCHESTRATION)
+      .get(`/`)
       .reply(200, app);
 
     const expectedActions = [
@@ -107,13 +107,13 @@ describe('fetchAppDetails', () => {
   });
 
   it('creates an appDetailsFailure action when fetching fails', () => {
-    nock(process.env.API_SERVER)
-      .get(`/apps/${app.id}`)
+    nock(process.env.DEVCENTER_API_ORCHESTRATION)
+      .get(`/`)
       .replyWithError('Server is down');
 
     const expectedActions = [
       appDetailsRequest(),
-      appDetailsFailure(`request to ${process.env.API_SERVER}/apps/id-1 failed, reason: Server is down`),
+      appDetailsFailure(`request to ${process.env.DEVCENTER_API_ORCHESTRATION} failed, reason: Server is down`),
     ];
 
     return store.dispatch(fetchAppDetails(app.id))
@@ -138,8 +138,8 @@ describe('updateAppDetails', () => {
   });
 
   it('creates an appDetailsUpdateSuccess action when fetching is successful', () => {
-    nock(process.env.API_SERVER)
-      .put(`/apps/${app.id}`)
+    nock(process.env.DEVCENTER_API_ORCHESTRATION)
+      .put(`/`)
       .reply(200, app);
 
     const expectedActions = [
@@ -155,13 +155,13 @@ describe('updateAppDetails', () => {
   });
 
   it('creates an appDetailsFailure action when fetching fails', () => {
-    nock(process.env.API_SERVER)
-      .put(`/apps/${app.id}`)
+    nock(process.env.DEVCENTER_API_ORCHESTRATION)
+      .put(`/`)
       .replyWithError('Server is down');
 
     const expectedActions = [
       appDetailsRequest(),
-      appDetailsFailure(`request to ${process.env.API_SERVER}/apps/id-1 failed, reason: Server is down`),
+      appDetailsFailure(`request to ${process.env.DEVCENTER_API_ORCHESTRATION} failed, reason: Server is down`),
     ];
 
     return store.dispatch(updateAppDetails(app))

@@ -39,7 +39,7 @@ export function postNewApp(newApp) {
       },
     };
 
-    return fetch(`${process.env.API_SERVER}/apps`, options)
+    return fetch(`${process.env.DEVCENTER_API_ORCHESTRATION}`, options)
       .then(response => response.json())
       .then((app) => {
         dispatch(newAppSuccess(app));

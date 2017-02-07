@@ -36,7 +36,7 @@ export function fetchAppListing() {
       },
     };
 
-    return fetch(`${process.env.API_SERVER}/apps`, options)
+    return fetch(`${process.env.DEVCENTER_API_ORCHESTRATION}`, options)
       .then(response => response.json())
       .then(apps => dispatch(appListingSuccess(apps)))
       .catch(err => dispatch(appListingFailure(err.message)));

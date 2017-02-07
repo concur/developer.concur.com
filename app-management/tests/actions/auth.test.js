@@ -81,7 +81,7 @@ describe('login', () => {
       access_token: 'a-sample-token',
     };
 
-    nock(process.env.API_SERVER)
+    nock(process.env.DEVCENTER_API_FORMS)
       .post('/auth/login')
       .reply(200, response);
 
@@ -98,13 +98,13 @@ describe('login', () => {
   });
 
   it('creates a loginFailure action when fetching fails', () => {
-    nock(process.env.API_SERVER)
+    nock(process.env.DEVCENTER_API_FORMS)
       .post('/auth/login')
       .replyWithError('Server is down');
 
     const expectedActions = [
       loginRequest(),
-      loginFailure(`request to ${process.env.API_SERVER}/auth/login failed, reason: Server is down`),
+      loginFailure(`request to ${process.env.DEVCENTER_API_FORMS}/auth/login failed, reason: Server is down`),
     ];
 
     return store.dispatch(login(user))
@@ -114,7 +114,7 @@ describe('login', () => {
   });
 
   it('creates a loginFailure action when authentication fails', () => {
-    nock(process.env.API_SERVER)
+    nock(process.env.DEVCENTER_API_FORMS)
       .post('/auth/login')
       .reply(401, { message: 'Unauthorized' });
 

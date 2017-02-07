@@ -51,7 +51,7 @@ export function fetchAppDetails(id) {
       },
     };
 
-    return fetch(`${process.env.API_SERVER}/apps/${id}`, options)
+    return fetch(`${process.env.DEVCENTER_API_ORCHESTRATION}`, options)
       .then(response => response.json())
       .then(app => dispatch(appDetailsSuccess(app)))
       .catch(err => dispatch(appDetailsFailure(err.message)));
@@ -71,7 +71,7 @@ export function updateAppDetails(app) {
       },
     };
 
-    return fetch(`${process.env.API_SERVER}/apps/${app.id}`, options)
+    return fetch(`${process.env.DEVCENTER_API_ORCHESTRATION}`, options)
       .then(response => response.json())
       .then(() => {
         dispatch(appDetailsUpdateSuccess());

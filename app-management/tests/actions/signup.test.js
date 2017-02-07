@@ -72,8 +72,8 @@ describe('postSignup', () => {
       access_token: 'a-sample-token',
     };
 
-    nock(process.env.API_SERVER)
-      .post('/auth/signup')
+    nock(process.env.DEVCENTER_API_FORMS)
+      .post('/register')
       .reply(200, response);
 
     const expectedActions = [
@@ -89,13 +89,13 @@ describe('postSignup', () => {
   });
 
   it('creates a signupFailure action when fetching fails', () => {
-    nock(process.env.API_SERVER)
-      .post('/auth/signup')
+    nock(process.env.DEVCENTER_API_FORMS)
+      .post('/register')
       .replyWithError('Server is down');
 
     const expectedActions = [
       signupRequest(),
-      signupFailure(`request to ${process.env.API_SERVER}/auth/signup failed, reason: Server is down`),
+      signupFailure(`request to ${process.env.DEVCENTER_API_FORMS}/register failed, reason: Server is down`),
     ];
 
     return store.dispatch(postSignup())

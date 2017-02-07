@@ -45,7 +45,7 @@ export function login(user) {
       },
     };
 
-    return fetch(`${process.env.API_SERVER}/auth/login`, options)
+    return fetch(`${process.env.DEVCENTER_API_FORMS}/auth/login`, options)
       .then(response => response.json())
       .then((data) => {
         if (data && data.access_token) {

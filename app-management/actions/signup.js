@@ -37,7 +37,7 @@ export function postSignup(user) {
       },
     };
 
-    return fetch(`${process.env.API_SERVER}/auth/signup`, options)
+    return fetch(`${process.env.DEVCENTER_API_FORMS}/register`, options)
       .then(response => response.json())
       .then((data) => {
         dispatch(signupSuccess(data.access_token));
