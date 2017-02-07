@@ -84,7 +84,7 @@ describe('postNewApp', () => {
 
     const expectedActions = [
       newAppRequest(),
-      newAppFailure('request to http://localhost:3000/apps failed, reason: Server is down'),
+      newAppFailure(`request to ${process.env.API_SERVER}/apps failed, reason: Server is down`),
     ];
 
     return store.dispatch(postNewApp())

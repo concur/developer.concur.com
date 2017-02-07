@@ -95,7 +95,7 @@ describe('postSignup', () => {
 
     const expectedActions = [
       signupRequest(),
-      signupFailure('request to http://localhost:3000/auth/signup failed, reason: Server is down'),
+      signupFailure(`request to ${process.env.API_SERVER}/auth/signup failed, reason: Server is down`),
     ];
 
     return store.dispatch(postSignup())

@@ -113,7 +113,7 @@ describe('fetchAppDetails', () => {
 
     const expectedActions = [
       appDetailsRequest(),
-      appDetailsFailure('request to http://localhost:3000/apps/id-1 failed, reason: Server is down'),
+      appDetailsFailure(`request to ${process.env.API_SERVER}/apps/id-1 failed, reason: Server is down`),
     ];
 
     return store.dispatch(fetchAppDetails(app.id))
@@ -161,7 +161,7 @@ describe('updateAppDetails', () => {
 
     const expectedActions = [
       appDetailsRequest(),
-      appDetailsFailure('request to http://localhost:3000/apps/id-1 failed, reason: Server is down'),
+      appDetailsFailure(`request to ${process.env.API_SERVER}/apps/id-1 failed, reason: Server is down`),
     ];
 
     return store.dispatch(updateAppDetails(app))

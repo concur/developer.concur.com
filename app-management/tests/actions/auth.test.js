@@ -104,7 +104,7 @@ describe('login', () => {
 
     const expectedActions = [
       loginRequest(),
-      loginFailure('request to http://localhost:3000/auth/login failed, reason: Server is down'),
+      loginFailure(`request to ${process.env.API_SERVER}/auth/login failed, reason: Server is down`),
     ];
 
     return store.dispatch(login(user))

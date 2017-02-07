@@ -87,7 +87,7 @@ describe('fetchAppListing', () => {
 
     const expectedActions = [
       appListingRequest(),
-      appListingFailure('request to http://localhost:3000/apps failed, reason: Server is down'),
+      appListingFailure(`request to ${process.env.API_SERVER}/apps failed, reason: Server is down`),
     ];
 
     return store.dispatch(fetchAppListing())
