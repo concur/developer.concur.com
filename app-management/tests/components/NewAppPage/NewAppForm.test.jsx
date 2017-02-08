@@ -28,8 +28,8 @@ describe('<NewAppForm />', () => {
   });
 
   describe('Redirect URIs', () => {
-    it('should add a URI if a user clicks the "Add URI" button', () => {
-      form.find('.add-uri button').simulate('click');
+    it('should add a URI if a user clicks the "plus" button', () => {
+      form.find('.uri-add').simulate('click');
       const state = store.getState();
       const formData = state.form.newApp.values;
 
@@ -37,14 +37,14 @@ describe('<NewAppForm />', () => {
     });
 
     it('should remove a URI if a user clicks on an input', () => {
-      form.find('.add-uri button').simulate('click');
+      form.find('.uri-add').simulate('click');
 
       let state = store.getState();
       let formData = state.form.newApp.values;
 
       expect(formData.redirectUris.length).toBe(2);
 
-      form.find('.input-group-addon').simulate('click');
+      form.find('.uri-delete').simulate('click');
 
       state = store.getState();
       formData = state.form.newApp.values;

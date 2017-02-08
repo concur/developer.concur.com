@@ -162,13 +162,13 @@ export const RedirectUriField = ({
 }) => {
   const { name } = input;
   const errorClass = touched && error ? 'has-error' : '';
-  const deleteClass = canDelete ? 'input-group' : '';
+  const buttonClass = canDelete ? 'uri-delete' : 'uri-add';
   const ariaText = `${name}-help`;
 
   return (
     <div className={`form-group ${errorClass}`}>
       <label htmlFor={name} className="control-label">{label}</label>
-      <div className={deleteClass}>
+      <div className="input-group">
         <input
           {...input}
           id={name}
@@ -176,10 +176,12 @@ export const RedirectUriField = ({
           className="form-control"
           aria-describedby={ariaText}
         />
-        {canDelete &&
-          <div className="input-group-addon" onClick={onClick}>
-            <i className="fa fa-minus-circle" />
-          </div>}
+        <div className={`input-group-addon ${buttonClass}`} onClick={onClick}>
+          {canDelete
+            ? <i className="fa fa-minus-circle" />
+            : <i className="fa fa-plus-circle" />
+          }
+        </div>
       </div>
       {touched && error && <FieldError error={error} ariaText={ariaText} />}
     </div>
@@ -195,22 +197,24 @@ RedirectUriField.propTypes = {
 };
 
 export const RedirectUris = ({ fields }) => (
-  <div>
-    {fields.map((uri, idx) =>
-      <div key={idx}>
+  <div className="redirect-uris">
+    {fields.map((uri, idx) => {
+      const isLastElement = (idx === fields.length - 1);
+      return (
         <Field
+          key={idx}
           component={RedirectUriField}
           name={uri}
           label={idx === 0 ? 'Redirect URI' : null}
           placeholder="Redirect URI"
-          canDelete={!!idx}
-          onClick={() => fields.remove(idx)}
+          canDelete={!isLastElement}
+          onClick={isLastElement
+                    ? () => fields.push('')
+                    : () => fields.remove(idx)
+                  }
         />
-      </div>
-    )}
-    <div className="add-uri">
-      <button type="button" className="btn bright-blue pull-right" onClick={() => fields.push('')}>Add URI</button>
-    </div>
+      );
+    })}
   </div>
 );
 
