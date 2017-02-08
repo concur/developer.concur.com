@@ -1,5 +1,4 @@
 import React from 'react';
-import sinon from 'sinon';
 import { shallow } from 'enzyme';
 import { Link } from 'react-router';
 import { createStore } from 'redux';

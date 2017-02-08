@@ -2,47 +2,10 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from 'nock';
 import { reset } from 'redux-form';
-import {
-  SIGNUP_REQUEST, SIGNUP_FAILURE, SIGNUP_SUCCESS,
-  signupRequest, signupFailure, signupSuccess, postSignup,
-} from '../../actions/signup';
+import { signupRequest, signupFailure, signupSuccess, postSignup } from '../../actions/signup';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
-
-describe('signupRequest', () => {
-  it('should create an action notifying a request has begun', () => {
-    const expectedAction = {
-      type: SIGNUP_REQUEST,
-    };
-
-    expect(signupRequest()).toEqual(expectedAction);
-  });
-});
-
-describe('signupFailure', () => {
-  it('should create an action notifying a request failure and its message', () => {
-    const message = 'This request failed';
-    const expectedAction = {
-      type: SIGNUP_FAILURE,
-      message,
-    };
-
-    expect(signupFailure(message)).toEqual(expectedAction);
-  });
-});
-
-describe('signupSuccess', () => {
-  it('should create an action with a user token', () => {
-    const token = 'a-sample-token';
-    const expectedAction = {
-      type: SIGNUP_SUCCESS,
-      token,
-    };
-
-    expect(signupSuccess(token)).toEqual(expectedAction);
-  });
-});
 
 describe('postSignup', () => {
   let store;

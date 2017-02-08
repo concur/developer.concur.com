@@ -1,8 +1,4 @@
 .app-management {
-  .input .input-group-addon {
-    cursor: pointer;
-  }
-
   .certification-badge {
     &.certified {
       color: $dark-green;
@@ -15,6 +11,25 @@
 
   .has-error .Select-control {
     border-color: #a94442;
+  }
+
+  .redirect-uris {
+    .fa-plus-circle,
+    .fa-minus-circle {
+      color: white;
+    }
+
+    .input-group-addon {
+      cursor: pointer;
+    }
+
+    .uri-add {
+      background-color: $dark-green;
+    }
+
+    .uri-delete {
+      background-color: $red;
+    }
   }
 }
 
