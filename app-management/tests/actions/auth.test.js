@@ -2,62 +2,13 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from 'nock';
 import { reset } from 'redux-form';
-import {
-  AUTH_LOGIN_REQUEST, AUTH_LOGIN_FAILURE, AUTH_LOGIN_SUCCESS, AUTH_LOGOUT,
-  loginRequest, loginFailure, loginSuccess, login, logout,
-} from '../../actions/auth';
+import { loginRequest, loginFailure, loginSuccess, login, logout } from '../../actions/auth';
 import LocalStorage from '../localStorage.mock';
 import { TOKEN_KEY } from '../../utils/auth';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
 window.localStorage = LocalStorage();
-
-describe('loginRequest', () => {
-  it('should create an action notifying a request has begun', () => {
-    const expectedAction = {
-      type: AUTH_LOGIN_REQUEST,
-    };
-
-    expect(loginRequest()).toEqual(expectedAction);
-  });
-});
-
-describe('loginFailure', () => {
-  it('should create an action notifying a request failure and its message', () => {
-    const message = 'This request failed';
-    const expectedAction = {
-      type: AUTH_LOGIN_FAILURE,
-      message,
-    };
-
-    expect(loginFailure(message)).toEqual(expectedAction);
-  });
-});
-
-describe('loginSuccess', () => {
-  it('should create an action with a user token and set localStorage', () => {
-    const token = 'a-sample-token';
-    const expectedAction = {
-      type: AUTH_LOGIN_SUCCESS,
-      token,
-    };
-
-    expect(loginSuccess(token)).toEqual(expectedAction);
-    expect(window.localStorage.getItem(TOKEN_KEY)).toBe(token);
-  });
-});
-
-describe('logout', () => {
-  it('should create an action resetting auth state and localStorage', () => {
-    const expectedAction = {
-      type: AUTH_LOGOUT,
-    };
-
-    expect(logout()).toEqual(expectedAction);
-    expect(window.localStorage.getItem(TOKEN_KEY)).toBeNull();
-  });
-});
 
 describe('login', () => {
   const user = {

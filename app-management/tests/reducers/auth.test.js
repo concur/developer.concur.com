@@ -1,8 +1,7 @@
 import authReducer from '../../reducers/auth';
-import {
-  loginRequest, loginFailure, loginSuccess, logout,
-} from '../../actions/auth';
+import { loginRequest, loginFailure, loginSuccess, logout } from '../../actions/auth';
 import LocalStorage from '../localStorage.mock';
+import { TOKEN_KEY } from '../../utils/auth';
 
 window.localStorage = LocalStorage();
 
@@ -50,6 +49,7 @@ describe('auth reducer', () => {
       isFetching: false,
       error: '',
     });
+    expect(window.localStorage.getItem(TOKEN_KEY)).toBe(token);
   });
 
   it('should handle AUTH_LOGOUT', () => {
@@ -61,5 +61,6 @@ describe('auth reducer', () => {
       isFetching: false,
       error: '',
     });
+    expect(window.localStorage.getItem(TOKEN_KEY)).toBeNull();
   });
 });

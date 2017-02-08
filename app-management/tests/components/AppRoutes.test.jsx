@@ -1,5 +1,4 @@
 import React from 'react';
-import sinon from 'sinon';
 import { shallow } from 'enzyme';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';

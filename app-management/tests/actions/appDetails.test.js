@@ -2,58 +2,13 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from 'nock';
 import {
-  APP_DETAILS_REQUEST, APP_DETAILS_FAILURE, APP_DETAILS_SUCCESS,
-  APP_DETAILS_UPDATE_SUCCESS, appDetailsRequest, appDetailsFailure,
-  appDetailsSuccess, fetchAppDetails, appDetailsUpdateSuccess, updateAppDetails,
+  appDetailsRequest, appDetailsFailure, appDetailsSuccess, fetchAppDetails,
+  appDetailsUpdateSuccess, updateAppDetails,
 } from '../../actions/appDetails';
 import appFactory from '../app.mock';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
-
-describe('appDetailsRequest', () => {
-  it('should create an action notifying a request has begun', () => {
-    const expectedAction = {
-      type: APP_DETAILS_REQUEST,
-    };
-
-    expect(appDetailsRequest()).toEqual(expectedAction);
-  });
-});
-
-describe('appDetailsFailure', () => {
-  it('should create an action notifying a request failure and its message', () => {
-    const message = 'This request failed';
-    const expectedAction = {
-      type: APP_DETAILS_FAILURE,
-      message,
-    };
-
-    expect(appDetailsFailure(message)).toEqual(expectedAction);
-  });
-});
-
-describe('appDetailsSuccess', () => {
-  it('should create an action with the app fetched', () => {
-    const app = appFactory('id-1');
-    const expectedAction = {
-      type: APP_DETAILS_SUCCESS,
-      app,
-    };
-
-    expect(appDetailsSuccess(app)).toEqual(expectedAction);
-  });
-});
-
-describe('appDetailsUpdateSuccess', () => {
-  it('should create an action notifying that the update is successful', () => {
-    const expectedAction = {
-      type: APP_DETAILS_UPDATE_SUCCESS,
-    };
-
-    expect(appDetailsUpdateSuccess()).toEqual(expectedAction);
-  });
-});
 
 describe('fetchAppDetails', () => {
   const app = appFactory('id-1');
