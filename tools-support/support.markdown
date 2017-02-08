@@ -25,7 +25,7 @@ If the documentation and forums don't have the answers you need, you can submit 
 - - -
 
 #### Concur Service Status Dashboard:
-Find our most up-to-the-minute information on service availability in both our North America and EMEA Data Centers <a href="https://open.concur.com/" target="-blank">here.</a>
+Find our most up-to-the-minute information on service availability in both our North America and EMEA Data Centers <a href="http://open.concur.com/" target="-blank">here.</a>
 
 - - -
 
