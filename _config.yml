@@ -17,6 +17,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Vagrantfile
+  - node_modules
+  - app-management
 
 # Build settings
 kramdown:

@@ -1,0 +1,9 @@
+exports[`<PageContainer /> should render with a child component 1`] = `
+<div
+  className="container app-management">
+  <Connect(Nav) />
+  <p>
+    Test
+  </p>
+</div>
+`;

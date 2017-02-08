@@ -1,0 +1,15 @@
+exports[`<SignupPage /> should render with <SignupForm /> 1`] = `
+<div
+  className="row">
+  <div
+    className="col-md-12">
+    <h2>
+      Signup
+    </h2>
+    <LoadingSpinner />
+    <ErrorAlert />
+    <ReduxForm
+      onSubmit={[Function]} />
+  </div>
+</div>
+`;

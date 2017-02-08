@@ -14,7 +14,7 @@ nav.navbar {
 .navbar-nav {
   // apply border so text doesn't jump on hover
   > li > a {
-    border-bottom: 2px solid $navbar-default-bg;
+    border-bottom: 2px solid transparent;
     text-transform: uppercase;
   }
 
@@ -22,12 +22,16 @@ nav.navbar {
   > li > a:hover {
     border-bottom: 2px solid $concur-blue;
   }
+
+  > li a.active {
+    border-bottom: solid 2px $concur-blue;
+  }
 }
 
 // remove hover effects in collapsable mode
 @media (max-width: $grid-float-breakpoint-max) {
   .navbar-nav > li > a:hover {
-    border-bottom: 2px solid $navbar-default-bg;
+    border-bottom: 2px solid transparent;
   }
 }
 
