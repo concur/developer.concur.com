@@ -40,6 +40,34 @@
     "value": "openid"
   },
   {
+    "label": "mileage.journey.read",
+    "value": "mileage.journey.read"
+  },
+  {
+    "label": "mileage.journey.writeonly",
+    "value": "mileage.journey.writeonly"
+  },
+  {
+    "label": "mileage.vehicle.read",
+    "value": "mileage.vehicle.read"
+  },
+  {
+    "label": "mileage.vehicle.writeonly",
+    "value": "mileage.vehicle.writeonly"
+  },
+  {
+    "label": "mileage.rate.read",
+    "value": "mileage.rate.read"
+  },
+  {
+    "label": "mileage.rate.writeonly",
+    "value": "mileage.rate.writeonly"
+  },
+  {
+    "label": "user_read",
+    "value": "user_read"
+  },
+  {
     "label": "ATTEND",
     "value": "ATTEND"
   },

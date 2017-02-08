@@ -9,6 +9,7 @@ import {
   SelectField,
   MultiselectField,
   RedirectUris,
+  FieldHelp,
 } from '../FormFields';
 
 // All selectable grants and scopes
@@ -100,6 +101,15 @@ const NewAppForm = ({ handleSubmit, reset }) => (
             label="Allowed Grants &#42;"
             options={grants}
           />
+          <FieldHelp>
+            <a
+              href="/api-reference/authentication/apidoc.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Authentication Grant documentation
+            </a>
+          </FieldHelp>
         </section>
         <section className="col-md-6">
           <Field
@@ -109,6 +119,15 @@ const NewAppForm = ({ handleSubmit, reset }) => (
             label="Allowed Scopes &#42;"
             options={scopes}
           />
+          <FieldHelp>
+            <a
+              href="/api-reference/authentication/scopes.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Scope documentation
+            </a>
+          </FieldHelp>
         </section>
       </div>
       <section>

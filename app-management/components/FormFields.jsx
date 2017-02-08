@@ -15,6 +15,19 @@ FieldError.propTypes = {
   ariaText: PropTypes.string,
 };
 
+export const FieldHelp = ({ children }) => (
+  <p>
+    <small>
+      <i className="fa fa-question-circle" />&nbsp;
+      {children}
+    </small>
+  </p>
+);
+
+FieldHelp.propTypes = {
+  children: PropTypes.any.isRequired,
+};
+
 export const InputField = ({ input, type, label, meta: { touched, error } }) => {
   const { name } = input;
   const errorClass = touched && error ? 'has-error' : '';
