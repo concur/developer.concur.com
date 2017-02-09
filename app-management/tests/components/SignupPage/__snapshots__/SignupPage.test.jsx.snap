@@ -4,9 +4,10 @@ exports[`<SignupPage /> should render with <SignupForm /> 1`] = `
   <div
     className="col-md-12">
     <h2>
-      Signup
+      Sign Up
     </h2>
-    <LoadingSpinner />
+    <LoadingSpinner
+      message="Creating account... (this may take several seconds)" />
     <ErrorAlert />
     <ReduxForm
       onSubmit={[Function]} />

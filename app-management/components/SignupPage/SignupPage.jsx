@@ -6,8 +6,11 @@ import ErrorAlert from '../ErrorAlert';
 const SignupPage = ({ handleSubmit, isFetching, error }) => (
   <div className="row">
     <div className="col-md-12">
-      <h2>Signup</h2>
-      <LoadingSpinner loading={isFetching} />
+      <h2>Sign Up</h2>
+      <LoadingSpinner
+        loading={isFetching}
+        message="Creating account... (this may take several seconds)"
+      />
       <ErrorAlert error={error} />
       <SignupForm onSubmit={handleSubmit} />
     </div>

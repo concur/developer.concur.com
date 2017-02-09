@@ -28,7 +28,7 @@ FieldHelp.propTypes = {
   children: PropTypes.any.isRequired,
 };
 
-export const InputField = ({ input, type, label, meta: { touched, error } }) => {
+export const InputField = ({ input, type, label, placeholder, meta: { touched, error } }) => {
   const { name } = input;
   const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
@@ -40,6 +40,7 @@ export const InputField = ({ input, type, label, meta: { touched, error } }) => 
         {...input}
         id={name}
         type={type}
+        placeholder={placeholder}
         className="form-control"
         aria-describedby={ariaText}
       />
@@ -52,6 +53,7 @@ InputField.propTypes = {
   input: PropTypes.object.isRequired,
   type: PropTypes.string.isRequired,
   label: PropTypes.string,
+  placeholder: PropTypes.string,
   meta: PropTypes.object.isRequired,
 };
 
@@ -75,7 +77,7 @@ TextareaField.propTypes = {
   meta: PropTypes.object.isRequired,
 };
 
-export const SelectField = ({ input, label, options, meta: { touched, error } }) => {
+export const SelectField = ({ input, label, placeholder, options, meta: { touched, error } }) => {
   const { name } = input;
   const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
@@ -86,6 +88,7 @@ export const SelectField = ({ input, label, options, meta: { touched, error } })
       <Select
         {...input}
         id={name}
+        placeholder={placeholder}
         options={options}
         onBlur={() => input.onBlur(input.value)}
         aria-describedby={ariaText}
@@ -98,11 +101,18 @@ export const SelectField = ({ input, label, options, meta: { touched, error } })
 SelectField.propTypes = {
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   options: PropTypes.array.isRequired,
   meta: PropTypes.object.isRequired,
 };
 
-export const MultiselectField = ({ input, label, options, meta: { touched, error } }) => {
+export const MultiselectField = ({
+  input,
+  label,
+  placeholder,
+  options,
+  meta: { touched, error },
+}) => {
   const { name } = input;
   const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
@@ -114,6 +124,7 @@ export const MultiselectField = ({ input, label, options, meta: { touched, error
         {...input}
         id={name}
         multi
+        placeholder={placeholder}
         options={options}
         onBlur={() => input.onBlur(input.value)}
       />
@@ -125,6 +136,7 @@ export const MultiselectField = ({ input, label, options, meta: { touched, error
 MultiselectField.propTypes = {
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   options: PropTypes.array.isRequired,
   meta: PropTypes.object.isRequired,
 };
