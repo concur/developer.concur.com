@@ -40,7 +40,6 @@ export function fetchAppDetails(id) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      mode: 'no-cors',
     };
 
     return fetch(`${process.env.DEVCENTER_API_ORCHESTRATION}`, options)
@@ -61,7 +60,6 @@ export function updateAppDetails(app) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      mode: 'no-cors',
     };
 
     return fetch(`${process.env.DEVCENTER_API_ORCHESTRATION}`, options)
