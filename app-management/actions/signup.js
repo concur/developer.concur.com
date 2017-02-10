@@ -35,7 +35,6 @@ export function postSignup(user) {
       headers: {
         'Content-Type': 'application/json',
       },
-      mode: 'no-cors',
     };
 
     return fetch(`${process.env.DEVCENTER_API_FORMS}/register`, options)

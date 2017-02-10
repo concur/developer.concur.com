@@ -37,7 +37,6 @@ export function postNewApp(newApp) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      mode: 'no-cors',
     };
 
     return fetch(`${process.env.DEVCENTER_API_ORCHESTRATION}`, options)

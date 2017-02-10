@@ -43,7 +43,6 @@ export function login(user) {
       headers: {
         'Content-Type': 'application/json',
       },
-      mode: 'no-cors',
     };
 
     return fetch(`${process.env.DEVCENTER_API_FORMS}/auth/login`, options)
