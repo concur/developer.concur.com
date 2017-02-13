@@ -11,10 +11,8 @@ describe('postSignup', () => {
   let store;
 
   beforeEach(() => {
-    store = mockStore({
-      auth: { token: null },
-    });
-  })
+    store = mockStore();
+  });
 
   afterEach(() => {
     nock.cleanAll();
@@ -31,8 +29,8 @@ describe('postSignup', () => {
     };
 
     const response = {
-      user,
-      access_token: 'a-sample-token',
+      userid: 'johnsmith@concur.com',
+      password: 'password',
     };
 
     nock(process.env.DEVCENTER_API_FORMS)
@@ -41,7 +39,7 @@ describe('postSignup', () => {
 
     const expectedActions = [
       signupRequest(),
-      signupSuccess(response.access_token),
+      signupSuccess(),
       reset('signup'),
     ];
 
@@ -59,6 +57,54 @@ describe('postSignup', () => {
     const expectedActions = [
       signupRequest(),
       signupFailure(`request to ${process.env.DEVCENTER_API_FORMS}/register failed, reason: Server is down`),
+    ];
+
+    return store.dispatch(postSignup())
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+  });
+
+  it('creates a signupFailure action when there is a duplicate email', () => {
+    nock(process.env.DEVCENTER_API_FORMS)
+      .post('/register')
+      .reply(200, 'Error (IsDuplicateLoginID): That Login ID already exists - please choose another.');
+
+    const expectedActions = [
+      signupRequest(),
+      signupFailure('That email already exists. Please choose another.'),
+    ];
+
+    return store.dispatch(postSignup())
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+  });
+
+  it('creates a signupFailure action when there is a critical server error', () => {
+    nock(process.env.DEVCENTER_API_FORMS)
+      .post('/register')
+      .reply(200, 'Error (Critical): ...');
+
+    const expectedActions = [
+      signupRequest(),
+      signupFailure('A server error occurred when creating your account. Please try again later.'),
+    ];
+
+    return store.dispatch(postSignup())
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+  });
+
+  it('creates a signupFailure action when there is a gateway timeout', () => {
+    nock(process.env.DEVCENTER_API_FORMS)
+      .post('/register')
+      .reply(504, '<HTML><HEAD>\n<TITLE>Gateway Timeout - In read </TITLE>...</HEAD></HTML>');
+
+    const expectedActions = [
+      signupRequest(),
+      signupFailure('A server error occurred when creating your account. Please try again later.'),
     ];
 
     return store.dispatch(postSignup())
