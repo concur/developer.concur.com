@@ -33,7 +33,7 @@ export function fetchAppDetails(id) {
     dispatch(appDetailsRequest());
 
     console.log(`TODO: Pass ${id} to API call`);
-    const token = getState().auth.token;
+    const { token } = getState().auth;
     const options = {
       method: 'GET',
       headers: {
@@ -53,7 +53,7 @@ export function updateAppDetails(app) {
   return (dispatch, getState) => {
     dispatch(appDetailsRequest());
 
-    const token = getState().auth.token;
+    const { token } = getState().auth;
     const options = {
       method: 'PUT',
       headers: {
