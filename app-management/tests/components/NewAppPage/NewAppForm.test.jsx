@@ -12,7 +12,7 @@ describe('<NewAppForm />', () => {
   let form, store;
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    jest.resetAllMocks();
     store = createStore(appReducer)
     form = mount(
       <Provider store={store}>

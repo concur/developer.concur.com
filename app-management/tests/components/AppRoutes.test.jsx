@@ -18,7 +18,7 @@ let routes;
 
 describe('<AppRoutes />', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    jest.resetAllMocks();
     window.localStorage = LocalStorage();
     store = createStore(appReducer);
     routes = new AppRoutes({ store });

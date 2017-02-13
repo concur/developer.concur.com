@@ -23,7 +23,7 @@ const defaultProps = {
 
 describe('<AppdetailsPage />', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    jest.resetAllMocks();
   });
 
   it('calls componentWillMount to fetch the app details', () => {
@@ -78,7 +78,7 @@ describe('<AppdetailsPage />', () => {
     let state;
 
     beforeEach(() => {
-      jest.clearAllMocks();
+      jest.resetAllMocks();
       state = mapDispatchToProps(dispatcher);
     });
 
