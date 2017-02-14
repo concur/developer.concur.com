@@ -19,7 +19,7 @@ exports[`<LoginPage /> should render with <LoginForm /> 1`] = `
       error="" />
     <LoadingSpinner
       loading={false}
-      message={null} />
+      message="Loading..." />
     <ReduxForm
       onSubmit={[Function]} />
   </div>

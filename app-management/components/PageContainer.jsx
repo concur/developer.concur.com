@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 
 import Nav from './Nav';
 
-const PageContainer = props => (
+const PageContainer = ({ children }) => (
   <div className="container app-management">
     <Nav />
-    {props.children}
+    {children}
   </div>
 );
 

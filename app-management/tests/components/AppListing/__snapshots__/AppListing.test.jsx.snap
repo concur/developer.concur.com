@@ -13,7 +13,7 @@ exports[`<AppListing /> displays the loading spinner if the listing is loading 1
       error="" />
     <LoadingSpinner
       loading={true}
-      message={null} />
+      message="Loading..." />
   </div>
 </div>
 `;

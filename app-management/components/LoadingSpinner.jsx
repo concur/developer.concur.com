@@ -5,7 +5,7 @@ const LoadingSpinner = ({ loading, message }) => (
     <h3>
       <i className="fa fa-spinner fa-spin" />
       &nbsp;
-      {message || 'Loading...'}
+      {message}
     </h3>
   ) : null
 );
@@ -16,7 +16,7 @@ LoadingSpinner.propTypes = {
 };
 
 LoadingSpinner.defaultProps = {
-  message: null,
+  message: 'Loading...',
 };
 
 export default LoadingSpinner;
