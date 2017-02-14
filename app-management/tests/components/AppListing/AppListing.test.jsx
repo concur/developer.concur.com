@@ -21,7 +21,7 @@ const defaultProps = {
 
 describe('<AppListing />', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    jest.resetAllMocks();
   });
 
   it('calls componentWillMount to fetch the app listing', () => {

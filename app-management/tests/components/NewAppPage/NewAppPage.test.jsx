@@ -12,7 +12,7 @@ const store = createStore(appReducer);
 
 describe('<NewAppPage />', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    jest.resetAllMocks();
   });
 
   it('should render with <NewAppForm />', () => {

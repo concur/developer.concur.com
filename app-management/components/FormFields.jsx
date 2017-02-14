@@ -15,6 +15,11 @@ FieldError.propTypes = {
   ariaText: PropTypes.string,
 };
 
+FieldError.defaultProps = {
+  error: null,
+  ariaText: '',
+};
+
 export const FieldHelp = ({ children }) => (
   <p>
     <small>
@@ -28,7 +33,7 @@ FieldHelp.propTypes = {
   children: PropTypes.any.isRequired,
 };
 
-export const InputField = ({ input, type, label, meta: { touched, error } }) => {
+export const InputField = ({ input, type, label, placeholder, meta: { touched, error } }) => {
   const { name } = input;
   const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
@@ -40,6 +45,7 @@ export const InputField = ({ input, type, label, meta: { touched, error } }) => 
         {...input}
         id={name}
         type={type}
+        placeholder={placeholder}
         className="form-control"
         aria-describedby={ariaText}
       />
@@ -51,8 +57,13 @@ export const InputField = ({ input, type, label, meta: { touched, error } }) => 
 InputField.propTypes = {
   input: PropTypes.object.isRequired,
   type: PropTypes.string.isRequired,
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   meta: PropTypes.object.isRequired,
+};
+
+InputField.defaultProps = {
+  placeholder: '',
 };
 
 export const TextareaField = ({ input, label, meta: { touched, error } }) => {
@@ -75,7 +86,7 @@ TextareaField.propTypes = {
   meta: PropTypes.object.isRequired,
 };
 
-export const SelectField = ({ input, label, options, meta: { touched, error } }) => {
+export const SelectField = ({ input, label, placeholder, options, meta: { touched, error } }) => {
   const { name } = input;
   const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
@@ -86,6 +97,7 @@ export const SelectField = ({ input, label, options, meta: { touched, error } })
       <Select
         {...input}
         id={name}
+        placeholder={placeholder}
         options={options}
         onBlur={() => input.onBlur(input.value)}
         aria-describedby={ariaText}
@@ -98,11 +110,22 @@ export const SelectField = ({ input, label, options, meta: { touched, error } })
 SelectField.propTypes = {
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   options: PropTypes.array.isRequired,
   meta: PropTypes.object.isRequired,
 };
 
-export const MultiselectField = ({ input, label, options, meta: { touched, error } }) => {
+SelectField.defaultProps = {
+  placeholder: '',
+};
+
+export const MultiselectField = ({
+  input,
+  label,
+  placeholder,
+  options,
+  meta: { touched, error },
+}) => {
   const { name } = input;
   const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
@@ -114,6 +137,7 @@ export const MultiselectField = ({ input, label, options, meta: { touched, error
         {...input}
         id={name}
         multi
+        placeholder={placeholder}
         options={options}
         onBlur={() => input.onBlur(input.value)}
       />
@@ -125,8 +149,13 @@ export const MultiselectField = ({ input, label, options, meta: { touched, error
 MultiselectField.propTypes = {
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   options: PropTypes.array.isRequired,
   meta: PropTypes.object.isRequired,
+};
+
+MultiselectField.defaultProps = {
+  placeholder: '',
 };
 
 // Due to the checkbox being wrapped by a label, this component doesn't use FieldWrapper
@@ -150,7 +179,7 @@ export const CheckboxField = ({ input, meta: { touched, error }, children }) => 
 CheckboxField.propTypes = {
   input: PropTypes.object.isRequired,
   meta: PropTypes.object.isRequired,
-  children: PropTypes.any,
+  children: PropTypes.any.isRequired,
 };
 
 export const RedirectUriField = ({
@@ -191,9 +220,13 @@ export const RedirectUriField = ({
 RedirectUriField.propTypes = {
   input: PropTypes.object.isRequired,
   label: PropTypes.string,
-  canDelete: PropTypes.bool,
-  onClick: PropTypes.func,
+  canDelete: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
   meta: PropTypes.object.isRequired,
+};
+
+RedirectUriField.defaultProps = {
+  label: '',
 };
 
 export const RedirectUris = ({ fields }) => (
@@ -219,5 +252,5 @@ export const RedirectUris = ({ fields }) => (
 );
 
 RedirectUris.propTypes = {
-  fields: PropTypes.object,
+  fields: PropTypes.object.isRequired,
 };

@@ -18,7 +18,7 @@ let routes;
 
 describe('<AppRoutes />', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    jest.resetAllMocks();
     window.localStorage = LocalStorage();
     store = createStore(appReducer);
     routes = new AppRoutes({ store });
@@ -85,7 +85,7 @@ describe('<AppRoutes />', () => {
 
   describe('render', () => {
     it('renders the router and routes', () => {
-      const routes = shallow(<AppRoutes />);
+      const routes = shallow(<AppRoutes store={store} />);
 
       expect(shallowToJson(routes)).toMatchSnapshot();
     });

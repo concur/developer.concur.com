@@ -29,7 +29,7 @@ export function postNewApp(newApp) {
   return (dispatch, getState) => {
     dispatch(newAppRequest());
 
-    const token = getState().auth.token;
+    const { token } = getState().auth;
     const options = {
       method: 'POST',
       body: JSON.stringify(newApp),

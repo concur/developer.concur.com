@@ -37,7 +37,7 @@ AppListing.propTypes = {
   fetchAppListing: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
-  apps: PropTypes.arrayOf(PropTypes.shape()),
+  apps: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default AppListing;

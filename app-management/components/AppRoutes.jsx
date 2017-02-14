@@ -67,7 +67,7 @@ class AppRoutes extends React.Component {
 AppRoutes.propTypes = {
   store: PropTypes.shape({
     dispatch: PropTypes.func.isRequired,
-  }),
+  }).isRequired,
 };
 
 export default AppRoutes;

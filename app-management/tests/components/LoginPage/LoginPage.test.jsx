@@ -12,7 +12,7 @@ const store = createStore(appReducer);
 describe('<LoginPage />', () => {
   it('should render with <LoginForm />', () => {
     const handleSubmit = jest.fn();
-    const page = shallow(<LoginPage handleSubmit={handleSubmit} />);
+    const page = shallow(<LoginPage handleSubmit={handleSubmit} isFetching={false} error="" />);
 
     expect(shallowToJson(page)).toMatchSnapshot();
   });

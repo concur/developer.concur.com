@@ -2,6 +2,7 @@ import 'es6-promise';
 import fetch from 'isomorphic-fetch';
 import { reset } from 'redux-form';
 import { hashHistory } from 'react-router';
+import { signupHelpers } from '../utils/actionHelpers';
 
 export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
@@ -18,11 +19,8 @@ export function signupFailure(message) {
   };
 }
 
-export function signupSuccess(token) {
-  return {
-    type: SIGNUP_SUCCESS,
-    token,
-  };
+export function signupSuccess() {
+  return { type: SIGNUP_SUCCESS };
 }
 
 export function postSignup(user) {
@@ -38,9 +36,12 @@ export function postSignup(user) {
     };
 
     return fetch(`${process.env.DEVCENTER_API_FORMS}/register`, options)
-      .then(response => response.json())
-      .then((data) => {
-        dispatch(signupSuccess(data.access_token));
+      .then(signupHelpers.isSuccessful)
+      .then(response => response.text())
+      .then(signupHelpers.isDuplicateLogin)
+      .then(signupHelpers.isCriticalError)
+      .then(() => {
+        dispatch(signupSuccess());
         hashHistory.push('/login');
         dispatch(reset('signup'));
       })

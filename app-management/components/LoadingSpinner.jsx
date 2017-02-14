@@ -5,14 +5,18 @@ const LoadingSpinner = ({ loading, message }) => (
     <h3>
       <i className="fa fa-spinner fa-spin" />
       &nbsp;
-      {message || 'Loading...'}
+      {message}
     </h3>
   ) : null
 );
 
 LoadingSpinner.propTypes = {
-  loading: PropTypes.bool,
+  loading: PropTypes.bool.isRequired,
   message: PropTypes.string,
+};
+
+LoadingSpinner.defaultProps = {
+  message: 'Loading...',
 };
 
 export default LoadingSpinner;

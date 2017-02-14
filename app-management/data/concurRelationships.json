@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Prospective Customer",
+    "value": "Prospective Customer"
+  },
+  {
+    "label": "Existing Customer",
+    "value": "Existing Customer"
+  },
+  {
+    "label": "Prospective Partner/Developer",
+    "value": "Prospective Partner"
+  },
+  {
+    "label": "Existing Partner/Developer",
+    "value": "Existing Partner"
+  }
+]

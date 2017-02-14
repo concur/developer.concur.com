@@ -12,12 +12,12 @@ const store = createStore(appReducer);
 
 describe('<SignupPage />', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    jest.resetAllMocks();
   });
 
   it('should render with <SignupForm />', () => {
     const handleSubmit = jest.fn();
-    const page = shallow(<SignupPage handleSubmit={handleSubmit} />);
+    const page = shallow(<SignupPage handleSubmit={handleSubmit} isFetching={false} error="" />);
 
     expect(shallowToJson(page)).toMatchSnapshot();
   });

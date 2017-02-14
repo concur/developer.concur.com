@@ -3,6 +3,7 @@ import fetch from 'isomorphic-fetch';
 import { hashHistory } from 'react-router';
 import { reset } from 'redux-form';
 import auth from '../utils/auth';
+import { authHelpers } from '../utils/actionHelpers';
 
 export const AUTH_LOGIN_REQUEST = 'AUTH_LOGIN_REQUEST';
 export const AUTH_LOGIN_FAILURE = 'AUTH_LOGIN_FAILURE';
@@ -46,15 +47,14 @@ export function login(user) {
     };
 
     return fetch(`${process.env.DEVCENTER_API_FORMS}/auth/login`, options)
+      .then(authHelpers.isAuthorized)
+      .then(authHelpers.isSuccessful)
       .then(response => response.json())
+      .then(authHelpers.hasValidToken)
       .then((data) => {
-        if (data && data.access_token) {
-          dispatch(loginSuccess(data.access_token));
-          dispatch(reset('login'));
-          hashHistory.push('/');
-        } else {
-          dispatch(loginFailure('Invalid username and/or password'));
-        }
+        dispatch(loginSuccess(data.access_token));
+        dispatch(reset('login'));
+        hashHistory.push('/');
       })
       .catch(err => dispatch(loginFailure(err.message)));
   };

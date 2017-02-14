@@ -67,7 +67,11 @@ describe('login', () => {
   it('creates a loginFailure action when authentication fails', () => {
     nock(process.env.DEVCENTER_API_FORMS)
       .post('/auth/login')
-      .reply(401, { message: 'Unauthorized' });
+      .reply(403, {
+        "error": "invalid_grant",
+        "error_description": "Incorrect Credentials. Please Retry",
+        "code": 5
+      });
 
     const expectedActions = [
       loginRequest(),

@@ -2,7 +2,10 @@ import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import { formValidator } from '../../utils/formValidator';
-import { InputField } from '../FormFields';
+import { InputField, SelectField, CheckboxField } from '../FormFields';
+
+import countries from '../../data/countries.json';
+import concurRelationships from '../../data/concurRelationships.json';
 
 const constraints = {
   firstName: {
@@ -11,7 +14,7 @@ const constraints = {
   lastName: {
     presence: { message: 'is required' },
   },
-  username: {
+  company: {
     presence: { message: 'is required' },
   },
   email: {
@@ -22,11 +25,23 @@ const constraints = {
     presence: { message: 'is required' },
     length: { minimum: 8 },
   },
-  passwordConfirm: {
+  passwordVerify: {
     presence: { message: 'is required' },
     equality: {
       attribute: 'password',
       message: 'must match password',
+    },
+  },
+  country: {
+    presence: { message: 'is required' },
+  },
+  website: {
+    url: true,
+  },
+  termsOfUseAgreement: {
+    inclusion: {
+      within: [true],
+      message: 'is required',
     },
   },
 };
@@ -58,19 +73,19 @@ const SignupForm = ({ handleSubmit }) => (
         <section className="col-md-6">
           <Field
             component={InputField}
-            type="text"
-            name="username"
-            label="Username &#42;"
-            placeholder="Username"
+            type="email"
+            name="email"
+            label="Email Address &#42;"
+            placeholder="john.smith@example.com"
           />
         </section>
         <section className="col-md-6">
           <Field
             component={InputField}
-            type="email"
-            name="email"
-            label="Email Address &#42;"
-            placeholder="Email Address"
+            type="text"
+            name="company"
+            label="Company Name &#42;"
+            placeholder="Company Name"
           />
         </section>
       </div>
@@ -80,7 +95,7 @@ const SignupForm = ({ handleSubmit }) => (
             component={InputField}
             type="password"
             name="password"
-            label="Password &#42;"
+            label="Password (8 characters minimum) &#42;"
             placeholder="Password"
           />
         </section>
@@ -88,12 +103,73 @@ const SignupForm = ({ handleSubmit }) => (
           <Field
             component={InputField}
             type="password"
-            name="passwordConfirm"
-            label="Confirm Password &#42;"
-            placeholder="Confirm Password"
+            name="passwordVerify"
+            label="Password Verify &#42;"
+            placeholder="Password Verify"
           />
         </section>
       </div>
+      <div className="row">
+        <section className="col-md-6">
+          <Field
+            component={InputField}
+            type="text"
+            name="businessDescription"
+            label="Business Description"
+            placeholder="Description"
+          />
+        </section>
+        <section className="col-md-6">
+          <Field
+            component={InputField}
+            type="tel"
+            name="phoneNumber"
+            label="Phone Number"
+            placeholder="+1-555-555-5555"
+          />
+        </section>
+      </div>
+      <div className="row">
+        <section className="col-md-6">
+          <Field
+            component={SelectField}
+            name="country"
+            label="Country &#42;"
+            placeholder="Select country"
+            options={countries}
+            simpleValue
+          />
+        </section>
+        <section className="col-md-6">
+          <Field
+            component={InputField}
+            type="url"
+            name="website"
+            label="Website"
+            placeholder="http://example.com"
+          />
+        </section>
+      </div>
+      <div className="row">
+        <section className="col-md-6">
+          <Field
+            component={SelectField}
+            name="relationshipToConcur"
+            label="Relationship with Concur"
+            placeholder="Select relationship"
+            options={concurRelationships}
+            simpleValue
+          />
+        </section>
+      </div>
+      <section>
+        <Field
+          component={CheckboxField}
+          name="termsOfUseAgreement"
+        >
+          I Agree to the <a href="/Terms-of-Use.html" target="_blank" rel="noopener noreferrer">Terms of Use</a> and <a href="https://www.concur.com/en-us/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        </Field>
+      </section>
       <p>&#42; required field</p>
     </fieldset>
     <footer>

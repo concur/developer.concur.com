@@ -18,7 +18,7 @@ describe('<AppEditForm />', () => {
   let form;
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    jest.resetAllMocks();
     form = mount(
       <Provider store={store}>
         <AppEditForm {...props} />

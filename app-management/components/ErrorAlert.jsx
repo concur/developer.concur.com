@@ -8,4 +8,8 @@ ErrorAlert.propTypes = {
   error: PropTypes.string,
 };
 
+ErrorAlert.defaultProps = {
+  error: null,
+};
+
 export default ErrorAlert;

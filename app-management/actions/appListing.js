@@ -27,7 +27,7 @@ export function fetchAppListing() {
   return (dispatch, getState) => {
     dispatch(appListingRequest());
 
-    const token = getState().auth.token;
+    const { token } = getState().auth;
     const options = {
       method: 'GET',
       headers: {
