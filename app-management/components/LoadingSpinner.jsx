@@ -11,8 +11,12 @@ const LoadingSpinner = ({ loading, message }) => (
 );
 
 LoadingSpinner.propTypes = {
-  loading: PropTypes.bool,
+  loading: PropTypes.bool.isRequired,
   message: PropTypes.string,
+};
+
+LoadingSpinner.defaultProps = {
+  message: null,
 };
 
 export default LoadingSpinner;

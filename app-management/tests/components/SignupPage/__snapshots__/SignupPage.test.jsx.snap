@@ -7,8 +7,10 @@ exports[`<SignupPage /> should render with <SignupForm /> 1`] = `
       Sign Up
     </h2>
     <LoadingSpinner
+      loading={false}
       message="Creating account... (this may take several seconds)" />
-    <ErrorAlert />
+    <ErrorAlert
+      error="" />
     <div
       className="alert alert-info">
       <p>

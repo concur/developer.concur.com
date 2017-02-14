@@ -28,8 +28,8 @@ const SignupPage = ({ handleSubmit, isFetching, error }) => (
 
 SignupPage.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  isFetching: PropTypes.bool,
-  error: PropTypes.string,
+  isFetching: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
 };
 
 export default SignupPage;

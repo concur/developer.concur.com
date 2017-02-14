@@ -15,8 +15,11 @@ exports[`<LoginPage /> should render with <LoginForm /> 1`] = `
         Sign Up here
       </Link>
     </p>
-    <ErrorAlert />
-    <LoadingSpinner />
+    <ErrorAlert
+      error="" />
+    <LoadingSpinner
+      loading={false}
+      message={null} />
     <ReduxForm
       onSubmit={[Function]} />
   </div>

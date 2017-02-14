@@ -8,5 +8,5 @@ export function mapStateToProps(state) {
 }
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
 )(Nav);

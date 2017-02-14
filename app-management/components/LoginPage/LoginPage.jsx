@@ -18,8 +18,8 @@ const LoginPage = ({ handleSubmit, isFetching, error }) => (
 
 LoginPage.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  isFetching: PropTypes.bool,
-  error: PropTypes.string,
+  isFetching: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
 };
 
 export default LoginPage;

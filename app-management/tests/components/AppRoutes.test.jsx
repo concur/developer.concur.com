@@ -85,7 +85,7 @@ describe('<AppRoutes />', () => {
 
   describe('render', () => {
     it('renders the router and routes', () => {
-      const routes = shallow(<AppRoutes />);
+      const routes = shallow(<AppRoutes store={store} />);
 
       expect(shallowToJson(routes)).toMatchSnapshot();
     });

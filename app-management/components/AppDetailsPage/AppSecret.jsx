@@ -31,4 +31,8 @@ AppSecret.propTypes = {
   secret: PropTypes.string,
 };
 
+AppSecret.defaultProps = {
+  secret: null,
+};
+
 export default AppSecret;

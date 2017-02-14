@@ -13,7 +13,7 @@ import { loginSuccess } from './actions/auth';
 
 const store = createStore(
   appReducer,
-  applyMiddleware(thunkMiddleware)
+  applyMiddleware(thunkMiddleware),
 );
 
 const token = auth.getToken();

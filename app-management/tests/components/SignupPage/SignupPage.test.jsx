@@ -17,7 +17,7 @@ describe('<SignupPage />', () => {
 
   it('should render with <SignupForm />', () => {
     const handleSubmit = jest.fn();
-    const page = shallow(<SignupPage handleSubmit={handleSubmit} />);
+    const page = shallow(<SignupPage handleSubmit={handleSubmit} isFetching={false} error="" />);
 
     expect(shallowToJson(page)).toMatchSnapshot();
   });

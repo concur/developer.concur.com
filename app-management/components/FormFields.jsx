@@ -15,6 +15,11 @@ FieldError.propTypes = {
   ariaText: PropTypes.string,
 };
 
+FieldError.defaultProps = {
+  error: null,
+  ariaText: '',
+};
+
 export const FieldHelp = ({ children }) => (
   <p>
     <small>
@@ -52,9 +57,13 @@ export const InputField = ({ input, type, label, placeholder, meta: { touched, e
 InputField.propTypes = {
   input: PropTypes.object.isRequired,
   type: PropTypes.string.isRequired,
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   meta: PropTypes.object.isRequired,
+};
+
+InputField.defaultProps = {
+  placeholder: '',
 };
 
 export const TextareaField = ({ input, label, meta: { touched, error } }) => {
@@ -106,6 +115,10 @@ SelectField.propTypes = {
   meta: PropTypes.object.isRequired,
 };
 
+SelectField.defaultProps = {
+  placeholder: '',
+};
+
 export const MultiselectField = ({
   input,
   label,
@@ -141,6 +154,10 @@ MultiselectField.propTypes = {
   meta: PropTypes.object.isRequired,
 };
 
+MultiselectField.defaultProps = {
+  placeholder: '',
+};
+
 // Due to the checkbox being wrapped by a label, this component doesn't use FieldWrapper
 export const CheckboxField = ({ input, meta: { touched, error }, children }) => {
   const { name } = input;
@@ -162,7 +179,7 @@ export const CheckboxField = ({ input, meta: { touched, error }, children }) => 
 CheckboxField.propTypes = {
   input: PropTypes.object.isRequired,
   meta: PropTypes.object.isRequired,
-  children: PropTypes.any,
+  children: PropTypes.any.isRequired,
 };
 
 export const RedirectUriField = ({
@@ -203,9 +220,13 @@ export const RedirectUriField = ({
 RedirectUriField.propTypes = {
   input: PropTypes.object.isRequired,
   label: PropTypes.string,
-  canDelete: PropTypes.bool,
-  onClick: PropTypes.func,
+  canDelete: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
   meta: PropTypes.object.isRequired,
+};
+
+RedirectUriField.defaultProps = {
+  label: '',
 };
 
 export const RedirectUris = ({ fields }) => (
@@ -231,5 +252,5 @@ export const RedirectUris = ({ fields }) => (
 );
 
 RedirectUris.propTypes = {
-  fields: PropTypes.object,
+  fields: PropTypes.object.isRequired,
 };

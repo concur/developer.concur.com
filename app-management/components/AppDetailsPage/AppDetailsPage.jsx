@@ -51,7 +51,7 @@ AppDetailsPage.propTypes = {
   fetchAppDetails: PropTypes.func.isRequired,
   params: PropTypes.shape({
     id: PropTypes.string.isRequired,
-  }),
+  }).isRequired,
   isFetching: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
   app: PropTypes.object.isRequired,
