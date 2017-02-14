@@ -161,15 +161,6 @@ const SignupForm = ({ handleSubmit }) => (
             simpleValue
           />
         </section>
-        <section className="col-md-6">
-          <Field
-            component={InputField}
-            type="text"
-            name="desiredUse"
-            label="How would you like to use Concur?"
-            placeholder="Desired Use"
-          />
-        </section>
       </div>
       <section>
         <Field
