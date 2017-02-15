@@ -36,10 +36,10 @@ export function postSignup(user) {
     };
 
     return fetch(`${process.env.DEVCENTER_API_FORMS}/register`, options)
-      .then(signupHelpers.isSuccessful)
       .then(response => response.text())
       .then(signupHelpers.isDuplicateLogin)
       .then(signupHelpers.isCriticalError)
+      .then(signupHelpers.isSuccessful)
       .then(() => {
         dispatch(signupSuccess());
         hashHistory.push('/login');
