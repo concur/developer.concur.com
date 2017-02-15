@@ -48,6 +48,7 @@ const constraints = {
     presence: { message: '- at least one is required.' },
   },
   termsOfUseAgreement: {
+    presence: { message: 'is required' },
     inclusion: {
       within: [true],
       message: 'is required',
