@@ -1,16 +1,18 @@
+- title: API Reference (Deprecated)
+  url: /api-reference-deprecated/
 - title: Old Auth
   url: /api-reference-deprecated/old-auth/old-auth.html
-- title: v1.0
+- title: v1.0 - Imaging Web Service
   url: ''
   children:
       - title: Imaging Web Service
         url: /api-reference-deprecated/version-one/Image/
+      - title: Image Resource
+        url: /api-reference-deprecated/version-one/Image/image-resource.html
       - title: Get an entry image URL
         url: /api-reference-deprecated/version-one/Image/image-resource-entry-image-URL-get.html
       - title: Post image data
         url: /api-reference-deprecated/version-one/Image/image-resource-post.html
-      - title: Image Resource
-        url: /api-reference-deprecated/version-one/Image/image-resource.html
       - title: Image URL Resource
         url: /api-reference-deprecated/version-one/Image/image-url-resource.html
       - title: Get a payment request image URL
@@ -19,37 +21,52 @@
         url: /api-reference-deprecated/version-one/Image/receipt-image-URL-get.html
       - title: Get a report image URL
         url: /api-reference-deprecated/version-one/Image/report-image-URL-get.html
+- title: v1.0 - Travel Web Service
+  url: ''
+  children:
+      - title: Travel Request
+        url: /api-reference-deprecated/version-one/Travel/travel-request.html
       - title: Form of Payment Resource
         url: /api-reference-deprecated/version-one/Travel/form-payment-resource.html
       - title: Profile Resource
         url: /api-reference-deprecated/version-one/Travel/profile-resource.html
-      - title: Travel Request
-        url: /api-reference-deprecated/version-one/Travel/travel-request.html
-      - title: Get attendee types
-        url: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource-get.html
+- title: v1.0 - Attendee Types
+  url: ''
+  children:
       - title: Attendee Type Resource
         url: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html
-      - title: Attendee List Resource Post
-        url: /api-reference-deprecated/version-one/attendees/attendee-list-resource-post.html
+      - title: Get attendee types
+        url: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource-get.html
+- title: v1.0 - Attendees
+  url: ''
+  children:
       - title: Attendee List Resource
         url: /api-reference-deprecated/version-one/attendees/attendee-list-resource.html
+      - title: Attendee List Resource Post
+        url: /api-reference-deprecated/version-one/attendees/attendee-list-resource-post.html
+- title: v1.0 - List Item Web Service
+  url: ''
+  children:
       - title: List Item Web Service
         url: /api-reference-deprecated/version-one/list-item/
+      - title: List Resource
+        url: /api-reference-deprecated/version-one/list-item/list-resource.html
       - title: Get a list of lists
         url: /api-reference-deprecated/version-one/list-item/list-resource-get.html
       - title: Post new list items
         url: /api-reference-deprecated/version-one/list-item/list-resource-post.html
-      - title: List Resource
-        url: /api-reference-deprecated/version-one/list-item/list-resource.html
+- title: v1.0 - Quick Expense Web Service
+  url: ''
+  children:
       - title: Quick Expense Web Service
         url: /api-reference-deprecated/version-one/quick-expense/
+      - title: Quick Expense Resource
+        url: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource.html
       - title: Get quick expenses
         url: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource-get.html
       - title: Post a quick expense
         url: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource-post.html
-      - title: Quick Expense Resource
-        url: /api-reference-deprecated/version-one/quick-expense/quick-expense-resource.html
-- title: v1.1
+- title: v1.1 - Expense Entry
   url: ''
   children:
       - title: POST Expense Entry Attendees
@@ -64,44 +81,56 @@
         url: /api-reference-deprecated/version-one-one/expense-entry/get-expense-entry.html
       - title: POST Expense Entry
         url: /api-reference-deprecated/version-one-one/expense-entry/post-expense-entry.html
-      - title: Get expense group configuration details
-        url: /api-reference-deprecated/version-one-one/expense-group/expense-group-configuration-resource-get.html
+- title: v1.1 - Expense Group Configuration
+  url: ''
+  children:
       - title: Expense Group Configuration Resource
         url: /api-reference-deprecated/version-one-one/expense-group/expense-group-configuration-resource.html
-      - title: Post an expense report header
-        url: /api-reference-deprecated/version-one-one/expense-report/expense-report-header-post.html
+      - title: Get expense group configuration details
+        url: /api-reference-deprecated/version-one-one/expense-group/expense-group-configuration-resource-get.html
+- title: v1.1 - Expense Report
+  url: ''
+  children:
       - title: Expense Report Header Resource
         url: /api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html
+      - title: Post an expense report header
+        url: /api-reference-deprecated/version-one-one/expense-report/expense-report-header-post.html
       - title: Get List of Reports v1.1
         url: /api-reference-deprecated/version-one-one/expense-report/get-list-of-reports.html
       - title: Report Full Details v1.1
         url: /api-reference-deprecated/version-one-one/expense-report/get-report-full-details.html
-      - title: Get a list of locations
-        url: /api-reference-deprecated/version-one-one/expense-report/location-resource-get.html
       - title: Location Resource
         url: /api-reference-deprecated/version-one-one/expense-report/location-resource.html
-- title: v2.0
+      - title: Get a list of locations
+        url: /api-reference-deprecated/version-one-one/expense-report/location-resource-get.html
+- title: v2.0 - Attendee Web Service
   url: ''
   children:
       - title: Attendee Web Service
         url: /api-reference-deprecated/version-two/attendees/
-      - title: Get attendees
-        url: /api-reference-deprecated/version-two/attendees/attendee-resource-get.html
       - title: Attendee Resource
         url: /api-reference-deprecated/version-two/attendees/attendee-resource.html
+      - title: Get attendees
+        url: /api-reference-deprecated/version-two/attendees/attendee-resource-get.html
+- title: v2.0 - Expense Entry Attendee
+  url: ''
+  children:
+      - title: Expense Entry Attendee Resource
+        url: /api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource.html
       - title: GET Expense Entry Attendees
         url: /api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-get.html
       - title: PUT Expense Entry Attendees
         url: /api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-put.html
-      - title: Expense Entry Attendee Resource
-        url: /api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource.html
-      - title: Get report details
-        url: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html
+- title: v2.0 - Expense Report
+  url: ''
+  children:
       - title: Expense Report Resource
         url: /api-reference-deprecated/version-two/expense-reports/expense-report-resource.html
+      - title: Get report details
+        url: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html
       - title: GET List of Reports
         url: /api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html
-- title: v3.0
+- title: v3.0 - Receipts
   url: ''
   children:
       - title: Receipts
