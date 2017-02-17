@@ -4,6 +4,11 @@ layout: reference
 redirect_from: /docs-and-resources/support/
 ---
 
+#### Requesting Partner Support:  
+[Click here to request Partner support](/tools-support/requesting-partner-support.html)
+
+- - -
+
 #### Configuring Sandboxes:
 You can get assistance for your developer sandbox configuration by going to the [Concur Forums for Sandbox Setup][1] page.
 
@@ -16,11 +21,6 @@ To recover your developer sandbox user name or password, click on the applicable
 
 #### Visiting Forums:
 To ask Concur and other developers questions about the platform, use the <a href="https://forum.developer.concur.com/">forums.</a>
-
-- - -
-
-#### Requesting Partner Support:  
-If the documentation and forums don't have the answers you need, you can submit a [partner support case][3].
 
 - - -
 
