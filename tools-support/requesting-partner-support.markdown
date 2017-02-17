@@ -6,6 +6,7 @@ layout: reference
 **App Center Partners should never instruct a customer to log a ticket directly into Concur Customer Support** - If the issue is related to the integration between Concur and the Partner, the Partner must log the case.
  
 Partner cases must include the following:
+
 1.	App Name (Partners may have more than one certified app).
 2.	Customer Name (the name that Concur recognizes)
 3.	Reproduction steps:
