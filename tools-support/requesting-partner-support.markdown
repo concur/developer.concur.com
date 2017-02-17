@@ -22,3 +22,5 @@ Partner cases must include the following:
   3.  POST Body (if applicable)
   4. API Response
   5. Additional log information relevant to the issue (do not send more than is necessary)
+
+[Partner Support Case Login](https://na4.salesforce.com/secur/login_portal.jsp?orgId=00D600000007Dq3&portalId=06060000000PrEi)
