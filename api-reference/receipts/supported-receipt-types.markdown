@@ -378,7 +378,7 @@ The payments array allows for one or more payment methods used in the transactio
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
-|__*cardType*__|N/A|N/A| Can be any of the following values: American Express, Diner’s Club, Discover, MasterCard, Visa, Carte Blanche, Enroute, Universal Air Travel, JCB, EuroCard|
+|__*cardType*__|N/A|N/A| Can be any of the following values: American Express, Diners Club, Discover, MasterCard, Visa, Carte Blanche, Enroute, Universal Air Travel, JCB, EuroCard|
 |creditCardId|string|^[0-9]{4}$|Last four digits of the credit card number to meet FACTA and PCI requirements|
 |authorizationCode|string|N/A|Authorization code for transaction.|
 
@@ -394,7 +394,7 @@ The payments array allows for one or more payment methods used in the transactio
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
-|__*cardType*__|N/A|N/A| Can be any of the following values: American Express, Diner’s Club, Discover, MasterCard, Visa, Carte Blanche, Enroute, Universal Air Travel, JCB, EuroCard|
+|__*cardType*__|N/A|N/A| Can be any of the following values: American Express, Diners Club, Discover, MasterCard, Visa, Carte Blanche, Enroute, Universal Air Travel, JCB, EuroCard|
 |creditCardId|string|^[0-9]{4}$|Last four digits of the credit card number to meet FACTA and PCI requirements|
 |authorizationCode|string|N/A|Authorization code for transaction.|
 
@@ -417,7 +417,7 @@ The payments array allows for one or more payment methods used in the transactio
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
-|__*cardType*__|N/A|N/A| Can be any of the following values: American Express, Diner’s Club, Discover, MasterCard, Visa, Carte Blanche, Enroute, Universal Air Travel, JCB, EuroCard|
+|__*cardType*__|N/A|N/A| Can be any of the following values: American Express, Diners Club, Discover, MasterCard, Visa, Carte Blanche, Enroute, Universal Air Travel, JCB, EuroCard|
 |creditCardId|string|^[0-9]{4}$|Last four digits of the credit card number to meet FACTA and PCI requirements|
 |authorizationCode|string|N/A|Authorization code for transaction.|
 
