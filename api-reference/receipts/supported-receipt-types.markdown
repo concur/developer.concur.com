@@ -361,7 +361,8 @@ Schema for an object representing a merchant. The broker and seller properties i
 #### Payments
 
 The payments array allows for one or more payment methods used in the transaction to be defined. All payment methods defined within the array result in the value for total in the base object of the receipt. The JSON keyword ‘anyOf’ indicates at least one of the following is required and multiple can be present: [cash](#cash), [creditCard](#creditcard), [companyPaid](#companypaid), [digitalWallet](#digitalwallet) and / or [unusedTicket](#unusedticket).
-####cash
+
+#### cash
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -372,7 +373,7 @@ The payments array allows for one or more payment methods used in the transactio
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
-|__*cardDetail*__|object|[cardDetail](#undefined)|Credit card information.|
+|__*cardDetail*__|object|[cardDetail](#carddetail)|Credit card information.|
 
 ##### cardDetail
 
@@ -388,15 +389,7 @@ The payments array allows for one or more payment methods used in the transactio
 |---|---|---|---|
 |__*source*__|N/A|N/A| Can be any of the following values: GhostCard, LodgeCard, DirectPay, Invoice|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
-|cardDetail|object|[cardDetail](#undefined)|Credit card information.|
-
-###### cardDetail
-
-|Property Name|Type|Format|Description|
-|---|---|---|---|
-|__*cardType*__|N/A|N/A| Can be any of the following values: American Express, Diners Club, Discover, MasterCard, Visa, Carte Blanche, Enroute, Universal Air Travel, JCB, EuroCard|
-|creditCardId|string|^[0-9]{4}$|Last four digits of the credit card number to meet FACTA and PCI requirements|
-|authorizationCode|string|N/A|Authorization code for transaction.|
+|cardDetail|object|[cardDetail](#carddetail)|Credit card information.|
 
 ###### digitalWallet
 
@@ -405,21 +398,12 @@ The payments array allows for one or more payment methods used in the transactio
 |__*source*__|N/A|N/A| Can be any of the following values: ApplePay, AndroidPay, SamsungPay, PayPal, OlaMoney|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 
-
 ###### unusedTicket
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*ticketNumber*__|string|^(?!\s*$).+|Non-empty string. Length must be at least 1 character.|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
-
-###### cardDetail
-
-|Property Name|Type|Format|Description|
-|---|---|---|---|
-|__*cardType*__|N/A|N/A| Can be any of the following values: American Express, Diners Club, Discover, MasterCard, Visa, Carte Blanche, Enroute, Universal Air Travel, JCB, EuroCard|
-|creditCardId|string|^[0-9]{4}$|Last four digits of the credit card number to meet FACTA and PCI requirements|
-|authorizationCode|string|N/A|Authorization code for transaction.|
 
 #### Rail Receipt
 
