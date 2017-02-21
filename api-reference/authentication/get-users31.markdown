@@ -29,8 +29,10 @@ Once you have the Company Token, you would call the `/users` endpoint to retriev
 Name | Type | Format | Description
 -----|------| ------ | -----------
 `offset`|`string` |  | **Optional** The offset to begin returning the list of users
-`limit`|`string` |  | **Optional** The number of user records to return in that call. Max: 100
+`limit`|`string` |  | **Optional** The number of user records to return in that call. Max: 1000
+`<name_of_filter>`|`string` |  | **Optional** Filters results based on the desired field. Possible filters are : `isactive` `loginid` `lastname` `employeeid` `primaryemail` `countrycode`. 
 
+* Note: All query parameters must be lower-case and are CASE-SENSITIVE. If you pass an invalid query parameter, you will receive a 400 Bad Request, invalid query params.
 
 **Request**
 
@@ -47,7 +49,7 @@ Sample Curl:
 ```shell
 curl -v -X GET -H "Authorization: Bearer $token" \
 -H "Accept: application/json"
-'https://us.api.concursolutions.com/users?offset=0&limit=100'
+'https://us.api.concursolutions.com/users?offset=0&limit=100&isactive=true'
 ```
 
 successful call, responds with
@@ -61,6 +63,7 @@ successful call, responds with
   "Items": [
     {
       "Active": true,
+      "CountryCode": "US",
       "CellPhoneNumber": "5551234567",
       "PrimaryEmail": "johndoe@gmail.com",
       "EmployeeID": "johndoe@gmail.com",
@@ -73,6 +76,7 @@ successful call, responds with
     },
     {
       "Active": true,
+      "CountryCode": "US",
       "CellPhoneNumber": null,
       "PrimaryEmail": "janedoe@gmail.com",
       "EmployeeID": "janedoe@gmail.com",
