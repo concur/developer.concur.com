@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Authorization Code",
+    "value": "authorization_code"
+  },
+  {
+    "label": "Implicit",
+    "value": "implicit"
+  },
+  {
+    "label": "Refresh Token",
+    "value": "refresh_token"
+  },
+  {
+    "label": "Client Credentials",
+    "value": "client_credentials"
+  },
+  {
+    "label": "Password",
+    "value": "password"
+  }
+]

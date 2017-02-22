@@ -1,76 +1,39 @@
-## GET Expense Entry
+### GET Expense Entry Details
 
-### Get Expense Entry Details Request
+```http
+GET /api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId} HTTP/1.1
+Host: www.concursolutions.com
+```
 
-**NOTE:** You can find version 3.0 [here.](/api-reference/expense/expense-report/expense-entry.html)
+Retrieves the details for the specified expense entry
 
-Description | Supported Accept Types
------|------
-Retrieves the details for the specified expense entry | application/xml
+<aside class="notice">
+  <strong>NOTE:</strong> You can find version 3.0 <a href="/api-reference/expense/expense-report/expense-entry.html">here.</a>
+</aside>
 
-Query Parameters - Required | Query Parameters - Optional
------|------
-**{_reportId_}** The unique identifier for the expense report. | **{_entryId_}** The unique identifier for the expense entry.
-
-Request Headers - Required | Request Headers - Optional
------|------
-Authorization header with OAuth token for valid Concur user. | none
-
-
-
-#### XML Example Request
+#### Request
 
 ```http
 GET https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz3zHJBCRksaas23dsfs/entry/n7We3qWw99u1KoWTMaLhSC$pXBYzQ1UDhn HTTP/1.1
-Authorization: OAuth {access token}
+Authorization: OAuth {accessToken}
 ...
 ```
 
-## Get Expense Entry Details Response
+* **Query parameters**
 
-This request will return an **ExpenseEntry** parent element with the following child elements:
+  | Parameter | Required/Optional | Description |
+  |-----------|-----------|---------------------|
+  | {reportId} | required | The unique identifier for the expense report. |
+  | {entryId} | optional | The unique identifier for the expense entry. |
 
+* **Headers**
 
-Element | Description
------|-----
-ApprovedAmount | The approved amount of the entry in the user's reimbursement currency. The Get Report Details function returns the report currency, which is the user's reimbursement currency, in the **CrnCode** element.
-Attendee-Url | The URL to the attendees list for the entry. |
-Allocation-Url | The URL to the allocations list for the entry. |
-BusinessPurpose | The business purpose field from the report header. |
-EreceiptId | The ID for the attached e-receipt, if available. |
-ExchangeRate | The exchange rate that applies to the entry. |
-ExpenseKey | The expense type key for the entry. Use the Get Expense Group Configuration endpoint to get the full list of expense types. |
-ExpenseName | The expense type for the entry. |
-SpendCategory | The spend category specified for this expense type. Varies by client, used in reporting. |
-HasAllocation | Defines the amount of allocations for the expense. Possible values are: P, for partial allocation, F, for full allocation, or N, for no allocation. |
-HasAttendees | Whether the expense has attendees. |
-HasComments | Whether the expense has comments. |
-HasExceptions | Whether the expense has exceptions. |
-HasVat | Whether the expense has VAT data. |
-ImageRequired | Whether a receipt image is required for the entry. |
-IsCreditCardCharge | Whether the expense came from a credit card feed. |
-IsItemized | Whether the expense has itemizations. |
-Itemizations-Url | The URL to the itemization list. |
-IsPersonal | Whether the expense is personal. |
-IsPersonalCardCharge | Whether the expense came from a personal card feed. |
-LastModified | The UTC date when the entry was last modified. |
-LocationName | The location for the expense entry, usually the city name. |
-OrgUnit1 through OrgUnit6 | The details from the Org Unit custom fields. These may not have data, depending on configuration. |
-PaymentTypeKey | The key for the payment type for the entry. Use the Get Expense Group Configuration function to map the payment type key to the payment type name. |
-PostedAmount | The amount of the expense entry in the user's reimbursement currency. <span class="codeexample">The Get Report Details function returns the report currency, which is the user's reimbursement currency, in the</span> **CrnCode** <span class="codeexample">element.</span> |
-ReceiptImageId | The ID for the receipt image attached to the entry. |
-ReceiptRequired | Whether the original receipt is required for the entry. |
-ReportEntryID | The ID of the report entry. |
-ReportID | The unique key of the report the entry is in. |
-TransactionAmount | The amount of the expense entry in the original transaction currency. |
-TransactionCurrencyName | The currency name of the expense entry transaction amount. |
-TransactionDate | The date of the expense entry. |
-VendorDescription | The vendor name of the expense entry, which can be entered manually by the user or imported from the card transaction Merchant Name field. |
-X_UserID | The user ID associated with the entry. |
-Custom1 through Custom40 | The details from the Custom fields. These may not have data, depending on configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: <Custom1>(1234) Project 1234</Custom1> |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Authorization` | Authorization header with OAuth token for valid Concur user. Required. |
+  | `Accept` | `application/xml` |
 
-
-#### XML Example of Successful Response
+#### Response
 
 ```http
 HTTP/1.1 200 OK
@@ -159,3 +122,45 @@ Content-Type: application/xml
     <Custom40 />
 </ExpenseEntry>
 ```
+
+* **Content body**
+
+  This request will return an `ExpenseEntry` parent element with the following child elements:
+
+  Element | Description
+  -----|-----
+  ApprovedAmount | The approved amount of the entry in the user's reimbursement currency. The Get Report Details function returns the report currency, which is the user's reimbursement currency, in the `CrnCode` element.
+  Attendee-Url | The URL to the attendees list for the entry. |
+  Allocation-Url | The URL to the allocations list for the entry. |
+  BusinessPurpose | The business purpose field from the report header. |
+  EreceiptId | The ID for the attached e-receipt, if available. |
+  ExchangeRate | The exchange rate that applies to the entry. |
+  ExpenseKey | The expense type key for the entry. Use the Get Expense Group Configuration endpoint to get the full list of expense types. |
+  ExpenseName | The expense type for the entry. |
+  SpendCategory | The spend category specified for this expense type. Varies by client, used in reporting. |
+  HasAllocation | Defines the amount of allocations for the expense. Possible values are: P, for partial allocation, F, for full allocation, or N, for no allocation. |
+  HasAttendees | Whether the expense has attendees. |
+  HasComments | Whether the expense has comments. |
+  HasExceptions | Whether the expense has exceptions. |
+  HasVat | Whether the expense has VAT data. |
+  ImageRequired | Whether a receipt image is required for the entry. |
+  IsCreditCardCharge | Whether the expense came from a credit card feed. |
+  IsItemized | Whether the expense has itemizations. |
+  Itemizations-Url | The URL to the itemization list. |
+  IsPersonal | Whether the expense is personal. |
+  IsPersonalCardCharge | Whether the expense came from a personal card feed. |
+  LastModified | The UTC date when the entry was last modified. |
+  LocationName | The location for the expense entry, usually the city name. |
+  OrgUnit1 through OrgUnit6 | The details from the Org Unit custom fields. These may not have data, depending on configuration. |
+  PaymentTypeKey | The key for the payment type for the entry. Use the Get Expense Group Configuration function to map the payment type key to the payment type name. |
+  PostedAmount | The amount of the expense entry in the user's reimbursement currency. The Get Report Details function returns the report currency, which is the user's reimbursement currency, in the `CrnCode` element. |
+  ReceiptImageId | The ID for the receipt image attached to the entry. |
+  ReceiptRequired | Whether the original receipt is required for the entry. |
+  ReportEntryID | The ID of the report entry. |
+  ReportID | The unique key of the report the entry is in. |
+  TransactionAmount | The amount of the expense entry in the original transaction currency. |
+  TransactionCurrencyName | The currency name of the expense entry transaction amount. |
+  TransactionDate | The date of the expense entry. |
+  VendorDescription | The vendor name of the expense entry, which can be entered manually by the user or imported from the card transaction Merchant Name field. |
+  X_UserID | The user ID associated with the entry. |
+  Custom1 through Custom40 | The details from the Custom fields. These may not have data, depending on configuration. If the custom field is a list field, the data will be returned as: (list item short code) list item name. List Field Example: `<Custom1>(1234) Project 1234</Custom1>` |

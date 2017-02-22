@@ -18,18 +18,18 @@ Authorization: OAuth {access token}
 ...
 ```
 
-**Path parameters**
+* **Path parameters**
 
-| Parameter | Required/Optional | Description |
-|-----------|-----------|---------------------|
-| invoice/{_requestId_} | required | The identifier for the desired payment request, and the invoice keyword. |
+  | Parameter | Required/Optional | Description |
+  |-----------|-----------|---------------------|
+  | `invoice/{requestId}` | required | The identifier for the desired payment request, and the `invoice` keyword. |
 
-**Headers**
+* **Headers**
 
-| Name | Description |
-| ---- | ----------- |
-| `Accept` | application/xml |
-| `Authorization` | Authorization header with OAuth token for valid Concur user. Required. The OAuth consumer must be the owner of the report that the image belongs to. |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Accept` | application/xml |
+  | `Authorization` | Authorization header with OAuth token for valid Concur user. Required. The OAuth consumer must be the owner of the report that the image belongs to. |
 
 #### Response
 
@@ -45,16 +45,14 @@ Content-Type: application/xml
 ```
 
 
-**Content-Types**
+* **Content-Types**
+  * application/xml
+* **Content body**
+  This request will return an **`Image`** parent element.
 
-* application/xml
+  * **`Image` elements**
 
-**Content body**
-This request will return an **Image** parent element.
-
-**Image elements**
-
-| Element |  Description |
-|-----------|---------------------|
-| Id | The unique identifier of the image. |
-| Url | The URL for the invoice image. Note that special characters will be XML-encoded. You will need to unencode any special characters before using the link.|
+    | Element |  Description |
+    |-----------|---------------------|
+    | `Id` | The unique identifier of the image. |
+    | `Url` | The URL for the invoice image. Note that special characters will be XML-encoded. You will need to unencode any special characters before using the link.|

@@ -14,10 +14,10 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 ### Image Format
 The Imaging web service supports the following image formats:
 
-* application/pdf
-* image/jpg
-* image/jpeg
-* image/png
+* `application/pdf`
+* `image/jpg`
+* `image/jpeg`
+* `image/png`
 
 The maximum file size allowed is 10 MB.
 
@@ -56,19 +56,13 @@ HttpWebResponse webresponse = request.GetResponse();
 ### See also
 
 * The version 3.0 documentation includes the data model and tools to send test requests to your developer sandbox:
-  * [Version 3.0 Receipt Images ][3]
+  * [Version 3.0 Receipt Images ](/api-reference/image/index.html)
 * Version 1.0 documentation includes the data model and example requests and responses:
-  * [Version 1.0 Image][4]
-  * [Version 1.0 Image URL][5]
+  * [Version 1.0 Image](#image)
+  * [Version 1.0 Image URL](#image-url)
 
 
 ## Resources
 
 * [Image](#image)
 * [Image URL](#image-url)
-
-
-
-[3]: /api-reference/image/index.html
-[4]: /api-reference-deprecated/version-one/Image/image-resource.html
-[5]: /api-reference-deprecated/version-one/Image/image-url-resource.html

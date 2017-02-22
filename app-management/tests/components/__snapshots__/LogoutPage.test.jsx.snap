@@ -1,0 +1,13 @@
+exports[`<LogoutPage /> renders with logout text and link to the login page 1`] = `
+<div>
+  <h2>
+    You are logged out
+  </h2>
+  <Link
+    onlyActiveOnIndex={false}
+    style={Object {}}
+    to="/login">
+    Login
+  </Link>
+</div>
+`;

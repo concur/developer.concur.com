@@ -1,4 +1,9 @@
-## POST Expense Entry Attendees
+### POST Expense Entry Attendees
+
+```http
+POST /api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}/Attendees/{attendeeId} HTTP/1.1
+Host: www.concursolutions.com
+```
 
 Creates or updates one or more attendee records for the specified expense entry. Attendees are additional people that benefitted from this expense.
 
@@ -14,65 +19,43 @@ Attendees that are privately owned or part of shared lists that allow manual add
 
 * Posting expense report information is a multi-stage process. Refer to the [Reports](/api-reference/expense/expense-report/reports.html) for the steps required to post new expense reports and entries.
 
-### Supported Content Types
+#### Request
 
-* application/xml
+* **Query parameters**
 
-## Request
+  | Parameter | Required/Optional | Description |
+  |-----------|-----------|---------------------|
+  | {reportId} | required | The unique identifier for the expense report. <br><br> **URI Source:** The `reportId` value is returned by the [Get List of Reports](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html) function, and as part of the `Report-Details-Url` element of the [Post Expense Report Header](/api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html) function. |
+  | {entryId} | required | The unique identifier for the expense entry. <br><br> **URI Source:** The entryId value is returned in the `ReportKey` element of the [Get  Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) function. |
+  | {attendeeId} | optional | The unique identifier for the attendee. Only used in certain situations when updating an existing attendee. If the developer does not know the External ID for the Attendee, they should use this query parameter <br><br> **URI Source:** The attendeeId value is returned in the `AttendeeKey` element of the [Get Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) function, and as part of the `Attendee-Details-Url` value returned by this function. |
 
-### Request parameters
+* **Headers**
 
-#### Required query parameters
+  | Name | Description |
+  | ---- | ----------- |
+  | `Authorization` | Required. Authorization header with OAuth token for valid Concur user. The OAuth Consumer must have one of the following roles to post attendees for expenses in reports that they do not own: **Web Services Admin** for Professional or **Can Administer** for Standard |
+  | `Content-Type` | `application/xml` |
 
-| Parameter | Description |
-| --------- | ----------- |
-| {_reportId_} | The unique identifier for the expense report |
-| {_entryId_}/Attendees | The unique identifier for the expense entry and the Attendees keyword |
+* **Content Body**
 
-Example:
-`https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry{entryId}/Attendees`
+  This request contains an `Attendees` parent element with an `Attendee` element for each included attendee. The update action only allows one attendee per request. The `Attendee` element contains the following child elements:
 
-**URI Source:** The `reportId` value is returned by the [Get List of Reports](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html) function, and as part of the **Report-Details-Url** element of the [Post Expense Report Header](/api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html) function. The entryId value is returned in the **ReportKey** element of the [Get  Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) function.
+  | Element Name | Required (must contain value)? | Description |
+  | ------------ | ------------------------------ | ----------- |
+  | AttendeeType | Y | The attendee type code that Concur uses to identify attendees. 8 alpha characters. Clients can add their own custom attendee type codes. The standard attendee type codes are: BUSGUEST, for business guests and SPOUSE, for the employee's spouse. Use the [Get Attendee Type List](/api-reference-deprecated/version-one/attendee-types/attendee-type-resource-get.html) function of the Attendee List web service to get the full list of available types. Maximum 8 characters. |
+  | Amount | N | The amount of the expense that is associated with this attendee. If the attendee amounts do not add up to the full expense entry amount, the user will have to correct the entry in the Concur UI before submitting the report. |
+  | LastName | Y | The attendee's last name. Maximum 132 characters. |
+  | FirstName | Depends on configuration | The attendee's first name. Maximum 50 characters. |
+  | Title | Depends on configuration | The attendee's job title. Maximum 32 characters. |
+  | ExternalId | Y | The unique identifier for the attendee, usually provided by the client's external system of record. Maximum 48 characters. |
+  | Company | Depends on configuration | The attendee's company name. Maximum 150 characters. |
+  | Custom1 through Custom20 | Depends on configuration  | The custom fields on the Expense Attendee form. May be required depending on configuration. |
+  | CrnCode | Y | The <a href="http://en.wikipedia.org/wiki/ISO_4217">3-letter ISO 4217 currency code</a> for the expense transaction amount. Example: USD. Maximum 3 characters. |
+  | SystemOwner | N | _For new attendees_: When set to Yes, the attendee owner is set to System. This owner is required for shared attendee lists. When not set to Yes, the attendee owner is set to the report owner. <br><br> _For existing attendees_: Must be set to Yes to update an existing system-owned attendee. The  attendee owner for non-system-owned attendees will be set to System.  When  set to No, the attendee owner is compared to the report owner. If the report owner and attendee owner match, the attendee is updated. If the report owner and attendee owner do not match, the attendee is not updated. |
+  | AssociatedAttendeesCount | N | The number of attendees that are not named but are associated with this attendee. This number is included in the total count of attendees for the expense. |
+  | UpdateExisting | N | Whether the request should update an attendee with a matching External ID. If set to false, the request will NOT update a matching attendee. If not provided, or set to true, the request will update a matching attendee. Format: true/false |
 
-#### Optional query parameters
-
-| Parameter | Description |
-| --------- | ----------- |
-| {_attendeeId_} | The unique identifier for the attendee. Only used in certain situations when updating an existing attendee. If the developer does not know the External ID for the Attendee, they should use this query parameter |
-
-Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}/Attendees/{attendeeId}`
-
-**URI Source:** The attendeeId value is returned in the **AttendeeKey** element of the [Get Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) function, and as part of the **Attendee-Details-Url** value returned by this function.
-
-### Headers
-
-#### Authorization header
-
-Authorization header with OAuth token for valid Concur user. The OAuth Consumer must have one of the following roles to post attendees for expenses in reports that they do not own:
-
-* **Web Services Admin** for Professional
-* **Can Administer** for Standard
-
-### Request body
-
-This request contains an **Attendees** parent element with an **Attendee** element for each included attendee. The update action only allows one attendee per request. The **Attendee** element contains the following child elements:
-
-| Element Name | Required (must contain value)? | Description |
-| ------------ | ------------------------------ | ----------- |
-| AttendeeType | Y | The attendee type code that Concur uses to identify attendees. 8 alpha characters. Clients can add their own custom attendee type codes. The standard attendee type codes are: BUSGUEST, for business guests and SPOUSE, for the employee's spouse. Use the [Get Attendee Type List](/api-reference-deprecated/version-one/attendee-types/attendee-type-resource-get.html) function of the Attendee List web service to get the full list of available types. Maximum 8 characters. |
-| Amount | N | The amount of the expense that is associated with this attendee. If the attendee amounts do not add up to the full expense entry amount, the user will have to correct the entry in the Concur UI before submitting the report. |
-| LastName | Y | The attendee's last name. Maximum 132 characters. |
-| FirstName | Depends on configuration | The attendee's first name. Maximum 50 characters. |
-| Title | Depends on configuration | The attendee's job title. Maximum 32 characters. |
-| ExternalId | Y | The unique identifier for the attendee, usually provided by the client's external system of record. Maximum 48 characters. |
-| Company | Depends on configuration | The attendee's company name. Maximum 150 characters. |
-| Custom1 through Custom20 | Depends on configuration  | The custom fields on the Expense Attendee form. May be required depending on configuration. |
-| CrnCode | Y | The <a href="http://en.wikipedia.org/wiki/ISO_4217">3-letter ISO 4217 currency code</a> for the expense transaction amount. Example: USD. Maximum 3 characters. |
-| SystemOwner | N | _For new attendees_: When set to Yes, the attendee owner is set to System. This owner is required for shared attendee lists. When not set to Yes, the attendee owner is set to the report owner. <br><br> _For existing attendees_: Must be set to Yes to update an existing system-owned attendee. The  attendee owner for non-system-owned attendees will be set to System.  When  set to No, the attendee owner is compared to the report owner. If the report owner and attendee owner match, the attendee is updated. If the report owner and attendee owner do not match, the attendee is not updated. |
-| AssociatedAttendeesCount | N | The number of attendees that are not named but are associated with this attendee. This number is included in the total count of attendees for the expense. |
-| UpdateExisting | N | Whether the request should update an attendee with a matching External ID. If set to false, the request will NOT update a matching attendee. If not provided, or set to true, the request will update a matching attendee. Format: true/false |
-
-### XML Example Request
+> XML Example Request
 
 ```xml
 POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz3zHJBCRksaas23dsfs/entry/n7We3qWw99u1KoWTMaLhSC$pXBYzQ1UDhn/Attendees HTTP/1.1
@@ -106,7 +89,9 @@ Authorization: OAuth {access token}
 </Attendees>
 ```
 
-### XML Example Request to Create an Attendee Owned by the System
+
+> XML Example Request to Create an Attendee Owned by the System
+
 This allows you to create attendees for Attendee Types that are configured as Shared Lists (centrally managed).
 
 ```xml
@@ -130,27 +115,44 @@ Authorization: OAuth {access token}
 </Attendees>
 ```
 
-## Response
+#### Response
 
-| HTTP Responses | Supported Content Types |
-| -------------- | ----------------------- |
-| <a href="https://developer.concur.com/node/205">HTTP Status Codes</a> | application/xml |
+* **Content-Types**
+  * application/xml
 
-### Response body
+* HTTP Responses
+  * [HTTP Status Codes](/tools-support/reference/http-codes.html)
 
-This request will return an **attendee-batch-result** parent element with the following child elements:
+* **Content Body**
 
-* **records-succeeded** - The number of attendee records that were successfully added/updated.
-* **records-failed** - The number of attendee records that failed.
-* **AttendeeInfoList** - This parent element contains an **AttendeeStatus** element for each successful attendee record. The **AttendeeStatus** element contains the following child elements:
-  * **Index** - The record number of the attendee record.
-  * **Status** - The status of the request.
-  * **Attendee-Details-Url** - The URL to access the details for this attendee.
-* **errors** - This parent element contains an **error** element for each failed attendee record. The **error** parent element contains the following child elements:
-  * **Index** - The record number of the attendee record.
-  * **message** - The error message.
+  This request will return an `attendee-batch-result` parent element with the following child elements:
 
-### XML Example of Successful Response
+  * **`attendee-batch-result` elements**
+
+    | Element | Description |
+    |-----|-----|
+    | `records-succeeded` | The number of attendee records that were successfully added/updated. |
+    | `records-failed` | The number of attendee records that failed. |
+    | `AttendeeInfoList` | This parent element contains an `AttendeeStatus` element for each successful attendee record. |
+    | `errors` | This parent element contains an `error` element for each failed attendee record. |
+
+  * **`AttendeeStatus` elements**
+
+    | Element | Description |
+    |-----|-----|
+    | `Index` | The record number of the attendee record. |
+    | `Status` | The status of the request. |
+    | `Attendee-Details-Url` | The URL to access the details for this attendee. |
+
+  * **`error` elements**
+
+    | Element | Description |
+    |-----|-----|
+    | `Index` | The record number of the attendee record. |
+    | `message` | The error message. |
+
+> XML Example of Successful Response
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/xml
@@ -173,7 +175,8 @@ Content-Type: application/xml
 </attendee-batch-result>
 ```
 
-### XML Example of Response With Error
+> XML Example of Response With Error
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/xml

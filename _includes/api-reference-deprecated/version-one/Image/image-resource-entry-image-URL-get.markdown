@@ -15,20 +15,18 @@ Host: www.concursolutions.com
 Authorization: OAuth {access token}
 ```
 
-**Path parameters**
+* **Path parameters**
 
-| Parameter | Required/Optional | Description |
-|-----------|-----------|---------------------|
-| expenseentry/{_entryId_} | required | The identifier for the desired entry, and the expenseentry keyword. |
+  | Parameter | Required/Optional | Description |
+  |-----------|-----------|---------------------|
+  | `expenseentry/{entryId}` | required | The identifier for the desired entry, and the `expenseentry` keyword. <br><br> **URI Source**: The entryId is returned in the `RpeKey` element within the `ExpenseEntry` element of the [Get Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) response. |
 
-**URI Source**: The entryId is returned in the **RpeKey** element within the **ExpenseEntry** element of the [Get Report Details][1] response.
+* **Headers**
 
-**Headers**
-
-| Name | Description |
-| ---- | ----------- |
-| `Accept` | `application/xml` |
-| `Authorization` | Authorization header with OAuth token for valid Concur user. The OAuth consumer must be the owner of the report that the expense entry belongs to. |
+  | Name | Description |
+  | ---- | ----------- |
+  | `Accept` | `application/xml` |
+  | `Authorization` | Authorization header with OAuth token for valid Concur user. The OAuth consumer must be the owner of the report that the expense entry belongs to. |
 
 #### Response
 
@@ -43,18 +41,14 @@ Content-Type: application/xml
 </Image>
 ```
 
-**Content-Types**
+* **Content-Types**
+  * application/xml
+* **Content body**
+  This request will return an **`Image`** parent element.
 
-* application/xml
+  * **`Image` elements**
 
-**Content body**
-This request will return an **Image** parent element.
-
-**Image elements**
-
-| Element |  Description |
-|-----------|---------------------|
-| Id | The unique identifier of the image. |
-| Url | The URL for the entry image. Note that special characters will be XML-encoded. You will need to unencode any special characters before using the link.|
-
-[1]: /api-reference/expense/expense-report/expense-form-resource/expense-form-resource-get.html
+    | Element |  Description |
+    |-----------|---------------------|
+    | `Id` | The unique identifier of the image. |
+    | `Url` | The URL for the entry image. Note that special characters will be XML-encoded. You will need to unencode any special characters before using the link.|
