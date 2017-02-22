@@ -1,10 +1,15 @@
 // Helper functions for signup actions
+const SIGNUP_SERVER_ERROR = 'A server error occurred when creating your account. Please try again later.';
+
 export const signupHelpers = {
-  isSuccessful(response) {
-    if (response.status !== 200) {
-      throw new Error('A server error occurred when creating your account. Please try again later.');
+  isSuccessful(responseText) {
+    try {
+      const { userid, password } = JSON.parse(responseText);
+      if (userid && password) return Promise.resolve(responseText);
+      throw new Error(SIGNUP_SERVER_ERROR);
+    } catch (e) {
+      throw new Error(SIGNUP_SERVER_ERROR);
     }
-    return Promise.resolve(response);
   },
   isDuplicateLogin(responseText) {
     if (responseText.includes('Error (IsDuplicateLoginID)')) {
@@ -14,7 +19,7 @@ export const signupHelpers = {
   },
   isCriticalError(responseText) {
     if (responseText.includes('Error (Critical)')) {
-      throw new Error('A server error occurred when creating your account. Please try again later.');
+      throw new Error(SIGNUP_SERVER_ERROR);
     }
     return Promise.resolve(responseText);
   },

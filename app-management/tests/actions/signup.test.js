@@ -68,7 +68,7 @@ describe('postSignup', () => {
   it('creates a signupFailure action when there is a duplicate email', () => {
     nock(process.env.DEVCENTER_API_FORMS)
       .post('/register')
-      .reply(200, 'Error (IsDuplicateLoginID): That Login ID already exists - please choose another.');
+      .reply(500, 'Error (IsDuplicateLoginID): That Login ID already exists - please choose another.');
 
     const expectedActions = [
       signupRequest(),
@@ -84,7 +84,7 @@ describe('postSignup', () => {
   it('creates a signupFailure action when there is a critical server error', () => {
     nock(process.env.DEVCENTER_API_FORMS)
       .post('/register')
-      .reply(200, 'Error (Critical): ...');
+      .reply(500, 'Error (Critical): ...');
 
     const expectedActions = [
       signupRequest(),
