@@ -39,6 +39,7 @@ const constraints = {
     url: true,
   },
   termsOfUseAgreement: {
+    presence: { message: 'is required' },
     inclusion: {
       within: [true],
       message: 'is required',
