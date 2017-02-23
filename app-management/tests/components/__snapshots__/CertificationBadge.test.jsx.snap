@@ -13,7 +13,7 @@ exports[`<CertificationBadge /> renders "NOT CERTIFIED" if not certified 1`] = `
   className="certification-badge not-certified">
   <i
     aria-hidden="true"
-    className="fa fa-times-circle" />
+    className="fa fa-exclamation-circle" />
    NOT CERTIFIED
 </small>
 `;

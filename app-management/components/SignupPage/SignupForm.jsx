@@ -49,9 +49,10 @@ const constraints = {
 
 const SignupForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit}>
+    <p>&#42; required field</p>
     <fieldset>
       <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={InputField}
             type="text"
@@ -60,7 +61,7 @@ const SignupForm = ({ handleSubmit }) => (
             placeholder="First Name"
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={InputField}
             type="text"
@@ -69,9 +70,7 @@ const SignupForm = ({ handleSubmit }) => (
             placeholder="Last Name"
           />
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={InputField}
             type="email"
@@ -80,7 +79,7 @@ const SignupForm = ({ handleSubmit }) => (
             placeholder="john.smith@example.com"
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={InputField}
             type="text"
@@ -89,9 +88,7 @@ const SignupForm = ({ handleSubmit }) => (
             placeholder="Company Name"
           />
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={InputField}
             type="password"
@@ -100,7 +97,7 @@ const SignupForm = ({ handleSubmit }) => (
             placeholder="Password"
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={InputField}
             type="password"
@@ -109,9 +106,7 @@ const SignupForm = ({ handleSubmit }) => (
             placeholder="Password Verify"
           />
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={InputField}
             type="text"
@@ -120,7 +115,7 @@ const SignupForm = ({ handleSubmit }) => (
             placeholder="Description"
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={InputField}
             type="tel"
@@ -129,9 +124,7 @@ const SignupForm = ({ handleSubmit }) => (
             placeholder="+1-555-555-5555"
           />
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={SelectField}
             name="country"
@@ -141,7 +134,7 @@ const SignupForm = ({ handleSubmit }) => (
             simpleValue
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={InputField}
             type="url"
@@ -150,9 +143,7 @@ const SignupForm = ({ handleSubmit }) => (
             placeholder="http://example.com"
           />
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={SelectField}
             name="relationshipToConcur"
@@ -171,10 +162,9 @@ const SignupForm = ({ handleSubmit }) => (
           I Agree to the <a href="/Terms-of-Use.html" target="_blank" rel="noopener noreferrer">Terms of Use</a> and <a href="https://www.concur.com/en-us/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
         </Field>
       </section>
-      <p>&#42; required field</p>
     </fieldset>
     <footer>
-      <button type="submit" className="btn bright-blue pull-right">Sign Up</button>
+      <button type="submit" className="btn bright-blue">Sign Up</button>
     </footer>
   </form>
 );
