@@ -58,9 +58,10 @@ const constraints = {
 
 const NewAppForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit}>
+    <p>&#42; required field</p>
     <fieldset>
       <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={InputField}
             type="text"
@@ -69,7 +70,7 @@ const NewAppForm = ({ handleSubmit }) => (
             placeholder="App Name"
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={TextareaField}
             name="appDescription"
@@ -77,9 +78,7 @@ const NewAppForm = ({ handleSubmit }) => (
             placeholder="App Description"
           />
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={SelectField}
             name="appType"
@@ -88,12 +87,10 @@ const NewAppForm = ({ handleSubmit }) => (
             options={applicationTypes}
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-12">
           <FieldArray component={RedirectUris} name="redirectUris" />
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={MultiselectField}
             type="select-multiple"
@@ -111,7 +108,7 @@ const NewAppForm = ({ handleSubmit }) => (
             </a>
           </FieldHelp>
         </section>
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={MultiselectField}
             type="select-multiple"
@@ -138,7 +135,6 @@ const NewAppForm = ({ handleSubmit }) => (
           I Agree to the <a href="/Terms-of-Use.html" target="_blank" rel="noopener noreferrer">Terms of Use</a> and <a href="https://www.concur.com/en-us/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
         </Field>
       </section>
-      <p>&#42; required field</p>
     </fieldset>
     <footer>
       <button type="submit" className="btn bright-blue">Submit</button>

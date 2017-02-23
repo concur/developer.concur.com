@@ -56,7 +56,12 @@ const EditAppForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit}>
     <fieldset>
       <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
+          <AppSecret
+            clickHandler={() => console.log('TODO: Implement')}
+          />
+        </section>
+        <section className="col-md-12">
           <Field
             component={CheckboxField}
             type="checkbox"
@@ -65,14 +70,7 @@ const EditAppForm = ({ handleSubmit }) => (
             Enabled
           </Field>
         </section>
-        <section className="col-md-6">
-          <AppSecret
-            clickHandler={() => console.log('TODO: Implement')}
-          />
-        </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={InputField}
             type="text"
@@ -81,7 +79,7 @@ const EditAppForm = ({ handleSubmit }) => (
             placeholder="App Name"
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={TextareaField}
             name="description"
@@ -89,9 +87,7 @@ const EditAppForm = ({ handleSubmit }) => (
             placeholder="App Description"
           />
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={SelectField}
             name="appType"
@@ -101,12 +97,10 @@ const EditAppForm = ({ handleSubmit }) => (
             simpleValue
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-12">
           <FieldArray component={RedirectUris} name="redirectUris" />
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={MultiselectField}
             type="select-multiple"
@@ -116,7 +110,7 @@ const EditAppForm = ({ handleSubmit }) => (
             simpleValue
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-12">
           <Field
             component={MultiselectField}
             type="select-multiple"
