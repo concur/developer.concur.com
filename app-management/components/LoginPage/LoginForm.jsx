@@ -36,7 +36,7 @@ const LoginForm = ({ handleSubmit }) => (
       </section>
     </fieldset>
     <footer>
-      <button type="submit" className="btn bright-blue pull-right">Log in</button>
+      <button type="submit" className="btn bright-blue">Log in</button>
     </footer>
   </form>
 );

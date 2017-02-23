@@ -7,7 +7,7 @@ const CertificationBadge = ({ certified }) => (
     </small>
   ) : (
     <small className="certification-badge not-certified">
-      <i className="fa fa-times-circle" aria-hidden="true" /> NOT CERTIFIED
+      <i className="fa fa-exclamation-circle" aria-hidden="true" /> NOT CERTIFIED
     </small>
   )
 );

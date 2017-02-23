@@ -33,7 +33,7 @@ AppCenter will call this endpoint to obtain an `authToken`.
 Sample Curl:
 
 ```shell
-curl -E appcenter.p12:. -H 'concur-correlationid: githbuwiki' -XPOST http://us-rqa3.concurasp.com/profile-service/v1/keys/principals/08BCCA1E-0D4F-4261-9F1B-F778D96617D6/authtoken/
+curl -E appcenter.p12:. -H 'concur-correlationid: githbuwiki' -XPOST http://us.api.concursolutions.com/profile-service/v1/keys/principals/08BCCA1E-0D4F-4261-9F1B-F778D96617D6/authtoken/
 ```
 
 successful call, responds with
@@ -48,10 +48,10 @@ successful call, responds with
 }
 ```
 
-**AppCenter redirects User to Client's auth handler URI and passing in the authToken**
+**AppCenter redirects User to Client's auth handler URI (Connect URL) and passing in the authToken**
 
 ```http
-301 Redirect https://client.app.url?code=3979344784714c10a35d6f1fddd869f0
+301 Redirect https://client.app.url?id=3DA8D9PF04-B6D9-427D-44B4-909E37ABD9D6&requestToken=3979344784714c10a35d6f1fddd869f0
 ```
 
 **Client app calls Oauth2 password grant to get an access token for the company**
@@ -61,8 +61,8 @@ Name | Type | Format | Description
   `client_id`|`string` | `UIID` | Applications client_id supplied by App Management
   `client_secret`|`string` | `UUID` | Applications client_secret supplied by App Management
   `grant_type`|`string` | | Specify which grant type you expect the oauth2 service to process. for password grant, the value is `password`
-  `username`|`string` | | specify the `companyId` to be used in the password grant request
-  `password`|`string` | | specify the `authToken` to be used in the password grant request.
+  `username`|`string` | | specify the `companyId` to be used in the password grant request. The `id` above.
+  `password`|`string` | | specify the `authToken` to be used in the password grant request. The `requestToken` above.
   `credtype`|`string` | | The credtype signifies to oauth2 which credential set is being submitted in the request. The value: `authtoken`.
 
 
