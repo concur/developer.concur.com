@@ -132,12 +132,11 @@ const EditAppForm = ({ handleSubmit }) => (
     <footer>
       <button
         type="submit"
-        className="btn bright-blue pull-right"
+        className="btn bright-blue"
         disabled={initialValues.certified}
       >
         Update
       </button>
-      <Link to="/" className="btn grey pull-right">Cancel</Link>
     </footer>
     */}
   </form>

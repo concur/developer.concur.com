@@ -56,7 +56,7 @@ const constraints = {
   },
 };
 
-const NewAppForm = ({ handleSubmit, reset }) => (
+const NewAppForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit}>
     <fieldset>
       <div className="row">
@@ -141,15 +141,13 @@ const NewAppForm = ({ handleSubmit, reset }) => (
       <p>&#42; required field</p>
     </fieldset>
     <footer>
-      <button type="submit" className="btn bright-blue pull-right">Submit</button>
-      <button type="button" className="btn grey pull-right" onClick={reset}>Reset</button>
+      <button type="submit" className="btn bright-blue">Submit</button>
     </footer>
   </form>
 );
 
 NewAppForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  reset: PropTypes.func.isRequired,
 };
 
 export default reduxForm({
