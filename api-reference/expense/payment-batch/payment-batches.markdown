@@ -11,6 +11,7 @@ The Payment Batch File web service provides an automated solution to clients who
 * [Retrieve the list of payment batches](#getpaymentbatches)
 * [Close a payment batch](#closepaymentbatch)
 * [Retrieve a payment batch file](#getbatchfile)
+* [Error Messages](#errormessages)
 
 ### Version
 1.1 for GET methods  
@@ -88,7 +89,13 @@ Name | Type | Format | Description
 This request will return the expense transaction data in text/csv format if there was a single file produced or as a zip archive if the batch is configured to produce more than one file. An example of a client who will receive multiple files is a client using QuickBooks, who receives one file formatted for import into QuickBooks (.IIF extension), and one file for the general ledger (.CSV extension), inside a .ZIP file.  
 
 
+## <a name="errormessages"></a>Error Messages
 
 
+### Error Messages
+
+Error Number    | Description 
+----------------|-------------
+`500`           |The batch you attempted to close does not contain any reports. If you recently approved reports for payment, wait 30 minutes and try again.
 
 
