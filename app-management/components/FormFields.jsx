@@ -191,13 +191,12 @@ export const RedirectUriField = ({
 }) => {
   const { name } = input;
   const errorClass = touched && error ? 'has-error' : '';
-  const buttonClass = canDelete ? 'uri-delete' : 'uri-add';
   const ariaText = `${name}-help`;
 
   return (
     <div className={`form-group ${errorClass}`}>
       <label htmlFor={name} className="control-label">{label}</label>
-      <div className="input-group">
+      <div className={canDelete ? 'input-group' : ''}>
         <input
           {...input}
           id={name}
@@ -205,12 +204,11 @@ export const RedirectUriField = ({
           className="form-control"
           aria-describedby={ariaText}
         />
-        <div className={`input-group-addon ${buttonClass}`} onClick={onClick}>
-          {canDelete
-            ? <i className="fa fa-minus-circle" />
-            : <i className="fa fa-plus-circle" />
-          }
-        </div>
+        {canDelete ? (
+          <div className="input-group-addon uri-delete" onClick={onClick} title="Delete">
+            <i className="fa fa-times-circle" />
+          </div>
+        ) : null}
       </div>
       {touched && error && <FieldError error={error} ariaText={ariaText} />}
     </div>
@@ -231,23 +229,23 @@ RedirectUriField.defaultProps = {
 
 export const RedirectUris = ({ fields }) => (
   <div className="redirect-uris">
-    {fields.map((uri, idx) => {
-      const isLastElement = (idx === fields.length - 1);
-      return (
-        <Field
-          key={idx}
-          component={RedirectUriField}
-          name={uri}
-          label={idx === 0 ? 'Redirect URI' : null}
-          placeholder="Redirect URI"
-          canDelete={!isLastElement}
-          onClick={isLastElement
-                    ? () => fields.push('')
-                    : () => fields.remove(idx)
-                  }
-        />
-      );
-    })}
+    {fields.map((uri, idx) => (
+      <Field
+        key={idx}
+        component={RedirectUriField}
+        name={uri}
+        label={idx === 0 ? 'Redirect URI' : null}
+        placeholder="Redirect URI"
+        canDelete={fields.length > 1}
+        onClick={() => fields.remove(idx)}
+      />
+    ))}
+    <a
+      className="btn small dark-green uri-add"
+      onClick={() => fields.push('')}
+    >
+      Add URI
+    </a>
   </div>
 );
 
