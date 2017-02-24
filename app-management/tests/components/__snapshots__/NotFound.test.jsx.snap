@@ -1,22 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<NotFound /> renders with 404 text 1`] = `
 <div
-  className="wrapper">
+  className="wrapper"
+>
   <div
-    className="height-100" />
+    className="height-100"
+  />
   <div
-    className="text-center">
+    className="text-center"
+  >
     <h1>
       404
     </h1>
     <h4>
-      Sorry, that page doesn\'t exist.
+      Sorry, that page doesn't exist.
     </h4>
     <a
-      href="/index.html">
+      href="/index.html"
+    >
       Back to home
     </a>
   </div>
   <div
-    className="height-100" />
+    className="height-100"
+  />
 </div>
 `;

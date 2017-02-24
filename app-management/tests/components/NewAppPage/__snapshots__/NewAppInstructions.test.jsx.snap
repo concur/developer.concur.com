@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<NewAppInstructions /> renders with instructions on making a new app 1`] = `
 <div>
   <h3>
@@ -8,7 +10,8 @@ exports[`<NewAppInstructions /> renders with instructions on making a new app 1`
     <Link
       onlyActiveOnIndex={false}
       style={Object {}}
-      to="/new">
+      to="/new"
+    >
       Create an App form
     </Link>
   </p>

@@ -1,36 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<AppListing /> displays the loading spinner if the listing is loading 1`] = `
 <div
-  className="row">
+  className="row"
+>
   <div
-    className="col-md-12">
+    className="col-md-12"
+  >
     <h2>
       <i
         aria-hidden="true"
-        className="fa fa-list" />
+        className="fa fa-list"
+      />
        My Apps
     </h2>
     <ErrorAlert
-      error="" />
+      error=""
+    />
     <LoadingSpinner
       loading={true}
-      message="Loading..." />
+      message="Loading..."
+    />
   </div>
 </div>
 `;
 
 exports[`<AppListing /> renders apps 1`] = `
 <div
-  className="row">
+  className="row"
+>
   <div
-    className="col-md-12">
+    className="col-md-12"
+  >
     <h2>
       <i
         aria-hidden="true"
-        className="fa fa-list" />
+        className="fa fa-list"
+      />
        My Apps
     </h2>
     <ErrorAlert
-      error="" />
+      error=""
+    />
     <AppPreview
       app={
         Object {
@@ -54,7 +65,8 @@ exports[`<AppListing /> renders apps 1`] = `
             "http://www.concur.com",
           ],
         }
-      } />
+      }
+    />
     <AppPreview
       app={
         Object {
@@ -78,7 +90,8 @@ exports[`<AppListing /> renders apps 1`] = `
             "http://www.concur.com",
           ],
         }
-      } />
+      }
+    />
   </div>
 </div>
 `;
