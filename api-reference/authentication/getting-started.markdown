@@ -18,7 +18,7 @@ In order for an application to call a Concur API, you need to obtain an `accessT
 
 The Password grant flow is used when you need to authenticate a user, using its `username` and `password`. Note, the user you're requesting an `accessToken` for needs to be in the same environment as your application (eg. us, emea). Typically this is used by apps that have a login screen where the user's credentials are captured or stored.
 
-The first time you request for an `accessToken` a `refreshToken` is also returned. There are certain conditions where a `refreshToken` is not returned. This is used to get a new `accessToken` when one as expired. (see below for more info)
+The first time you request for an `accessToken` a `refreshToken` is also returned. There are certain conditions where a `refreshToken` is not returned. This is used to get a new `accessToken` when one has expired. (see below for more info)
 
 Example shell script using cURL to obtain an `accessToken`:
 
