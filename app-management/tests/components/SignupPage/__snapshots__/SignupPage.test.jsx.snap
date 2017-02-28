@@ -1,18 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<SignupPage /> should render with <SignupForm /> 1`] = `
 <div
-  className="row">
+  className="row"
+>
   <div
-    className="col-md-12">
+    className="col-md-12"
+  >
     <h2>
       Sign Up
     </h2>
     <LoadingSpinner
       loading={false}
-      message="Creating account... (this may take several seconds)" />
+      message="Creating account... (this may take several seconds)"
+    />
     <ErrorAlert
-      error="" />
+      error=""
+    />
     <div
-      className="alert alert-info">
+      className="alert alert-info"
+    >
       <p>
         Application Management requires a
         <strong>
@@ -22,7 +29,8 @@ exports[`<SignupPage /> should render with <SignupForm /> 1`] = `
         <Link
           onlyActiveOnIndex={false}
           style={Object {}}
-          to="/login">
+          to="/login"
+        >
           login here.
         </Link>
       </p>
@@ -31,7 +39,8 @@ exports[`<SignupPage /> should render with <SignupForm /> 1`] = `
       </p>
     </div>
     <ReduxForm
-      onSubmit={[Function]} />
+      onSubmit={[Function]}
+    />
   </div>
 </div>
 `;

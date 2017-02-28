@@ -1,18 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<NewAppPage /> should render with <NewAppForm /> 1`] = `
 <div
-  className="row">
+  className="row"
+>
   <div
-    className="col-md-12">
+    className="col-md-12"
+  >
     <h2>
       Create an App
     </h2>
     <LoadingSpinner
       loading={false}
-      message="Submitting..." />
+      message="Submitting..."
+    />
     <ErrorAlert
-      error="" />
+      error=""
+    />
     <div
-      className="alert alert-info">
+      className="alert alert-info"
+    >
       <p>
         Register your new application (app) with Concur by filling out this form. Once you have registered an app, you will receive a clientId and clientSecret. The clientId is a unique UUID4 identifier for your app, and the clientSecret is your app’s password. You will be using this credential to obtain tokens either for the app itself, or on behalf of a user.
       </p>
@@ -21,13 +28,15 @@ exports[`<NewAppPage /> should render with <NewAppForm /> 1`] = `
         <a
           href="/api-reference/authentication/getting-started.html"
           rel="noopener noreferrer"
-          target="_blank">
+          target="_blank"
+        >
            authentication
         </a>
       </p>
     </div>
     <ReduxForm
-      onSubmit={[Function]} />
+      onSubmit={[Function]}
+    />
   </div>
 </div>
 `;

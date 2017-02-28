@@ -9,7 +9,8 @@
   },
   {
     "label": "Refresh Token",
-    "value": "refresh_token"
+    "value": "refresh_token",
+    "clearableValue": false
   },
   {
     "label": "Client Credentials",
