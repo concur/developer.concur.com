@@ -33,14 +33,13 @@ layout: blog
     <div class="collapse" id="{{ year }}">
 
         <!-- Loop Through Months -->
-        {% for month in (months) %}
+        {% for month in months %}
 
           {% assign counter = 0 %}
             <!-- Get Count of Posts This Month -->
             {% for post in site.posts %}
 
               {% unless post.categories contains 'changelog' %}
-
 
                 {% assign postyear = post.date | date: "%Y" | times: 1 %}
                 {% assign postmonth = post.date | date: "%B"%}
