@@ -2,48 +2,31 @@
 layout: blog
 ---
 
-{% assign location = page.url | split :'/' %}
+{% assign location = page.url | split : '/' %}
 
 {% if location contains 'changelog' %}
-  {% assign path = 'tools-support/changelog' %}
-  {% assign pagetitle = 'Change Log' %}
+  {% assign category_to_display = 'changelog' %}
 {% else %}
-  {% assign path = 'blog' %}
-  {% assign pagetitle = 'Developer Blog' %}
+  {% assign category_to_display = 'blog' %}
 {% endif %}
 
-{% assign path_posts = "" | split:"|"  %}
-{% for post in site.posts limit: 10 %}
-  {% if pagetitle == 'Change Log' %}
-    {% if post.categories contains 'changelog' %}
-      {% assign path_posts = path_posts | push: post %}
-    {% endif %}
-  {% else %}
-    {% unless post.categories contains 'changelog' %}
-      {% assign path_posts = path_posts | push: post %}
-    {% endunless %}
-  {% endif %}
-{% endfor %}
+<h1 class="post-title"><i class="fa fa-tags" aria-hidden="true"></i> Tags</h1>
 
-<h1 class="post-title"><i class="fa fa-tags" aria-hidden="true"></i>&nbsp;&nbsp;Tags</h1>
-
-<div id="MainMenu">
+<div id="tag-menu">
   <div class="list-group panel">
   {% for tag in site.tags %}
-  {% assign tag_num = "" | split:"|" %}
-    {% for post in path_posts %}
-      {% if post.tags contains tag[0] %}
-        {% assign tag_num = tag_num | push: post %}
-      {% endif %}
-    {% endfor %}
-    <a href="#{{ tag[0] }}" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu">{{ tag[0] | replace: "-", " " }} ({{ tag_num.size }})</a>
-      <div class="collapse" id="{{ tag[0] }}">
-      {% for post in site.posts %}
-        {% if post.tags contains tag[0] %}
-          {% if path_posts contains post %}
-            <a href="{{ post.url }}"  class="list-group-item">{{ post.title }} • {{ post.date | date: "%A, %B %-d"}}</a>
-          {% endif %}
-        {% endif %}
+    {% assign tag_name = tag | first %}
+    {% assign tag_posts = tag | last | where_exp: "post", "post.categories contains category_to_display" %}
+    {% if tag_posts.size == 0 %}{% continue %}{% endif %}
+
+    <a href="#{{ tag_name }}" class="list-group-item" data-toggle="collapse" data-parent="#tag-menu">
+      {{ tag_name | replace: "-", " " }} ({{ tag_posts | size }})
+    </a>
+    <div class="collapse" id="{{ tag_name }}">
+      {% for post in tag_posts %}
+        <a href="{{ post.url }}" class="list-group-item">
+          {{ post.title }} • {{ post.date | date: "%A, %B %-d"}}
+        </a>
       {% endfor %}
     </div>
   {% endfor %}
