@@ -6,16 +6,16 @@ layout: default
 
 {% if location contains 'changelog' %}
   {% assign path = 'changelog' %}
-  {% assign pagetitle = 'Change Log' %}
+  {% assign page_title = 'Change Log' %}
 {% else %}
   {% assign path = 'blog' %}
-  {% assign pagetitle = 'Developer Blog' %}
+  {% assign page_title = 'Developer Blog' %}
 {% endif %}
 
 <div class="breadcrumbs">
   <div class="container">
     <h1 class="pull-left">
-      <a href="/{{ path }}">{{ pagetitle }}</a>
+      <a href="/{{ path }}">{{ page_title }}</a>
       {% if page.title %} | <a href="{{ page.url }}">{{ page.title }}</a>{% endif %}
     </h1>
   </div>
@@ -26,7 +26,7 @@ layout: default
     <div class="row">
       <div class="col-md-3">
         <h2>Latest Posts</h2>
-        <div class="latestposts">
+        <div class="latest-posts">
 
           {% for post in site.categories[path] limit: 10 %}
 
@@ -52,7 +52,7 @@ layout: default
             </div>
             <br>
           {% endfor %}
-          {% if pagetitle == 'Developer Blog' %}
+          {% if page_title == 'Developer Blog' %}
           <div>
             <h4><a href="/{{ path }}/tags">Posts By Tag</a></h4>
           </div>
@@ -60,9 +60,11 @@ layout: default
           <div>
             <h4><a href="/{{ path }}/archives.html">Archives</a></h4>
           </div>
-          {% if pagetitle == 'Developer Blog' %}
+          {% if page_title == 'Developer Blog' %}
           <div>
-            <a href="https://feedly.com/i/subscription/feed/https://developer.concur.com/feed.xml" target="blank" data-toggle="popover" data-placement="bottom" data-content="Follow On Feedly" data-trigger="hover" id="feedly"><img id="feedlyFollow" src="http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" alt="follow us in feedly" width="28" height="28"></a>
+            <a href="https://feedly.com/i/subscription/feed/https://developer.concur.com/feed.xml" target="blank" data-toggle="popover" data-placement="bottom" data-content="Follow On Feedly" data-trigger="hover" id="feedly">
+              <img id="feedlyFollow" src="https://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" alt="follow us in feedly" width="28" height="28">
+            </a>
           </div>
           {% endif %}
 
