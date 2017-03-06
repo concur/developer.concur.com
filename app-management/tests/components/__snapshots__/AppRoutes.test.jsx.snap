@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<AppRoutes /> render renders the router and routes 1`] = `
 <Router
   history={
@@ -17,36 +19,45 @@ exports[`<AppRoutes /> render renders the router and routes 1`] = `
       "transitionTo": [Function],
     }
   }
-  render={[Function]}>
+  render={[Function]}
+>
   <Route
     component={[Function]}
-    path="/">
+    path="/"
+  >
     <IndexRoute
       component={[Function]}
-      onEnter={[Function]} />
+      onEnter={[Function]}
+    />
     <Route
       component={[Function]}
       onEnter={[Function]}
-      path="new" />
+      path="new"
+    />
     <Route
       component={[Function]}
       onEnter={[Function]}
-      path="details/:id" />
+      path="details/:id"
+    />
     <Route
       component={[Function]}
       onEnter={[Function]}
-      path="login" />
+      path="login"
+    />
     <Route
       component={[Function]}
       onEnter={[Function]}
-      path="signup" />
+      path="signup"
+    />
     <Route
       component={[Function]}
       onEnter={[Function]}
-      path="logout" />
+      path="logout"
+    />
     <Route
       component={[Function]}
-      path="*" />
+      path="*"
+    />
   </Route>
 </Router>
 `;

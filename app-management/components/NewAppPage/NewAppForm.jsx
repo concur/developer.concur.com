@@ -56,6 +56,10 @@ const constraints = {
   },
 };
 
+const defaultGrants = [grants.find(grant => grant.value === 'refresh_token')];
+const defaultScopes = [scopes.find(scope => scope.value === 'openid')];
+const defaultUris = [''];
+
 const NewAppForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit}>
     <p>&#42; required field</p>
@@ -150,6 +154,8 @@ export default reduxForm({
   form: 'newApp',
   validate: formValidator(constraints),
   initialValues: {
-    redirectUris: [''],
+    redirectUris: defaultUris,
+    allowedGrants: defaultGrants,
+    allowedScopes: defaultScopes,
   },
 })(NewAppForm);

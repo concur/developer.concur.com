@@ -66,7 +66,7 @@ InputField.defaultProps = {
   placeholder: '',
 };
 
-export const TextareaField = ({ input, label, meta: { touched, error } }) => {
+export const TextareaField = ({ input, label, placeholder, meta: { touched, error } }) => {
   const { name } = input;
   const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
@@ -74,7 +74,13 @@ export const TextareaField = ({ input, label, meta: { touched, error } }) => {
   return (
     <div className={`form-group ${errorClass}`}>
       <label htmlFor={name} className="control-label">{label}</label>
-      <textarea {...input} id={name} className="form-control" aria-describedby={ariaText} />
+      <textarea
+        {...input}
+        id={name}
+        placeholder={placeholder}
+        className="form-control"
+        aria-describedby={ariaText}
+      />
       {touched && error && <FieldError error={error} ariaText={ariaText} />}
     </div>
   );
@@ -83,7 +89,12 @@ export const TextareaField = ({ input, label, meta: { touched, error } }) => {
 TextareaField.propTypes = {
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   meta: PropTypes.object.isRequired,
+};
+
+TextareaField.defaultProps = {
+  placeholder: '',
 };
 
 export const SelectField = ({ input, label, placeholder, options, meta: { touched, error } }) => {
@@ -139,6 +150,7 @@ export const MultiselectField = ({
         multi
         placeholder={placeholder}
         options={options}
+        clearable={false}
         onBlur={() => input.onBlur(input.value)}
       />
       {touched && error && <FieldError error={error} ariaText={ariaText} />}
@@ -185,6 +197,7 @@ CheckboxField.propTypes = {
 export const RedirectUriField = ({
   input,
   label,
+  placeholder,
   canDelete,
   onClick,
   meta: { touched, error },
@@ -201,6 +214,7 @@ export const RedirectUriField = ({
           {...input}
           id={name}
           type="url"
+          placeholder={placeholder}
           className="form-control"
           aria-describedby={ariaText}
         />
@@ -218,6 +232,7 @@ export const RedirectUriField = ({
 RedirectUriField.propTypes = {
   input: PropTypes.object.isRequired,
   label: PropTypes.string,
+  placeholder: PropTypes.string,
   canDelete: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
   meta: PropTypes.object.isRequired,
@@ -225,6 +240,7 @@ RedirectUriField.propTypes = {
 
 RedirectUriField.defaultProps = {
   label: '',
+  placeholder: '',
 };
 
 export const RedirectUris = ({ fields }) => (
@@ -235,7 +251,7 @@ export const RedirectUris = ({ fields }) => (
         component={RedirectUriField}
         name={uri}
         label={idx === 0 ? 'Redirect URI' : null}
-        placeholder="Redirect URI"
+        placeholder="https://example-uri.com"
         canDelete={fields.length > 1}
         onClick={() => fields.remove(idx)}
       />

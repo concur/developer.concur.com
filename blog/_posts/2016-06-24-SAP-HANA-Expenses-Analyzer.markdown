@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SAP HANA Cloud Platform - Expenses Analyzer for Concur
+title: SAP Cloud Platform - Expenses Analyzer for Concur
 date: 2016-06-24
 tags:
     - HANA
@@ -11,12 +11,12 @@ author: Ekatarina Mitova
 redirect_from: 2016/06/24/SAP-HANA-Expenses-Analyzer.html
 ---
 
-## Expenses Analyzer for Concur that runs on SAP HANA Cloud Platform
-Expenses Analyzer for Concur is a sample extension application for Concur written in Java, that runs on SAP HANA Cloud Platform and uses a HANA database. The purpose of the application is to show you analytical information about all expenses in your Concur company.  
+## Expenses Analyzer for Concur that runs on SAP Cloud Platform
+Expenses Analyzer for Concur is a sample extension application for Concur written in Java, that runs on SAP Cloud Platform and uses a HANA database. The purpose of the application is to show you analytical information about all expenses in your Concur company.  
 
-The application can run either on the productive SAP HANA Cloud Platform landscape with a dedicated HANA, or the trial landscape with a multitenant database containers (MDC) database. We have prepared a guide that explains how to download, build, deploy and configure the application on the SAP HANA Cloud Platform trial landscape.  
+The application can run either on the productive SAP Cloud Platform landscape with a dedicated HANA, or the trial landscape with a multitenant database containers (MDC) database. We have prepared a guide that explains how to download, build, deploy and configure the application on the SAP HANA Cloud Platform trial landscape.  
 
-These are the SAP HANA Cloud Platform services and features in use:
+These are the SAP Cloud Platform services and features in use:
 
 * Connectivity Service - the application uses the Connectivity Service to obtain connection to Concur.
 * Persistence Service - the application uses the Persistence Service to manage its connection to the database.

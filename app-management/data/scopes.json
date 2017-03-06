@@ -37,7 +37,8 @@
   },
   {
     "label": "openid",
-    "value": "openid"
+    "value": "openid",
+    "clearableValue": false
   },
   {
     "label": "mileage.journey.read",
