@@ -21,6 +21,8 @@ Instructions for obtaining a Company Token is here : https://developer.concur.co
 
 Once you have the Company Token, you would call the `/users` endpoint to retrieve a list of users that belong to that company.
 
+This endpoint will also return basic company information together with the list of users.
+
 
 `GET /users`
 
@@ -60,6 +62,14 @@ successful call, responds with
   "total": 2,
   "offset": 0,
   "limit": 100,
+  "company": {
+    "name": "Company Name LLC",
+    "address": "601 108th ave NE",
+    "city":"Bellevue",
+    "state":"WA",
+    "zip":"98004",
+    "country": "US"
+  },
   "Items": [
     {
       "Active": true,
