@@ -81,6 +81,10 @@ Authorization: OAuth {access token}
 </Loyalty>
 ```
 
+### Notes
+
+* If the user associated with the OAuth token already has a loyalty account number for a given vendor, the only way to update that account number is through [Travel Profile API 2.0][4], or through the user's profile page
+
 ##  Response
 
 ### Content Types
@@ -122,3 +126,4 @@ This request will return an **Error** root element that has a child **Message** 
 [1]: http://concur.github.io/developer.concur.com/api-reference/authentication/oauth-20-overview
 [2]: https://developer.concur.com/go-market/app-certification
 [3]: https://developer.concur.com/api-reference/travel-profile/01-profile-resource.html#a4
+[4]: https://developer.concur.com/api-reference/travel-profile/01-profile-resource.html
