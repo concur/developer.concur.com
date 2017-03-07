@@ -59,6 +59,8 @@ TripLink suppliers, travel management companies (TMCs), and Concur partners can 
 * Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
 
 If you are a TMC or a Concur partner developer who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the Concur Connect Platform Team. Concur products are highly configurable, and not all clients will have access to all features.
+<p>
+Some itinerary data may have come from Sabre. Concur encourages you to speak to Sabre about becoming a Sabre Authorized Developer.
 
 ## Authentication and authorization
 
