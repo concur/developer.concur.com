@@ -77,7 +77,7 @@ Authorization: OAuth {access token}
               <VendorType>Rail</VendorType>
               <AccountNumber>1234567890</AccountNumber>
           </LoyaltyMembership>
-    </LLoyaltyMemberships>
+    </LoyaltyMemberships>
 </Loyalty>
 ```
 
