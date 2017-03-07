@@ -65,9 +65,9 @@ successful call, responds with
   "company": {
     "name": "Company Name LLC",
     "address": "601 108th ave NE",
-    "city":"Bellevue",
-    "state":"WA",
-    "zip":"98004",
+    "city": "Bellevue",
+    "state": "WA",
+    "zip": "98004",
     "country": "US"
   },
   "Items": [
