@@ -20,7 +20,7 @@ The loyalty program information for the user, as entered in Concur.
 
 ## Operations
 * [Add Loyalty Program Information](#a1)
-* [Possible Warnings and Response Messages](#a2
+* [Possible Warnings and Response Messages](#a2)
 
 ## <a name="a1">Add Loyalty Program Information</a>
 Adds the loyalty program information for the OAuth consumer. Loyalty contains information about the user's loyalty membership, including:
