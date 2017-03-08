@@ -13,18 +13,18 @@ comments: true
       <span>{{ page.date | date: "%A, %B %d, %Y" }}</span>
       {% endif %}
     </p>
-    <p>
-      {% if page.tags %}
-      <i class="fa fa-tags" aria-hidden="true"></i>&nbsp;
-      {% for tag in page.tags %}
-        {% if forloop.index == page.tags.size %}
-          <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}</a></span>
-        {% else %}
-          <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}, </a></span>
-        {% endif %}
-      {% endfor %}
-      {% endif %}
-    </p>
+    {% if page.tags.size > 0 %}
+      <p>
+        <i class="fa fa-tags" aria-hidden="true"></i>&nbsp;
+        {% for tag in page.tags %}
+          {% if forloop.index == page.tags.size %}
+            <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}</a></span>
+          {% else %}
+            <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag  | replace: "-", " " }}, </a></span>
+          {% endif %}
+        {% endfor %}
+      </p>
+    {% endif %}
     {% if page.references %}
     <p>This page references:</p>
     <ul>
