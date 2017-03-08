@@ -2,6 +2,8 @@
 layout: post
 title: Applications Using TLS 1.0 Will No Longer Work after March 31, 2017
 date: 2017-03-08
+tags:
+    - Deprecation
 ---
 
 
