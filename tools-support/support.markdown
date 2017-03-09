@@ -9,11 +9,6 @@ redirect_from: /docs-and-resources/support/
 
 - - -
 
-#### Configuring Sandboxes:
-You can get assistance for your developer sandbox configuration by going to the [Concur Forums for Sandbox Setup][1] page.
-
-- - -
-
 #### Recovering Passwords:
 To recover your developer sandbox user name or password, click on the applicable links: [Username][4] or [Password][5]
 

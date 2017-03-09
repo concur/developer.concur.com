@@ -60,6 +60,8 @@ TripLink suppliers, travel management companies (TMCs), and Concur partners can 
 
 If you are a TMC or a Concur partner developer who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the Concur Connect Platform Team. Concur products are highly configurable, and not all clients will have access to all features.
 
+Some itinerary data may have come from Sabre. Concur encourages you to speak to Sabre about becoming a Sabre Authorized Developer.
+
 ## Authentication and authorization
 
 The Itinerary web service uses OAuth 2.0 for authenticating users and authorizing access to travel data.
