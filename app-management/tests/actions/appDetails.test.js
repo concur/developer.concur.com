@@ -25,8 +25,8 @@ describe('fetchAppDetails', () => {
   });
 
   it('creates an appDetailsSuccess action when fetching is successful', () => {
-    nock(process.env.DEVCENTER_API_ORCHESTRATION)
-      .get(`/`)
+    nock(process.env.DEVCENTER_API_FORMS)
+      .get(`/applications/${app.id}`)
       .reply(200, app);
 
     const expectedActions = [
@@ -41,13 +41,13 @@ describe('fetchAppDetails', () => {
   });
 
   it('creates an appDetailsFailure action when fetching fails', () => {
-    nock(process.env.DEVCENTER_API_ORCHESTRATION)
-      .get(`/`)
+    nock(process.env.DEVCENTER_API_FORMS)
+      .get(`/applications/${app.id}`)
       .replyWithError('Server is down');
 
     const expectedActions = [
       appDetailsRequest(),
-      appDetailsFailure(`request to ${process.env.DEVCENTER_API_ORCHESTRATION} failed, reason: Server is down`),
+      appDetailsFailure(`request to ${process.env.DEVCENTER_API_FORMS}/applications/${app.id} failed, reason: Server is down`),
     ];
 
     return store.dispatch(fetchAppDetails(app.id))
@@ -72,7 +72,7 @@ describe('updateAppDetails', () => {
   });
 
   it('creates an appDetailsUpdateSuccess action when fetching is successful', () => {
-    nock(process.env.DEVCENTER_API_ORCHESTRATION)
+    nock(process.env.DEVCENTER_API_FORMS)
       .put(`/`)
       .reply(200, app);
 
@@ -89,13 +89,13 @@ describe('updateAppDetails', () => {
   });
 
   it('creates an appDetailsFailure action when fetching fails', () => {
-    nock(process.env.DEVCENTER_API_ORCHESTRATION)
+    nock(process.env.DEVCENTER_API_FORMS)
       .put(`/`)
       .replyWithError('Server is down');
 
     const expectedActions = [
       appDetailsRequest(),
-      appDetailsFailure(`request to ${process.env.DEVCENTER_API_ORCHESTRATION} failed, reason: Server is down`),
+      appDetailsFailure(`request to ${process.env.DEVCENTER_API_FORMS} failed, reason: Server is down`),
     ];
 
     return store.dispatch(updateAppDetails(app))

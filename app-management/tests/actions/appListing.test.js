@@ -25,8 +25,8 @@ describe('fetchAppListing', () => {
   });
 
   it('creates an appListingSuccess action when fetching is successful', () => {
-    nock(process.env.DEVCENTER_API_ORCHESTRATION)
-      .get('/')
+    nock(process.env.DEVCENTER_API_FORMS)
+      .get('/applications')
       .reply(200, apps);
 
     const expectedActions = [
@@ -41,13 +41,13 @@ describe('fetchAppListing', () => {
   });
 
   it('creates an appListingFailure action when fetching fails', () => {
-    nock(process.env.DEVCENTER_API_ORCHESTRATION)
-      .get('/')
+    nock(process.env.DEVCENTER_API_FORMS)
+      .get('/applications')
       .replyWithError('Server is down');
 
     const expectedActions = [
       appListingRequest(),
-      appListingFailure(`request to ${process.env.DEVCENTER_API_ORCHESTRATION} failed, reason: Server is down`),
+      appListingFailure(`request to ${process.env.DEVCENTER_API_FORMS}/applications failed, reason: Server is down`),
     ];
 
     return store.dispatch(fetchAppListing())

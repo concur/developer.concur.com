@@ -3,6 +3,8 @@ import fetch from 'isomorphic-fetch';
 import { reset } from 'redux-form';
 import { hashHistory } from 'react-router';
 
+import { sharedHelpers } from '../utils/actionHelpers';
+
 export const NEW_APP_REQUEST = 'NEW_APP_REQUEST';
 export const NEW_APP_FAILURE = 'NEW_APP_FAILURE';
 export const NEW_APP_SUCCESS = 'NEW_APP_SUCCESS';
@@ -39,7 +41,8 @@ export function postNewApp(newApp) {
       },
     };
 
-    return fetch(`${process.env.DEVCENTER_API_ORCHESTRATION}`, options)
+    return fetch(`${process.env.DEVCENTER_API_FORMS}/applications`, options)
+      .then(sharedHelpers.validResponse)
       .then(response => response.json())
       .then((app) => {
         dispatch(newAppSuccess(app));

@@ -13,7 +13,11 @@ const CertificationBadge = ({ certified }) => (
 );
 
 CertificationBadge.propTypes = {
-  certified: PropTypes.bool.isRequired,
+  certified: PropTypes.bool,
+};
+
+CertificationBadge.defaultProps = {
+  certified: false,
 };
 
 export default CertificationBadge;

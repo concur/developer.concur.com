@@ -46,3 +46,21 @@ export const authHelpers = {
     return Promise.resolve(data);
   },
 };
+
+// Shared helper functions
+export const sharedHelpers = {
+  /**
+   * validResponse - Checks if the response is a 2xx response, otherwise throws
+   * an error with the status text.
+   *
+   * @param  {Object} response  The HTTP response from a fetch() call
+   * @return {Object|undefined} The response, if valid
+   * @throws Will throw an error with the response status text if invalid
+   */
+  validResponse(response) {
+    if (response.status < 200 || response.status > 299) {
+      throw new Error(response.statusText);
+    }
+    return response;
+  },
+};

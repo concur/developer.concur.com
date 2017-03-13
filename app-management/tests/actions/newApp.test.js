@@ -24,8 +24,8 @@ describe('postNewApp', () => {
   it('creates a newAppSuccess action when fetching is successful', () => {
     const app = appFactory('id-1');
 
-    nock(process.env.DEVCENTER_API_ORCHESTRATION)
-      .post('/')
+    nock(process.env.DEVCENTER_API_FORMS)
+      .post('/applications')
       .reply(200, app);
 
     const expectedActions = [
@@ -41,13 +41,13 @@ describe('postNewApp', () => {
   });
 
   it('creates a newAppFailure action when fetching fails', () => {
-    nock(process.env.DEVCENTER_API_ORCHESTRATION)
-      .post('/')
+    nock(process.env.DEVCENTER_API_FORMS)
+      .post('/applications')
       .replyWithError('Server is down');
 
     const expectedActions = [
       newAppRequest(),
-      newAppFailure(`request to ${process.env.DEVCENTER_API_ORCHESTRATION} failed, reason: Server is down`),
+      newAppFailure(`request to ${process.env.DEVCENTER_API_FORMS}/applications failed, reason: Server is down`),
     ];
 
     return store.dispatch(postNewApp())
