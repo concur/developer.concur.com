@@ -14,7 +14,7 @@ import AppSecret from './AppSecret';
 // All selectable grants and scopes
 import grants from '../../data/grants.json';
 import scopes from '../../data/scopes.json';
-import applicationTypes from '../../data/applicationTypes.json';
+import appTypes from '../../data/appTypes.json';
 
 const constraints = {
   name: {
@@ -91,8 +91,8 @@ const EditAppForm = ({ handleSubmit }) => (
             component={MultiselectField}
             type="select-multiple"
             name="appType"
-            label="Application Type"
-            options={applicationTypes}
+            label="App Type"
+            options={appTypes}
             simpleValue
           />
         </section>

@@ -14,7 +14,7 @@ import {
 // All selectable grants and scopes
 import grants from '../../data/grants.json';
 import scopes from '../../data/scopes.json';
-import applicationTypes from '../../data/applicationTypes.json';
+import appTypes from '../../data/appTypes.json';
 
 const constraints = {
   name: {
@@ -87,7 +87,7 @@ const NewAppForm = ({ handleSubmit }) => (
             type="select-multiple"
             name="appType"
             label="App Type &#42;"
-            options={applicationTypes}
+            options={appTypes}
           />
         </section>
         <section className="col-md-12">

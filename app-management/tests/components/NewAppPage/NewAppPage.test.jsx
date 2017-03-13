@@ -37,10 +37,10 @@ describe('<NewAppPage />', () => {
 
   describe('mapDispatchToProps', () => {
     it('returns submit handler', () => {
-      const application = appFactory('id-1');
+      const app = appFactory('id-1');
       const dispatcher = jest.fn();
       const state = mapDispatchToProps(dispatcher);
-      state.handleSubmit(application);
+      state.handleSubmit(app);
 
       expect(state.handleSubmit).toBeDefined();
       expect(dispatcher).toHaveBeenCalled();

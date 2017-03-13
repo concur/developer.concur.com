@@ -21,7 +21,7 @@ exports[`<SignupPage /> should render with <SignupForm /> 1`] = `
       className="alert alert-info"
     >
       <p>
-        Application Management requires a
+        App Management requires a
         <strong>
            Concur Travel and Expense (CTE) account. 
         </strong>

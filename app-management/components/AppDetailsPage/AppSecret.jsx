@@ -3,8 +3,8 @@ import React, { PropTypes } from 'react';
 const AppSecret = ({ clickHandler, secret }) => (
   <div className="alert alert-warning">
     <p>
-      You can regenerate your clientSecret below.
-      This process will clear your old clientSecret and require updated to your
+      You can regenerate your app secret below.
+      This process will clear your old secret and require updates to your
       apps or scripts.
     </p>
     <button
@@ -12,12 +12,12 @@ const AppSecret = ({ clickHandler, secret }) => (
       className="btn orange"
       onClick={clickHandler}
     >
-      Regenerate Application clientSecret
+      Regenerate App secret
     </button>
     {secret &&
       <p>
         <strong>
-          Here is your new clientSecret.
+          Here is your new secret.
         </strong>
         <br />
         <code>{secret}</code>
