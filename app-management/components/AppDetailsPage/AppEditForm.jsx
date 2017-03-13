@@ -65,6 +65,7 @@ const EditAppForm = ({ handleSubmit }) => (
             component={CheckboxField}
             type="checkbox"
             name="enabled"
+            disabled
           >
             Enabled
           </Field>
@@ -76,6 +77,7 @@ const EditAppForm = ({ handleSubmit }) => (
             name="name"
             label="App Name"
             placeholder="App Name"
+            disabled
           />
         </section>
         <section className="col-md-12">
@@ -84,6 +86,7 @@ const EditAppForm = ({ handleSubmit }) => (
             name="description"
             label="App Description"
             placeholder="App Description"
+            disabled
           />
         </section>
         <section className="col-md-12">
@@ -94,10 +97,11 @@ const EditAppForm = ({ handleSubmit }) => (
             label="App Type"
             options={appTypes}
             simpleValue
+            disabled
           />
         </section>
         <section className="col-md-12">
-          <FieldArray component={RedirectUris} name="redirectUris" />
+          <FieldArray component={RedirectUris} name="redirectUris" disabled />
         </section>
         <section className="col-md-12">
           <Field
@@ -107,6 +111,7 @@ const EditAppForm = ({ handleSubmit }) => (
             label="Allowed Grants"
             options={grants}
             simpleValue
+            disabled
           />
         </section>
         <section className="col-md-12">
@@ -117,6 +122,7 @@ const EditAppForm = ({ handleSubmit }) => (
             label="Allowed Scopes"
             options={scopes}
             simpleValue
+            disabled
           />
         </section>
       </div>
