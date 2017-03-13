@@ -53,7 +53,9 @@ exports[`<AppListing /> renders apps 1`] = `
             "receipts.read",
             "receipts.write",
           ],
-          "appType": "Business",
+          "appType": Array [
+            "Business",
+          ],
           "certified": false,
           "description": "This is my app.",
           "enabled": true,
@@ -78,7 +80,9 @@ exports[`<AppListing /> renders apps 1`] = `
             "receipts.read",
             "receipts.write",
           ],
-          "appType": "Business",
+          "appType": Array [
+            "Business",
+          ],
           "certified": false,
           "description": "This is my app.",
           "enabled": true,

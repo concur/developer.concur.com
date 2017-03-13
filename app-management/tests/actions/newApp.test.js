@@ -9,6 +9,8 @@ const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
 
 describe('postNewApp', () => {
+  const application = appFactory('id-1');
+  const clientSecret = 'a-client-secret';
   let store;
 
   beforeEach(() => {
@@ -22,19 +24,17 @@ describe('postNewApp', () => {
   });
 
   it('creates a newAppSuccess action when fetching is successful', () => {
-    const app = appFactory('id-1');
-
     nock(process.env.DEVCENTER_API_FORMS)
       .post('/applications')
-      .reply(200, app);
+      .reply(200, { application, clientSecret });
 
     const expectedActions = [
       newAppRequest(),
-      newAppSuccess(app),
+      newAppSuccess(application, clientSecret),
       reset('newApp'),
     ];
 
-    return store.dispatch(postNewApp())
+    return store.dispatch(postNewApp(application))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
@@ -50,7 +50,7 @@ describe('postNewApp', () => {
       newAppFailure(`request to ${process.env.DEVCENTER_API_FORMS}/applications failed, reason: Server is down`),
     ];
 
-    return store.dispatch(postNewApp())
+    return store.dispatch(postNewApp(application))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });

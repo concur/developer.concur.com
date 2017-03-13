@@ -20,10 +20,11 @@ export function newAppFailure(message) {
   };
 }
 
-export function newAppSuccess(app) {
+export function newAppSuccess(app, clientSecret) {
   return {
     type: NEW_APP_SUCCESS,
     app,
+    clientSecret,
   };
 }
 
@@ -44,9 +45,9 @@ export function postNewApp(newApp) {
     return fetch(`${process.env.DEVCENTER_API_FORMS}/applications`, options)
       .then(sharedHelpers.validResponse)
       .then(response => response.json())
-      .then((app) => {
-        dispatch(newAppSuccess(app));
-        hashHistory.push(`/details/${app.id}`);
+      .then(({ application, clientSecret }) => {
+        dispatch(newAppSuccess(application, clientSecret));
+        hashHistory.push(`/details/${application.id}`);
         dispatch(reset('newApp'));
       })
       .catch(err => dispatch(newAppFailure(err.message)));

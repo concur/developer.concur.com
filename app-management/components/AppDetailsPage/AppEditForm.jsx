@@ -6,7 +6,6 @@ import {
   InputField,
   TextareaField,
   CheckboxField,
-  SelectField,
   MultiselectField,
   RedirectUris,
 } from '../FormFields';
@@ -18,14 +17,14 @@ import scopes from '../../data/scopes.json';
 import applicationTypes from '../../data/applicationTypes.json';
 
 const constraints = {
-  appName: {
+  name: {
     presence: { message: 'is required' },
     length: {
       minimum: 3,
       maximum: 99,
     },
   },
-  appDescription: {
+  description: {
     presence: { message: 'is required' },
     length: {
       minimum: 10,
@@ -89,10 +88,10 @@ const EditAppForm = ({ handleSubmit }) => (
         </section>
         <section className="col-md-12">
           <Field
-            component={SelectField}
+            component={MultiselectField}
+            type="select-multiple"
             name="appType"
             label="Application Type"
-            placeholder="Application Type"
             options={applicationTypes}
             simpleValue
           />

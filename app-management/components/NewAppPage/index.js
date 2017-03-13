@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import NewAppPage from './NewAppPage';
 import { postNewApp } from '../../actions/newApp';
+import { newAppHelpers } from '../../utils/actionHelpers';
 
 export function mapStateToProps(state) {
   return state.newApp;
@@ -8,7 +9,10 @@ export function mapStateToProps(state) {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    handleSubmit: app => dispatch(postNewApp(app)),
+    handleSubmit: (app) => {
+      const composedApp = newAppHelpers.composeApp(app);
+      dispatch(postNewApp(composedApp));
+    },
   };
 }
 

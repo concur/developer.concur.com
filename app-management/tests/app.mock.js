@@ -13,7 +13,7 @@ export default function appFactory(id) {
       'receipts.write'
     ],
     enabled: true,
-    appType: 'Business',
+    appType: ['Business'],
     allowedGrants: [
       'implicit',
       'authorization_code',

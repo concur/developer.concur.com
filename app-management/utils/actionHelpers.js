@@ -47,6 +47,27 @@ export const authHelpers = {
   },
 };
 
+// Helper functions for newApp actions
+export const newAppHelpers = {
+  composeApp({
+    allowedGrants,
+    allowedScopes,
+    appType,
+    description,
+    name,
+    redirectUris,
+  }) {
+    return {
+      allowedGrants: allowedGrants.map(g => g.value),
+      allowedScopes: allowedScopes.map(s => s.value),
+      appType: appType.map(t => t.value),
+      description,
+      name,
+      redirectUris,
+    };
+  },
+};
+
 // Shared helper functions
 export const sharedHelpers = {
   /**

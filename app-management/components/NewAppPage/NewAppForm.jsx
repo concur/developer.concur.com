@@ -6,7 +6,6 @@ import {
   InputField,
   TextareaField,
   CheckboxField,
-  SelectField,
   MultiselectField,
   RedirectUris,
   FieldHelp,
@@ -18,14 +17,14 @@ import scopes from '../../data/scopes.json';
 import applicationTypes from '../../data/applicationTypes.json';
 
 const constraints = {
-  appName: {
+  name: {
     presence: { message: 'is required' },
     length: {
       minimum: 3,
       maximum: 99,
     },
   },
-  appDescription: {
+  description: {
     presence: { message: 'is required' },
     length: {
       minimum: 10,
@@ -69,7 +68,7 @@ const NewAppForm = ({ handleSubmit }) => (
           <Field
             component={InputField}
             type="text"
-            name="appName"
+            name="name"
             label="App Name &#42;"
             placeholder="App Name"
           />
@@ -77,17 +76,17 @@ const NewAppForm = ({ handleSubmit }) => (
         <section className="col-md-12">
           <Field
             component={TextareaField}
-            name="appDescription"
+            name="description"
             label="App Description &#42;"
             placeholder="App Description"
           />
         </section>
         <section className="col-md-12">
           <Field
-            component={SelectField}
+            component={MultiselectField}
+            type="select-multiple"
             name="appType"
             label="App Type &#42;"
-            placeholder="App Type"
             options={applicationTypes}
           />
         </section>
