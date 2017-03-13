@@ -12,8 +12,8 @@ const NewAppPage = ({ handleSubmit, isFetching, error }) => (
       <div className="alert alert-info">
         <p>
           Register your new application (app) with Concur by filling out this form.
-          Once you have registered an app, you will receive a clientId (id) and clientSecret (secret).
-          The id is a unique UUID4 identifier for your app, and the secret is
+          Once you have registered an app, you will receive a clientId (id) and clientSecret
+          (secret). The id is a unique UUID4 identifier for your app, and the secret is
           your app’s password. You will be using this credential to obtain tokens either
           for the app itself, or on behalf of a user.
         </p>

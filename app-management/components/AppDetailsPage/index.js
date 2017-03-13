@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AppDetailsPage from './AppDetailsPage';
-import { fetchAppDetails, updateAppDetails } from '../../actions/appDetails';
+import { fetchAppDetails, generateAppSecret } from '../../actions/appDetails';
 
 export function mapStateToProps(state) {
   return state.appDetails;
@@ -9,7 +9,7 @@ export function mapStateToProps(state) {
 export function mapDispatchToProps(dispatch) {
   return {
     fetchAppDetails: id => dispatch(fetchAppDetails(id)),
-    handleSubmit: app => dispatch(updateAppDetails(app)),
+    handleSubmit: app => dispatch(generateAppSecret(app)),
   };
 }
 

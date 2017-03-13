@@ -6,7 +6,7 @@ import { sharedHelpers } from '../utils/actionHelpers';
 export const APP_DETAILS_REQUEST = 'APP_DETAILS_REQUEST';
 export const APP_DETAILS_FAILURE = 'APP_DETAILS_FAILURE';
 export const APP_DETAILS_SUCCESS = 'APP_DETAILS_SUCCESS';
-export const APP_DETAILS_UPDATE_SUCCESS = 'APP_DETAILS_UPDATE_SUCCESS';
+export const GENERATE_SECRET_SUCCESS = 'GENERATE_SECRET_SUCCESS';
 
 export function appDetailsRequest() {
   return { type: APP_DETAILS_REQUEST };
@@ -26,8 +26,11 @@ export function appDetailsSuccess(app) {
   };
 }
 
-export function appDetailsUpdateSuccess() {
-  return { type: APP_DETAILS_UPDATE_SUCCESS };
+export function generateSecretSuccess(clientSecret) {
+  return {
+    type: GENERATE_SECRET_SUCCESS,
+    clientSecret,
+  };
 }
 
 export function fetchAppDetails(id) {
@@ -51,24 +54,24 @@ export function fetchAppDetails(id) {
   };
 }
 
-export function updateAppDetails(app) {
+export function generateAppSecret(id) {
   return (dispatch, getState) => {
     dispatch(appDetailsRequest());
 
     const { token } = getState().auth;
     const options = {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
     };
 
-    return fetch(`${process.env.DEVCENTER_API_FORMS}`, options)
+    return fetch(`${process.env.DEVCENTER_API_FORMS}/applications/${id}/secret`, options)
+      .then(sharedHelpers.validResponse)
       .then(response => response.json())
-      .then(() => {
-        dispatch(appDetailsUpdateSuccess());
-        dispatch(fetchAppDetails(app.id));
+      .then(({ clientSecret }) => {
+        dispatch(generateSecretSuccess(clientSecret));
       })
       .catch(err => dispatch(appDetailsFailure(err.message)));
   };

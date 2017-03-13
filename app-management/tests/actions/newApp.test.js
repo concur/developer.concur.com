@@ -26,7 +26,7 @@ describe('postNewApp', () => {
   it('creates a newAppSuccess action when fetching is successful', () => {
     nock(process.env.DEVCENTER_API_FORMS)
       .post('/applications')
-      .reply(200, { app, clientSecret });
+      .reply(200, { application: app, clientSecret });
 
     const expectedActions = [
       newAppRequest(),

@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import nock from 'nock';
 import {
   appDetailsRequest, appDetailsFailure, appDetailsSuccess, fetchAppDetails,
-  appDetailsUpdateSuccess, updateAppDetails,
+  generateSecretSuccess, generateAppSecret,
 } from '../../actions/appDetails';
 import appFactory from '../app.mock';
 
@@ -57,8 +57,9 @@ describe('fetchAppDetails', () => {
   });
 });
 
-describe('updateAppDetails', () => {
+describe('generateAppSecret', () => {
   const app = appFactory('id-1');
+  const clientSecret = 'a-client-secret';
   let store;
 
   beforeEach(() => {
@@ -71,18 +72,17 @@ describe('updateAppDetails', () => {
     nock.cleanAll();
   });
 
-  it('creates an appDetailsUpdateSuccess action when fetching is successful', () => {
+  it('creates an generateSecretSuccess action when fetching is successful', () => {
     nock(process.env.DEVCENTER_API_FORMS)
-      .put(`/`)
-      .reply(200, app);
+      .patch(`/applications/${app.id}/secret`)
+      .reply(200, { application: app, clientSecret });
 
     const expectedActions = [
       appDetailsRequest(),
-      appDetailsUpdateSuccess(app),
-      appDetailsRequest(),
+      generateSecretSuccess(clientSecret),
     ];
 
-    return store.dispatch(updateAppDetails(app))
+    return store.dispatch(generateAppSecret(app.id))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
@@ -90,15 +90,15 @@ describe('updateAppDetails', () => {
 
   it('creates an appDetailsFailure action when fetching fails', () => {
     nock(process.env.DEVCENTER_API_FORMS)
-      .put(`/`)
+      .patch(`/applications/${app.id}/secret`)
       .replyWithError('Server is down');
 
     const expectedActions = [
       appDetailsRequest(),
-      appDetailsFailure(`request to ${process.env.DEVCENTER_API_FORMS} failed, reason: Server is down`),
+      appDetailsFailure(`request to ${process.env.DEVCENTER_API_FORMS}/applications/${app.id}/secret failed, reason: Server is down`),
     ];
 
-    return store.dispatch(updateAppDetails(app))
+    return store.dispatch(generateAppSecret(app.id))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
