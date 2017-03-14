@@ -3,8 +3,8 @@ import thunk from 'redux-thunk';
 import nock from 'nock';
 import {
   appDetailsRequest, appDetailsFailure, appDetailsSuccess, fetchAppDetails,
-  generateSecretSuccess, generateAppSecret,
 } from '../../actions/appDetails';
+import { clearAppSecret } from '../../actions/generateAppSecret';
 import appFactory from '../app.mock';
 
 const middlewares = [ thunk ];
@@ -30,6 +30,7 @@ describe('fetchAppDetails', () => {
       .reply(200, app);
 
     const expectedActions = [
+      clearAppSecret(),
       appDetailsRequest(),
       appDetailsSuccess(app),
     ];
@@ -46,59 +47,12 @@ describe('fetchAppDetails', () => {
       .replyWithError('Server is down');
 
     const expectedActions = [
+      clearAppSecret(),
       appDetailsRequest(),
       appDetailsFailure(`request to ${process.env.DEVCENTER_API_FORMS}/applications/${app.id} failed, reason: Server is down`),
     ];
 
     return store.dispatch(fetchAppDetails(app.id))
-      .then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      });
-  });
-});
-
-describe('generateAppSecret', () => {
-  const app = appFactory('id-1');
-  const clientSecret = 'a-client-secret';
-  let store;
-
-  beforeEach(() => {
-    store = mockStore({
-      auth: { token: 'a-sample-token' },
-    });
-  });
-
-  afterEach(() => {
-    nock.cleanAll();
-  });
-
-  it('creates an generateSecretSuccess action when fetching is successful', () => {
-    nock(process.env.DEVCENTER_API_FORMS)
-      .patch(`/applications/${app.id}/secret`)
-      .reply(200, { application: app, clientSecret });
-
-    const expectedActions = [
-      appDetailsRequest(),
-      generateSecretSuccess(clientSecret),
-    ];
-
-    return store.dispatch(generateAppSecret(app.id))
-      .then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      });
-  });
-
-  it('creates an appDetailsFailure action when fetching fails', () => {
-    nock(process.env.DEVCENTER_API_FORMS)
-      .patch(`/applications/${app.id}/secret`)
-      .replyWithError('Server is down');
-
-    const expectedActions = [
-      appDetailsRequest(),
-      appDetailsFailure(`request to ${process.env.DEVCENTER_API_FORMS}/applications/${app.id}/secret failed, reason: Server is down`),
-    ];
-
-    return store.dispatch(generateAppSecret(app.id))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });

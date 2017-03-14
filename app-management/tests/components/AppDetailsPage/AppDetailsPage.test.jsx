@@ -13,10 +13,19 @@ import appFactory from '../../app.mock';
 
 const store = createStore(appReducer);
 const defaultProps = {
+  appDetails: {
+    app: appFactory('id-1'),
+    error: '',
+    isFetching: false,
+  },
+  appSecret: {
+    app: {},
+    clientSecret: '',
+    error: '',
+    isFetching: false,
+  },
   fetchAppDetails: jest.fn(),
-  isFetching: false,
-  error: '',
-  app: appFactory('id-1'),
+  generateSecretHandler: jest.fn(),
   handleSubmit: jest.fn(),
   params: { id: 'id-1' }, // mock for React Router params
 };
@@ -44,7 +53,10 @@ describe('<AppdetailsPage />', () => {
   it('displays the loading spinner if the details are loading', () => {
     const props = {
       ...defaultProps,
-      isFetching: true,
+      appDetails: {
+        ...defaultProps.appDetails,
+        isFetching: true,
+      },
     };
 
     const page = shallow(<AppDetailsPage {...props} />);
@@ -56,20 +68,24 @@ describe('<AppdetailsPage />', () => {
   it('displays an error if the details failed to load', () => {
     const props = {
       ...defaultProps,
-      error: 'Failed to fetch',
+      appDetails: {
+        ...defaultProps.appDetails,
+        error: 'Failed to fetch',
+      },
     };
 
     const page = shallow(<AppDetailsPage {...props} />);
-    const expectedError = <ErrorAlert error={props.error} />;
+    const expectedError = <ErrorAlert error={props.appDetails.error} />;
 
     expect(page.containsMatchingElement(expectedError)).toBeTruthy();
   });
 
   describe('mapStateToProps', () => {
-    it('returns entire appDetails state', () => {
+    it('returns entire appDetails and appSecret states', () => {
       const state = mapStateToProps(store.getState());
 
-      expect(state).toEqual(store.getState().appDetails);
+      expect(state.appDetails).toEqual(store.getState().appDetails);
+      expect(state.appSecret).toEqual(store.getState().appSecret);
     });
   });
 
@@ -83,16 +99,16 @@ describe('<AppdetailsPage />', () => {
     });
 
     it('returns fetchAppDetails handler', () => {
-      state.fetchAppDetails('app');
+      state.fetchAppDetails('app-id');
 
       expect(state.fetchAppDetails).toBeDefined();
       expect(dispatcher).toHaveBeenCalled();
     });
 
     it('returns submit handler', () => {
-      state.handleSubmit('app');
+      state.generateSecretHandler('app-id');
 
-      expect(state.handleSubmit).toBeDefined();
+      expect(state.generateSecretHandler).toBeDefined();
       expect(dispatcher).toHaveBeenCalled();
     });
   });
