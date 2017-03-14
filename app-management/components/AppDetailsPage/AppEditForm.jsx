@@ -20,6 +20,16 @@ const EditAppForm = () => (
       <div className="row">
         <section className="col-md-12">
           <Field
+            component={InputField}
+            type="text"
+            name="id"
+            label="App Id"
+            placeholder="App Id"
+            disabled
+          />
+        </section>
+        <section className="col-md-12">
+          <Field
             component={CheckboxField}
             type="checkbox"
             name="enabled"
