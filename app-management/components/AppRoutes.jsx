@@ -5,6 +5,7 @@ import PageContainer from './PageContainer';
 import AppListing from './AppListing';
 import AppDetailsPage from './AppDetailsPage';
 import NewAppPage from './NewAppPage';
+import NewAppSuccessPage from './NewAppSuccessPage';
 import LoginPage from './LoginPage';
 import SignupPage from './SignupPage';
 import LogoutPage from './LogoutPage';
@@ -53,6 +54,7 @@ class AppRoutes extends React.Component {
         <Route path="/" component={PageContainer}>
           <IndexRoute component={AppListing} onEnter={this.requireAuth} />
           <Route path="new" component={NewAppPage} onEnter={this.requireAuth} />
+          <Route path="new/success" component={NewAppSuccessPage} onEnter={this.requireAuth} />
           <Route path="details/:id" component={AppDetailsPage} onEnter={this.requireAuth} />
           <Route path="login" component={LoginPage} onEnter={this.showAuthForms} />
           <Route path="signup" component={SignupPage} onEnter={this.showAuthForms} />

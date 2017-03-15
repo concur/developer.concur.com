@@ -41,7 +41,7 @@ export function fetchAppDetails(id) {
     };
 
     return fetch(`${process.env.DEVCENTER_API_FORMS}/applications/${id}`, options)
-      .then(sharedHelpers.validResponse)
+      .then(sharedHelpers.validResponse(dispatch))
       .then(response => response.json())
       .then(app => dispatch(appDetailsSuccess(app)))
       .catch(err => dispatch(appDetailsFailure(err.message)));

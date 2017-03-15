@@ -1,3 +1,6 @@
+import { hashHistory } from 'react-router';
+import { loginFailure, logout } from '../actions/auth';
+
 // Helper functions for signup actions
 const SIGNUP_SERVER_ERROR = 'A server error occurred when creating your account. Please try again later.';
 
@@ -78,10 +81,18 @@ export const sharedHelpers = {
    * @return {Object|undefined} The response, if valid
    * @throws Will throw an error with the response status text if invalid
    */
-  validResponse(response) {
-    if (response.status < 200 || response.status > 299) {
-      throw new Error(response.statusText);
-    }
-    return response;
+  validResponse(dispatch) {
+    return (response) => {
+      if (response.status === 401) {
+        dispatch(logout());
+        dispatch(loginFailure('Session expired. Please log in.'));
+        hashHistory.push('/login');
+        throw new Error(response.statusText);
+      }
+      if (response.status < 200 || response.status > 299) {
+        throw new Error(response.statusText);
+      }
+      return response;
+    };
   },
 };

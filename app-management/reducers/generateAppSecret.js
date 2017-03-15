@@ -14,14 +14,12 @@ function generateAppSecretReducer(state = defaultState, action) {
   switch (action.type) {
     case GENERATE_APP_SECRET_REQUEST:
       return {
-        ...state,
+        ...defaultState,
         isFetching: true,
-        error: '',
       };
     case GENERATE_APP_SECRET_FAILURE:
       return {
-        ...state,
-        isFetching: false,
+        ...defaultState,
         error: action.message,
       };
     case GENERATE_APP_SECRET_SUCCESS:

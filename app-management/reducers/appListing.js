@@ -13,14 +13,12 @@ function appListingReducer(state = defaultState, action) {
   switch (action.type) {
     case APP_LISTING_REQUEST:
       return {
-        ...state,
+        ...defaultState,
         isFetching: true,
-        error: '',
       };
     case APP_LISTING_FAILURE:
       return {
-        ...state,
-        isFetching: false,
+        ...defaultState,
         error: action.message,
       };
     case APP_LISTING_SUCCESS:

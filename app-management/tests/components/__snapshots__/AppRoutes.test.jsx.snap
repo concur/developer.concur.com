@@ -37,6 +37,11 @@ exports[`<AppRoutes /> render renders the router and routes 1`] = `
     <Route
       component={[Function]}
       onEnter={[Function]}
+      path="new/success"
+    />
+    <Route
+      component={[Function]}
+      onEnter={[Function]}
       path="details/:id"
     />
     <Route

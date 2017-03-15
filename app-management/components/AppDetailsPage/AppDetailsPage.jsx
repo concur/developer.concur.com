@@ -1,5 +1,3 @@
-/* eslint-env browser */
-
 import React, { PropTypes } from 'react';
 import AppEditForm from './AppEditForm';
 import AppSecret from './AppSecret';

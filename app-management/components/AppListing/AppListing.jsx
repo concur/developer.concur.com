@@ -11,21 +11,16 @@ class AppListing extends React.Component {
 
   render () {
     const { isFetching, error, apps } = this.props;
-    let content;
-
-    if (isFetching) {
-      content = <LoadingSpinner loading={isFetching} />;
-    } else if (apps.length > 0) {
-      content = apps.map(app => <AppPreview app={app} key={app.id} />);
-    } else {
-      content = <NewAppInstructions />;
-    }
+    const content = apps.map(app => <AppPreview app={app} key={app.id} />);
+    const showNewAppInstructions = !isFetching && apps.length === 0;
 
     return (
       <div className="row">
         <div className="col-md-12">
           <h2><i className="fa fa-list" aria-hidden="true" /> My Apps</h2>
+          <LoadingSpinner loading={isFetching} />
           <ErrorAlert error={error} />
+          {showNewAppInstructions ? <NewAppInstructions /> : null}
           {content}
         </div>
       </div>

@@ -43,11 +43,11 @@ export function postNewApp(newApp) {
     };
 
     return fetch(`${process.env.DEVCENTER_API_FORMS}/applications`, options)
-      .then(sharedHelpers.validResponse)
+      .then(sharedHelpers.validResponse(dispatch))
       .then(response => response.json())
       .then(({ application: app, clientSecret }) => {
         dispatch(newAppSuccess(app, clientSecret));
-        hashHistory.push(`/details/${app.id}`);
+        hashHistory.push('/new/success');
         dispatch(reset('newApp'));
       })
       .catch(err => dispatch(newAppFailure(err.message)));

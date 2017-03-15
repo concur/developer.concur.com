@@ -45,7 +45,7 @@ export function generateAppSecret(appId) {
     };
 
     return fetch(`${process.env.DEVCENTER_API_FORMS}/applications/${appId}/secret`, options)
-      .then(sharedHelpers.validResponse)
+      .then(sharedHelpers.validResponse(dispatch))
       .then(response => response.json())
       .then(({ application: app, clientSecret }) => {
         dispatch(generateAppSecretSuccess(app, clientSecret));
