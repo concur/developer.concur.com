@@ -26,7 +26,7 @@ export function appDetailsSuccess(app) {
   };
 }
 
-export function fetchAppDetails(id) {
+export function fetchAppDetails(appId) {
   return (dispatch, getState) => {
     dispatch(clearAppSecret());
     dispatch(appDetailsRequest());
@@ -40,7 +40,7 @@ export function fetchAppDetails(id) {
       },
     };
 
-    return fetch(`${process.env.DEVCENTER_API_FORMS}/applications/${id}`, options)
+    return fetch(`${process.env.DEVCENTER_API_FORMS}/applications/${appId}`, options)
       .then(sharedHelpers.validResponse(dispatch))
       .then(response => response.json())
       .then(app => dispatch(appDetailsSuccess(app)))

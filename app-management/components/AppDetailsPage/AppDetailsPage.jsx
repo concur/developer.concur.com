@@ -7,7 +7,7 @@ import CertificationBadge from '../CertificationBadge';
 
 class AppDetailsPage extends React.Component {
   componentWillMount() {
-    const id = this.props.params.id;
+    const { id } = this.props.params;
     this.props.fetchAppDetails(id);
   }
 

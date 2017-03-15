@@ -1,9 +1,9 @@
 import { hashHistory } from 'react-router';
 import { loginFailure, logout } from '../actions/auth';
 
-// Helper functions for signup actions
 const SIGNUP_SERVER_ERROR = 'A server error occurred when creating your account. Please try again later.';
 
+// Helper functions for signup actions
 export const signupHelpers = {
   isSuccessful(responseText) {
     try {
@@ -73,15 +73,16 @@ export const newAppHelpers = {
 
 // Shared helper functions
 export const sharedHelpers = {
-  /**
-   * validResponse - Checks if the response is a 2xx response, otherwise throws
-   * an error with the status text.
-   *
-   * @param  {Object} response  The HTTP response from a fetch() call
-   * @return {Object|undefined} The response, if valid
-   * @throws Will throw an error with the response status text if invalid
-   */
   validResponse(dispatch) {
+    /**
+    * Checks if the response is a 2xx response, otherwise throws
+    * an error with the status text. Dispatches logout and loginFailure actions
+    * if a 401 is present (invalid JWT)
+    *
+    * @param  {Object} response  The HTTP response from a fetch() call
+    * @return {Object|undefined} The response, if valid
+    * @throws Will throw an error with the response status text if invalid
+    */
     return (response) => {
       if (response.status === 401) {
         dispatch(logout());
