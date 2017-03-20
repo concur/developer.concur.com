@@ -6,12 +6,11 @@ tags:
       - Digital Tax Invoice
       - Account ID
 references:
-    - url: api-explorer/v3-0/DigitalTaxInvoices.html
+    - url: /api-explorer/v3-0/DigitalTaxInvoices.html
       link: Digital Tax Invoice APIs
     - url: /api-reference/expense/digital-tax-invoices/digital-tax-invoice.html#put
       link: Digital Tax Invoice PUT 
 author: Sarra Loew
-redirect_from: 2017/03/20/digital-tax-invoice-account-id.html
 ---
 
 Digital Tax Invoice API – AccountID Field Changes 
