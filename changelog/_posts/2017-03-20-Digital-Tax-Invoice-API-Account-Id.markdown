@@ -13,8 +13,6 @@ references:
 author: Sarra Loew
 ---
 
-Digital Tax Invoice API – AccountID Field Changes 
-------------------------------------------------- 
 
 Concur has updated the Digital Tax Invoice API to stop requiring the company admin to enter an AccountID when enabling an app that uses this API. Validation partners that use the API will still see the AccountID field in the API response, however the value will be NOACCTID for new clients. Clients that enabled a Digital Tax Invoice app prior to this change will retain their AccountID value. 
 
