@@ -9,12 +9,12 @@ function signupReducer(state = defaultState, action) {
   switch (action.type) {
     case SIGNUP_REQUEST:
       return {
+        ...defaultState,
         isFetching: true,
-        error: '',
       };
     case SIGNUP_FAILURE:
       return {
-        isFetching: false,
+        ...defaultState,
         error: action.message,
       };
     case SIGNUP_SUCCESS:

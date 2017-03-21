@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
 import AppDetailsPage from './AppDetailsPage';
-import { fetchAppDetails, updateAppDetails } from '../../actions/appDetails';
+import { fetchAppDetails } from '../../actions/appDetails';
+import { generateAppSecret } from '../../actions/generateAppSecret';
 
 export function mapStateToProps(state) {
-  return state.appDetails;
+  return {
+    appDetails: state.appDetails,
+    appSecret: state.appSecret,
+  };
 }
 
 export function mapDispatchToProps(dispatch) {
   return {
     fetchAppDetails: id => dispatch(fetchAppDetails(id)),
-    handleSubmit: app => dispatch(updateAppDetails(app)),
+    generateSecretHandler: id => dispatch(generateAppSecret(id)),
   };
 }
 

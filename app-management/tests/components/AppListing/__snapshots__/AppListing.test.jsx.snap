@@ -14,12 +14,12 @@ exports[`<AppListing /> displays the loading spinner if the listing is loading 1
       />
        My Apps
     </h2>
-    <ErrorAlert
-      error=""
-    />
     <LoadingSpinner
       loading={true}
       message="Loading..."
+    />
+    <ErrorAlert
+      error=""
     />
   </div>
 </div>
@@ -39,6 +39,10 @@ exports[`<AppListing /> renders apps 1`] = `
       />
        My Apps
     </h2>
+    <LoadingSpinner
+      loading={false}
+      message="Loading..."
+    />
     <ErrorAlert
       error=""
     />
@@ -53,7 +57,9 @@ exports[`<AppListing /> renders apps 1`] = `
             "receipts.read",
             "receipts.write",
           ],
-          "appType": "Business",
+          "appType": Array [
+            "Business",
+          ],
           "certified": false,
           "description": "This is my app.",
           "enabled": true,
@@ -78,7 +84,9 @@ exports[`<AppListing /> renders apps 1`] = `
             "receipts.read",
             "receipts.write",
           ],
-          "appType": "Business",
+          "appType": Array [
+            "Business",
+          ],
           "certified": false,
           "description": "This is my app.",
           "enabled": true,

@@ -1,19 +1,22 @@
-/* eslint-env browser */
-
 import React, { PropTypes } from 'react';
 import AppEditForm from './AppEditForm';
+import AppSecret from './AppSecret';
 import LoadingSpinner from '../LoadingSpinner';
 import ErrorAlert from '../ErrorAlert';
 import CertificationBadge from '../CertificationBadge';
 
 class AppDetailsPage extends React.Component {
   componentWillMount() {
-    const id = this.props.params.id;
+    const { id } = this.props.params;
     this.props.fetchAppDetails(id);
   }
 
   render () {
-    const { isFetching, error, app, handleSubmit } = this.props;
+    const {
+      appDetails: { isFetching, error, app },
+      appSecret,
+      generateSecretHandler,
+    } = this.props;
     let content;
 
     if (isFetching) {
@@ -27,11 +30,11 @@ class AppDetailsPage extends React.Component {
             {app.name}&nbsp;
             <CertificationBadge certified={app.certified} />
           </h2>
-
-          <AppEditForm
-            initialValues={app}
-            onSubmit={handleSubmit}
+          <AppSecret
+            clickHandler={() => generateSecretHandler(app.id)}
+            appSecret={appSecret}
           />
+          <AppEditForm initialValues={app} />
         </div>
       );
     }
@@ -47,14 +50,22 @@ class AppDetailsPage extends React.Component {
 }
 
 AppDetailsPage.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
+  appDetails: PropTypes.shape({
+    app: PropTypes.object.isRequired,
+    error: PropTypes.string.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+  }).isRequired,
+  appSecret: PropTypes.shape({
+    app: PropTypes.object.isRequired,
+    clientSecret: PropTypes.string.isRequired,
+    error: PropTypes.string.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+  }).isRequired,
+  generateSecretHandler: PropTypes.func.isRequired,
   fetchAppDetails: PropTypes.func.isRequired,
   params: PropTypes.shape({
     id: PropTypes.string.isRequired,
   }).isRequired,
-  isFetching: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
-  app: PropTypes.object.isRequired,
 };
 
 export default AppDetailsPage;

@@ -1,10 +1,12 @@
 import 'es6-promise';
 import fetch from 'isomorphic-fetch';
 
+import { clearAppSecret } from '../actions/generateAppSecret';
+import { sharedHelpers } from '../utils/actionHelpers';
+
 export const APP_DETAILS_REQUEST = 'APP_DETAILS_REQUEST';
 export const APP_DETAILS_FAILURE = 'APP_DETAILS_FAILURE';
 export const APP_DETAILS_SUCCESS = 'APP_DETAILS_SUCCESS';
-export const APP_DETAILS_UPDATE_SUCCESS = 'APP_DETAILS_UPDATE_SUCCESS';
 
 export function appDetailsRequest() {
   return { type: APP_DETAILS_REQUEST };
@@ -24,15 +26,11 @@ export function appDetailsSuccess(app) {
   };
 }
 
-export function appDetailsUpdateSuccess() {
-  return { type: APP_DETAILS_UPDATE_SUCCESS };
-}
-
-export function fetchAppDetails(id) {
+export function fetchAppDetails(appId) {
   return (dispatch, getState) => {
+    dispatch(clearAppSecret());
     dispatch(appDetailsRequest());
 
-    console.log(`TODO: Pass ${id} to API call`);
     const { token } = getState().auth;
     const options = {
       method: 'GET',
@@ -42,32 +40,10 @@ export function fetchAppDetails(id) {
       },
     };
 
-    return fetch(`${process.env.DEVCENTER_API_ORCHESTRATION}`, options)
+    return fetch(`${process.env.DEVCENTER_API_FORMS}/applications/${appId}`, options)
+      .then(sharedHelpers.validResponse(dispatch))
       .then(response => response.json())
       .then(app => dispatch(appDetailsSuccess(app)))
-      .catch(err => dispatch(appDetailsFailure(err.message)));
-  };
-}
-
-export function updateAppDetails(app) {
-  return (dispatch, getState) => {
-    dispatch(appDetailsRequest());
-
-    const { token } = getState().auth;
-    const options = {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
-    return fetch(`${process.env.DEVCENTER_API_ORCHESTRATION}`, options)
-      .then(response => response.json())
-      .then(() => {
-        dispatch(appDetailsUpdateSuccess());
-        dispatch(fetchAppDetails(app.id));
-      })
       .catch(err => dispatch(appDetailsFailure(err.message)));
   };
 }
