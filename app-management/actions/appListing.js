@@ -6,6 +6,7 @@ import { sharedHelpers } from '../utils/actionHelpers';
 export const APP_LISTING_REQUEST = 'APP_LISTING_REQUEST';
 export const APP_LISTING_FAILURE = 'APP_LISTING_FAILURE';
 export const APP_LISTING_SUCCESS = 'APP_LISTING_SUCCESS';
+export const APP_LISTING_INVALIDATE_CACHE = 'APP_LISTING_INVALIDATE_CACHE';
 
 export function appListingRequest() {
   return { type: APP_LISTING_REQUEST };
@@ -25,11 +26,21 @@ export function appListingSuccess(apps) {
   };
 }
 
+export function appListingInvalidateCache() {
+  return { type: APP_LISTING_INVALIDATE_CACHE };
+}
+
 export function fetchAppListing() {
   return (dispatch, getState) => {
     dispatch(appListingRequest());
 
-    const { token } = getState().auth;
+    const {
+      appListing: { validCache },
+      auth: { token },
+    } = getState();
+
+    if (validCache) return null;
+
     const options = {
       method: 'GET',
       headers: {
