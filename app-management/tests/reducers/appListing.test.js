@@ -12,6 +12,7 @@ describe('appListing reducer', () => {
       apps: [],
       isFetching: false,
       error: '',
+      validCache: false,
     });
   });
 
@@ -23,6 +24,7 @@ describe('appListing reducer', () => {
       apps: [],
       isFetching: true,
       error: '',
+      validCache: false,
     });
   });
 
@@ -35,6 +37,7 @@ describe('appListing reducer', () => {
       apps: [],
       isFetching: false,
       error: message,
+      validCache: false,
     });
   });
 
@@ -50,6 +53,7 @@ describe('appListing reducer', () => {
       apps: apps,
       isFetching: false,
       error: '',
+      validCache: true,
     });
   });
 });

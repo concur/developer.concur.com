@@ -17,11 +17,25 @@ describe('fetchAppListing', () => {
   beforeEach(() => {
     store = mockStore({
       auth: { token: 'a-sample-token' },
+      appListing: { validCache: false },
     });
   });
 
   afterEach(() => {
     nock.cleanAll();
+  });
+
+  it('does not create an appListingSuccess action when there is a valid cache', () => {
+    const expectedActions = [
+      appListingRequest(),
+    ];
+
+    store = mockStore({
+      auth: { token: 'a-sample-token' },
+      appListing: { validCache: true },
+    });
+
+    expect(store.dispatch(fetchAppListing())).toBeNull();
   });
 
   it('creates an appListingSuccess action when fetching is successful', () => {
