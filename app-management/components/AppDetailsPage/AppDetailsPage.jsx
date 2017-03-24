@@ -27,9 +27,10 @@ class AppDetailsPage extends React.Component {
       content = (
         <div>
           <h2>
-            {app.name}&nbsp;
+            <span>{app.name}</span>
             <CertificationBadge certified={app.certified} />
           </h2>
+          <br />
           <AppSecret
             clickHandler={() => generateSecretHandler(app.id)}
             appSecret={appSecret}

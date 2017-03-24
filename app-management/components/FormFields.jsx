@@ -242,7 +242,7 @@ export const RedirectUriField = ({
   return (
     <div className={`form-group ${errorClass}`}>
       <label htmlFor={name} className="control-label">{label}</label>
-      <div className={canDelete ? 'input-group' : ''}>
+      <div className={canDelete && !disabled ? 'input-group' : ''}>
         <input
           {...input}
           aria-describedby={ariaText}

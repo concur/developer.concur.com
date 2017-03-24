@@ -2,12 +2,14 @@ import React, { PropTypes } from 'react';
 
 const CertificationBadge = ({ certified }) => (
   certified ? (
-    <small className="certification-badge certified">
-      <i className="fa fa-check-circle" aria-hidden="true" /> CERTIFIED
+    <small className="label label-success pull-right">
+      <i className="fa fa-check-circle" aria-hidden="true" />
+      <span> CERTIFIED</span>
     </small>
   ) : (
-    <small className="certification-badge not-certified">
-      <i className="fa fa-exclamation-circle" aria-hidden="true" /> NOT CERTIFIED
+    <small className="label label-warning pull-right">
+      <i className="fa fa-exclamation-circle" aria-hidden="true" />
+      <span> NOT CERTIFIED</span>
     </small>
   )
 );

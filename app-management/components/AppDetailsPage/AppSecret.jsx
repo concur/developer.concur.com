@@ -10,8 +10,8 @@ const AppSecret = ({ clickHandler, appSecret: { clientSecret, error, isFetching 
       {clientSecret ? (
         <p>
           <strong>
-            Here is your new secret. Make sure to copy it now. You will not be able to see
-            it again.
+            Here is your new clientSecret. Make sure to copy it now. You will not be able
+            to see it again.
           </strong>
           <br />
           <code>{clientSecret}</code>
@@ -19,8 +19,8 @@ const AppSecret = ({ clickHandler, appSecret: { clientSecret, error, isFetching 
       ) : (
         <div>
           <p>
-            You can regenerate your app secret below.
-            This process will clear your old secret and require updates to your
+            You can regenerate your clientSecret below.
+            This process will clear your old clientSecret and require updates to your
             apps or scripts.
           </p>
           <button
@@ -28,7 +28,7 @@ const AppSecret = ({ clickHandler, appSecret: { clientSecret, error, isFetching 
             className="btn orange"
             onClick={clickHandler}
           >
-            Regenerate App secret
+            Regenerate clientSecret
           </button>
         </div>
       )}

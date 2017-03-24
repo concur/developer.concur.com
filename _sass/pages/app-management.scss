@@ -1,14 +1,4 @@
 .app-management {
-  .certification-badge {
-    &.certified {
-      color: $dark-green;
-    }
-
-    &.not-certified {
-      color: $orange;
-    }
-  }
-
   form .col-md-12,
   form .col-md-6 {
     margin-bottom: 15px;

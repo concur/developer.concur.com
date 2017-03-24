@@ -9,7 +9,7 @@ const NewAppSuccessPage = ({ app, clientSecret }) => (
           Your app has been created.
         </h2>
         <p>
-          <strong>Copy down your app secret. You will not be able to see it again.</strong>
+          <strong>Copy down your clientSecret. You will not be able to see it again.</strong>
         </p>
         <hr />
         <p>
