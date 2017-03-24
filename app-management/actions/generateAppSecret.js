@@ -42,6 +42,7 @@ export function generateAppSecret(appId) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
+      body: '',
     };
 
     return fetch(`${process.env.DEVCENTER_API_FORMS}/applications/${appId}/secret`, options)

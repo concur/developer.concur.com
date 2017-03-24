@@ -21,7 +21,7 @@ exports[`<NewAppPage /> should render with <NewAppForm /> 1`] = `
       className="alert alert-info"
     >
       <p>
-        Register your new application (app) with Concur by filling out this form. Once you have registered an app, you will receive a clientId (id) and clientSecret (secret). The id is a unique UUID4 identifier for your app, and the secret is your app’s password. You will be using this credential to obtain tokens either for the app itself, or on behalf of a user.
+        Register your new application (app) with Concur by filling out this form. Once you have registered an app, you will receive a clientId and clientSecret The clientId is a unique UUID4 identifier for your app. The clientSecret is also a unique UUID4, and it serves as your app’s password. You will be using this credential to obtain tokens either for the app itself, or on behalf of a user.
       </p>
       <p>
         For more information on this process, please refer to our Getting Started guide for

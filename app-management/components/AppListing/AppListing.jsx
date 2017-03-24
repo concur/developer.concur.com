@@ -18,6 +18,7 @@ class AppListing extends React.Component {
       <div className="row">
         <div className="col-md-12">
           <h2><i className="fa fa-list" aria-hidden="true" /> My Apps</h2>
+          <br />
           <LoadingSpinner loading={isFetching} />
           <ErrorAlert error={error} />
           {showNewAppInstructions ? <NewAppInstructions /> : null}

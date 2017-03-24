@@ -4,7 +4,6 @@ import { Field, FieldArray, reduxForm } from 'redux-form';
 import {
   InputField,
   TextareaField,
-  CheckboxField,
   MultiselectField,
   RedirectUris,
 } from '../FormFields';
@@ -23,20 +22,14 @@ const EditAppForm = () => (
             component={InputField}
             type="text"
             name="id"
-            label="App Id"
-            placeholder="App Id"
+            label="clientId"
+            placeholder="clientId"
             disabled
           />
         </section>
         <section className="col-md-12">
-          <Field
-            component={CheckboxField}
-            type="checkbox"
-            name="enabled"
-            disabled
-          >
-            Enabled
-          </Field>
+          <hr />
+          <h3>App Details</h3>
         </section>
         <section className="col-md-12">
           <Field
