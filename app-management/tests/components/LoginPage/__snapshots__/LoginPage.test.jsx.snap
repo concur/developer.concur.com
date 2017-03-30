@@ -11,16 +11,6 @@ exports[`<LoginPage /> should render with <LoginForm /> 1`] = `
       Log in to App Management
     </h2>
     <p>
-      Don't have a Concur account? 
-      <Link
-        onlyActiveOnIndex={false}
-        style={Object {}}
-        to="/signup"
-      >
-        Sign Up here
-      </Link>
-    </p>
-    <p>
       <a
         href="https://www.concursolutions.com/profile/send_password_hint.asp"
         rel="noopener noreferrer"

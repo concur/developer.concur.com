@@ -7,7 +7,6 @@ import AppDetailsPage from './AppDetailsPage';
 import NewAppPage from './NewAppPage';
 import NewAppSuccessPage from './NewAppSuccessPage';
 import LoginPage from './LoginPage';
-import SignupPage from './SignupPage';
 import LogoutPage from './LogoutPage';
 import NotFound from './NotFound';
 
@@ -57,7 +56,6 @@ class AppRoutes extends React.Component {
           <Route path="new/success" component={NewAppSuccessPage} onEnter={this.requireAuth} />
           <Route path="details/:id" component={AppDetailsPage} onEnter={this.requireAuth} />
           <Route path="login" component={LoginPage} onEnter={this.showAuthForms} />
-          <Route path="signup" component={SignupPage} onEnter={this.showAuthForms} />
           <Route path="logout" component={LogoutPage} onEnter={this.logout} />
           <Route path="*" component={NotFound} />
         </Route>
