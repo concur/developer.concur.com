@@ -12,7 +12,7 @@ class AppListing extends React.Component {
   render () {
     const { isFetching, error, apps } = this.props;
     const content = apps.map(app => <AppPreview app={app} key={app.id} />);
-    const showNewAppInstructions = !isFetching && apps.length === 0;
+    const showNewAppInstructions = !isFetching && !error && apps.length === 0;
 
     return (
       <div className="row">
