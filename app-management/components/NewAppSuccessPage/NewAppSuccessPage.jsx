@@ -17,11 +17,11 @@ const NewAppSuccessPage = ({ app, clientSecret }) => (
           <span>{app.name}</span>
         </p>
         <p>
-          <strong>Id: </strong>
+          <strong>clientId: </strong>
           <code>{app.id}</code>
         </p>
         <p>
-          <strong>Secret: </strong>
+          <strong>clientSecret: </strong>
           <code>{clientSecret}</code>
         </p>
         <Link to={`/details/${app.id}`} className="btn bright-blue">Go to App Details</Link>

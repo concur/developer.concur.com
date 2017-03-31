@@ -17,21 +17,11 @@ const EditAppForm = () => (
   <form>
     <fieldset>
       <div className="row">
-        <section className="col-md-12">
-          <Field
-            component={InputField}
-            type="text"
-            name="id"
-            label="clientId"
-            placeholder="clientId"
-            disabled
-          />
-        </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <hr />
           <h3>App Details</h3>
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={InputField}
             type="text"
@@ -41,7 +31,7 @@ const EditAppForm = () => (
             disabled
           />
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={TextareaField}
             name="description"
@@ -50,7 +40,7 @@ const EditAppForm = () => (
             disabled
           />
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={MultiselectField}
             type="select-multiple"
@@ -61,10 +51,10 @@ const EditAppForm = () => (
             disabled
           />
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <FieldArray component={RedirectUris} name="redirectUris" disabled />
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={MultiselectField}
             type="select-multiple"
@@ -75,7 +65,7 @@ const EditAppForm = () => (
             disabled
           />
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={MultiselectField}
             type="select-multiple"

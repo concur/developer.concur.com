@@ -10,6 +10,7 @@ exports[`<NewAppPage /> should render with <NewAppForm /> 1`] = `
     <h2>
       Create an App
     </h2>
+    <br />
     <LoadingSpinner
       loading={false}
       message="Submitting..."

@@ -52,11 +52,6 @@ exports[`<AppRoutes /> render renders the router and routes 1`] = `
     <Route
       component={[Function]}
       onEnter={[Function]}
-      path="signup"
-    />
-    <Route
-      component={[Function]}
-      onEnter={[Function]}
       path="logout"
     />
     <Route

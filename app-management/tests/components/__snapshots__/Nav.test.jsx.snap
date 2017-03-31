@@ -65,20 +65,6 @@ exports[`<Nav /> renders signup and login links when the user is not authenticat
         activeClassName="active"
         onlyActiveOnIndex={false}
         style={Object {}}
-        to="/signup"
-      >
-        <i
-          aria-hidden="true"
-          className="fa fa-user"
-        />
-         Sign Up
-      </Link>
-    </li>
-    <li>
-      <Link
-        activeClassName="active"
-        onlyActiveOnIndex={false}
-        style={Object {}}
         to="/login"
       >
         <i
