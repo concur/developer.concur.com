@@ -7,6 +7,7 @@ const NewAppPage = ({ handleSubmit, isFetching, error }) => (
   <div className="row">
     <div className="col-md-12">
       <h2>Create an App</h2>
+      <br />
       <LoadingSpinner loading={isFetching} message="Submitting..." />
       <ErrorAlert error={error} />
       <div className="alert alert-info">

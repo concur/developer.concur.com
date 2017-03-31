@@ -31,10 +31,24 @@ class AppDetailsPage extends React.Component {
             <CertificationBadge certified={app.certified} />
           </h2>
           <br />
-          <AppSecret
-            clickHandler={() => generateSecretHandler(app.id)}
-            appSecret={appSecret}
-          />
+          <div className="row">
+            <section className="col-md-8">
+              <div className="form-group">
+                <label htmlFor="clientId" className="control-label">clientId</label>
+                <input
+                  value={app.id}
+                  type="text"
+                  className="form-control"
+                  id="clientId"
+                  disabled
+                />
+              </div>
+            </section>
+            <AppSecret
+              clickHandler={() => generateSecretHandler(app.id, app.name)}
+              appSecret={appSecret}
+            />
+          </div>
           <AppEditForm initialValues={app} />
         </div>
       );

@@ -64,7 +64,7 @@ const NewAppForm = ({ handleSubmit }) => (
     <p>&#42; required field</p>
     <fieldset>
       <div className="row">
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={InputField}
             type="text"
@@ -73,7 +73,7 @@ const NewAppForm = ({ handleSubmit }) => (
             placeholder="App Name"
           />
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={TextareaField}
             name="description"
@@ -81,7 +81,7 @@ const NewAppForm = ({ handleSubmit }) => (
             placeholder="App Description"
           />
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={MultiselectField}
             type="select-multiple"
@@ -90,10 +90,19 @@ const NewAppForm = ({ handleSubmit }) => (
             options={appTypes}
           />
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <FieldArray component={RedirectUris} name="redirectUris" />
+          <FieldHelp>
+            Valid redirect URIs that can be used for the Authorization Code grant type.
+            <a
+              href="https://tools.ietf.org/html/rfc6749#section-4.1"
+              target="_blank"
+              rel="noopener noreferrer"
+            > See RFC6749
+            </a>
+          </FieldHelp>
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={MultiselectField}
             type="select-multiple"
@@ -111,7 +120,7 @@ const NewAppForm = ({ handleSubmit }) => (
             </a>
           </FieldHelp>
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={MultiselectField}
             type="select-multiple"
