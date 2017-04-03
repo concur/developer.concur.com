@@ -4,11 +4,16 @@ import { Link } from 'react-router';
 import CertificationBadge from '../CertificationBadge';
 
 const AppPreview = ({ app: { id, name, certified } }) => (
-  <div className="well col-md-12" key={id}>
+  <div key={id}>
     <h3>
       <Link to={`/details/${id}`}>{name} </Link>
       <CertificationBadge certified={certified} />
     </h3>
+    <p>
+      <strong>clientId: </strong>
+      <code>{id}</code>
+    </p>
+    <hr />
   </div>
 );
 

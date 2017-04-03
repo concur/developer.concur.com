@@ -19,5 +19,9 @@
   {
     "label": "Password",
     "value": "password"
+  },
+  {
+    "label": "One-Time Password",
+    "value": "otp"
   }
 ]

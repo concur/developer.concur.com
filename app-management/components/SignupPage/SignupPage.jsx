@@ -15,7 +15,7 @@ const SignupPage = ({ handleSubmit, isFetching, error }) => (
       <ErrorAlert error={error} />
       <div className="alert alert-info">
         <p>
-          Application Management requires a
+          App Management requires a
           <strong> Concur Travel and Expense (CTE) account. </strong>
           If you have a CTE account, <Link to="/login">login here.</Link>
         </p>

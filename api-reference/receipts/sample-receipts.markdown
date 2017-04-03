@@ -7,7 +7,558 @@ layout: reference
 
 ## Sample Receipts
 
-Below we have sample receipt data and the corresponding receipt image for the [Car Rental](#car-rental), [Ground Transport](#ground-transport) and [Hotel](#hotel) receipt types.
+Below we have sample receipt data and the corresponding receipt images for the following receipt types:
+
+* [Air (Multiple Tickets)](#air-multiple-tickets)
+* [Car Rental](#car-rental)
+* [Ground Transport](#ground-transport)
+* [Hotel](#hotel)
+
+### Air (Multiple Tickets)
+
+#### Receipt Data
+
+```json
+{
+    "taxInvoice": true,
+    "reference": "ABCD1234",
+    "dateTime": "2099-11-10T16:04:49-0700",
+    "total": "1400.40",
+    "taxesTotal": "123.38",
+    "subtotal": "1277.02",
+    "currencyCode": "USD",
+    "broker": {
+        "name": "ACME Corporation",
+        "description": "",
+        "taxId": "123-21213",
+        "location": {
+            "name": "Headquarters",
+            "number": "",
+            "latitude": 41.8819,
+            "longitude": -87.6278,
+            "internetAddress": "http://www.acmecorporation.com",
+            "emailAddress": "info@acmecorporation.com",
+            "telephoneNumber": "1-877-555-5555",
+            "faxNumber": "",
+            "address": {
+                "streetAddress": "333 108th Ave NE",
+                "addressLocality": "Belleve",
+                "addressRegion": "WA",
+                "addressCountry": "US",
+                "postalCode": "98004"
+            }
+        }
+    },
+    "seller": {
+        "name": "ACME Airlines",
+        "description": "",
+        "taxId": "867-53090",
+        "location": {
+            "name": "Headquarters",
+            "number": "",
+            "latitude": 37.2714,
+            "longitude": -85.3262,
+            "internetAddress": "http://www.acmeairlines.com",
+            "emailAddress": "contact@acmeairlines.com",
+            "telephoneNumber": "1-888-555-5555",
+            "faxNumber": "",
+            "address": {
+                "streetAddress": "1 Ground Transport Way",
+                "addressLocality": "Seattle",
+                "addressRegion": "WA",
+                "addressCountry": "US",
+                "postalCode": "90001"
+            }
+        }
+    },
+    "taxes": [
+        {
+            "authority": {
+                "addressCountry": "US",
+                "addressRegion": "WA"
+            },
+            "name": "Transportation Tax",
+            "rate": 7.50,
+            "amount": "91.38"
+        },
+        {
+            "authority": {
+                "addressCountry": "US"
+            },
+            "name": "United States - Flight Segment Tax",
+            "rate": 10.0,
+            "amount": "32.00"
+        }
+    ],
+    "payments": [
+        {
+            "amount": "1400.40",
+            "cardDetail": {
+                "cardType": "Visa",
+                "creditCardId": "7423",
+                "authorizationCode": "AB123654789"
+            }
+        }
+    ],
+    "itineraryLocator": "1122337694093",
+    "tickets": [
+        {
+            "number": "0062698215636",
+            "recordLocator": "CU9GEF",
+            "issueDateTime": "2015-11-29T19:15:55-0700",
+            "pseudoCityCode": "SEA",
+            "IATAAgencyNumber": "87654321",
+            "agencyName": "ACME Airlines",
+            "passengerName": "Jimmy Dean",
+            "fare": "609.31",
+            "coupons": [
+                {
+                    "originationAirportIATACode": "SEA",
+                    "originationDateTime": "2015-12-25T09:00:00-0700",
+                    "destinationAirportIATACode": "MSP",
+                    "destinationDateTime": "2015-12-25T14:14:00-0500",
+                    "flightNumber": "DL 1768",
+                    "couponNumber": "D167693",
+                    "operatingAirlineCode": "DL",
+                    "marketingCarrier": "DL1768",
+                    "operatingCarrier": "DL1768",
+                    "classOfServiceCode": "T",
+                    "fareBasisCode": "YHRT15",
+                    "ticketDesignatorCode": "FSG*SFR",
+                    "fare": "152.33",
+                    "taxes": [
+                        {
+                            "authority": {
+                                "addressCountry": "US"
+                            },
+                            "name": "Transportation Tax",
+                            "rate": 7.50,
+                            "amount": "11.42"
+                        }
+                    ],
+                    "lineItems": [
+                        {
+                            "sequenceNumber": 1,
+                            "description": "United States - September 11th Security Fee",
+                            "additionalDescription": "Passenger Civil Aviation Security Service Fee",
+                            "semanticsCode": "OTHER",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "2.80"
+                        },
+                        {
+                            "sequenceNumber": 2,
+                            "description": "United States - Passenger Facility Charge",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_FEE",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "4.50"
+                        },
+                        {
+                            "sequenceNumber": 3,
+                            "description": "United States - Flight Segment Tax",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_TAX",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "4.00"
+                        }
+                    ]
+                },
+                {
+                    "originationAirportIATACode": "MSP",
+                    "originationDateTime": "2015-12-25T15:25:00-0500",
+                    "destinationAirportIATACode": "GFK",
+                    "destinationDateTime": "2015-12-25T16:50:00-0500",
+                    "flightNumber": "OO 4656",
+                    "couponNumber": "D187322",
+                    "operatingAirlineCode": "DL",
+                    "marketingCarrier": "DL1768Z",
+                    "operatingCarrier": "OO4656B",
+                    "classOfServiceCode": "T",
+                    "fareBasisCode": "YAD1234",
+                    "ticketDesignatorCode": "FSG*SFR",
+                    "fare": "121.86",
+                    "taxes": [
+                        {
+                            "authority": {
+                                "addressCountry": "US"
+                            },
+                            "name": "Transportation Tax",
+                            "rate": 7.50,
+                            "amount": "9.14"
+                        }
+                    ],
+                    "lineItems": [
+                        {
+                            "sequenceNumber": 1,
+                            "description": "United States - September 11th Security Fee",
+                            "additionalDescription": "Passenger Civil Aviation Security Service Fee",
+                            "semanticsCode": "OTHER",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "2.24"
+                        },
+                        {
+                            "sequenceNumber": 2,
+                            "description": "United States - Passenger Facility Charge",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_FEE",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "3.60"
+                        },
+                        {
+                            "sequenceNumber": 3,
+                            "description": "United States - Flight Segment Tax",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_TAX",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "4.00"
+                        }
+                    ]
+                },
+                {
+                    "originationAirportIATACode": "GFK",
+                    "originationDateTime": "2015-12-30T17:19:00-0500",
+                    "destinationAirportIATACode": "MSP",
+                    "destinationDateTime": "2015-12-30T18:34:00-0500",
+                    "flightNumber": "OO 4656",
+                    "couponNumber": "D187322",
+                    "operatingAirlineCode": "DL",
+                    "marketingCarrier": "DL1768Z",
+                    "operatingCarrier": "OO4656B",
+                    "classOfServiceCode": "T",
+                    "fareBasisCode": "YAD1234",
+                    "ticketDesignatorCode": "FSG*SFR",
+                    "fare": "140.14",
+                    "taxes": [
+                        {
+                            "authority": {
+                                "addressCountry": "US"
+                            },
+                            "name": "Transportation Tax",
+                            "rate": 7.50,
+                            "amount": "10.51"
+                        }
+                    ],
+                    "lineItems": [
+                        {
+                            "sequenceNumber": 1,
+                            "description": "United States - September 11th Security Fee",
+                            "additionalDescription": "Passenger Civil Aviation Security Service Fee",
+                            "semanticsCode": "OTHER",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "2.58"
+                        },
+                        {
+                            "sequenceNumber": 2,
+                            "description": "United States - Passenger Facility Charge",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_FEE",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "4.14"
+                        },
+                        {
+                            "sequenceNumber": 3,
+                            "description": "United States - Flight Segment Tax",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_TAX",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "4.00"
+                        }
+                    ]
+                },
+                {
+                    "originationAirportIATACode": "MSP",
+                    "originationDateTime": "2015-12-30T19:25:00-0500",
+                    "destinationAirportIATACode": "SEA",
+                    "destinationDateTime": "2015-12-30T21:15:00-0700",
+                    "flightNumber": "DL 2536",
+                    "couponNumber": "D187322",
+                    "operatingAirlineCode": "DL",
+                    "marketingCarrier": "DL2536Z",
+                    "operatingCarrier": "DL2536B",
+                    "classOfServiceCode": "T",
+                    "fareBasisCode": "YAD1234",
+                    "ticketDesignatorCode": "FSG*SFR",
+                    "fare": "194.98",
+                    "taxes": [
+                        {
+                            "authority": {
+                                "addressCountry": "US"
+                            },
+                            "name": "Transportation Tax",
+                            "rate": 7.50,
+                            "amount": "14.62"
+                        }
+                    ],
+                    "lineItems": [
+                        {
+                            "sequenceNumber": 1,
+                            "description": "United States - September 11th Security Fee",
+                            "additionalDescription": "Passenger Civil Aviation Security Service Fee",
+                            "semanticsCode": "OTHER",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "3.58"
+                        },
+                        {
+                            "sequenceNumber": 2,
+                            "description": "United States - Passenger Facility Charge",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_FEE",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "5.76"
+                        },
+                        {
+                            "sequenceNumber": 3,
+                            "description": "United States - Flight Segment Tax",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_TAX",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "4.00"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "number": "0062698215637",
+            "recordLocator": "CU9GEF",
+            "issueDateTime": "2015-11-29T19:15:55-0700",
+            "pseudoCityCode": "SEA",
+            "IATAAgencyNumber": "87654321",
+            "agencyName": "ACME Airlines",
+            "passengerName": "John Smith",
+            "fare": "609.31",
+            "coupons": [
+                {
+                    "originationAirportIATACode": "SEA",
+                    "originationDateTime": "2015-12-25T09:00:00-0700",
+                    "destinationAirportIATACode": "MSP",
+                    "destinationDateTime": "2015-12-25T14:14:00-0500",
+                    "flightNumber": "DL 1768",
+                    "couponNumber": "D167693",
+                    "operatingAirlineCode": "DL",
+                    "marketingCarrier": "DL1768",
+                    "operatingCarrier": "DL1768",
+                    "classOfServiceCode": "T",
+                    "fareBasisCode": "YHRT15",
+                    "ticketDesignatorCode": "FSG*SFR",
+                    "fare": "152.33",
+                    "taxes": [
+                        {
+                            "authority": {
+                                "addressCountry": "US"
+                            },
+                            "name": "Transportation Tax",
+                            "rate": 7.50,
+                            "amount": "11.42"
+                        }
+                    ],
+                    "lineItems": [
+                        {
+                            "sequenceNumber": 1,
+                            "description": "United States - September 11th Security Fee",
+                            "additionalDescription": "Passenger Civil Aviation Security Service Fee",
+                            "semanticsCode": "OTHER",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "2.80"
+                        },
+                        {
+                            "sequenceNumber": 2,
+                            "description": "United States - Passenger Facility Charge",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_FEE",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "4.50"
+                        },
+                        {
+                            "sequenceNumber": 3,
+                            "description": "United States - Flight Segment Tax",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_TAX",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "4.00"
+                        }
+                    ]
+                },
+                {
+                    "originationAirportIATACode": "MSP",
+                    "originationDateTime": "2015-12-25T15:25:00-0500",
+                    "destinationAirportIATACode": "GFK",
+                    "destinationDateTime": "2015-12-25T16:50:00-0500",
+                    "flightNumber": "OO 4656",
+                    "couponNumber": "D187322",
+                    "operatingAirlineCode": "DL",
+                    "marketingCarrier": "DL1768Z",
+                    "operatingCarrier": "OO4656B",
+                    "classOfServiceCode": "T",
+                    "fareBasisCode": "YAD1234",
+                    "ticketDesignatorCode": "FSG*SFR",
+                    "fare": "121.86",
+                    "taxes": [
+                        {
+                            "authority": {
+                                "addressCountry": "US"
+                            },
+                            "name": "Transportation Tax",
+                            "rate": 7.50,
+                            "amount": "9.14"
+                        }
+                    ],
+                    "lineItems": [
+                        {
+                            "sequenceNumber": 1,
+                            "description": "United States - September 11th Security Fee",
+                            "additionalDescription": "Passenger Civil Aviation Security Service Fee",
+                            "semanticsCode": "OTHER",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "2.24"
+                        },
+                        {
+                            "sequenceNumber": 2,
+                            "description": "United States - Passenger Facility Charge",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_FEE",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "3.60"
+                        },
+                        {
+                            "sequenceNumber": 3,
+                            "description": "United States - Flight Segment Tax",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_TAX",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "4.00"
+                        }
+                    ]
+                },
+                {
+                    "originationAirportIATACode": "GFK",
+                    "originationDateTime": "2015-12-30T17:19:00-0500",
+                    "destinationAirportIATACode": "MSP",
+                    "destinationDateTime": "2015-12-30T18:34:00-0500",
+                    "flightNumber": "OO 4656",
+                    "couponNumber": "D187322",
+                    "operatingAirlineCode": "DL",
+                    "marketingCarrier": "DL1768Z",
+                    "operatingCarrier": "OO4656B",
+                    "classOfServiceCode": "T",
+                    "fareBasisCode": "YAD1234",
+                    "ticketDesignatorCode": "FSG*SFR",
+                    "fare": "140.14",
+                    "taxes": [
+                        {
+                            "authority": {
+                                "addressCountry": "US"
+                            },
+                            "name": "Transportation Tax",
+                            "rate": 7.50,
+                            "amount": "10.51"
+                        }
+                    ],
+                    "lineItems": [
+                        {
+                            "sequenceNumber": 1,
+                            "description": "United States - September 11th Security Fee",
+                            "additionalDescription": "Passenger Civil Aviation Security Service Fee",
+                            "semanticsCode": "OTHER",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "2.58"
+                        },
+                        {
+                            "sequenceNumber": 2,
+                            "description": "United States - Passenger Facility Charge",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_FEE",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "4.14"
+                        },
+                        {
+                            "sequenceNumber": 3,
+                            "description": "United States - Flight Segment Tax",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_TAX",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "4.00"
+                        }
+                    ]
+                },
+                {
+                    "originationAirportIATACode": "MSP",
+                    "originationDateTime": "2015-12-30T19:25:00-0500",
+                    "destinationAirportIATACode": "SEA",
+                    "destinationDateTime": "2015-12-30T21:15:00-0700",
+                    "flightNumber": "DL 2536",
+                    "couponNumber": "D187322",
+                    "operatingAirlineCode": "DL",
+                    "marketingCarrier": "DL2536Z",
+                    "operatingCarrier": "DL2536B",
+                    "classOfServiceCode": "T",
+                    "fareBasisCode": "YAD1234",
+                    "ticketDesignatorCode": "FSG*SFR",
+                    "fare": "194.98",
+                    "taxes": [
+                        {
+                            "authority": {
+                                "addressCountry": "US"
+                            },
+                            "name": "Transportation Tax",
+                            "rate": 7.50,
+                            "amount": "14.62"
+                        }
+                    ],
+                    "lineItems": [
+                        {
+                            "sequenceNumber": 1,
+                            "description": "United States - September 11th Security Fee",
+                            "additionalDescription": "Passenger Civil Aviation Security Service Fee",
+                            "semanticsCode": "OTHER",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "3.58"
+                        },
+                        {
+                            "sequenceNumber": 2,
+                            "description": "United States - Passenger Facility Charge",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_FEE",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "5.76"
+                        },
+                        {
+                            "sequenceNumber": 3,
+                            "description": "United States - Flight Segment Tax",
+                            "additionalDescription": "",
+                            "semanticsCode": "SEGFEE_AS_TAX",
+                            "dateTime": "2015-11-29T19:15:55-0700",
+                            "total": "4.00"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "lineItems": [
+        {
+            "sequenceNumber": 1,
+            "description": "United States - September 11th Security Fee",
+            "additionalDescription": "Passenger Civil Aviation Security Service Fee",
+            "semanticsCode": "OTHER",
+            "dateTime": "2015-11-29T19:15:55-0700",
+            "total": "22.40"
+        },
+        {
+            "sequenceNumber": 2,
+            "description": "United States - Passenger Facility Charge",
+            "additionalDescription": "",
+            "semanticsCode": "SEGFEE_AS_FEE",
+            "dateTime": "2015-11-29T19:15:55-0700",
+            "total": "36.00"
+        }
+    ]
+}
+```
+
+#### Generated Receipt Image
+
+![A Receipt Image](/api-reference/receipts/air-multiple-tickets.png)
 
 ### Car Rental
 

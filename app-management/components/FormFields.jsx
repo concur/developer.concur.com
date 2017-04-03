@@ -6,18 +6,18 @@ import React, { PropTypes } from 'react';
 import Select from 'react-select';
 import { Field } from 'redux-form';
 
-export const FieldError = ({ error, ariaText }) => (
+export const FieldError = ({ ariaText, error }) => (
   <span id={ariaText} className="help-block">{error}</span>
 );
 
 FieldError.propTypes = {
-  error: PropTypes.any,
   ariaText: PropTypes.string,
+  error: PropTypes.any,
 };
 
 FieldError.defaultProps = {
-  error: null,
   ariaText: '',
+  error: null,
 };
 
 export const FieldHelp = ({ children }) => (
@@ -33,21 +33,24 @@ FieldHelp.propTypes = {
   children: PropTypes.any.isRequired,
 };
 
-export const InputField = ({ input, type, label, placeholder, meta: { touched, error } }) => {
+export const InputField = ({
+  disabled, input, label, meta: { touched, error }, placeholder, type,
+}) => {
   const { name } = input;
-  const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
+  const errorClass = touched && error ? 'has-error' : '';
 
   return (
     <div className={`form-group ${errorClass}`}>
       <label htmlFor={name} className="control-label">{label}</label>
       <input
         {...input}
-        id={name}
-        type={type}
-        placeholder={placeholder}
-        className="form-control"
         aria-describedby={ariaText}
+        className="form-control"
+        disabled={disabled}
+        id={name}
+        placeholder={placeholder}
+        type={type}
       />
       {touched && error && <FieldError error={error} ariaText={ariaText} />}
     </div>
@@ -55,31 +58,36 @@ export const InputField = ({ input, type, label, placeholder, meta: { touched, e
 };
 
 InputField.propTypes = {
+  disabled: PropTypes.bool,
   input: PropTypes.object.isRequired,
-  type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
   meta: PropTypes.object.isRequired,
+  placeholder: PropTypes.string,
+  type: PropTypes.string.isRequired,
 };
 
 InputField.defaultProps = {
+  disabled: false,
   placeholder: '',
 };
 
-export const TextareaField = ({ input, label, placeholder, meta: { touched, error } }) => {
+export const TextareaField = ({
+  disabled, input, label, meta: { touched, error }, placeholder,
+}) => {
   const { name } = input;
-  const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
+  const errorClass = touched && error ? 'has-error' : '';
 
   return (
     <div className={`form-group ${errorClass}`}>
       <label htmlFor={name} className="control-label">{label}</label>
       <textarea
         {...input}
+        aria-describedby={ariaText}
+        className="form-control"
+        disabled={disabled}
         id={name}
         placeholder={placeholder}
-        className="form-control"
-        aria-describedby={ariaText}
       />
       {touched && error && <FieldError error={error} ariaText={ariaText} />}
     </div>
@@ -87,31 +95,36 @@ export const TextareaField = ({ input, label, placeholder, meta: { touched, erro
 };
 
 TextareaField.propTypes = {
+  disabled: PropTypes.bool,
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
   meta: PropTypes.object.isRequired,
+  placeholder: PropTypes.string,
 };
 
 TextareaField.defaultProps = {
+  disabled: false,
   placeholder: '',
 };
 
-export const SelectField = ({ input, label, placeholder, options, meta: { touched, error } }) => {
+export const SelectField = ({
+  disabled, input, label, meta: { touched, error }, options, placeholder,
+}) => {
   const { name } = input;
-  const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
+  const errorClass = touched && error ? 'has-error' : '';
 
   return (
     <div className={`form-group ${errorClass}`}>
       <label htmlFor={name}>{label}</label>
       <Select
         {...input}
-        id={name}
-        placeholder={placeholder}
-        options={options}
-        onBlur={() => input.onBlur(input.value)}
         aria-describedby={ariaText}
+        disabled={disabled}
+        id={name}
+        onBlur={() => input.onBlur(input.value)}
+        options={options}
+        placeholder={placeholder}
       />
       {touched && error && <FieldError error={error} ariaText={ariaText} />}
     </div>
@@ -119,39 +132,43 @@ export const SelectField = ({ input, label, placeholder, options, meta: { touche
 };
 
 SelectField.propTypes = {
+  disabled: PropTypes.bool,
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  options: PropTypes.array.isRequired,
   meta: PropTypes.object.isRequired,
+  options: PropTypes.array.isRequired,
+  placeholder: PropTypes.string,
 };
 
 SelectField.defaultProps = {
+  disabled: false,
   placeholder: '',
 };
 
 export const MultiselectField = ({
+  disabled,
   input,
   label,
-  placeholder,
-  options,
   meta: { touched, error },
+  options,
+  placeholder,
 }) => {
   const { name } = input;
-  const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
+  const errorClass = touched && error ? 'has-error' : '';
 
   return (
     <div className={`form-group ${errorClass}`}>
       <label htmlFor={name}>{label}</label>
       <Select
         {...input}
+        clearable={false}
+        disabled={disabled}
         id={name}
         multi
-        placeholder={placeholder}
-        options={options}
-        clearable={false}
         onBlur={() => input.onBlur(input.value)}
+        options={options}
+        placeholder={placeholder}
       />
       {touched && error && <FieldError error={error} ariaText={ariaText} />}
     </div>
@@ -159,27 +176,37 @@ export const MultiselectField = ({
 };
 
 MultiselectField.propTypes = {
+  disabled: PropTypes.bool,
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  options: PropTypes.array.isRequired,
   meta: PropTypes.object.isRequired,
+  options: PropTypes.array.isRequired,
+  placeholder: PropTypes.string,
 };
 
 MultiselectField.defaultProps = {
+  disabled: false,
   placeholder: '',
 };
 
 // Due to the checkbox being wrapped by a label, this component doesn't use FieldWrapper
-export const CheckboxField = ({ input, meta: { touched, error }, children }) => {
+export const CheckboxField = ({
+  children, disabled, input, meta: { touched, error },
+}) => {
   const { name } = input;
-  const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
+  const errorClass = touched && error ? 'has-error' : '';
 
   return (
     <div className={`form-group ${errorClass}`}>
       <label htmlFor={name}>
-        <input {...input} id={name} type="checkbox" aria-describedby={ariaText} />
+        <input
+          {...input}
+          aria-describedby={ariaText}
+          disabled={disabled}
+          id={name}
+          type="checkbox"
+        />
         <i />&nbsp;
         {children}
       </label>
@@ -189,36 +216,43 @@ export const CheckboxField = ({ input, meta: { touched, error }, children }) => 
 };
 
 CheckboxField.propTypes = {
+  children: PropTypes.any.isRequired,
+  disabled: PropTypes.bool,
   input: PropTypes.object.isRequired,
   meta: PropTypes.object.isRequired,
-  children: PropTypes.any.isRequired,
+};
+
+CheckboxField.defaultProps = {
+  disabled: false,
 };
 
 export const RedirectUriField = ({
+  canDelete,
+  disabled,
   input,
   label,
-  placeholder,
-  canDelete,
-  onClick,
   meta: { touched, error },
+  onClick,
+  placeholder,
 }) => {
   const { name } = input;
-  const errorClass = touched && error ? 'has-error' : '';
   const ariaText = `${name}-help`;
+  const errorClass = touched && error ? 'has-error' : '';
 
   return (
     <div className={`form-group ${errorClass}`}>
       <label htmlFor={name} className="control-label">{label}</label>
-      <div className={canDelete ? 'input-group' : ''}>
+      <div className={canDelete && !disabled ? 'input-group' : ''}>
         <input
           {...input}
-          id={name}
-          type="url"
-          placeholder={placeholder}
-          className="form-control"
           aria-describedby={ariaText}
+          className="form-control"
+          disabled={disabled}
+          id={name}
+          placeholder={placeholder}
+          type="url"
         />
-        {canDelete ? (
+        {canDelete && !disabled ? (
           <div className="input-group-addon uri-delete" onClick={onClick} title="Delete">
             <i className="fa fa-times-circle" />
           </div>
@@ -230,41 +264,51 @@ export const RedirectUriField = ({
 };
 
 RedirectUriField.propTypes = {
+  canDelete: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
   input: PropTypes.object.isRequired,
   label: PropTypes.string,
-  placeholder: PropTypes.string,
-  canDelete: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired,
   meta: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
 };
 
 RedirectUriField.defaultProps = {
+  disabled: false,
   label: '',
   placeholder: '',
 };
 
-export const RedirectUris = ({ fields }) => (
+export const RedirectUris = ({ disabled, fields }) => (
   <div className="redirect-uris">
     {fields.map((uri, idx) => (
       <Field
-        key={idx}
-        component={RedirectUriField}
-        name={uri}
-        label={idx === 0 ? 'Redirect URI' : null}
-        placeholder="https://example-uri.com"
         canDelete={fields.length > 1}
+        component={RedirectUriField}
+        disabled={disabled}
+        key={idx}
+        label={idx === 0 ? 'Redirect URI' : null}
+        name={uri}
         onClick={() => fields.remove(idx)}
+        placeholder="https://example-uri.com"
       />
     ))}
-    <a
-      className="btn small dark-green uri-add"
-      onClick={() => fields.push('')}
-    >
-      Add URI
-    </a>
+    {!disabled ? (
+      <a
+        className="btn small dark-green uri-add"
+        onClick={() => fields.push('')}
+      >
+        Add URI
+      </a>
+    ) : null}
   </div>
 );
 
 RedirectUris.propTypes = {
+  disabled: PropTypes.bool,
   fields: PropTypes.object.isRequired,
+};
+
+RedirectUris.defaultProps = {
+  disabled: false,
 };

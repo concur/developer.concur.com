@@ -6,7 +6,6 @@ import {
   InputField,
   TextareaField,
   CheckboxField,
-  SelectField,
   MultiselectField,
   RedirectUris,
   FieldHelp,
@@ -15,17 +14,17 @@ import {
 // All selectable grants and scopes
 import grants from '../../data/grants.json';
 import scopes from '../../data/scopes.json';
-import applicationTypes from '../../data/applicationTypes.json';
+import appTypes from '../../data/appTypes.json';
 
 const constraints = {
-  appName: {
+  name: {
     presence: { message: 'is required' },
     length: {
       minimum: 3,
       maximum: 99,
     },
   },
-  appDescription: {
+  description: {
     presence: { message: 'is required' },
     length: {
       minimum: 10,
@@ -65,36 +64,45 @@ const NewAppForm = ({ handleSubmit }) => (
     <p>&#42; required field</p>
     <fieldset>
       <div className="row">
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={InputField}
             type="text"
-            name="appName"
+            name="name"
             label="App Name &#42;"
             placeholder="App Name"
           />
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={TextareaField}
-            name="appDescription"
+            name="description"
             label="App Description &#42;"
             placeholder="App Description"
           />
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
-            component={SelectField}
+            component={MultiselectField}
+            type="select-multiple"
             name="appType"
             label="App Type &#42;"
-            placeholder="App Type"
-            options={applicationTypes}
+            options={appTypes}
           />
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <FieldArray component={RedirectUris} name="redirectUris" />
+          <FieldHelp>
+            Valid redirect URIs that can be used for the Authorization Code grant type.
+            <a
+              href="https://tools.ietf.org/html/rfc6749#section-4.1"
+              target="_blank"
+              rel="noopener noreferrer"
+            > See RFC6749
+            </a>
+          </FieldHelp>
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={MultiselectField}
             type="select-multiple"
@@ -112,7 +120,7 @@ const NewAppForm = ({ handleSubmit }) => (
             </a>
           </FieldHelp>
         </section>
-        <section className="col-md-12">
+        <section className="col-md-8">
           <Field
             component={MultiselectField}
             type="select-multiple"

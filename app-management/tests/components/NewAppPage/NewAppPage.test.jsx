@@ -7,6 +7,7 @@ import NewAppPage from '../../../components/NewAppPage/NewAppPage';
 import { mapStateToProps, mapDispatchToProps } from '../../../components/NewAppPage';
 import NewAppForm from '../../../components/NewAppPage/NewAppForm';
 import appReducer from '../../../reducers';
+import appFactory from '../../app.mock';
 
 const store = createStore(appReducer);
 
@@ -36,9 +37,10 @@ describe('<NewAppPage />', () => {
 
   describe('mapDispatchToProps', () => {
     it('returns submit handler', () => {
+      const app = appFactory('id-1');
       const dispatcher = jest.fn();
       const state = mapDispatchToProps(dispatcher);
-      state.handleSubmit('app');
+      state.handleSubmit(app);
 
       expect(state.handleSubmit).toBeDefined();
       expect(dispatcher).toHaveBeenCalled();

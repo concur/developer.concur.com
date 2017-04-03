@@ -23,11 +23,6 @@ const Nav = ({ authenticated }) => {
   ) : (
     <ul className="nav navbar-nav">
       <li>
-        <Link to="/signup" activeClassName="active">
-          <i className="fa fa-user" aria-hidden="true" /> Sign Up
-        </Link>
-      </li>
-      <li>
         <Link to="/login" activeClassName="active">
           <i className="fa fa-sign-in" aria-hidden="true" /> Login
         </Link>
