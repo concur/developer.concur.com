@@ -1,7 +1,7 @@
 import 'es6-promise';
 import fetch from 'isomorphic-fetch';
 
-import { clearAppSecret } from '../actions/generateAppSecret';
+import { appChangeClear } from '../actions/appChange';
 import { sharedHelpers } from '../utils/actionHelpers';
 
 export const APP_DETAILS_REQUEST = 'APP_DETAILS_REQUEST';
@@ -28,7 +28,7 @@ export function appDetailsSuccess(app) {
 
 export function fetchAppDetails(appId) {
   return (dispatch, getState) => {
-    dispatch(clearAppSecret());
+    dispatch(appChangeClear());
     dispatch(appDetailsRequest());
 
     const { token } = getState().auth;

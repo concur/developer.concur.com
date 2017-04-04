@@ -14,7 +14,6 @@ class AppDetailsPage extends React.Component {
     const {
       appDetails,
       appChange,
-      appSecret,
       generateSecretHandler,
       putAppHandler,
     } = this.props;
@@ -48,10 +47,7 @@ class AppDetailsPage extends React.Component {
                 />
               </div>
             </section>
-            <AppSecret
-              clickHandler={() => generateSecretHandler(app.id, app.name)}
-              appSecret={appSecret}
-            />
+            <AppSecret clickHandler={() => generateSecretHandler(app.id, app.name)} />
           </div>
           <AppEditForm
             initialValues={app}
@@ -78,12 +74,6 @@ AppDetailsPage.propTypes = {
   }).isRequired,
   appDetails: PropTypes.shape({
     app: PropTypes.object.isRequired,
-    error: PropTypes.string.isRequired,
-    isFetching: PropTypes.bool.isRequired,
-  }).isRequired,
-  appSecret: PropTypes.shape({
-    app: PropTypes.object.isRequired,
-    clientSecret: PropTypes.string.isRequired,
     error: PropTypes.string.isRequired,
     isFetching: PropTypes.bool.isRequired,
   }).isRequired,

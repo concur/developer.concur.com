@@ -8,6 +8,7 @@ import { sharedHelpers } from '../utils/actionHelpers';
 export const APP_CHANGE_REQUEST = 'APP_CHANGE_REQUEST';
 export const APP_CHANGE_FAILURE = 'APP_CHANGE_FAILURE';
 export const APP_CHANGE_SUCCESS = 'APP_CHANGE_SUCCESS';
+export const APP_CHANGE_CLEAR = 'APP_CHANGE_CLEAR';
 
 export function appChangeRequest() {
   return { type: APP_CHANGE_REQUEST };
@@ -28,6 +29,35 @@ export function appChangeSuccess(app, clientSecret) {
   };
 }
 
+export function appChangeClear() {
+  return { type: APP_CHANGE_CLEAR };
+}
+
+export function generateAppSecret(appId) {
+  return (dispatch, getState) => {
+    dispatch(appChangeRequest());
+
+    const { token } = getState().auth;
+    const options = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: '',
+    };
+
+    return fetch(`${process.env.DEVCENTER_API_FORMS}/applications/${appId}/secret`, options)
+      .then(sharedHelpers.validResponse(dispatch))
+      .then(response => response.json())
+      .then(({ application, clientSecret }) => {
+        dispatch(appChangeSuccess(application, clientSecret));
+        hashHistory.push('/success');
+      })
+      .catch(err => dispatch(appChangeFailure(err.message)));
+  };
+}
+
 export function postApp(newApp) {
   return (dispatch, getState) => {
     dispatch(appChangeRequest());
@@ -45,8 +75,8 @@ export function postApp(newApp) {
     return fetch(`${process.env.DEVCENTER_API_FORMS}/applications`, options)
       .then(sharedHelpers.validResponse(dispatch))
       .then(response => response.json())
-      .then(({ application: app, clientSecret }) => {
-        dispatch(appChangeSuccess(app, clientSecret));
+      .then(({ application, clientSecret }) => {
+        dispatch(appChangeSuccess(application, clientSecret));
         hashHistory.push('/success');
         dispatch(reset('newApp'));
       })

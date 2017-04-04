@@ -4,7 +4,7 @@ import nock from 'nock';
 import {
   appDetailsRequest, appDetailsFailure, appDetailsSuccess, fetchAppDetails,
 } from '../../actions/appDetails';
-import { clearAppSecret } from '../../actions/generateAppSecret';
+import { appChangeClear } from '../../actions/appChange';
 import { sharedHelpers } from '../../utils/actionHelpers';
 import appFactory from '../app.mock';
 
@@ -31,7 +31,7 @@ describe('fetchAppDetails', () => {
       .reply(200, app);
 
     const expectedActions = [
-      clearAppSecret(),
+      appChangeClear(),
       appDetailsRequest(),
       appDetailsSuccess(sharedHelpers.decomposeApp(app)),
     ];
@@ -48,7 +48,7 @@ describe('fetchAppDetails', () => {
       .replyWithError('Server is down');
 
     const expectedActions = [
-      clearAppSecret(),
+      appChangeClear(),
       appDetailsRequest(),
       appDetailsFailure(`request to ${process.env.DEVCENTER_API_FORMS}/applications/${app.id} failed, reason: Server is down`),
     ];

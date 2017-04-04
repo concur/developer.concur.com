@@ -3,15 +3,13 @@
 import { connect } from 'react-redux';
 import AppDetailsPage from './AppDetailsPage';
 import { fetchAppDetails } from '../../actions/appDetails';
-import { generateAppSecret, generateAppSecretFailure } from '../../actions/generateAppSecret';
-import { putApp, appChangeFailure } from '../../actions/appChange';
+import { appChangeFailure, generateAppSecret, putApp } from '../../actions/appChange';
 import { sharedHelpers } from '../../utils/actionHelpers';
 
 export function mapStateToProps(state) {
   return {
     appChange: state.appChange,
     appDetails: state.appDetails,
-    appSecret: state.appSecret,
   };
 }
 
@@ -24,7 +22,7 @@ export function mapDispatchToProps(dispatch) {
       if (confirmPrompt === appName) {
         dispatch(generateAppSecret(id));
       } else {
-        dispatch(generateAppSecretFailure('Application names do not match.'));
+        dispatch(appChangeFailure('Application names do not match.'));
       }
     },
     putAppHandler: (app, appName) => {

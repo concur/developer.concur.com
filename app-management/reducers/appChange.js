@@ -1,5 +1,5 @@
 import {
-  APP_CHANGE_REQUEST, APP_CHANGE_FAILURE, APP_CHANGE_SUCCESS,
+  APP_CHANGE_REQUEST, APP_CHANGE_FAILURE, APP_CHANGE_SUCCESS, APP_CHANGE_CLEAR,
 } from '../actions/appChange';
 import { APP_DETAILS_REQUEST } from '../actions/appDetails';
 
@@ -30,6 +30,7 @@ function appChangeReducer(state = defaultState, action) {
         app: action.app,
         clientSecret: action.clientSecret,
       };
+    case APP_CHANGE_CLEAR:
     case APP_DETAILS_REQUEST:
       return defaultState;
     default:
