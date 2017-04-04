@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Entry Attendee Associations",
-    "description": "",
+    "description": "The Entry Attendee Associations resource manages the relationship between the attendees and the expense report and entry, for the specified expense entry. This resource does not include the full attendee information, which can be accessed using the Attendees resource. This API provides methods to view, create, update, and delete entry attendee associations."
     "version": "3.0"
   },
   "tags": [
