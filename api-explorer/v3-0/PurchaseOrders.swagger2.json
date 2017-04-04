@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Purchase Orders",
-    "description": "",
+    "description": "Purchase orders are requests for a vendor to supply goods or services. This API provides methods to create a new purchase order, or view or update an existing purchase order.",
     "version": "3.0"
   },
   "tags": [
