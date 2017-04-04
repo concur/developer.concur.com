@@ -5,6 +5,7 @@ import {
   appDetailsRequest, appDetailsFailure, appDetailsSuccess, fetchAppDetails,
 } from '../../actions/appDetails';
 import { clearAppSecret } from '../../actions/generateAppSecret';
+import { sharedHelpers } from '../../utils/actionHelpers';
 import appFactory from '../app.mock';
 
 const middlewares = [ thunk ];
@@ -32,7 +33,7 @@ describe('fetchAppDetails', () => {
     const expectedActions = [
       clearAppSecret(),
       appDetailsRequest(),
-      appDetailsSuccess(app),
+      appDetailsSuccess(sharedHelpers.decomposeApp(app)),
     ];
 
     return store.dispatch(fetchAppDetails(app.id))

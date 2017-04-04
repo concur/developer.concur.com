@@ -27,14 +27,6 @@ describe('<NewAppPage />', () => {
     expect(shallowToJson(page)).toMatchSnapshot();
   });
 
-  describe('mapStateToProps', () => {
-    it('returns entire newApp state', () => {
-      const state = mapStateToProps(store.getState());
-
-      expect(state).toEqual(store.getState().newApp);
-    });
-  });
-
   describe('mapDispatchToProps', () => {
     it('returns submit handler', () => {
       const app = appFactory('id-1');

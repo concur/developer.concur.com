@@ -5,7 +5,7 @@ import authReducer from './auth';
 import signupReducer from './signup';
 import appListingReducer from './appListing';
 import appDetailsReducer from './appDetails';
-import newAppReducer from './newApp';
+import appChangeReducer from './appChange';
 import generateAppSecretReducer from './generateAppSecret';
 
 const appReducer = combineReducers({
@@ -14,7 +14,7 @@ const appReducer = combineReducers({
   appSecret: generateAppSecretReducer,
   auth: authReducer,
   form: formReducer,
-  newApp: newAppReducer,
+  appChange: appChangeReducer,
   signup: signupReducer,
 });
 

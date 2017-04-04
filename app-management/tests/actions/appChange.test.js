@@ -2,13 +2,13 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from 'nock';
 import { reset } from 'redux-form';
-import { newAppRequest, newAppFailure, newAppSuccess, postNewApp } from '../../actions/newApp';
+import { appChangeRequest, appChangeFailure, appChangeSuccess, postApp } from '../../actions/appChange';
 import appFactory from '../app.mock';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
 
-describe('postNewApp', () => {
+describe('postApp', () => {
   const app = appFactory('id-1');
   const clientSecret = 'a-client-secret';
   let store;
@@ -23,34 +23,34 @@ describe('postNewApp', () => {
     nock.cleanAll();
   });
 
-  it('creates a newAppSuccess action when fetching is successful', () => {
+  it('creates a appChangeSuccess action when fetching is successful', () => {
     nock(process.env.DEVCENTER_API_FORMS)
       .post('/applications')
       .reply(200, { application: app, clientSecret });
 
     const expectedActions = [
-      newAppRequest(),
-      newAppSuccess(app, clientSecret),
+      appChangeRequest(),
+      appChangeSuccess(app, clientSecret),
       reset('newApp'),
     ];
 
-    return store.dispatch(postNewApp(app))
+    return store.dispatch(postApp(app))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
   });
 
-  it('creates a newAppFailure action when fetching fails', () => {
+  it('creates a appChangeFailure action when fetching fails', () => {
     nock(process.env.DEVCENTER_API_FORMS)
       .post('/applications')
       .replyWithError('Server is down');
 
     const expectedActions = [
-      newAppRequest(),
-      newAppFailure(`request to ${process.env.DEVCENTER_API_FORMS}/applications failed, reason: Server is down`),
+      appChangeRequest(),
+      appChangeFailure(`request to ${process.env.DEVCENTER_API_FORMS}/applications failed, reason: Server is down`),
     ];
 
-    return store.dispatch(postNewApp(app))
+    return store.dispatch(postApp(app))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });

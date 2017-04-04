@@ -1,12 +1,12 @@
-import newAppReducer from '../../reducers/newApp';
+import appChangeReducer from '../../reducers/appChange';
 import {
-  newAppRequest, newAppFailure, newAppSuccess
-} from '../../actions/newApp';
+  appChangeRequest, appChangeFailure, appChangeSuccess
+} from '../../actions/appChange';
 import appFactory from '../app.mock';
 
-describe('newApp reducer', () => {
+describe('appChange reducer', () => {
   it('should return default state', () => {
-    const state = newAppReducer(undefined, {});
+    const state = appChangeReducer(undefined, {});
 
     expect(state).toEqual({
       app: {},
@@ -16,9 +16,9 @@ describe('newApp reducer', () => {
     });
   });
 
-  it('should handle NEW_APP_REQUEST', () => {
-    const action = newAppRequest();
-    const state = newAppReducer(undefined, action);
+  it('should handle APP_CHANGE_REQUEST', () => {
+    const action = appChangeRequest();
+    const state = appChangeReducer(undefined, action);
 
     expect(state).toEqual({
       app: {},
@@ -28,10 +28,10 @@ describe('newApp reducer', () => {
     });
   });
 
-  it('should handle NEW_APP_FAILURE', () => {
+  it('should handle APP_CHANGE_FAILURE', () => {
     const message = 'The request failed';
-    const action = newAppFailure(message);
-    const state = newAppReducer(undefined, action);
+    const action = appChangeFailure(message);
+    const state = appChangeReducer(undefined, action);
 
     expect(state).toEqual({
       app: {},
@@ -41,11 +41,11 @@ describe('newApp reducer', () => {
     });
   });
 
-  it('should handle NEW_APP_SUCCESS', () => {
+  it('should handle APP_CHANGE_SUCCESS', () => {
     const app = appFactory('id-1');
     const clientSecret = 'a-client-secret';
-    const action = newAppSuccess(app, clientSecret);
-    const state = newAppReducer(undefined, action);
+    const action = appChangeSuccess(app, clientSecret);
+    const state = appChangeReducer(undefined, action);
 
     expect(state).toEqual({
       app: app,

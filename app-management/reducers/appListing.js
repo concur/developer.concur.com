@@ -3,7 +3,7 @@ import {
   APP_LISTING_INVALIDATE_CACHE,
 } from '../actions/appListing';
 import { AUTH_LOGOUT } from '../actions/auth';
-import { NEW_APP_SUCCESS } from '../actions/newApp';
+import { APP_CHANGE_SUCCESS } from '../actions/appChange';
 
 const defaultState = {
   apps: [],
@@ -33,7 +33,7 @@ function appListingReducer(state = defaultState, action) {
       };
     case APP_LISTING_INVALIDATE_CACHE:
     case AUTH_LOGOUT:
-    case NEW_APP_SUCCESS:
+    case APP_CHANGE_SUCCESS:
       return {
         ...state,
         validCache: false,

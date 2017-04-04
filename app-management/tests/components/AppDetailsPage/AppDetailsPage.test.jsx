@@ -13,6 +13,10 @@ import appFactory from '../../app.mock';
 
 const store = createStore(appReducer);
 const defaultProps = {
+  appChange: {
+    error: '',
+    isFetching: false,
+  },
   appDetails: {
     app: appFactory('id-1'),
     error: '',
@@ -26,7 +30,7 @@ const defaultProps = {
   },
   fetchAppDetails: jest.fn(),
   generateSecretHandler: jest.fn(),
-  handleSubmit: jest.fn(),
+  putAppHandler: jest.fn(),
   params: { id: 'id-1' }, // mock for React Router params
 };
 

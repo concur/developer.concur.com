@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 
 import {
@@ -7,14 +7,47 @@ import {
   MultiselectField,
   RedirectUris,
 } from '../FormFields';
+import { formValidator } from '../../utils/formValidator';
 
 // All selectable grants and scopes
 import grants from '../../data/grants.json';
 import scopes from '../../data/scopes.json';
 import appTypes from '../../data/appTypes.json';
 
-const EditAppForm = () => (
-  <form>
+const constraints = {
+  name: {
+    presence: { message: 'is required' },
+    length: {
+      minimum: 3,
+      maximum: 99,
+    },
+  },
+  description: {
+    presence: { message: 'is required' },
+    length: {
+      minimum: 10,
+      maximum: 4999,
+    },
+  },
+  appType: {
+    presence: { message: 'is required' },
+  },
+  redirectUris: {
+    validateUrlArray: {
+      allowLocal: true,
+    },
+    firstElementRequired: true,
+  },
+  allowedGrants: {
+    presence: { message: '- at least one is required.' },
+  },
+  allowedScopes: {
+    presence: { message: '- at least one is required.' },
+  },
+};
+
+const EditAppForm = ({ handleSubmit }) => (
+  <form onSubmit={handleSubmit}>
     <fieldset>
       <div className="row">
         <section className="col-md-8">
@@ -28,7 +61,6 @@ const EditAppForm = () => (
             name="name"
             label="App Name"
             placeholder="App Name"
-            disabled
           />
         </section>
         <section className="col-md-8">
@@ -37,7 +69,6 @@ const EditAppForm = () => (
             name="description"
             label="App Description"
             placeholder="App Description"
-            disabled
           />
         </section>
         <section className="col-md-8">
@@ -48,11 +79,10 @@ const EditAppForm = () => (
             label="App Type"
             options={appTypes}
             simpleValue
-            disabled
           />
         </section>
         <section className="col-md-8">
-          <FieldArray component={RedirectUris} name="redirectUris" disabled />
+          <FieldArray component={RedirectUris} name="redirectUris" />
         </section>
         <section className="col-md-8">
           <Field
@@ -62,7 +92,6 @@ const EditAppForm = () => (
             label="Allowed Grants"
             options={grants}
             simpleValue
-            disabled
           />
         </section>
         <section className="col-md-8">
@@ -73,14 +102,21 @@ const EditAppForm = () => (
             label="Allowed Scopes"
             options={scopes}
             simpleValue
-            disabled
           />
         </section>
       </div>
+      <footer>
+        <button type="submit" className="btn bright-blue">Update</button>
+      </footer>
     </fieldset>
   </form>
 );
 
+EditAppForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+};
+
 export default reduxForm({
   form: 'editApp',
+  validate: formValidator(constraints),
 })(EditAppForm);
