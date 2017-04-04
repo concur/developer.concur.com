@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Quick Expenses",
-    "description": "",
+    "description": "The Quick Expense API provides methods to create basic expenses without requiring any client or user specific Expense configuration data. These expenses appear in the Available Expenses area in Concur, for users to add to expense reports.",
     "version": "3.0"
   },
   "tags": [
