@@ -13,20 +13,20 @@ import appFactory from '../../app.mock';
 
 const store = createStore(appReducer);
 const defaultProps = {
-  appDetails: {
-    app: appFactory('id-1'),
-    error: '',
-    isFetching: false,
-  },
-  appSecret: {
+  appChange: {
     app: {},
     clientSecret: '',
     error: '',
     isFetching: false,
   },
+  appDetails: {
+    app: appFactory('id-1'),
+    error: '',
+    isFetching: false,
+  },
   fetchAppDetails: jest.fn(),
   generateSecretHandler: jest.fn(),
-  handleSubmit: jest.fn(),
+  putAppHandler: jest.fn(),
   params: { id: 'id-1' }, // mock for React Router params
 };
 
@@ -81,11 +81,11 @@ describe('<AppdetailsPage />', () => {
   });
 
   describe('mapStateToProps', () => {
-    it('returns entire appDetails and appSecret states', () => {
+    it('returns entire appDetails and appChange states', () => {
       const state = mapStateToProps(store.getState());
 
       expect(state.appDetails).toEqual(store.getState().appDetails);
-      expect(state.appSecret).toEqual(store.getState().appSecret);
+      expect(state.appChange).toEqual(store.getState().appChange);
     });
   });
 

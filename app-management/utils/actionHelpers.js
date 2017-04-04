@@ -1,7 +1,31 @@
 import { hashHistory } from 'react-router';
 import { loginFailure, logout } from '../actions/auth';
 
+import grants from '../data/grants.json';
+import scopes from '../data/scopes.json';
+import appTypes from '../data/appTypes.json';
+
 const SIGNUP_SERVER_ERROR = 'A server error occurred when creating your account. Please try again later.';
+
+/**
+ * matchItemToValue - Returns a function that returns whether an object's
+ * 'value' key matches the item provided.
+ */
+const matchItemToValue = (item) => {
+  return element => (element.value === item);
+};
+
+/**
+ * matchElementToLabel - Returns a function that returns the element mapped
+ * to an object with 'label' and 'value' keys, used by react-select. The object
+ * will be returned from the provided labels array if a matching value exists.
+ */
+const matchElementToLabel = (labels) => {
+  return (element) => {
+    const label = labels.find(matchItemToValue(element));
+    return label || { label: element, value: element };
+  };
+};
 
 // Helper functions for signup actions
 export const signupHelpers = {
@@ -50,29 +74,24 @@ export const authHelpers = {
   },
 };
 
-// Helper functions for newApp actions
-export const newAppHelpers = {
-  composeApp({
-    allowedGrants,
-    allowedScopes,
-    appType,
-    description,
-    name,
-    redirectUris,
-  }) {
+// Shared helper functions
+export const sharedHelpers = {
+  composeApp({ allowedGrants, allowedScopes, appType, ...applicationData }) {
     return {
       allowedGrants: allowedGrants.map(g => g.value),
       allowedScopes: allowedScopes.map(s => s.value),
       appType: appType.map(t => t.value),
-      description,
-      name,
-      redirectUris,
+      ...applicationData,
     };
   },
-};
-
-// Shared helper functions
-export const sharedHelpers = {
+  decomposeApp({ allowedGrants, allowedScopes, appType, ...applicationData }) {
+    return {
+      allowedGrants: allowedGrants.map(matchElementToLabel(grants)),
+      allowedScopes: allowedScopes.map(matchElementToLabel(scopes)),
+      appType: appType.map(matchElementToLabel(appTypes)),
+      ...applicationData,
+    };
+  },
   validResponse(dispatch) {
     /**
     * Checks if the response is a 2xx response, otherwise throws
