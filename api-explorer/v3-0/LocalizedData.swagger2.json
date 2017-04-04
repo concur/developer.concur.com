@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Localized Data",
-    "description": "",
+    "description": "Invoice includes various status codes, and error messages. This API provides a method to list the localized strings of various codes.',
     "version": "3.0"
   },
   "tags": [
