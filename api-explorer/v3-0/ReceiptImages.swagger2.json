@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Receipt Images",
-    "description": "",
+    "description": "The Receipt Image API allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.",
     "version": "3.0"
   },
   "tags": [
