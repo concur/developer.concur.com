@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Expense Group Configurations",
-    "description": "",
+    "description": "Expense Group Configurations specify the allowed expense types, policies, payment types, and expense settings allowed for the expense group. This API provides methods to view the expense group details by user or by expense group ID." ,
     "version": "3.0"
   },
   "tags": [
