@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Digital Tax Invoices",
-    "description": "The regulations of some countries require that clients provide an electronic receipt in digital XML format for each reimbursable expense. In addition, the client must: Store the XML file in order to claim the expense for tax purposes, be able to produce the original XML file in case of audit, and validate the XML file with the government. To help meet this requirement, Concur offers the Digital Tax Invoice feature. For Mexico, the official digital XML file is called Comprobante Fiscal Digital, or CFDi. This API provides methods to view and update digital tax invoices. ,
+    "description": "The regulations of some countries require that clients provide an electronic receipt in digital XML format for each reimbursable expense. In addition, the client must: Store the XML file in order to claim the expense for tax purposes, be able to produce the original XML file in case of audit, and validate the XML file with the government. To help meet this requirement, Concur offers the Digital Tax Invoice feature. For Mexico, the official digital XML file is called Comprobante Fiscal Digital, or CFDi. This API provides methods to view and update digital tax invoices.",
     "version": "3.0"
   },
   "tags": [
