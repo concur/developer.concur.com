@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "VendorBank",
-    "description": "",
+    "description": "An invoice is a bill of sale for goods or services provided by a vendor. This API provides methods to create or update banking information for the specified invoice vendor.",
     "version": "3.0"
   },
   "tags": [
