@@ -21,13 +21,15 @@
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/insights/latestbookings/": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get the latest hotel and air booking for a particular user.",
         "description": "Get the latest hotel and air booking for a particular user.",
         "parameters": [
@@ -55,11 +57,11 @@
       "properties": {
         "BookingClass": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\" http://www.iata.org/publications/Pages/code-search.aspx\">IATA airport code</a> of the location of the latest booked hotel segment."
+          "description": "The booking class of the latest booked airline segment."
         },
         "Code": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\" http://www.iata.org/publications/Pages/code-search.aspx\">IATA airport code</a> of the location of the latest booked hotel segment."
+          "description": "The airline code of the latest booked airline segment."
         }
       }
     },

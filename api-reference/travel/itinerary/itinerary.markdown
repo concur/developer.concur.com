@@ -53,12 +53,14 @@ TripLink suppliers, travel management companies (TMCs), and Concur partners can 
 * Modify bookings.
 * Cancel bookings for their travel type.
 
-### Third-party developers 
+### Third-party developers
 
 * Request trip information for Concur users.
 * Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
 
 If you are a TMC or a Concur partner developer who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the Concur Connect Platform Team. Concur products are highly configurable, and not all clients will have access to all features.
+
+Some itinerary data may have come from Sabre. Concur encourages you to speak to Sabre about becoming a Sabre Authorized Developer.
 
 ## Authentication and authorization
 
@@ -85,18 +87,19 @@ The travel supplier can request or send travel bookings by using an OAuth token 
 
 #### When do I send trips versus bookings?
 
-* TMCs, OTA, or partners that own or manage the entire trip on behalf of the traveler should send trips. 
-* Travel suppliers such as hotels, car vendors or airlines that own only parts of the trips should send bookings. 
-* Posted bookings are merged with any existing trips if their dates overlap. 
-* Posted trips are not merged even if a trip already exists with overlapping dates. 
+* TMCs, OTA, or partners that own or manage the entire trip on behalf of the traveler should send trips.
+* Travel suppliers such as hotels, car vendors or airlines that own only parts of the trips should send bookings.
+* Posted bookings are merged with any existing trips if their dates overlap.
+* Posted trips are not merged even if a trip already exists with overlapping dates.
 
 #### Can other TripLink suppliers see all the booking details of my bookings?
 
 The Itinerary Web service returns the full booking details to the supplier who will provide the booked service. Suppliers that are not the service provider will receive a subset of the possible fields. These vary by the type of booking relative to the type of supplier. For example, Air booking suppliers that are not the supplier will not see the following fields:
-* Vendor 
-* FlightNumber 
-* StartDateLocal 
-* StartDateUtc 
+
+* Vendor
+* FlightNumber
+* StartDateLocal
+* StartDateUtc
 
 #### How can we save additional charges for hotel and car segments? What types of charges are supported?
 
@@ -106,7 +109,7 @@ The Charges element under Car and Hotel segments allow you to save additional ch
 
 Refer to the Semantics and Vendor Codes document for the full list.
 
-#### Can I view a trip posted through the Itinerary Web service in the Concur UI? 
+#### Can I view a trip posted through the Itinerary Web service in the Concur UI?
 
 Yes. The user who owns the trip will see the trip on their My Concur page. If the trip is in the future, it will show under the upcoming trip list. Trips that are ready to expense will show in the expense report list.
 
@@ -114,8 +117,8 @@ Yes. The user who owns the trip will see the trip on their My Concur page. If th
 
 Trips can be expensed after the trip is over under the following conditions:
 
-* The trip has a Car, Hotel or Ride segment. 
-* The trip has an Air segment with a ticket and the ticket has at least one valid ticket coupon, meaning the coupon is in one of the following statuses: 
+* The trip has a Car, Hotel or Ride segment.
+* The trip has an Air segment with a ticket and the ticket has at least one valid ticket coupon, meaning the coupon is in one of the following statuses:
 * OPEN
 * USED
 * PRTD
@@ -123,7 +126,7 @@ Trips can be expensed after the trip is over under the following conditions:
 
 Air segments can be expensed as soon as they have a ticket with a valid coupon, if the company uses the PreExpenseAir option.
 
-#### Why is my new booking not showing in the UI? 
+#### Why is my new booking not showing in the UI?
 
 The request returned successfully with HTTP status - 200 OK.
 Posted bookings are automatically merged with any existing trip with overlapping dates. Most likely, a trip exists with the same dates and the booking has been added to it.
@@ -154,7 +157,7 @@ The Itinerary Reference documentation includes the following reference informati
 ###  <a name="itinerary_data_model" id="itinerary_data_model">Itinerary data model</a>
 [Return to Reference topics](#reference_topics)
 
-The Itinerary data model defines data elements  that are returned or sent when getting, creating, updating, or deleting trips and bookings with the /api/travel/trip/v1.1 and /api/travel/booking/v1.1 resources respectively. 
+The Itinerary data model defines data elements  that are returned or sent when getting, creating, updating, or deleting trips and bookings with the /api/travel/trip/v1.1 and /api/travel/booking/v1.1 resources respectively.
 Trips include all bookings in an itinerary whereas a booking includes only a specific segment of an itinerary.  It includes the following elements:
 
 * [Root elements] (#root_elements)
@@ -244,7 +247,7 @@ The Bookings parent element contains a Booking child element for each included b
 
 ##### MiscellaneousChargeOrder elements
 
-| Element Name | Data Type | TripLink | Description | 
+| Element Name | Data Type | TripLink | Description |
 |---------------------------|-----------|----------|------------------|
 | DateCreatedUtc | dateTime |  | The date the charge order was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc | dateTime |  | The date the charge order was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -659,8 +662,8 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | TotalRate | decimal |  | The total rate amount of the booking.  |
 | VendorName | string |  | The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary.  |
 | AirCondition | string |  | The character code that indicates if car has air conditioner. R for AC, N for No AC |
-| Body | string |  | The character code to indicate how many passengers the car can seat.  |
-| Class | string |  | Character code to indicate the class of the car e.g. if it is economy, full size, compact, etc. Varies by Vendor |
+| Body | string |  | The character code to indicate how many passengers the car can seat. B for 2-door, D for 4-door, F for Four-wheel drive, J for All Terrain, K for truck, L for Limo, P for pick-up, R for recreation, S for Sport, T for Convertible, V for Van, W for Wagon/Estate, X for special. |
+| Class | string |  | Character code to indicate the class of the car e.g. if it is economy, full size, compact, etc. Varies by Vendor. C for compact, E for economy, F for full size, I for Intermediate, L for Luxury, M for Mini, P for Premium, S for Standard, X for special. |
 | DiscountCode | string |  | The discount code used by the company/TMC to get a discounted rate. |
 | DropoffCollectionAddress1 | string |  | The AddressLine1 for the dropoff address when the rental service offers dropoff. |
 | DropoffCollectionAddressType | string |  |   |
@@ -1008,7 +1011,7 @@ The Parking Booking parent element is the Parking Element in the Segments Array 
 
 The Travel Booking parent element is the Travel Element in the Segments Array in Booking Elements. This parent element contains a Travel Booking child element for each booked travel request.
 
-NOTE: This booking type is used by the Concur Travel Request product to store the main destination for the trip without specifying a transport type. 
+NOTE: This booking type is used by the Concur Travel Request product to store the main destination for the trip without specifying a transport type.
 
 | Element  | Data Type | TripLink | Description |
 |--------------------|--------------|----------|--------------------------------------|
@@ -1736,7 +1739,7 @@ Concur converts local date/time to UTC.  In order to do that we need to be able 
 
 ####  Olson time zones
 
-* Best practice is providing **TimeZone** (Olson or Windows time zone format) in addition to the required **StartDateLocal** and **EndDateLocal**. 
+* Best practice is providing **TimeZone** (Olson or Windows time zone format) in addition to the required **StartDateLocal** and **EndDateLocal**.
 * If you cannot provide **TimeZone** (Olson or Windows time zone format), Concur recommends **StartDateUtc** and **EndDateUtc** in addition to the required **StartDateLocal** and **EndDateLocal**.
 * Least preferable is providing **StartCityCode** in addition to the required **StartDateLocal** and **EndDateLocal**, if you cannot provide **TimeZone** or **StartDateUtc** and **EndDateUtc**.
 

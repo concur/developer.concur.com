@@ -6,37 +6,37 @@ layout: reference
 
 # Developer Platform Release Notes
 
-| 2016 | 2015 | 2014 |
-| ---- | ---- | ---- |
-| -- | -- | -- |
-| [February 2016](#feb2016) | [February 2015][2-4] | -- |
-| -- | -- | -- |
-| -- | [April 2015][2-5] | -- |
-| -- | [May 2015][2-6] | [May 2014][2-1] |
-| -- | -- | [June 2014][2-2] |
-| -- | [July 2015](#july2015) | -- |
-| -- | [August 2015](#august2015) | -- |
-| -- | -- | -- |
-| -- | -- | [October 2014][2-3] |
-| -- | -- | -- |
-| -- | -- | -- |
+| 2017 | 2016 | 2015 | 2014 |
+| ---- | ---- | ---- | ---- |
+| -- | -- | -- | -- |
+| -- | [February](#feb2016) | [February][2-4] | -- |
+| -- | -- | -- | -- |
+| -- | [April](#april2016) | [April][2-5] | -- |
+| -- | -- | [May][2-6] | [May][2-1] |
+| -- | -- | -- | [June][2-2] |
+| -- | -- | [July](#july2015) | -- |
+| -- | -- | [August](#august2015) | -- |
+| -- | -- | -- | -- |
+| -- | -- | -- | [October][2-3] |
+| -- | -- | -- | -- |
+| -- | -- | -- | -- |
 
 # App Center Release Notes
 
-| 2016 | 2015 | 2014 |
-| ---- | ---- | ---- |
-| [January 2016](AppCenter_ReleaseNotes_January_2016_FINAL.pdf) | -- | -- |
-| [February 2016](AppCenter_ReleaseNotes_February 2016_DRAFT.pdf) | [February 2015][1-10] | -- |
-| -- | [March 2015][1-11] | -- |
-| -- | [April 2015][1-12] | -- |
-| -- | [May 2015][1-13] | [May 2014](App_Center_Release_Notes_client_final_May2014_0.pdf) |
-| -- | -- | [June 2014][1-2] |
-| -- | [July 2015](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July 2014][1-3] |
-| -- | -- | [August 2014][1-4] |
-| -- | [September 2015](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September 2014][1-5] |
-| -- | [October 2015](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October 2014][1-6] |
-| -- | -- | [November 2014][1-7] |
-| -- | [December 2015](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December 2014][1-8] |
+| 2017 | 2016 | 2015 | 2014 |
+| ---- | ---- | ---- | ---- |
+| [January](AppCenter_ReleaseNotes_Jan 2017_FINAL.pdf) | [January](AppCenter_ReleaseNotes_January_2016_FINAL.pdf) | -- | -- |
+| [February](AppCenter_ReleaseNotes_Feb 2017_FINAL.pdf) | [February](AppCenter_ReleaseNotes_February 2016_DRAFT.pdf) | [February][1-10] | -- |
+| -- | [March](AppCenter_ReleaseNotes_March 2016_FINAL.pdf) | [March][1-11] | -- |
+| -- | -- | [April][1-12] | -- |
+| -- | [May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf) | [May][1-13] | [May](App_Center_Release_Notes_client_final_May2014_0.pdf) |
+| -- | [June](AppCenter_ReleaseNotes_June 2016_FINAL.pdf) | -- | [June][1-2] |
+| -- | [July](AppCenter_ReleaseNotes_July 2016_FINAL.pdf) | [July](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July][1-3] |
+| -- | [August](AppCenter_ReleaseNotes_August 2016_FINAL.pdf) | -- | [August][1-4] |
+| -- | [September](AppCenter_ReleaseNotes_Sept 2016_FINAL.pdf) | [September](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September][1-5] |
+| -- | [October](AppCenter_ReleaseNotes_Oct 2016_FINAL.pdf) | [October](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October][1-6] |
+| -- | [November](AppCenter_ReleaseNotes_Nov 2016_FINAL.pdf) | -- | [November][1-7] |
+| -- | [December](AppCenter_ReleaseNotes_Dec 2016_FINAL.pdf) | [December](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December][1-8] |
 
 
 # Combined App Center and Developer Platform Release Notes
@@ -61,6 +61,14 @@ layout: reference
 
 ## Release Notes
 
+### <a name="april2016"></a>April 2016
+
+#### Travel: Form of Payment 1.0 Deprecated
+Effective May 1, 2016, Form of Payment 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0]({{site.baseurl}}/api-reference/travel/travel-profile/form-payment-resource.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
+
+Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/reference/deprecation-policy.html) for definitions additional information.
+
+-----
 
 ### <a name="feb2016"></a>February 2016
 
@@ -69,7 +77,7 @@ Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues wil
 
 Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/reference/deprecation-policy.html) for definitions additional information.
 
-
+-----
 
 ### <a name="august2015"></a>August 2015
 

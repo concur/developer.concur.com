@@ -71,140 +71,147 @@ The response returns a **QuickExpenseStatus** parent element with the following 
 
 #### XML request with required fields
 
-```xml
-    POST api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    ...
+```http
+POST api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
 
-    <QuickExpense xmlns="http://www.concursolutions.com/api/expense/expensereport/2010/09">
-        <CurrencyCode>USD</CurrencyCode>
-        <TransactionAmount>321.45</TransactionAmount>
-        <TransactionDate>2012-07-21</TransactionDate>
-    </QuickExpense>
+<QuickExpense xmlns="http://www.concursolutions.com/api/expense/expensereport/2010/09">
+    <CurrencyCode>USD</CurrencyCode>
+    <TransactionAmount>321.45</TransactionAmount>
+    <TransactionDate>2012-07-21</TransactionDate>
+</QuickExpense>
 ```
 
 ####  XML request with optional fields
 
-```xml
-    POST api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    ...
+```http
+POST api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
 
-    <QuickExpense xmlns="http://www.concursolutions.com/api/expense/expensereport/2010/09">
-        <CurrencyCode>USD</CurrencyCode>
-        <TransactionAmount>321.45</TransactionAmount>
-        <TransactionDate>2012-07-21</TransactionDate>
-        <SpendCategoryCode>AIRFR</SpendCategoryCode>
-        <LocationCity>Seattle</LocationCity>
-        <LocationSubdivision>US-WA</LocationSubdivision>
-        <LocationCountry>US</LocationCountry>
-        <VendorDescription>Delta Airlines</VendorDescription>
-        <Comment>Trip to New York</Comment>
-        <PaymentType>PENDC</PaymentType>
-        <ExpenseTypeCode>TRVAF</ExpenseTypeCode>
-        <ImageBase64>Base 64 encoded image data</ImageBase64>
-    </QuickExpense>
+<QuickExpense xmlns="http://www.concursolutions.com/api/expense/expensereport/2010/09">
+    <CurrencyCode>USD</CurrencyCode>
+    <TransactionAmount>321.45</TransactionAmount>
+    <TransactionDate>2012-07-21</TransactionDate>
+    <SpendCategoryCode>AIRFR</SpendCategoryCode>
+    <LocationCity>Seattle</LocationCity>
+    <LocationSubdivision>US-WA</LocationSubdivision>
+    <LocationCountry>US</LocationCountry>
+    <VendorDescription>Delta Airlines</VendorDescription>
+    <Comment>Trip to New York</Comment>
+    <PaymentType>PENDC</PaymentType>
+    <ExpenseTypeCode>TRVAF</ExpenseTypeCode>
+    <ImageBase64>Base 64 encoded image data</ImageBase64>
+</QuickExpense>
 ```
 
 #### XML successful response
 
-```xml
-    200 OK
-    Content-Type: application/xml
-    <QuickExpenseStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2010/09" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Message />
-        <QuickExpenseID>nuIsue2$pASZPqXdQ5ge$s4XZHQqJFTysn3</QuickExpenseID>
-        <Status>SUCCESS</Status>
-    </QuickExpenseStatus>
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+
+<QuickExpenseStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2010/09" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Message />
+    <QuickExpenseID>nuIsue2$pASZPqXdQ5ge$s4XZHQqJFTysn3</QuickExpenseID>
+    <Status>SUCCESS</Status>
+</QuickExpenseStatus>
 ```
 
 ####  XML response with error
 
-```xml
-    200 OK
-    Content-Type: application/xml
-    <QuickExpenseStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2010/09" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Message>Missing or invalid location subdivision code.</Message>
-        <QuickExpenseID>nuIsue2$pASZPqXdQ5ge$s4XZHQqJFTysn3</QuickExpenseID>
-        <Status>FAILED</Status>
-    </QuickExpenseStatus>
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+
+<QuickExpenseStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2010/09" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Message>Missing or invalid location subdivision code.</Message>
+    <QuickExpenseID>nuIsue2$pASZPqXdQ5ge$s4XZHQqJFTysn3</QuickExpenseID>
+    <Status>FAILED</Status>
+</QuickExpenseStatus>
 ```
 
 ### Example 2: JSON request and response
 
 ####  JSON request with required fields
 
-```json
-    POST https:
-    Authorization: OAuth [token]
-    Content-Type: application/json; charset=utf-8
-    Accept: application/json
+```http
+POST api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS/1.1
+Authorization: {access token}
+Content-Type: application/json; charset=utf-8
+Accept: application/json
 
-    [
-        {
-            "CurrencyCode"        : "USD",
-            "TransactionAmount"   : "321.45",
-            "TransactionDate"     : "2012-07-21"
-        }
-    ]
+[
+  {
+    "CurrencyCode": "USD",
+    "TransactionAmount": "321.45",
+    "TransactionDate": "2012-07-21"
+  }
+]
 ```
 
 ####  JSON request with optional fields
 
-```json
-    POST https:
-    Authorization: OAuth [token]
-    Content-Type: application/json; charset=utf-8
-    Accept: application/json
+```http
+POST api/expense/expensereport/v1.0/quickexpense/?loginID=cm%40example.com HTTPS/1.1
+Authorization: {access token}
+Content-Type: application/json; charset=utf-8
+Accept: application/json
 
-    [
-        {
-            "CurrencyCode"        : "USD",
-            "TransactionAmount"   : "321.45",
-            "TransactionDate"     : "2012-07-21",
-            "SpendCategoryCode"   : "AIRFR",
-            "PaymentType"         : "PENDC",
-            "ExpenseTypeCode"     : "TRVAF",
-            "ImageBase64"         : "(image in base64 encoding)",
-            "LocationCity"        : "Seattle",
-            "LocationSubdivision" : "US-WA",
-            "LocationCountry"     : "US",
-            "VendorDescription"   : "Delta Airlines",
-            "Comment"             : "Trip to New York"
-        }
-    ]
+[
+  {
+    "CurrencyCode"        : "USD",
+    "TransactionAmount"   : "321.45",
+    "TransactionDate"     : "2012-07-21",
+    "SpendCategoryCode"   : "AIRFR",
+    "PaymentType"         : "PENDC",
+    "ExpenseTypeCode"     : "TRVAF",
+    "ImageBase64"         : "(image in base64 encoding)",
+    "LocationCity"        : "Seattle",
+    "LocationSubdivision" : "US-WA",
+    "LocationCountry"     : "US",
+    "VendorDescription"   : "Delta Airlines",
+    "Comment"             : "Trip to New York"
+  }
+]
 ```
 
 ####  JSON successful response
 
 ```json
-    [
-        {
-            "QuickExpenseID":"nuIsue2$pASZPqXdQ5ge$s4XZHQqJFTysn3",
-            "Status":"SUCCESS",
-            "Message":""
-        }
-    ]
+  [
+    {
+      "QuickExpenseID": "nuIsue2$pASZPqXdQ5ge$s4XZHQqJFTysn3",
+      "Status": "SUCCESS",
+      "Message": ""
+    }
+  ]
 ```
 
 ####  JSON response with error
 
 ```json
-    [
-        {
-            "Error": { "Message":"Missing or invalid location subdivision code.", "Server-Time":"2012-10-16T02:18:56", "Id":"FA067608-3E83-4B3C-A421-187F2C498356" }
-        }
-    ]
+  [
+    {
+      "Error": {
+        "Message": "Missing or invalid location subdivision code.",
+        "Server-Time" :"2012-10-16T02:18:56",
+        "Id":"FA067608-3E83-4B3C-A421-187F2C498356"
+      }
+    }
+  ]
 ```
-  
+
 
 
 [1]: /api-reference/expense/quick-expense/index.html#post
-[2]: http://en.wikipedia.org/wiki/ISO_4217
+[2]: https://en.wikipedia.org/wiki/ISO_4217
 [3]: /api-reference/expense/expense-report/expense-group-configurations.html#get
 [4]: /tools-support/reference/spend-category-codes.html
-[5]: http://en.wikipedia.org/wiki/ISO_3166-2:2007-04-17#I-8
-[6]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-
+[5]: https://en.wikipedia.org/wiki/ISO_3166-2:2007-04-17#I-8
+[6]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2

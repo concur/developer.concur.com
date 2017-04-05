@@ -7,102 +7,45 @@ title: Developer Newsletter Signup
   <h2>Developer Newsletter Signup</h2>
   <p>Submit this form to receive updates on DevCon and the Concur Platform.</p><br>
   {% include form-success.html %}
-  <form action="{{ site.data.forms.server }}/newsletter-request" method="POST" id="newsletterRequest" class="sky-form" novalidate="novalidate">
+  <form action="{{ site.data.forms.server }}/newsletter-request" method="POST" id="newsletterRequest" novalidate="novalidate">
     <fieldset>
-      <section>
-        <label class="label">First Name</label>
-        <label class="input">
-          <input type="text" name="firstName" id="firstName" placeholder="First Name">
-        </label>
-      </section>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" placeholder="First Name" class="form-control">
+      </div>
 
-      <section>
-        <label class="label">Last Name</label>
-        <label class="input">
-          <input type="text" name="lastName" id="lastName" placeholder="Last Name">
-        </label>
-      </section>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="form-control">
+      </div>
 
-      <section>
-        <label class="label">Email Address</label>
-        <label class="input">
-          <input type="text" name="email" id="email" placeholder="example@example.com">
-        </label>
-      </section>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="text" name="email" id="email" placeholder="example@example.com" class="form-control">
+      </div>
 
-      <section>
-        <label class="label">Country</label>
-        <label class="select">
-          <select name="country" id="country">
-            {% for country in site.data.countries %}
-            <option value="{{ country.code }}">{{ country.name }}</option>
-            {% endfor %}
-          </select>
-          <i></i>
-        </label>
-      </section>
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select name="country" id="country" class="form-control">
+          {% for country in site.data.countries %}
+          <option value="{{ country.code }}">{{ country.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
 
-      <section>
-        <label class="label">State</label>
-        <label class="select">
-          <select name="state" id="state">
-            {% for state in site.data.states %}
-            <option value="{{ state.code }}">{{ state.name }}</option>
-            {% endfor %}
-          </select>
-          <i></i>
-        </label>
-      </section>
-      <input type="text" name="email-alt" id="email-alt">
+      <div class="form-group">
+        <label for="state">State</label>
+        <select name="state" id="state" class="form-control">
+          {% for state in site.data.states %}
+          <option value="{{ state.code }}">{{ state.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <label for="email-alt" hidden>Alternate Email</label>
+      <input type="text" name="email-alt" id="email-alt" hidden>
     </fieldset>
     <footer>
-      <button type="submit" class="button">Submit</button>
+      <button type="submit" class="btn bright-blue">Submit</button>
     </footer>
   </form>
 </div><!--/col-md-12-->
-
-<script>
-  $("#newsletterRequest").change(function(){
-    ($("#country").val() !== "US") ? $("#state").attr("disabled", true) && $("#state").val("") : $("#state").attr("disabled", false);
-  });
-
-  $("#newsletterRequest").validate({
-    // Rules for form validation
-    rules: {
-      firstName: { required: true },
-      lastName: { required: true },
-      email: {
-        required: true,
-        email: true
-      }
-    },
-
-    // Messages for form validation
-    messages: {
-      firstName: { required: 'Please enter your first name' },
-      lastName: { required: 'Please enter your last name' },
-      email: { required: 'Please enter a valid email address' }
-    },
-
-    // Ajax form submition
-    submitHandler: function(form) {
-      if($('#email-alt').val()) {
-        return;
-      }
-      $(form).ajaxSubmit({
-        beforeSend: function() {
-          $('#newsletterRequest button[type="submit"]').attr('disabled', true);
-        },
-        success: function() {
-          $("#newsletterRequest").addClass('submited');
-          $('#form-success').removeClass('form-success-hidden');
-        }
-      });
-    },
-
-    // Do not change code below
-    errorPlacement: function(error, element) {
-      error.insertAfter(element.parent());
-    }
-  });
-</script>

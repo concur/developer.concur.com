@@ -12,7 +12,7 @@ layout: reference
 
 
 
-Description | Supported Content Types 
+Description | Supported Content Types
 -----|-----
 Posts an expense report entry for the specified report. Use the Post Expense Report Header function to create the report, then use this endpoint to create the expense line items. You can update existing expense entries using this endpoint.  **NOTE**: Posting new expense reports is a multi-stage process. Refer to the Processes section of the Expense Report Web Service page for the steps required to post new expense reports and entries. **NOTE**: Concur recommends that you post one expense entry per request. Future versions of this endpoint will require this behavior. | application/xml
 
@@ -54,37 +54,39 @@ PaymentTypeID| N| The unique identifier for the payment type for the expense ent
 
 #### XML Example Request
 
-<pre class="overflow_box">POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz$sQ6SKJFjLNs4OWBErcJ8yX/entry/ HTTP/1.1
+```http
+POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz$sQ6SKJFjLNs4OWBErcJ8yX/entry/ HTTP/1.1
 Authorization: OAuth {access token}
+Content-Type: application/xml
 ...
 
-<span class="xml-tag"><ReportEntries</span> <span class="xml-attribute">xmlns</span>=<span class="xml-value">"</span><span class="xml-value">http://www.concursolutions.com/api/expense/expensereport/2011/03</span><span class="xml-value">"</span><span class="xml-tag">></span>
-    <span class="xml-tag"><Expense</span><span class="xml-tag">></span>
-        <span class="xml-tag"><CrnCode</span><span class="xml-tag">></span>USD<span class="xml-tag"></CrnCode</span><span class="xml-tag">></span>
-        <span class="xml-tag"><ExpKey</span><span class="xml-tag">></span>BUSPR<span class="xml-tag"></ExpKey</span><span class="xml-tag">></span>
-        <span class="xml-tag"><Description</span><span class="xml-tag">></span>Business Promotions<span class="xml-tag"></Description</span><span class="xml-tag">></span>
-        <span class="xml-tag"><TransactionDate</span><span class="xml-tag">></span>2011-01-12<span class="xml-tag"></TransactionDate</span><span class="xml-tag">></span>
-        <span class="xml-tag"><TransactionAmount</span><span class="xml-tag">></span>29.23<span class="xml-tag"></TransactionAmount</span><span class="xml-tag">></span>
-        <span class="xml-tag"><Comment</span><span class="xml-tag">></span>Brochure sample<span class="xml-tag"></Comment</span><span class="xml-tag">></span>
-        <span class="xml-tag"><VendorDescription</span><span class="xml-tag">></span>Kinkos<span class="xml-tag"></VendorDescription</span><span class="xml-tag">></span>
-        <span class="xml-tag"><IsPersonal</span><span class="xml-tag">></span>N<span class="xml-tag"></IsPersonal</span><span class="xml-tag">></span>
-    <span class="xml-tag"></Expense</span><span class="xml-tag">></span>
-    <span class="xml-tag"><Expense</span><span class="xml-tag">></span>
-        <span class="xml-tag"><CrnCode</span><span class="xml-tag">></span>USD<span class="xml-tag"></CrnCode</span><span class="xml-tag">></span>
-        <span class="xml-tag"><ExpKey</span><span class="xml-tag">></span>BRKFT<span class="xml-tag"></ExpKey</span><span class="xml-tag">></span>
-        <span class="xml-tag"><Description</span><span class="xml-tag">></span>Description<span class="xml-tag"></Description</span><span class="xml-tag">></span>
-        <span class="xml-tag"><TransactionDate</span><span class="xml-tag">></span>2011-01-12<span class="xml-tag"></TransactionDate</span><span class="xml-tag">></span>
-        <span class="xml-tag"><TransactionAmount</span><span class="xml-tag">></span>15.54<span class="xml-tag"></TransactionAmount</span><span class="xml-tag">></span>
-        <span class="xml-tag"><Comment</span><span class="xml-tag">></span>Breakfast meeting<span class="xml-tag"></Comment</span><span class="xml-tag">></span>
-        <span class="xml-tag"><VendorDescription</span><span class="xml-tag">></span>Starbucks<span class="xml-tag"></VendorDescription</span><span class="xml-tag">></span>
-        <span class="xml-tag"><IsPersonal</span><span class="xml-tag">></span>N<span class="xml-tag"></IsPersonal</span><span class="xml-tag">></span>
-    <span class="xml-tag"></Expense</span><span class="xml-tag">></span>
-<span class="xml-tag"></ReportEntries</span><span class="xml-tag">></span>
-</pre>
+<ReportEntries xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03">
+    <Expense>
+        <CrnCode>USD</CrnCode>
+        <ExpKey>BUSPR</ExpKey>
+        <Description>Business Promotions</Description>
+        <TransactionDate>2011-01-12</TransactionDate>
+        <TransactionAmount>29.23</TransactionAmount>
+        <Comment>Brochure sample</Comment>
+        <VendorDescription>Kinkos</VendorDescription>
+        <IsPersonal>N</IsPersonal>
+    </Expense>
+    <Expense>
+        <CrnCode>USD</CrnCode>
+        <ExpKey>BRKFT</ExpKey>
+        <Description>Description</Description>
+        <TransactionDate>2011-01-12</TransactionDate>
+        <TransactionAmount>15.54</TransactionAmount>
+        <Comment>Breakfast meeting</Comment>
+        <VendorDescription>Starbucks</VendorDescription>
+        <IsPersonal>N</IsPersonal>
+    </Expense>
+</ReportEntries>
+```
 
 ## Post Expense Entry Response
 
-HTTP Responses | Supported Content Types 
+HTTP Responses | Supported Content Types
 ----|----
 HTTP Status Codes | application/xml
 
@@ -103,17 +105,20 @@ Report-Entry-Details-Url | The URI to get the expense entry details. |
 
 #### XML Example of Successful Response
 
-<pre class="overflow_box">200 OK
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml
-<span class="xml-tag"><ReportEntryStatusList</span> <span class="xml-attribute">xmlns</span>=<span class="xml-value">"</span><span class="xml-value">http://www.concursolutions.com/api/expense/expensereport/2011/03</span><span class="xml-value">"</span> <span class="xml-attribute">xmlns:i</span>=<span class="xml-value">"</span><span class="xml-value">http://www.w3.org/2001/XMLSchema-instance</span><span class="xml-value">"</span><span class="xml-tag">></span>
-    <span class="xml-tag"><ReportEntryStatus</span><span class="xml-tag">></span>
-        <span class="xml-tag"><Index</span><span class="xml-tag">></span>1<span class="xml-tag"></Index</span><span class="xml-tag">></span>
-        <span class="xml-tag"><Status</span><span class="xml-tag">></span>SUCCESS<span class="xml-tag"></Status</span><span class="xml-tag">></span>
-        <span class="xml-tag"><Report-Entry-Details-Url</span><span class="xml-tag">></span>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz$sQ6SKJFjLNs4OWBErcJ8yX/entry/nE0avYnILN9mHdTErNSd2pH45udFoNQ$po<span class="xml-tag"></Report-Entry-Details-Url</span><span class="xml-tag">></span>
-    <span class="xml-tag"></ReportEntryStatus</span><span class="xml-tag">></span>
-    <span class="xml-tag"><ReportEntryStatus</span><span class="xml-tag">></span>
-        <span class="xml-tag"><Index</span><span class="xml-tag">></span>2<span class="xml-tag"></Index</span><span class="xml-tag">></span>
-        <span class="xml-tag"><Status</span><span class="xml-tag">></span>SUCCESS<span class="xml-tag"></Status</span><span class="xml-tag">></span>
-        <span class="xml-tag"><Report-Entry-Details-Url</span><span class="xml-tag">></span>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz$sQ6SKJFjLNs4OWBErcJ8yX/entry/awEDvYnILN9g$s6lCFX0jFBWmHAiTYYf9C<span class="xml-tag"></Report-Entry-Details-Url</span><span class="xml-tag">></span>
-    <span class="xml-tag"></ReportEntryStatus</span><span class="xml-tag">></span>
-<span class="xml-tag"></ReportEntryStatusList</span><span class="xml-tag">></span>  
+
+<ReportEntryStatusList xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <ReportEntryStatus>
+        <Index>1</Index>
+        <Status>SUCCESS</Status>
+        <Report-Entry-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz$sQ6SKJFjLNs4OWBErcJ8yX/entry/nE0avYnILN9mHdTErNSd2pH45udFoNQ$po</Report-Entry-Details-Url>
+    </ReportEntryStatus>
+    <ReportEntryStatus>
+        <Index>2</Index>
+        <Status>SUCCESS</Status>
+        <Report-Entry-Details-Url>https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nxxKgLlnROz$sQ6SKJFjLNs4OWBErcJ8yX/entry/awEDvYnILN9g$s6lCFX0jFBWmHAiTYYf9C</Report-Entry-Details-Url>
+    </ReportEntryStatus>
+</ReportEntryStatusList>  
+```

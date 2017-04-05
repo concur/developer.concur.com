@@ -12,13 +12,13 @@ layout: reference
 
 ## <a name="uri"></a>Uniform Resource Identifier (URI)
 
-[http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2](http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2)
+[https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2)
 
 `http://phosiere.com`
 
 ## <a name="methods"></a>HTTP Methods
 
-[http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+[https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
 
 Method | Description
 -------|------------|
@@ -34,46 +34,46 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
 ## <a name="header"></a>HTTP Message Header  
 
 
-[http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)
+[https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)
 
 ### Request  
 
 
-```
-  GET / HTTP/1.1
-  User-Agent: curl/7.37.1
-  Host: phosiere.com
-  Accept: */*
+```http
+GET / HTTP/1.1
+User-Agent: curl/7.37.1
+Host: phosiere.com
+Accept: */*
 ```
 
 ### Response  
 
 
-```
-  HTTP/1.1 200 OK
-  Cache-Control: private
-  Content-Type: text/html; charset=utf-8
-  Server: Microsoft-IIS/8.0
-  X-AspNet-Version: 2.0.50727
-  X-Powered-By: ASP.NET
-  Date: Tue, 19 May 2015 22:45:47 GMT
-  Content-Length: 83
+```http
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+Server: Microsoft-IIS/8.0
+X-AspNet-Version: 2.0.50727
+X-Powered-By: ASP.NET
+Date: Tue, 19 May 2015 22:45:47 GMT
+Content-Length: 83
 ```
 
 ## <a name="entity"></a>HTTP Entity
 
-[http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7](http://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7)  
+[https://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7](https://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7)  
 
 
-```
-  <html>
-    <head>
-      <title>Phosière</title>
-    </head>
-    <body>
-    Coming soon...
-    </body>
-  </html>
+```html
+<html>
+  <head>
+    <title>Phosière</title>
+  </head>
+  <body>
+  Coming soon...
+  </body>
+</html>
 ```
 
 ## <a name="json"></a>JSON
@@ -82,104 +82,104 @@ Others: OPTIONS, HEAD, TRACE, CONNECT
 
 ### Schema  
 
-```
-  {
-      "$schema": "http://json-schema.org/draft-04/schema#",
-      "title": "Product set",
-      "type": "array",
-      "items": {
-          "title": "Product",
-          "type": "object",
-          "properties": {
-              "id": {
-                  "description": "The unique identifier for a product",
-                  "type": "number"
-              },
-              "name": {
-                  "type": "string"
-              },
-              "price": {
-                  "type": "number",
-                  "minimum": 0,
-                  "exclusiveMinimum": true
-              },
-              "tags": {
-                  "type": "array",
-                  "items": {
-                      "type": "string"
-                  },
-                  "minItems": 1,
-                  "uniqueItems": true
-              },
-              "dimensions": {
-                  "type": "object",
-                  "properties": {
-                      "length": {"type": "number"},
-                      "width": {"type": "number"},
-                      "height": {"type": "number"}
-                  },
-                  "required": ["length", "width", "height"]
-              },
-              "warehouseLocation": {
-                  "description": "Coordinates of the warehouse with the product",
-                  "$ref": "http://json-schema.org/geo"
-              }
-          },
-          "required": ["id", "name", "price"]
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Product set",
+  "type": "array",
+  "items": {
+    "title": "Product",
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "The unique identifier for a product",
+        "type": "number"
+      },
+      "name": {
+        "type": "string"
+      },
+      "price": {
+        "type": "number",
+        "minimum": 0,
+        "exclusiveMinimum": true
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+            "type": "string"
+        },
+        "minItems": 1,
+        "uniqueItems": true
+      },
+      "dimensions": {
+        "type": "object",
+        "properties": {
+            "length": {"type": "number"},
+            "width": {"type": "number"},
+            "height": {"type": "number"}
+        },
+        "required": ["length", "width", "height"]
+      },
+      "warehouseLocation": {
+        "description": "Coordinates of the warehouse with the product",
+        "$ref": "http://json-schema.org/geo"
       }
+    },
+    "required": ["id", "name", "price"]
   }
+}
 ```
 
 Resource located at http://json-schema.org/geo:  
 
 
-```
-  {
-      "$schema": "http://json-schema.org/draft-04/schema#",
-      "description": "A geographical coordinate",
-      "type": "object",
-      "properties": {
-          "latitude": { "type": "number" },
-          "longitude": { "type": "number" }
-      }
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "A geographical coordinate",
+  "type": "object",
+  "properties": {
+    "latitude": { "type": "number" },
+    "longitude": { "type": "number" }
   }
+}
 ```
 
 ### Data  
 
 
-```
-  [
-      {
-          "id": 2,
-          "name": "An ice sculpture",
-          "price": 12.50,
-          "tags": ["cold", "ice"],
-          "dimensions": {
-              "length": 7.0,
-              "width": 12.0,
-              "height": 9.5
-          },
-          "warehouseLocation": {
-              "latitude": -78.75,
-              "longitude": 20.4
-          }
-      },
-      {
-          "id": 3,
-          "name": "A blue mouse",
-          "price": 25.50,
-          "dimensions": {
-              "length": 3.1,
-              "width": 1.0,
-              "height": 1.0
-          },
-          "warehouseLocation": {
-              "latitude": 54.4,
-              "longitude": -32.7
-          }
-      }
-  ]
+```json
+[
+  {
+    "id": 2,
+    "name": "An ice sculpture",
+    "price": 12.50,
+    "tags": ["cold", "ice"],
+    "dimensions": {
+      "length": 7.0,
+      "width": 12.0,
+      "height": 9.5
+    },
+    "warehouseLocation": {
+      "latitude": -78.75,
+      "longitude": 20.4
+    }
+  },
+  {
+    "id": 3,
+    "name": "A blue mouse",
+    "price": 25.50,
+    "dimensions": {
+      "length": 3.1,
+      "width": 1.0,
+      "height": 1.0
+    },
+    "warehouseLocation": {
+      "latitude": 54.4,
+      "longitude": -32.7
+    }
+  }
+]
 ```
 
 ### Documentation

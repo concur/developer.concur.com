@@ -21,13 +21,15 @@
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/common/connectionrequests": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all connection requests",
         "description": "Gets all connection requests that match the TripLink supplier ID.",
         "parameters": [
@@ -64,7 +66,9 @@
         }
       },
       "post": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a connection request",
         "description": "Creates a connection request on behalf of the specified user.",
         "parameters": [
@@ -88,7 +92,9 @@
     },
     "/common/connectionrequests/{id}": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a connection request by ID",
         "description": "Gets a connection request by ID.",
         "parameters": [
@@ -110,7 +116,9 @@
         }
       },
       "put": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update a connection request by ID",
         "description": "Updates the specified connection request. Only the fields provided in the supplied object are updated. Missing fields will not be altered.",
         "parameters": [
@@ -141,7 +149,9 @@
         }
       },
       "delete": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete a connection request",
         "description": "Deletes a connection request by ID.",
         "parameters": [
@@ -172,7 +182,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+          "description": "The URI of the next page of results, if any."
         }
       }
     },
@@ -180,39 +190,39 @@
       "properties": {
         "FirstName": {
           "type": "string",
-          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+          "description": "The user's first name."
         },
         "ID": {
           "type": "string",
-          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+          "description": "The unique identifier of the resource."
         },
         "LastModified": {
           "type": "string",
-          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+          "description": "The date and time when the connection request was last modified. Format: UTC"
         },
         "LastName": {
           "type": "string",
-          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+          "description": "The user's last name."
         },
         "LoyaltyNumber": {
           "type": "string",
-          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+          "description": "The user's travel loyalty number."
         },
         "MiddleName": {
           "type": "string",
-          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+          "description": "The user's middle name."
         },
         "RequestToken": {
           "type": "string",
-          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+          "description": "The request token."
         },
         "Status": {
           "type": "string",
-          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+          "description": "The status code representing the state of the connection request."
         },
         "URI": {
           "type": "string",
-          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+          "description": "The URI to the resource."
         }
       }
     },

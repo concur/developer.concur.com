@@ -15,19 +15,21 @@
   ],
   "info": {
     "title": "Payment Request",
-    "description": "",
+    "description": "A payment request is a request for payment (partial or full) of an invoice. This API provides methods to create or update a payment request, or view a payment request by ID.",
     "version": "3.0"
   },
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/invoice/paymentrequest/{id}": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Gets all relevant information of a Payment Request.",
         "description": "This API Gets all relevant information (Payment Request Header, Payment Request Line Item and Payment Request Allocation) of a Payment Request.",
         "parameters": [
@@ -51,7 +53,9 @@
     },
     "/invoice/paymentrequest": {
       "post": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new Payment Request.",
         "description": "Creates a new Payment Request with all relevant details including line items and associated allocations.",
         "parameters": [
@@ -75,7 +79,9 @@
         }
       },
       "put": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update a Payment Request.",
         "description": "Updates a Payment Request with all relevant details including line items and associated allocations.",
         "parameters": [
@@ -105,95 +111,95 @@
       "properties": {
         "AllocationAccountCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Account Code that the allocation will be assigned to."
         },
         "Custom1": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A value that can be applied to a custom field 10 that is part of the allocation form."
         },
         "Custom11": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom2": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom3": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom4": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom5": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom6": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom7": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom8": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A value that can be applied to a custom field 8 that is part of the allocation form."
         },
         "Custom9": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A value that can be applied to a custom field 9 that is part of the allocation form."
         },
         "IsTestUser": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Indication that the Allocation record was created by a test user (this is a true/false)."
         },
         "Percentage": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The percentage of the Request Line Item that the individual allocation record. All Allocations associated to a given Line Item should add up to 100."
         }
       }
     },
@@ -208,35 +214,35 @@
       "properties": {
         "Address1": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Line 1 of the street address."
         },
         "Address2": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Line 2 of the street address"
         },
         "Address3": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Line 3 of the street address"
         },
         "City": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The name of the city."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The country code."
         },
         "Name": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The name given to the company location."
         },
         "PostalCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The postal / zip code."
         },
         "State": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The state code."
         }
       }
     },
@@ -244,11 +250,11 @@
       "properties": {
         "ID": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The state code."
         },
         "URI": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The state code."
         }
       }
     },
@@ -259,183 +265,215 @@
         },
         "AllocationStatus": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Current amount of allocation performed on the Request Line Item (accepted values: None, Partial, Full)."
         },
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The net amount of the line item (excluding VAT)."
         },
         "ApprovedLineItemAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The approved amount of the line item."
         },
         "Custom1": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom2": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom3": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom4": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom5": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom6": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom7": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom8": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom9": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "DeliverySlipNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The delivery slip number associated with receiving receipt."
         },
         "Description": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Brief overview of the good or service ordered."
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates the Expense Type for the Line Item."
         },
         "IsMatched": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
-        },
-        "ItemCode": {
-          "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Indication that the Payment Request Line Item is associated to a Purchase Order Line Item (this is a true/false)."
         },
         "LineItemId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The identifier of the payment request line item. The ID is only guaranteed to be unique for a given payment request."
         },
         "LineItemIsTestUser": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Indication that the Allocation record was created by a test user (this is a true/false)."
         },
         "MatchedPurchaseOrderLineItemId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The identifier of the purchase order line item to which the payment request line item is matched (if any)."
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The identifier of the purchase order containing the line item to which the payment request line item is matched (if any)."
         },
         "Quantity": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Total number of goods or services ordered."
         },
         "RequestedLineItemAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The requested amount of the line item."
         },
         "RequestLineItemNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The relative location of the Line Item in relation to other Line Items in the Payment Request."
         },
         "ShipFromPostalCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The postal code the good or service was shipped from."
         },
         "ShipToPostalCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The postal code the good or service will be shipped to."
         },
         "SupplierPartId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The unique identifier provided by the supplier that is associated with the good or service."
         },
         "Tax": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The tax associated with the line item."
         },
         "TaxCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Tax Code  assigned for the Line Item, based on the Tax Setting."
+        },
+        "TaxCode2": {
+          "type": "string",
+          "description": "The Tax Code 2 assigned for the Line Item, based on the Tax Setting."
+        },
+        "TaxCode3": {
+          "type": "string",
+          "description": "The Tax Code 3 assigned for the Line Item, based on the Tax Setting."
+        },
+        "TaxCode4": {
+          "type": "string",
+          "description": "The Tax Code 4 assigned for the Line Item, based on the Tax Setting."
         },
         "TotalPrice": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The total amount of the line item."
         },
         "UnitOfMeasure": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The code for the measurement unit used to quantify the good or service. Use GET /invoice/localizeddata to look up codes and descriptions."
         },
         "UnitPrice": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The cost for a single unit of the line item good or service."
         },
         "VatAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The amount of VAT 1 included in the line item total."
+        },
+        "VatAmountFour": {
+          "type": "string",
+          "description": "The amount of VAT 4 included in the line item total."
+        },
+        "VatAmountThree": {
+          "type": "string",
+          "description": "The amount of VAT 3 included in the line item total."
+        },
+        "VatAmountTwo": {
+          "type": "string",
+          "description": "The amount of VAT 2 included in the line item total."
         },
         "VatRate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The VAT rate 1 applied to the net line item total."
+        },
+        "VatRateFour": {
+          "type": "string",
+          "description": "The VAT rate 4 applied to the net line item total."
+        },
+        "VatRateThree": {
+          "type": "string",
+          "description": "The VAT rate 3 applied to the net line item total."
+        },
+        "VatRateTwo": {
+          "type": "string",
+          "description": "The VAT rate 2 applied to the net line item total."
         }
       }
     },
@@ -450,35 +488,35 @@
       "properties": {
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The net amount of the invoice (excluding VAT)."
         },
         "ApprovalStatus": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates the Approval Status of the payment request."
         },
         "ApprovedByDelegate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Was the Payment Request approved by a Delegate (true/false)."
         },
         "AssignedByUsername": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Username of the assigning employee."
         },
         "AssignedDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the Payment Request was assigned to the current owner."
         },
         "BuyerCostCenter": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The company defined center responsible for the Payment Request."
         },
         "CalculatedAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The sum of all Line Item Amounts plus Shipping Amount and Tax Amount for the payment request."
         },
         "CheckNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Check number of the payment made to the vendor."
         },
         "CompanyBillToAddress": {
           "$ref": "#/definitions/CompanyAddress"
@@ -488,346 +526,374 @@
         },
         "CountryCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The country code."
         },
         "CreatedByUsername": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Username of the Payment Request creator."
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona."
         },
         "Custom1": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom2": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom21": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom22": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom23": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom24": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom3": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom4": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom5": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom6": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom7": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom8": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom9": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "DataSource": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates the method used to created the Payment Request. Use GET /invoice/localizeddata to translate the code into text."
         },
         "DeletedDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the user deleted the payment request."
         },
         "DeliverySlipNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The delivery slip number associated with receiving receipt."
         },
         "Description": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "User entered description of the Payment Request."
         },
         "DiscountPercentage": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The discount from the supplier if the discount terms are met."
         },
         "DiscountTerms": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The NET discount terms with a supplier when discounts apply."
         },
         "EmployeeName": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The owner of the Payment Request."
         },
         "ExternalPolicyId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The external policy ID. "
         },
         "ExtractDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the payment request was extracted, in order to import it into an accounts payable system and generate a payment."
         },
         "FirstApprovalDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the payment request received its first approval in its approval workflow."
         },
         "FirstSubmitDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the payment request was first submitted."
         },
         "ID": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The unique identifier of the resource."
         },
         "InvoiceAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "User-entered value representing the total invoice amount, used to calculate amount remaining on the line item page."
         },
         "InvoiceDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the Vendor issued the Invoice."
         },
         "InvoiceNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Invoice Number from the vendor for the Payment Request."
         },
         "InvoiceReceivedDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date on which the invoice was received."
         },
         "IsAssigned": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Is the Payment Request assigned (true/false)."
         },
         "IsInvoiceConfirmed": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Indicates if the Payment Request Invoice is confirmed or in a different status (true/false)."
         },
         "IsPaymentRequestDeleted": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Is the Payment Request deleted (true/false)."
         },
         "IsPaymentRequestDuplicate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Is the Payment Request identified as a duplicate of another existing request (true/false)."
         },
         "IsTestTransaction": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Is the Payment Request a test transaction (true/false)."
         },
         "LastSubmitDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the payment request was last submitted."
         },
         "LedgerCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates which company journal the Payment Request is assigned to. Use GET /invoice/localizeddata to translate the code into text."
         },
         "LineItems": {
           "$ref": "#/definitions/LineItemsCollection"
         },
         "LineItemTotalAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The sum of all Line Item Amounts."
         },
         "LineItemVatAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The sum amount of VAT from all line items in the request."
         },
         "Name": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Payment Request Name."
         },
         "NotesToVendor": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Information from the customer to the vendor for special requests or handling for the ordered good or service."
         },
         "OB10BuyerId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A unique buyer account on the OB10 network."
         },
         "OB10TransactionId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Unique Identifier for the PR transaction (generated by OB10)."
         },
         "OrgUnit01": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit02": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit03": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit04": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit05": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit06": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "PaidAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Represents the amount of the payment that will be/has been made for the Invoice."
         },
         "PaidDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date payment was made to the vendor."
         },
         "PaymentAdjustmentNotes": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Notes to the vendor regarding the amount paid (underpayment due to damages, for example)."
         },
         "PaymentDueDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the vendor needs to be paid by."
         },
         "PaymentMethod": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates the method used to reimburse the vendor for the Payment Request. Use GET /invoice/localizeddata to translate the code into text."
         },
         "PaymentRequestCreatedByTestUser": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Was the Payment Request created by a Test User (true/false)."
         },
         "PaymentRequestDeletedBy": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The user who deleted the Payment Request."
         },
         "PaymentStatus": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates the Payment Status of the payment request."
         },
         "PaymentTermsDays": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "This number, along with type of payment terms (example: NET), determine when the invoice is expected to be paid."
         },
         "ProvincialTaxId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Vendor Provincial Tax ID."
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The purchase order number for the purchase order associated with the invoice."
         },
         "ReceiptConfirmationType": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates the receipt confirmation type for this Payment Request (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text."
         },
         "ShippingAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The value for the Shipping Amount header field."
         },
         "SubmittedByDelegate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Was the Payment Request created by a Delegate (true/false)."
         },
         "TaxAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The value for the Tax Amount header field."
         },
         "TaxCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Tax Code assigned for the Request, based on the Tax Setting."
+        },
+        "TaxCode2": {
+          "type": "string",
+          "description": "The Tax Code assigned for the Request, based on the Tax Setting."
+        },
+        "TaxCode3": {
+          "type": "string",
+          "description": "undefined:ConnectSwaggerDocs-PMT_TAX_CODE_3"
+        },
+        "TaxCode4": {
+          "type": "string",
+          "description": "undefined:ConnectSwaggerDocs-PMT_TAX_CODE_4"
         },
         "TotalApprovedAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The total amount that has been approved."
         },
         "URI": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The URI to the resource."
         },
         "UserCreationDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the Invoice user first saved the payment request."
+        },
+        "VatAmountFour": {
+          "type": "string",
+          "description": "The amount of VAT included in the invoice total. (Fourth of four VAT amount fields available.)"
         },
         "VatAmountOne": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The amount of VAT included in the invoice total. (First of four VAT amount fields available.)"
+        },
+        "VatAmountThree": {
+          "type": "string",
+          "description": "The amount of VAT included in the invoice total. (Third of four VAT amount fields available.)"
         },
         "VatAmountTwo": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The amount of VAT included in the invoice total. (Second of four VAT amount fields available.)"
+        },
+        "VatRateFour": {
+          "type": "string",
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the fourth VAT amount field.)"
         },
         "VatRateOne": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the first VAT amount field.)"
+        },
+        "VatRateThree": {
+          "type": "string",
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the third VAT amount field.)"
         },
         "VatRateTwo": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the second VAT amount field.)"
         },
         "VendorRemitAddress": {
           "$ref": "#/definitions/VendorAddress"
@@ -837,11 +903,11 @@
         },
         "VendorTaxId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Vendor Tax ID."
         },
         "WorkflowCompleteDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the last step in the workflow process completed."
         }
       }
     },
@@ -849,87 +915,87 @@
       "properties": {
         "Custom01": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom02": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom03": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom04": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom05": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom06": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom07": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom08": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A value that can be applied to a custom field 8 that is part of the allocation form."
         },
         "Custom09": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A value that can be applied to a custom field 9 that is part of the allocation form."
         },
         "Custom10": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A value that can be applied to a custom field 10 that is part of the allocation form."
         },
         "Custom11": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Percentage": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The percentage of the Request Line Item that the individual allocation record. All Allocations associated to a given Line Item should add up to 100."
         }
       }
     },
@@ -940,143 +1006,183 @@
         },
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The net amount of the line item (excluding VAT)."
         },
         "Custom01": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom02": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom03": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom04": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom05": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom06": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom07": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom08": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom09": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Description": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Brief overview of the good or service ordered."
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates the Expense Type for the Line Item."
         },
         "ItemCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Represents the item code (the unique code a vendor assigns to a good or code a vendor assigns to a good or service to identify it)."
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Purchase Order that is associated to the Line Item ."
         },
         "Quantity": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Total number of goods or services ordered."
         },
         "ShipFromPostalCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The postal code the good or service was shipped from."
         },
         "ShipToPostalCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The postal code the good or service will be shipped to."
         },
         "SupplierPartId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The unique identifier provided by the supplier that is associated with the good or service."
         },
         "Tax": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The tax associated with the line item."
+        },
+        "TaxCode": {
+          "type": "string",
+          "description": "The Tax Code  assigned for the Line Item, based on the Tax Setting."
+        },
+        "TaxCode2": {
+          "type": "string",
+          "description": "The Tax Code 2 assigned for the Line Item, based on the Tax Setting."
+        },
+        "TaxCode3": {
+          "type": "string",
+          "description": "The Tax Code 3 assigned for the Line Item, based on the Tax Setting."
+        },
+        "TaxCode4": {
+          "type": "string",
+          "description": "The Tax Code 4 assigned for the Line Item, based on the Tax Setting."
         },
         "TotalPrice": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The total amount of the line item."
         },
         "UnitOfMeasure": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The code for the measurement unit used to quantify the good or service. Use GET /invoice/localizeddata to look up codes and descriptions."
         },
         "UnitPrice": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The cost for a single unit of the line item good or service."
         },
         "VatAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The amount of VAT 1 included in the line item total."
+        },
+        "VatAmountFour": {
+          "type": "string",
+          "description": "The amount of VAT 4 included in the line item total."
+        },
+        "VatAmountThree": {
+          "type": "string",
+          "description": "The amount of VAT 3 included in the line item total."
+        },
+        "VatAmountTwo": {
+          "type": "string",
+          "description": "The amount of VAT 2 included in the line item total."
         },
         "VatRate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The VAT rate 1 applied to the net line item total."
+        },
+        "VatRateFour": {
+          "type": "string",
+          "description": "The VAT rate 4 applied to the net line item total."
+        },
+        "VatRateThree": {
+          "type": "string",
+          "description": "The VAT rate 3 applied to the net line item total."
+        },
+        "VatRateTwo": {
+          "type": "string",
+          "description": "The VAT rate 2 applied to the net line item total."
         }
       }
     },
@@ -1084,150 +1190,190 @@
       "properties": {
         "Action": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The operation(INSERT/UPDATE/DELETE) to be performed on the Line Item."
         },
         "Allocations": {
           "$ref": "#/definitions/PaymentRequestAllocationPostPut"
         },
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The net amount of the line item (excluding VAT)."
         },
         "Custom01": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom02": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom03": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom04": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom05": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom06": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom07": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom08": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom09": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Description": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Brief overview of the good or service ordered."
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates the Expense Type for the Line Item."
         },
         "ItemCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Represents the item code (the unique code a vendor assigns to a good or code a vendor assigns to a good or service to identify it)."
         },
         "LineItemID": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Line Item ID of the Payment Request."
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Purchase Order that is associated to the Line Item ."
         },
         "Quantity": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Total number of goods or services ordered."
         },
         "ShipFromPostalCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The postal code the good or service was shipped from."
         },
         "ShipToPostalCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The postal code the good or service will be shipped to."
         },
         "SupplierPartId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The unique identifier provided by the supplier that is associated with the good or service."
         },
         "Tax": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The tax associated with the line item."
+        },
+        "TaxCode": {
+          "type": "string",
+          "description": "The Tax Code  assigned for the Line Item, based on the Tax Setting."
+        },
+        "TaxCode2": {
+          "type": "string",
+          "description": "The Tax Code 2 assigned for the Line Item, based on the Tax Setting."
+        },
+        "TaxCode3": {
+          "type": "string",
+          "description": "The Tax Code 3 assigned for the Line Item, based on the Tax Setting."
+        },
+        "TaxCode4": {
+          "type": "string",
+          "description": "The Tax Code 4 assigned for the Line Item, based on the Tax Setting."
         },
         "UnitOfMeasure": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The code for the measurement unit used to quantify the good or service. Use GET /invoice/localizeddata to look up codes and descriptions."
         },
         "UnitPrice": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The cost for a single unit of the line item good or service."
         },
         "VatAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The amount of VAT 1 included in the line item total."
+        },
+        "VatAmountFour": {
+          "type": "string",
+          "description": "The amount of VAT 4 included in the line item total."
+        },
+        "VatAmountThree": {
+          "type": "string",
+          "description": "The amount of VAT 3 included in the line item total."
+        },
+        "VatAmountTwo": {
+          "type": "string",
+          "description": "The amount of VAT 2 included in the line item total."
         },
         "VatRate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The VAT rate 1 applied to the net line item total."
+        },
+        "VatRateFour": {
+          "type": "string",
+          "description": "The VAT rate 4 applied to the net line item total."
+        },
+        "VatRateThree": {
+          "type": "string",
+          "description": "The VAT rate 3 applied to the net line item total."
+        },
+        "VatRateTwo": {
+          "type": "string",
+          "description": "The VAT rate 2 applied to the net line item total."
         }
       }
     },
@@ -1235,297 +1381,313 @@
       "properties": {
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The net amount of the invoice (excluding VAT)."
         },
         "BuyerCostCenter": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The company defined center responsible for the Payment Request."
         },
         "CheckNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Check number of the payment made to the vendor."
         },
         "CompanyBillToAddressCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The code which identifies the company location to which the vendor billed the invoice."
         },
         "CompanyShipToAddressCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The code which identifies the company location to which the vendor shipped items listed in the invoice."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The country code."
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona."
         },
         "Custom01": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom02": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom03": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom04": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom05": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom06": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom07": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom08": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom09": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom21": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom22": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom23": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom24": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "DataSource": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates the method used to created the Payment Request. Use GET /invoice/localizeddata to translate the code into text."
         },
         "DeliverySlipNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The delivery slip number associated with receiving receipt."
         },
         "Description": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "User entered description of the Payment Request."
         },
         "DiscountPercentage": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The discount from the supplier if the discount terms are met."
         },
         "DiscountTerms": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The NET discount terms with a supplier when discounts apply."
         },
         "EmployeeEmailAddress": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The email address of the employee to whom the request should be assigned. Not evaluated if EmployeeLoginId or EmployeeId match an employee. This value is <strong>required</strong> if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; PurchaseOrderNumber; ExternalPolicyId."
         },
         "EmployeeId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The company ID of the employee to whom the request should be assigned. Has precedence over EmployeeEmail; not evaluated if EmployeeLoginId matches an employee. This value is <strong>required</strong> if none of the following are provided: LedgerCode, EmployeeLoginId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId."
         },
         "EmployeeLoginId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The login ID of the employee to whom the request should be assigned. Has precedence over EmployeeId and EmployeeEmail. This value is <strong>required</strong> if none of the following are provided: LedgerCode, EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId."
         },
         "ExternalPolicyId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The external policy ID of the Payment Request. This value is <strong>required</strong> if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; EmployeeEmail; PurchaseOrderNumber."
         },
         "InvoiceAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "User-entered value representing the total invoice amount, used to calculate amount remaining on the line item page."
         },
         "InvoiceDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the Vendor issued the Invoice."
         },
         "InvoiceNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Invoice Number from the vendor for the Payment Request."
         },
         "InvoiceReceivedDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date on which the invoice was received."
         },
         "IsEmergencyCheckRun": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Is an emergency check run required(Y/N)."
         },
         "IsInvoiceConfirmed": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Indicates if the Payment Request Invoice is confirmed or in a different status (true/false)."
         },
         "LedgerCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates which company journal the Payment Request is assigned to. Use GET /invoice/localizeddata to obtain valid codes. This value is <strong>required</strong> if none of the following are provided: EmployeeLoginId; EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId."
         },
         "LineItems": {
           "$ref": "#/definitions/PaymentRequestLineItemPost"
         },
         "Name": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Payment Request Name."
         },
         "NotesToVendor": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Information from the customer to the vendor for special requests or handling for the ordered good or service."
         },
         "OB10BuyerId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A unique buyer account on the OB10 network."
         },
         "OB10TransactionId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Unique Identifier for the PR transaction (generated by OB10)."
         },
         "OrgUnit01": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit02": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit03": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit04": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit05": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit06": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "PaymentAdjustmentNotes": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Notes to the vendor regarding the amount paid (underpayment due to damages, for example)."
         },
         "PaymentAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Represents the amount of the payment that will be/has been made for the Invoice."
         },
         "PaymentDueDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the vendor needs to be paid by."
         },
         "PaymentTermsDays": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "This number, along with type of payment terms (example: NET), determine when the invoice is expected to be paid."
         },
         "ProvincialTaxId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Vendor Provincial Tax ID."
         },
         "PurchaseOrderId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The ID of the Purchase Order to which the Payment Request should be matched. This value is <strong>required</strong> if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; EmployeeEmail; ExternalPolicyId."
         },
         "ReceiptConfirmationType": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates the receipt confirmation type for this Payment Request (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text."
         },
         "ShippingAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The value for the Shipping Amount header field."
         },
         "TaxAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The value for the Tax Amount header field."
+        },
+        "VatAmountFour": {
+          "type": "string",
+          "description": "The amount of VAT included in the invoice total. (Fourth of four VAT amount fields available.)"
         },
         "VatAmountOne": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The amount of VAT included in the invoice total. (First of four VAT amount fields available.)"
+        },
+        "VatAmountThree": {
+          "type": "string",
+          "description": "The amount of VAT included in the invoice total. (Third of four VAT amount fields available.)"
         },
         "VatAmountTwo": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The amount of VAT included in the invoice total. (Second of four VAT amount fields available.)"
+        },
+        "VatRateFour": {
+          "type": "string",
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the fourth VAT amount field.)"
         },
         "VatRateOne": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the first VAT amount field.)"
+        },
+        "VatRateThree": {
+          "type": "string",
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the third VAT amount field.)"
         },
         "VatRateTwo": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the second VAT amount field.)"
         },
         "VendorRemitToIdentifier": {
           "$ref": "#/definitions/VendorIdentifier"
         },
         "VendorShipFromAddressCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The code which identifies the location from which the vendor shipped items listed in the invoice."
         },
         "VendorTaxId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Vendor Tax ID."
         }
       }
     },
@@ -1533,297 +1695,313 @@
       "properties": {
         "AmountWithoutVat": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The net amount of the invoice (excluding VAT)."
         },
         "BuyerCostCenter": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The company defined center responsible for the Payment Request."
         },
         "CheckNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Check number of the payment made to the vendor."
         },
         "CompanyBillToAddressCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The code which identifies the company location to which the vendor billed the invoice."
         },
         "CompanyShipToAddressCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The code which identifies the company location to which the vendor shipped items listed in the invoice."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The country code."
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona."
         },
         "Custom01": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom02": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom03": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom04": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom05": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom06": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom07": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom08": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom09": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom10": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom11": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom12": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom13": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom14": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom15": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom16": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom17": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom18": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom19": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom20": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom21": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom22": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom23": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "Custom24": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Custom fields. These may not have data, depending on configuration."
         },
         "DeliverySlipNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The delivery slip number associated with receiving receipt."
         },
         "Description": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "User entered description of the Payment Request."
         },
         "DiscountPercentage": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The discount from the supplier if the discount terms are met."
         },
         "DiscountTerms": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The NET discount terms with a supplier when discounts apply."
         },
         "DoCopyDown": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Use new Request Owner's employee copydown values in this request"
         },
         "DoCopyDownFromPO": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Use purchase order copydown values in this request"
         },
         "EmployeeEmailAddress": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The email address of the employee to whom the request should be assigned. Not evaluated if EmployeeLoginId or EmployeeId match an employee."
         },
         "EmployeeId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The company ID of the employee to whom the request should be assigned. Has precedence over EmployeeEmail; not evaluated if EmployeeLoginId matches an employee."
         },
         "EmployeeLoginId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The login ID of the employee to whom the request should be assigned. Has precedence over EmployeeId and EmployeeEmail."
         },
         "InvoiceAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "User-entered value representing the total invoice amount, used to calculate amount remaining on the line item page."
         },
         "InvoiceDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the Vendor issued the Invoice."
         },
         "InvoiceNumber": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Invoice Number from the vendor for the Payment Request."
         },
         "InvoiceReceivedDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date on which the invoice was received."
         },
         "IsEmergencyCheckRun": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Is an emergency check run required(Y/N)."
         },
         "IsInvoiceConfirmed": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Indicates if the Payment Request Invoice is confirmed or in a different status (true/false)."
         },
         "LineItems": {
           "$ref": "#/definitions/PaymentRequestLineItemPut"
         },
         "Name": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Payment Request Name."
         },
         "NotesToVendor": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Information from the customer to the vendor for special requests or handling for the ordered good or service."
         },
         "OB10BuyerId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A unique buyer account on the OB10 network."
         },
         "OB10TransactionId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Unique Identifier for the PR transaction (generated by OB10)."
         },
         "OrgUnit01": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit02": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit03": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit04": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit05": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "OrgUnit06": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The details from the Organization Unit fields. These may not have data, depending on configuration."
         },
         "PaymentAdjustmentNotes": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Notes to the vendor regarding the amount paid (underpayment due to damages, for example)."
         },
         "PaymentAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Represents the amount of the payment that will be/has been made for the Invoice."
         },
         "PaymentDueDate": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The date the vendor needs to be paid by."
         },
         "PaymentTermsDays": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "This number, along with type of payment terms (example: NET), determine when the invoice is expected to be paid."
         },
         "ProvincialTaxId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Vendor Provincial Tax ID."
         },
         "PurchaseOrderId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The ID of the Purchase Order to which the Payment Request should be matched."
         },
         "ReceiptConfirmationType": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "A code which indicates the receipt confirmation type for this Payment Request (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text."
         },
         "RequestID": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Request ID of the Payment Request"
         },
         "ShippingAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The value for the Shipping Amount header field."
         },
         "TaxAmount": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The value for the Tax Amount header field."
+        },
+        "VatAmountFour": {
+          "type": "string",
+          "description": "The amount of VAT included in the invoice total. (Fourth of four VAT amount fields available.)"
         },
         "VatAmountOne": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The amount of VAT included in the invoice total. (First of four VAT amount fields available.)"
+        },
+        "VatAmountThree": {
+          "type": "string",
+          "description": "The amount of VAT included in the invoice total. (Third of four VAT amount fields available.)"
         },
         "VatAmountTwo": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The amount of VAT included in the invoice total. (Second of four VAT amount fields available.)"
+        },
+        "VatRateFour": {
+          "type": "string",
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the fourth VAT amount field.)"
         },
         "VatRateOne": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the first VAT amount field.)"
+        },
+        "VatRateThree": {
+          "type": "string",
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the third VAT amount field.)"
         },
         "VatRateTwo": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The VAT rate applied to the net invoice total. (Should relate to the second VAT amount field.)"
         },
         "VendorRemitToIdentifier": {
           "$ref": "#/definitions/VendorIdentifier"
         },
         "VendorShipFromAddressCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The code which identifies the location from which the vendor shipped items listed in the invoice."
         },
         "VendorTaxId": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The Vendor Tax ID."
         }
       }
     },
@@ -1831,39 +2009,39 @@
       "properties": {
         "Address1": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Line 1 of the street address."
         },
         "Address2": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Line 2 of the street address"
         },
         "Address3": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Line 3 of the street address"
         },
         "City": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The name of the city."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The country code."
         },
         "DiscountTerms": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The NET discount terms with a supplier when discounts apply."
         },
         "Name": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The name of the vendor."
         },
         "PostalCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The postal / zip code."
         },
         "State": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The state code."
         }
       }
     },
@@ -1871,19 +2049,19 @@
       "properties": {
         "Address1": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "Line 1 of the street address."
         },
         "AddressCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The code which identifies a particular vendor location."
         },
         "Name": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The name of the vendor."
         },
         "PostalCode": {
           "type": "string",
-          "description": "The code which identifies a particular vendor."
+          "description": "The postal / zip code."
         },
         "VendorCode": {
           "type": "string",

@@ -15,19 +15,21 @@
   ],
   "info": {
     "title": "Receipt Images",
-    "description": "",
+    "description": "The Receipt Image API allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.",
     "version": "3.0"
   },
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/expense/receiptimages": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all receipt IDs by user",
         "description": "Get a list of all receipt IDs owned by the user associated with the OAuth token",
         "parameters": [
@@ -64,7 +66,9 @@
         }
       },
       "post": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Create a new receipt image",
         "description": "Creates a new image in the receipt store.",
         "parameters": [
@@ -97,7 +101,9 @@
     },
     "/expense/receiptimages/{id}": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a receipt image URL",
         "description": "Get a receipt image URL by image ID.",
         "parameters": [
@@ -126,7 +132,9 @@
         }
       },
       "put": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Appends a receipt image to an existing receipt image",
         "description": "Appends a receipt image to an existing image in the receipt store.",
         "parameters": [
@@ -164,7 +172,9 @@
         }
       },
       "delete": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Delete a receipt image by ID",
         "description": "Deletes the specified receipt image",
         "parameters": [
@@ -199,11 +209,11 @@
       "properties": {
         "ID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier of the resource."
         },
         "URI": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The URI to the resource."
         }
       }
     },

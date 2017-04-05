@@ -1,18 +1,21 @@
 ---
-title: Form of Payment Resource 
+title: Form of Payment Resource
 layout: reference
 ---
 
+<span style="background-color:red; font-size:24pt"> **This version (1.0) has been deprecated effective 04/01/2016**</span>  
+Access a new version: [Form of Payment 2.0](/api-reference/travel-profile/02-form-payment-resource.html)
 
 ## Description
-The Form of Payment resource represents the form of payment a Concur user uses by default during travel. You can use this resource to obtain information associated with a user's preferred method of payment such as card display name, credit card number, expiration date, and billiting address.  
+The Form of Payment resource represents the form of payment a Concur user uses by default during travel. You can use this resource to obtain information associated with a user's preferred method of payment such as card display name, credit card number, expiration date, and billiting address. **This version (1.0) has been deprecated effective 04/01/2016**  
+
 **Click [here](/api-reference/travel/travel-profile/form-payment-resource.html) to access a newer version.**
 
 ## Version   
-1.0
+1.0 **Deprecated 04/01/2016**
 
 ## URI   
-<samp> https://www.concursolutions.com/api/travelprofile/v1.0/fop/ </samp>
+`https://www.concursolutions.com/api/travelprofile/v1.0/fop/`
 
 ## Who can use this resource?
 This endpoint can be used by travel suppliers or travel management companies (TMC). The scope of information returned varies depending on who makes the request.
@@ -43,10 +46,10 @@ This endpoint is intended for use by Travel Suppliers or Travel Management Compa
 ## Request
 
 
-```
-    GET https://www.concursolutions.com/api/travelprofile/v1.0/fop/ HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+GET https://www.concursolutions.com/api/travelprofile/v1.0/fop/ HTTP/1.1
+Authorization: OAuth {access token}
+...
 ```
 
 ### Request parameters
@@ -58,7 +61,7 @@ None.
 `Authorization: OAuth {access_token}`
 
 #### Content-Type header   
-application/xml 
+application/xml
 
 #### Accept header   
 application/xml
@@ -95,68 +98,66 @@ This request will return a **CorporateFOPResponse** parent element with the **un
 
 ####  XML Example of Successful Response for Air Travel Supplier
 
-```xml
-    200 OK
-    Content-Type: application/xml
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
 
-    <CorporateFOPResponse UniqueID="3Dkw7WlCshi$281kedhn">
-        <CreditCards>
-            <CreditCard DisplayName="American Express">
-                <Vendor>AX</Vendor>
-                <AccountNo>123456789012345</AccountNo>
-                <ExpDate>2015-05</ExpDate>
-                <NameOnCard>Chris Miller</NameOnCard>
-                <Usages>BusinessAir</Usages>
-                <BillingAddress>
-                    <StreetAddress>1234 Rainy St.</StreetAddress>
-                    <City>Seattle</City>
-                    <StateProvince>WA</StateProvince>
-                    <Country>US</Country>
-                    <ZipCode>98112</ZipCode>
-                </BillingAddress>
-            </CreditCard>
-        </CreditCards>
-    </CorporateFOPResponse>
+<CorporateFOPResponse UniqueID="3Dkw7WlCshi$281kedhn">
+    <CreditCards>
+        <CreditCard DisplayName="American Express">
+            <Vendor>AX</Vendor>
+            <AccountNo>123456789012345</AccountNo>
+            <ExpDate>2015-05</ExpDate>
+            <NameOnCard>Chris Miller</NameOnCard>
+            <Usages>BusinessAir</Usages>
+            <BillingAddress>
+                <StreetAddress>1234 Rainy St.</StreetAddress>
+                <City>Seattle</City>
+                <StateProvince>WA</StateProvince>
+                <Country>US</Country>
+                <ZipCode>98112</ZipCode>
+            </BillingAddress>
+        </CreditCard>
+    </CreditCards>
+</CorporateFOPResponse>
 ```
 
 ####  XML Example of Successful Response for TMC
 
-```xml
-    200 OK
-    Content-Type: application/xml
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
 
-    <CorporateFOPResponse UniqueID="3Dkw7WlCshi$281kedhn">
-        <CreditCards>
-            <CreditCard DisplayName="American Express">
-                <Vendor>AX</Vendor>
-                <AccountNo>123456789012345</AccountNo>
-                <ExpDate>2015-05</ExpDate>
-                <NameOnCard>Chris Miller</NameOnCard>
-                <Usages>BusinessAir,BusinessCar</Usages>
-                <BillingAddress>
-                    <StreetAddress>1234 Rainy St.</StreetAddress>
-                    <City>Seattle</City>
-                    <StateProvince>WA</StateProvince>
-                    <Country>US</Country>
-                    <ZipCode>98112</ZipCode>
-                </BillingAddress>
-            </CreditCard>
-            <CreditCard DisplayName="Visa">
-                <Vendor>VI</Vendor>
-                <AccountNo>098765432109876</AccountNo>
-                <ExpDate>2013-07</ExpDate>
-                <NameOnCard>Chris Miller</NameOnCard>
-                <Usages>Hotel</Usages>
-                <BillingAddress>
-                    <StreetAddress>1234 Rainy St.</StreetAddress>
-                    <City>Seattle</City>
-                    <StateProvince>WA</StateProvince>
-                    <Country>US</Country>
-                    <ZipCode>98112</ZipCode>
-                </BillingAddress>
-            </CreditCard>
-        </CreditCards>
-    </CorporateFOPResponse>
+<CorporateFOPResponse UniqueID="3Dkw7WlCshi$281kedhn">
+    <CreditCards>
+        <CreditCard DisplayName="American Express">
+            <Vendor>AX</Vendor>
+            <AccountNo>123456789012345</AccountNo>
+            <ExpDate>2015-05</ExpDate>
+            <NameOnCard>Chris Miller</NameOnCard>
+            <Usages>BusinessAir,BusinessCar</Usages>
+            <BillingAddress>
+                <StreetAddress>1234 Rainy St.</StreetAddress>
+                <City>Seattle</City>
+                <StateProvince>WA</StateProvince>
+                <Country>US</Country>
+                <ZipCode>98112</ZipCode>
+            </BillingAddress>
+        </CreditCard>
+        <CreditCard DisplayName="Visa">
+            <Vendor>VI</Vendor>
+            <AccountNo>098765432109876</AccountNo>
+            <ExpDate>2013-07</ExpDate>
+            <NameOnCard>Chris Miller</NameOnCard>
+            <Usages>Hotel</Usages>
+            <BillingAddress>
+                <StreetAddress>1234 Rainy St.</StreetAddress>
+                <City>Seattle</City>
+                <StateProvince>WA</StateProvince>
+                <Country>US</Country>
+                <ZipCode>98112</ZipCode>
+            </BillingAddress>
+        </CreditCard>
+    </CreditCards>
+</CorporateFOPResponse>
 ```
-
-

@@ -37,7 +37,7 @@ This request should contain an **Exceptions** parent element with an **Exception
 
 |Element | Required (must contain value)? | Description |
 --- | --- | ---
-Index | Y | The exception's location in a batch of exceptions. Should start at 1 and increment sequentially. This value is used to identify the record if there is an error. 
+Index | Y | The exception's location in a batch of exceptions. Should start at 1 and increment sequentially. This value is used to identify the record if there is an error.
 ObjectType | Y | The type of object to assign the exception. Format: Report, Entry, or Allocation. When sending a Report level exception, the ObjectType and ObjectId can be null, as the report key is supplied in the URI.
 ObjectId | Y | The unique identifier for the object to associate with the exception. Returned by the [Get Report Details][1] function. Must be the value from one of the following fields:<br/>&nbsp;&nbsp;&nbsp;Entry or Itemization: Use the **RpeKey**.<br/>&nbsp;&nbsp;&nbsp;Allocation: Use **AllocationKey**.<br/>&nbsp;&nbsp;&nbsp;Report Header: Null value. When sending a Report level exception, the ObjectType and ObjectId can be null, as the report key is supplied in the URI.
 ExceptionCode | Y | The Exception Code for the exception to assign to the object. Must be a configured exception code in Expense. Example: NODATE
@@ -54,7 +54,7 @@ This request will return an **exception-result** parent element.
 
 Element | Description
 --- | ---
-exceptions-succeeded | The number of exceptions processed that were successfully assigned. 
+exceptions-succeeded | The number of exceptions processed that were successfully assigned.
 exceptions-failed | The number of exceptions processed that were not successfully added.
 errors | This will contain an **error** parent element for each record failure. The **error** element will contain the following child elements:<br/>&nbsp;&nbsp;&nbsp;Index: The exception's location in the batch.<br/>&nbsp;&nbsp;&nbsp;message: The error message.
 ExceptionDetails |This parent element will contain an **ExceptionInfo** parent element for all exceptions that did not cause an error, and will contain the following child elements:<br/>&nbsp;&nbsp;&nbsp;Index: The exception's location in the batch.<br/>&nbsp;&nbsp;&nbsp;Status: The status of the request.
@@ -63,49 +63,48 @@ ExceptionDetails |This parent element will contain an **ExceptionInfo** parent e
 
 ###  XML Example Request
 
+```http
+POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/3FK118eIJ844Uwl0HF32/Exceptions HTTP/1.1
+Authorization: OAuth {access token}
+Content-Type: application/xml
+
+<Exceptions xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Exception>
+        <Index>1</Index>
+        <ObjectType>Report</ObjectType>
+        <ObjectId>nxxKgLlnRODp$sie8Hq1UviOJ2AbpS7dCP</ObjectId>
+        <ExceptionCode>APPRVTO</ExceptionCode>
+    </Exception>
+    <Exception>
+        <Index>2</Index>
+        <ObjectType>Entry</ObjectType>
+        <ObjectId>nxxKgLlnRODp$sie8Hq1UviOJ2deAbpS7dC0</ObjectId>
+        <ExceptionCode>APPRVTO</ExceptionCode>
+    </Exception>
+</Exceptions>
 ```
-xml
-    POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/3FK118eIJ844Uwl0HF32/Exceptions
-    Authorization: OAuth {access token}
-    Content-Type: application/xml
-    <Exceptions xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Exception>
-            <Index>1</Index>
-            <ObjectType>Report</ObjectType>
-            <ObjectId>nxxKgLlnRODp$sie8Hq1UviOJ2AbpS7dCP</ObjectId>
-            <ExceptionCode>APPRVTO</ExceptionCode>
-        </Exception>
-        <Exception>
-            <Index>2</Index>
-            <ObjectType>Entry</ObjectType>
-            <ObjectId>nxxKgLlnRODp$sie8Hq1UviOJ2deAbpS7dC0</ObjectId>
-            <ExceptionCode>APPRVTO</ExceptionCode>
-        </Exception>
-    </Exceptions>
-    ```
 
 ### XML Example of Response With Success and Failure
 
+```xml
+<exception-result xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <exceptions-succeeded>1</exceptions-succeeded>
+    <exceptions-failed>1</exceptions-failed>
+    <errors>
+        <error>
+            <Index>2</Index>
+            <message>Invalid Exception Code</message>
+        </error>
+    </errors>
+    <ExceptionDetails>
+        <ExceptionInfo>
+            <Index>1</Index>
+            <Status>Success</Status>
+        </ExceptionInfo>
+    </ExceptionDetails>
+</exception-result>
 ```
-xml
-    <exception-result xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <exceptions-succeeded>1</exceptions-succeeded>
-        <exceptions-failed>1</exceptions-failed>
-        <errors>
-            <error>
-                <Index>2</Index>
-                <message>Invalid Exception Code</message>
-            </error>
-        </errors>
-        <ExceptionDetails>
-            <ExceptionInfo>
-                <Index>1</Index>
-                <Status>Success</Status>
-            </ExceptionInfo>
-        </ExceptionDetails>
-    </exception-result>
-```
-  
+
 
 
 [1]: /api-reference/expense/expense-report/reports.html#getID

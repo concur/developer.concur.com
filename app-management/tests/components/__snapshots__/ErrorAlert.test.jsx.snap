@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorAlert /> should display nothing if there is no error 1`] = `null`;
+
+exports[`<ErrorAlert /> should render if error is present 1`] = `
+<div
+  className="alert alert-danger"
+>
+  Fetch failed
+</div>
+`;

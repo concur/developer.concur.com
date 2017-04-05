@@ -1,0 +1,67 @@
+.one-page {
+  .btn {
+    margin: 5px 0 20px;
+  }
+
+  .one-page-inner {
+    padding: 30px 0;
+    min-height: 300px;
+  }
+
+  .one-page-inner.one-default {
+    color: white;
+  }
+
+  .one-page-inner.one-blue {
+    background: $concur-blue;
+
+    p a:not(.btn) {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+
+  .one-default p,
+  .one-default h1,
+  .one-default h2 {
+    color: $text-gray;
+  }
+
+  h1, h2 {
+    color: white;
+    font-size: 23px;
+    line-height: 28px;
+    text-shadow: none;
+    margin-bottom: 25px;
+  }
+
+  p {
+    color: white;
+  }
+}
+
+.list-group-item a {
+  color: inherit;
+}
+
+.list-group-item a:hover {
+  text-decoration: none;
+}
+
+.fine-print > p {
+  font-size: 12px;
+}
+
+.container.content {
+  min-height: 100vh;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+.height-200 {
+  height: 200px;
+}
+
+.height-400 {
+  height: 400px;
+}

@@ -6,17 +6,17 @@ layout: reference
 
 #  Itemizations
 
-* [Retrieve all expense itemizations owned by the user](#get)
+* [Retrieve all expense itemizations owned by the user](#get) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
 * [Retrieve an expense itemization by ID](#getID)
 * [Create a new expense itemization](#post)
-* [Update an expense itemization](#put)
-* [Delete an expense itemization](#delete)
+* [Update an expense itemization](#put) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
+* [Delete an expense itemization](#delete) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
 * [Schema](#schema)
 
 
 ## Version
 
-3.0  
+3.0 Note that some methods are deprecated  
 
 1.1 documentation is available [here](/api-reference-deprecated/version-one-one/expense-entry-itemization/expense-entry-itemization-resource.html)  
 
@@ -24,9 +24,11 @@ layout: reference
 
 ## <a name="get"></a>Retrieve all expense itemizations owned by the user
 
+**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
+
     GET  /api/v3.0/expense/itemizations
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -39,6 +41,93 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter.
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/itemizations?limit=10&user=ALL
+```
+
+### JSON example of a successful response
+
+```json
+{
+  "Items": [
+    {
+      "EntryID": "gWidFO7ikXSy55WZOaAXv8JRfFkruCwrP4g",
+      "ReportID": "F4F027007E814C1CA70E",
+      "ReportOwnerID": "CAtraveler@concurconnect2.com",
+      "ExpenseTypeCode": "LODTX",
+      "ExpenseTypeName": "Hotel Tax",
+      "SpendCategoryCode": "LODGA",
+      "SpendCategoryName": "Lodging - Track Room Rate Spending",
+      "TransactionDate": "2013-08-07T00:00:00",
+      "TransactionAmount": 20,
+      "PostedAmount": 20,
+      "ApprovedAmount": 20,
+      "LocationID": "gWqWg2EhaUtcIW$s2pMbTGM8W81u2qcfX94w",
+      "LocationName": "Montreal, Quebec",
+      "LocationSubdivision": "Quebec",
+      "LocationCountry": "CA",
+      "Description": "test",
+      "IsPersonal": false,
+      "IsBillable": false,
+      "IsImageRequired": false,
+      "AllocationType": "N",
+      "HasComments": false,
+      "HasExceptions": false,
+      "LastModified": "2013-09-02T19:40:48.877",
+      "OrgUnit1": null,
+      "OrgUnit2": null,
+      "OrgUnit3": null,
+      "OrgUnit4": null,
+      "OrgUnit5": null,
+      "OrgUnit6": null,
+      "Custom1": null,
+      "Custom2": null,
+      "Custom3": null,
+      "Custom4": null,
+      "Custom5": null,
+      "Custom6": null,
+      "Custom7": null,
+      "Custom8": null,
+      "Custom9": null,
+      "Custom10": null,
+      "Custom11": null,
+      "Custom12": null,
+      "Custom13": null,
+      "Custom14": null,
+      "Custom15": null,
+      "Custom16": null,
+      "Custom17": null,
+      "Custom18": null,
+      "Custom19": null,
+      "Custom20": null,
+      "Custom21": null,
+      "Custom22": null,
+      "Custom23": null,
+      "Custom24": null,
+      "Custom25": null,
+      "Custom26": null,
+      "Custom27": null,
+      "Custom28": null,
+      "Custom29": null,
+      "Custom30": null,
+      "Custom31": null,
+      "Custom32": null,
+      "Custom33": null,
+      "Custom34": null,
+      "Custom35": null,
+      "Custom36": null,
+      "Custom37": null,
+      "Custom38": null,
+      "Custom39": null,
+      "Custom40": null,
+      "ID": "gWidFO7ikXSy$seMkLiQismjUIYkxYzCsf4g",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXSy$seMkLiQismjUIYkxYzCsf4g"
+    }
+  ]
+}
+```
 
 ## <a name="getID"></a>Retrieve an expense itemization by ID
 
@@ -53,6 +142,91 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns the itemizations. The user must have the Web Services Admin role to use this parameter.
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXV6%24pcZsso2aBN0Aad4P5i8bjCg
+```
+
+### JSON example of a successful response
+
+```json
+{
+  "EntryID": "gWidFO7ikXV6$sQxTtWGQsIhawC4KoyssTCg",
+  "ReportID": "39BD9F7C5C3F4986A6A5",
+  "ReportOwnerID": "jimadmin@concurconnect2.com",
+  "ExpenseTypeCode": "LODTX",
+  "ExpenseTypeName": "Hotel Tax",
+  "SpendCategoryCode": "LODGA",
+  "SpendCategoryName": "Lodging - Track Room Rate Spending",
+  "TransactionDate": "2016-04-21T00:00:00",
+  "TransactionAmount": 20,
+  "PostedAmount": 20,
+  "ApprovedAmount": 20,
+  "LocationID": "gWqWg2EhcUKB$sottpx8eODvjn1$pWvWfG15A",
+  "LocationName": "Bellevue, Washington",
+  "LocationSubdivision": "Washington",
+  "LocationCountry": "US",
+  "Description": null,
+  "IsPersonal": false,
+  "IsBillable": false,
+  "IsImageRequired": false,
+  "AllocationType": "N",
+  "HasComments": false,
+  "HasExceptions": false,
+  "LastModified": "2016-04-22T22:19:55.213",
+  "OrgUnit1": null,
+  "OrgUnit2": null,
+  "OrgUnit3": null,
+  "OrgUnit4": null,
+  "OrgUnit5": null,
+  "OrgUnit6": null,
+  "Custom1": null,
+  "Custom2": null,
+  "Custom3": null,
+  "Custom4": null,
+  "Custom5": null,
+  "Custom6": null,
+  "Custom7": null,
+  "Custom8": null,
+  "Custom9": null,
+  "Custom10": null,
+  "Custom11": null,
+  "Custom12": null,
+  "Custom13": null,
+  "Custom14": null,
+  "Custom15": null,
+  "Custom16": null,
+  "Custom17": null,
+  "Custom18": null,
+  "Custom19": null,
+  "Custom20": null,
+  "Custom21": null,
+  "Custom22": null,
+  "Custom23": null,
+  "Custom24": null,
+  "Custom25": null,
+  "Custom26": null,
+  "Custom27": null,
+  "Custom28": null,
+  "Custom29": null,
+  "Custom30": null,
+  "Custom31": null,
+  "Custom32": null,
+  "Custom33": null,
+  "Custom34": null,
+  "Custom35": null,
+  "Custom36": null,
+  "Custom37": null,
+  "Custom38": null,
+  "Custom39": null,
+  "Custom40": null,
+  "ID": "gWidFO7ikXV6$pcZsso2aBN0Aad4P5i8bjCg",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXV6$pcZsso2aBN0Aad4P5i8bjCg"
+}
+```
+
+
 ## <a name="post"></a>Create a new expense itemization
 
     POST  /api/v3.0/expense/itemizations
@@ -65,7 +239,25 @@ Name | Type | Format | Description
 `content`	|	-	|	`body`	|	**Required** The expense itemization object to create.
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/itemizations
+```
+
+### JSON example of a successful response
+
+```json
+{
+  "ID": "gWidFO7ikXV69FISvVWPbHe1Oj4FbCd0DCg",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXV69FISvVWPbHe1Oj4FbCd0DCg"
+}
+```
+
+
 ## <a name="put"></a>Update an expense itemization
+
+**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
 
     PUT  /api/v3.0/expense/itemizations/{id}
 
@@ -78,7 +270,20 @@ Name | Type | Format | Description
 `content`	|	-	|	`body`	|	**Required** The partial or complete expense itemization object to update.
 
 
+### Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXV6%24pcZsso2aBN0Aad4P5i8bjCg
+```
+
+### JSON example of a successful response
+
+```
+no content
+```
+
 ## <a name="delete"></a>Delete an expense itemization
+
+**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
 
     DELETE  /api/v3.0/expense/itemizations/{id}
 
@@ -92,10 +297,22 @@ Name | Type | Format | Description
 
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/itemizations/gWidFO7ikXV6%24pcZsso2aBN0Aad4P5i8bjCg
+```
+
+### JSON example of a successful response
+
+```
+no content
+```
+
 ## <a name="schema"></a>Schema
 
 
-###<a name="itemizations"></a>Itemizations
+### <a name="itemizations"></a>Itemizations
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -103,7 +320,7 @@ Name | Type | Format | Description
 `NextPage`	|	`string`	|	-	|	The URI of the next page of results, if any.
 
 
-###<a name="itemization"></a>Itemization
+### <a name="itemization"></a>Itemization
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -135,7 +352,7 @@ Name | Type | Format | Description
 `TransactionDate`	|	`DateTime`	|	-	|	**Required** The date when the good or service associated with this itemization was provided. Format: YYYY-MM-DD
 `URI`	|	`string`	|	-	|	The URI to the resource.
 
-###<a name="customfield"></a>Custom Field
+### <a name="customfield"></a>Custom Field
 
 Name | Type | Format | Description
 -----|------|--------|------------

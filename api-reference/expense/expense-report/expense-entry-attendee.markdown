@@ -16,7 +16,7 @@ layout: reference
 ## Version  
 
 3.0  
-  
+
 2.0 documentation is available [here.](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource.html)
 
 
@@ -24,7 +24,7 @@ layout: reference
 
     GET  /api/v3.0/expense/entryattendeeassociations
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -34,7 +34,46 @@ Name | Type | Format | Description
 `limit`	|	`Int32`	|	`query`	|	The number of records to return. Default value: 25
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter.
 
+### Request URL
 
+```
+https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations?limit=15&user=ALL
+```
+
+### JSON example of a successful response
+
+```json
+{
+  "Items": [
+    {
+      "EntryID": "gWidFO7ikXS264Tf3Z68NmcXdkxhcxezfzA",
+      "AttendeeID": "gWj3IHRYiHZGX4xP$s0YUWUyoUjss$pWV3z$pQ",
+      "Amount": 80,
+      "AssociatedAttendeeCount": 1,
+      "Custom1": null,
+      "Custom2": null,
+      "Custom3": null,
+      "Custom4": null,
+      "Custom5": null,
+      "ID": "gWgSNsCedFvv8LE1LrkughW9mAyCN",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSNsCedFvv8LE1LrkughW9mAyCN"
+    },
+    {
+      "EntryID": "gWidFO7ikXSi7DX4hlLTggJD76w1IvtEvWw",
+      "AttendeeID": "gWj3IHRYiHZGSG6M4xo0PEyYXAs8rHGfD$pQ",
+      "Amount": 120,
+      "AssociatedAttendeeCount": 1,
+      "Custom1": null,
+      "Custom2": null,
+      "Custom3": null,
+      "Custom4": null,
+      "Custom5": null,
+      "ID": "gWgOOsCJrozFymvWtfB5Ri1WD$ste9",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgOOsCJrozFymvWtfB5Ri1WD$ste9"
+    }
+  ]
+}
+```
 
 ## <a name="getID"></a>Retrieve an entry-attendee association by ID
 
@@ -49,6 +88,30 @@ Name | Type | Format | Description
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns this entry-attendee association. The user must have the Web Services Admin role to use this parameter.
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM%24s2kvfcQ8xC%24p6uaPsY6V6qB7FqOU
+```
+
+### JSON example of a successful response
+
+```json
+{
+  "EntryID": "gWidFO7ikXV67u6QrT2w1Yhqzh4a8j$pEjCg",
+  "AttendeeID": "gWj3IHRYiHZOTjq8PONWIqyRFfGz4RoozoQ",
+  "Amount": 17.01,
+  "AssociatedAttendeeCount": 1,
+  "Custom1": null,
+  "Custom2": null,
+  "Custom3": null,
+  "Custom4": null,
+  "Custom5": null,
+  "ID": "gWgSM$s2kvfcQ8xC$p6uaPsY6V6qB7FqOU",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM$s2kvfcQ8xC$p6uaPsY6V6qB7FqOU"
+}
+```
+
 ## <a name="post"></a>Create a new entry-attendee association
 
     POST  /api/v3.0/expense/entryattendeeassociations
@@ -60,6 +123,21 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `content`	|	-	|	`body`	|	**Required** The EntryAttendeeAssociation object to create.
 
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations
+```
+
+### JSON example of a successful response
+
+```json
+{
+  "ID": "gWgSM$s2kvfcQ8xC$p6uaPsY6V6qB7FqOU",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM$s2kvfcQ8xC$p6uaPsY6V6qB7FqOU"
+}
+```
 
 ## <a name="put"></a>Update a specified entry-attendee association
 
@@ -78,6 +156,18 @@ Name | Type | Format | Description
 
     DELETE  /api/v3.0/expense/entryattendeeassociations/{id}
 
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/entryattendeeassociations/gWgSM%24s2kvfcQ8xC%24p6uaPsY6V6qB7FqOU
+```
+
+### JSON example of a successful response
+
+```
+no content
+```
 
 ### Parameters
 
@@ -98,7 +188,7 @@ Name | Type | Format | Description
 `NextPage`	|	`string`|	-	|	The URI of the next page of results, if any.
 
 
-###<a name="entryattendeeassociation"></a>Entry Attendee Association
+### <a name="entryattendeeassociation"></a>Entry Attendee Association
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -109,4 +199,3 @@ Name | Type | Format | Description
 `EntryID`	|	`string`	|	-	|	The unique identifier of the associated entry. To obtain the attendee ID value, use the GET /expense/entries endpoint. The value of the ID element in the response is the entry ID.
 `ID`	|	`string`	|	-	|	The unique identifier of the resource.
 `URI`	|	`string`	|	-	|	The URI to the resource.
-

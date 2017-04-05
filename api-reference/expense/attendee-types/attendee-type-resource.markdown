@@ -10,9 +10,9 @@ The Attendee Type resource represents the type of attendee as configured in Conc
 
 * [Retrieve all attendees types](#get)
 * [Retrieve attendee types by ID](#getID)
-* [Create a new attendee type](#post)
+* [Create a new attendee type](#post) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
 * [Update existing attendee type](#put)
-* [Delete an attendee type](#delete)
+* [Delete an attendee type](#delete) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
 * [Schema](#schema)
 
 ### Version
@@ -24,7 +24,7 @@ The Attendee Type resource represents the type of attendee as configured in Conc
 
     GET  /api/v3.0/expense/attendeetypes/
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -32,6 +32,64 @@ Name | Type | Format | Description
 `offset`	|	``string``	|	`query`	|	The starting point of the next set of results, after the limit specified in the limit field has been reached.
 `limit`	|	`Int32`	|	`query`	|	The number of records to return. Default value: 25
 
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/attendeetypes?limit=10
+```
+
+
+### JSON example of a successful response
+
+```json
+{
+  "Items": [
+    {
+      "Name": "Business Guest",
+      "Code": "BUSGUEST",
+      "AttendeeFormID": "gWvidmKNPVEaOg$s66rqA62OJVXfvHBMs4sw",
+      "DuplicateSearchFields": [
+        "Title",
+        "Company",
+        "OwnerEmpName",
+        "FirstName",
+        "LastName"
+      ],
+      "ConnectorID": "",
+      "AllowManuallyEnteredAttendees": true,
+      "AllowAttendeeCountEditing": true,
+      "ID": "gWjUHBxUY4iQLA9KTkbtUD6pc",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjUHBxUY4iQLA9KTkbtUD6pc"
+    },
+    {
+      "Name": "Healthcare Professional",
+      "Code": "HCP",
+      "AttendeeFormID": "gWvidmKNPVEH7wO$pDpD9$pk6xVlyJ4EjwIdA",
+      "DuplicateSearchFields": [
+        "Title",
+        "Custom18",
+        "ExternalId",
+        "FirstName",
+        "LastName",
+        "Custom7",
+        "Custom14",
+        "Custom15",
+        "Custom16",
+        "Custom17",
+        "Custom19",
+        "Custom8",
+        "Custom20"
+      ],
+      "ConnectorID": "",
+      "AllowManuallyEnteredAttendees": true,
+      "AllowAttendeeCountEditing": false,
+      "ID": "gWjYOjoOorT3dhpHGto5H$poJuoa0m",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjoOorT3dhpHGto5H$poJuoa0m"
+    }
+  ]
+}
+```
 
 
 ## <a name="getID"></a>Retrieve attendee types by ID
@@ -45,9 +103,47 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `id`|`string`|`path`|**Required** The ID of the attendee type.
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjoOorT3dhpHGto5H%24poJuoa0m
+```
+
+
+### JSON example of a successful response
+
+```json
+{
+  "Name": "Healthcare Professional",
+  "Code": "HCP",
+  "AttendeeFormID": "gWvidmKNPVEH7wO$pDpD9$pk6xVlyJ4EjwIdA",
+  "DuplicateSearchFields": [
+    "Title",
+    "Custom18",
+    "ExternalId",
+    "FirstName",
+    "LastName",
+    "Custom7",
+    "Custom14",
+    "Custom15",
+    "Custom16",
+    "Custom17",
+    "Custom19",
+    "Custom8",
+    "Custom20"
+  ],
+  "ConnectorID": "",
+  "AllowManuallyEnteredAttendees": true,
+  "AllowAttendeeCountEditing": false,
+  "ID": "gWjYOjoOorT3dhpHGto5H$poJuoa0m",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjoOorT3dhpHGto5H$poJuoa0m"
+}
+```
 
 
 ## <a name="post"></a>Create a new attendee type
+
+**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
 
     POST  /api/v3.0/expense/attendeetypes
 
@@ -66,6 +162,23 @@ Name | Type | Format | Description
 ### Response
 
 [Attendee Schema](#schema)
+
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/attendeetypes
+```
+
+
+### JSON example of a successful response
+
+```json
+{
+  "ID": "gWjYOj4JuT5VB$paQnF31149$sKgaM$p",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOj4JuT5VB$paQnF31149$sKgaM$p"
+}
+```
 
 
 ## <a name="put"></a>Update existing attendee type
@@ -88,8 +201,16 @@ Name | Type | Format | Description
 
 [Attendee Schema](#schema)
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjoa7Fe0HsTGEk417OCzqUf1A
+```
+
 
 ## <a name="delete"></a>Delete an attendee type
+
+**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
 
     DELETE  /api/v3.0/expense/attendeetypes{id}
 
@@ -106,12 +227,17 @@ Name | Type | Format | Description
 ### Response
 [Attendee Schema](#schema)
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/attendeetypes/gWjYOjomP3Jxp6dFC%24pIg%24sc99nQQ3q
+```
 
 
 ## <a name="schema"></a>Schema
 
 
-###<a name="attendeetype"></a>Attendee Type
+### <a name="attendeetype"></a>Attendee Type
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -124,4 +250,3 @@ Name | Type | Format | Description
 `ID`	|	`string`	|	-	|	The unique identifier of the resource.
 `Name`	|	`string`	|	-	|	The name for the attendee type. This name must be unique. Maximum length: 40 characters
 `URI`	|	`string`	|	-	|	The URI to the resource.
-

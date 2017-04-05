@@ -1,0 +1,113 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "LocalizedData",
+  "apis": [
+    {
+      "path": "/invoice/localizeddata",
+      "description": "Get localized string of various codes in Invoice. ",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_type_langCode",
+          "responseClass": "LocalizationDataCollection",
+          "summary": "Get localized string of various codes in Invoice. ",
+          "notes": "Returns the  localized string of various codes in Invoice. ",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "type",
+              "description": "Valid types are -    approvalStatus, paymentStatus, expenseType, ledgerCode, dataSourceCode, payMethod, receiptConfirmation, unitOfMeasure.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "langCode",
+              "description": "Optional. The language code requested. lang codes examples - de, en, es, fr, fr_CA, hu, it, ja, pl, pt_BR",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/localizeddata",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/invoice/localizeddata",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "LocalizationData": {
+      "id": "LocalizationData",
+      "displayName": "LocalizationData",
+      "properties": {
+        "Code": {
+          "description": "Internal status code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "LangCode": {
+          "description": "The language code for the results",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "LocalizedValue": {
+          "description": "The localized value based on langcode and type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "LocalizationDataCollection": {
+      "id": "LocalizationDataCollection",
+      "displayName": "LocalizationList",
+      "properties": {
+        "LocalizationData": {
+          "description": null,
+          "type": "Array",
+          "items": {
+            "$ref": "LocalizationData",
+            "displayName": "LocalizationData"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalCount": {
+          "description": null,
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    }
+  }
+}

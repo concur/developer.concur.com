@@ -15,19 +15,21 @@
   ],
   "info": {
     "title": "Localized Data",
-    "description": "",
+    "description": "Invoice includes various status codes, and error messages. This API provides a method to list the localized strings of various codes.",
     "version": "3.0"
   },
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/invoice/localizeddata": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get localized string of various codes in Invoice. ",
         "description": "Returns the  localized string of various codes in Invoice. ",
         "parameters": [
@@ -62,11 +64,11 @@
       "properties": {
         "Code": {
           "type": "string",
-          "description": "The localized value based on langcode and type."
+          "description": "Internal status code."
         },
         "LangCode": {
           "type": "string",
-          "description": "The localized value based on langcode and type."
+          "description": "The language code for the results"
         },
         "LocalizedValue": {
           "type": "string",

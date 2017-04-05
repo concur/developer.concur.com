@@ -7,7 +7,7 @@ layout: reference
 ## Description
 A basic expense with minimal fields. Can be added to expense reports from within Concur. Documentation for the v3.0 resource is [here][1].
 
-##Works With These Concur Products
+## Works With These Concur Products
 * **Expense** for Concur Professional/Premium
 * **Expense** for Concur Standard
 

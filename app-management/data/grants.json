@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Authorization Code",
+    "value": "authorization_code"
+  },
+  {
+    "label": "Implicit",
+    "value": "implicit"
+  },
+  {
+    "label": "Refresh Token",
+    "value": "refresh_token",
+    "clearableValue": false
+  },
+  {
+    "label": "Client Credentials",
+    "value": "client_credentials"
+  },
+  {
+    "label": "Password",
+    "value": "password"
+  },
+  {
+    "label": "One-Time Password",
+    "value": "otp"
+  }
+]

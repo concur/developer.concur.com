@@ -4410,7 +4410,7 @@ Operation.prototype.execute = function (arg1, arg2, arg3, arg4, parent) {
   }
 
   var obj = {
-    url: url,
+    url: url.replace('www.concursolutions.com', replacementURL),
     method: this.method.toUpperCase(),
     body: body,
     useJQuery: opts.useJQuery,
@@ -30693,7 +30693,7 @@ Emitter.prototype.hasListeners = function(event){
  * TODO: combatible error handling?
  */
 
-module.exports = function(arr, fn, initial){  
+module.exports = function(arr, fn, initial){
   var idx = 0;
   var len = arr.length;
   var curr = arguments.length == 3
@@ -30703,7 +30703,7 @@ module.exports = function(arr, fn, initial){
   while (idx < len) {
     curr = fn.call(null, curr, arr[idx], ++idx, arr);
   }
-  
+
   return curr;
 };
 },{}]},{},[1])(1)
@@ -31817,10 +31817,12 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     var url, content;
     if (response.content === undefined) {
       content = response.data;
-      url = response.url;
+      // Edit Incoming Response To Mask Proxy
+      url = response.url.replace(replacementURL, 'www.concursolutions.com');
     } else {
       content = response.content.data;
-      url = response.request.url;
+      // Edit Incoming Response To Mask Proxy
+      url = response.request.url.replace(replacementURL, 'www.concursolutions.com');
     }
     var headers = response.headers;
     content = jQuery.trim(content);
@@ -31927,7 +31929,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
 
     //adds curl output
     var curlCommand = this.model.asCurl(this.map);
-    curlCommand = curlCommand.replace('!', '&#33;');
+    curlCommand = curlCommand.replace('!', '&#33;').replace(replacementURL, 'www.concursolutions.com');
     $( '.curl', $(this.el)).html('<pre>' + curlCommand + '</pre>');
 
     // only highlight the response if response is less than threshold, default state is highlight response

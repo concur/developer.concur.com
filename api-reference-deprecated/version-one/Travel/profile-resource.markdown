@@ -1,8 +1,10 @@
 ---
-title: Profile Resource 
+title: Profile Resource
 layout: reference
 ---
 
+<span style="background-color:red; font-size:24pt"> **This version (1.0) has been deprecated effective 04/01/2016**</span>  
+Access a new version: [Travel Profile Version 2.0](/api-reference/travel-profile/01-profile-resource.html)
 
 ##  Description
 
@@ -19,7 +21,7 @@ The Travel Profile resource represents a Concur travel profile which contains tr
 
 ##  URI
 
-<samp>https://{InstanceURL}/api/travelprofile/v1.0/profile</samp>
+`https://{InstanceURL}/api/travelprofile/v1.0/profile`
 
 ##  Operations
 
@@ -49,156 +51,145 @@ All request paramenters are optional. To identify a specific user by login ID or
 application/xml
 
 ####  Authorization header
-<samp>Authorization: OAuth {access_token}</samp>
+`Authorization: OAuth {access_token}`
 
 Where *access_token* is the OAuth 2.0 access token of the user whose travel profile information you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
 ###  Data model
 
 The data model of the response for the GET operation.
-<html>
-<head>
-<style type="text/css">
-<!--
-pre {color: #000000; background-color: #ffffff; font-family: Menlo,Monaco,Consolas,"Courier New";}
-.xml-attribute {color: #009900}
-.xml-value {color: #ce7b00}
-.xml-tag {color: #0000e6}
--->
-</style>
-</head>
-<pre>
-<span class="xml-tag">&lt;ProfileResponse</span> <span class="xml-attribute">Status</span>=<span class="xml-value">&quot;Active|Inactive&quot;</span> <span class="xml-attribute">Unique</span>=<span class="xml-value">&quot;{unique identifier for the user}&quot;</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;General</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;NamePrefix</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;FirstName</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;MiddleName</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;LastName</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;NameSuffix</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;PreferredName</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;JobTitle</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;PreferredLanguage</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;EReceiptOptIn</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;MarketingOptIn</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;HasOpenBooking</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;CountryCode</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;CompanyName</span> <span class="xml-tag">/&gt;</span>
-    <span class="xml-tag">&lt;/General</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Telephones</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Telephone</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Cell|Other|Pager|Fax|Home|Work|Primary Mobile Phone&quot;</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;ContactOptIn</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;CountryCode</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;PhoneNumber</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;Extension</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/Telephone</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Telephones</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Addresses</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Address</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Home|Work|Billing|Other&quot;</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;AttentionLine</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;Line1</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;Line2</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;Line3</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;MailStop</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/Mailstop</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;City</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;StateProvince</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;CountryCode</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;ZipCode</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;Laditude</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;Longitude</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/Address</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Addresses</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;DriversLicenses</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;DriversLicense</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;DriversLicenseNumber</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;IssuingCountry</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;IssuingState</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;Expiration</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/DriversLicense</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/DriversLicenses</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;EmailAddresses</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;EmailAddress</span> <span class="xml-tag">/&gt;</span>
-    <span class="xml-tag">&lt;/EmailAddresses</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;RatePreferences</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;AAARate</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;AARPRate</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;GovtRate</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;MilitaryRate</span> <span class="xml-tag">/&gt;</span>
-    <span class="xml-tag">&lt;/RatePreferences</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;DiscountCodes</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;DiscountCode</span> <span class="xml-tag">/&gt;</span>
-    <span class="xml-tag">&lt;/DiscountCodes</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Air</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;AirSmokingCode</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;AirMemberships</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;AirMembership</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;VendorCode</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;AccountNo</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;Status</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;StatusBenefits</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;PointTotal</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;SegmentTotal</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;NextStatus</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;PointsUntilNextStatus</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;SegmentsUntilNextStatus</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;/AirMembership</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/AirMemberships</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Seat</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;InterRowPositionCode</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;SectionPositionCode</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/Seat</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Meals</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;MealCode</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/Meals</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;HomeAirport</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;AirOther</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;DHSRedressNumber</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;DHSKnownTravelerNumber</span> <span class="xml-tag">/&gt;</span>
-    <span class="xml-tag">&lt;/Air</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Car</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CarSmokingCode</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;CarGPS</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;CarOption</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;CarMemberships</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CarMembership</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;VendorCode</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;AccountNo</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;Status</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;StatusBenefits</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;PointTotal</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;SegmentTotal</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;NextStatus</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;PointsUntilNextStatus</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;SegmentsUntilNextStatus</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;/CarMembership</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CarOther</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;CarSkiRack</span> <span class="xml-tag">/&gt;</span>
-    <span class="xml-tag">&lt;/Car</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Hotel</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;SmokingCode</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;HotelMemberships</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;RoomType</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;HotelOther</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;preferFoamPillows</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;preferCrib</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;preferRollawayBed</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;preferGym</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;preferPool</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;preferRestaurant</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;preferWheelchairAccess</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;preferAccessForBlind</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;preferRoomService</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;preferEarlyCheckIn</span> <span class="xml-tag">/&gt;</span>
-    <span class="xml-tag">&lt;/Hotel</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;CustomFields</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Name</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;Value</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/CustomFields</span><span class="xml-tag">&gt;</span>
-<span class="xml-tag">&lt;/ProfileResponse</span><span class="xml-tag">&gt;</span>
-</pre>
-</html>
+
+```xml
+<ProfileResponse Status="Active|Inactive" Unique="{unique identifier for the user}">
+    <General>
+        <NamePrefix>
+        <FirstName>
+        <MiddleName>
+        <LastName>
+        <NameSuffix>
+        <PreferredName>
+        <JobTitle>
+        <PreferredLanguage>
+        <EReceiptOptIn>
+        <MarketingOptIn>
+        <HasOpenBooking>
+        <CountryCode>
+        <CompanyName>
+    </General>
+    <Telephones>
+        <Telephone Type="Cell|Other|Pager|Fax|Home|Work|Primary Mobile Phone">
+            <ContactOptIn>
+            <CountryCode>
+            <PhoneNumber>
+            <Extension>
+        </Telephone>
+    </Telephones>
+    <Addresses>
+        <Address Type="Home|Work|Billing|Other">
+            <AttentionLine>
+            <Line1>
+            <Line2>
+            <Line3>
+            <MailStop>
+          </Mailstop>
+            <City>
+            <StateProvince>
+            <CountryCode>
+            <ZipCode>
+            <Laditude>
+            <Longitude>
+        </Address>
+    </Addresses>
+    <DriversLicenses>
+        <DriversLicense>
+            <DriversLicenseNumber>
+            <IssuingCountry>
+            <IssuingState>
+            <Expiration>
+        </DriversLicense>
+    </DriversLicenses>
+    <EmailAddresses>
+        <EmailAddress>
+    </EmailAddresses>
+    <RatePreferences>
+        <AAARate>
+        <AARPRate>
+        <GovtRate>
+        <MilitaryRate>
+    </RatePreferences>
+    <DiscountCodes>
+        <DiscountCode>
+    </DiscountCodes>
+    <Air>
+        <AirSmokingCode>
+        <AirMemberships>
+            <AirMembership>
+                <VendorCode>
+                <AccountNo>
+                <Status>
+                <StatusBenefits>
+                <PointTotal>
+                <SegmentTotal>
+                <NextStatus>
+                <PointsUntilNextStatus>
+                <SegmentsUntilNextStatus>
+            </AirMembership>
+        </AirMemberships>
+        <Seat>
+            <InterRowPositionCode>
+            <SectionPositionCode>
+        </Seat>
+        <Meals>
+            <MealCode>
+        </Meals>
+        <HomeAirport>
+        <AirOther>
+        <DHSRedressNumber>
+        <DHSKnownTravelerNumber>
+    </Air>
+    <Car>
+        <CarSmokingCode>
+        <CarGPS>
+        <CarOption>
+        <CarMemberships>
+            <CarMembership>
+                <VendorCode>
+                <AccountNo>
+                <Status>
+                <StatusBenefits>
+                <PointTotal>
+                <SegmentTotal>
+                <NextStatus>
+                <PointsUntilNextStatus>
+                <SegmentsUntilNextStatus>
+            </CarMembership>
+            <CarOther>
+            <CarSkiRack>
+    </Car>
+    <Hotel>
+        <SmokingCode>
+        <HotelMemberships>
+        <RoomType>
+        <HotelOther>
+        <preferFoamPillows>
+        <preferCrib>
+        <preferRollawayBed>
+        <preferGym>
+        <preferPool>
+        <preferRestaurant>
+        <preferWheelchairAccess>
+        <preferAccessForBlind>
+        <preferRoomService>
+        <preferEarlyCheckIn>
+    </Hotel>
+    <CustomFields>
+        <CustomField>
+            <Name>
+            <Value>
+        </CustomField>
+    </CustomFields>
+</ProfileResponse>
+```
 
 ####  ProfileResponse root element
 
@@ -311,7 +302,7 @@ The Air parent element contains the user's air travel preferences and contains t
 
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
-|  VendorCode |  String |  The code for the vendor that manages the loyalty program.| 
+|  VendorCode |  String |  The code for the vendor that manages the loyalty program.|
 |  AccountNo |  String |  The user's account identifier in the loyalty program. |
 |  Status |  String |  Name of the user's current level in the loyalty program. |
 |  StatusBenefits |  String |  Description of a benefit of the loyalty program at the current status. |
@@ -400,7 +391,7 @@ For each custom field, the CustomField element has a Name and Value child elemen
 | :----- | :----- | :----- |
 |  Name |  String |  The name of the custom field. For example, Employee, Cost Centre, Fund, PassportNumber, Visa, and Assistants. |
 |  Value |  String |  The value of the custom field. If the value is null, the Value child element is omitted. |
- 
+
 
 ###  Examples for Travel Suppliers
 
@@ -408,209 +399,212 @@ For each custom field, the CustomField element has a Name and Value child elemen
 
 #####  Request
 
-    GET {InstanceURI}/api/travelprofile/v1.0/profile HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+GET {InstanceURI}/api/travelprofile/v1.0/profile HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
 
 #####  Response
 
-<pre>
-200 OK
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml    
 
-<span class="xml-tag">&lt;ProfileResponse</span> <span class="xml-attribute">Status</span>=<span class="xml-value">&quot;Active&quot;</span> <span class="xml-attribute">Unique</span>=<span class="xml-value">&quot;CM12345678&quot;</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;General</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;NamePrefix</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;FirstName</span><span class="xml-tag">&gt;</span>Maria<span class="xml-tag">&lt;/FirstName</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;MiddleName</span><span class="xml-tag">&gt;</span>X<span class="xml-tag">&lt;/MiddleName</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;LastName</span><span class="xml-tag">&gt;</span>Black<span class="xml-tag">&lt;/LastName</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;NameSuffix</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;PreferredName</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;JobTitle</span><span class="xml-tag">&gt;</span>Finance Manager<span class="xml-tag">&lt;/JobTitle</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;PreferredLanguage</span><span class="xml-tag">&gt;</span>en-us<span class="xml-tag">&lt;/PreferredLanguage</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;EReceiptOptIn</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/EReceiptOptIn</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;MarketingOptIn</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/MarketingOptIn</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;HasOpenBooking</span><span class="xml-tag">&gt;</span>true<span class="xml-tag">&lt;/HasOpenBooking</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CountryCode</span><span class="xml-tag">&gt;</span>US<span class="xml-tag">&lt;/CountryCode</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CompanyName</span><span class="xml-tag">&gt;</span>ExampleDotCom<span class="xml-tag">&lt;/CompanyName</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/General</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Telephones</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Telephone</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Work&quot;</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CountryCode</span><span class="xml-tag">&gt;</span>001<span class="xml-tag">&lt;/CountryCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;PhoneNumber</span><span class="xml-tag">&gt;</span>5555551234<span class="xml-tag">&lt;/PhoneNumber</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Extension</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/Telephone</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Telephone</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Cell&quot;</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CountryCode</span><span class="xml-tag">&gt;</span>001<span class="xml-tag">&lt;/CountryCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;PhoneNumber</span><span class="xml-tag">&gt;</span>4155544321<span class="xml-tag">&lt;/PhoneNumber</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Extension</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;ContactOptIn</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/ContactOptIn</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/Telephone</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Telephones</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Addresses</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Address</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Work&quot;</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;AttentionLine</span><span class="xml-tag">&gt;</span>Finance Department<span class="xml-tag">&lt;/AttentionLine</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Line1</span><span class="xml-tag">&gt;</span>1234 Rainy Street.<span class="xml-tag">&lt;/Line1</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Line2</span><span class="xml-tag">&gt;</span>Suite 442<span class="xml-tag">&lt;/Line2</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Line3</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;MailStop</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;City</span><span class="xml-tag">&gt;</span>Seattle<span class="xml-tag">&lt;/City</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;StateProvince</span><span class="xml-tag">&gt;</span>WA<span class="xml-tag">&lt;/StateProvince</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CountryCode</span><span class="xml-tag">&gt;</span>US<span class="xml-tag">&lt;/CountryCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;ZipCode</span><span class="xml-tag">&gt;</span>98102<span class="xml-tag">&lt;/ZipCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Longitude</span><span class="xml-tag">&gt;</span>-77.040706000000<span class="xml-tag">&lt;/Longitude</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Latitude</span><span class="xml-tag">&gt;</span>38.812690000000<span class="xml-tag">&lt;/Latitude</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/Address</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Address</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Home&quot;</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;AttentionLine</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;Line1</span><span class="xml-tag">&gt;</span>1234 1st Ave. S<span class="xml-tag">&lt;/Line1</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Line2</span><span class="xml-tag">&gt;</span>Apt. 821<span class="xml-tag">&lt;/Line2</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Line3</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;MailStop</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;City</span><span class="xml-tag">&gt;</span>Seattle<span class="xml-tag">&lt;/City</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;StateProvince</span><span class="xml-tag">&gt;</span>WA<span class="xml-tag">&lt;/StateProvince</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CountryCode</span><span class="xml-tag">&gt;</span>US<span class="xml-tag">&lt;/CountryCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;ZipCode</span><span class="xml-tag">&gt;</span>98102<span class="xml-tag">&lt;/ZipCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Longitude</span><span class="xml-tag">&gt;</span>-77.040706000000<span class="xml-tag">&lt;/Longitude</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Latitude</span><span class="xml-tag">&gt;</span>38.812690000000<span class="xml-tag">&lt;/Latitude</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/Address</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Addresses</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;DriversLicenses</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;DriversLicense</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;DriversLicenseNumber</span><span class="xml-tag">&gt;</span>MIL112233452<span class="xml-tag">&lt;/DriversLicenseNumber</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;IssuingCountry</span><span class="xml-tag">&gt;</span>US<span class="xml-tag">&lt;/IssuingCountry</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;IssuingState</span><span class="xml-tag">&gt;</span>WA<span class="xml-tag">&lt;/IssuingState</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Expiration</span><span class="xml-tag">&gt;</span>2018-05-22<span class="xml-tag">&lt;/Expiration</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/DriversLicense</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/DriversLicenses</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;EmailAddresses</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;EmailAddress</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Business&quot;</span> <span class="xml-attribute">Contact</span>=<span class="xml-value">&quot;True&quot;</span><span class="xml-tag">&gt;</span>mariab@example.com<span class="xml-tag">&lt;/EmailAddress</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/EmailAddresses</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;RatePreferences</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;AAARate</span><span class="xml-tag">&gt;</span>true<span class="xml-tag">&lt;/AAARate</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;AARPRate</span><span class="xml-tag">&gt;</span>false<span class="xml-tag">&lt;/AARPRate</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;GovtRate</span><span class="xml-tag">&gt;</span>false<span class="xml-tag">&lt;/GovtRate</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;MilitaryRate</span><span class="xml-tag">&gt;</span>false<span class="xml-tag">&lt;/MilitaryRate</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/RatePreferences</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;DiscountCodes</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;DiscountCode</span> <span class="xml-attribute">Vendor</span>=<span class="xml-value">&quot;Marriott&quot;</span><span class="xml-tag">&gt;</span>1234567899<span class="xml-tag">&lt;/DiscountCode</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/DiscountCodes</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Air</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;AirSmokingCode</span><span class="xml-tag">&gt;</span>S<span class="xml-tag">&lt;/AirSmokingCode</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;AirMemberships</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;AirMembership</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;VendorCode</span><span class="xml-tag">&gt;</span>AA<span class="xml-tag">&lt;/VendorCode</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;AccountNo</span><span class="xml-tag">&gt;</span>K12345<span class="xml-tag">&lt;/AccountNo</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Status</span><span class="xml-tag">&gt;</span>Normal<span class="xml-tag">&lt;/Status</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;StatusBenefits</span><span class="xml-tag">&gt;</span>N/A<span class="xml-tag">&lt;/StatusBenefits</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;PointTotal</span><span class="xml-tag">&gt;</span>1234<span class="xml-tag">&lt;/PointTotal</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;SegmentTotal</span><span class="xml-tag">&gt;</span>2<span class="xml-tag">&lt;/SegmentTotal</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;NextStatus</span><span class="xml-tag">&gt;</span>Super<span class="xml-tag">&lt;/NextStatus</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;PointsUntilNextStatus</span><span class="xml-tag">&gt;</span>444<span class="xml-tag">&lt;/PointsUntilNextStatus</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;SegmentsUntilNextStatus</span><span class="xml-tag">&gt;</span>2<span class="xml-tag">&lt;/SegmentsUntilNextStatus</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;AirMembership</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;AirMemberships</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;Seat</span><span class="xml-tag">&gt;</span>
-                            <span class="xml-tag">&lt;InterRowPositionCode</span><span class="xml-tag">&gt;</span>Window<span class="xml-tag">&lt;/InterRowPositionCode</span><span class="xml-tag">&gt;</span>
-                            <span class="xml-tag">&lt;SectionPositionCode</span><span class="xml-tag">&gt;</span>F<span class="xml-tag">&lt;/SectionPositionCode</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;/Seat</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;Meals</span><span class="xml-tag">&gt;</span>
-                            <span class="xml-tag">&lt;MealCode</span><span class="xml-tag">&gt;</span>VGML<span class="xml-tag">&lt;/MealCode</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;/Meals</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;HomeAirport</span><span class="xml-tag">&gt;</span>SEA<span class="xml-tag">&lt;/HomeAirport</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;AirOther</span> <span class="xml-tag">/&gt;</span>
-    <span class="xml-tag">&lt;/Air</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Car</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CarSmokingCode</span><span class="xml-tag">&gt;</span>N<span class="xml-tag">&lt;/CarSmokingCode</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CarGPS</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/CarGPS</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CarOption</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;CarMemberships</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CarMembership</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;VendorCode</span><span class="xml-tag">&gt;</span>ZE<span class="xml-tag">&lt;/VendorCode</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;AccountNo</span><span class="xml-tag">&gt;</span>ABCDEF<span class="xml-tag">&lt;/AccountNo</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Status</span><span class="xml-tag">&gt;</span>Newbie<span class="xml-tag">&lt;/Status</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;StatusBenefits</span><span class="xml-tag">&gt;</span>10%  discount<span class="xml-tag">&lt;/StatusBenefits</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;PointTotal</span><span class="xml-tag">&gt;</span>44<span class="xml-tag">&lt;/PointTotal</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;SegmentTotal</span><span class="xml-tag">&gt;</span>8<span class="xml-tag">&lt;/SegmentTotal</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;NextStatus</span><span class="xml-tag">&gt;</span>Veteran<span class="xml-tag">&lt;/NextStatus</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;PointsUntilNextStatus</span><span class="xml-tag">&gt;</span>55<span class="xml-tag">&lt;/PointsUntilNextStatus</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;SegmentsUntilNextStatus</span><span class="xml-tag">&gt;</span>12<span class="xml-tag">&lt;/SegmentsUntilNextStatus</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;CarMembership</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;CarMembership</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;VendorCode</span><span class="xml-tag">&gt;</span>XW<span class="xml-tag">&lt;/VendorCode</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;AccountNo</span><span class="xml-tag">&gt;</span>GHIJK<span class="xml-tag">&lt;/AccountNo</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;Status</span><span class="xml-tag">&gt;</span>Gold<span class="xml-tag">&lt;/Status</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;StatusBenefits</span><span class="xml-tag">&gt;</span>30%  discount<span class="xml-tag">&lt;/StatusBenefits</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;PointTotal</span><span class="xml-tag">&gt;</span>1000<span class="xml-tag">&lt;/PointTotal</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;SegmentTotal</span><span class="xml-tag">&gt;</span>50<span class="xml-tag">&lt;/SegmentTotal</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;NextStatus</span><span class="xml-tag">&gt;</span>VIP<span class="xml-tag">&lt;/NextStatus</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;PointsUntilNextStatus</span><span class="xml-tag">&gt;</span>500<span class="xml-tag">&lt;/PointsUntilNextStatus</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;SegmentsUntilNextStatus</span><span class="xml-tag">&gt;</span>25<span class="xml-tag">&lt;/SegmentsUntilNextStatus</span><span class="xml-tag">&gt;</span>
-                        <span class="xml-tag">&lt;CarMembership</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/CarMemberships</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CarOther</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;CarSkiRack</span><span class="xml-tag">&gt;</span>False<span class="xml-tag">&lt;/CarSkiRack</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Car</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Hotel</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;SmokingCode</span><span class="xml-tag">&gt;</span>N<span class="xml-tag">&lt;/SmokingCode</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;HotelMemberships</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;RoomType</span><span class="xml-tag">&gt;</span>K<span class="xml-tag">&lt;/RoomType</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;HotelOther</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;PreferFoamPillows</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/PreferFoamPillows</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;PreferCrib</span><span class="xml-tag">&gt;</span>False<span class="xml-tag">&lt;/PreferCrib</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;PreferRollawayBed</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/PreferRollawayBed</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;PreferGym</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/PreferGym</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;preferPool</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/preferPool</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;preferRestaraunt</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/preferRestaraunt</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;preferWheelchairAccess</span><span class="xml-tag">&gt;</span>False<span class="xml-tag">&lt;/preferWheelchairAccess</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;preferAccessForBlind</span><span class="xml-tag">&gt;</span>False<span class="xml-tag">&lt;/preferAccessForBlind</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;preferRoomService</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/preferRoomService</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;preferEarlyCheckIn</span><span class="xml-tag">&gt;</span>False<span class="xml-tag">&lt;/preferEarlyCheckIn</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Hotel</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;CustomFields</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Name</span><span class="xml-tag">&gt;</span>Employee ID<span class="xml-tag">&lt;/Name</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Value</span><span class="xml-tag">&gt;</span>12345<span class="xml-tag">&lt;/Value</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Name</span><span class="xml-tag">&gt;</span>Cost Centre<span class="xml-tag">&lt;/Name</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Value</span><span class="xml-tag">&gt;</span>Headquarters<span class="xml-tag">&lt;/Value</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Name</span><span class="xml-tag">&gt;</span>Fund<span class="xml-tag">&lt;/Name</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Value</span><span class="xml-tag">&gt;</span>StudentTraining<span class="xml-tag">&lt;/Value</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Name</span><span class="xml-tag">&gt;</span>Passport Number&gt;<span class="xml-tag">&lt;/Name</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Value</span><span class="xml-tag">&gt;</span>AUS1234<span class="xml-tag">&lt;/Value</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Name</span><span class="xml-tag">&gt;</span>Visa<span class="xml-tag">&lt;/Name</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Value</span><span class="xml-tag">&gt;</span>EUvisa1234<span class="xml-tag">&lt;/Value</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Name</span><span class="xml-tag">&gt;</span>Assistants<span class="xml-tag">&lt;/Name</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Value</span><span class="xml-tag">&gt;</span>John Smith<span class="xml-tag">&lt;/Value</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/CustomFields</span><span class="xml-tag">&gt;</span>
-<span class="xml-tag">&lt;/ProfileResponse</span><span class="xml-tag">&gt;</span>
-
-</pre>
+<ProfileResponse Status="Active" Unique="CM12345678">
+    <General>
+        <NamePrefix>
+        <FirstName>Maria</FirstName>
+        <MiddleName>X</MiddleName>
+        <LastName>Black</LastName>
+        <NameSuffix>
+        <PreferredName>
+        <JobTitle>Finance Manager</JobTitle>
+        <PreferredLanguage>en-us</PreferredLanguage>
+        <EReceiptOptIn>True</EReceiptOptIn>
+        <MarketingOptIn>True</MarketingOptIn>
+        <HasOpenBooking>true</HasOpenBooking>
+        <CountryCode>US</CountryCode>
+        <CompanyName>ExampleDotCom</CompanyName>
+    </General>
+    <Telephones>
+        <Telephone Type="Work">
+            <CountryCode>001</CountryCode>
+            <PhoneNumber>5555551234</PhoneNumber>
+            <Extension>
+        </Telephone>
+        <Telephone Type="Cell">
+            <CountryCode>001</CountryCode>
+            <PhoneNumber>4155544321</PhoneNumber>
+            <Extension>
+            <ContactOptIn>True</ContactOptIn>
+        </Telephone>
+    </Telephones>
+    <Addresses>
+        <Address Type="Work">
+            <AttentionLine>Finance Department</AttentionLine>
+            <Line1>1234 Rainy Street.</Line1>
+            <Line2>Suite 442</Line2>
+            <Line3>
+            <MailStop>
+            <City>Seattle</City>
+            <StateProvince>WA</StateProvince>
+            <CountryCode>US</CountryCode>
+            <ZipCode>98102</ZipCode>
+            <Longitude>-77.040706000000</Longitude>
+            <Latitude>38.812690000000</Latitude>
+        </Address>
+        <Address Type="Home">
+            <AttentionLine>
+            <Line1>1234 1st Ave. S</Line1>
+            <Line2>Apt. 821</Line2>
+            <Line3>
+            <MailStop>
+            <City>Seattle</City>
+            <StateProvince>WA</StateProvince>
+            <CountryCode>US</CountryCode>
+            <ZipCode>98102</ZipCode>
+            <Longitude>-77.040706000000</Longitude>
+            <Latitude>38.812690000000</Latitude>
+        </Address>
+    </Addresses>
+    <DriversLicenses>
+        <DriversLicense>
+            <DriversLicenseNumber>MIL112233452</DriversLicenseNumber>
+            <IssuingCountry>US</IssuingCountry>
+            <IssuingState>WA</IssuingState>
+            <Expiration>2018-05-22</Expiration>
+        </DriversLicense>
+    </DriversLicenses>
+    <EmailAddresses>
+        <EmailAddress Type="Business" Contact="True">mariab@example.com</EmailAddress>
+    </EmailAddresses>
+    <RatePreferences>
+        <AAARate>true</AAARate>
+        <AARPRate>false</AARPRate>
+        <GovtRate>false</GovtRate>
+        <MilitaryRate>false</MilitaryRate>
+    </RatePreferences>
+    <DiscountCodes>
+        <DiscountCode Vendor="Marriott">1234567899</DiscountCode>
+    </DiscountCodes>
+    <Air>
+        <AirSmokingCode>S</AirSmokingCode>
+        <AirMemberships>
+            <AirMembership>
+                <VendorCode>AA</VendorCode>
+                <AccountNo>K12345</AccountNo>
+                <Status>Normal</Status>
+                <StatusBenefits>N/A</StatusBenefits>
+                <PointTotal>1234</PointTotal>
+                <SegmentTotal>2</SegmentTotal>
+                <NextStatus>Super</NextStatus>
+                <PointsUntilNextStatus>444</PointsUntilNextStatus>
+                <SegmentsUntilNextStatus>2</SegmentsUntilNextStatus>
+                <AirMembership>
+                    <AirMemberships>
+                        <Seat>
+                            <InterRowPositionCode>Window</InterRowPositionCode>
+                            <SectionPositionCode>F</SectionPositionCode>
+                        </Seat>
+                        <Meals>
+                            <MealCode>VGML</MealCode>
+                        </Meals>
+                        <HomeAirport>SEA</HomeAirport>
+                        <AirOther>
+    </Air>
+    <Car>
+        <CarSmokingCode>N</CarSmokingCode>
+        <CarGPS>True</CarGPS>
+        <CarOption>
+        <CarMemberships>
+            <CarMembership>
+                <VendorCode>ZE</VendorCode>
+                <AccountNo>ABCDEF</AccountNo>
+                <Status>Newbie</Status>
+                <StatusBenefits>10%  discount</StatusBenefits>
+                <PointTotal>44</PointTotal>
+                <SegmentTotal>8</SegmentTotal>
+                <NextStatus>Veteran</NextStatus>
+                <PointsUntilNextStatus>55</PointsUntilNextStatus>
+                <SegmentsUntilNextStatus>12</SegmentsUntilNextStatus>
+            </CarMembership>
+            <CarMembership>
+                <VendorCode>XW</VendorCode>
+                <AccountNo>GHIJK</AccountNo>
+                <Status>Gold</Status>
+                <StatusBenefits>30%  discount</StatusBenefits>
+                <PointTotal>1000</PointTotal>
+                <SegmentTotal>50</SegmentTotal>
+                <NextStatus>VIP</NextStatus>
+                <PointsUntilNextStatus>500</PointsUntilNextStatus>
+                <SegmentsUntilNextStatus>25</SegmentsUntilNextStatus>
+            </CarMembership>
+        </CarMemberships>
+        <CarOther>
+        <CarSkiRack>False</CarSkiRack>
+    </Car>
+    <Hotel>
+        <SmokingCode>N</SmokingCode>
+        <HotelMemberships>
+        <RoomType>K</RoomType>
+        <HotelOther>
+        <PreferFoamPillows>True</PreferFoamPillows>
+        <PreferCrib>False</PreferCrib>
+        <PreferRollawayBed>True</PreferRollawayBed>
+        <PreferGym>True</PreferGym>
+        <preferPool>True</preferPool>
+        <preferRestaraunt>True</preferRestaraunt>
+        <preferWheelchairAccess>False</preferWheelchairAccess>
+        <preferAccessForBlind>False</preferAccessForBlind>
+        <preferRoomService>True</preferRoomService>
+        <preferEarlyCheckIn>False</preferEarlyCheckIn>
+    </Hotel>
+    <CustomFields>
+        <CustomField>
+            <Name>Employee ID</Name>
+            <Value>12345</Value>
+        </CustomField>
+        <CustomField>
+            <Name>Cost Centre</Name>
+            <Value>Headquarters</Value>
+        </CustomField>
+        <CustomField>
+            <Name>Fund</Name>
+            <Value>StudentTraining</Value>
+        </CustomField>
+        <CustomField>
+            <Name>Passport Number&gt;</Name>
+            <Value>AUS1234</Value>
+        </CustomField>
+        <CustomField>
+            <Name>Visa</Name>
+            <Value>EUvisa1234</Value>
+        </CustomField>
+        <CustomField>
+            <Name>Assistants</Name>
+            <Value>John Smith</Value>
+        </CustomField>
+    </CustomFields>
+</ProfileResponse>
+```
 
 ####  Example 2: Get the travel profile for a user with a specific login ID
 
 ####  Request
 
-    GET https://www.concursolutions.com/api/travelprofile/v1.0/profile?
-    userid_type=login&userid_value=cm@example.com HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+GET https://www.concursolutions.com/api/travelprofile/v1.0/profile?
+userid_type=login&userid_value=cm@example.com HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
 
 #####  Response
 
 The response is the same as in Example 1.
 
- 
+
 
 ###  Examples for TMCs
 
@@ -618,205 +612,208 @@ The response is the same as in Example 1.
 
 #####  Request
 
-    GET {InstanceURI}/api/travelprofile/v1.0/profile HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+GET {InstanceURI}/api/travelprofile/v1.0/profile HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
 
 #####  Response
 
-<pre>
-    200 OK
-    Content-Type: application/xml    
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml    
 
-    <span class="xml-tag">&lt;ProfileResponse</span> <span class="xml-attribute">Status</span>=<span class="xml-value">&quot;Active&quot;</span> <span class="xml-attribute">Unique</span>=<span class="xml-value">&quot;CM12345678&quot;</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;General</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;NamePrefix</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;FirstName</span><span class="xml-tag">&gt;</span>Maria<span class="xml-tag">&lt;/FirstName</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;MiddleName</span><span class="xml-tag">&gt;</span>X<span class="xml-tag">&lt;/MiddleName</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;LastName</span><span class="xml-tag">&gt;</span>Black<span class="xml-tag">&lt;/LastName</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;NameSuffix</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;PreferredName</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;JobTitle</span><span class="xml-tag">&gt;</span>Finance Manager<span class="xml-tag">&lt;/JobTitle</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;PreferredLanguage</span><span class="xml-tag">&gt;</span>en-us<span class="xml-tag">&lt;/PreferredLanguage</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;EReceiptOptIn</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/EReceiptOptIn</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;MarketingOptIn</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/MarketingOptIn</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;HasOpenBooking</span><span class="xml-tag">&gt;</span>true<span class="xml-tag">&lt;/HasOpenBooking</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CountryCode</span><span class="xml-tag">&gt;</span>US<span class="xml-tag">&lt;/CountryCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CompanyName</span><span class="xml-tag">&gt;</span>ExampleDotCom<span class="xml-tag">&lt;/CompanyName</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/General</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Telephones</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Telephone</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Work&quot;</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;CountryCode</span><span class="xml-tag">&gt;</span>001<span class="xml-tag">&lt;/CountryCode</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;PhoneNumber</span><span class="xml-tag">&gt;</span>5555551234<span class="xml-tag">&lt;/PhoneNumber</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Extension</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;/Telephone</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Telephone</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Cell&quot;</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;CountryCode</span><span class="xml-tag">&gt;</span>001<span class="xml-tag">&lt;/CountryCode</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;PhoneNumber</span><span class="xml-tag">&gt;</span>4155544321<span class="xml-tag">&lt;/PhoneNumber</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Extension</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;ContactOptIn</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/ContactOptIn</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/Telephone</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/Telephones</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Addresses</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Address</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Work&quot;</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;AttentionLine</span><span class="xml-tag">&gt;</span>Finance Department<span class="xml-tag">&lt;/AttentionLine</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Line1</span><span class="xml-tag">&gt;</span>1234 Rainy Street.<span class="xml-tag">&lt;/Line1</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Line2</span><span class="xml-tag">&gt;</span>Suite 442<span class="xml-tag">&lt;/Line2</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Line3</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;MailStop</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;City</span><span class="xml-tag">&gt;</span>Seattle<span class="xml-tag">&lt;/City</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;StateProvince</span><span class="xml-tag">&gt;</span>WA<span class="xml-tag">&lt;/StateProvince</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;CountryCode</span><span class="xml-tag">&gt;</span>US<span class="xml-tag">&lt;/CountryCode</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;ZipCode</span><span class="xml-tag">&gt;</span>98102<span class="xml-tag">&lt;/ZipCode</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Longitude</span><span class="xml-tag">&gt;</span>-77.040706000000<span class="xml-tag">&lt;/Longitude</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Latitude</span><span class="xml-tag">&gt;</span>38.812690000000<span class="xml-tag">&lt;/Latitude</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/Address</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Address</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Home&quot;</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;AttentionLine</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;Line1</span><span class="xml-tag">&gt;</span>1234 1st Ave. S<span class="xml-tag">&lt;/Line1</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Line2</span><span class="xml-tag">&gt;</span>Apt. 821<span class="xml-tag">&lt;/Line2</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Line3</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;MailStop</span> <span class="xml-tag">/&gt;</span>
-                <span class="xml-tag">&lt;City</span><span class="xml-tag">&gt;</span>Seattle<span class="xml-tag">&lt;/City</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;StateProvince</span><span class="xml-tag">&gt;</span>WA<span class="xml-tag">&lt;/StateProvince</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;CountryCode</span><span class="xml-tag">&gt;</span>US<span class="xml-tag">&lt;/CountryCode</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;ZipCode</span><span class="xml-tag">&gt;</span>98102<span class="xml-tag">&lt;/ZipCode</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Longitude</span><span class="xml-tag">&gt;</span>-77.040706000000<span class="xml-tag">&lt;/Longitude</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Latitude</span><span class="xml-tag">&gt;</span>38.812690000000<span class="xml-tag">&lt;/Latitude</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/Address</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/Addresses</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;DriversLicenses</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;DriversLicense</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;DriversLicenseNumber</span><span class="xml-tag">&gt;</span>MIL112233452<span class="xml-tag">&lt;/DriversLicenseNumber</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;IssuingCountry</span><span class="xml-tag">&gt;</span>US<span class="xml-tag">&lt;/IssuingCountry</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;IssuingState</span><span class="xml-tag">&gt;</span>WA<span class="xml-tag">&lt;/IssuingState</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Expiration</span><span class="xml-tag">&gt;</span>2018-05-22<span class="xml-tag">&lt;/Expiration</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/DriversLicense</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/DriversLicenses</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;EmailAddresses</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;EmailAddress</span> <span class="xml-attribute">Type</span>=<span class="xml-value">&quot;Business&quot;</span> <span class="xml-attribute">Contact</span>=<span class="xml-value">&quot;True&quot;</span><span class="xml-tag">&gt;</span>mariab@example.com<span class="xml-tag">&lt;/EmailAddress</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/EmailAddresses</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;RatePreferences</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;AAARate</span><span class="xml-tag">&gt;</span>true<span class="xml-tag">&lt;/AAARate</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;AARPRate</span><span class="xml-tag">&gt;</span>false<span class="xml-tag">&lt;/AARPRate</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;GovtRate</span><span class="xml-tag">&gt;</span>false<span class="xml-tag">&lt;/GovtRate</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;MilitaryRate</span><span class="xml-tag">&gt;</span>false<span class="xml-tag">&lt;/MilitaryRate</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/RatePreferences</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;DiscountCodes</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;DiscountCode</span> <span class="xml-attribute">Vendor</span>=<span class="xml-value">&quot;Marriott&quot;</span><span class="xml-tag">&gt;</span>1234567899<span class="xml-tag">&lt;/DiscountCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;DiscountCode</span> <span class="xml-attribute">Vendor</span>=<span class="xml-value">&quot;IHG&quot;</span><span class="xml-tag">&gt;</span>111222333<span class="xml-tag">&lt;/Discount</span>
-        <span class="xml-tag">&lt;/DiscountCodes</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Air</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;AirSmokingCode</span><span class="xml-tag">&gt;</span>S<span class="xml-tag">&lt;/AirSmokingCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;AirMemberships</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;AirMembership</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;VendorCode</span><span class="xml-tag">&gt;</span>AA<span class="xml-tag">&lt;/VendorCode</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;AccountNo</span><span class="xml-tag">&gt;</span>K12345<span class="xml-tag">&lt;/AccountNo</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;Status</span><span class="xml-tag">&gt;</span>Normal<span class="xml-tag">&lt;/Status</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;StatusBenefits</span><span class="xml-tag">&gt;</span>N/A<span class="xml-tag">&lt;/StatusBenefits</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;PointTotal</span><span class="xml-tag">&gt;</span>1234<span class="xml-tag">&lt;/PointTotal</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;SegmentTotal</span><span class="xml-tag">&gt;</span>2<span class="xml-tag">&lt;/SegmentTotal</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;NextStatus</span><span class="xml-tag">&gt;</span>Super<span class="xml-tag">&lt;/NextStatus</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;PointsUntilNextStatus</span><span class="xml-tag">&gt;</span>444<span class="xml-tag">&lt;/PointsUntilNextStatus</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;SegmentsUntilNextStatus</span><span class="xml-tag">&gt;</span>2<span class="xml-tag">&lt;/SegmentsUntilNextStatus</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;AirMembership</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;AirMemberships</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Seat</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;InterRowPositionCode</span><span class="xml-tag">&gt;</span>Window<span class="xml-tag">&lt;/InterRowPositionCode</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;SectionPositionCode</span><span class="xml-tag">&gt;</span>NOPREF<span class="xml-tag">&lt;/SectionPositionCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/Seat</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Meals</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;MealCode</span><span class="xml-tag">&gt;</span>VGML<span class="xml-tag">&lt;/MealCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/Meals</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;HomeAirport</span><span class="xml-tag">&gt;</span>SEA<span class="xml-tag">&lt;/HomeAirport</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;AirOther</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/Air</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Car</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CarSmokingCode</span><span class="xml-tag">&gt;</span>N<span class="xml-tag">&lt;/CarSmokingCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CarGPS</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/CarGPS</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CarOption</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;CarMemberships</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;CarMembership</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;VendorCode</span><span class="xml-tag">&gt;</span>ZE<span class="xml-tag">&lt;/VendorCode</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;AccountNo</span><span class="xml-tag">&gt;</span>ABCDEF<span class="xml-tag">&lt;/AccountNo</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;Status</span><span class="xml-tag">&gt;</span>Newbie<span class="xml-tag">&lt;/Status</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;StatusBenefits</span><span class="xml-tag">&gt;</span>10%  discount<span class="xml-tag">&lt;/StatusBenefits</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;PointTotal</span><span class="xml-tag">&gt;</span>44<span class="xml-tag">&lt;/PointTotal</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;SegmentTotal</span><span class="xml-tag">&gt;</span>8<span class="xml-tag">&lt;/SegmentTotal</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;NextStatus</span><span class="xml-tag">&gt;</span>Veteran<span class="xml-tag">&lt;/NextStatus</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;PointsUntilNextStatus</span><span class="xml-tag">&gt;</span>55<span class="xml-tag">&lt;/PointsUntilNextStatus</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;SegmentsUntilNextStatus</span><span class="xml-tag">&gt;</span>12<span class="xml-tag">&lt;/SegmentsUntilNextStatus</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;CarMembership</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;CarMembership</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;VendorCode</span><span class="xml-tag">&gt;</span>XW<span class="xml-tag">&lt;/VendorCode</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;AccountNo</span><span class="xml-tag">&gt;</span>GHIJK<span class="xml-tag">&lt;/AccountNo</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;Status</span><span class="xml-tag">&gt;</span>Gold<span class="xml-tag">&lt;/Status</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;StatusBenefits</span><span class="xml-tag">&gt;</span>30%  discount<span class="xml-tag">&lt;/StatusBenefits</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;PointTotal</span><span class="xml-tag">&gt;</span>1000<span class="xml-tag">&lt;/PointTotal</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;SegmentTotal</span><span class="xml-tag">&gt;</span>50<span class="xml-tag">&lt;/SegmentTotal</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;NextStatus</span><span class="xml-tag">&gt;</span>VIP<span class="xml-tag">&lt;/NextStatus</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;PointsUntilNextStatus</span><span class="xml-tag">&gt;</span>500<span class="xml-tag">&lt;/PointsUntilNextStatus</span><span class="xml-tag">&gt;</span>
-                    <span class="xml-tag">&lt;SegmentsUntilNextStatus</span><span class="xml-tag">&gt;</span>25<span class="xml-tag">&lt;/SegmentsUntilNextStatus</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;CarMembership</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/CarMemberships</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CarOther</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;CarSkiRack</span><span class="xml-tag">&gt;</span>False<span class="xml-tag">&lt;/CarSkiRack</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/Car</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Hotel</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;SmokingCode</span><span class="xml-tag">&gt;</span>N<span class="xml-tag">&lt;/SmokingCode</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;HotelMemberships</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;RoomType</span><span class="xml-tag">&gt;</span>K<span class="xml-tag">&lt;/RoomType</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;HotelOther</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;PreferFoamPillows</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/PreferFoamPillows</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;PreferCrib</span><span class="xml-tag">&gt;</span>False<span class="xml-tag">&lt;/PreferCrib</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;PreferRollawayBed</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/PreferRollawayBed</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;PreferGym</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/PreferGym</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;preferPool</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/preferPool</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;preferRestaraunt</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/preferRestaraunt</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;preferWheelchairAccess</span><span class="xml-tag">&gt;</span>False<span class="xml-tag">&lt;/preferWheelchairAccess</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;preferAccessForBlind</span><span class="xml-tag">&gt;</span>False<span class="xml-tag">&lt;/preferAccessForBlind</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;preferRoomService</span><span class="xml-tag">&gt;</span>True<span class="xml-tag">&lt;/preferRoomService</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;preferEarlyCheckIn</span><span class="xml-tag">&gt;</span>False<span class="xml-tag">&lt;/preferEarlyCheckIn</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/Hotel</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;CustomFields</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Name</span><span class="xml-tag">&gt;</span>Employee ID<span class="xml-tag">&lt;/Name</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Value</span><span class="xml-tag">&gt;</span>12345<span class="xml-tag">&lt;/Value</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Name</span><span class="xml-tag">&gt;</span>Cost Centre<span class="xml-tag">&lt;/Name</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Value</span><span class="xml-tag">&gt;</span>Headquarters<span class="xml-tag">&lt;/Value</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Name</span><span class="xml-tag">&gt;</span>Fund<span class="xml-tag">&lt;/Name</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Value</span><span class="xml-tag">&gt;</span>StudentTraining<span class="xml-tag">&lt;/Value</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Name</span><span class="xml-tag">&gt;</span>Passport Number&gt;<span class="xml-tag">&lt;/Name</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Value</span><span class="xml-tag">&gt;</span>AUS1234<span class="xml-tag">&lt;/Value</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Name</span><span class="xml-tag">&gt;</span>Visa<span class="xml-tag">&lt;/Name</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Value</span><span class="xml-tag">&gt;</span>EUvisa1234<span class="xml-tag">&lt;/Value</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;CustomField</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Name</span><span class="xml-tag">&gt;</span>Assistants<span class="xml-tag">&lt;/Name</span><span class="xml-tag">&gt;</span>
-                <span class="xml-tag">&lt;Value</span><span class="xml-tag">&gt;</span>John Smith<span class="xml-tag">&lt;/Value</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;/CustomField</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/CustomFields</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/ProfileResponse</span><span class="xml-tag">&gt;</span>
+<ProfileResponse Status="Active" Unique="CM12345678">
+    <General>
+        <NamePrefix>
+        <FirstName>Maria</FirstName>
+        <MiddleName>X</MiddleName>
+        <LastName>Black</LastName>
+        <NameSuffix>
+        <PreferredName>
+        <JobTitle>Finance Manager</JobTitle>
+        <PreferredLanguage>en-us</PreferredLanguage>
+        <EReceiptOptIn>True</EReceiptOptIn>
+        <MarketingOptIn>True</MarketingOptIn>
+        <HasOpenBooking>true</HasOpenBooking>
+        <CountryCode>US</CountryCode>
+        <CompanyName>ExampleDotCom</CompanyName>
+    </General>
+    <Telephones>
+        <Telephone Type="Work">
+            <CountryCode>001</CountryCode>
+            <PhoneNumber>5555551234</PhoneNumber>
+            <Extension>
+        </Telephone>
+        <Telephone Type="Cell">
+            <CountryCode>001</CountryCode>
+            <PhoneNumber>4155544321</PhoneNumber>
+            <Extension>
+            <ContactOptIn>True</ContactOptIn>
+        </Telephone>
+    </Telephones>
+    <Addresses>
+        <Address Type="Work">
+            <AttentionLine>Finance Department</AttentionLine>
+            <Line1>1234 Rainy Street.</Line1>
+            <Line2>Suite 442</Line2>
+            <Line3>
+            <MailStop>
+            <City>Seattle</City>
+            <StateProvince>WA</StateProvince>
+            <CountryCode>US</CountryCode>
+            <ZipCode>98102</ZipCode>
+            <Longitude>-77.040706000000</Longitude>
+            <Latitude>38.812690000000</Latitude>
+        </Address>
+        <Address Type="Home">
+            <AttentionLine>
+            <Line1>1234 1st Ave. S</Line1>
+            <Line2>Apt. 821</Line2>
+            <Line3>
+            <MailStop>
+            <City>Seattle</City>
+            <StateProvince>WA</StateProvince>
+            <CountryCode>US</CountryCode>
+            <ZipCode>98102</ZipCode>
+            <Longitude>-77.040706000000</Longitude>
+            <Latitude>38.812690000000</Latitude>
+        </Address>
+    </Addresses>
+    <DriversLicenses>
+        <DriversLicense>
+            <DriversLicenseNumber>MIL112233452</DriversLicenseNumber>
+            <IssuingCountry>US</IssuingCountry>
+            <IssuingState>WA</IssuingState>
+            <Expiration>2018-05-22</Expiration>
+        </DriversLicense>
+    </DriversLicenses>
+    <EmailAddresses>
+        <EmailAddress Type="Business" Contact="True">mariab@example.com</EmailAddress>
+    </EmailAddresses>
+    <RatePreferences>
+        <AAARate>true</AAARate>
+        <AARPRate>false</AARPRate>
+        <GovtRate>false</GovtRate>
+        <MilitaryRate>false</MilitaryRate>
+    </RatePreferences>
+    <DiscountCodes>
+        <DiscountCode Vendor="Marriott">1234567899</DiscountCode>
+        <DiscountCode Vendor="IHG">111222333</Discount</span>
+    </DiscountCodes>
+    <Air>
+        <AirSmokingCode>S</AirSmokingCode>
+        <AirMemberships>
+            <AirMembership>
+                <VendorCode>AA</VendorCode>
+                <AccountNo>K12345</AccountNo>
+                <Status>Normal</Status>
+                <StatusBenefits>N/A</StatusBenefits>
+                <PointTotal>1234</PointTotal>
+                <SegmentTotal>2</SegmentTotal>
+                <NextStatus>Super</NextStatus>
+                <PointsUntilNextStatus>444</PointsUntilNextStatus>
+                <SegmentsUntilNextStatus>2</SegmentsUntilNextStatus>
+            <AirMembership>
+        <AirMemberships>
+        <Seat>
+            <InterRowPositionCode>Window</InterRowPositionCode>
+            <SectionPositionCode>NOPREF</SectionPositionCode>
+        </Seat>
+        <Meals>
+            <MealCode>VGML</MealCode>
+        </Meals>
+        <HomeAirport>SEA</HomeAirport>
+        <AirOther>
+    </Air>
+    <Car>
+        <CarSmokingCode>N</CarSmokingCode>
+        <CarGPS>True</CarGPS>
+        <CarOption>
+        <CarMemberships>
+            <CarMembership>
+                <VendorCode>ZE</VendorCode>
+                <AccountNo>ABCDEF</AccountNo>
+                <Status>Newbie</Status>
+                <StatusBenefits>10%  discount</StatusBenefits>
+                <PointTotal>44</PointTotal>
+                <SegmentTotal>8</SegmentTotal>
+                <NextStatus>Veteran</NextStatus>
+                <PointsUntilNextStatus>55</PointsUntilNextStatus>
+                <SegmentsUntilNextStatus>12</SegmentsUntilNextStatus>
+            <CarMembership>
+            <CarMembership>
+                <VendorCode>XW</VendorCode>
+                <AccountNo>GHIJK</AccountNo>
+                <Status>Gold</Status>
+                <StatusBenefits>30%  discount</StatusBenefits>
+                <PointTotal>1000</PointTotal>
+                <SegmentTotal>50</SegmentTotal>
+                <NextStatus>VIP</NextStatus>
+                <PointsUntilNextStatus>500</PointsUntilNextStatus>
+                <SegmentsUntilNextStatus>25</SegmentsUntilNextStatus>
+            <CarMembership>
+        </CarMemberships>
+        <CarOther>
+        <CarSkiRack>False</CarSkiRack>
+    </Car>
+    <Hotel>
+        <SmokingCode>N</SmokingCode>
+        <HotelMemberships>
+        <RoomType>K</RoomType>
+        <HotelOther>
+        <PreferFoamPillows>True</PreferFoamPillows>
+        <PreferCrib>False</PreferCrib>
+        <PreferRollawayBed>True</PreferRollawayBed>
+        <PreferGym>True</PreferGym>
+        <preferPool>True</preferPool>
+        <preferRestaraunt>True</preferRestaraunt>
+        <preferWheelchairAccess>False</preferWheelchairAccess>
+        <preferAccessForBlind>False</preferAccessForBlind>
+        <preferRoomService>True</preferRoomService>
+        <preferEarlyCheckIn>False</preferEarlyCheckIn>
+    </Hotel>
+    <CustomFields>
+        <CustomField>
+            <Name>Employee ID</Name>
+            <Value>12345</Value>
+        </CustomField>
+        <CustomField>
+            <Name>Cost Centre</Name>
+            <Value>Headquarters</Value>
+        </CustomField>
+        <CustomField>
+            <Name>Fund</Name>
+            <Value>StudentTraining</Value>
+        </CustomField>
+        <CustomField>
+            <Name>Passport Number&gt;</Name>
+            <Value>AUS1234</Value>
+        </CustomField>
+        <CustomField>
+            <Name>Visa</Name>
+            <Value>EUvisa1234</Value>
+        </CustomField>
+        <CustomField>
+            <Name>Assistants</Name>
+            <Value>John Smith</Value>
+        </CustomField>
+    </CustomFields>
+</ProfileResponse>
+```
 
-</pre>
- 
 
 ####  Example 4: Get the travel profile for a user with a specific login ID
 
 #####  Request
 
-    GET https://www.concursolutions.com/api/travelprofile/v1.0/profile?
-    userid_type=login&userid_value=cm@example.com HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+GET https://www.concursolutions.com/api/travelprofile/v1.0/profile?
+userid_type=login&userid_value=cm@example.com HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
 
 #####  Response
 
@@ -828,10 +825,10 @@ Gets the list of travel profile summaries that have been updated since the speci
 
 ###  Request
 
-<samp>
+```http
 GET {InstanceURI}/api/travelprofile/v1.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
 Authorization: OAuth {access token}
-</samp>
+```
 
 ####  Request parameters
 
@@ -850,7 +847,7 @@ application/xml
 
 #####  Authorization header
 
-<samp>Authorization: OAuth {access_token}</samp>
+`Authorization: OAuth {access_token}`
 
 Where _access_token_ is the OAuth 2.0 access token of the user whose travel profile summaries you want to retrieve. If you want to access company-wide travel profile information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
@@ -858,28 +855,27 @@ Where _access_token_ is the OAuth 2.0 access token of the user whose travel prof
 
 The data model of the response for the GET operation.
 
-<pre>
-<span class="xml-tag">&lt;ConnectResponse</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Metadata</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Paging</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;TotalPages</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;TotalItems</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;Page</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;ItemsPerPage</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;PreviousPageURL</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;NextPageURL</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/Paging</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Metadata</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Data</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;ProfileSummary</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;LoginID</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;XmlProfileSyncID</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;ProfileLastModifiedUTC</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/ProfileSummary</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Data</span><span class="xml-tag">&gt;</span>
-<span class="xml-tag">&lt;/ConnectResponse</span><span class="xml-tag">&gt;</span>
-
-</pre>
+```xml
+<ConnectResponse>
+    <Metadata>
+        <Paging>
+            <TotalPages>
+            <TotalItems>
+            <Page>
+            <ItemsPerPage>
+            <PreviousPageURL>
+            <NextPageURL>
+        </Paging>
+    </Metadata>
+    <Data>
+        <ProfileSummary>
+            <LoginID>
+            <XmlProfileSyncID>
+            <ProfileLastModifiedUTC>
+        </ProfileSummary>
+    </Data>
+</ConnectResponse>
+```
 
 ### Response
 
@@ -923,47 +919,43 @@ This example gets the list of travel profile summaries modified after January 1 
 
 ####  Request
 
-<samp>
-    GET {InstanceURI}/api/travelprofile/v1.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
-</samp>
+```http
+GET {InstanceURI}/api/travelprofile/v1.0/profile?LastModifiedDate=2015-01-01T01:00:00 HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
 
 ####  Response
 
-<pre>
-200 OK
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml
 
-<span class="xml-tag">&lt;ConnectResponse</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Metadata</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;Paging</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;TotalPages</span><span class="xml-tag">&gt;</span>1<span class="xml-tag">&lt;/TotalPages</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;TotalItems</span><span class="xml-tag">&gt;</span>2<span class="xml-tag">&lt;/TotalItems</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;Page</span><span class="xml-tag">&gt;</span>1<span class="xml-tag">&lt;/Page</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;ItemsPerPage</span><span class="xml-tag">&gt;</span>200<span class="xml-tag">&lt;/ItemsPerPage</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;PreviousPageURL</span> <span class="xml-tag">/&gt;</span>
-            <span class="xml-tag">&lt;NextPageURL</span> <span class="xml-tag">/&gt;</span>
-        <span class="xml-tag">&lt;/Paging</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Metadata</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;Data</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;ProfileSummary</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;LoginID</span><span class="xml-tag">&gt;</span>mariab@company1.com<span class="xml-tag">&lt;/LoginID</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;XmlProfileSyncID</span><span class="xml-tag">&gt;</span>string123<span class="xml-tag">&lt;/XmlProfileSyncID</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>2015-01-01T01:00:00<span class="xml-tag">&lt;/ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/ProfileSummary</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;ProfileSummary</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;LoginID</span><span class="xml-tag">&gt;</span>peterk@company1.com<span class="xml-tag">&lt;/LoginID</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;XmlProfileSyncID</span><span class="xml-tag">&gt;</span>string456<span class="xml-tag">&lt;/XmlProfileSyncID</span><span class="xml-tag">&gt;</span>
-            <span class="xml-tag">&lt;ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>2015-01-01T01:00:00<span class="xml-tag">&lt;/ProfileLastModifiedUTC</span><span class="xml-tag">&gt;</span>
-        <span class="xml-tag">&lt;/ProfileSummary</span><span class="xml-tag">&gt;</span>
-    <span class="xml-tag">&lt;/Data</span><span class="xml-tag">&gt;</span>
-<span class="xml-tag">&lt;/ConnectResponse</span><span class="xml-tag">&gt;</span>
-
-</pre>
- 
-
-
+<ConnectResponse>
+    <Metadata>
+        <Paging>
+            <TotalPages>1</TotalPages>
+            <TotalItems>2</TotalItems>
+            <Page>1</Page>
+            <ItemsPerPage>200</ItemsPerPage>
+            <PreviousPageURL>
+            <NextPageURL>
+        </Paging>
+    </Metadata>
+    <Data>
+        <ProfileSummary>
+            <LoginID>mariab@company1.com</LoginID>
+            <XmlProfileSyncID>string123</XmlProfileSyncID>
+            <ProfileLastModifiedUTC>2015-01-01T01:00:00</ProfileLastModifiedUTC>
+        </ProfileSummary>
+        <ProfileSummary>
+            <LoginID>peterk@company1.com</LoginID>
+            <XmlProfileSyncID>string456</XmlProfileSyncID>
+            <ProfileLastModifiedUTC>2015-01-01T01:00:00</ProfileLastModifiedUTC>
+        </ProfileSummary>
+    </Data>
+</ConnectResponse>
+```
 
 
 [3]: https://www.concursolutions.com/ns/PanamaUserProfile.xsd
@@ -971,4 +963,4 @@ Content-Type: application/xml
 [5]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
 [6]: http://concur.github.io/developer.concur.com/api-reference/user/company-notification-subscription-resource
 [7]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/user-notification-resource
-[8]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-
+[8]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2

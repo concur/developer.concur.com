@@ -1,5 +1,5 @@
 ---
-title: Quick Expense 
+title: Quick Expense
 layout: reference
 ---
 
@@ -22,7 +22,7 @@ layout: reference
 
     GET  /api/v3.0/expense/quickexpenses
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -31,6 +31,37 @@ Name | Type | Format | Description
 `limit`	|	`Int32`	|	`query`	|	The number of records to return (default 25).
 `user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/quickexpenses?limit=15&user=ALL
+```
+
+### JSON example of a successful response
+
+```json
+{
+  "Items": [
+    {
+      "ExpenseTypeCode": "DINNR",
+      "PaymentTypeCode": "CPAID",
+      "TransactionDate": "2015-03-17T00:00:00",
+      "TransactionAmount": 17.01,
+      "CurrencyCode": "USD",
+      "VendorDescription": "I Love Sushi",
+      "Comment": "Does this default to Cash?",
+      "OwnerLoginID": "user@concurconnect2.com",
+      "OwnerName": "user",
+      "ExpenseTypeName": "Dinner",
+      "LocationName": "",
+      "ReceiptImageID": null,
+      "ID": "gWr6YqsUJgM3BFgTKATDDdg2d",
+      "URI": "https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr6YqsUJgM3BFgTKATDDdg2d"
+    }
+  ]
+}
+```
 
 
 ## <a name="getID"></a>Retrieve quick expense by ID
@@ -44,6 +75,34 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `id`	|	`string`	|	`path`	|	**Required** The ID of the quick expense.
 `user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
+
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr7QiDXTuWSO8bsFmK87bnP%24sC8fZmg
+```
+
+### JSON example of a successful response
+
+```json
+{
+  "ExpenseTypeCode": "DINNR",
+  "PaymentTypeCode": "CPAID",
+  "TransactionDate": "2015-03-17T00:00:00",
+  "TransactionAmount": 17.01,
+  "CurrencyCode": "USD",
+  "VendorDescription": "I Love Sushi",
+  "Comment": "Does this default to Cash?",
+  "OwnerLoginID": "jimadmin@concurconnect2.com",
+  "OwnerName": "Jim Admin",
+  "ExpenseTypeName": "Dinner",
+  "LocationName": "",
+  "ReceiptImageID": null,
+  "ID": "gWr7QiDXTuWSO8bsFmK87bnP$sC8fZmg",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr7QiDXTuWSO8bsFmK87bnP$sC8fZmg"
+}
+```
 
 
 ## <a name="post"></a>Create a quick expense
@@ -64,10 +123,27 @@ Name | Type | Format | Description
 `LocationSubdivision`	|	`string`	|		|	The state, province, or other country subdivision where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: ISO 3166-2:2007 country subdivision.
 `PaymentTypeCode`	|	`string`	|		|	This element specifies the method of payment for the expense. Format: CASHX = Cash, CPAID = Company Paid, or PENDC = Pending Card Transaction (default)
 `ReceiptImageID`	|	`string`	|		|	The unique identifier for the image. The ReceiptImageID is returned in the ID element of the Post Receipt Image API response.
-`SpendCategoryCode`	|	`string`	|		|	The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting. Format: One of the Code values in the Spend Category Code List. Developers can view the configured Spend Category/Expense Type mappings by using the Get Expense Group Configuration function.
+`SpendCategoryCode`	|	`string`	|		|	The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting. Format: One of the Code values in the [Spend Category Code List](/tools-support/reference/spend-category-codes.html). Note: COCRM (Company Car Mileage) and PRCAR (Personal Car Mileage) are not currently supported.
 `TransactionAmount`	|	`Decimal`	|		|	**Required** The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654
-`TransactionDate`	|	`DateTime`	|		|	**Required**The date the expense was incurred. Format: YYYY-MM-DD
+`TransactionDate`	|	`DateTime`	|		|	**Required** The date the expense was incurred. Format: YYYY-MM-DD
 `VendorDescription`	|	`string`	|		|	The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction. Max Length: 64
+
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/quickexpenses
+```
+
+
+### JSON example of a successful response
+
+```json
+{
+  "ID": "gWr7QiDXTuWSO8bsFmK87bnP$sC8fZmg",
+  "URI": "https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr7QiDXTuWSO8bsFmK87bnP$sC8fZmg"
+}
+```
 
 
 ## <a name="put"></a>Update a quick expense
@@ -89,11 +165,23 @@ Name | Type | Format | Description
 `LocationSubdivision`	|	`string`	|		|	The state, province, or other country subdivision where the expense was incurred. This is used to determine the Location ID when the quick expense is converted into an expense entry. Format: ISO 3166-2:2007 country subdivision.
 `PaymentTypeCode`	|	`string`	|		|	This element specifies the method of payment for the expense. Format: CASHX = Cash, CPAID = Company Paid, or PENDC = Pending Card Transaction (default)
 `ReceiptImageID`	|	`string`	|		|	The unique identifier for the image. The ReceiptImageID is returned in the ID element of the Post Receipt Image API response.
-`SpendCategoryCode`	|	`string`	|		|	The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting. Format: One of the Code values in the Spend Category Code List. Developers can view the configured Spend Category/Expense Type mappings by using the Get Expense Group Configuration function.
+`SpendCategoryCode`	|	`string`	|		|	The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting. Format: One of the Code values in the [Spend Category Code List](/tools-support/reference/spend-category-codes.html). Note: COCRM (Company Car Mileage) and PRCAR (Personal Car Mileage) are not currently supported.
 `TransactionAmount`	|	`Decimal`	|		|	**Required** The total amount of the expense in the original currency, with up to three decimal places. Example: 123.654
-`TransactionDate`	|	`DateTime`	|		|	**Required**The date the expense was incurred. Format: YYYY-MM-DD
+`TransactionDate`	|	`DateTime`	|		|	**Required** The date the expense was incurred. Format: YYYY-MM-DD
 `VendorDescription`	|	`string`	|		|	The descriptive text for the vendor for the quick expense. This often matches the Merchant Name found in a credit card transaction. Max Length: 64
 
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr7QiDXTuWSO8bsFmK87bnP%24sC8fZmg
+```
+
+
+### JSON example of a successful response
+```
+no content
+```
 
 ## <a name="delete"></a>Delete a quick expense
 
@@ -107,6 +195,17 @@ Name | Type | Format | Description
 `id`	|	`string`	|	`path`	|	**Required** The ID of the quick expense to be deleted
 `user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
+
+### Request URL
+```
+https://www.concursolutions.com/api/v3.0/expense/quickexpenses/gWr7QiDXTuWSO8bsFmK87bnP%24sC8fZmg
+```
+
+
+### JSON example of a successful response
+```
+no content
+```
 
 
 ## <a name="schema"></a>Schema

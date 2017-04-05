@@ -1,5 +1,5 @@
 ---
-title: Travel Request Validation 
+title: Travel Request Validation
 layout: reference
 ---
 
@@ -37,7 +37,7 @@ In this step, you will enable the Event Notification functionality in your Concu
 3. Click **Manage Application Connectors**.
 4. Click **New**.
 5. Fill out the fields:  
-   
+
    |  Field |  Description |
    | ----- |------|
    |  Name |  Enter the name that should appear in the list of connectors. |
@@ -59,7 +59,7 @@ In this step, you will enable the Event Notification functionality in your Concu
 1. On the **Web Services** page, click **Register Partner Application**. The **Application Registration** page appears.  
 2. Click **New**. The **New Partner Application** page appears.  
 3. Complete all of the required fields:
-   
+
    |Field |Description |
    |--------|-------|
    |  Name |  Enter the name that should appear in the list of applications. |
@@ -67,7 +67,7 @@ In this step, you will enable the Event Notification functionality in your Concu
    |  Visibility |  This field is only editable by Concur Internal users. |
    |  Active |  Select Active. |
    |  APIs Used |  Select the Request API. |
-   
+
 4. The **Application Authorization** section displays your company domain and automatically creates a **Key** and **Secret** to use with this application.<br/>**NOTE: The key and secret allow access to any company that enables this application. You MUST keep this information secret (as specified in the Concur Legal Agreement) to maintain security.**
 5. Record the key and secret to use later.
 6. Click **OK**. The application will automatically be enabled for your company.
@@ -88,11 +88,11 @@ After receiving an event notification, the application connector should send an 
 
 After you receive the OAuth access token, you are ready to request the Request data. The event notification information that Concur sends includes an element named **ObjectURI**. The connector can send a GET request to the URI specified in this element, supplying the OAuth access token in the request header in the following format:
 
-```
-    GET api/travelrequest/v1.0/requests/nxxKgLlnROz3zHJBCRksaas23dsfs  HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    ...
+```http
+GET api/travelrequest/v1.0/requests/nxxKgLlnROz3zHJBCRksaas23dsfs HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+...
 ```
 
 
@@ -111,7 +111,7 @@ In the next step, the application connector will update the Request with the val
 
 Once the Request has been validated, the application connector is ready to update its workflow. If the Request passed validation, it should be approved, and will then travel forward in its workflow. If the Request did not pass validation, it should be sent back to the employee, which moves it to the beginning of the workflow.
 
-The full Request details include an element named **WorkflowStepURL**. The application connector posts the workflow action (Approve or Send Back to Employee) to this url, using the same OAuth access token in the header. 
+The full Request details include an element named **WorkflowStepURL**. The application connector posts the workflow action (Approve or Send Back to Employee) to this url, using the same OAuth access token in the header.
 
 Concur responds with a success or failure status, and provides additional information for failures.
 
@@ -128,6 +128,6 @@ The application connector has now completed the process of validating a Request,
 [7]: https://developer.concur.com/sites/default/files/RegPartApp_crop.png
 [8]: https://developer.concur.com/sites/default/files/NewPartnerApp_0.png
 [9]: https://developer.concur.com/oauth-20
-[10]: /api-reference/authentication/authentication.html
+[10]: /api-reference/authentication/apidoc.html
 [12]: https://developer.concur.com/node/518#requestdetails
 [13]: https://developer.concur.com/node/519#requestworkflow

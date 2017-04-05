@@ -1,0 +1,116 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "LatestBookings",
+  "apis": [
+    {
+      "path": "/insights/latestbookings/",
+      "description": "Get the latest hotel and air booking for a particular user.",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_user",
+          "responseClass": "LatestBooking",
+          "summary": "Get the latest hotel and air booking for a particular user.",
+          "notes": "Get the latest hotel and air booking for a particular user.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "Optional. The login ID of the user. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/insights/latestbookings/",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/insights/latestbookings/",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "Airline": {
+      "id": "Airline",
+      "displayName": "Airline",
+      "properties": {
+        "BookingClass": {
+          "description": "The booking class of the latest booked airline segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Code": {
+          "description": "The airline code of the latest booked airline segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Hotel": {
+      "id": "Hotel",
+      "displayName": "Hotel",
+      "properties": {
+        "Location": {
+          "description": "The <a target=\"_blank\" href=\" http://www.iata.org/publications/Pages/code-search.aspx\">IATA airport code</a> of the location of the latest booked hotel segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StarRating": {
+          "description": "The star rating of the latest booked hotel segment. Possible values are from 0 - 5. Values 1 - 5 are mapped to the <a target=\"_blank\" href=\"http://www.northstartravelmedia.com/\">Northstar</a> standard. If the value is 0, the star rating could not be found.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "LatestBooking": {
+      "id": "LatestBooking",
+      "displayName": "LatestBooking",
+      "properties": {
+        "Airlines": {
+          "description": "The latest booked airline segments.",
+          "type": "Array",
+          "items": {
+            "$ref": "Airline",
+            "displayName": "Airline"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "Hotel": {
+          "description": "The latest booked hotel segment.",
+          "type": "Hotel",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    }
+  }
+}

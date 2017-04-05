@@ -53,7 +53,7 @@ To manage data for an entire conpany, the Concur account associated with the acc
 * application/xml
 
 ### Content Body
-This request will return an **Attendees** parent element containing an **Attendee** child element for each attendee. 
+This request will return an **Attendees** parent element containing an **Attendee** child element for each attendee.
 
 #### Attendee elements
 
@@ -90,68 +90,67 @@ This request will return an **Attendees** parent element containing an **Attende
 
 ###  XML Example Request with Attendee ID
 
-```
-    GET https://www.concursolutions.com/api/expense/v2.0/attendees/nFaAj0ncBsvkgnPMY5QWfBbbWyv$sQh2oW HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+GET https://www.concursolutions.com/api/expense/v2.0/attendees/nFaAj0ncBsvkgnPMY5QWfBbbWyv$sQh2oW HTTP/1.1
+Authorization: OAuth {access token}
+...
 ```
 
 ###  XML Example Request with External ID
 
-```
-    GET https://www.concursolutions.com/api/expense/v2.0/attendees?externalid=234567 HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+GET https://www.concursolutions.com/api/expense/v2.0/attendees?externalid=234567 HTTP/1.1
+Authorization: OAuth {access token}
+...
 ```
 
 ####  XML Example of Successful Response
 
-```
-xml
-    200 OK
-    Content-Type: application/xml
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
 
-    <Attendees xmlns="http://www.concursolutions.com/api/expense/expensereport/2012/07" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Attendee>
-            <AttendeeType>BUSGUEST</AttendeeType>
-            <FirstName>Chris</FirstName>
-            <LastName>Miller</LastName>
-            <Company />
-            <Title />
-            <ExternalID>234567</ExternalID>
-            <Custom1 />
-            <Custom2 />
-            <Custom3 />
-            <Custom4 />
-            <Custom5 />
-            <Custom6 />
-            <Custom7 />
-            <Custom8 />
-            <Custom9 />
-            <Custom10 />
-            <Custom11 />
-            <Custom12 />
-            <Custom13 />
-            <Custom14 />
-            <Custom15 />
-            <Custom16 />
-            <Custom17 />
-            <Custom18 />
-            <Custom19 />
-            <Custom20 />
-            <HasExceptionsPrevYear>N</HasExceptionsPrevYear>
-            <HasExceptionsYTD>N</HasExceptionsYTD>
-            <IsDeleted>N</IsDeleted>
-            <OwnerEmpName>Davis, Pat</OwnerEmpName>
-            <TotalAmountPrevYear>0.00000000</TotalAmountPrevYear>
-            <TotalAmountYTD>0.00000000</TotalAmountYTD>
-            <VersionNumber>1</VersionNumber>
-            <AttendeeID>nFaAj0ncBsvkgnPMY5QWfBbbWyv$sQh2oW</AttendeeID>
-            <AttendeeTypeCode>BUSGUEST</AttendeeTypeCode>
-            <AttendeeOwnerID>pd123456</AttendeeOwnerID>
-            <CurrencyCode>USD</CurrencyCode>
-        </Attendee>
-    </Attendees>  
+<Attendees xmlns="http://www.concursolutions.com/api/expense/expensereport/2012/07" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Attendee>
+        <AttendeeType>BUSGUEST</AttendeeType>
+        <FirstName>Chris</FirstName>
+        <LastName>Miller</LastName>
+        <Company />
+        <Title />
+        <ExternalID>234567</ExternalID>
+        <Custom1 />
+        <Custom2 />
+        <Custom3 />
+        <Custom4 />
+        <Custom5 />
+        <Custom6 />
+        <Custom7 />
+        <Custom8 />
+        <Custom9 />
+        <Custom10 />
+        <Custom11 />
+        <Custom12 />
+        <Custom13 />
+        <Custom14 />
+        <Custom15 />
+        <Custom16 />
+        <Custom17 />
+        <Custom18 />
+        <Custom19 />
+        <Custom20 />
+        <HasExceptionsPrevYear>N</HasExceptionsPrevYear>
+        <HasExceptionsYTD>N</HasExceptionsYTD>
+        <IsDeleted>N</IsDeleted>
+        <OwnerEmpName>Davis, Pat</OwnerEmpName>
+        <TotalAmountPrevYear>0.00000000</TotalAmountPrevYear>
+        <TotalAmountYTD>0.00000000</TotalAmountYTD>
+        <VersionNumber>1</VersionNumber>
+        <AttendeeID>nFaAj0ncBsvkgnPMY5QWfBbbWyv$sQh2oW</AttendeeID>
+        <AttendeeTypeCode>BUSGUEST</AttendeeTypeCode>
+        <AttendeeOwnerID>pd123456</AttendeeOwnerID>
+        <CurrencyCode>USD</CurrencyCode>
+    </Attendee>
+</Attendees>  
 ```
 
 

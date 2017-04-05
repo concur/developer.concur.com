@@ -4,14 +4,16 @@ layout: reference
 ---
 
 ## Description
-Posts a workflow action for the supplied expense report. The workflow action moves the expense report through the workflow process. 
+Posts a workflow action for the supplied expense report. The workflow action moves the expense report through the workflow process.
 
 ### Workflow actions
 
 The available actions are:
 
 * **Approve**: The report successfully completes the current workflow step. The report will continue in the workflow, and may require additional approvals based on configuration. If the report was in the Processing Payment status, it will be moved to the Paid status.  
-**NOTE**: Reports can't be moved from Processing Payment to Paid until all of their expense entries have been extracted or manually paid. Wait until the extract process completes for the report, then send the Approve workflow action.
+**NOTES**:
+  1. Reports can't be moved from Processing Payment to Paid until all of their expense entries have been extracted or manually paid. Wait until the extract process completes for the report, then send the Approve workflow action.
+  2. This API is not supported for the Processor role or expense reports pending the Processor workflow step.
 * **Send Back to Employee**: The report is sent back to the employee for revision. When the user resubmits the report, it travels through the entire workflow again.
 * **Recall to Employee**: This workflow action is initiated by the employee, and is only available after the report has been submitted. This workflow action may not be available to some clients due to configuration.
 
@@ -24,7 +26,7 @@ Each workflow step in a workflow is associated with a workflow role. Professiona
 The System role is used when the workflow actions can be completed programatically. Any workflow action can be completed this way, depending on the client's business process. The workflow role can be configured while adding the report workflow step. Some steps may require the System role. When using this role, the OAuth consumer must have the following user role:
 
 * Standard/Developer Sandbox: Can Administer
-* Professional: Company Admin or Web Services Administrator. 
+* Professional: Company Admin or Web Services Administrator.
 
 The expense report owner must have an approver or processor assigned to them before the System role can make changes to their reports.
 
@@ -86,38 +88,35 @@ This request will return an **ActionStatus** parent element with the following c
 
 ###  XML example request
 
-```
-xml
-    POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a454QitqQ/workflowaction HTTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+POST https://www.concursolutions.com/api/expense/expensereport/v1.1/report/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a454QitqQ/workflowaction HTTP/1.1
+Authorization: OAuth {access token}
+...
 
-    <WorkflowAction xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03">
-        <Action>Approve</Action>
-        <Comment>Approved via Concur Connect</Comment>
-    </WorkflowAction>
+<WorkflowAction xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03">
+    <Action>Approve</Action>
+    <Comment>Approved via Concur Connect</Comment>
+</WorkflowAction>
 ```
 
 ###  XML example of successful response
 
-```
-xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Message>SUCCESS!</Message>
-        <Status>SUCCESS!</Status>
-    </ActionStatus>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Message>SUCCESS!</Message>
+    <Status>SUCCESS!</Status>
+</ActionStatus>
 ```
 
 ###  XML example of response With error
 
-```
-xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Message>The action cannot be executed because the item has recently been changed. Please refresh your list and try again.</Message>
-        <Status>FAILURE</Status>
-    </ActionStatus>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ActionStatus xmlns="http://www.concursolutions.com/api/expense/expensereport/2011/03" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Message>The action cannot be executed because the item has recently been changed. Please refresh your list and try again.</Message>
+    <Status>FAILURE</Status>
+</ActionStatus>
 ```
 
 

@@ -17,10 +17,15 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Vagrantfile
+  - node_modules
+  - app-management
 
 # Build settings
 kramdown:
   input: GFM
+
+sass:
+  style: compressed
 
 # sitemap plugin configuration
 # this config defines 2 properties - change_frequency and priority - that can be included in an
@@ -30,8 +35,9 @@ sitemap:
   change_frequency_name: "change_frequency"
   priority_name: "priority"
 
-paginate: 5
-paginate_path: '/blog/page:num'
+pagination:
+  per_page: 5
+  permalink: '/page:num/'
 
 jekyll-archives:
   enabled: all
@@ -43,4 +49,4 @@ jekyll-archives:
     tag: '/tag/:name/'
     category: '/category/:name/'
 
-gems: ['jekyll-paginate']
+gems: ['octopress-paginate', 'jekyll-redirect-from', 'jekyll-bootstrap-sass']

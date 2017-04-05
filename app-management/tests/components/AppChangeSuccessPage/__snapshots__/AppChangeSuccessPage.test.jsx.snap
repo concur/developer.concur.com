@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppChangeSuccessPage /> should render a not found page if no app or clientSecret are provided 1`] = `
+<div>
+  <div>
+    <h2>
+      Not found
+    </h2>
+    <Link
+      className="btn bright-blue"
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/"
+    >
+      Back to My Apps
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`<AppChangeSuccessPage /> should render the app clientId, clientSecret, and name if provided 1`] = `
+<div>
+  <div>
+    <h2>
+      Here are your updated app credentials.
+    </h2>
+    <p>
+      <strong>
+        Copy down your clientSecret. You will not be able to see it again.
+      </strong>
+    </p>
+    <hr />
+    <p>
+      <strong>
+        Name: 
+      </strong>
+      <span>
+        Starbucks
+      </span>
+    </p>
+    <p>
+      <strong>
+        clientId: 
+      </strong>
+      <code>
+        test-id
+      </code>
+    </p>
+    <p>
+      <strong>
+        clientSecret: 
+      </strong>
+      <code>
+        a-client-secret
+      </code>
+    </p>
+    <Link
+      className="btn bright-blue"
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/details/test-id"
+    >
+      Go to App Details
+    </Link>
+  </div>
+</div>
+`;

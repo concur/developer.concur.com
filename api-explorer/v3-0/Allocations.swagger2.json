@@ -15,19 +15,21 @@
   ],
   "info": {
     "title": "Allocations",
-    "description": "",
+    "description": "Allocations divide the responsibility for an expense. Allocation entries consist of a percentage of the original expense, and the configured custom fields. Allocation entries are children of the expense entry. This API provides methods to view all allocations for a user or report, or view an allocation by ID.",
     "version": "3.0"
   },
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/expense/allocations": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all allocations per entry or report",
         "description": "Gets all allocations per entry or report.",
         "parameters": [
@@ -87,7 +89,9 @@
     },
     "/expense/allocations/{id}": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get a single allocation by ID",
         "description": "Gets a single allocation by ID.",
         "parameters": [
@@ -125,7 +129,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The URI of the next page of results, if any."
         }
       }
     },
@@ -133,83 +137,83 @@
       "properties": {
         "AccountCode1": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The primary accounting code assigned to the expense type associated with this allocation. Typically, expense types have only a primary account code."
         },
         "AccountCode2": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The secondary or alternative accounting code assigned to the expense type associated with this allocation."
         },
         "Custom1": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom10": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom11": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom12": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom13": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom14": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom15": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom16": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom17": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom18": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom19": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom2": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom20": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom3": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom4": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom5": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom6": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom7": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom8": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "Custom9": {
-          "$ref": "#/definitions/CustomField"
+          "$ref": "#/definitions/CustomFieldExtension"
         },
         "EntryID": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The unique identifier for the expense entry."
         },
         "ID": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The unique identifier of the resource."
         },
         "IsHidden": {
           "type": "boolean",
-          "description": "Indicates whether the percentage has been edited. Format: true or false"
+          "description": "Indicates whether the allocation is hidden. Format: true or false"
         },
         "IsPercentEdited": {
           "type": "boolean",
@@ -217,27 +221,36 @@
         },
         "Percentage": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The percentage of the expense that is included in this allocation."
         },
         "URI": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The URI to the resource."
         }
       }
     },
-    "CustomField": {
+    "CustomFieldExtension": {
       "properties": {
         "Code": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "For list fields, this is the list item code."
+        },
+        "Label": {
+          "type": "string",
+          "description": "The label value for the custom field."
         },
         "ListItemID": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "For list fields, this is the list item ID."
+        },
+        "Sequence": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The sequence value for this custom field i.e. the order in which this field appears on the form."
         },
         "Type": {
           "type": "string",
-          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+          "description": "The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text"
         },
         "Value": {
           "type": "string",

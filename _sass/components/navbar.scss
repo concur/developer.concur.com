@@ -1,0 +1,58 @@
+// bootstrap overrides
+$navbar-default-bg: $off-black;
+$navbar-height: 70px;
+$navbar-border-radius: 0;
+$navbar-default-link-color: $white;
+$navbar-default-link-hover-color: $concur-blue;
+$navbar-default-link-active-color: $navbar-default-link-color;
+
+// eliminate margin between navbar and page content
+nav.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-nav {
+  // apply border so text doesn't jump on hover
+  > li > a {
+    border-bottom: 2px solid transparent;
+    text-transform: uppercase;
+  }
+
+  > li.active > a,
+  > li > a:hover {
+    border-bottom: 2px solid $concur-blue;
+  }
+
+  > li a.active {
+    border-bottom: solid 2px $concur-blue;
+  }
+}
+
+// remove hover effects in collapsable mode
+@media (max-width: $grid-float-breakpoint-max) {
+  .navbar-nav > li > a:hover {
+    border-bottom: 2px solid transparent;
+  }
+}
+
+a.navbar-brand {
+  display: inline-block;
+  padding: 0;
+
+  img {
+    display: inline-block;
+    float: left;
+    height: $navbar-height;
+    padding: 10px 0;
+  }
+
+  .app-name {
+    display: inline-block;
+    padding-top: 25px;
+    font-size: 20px;
+
+    &:hover {
+      color: $concur-blue;
+    }
+  }
+}

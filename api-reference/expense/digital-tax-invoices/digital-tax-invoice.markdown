@@ -29,6 +29,13 @@ The Digital Tax Invoice web service allows digital tax invoice validators to vie
 |`modifiedafter`	|	`query`	|	`string`	|	A modification date for the queue record; this parameter can be used to limit the results of the GET request to the queue items that have been added since the last time the validation company queried the queue. The user must have the Web Services Admin role to use this parameter.
 
 
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/digitaltaxinvoices?limit=5
+```
+
+
 ## <a name="getID"></a>Retrieve a single digital tax invoice by ID
 
     GET  /api/v3.0/expense/digitaltaxinvoices{id}
@@ -39,6 +46,13 @@ The Digital Tax Invoice web service allows digital tax invoice validators to vie
 |Name | Type | Format | Description
 |-----|------|--------|------------
 |`id`	|	`path`	|	`string`	|	**Required** The ID of the digital tax invoice.
+
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/expense/digitaltaxinvoices/gWj3IHRYiHZGRTDN6y4r4LN3phszY33HT%24pQ
+```
 
 
 ## <a name="put"></a>Update a specified digital tax invoice
@@ -57,7 +71,7 @@ The Digital Tax Invoice web service allows digital tax invoice validators to vie
 ## <a name="schema"></a>Schema
 
 
-###<a name="digitaltaxinvoices"></a>Digital Tax Invoices
+### <a name="digitaltaxinvoices"></a>Digital Tax Invoices
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -65,7 +79,7 @@ The Digital Tax Invoice web service allows digital tax invoice validators to vie
 |`NextPage`	|	`string`	-	|	The URI of the next page of results, if any.
 
 
-###<a name="digitaltaxinvoice"></a>Digital Tax Invoice
+### <a name="digitaltaxinvoice"></a>Digital Tax Invoice
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -76,4 +90,8 @@ The Digital Tax Invoice web service allows digital tax invoice validators to vie
 |`DocumentID`	|	`string`	|-	|	**Required** The ID of the report in plain text.
 |`ReceiptData`	|	`string`|	-	|	**Required** The digital tax invoice data.
 
+### Request URL
 
+```
+https://www.concursolutions.com/api/v3.0/expense/digitaltaxinvoices/gWj3IHRYiHZGUtIO83ILhbNHqCsjMmkvj%24pQ
+```

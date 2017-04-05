@@ -3,6 +3,8 @@ machine:
     America/Los_Angeles
   ruby:
     version: 2.2.2
+  node:
+    version: 6.9.5
 
 general:
   branches:
@@ -15,20 +17,23 @@ dependencies:
     - ./build/install_aws_cli.sh
     - gem install jekyll
     - bundle install
+    - npm install
 
 test:
   override:
     - ./build/write_branch.sh
     - ./build/write_commit.sh
     - ./build/write_forms.sh
-    - bundle exec jekyll build
+    - DEVCENTER_API_FORMS=https://test npm test && npm run build:webpack
 
 deployment:
   preview:
     branch: preview
     commands:
+      - DEVCENTER_API_FORMS=https://forms.preview.developer.concur.com npm run build
       - aws s3 sync ./_site s3://preview-developer-concur-com --region us-west-2 --output text --delete
   livesite:
     branch: livesite
     commands:
+      - DEVCENTER_API_FORMS=https://forms.developer.concur.com npm run build
       - aws s3 sync ./_site s3://livesite-developer-concur-com --region us-west-2 --output text --delete

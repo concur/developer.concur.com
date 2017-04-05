@@ -15,19 +15,21 @@
   ],
   "info": {
     "title": "Users",
-    "description": "",
+    "description": "Provides details of all the client's Concur users that meet the search parameters.",
     "version": "3.0"
   },
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/common/users": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all users",
         "description": "Gets all users based on the search criteria.",
         "parameters": [
@@ -102,43 +104,43 @@
         },
         "CellPhoneNumber": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The cell phone number of the user."
         },
         "EmployeeID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The employee ID of the user."
         },
         "FirstName": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The first name of the user."
         },
         "ID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The unique identifier of the resource."
         },
         "LastName": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The last name of the user."
         },
         "LoginID": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The login ID of the user."
         },
         "MiddleName": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The middle name of the user."
         },
         "OrganizationUnit": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The organization unit of the user."
         },
         "PrimaryEmail": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The primary email of the user."
         },
         "URI": {
           "type": "string",
-          "description": "The URI of the next page of results, if any."
+          "description": "The URI to the resource."
         }
       }
     },

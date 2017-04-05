@@ -2,56 +2,78 @@
 layout: default
 ---
 
+{% assign location = page.url | split : '/' %}
+
+{% if location contains 'changelog' %}
+  {% assign path = 'changelog' %}
+  {% assign page_title = 'Change Log' %}
+{% else %}
+  {% assign path = 'blog' %}
+  {% assign page_title = 'Developer Blog' %}
+{% endif %}
+
 <div class="breadcrumbs">
   <div class="container">
-    <h1 class="pull-left"><a href='/blog'>Developer Blog</a>{% if page.title %} | <a href='{{page.url}}'>{{ page.title}} {% endif %}</a></h1>
+    <h1 class="pull-left">
+      <a href="/{{ path }}">{{ page_title }}</a>
+      {% if page.title %} | <a href="{{ page.url }}">{{ page.title }}</a>{% endif %}
+    </h1>
   </div>
 </div>
-<br>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <h1>Latest Posts</h1>
-      <div class='latestposts'>
+<div class="container content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h2>Latest Posts</h2>
+        <div class="latest-posts">
 
-        {% for post in site.posts limit: 10 %}
+          {% for post in site.categories[path] limit: 10 %}
+
+            <div>
+              <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+                {% if post.tags.size > 0 %}
+                  <i class="fa fa-tags" aria-hidden="true"></i>&nbsp;
+                  {% for tag in post.tags %}
+                    {% if forloop.last %}
+                      <span class="navtags"><a href="/blog/tag/{{ tag }}">{{ tag | replace: "-", " " }}</a></span>
+                    {% else %}
+                      <span class="navtags"><a href="/blog/tag/{{ tag }}">{{ tag | replace: "-", " " }}, </a></span>
+                    {% endif %}
+                  {% endfor %}
+                  <br>
+                {% endif %}
+                {% if post.author %}
+                  By {{ post.author }} • {{ post.date | date: "%A, %B %-d" }}
+                  <br>
+                {% else %}
+                  {{ post.date | date: "%A, %B %-d" }}
+                {% endif %}
+            </div>
+            <br>
+          {% endfor %}
+          {% if page_title == 'Developer Blog' %}
           <div>
-            <h4><a href='{{ post.url }}'> {{ post.title }}</a></h4>
-              {% if post.tags %}
-              <i class="glyphicon glyphicon-tags"></i>&nbsp;
-                {% for tag in post.tags %}
-                  {% if forloop.index == post.tags.size %}
-                    <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag | replace: "-", " " }}</a></span>
-                  {% else %}
-                    <span class='navtags'><a href='/blog/tag/{{tag}}'>{{ tag | replace: "-", " " }}, </a></span>
-                  {% endif %}
-                {% endfor %}
-              {% endif %}
-              <br>
-              {% if post.author %}
-                By {{ post.author }} • {{ post.date | date: "%A, %B %-d"}}
-                <br>
-              {% else %}
-                {{ post.date | date: "%A, %B %-d"}}
-              {% endif %}
+            <h4><a href="/{{ path }}/tags">Posts By Tag</a></h4>
           </div>
-          <br>
-        {% endfor %}
+          {% endif %}
+          <div>
+            <h4><a href="/{{ path }}/archives.html">Archives</a></h4>
+          </div>
+          {% if page_title == 'Developer Blog' %}
+          <div>
+            <a href="https://feedly.com/i/subscription/feed/https://developer.concur.com/feed.xml" target="blank" data-toggle="popover" data-placement="bottom" data-content="Follow On Feedly" data-trigger="hover" id="feedly">
+              <img id="feedlyFollow" src="https://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" alt="follow us in feedly" width="28" height="28">
+            </a>
+          </div>
+          {% endif %}
 
-        <div>
-          <h4><a href="/blog/tags">Posts By Tag</a></h4>
         </div>
-
-        <div>
-          <h4><a href="/blog/archives.html">Archives</a></h4>
-        </div>
-
+      </div>
+      <div class="col-md-9">
+        {{ content }}
       </div>
     </div>
-    <div class="col-md-9">
-        {{content}}
-    </div>
   </div>
+  <br>
 </div>
-<br>

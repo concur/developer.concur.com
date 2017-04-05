@@ -1,5 +1,5 @@
 ---
-title: Add a New Itinerary Manually Recipe
+title: Itinerary - Add a New Itinerary Manually
 layout: reference
 ---
 
@@ -9,7 +9,7 @@ This series of API Recipes describes API tasks associated with Apps for Travel M
 #### Before you begin
 Review the following checklist to ensure you are able to perform the task in this recipe. To see reference information, click the link in the bullet point.
 
-- Understand the [Oath 2.0 process](https://developer.concur.com/api-reference/authentication/authentication.html)
+- Understand the [authentication process](/api-reference/authentication/apidoc.html)
 - Be able to access the [Get Trips API](https://developer.concur.com/api-reference/travel/itinerary/trip/trip-resource.html#postnt)
 - Ensure you have a definition [XSD](https://developer.concur.com/api-reference/travel/itinerary/ItinServices_Public_0.xsd), usable for architecting your solution
 
@@ -28,7 +28,7 @@ Using the following process, you can easily create trips in your sandbox for tes
       </body>
       </html>
 
-      
+
 3. In Travel Alerts, click the **Upcoming Trips** tab.
 4. Click **Add new Itinerary manually**.The **Add New Reservation** dialog appears.
 5. **Select Create New Trip** from the drop down, **Add Reservation to Trip**.
@@ -59,16 +59,16 @@ Fields marked with * are required.
 
 ###### XML Example Request with Paging:
 
-```
-GET /api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&includeMetadata=true&ItemsPerPage=2&Page=1 HTTP 1.1
-Host: [www.concursolutions.com][1]
+```http
+GET /api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&includeMetadata=true&ItemsPerPage=2&Page=1 HTTP/1.1
+Host: www.concursolutions.com
 Authorization: OAuth {access token}
 ```
 
 ###### XML example of a successful response with Paging:
 
-```
-HTTP 1.1 200 OK
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml
 ...
 
@@ -110,8 +110,8 @@ Content-Type: application/xml
 
 ###### Test your API in your tool of choice. A successful response will look like this:
 
-```
-HTTP 1.1 200 OK
+```http
+HTTP/1.1 200 OK
 Content-Type: application/xml
 ...
 
@@ -232,7 +232,7 @@ Content-Type: application/xml
                     <NameLast>Miller</NameLast>
                 </Passenger>
             </Passengers>
-<RecordLocator>0987654321</RecordLocator>
+            <RecordLocator>0987654321</RecordLocator>
             <BookingSource>ConcurHotel</BookingSource>
             <DateModifiedUtc>2012-07-24T19:15:52</DateModifiedUtc>
             <DateBookedLocal>2013-11-10T13:01:00</DateBookedLocal>

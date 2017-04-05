@@ -12,87 +12,33 @@ title: Concur Community
         <li>We won't Spam you.</li>
         <li>By joining the Concur Community, you agree to our <a href="{{ site.baseurl }}/Terms-of-Use.html">terms</a> and <a href="https://www.concur.com/en-us/privacy-policy">privacy policy</a>.
     </ul> <br>
-<h3>Request an invite</h3>
-{% include form-success.html %}
-  <!--=== Form ===-->
+  <h3>Request an invite</h3>
+  {% include form-success.html %}
 
-  <form id="sandboxAssistance" class="sky-form" novalidate="novalidate">
+  <form id="concurCommunity" novalidate="novalidate">
     <fieldset>
-      <section>
-        <label class="label">First Name</label>
-        <label class="input">
-          <input type="text" name="firstName" id="firstName">
-        </label>
-      </section>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" class="form-control">
+      </div>
 
-      <section>
-        <label class="label">Last Name</label>
-        <label class="input">
-          <input type="text" name="lastName" id="lastName">
-        </label>
-      </section>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName" class="form-control">
+      </div>
 
-      <section>
-        <label class="label">Email Address</label>
-        <label class="input">
-          <input type="text" name="email" id="email">
-        </label>
-      </section>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="text" name="email" id="email" class="form-control">
+      </div>
 
-      <section>
-        <label class="label">Company Name</label>
-        <label class="input">
-          <input type="text" name="company" id="company">
-        </label>
-      </section
+      <div class="form-group">
+        <label for="company">Company Name</label>
+        <input type="text" name="company" id="company" class="form-control">
+      </div>
     </fieldset>
     <footer>
-      <button type="submit" class="button">Submit</button>
+      <button type="submit" class="btn bright-blue">Submit</button>
     </footer>
   </form>
 </div><!--/col-md-12-->
-
-<script>
-  $("#sandboxAssistance").validate({
-    // Rules for form validation
-    rules: {
-      firstName: { required: true },
-      lastName: { required: true },
-      email: {
-        required: true,
-        email: true
-      },
-      company: { required: true },
-      phoneNumber: { required: true },
-      message: { required: true }
-    },
-
-    // Messages for form validation
-    messages: {
-      firstName: { required: 'Please enter your first name' },
-      lastName: { required: 'Please enter your last name' },
-      email: { required: 'Please enter a valid email address' },
-      company: { required: 'Please enter your company name' },
-      phoneNumber: { required: 'Please enter a valid phone number' },
-      message: { required: 'Please enter the message details for this request' }
-    },
-
-    // Ajax form submition
-    submitHandler: function(form) {
-      $(form).ajaxSubmit({
-        beforeSend: function() {
-          $('#sandboxAssistance button[type="submit"]').attr('disabled', true);
-        },
-        success: function() {
-          $("#sandboxAssistance").addClass('submited');
-          $('#form-success').removeClass('form-success-hidden');
-        }
-      });
-    },
-
-    // Do not change code below
-    errorPlacement: function(error, element) {
-      error.insertAfter(element.parent());
-    }
-  });
-</script>

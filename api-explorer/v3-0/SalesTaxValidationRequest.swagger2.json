@@ -15,19 +15,21 @@
   ],
   "info": {
     "title": "Sales Tax Validation Request",
-    "description": "",
+    "description": "An invoice is a bill of sale for goods or services. This API provides invoice information so that clients can calculate appropriate sales tax for invoice items. It also allows clients to update the invoice with the calculated sales tax.",
     "version": "3.0"
   },
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/invoice/salestaxvalidationrequest": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get invoices for calculating tax",
         "description": "Gets invoices for the purpose of calculating sales tax.",
         "parameters": [
@@ -64,7 +66,9 @@
         }
       },
       "put": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Update invoices with the calcuated tax amount and tax rate",
         "description": "Updates invoices with the calculated tax amount and tax rate.",
         "parameters": [
@@ -94,35 +98,35 @@
       "properties": {
         "Address1": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Address line 1 of the shipping or billing address."
         },
         "Address2": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Address line 2 of the shipping or billing address."
         },
         "Address3": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Address line 3 of the shipping or billing address."
         },
         "City": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The city of the shipping or billing address."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The code of the country for the shipping or billing address."
         },
         "ExternalID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A unique value supplied by the customer to identify a particular shipping or billing address."
         },
         "Name": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "An optional name that can be given to the shipping or billing address."
         },
         "PostalCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The postal code of the shipping or billing address."
         },
         "State": {
           "type": "string",
@@ -138,38 +142,38 @@
       "properties": {
         "CalculatedTaxAmount": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The calculated tax amount for the invoice."
         },
         "CalculatedTaxRate": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The calculated tax rate for the invoice."
         },
         "Comments": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Comments for the invoice."
         },
         "ID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The unique identifier of the resource."
         },
         "LineItem": {
           "$ref": "#/definitions/InvoiceLineItemPut"
         },
         "Status": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The status of the invoice."
         },
         "StatusCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The status code that indicates the outcome of tax validation. Valid values are: ERROR, CMPLT"
         },
         "TaxReferenceID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The tax reference ID of the invoice."
         },
         "URI": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The URI to the resource."
         }
       }
     },
@@ -180,81 +184,81 @@
         },
         "CalculatedTaxAmount": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The calculated tax amount for the invoice."
         },
         "CalculatedTaxRate": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The calculated tax rate for the invoice."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The country code for the line item."
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the invoice currency. For example, USD or CAD."
         },
         "ID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The unique identifier of the resource."
         },
         "InvoiceAmount": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The invoice amount (the cost of the purchased items)."
         },
         "InvoiceDate": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The invoice date."
         },
         "LineItem": {
           "$ref": "#/definitions/InvoiceLineItem"
         },
         "PurchaseOrderNumber": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The purchase order number for the purchase order associated with the invoice."
         },
         "RequestID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The Request ID of the Payment Request"
         },
         "ShippingAmount": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The shipping amount for the invoice."
         },
         "ShipToAddress": {
           "$ref": "#/definitions/ShipToAddress"
         },
         "Status": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The status of the invoice."
         },
         "StatusCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The status code that indicates the outcome of tax validation. Valid values are: ERROR, CMPLT"
         },
         "Tax": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The tax as shown on the invoice. This is the tax applied by the vendor."
         },
         "TaxReferenceID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The tax reference ID of the invoice."
         },
         "Title": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The title of the invoice."
         },
         "Total": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The total amount of the request."
         },
         "URI": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The URI to the resource."
         },
         "VendorInvoiceNumber": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The vendor invoice number that is associated with the invoice."
         }
       }
     },
@@ -265,12 +269,11 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The URI of the next page of results, if any."
         },
         "TotalCount": {
           "type": "integer",
-          "format": "int32",
-          "description": "Record Number for create/update request."
+          "format": "int32"
         }
       }
     },
@@ -278,39 +281,39 @@
       "properties": {
         "CalculatedTaxAmount": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The calculated tax amount for the individual line item."
         },
         "CalculatedTaxRate": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The calculated tax rate for the individual line item."
         },
         "CommodityCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The commodity code that is tied to the expense type associated with the line item."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The country code for the line item."
         },
         "CurrencyCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The currency code for the individual line item."
         },
         "LineItemKey": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that uniquely identifies the line item."
         },
         "Quantity": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The quantity for the line item."
         },
         "Total": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The total amount for the line item."
         },
         "UnitPrice": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The unit price for the line item."
         },
         "Vendor": {
           "$ref": "#/definitions/InvoiceVendor"
@@ -321,15 +324,15 @@
       "properties": {
         "CalculatedTaxAmount": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The calculated tax amount for the individual line item."
         },
         "CalculatedTaxRate": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The calculated tax rate for the individual line item."
         },
         "LineItemKey": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A value that uniquely identifies the line item."
         }
       }
     },
@@ -338,15 +341,15 @@
         "Code": {
           "type": "integer",
           "format": "int32",
-          "description": "Record Number for create/update request."
+          "description": "Code of request result"
         },
         "Comments": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Comments that are returned for the update request."
         },
         "Message": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Message of request result"
         },
         "RecordNumber": {
           "type": "integer",
@@ -355,15 +358,15 @@
         },
         "Status": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The status of the update. Possible values: SUCCESS, FAILURE"
         },
         "TaxReferenceID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The tax reference ID of the updated invoice."
         },
         "Type": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Type request result"
         }
       }
     },
@@ -371,39 +374,39 @@
       "properties": {
         "Address1": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The Vendor Address 1."
         },
         "Address2": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The Vendor Address 2."
         },
         "Address3": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The Vendor Address 3."
         },
         "City": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The Vendor City."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The Vendor Country Code."
         },
         "PostalCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The Vendor Postal Code / Zip."
         },
         "State": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The Vendor State."
         },
         "VendorAddressName": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Name for Vendor Address."
         },
         "VendorName": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The name of the vendor."
         }
       }
     },
@@ -411,35 +414,35 @@
       "properties": {
         "Address1": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Address line 1 of the shipping or billing address."
         },
         "Address2": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Address line 2 of the shipping or billing address."
         },
         "Address3": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "Address line 3 of the shipping or billing address."
         },
         "City": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The city of the shipping or billing address."
         },
         "CountryCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The code of the country for the shipping or billing address."
         },
         "ExternalID": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "A unique value supplied by the customer to identify a particular shipping or billing address."
         },
         "Name": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "An optional name that can be given to the shipping or billing address."
         },
         "PostalCode": {
           "type": "string",
-          "description": "The state or province of the shipping or billing address."
+          "description": "The postal code of the shipping or billing address."
         },
         "State": {
           "type": "string",

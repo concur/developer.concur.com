@@ -1,0 +1,98 @@
+.sidebar-nav-v1 {
+  li {
+    padding: 0;
+    border: none;
+  }
+
+  li a {
+    display: block;
+    padding: 10px 30px 10px 10px;
+  }
+
+  li:not(.active) a:hover {
+    background: #f8f8f8;
+    text-decoration: none;
+  }
+
+  > li.active,
+  > li.active:hover {
+    background: $concur-blue;
+  }
+
+  > li.active,
+  > li.active:hover,
+  > li.active:focus {
+    border-color: #ddd;
+  }
+
+  > li.active > a {
+    color: white;
+  }
+
+  /*Sidebar Sub Navigation*/
+  li ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  li ul,
+  li.active ul a {
+    background: white;
+  }
+
+  li ul a {
+    color: $text-gray;
+    font-size: 13px;
+    border-left: solid 1px $concur-blue;
+    padding: 8px 30px 8px 17px;
+  }
+
+  ul li.active a {
+    background: #f8f8f8;
+    color: $concur-blue;
+    font-weight: bold;
+  }
+
+  .list-group-item > ul {
+    padding-left: 10px;
+  }
+
+  /*Sidebar Badges*/
+  .list-group-item li > .badge {
+    float: right;
+  }
+
+  span.badge {
+    margin-top: 8px;
+    margin-right: 10px;
+  }
+
+  .list-toggle > span.badge {
+    margin-right: 25px;
+  }
+
+  ul li span.badge {
+    margin-top: 8px;
+    font-size: 11px;
+    padding: 3px 5px;
+    margin-right: 10px;
+  }
+
+  /*Sidebar List Toggle*/
+  .list-toggle:after {
+    top: 7px;
+    right: 10px;
+    color: #777;
+    font-size: 14px;
+    content: "\f105";
+    position: absolute;
+    font-weight: normal;
+    display: inline-block;
+    font-family: FontAwesome;
+  }
+
+  .list-toggle.active:after {
+    color: white;
+    content: "\f107";
+  }
+}

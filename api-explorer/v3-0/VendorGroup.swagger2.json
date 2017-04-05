@@ -1,0 +1,173 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "VendorGroup",
+    "description": "An invoice is a bill of sale for goods or services provided by a vendor. This API provides methods to create or delete invoice vendor groups that meet the search parameters.",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/invoice/vendor/groups": {
+      "put": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Add vendor groups by Vendor Code, Address Code, and Vendor Group.",
+        "description": "Add vendor groups by Vendor Code, Address Code, and Vendor Group.",
+        "parameters": [
+          {
+            "name": "vendorCode",
+            "in": "query",
+            "description": "The Vendor Code to be searched.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "addressCode",
+            "in": "query",
+            "description": "Address Code to be searched.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vendorGroups",
+            "in": "body",
+            "description": "The vendor group details.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VendorGroupCollection"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VendorGroupCollection"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Delete a vendor group by Vendor Code, Address Code, and Group Name.",
+        "description": "Delete a vendor group by Vendor Code, Address Code, and Group Name.",
+        "parameters": [
+          {
+            "name": "vendorCode",
+            "in": "query",
+            "description": "The Vendor Code to be deleted.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "addressCode",
+            "in": "query",
+            "description": "Address Code to be deleted.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "groupName",
+            "in": "query",
+            "description": "Group Name to be deleted.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VendorGroupCollection"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Status": {
+      "properties": {
+        "Code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Code of request result"
+        },
+        "Message": {
+          "type": "string",
+          "description": "Message of request result"
+        },
+        "RecordNumber": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Record Number for create/update request."
+        },
+        "Type": {
+          "type": "string",
+          "description": "Type request result"
+        }
+      }
+    },
+    "VendorGroup": {
+      "properties": {
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier of the resource."
+        },
+        "Name": {
+          "type": "string",
+          "required": true,
+          "description": "The group name"
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI to the resource."
+        }
+      }
+    },
+    "VendorGroupCollection": {
+      "properties": {
+        "VendorGroup": {
+          "$ref": "#/definitions/VendorGroup"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "RequestRunSummary": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "TotalCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Record Number for create/update request."
+        },
+        "Items": {
+          
+        }
+      }
+    }
+  }
+}

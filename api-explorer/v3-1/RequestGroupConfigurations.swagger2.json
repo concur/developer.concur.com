@@ -15,19 +15,21 @@
   ],
   "info": {
     "title": "Request Group Configurations",
-    "description": "",
+    "description": "Requests allow travelers to submit travel plans, expected expenses, and expected cash advance needs prior to spending funds. Request policies define the required information and workflow for the requests. This API provides the details of the Request policies for the supplied user ID.",
     "version": "3.1"
   },
   "tags": [
     {
       "name": "Resources",
-      "description": "" 
+      "description": ""
     }
   ],
   "paths": {
     "/travelrequest/requestgroupconfigurations": {
       "get": {
-        "tags": [ "Resources" ],
+        "tags": [
+          "Resources"
+        ],
         "summary": "Get all Request group configurations.",
         "description": "Get a Request group configuration owned by the user based on the search criteria.",
         "parameters": [
@@ -71,11 +73,11 @@
       "properties": {
         "ID": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The ID of the travel agency office."
         },
         "Name": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The travel agency office name."
         }
       }
     },
@@ -83,19 +85,19 @@
       "properties": {
         "HeaderFormID": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information)."
         },
         "ID": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The unique identifier of the resource."
         },
         "IsDefault": {
           "type": "boolean",
-          "description": "Indicates whether this policy allows the creation of new Requests by the user. Format: true or false"
+          "description": "Indicates whether this policy is the default. Format: true or false"
         },
         "Name": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The name of the policy."
         },
         "NoCreation": {
           "type": "boolean",
@@ -113,15 +115,15 @@
         },
         "DefaultPolicyID": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The unique identifier of the first policy which allows creation of new Request."
         },
         "ID": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The unique identifier of the resource."
         },
         "Name": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The name of the Request group Configuration."
         },
         "Policies": {
           "$ref": "#/definitions/Policy"
@@ -131,7 +133,7 @@
         },
         "URI": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The URI to the resource."
         }
       }
     },
@@ -142,7 +144,7 @@
         },
         "NextPage": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The URI of the next page of results, if any."
         }
       }
     },
@@ -150,11 +152,11 @@
       "properties": {
         "Code": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The Request type code."
         },
         "Name": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The Request type name."
         }
       }
     },
@@ -167,23 +169,23 @@
         },
         "IconCode": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The code for the icon associated with the segment type."
         },
         "ID": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The unique identifier of the resource."
         },
         "Name": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The name of the segment type."
         },
         "SegmentCustomFormID": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The unique identifier of the Segment Form resource which contains custom fields (See. the \"Forms\" resource for more information)."
         },
         "SegmentFormID": {
           "type": "string",
-          "description": "The code for the type of itinerary segment."
+          "description": "The unique identifier of the Segment Form resource (See. the \"Forms\" resource for more information)."
         },
         "SegmentTypeCode": {
           "type": "string",

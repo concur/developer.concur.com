@@ -8,10 +8,9 @@ The Event Notification callout allows clients to choose to be notified through w
 
 This callout differs from the standard Concur web services in the following ways:
 
-* It uses an **outbound** **callout** where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. Refer to [Callouts and Application Connectors for more information](/api-reference/callouts/index.html).
+* It uses an **outbound** **callout** where Expense calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. Refer to [Callouts and Application Connectors for more information](/api-reference/callouts/callouts-application-connectors.html).
 * The application connector can also use the web services to retrieve or send Concur data.
 * The developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by Concur. This guide specifies the request and response format required by Concur.
-* Concur provides a sample connector application that the developer or client can install on their network and customize to interface with their system of record. Concur can also customize the connector.
 * The developer or client can choose to create their own application connector using a different language, such as PHP, if preferred.
 
 
@@ -96,19 +95,15 @@ The installation process includes installing the application connector, and regi
   |  Password    |  Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth. |
 
 
-  ![1][image-1]  
 
-  6. In the **Services** section, select **Send Notification**.
-  7. Click **Configure**. The **Configure Service** window appears.    
-
-  ![1][image-2]  
-
-  8. Enter the endpoint that the Concur will connect to on your server. Example: /concur/v1.0/notify
-  9. Select the **Enabled** check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.
-  10. In the Workflows section, select the workflow step for each expense report or travel request workflow that requires notifications.
-  11. Click **OK**.
-  12. Click **Test Connection**. Concur will attempt to access the configured endpoint with the provided user credentials.
-  13. Click **Save**. The application connector is now registered with Concur and enabled.
+   6. In the **Services** section, select **Send Notification**.
+   7. Click **Configure**. The **Configure Service** window appears.    
+   8. Enter the endpoint that the Concur will connect to on your server. Example: /concur/v1.0/notify
+   9. Select the **Enabled** check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.
+   10. In the Workflows section, select the workflow step for each expense report or travel request workflow that requires notifications.
+   11. Click **OK**.
+   12. Click **Test Connection**. Concur will attempt to access the configured endpoint with the provided user credentials.
+   13. Click **Save**. The application connector is now registered with Concur and enabled.
 
 ### Responses and Errors
 Refer to the [HTTP Codes][16] page for details of the common responses and errors.
@@ -132,5 +127,3 @@ Refer to the [HTTP Codes][16] page for details of the common responses and error
 [15]: /docs/overviews/index.html
 [16]: /tools-support/reference/http-codes.html
 
-[image-1]:  https://developer.concur.com/sites/default/files/EventNotify1.png
-[image-2]:  https://developer.concur.com/sites/default/files/SendNotification.png

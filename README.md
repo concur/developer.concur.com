@@ -1,7 +1,9 @@
 developer.concur.com
 ====================
 
-##The Concur Developer Website
+[View Availability](https://stats.uptimerobot.com/P7BJ7ToVO)
+
+## The Concur Developer Website
 This repo contains the documentation, tools and support content for the Concur API developer audience. This includes both internal and external developers.  
 
 **A goal in open sourcing the docs repository is to give our developer community - both internal and external - the opportunity to have changes fixed more quickly by editing a problem document in the GitHub UI and "save" it, which will create a pull request.**
@@ -16,10 +18,10 @@ If you are an existing Concur partner and require support assistance, please ope
 ### Sandboxes
 Create a sandbox [here](http://preview.developer.concur.com/manage-apps/register.html).
 
-If you require assistance configuring your sandbox, please complete this [support form](http://preview.developer.concur.com/tools-support/sandbox-configuration-assistance.html).
+If you require assistance configuring your sandbox, please complete this [support form](http://preview.developer.concur.com/sandbox-configuration-assistance.html).
 
 ---
-##Sitemap
+## Sitemap
 The Concur Developer Website is organized into three main sections:  
 
 * [API documentation](#api)  
@@ -48,5 +50,3 @@ The Concur Developer Website is organized into three main sections:
 * `support` provides information and links to support tools
 * `release-notes` contains all release notes docs
 * `reference` contains all markdown files for reference materials
-
-

@@ -3,12 +3,12 @@ title: PUT Expense Entry Attendees
 layout: reference
 ---
 
-##Description
+## Description
 This allows the developer to specify which existing attendees are associated to the specified entry. It also gives the developer the option to provide the values for the Entry-Attendee association. The list of attendees in the request will replace any existing associated attendees, so the developer must include all attendees in the request. This function cannot be used to create new attendees.
 
 **NOTE:** Find the newer version 3.0 [here.](/api-reference/expense/expense-report/expense-entry-attendee.html)
 
-##Version
+## Version
 2.0
 
 ## Request
@@ -73,40 +73,55 @@ The **Attendee** element (XML) or **attendee** object (JSON) must contain all of
 
 ### XML example request
 
-```
-xml
-    PUT https://www.concursolutions.com/api/expense/expensereport/v2.0/report/9d8ea1kole$sis293mn38dh/entry/8sle90wikl3h$halwnk$lakdjw83/attendees HHTP/1.1
-    Authorization: OAuth {access token}
-    ...
+```http
+PUT https://www.concursolutions.com/api/expense/expensereport/v2.0/report/9d8ea1kole$sis293mn38dh/entry/8sle90wikl3h$halwnk$lakdjw83/attendees HTTP/1.1
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
 
-    <EntryAttendees xmlns="http://www.concursolutions.com/api/expense/expensereport/2012/07" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Attendee>
-            <Amount>2422.00000000</Amount>
-            <AssociatedAttendeeCount>1</AssociatedAttendeeCount>
-            <AttendeeID>nFaAj0ncBso0sBd8ejqrxLHz1FfmhJ69b</AttendeeID>
-            <EntryAttendeeCustom1>fg6rt</EntryAttendeeCustom1>
-            <EntryAttendeeCustom2>9808</EntryAttendeeCustom2>
-            <EntryAttendeeCustom3>64564drd</EntryAttendeeCustom3>
-            <EntryAttendeeCustom4>352dsxcvs</EntryAttendeeCustom4>
-            <EntryAttendeeCustom5 i:nil="true"/>
-        </Attendee>
-    </EntryAttendees>
-```    
+<EntryAttendees xmlns="http://www.concursolutions.com/api/expense/expensereport/2012/07" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Attendee>
+        <Amount>2422.00000000</Amount>
+        <AssociatedAttendeeCount>1</AssociatedAttendeeCount>
+        <AttendeeID>nFaAj0ncBso0sBd8ejqrxLHz1FfmhJ69b</AttendeeID>
+        <EntryAttendeeCustom1>fg6rt</EntryAttendeeCustom1>
+        <EntryAttendeeCustom2>9808</EntryAttendeeCustom2>
+        <EntryAttendeeCustom3>64564drd</EntryAttendeeCustom3>
+        <EntryAttendeeCustom4>352dsxcvs</EntryAttendeeCustom4>
+        <EntryAttendeeCustom5 i:nil="true"/>
+    </Attendee>
+</EntryAttendees>
+```
 
 ### JSON example request
 
-```
-son
-PUT https://www.concursolutions.com/api/expense/expensereport/v2.0/report/9d8ea1kole$sis293mn38dh/entry/8sle90wikl3h$halwnk$lakdjw83/attendees HHTP/1.1
+```http
+PUT https://www.concursolutions.com/api/expense/expensereport/v2.0/report/9d8ea1kole$sis293mn38dh/entry/8sle90wikl3h$halwnk$lakdjw83/attendees HTTP/1.1
 Authorization: OAuth {access token}
+Content-Type: application/json
 ...
 
-    [
-
-    {"AttendeeID":"nFaAj0ncBs$puDs5XxZfOc6L5go8EJIueY","Amount":"807.33000000","AttendeeCount":"0","Custom1":"dfg","Custom2":"7686","Custom3":"89080990-90-5464","Custom4":"56sdsd sf","Custom5":null} 
-    ,
-
-    {"AttendeeID":"nFaAj0ncBso0sBd8ejqrxLHz1FfmhJ69b","Amount":"707.33000000","AttendeeCount":"0","Custom1":"fg6rt","Custom2":"9808","Custom3":"64564drd","Cust om4":"352dsxcvs","Custom5":null} 
+[
+  {
+    "AttendeeID": "nFaAj0ncBs$puDs5XxZfOc6L5go8EJIueY",
+    "Amount": "807.33000000",
+    "AttendeeCount" :"0",
+    "Custom1": "dfg",
+    "Custom2": "7686",
+    "Custom3": "89080990-90-5464",
+    "Custom4": "56sdsd sf",
+    "Custom5": null
+  },
+  {
+    "AttendeeID": "nFaAj0ncBso0sBd8ejqrxLHz1FfmhJ69b",
+    "Amount": "707.33000000",
+    "AttendeeCount" :"0",
+    "Custom1": "fg6rt",
+    "Custom2": "9808",
+    "Custom3": "64564drd",
+    "Custom4": "352dsxcvs",
+    "Custom5": null
+  }
 ]
 ```
 
@@ -117,4 +132,3 @@ Authorization: OAuth {access token}
 
 [1]: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html
 [2]: /api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-get.html
-

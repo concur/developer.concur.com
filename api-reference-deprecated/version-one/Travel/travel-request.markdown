@@ -5,7 +5,7 @@ layout: reference
 
 # Travel Request (Deprecated)
 
-Concur Travel Request is designed to help businesses control expenses by requiring employees to obtain approval before incurring expenses.The Travel Request resource provides the ability to view requests and update the workflow for travel requests. 
+Concur Travel Request is designed to help businesses control expenses by requiring employees to obtain approval before incurring expenses.The Travel Request resource provides the ability to view requests and update the workflow for travel requests.
 
 ## Version
 1.0  
@@ -76,7 +76,7 @@ Example:
 **Modified After Date**: This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss
 
 Examples:  
-`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate={date}` 
+`https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate={date}`
 `https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate=2012-01-01T00:00:00`
 
 **Modified Before Date**: This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss
@@ -299,600 +299,601 @@ This request will return a **TravelRequestDetails** parent element with the foll
 
 ##### Request
 
-<samp>
-    GET api/travelrequest/v1.0/requestslist/?status=SUBMITTED  HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    ...
-<\samp>
+```http
+GET api/travelrequest/v1.0/requestslist/?status=SUBMITTED HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+...
+```
 
 #####  Response
 
-```XML
-    <?xml version="1.0" encoding="utf-8"?>
-    <RequestsWithCount xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <RequestsList>
-            <RequestSummary>
-                <ApprovalStatus>Submitted &amp; Pending Approval</ApprovalStatus>
-                <ApproverLoginID>patdavis@example.com</ApproverLoginID>
-                <RequestCurrency>USD</RequestCurrency>
-                <EmployeeName>Chris Miller</EmployeeName>
-                <LastComment />
-                <Purpose>d</Purpose>
-                <RequestDate>2013-03-07T08:25:57</RequestDate>
-                <RequestDetailsUrl>https://www.concursolutions.com/api/travelrequest/v1.0/requests/nf0ma53XrNuqmoVSZesQZL99xN1xIg5dX</RequestDetailsUrl>
-                <RequestID>APXT</RequestID>
-                <RequestName>TVR-2861-2</RequestName>
-                <RequestTotal>10.00000000</RequestTotal>
-                <RequestUserLoginID>chrismiller@example.com</RequestUserLoginID>
-            </RequestSummary>
-        </RequestsList>
-        <TotalCount>1</TotalCount>
-    </RequestsWithCount>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RequestsWithCount xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <RequestsList>
+        <RequestSummary>
+            <ApprovalStatus>Submitted &amp; Pending Approval</ApprovalStatus>
+            <ApproverLoginID>patdavis@example.com</ApproverLoginID>
+            <RequestCurrency>USD</RequestCurrency>
+            <EmployeeName>Chris Miller</EmployeeName>
+            <LastComment />
+            <Purpose>d</Purpose>
+            <RequestDate>2013-03-07T08:25:57</RequestDate>
+            <RequestDetailsUrl>https://www.concursolutions.com/api/travelrequest/v1.0/requests/nf0ma53XrNuqmoVSZesQZL99xN1xIg5dX</RequestDetailsUrl>
+            <RequestID>APXT</RequestID>
+            <RequestName>TVR-2861-2</RequestName>
+            <RequestTotal>10.00000000</RequestTotal>
+            <RequestUserLoginID>chrismiller@example.com</RequestUserLoginID>
+        </RequestSummary>
+    </RequestsList>
+    <TotalCount>1</TotalCount>
+</RequestsWithCount>
 ```
 
 ####  Example 2: Get travel request details
 
 #####  Request
 
-<samp>
-    GET api/travelrequest/v1.0/requests/nxxKgLlnROz3zHJBCRksaas23dsfs  HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    ...
-<\samp>
+```http
+GET api/travelrequest/v1.0/requests/nxxKgLlnROz3zHJBCRksaas23dsfs HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+...
+```
 
 ####  Response
 
 ```xml
-    <TravelRequestDetails xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <AgencyOfficeKey>1</AgencyOfficeKey>
-        <AgencyOfficeName>Terrific Travel</AgencyOfficeName>
-        <ApprovalLimitDate>2012-06-09T23:59:00</ApprovalLimitDate>
-        <ApprovalStatusKey>Q_PEND</ApprovalStatusKey>
-        <ApprovalStatusName>Submitted & Pending Approval</ApprovalStatusName>
-        <AuthorizedDate i:nil="true" />
-        <LastModifiedDate>2012-06-08T16:35:20</LastModifiedDate>
-        <CashAdvancesList>
-            <CashAdvance>
-                <AmountRequested>400.000000</AmountRequested>
-                <ApprovalStatusKey>A_NOTF</ApprovalStatusKey>
-                <ApprovalStatusName>Not Submitted</ApprovalStatusName>
-                <CashAdvanceKey>nu1p4xwRqDVwWEcRN5kzNh1OXXfiZ1z06</CashAdvanceKey>
-                <CommentsList i:type="CommentsList" />
-                <CurrencyCode>USD</CurrencyCode>
-                <CurrencyName>US, Dollar</CurrencyName>
-                <EmployeeCurrencyCode>MXN</EmployeeCurrencyCode>
-                <EmployeeCurrencyName>Mexico, Peso</EmployeeCurrencyName>
-                <ExchangeRate>1.00000000000000</ExchangeRate>
-                <IssueDate i:nil="true" />
-                <RequestDate>2012-06-08T23:35:20</RequestDate>
-                <StartingBalance>0.0</StartingBalance>
-            </CashAdvance>
-        </CashAdvancesList>
-        <CommentCount>1</CommentCount>
-        <CommentsList>
-            <Comments>
-                <Comment>Trip for Sales meeting to Dallas</Comment>
-                <DateTime>2012-06-08T16:35:20</DateTime>
-                <FirstName>Chris</FirstName>
-                <LastName>Miller</LastName>
-            </Comments>
-        </CommentsList>
-        <CreationDate>2012-06-08T23:33:39</CreationDate>
-        <CurrencyCode>MXN</CurrencyCode>
-        <EmployeeName>Miller, Chris</EmployeeName>
-        <EndDate>9/25/2012</EndDate>
-        <EndTime>11:59 PM</EndTime>
-        <EntriesList>
-            <RequestEntry>
-                <AllocationCount>3</AllocationCount>
-                <AllocationsList>
-                    <Allocation>
-                        <AllocationKey>nG$p6tMeoepRby4MJptMA6$sf4ucfZW7d5y</AllocationKey>
-                        <Percentage>33.33333334</Percentage>
-                        <Custom1>(7732)VIAJAR</Custom1>
-                        <Custom2>(881991)NUEVOS PROYECTOS</Custom2>
-                        <Custom3 />
-                        <Custom4 />
-                        <Custom5>(1234)Project 1234</Custom5>
-                        <Custom6 />
-                        <Custom7 />
-                        <Custom8 />
-                        <Custom9 />
-                        <Custom10 />
-                        <Custom12 />
-                        <Custom13 />
-                        <Custom14 />
-                        <Custom15 />
-                        <Custom16 />
-                        <Custom17 />
-                        <Custom18 />
-                        <Custom19 />
-                        <Custom20 />
-                    </Allocation>
-                    <Allocation>
-                        <AllocationKey>nG$p6tMeoepRcrg7jyl$slxYxm43LBgtr0b</AllocationKey>
-                        <Percentage>33.33333333</Percentage>
-                        <Custom1>(7112)INFRAESTRUCTURA</Custom1>
-                        <Custom2>(223817)MODELO INFORMATICO</Custom2>
-                        <Custom3 />
-                        <Custom4 />
-                        <Custom5>(1234)Project 1234</Custom5>
-                        <Custom6 />
-                        <Custom7 />
-                        <Custom8 />
-                        <Custom9 />
-                        <Custom10 />
-                        <Custom12 />
-                        <Custom13 />
-                        <Custom14 />
-                        <Custom15 />
-                        <Custom16 />
-                        <Custom17 />
-                        <Custom18 />
-                        <Custom19 />
-                        <Custom20 />
-                    </Allocation>
-                    <Allocation>
-                        <AllocationKey>nG$p6tMeoepRTFxjeJUFHAw$sDhH$prHfL$sd</AllocationKey>
-                        <Percentage>33.33333333</Percentage>
-                        <Custom1>(8826)FINANZAS</Custom1>
-                        <Custom2 />
-                        <Custom3 />
-                        <Custom4 />
-                        <Custom5>(4321)Project 4321</Custom5>
-                        <Custom6 />
-                        <Custom7 />
-                        <Custom8 />
-                        <Custom9 />
-                        <Custom10 />
-                        <Custom12 />
-                        <Custom13 />
-                        <Custom14 />
-                        <Custom15 />
-                        <Custom16 />
-                        <Custom17 />
-                        <Custom18 />
-                        <Custom19 />
-                        <Custom20 />
-                    </Allocation>
-                </AllocationsList>
-                <ApprovedAmount>8947.77000000</ApprovedAmount>
-                <CommentsList />
-                <Custom1 />
-                <Custom2 />
-                <Custom3 />
-                <Custom4 />
-                <Custom5 />
-                <Custom6 />
-                <Custom7 />
-                <Custom8 />
-                <Custom9 />
-                <Custom10 />
-                <Custom11 />
-                <Custom12 />
-                <Custom13 />
-                <Custom14 />
-                <Custom15 />
-                <Custom16 />
-                <Custom17 />
-                <Custom18 />
-                <Custom19 />
-                <Custom20 />
-                <Custom21 />
-                <Custom22 />
-                <Custom23 />
-                <Custom24 />
-                <Custom25 />
-                <Custom26 />
-                <Custom27 />
-                <Custom28 />
-                <Custom29 />
-                <Custom30 />
-                <Custom31 />
-                <Custom32 />
-                <Custom33 />
-                <Custom34 />
-                <Custom35 />
-                <Custom36 />
-                <Custom37 />
-                <Custom38 />
-                <Custom39 />
-                <Custom40 />
-                <EntryDescription />
-                <ExceptionsList />
-                <ExchangeRate>14.01220000000000</ExchangeRate>
-                <ExpenseTypeKey>AIRFR</ExpenseTypeKey>
-                <ExpenseTypeName>Boleto de Avion</ExpenseTypeName>
-                <ForeignAmount>638.57000000</ForeignAmount>
-                <ForeignCurrencyName>US, Dollar</ForeignCurrencyName>
-                <LastModifiedDate>2012-06-08T16:35:20</LastModifiedDate>
-                <PostedAmount>8947.77000000</PostedAmount>
-                <RemainingAmount>8947.77000000</RemainingAmount>
-                <RequestEntryKey>ntOaeqFud4aaO6NFSxH7X3TgNk3$pyqifM</RequestEntryKey>
-                <SegmentCount>2</SegmentCount>
-                <SegmentsList>
-                    <Segment>
-                        <ApprovedAmount />
-                        <ArrivalDate>9/21/2012</ArrivalDate>
-                        <ArrivalTime>8:55 AM</ArrivalTime>
-                        <ClassOfServiceCode>S</ClassOfServiceCode>
-                        <CommentsList />
-                        <DepartureDate>9/21/2012</DepartureDate>
-                        <DepartureTime>6:15 AM</DepartureTime>
-                        <ExceptionsList />
-                        <ExchangeRate />
-                        <FlightNumber>1066</FlightNumber>
-                        <ForeignAmount>638.57000000</ForeignAmount>
-                        <ForeignCurrencyName>US, Dollar</ForeignCurrencyName>
-                        <FromLocationDetail>Juarez Intl, MEXICO</FromLocationDetail>
-                        <FromLocationName>Juarez Intl</FromLocationName>
-                        <IsAgencyBooked>Y</IsAgencyBooked>
-                        <IsSelfBooked>Y</IsSelfBooked>
-                        <PostedAmount />
-                        <RecordLocator />
-                        <RemainingAmount />
-                        <SegmentKey>nLY990POOA2TVhHrpTZH$sxmlZ1S4s5nVf</SegmentKey>
-                        <SegmentLocator>1</SegmentLocator>
-                        <SegmentType>Air Ticket</SegmentType>
-                        <ToLocationDetail>Dallas Ft Worth Intl, Texas</ToLocationDetail>
-                        <ToLocationName>Dallas Ft Worth Intl</ToLocationName>
-                        <TripLocator>33519718</TripLocator>
-                        <LastModifiedDate>2012-06-08T16:35:20</LastModifiedDate>
-                        <Custom1 />
-                        <Custom2 />
-                        <Custom3 />
-                        <Custom4 />
-                        <Custom5 />
-                        <Custom6 />
-                        <Custom7 />
-                        <Custom8 />
-                        <Custom9 />
-                        <Custom10 />
-                        <Custom11 />
-                        <Custom12 />
-                        <Custom13 />
-                        <Custom14 />
-                        <Custom15 />
-                        <Custom16 />
-                        <Custom17 />
-                        <Custom18 />
-                        <Custom19 />
-                        <Custom20 />
-                        <Custom21 />
-                        <Custom22 />
-                        <Custom23 />
-                        <Custom24 />
-                        <Custom25 />
-                        <Custom26 />
-                        <Custom27 />
-                        <Custom28 />
-                        <Custom29 />
-                        <Custom30 />
-                        <Custom31 />
-                        <Custom32 />
-                        <Custom33 />
-                        <Custom34 />
-                        <Custom35 />
-                        <Custom36 />
-                        <Custom37 />
-                        <Custom38 />
-                        <Custom39 />
-                        <Custom40 />
-                    </Segment>
-                    <Segment>
-                        <ApprovedAmount />
-                        <ArrivalDate>9/25/2012</ArrivalDate>
-                        <ArrivalTime>7:50 PM</ArrivalTime>
-                        <ClassOfServiceCode>S</ClassOfServiceCode>
-                        <CommentsList />
-                        <DepartureDate>9/25/2012</DepartureDate>
-                        <DepartureTime>5:25 PM</DepartureTime>
-                        <ExceptionsList />
-                        <ExchangeRate />
-                        <FlightNumber>481</FlightNumber>
-                        <ForeignAmount>638.57000000</ForeignAmount>
-                        <ForeignCurrencyName>US, Dollar</ForeignCurrencyName>
-                        <FromLocationDetail>Dallas Ft Worth Intl, Texas</FromLocationDetail>
-                        <FromLocationName>Dallas Ft Worth Intl</FromLocationName>
-                        <IsAgencyBooked>Y</IsAgencyBooked>
-                        <IsSelfBooked>Y</IsSelfBooked>
-                        <PostedAmount />
-                        <RecordLocator />
-                        <RemainingAmount />
-                        <SegmentKey>nLY990POOA2XfRkUq$sJqRGxKI3ZK0$pn54</SegmentKey>
-                        <SegmentLocator>2</SegmentLocator>
-                        <SegmentType>Air Ticket</SegmentType>
-                        <ToLocationDetail>Juarez Intl, MEXICO</ToLocationDetail>
-                        <ToLocationName>Juarez Intl</ToLocationName>
-                        <TripLocator>33519718</TripLocator>
-                        <LastModifiedDate>2012-06-08T16:35:20</LastModifiedDate>
-                        <Custom1 />
-                        <Custom2 />
-                        <Custom3 />
-                        <Custom4 />
-                        <Custom5 />
-                        <Custom6 />
-                        <Custom7 />
-                        <Custom8 />
-                        <Custom9 />
-                        <Custom10 />
-                        <Custom11 />
-                        <Custom12 />
-                        <Custom13 />
-                        <Custom14 />
-                        <Custom15 />
-                        <Custom16 />
-                        <Custom17 />
-                        <Custom18 />
-                        <Custom19 />
-                        <Custom20 />
-                        <Custom21 />
-                        <Custom22 />
-                        <Custom23 />
-                        <Custom24 />
-                        <Custom25 />
-                        <Custom26 />
-                        <Custom27 />
-                        <Custom28 />
-                        <Custom29 />
-                        <Custom30 />
-                        <Custom31 />
-                        <Custom32 />
-                        <Custom33 />
-                        <Custom34 />
-                        <Custom35 />
-                        <Custom36 />
-                        <Custom37 />
-                        <Custom38 />
-                        <Custom39 />
-                        <Custom40 />
-                    </Segment>
-                </SegmentsList>
-                <TransactionDate>2012-09-21T06:15:00</TransactionDate>
-            </RequestEntry>
-            <RequestEntry>
-                <AllocationCount>3</AllocationCount>
-                <AllocationsList>
-                    <Allocation>
-                        <AllocationKey>nG$p6tMeoepROA$p19BXBVIKWPf6FyHoC2k</AllocationKey>
-                        <Percentage>33.33333334</Percentage>
-                        <Custom1>(7732)VIAJAR</Custom1>
-                        <Custom2>(881991)NUEVOS PROYECTOS</Custom2>
-                        <Custom3 />
-                        <Custom4 />
-                        <Custom5>(1234)Project 1234</Custom5>
-                        <Custom6 />
-                        <Custom7 />
-                        <Custom8 />
-                        <Custom9 />
-                        <Custom10 />
-                        <Custom12 />
-                        <Custom13 />
-                        <Custom14 />
-                        <Custom15 />
-                        <Custom16 />
-                        <Custom17 />
-                        <Custom18 />
-                        <Custom19 />
-                        <Custom20 />
-                    </Allocation>
-                    <Allocation>
-                        <AllocationKey>nG$p6tMeoepRBwXZeblcbD8giw9LbZm2FT</AllocationKey>
-                        <Percentage>33.33333333</Percentage>
-                        <Custom1>(7112)INFRAESTRUCTURA</Custom1>
-                        <Custom2>(223817)MODELO INFORMATICO</Custom2>
-                        <Custom3 />
-                        <Custom4 />
-                        <Custom5>(1234)Project 1234</Custom5>
-                        <Custom6 />
-                        <Custom7 />
-                        <Custom8 />
-                        <Custom9 />
-                        <Custom10 />
-                        <Custom12 />
-                        <Custom13 />
-                        <Custom14 />
-                        <Custom15 />
-                        <Custom16 />
-                        <Custom17 />
-                        <Custom18 />
-                        <Custom19 />
-                        <Custom20 />
-                    </Allocation>
-                    <Allocation>
-                        <AllocationKey>nG$p6tMeoepREmXR98pw3YLB4zFRxPasgE</AllocationKey>
-                        <Percentage>33.33333333</Percentage>
-                        <Custom1>(8826)FINANZAS</Custom1>
-                        <Custom2 />
-                        <Custom3 />
-                        <Custom4 />
-                        <Custom5>(4321)Project 4321</Custom5>
-                        <Custom6 />
-                        <Custom7 />
-                        <Custom8 />
-                        <Custom9 />
-                        <Custom10 />
-                        <Custom12 />
-                        <Custom13 />
-                        <Custom14 />
-                        <Custom15 />
-                        <Custom16 />
-                        <Custom17 />
-                        <Custom18 />
-                        <Custom19 />
-                        <Custom20 />
-                    </Allocation>
-                </AllocationsList>
-                <ApprovedAmount>4764.15000000</ApprovedAmount>
-                <CommentsList />
-                <Custom1 />
-                <Custom2 />
-                <Custom3 />
-                <Custom4 />
-                <Custom5 />
-                <Custom6 />
-                <Custom7 />
-                <Custom8 />
-                <Custom9 />
-                <Custom10 />
-                <Custom11 />
-                <Custom12 />
-                <Custom13 />
-                <Custom14 />
-                <Custom15 />
-                <Custom16 />
-                <Custom17 />
-                <Custom18 />
-                <Custom19 />
-                <Custom20 />
-                <Custom21 />
-                <Custom22 />
-                <Custom23 />
-                <Custom24 />
-                <Custom25 />
-                <Custom26 />
-                <Custom27 />
-                <Custom28 />
-                <Custom29 />
-                <Custom30 />
-                <Custom31 />
-                <Custom32 />
-                <Custom33 />
-                <Custom34 />
-                <Custom35 />
-                <Custom36 />
-                <Custom37 />
-                <Custom38 />
-                <Custom39 />
-                <Custom40 />
-                <EntryDescription />
-                <ExceptionsList />
-                <ExchangeRate>14.01220000000000</ExchangeRate>
-                <ExpenseTypeKey>LODGE</ExpenseTypeKey>
-                <ExpenseTypeName>Hotel/Lodging</ExpenseTypeName>
-                <ForeignAmount>340.00000000</ForeignAmount>
-                <ForeignCurrencyName>US, Dollar</ForeignCurrencyName>
-                <LastModifiedDate>2012-06-08T16:35:20</LastModifiedDate>
-                <PostedAmount>4764.15000000</PostedAmount>
-                <RemainingAmount>4764.15000000</RemainingAmount>
-                <RequestEntryKey>ntOaeqFud4tA34CjqKY3$pQOsBXl6Q4Qtd</RequestEntryKey>
-                <SegmentCount>1</SegmentCount>
-                <SegmentsList>
-                    <Segment>
-                        <ApprovedAmount />
-                        <ArrivalDate>9/25/2012</ArrivalDate>
-                        <ArrivalTime>12:00 AM</ArrivalTime>
-                        <ClassOfServiceCode />
-                        <CommentsList />
-                        <DepartureDate>9/21/2012</DepartureDate>
-                        <DepartureTime>12:00 AM</DepartureTime>
-                        <ExceptionsList />
-                        <ExchangeRate />
-                        <FlightNumber />
-                        <ForeignAmount>340.00000000</ForeignAmount>
-                        <ForeignCurrencyName>US, Dollar</ForeignCurrencyName>
-                        <FromLocationDetail />
-                        <FromLocationName />
-                        <IsAgencyBooked>Y</IsAgencyBooked>
-                        <IsSelfBooked>Y</IsSelfBooked>
-                        <PostedAmount />
-                        <RecordLocator />
-                        <RemainingAmount />
-                        <SegmentKey>nLY990POOA2Lqa0$pzpIwE6d0uU51z5DYo</SegmentKey>
-                        <SegmentLocator>47244773465</SegmentLocator>
-                        <SegmentType>Hotel Reservation</SegmentType>
-                        <ToLocationDetail />
-                        <ToLocationName />
-                        <TripLocator>33519718</TripLocator>
-                        <LastModifiedDate>2012-06-08T16:35:20</LastModifiedDate>
-                        <Custom1 />
-                        <Custom2 />
-                        <Custom3 />
-                        <Custom4 />
-                        <Custom5 />
-                        <Custom6 />
-                        <Custom7 />
-                        <Custom8 />
-                        <Custom9 />
-                        <Custom10 />
-                        <Custom11 />
-                        <Custom12 />
-                        <Custom13 />
-                        <Custom14 />
-                        <Custom15 />
-                        <Custom16 />
-                        <Custom17 />
-                        <Custom18 />
-                        <Custom19 />
-                        <Custom20 />
-                        <Custom21 />
-                        <Custom22 />
-                        <Custom23 />
-                        <Custom24 />
-                        <Custom25 />
-                        <Custom26 />
-                        <Custom27 />
-                        <Custom28 />
-                        <Custom29 />
-                        <Custom30 />
-                        <Custom31 />
-                        <Custom32 />
-                        <Custom33 />
-                        <Custom34 />
-                        <Custom35 />
-                        <Custom36 />
-                        <Custom37 />
-                        <Custom38 />
-                        <Custom39 />
-                        <Custom40 />
-                    </Segment>
-                </SegmentsList>
-                <TransactionDate>2012-09-21T23:59:00</TransactionDate>
-            </RequestEntry>
-        </EntriesList>
-        <EntryCount>2</EntryCount>
-        <EverSentBack>N</EverSentBack>
-        <ExceptionsList />
-        <ExpensePolicyKey>nI6NfRt2Vq7zSzFFgqVGNjeYFXkAxVGGN</ExpensePolicyKey>
-        <ExtensionOf />
-        <HasException>N</HasException>
-        <LoginID>cmiller@example.com</LoginID>
-        <Purpose>Business trip to Dallas</Purpose>
-        <RequestID>337E</RequestID>
-        <RequestKey>nyc7eqM$pprGNOuRIDP6BkOiJ8BntYTrR3</RequestKey>
-        <RequestName>Trip from Mexico City to Dallas</RequestName>
-        <RequestTotal>13711.92000000</RequestTotal>
-        <StartDate>9/21/2012</StartDate>
-        <StartTime>6:15 AM</StartTime>
-        <SubmitDate>2012-06-08T23:36:10</SubmitDate>
-        <TotalApprovedAmount>13711.92000000</TotalApprovedAmount>
-        <TotalRemainingAmount>13711.92000000</TotalRemainingAmount>
-        <TravelRequestPolicyKey>n$snD$psI09k6NxQAgOnwgks76hOZdyLhDs</TravelRequestPolicyKey>
-        <WorkflowActionURL>https:/www.concursolutions.com/api/travelrequest/v1.0/requests/n3cC3I7NpBss5U2Aofqvxao5t3hvFEQo/WorkFlowAction</WorkflowActionURL>
-        <Custom1>(7732)VIAJAR</Custom1>
-        <Custom2>(881991)NUEVOS PROYECTOS</Custom2>
-        <Custom3 />
-        <Custom4 />
-        <Custom5 />
-        <Custom6 />
-        <Custom7 />
-        <Custom8 />
-        <Custom9 />
-        <Custom10 />
-        <Custom11 />
-        <Custom12 />
-        <Custom13 />
-        <Custom14 />
-        <Custom15 />
-        <Custom16 />
-        <Custom17 />
-        <Custom18 />
-        <Custom19 />
-        <Custom20 />
-    </TravelRequestDetails>
+<TravelRequestDetails xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <AgencyOfficeKey>1</AgencyOfficeKey>
+    <AgencyOfficeName>Terrific Travel</AgencyOfficeName>
+    <ApprovalLimitDate>2012-06-09T23:59:00</ApprovalLimitDate>
+    <ApprovalStatusKey>Q_PEND</ApprovalStatusKey>
+    <ApprovalStatusName>Submitted & Pending Approval</ApprovalStatusName>
+    <AuthorizedDate i:nil="true" />
+    <LastModifiedDate>2012-06-08T16:35:20</LastModifiedDate>
+    <CashAdvancesList>
+        <CashAdvance>
+            <AmountRequested>400.000000</AmountRequested>
+            <ApprovalStatusKey>A_NOTF</ApprovalStatusKey>
+            <ApprovalStatusName>Not Submitted</ApprovalStatusName>
+            <CashAdvanceKey>nu1p4xwRqDVwWEcRN5kzNh1OXXfiZ1z06</CashAdvanceKey>
+            <CommentsList i:type="CommentsList" />
+            <CurrencyCode>USD</CurrencyCode>
+            <CurrencyName>US, Dollar</CurrencyName>
+            <EmployeeCurrencyCode>MXN</EmployeeCurrencyCode>
+            <EmployeeCurrencyName>Mexico, Peso</EmployeeCurrencyName>
+            <ExchangeRate>1.00000000000000</ExchangeRate>
+            <IssueDate i:nil="true" />
+            <RequestDate>2012-06-08T23:35:20</RequestDate>
+            <StartingBalance>0.0</StartingBalance>
+        </CashAdvance>
+    </CashAdvancesList>
+    <CommentCount>1</CommentCount>
+    <CommentsList>
+        <Comments>
+            <Comment>Trip for Sales meeting to Dallas</Comment>
+            <DateTime>2012-06-08T16:35:20</DateTime>
+            <FirstName>Chris</FirstName>
+            <LastName>Miller</LastName>
+        </Comments>
+    </CommentsList>
+    <CreationDate>2012-06-08T23:33:39</CreationDate>
+    <CurrencyCode>MXN</CurrencyCode>
+    <EmployeeName>Miller, Chris</EmployeeName>
+    <EndDate>9/25/2012</EndDate>
+    <EndTime>11:59 PM</EndTime>
+    <EntriesList>
+        <RequestEntry>
+            <AllocationCount>3</AllocationCount>
+            <AllocationsList>
+                <Allocation>
+                    <AllocationKey>nG$p6tMeoepRby4MJptMA6$sf4ucfZW7d5y</AllocationKey>
+                    <Percentage>33.33333334</Percentage>
+                    <Custom1>(7732)VIAJAR</Custom1>
+                    <Custom2>(881991)NUEVOS PROYECTOS</Custom2>
+                    <Custom3 />
+                    <Custom4 />
+                    <Custom5>(1234)Project 1234</Custom5>
+                    <Custom6 />
+                    <Custom7 />
+                    <Custom8 />
+                    <Custom9 />
+                    <Custom10 />
+                    <Custom12 />
+                    <Custom13 />
+                    <Custom14 />
+                    <Custom15 />
+                    <Custom16 />
+                    <Custom17 />
+                    <Custom18 />
+                    <Custom19 />
+                    <Custom20 />
+                </Allocation>
+                <Allocation>
+                    <AllocationKey>nG$p6tMeoepRcrg7jyl$slxYxm43LBgtr0b</AllocationKey>
+                    <Percentage>33.33333333</Percentage>
+                    <Custom1>(7112)INFRAESTRUCTURA</Custom1>
+                    <Custom2>(223817)MODELO INFORMATICO</Custom2>
+                    <Custom3 />
+                    <Custom4 />
+                    <Custom5>(1234)Project 1234</Custom5>
+                    <Custom6 />
+                    <Custom7 />
+                    <Custom8 />
+                    <Custom9 />
+                    <Custom10 />
+                    <Custom12 />
+                    <Custom13 />
+                    <Custom14 />
+                    <Custom15 />
+                    <Custom16 />
+                    <Custom17 />
+                    <Custom18 />
+                    <Custom19 />
+                    <Custom20 />
+                </Allocation>
+                <Allocation>
+                    <AllocationKey>nG$p6tMeoepRTFxjeJUFHAw$sDhH$prHfL$sd</AllocationKey>
+                    <Percentage>33.33333333</Percentage>
+                    <Custom1>(8826)FINANZAS</Custom1>
+                    <Custom2 />
+                    <Custom3 />
+                    <Custom4 />
+                    <Custom5>(4321)Project 4321</Custom5>
+                    <Custom6 />
+                    <Custom7 />
+                    <Custom8 />
+                    <Custom9 />
+                    <Custom10 />
+                    <Custom12 />
+                    <Custom13 />
+                    <Custom14 />
+                    <Custom15 />
+                    <Custom16 />
+                    <Custom17 />
+                    <Custom18 />
+                    <Custom19 />
+                    <Custom20 />
+                </Allocation>
+            </AllocationsList>
+            <ApprovedAmount>8947.77000000</ApprovedAmount>
+            <CommentsList />
+            <Custom1 />
+            <Custom2 />
+            <Custom3 />
+            <Custom4 />
+            <Custom5 />
+            <Custom6 />
+            <Custom7 />
+            <Custom8 />
+            <Custom9 />
+            <Custom10 />
+            <Custom11 />
+            <Custom12 />
+            <Custom13 />
+            <Custom14 />
+            <Custom15 />
+            <Custom16 />
+            <Custom17 />
+            <Custom18 />
+            <Custom19 />
+            <Custom20 />
+            <Custom21 />
+            <Custom22 />
+            <Custom23 />
+            <Custom24 />
+            <Custom25 />
+            <Custom26 />
+            <Custom27 />
+            <Custom28 />
+            <Custom29 />
+            <Custom30 />
+            <Custom31 />
+            <Custom32 />
+            <Custom33 />
+            <Custom34 />
+            <Custom35 />
+            <Custom36 />
+            <Custom37 />
+            <Custom38 />
+            <Custom39 />
+            <Custom40 />
+            <EntryDescription />
+            <ExceptionsList />
+            <ExchangeRate>14.01220000000000</ExchangeRate>
+            <ExpenseTypeKey>AIRFR</ExpenseTypeKey>
+            <ExpenseTypeName>Boleto de Avion</ExpenseTypeName>
+            <ForeignAmount>638.57000000</ForeignAmount>
+            <ForeignCurrencyName>US, Dollar</ForeignCurrencyName>
+            <LastModifiedDate>2012-06-08T16:35:20</LastModifiedDate>
+            <PostedAmount>8947.77000000</PostedAmount>
+            <RemainingAmount>8947.77000000</RemainingAmount>
+            <RequestEntryKey>ntOaeqFud4aaO6NFSxH7X3TgNk3$pyqifM</RequestEntryKey>
+            <SegmentCount>2</SegmentCount>
+            <SegmentsList>
+                <Segment>
+                    <ApprovedAmount />
+                    <ArrivalDate>9/21/2012</ArrivalDate>
+                    <ArrivalTime>8:55 AM</ArrivalTime>
+                    <ClassOfServiceCode>S</ClassOfServiceCode>
+                    <CommentsList />
+                    <DepartureDate>9/21/2012</DepartureDate>
+                    <DepartureTime>6:15 AM</DepartureTime>
+                    <ExceptionsList />
+                    <ExchangeRate />
+                    <FlightNumber>1066</FlightNumber>
+                    <ForeignAmount>638.57000000</ForeignAmount>
+                    <ForeignCurrencyName>US, Dollar</ForeignCurrencyName>
+                    <FromLocationDetail>Juarez Intl, MEXICO</FromLocationDetail>
+                    <FromLocationName>Juarez Intl</FromLocationName>
+                    <IsAgencyBooked>Y</IsAgencyBooked>
+                    <IsSelfBooked>Y</IsSelfBooked>
+                    <PostedAmount />
+                    <RecordLocator />
+                    <RemainingAmount />
+                    <SegmentKey>nLY990POOA2TVhHrpTZH$sxmlZ1S4s5nVf</SegmentKey>
+                    <SegmentLocator>1</SegmentLocator>
+                    <SegmentType>Air Ticket</SegmentType>
+                    <ToLocationDetail>Dallas Ft Worth Intl, Texas</ToLocationDetail>
+                    <ToLocationName>Dallas Ft Worth Intl</ToLocationName>
+                    <TripLocator>33519718</TripLocator>
+                    <LastModifiedDate>2012-06-08T16:35:20</LastModifiedDate>
+                    <Custom1 />
+                    <Custom2 />
+                    <Custom3 />
+                    <Custom4 />
+                    <Custom5 />
+                    <Custom6 />
+                    <Custom7 />
+                    <Custom8 />
+                    <Custom9 />
+                    <Custom10 />
+                    <Custom11 />
+                    <Custom12 />
+                    <Custom13 />
+                    <Custom14 />
+                    <Custom15 />
+                    <Custom16 />
+                    <Custom17 />
+                    <Custom18 />
+                    <Custom19 />
+                    <Custom20 />
+                    <Custom21 />
+                    <Custom22 />
+                    <Custom23 />
+                    <Custom24 />
+                    <Custom25 />
+                    <Custom26 />
+                    <Custom27 />
+                    <Custom28 />
+                    <Custom29 />
+                    <Custom30 />
+                    <Custom31 />
+                    <Custom32 />
+                    <Custom33 />
+                    <Custom34 />
+                    <Custom35 />
+                    <Custom36 />
+                    <Custom37 />
+                    <Custom38 />
+                    <Custom39 />
+                    <Custom40 />
+                </Segment>
+                <Segment>
+                    <ApprovedAmount />
+                    <ArrivalDate>9/25/2012</ArrivalDate>
+                    <ArrivalTime>7:50 PM</ArrivalTime>
+                    <ClassOfServiceCode>S</ClassOfServiceCode>
+                    <CommentsList />
+                    <DepartureDate>9/25/2012</DepartureDate>
+                    <DepartureTime>5:25 PM</DepartureTime>
+                    <ExceptionsList />
+                    <ExchangeRate />
+                    <FlightNumber>481</FlightNumber>
+                    <ForeignAmount>638.57000000</ForeignAmount>
+                    <ForeignCurrencyName>US, Dollar</ForeignCurrencyName>
+                    <FromLocationDetail>Dallas Ft Worth Intl, Texas</FromLocationDetail>
+                    <FromLocationName>Dallas Ft Worth Intl</FromLocationName>
+                    <IsAgencyBooked>Y</IsAgencyBooked>
+                    <IsSelfBooked>Y</IsSelfBooked>
+                    <PostedAmount />
+                    <RecordLocator />
+                    <RemainingAmount />
+                    <SegmentKey>nLY990POOA2XfRkUq$sJqRGxKI3ZK0$pn54</SegmentKey>
+                    <SegmentLocator>2</SegmentLocator>
+                    <SegmentType>Air Ticket</SegmentType>
+                    <ToLocationDetail>Juarez Intl, MEXICO</ToLocationDetail>
+                    <ToLocationName>Juarez Intl</ToLocationName>
+                    <TripLocator>33519718</TripLocator>
+                    <LastModifiedDate>2012-06-08T16:35:20</LastModifiedDate>
+                    <Custom1 />
+                    <Custom2 />
+                    <Custom3 />
+                    <Custom4 />
+                    <Custom5 />
+                    <Custom6 />
+                    <Custom7 />
+                    <Custom8 />
+                    <Custom9 />
+                    <Custom10 />
+                    <Custom11 />
+                    <Custom12 />
+                    <Custom13 />
+                    <Custom14 />
+                    <Custom15 />
+                    <Custom16 />
+                    <Custom17 />
+                    <Custom18 />
+                    <Custom19 />
+                    <Custom20 />
+                    <Custom21 />
+                    <Custom22 />
+                    <Custom23 />
+                    <Custom24 />
+                    <Custom25 />
+                    <Custom26 />
+                    <Custom27 />
+                    <Custom28 />
+                    <Custom29 />
+                    <Custom30 />
+                    <Custom31 />
+                    <Custom32 />
+                    <Custom33 />
+                    <Custom34 />
+                    <Custom35 />
+                    <Custom36 />
+                    <Custom37 />
+                    <Custom38 />
+                    <Custom39 />
+                    <Custom40 />
+                </Segment>
+            </SegmentsList>
+            <TransactionDate>2012-09-21T06:15:00</TransactionDate>
+        </RequestEntry>
+        <RequestEntry>
+            <AllocationCount>3</AllocationCount>
+            <AllocationsList>
+                <Allocation>
+                    <AllocationKey>nG$p6tMeoepROA$p19BXBVIKWPf6FyHoC2k</AllocationKey>
+                    <Percentage>33.33333334</Percentage>
+                    <Custom1>(7732)VIAJAR</Custom1>
+                    <Custom2>(881991)NUEVOS PROYECTOS</Custom2>
+                    <Custom3 />
+                    <Custom4 />
+                    <Custom5>(1234)Project 1234</Custom5>
+                    <Custom6 />
+                    <Custom7 />
+                    <Custom8 />
+                    <Custom9 />
+                    <Custom10 />
+                    <Custom12 />
+                    <Custom13 />
+                    <Custom14 />
+                    <Custom15 />
+                    <Custom16 />
+                    <Custom17 />
+                    <Custom18 />
+                    <Custom19 />
+                    <Custom20 />
+                </Allocation>
+                <Allocation>
+                    <AllocationKey>nG$p6tMeoepRBwXZeblcbD8giw9LbZm2FT</AllocationKey>
+                    <Percentage>33.33333333</Percentage>
+                    <Custom1>(7112)INFRAESTRUCTURA</Custom1>
+                    <Custom2>(223817)MODELO INFORMATICO</Custom2>
+                    <Custom3 />
+                    <Custom4 />
+                    <Custom5>(1234)Project 1234</Custom5>
+                    <Custom6 />
+                    <Custom7 />
+                    <Custom8 />
+                    <Custom9 />
+                    <Custom10 />
+                    <Custom12 />
+                    <Custom13 />
+                    <Custom14 />
+                    <Custom15 />
+                    <Custom16 />
+                    <Custom17 />
+                    <Custom18 />
+                    <Custom19 />
+                    <Custom20 />
+                </Allocation>
+                <Allocation>
+                    <AllocationKey>nG$p6tMeoepREmXR98pw3YLB4zFRxPasgE</AllocationKey>
+                    <Percentage>33.33333333</Percentage>
+                    <Custom1>(8826)FINANZAS</Custom1>
+                    <Custom2 />
+                    <Custom3 />
+                    <Custom4 />
+                    <Custom5>(4321)Project 4321</Custom5>
+                    <Custom6 />
+                    <Custom7 />
+                    <Custom8 />
+                    <Custom9 />
+                    <Custom10 />
+                    <Custom12 />
+                    <Custom13 />
+                    <Custom14 />
+                    <Custom15 />
+                    <Custom16 />
+                    <Custom17 />
+                    <Custom18 />
+                    <Custom19 />
+                    <Custom20 />
+                </Allocation>
+            </AllocationsList>
+            <ApprovedAmount>4764.15000000</ApprovedAmount>
+            <CommentsList />
+            <Custom1 />
+            <Custom2 />
+            <Custom3 />
+            <Custom4 />
+            <Custom5 />
+            <Custom6 />
+            <Custom7 />
+            <Custom8 />
+            <Custom9 />
+            <Custom10 />
+            <Custom11 />
+            <Custom12 />
+            <Custom13 />
+            <Custom14 />
+            <Custom15 />
+            <Custom16 />
+            <Custom17 />
+            <Custom18 />
+            <Custom19 />
+            <Custom20 />
+            <Custom21 />
+            <Custom22 />
+            <Custom23 />
+            <Custom24 />
+            <Custom25 />
+            <Custom26 />
+            <Custom27 />
+            <Custom28 />
+            <Custom29 />
+            <Custom30 />
+            <Custom31 />
+            <Custom32 />
+            <Custom33 />
+            <Custom34 />
+            <Custom35 />
+            <Custom36 />
+            <Custom37 />
+            <Custom38 />
+            <Custom39 />
+            <Custom40 />
+            <EntryDescription />
+            <ExceptionsList />
+            <ExchangeRate>14.01220000000000</ExchangeRate>
+            <ExpenseTypeKey>LODGE</ExpenseTypeKey>
+            <ExpenseTypeName>Hotel/Lodging</ExpenseTypeName>
+            <ForeignAmount>340.00000000</ForeignAmount>
+            <ForeignCurrencyName>US, Dollar</ForeignCurrencyName>
+            <LastModifiedDate>2012-06-08T16:35:20</LastModifiedDate>
+            <PostedAmount>4764.15000000</PostedAmount>
+            <RemainingAmount>4764.15000000</RemainingAmount>
+            <RequestEntryKey>ntOaeqFud4tA34CjqKY3$pQOsBXl6Q4Qtd</RequestEntryKey>
+            <SegmentCount>1</SegmentCount>
+            <SegmentsList>
+                <Segment>
+                    <ApprovedAmount />
+                    <ArrivalDate>9/25/2012</ArrivalDate>
+                    <ArrivalTime>12:00 AM</ArrivalTime>
+                    <ClassOfServiceCode />
+                    <CommentsList />
+                    <DepartureDate>9/21/2012</DepartureDate>
+                    <DepartureTime>12:00 AM</DepartureTime>
+                    <ExceptionsList />
+                    <ExchangeRate />
+                    <FlightNumber />
+                    <ForeignAmount>340.00000000</ForeignAmount>
+                    <ForeignCurrencyName>US, Dollar</ForeignCurrencyName>
+                    <FromLocationDetail />
+                    <FromLocationName />
+                    <IsAgencyBooked>Y</IsAgencyBooked>
+                    <IsSelfBooked>Y</IsSelfBooked>
+                    <PostedAmount />
+                    <RecordLocator />
+                    <RemainingAmount />
+                    <SegmentKey>nLY990POOA2Lqa0$pzpIwE6d0uU51z5DYo</SegmentKey>
+                    <SegmentLocator>47244773465</SegmentLocator>
+                    <SegmentType>Hotel Reservation</SegmentType>
+                    <ToLocationDetail />
+                    <ToLocationName />
+                    <TripLocator>33519718</TripLocator>
+                    <LastModifiedDate>2012-06-08T16:35:20</LastModifiedDate>
+                    <Custom1 />
+                    <Custom2 />
+                    <Custom3 />
+                    <Custom4 />
+                    <Custom5 />
+                    <Custom6 />
+                    <Custom7 />
+                    <Custom8 />
+                    <Custom9 />
+                    <Custom10 />
+                    <Custom11 />
+                    <Custom12 />
+                    <Custom13 />
+                    <Custom14 />
+                    <Custom15 />
+                    <Custom16 />
+                    <Custom17 />
+                    <Custom18 />
+                    <Custom19 />
+                    <Custom20 />
+                    <Custom21 />
+                    <Custom22 />
+                    <Custom23 />
+                    <Custom24 />
+                    <Custom25 />
+                    <Custom26 />
+                    <Custom27 />
+                    <Custom28 />
+                    <Custom29 />
+                    <Custom30 />
+                    <Custom31 />
+                    <Custom32 />
+                    <Custom33 />
+                    <Custom34 />
+                    <Custom35 />
+                    <Custom36 />
+                    <Custom37 />
+                    <Custom38 />
+                    <Custom39 />
+                    <Custom40 />
+                </Segment>
+            </SegmentsList>
+            <TransactionDate>2012-09-21T23:59:00</TransactionDate>
+        </RequestEntry>
+    </EntriesList>
+    <EntryCount>2</EntryCount>
+    <EverSentBack>N</EverSentBack>
+    <ExceptionsList />
+    <ExpensePolicyKey>nI6NfRt2Vq7zSzFFgqVGNjeYFXkAxVGGN</ExpensePolicyKey>
+    <ExtensionOf />
+    <HasException>N</HasException>
+    <LoginID>cmiller@example.com</LoginID>
+    <Purpose>Business trip to Dallas</Purpose>
+    <RequestID>337E</RequestID>
+    <RequestKey>nyc7eqM$pprGNOuRIDP6BkOiJ8BntYTrR3</RequestKey>
+    <RequestName>Trip from Mexico City to Dallas</RequestName>
+    <RequestTotal>13711.92000000</RequestTotal>
+    <StartDate>9/21/2012</StartDate>
+    <StartTime>6:15 AM</StartTime>
+    <SubmitDate>2012-06-08T23:36:10</SubmitDate>
+    <TotalApprovedAmount>13711.92000000</TotalApprovedAmount>
+    <TotalRemainingAmount>13711.92000000</TotalRemainingAmount>
+    <TravelRequestPolicyKey>n$snD$psI09k6NxQAgOnwgks76hOZdyLhDs</TravelRequestPolicyKey>
+    <WorkflowActionURL>https:/www.concursolutions.com/api/travelrequest/v1.0/requests/n3cC3I7NpBss5U2Aofqvxao5t3hvFEQo/WorkFlowAction</WorkflowActionURL>
+    <Custom1>(7732)VIAJAR</Custom1>
+    <Custom2>(881991)NUEVOS PROYECTOS</Custom2>
+    <Custom3 />
+    <Custom4 />
+    <Custom5 />
+    <Custom6 />
+    <Custom7 />
+    <Custom8 />
+    <Custom9 />
+    <Custom10 />
+    <Custom11 />
+    <Custom12 />
+    <Custom13 />
+    <Custom14 />
+    <Custom15 />
+    <Custom16 />
+    <Custom17 />
+    <Custom18 />
+    <Custom19 />
+    <Custom20 />
+</TravelRequestDetails>
 ```
+
 ##  <a name="a4">Post travel request header</a>
 
 ### Description
@@ -909,7 +910,7 @@ Example: `https://www.concursolutions.com/api/travelrequest/v1.0/requests`
 **{_requestID_}**: The unique identifier for the desired travel request. Supplied when updating an existing travel request. Optional.
 
 Example:  
-<samp>https://www.concursolutions.com/api/travelrequest/v1.0/requests/{requestID}</samp>
+`https://www.concursolutions.com/api/travelrequest/v1.0/requests/{requestID}`
 
 **URI Source**: The requestId value is returned by [Get Request Details](#a3) function, and the **Request-Url** element in this function.
 
@@ -944,21 +945,22 @@ This request should contain a **Request** parent element with the following chil
 
 #### XML Example Request
 
-```xml
-    POST /api/travelrequest/v1.0/requests HTTPS 1.1
-    Host: [www.concursolutions.com][3]
-    Authorization: OAuth {access token}
-    ...
+```http
+POST /api/travelrequest/v1.0/requests HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
 
-    <Request xmlns="http://www.concursolutions.com/api/travelrequest/2012/06">
-        <Name>Request for Trip to Seattle</Name>
-        <Purpose>Sales team meeting</Purpose>
-        <Comment>NW Regional Sales team</Comment>
-        <StartDate>2012-09-30</StartDate>
-        <StartTime>3:15</StartTime>
-        <EndDate>2012-10-05</EndDate>
-        <EndTime>15:25</EndTime>
-    </Request>
+<Request xmlns="http://www.concursolutions.com/api/travelrequest/2012/06">
+    <Name>Request for Trip to Seattle</Name>
+    <Purpose>Sales team meeting</Purpose>
+    <Comment>NW Regional Sales team</Comment>
+    <StartDate>2012-09-30</StartDate>
+    <StartTime>3:15</StartTime>
+    <EndDate>2012-10-05</EndDate>
+    <EndTime>15:25</EndTime>
+</Request>
 ```
 
 ###  Response
@@ -972,7 +974,7 @@ This request will return a **RequestStatus** parent element with the following c
 
 |  Element     |  Description |
 |--------------|--------------|
-|  Status      |  The status of the travel request. | 
+|  Status      |  The status of the travel request. |
 |  Request-Url |  The URI to use when posting travel request header details to this travel request. |
 
 If saving the travel request header triggers an exception, a **RequestExceptions** parent element will be provided, with a **RequestException** parent element for each exception. The **RequestException** element contains the following elements.
@@ -992,22 +994,22 @@ If saving the travel request header triggers an exception, a **RequestExceptions
 #### XML Example of Response with Successful Travel Request Creation and Exception
 
 ```xml
-    <RequestStatus xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Request-Details-Url>https://www.concursolutions.com/api/travelrequest/v1.0/requests/nf0ma53XrN$s6z5iKRRANn6eIsW89aTe3m</Request-Details-Url>
-        <Status>SUCCESS</Status>
-        <RequestExceptions>
-            <RequestException>
-                <EventCode />
-                <ExceptionCode>MISSREQFLD</ExceptionCode>
-                <ExceptionErrorCode />
-                <ExceptionVisibility>1</ExceptionVisibility>
-                <IsCleared>N</IsCleared>
-                <Message>Missing Required Fields:Custom 02,Custom 03,Cash Advance,</Message>
-                <SeverityLevel>2147483647</SeverityLevel>
-                <Type />
-            </RequestException>
-        </RequestExceptions>
-    </RequestStatus>
+<RequestStatus xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Request-Details-Url>https://www.concursolutions.com/api/travelrequest/v1.0/requests/nf0ma53XrN$s6z5iKRRANn6eIsW89aTe3m</Request-Details-Url>
+    <Status>SUCCESS</Status>
+    <RequestExceptions>
+        <RequestException>
+            <EventCode />
+            <ExceptionCode>MISSREQFLD</ExceptionCode>
+            <ExceptionErrorCode />
+            <ExceptionVisibility>1</ExceptionVisibility>
+            <IsCleared>N</IsCleared>
+            <Message>Missing Required Fields:Custom 02,Custom 03,Cash Advance,</Message>
+            <SeverityLevel>2147483647</SeverityLevel>
+            <Type />
+        </RequestException>
+    </RequestExceptions>
+</RequestStatus>
 ```
 
 ##  <a name="a5">Post travel request workflow action</a>
@@ -1050,21 +1052,22 @@ application/xml
 This request should contain a **WorkflowAction** parent element with the following child elements:
 
 |  Element |  Required (must contain value)? |  Description |
-|  Action |  Y |  The name of the workflow action. Possible values are: **Approve**, ** Send Back to Employee**, or **Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Request Admin, Workflow to learn details. | 
+|  Action |  Y |  The name of the workflow action. Possible values are: **Approve**, ** Send Back to Employee**, or **Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Request Admin, Workflow to learn details. |
 |  Comment |  Y, for Send Back to Employee |  Must be used with the Send Back to Employee workflow action. This comment is visible wherever travel request comments are available to the employee, approver, and/or processor. |
 
 ####  XML Example Request
 
-```xml
-    POST api/travelrequest/v1.0/requests/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a4qQ/workflowaction HTTPS 1.1
-    Host: www.concursolutions.com
-    Authorization: OAuth {access token}
-    ...
+```http
+POST api/travelrequest/v1.0/requests/nx2WRNzp18$wjehk%wqEL6EDHRwi9r$paQS1UqyL6a4qQ/workflowaction HTTPS/1.1
+Host: www.concursolutions.com
+Authorization: OAuth {access token}
+Content-Type: application/xml
+...
 
-    <WorkflowAction xmlns="http://www.concursolutions.com/api/travelrequest/2012/06">
-        <Action>Approve</Action>
-        <Comment>Approved via Concur Connect</Comment>
-    </WorkflowAction>
+<WorkflowAction xmlns="http://www.concursolutions.com/api/travelrequest/2012/06">
+    <Action>Approve</Action>
+    <Comment>Approved via Concur Connect</Comment>
+</WorkflowAction>
 ```
 
 ###  Response
@@ -1078,31 +1081,29 @@ This request will return an **ActionStatus** parent element with the following c
 
 |  Element |  Description |
 |----------|--------------|
-|  Message |  The error message. Only appears if a workflow action error was generated | 
+|  Message |  The error message. Only appears if a workflow action error was generated |
 |  Status  |  The status of the travel request workflow action. |
 
 ####  XML Example of Successful Response
 
 ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <ActionStatus xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Message>SUCCESS!</Message>
-        <Status>SUCCESS!</Status>
-    </ActionStatus>
+<?xml version="1.0" encoding="utf-8"?>
+<ActionStatus xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Message>SUCCESS!</Message>
+    <Status>SUCCESS!</Status>
+</ActionStatus>
 ```
 
 ###  XML Example of a Response with a Failure
 
 ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <ActionStatus xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-        <Message>The action cannot be executed because the item has recently been changed. Please refresh your list and try again.</Message>
-        <Status>FAILURE</Status>
-    </ActionStatus>
+<?xml version="1.0" encoding="utf-8"?>
+<ActionStatus xmlns="http://www.concursolutions.com/api/travelrequest/2012/06" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <Message>The action cannot be executed because the item has recently been changed. Please refresh your list and try again.</Message>
+    <Status>FAILURE</Status>
+</ActionStatus>
 ```
 
 [1]: /api-reference/request/request.html
 [3]: http://concur.github.io/developer.concur.com/docs/reference/http-codes
 [4]: http://en.wikipedia.org/wiki/ISO_4217
-
-

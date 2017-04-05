@@ -8,32 +8,14 @@ layout: reference
 The Payment Batch File web service provides an automated solution to clients who would like to manage their payment batches and collect their batch files.
 
 
-* [Retrieve a payment batch file](#getbatchfile)
 * [Retrieve the list of payment batches](#getpaymentbatches)
 * [Close a payment batch](#closepaymentbatch)
+* [Retrieve a payment batch file](#getbatchfile)
+* [Error Messages](#errormessages)
 
-
-###Version
+### Version
 1.1 for GET methods  
 1.2 for POST method
-
-## <a name="getbatchfile"></a>Retrieve a payment batch file
-
-Requests the expense transaction data for the specified payment batch.
-
-    GET /expense/paymentbatch/v1.1/batch/_{BatchID}_/file
-
-### Parameters
-
-Name | Type | Format | Description
------|------| ------ | --------------
-`BatchID`|`string` | | **Required.** URI Source: The URI is returned in the Batch-URL element of the Get List of Payment Batches function. Do not use the BatchID value from the Get List of Payment Batches function in the URI, as it contains the unencrypted batch ID.
-
-
-### Response
-
-This request will return the expense transaction data in text/csv format if there was a single file produced or as a zip archive if the batch is configured to produce more than one file. An example of a client who will receive multiple files is a client using QuickBooks, who receives one file formatted for import into QuickBooks (.IIF extension), and one file for the general ledger (.CSV extension), inside a .ZIP file.  
-
 
 ## <a name="getpaymentbatches"></a>Retrieve the list of payment batches
 
@@ -68,7 +50,7 @@ Name | Type | Format | Description
 
 This request closes the specified batch, preventing any new expenses from entering it. After the batch closes, Concur creates the batch file containing the expense transaction information. If a batch ID for an already closed batch is sent, Concur regenerates the batch file for the specified batch.
 
-    POST /expense/paymentbatch/v1.2/batch/{BatchID}/close
+    POST /expense/paymentbatch/v1.2/batch/{BatchID}/closed
 
 
 ### Parameters
@@ -87,4 +69,33 @@ Name | Type | Format | Description
 `File-Url`|`string` | | A URL for retrieving the extract file or files produced when the batch closes, with encrypted ID.
 `Status`|`string` | | The status of the request to close the batch.
 `JobQueueKey`|`string` | | The unique identifier for the batch job.
+
+
+## <a name="getbatchfile"></a>Retrieve a payment batch file
+
+Requests the expense transaction data for the specified payment batch.
+
+    GET /expense/paymentbatch/v1.1/batch/_{BatchID}_/file
+
+### Parameters
+
+Name | Type | Format | Description
+-----|------| ------ | --------------
+`BatchID`|`string` | | **Required.** URI Source: The URI is returned in the Batch-URL element of the Get List of Payment Batches function. Do not use the BatchID value from the Get List of Payment Batches function in the URI, as it contains the unencrypted batch ID.
+
+
+### Response
+
+This request will return the expense transaction data in text/csv format if there was a single file produced or as a zip archive if the batch is configured to produce more than one file. An example of a client who will receive multiple files is a client using QuickBooks, who receives one file formatted for import into QuickBooks (.IIF extension), and one file for the general ledger (.CSV extension), inside a .ZIP file.  
+
+
+## <a name="errormessages"></a>Error Messages
+
+
+### Error Messages
+
+Error Number    | Description 
+----------------|-------------
+`500`           |The batch you attempted to close does not contain any reports. If you recently approved reports for payment, wait 30 minutes and try again.
+
 

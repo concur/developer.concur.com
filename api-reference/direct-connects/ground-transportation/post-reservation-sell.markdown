@@ -3,15 +3,15 @@ title: Post a reservation sell request
 layout: reference
 ---
 
-##Description
+## Description
 A post reservation sell request is sent when a Travel user attempts to book a ground transportation reservation.
 
 ## Request
 
-###Supported Accept Types
+### Supported Accept Types
 application/xml
 
-###Request URI
+### Request URI
 The Ground Transportation direct connect sends the relevant information to a URI that the travel supplier maintains. The standard location is:
 
 `https://{servername}/concur/groundtransportation`
@@ -25,22 +25,22 @@ Authentication header with Base64 encoded basic authentication credentials (logi
 
 Authorization: Basic {Base64 encoded LoginID:Password}
 
-###Request Body
+### Request Body
 The request will contain a **CC_LimoSellRequest** parent element, containing the following child elements.
 
-####CorporateClient
-The corporate client the booking is on behalf of. This parent element contains the following child element: 
+#### CorporateClient
+The corporate client the booking is on behalf of. This parent element contains the following child element:
 
 * **CompanyCode:** The code for the company of the client.
 
-####Booker
+#### Booker
 The user booking the reservation. This parent element contains the following child elements:
 
 * **UserID:**	The user's Concur user ID.
 * **EmailAddress:**	The user's email address.
 * **Phone:**	The user's contact number.
 
-####PrimaryPassenger	
+#### PrimaryPassenger
 The passenger contact name for the reservation. This parent element contains the following child elements:
 
 * **FirstName:**	The contact's first name
@@ -50,7 +50,7 @@ The passenger contact name for the reservation. This parent element contains the
 * **CellPhone:**	The contact's cell phone number
 * **EmailAddress:**	The contact's email address
 
-####ServiceType	
+#### ServiceType
 The type of service requested. Will contain one of the following values:
 
 * 100: Point to point
@@ -61,7 +61,7 @@ The type of service requested. Will contain one of the following values:
 * 200: Hourly
 * 300: Airport to airport
 
-####ClassOfService	
+#### ClassOfService
 The requested service class. Will contain one of the following values:
 
 * 100: Normal
@@ -70,7 +70,7 @@ The requested service class. Will contain one of the following values:
 
 If this value is not provided by the user, it will default to 100
 
-####PickupLocation	
+#### PickupLocation
 The pick up location. This parent element contains the following child elements:
 
 * **LocationType:** One of the following: 100 - Address, 200 - Airport, 300 - Train station.
@@ -83,7 +83,7 @@ The pick up location. This parent element contains the following child elements:
 * **PostalCode:**	The location postal code.
 * **ExtraNotes:**	Additional notes about the location. Example: Ring doorbell, Holiday Inn, etc.
 
-####DropoffLocation	
+#### DropoffLocation
 The drop off location. This parent element contains the following child elements:
 
 * **LocationType:** 	One of the following: 100 - Address, 200 - Airport, 300 - Train station, 400 - As directed.
@@ -96,20 +96,20 @@ The drop off location. This parent element contains the following child elements
 * **PostalCode:**	The location postal code.
 * **ExtraNotes:**	Additional notes about the location. Example: Apartment Building, gravel driveway, etc.
 
-####StartDateTime	
+#### StartDateTime
 The time, in GMT, that the reservation must begin.
 **Format:** 2015-05-19T18:00:00
 
-####EndDateTime	
+#### EndDateTime
 The time, in GMT that the reservation will end. Provided for hourly reservations. **Format:** 2015-05-19T18:00:00
 
-####PickupInstructions	
+#### PickupInstructions
 Additional instructions about the pick up request.
 
-####DropoffInstructions	
+#### DropoffInstructions
 Additional instructions about the drop off request.
 
-####LanguageCode	
+#### LanguageCode
 The language of the traveler. Will be one of the following options:
 
 * en: English
@@ -132,20 +132,20 @@ The language of the traveler. Will be one of the following options:
 * zh-cn: Chinese
 * zh-tw: Traditional Chinese
 
-####Currency	
+#### Currency
 The 3-letter ISO 4217 currency code for the reservation amount.
 
-####NumPassengers	
+#### NumPassengers
 The number of passengers.
 
-####DiscountCode	
+#### DiscountCode
 The discount code information. This parent element contains the following child elements:
 
 * Corporate ID: The user's corporate ID.
 * VendorCode: The user's vendor code.
 * DiscountNumber: The user's discount number.
 
-####RateInfo	
+#### RateInfo
 The booked rate. This parent element contains the following child elements:
 
 * RateID:	The rate identifier.
@@ -158,7 +158,7 @@ The booked rate. This parent element contains the following child elements:
 * CategoryCode	Extra information that will be passed back during sell request to help identify the rate.
 * Currency	The 3-letter ISO 4217 currency code for the rate amount.
 
-####Vehicle	
+#### Vehicle
 The vehicle details. This parent element contains the following child elements:
 
 * VehicleType:	One of the following values:
@@ -177,12 +177,12 @@ The vehicle details. This parent element contains the following child elements:
 	* 900: Any
 * VehicleID:	Information to identify the specific vehicle.
 
-####Vendor	
+#### Vendor
 The reservation vendor. This parent element contains the following child element:
 
 * VendorCode:	The vendor code for the vendor.
 
-####FormOfPayment	
+#### FormOfPayment
 The form of payment for the reservation. This parent element contains one of the following child elements:
 
 * CreditCard:	If present, the passenger will pay with credit card. Refer to the Reply Credit Card: Elements table for the child elements.
@@ -190,20 +190,20 @@ The form of payment for the reservation. This parent element contains one of the
 * Check:	If present, the passenger will pay with a check.
 * DirectBilling:	If present, the passenger will pay through direct billing.
 
-####RequestedDriver	
+#### RequestedDriver
 The name of the requested driver, if available.
 
-####SpecialServiceRequest	
+#### SpecialServiceRequest
 The details of the special service request, if available.
 
-####PickupServiceArrangement	
+#### PickupServiceArrangement
 The details of the pickup arrangement, if available.
 
-####DropoffServiceArrangement	
+#### DropoffServiceArrangement
 The details of the dropoff arrangement, if available.
 ExtraStopArrangement	The details of the extra stop arrangement, if available.
 
-####RequestedDriver	
+#### RequestedDriver
 The name of the requested driver, if available.
 
 * SpecialServiceRequest	: The details of the special service request, if available.
@@ -211,9 +211,9 @@ The name of the requested driver, if available.
 * DropoffServiceArrangement:	The details of the dropoff arrangement, if available.
 * ExtraStopArrangement:	The details of the extra stop arrangement, if available.
 
-###Airport Elements
+### Airport Elements
 
-####AirportCode	
+#### AirportCode
 The IATA code for the airport.
 
 * Flight:	The flight information. This parent element contains the following child elements:
@@ -224,21 +224,21 @@ The IATA code for the airport.
 	* DepartureDateTime:	The flight departure time. Only provided for the DropoffLocation element.
 **Format:** 2015-05-19T18:00:00
 
-###Train Station Elements
+### Train Station Elements
 
-####StationCode	
+#### StationCode
 The station code.
 
-####StationName	
+#### StationName
 The name of the station.
 
-####City	
+#### City
 The city the station is located in.
 
-####State	
+#### State
 The state the station is located in. Preferably 2 characters, max 10 characters.
 
-####Train	
+#### Train
 The train information. This parent element contains the following child elements:
 
 * CarrierCode:	The code of the train carrier.
@@ -250,117 +250,117 @@ The train information. This parent element contains the following child elements
 **Format:** 2015-05-19T18:00:00
 
 
-###Credit Card Elements
+### Credit Card Elements
 
-####Type	
+#### Type
 The card type.
 
-####Number	
+#### Number
 The card number.
 
-####Expiration	
+#### Expiration
 The card expiration date. Format: 2013-02-19
 
-####Name	
+#### Name
 The name on the card.
 
-####Address
+#### Address
 The street information of the billing address of the car.
 
-####City	
+#### City
 The city of the billing address of the car.
 
-####State	
+#### State
 The state of the billing address of the car. Preferably 2 characters, max 10 characters.
 
-####Country	
+#### Country
 The country of the billing address of the car.
 
-####PostalCode	
+#### PostalCode
 The postal code of the billing address of the car.
 
-###XML Example Request
+### XML Example Request
 
-```xml
-	POST /concur/groundtransportation HTTPS/1.1
-	Host: example.com
-	Authorization: Basic ...
-	Content-Type: application/xml
-	Content-Length: {length of content body}
-	
-	<CC_LimoSellRequest>
-    <CorporateClient>
-        <CompanyCode>339</CompanyCode>
-    </CorporateClient>
-    <Booker>
-        <UserID>55414</UserID>
-        <EmailAddress>cmiller@example.com</EmailAddress>
-        <Phone>5551234567</Phone>
-    </Booker>
-    <PrimaryPassenger>
-        <FirstName>Chris</FirstName>
-        <LastName>Miller</LastName>
-        <Phone>5551234567</Phone>
-        <Phone2>5551234568</Phone2>
-        <CellPhone>5551234569</CellPhone>
-        <EmailAddress>cmiller@example.com</EmailAddress>
-    </PrimaryPassenger>
-    <ServiceType>110</ServiceType>
-    <ClassOfService>100</ClassOfService>
-    <StartDateTime>2012-02-19T09:00:00</StartDateTime>
-    <EndDateTime />
-    <PickupInstructions>pick me up</PickupInstructions>
-    <DropoffInstructions>None</DropoffInstructions>
-    <LanguageCode>en-us</LanguageCode>
-    <RateInfo>
-        <RateID>1</RateID>
-        <Rate>42.50</Rate>
-        <RateTypeCode>100</RateTypeCode>
-        <CategoryCode />
-        <Currency>USD</Currency>
-    </RateInfo>
-    <Vehicle>
-        <VehicleType>Sedan</VehicleType>
-        <Description>This is a Sedan.</Description>
-        <MaxPassengers>1</MaxPassengers>
-        <VehicleID>12</VehicleID>
-    </Vehicle>
-    <Vendor>
-        <VendorCode>LML</VendorCode>
-        <VendorName>LimoVendor</VendorName>
-        <PhoneNumber>4354654654</PhoneNumber>
-    </Vendor>
-    <FormOfPayment>
-        <CreditCard>
-            <Type>VI</Type>
-            <Number>xxxxxxxxxxxx1111</Number>
-            <Expiration>2013-02-19</Expiration>
-            <NameOnCard />
-            <Address>209 MADISON ST. #400</Address>
-            <City>ALEXANDRIA</City>
-            <State>VA</State>
-            <Country>US</Country>
-            <PostalCode>22314</PostalCode>
-        </CreditCard>
-    </FormOfPayment>
-    <RequestedDriver />
-    <AccountingInfo>
-        <AccountingField1>715</AccountingField1>
-        <AccountingField2>temp@outtask.com</AccountingField2>
-        <AccountingField3>11</AccountingField3>
-        <AccountingField4>Development</AccountingField4>
-        <AccountingField5/>
-    </AccountingInfo>
-	</CC_LimoSellRequest>
-```	
-	
-##Response
+```http
+POST /concur/groundtransportation HTTPS/1.1
+Host: example.com
+Authorization: Basic ...
+Content-Type: application/xml
+Content-Length: {length of content body}
+
+<CC_LimoSellRequest>
+  <CorporateClient>
+      <CompanyCode>339</CompanyCode>
+  </CorporateClient>
+  <Booker>
+      <UserID>55414</UserID>
+      <EmailAddress>cmiller@example.com</EmailAddress>
+      <Phone>5551234567</Phone>
+  </Booker>
+  <PrimaryPassenger>
+      <FirstName>Chris</FirstName>
+      <LastName>Miller</LastName>
+      <Phone>5551234567</Phone>
+      <Phone2>5551234568</Phone2>
+      <CellPhone>5551234569</CellPhone>
+      <EmailAddress>cmiller@example.com</EmailAddress>
+  </PrimaryPassenger>
+  <ServiceType>110</ServiceType>
+  <ClassOfService>100</ClassOfService>
+  <StartDateTime>2012-02-19T09:00:00</StartDateTime>
+  <EndDateTime />
+  <PickupInstructions>pick me up</PickupInstructions>
+  <DropoffInstructions>None</DropoffInstructions>
+  <LanguageCode>en-us</LanguageCode>
+  <RateInfo>
+      <RateID>1</RateID>
+      <Rate>42.50</Rate>
+      <RateTypeCode>100</RateTypeCode>
+      <CategoryCode />
+      <Currency>USD</Currency>
+  </RateInfo>
+  <Vehicle>
+      <VehicleType>Sedan</VehicleType>
+      <Description>This is a Sedan.</Description>
+      <MaxPassengers>1</MaxPassengers>
+      <VehicleID>12</VehicleID>
+  </Vehicle>
+  <Vendor>
+      <VendorCode>LML</VendorCode>
+      <VendorName>LimoVendor</VendorName>
+      <PhoneNumber>4354654654</PhoneNumber>
+  </Vendor>
+  <FormOfPayment>
+      <CreditCard>
+          <Type>VI</Type>
+          <Number>xxxxxxxxxxxx1111</Number>
+          <Expiration>2013-02-19</Expiration>
+          <NameOnCard />
+          <Address>209 MADISON ST. #400</Address>
+          <City>ALEXANDRIA</City>
+          <State>VA</State>
+          <Country>US</Country>
+          <PostalCode>22314</PostalCode>
+      </CreditCard>
+  </FormOfPayment>
+  <RequestedDriver />
+  <AccountingInfo>
+      <AccountingField1>715</AccountingField1>
+      <AccountingField2>temp@outtask.com</AccountingField2>
+      <AccountingField3>11</AccountingField3>
+      <AccountingField4>Development</AccountingField4>
+      <AccountingField5/>
+  </AccountingInfo>
+</CC_LimoSellRequest>
+```
+
+## Response
 The supplier responds to the Sell request by returning the details of the booked reservation.
 
-###Supported Content Types
+### Supported Content Types
 application/xml
 
-###Content Body
+### Content Body
 The response will include a **CC_LimoSellReply** parent element, with the following child elements:
 
 
@@ -410,7 +410,7 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 |  Element |  Description |
 |-------------|----------------------|
 |  FirstName |  The contact's first name. |
-|  LastName |  The contact's last name. | 
+|  LastName |  The contact's last name. |
 |  Phone |  The contact's phone number. |
 |  Phone2 |  The contact's backup phone number. |
 |  CellPhone |  The contact's cell phone number. |
@@ -469,159 +469,156 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 | Number | Y | The card number. |
 | Expiration | Y| The card expiration date. Format: 2013-02-19 |
 
-###XML Example of Successful Response
+### XML Example of Successful Response
 
-```xml
-	200 OK HTTPS/1.1 
-	Content-Length: {length of content body}
-	
-	<CC_LimoSellReply>
-    <Error>
-        <ErrorCode />
-        <ErrorSource />
-        <ErrorDescription />
-    </Error>
-    <ReservationID>1234</ReservationID>
-    <Status>RB</Status>
-    <ConfNum>4444</ConfNum>
-    <CancelPolicy />
-    <CancelNum>55555</CancelNum>
-    <PrimaryPassenger>
-        <FirstName>Chris</FirstName>
-        <LastName>Miller</LastName>
-        <Phone>5551234567</Phone>
-        <Phone2>5551234568</Phone2>
-        <CellPhone>5551234569</CellPhone>
-        <EmailAddress>cmiller@example.com</EmailAddress>
-    </PrimaryPassenger>
-    <ServiceType>110</ServiceType>
-    <ClassOfService />
-    <PickupLocation>
-        <LocationType>100</LocationType>
-        <Airport>
-            <AirportCode />
-            <Flight>
-                <CarrierCode />
-                <FlightNumber />
-                <ArrivalDateTime />
-            </Flight>
-        </Airport>
-        <TrainStation>
-            <StationCode />
-            <StationName />
-            <City />
-            <State />
-            <Train>
-                <CarrierCode />
-                <CarrierName />
-                <TrainNumber />
-                <ArrivalDateTime />
-            </Train>
-        </TrainStation>
-        <Address>209 Madison St</Address>
-        <City>Alexandria</City>
-        <State>VA</State>
-        <Country>US</Country>
-        <PostalCode>22314</PostalCode>
-        <ExtraNotes />
-    </PickupLocation>
-    <DropoffLocation>
-        <LocationType>200</LocationType>
-        <Airport>
-            <AirportCode>DCA</AirportCode>
-            <Flight>
-                <CarrierCode>UA</CarrierCode>
-                <FlightNumber>333</FlightNumber>
-                <DepartureDateTime>2012-02-19T11:29:00</DepartureDateTime>
-            </Flight>
-        </Airport>
-        <TrainStation>
-            <StationCode />
-            <StationName />
-            <City />
-            <State />
-            <Train>
-                <CarrierCode />
-                <CarrierName />
-                <TrainNumber />
-                <DepartureDateTime />
-            </Train>
-        </TrainStation>
-        <Address />
-        <City />
-        <State />
-        <Country />
-        <PostalCode />
-        <ExtraNotes />
-    </DropoffLocation>
-    <StartDateTime>2012-02-19T09:00:00</StartDateTime>
-    <EndDateTime />
-    <PickupInstructions>pick me up</PickupInstructions>
-    <DropoffInstructions>None</DropoffInstructions>
-    <LanguageCode>en-us</LanguageCode>
-    <Currency>USD</Currency>
-    <NumPassengers>1</NumPassengers>
-    <RequestedDriver />
-    <SpecialServiceRequest />
-    <PickupServiceArrangement />
-    <DropoffServiceArrangement />
-    <ExtraStopArrangement />
-    <RateInfo>
-        <RateID>5</RateID>
-        <Rate>42.50</Rate>
-        <RateTypeCode>E</RateTypeCode>
-        <CategoryCode />
-        <MinHours />
-        <Currency>US</Currency>
-        <NoRateText />
-        <DiscountType />
-        <BasePrice>35.00</BasePrice>
-        <ServiceCharge>5.00</ServiceCharge>
-        <SurCharge desc="fuel">1.00</SurCharge>
-        <Tax>1.50</Tax>
-        <ExtraPickupCharge />
-        <ExtraDropoffCharge />
-        <OptionalExtraStopCharge />
-        <OptionalExtraTimeCharge />
-        <Message />
-    </RateInfo>
-    <RateDisclaimer />
-    <Vehicle>
-        <VehicleType>100</VehicleType>
-        <Description>This is a Sedan.</Description>
-        <MaxPassengers>1</MaxPassengers>
-        <VehicleID>12</VehicleID>
-    </Vehicle>
-    <Vendor>
-        <VendorCode>LML</VendorCode>
-        <VendorName>LimoVendor</VendorName>
-        <PhoneNumber>4354654654</PhoneNumber>
-    </Vendor>
-    <ProviderFeedback />
-    <FormOfPayment>
-        <Cash />
-        <Check />
-        <DirectBilling />
-        <CreditCard>
-            <Type>VI</Type>
-            <Number>XXXXXXXXXXXX1111</Number>
-            <Expiration>2013-02-19</Expiration>
-        </CreditCard>
-    </FormOfPayment>
-    <AccountingInfo>
-        <AccountingField1>715</AccountingField1>
-        <AccountingField2>temp@outtask.com</AccountingField2>
-        <AccountingField3>11</AccountingField3>
-        <AccountingField4>Development</AccountingField4>
-        <AccountingField5/>
-    </AccountingInfo>
-	</CC_LimoSellReply> 
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+Content-Length: {length of content body}
+
+<CC_LimoSellReply>
+  <Error>
+      <ErrorCode />
+      <ErrorSource />
+      <ErrorDescription />
+  </Error>
+  <ReservationID>1234</ReservationID>
+  <Status>RB</Status>
+  <ConfNum>4444</ConfNum>
+  <CancelPolicy />
+  <CancelNum>55555</CancelNum>
+  <PrimaryPassenger>
+      <FirstName>Chris</FirstName>
+      <LastName>Miller</LastName>
+      <Phone>5551234567</Phone>
+      <Phone2>5551234568</Phone2>
+      <CellPhone>5551234569</CellPhone>
+      <EmailAddress>cmiller@example.com</EmailAddress>
+  </PrimaryPassenger>
+  <ServiceType>110</ServiceType>
+  <ClassOfService />
+  <PickupLocation>
+      <LocationType>100</LocationType>
+      <Airport>
+          <AirportCode />
+          <Flight>
+              <CarrierCode />
+              <FlightNumber />
+              <ArrivalDateTime />
+          </Flight>
+      </Airport>
+      <TrainStation>
+          <StationCode />
+          <StationName />
+          <City />
+          <State />
+          <Train>
+              <CarrierCode />
+              <CarrierName />
+              <TrainNumber />
+              <ArrivalDateTime />
+          </Train>
+      </TrainStation>
+      <Address>209 Madison St</Address>
+      <City>Alexandria</City>
+      <State>VA</State>
+      <Country>US</Country>
+      <PostalCode>22314</PostalCode>
+      <ExtraNotes />
+  </PickupLocation>
+  <DropoffLocation>
+      <LocationType>200</LocationType>
+      <Airport>
+          <AirportCode>DCA</AirportCode>
+          <Flight>
+              <CarrierCode>UA</CarrierCode>
+              <FlightNumber>333</FlightNumber>
+              <DepartureDateTime>2012-02-19T11:29:00</DepartureDateTime>
+          </Flight>
+      </Airport>
+      <TrainStation>
+          <StationCode />
+          <StationName />
+          <City />
+          <State />
+          <Train>
+              <CarrierCode />
+              <CarrierName />
+              <TrainNumber />
+              <DepartureDateTime />
+          </Train>
+      </TrainStation>
+      <Address />
+      <City />
+      <State />
+      <Country />
+      <PostalCode />
+      <ExtraNotes />
+  </DropoffLocation>
+  <StartDateTime>2012-02-19T09:00:00</StartDateTime>
+  <EndDateTime />
+  <PickupInstructions>pick me up</PickupInstructions>
+  <DropoffInstructions>None</DropoffInstructions>
+  <LanguageCode>en-us</LanguageCode>
+  <Currency>USD</Currency>
+  <NumPassengers>1</NumPassengers>
+  <RequestedDriver />
+  <SpecialServiceRequest />
+  <PickupServiceArrangement />
+  <DropoffServiceArrangement />
+  <ExtraStopArrangement />
+  <RateInfo>
+      <RateID>5</RateID>
+      <Rate>42.50</Rate>
+      <RateTypeCode>E</RateTypeCode>
+      <CategoryCode />
+      <MinHours />
+      <Currency>US</Currency>
+      <NoRateText />
+      <DiscountType />
+      <BasePrice>35.00</BasePrice>
+      <ServiceCharge>5.00</ServiceCharge>
+      <SurCharge desc="fuel">1.00</SurCharge>
+      <Tax>1.50</Tax>
+      <ExtraPickupCharge />
+      <ExtraDropoffCharge />
+      <OptionalExtraStopCharge />
+      <OptionalExtraTimeCharge />
+      <Message />
+  </RateInfo>
+  <RateDisclaimer />
+  <Vehicle>
+      <VehicleType>100</VehicleType>
+      <Description>This is a Sedan.</Description>
+      <MaxPassengers>1</MaxPassengers>
+      <VehicleID>12</VehicleID>
+  </Vehicle>
+  <Vendor>
+      <VendorCode>LML</VendorCode>
+      <VendorName>LimoVendor</VendorName>
+      <PhoneNumber>4354654654</PhoneNumber>
+  </Vendor>
+  <ProviderFeedback />
+  <FormOfPayment>
+      <Cash />
+      <Check />
+      <DirectBilling />
+      <CreditCard>
+          <Type>VI</Type>
+          <Number>XXXXXXXXXXXX1111</Number>
+          <Expiration>2013-02-19</Expiration>
+      </CreditCard>
+  </FormOfPayment>
+  <AccountingInfo>
+      <AccountingField1>715</AccountingField1>
+      <AccountingField2>temp@outtask.com</AccountingField2>
+      <AccountingField3>11</AccountingField3>
+      <AccountingField4>Development</AccountingField4>
+      <AccountingField5/>
+  </AccountingInfo>
+</CC_LimoSellReply>
 ```
 
 
 [1]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 [2]: http://en.wikipedia.org/wiki/ISO_4217
-
-
-
-

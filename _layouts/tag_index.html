@@ -2,17 +2,31 @@
 layout: blog
 ---
 
-<h1 class="post-title"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;Tags</h1>
+{% assign location = page.url | split : '/' %}
 
-<div id="MainMenu">
+{% if location contains 'changelog' %}
+  {% assign category_to_display = 'changelog' %}
+{% else %}
+  {% assign category_to_display = 'blog' %}
+{% endif %}
+
+<h1 class="post-title"><i class="fa fa-tags" aria-hidden="true"></i> Tags</h1>
+
+<div id="tag-menu">
   <div class="list-group panel">
   {% for tag in site.tags %}
-    <a href="#{{ tag[0] }}" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu">{{ tag[0] | replace: "-", " " }} ({{ tag[1].size }})</a>
-      <div class="collapse" id="{{ tag[0] }}">
-      {% for post in site.posts %}
-        {% if post.tags contains tag[0] %}
-          <a href="{{ post.url }}"  class="list-group-item">{{ post.title }} • {{ post.date | date: "%A, %B %-d"}}</a>
-        {% endif %}
+    {% assign tag_name = tag | first %}
+    {% assign tag_posts = tag | last | where_exp: "post", "post.categories contains category_to_display" %}
+    {% if tag_posts.size == 0 %}{% continue %}{% endif %}
+
+    <a href="#{{ tag_name }}" class="list-group-item" data-toggle="collapse" data-parent="#tag-menu">
+      {{ tag_name | replace: "-", " " }} ({{ tag_posts | size }})
+    </a>
+    <div class="collapse" id="{{ tag_name }}">
+      {% for post in tag_posts %}
+        <a href="{{ post.url }}" class="list-group-item">
+          {{ post.title }} • {{ post.date | date: "%A, %B %-d"}}
+        </a>
       {% endfor %}
     </div>
   {% endfor %}

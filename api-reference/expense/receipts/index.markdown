@@ -1,8 +1,11 @@
 ---
-title: Receipts 
+title: Receipts
 layout: reference
 ---
 
+**DEPRECATION PROCESS NOTICE:** Receipts version 3.0 is scheduled to be deprecated on February 7, 2017. Please contact your Partner Enablement representative before starting any new development to ensure a smooth and successful certification process. **DO NOT USE FOR NEW DEVELOPMENT OR APPS.**
+
+New version 4.0 documentation can be found [here](/api-reference/receipts/get-started.html)
 
 # Receipts
 
@@ -15,8 +18,9 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 
 **Notes:**  
 
+* Receipts currently can't be Posted to users whose data is hosted in Concur's EU datacenter.  Only users whose data is hosted in the US datacenter can receive e-receipts.  
 * The Receipt Service only accepts receipts that are up to 6 months old. Older receipts will not be accepted.
-* Unlike all the other Concur API endpoints, the e-receipt requires the Concur Platform team to configure your sandbox to enable access. You can send a request using the [Sandbox Configuration Assistance form](/tools-support/sandbox-configuration-assistance.html). Please include the name of the Concur representative you're working with in the details section of the form.
+* Unlike all the other Concur API endpoints, the e-receipt requires the Concur Platform team to configure your sandbox to enable access. You can send a request using the [Sandbox Configuration Assistance form](/sandbox-configuration-assistance.html). Please include the name of the Concur representative you're working with in the details section of the form.
 
 
 * [Create a new receipt](#post)
@@ -24,6 +28,10 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 
 ### Version
 3.0
+
+**DEPRECATION PROCESS NOTICE:** Receipts version 3.0 is scheduled to be deprecated on February 7, 2017. Please contact your Partner Enablement representative before starting any new development to ensure a smooth and successful certification process.  
+
+New version 4.0 documentation can be found [here](/api-reference/receipts/get-started.html)
 
 
 ## <a name="post"></a>Create a new receipt
@@ -41,18 +49,18 @@ Name | Type | Format | Description
 ## <a name="schema"></a>Schema
 
 
-###Response
+### Response
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`ID`	|	``string``	|	-	|	
-`URI`	|	``string``	|	-	|	
+`ID`	|	``string``	|	-	|
+`URI`	|	``string``	|	-	|
 
 
-###Receipt
+### Receipt
 
 Name | Type | Format | Description
------|------|--------|------------	
+-----|------|--------|------------
 `Amount`	|	`Decimal`	|	-	|	**Required** The net amount of the transaction. A positive number means a payment is due. A negative number means a refund is due. Zero means no payment or refund is due. Range: -922,337,203,685,477 to 922,337,203,685,477
 `CurrencyCode`	|	`string`	|	-	|	**Required** The 3-letter ISO 4217 currency code for the currency paid to the provider.
 `CustomFields`	|	`Array`	|	[Custom Field](#customfield)	|	The parent element for custom fields.
@@ -64,29 +72,29 @@ Name | Type | Format | Description
 `Merchant`	|	`Merchant`	|	-	|	**Required** The parent element for information about the provider who is posting the receipt.
 `PaymentCard`	|	`PaymentCard`	|	-	|	The parent element for the credit card used for payment. This element is required when the FormofPaymentCode value is CCARD.
 `RideDetail`	|	`RideDetail`	|	-	|	The details of a hired ride. This element is required when the Type value is Ride.
-`TransactionDateTime`	|	`DateTime`	|	-	|	**Required** The date and time when the transaction happened. Format: YYYY-MM-DDThh:mm
+`TransactionDateTime`	|	`DateTime`	|	-	|	**Required** The date and time when the transaction happened (in Local Time). Format: YYYY-MM-DDThh:mm
 `Type`	|	`string`	|	-	|	**Required** The type of receipt. Possible values: General, Ride, Hotel		
 
-###<a name="customfield"></a>Custom Field	
+### <a name="customfield"></a>Custom Field
 
 Name | Type | Format | Description
 -----|------|--------|------------							
 `Name`	|	`string`	|	-	|	**Required** The name of the custom field. Maximum length: 128 characters
 `Value`	|	`string`	|	-	|	**Required** The value of the custom field. Maximum length: 256 characters
 
-###General Detail	
+### General Detail
 
 Name | Type | Format | Description
 -----|------|--------|------------						
 `LineItems`	|	`Array`	|	[Line Item](#lineitem)	|	The parent element for the line items in the receipt. There is a LineItem child element for each line item.
 
 
-###<a name="lineitem"></a>Line Item	
+### <a name="lineitem"></a>Line Item
 
 Name | Type | Format | Description
 -----|------|--------|------------						
 `Amount`	|	`Decimal`	|	-	|	**Required** The total charged amount for the line item. Range: -922,337,203,685,477 to 922,337,203,685,477
-`Date`	|	`DateTime`	|	-	|	The date and time when the line item was charged. Format: YYYY-MM-DDThh:mm
+`Date`	|	`DateTime`	|	-	|	The date and time when the line item was charged (in Local Time). Format: YYYY-MM-DDThh:mm
 `Description`	|	`string`	|	-	|	**Required** The item's description. Maximum length: 100 characters
 `Description2`	|	`string`	|	-	|	Additional details about the item. In the receipt image, the secondary description appears on the line following the primary description. Maximum length: 32 characters
 `Quantity`	|	`Int32`	|	-	|	The quantity of units. Format: Any positive number
@@ -96,13 +104,13 @@ Name | Type | Format | Description
 `SequenceNumber`	|	`Int32`	|	-	|	**Required** The order in which the item appears in the sequence of line items.
 
 
-###Hotel Detail	
+### Hotel Detail
 
 Name | Type | Format | Description
 -----|------|--------|------------						
 `AverageDailyRoomRate`	|	`Decimal`	|	-	|	**Required** The sum of the room rate for each night stayed, divided by the number of nights stayed. Range: -922,337,203,685,477 to 922,337,203,685,477
-`CheckinDateTime`	|	`DateTime`	|	-	|	**Required** The check-in date and time. Format: YYYY-MM-DDThh:mm
-`CheckoutDateTime`	|	`DateTime`	|	-	|	**Required** The check-out date and time. Format: YYYY-MM-DDThh:mm
+`CheckinDateTime`	|	`DateTime`	|	-	|	**Required** The check-in date and time (in Local Time). Format: YYYY-MM-DDThh:mm
+`CheckoutDateTime`	|	`DateTime`	|	-	|	**Required** The check-out date and time (in Local Time). Format: YYYY-MM-DDThh:mm
 `ConfirmationNumber`	|	`string`	|	-	|	The confirmation number for the booking. Maximum length: 32 characters
 `GNR`	|	`string`	|	-	|	The Guest Name Record (GNR) for the stay. Maximum length: 20 characters
 `LineItems`	|	`Array`	|	[Line Item](#lineitem)	|	The parent element for the line items in the receipt. There is a LineItem child element for each line item.
@@ -112,7 +120,7 @@ Name | Type | Format | Description
 `RoomType`	|	`string`	|	-	|	The type of room. Possible values are room types defined using hospitality industry standards, such as Single, Double, Suite, and so on. Maximum length: 50 characters
 
 
-###Matching Fact
+### Matching Fact
 
 Name | Type | Format | Description
 -----|------|--------|------------						
@@ -120,15 +128,15 @@ Name | Type | Format | Description
 `Value`	|	`string`	|	-	|	**Required** The value of the matching fact. If the Type element is set to OAuth, this value must be the access token for the Concur user who owns the receipt. In this case, the access token must not be expired or revoked. If the Type element is set to Login, this value must be the login ID of the Concur user who owns the receipt.
 
 
-###Merchant
+### Merchant
 
 Name | Type | Format | Description
 -----|------|--------|------------							
 `Location`	|	`Location`	|	-	|	**Required** The parent element for the provider location.
-`Name`	|	`string`	|	-	|	**Required** The name of the provider (``Merchant`). Maximum length: 64 characters
+`Name`	|	`string`	|	-	|	**Required** The name of the provider (`Merchant`). Maximum length: 64 characters
 
 
-###Location
+### Location
 
 Name | Type | Format | Description
 -----|------|--------|------------							
@@ -146,7 +154,7 @@ Name | Type | Format | Description
 
 
 
-###Payment Card	
+### Payment Card
 
 Name | Type | Format | Description
 -----|------|--------|------------				
@@ -156,14 +164,31 @@ Name | Type | Format | Description
 
 
 
-###Ride Detail	
-	
+### Ride Detail
+
 Name | Type | Format | Description
 -----|------|--------|------------					
 `DriverName`	|	`string`	|	-	|	The name of the driver. Maximum length: 255 characters
 `DropoffLatitude`	|	`Decimal`	|	-	|	The latitude of the ride end location. Range: -90 to 90
 `DropoffLongitude`	|	`Decimal`	|	-	|	The longitude of the ride end location. Range: -180 to 180
-`EndDateTime`	|	`DateTime`	|	-	|	**Required** The ending date and time for the ride. Format: YYYY-MM-DDThh:mm
+`EndDateTime`	|	`DateTime`	|	-	|	**Required** The ending date and time for the ride (in Local Time). Format: YYYY-MM-DDThh:mm
 `LineItems`	|	`Array`	|	[Line Item](#lineitem)	|	The parent element for the line items in the receipt. There is a LineItem child element for each line item.
-`StartDateTime`	|	`DateTime`	|	-	|	**Required** The starting date and time for the ride. Format: YYYY-MM-DDThh:mm
+`StartDateTime`	|	`DateTime`	|	-	|	**Required** The starting date and time for the ride (in Local Time). Format: YYYY-MM-DDThh:mm
 `VehicleNumber`	|	`string`	|	-	|	The unique identifier for the vehicle. Maximum length: 50 characters
+
+
+### Request URL
+
+```
+https://www.concursolutions.com/api/v3.0/common/receipts
+```
+
+
+### JSON example of a successful response
+
+```json
+{
+  "ID": "270583561310",
+  "URI": ""
+}
+```

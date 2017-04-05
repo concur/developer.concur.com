@@ -7,7 +7,7 @@ layout: reference
 
 These guides are intended to help you gain a better understanding of our APIs in specific use cases and workflows. Please read the Getting Started section below first.  
 
-As we are currently in the process of creating more documents of this type, please feel free to provide us with feedback and suggestions in our [Developer Forums](http://forum.developer.concur.com/c/apis/api-guides).
+As we are currently in the process of creating more documents of this type, please feel free to provide us with feedback and suggestions in our [Developer Forums](https://forum.developer.concur.com/c/apis/api-guides).
 
 
 # Getting Started With Partner Applications
@@ -28,7 +28,7 @@ Concur's APIs implement OAuth 2.0 to authenticate users and authorize access to 
 2. Read the desired Recipes & related API docs and begin developing your app.  (see the Guides listed on the left margin)
 3. Fully test your app in your sandbox.  This will ensure your integration not only works, but the end user experience in the Concur UI adds value (if applicable).
 4. Note to the developer pursuing a certified App Center App: Once your testing is complete, the Concur Partner Enablement team will guide you through the Certification process. (also see: https://developer.concur.com/manage-apps/app-certification.html)  Then, we will supply the production App Key (this will be different from your sandbox). Your application will not be available to Concur clients or their users until Concur and the developer have completed the certification process.  Publication in our App Center will follow shortly afterwards via the work you do with our App Center Marketing team ( AppCenterMarketing@concur.com )
-  
+
 ## <a name="method2"></a>Registering a Partner Application in your sandbox (or for clients building their own app in their production site)
 
 The app in the system-generated sandbox should already be registered, so read further only if you need to add an app or change the existing app. [for clients building their own app, you can assign the role yourselves in your own site].
@@ -42,8 +42,8 @@ To register partner applications in your sandbox, the following permissions are 
 * Click New. The New Partner Application page appears.
 * Fill in the fields using the following table:
 
-Field | Description 
------|------ 
+Field | Description
+-----|------
 `Name`	| Enter the name that should appear in the list of applications.
 `Description` | Enter the description of the function of the application.
 `Visibility` | This field defaults to Private. It can only be modified by Concur Internal staff. It will not be set to anything other than Private until the Concur Review Process is complete.
@@ -69,4 +69,3 @@ To manage your app, use the Administration > Web Services page. Through this pag
 
 1. On the Web Services page, click Enable Partner Application. The Enable Applications page appears, displaying a list of available applications. Select the desired application.
 2. Click Enable to authorize the application access to Concur data on behalf of the OAuth consumer. Click Disable to deny access.
-

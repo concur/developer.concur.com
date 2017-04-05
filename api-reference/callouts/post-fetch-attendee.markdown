@@ -1,5 +1,5 @@
 ---
-title: Post an attendee search request 
+title: Post an attendee search request
 layout: reference
 ---
 
@@ -10,17 +10,17 @@ This callout supports the following POST actions:
 
 ##  Post Attendee Search Request
 
-###Request URI
+### Request URI
 
 The Fetch Attendee version 2.0 callout sends the attendee information to a URI for the application connector, which can be in a custom location for each client. The default is:
 
 `https://{servername}/concur/attendee/v2.0/fetch`
 
-For backward compatibility, Fetch Attendee version 1.0 is used instead of version 2.0 when the URI uses v1.0 instead of v2.0. The URI is configured on the **Application Connector Registration** page under **Web Services>Administration>Manage Applications**. 
+For backward compatibility, Fetch Attendee version 1.0 is used instead of version 2.0 when the URI uses v1.0 instead of v2.0. The URI is configured on the **Application Connector Registration** page under **Web Services>Administration>Manage Applications**.
 
 The application connector responds to the Fetch Attendee request by returning all attendees that match the search criteria. The result is limited to the maximum number of records specified in the request. If more than the maximum number of records are sent, Concur Expense displays a message in the Attendee Search window asking the user to refine their search. The authorization functionality in version 2.0 is the same as version 1.0
 
-##Headers
+## Headers
 
 ### Authorization header
 
@@ -49,62 +49,61 @@ The request body contains an **AttendeeSearchRequest** parent element with an **
 
 ####  XML Example Request
 
-```
-xml
-    POST /concur/attendee/v1.0/fetch HTTPS/1.1
-    Host: example.com
-    Authorization: Basic ...
-    Content-Type: application/xml; charset=utf-8
-    Content-Length: {length of content body}
+```http
+POST /concur/attendee/v1.0/fetch HTTPS/1.1
+Host: example.com
+Authorization: Basic ...
+Content-Type: application/xml; charset=utf-8
+Content-Length: {length of content body}
 
-    <AttendeeSearchRequest>
-        <Attendee>
-            <AttendeeTypeCode>BUSGUEST</AttendeeTypeCode>
-            <FirstName>Chris</FirstName>
-            <MiddleInitial />
-            <LastName>Miller</LastName>
-            <Suffix />
-            <Title>CFO</Title>
-            <Company>Len Dev</Company>
-            <ExternalID />
-            <OwnerLoginID>cm@example.com</OwnerLoginID>
-            <MaximumNumberRecords>500</MaximumNumberRecords>
-            <Custom1 />
-            <Custom2 />
-            <Custom3 />
-            <Custom4 />
-            <Custom5 />
-            <Custom6 />
-            <Custom7 />
-            <Custom8>North America</Custom8>
-            <Custom9> />
-                <Custom10 />
-                <Custom11 />
-                <Custom12 />
-                <Custom13 />
-                <Custom14 />
-                <Custom15 />
-                <Custom16 />
-                <Custom17 />
-                <Custom18 />
-                <Custom19 />
-                <Custom20 />
-                <Custom21 />
-                <Custom22 />
-                <Custom23 />
-                <Custom24 />
-                <Custom25 />
-        </Attendee>
-    </AttendeeSearchRequest>
+<AttendeeSearchRequest>
+    <Attendee>
+        <AttendeeTypeCode>BUSGUEST</AttendeeTypeCode>
+        <FirstName>Chris</FirstName>
+        <MiddleInitial />
+        <LastName>Miller</LastName>
+        <Suffix />
+        <Title>CFO</Title>
+        <Company>Len Dev</Company>
+        <ExternalID />
+        <OwnerLoginID>cm@example.com</OwnerLoginID>
+        <MaximumNumberRecords>500</MaximumNumberRecords>
+        <Custom1 />
+        <Custom2 />
+        <Custom3 />
+        <Custom4 />
+        <Custom5 />
+        <Custom6 />
+        <Custom7 />
+        <Custom8>North America</Custom8>
+        <Custom9> />
+        <Custom10 />
+        <Custom11 />
+        <Custom12 />
+        <Custom13 />
+        <Custom14 />
+        <Custom15 />
+        <Custom16 />
+        <Custom17 />
+        <Custom18 />
+        <Custom19 />
+        <Custom20 />
+        <Custom21 />
+        <Custom22 />
+        <Custom23 />
+        <Custom24 />
+        <Custom25 />
+    </Attendee>
+</AttendeeSearchRequest>
 ```
 
 ##  Post Attendee Search Response
 
-###Supported Content Types                                                                                                   
+### Supported Content Types                                                                                                   
 
 application/xml
 
-###Response Body
+### Response Body
 
 The response will include an **AttendeeSearchResponse** parent element, with an **Attendee** child element for each search result.  
 
@@ -112,11 +111,11 @@ If no attendees match the search criteria, the response returns an empty **Atten
 
 #### Attendee elements
 
-The **Attendee** child element must contain all of the elements described below. The **FirstName**, **LastName**, and **ExternalID** elements must have values. All other elements must be returned in the response, however they can be empty if no data is available. 
+The **Attendee** child element must contain all of the elements described below. The **FirstName**, **LastName**, and **ExternalID** elements must have values. All other elements must be returned in the response, however they can be empty if no data is available.
 
 |  Element |  Description |
 |-------|--------|
-|  AttendeeTypeCode |  The attendee type code for the attendee type assigned to this attendee. Maximum length: 8 | 
+|  AttendeeTypeCode |  The attendee type code for the attendee type assigned to this attendee. Maximum length: 8 |
 |  Company |  The attendee's company. Required in the response. Also used for Institution Name for Healthcare Provider attendees. Maximum length: 150 |
 |  Custom1 through Custom25 | Varies depending on configuration. Required in the response. Maximum length of Custom1 through Custom20: 100 characters. Maximum length of Custom21 through Custom25: 48 characters. For information about Custom fields that are used by healthcare providers, see the **Custom fields for healthcare provider attendees** table below.  |
 |  ExternalID |  The attendee's unique identifier outside of Concur. Maximum length: 32 |
@@ -131,7 +130,7 @@ The **Attendee** child element must contain all of the elements described below.
 |Field | Description |
 |------|-------|
 |  Custom7 |  License Number |
-|  Custom8 |  State of License |   | |
+|  Custom8 |  State of License |
 |  Custom9 |  Specialty Description |
 |  Custom13 |  Recipient Type/Professional Designation |
 |  Custom14 |  NPI Number |
@@ -149,64 +148,63 @@ The **Attendee** child element must contain all of the elements described below.
 
 * When implementing the search logic, the search criteria should use logical AND between the fields, not logical OR. For example, if in the search dialog the user specifies Doe in the last name field and Acme in the company field, the connector must return only records where the Acme company has contacts with the last name of Doe. It must not return records for contacts with the last name Doe who belong to another company such as Apex.
 * If the application connector does not respond or returns an error, the user is notified in a popup window within Expense. Concur will not resend the request unless the user manually initiates the search again.
- |
 
 ####  XML Example of Successful Response
 
-```
-xml
-    HTTPS/1.1 OK 200
-    Content-Type: application/xml
-    Content-Length: {length of content body}
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+Content-Length: {length of content body}
 
-    <AttendeeSearchResponse>
-        <Attendee>
-            <ExternalID>1234567890</ExternalID>
-            <FirstName>Chris</FirstName>
-            <MiddleInitial>T</MiddleInitial>
-            <LastName>Miller</LastName>
-            <Suffix/>
-            <Company>Len Dev</Company>
-            <AttendeeTypeCode>BUSGUEST</AttendeeTypeCode>
-            <Title>CFO</Title>
-            <Custom1/>
-            <Custom2/>
-            <Custom3/>
-            <Custom4/>
-            <Custom5/>
-            <Custom6/>
-            <Custom7>RD</Custom7>
-            <Custom8>North America</Custom8>
-            <Custom9>Internal Medicine</Custom9>
-            <Custom10/>
-            <Custom11/>
-            <Custom12/>
-            <Custom13/>
-            <Custom14/>
-            <Custom15>100 Main Street, Bellevue, WA 98040</Custom15>
-            <Custom16/>
-            <Custom17/>
-            <Custom18/>
-            <Custom19/>
-            <Custom20/>
-            <Custom21>Tax ID 1234</Custom21>
-            <Custom22/>
-            <Custom23>Patient ID 576</Custom23>
-            <Custom24/>
-            <Custom25/>
-        </Attendee>
-    </AttendeeSearchResponse>
+<AttendeeSearchResponse>
+    <Attendee>
+        <ExternalID>1234567890</ExternalID>
+        <FirstName>Chris</FirstName>
+        <MiddleInitial>T</MiddleInitial>
+        <LastName>Miller</LastName>
+        <Suffix/>
+        <Company>Len Dev</Company>
+        <AttendeeTypeCode>BUSGUEST</AttendeeTypeCode>
+        <Title>CFO</Title>
+        <Custom1/>
+        <Custom2/>
+        <Custom3/>
+        <Custom4/>
+        <Custom5/>
+        <Custom6/>
+        <Custom7>RD</Custom7>
+        <Custom8>North America</Custom8>
+        <Custom9>Internal Medicine</Custom9>
+        <Custom10/>
+        <Custom11/>
+        <Custom12/>
+        <Custom13/>
+        <Custom14/>
+        <Custom15>100 Main Street, Bellevue, WA 98040</Custom15>
+        <Custom16/>
+        <Custom17/>
+        <Custom18/>
+        <Custom19/>
+        <Custom20/>
+        <Custom21>Tax ID 1234</Custom21>
+        <Custom22/>
+        <Custom23>Patient ID 576</Custom23>
+        <Custom24/>
+        <Custom25/>
+    </Attendee>
+</AttendeeSearchResponse>
 ```
 
 The following example shows the expected response when no attendees match the search criteria.
 
+```http
+HTTPS/1.1 200 OK
+Content-Type: application/xml
+Content-Length: {length of content body}
+
+<?xml version="1.0" encoding="utf-8"?>
+<AttendeeSearchResponse/>
 ```
-xml
-    HTTPS/1.1 OK
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <AttendeeSearchResponse/>
-```
 
 
-[2]: /api-reference/authentication/authentication.html
+[2]: /api-reference/authentication/apidoc.html

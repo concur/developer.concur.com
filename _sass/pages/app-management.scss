@@ -1,0 +1,27 @@
+.app-management {
+  form .col-md-12,
+  form .col-md-8,
+  form .col-md-6 {
+    margin-bottom: 15px;
+  }
+
+  form .form-group {
+    margin-bottom: 5px;
+  }
+
+  .has-error .Select-control {
+    border-color: #a94442;
+  }
+
+  .uri-delete {
+    background-color: $red;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: $grid-float-breakpoint) {
+  .app-management .navbar-nav {
+    float: right;
+  }
+}
