@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Users",
-    "description": "",
+    "description": "Provides details of all the client's Concur users that meet the search parameters.",
     "version": "3.0"
   },
   "tags": [
