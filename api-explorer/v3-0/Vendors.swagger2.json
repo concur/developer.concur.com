@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Vendors",
-    "description": "",
+    "description": "An invoice is a bill of sale for goods or services provided by a vendor. This API provides methods to create, update, or delete invoice vendors.",
     "version": "3.0"
   },
   "tags": [
