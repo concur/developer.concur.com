@@ -91,6 +91,7 @@ Schema for airline receipts.
 
 
 ##### Definitions
+
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |IATAAirportCode|string|^[a-zA-Z]{3}$|3-letter IATA code for an airport.|
@@ -140,6 +141,7 @@ Schema for car rentals. This does not include ride services or taxis.
 
 
 ##### Definitions
+
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |acrissCarCode|string|^[a-zA-Z]{4}$|Four-letter Association of Car Rental Industry Systems Standard (ACRISS) car code.|
@@ -149,6 +151,7 @@ Schema for car rentals. This does not include ride services or taxis.
 #### Common Definitions
 Shared definitions that are utilized in multiple receipt types.
 ##### Definitions
+
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |dateTime|string|date-time|The dateTime validation validates for a subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; This is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
