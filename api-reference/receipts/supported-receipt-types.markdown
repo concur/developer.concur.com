@@ -20,7 +20,7 @@ See the schema documentation below for the specifications of each type, plus the
 
 ### Schemas
 
-#### Address-Original
+## Address-Original
 Postal address schema used for JPT receipts _only_.
 
 |Property Name|Type|Format|Description|
@@ -32,7 +32,7 @@ Postal address schema used for JPT receipts _only_.
 |__*countryCode*__|string|country-code|2 or 3 character country code as defined in ISO 3166-2:2013|
 |postalCode|string|N/A||
 
-#### Address
+## Address
 Common address object used by all receipt types except for the JPT IC Card receipt, which uses [Address-Original](#address-original).
 
 |Property Name|Type|Format|Description|
@@ -43,10 +43,10 @@ Common address object used by all receipt types except for the JPT IC Card recei
 |__*addressCountry*__|string|country-code|2 or 3 character country code as defined in ISO 3166-2:2013|
 |postalCode|string|N/A||
 
-#### Air Receipt
-
+## Air Receipt
 Schema for airline receipts.
 * Includes all of [Receipt Core Definitions](#receipt-core-definitions)
+
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -54,7 +54,7 @@ Schema for airline receipts.
 |tickets|array|[tickets](#tickets)|Air tickets issued.|
 |lineItems|array|[lineItems](#line-item)|Ancillary airline fees.|
 
-##### tickets
+### tickets
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -68,7 +68,7 @@ Schema for airline receipts.
 |__*coupons*__|array|[coupons](#coupons)|Flights issued within this transaction.|
 
 
-##### coupons
+### coupons
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -89,8 +89,8 @@ Schema for airline receipts.
 |lineItems|array|[lineItems](#line-item)|Line Items/fees specific to a leg of the trip. Eg. Baggage fees, class of service fees, priority boarding, meals.|
 
 
-##### Definitions
 
+### Definitions
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |IATAAirportCode|string|^[a-zA-Z]{3}$|3-letter IATA code for an airport.|
@@ -103,17 +103,17 @@ Schema for airline receipts.
 |ticketDesignatorCode|string|^[a-zA-Z0-9\*?]{1,10}$||
 
 
-#### Car Rental Receipt
-
+## Car Rental Receipt
 Schema for car rentals. This does not include ride services or taxis.
 * Includes all of [Receipt Core Definitions](#receipt-core-definitions)
+
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |itineraryLocator|string|^(?!\s*$).+|Unique ID of an itinerary (also know as a trip) in Concur’s Itinerary Service. An itinerary can contain one or more bookings from various sources.|
 |segmentLocator|string|^(?!\s*$).+|Unique ID of a single travel event in Concur’s Itinerary Service. An itinerary can contain one or more bookings and each booking can contain one or more segments. The segmentLocator uniquely identifies an event like a car rental with a specific start and end date or a single air segment/sector.|
-|__*startDateTime*__|string|date-time|Date representation, as defined by RFC 3339, section 5.6|
-|__*endDateTime*__|string|date-time|Date representation, as defined by RFC 3339, section 5.6|
+|__*startDateTime*__|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
+|__*endDateTime*__|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
 |__*pickupLocation*__|object|[Location](#location)|Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.|
 |__*dropoffLocation*__|object|[Location](#location)|Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.|
 |__*rentalDays*__|integer|N/A|Total number of days for which the car was rented.|
@@ -126,7 +126,7 @@ Schema for car rentals. This does not include ride services or taxis.
 |additionalDriver|boolean|N/A|Additional approved driver (true) or not (false).|
 |lineItems|array|[lineItems](#line-item)|Break down of all car rental charges. This could include daily rate, fees, insurance, GPS rental and other add-ons.|
 
-##### vehicle
+### vehicle
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -138,20 +138,17 @@ Schema for car rentals. This does not include ride services or taxis.
 |engineSize|string|^[0-9]{1,4}$|Engine displacement in cubic centimeters.|
 
 
-##### Definitions
 
+### Definitions
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |acrissCarCode|string|^[a-zA-Z]{4}$|Four-letter Association of Car Rental Industry Systems Standard (ACRISS) car code.|
 |engineSize|string|^[0-9]{1,4}$|Engine displacement in cubic centimeters.|
 
 
-#### Common Definitions
-
+## Common Definitions
 Shared definitions that are utilized in multiple receipt types.
-
 ### Definitions
-
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |dateTime|string|date-time|The dateTime validation validates for a subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; This is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
@@ -164,16 +161,20 @@ Shared definitions that are utilized in multiple receipt types.
 |latitude|number|N/A|Numeric latitude value between -90 and 90|
 |longitude|number|N/A|Numeric longitude value between -180 and 180|
 |positiveInteger|integer|N/A|Positive integer value of at least 1|
+|positiveNumber|number|N/A|Positive number value of at least value as 0|
+|negativeCurrency|string|^[-]\d*\.?\d+$|String representing a negative amount of money, normally used for a discount. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 
-###### distance
+#### distance
+
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*totalDistance*__|number|N/A||
 |__*unit*__|N/A|N/A| Can be any of the following values: mi, km|
 
-#### Discount
 
+
+## Discount
 Schema for discounts, such as coupons or discount codes, that could be part of a transaction.
 
 |Property Name|Type|Format|Description|
@@ -181,26 +182,29 @@ Schema for discounts, such as coupons or discount codes, that could be part of a
 |discountName|string|N/A|The name of the discount.|
 |discountCode|string|N/A|The code for the discount.|
 |discountRate|string|N/A|The percentage of discount provided.|
+|discountAmount|string|^[-]\d*\.?\d+$|String representing a negative amount of money, normally used for a discount. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 
-#### General Receipt
+## General Receipt
 General receipt type for transactions that do not fall under one of the more specific receipt types. This might include retail stores or restaurants.
 * Includes all of [Receipt Core Definitions](#receipt-core-definitions)
+
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |lineItems|array|[lineItems](#line-item)|Line items specified for general receipts.|
 
-#### Ground Transport Receipt
+## Ground Transport Receipt
 Schema for ground transportation receipts. This includes essentially all forms of non-aerial transportation, _except_ those that run on railed tracks.
 * Includes all of [Receipt Core Definitions](#receipt-core-definitions)
+
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |itineraryLocator|string|^(?!\s*$).+|Non-empty string. Length must be at least 1 character.|
 |segmentLocator|string|^(?!\s*$).+|Non-empty string. Length must be at least 1 character.|
 |classOfService|string|^(?!\s*$).+|Non-empty string. Length must be at least 1 character.|
-|__*startDateTime*__|string|date-time|Date representation, as defined by RFC 3339, section 5.6|
-|endDateTime|string|date-time|Date representation, as defined by RFC 3339, section 5.6|
+|__*startDateTime*__|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
+|endDateTime|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
 |travelDuration|string|^(-)?P(?:(-?[0-9,.]*)Y)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)W)?(?:(-?[0-9,.]*)D)?(?:T(?:(-?[0-9,.]*)H)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)S)?)?$|Duration of a time interval as defined in ISO 8601|
 |__*pickupLocation*__|object|[Location](#location)|Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.|
 |dropoffLocation|object|[Location](#location)|Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.|
@@ -208,9 +212,10 @@ Schema for ground transportation receipts. This includes essentially all forms o
 |driverNumber|string|N/A|Unique identifier assigned by the ride company to a driver.|
 |lineItems|array|[lineItems](#line-item)|Descriptive breakdown of the fare charged. For example: base fare, distance travelled, discount and other add-ons.|
 
-#### Hotel Receipt
+## Hotel Receipt
 Schema for hotel receipts.
 * Includes all of [Receipt Core Definitions](#receipt-core-definitions)
+
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -218,15 +223,15 @@ Schema for hotel receipts.
 |segmentLocator|string|^(?!\s*$).+|Unique ID of a single travel event in Concur’s Itinerary Service. An itinerary can contain one or more bookings and each booking can contain one or more segments. The segmentLocator uniquely identifies an event like a car rental with a specific start and end date or a single air segment/sector.|
 |property|object|[Location](#location)|Physical property location information for the hotel property. This is often different than the merchant location information.|
 |confirmationNumber|string|N/A|Booking identifier.|
-|__*checkInDateTime*__|string|date-time|Date representation, as defined by RFC 3339, section 5.6|
-|__*checkOutDateTime*__|string|date-time|Date representation, as defined by RFC 3339, section 5.6|
+|__*checkInDateTime*__|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
+|__*checkOutDateTime*__|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
 |__*guests*__|array|[guests](#guests)|Guest information.|
 |numberInParty|integer|N/A|Number of individuals for the stay.|
 |__*room*__|object|[room](#room)||
 |__*nightsStayed*__|integer|N/A|Positive integer value of at least 1|
 |__*lineItems*__|array|[lineItems](#line-item)||
 
-##### guests
+### guests
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -236,7 +241,7 @@ Schema for hotel receipts.
 |address|object|[Address](#address)|Address of the guest. It is highly recommended that the business address of the guest is provided if the hotel is provided with one. Doing so will help VAT reclamation partners who work with companies, to have compliant receipts accepted by the tax authority when filing tax reclaims.|
 
 
-##### property
+### property
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -250,7 +255,8 @@ Schema for hotel receipts.
 |faxNumber|string|N/A||
 |__*address*__|object|[Address](#address)|Common address object used by all receipt types except for the JPT IC Card receipt, which uses [Address-Original](#address-original).|
 
-##### room
+
+### room
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -260,15 +266,14 @@ Schema for hotel receipts.
 |__*averageDailyRoomRate*__|string|^[-]?\d*\.?\d+$|Average of the daily room rates for the duration of the guests stay. Room rates usually differ from day to day.|
 
 
-#### Japan Public Transportation (JPT) IC Card Definitions
-
+## Japan Public Transportation (JPT) IC Card Definitions
 Schema specifically for JPT IC Card receipts. Not for use with any other rail transactions.
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*user*__|string|N/A||
 |__*app*__|string|N/A||
-|__*dateTime*__|string|date-time|Date representation, as defined by RFC 3339, section 5.6|
+|__*dateTime*__|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
 |__*total*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 |subtotal|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 |taxesTotal|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
@@ -279,24 +284,27 @@ Schema specifically for JPT IC Card receipts. Not for use with any other rail tr
 |reference|string|N/A||
 |collectionReference|string|N/A||
 |taxInvoice|boolean|N/A||
-|__*icCardId*__|string|N/A|The unique identifier for the card with a maximum length of 20 characters.|
+|__*icCardId*__|string|N/A|The unique identifier for the card with a maximum length of 16 characters.|
 |__*segments*__|array|[segments](#segments)|The segments for the trip.|
 
-##### segments
+### segments
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*sequenceNumber*__|integer|N/A|Unique transaction identifier for every trip taken using the IC card.|
-|__*dateTime*__|string|date-time|Date representation, as defined by RFC 3339, section 5.6|
+|__*dateTime*__|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
 |__*fromStationCode*__|string|N/A|Departure station code of the route. This code is specified to the IC Card vendor. Concur Expense has a transcoding table to Expense location codes.|
 |__*fromStationName*__|string|N/A|Departure station label of the route.|
 |__*toStationCode*__|string|N/A|Arrival station code of the route. This code is specified to the IC Card vendor. Concur Expense has a transcoding table to Expense location codes.|
 |__*toStationName*__|string|N/A|Arrival station label of the route.|
 |fromIsCommuterPass|boolean|N/A|Whether or not the departure route is included in the commuter pass subscription of the employee.|
 |toIsCommuterPass|boolean|N/A|Whether or not the arrival route is included in the commuter pass subscription of the employee.|
-|distance|integer|N/A|Distance between departure and arrival station.|
+|distance|number|N/A|Positive number value of at least value as 0|
 
-###### icCardSegment
+
+
+#### icCardSegment
+
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -308,16 +316,17 @@ Schema specifically for JPT IC Card receipts. Not for use with any other rail tr
 |__*toStationName*__|string|N/A|Arrival station label of the route.|
 |fromIsCommuterPass|boolean|N/A|Whether or not the departure route is included in the commuter pass subscription of the employee.|
 |toIsCommuterPass|boolean|N/A|Whether or not the arrival route is included in the commuter pass subscription of the employee.|
-|distance|integer|N/A|Distance between departure and arrival station.|
+|distance|number|N/A|Positive number value of at least value as 0|
 
-#### Line Item
 
+
+## Line Item
 Generic line item. These objects are included in arrays in most receipt types.
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*sequenceNumber*__|integer|N/A|The order in which the item appears in the sequence of line items when the receipt is rendered by Concur.|
-|dateTime|string|date-time|Date representation, as defined by RFC 3339, section 5.6|
+|dateTime|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
 |reference|string|N/A|The item SKU, identifier or some other attribute the merchant uses to reference the item.|
 |__*description*__|string|^(?!\s*$).+|Non-empty string. Length must be at least 1 character.|
 |additionalDescription|string|N/A||
@@ -332,8 +341,7 @@ Generic line item. These objects are included in arrays in most receipt types.
 |amountIncludesVat|boolean|N/A||
 |discounts|array|[discounts](#discount)|The discounts offered for this line item.|
 
-#### Location
-
+## Location
 Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.
 
 |Property Name|Type|Format|Description|
@@ -348,7 +356,7 @@ Schema representing a location, including geographical information and a postal 
 |faxNumber|string|N/A||
 |__*address*__|object|[Address](#address)|Common address object used by all receipt types except for the JPT IC Card receipt, which uses [Address-Original](#address-original).|
 
-#### Merchant
+## Merchant
 Schema for an object representing a merchant. The broker and seller properties in all receipts use this schema.
 
 |Property Name|Type|Format|Description|
@@ -358,24 +366,25 @@ Schema for an object representing a merchant. The broker and seller properties i
 |taxId|string|N/A|The tax identification number assigned to the merchant by the national tax authority. If the partner is providing a tax invoice, then providing a tax identification number is recommended.|
 |__*location*__|object|[Location](#location)|Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.|
 
-#### Payments
-
+## Payments
 The payments array allows for one or more payment methods used in the transaction to be defined. All payment methods defined within the array result in the value for total in the base object of the receipt. The JSON keyword ‘anyOf’ indicates at least one of the following is required and multiple can be present: [cash](#cash), [creditCard](#creditcard), [companyPaid](#companypaid), [digitalWallet](#digitalwallet) and / or [unusedTicket](#unusedticket).
-
 #### cash
 
-|Property Name|Type|Format|Description|
-|---|---|---|---|
-|__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
-
-###### creditCard
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
-|__*cardDetail*__|object|[cardDetail](#carddetail)|Credit card information.|
 
-##### cardDetail
+
+#### creditCard
+
+
+|Property Name|Type|Format|Description|
+|---|---|---|---|
+|__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
+|__*cardDetail*__|object|[cardDetail](#cardDetail)|Credit card information.|
+
+### cardDetail
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -383,32 +392,60 @@ The payments array allows for one or more payment methods used in the transactio
 |creditCardId|string|^[0-9]{4}$|Last four digits of the credit card number to meet FACTA and PCI requirements|
 |authorizationCode|string|N/A|Authorization code for transaction.|
 
-###### companyPaid
+
+
+#### companyPaid
+
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*source*__|N/A|N/A| Can be any of the following values: GhostCard, LodgeCard, DirectPay, Invoice|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
-|cardDetail|object|[cardDetail](#carddetail)|Credit card information.|
+|cardDetail|object|[cardDetail](#cardDetail)|Credit card information.|
 
-###### digitalWallet
+### cardDetail
+
+|Property Name|Type|Format|Description|
+|---|---|---|---|
+|__*cardType*__|N/A|N/A| Can be any of the following values: American Express, Diners Club, Discover, MasterCard, Visa, Carte Blanche, Enroute, Universal Air Travel, JCB, EuroCard|
+|creditCardId|string|^[0-9]{4}$|Last four digits of the credit card number to meet FACTA and PCI requirements|
+|authorizationCode|string|N/A|Authorization code for transaction.|
+
+
+
+#### digitalWallet
+
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*source*__|N/A|N/A| Can be any of the following values: ApplePay, AndroidPay, SamsungPay, PayPal, OlaMoney|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 
-###### unusedTicket
+
+#### unusedTicket
+
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*ticketNumber*__|string|^(?!\s*$).+|Non-empty string. Length must be at least 1 character.|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 
-#### Rail Receipt
 
+#### cardDetail
+
+
+|Property Name|Type|Format|Description|
+|---|---|---|---|
+|__*cardType*__|N/A|N/A| Can be any of the following values: American Express, Diners Club, Discover, MasterCard, Visa, Carte Blanche, Enroute, Universal Air Travel, JCB, EuroCard|
+|creditCardId|string|^[0-9]{4}$|Last four digits of the credit card number to meet FACTA and PCI requirements|
+|authorizationCode|string|N/A|Authorization code for transaction.|
+
+
+
+## Rail Receipt
 Schema for rail or train receipts.
 * Includes all of [Receipt Core Definitions](#receipt-core-definitions)
+
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -416,25 +453,26 @@ Schema for rail or train receipts.
 |lineItems|array|[lineItems](#line-item)|Break down of all charges which could include insurance purchased for all train tickets, paid wi-fi etc.|
 |__*railTickets*__|array|[railTickets](#railtickets)||
 
-##### railTickets
+### railTickets
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |ticketNumber|string|N/A||
 |__*recordLocator*__|string|N/A|Confirmation identifier for the ticket. This code is usually unique for a short period of time and could be reused by the rail company in the future.|
 |__*issueDateTime*__|string|date-time|Date and time the ticket was issued.|
-|__*passengerName*__|string|N/A|Name of the person associated with the ticket.|
+|__*passengerName*__|string|N/A|Name of the person associated withthe ticket.|
 |fare|string|^[-]?\d*\.?\d+$|Fare charged for a train ticket. This will be the total of all segments in this train ticket.|
 |__*segments*__|array|[segments](#segments)|Segments for this train ticket.|
 
-##### segments
+
+### segments
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*departureStation*__|string|N/A|Name of the station from which the train is departing.|
-|__*departureDateTime*__|string|date-time|Date representation, as defined by RFC 3339, section 5.6|
+|__*departureDateTime*__|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
 |__*arrivalStation*__|string|N/A|Name of the station where the train is arriving.|
-|__*arrivalDateTime*__|string|date-time|Date representation, as defined by RFC 3339, section 5.6|
+|__*arrivalDateTime*__|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
 |__*trainNumber*__|string|N/A|Train identifier|
 |trainType|string|N/A|Type of train. For example TGV or TER in France.|
 |__*classOfServiceCode*__|string|^(?!\s*$).+|The class of travel.|
@@ -442,8 +480,8 @@ Schema for rail or train receipts.
 |taxes|array|[Taxes](#taxes)|Taxes paid for this segment.|
 |lineItems|array|[lineItems](#line-item)|Line items specific to this segment. This could include meals, seat reservations, insurance etc.|
 
-#### Receipt Core Definitions
 
+## Receipt Core Definitions
 Core values for all receipt types. All major receipt schemas include these core objects.
 
 |Property Name|Type|Format|Description|
@@ -452,6 +490,7 @@ Core values for all receipt types. All major receipt schemas include these core 
 |__*total*__|string|^[-]?\d*\.?\d+$|The total amount of the transaction including all lineitems and taxes.|
 |subtotal|string|^[-]?\d*\.?\d+$|The amount in the transaction excluding taxes.|
 |taxesTotal|string|^[-]?\d*\.?\d+$|The amount of tax paid in the transaction.|
+|discountsTotal|string|^[-]\d*\.?\d+$|String representing a negative amount of money, normally used for a discount. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 |__*currencyCode*__|string|currency-code|Currency paid to the merchant.|
 |broker|object|[Merchant](#merchant)|The entity that facilitates the transaction between the seller and end user.|
 |__*seller*__|object|[Merchant](#merchant)|The entity providing service to the end user.|
@@ -462,7 +501,7 @@ Core values for all receipt types. All major receipt schemas include these core 
 |collectionReference|string|N/A|Use this key to group related receipts into a collection for credits, tips or other adjustments to the original transaction and looking at groups of receipts for analysis purposes. The reference and collectionReference keys typically have separate and unique values but could be the same for the first receipt in a collection.|
 |taxInvoice|boolean|N/A|A tax invoice (true) or otherwise (false).|
 
-##### broker
+### broker
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -472,7 +511,7 @@ Core values for all receipt types. All major receipt schemas include these core 
 |__*location*__|object|[Location](#location)|Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.|
 
 
-##### seller
+### seller
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -481,22 +520,21 @@ Core values for all receipt types. All major receipt schemas include these core 
 |taxId|string|N/A|The tax identification number assigned to the merchant by the national tax authority. If the partner is providing a tax invoice, then providing a tax identification number is recommended.|
 |__*location*__|object|[Location](#location)|Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.|
 
-#### Taxes
 
+## Taxes
 Schema for objects that make up an array of taxes. Used in most receipt types.
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
-|__*authority*__|object|[authority](#undefined)|The country or subdivision that charged the tax as per ISO 3166-2:2013.|
+|__*authority*__|object|[authority](#authority)|The country or subdivision that charged the tax as per ISO 3166-2:2013.|
 |name|string|N/A||
 |__*rate*__|number|N/A||
 |rateType|string|N/A|The rate type for the tax charged. For value added tax this could be Zero, Standard, Reduced, etc.|
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 
-##### authority
+### authority
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
 |__*addressCountry*__|string|country-code|2 or 3 character country code as defined in ISO 3166-2:2013|
 |addressRegion|string|^[a-zA-Z0-9]{1,3}$|1 to 3 character country subdivision code as defined in ISO 3166-2:2013|
-
