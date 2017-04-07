@@ -1,5 +1,5 @@
 ---
-title: Get report details
+title: Get report details.
 layout: reference
 ---
 
