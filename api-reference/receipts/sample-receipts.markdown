@@ -42,7 +42,7 @@ Below we have sample receipt data and the corresponding receipt images for the f
             "faxNumber": "",
             "address": {
                 "streetAddress": "333 108th Ave NE",
-                "addressLocality": "Belleve",
+                "addressLocality": "Bellevue",
                 "addressRegion": "WA",
                 "addressCountry": "US",
                 "postalCode": "98004"
@@ -715,23 +715,23 @@ Below we have sample receipt data and the corresponding receipt images for the f
         "description": "",
         "taxId": "123-21213",
         "location": {
-          "name": "ACME Hotels",
-          "number": "ACME34393",
-          "latitude": 47.616667,
-          "longitude": -122.333333,
-          "internetAddress": "https://www.acmecorporation.com",
-          "emailAddress": "sna_hotel@acmecorporation.com",
-          "telephoneNumber": "123-456-7890",
-          "faxNumber": "",
-          "address": {
-              "streetAddress": "1 Hotel Way",
-              "addressLocality": "Seattle",
-              "addressRegion": "WA",
-              "addressCountry": "US",
-              "postalCode": "90001"
+            "name": "ACME Hotels",
+            "number": "ACME34393",
+            "latitude": 47.616667,
+            "longitude": -122.333333,
+            "internetAddress": "https://www.acmecorporation.com",
+            "emailAddress": "sna_hotel@acmecorporation.com",
+            "telephoneNumber": "123-456-7890",
+            "faxNumber": "",
+            "address": {
+                "streetAddress": "1 Hotel Way",
+                "addressLocality": "Seattle",
+                "addressRegion": "WA",
+                "addressCountry": "US",
+                "postalCode": "90001"
+            }
         }
-    }
-},
+    },
     "taxes": [
         {
             "authority": {
