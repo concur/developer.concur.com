@@ -144,6 +144,7 @@ The General parent element contains the following child elements.
 |  `SearchID` | `string` | The user's Search ID. Format: varchar(64) | | | |
 |  `GDSProfileName` |  `string` |  The user's GDS profile name. Format: varchar(60) | | | Requires TMC Specific scope.|
 |  `SabreProfileId` |  `string` |  The user's Sabre Travel Profile Id. Format: varchar(60) | | | Requires TMC Specific scope.|
+
 * **NOTE**:  If MiddleName is provided, the NoMiddleName flag in TSAInfo section is set to false.
 
 ***
