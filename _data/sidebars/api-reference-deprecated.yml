@@ -126,8 +126,6 @@
   children:
       - title: Expense Report Resource
         url: /api-reference-deprecated/version-two/expense-reports/expense-report-resource.html
-      - title: Get report details
-        url: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html
       - title: GET List of Reports
         url: /api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html
 - title: v3.0 - Receipts
