@@ -5,16 +5,14 @@ import authReducer from './auth';
 import signupReducer from './signup';
 import appListingReducer from './appListing';
 import appDetailsReducer from './appDetails';
-import newAppReducer from './newApp';
-import generateAppSecretReducer from './generateAppSecret';
+import appChangeReducer from './appChange';
 
 const appReducer = combineReducers({
   appDetails: appDetailsReducer,
   appListing: appListingReducer,
-  appSecret: generateAppSecretReducer,
   auth: authReducer,
   form: formReducer,
-  newApp: newAppReducer,
+  appChange: appChangeReducer,
   signup: signupReducer,
 });
 

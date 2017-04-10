@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Sales Tax Validation Request",
-    "description": "",
+    "description": "An invoice is a bill of sale for goods or services. This API provides invoice information so that clients can calculate appropriate sales tax for invoice items. It also allows clients to update the invoice with the calculated sales tax.",
     "version": "3.0"
   },
   "tags": [

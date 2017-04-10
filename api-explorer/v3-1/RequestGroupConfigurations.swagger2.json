@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Request Group Configurations",
-    "description": "",
+    "description": "Requests allow travelers to submit travel plans, expected expenses, and expected cash advance needs prior to spending funds. Request policies define the required information and workflow for the requests. This API provides the details of the Request policies for the supplied user ID.",
     "version": "3.1"
   },
   "tags": [

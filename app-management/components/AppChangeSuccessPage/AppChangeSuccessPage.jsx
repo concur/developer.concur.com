@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-const NewAppSuccessPage = ({ app, clientSecret }) => (
+const AppChangeSuccessPage = ({ app, clientSecret }) => (
   <div>
     {app.id && app.name && clientSecret ? (
       <div>
         <h2>
-          Your app has been created.
+          Here are your updated app credentials.
         </h2>
         <p>
           <strong>Copy down your clientSecret. You will not be able to see it again.</strong>
@@ -35,9 +35,9 @@ const NewAppSuccessPage = ({ app, clientSecret }) => (
   </div>
 );
 
-NewAppSuccessPage.propTypes = {
+AppChangeSuccessPage.propTypes = {
   app: PropTypes.object.isRequired,
   clientSecret: PropTypes.string.isRequired,
 };
 
-export default NewAppSuccessPage;
+export default AppChangeSuccessPage;

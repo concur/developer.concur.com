@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import NewAppSuccessPage from './NewAppSuccessPage';
+import AppChangeSuccessPage from './AppChangeSuccessPage';
 
 export function mapStateToProps(state) {
-  return state.newApp;
+  return state.appChange;
 }
 
 export default connect(
   mapStateToProps,
   null,
-)(NewAppSuccessPage);
+)(AppChangeSuccessPage);

@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Payment Request Digest",
-    "description": "",
+    "description": "A payment request digest is a collection of payment requests to invoice vendors. This API provides methods to view all payment requests corresponding to search parameters, or view a payment request digest by ID.",
     "version": "3.0"
   },
   "tags": [

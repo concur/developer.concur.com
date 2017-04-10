@@ -7,23 +7,24 @@ import CertificationBadge from '../CertificationBadge';
 
 class AppDetailsPage extends React.Component {
   componentWillMount() {
-    const { id } = this.props.params;
-    this.props.fetchAppDetails(id);
+    this.props.fetchAppDetails(this.props.params.id);
   }
 
   render () {
     const {
-      appDetails: { isFetching, error, app },
-      appSecret,
+      appDetails,
+      appChange,
       generateSecretHandler,
+      putAppHandler,
     } = this.props;
     let content;
 
-    if (isFetching) {
-      content = <LoadingSpinner loading={isFetching} />;
-    } else if (error) {
-      content = <ErrorAlert error={error} />;
+    if (appDetails.isFetching) {
+      content = <LoadingSpinner loading={appDetails.isFetching} />;
+    } else if (appDetails.error) {
+      content = <ErrorAlert error={appDetails.error} />;
     } else {
+      const { app } = appDetails;
       content = (
         <div>
           <h2>
@@ -31,6 +32,8 @@ class AppDetailsPage extends React.Component {
             <CertificationBadge certified={app.certified} />
           </h2>
           <br />
+          <LoadingSpinner loading={appChange.isFetching} />
+          <ErrorAlert error={appChange.error} />
           <div className="row">
             <section className="col-md-8">
               <div className="form-group">
@@ -44,12 +47,12 @@ class AppDetailsPage extends React.Component {
                 />
               </div>
             </section>
-            <AppSecret
-              clickHandler={() => generateSecretHandler(app.id, app.name)}
-              appSecret={appSecret}
-            />
+            <AppSecret clickHandler={() => generateSecretHandler(app.id, app.name)} />
           </div>
-          <AppEditForm initialValues={app} />
+          <AppEditForm
+            initialValues={app}
+            onSubmit={formData => putAppHandler(formData, app.name)}
+          />
         </div>
       );
     }
@@ -65,18 +68,17 @@ class AppDetailsPage extends React.Component {
 }
 
 AppDetailsPage.propTypes = {
+  appChange: PropTypes.shape({
+    error: PropTypes.string.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+  }).isRequired,
   appDetails: PropTypes.shape({
     app: PropTypes.object.isRequired,
     error: PropTypes.string.isRequired,
     isFetching: PropTypes.bool.isRequired,
   }).isRequired,
-  appSecret: PropTypes.shape({
-    app: PropTypes.object.isRequired,
-    clientSecret: PropTypes.string.isRequired,
-    error: PropTypes.string.isRequired,
-    isFetching: PropTypes.bool.isRequired,
-  }).isRequired,
   generateSecretHandler: PropTypes.func.isRequired,
+  putAppHandler: PropTypes.func.isRequired,
   fetchAppDetails: PropTypes.func.isRequired,
   params: PropTypes.shape({
     id: PropTypes.string.isRequired,

@@ -3,12 +3,13 @@
 import { connect } from 'react-redux';
 import AppDetailsPage from './AppDetailsPage';
 import { fetchAppDetails } from '../../actions/appDetails';
-import { generateAppSecret, generateAppSecretFailure } from '../../actions/generateAppSecret';
+import { appChangeFailure, generateAppSecret, putApp } from '../../actions/appChange';
+import { sharedHelpers } from '../../utils/actionHelpers';
 
 export function mapStateToProps(state) {
   return {
+    appChange: state.appChange,
     appDetails: state.appDetails,
-    appSecret: state.appSecret,
   };
 }
 
@@ -16,11 +17,22 @@ export function mapDispatchToProps(dispatch) {
   return {
     fetchAppDetails: id => dispatch(fetchAppDetails(id)),
     generateSecretHandler: (id, appName) => {
-      const confirmPrompt = window.prompt('Type the name of your application to confirm clientSecret regeneration. This CANNOT be undone.');
+      const confirmPrompt = window.prompt('Type the name of your app to confirm clientSecret regeneration. This CANNOT be undone.');
+
       if (confirmPrompt === appName) {
         dispatch(generateAppSecret(id));
       } else {
-        dispatch(generateAppSecretFailure('Application names do not match.'));
+        dispatch(appChangeFailure('Application names do not match.'));
+      }
+    },
+    putAppHandler: (app, appName) => {
+      const confirmPrompt = window.prompt('Type the original name of your app to confirm update. This will regenerate your clientSecret, which CANNOT be undone.');
+
+      if (confirmPrompt === appName) {
+        const composedApp = sharedHelpers.composeApp(app);
+        dispatch(putApp(composedApp));
+      } else {
+        dispatch(appChangeFailure('Application names do not match.'));
       }
     },
   };
