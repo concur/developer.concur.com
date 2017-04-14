@@ -18,7 +18,7 @@ layout: reference
 
 ## <a name="get"></a>Retrieve all expense entries
 
-In order to retrieve all expense entries, you must use [version 2.0.](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html)
+In order to retrieve all expense entries, you must use [version 2.0.](/api-reference/expense/expense-report/expense-report-get.html)
 
 <!--- 3.0 NOT READY
     GET /expense/entries/

@@ -35,7 +35,7 @@ Example: `https://www.concursolutions.com/apiexpense/v2.0/attendees?externalid={
 
 Authorization header with OAuth 2.0 access token for a Concur user. Required.
 
-To manage data for an entire conpany, the Concur account associated with the access token must have one of these roles:
+To manage data for an entire company, the Concur account associated with the access token must have one of these roles:
 
 * Web Services Administrator for Professional
 * Can Administer for Standard.
@@ -154,4 +154,4 @@ Content-Type: application/xml
 ```
 
 
-[1]: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html
+[1]: /api-reference/expense/expense-report/expense-report-get.html

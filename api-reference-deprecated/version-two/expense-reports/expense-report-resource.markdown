@@ -28,5 +28,5 @@ Refer to the function documentation for more information.
 
 
 
-[1]: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html
+[1]: /api-reference/expense/expense-report/expense-report-get.html
 [2]: /api-reference/expense/expense-report/post-report-exceptions.html

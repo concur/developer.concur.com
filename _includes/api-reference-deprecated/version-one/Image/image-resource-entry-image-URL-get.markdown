@@ -19,7 +19,7 @@ Authorization: OAuth {access token}
 
   | Parameter | Required/Optional | Description |
   |-----------|-----------|---------------------|
-  | `expenseentry/{entryId}` | required | The identifier for the desired entry, and the `expenseentry` keyword. <br><br> **URI Source**: The entryId is returned in the `RpeKey` element within the `ExpenseEntry` element of the [Get Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) response. |
+  | `expenseentry/{entryId}` | required | The identifier for the desired entry, and the `expenseentry` keyword. <br><br> **URI Source**: The entryId is returned in the `RpeKey` element within the `ExpenseEntry` element of the [Get Report Details](/api-reference/expense/expense-report/expense-report-get.html) response. |
 
 * **Headers**
 
