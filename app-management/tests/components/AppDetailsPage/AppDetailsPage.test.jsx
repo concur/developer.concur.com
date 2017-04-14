@@ -30,7 +30,7 @@ const defaultProps = {
   params: { id: 'id-1' }, // mock for React Router params
 };
 
-describe('<AppdetailsPage />', () => {
+describe('<AppDetailsPage />', () => {
   beforeEach(() => {
     jest.resetAllMocks();
   });

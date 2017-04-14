@@ -1,6 +1,5 @@
 import {
   APP_LISTING_REQUEST, APP_LISTING_FAILURE, APP_LISTING_SUCCESS,
-  APP_LISTING_INVALIDATE_CACHE,
 } from '../actions/appListing';
 import { AUTH_LOGOUT } from '../actions/auth';
 import { APP_CHANGE_SUCCESS } from '../actions/appChange';
@@ -31,7 +30,6 @@ function appListingReducer(state = defaultState, action) {
         apps: action.apps,
         validCache: true,
       };
-    case APP_LISTING_INVALIDATE_CACHE:
     case AUTH_LOGOUT:
     case APP_CHANGE_SUCCESS:
       return {

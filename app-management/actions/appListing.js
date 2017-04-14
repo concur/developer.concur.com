@@ -26,10 +26,6 @@ export function appListingSuccess(apps) {
   };
 }
 
-export function appListingInvalidateCache() {
-  return { type: APP_LISTING_INVALIDATE_CACHE };
-}
-
 export function fetchAppListing() {
   return (dispatch, getState) => {
     dispatch(appListingRequest());
