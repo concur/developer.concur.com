@@ -24,5 +24,5 @@ The expense reports in Concur.
 
 
 
-[1]: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html
+[1]: /api-reference/expense/expense-report/expense-report-get.html
 [2]: /api-reference/expense/expense-report/post-report-exceptions.html
