@@ -1,7 +1,8 @@
 import appChangeReducer from '../../reducers/appChange';
 import {
-  appChangeRequest, appChangeFailure, appChangeSuccess
+  appChangeRequest, appChangeFailure, appChangeSuccess, appChangeClear
 } from '../../actions/appChange';
+import { appDetailsRequest } from '../../actions/appDetails';
 import appFactory from '../app.mock';
 
 describe('appChange reducer', () => {
@@ -50,6 +51,30 @@ describe('appChange reducer', () => {
     expect(state).toEqual({
       app: app,
       clientSecret: clientSecret,
+      isFetching: false,
+      error: '',
+    });
+  });
+
+  it('should handle APP_CHANGE_CLEAR', () => {
+    const action = appChangeClear();
+    const state = appChangeReducer(undefined, action);
+
+    expect(state).toEqual({
+      app: {},
+      clientSecret: '',
+      isFetching: false,
+      error: '',
+    });
+  });
+
+  it('should handle APP_DETAILS_REQUEST', () => {
+    const action = appDetailsRequest();
+    const state = appChangeReducer(undefined, action);
+
+    expect(state).toEqual({
+      app: {},
+      clientSecret: '',
       isFetching: false,
       error: '',
     });

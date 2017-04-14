@@ -40,7 +40,7 @@ Attendees that are privately owned or part of shared lists that allow manual add
 Example:
 `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry{entryId}/Attendees`
 
-**URI Source:** The `reportId` value is returned by the [Get List of Reports](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html) function, and as part of the **Report-Details-Url** element of the [Post Expense Report Header](/api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html) function. The entryId value is returned in the **ReportKey** element of the [Get  Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) function.
+**URI Source:** The `reportId` value is returned by the [Get List of Reports](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html) function, and as part of the **Report-Details-Url** element of the [Post Expense Report Header](/api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html) function. The entryId value is returned in the **ReportKey** element of the [Get  Report Details](/api-reference/expense/expense-report/expense-report-get.html) function.
 
 #### Optional query parameters
 
@@ -50,7 +50,7 @@ Example:
 
 Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/entry/{entryId}/Attendees/{attendeeId}`
 
-**URI Source:** The attendeeId value is returned in the **AttendeeKey** element of the [Get Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) function, and as part of the **Attendee-Details-Url** value returned by this function.
+**URI Source:** The attendeeId value is returned in the **AttendeeKey** element of the [Get Report Details](/api-reference/expense/expense-report/expense-report-get.html) function, and as part of the **Attendee-Details-Url** value returned by this function.
 
 ### Headers
 
