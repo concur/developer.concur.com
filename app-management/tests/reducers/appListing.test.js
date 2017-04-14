@@ -28,6 +28,24 @@ describe('appListing reducer', () => {
     });
   });
 
+  it('should handle APP_LISTING_REQUEST with a valid cache', () => {
+    const apps = [
+      appFactory('id-1'),
+      appFactory('id-2'),
+    ];
+    let state = appListingReducer(undefined, appListingSuccess(apps));
+
+    const action = appListingRequest();
+    state = appListingReducer(state, action);
+
+    expect(state).toEqual({
+      apps: apps,
+      isFetching: false,
+      error: '',
+      validCache: true,
+    });
+  });
+
   it('should handle APP_LISTING_FAILURE', () => {
     const message = 'The request failed';
     const action = appListingFailure(message);
