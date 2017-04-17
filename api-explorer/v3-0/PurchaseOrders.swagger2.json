@@ -258,7 +258,7 @@
         },
         "AmountWithoutVat": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-PO_LI_AMOUNT_WO_VAT"
+          "description": "The net amount of the line item (excluding VAT)."
         },
         "CreateDate": {
           "type": "string",
@@ -397,11 +397,11 @@
         },
         "VatAmount": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-PO_LI_VAT_AMOUNT"
+          "description": "This field has not been implemented by Purchase Request yet. Any data in this field will be ignored."
         },
         "VatRate": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-PO_LI_VAT_RATE"
+          "description": "This field has not been implemented by Purchase Request yet. Any data in this field will be ignored."
         }
       }
     },
@@ -409,7 +409,7 @@
       "properties": {
         "AmountWithoutVat": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-PO_VAT_AMOUNT_WO_VAT"
+          "description": "The net amount of the Purchase Order (excluding VAT)."
         },
         "BillToAddress": {
           "$ref": "#/definitions/BillToAddress"
@@ -559,11 +559,11 @@
         },
         "PoVendorTaxId": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-PO_VENDOR_TAX_ID"
+          "description": "The Vendor Tax ID"
         },
         "ProvincialTaxId": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-PO_PROVINCIAL_TAX_ID"
+          "description": "The Vendor Provincial Tax ID."
         },
         "PurchaseOrderNumber": {
           "type": "string",
@@ -571,7 +571,7 @@
         },
         "ReceiptType": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-RECEIPT_TYPE"
+          "description": "The Purchase Order Receipt type (Depricated.) Use the PurchaseOrderReceiptType at line item level instead."
         },
         "RequestedBy": {
           "type": "string",
@@ -614,19 +614,19 @@
         },
         "VatAmountOne": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-PO_VAT_AMOUNT1"
+          "description": "This field has not been implemented by Purchase Request yet. Any data in this field will be ignored."
         },
         "VatAmountTwo": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-PO_VAT_AMOUNT2"
+          "description": "This field has not been implemented by Purchase Request yet. Any data in this field will be ignored."
         },
         "VatRateOne": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-PO_VAT_RATE1"
+          "description": "This field has not been implemented by Purchase Request yet. Any data in this field will be ignored."
         },
         "VatRateTwo": {
           "type": "string",
-          "description": "undefined:ConnectSwaggerDocs-PO_VAT_RATE2"
+          "description": "This field has not been implemented by Purchase Request yet. Any data in this field will be ignored."
         },
         "VendorAccountNumber": {
           "type": "string",
