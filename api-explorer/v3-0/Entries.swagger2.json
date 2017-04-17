@@ -36,14 +36,14 @@
           {
             "name": "reportID",
             "in": "query",
-            "description": "The report ID of the entries to be retrieved. Use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/ReportDigests/Get_offset_limit_user_approvalStatusCode_paymentStatusCode_currencyCode_paymentType_reimbursementMethod_approverLoginID_expenseTypeCode_attendeeTypeCode_countryCode_batchID_vendorName_hasVAT_hasImages_hasAttendees_hasBillableExpenses_isTestUser_expenseGroupConfigID_costObject_entryTransactionDateBefore_entryTransactionDateAfter_createDateBefore_createDateAfter_userDefinedDateBefore_userDefinedDateAfter_submitDateBefore_submitDateAfter_processingPaymentDateBefore_processingPaymentDateAfter_paidDateBefore_paidDateAfter_modifiedDateBefore_modifiedDateAfter_get_0\">GET /expense/reportdigests</a> function to find the report ID. Format: An alpha-numeric GUID string.",
+            "description": "The report ID of the entries to be retrieved.  Format: An alpha-numeric GUID string.",
             "required": false,
             "type": "string"
           },
           {
             "name": "paymentTypeID",
             "in": "query",
-            "description": "The ID of the payment type of the entries to be retrieved. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> function to learn the payment type ID for the desired payment type.",
+            "description": "The ID of the payment type of the entries to be retrieved.",
             "required": false,
             "type": "string"
           },
@@ -316,7 +316,7 @@
       "properties": {
         "AllocationType": {
           "type": "string",
-          "description": "The type of allocations for the expense. Possible values: P - partial allocation, F - full allocation, N - no allocation. Use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Allocations/Get_limit_offset_reportID_entryID_itemizationID_user_get_0\">GET /expense/allocations</a> function to get information about this entry's allocations."
+          "description": "The type of allocations for the expense. Possible values: P - partial allocation, F - full allocation, N - no allocation."
         },
         "ApprovedAmount": {
           "type": "number",
@@ -466,7 +466,7 @@
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The code for the expense type. Use <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> to learn the expense type code for expense types that are active for this report's policy."
+          "description": "The code for the expense type."
         },
         "ExpenseTypeName": {
           "type": "string",
@@ -482,7 +482,7 @@
         },
         "HasAttendees": {
           "type": "boolean",
-          "description": "Indicates whether the expense has attendees. Use the <a target=\"_blank\"https://www.concursolutions.com/api/docs/index.html#!/EntryAttendeeAssociations/Get_entryID_offset_limit_user_get_0\">GET /expense/entryattendeeassociations</a> function to get information about this entry's attendees. Format: true or false"
+          "description": "Indicates whether the expense has attendees. Format: true or false"
         },
         "HasComments": {
           "type": "boolean",
@@ -498,7 +498,7 @@
         },
         "HasItemizations": {
           "type": "boolean",
-          "description": "Indicates whether the expense has itemizations. Use the <a target=\"_blank\"https://www.concursolutions.com/api/docs/index.html#!/Itemizations/Get_reportID_entryID_expenseTypeCode_offset_limit_user_get_0\">GET /expense/itemizations</a> function to get information about this entry's itemizations. Format: true or false"
+          "description": "Indicates whether the expense has itemizations. Use the Format: true or false"
         },
         "HasVAT": {
           "type": "boolean",
@@ -542,7 +542,7 @@
         },
         "LocationID": {
           "type": "string",
-          "description": "The unique identifier for the location where the expense was incurred. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Locations/Get_offset_limit_name_city_countrySubdivision_country_administrativeRegion_get_0\">GET /common/locations</a> function to get information for this location."
+          "description": "The unique identifier for the location where the expense was incurred."
         },
         "LocationName": {
           "type": "string",
@@ -572,7 +572,7 @@
         },
         "PaymentTypeID": {
           "type": "string",
-          "description": "The ID of the payment type for the entry. Use <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> to learn the payment type ID for payment types that are active for this report's expense group. For mileage expenses, use the Cash payment type. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes always use the Cash payment type."
+          "description": "The ID of the payment type for the entry. For mileage expenses, use the Cash payment type. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes always use the Cash payment type."
         },
         "PaymentTypeName": {
           "type": "string",
@@ -614,7 +614,7 @@
         },
         "TransactionCurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the expense entry transaction amount. This is the currency in which the vendor was paid. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because for these two expense codes the currency is always the Report Currency."
+          "description": "The 3-letter ISO 4217 currency code for the expense entry transaction amount. This is the currency in which the vendor was paid. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because for these two expense codes the currency is always the Report Currency."
         },
         "TransactionDate": {
           "type": "string",
@@ -635,7 +635,7 @@
         },
         "VendorListItemID": {
           "type": "string",
-          "description": "The unique identifier for a vendor list item. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Lists/Get_limit_offset_get_0\">GET /common/lists</a> function to get information about this list item."
+          "description": "The unique identifier for a vendor list item."
         },
         "VendorListItemName": {
           "type": "string",
@@ -863,7 +863,7 @@
         },
         "PaymentTypeID": {
           "type": "string",
-          "description": "The ID of the payment type for the entry. Use <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> to learn the payment type ID for payment types that are active for this report's expense group. For mileage expenses, use the Cash payment type. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes always use the Cash payment type."
+          "description": "The ID of the payment type for the entry. For mileage expenses, use the Cash payment type. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes always use the Cash payment type."
         },
         "ReportID": {
           "type": "string",
@@ -880,7 +880,7 @@
         },
         "TransactionCurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the expense entry transaction amount. This is the currency in which the vendor was paid. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because for these two expense codes the currency is always the Report Currency."
+          "description": "The 3-letter ISO 4217 currency code for the expense entry transaction amount. This is the currency in which the vendor was paid. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because for these two expense codes the currency is always the Report Currency."
         },
         "TransactionDate": {
           "type": "string",
@@ -893,7 +893,7 @@
         },
         "VendorListItemID": {
           "type": "string",
-          "description": "The unique identifier for a vendor list item. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Lists/Get_limit_offset_get_0\">GET /common/lists</a> function to get information about this list item."
+          "description": "The unique identifier for a vendor list item."
         }
       }
     },
@@ -1074,7 +1074,7 @@
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The code for the expense type. Use <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> to learn the expense type code for expense types that are active for this report's policy."
+          "description": "The code for the expense type."
         },
         "IsBillable": {
           "type": "boolean",
@@ -1089,7 +1089,7 @@
         },
         "LocationID": {
           "type": "string",
-          "description": "The unique identifier for the location where the expense was incurred. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Locations/Get_offset_limit_name_city_countrySubdivision_country_administrativeRegion_get_0\">GET /common/locations</a> function to get information for this location."
+          "description": "The unique identifier for the location where the expense was incurred."
         },
         "OrgUnit1": {
           "type": "string",
@@ -1117,7 +1117,7 @@
         },
         "PaymentTypeID": {
           "type": "string",
-          "description": "The ID of the payment type for the entry. Use <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> to learn the payment type ID for payment types that are active for this report's expense group. For mileage expenses, use the Cash payment type. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes always use the Cash payment type."
+          "description": "The ID of the payment type for the entry.  For mileage expenses, use the Cash payment type. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes always use the Cash payment type."
         },
         "ReportID": {
           "type": "string",
@@ -1134,7 +1134,7 @@
         },
         "TransactionCurrencyCode": {
           "type": "string",
-          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the expense entry transaction amount. This is the currency in which the vendor was paid. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because for these two expense codes the currency is always the Report Currency."
+          "description": "The 3-letter ISO 4217 currency code for the expense entry transaction amount. This is the currency in which the vendor was paid. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because for these two expense codes the currency is always the Report Currency."
         },
         "TransactionDate": {
           "type": "string",
@@ -1147,7 +1147,7 @@
         },
         "VendorListItemID": {
           "type": "string",
-          "description": "The unique identifier for a vendor list item. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Lists/Get_limit_offset_get_0\">GET /common/lists</a> function to get information about this list item."
+          "description": "The unique identifier for a vendor list item."
         }
       }
     },
