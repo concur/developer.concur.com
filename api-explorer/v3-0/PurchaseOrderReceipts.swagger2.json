@@ -263,6 +263,7 @@
           "description": "The URI of the next page of results, if any."
         },
         "TotalCount": {
+          "description": "Total number of receipts",
           "type": "integer",
           "format": "int32"
         }
