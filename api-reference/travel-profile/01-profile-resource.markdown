@@ -613,7 +613,9 @@ A list of advantage memberships associated to a user:
 | `OptionCode` |  `string` |  The option code. Format: Varchar(20) | | | |
 | `ProgramName` | `string` | The program name. Format: Varchar(20) | Cannot Update | | |
 
-* **NOTE**:  Multiple memberships for the same VendorType, VendorCode, ProgramCode, and CardNumber are identified and a warning is thrown.
+* **NOTES**:
+ * Multiple memberships for the same VendorType, VendorCode, ProgramCode, and CardNumber are identified and a warning is thrown.
+ * OriginStationCode and DestinationStationCode fields are deprecated and should no longer be used. Use OriginCode and DestinationCode instead.
 
 ***
 
