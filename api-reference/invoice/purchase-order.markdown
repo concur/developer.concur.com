@@ -96,7 +96,7 @@ None.
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
-|`AmountWithoutVat`|`string`|-|PO_VAT_AMOUNT_WO_VAT
+|`AmountWithoutVat`|`string`|-|The net amount of the Purchase Order (excluding VAT).
 |`BillToAddress`|`object`|[`BillToAddress`](#bill-to-address)|**Required** The customer's billing address, which is where the vendor should send the bill.
 |`CurrencyCode`|`string`|-|The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order.
 |`Custom1 through Custom24`|`string`|-|A value that can be applied to a custom field 1 that is part of the purchase order header form.
@@ -110,9 +110,10 @@ None.
 |`OrderDate`|`string`|-|The date when goods were ordered. Format: YYYY-MM-DD
 |`PaymentTerms`|`string`|-|The net payment terms that have been set up with a vendor.
 |`PolicyExternalID`|`string`|-|The external identifier of the policy that should be associated with the purchase order. The external ID is a property of the policy in its configuration.
-|`PoVendorTaxId`|`string`|-|PO_VENDOR_TAX_ID
-|`ProvincialTaxId`|`string`|-|PO_PROVINCIAL_TAX_ID
+|`PoVendorTaxId`|`string`|-|The Vendor Tax ID.
+|`ProvincialTaxId`|`string`|-|The Vendor Provincial Tax ID.
 |`PurchaseOrderNumber`|`string`|-|The purchase order number.
+|`ReceiptType`|`string`|-|The Purchase Order Receipt type (Depricated.) Use the PurchaseOrderReceiptType at line item level instead.
 |`RequestedBy`|`string`|-|The person who requests the goods in the purchase order.
 |`RequestedDeliveryDate`|`string`|-|The date the purchase order instructed the vendor to deliver the goods. Format YYYY-MM-DD
 |`Shipping`|`string`|-|The total shipping cost for the purchase order.
@@ -123,10 +124,10 @@ None.
 |`Status`|`string`|-|The current status of the purchase order.
 |`Tax`|`string`|-|The total tax for the purchase order.
 |`URI`|`string`|-|The URI to the resource.
-|`VatAmountOne`|`string`|-|PO_VAT_AMOUNT1
-|`VatAmountTwo`|`string`|-|PO_VAT_AMOUNT2
-|`VatRateOne`|`string`|-|PO_VAT_RATE1
-|`VatRateTwo`|`string`|-|PO_VAT_RATE2
+|`VatAmountOne`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
+|`VatAmountTwo`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
+|`VatRateOne`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
+|`VatRateTwo`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
 |`VendorAccountNumber`|`string`|-|The vendor account number.
 |`VendorAddressCode`|`string`|-|The code that identifies the vendor's remit address for the purchase order.
 |`VendorCode`|`string`|-|The code that identifies the vendor for the purchase order.
@@ -152,7 +153,7 @@ None.
 |-----|------|--------|------------
 |`AccountCode`|`string`|-|The account code of the line item. A value must be supplied for either ExpenseType or AccountCode, but not both. This field is required if an ExpenseType value is not supplied.
 |`Allocation`|`array`|[`Allocation`](#allocation)|A list of the allocations that are associated with the line item. Allocation elements can be repeated within the same line items to represent multiple allocations.
-|`AmountWithoutVat`|`string`|-|PO_LI_AMOUNT_WO_VAT
+|`AmountWithoutVat`|`string`|-|The net amount of the line item (excluding VAT).
 |`CreateDate`|`string`|-|The date the line item was created. Format: YYYY-MM-DD
 |`Custom1 through Custom20`|`string`|-|A value that can be applied to a custom field 1 that is part of the purchase order line item form.
 |`Description`|`string`|-|A description of the line item.
@@ -166,8 +167,8 @@ None.
 |`SupplierPartID`|`string`|-|Any number that might help to identify the line item. This could be a value such as the vendor's part number or even the manufacturer number.
 |`Tax`|`string`|-|Any tax that is associated with the line item.
 |`UnitPrice`|`string`|-|The price of each item of the line item.
-|`VatAmount`|`string`|-|PO_LI_VAT_AMOUNT
-|`VatRate`|`string`|-|PO_LI_VAT_RATE
+|`VatAmount`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
+|`VatRate`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
 
 #### <a name="allocation"></a>Allocation  
 
