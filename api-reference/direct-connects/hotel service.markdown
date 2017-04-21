@@ -2,7 +2,7 @@
 title: Hotel Direct Connect 2.0
 layout: reference
 ---
-##Disclaimer
+## Disclaimer
 This version is a draft only. Hotel Service 2.0 API is not final and is a subject to change.
 
 ## Description
@@ -50,21 +50,21 @@ o	Concur sets up the vendor in the certification systems and runs a series of te
 ### Emergency technical contact
 The Hotel supplier needs to provide emergency technical contact email that will be used for communication in case of blocking technical issues.
 
-###Testing environment
+### Testing environment
 To allow Concur performing testing, the Hotel Supplier needs to provide testing URL or specify properties for testing in production URL. Concur needs to be able to perform test bookings with testing credit cards.
 
-###Security
+### Security
 
-####PCI DSS compliance
+#### PCI DSS compliance
 As sensitive data and payment card details are transferred via API, the Hotel Suppliers need to comply with PCI DSS standard. Concur is compliant with PCI DSS standard and undergoes regular security audits.
 
-####HTTPS
+#### HTTPS
 The Hotel Supplier needs to support secure communication of TLS 1.1 or newer. The Hotel Supplier will provide Concur HTTPS URL of it’s endpoint.
 
-####Concur IP ranges
+#### Concur IP ranges
 If Hotel Supplier is using IP whitelisting policy, Concur can provide list of it’s production and testing IP addresses to access Supplier’s systems from.
 
-####Authentification
+#### Authentification
 Hotel supplier authenticates itself to Concur by public certificate in SSL communication.
 Concur authenticates itself for Hotel Suppiler using userID and password in each message SOAP header.
 
@@ -76,7 +76,7 @@ Concur authenticates itself for Hotel Suppiler using userID and password in each
 </authentication>
  </Header>`
 
-###Authentication.xsd:
+### Authentication.xsd:
 `<?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.concur.com/webservice/auth" targetNamespace="http://www.concur.com/webservice/auth" elementFormDefault="qualified" version="1.0" id="TransactionControlHeader">
 	<xsd:element name="authentication">
@@ -89,17 +89,17 @@ Concur authenticates itself for Hotel Suppiler using userID and password in each
 	</xsd:element>
 </xsd:schema>`
 
-###URLs and headers
+### URLs and headers
 Concur will receive a single URL from the Hotel Supplier. All requests will go to that URL.
 Content Type is application/xml.
 To define, what operation needs to be performed, HTTP headers are used, as example:
 `SOAPAction:availability.`
 CDATA and HTML code inside of XML nodes and attributes are not allowed. These data will be escaped.
 
-###Response Times
+### Response Times
 Concur needs to receive all responses within 60 seconds, otherwise it causes timeout. To prevent no show fees, duplicate bookings and other similar issues, Concur recommends to perform Auto-Cancel by the Hotel Supplier is ReadRQ message is not sent by Concur 5 minutes after HotelResRS message was sent to Concur.
 
-##Supported operations
+## Supported operations
 Hotel Service API 2.0 supports following operations:
 1.	Search RQ and RS – to get list of hotels
 2.	Descriptive Info RQ and RS – to get hotel description and photos
@@ -108,7 +108,7 @@ Hotel Service API 2.0 supports following operations:
 5.	Read Itinerary RQ – to get information for Itinerary. Response message in HotelResRS.
 6.	Cancel RQ and RS – to cancel a reservation.
 
-###Message flow
+### Message flow
 Message flow for hotel booking should be following:
 1.	Search. Sent after user clicks on button Search.
 2.	Descriptive Info. Sent after user click on hotel details button or hotel thumbnail picture.
@@ -129,7 +129,7 @@ Concur Travel. That Requestor ID allows suppliers to shape Preference Level,
 specific rates etc. for customers. As not all suppliers require such features,
 this is optional setting in Concur Travel.
 
-####Color coding for message structure diagrams:
+#### Color coding for message structure diagrams:
 Green for mandatory fields in HS2.0
 Yellow for optional fields in HS2.0
 Purple for future versions of HS
@@ -176,7 +176,7 @@ OTA_HotelSearchRS
 |  Policy |	N	| Policy information for this hotel.|
 |  HotelPreference |	N	| Hotel preference level set by Travel Administrator.|
 
-####Example request
+#### Example request
 `
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
 	<Header xmlns="http://schemas.xmlsoap.org/soap/envelope/"/>
@@ -199,7 +199,7 @@ OTA_HotelSearchRS
 	</Body>
 </Envelope>
 `
-####Example response
+#### Example response
 `
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
 	<SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
@@ -312,7 +312,7 @@ Displays photos and videos of a given hotel.
 
 >   **OTA name:** HotelDescriptiveInfo
 
-####Message structure
+#### Message structure
 
 ![media](OTA_HotelDescriptiveInfoRQ.png)
 
@@ -334,7 +334,7 @@ OTA_HotelDescriptiveInfoRS
 |  ImageItems |	N	| URL's hotel images.|
 
 
-####Example request
+#### Example request
 `
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/"></Header>
@@ -348,7 +348,7 @@ OTA_HotelDescriptiveInfoRS
  </Envelope>
 `
 
-####Example response
+#### Example response
 `
 <OTA_HotelDescriptiveInfoRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth">
 <Success/>
@@ -400,6 +400,7 @@ Displays detailed information about rooms available in a given hotel.
 ![media](OTA_HotelAvailRS.png)
 
 OTA_HotelAvailRQ
+
 |  Element |	Required	|  Description |
 |----------|-------------------- | ------------------|
 |  RequestorID |	N	| The corporate identifier|
@@ -461,7 +462,7 @@ OTA_HotelAvailRS
 	</AvailRequestSegments>
 </OTA_HotelAvailRQ>
 `
-####Example response
+#### Example response
 `
 <?xml version="1.0" encoding="utf-8"?>
 <OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00"
@@ -602,7 +603,7 @@ OTA\_AvailRS.xml for more clarity.
     “Show Rates” button. After click on “View Rooms” hotel UI box expands
     showing room-rates from one or multiple suppliers.
 
-Example request:
+#### Example request:
 
 `
 <HotelSearchCriteria>
@@ -614,7 +615,7 @@ Example request:
 </Criterion>
 `
 
-Example response:
+#### Example response:
 `
 <RoomStays>
 	<RoomStay>
@@ -737,7 +738,7 @@ Allows user to book a room.
 
 >   **OTA name:** HotelRes
 
-####Message structure
+#### Message structure
 
 ![media](OTA_HotelResRQ.png)
 
@@ -774,7 +775,7 @@ OTA_HotelResRS
 |  TimeSpan |	Y	| Range of dates, or fixed set of dates for Reservation Request.|
 |  UniqueID |	Y	|  A reference to identify the booking.|
 
-####Example request
+#### Example request
 `
 <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05">
   <POS>
@@ -816,7 +817,7 @@ OTA_HotelResRS
 </OTA_HotelResRQ>
 `
 
-####Example response
+#### Example response
 `
 <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" ResResponseType="Reserved">
 			<Success/>
@@ -949,7 +950,7 @@ Allows user to cancel a reservation.
 
 >   **OTA name:** Cancel
 
-####Message structure
+#### Message structure
 
 ![media](OTA_CancelRQ.png)
 ![media](OTA_CancelRS.png)
@@ -969,7 +970,7 @@ OTA_CancelRS
 |  UniqueID |	Y	|  A reference to identify the cancelation reference.|
 |  Status |	Y |  If canlcelation is successful or not.|
 
-####Example request
+#### Example request
 `
    <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05">
       <POS></POS>
@@ -977,7 +978,7 @@ OTA_CancelRS
     </OTA_CancelRQ>
  `
 
-####Example response
+#### Example response
   `
   <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Status="Cancelled">
       <Success/>
