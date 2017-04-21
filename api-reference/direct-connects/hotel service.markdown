@@ -146,9 +146,9 @@ Gray for not supported nodes and attributes
 
 #### Message structure
 
-![media](OTA_HotelSearchRQ.png)
+![media](/api-reference/direct-connects/hotel2/OTA_HotelSearchRQ.png)
 
-![media](OTA_HotelSearchRS.png)
+![media](/api-reference/direct-connects/hotel2/OTA_HotelSearchRS.png)
 
 OTA_HotelSearchRQ
 
@@ -254,7 +254,7 @@ OTA_HotelSearchRS
 2.  List of 100 hotels within search radius is displayed in that location, with
     hotels names, thumbnail pictures, address, star rating.
 
-![media](HotelSearch1.png)
+![media](/api-reference/direct-connects/hotel2/HotelSearch1.png)
 
   Thumbnail hotel image should be 70x70 pixels to prevent image artifacts by
   scaling.
@@ -267,7 +267,7 @@ OTA_HotelSearchRS
    request to the Hotel Supplier. Top-side filter is performing filtering of
    already displayed results.
 
- ![media](HotelSearch2.png)
+ ![media](/api-reference/direct-connects/hotel2/HotelSearch2.png)
 
    Specific hotel is displayed. 
 
@@ -287,7 +287,7 @@ Hotel Supplier only returns hotels with name matching search criteria defined by
 4.  User's company has some hotels set up as Preferred at the Hotel Supplier.
     User’s company has setup in Travel Config a search radius of 30 km.
 
-![media](HotelSearch3.png)
+![media](/api-reference/direct-connects/hotel2/HotelSearch3.png)
 
    User searches for hotels in 5 km radius.
 
@@ -314,9 +314,9 @@ Displays photos and videos of a given hotel.
 
 #### Message structure
 
-![media](OTA_HotelDescriptiveInfoRQ.png)
+![media](/api-reference/direct-connects/hotel2/OTA_HotelDescriptiveInfoRQ.png)
 
-![media](OTA_HotelDescriptiveInfoRS.png)
+![media](/api-reference/direct-connects/hotel2/OTA_HotelDescriptiveInfoRS.png)
 
 OTA_HotelDescriptiveInfoRQ
 
@@ -383,7 +383,7 @@ OTA_HotelDescriptiveInfoRS
 
 2.  User clicks on hotel photo thumbnail. Gallery of hotel photos is displayed.
 
-![media](HotelDescriptiveInfo2.png)
+![media](/api-reference/direct-connects/hotel2/HotelDescriptiveInfo2.png)
 
 ### Hotel Availability
 
@@ -395,9 +395,9 @@ Displays detailed information about rooms available in a given hotel.
 
 ####Message structure
 
-![media](OTA_HotelAvailRQ.png)
+![media](/api-reference/direct-connects/hotel2/OTA_HotelAvailRQ.png)
 
-![media](OTA_HotelAvailRS.png)
+![media](/api-reference/direct-connects/hotel2/OTA_HotelAvailRS.png)
 
 OTA_HotelAvailRQ
 
@@ -728,7 +728,7 @@ OTA\_AvailRS.xml for more clarity.
 7.  User clicks on button with room-rate price. Trip Review page is displayed
     with rate details (average, summary and total) and cancelation policy.
 
-![media](HotelAvail1.png)
+![media](/api-reference/direct-connects/hotel2/HotelAvail1.png)
 
 ### Hotel Reservation
 
@@ -740,9 +740,9 @@ Allows user to book a room.
 
 #### Message structure
 
-![media](OTA_HotelResRQ.png)
+![media](/api-reference/direct-connects/hotel2/OTA_HotelResRQ.png)
 
-![media](OTA_HotelResRS.png)
+![media](/api-reference/direct-connects/hotel2/OTA_HotelResRS.png)
 
 OTA_HotelResRQ
 
@@ -897,9 +897,9 @@ OTA_HotelResRS
     are sent **Guarantee/GuaranteeAccepted/PaymentCard.** Reservation message is
     sent. Once Reservation RS is returned by Hotel Supplier, trip is reserved.
 
-![media](HotelRes1.jpg)
+![media](/api-reference/direct-connects/hotel2/HotelRes1.jpg)
 
-![media](HotelRes2.jpg)
+![media](/api-reference/direct-connects/hotel2/HotelRes2.jpg)
 
 
 ### Read
@@ -908,7 +908,7 @@ Returns detailed information about a hotel reservation.
 
 ####Message structure
 
-![media](OTA_ReadRQ.png)
+![media](/api-reference/direct-connects/hotel2/OTA_ReadRQ.png)
 
 OTA_ReadRQ
 
@@ -940,7 +940,7 @@ In case the reservation has been cancelled, user''s Itinerary will be updated ac
 
 >   **OTA name:** HotelRead
 
-![media](HotelRead1.jpg)
+![media](/api-reference/direct-connects/hotel2/HotelRead1.jpg)
 
 ### Cancel
 
@@ -952,8 +952,8 @@ Allows user to cancel a reservation.
 
 #### Message structure
 
-![media](OTA_CancelRQ.png)
-![media](OTA_CancelRS.png)
+![media](/api-reference/direct-connects/hotel2/OTA_CancelRQ.png)
+![media](/api-reference/direct-connects/hotel2/OTA_CancelRS.png)
 
 OTA_CancelRQ
 
@@ -1024,15 +1024,15 @@ Other files
 -----------------
 Authentification schema
 
-![media](Authentication.xsd)
+![media](/api-reference/direct-connects/hotel2/Authentication.xsd)
 
 Concur version of the OTA schema
 
-![media](HotelService2-brief.xsd)
+![media](/api-reference/direct-connects/hotel2/HotelService2-brief.xsd)
 
 stylesheet to open and navigate schema in web browser (make sure both are stored in one folder)
-![media](xs3p_better_doc.xsl)
+![media](/api-reference/direct-connects/hotel2/xs3p_better_doc.xsl)
 
 OTA codelist
 
-![media](OpenTravel_CodeList_2015_07_15.xlsm)
+![media](/api-reference/direct-connects/hotel2/OpenTravel_CodeList_2015_07_15.xlsm)
