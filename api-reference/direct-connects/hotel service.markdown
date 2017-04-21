@@ -261,7 +261,7 @@ OTA_HotelSearchRS
 
 3.  User searches for specific hotel in location by entering hotel name.
 
-   [./media/image2.png](./media/image2.png)
+ ![media](/api-reference/direct-connects/hotel2//media/image2.png)
 
    **Important Note:** please note that only Left-side filter invokes new
    request to the Hotel Supplier. Top-side filter is performing filtering of
@@ -314,9 +314,9 @@ Displays photos and videos of a given hotel.
 
 #### Message structure
 
-![media](/api-reference/direct-connects/hotel2/OTA_HotelDescriptiveInfoRQ.png)
+![media](/api-reference/direct-connects/hotel2/OTA_DescriptiveInfoRQ.png)
 
-![media](/api-reference/direct-connects/hotel2/OTA_HotelDescriptiveInfoRS.png)
+![media](/api-reference/direct-connects/hotel2/OTA_DescriptiveInfoRS.png)
 
 OTA_HotelDescriptiveInfoRQ
 
