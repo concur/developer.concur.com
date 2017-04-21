@@ -49,15 +49,21 @@ o	Concur sets up the vendor in the certification systems and runs a series of te
 
 ### Emergency technical contact
 The Hotel supplier needs to provide emergency technical contact email that will be used for communication in case of blocking technical issues.
+
 ###Testing environment
 To allow Concur performing testing, the Hotel Supplier needs to provide testing URL or specify properties for testing in production URL. Concur needs to be able to perform test bookings with testing credit cards.
+
 ###Security
+
 ####PCI DSS compliance
 As sensitive data and payment card details are transferred via API, the Hotel Suppliers need to comply with PCI DSS standard. Concur is compliant with PCI DSS standard and undergoes regular security audits.
+
 ####HTTPS
 The Hotel Supplier needs to support secure communication of TLS 1.1 or newer. The Hotel Supplier will provide Concur HTTPS URL of it’s endpoint.
+
 ####Concur IP ranges
 If Hotel Supplier is using IP whitelisting policy, Concur can provide list of it’s production and testing IP addresses to access Supplier’s systems from.
+
 ####Authentification
 Hotel supplier authenticates itself to Concur by public certificate in SSL communication.
 Concur authenticates itself for Hotel Suppiler using userID and password in each message SOAP header.
@@ -145,8 +151,9 @@ Gray for not supported nodes and attributes
 ![media](OTA_HotelSearchRS.png)
 
 OTA_HotelSearchRQ
+
 |  Element |	Required	|  Description |
-|----------|---------------------------------------|
+|----------|----------- | --------------------|
 |  RequestorID |	N	| The corporate identifier|
 |  Position |	Y	|  The Position element contains three attributes, Latitude, Longitude, used to indicate the geographic location(s) requested by the search, expressed in notation specified by ISO standard 6709.|
 |  Radius |	Y	| Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location.|
@@ -154,8 +161,9 @@ OTA_HotelSearchRQ
 |  StayDateRange |	Y	| Range of dates, or fixed set of dates for Availability Request.|
 
 OTA_HotelSearchRS
+
 |  Element |	Required	|  Description |
-|----------|---------------------------------------|
+|----------|----------------| -----------------------|
 |  ChainCode |	N	| 2 letter GDS chain code. The code that identifies a hotel chain or management group. Used for Chain filter in UI, and for Travel Rules based on GDS codes|
 |  ChainName |	N	| Detailed property level information.|
 |  HotelName |	Y	|  A text field used to communicate the proper name of the hotel.|
@@ -311,14 +319,16 @@ Displays photos and videos of a given hotel.
 ![media](OTA_HotelDescriptiveInfoRS.png)
 
 OTA_HotelDescriptiveInfoRQ
+
 |  Element |	Required	|  Description |
-|----------|---------------------------------------|
+|----------|-----------------| ---------------------|
 |  RequestorID |	N	| The corporate identifier|
 |  HotelCode |	Y	| The code that uniquely identifies a single hotel property. Used in other OTA messages.|
 
 OTA_HotelDescriptiveInfoRS
+
 |  Element |	Required	|  Description |
-|----------|---------------------------------------|
+|----------|------------------| --------------------|
 |  HotelCode |	Y	|  The code that uniquely identifies a single hotel property. Used in other OTA messages.|
 |  DescriptiveText |	N	|  Descriptive text that describes the hotel.|
 |  ImageItems |	N	| URL's hotel images.|
@@ -391,7 +401,7 @@ Displays detailed information about rooms available in a given hotel.
 
 OTA_HotelAvailRQ
 |  Element |	Required	|  Description |
-|----------|---------------------------------------|
+|----------|-------------------- | ------------------|
 |  RequestorID |	N	| The corporate identifier|
 |  ISOCurrency |	Y	|  The currency code in which the reservation will be ticketed in ISO 4217-3 encoding.|
 |  HotelCode |	Y	| The code that uniquely identifies a single hotel property from HotelSearchRS.|
@@ -399,8 +409,9 @@ OTA_HotelAvailRQ
 |  GuestNumber |	Y	| Number of guests for the inquiry. Concur only supports 1 guest operations.|
 
 OTA_HotelAvailRS
+
 |  Element |	Required	|  Description |
-|----------|---------------------------------------|
+|----------|--------------- | ----------------------|
 |  HotelCode |	Y	|  The code that uniquely identifies a single hotel property from HotelSearchRS.|
 |  RatePlan |	Y	| other than amout-specific information about rate, like accepted guarantee, cancelation policy etc.|
 |  AvailabilityStatus |	Y | Available or sold out indicator. |
@@ -733,8 +744,9 @@ Allows user to book a room.
 ![media](OTA_HotelResRS.png)
 
 OTA_HotelResRQ
+
 |  Element |	Required	|  Description |
-|----------|---------------------------------------|
+|----------|-------------- | -----------------------|
 |  RequestorID |	N	| The corporate identifier|
 |  HotelCode |	Y	| The code that uniquely identifies a single hotel property from HotelAvailRS.|
 |  Customer |	Y	| Guest personal information: name, surname, email, telephone etc.|
@@ -748,8 +760,9 @@ OTA_HotelResRQ
 
 
 OTA_HotelResRS
+
 |  Element |	Required	|  Description |
-|----------|---------------------------------------|
+|----------|------------------ | ------------------|
 |  ResResponseType |	Y	|  To specify a status to the transaction, if reservation was successful or canceled.|
 |  HotelCode |	Y	|  The code that uniquely identifies a single hotel property from HotelSearchRS.|
 |  RatePlanID |	Y	| A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
@@ -897,8 +910,9 @@ Returns detailed information about a hotel reservation.
 ![media](OTA_ReadRQ.png)
 
 OTA_ReadRQ
+
 |  Element |	Required	|  Description |
-|----------|---------------------------------------|
+|----------|--------------- | -----------------------|
 |  RequestorID |	N	| The corporate identifier|
 |  UniqueID |	Y	|  A reference to identify the booking.|
 
@@ -941,14 +955,16 @@ Allows user to cancel a reservation.
 ![media](OTA_CancelRS.png)
 
 OTA_CancelRQ
+
 |  Element |	Required	|  Description |
-|----------|---------------------------------------|
+|----------|----------------- | --------------------|
 |  RequestorID |	N	| The corporate identifier|
 |  UniqueID |	Y	|  A reference to identify the booking.|
 
 OTA_CancelRS
+
 |  Element |	Required	|  Description |
-|----------|---------------------------------------|
+|----------|-------------- | -----------------------|
 |  UniqueID |	Y	|  A reference to identify the booking  reference.|
 |  UniqueID |	Y	|  A reference to identify the cancelation reference.|
 |  Status |	Y |  If canlcelation is successful or not.|
