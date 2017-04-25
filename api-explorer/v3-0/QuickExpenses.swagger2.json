@@ -251,7 +251,7 @@
         },
         "ExpenseTypeCode": {
           "type": "string",
-          "description": "The code for the expense type in the company's expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the <a target=\"_blank\" href=\"https://developer.concur.com/node/473\">Get Expense Group Configuration</a> function response."
+          "description": "The code for the expense type in the company's expense management system. Currently supports Concur Expense codes. The Expense Type Code is returned in the ExpKey element of the Get Expense Group Configuration function response."
         },
         "ExpenseTypeName": {
           "type": "string",
@@ -337,7 +337,7 @@
         },
         "SpendCategoryCode": {
           "type": "string",
-          "description": "The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting.  Format: One of the Code values in the <a target=\"_blank\" href=\"https://developer.concur.com/node/557\">Spend Category Code List.  Developers can view the configured Spend Category/Expense Type mappings by using the <a target=\"_blank\" href=\"https://developer.concur.com/node/473\">Get Expense Group Configuration</a> function.</a>"
+          "description": "The spend category code for the quick expense. The available spend category codes are consistent across all Concur products. The values are used in Concur reporting.  Format: One of the Code values in the Spend Category Code List.  Developers can view the configured Spend Category/Expense Type mappings by using the Get Expense Group Configuration function."
         },
         "TransactionAmount": {
           "type": "number",
