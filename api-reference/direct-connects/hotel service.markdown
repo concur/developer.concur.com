@@ -2,6 +2,8 @@
 title: Hotel Direct Connect 2.0
 layout: reference
 ---
+
+
 ## Disclaimer
 This version is a draft only. Hotel Service 2.0 API is not final and is a subject to change.
 
