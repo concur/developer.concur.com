@@ -86,6 +86,8 @@
         url: /api-reference/direct-connects/hotel/post-reservation-query.html
       - title: Post a reservation update
         url: /api-reference/direct-connects/hotel/post-reservation-update.html
+      - title: Hotel Direct Connect 2.0
+        url: /api-reference/direct-connects/hotel-service.html
 - title: Expense
   url: ''
   children:
