@@ -2,6 +2,8 @@
 title: Hotel Direct Connect 2.0
 layout: reference
 ---
+
+
 ## Disclaimer
 This version is a draft only. Hotel Service 2.0 API is not final and is a subject to change.
 
@@ -32,7 +34,7 @@ Concur products are highly configurable, and not all clients will have access to
 ## API Implementation Process Overview
 The configuration process has the following steps:
 
-1.  Concur shares API specification (this guide), schema and all neccessary documentation with Hotel content partner.
+1.  Concur shares API specification (this guide), schema and all necessary documentation with Hotel content partner.
 2.	Concur and The Hotel Supplier agrees on scope and timeline of development to Concur API specification.
 3.	Concur provides range of IP addresses of sandbox endpoint for the Hotel Suppliers whitelist.
 4.	The Hotel Supplier creates testing endpoint on their system that Concur uses to access their inventory. The Hotel Supplier provides the URIs and credentials for their test system to Concur.
@@ -64,30 +66,34 @@ The Hotel Supplier needs to support secure communication of TLS 1.1 or newer. Th
 #### Concur IP ranges
 If Hotel Supplier is using IP whitelisting policy, Concur can provide list of it’s production and testing IP addresses to access Supplier’s systems from.
 
-#### Authentification
+#### Authentication
 Hotel supplier authenticates itself to Concur by public certificate in SSL communication.
-Concur authenticates itself for Hotel Suppiler using userID and password in each message SOAP header.
+Concur authenticates itself for Hotel Supplier using userID and password in each message SOAP header.
 
-`<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+```xml
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
 <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
- <authentication xmlns="http://www.concur.com/webservice/auth">
- <userid>testLogin123</userid>
- <password>xxxxxxxxxxxx</password>
-</authentication>
- </Header>`
+    <authentication xmlns="http://www.concur.com/webservice/auth">
+        <userid>testLogin123</userid>
+        <password>xxxxxxxxxxxx</password>
+    </authentication>
+</Header>
+```
 
 ### Authentication.xsd:
-`<?xml version="1.0" encoding="UTF-8"?>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.concur.com/webservice/auth" targetNamespace="http://www.concur.com/webservice/auth" elementFormDefault="qualified" version="1.0" id="TransactionControlHeader">
-	<xsd:element name="authentication">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="userid" type="xsd:string"/>
-				<xsd:element name="password" type="xsd:string"/>
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
-</xsd:schema>`
+    <xsd:element name="authentication">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="userid" type="xsd:string"/>
+                <xsd:element name="password" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+```
 
 ### URLs and headers
 Concur will receive a single URL from the Hotel Supplier. All requests will go to that URL.
@@ -177,30 +183,32 @@ OTA_HotelSearchRS
 |  HotelPreference |	N	| Hotel preference level set by Travel Administrator.|
 
 #### Example request
-`
+```xml
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-	<Header xmlns="http://schemas.xmlsoap.org/soap/envelope/"/>
-	<Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-		<OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="0953A951-AD9E-4B30-A0E0-E68747381627" Version="4" PrimaryLangID="EN" AltLangID="EN" MaxResponses="100">
-			<POS>
-				<Source>
-					<RequestorID Type="1" ID="408748011"/>
-				</Source>
-			</POS>
-			<Criteria>
-				<Criterion>
-					<Position Latitude="52.520007" Longitude="13.404954"/>
-					<RefPoint/>
-					<Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"/>
-					<StayDateRange Start="2017-04-30" End="2017-05-01"/>
-				</Criterion>
-			</Criteria>
-		</OTA_HotelSearchRQ>
-	</Body>
+    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/"/>
+    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="0953A951-AD9E-4B30-A0E0-E68747381627" Version="4" PrimaryLangID="EN" AltLangID="EN" MaxResponses="100">
+            <POS>
+                <Source>
+                    <RequestorID Type="1" ID="408748011"/>
+                </Source>
+            </POS>
+            <Criteria>
+                <Criterion>
+                    <Position Latitude="52.520007" Longitude="13.404954"/>
+                    <RefPoint/>
+                    <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"/>
+                    <StayDateRange Start="2017-04-30" End="2017-05-01"/>
+                </Criterion>
+            </Criteria>
+        </OTA_HotelSearchRQ>
+    </Body>
 </Envelope>
-`
+```
+
 #### Example response
-`
+
+```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
 	<SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
 	<soap:Body>
@@ -242,66 +250,74 @@ OTA_HotelSearchRS
 				</Properties>
 		</OTA_HotelSearchRS>
 	</soap:Body>
-</soap:Envelope>`
+</soap:Envelope>
+```
 
 #### Use case scenario:
 
 1.  User searches for hotel by location: Airport, city, exact address or company
     location. Concur will always send Geocode for location.
 
-`<Position Latitude="50.867000" Longitude="7.150000"></Position>`
+    ```xml
+    <Position Latitude="50.867000" Longitude="7.150000"></Position>
+    ```
 
 2.  List of 100 hotels within search radius is displayed in that location, with
     hotels names, thumbnail pictures, address, star rating.
 
-![media](/api-reference/direct-connects/hotel2/HotelSearch1.png)
+    ![media](/api-reference/direct-connects/hotel2/HotelSearch1.png)
 
-  Thumbnail hotel image should be 70x70 pixels to prevent image artifacts by
-  scaling.
+    Thumbnail hotel image should be 70x70 pixels to prevent image artifacts by
+    scaling.
 
 3.  User searches for specific hotel in location by entering hotel name.
 
- ![media](/api-reference/direct-connects/hotel2//media/image2.png)
+    ![media](/api-reference/direct-connects/hotel2/HotelSearch3.png)
 
-   **Important Note:** please note that only Left-side filter invokes new
-   request to the Hotel Supplier. Top-side filter is performing filtering of
-   already displayed results.
+    **Important Note:** please note that only Left-side filter invokes new
+    request to the Hotel Supplier. Top-side filter is performing filtering of
+    already displayed results.
 
- ![media](/api-reference/direct-connects/hotel2/HotelSearch2.png)
+    ![media](/api-reference/direct-connects/hotel2/HotelSearch2.png)
 
-   Specific hotel is displayed. 
+    Specific hotel is displayed. 
 
-   Hotel Search RQ contains hotel name as:
+    Hotel Search RQ contains hotel name as:
 
-`
-<Criterion>
- <Position Latitude="52.520007" Longitude="13.404954"></Position>
- <HotelRef HotelName="novotel"></HotelRef>
- <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>
- <StayDateRange Start="2017-04-19" End="2017-04-20"></StayDateRange>
-</Criterion>`
+    ```xml
+    <Criterion>
+    <Position Latitude="52.520007" Longitude="13.404954"></Position>
+    <HotelRef HotelName="novotel"></HotelRef>
+    <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>
+    <StayDateRange Start="2017-04-19" End="2017-04-20"></StayDateRange>
+    </Criterion>
+    ```
 
-Hotel Supplier only returns hotels with name matching search criteria defined by user.
+    Hotel Supplier only returns hotels with name matching search criteria defined by user.
 
 
 4.  User's company has some hotels set up as Preferred at the Hotel Supplier.
     User’s company has setup in Travel Config a search radius of 30 km.
 
-![media](/api-reference/direct-connects/hotel2/HotelSearch3.png)
+    ![media](/api-reference/direct-connects/hotel2/HotelSearch3.png)
 
-   User searches for hotels in 5 km radius.
+    User searches for hotels in 5 km radius.
 
-   SearchRQ message has two radiuses:
+    SearchRQ message has two radiuses:
 
-`<Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>`
+    ```xml
+    <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>
+    ```
 
-   Out of 100 returned hotels in response from Hotel Supplier, first 10 hotels
-   are Most Preferred hotels from **30 km** radius. Next 10 hotels are
-   Preferred hotels from **30km** radius.
+    Out of 100 returned hotels in response from Hotel Supplier, first 10 hotels
+    are Most Preferred hotels from **30 km** radius. Next 10 hotels are
+    Preferred hotels from **30km** radius.
 
-`<HotelPreference>preferred</HotelPreference>`
+    ```xml
+    <HotelPreference>preferred</HotelPreference>
+    ```
 
-  Other 80 hotels are hotels with no preference from **5km** radius.
+    Other 80 hotels are hotels with no preference from **5km** radius.
 
 ### Hotel Descriptive Info
 
@@ -335,55 +351,63 @@ OTA_HotelDescriptiveInfoRS
 
 
 #### Example request
-`
+
+```xml
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-  <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/"></Header>
-  <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="30708715-C77F-43A1-8B17-242568D4708C" Version="3">
-    <HotelDescriptiveInfos>
-     <HotelDescriptiveInfo ChainCode="XX" HotelCode="464844"></HotelDescriptiveInfo>
-    </HotelDescriptiveInfos>
-   </OTA_HotelDescriptiveInfoRQ>
-  </Body>
- </Envelope>
-`
+    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/"></Header>
+    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="30708715-C77F-43A1-8B17-242568D4708C" Version="3">
+            <HotelDescriptiveInfos>
+            <HotelDescriptiveInfo ChainCode="XX" HotelCode="464844"></HotelDescriptiveInfo>
+            </HotelDescriptiveInfos>
+        </OTA_HotelDescriptiveInfoRQ>
+    </Body>
+</Envelope>
+```
 
 #### Example response
-`
+
+```xml
 <OTA_HotelDescriptiveInfoRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth">
-<Success/>
-<HotelDescriptiveContents>
-<HotelDescriptiveContent ChainCode="XX" HotelCode="464844" HotelName="H2 Alexanderplatz">
-<HotelInfo><Descriptions><DescriptiveText> The H2 Hotel Berlin Alexanderplatz offers design, functionality and comfort. The H2 Hotel Berlin Alexanderplatz boasts a clear price structure and a design-oriented and modern ambience. </DescriptiveText>
-</Descriptions>
-</HotelInfo>
-<MultimediaDescriptions>
-<MultimediaDescription>
-<ImageItems>
-<ImageItem><ImageFormat><URL>https://iut-foto-origin.hrsstatic.com/foto/4/6/4/8/464844/464844_a_2448684.jpg</URL></ImageFormat></ImageItem>
-</ImageItems>
-</MultimediaDescription>
-</MultimediaDescriptions>
-</HotelDescriptiveContent>
-</HotelDescriptiveContents>
+    <Success/>
+    <HotelDescriptiveContents>
+        <HotelDescriptiveContent ChainCode="XX" HotelCode="464844" HotelName="H2 Alexanderplatz">
+            <HotelInfo>
+                <Descriptions>
+                    <DescriptiveText> The H2 Hotel Berlin Alexanderplatz offers design, functionality and comfort. The H2 Hotel Berlin Alexanderplatz boasts a clear price structure and a design-oriented and modern ambience. </DescriptiveText>
+                </Descriptions>
+            </HotelInfo>
+            <MultimediaDescriptions>
+                <MultimediaDescription>
+                    <ImageItems>
+                        <ImageItem>
+                            <ImageFormat>
+                                <URL>https://iut-foto-origin.hrsstatic.com/foto/4/6/4/8/464844/464844_a_2448684.jpg</URL>
+                            </ImageFormat>
+                        </ImageItem>
+                    </ImageItems>
+                </MultimediaDescription>
+            </MultimediaDescriptions>
+        </HotelDescriptiveContent>
+    </HotelDescriptiveContents>
 </OTA_HotelDescriptiveInfoRS>
-`
+```
 
 #### Use case scenario:
 
 1.  User searches for hotels.
 
-   OTA\_DescriptiveInfoRQ.xml, OTA\_ DescriptiveInfoRS.xml
+    OTA\_DescriptiveInfoRQ.xml, OTA\_ DescriptiveInfoRS.xml
 
-  On any hotel, user clicks "Hotel Details" button.
+    On any hotel, user clicks "Hotel Details" button.
 
-   A pop-up with textual hotel description is shown.
+    A pop-up with textual hotel description is shown.
 
-   ![media](HotelDescriptiveInfo1.png)
+    ![media](/api-reference/direct-connects/hotel2/OTA_DescriptiveInfo1.png)
 
 2.  User clicks on hotel photo thumbnail. Gallery of hotel photos is displayed.
 
-![media](/api-reference/direct-connects/hotel2/HotelDescriptiveInfo2.png)
+    ![media](/api-reference/direct-connects/hotel2/OTA_DescriptiveInfo2.png)
 
 ### Hotel Availability
 
@@ -393,7 +417,7 @@ Displays detailed information about rooms available in a given hotel.
 
 >   **OTA name:** HotelAvail
 
-####Message structure
+#### Message structure
 
 ![media](/api-reference/direct-connects/hotel2/OTA_HotelAvailRQ.png)
 
@@ -429,7 +453,8 @@ OTA_HotelAvailRS
 |  TimeSpan |	Y	| Range of dates, or fixed set of dates for Reservation Request.|
 
 #### Example request
-`
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us"
 				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
@@ -461,9 +486,10 @@ OTA_HotelAvailRS
 		</AvailRequestSegment>
 	</AvailRequestSegments>
 </OTA_HotelAvailRQ>
-`
+```
+
 #### Example response
-`
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00"
 				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
@@ -581,7 +607,7 @@ OTA_HotelAvailRS
 		</RoomStay>
 	<RoomStays>
 </OTA_HotelAvailRS>
-`
+```
 
 #### Use case scenario:
 
@@ -603,132 +629,136 @@ OTA\_AvailRS.xml for more clarity.
     “Show Rates” button. After click on “View Rooms” hotel UI box expands
     showing room-rates from one or multiple suppliers.
 
-#### Example request:
+    #### Example request:
 
-`
-<HotelSearchCriteria>
- <Criterion>
-	<HotelRef HotelCode="HTL1111"/>
-</Criterion>
-<Criterion>
-	<HotelRef HotelCode=" HTL2222"/>
-</Criterion>
-`
+    ```xml
+    <HotelSearchCriteria>
+        <Criterion>
+            <HotelRef HotelCode="HTL1111"/>
+        </Criterion>
+        <Criterion>
+            <HotelRef HotelCode=" HTL2222"/>
+        </Criterion>
+    ```
 
-#### Example response:
-`
-<RoomStays>
-	<RoomStay>
-		<RoomTypes>
-			<RoomType RoomID="666">
-				<RoomDescription>Standard room, king bed</RoomDescription>
-			</RoomType>
-			<RoomType RoomID="999">
-				<RoomDescription>Exclusive room</RoomDescription>
-			</RoomType>
-		</RoomTypes>
-		<RatePlans>
-			<RatePlan RatePlanID="111111" />
-			<RatePlan RatePlanID="999999" />
-		</RatePlans>
-		<RoomRates>
-			<RoomRate>
-				<Rates>
-					<Rate RoomID="666" RatePlanID="111111" >
-						<Total AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
-						<RateDescription>
-							<Text>CORPORATE RATE*Free Wi-Fi</Text>
-						</RateDescription>
-						<TPA_Extensions>
-							<RequireSeriesCode>true</RequireSeriesCode>
-						</TPA_Extensions>
-					</Rate>
-				</Rates>
-			</RoomRate>
-			<RoomRate>
-				<Rates>
-					<Rate RoomID="999" RatePlanID="999999" >
-						<Total AmountBeforeTax="200.00" AmountAfterTax="220.00" CurrencyCode="USD" />
-						<RateDescription>
-							<Text>CORPORATE RATE*Free Wi-Fi</Text>
-						</RateDescription>
-						<TPA_Extensions>
-							<RequireSeriesCode>true</RequireSeriesCode>
-						</TPA_Extensions>
-					</Rate>
-				</Rates>
-			</RoomRate>
-		</RoomRates>
-		<TimeSpan Start="2012-08-15" End="2010-08-17" />
-		<BasicPropertyInfo HotelCode="HTL1111" />
-	</RoomStay>
-	<RoomStay>
-		<RoomTypes>
-			<RoomType RoomID="888">
-				<RoomDescription>Double room, twin bed</RoomDescription>
-			</RoomType>			
-		</RoomTypes>
-		<RatePlans>
-			<RatePlan RatePlanID="222222" />
-		</RatePlans>
-		<RoomRates>
-			<RoomRate>
-				<Rates>
-					<Rate RoomID="888" RatePlanID="222222" >
-						<Total AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
-						<RateDescription>
-							<Text>CORPORATE RATE*Free Wi-Fi</Text>
-						</RateDescription>						
-					</Rate>
-				</Rates>
-			</RoomRate>
-		</RoomRates>
-		<TimeSpan Start="2012-08-15" End="2010-08-17" />
-		<BasicPropertyInfo HotelCode="HTL2222" />
-	</RoomStay>
-`
+    #### Example response:
+    ```xml
+    <RoomStays>
+      <RoomStay>
+        <RoomTypes>
+          <RoomType RoomID="666">
+            <RoomDescription>Standard room, king bed</RoomDescription>
+          </RoomType>
+          <RoomType RoomID="999">
+            <RoomDescription>Exclusive room</RoomDescription>
+          </RoomType>
+        </RoomTypes>
+        <RatePlans>
+          <RatePlan RatePlanID="111111" />
+          <RatePlan RatePlanID="999999" />
+        </RatePlans>
+        <RoomRates>
+          <RoomRate>
+            <Rates>
+              <Rate RoomID="666" RatePlanID="111111" >
+                <Total AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
+                <RateDescription>
+                  <Text>CORPORATE RATE*Free Wi-Fi</Text>
+                </RateDescription>
+                <TPA_Extensions>
+                  <RequireSeriesCode>true</RequireSeriesCode>
+                </TPA_Extensions>
+              </Rate>
+            </Rates>
+          </RoomRate>
+          <RoomRate>
+            <Rates>
+              <Rate RoomID="999" RatePlanID="999999" >
+                <Total AmountBeforeTax="200.00" AmountAfterTax="220.00" CurrencyCode="USD" />
+                <RateDescription>
+                  <Text>CORPORATE RATE*Free Wi-Fi</Text>
+                </RateDescription>
+                <TPA_Extensions>
+                  <RequireSeriesCode>true</RequireSeriesCode>
+                </TPA_Extensions>
+              </Rate>
+            </Rates>
+          </RoomRate>
+        </RoomRates>
+        <TimeSpan Start="2012-08-15" End="2010-08-17" />
+        <BasicPropertyInfo HotelCode="HTL1111" />
+      </RoomStay>
+      <RoomStay>
+        <RoomTypes>
+          <RoomType RoomID="888">
+            <RoomDescription>Double room, twin bed</RoomDescription>
+          </RoomType>			
+        </RoomTypes>
+        <RatePlans>
+          <RatePlan RatePlanID="222222" />
+        </RatePlans>
+        <RoomRates>
+          <RoomRate>
+            <Rates>
+              <Rate RoomID="888" RatePlanID="222222" >
+                <Total AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
+                <RateDescription>
+                  <Text>CORPORATE RATE*Free Wi-Fi</Text>
+                </RateDescription>						
+              </Rate>
+            </Rates>
+          </RoomRate>
+        </RoomRates>
+        <TimeSpan Start="2012-08-15" End="2010-08-17" />
+        <BasicPropertyInfo HotelCode="HTL2222" />
+      </RoomStay>
+    ```
 
 2.  After user clicks on Get Rates button for not priced hotels, Avail RQ
     message will be sent for that hotel.
 
-   `<HotelRef HotelCode="101">`
+    ```xml
+    <HotelRef HotelCode="101">
+    ```
 
 3.  The user is requiring stay for multiple nights from **2012-08-15 to
     2010-08-17.** The Hotel Supplier should return total price per stay. Concur
     will divide Total price by number of nights to display nightly price on
     Hotel Search results page.
-`
-	<RoomRates>
-			<RoomRate>
-				<Rates>
-					<Rate RoomID="888" RatePlanID="222222" >
-				**		<Total AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />**
-						<RateDescription>
-							<Text>CORPORATE RATE*Free Wi-Fi</Text>
-						</RateDescription>						
-					</Rate>
-				</Rates>
-			</RoomRate>
-		**	<StayDateRange Start="2012-08-15" End="2010-08-17" />**
-		</RoomRates>
-`
+
+    ```xml
+    <RoomRates>
+        <RoomRate>
+            <Rates>
+                <Rate RoomID="888" RatePlanID="222222" >
+                    <Total AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
+                    <RateDescription>
+                        <Text>CORPORATE RATE*Free Wi-Fi</Text>
+                    </RateDescription>						
+                </Rate>
+            </Rates>
+        </RoomRate>
+        <StayDateRange Start="2012-08-15" End="2010-08-17" />
+    </RoomRates>
+    ```
+
 4.  If hotel is sold out, the Hotel supplier should return in AvailRS:
 
-`<RatePlan AvailabilityStatus="ClosedOut">`
+    ```xml
+    <RatePlan AvailabilityStatus="ClosedOut">
+    ```
 
 5.  Next to rate description is supplier logo, policy mark (green, red, yellow,
     gray) and button with price in user's currency. If rate needs deposit,
     "deposit required" label is shown.
 
-
-
-6.  User clicks on Rules and Cancelation policy. Popup with cancelation policy
-    text appears. Cancelation policy is take from Cancel Penalty nodes.
+6.  User clicks on Rules and Cancellation policy. Popup with cancellation policy
+    text appears. Cancellation policy is take from Cancel Penalty nodes.
 
 7.  User clicks on button with room-rate price. Trip Review page is displayed
-    with rate details (average, summary and total) and cancelation policy.
+    with rate details (average, summary and total) and cancellation policy.
 
-![media](/api-reference/direct-connects/hotel2/HotelAvail1.png)
+    ![media](/api-reference/direct-connects/hotel2/HotelAvail1.png)
 
 ### Hotel Reservation
 
@@ -776,7 +806,8 @@ OTA_HotelResRS
 |  UniqueID |	Y	|  A reference to identify the booking.|
 
 #### Example request
-`
+
+```xml
 <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05">
   <POS>
     <Source ISOCurrency="USD">
@@ -815,98 +846,98 @@ OTA_HotelResRS
     </HotelReservation>
   </HotelReservations>
 </OTA_HotelResRQ>
-`
+```
 
 #### Example response
-`
+```xml
 <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" ResResponseType="Reserved">
-			<Success/>
-			<HotelReservations>
-				<HotelReservation>
-					<UniqueID ID="94514652"/>
-					<RoomStays>
-						<RoomStay>
-							<RatePlans>
-								<RatePlan RatePlanID="CMY7SR3">
-									<CancelPenalties CancelPolicyIndicator="true">
-										<CancelPenalty>
-											<Deadline AbsoluteDeadline="2017-04-30T22:00"/>
-											<PenaltyDescription>
-												<Text>REFUNDABLE</Text>
-											</PenaltyDescription>
-											<PenaltyDescription>
-												<Text>CANCEL BY 2016-11-16T22:00</Text>
-											</PenaltyDescription>
-										</CancelPenalty>
-									</CancelPenalties>
-								</RatePlan>
-							</RatePlans>
-							<RoomRates>
-								<RoomRate>
-									<Rates>
-										<Rate RoomPricingType="Per stay">
-											<Total AmountAfterTax="89.10" AmountBeforeTax="89.10" CurrencyCode="EUR"/>
-										</Rate>
-									</Rates>
-								</RoomRate>
-							</RoomRates>
-							<TimeSpan Start="2016-11-17" End="2016-11-18" />
-							<BasicPropertyInfo HotelCode="437004" HotelName="monbijou">
-								<Address>
-									<AddressLine>Monbijouplatz 1 </AddressLine>
-									<CityName>Berlin</CityName>
-									<CountryName Code="DEU">Federal Republic of Germany</CountryName>
-								</Address>
-								<ContactNumbers>
-									<ContactNumber PhoneNumber="+1555666444"/>
-								</ContactNumbers>
-							</BasicPropertyInfo>
-						</RoomStay>
-					</RoomStays>
-					<ResGuests>
-						<ResGuest>
-							<Profiles>
-								<ProfileInfo>
-									<Profile>
-										<Customer>
-											<PersonName>
-												<GivenName>FIRSTNAME</GivenName>
-												<Surname>TESTUSERRULES</Surname>
-											</PersonName>
-										</Customer>
-									</Profile>
-								</ProfileInfo>
-							</Profiles>
-						</ResGuest>
-					</ResGuests>
-				</HotelReservation>
-			</HotelReservations>
-		</OTA_HotelResRS>
-`		
+  <Success/>
+  <HotelReservations>
+    <HotelReservation>
+      <UniqueID ID="94514652"/>
+      <RoomStays>
+        <RoomStay>
+          <RatePlans>
+            <RatePlan RatePlanID="CMY7SR3">
+              <CancelPenalties CancelPolicyIndicator="true">
+                <CancelPenalty>
+                  <Deadline AbsoluteDeadline="2017-04-30T22:00"/>
+                  <PenaltyDescription>
+                    <Text>REFUNDABLE</Text>
+                  </PenaltyDescription>
+                  <PenaltyDescription>
+                    <Text>CANCEL BY 2016-11-16T22:00</Text>
+                  </PenaltyDescription>
+                </CancelPenalty>
+              </CancelPenalties>
+            </RatePlan>
+          </RatePlans>
+          <RoomRates>
+            <RoomRate>
+              <Rates>
+                <Rate RoomPricingType="Per stay">
+                  <Total AmountAfterTax="89.10" AmountBeforeTax="89.10" CurrencyCode="EUR"/>
+                </Rate>
+              </Rates>
+            </RoomRate>
+          </RoomRates>
+          <TimeSpan Start="2016-11-17" End="2016-11-18" />
+          <BasicPropertyInfo HotelCode="437004" HotelName="monbijou">
+            <Address>
+              <AddressLine>Monbijouplatz 1 </AddressLine>
+              <CityName>Berlin</CityName>
+              <CountryName Code="DEU">Federal Republic of Germany</CountryName>
+            </Address>
+            <ContactNumbers>
+              <ContactNumber PhoneNumber="+1555666444"/>
+            </ContactNumbers>
+          </BasicPropertyInfo>
+        </RoomStay>
+      </RoomStays>
+      <ResGuests>
+        <ResGuest>
+          <Profiles>
+            <ProfileInfo>
+              <Profile>
+                <Customer>
+                  <PersonName>
+                    <GivenName>FIRSTNAME</GivenName>
+                    <Surname>TESTUSERRULES</Surname>
+                  </PersonName>
+                </Customer>
+              </Profile>
+            </ProfileInfo>
+          </Profiles>
+        </ResGuest>
+      </ResGuests>
+    </HotelReservation>
+  </HotelReservations>
+</OTA_HotelResRS>
+```
 
 #### Use case scenario:
 
 1.  User clicks on in-policy (green) button with price. Trip confirmation page
     is shown. Hotel name, rate details, price per night(s), total price, and
-    cancelation policy is shown.
+    cancellation policy is shown.
 
-2.  User selects his credit card, agrees with Cancelation policy and clicks Next
+2.  User selects his credit card, agrees with Cancellation policy and clicks Next
     button. 
 
 3.  User picks credit card from Form of payment drop-down. Credit card details
     are sent **Guarantee/GuaranteeAccepted/PaymentCard.** Reservation message is
     sent. Once Reservation RS is returned by Hotel Supplier, trip is reserved.
 
-![media](/api-reference/direct-connects/hotel2/HotelRes1.jpg)
+    ![media](/api-reference/direct-connects/hotel2/HotelRes1.jpg)
 
-![media](/api-reference/direct-connects/hotel2/HotelRes2.jpg)
+    ![media](/api-reference/direct-connects/hotel2/HotelRes2.jpg)
 
 
 ### Read
 
 Returns detailed information about a hotel reservation.
 
-####Message structure
+#### Message structure
 
 ![media](/api-reference/direct-connects/hotel2/OTA_ReadRQ.png)
 
@@ -917,12 +948,13 @@ OTA_ReadRQ
 |  RequestorID |	N	| The corporate identifier|
 |  UniqueID |	Y	|  A reference to identify the booking.|
 
-####Example request
-`
+#### Example request
+
+```xml
 <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="DF59894F-BCCA-44CF-8B74-C0339C5DF036" Version="5.002">
-			<UniqueID ID="94514652"/>
-		</OTA_ReadRQ>
-`
+  <UniqueID ID="94514652"/>
+</OTA_ReadRQ>
+```
 
 Response is the same HotelResRS as for HotelResRQ.
 
@@ -932,7 +964,10 @@ Used in a process of booking a hotel to write information to Itinerary. Not
 invoked by user, but by automatic Concur process. Hotel Supplier should reply
 with HotelRes RS message in the same format, as for HotelResRQ. **UniqueID** from HotelResRS is used as reservation
 ID.
-`<UniqueID ID="88618333"></UniqueID> `
+
+```xml
+<UniqueID ID="88618333"></UniqueID>
+```
 
 In case the reservation has been cancelled, user''s Itinerary will be updated accordingly after user click on Trip details.
 
@@ -967,25 +1002,27 @@ OTA_CancelRS
 |  Element |	Required	|  Description |
 |----------|-------------- | -----------------------|
 |  UniqueID |	Y	|  A reference to identify the booking  reference.|
-|  UniqueID |	Y	|  A reference to identify the cancelation reference.|
-|  Status |	Y |  If canlcelation is successful or not.|
+|  UniqueID |	Y	|  A reference to identify the cancellation reference.|
+|  Status |	Y |  If cancellation is successful or not.|
 
 #### Example request
-`
-   <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05">
-      <POS></POS>
-      <UniqueID Type="14" ID="88618333"></UniqueID>
-    </OTA_CancelRQ>
- `
+
+```xml
+<OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05">
+    <POS></POS>
+    <UniqueID Type="14" ID="88618333"></UniqueID>
+</OTA_CancelRQ>
+```
 
 #### Example response
-  `
-  <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Status="Cancelled">
-      <Success/>
-      <UniqueID ID="88618333" Type="14"/>
-      <UniqueID ID="27607" Type="15"/>
-    </OTA_CancelRS>
-`
+
+```xml
+<OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Status="Cancelled">
+    <Success/>
+    <UniqueID ID="88618333" Type="14"/>
+    <UniqueID ID="27607" Type="15"/>
+</OTA_CancelRS>
+```
 
 
 #### Use case scenario:
@@ -993,19 +1030,19 @@ OTA_CancelRS
 1.  User cancels his trip by hitting on Cancel button on Itinerary. Cancel RQ is
     sent by Concur.
 
--   **UniqueID** identifies the reservation to cancel.
-
-    **Cancel response** should have two **UniqueIDs.** One for reservation
-    itself, one Cancelation Confirmation number for further dispute usage
+    - **UniqueID** identifies the reservation to cancel.
+    - **Cancel response** should have two **UniqueIDs.** One for reservation
+    itself, one Cancellation Confirmation number for further dispute usage
     between user and hotel/reservation system:
 
-    `
-	<UniqueID ID="88618333" Type="14"/>
-    <UniqueID ID="27607" Type="15"/>`
+      ```xml
+      <UniqueID ID="88618333" Type="14"/>
+      <UniqueID ID="27607" Type="15"/>
+      ```
 
 
-2.  Company has workflow setup to perform automatic cancelation. Exactly same
-    Cancel RQ is sent by Concur, as in case of cancelation by user.
+2.  Company has workflow setup to perform automatic cancellation. Exactly same
+    Cancel RQ is sent by Concur, as in case of cancellation by user.
 
 
 Errors and Warnings
@@ -1014,25 +1051,16 @@ Errors and Warnings
 The Hotel Supplier should use OTA Error codes (link) to send information about Error
 and Warring in corresponding nodes of each message.
 
-`
+```xml
 <Errors>
-				<Error  Type=”13” Code="322" ShortText="No availability"/>
-			</Errors>
-`
+    <Error Type=”13” Code="322" ShortText="No availability"/>
+</Errors>
+```
 
 Other files
 -----------------
-Authentification schema
 
-![media](/api-reference/direct-connects/hotel2/Authentication.xsd)
-
-Concur version of the OTA schema
-
-![media](/api-reference/direct-connects/hotel2/HotelService2-brief.xsd)
-
-stylesheet to open and navigate schema in web browser (make sure both are stored in one folder)
-![media](/api-reference/direct-connects/hotel2/xs3p_better_doc.xsl)
-
-OTA codelist
-
-![media](/api-reference/direct-connects/hotel2/OpenTravel_CodeList_2015_07_15.xlsm)
+* [Authentication schema](/api-reference/direct-connects/hotel2/Authentication.xsd)
+* [Concur version of the OTA schema](/api-reference/direct-connects/hotel2/HotelService2-brief.xsd)
+* [Stylesheet to open and navigate schema in web browser (make sure both are stored in one folder)](/api-reference/direct-connects/hotel2/xs3p_better_doc.xsl)
+* [OTA codelist](/api-reference/direct-connects/hotel2/OpenTravel_CodeList_2015_07_15.xlsm)
