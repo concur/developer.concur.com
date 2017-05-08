@@ -19,6 +19,7 @@ layout: reference
     - [GET Receipts by User ID](#endpoint-get-receipts-by-userid)
     - [GET Receipts by Receipt ID](#endpoint-get-a-receipt-by-id)
     - [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image)
+    - [GET Receipt Status by Receipt ID](#endpoint-get-receipt-status)
   - [Explore the API in JavaScript](#explore-the-api-in-javascript)
 
 ### Version
@@ -64,6 +65,7 @@ Once you have registered your application, read about the [API endpoints](#endpo
 |[GET /v4/users/:userId](#endpoint-get-receipts-by-userid)|JSON|Get a user's receipts|
 |[GET /v4/:receiptId](#endpoint-get-a-receipt-by-id)|JSON|Get a receipt by ID|
 |[GET /v4/:receiptId/image](#endpoint-get-receipt-image)|image file|Get a receipt image.|
+|[GET /v4/status/:receiptId](#endpoint-get-receipt-status)|JSON|Get the status of a receipt|
 
 ##### Retrieve a User Access Token:
 
@@ -290,7 +292,7 @@ _Example Response:_
 
 Creating a receipt requires JSON data about the transaction and, optionally, an image of the receipt. If an image is not supplied with the request, Concur will automatically generate a receipt image based on the data provided. [JSON schemas](https://developer.concur.com/api-reference/receipts/get-started.html#endpoint-schemas) are used to validate the format of receipt data received in POST requests.
 
-Successful POST requests will receive a response of 201 Created. The `Location` header of the response contains a URL for your receipt. Once the receipt has been processed, it can be retrieved at this URL.
+Successful POST requests will receive a response of 201 Created. The `Location` header of the response contains a URL for your receipt. Once the receipt has been processed, it can be retrieved at this URL. The `Link` header of the response contains a processing-status URL for your receipt. More information can be found [here](#endpoint-get-receipt-status).
 
 If you are not providing an image with your receipt data, the body of the request should be your receipt JSON:
 
@@ -333,7 +335,7 @@ _Example Response:_
 
 ```http
 HTTP/1.1 201 Created
-Link: <http://schema.concursolutions.com/car-rental-receipt.schema.json>; rel="describedBy"
+Link: <http://schema.concursolutions.com/car-rental-receipt.schema.json>; rel="describedBy", <https://us.api.concursolutions.com/receipts/v4/status/b0a4ab2bce8a49a08cf177cb997bf2ee>; rel="processing-status"
 Location: https://us.api.concursolutions.com/receipts/v4/b0a4ab2bce8a49a08cf177cb997bf2ee
 Content-Length: 0
 Connection: keep-alive
@@ -468,6 +470,82 @@ HTTPie:
 ```shell
 http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authorization: Bearer {YOUR ACCESS TOKEN}"
 ```
+
+[Back to Top](#endpoints)
+
+##### Endpoint: Get Receipt Status
+
+###### GET /v4/status/:receiptId
+
+|Parameter|Requirement|Value|
+|---|---|---|
+|receiptId|required|The UUID of the receipt associated with the image.|
+
+This endpoint may be used to see the current processing status of a receipt.
+
+When a successful POST request is made is made the ```Link``` header of the response contains a 'processing-status' URL. This processing-status URL will be available for two weeks after the initial POST and will provide information regarding the processing status of your receipt.
+
+There are four possible top level statuses: `ACCEPTED`, `FAILED`, `PROCESSING`, and `PROCESSED`.
+
+In additional to a high level status, information will be provided in an array of event logs. Events that may be included in the logs will be typed as `INFO`, `DEBUG`, `WARNING`, or `ERROR`.
+
+Example event messages:
+
+|Type|Message|
+|---|---|
+|INFO| Receipt accepted. Queued for processing. |
+|INFO| Initiated receipt processing. (event for each attempt) |
+|ERROR| Error from User Profile service. Queued for reprocessing. |
+|ERROR| Error from Imaging service. Queued for reprocessing. |
+|ERROR| Error during image generation or retrieval. Queued for reprocessing. |
+|INFO| Receipt image generated. |
+|ERROR| Processing failed. |
+|INFO| Processing finished. |
+
+_Example Requests:_
+
+cURL:
+
+```shell
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/v4/status/{RECEIPT ID}
+```
+
+HTTPie:
+
+```shell
+http https://us.api.concursolutions.com/receipts/v4/status/{RECEIPT ID} "Authorization: Bearer {YOUR ACCESS TOKEN}"
+```
+
+_Example Response:_
+
+```json
+{
+  "status": "PROCESSED",
+  "logs": [
+    {
+      "logLevel": "INFO",
+      "message": "Receipt accepted. Queued for processing.",
+      "timestamp": "Mon, 08 May 2017 23:05:52 GMT"
+    },
+    {
+      "logLevel": "INFO",
+      "message": "Initiated receipt processing.",
+      "timestamp": "Mon, 08 May 2017 23:05:52 GMT"
+    },
+    {
+      "logLevel": "INFO",
+      "message": "Receipt image generated.",
+      "timestamp": "Mon, 08 May 2017 23:05:53 GMT"
+    },
+    {
+      "logLevel": "INFO",
+      "message": "Processing finished.",
+      "timestamp": "Mon, 08 May 2017 23:05:54 GMT"
+    }
+  ]
+}
+```
+
 
 [Back to Top](#endpoints)
 
