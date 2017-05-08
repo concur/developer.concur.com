@@ -6,9 +6,6 @@ layout: reference
 
 # Migrating old tokens to new Oauth2 Bearer Tokens (JWT)
 
-### Special Note (Please Read First)
-**This documentation is presented for early preview purposes only as it is NOT final.** If you have any questions, please contact your Partner Enablement team representative before proceeding.
-
 * [Overview]()
 * [Exchanging a Token](#exchangetoken)
 * [Response Codes](#responsecodes)
