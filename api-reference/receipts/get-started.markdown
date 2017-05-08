@@ -492,9 +492,9 @@ In additional to a high level status, information will be provided in an array o
 Example event messages:
 
 |Type|Message|
-|---|---|---|
+|---|---|
 |INFO| Receipt accepted. Queued for processing. |
-|INFO| Initiated receipt processing. (event for each attempt)|
+|INFO| Initiated receipt processing. (event for each attempt) |
 |ERROR| Error from User Profile service. Queued for reprocessing. |
 |ERROR| Error from Imaging service. Queued for reprocessing. |
 |ERROR| Error during image generation or retrieval. Queued for reprocessing. |
