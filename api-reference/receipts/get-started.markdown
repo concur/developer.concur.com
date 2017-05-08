@@ -485,21 +485,22 @@ This endpoint may be used to see the current processing status of a receipt.
 
 When a successful POST request is made is made the ```Link``` header of the response contains a 'processing-status' URL. This processing-status URL will be available for two weeks after the initial POST and will provide information regarding the processing status of your receipt.
 
-There are four possible top level statuses: ```ACCEPTED```, ```FAILED```, ```PROCESSING```, and ```PROCESSED```.
+There are four possible top level statuses: `ACCEPTED`, `FAILED`, `PROCESSING`, and `PROCESSED`.
 
-In additional to a high level status, information will be provided in an array of event logs. Events that may be included in the logs will be typed as ```INFO```, ```DEBUG```, ```WARNING```, or ```ERROR```.
+In additional to a high level status, information will be provided in an array of event logs. Events that may be included in the logs will be typed as `INFO`, `DEBUG`, `WARNING`, or `ERROR`.
 
 Example event messages:
 
 |Type|Message|
 |---|---|---|
-|INFO| Receipt is accepted and queued processing|
-|INFO| Initiating receipt processing (event for each attempt)|
-|ERROR| Error from User Profile service|
-|ERROR| Error from Imaging service|
-|ERROR| Error from image generation|
-|INFO| Receipt image is generated|
-|ERROR| Processing finished|
+|INFO| Receipt accepted. Queued for processing. |
+|INFO| Initiated receipt processing. (event for each attempt)|
+|ERROR| Error from User Profile service. Queued for reprocessing. |
+|ERROR| Error from Imaging service. Queued for reprocessing. |
+|ERROR| Error during image generation or retrieval. Queued for reprocessing. |
+|INFO| Receipt image generated. |
+|ERROR| Processing failed. |
+|INFO| Processing finished. |
 
 _Example Requests:_
 
@@ -522,39 +523,24 @@ _Example Response:_
   "status": "PROCESSED",
   "logs": [
     {
-      "type": "INFO",
-      "timestamp": "2016-10-31 08:10:00.000",
-      "message": "Receipt accepted. Queued for processing."
+      "logLevel": "INFO",
+      "message": "Receipt accepted. Queued for processing.",
+      "timestamp": "Mon, 08 May 2017 23:05:52 GMT"
     },
     {
-      "type": "ERROR",
-      "timestamp": "2016-10-31 08:11:00.000",
-      "message": "Error from User Profile service. Queued for reprocessing."
+      "logLevel": "INFO",
+      "message": "Initiated receipt processing.",
+      "timestamp": "Mon, 08 May 2017 23:05:52 GMT"
     },
     {
-      "type": "INFO",
-      "timestamp": "2016-10-31 08:12:00.000",
-      "message": "Receipt image generated."
+      "logLevel": "INFO",
+      "message": "Receipt image generated.",
+      "timestamp": "Mon, 08 May 2017 23:05:53 GMT"
     },
     {
-      "type": "ERROR",
-      "timestamp": "2016-10-31 08:12:30.000",
-      "message": "Error from Imaging service. Queued for reprocessing."
-    },
-    {
-      "type": "INFO",
-      "timestamp": "2016-10-31 08:15:00.000",
-      "message": "Receipt image generated."
-    },
-    {
-      "type": "INFO",
-      "timestamp": "2016-10-31 08:15:20.000",
-      "message": "Image posted to Imaging Service."
-    },
-    {
-      "type": "INFO",
-      "timestamp": "2016-10-31 08:15:45.000",
-      "message": "Processing finished."
+      "logLevel": "INFO",
+      "message": "Processing finished.",
+      "timestamp": "Mon, 08 May 2017 23:05:54 GMT"
     }
   ]
 }
