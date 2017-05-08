@@ -1,19 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<CertificationBadge /> renders "CERTIFIED" if certified 1`] = `
 <small
-  className="certification-badge certified">
+  className="label label-success pull-right"
+>
   <i
     aria-hidden="true"
-    className="fa fa-check-circle" />
-   CERTIFIED
+    className="fa fa-check-circle"
+  />
+  <span>
+     CERTIFIED
+  </span>
 </small>
 `;
 
 exports[`<CertificationBadge /> renders "NOT CERTIFIED" if not certified 1`] = `
 <small
-  className="certification-badge not-certified">
+  className="label label-warning pull-right"
+>
   <i
     aria-hidden="true"
-    className="fa fa-times-circle" />
-   NOT CERTIFIED
+    className="fa fa-exclamation-circle"
+  />
+  <span>
+     NOT CERTIFIED
+  </span>
 </small>
 `;

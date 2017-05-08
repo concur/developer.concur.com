@@ -6,7 +6,6 @@ import {
   InputField,
   TextareaField,
   CheckboxField,
-  SelectField,
   MultiselectField,
   RedirectUris,
   FieldHelp,
@@ -15,17 +14,17 @@ import {
 // All selectable grants and scopes
 import grants from '../../data/grants.json';
 import scopes from '../../data/scopes.json';
-import applicationTypes from '../../data/applicationTypes.json';
+import appTypes from '../../data/appTypes.json';
 
 const constraints = {
-  appName: {
+  name: {
     presence: { message: 'is required' },
     length: {
       minimum: 3,
       maximum: 99,
     },
   },
-  appDescription: {
+  description: {
     presence: { message: 'is required' },
     length: {
       minimum: 10,
@@ -56,44 +55,54 @@ const constraints = {
   },
 };
 
-const NewAppForm = ({ handleSubmit, reset }) => (
+const defaultGrants = [grants.find(grant => grant.value === 'refresh_token')];
+const defaultScopes = [scopes.find(scope => scope.value === 'openid')];
+const defaultUris = [''];
+
+const NewAppForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit}>
+    <p>&#42; required field</p>
     <fieldset>
       <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-8">
           <Field
             component={InputField}
             type="text"
-            name="appName"
+            name="name"
             label="App Name &#42;"
             placeholder="App Name"
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-8">
           <Field
             component={TextareaField}
-            name="appDescription"
+            name="description"
             label="App Description &#42;"
             placeholder="App Description"
           />
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-8">
           <Field
-            component={SelectField}
+            component={MultiselectField}
+            type="select-multiple"
             name="appType"
             label="App Type &#42;"
-            placeholder="App Type"
-            options={applicationTypes}
+            options={appTypes}
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-8">
           <FieldArray component={RedirectUris} name="redirectUris" />
+          <FieldHelp>
+            Valid redirect URIs that can be used for the Authorization Code grant type.
+            <a
+              href="https://tools.ietf.org/html/rfc6749#section-4.1"
+              target="_blank"
+              rel="noopener noreferrer"
+            > See RFC6749
+            </a>
+          </FieldHelp>
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-8">
           <Field
             component={MultiselectField}
             type="select-multiple"
@@ -111,7 +120,7 @@ const NewAppForm = ({ handleSubmit, reset }) => (
             </a>
           </FieldHelp>
         </section>
-        <section className="col-md-6">
+        <section className="col-md-8">
           <Field
             component={MultiselectField}
             type="select-multiple"
@@ -138,24 +147,23 @@ const NewAppForm = ({ handleSubmit, reset }) => (
           I Agree to the <a href="/Terms-of-Use.html" target="_blank" rel="noopener noreferrer">Terms of Use</a> and <a href="https://www.concur.com/en-us/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
         </Field>
       </section>
-      <p>&#42; required field</p>
     </fieldset>
     <footer>
-      <button type="submit" className="btn bright-blue pull-right">Submit</button>
-      <button type="button" className="btn grey pull-right" onClick={reset}>Reset</button>
+      <button type="submit" className="btn bright-blue">Submit</button>
     </footer>
   </form>
 );
 
 NewAppForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  reset: PropTypes.func.isRequired,
 };
 
 export default reduxForm({
   form: 'newApp',
   validate: formValidator(constraints),
   initialValues: {
-    redirectUris: [''],
+    redirectUris: defaultUris,
+    allowedGrants: defaultGrants,
+    allowedScopes: defaultScopes,
   },
 })(NewAppForm);

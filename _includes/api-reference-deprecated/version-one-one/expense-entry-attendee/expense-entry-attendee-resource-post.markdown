@@ -26,8 +26,8 @@ Attendees that are privately owned or part of shared lists that allow manual add
   | Parameter | Required/Optional | Description |
   |-----------|-----------|---------------------|
   | {reportId} | required | The unique identifier for the expense report. <br><br> **URI Source:** The `reportId` value is returned by the [Get List of Reports](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html) function, and as part of the `Report-Details-Url` element of the [Post Expense Report Header](/api-reference-deprecated/version-one-one/expense-report/expense-report-header-resource.html) function. |
-  | {entryId} | required | The unique identifier for the expense entry. <br><br> **URI Source:** The entryId value is returned in the `ReportKey` element of the [Get  Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) function. |
-  | {attendeeId} | optional | The unique identifier for the attendee. Only used in certain situations when updating an existing attendee. If the developer does not know the External ID for the Attendee, they should use this query parameter <br><br> **URI Source:** The attendeeId value is returned in the `AttendeeKey` element of the [Get Report Details](/api-reference-deprecated/version-two/expense-reports/expense-report-get.html) function, and as part of the `Attendee-Details-Url` value returned by this function. |
+  | {entryId} | required | The unique identifier for the expense entry. <br><br> **URI Source:** The entryId value is returned in the `ReportKey` element of the [Get  Report Details](/api-reference/expense/expense-report/expense-report-get.html) function. |
+  | {attendeeId} | optional | The unique identifier for the attendee. Only used in certain situations when updating an existing attendee. If the developer does not know the External ID for the Attendee, they should use this query parameter <br><br> **URI Source:** The attendeeId value is returned in the `AttendeeKey` element of the [Get Report Details](/api-reference/expense/expense-report/expense-report-get.html) function, and as part of the `Attendee-Details-Url` value returned by this function. |
 
 * **Headers**
 
@@ -89,7 +89,9 @@ Authorization: OAuth {access token}
 </Attendees>
 ```
 
+
 > XML Example Request to Create an Attendee Owned by the System
+
 This allows you to create attendees for Attendee Types that are configured as Shared Lists (centrally managed).
 
 ```xml

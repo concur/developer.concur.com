@@ -12,14 +12,12 @@ function appDetailsReducer(state = defaultState, action) {
   switch (action.type) {
     case APP_DETAILS_REQUEST:
       return {
-        ...state,
+        ...defaultState,
         isFetching: true,
-        error: '',
       };
     case APP_DETAILS_FAILURE:
       return {
-        ...state,
-        isFetching: false,
+        ...defaultState,
         error: action.message,
       };
     case APP_DETAILS_SUCCESS:

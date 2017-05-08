@@ -1,4 +1,4 @@
-<div class="hidden-print navbar-fixed-top">
+<div class="hidden-print">
   <nav class="navbar navbar-default hidden-print">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -21,14 +21,15 @@
           <li {% if page.url == '/why-concur.html' %} class="active" {% endif %}>
             <a href="{{ site.baseurl }}/why-concur.html">Why Concur</a>
           </li>
-          <li class="dropdown {% if page.url contains '/api-reference/' or page.url contains '/api-explorer/' %} active {% endif %}">
+          <li class="dropdown {% if page.url contains '/api-reference/' or page.url contains '/api-reference-deprecated' or page.url contains '/api-explorer/' %} active {% endif %}">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               API <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="{{ site.baseurl }}/api-reference/index.html">API Reference</a></li>
-              <li><a href="{{ site.baseurl }}/api-explorer/index.html">API Explorer</a></li>
-              <li><a href="{{ site.baseurl }}/api-guides/index.html">API Guides</a></li>
+              <li><a href="{{ site.baseurl }}/api-reference/">API Reference</a></li>
+              <li><a href="{{ site.baseurl }}/api-explorer/">API Explorer</a></li>
+              <li><a href="{{ site.baseurl }}/api-guides/">API Guides</a></li>
+              <li><a href="{{ site.baseurl }}/api-reference-deprecated/">API Reference (Deprecated)</a></li>
             </ul>
           </li>
           <li class="dropdown {% if page.url contains '/manage-apps/' %} active {% endif %}">

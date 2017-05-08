@@ -1,14 +1,18 @@
 import { connect } from 'react-redux';
 import NewAppPage from './NewAppPage';
-import { postNewApp } from '../../actions/newApp';
+import { postApp } from '../../actions/appChange';
+import { sharedHelpers } from '../../utils/actionHelpers';
 
 export function mapStateToProps(state) {
-  return state.newApp;
+  return state.appChange;
 }
 
 export function mapDispatchToProps(dispatch) {
   return {
-    handleSubmit: app => dispatch(postNewApp(app)),
+    handleSubmit: (app) => {
+      const composedApp = sharedHelpers.composeApp(app);
+      dispatch(postApp(composedApp));
+    },
   };
 }
 

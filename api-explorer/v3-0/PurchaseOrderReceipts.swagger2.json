@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Purchase Order Receipts",
-    "description": "",
+    "description": "Purchase order receipts are records that the purchase order was completed. This API provides methods to create a new purchase order receipt, view or update an existing purchase order receipt, or delete a purchase order receipt.",
     "version": "3.0"
   },
   "tags": [
@@ -263,6 +263,7 @@
           "description": "The URI of the next page of results, if any."
         },
         "TotalCount": {
+          "description": "Total number of receipts",
           "type": "integer",
           "format": "int32"
         }

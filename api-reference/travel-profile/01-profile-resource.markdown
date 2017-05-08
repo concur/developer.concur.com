@@ -143,6 +143,7 @@ The General parent element contains the following child elements.
 |  `AgencyNumber` | `string` | The TravelConfig’s Agency IATA Number. Format: varchar(255) | Cannot Update | | |
 |  `SearchID` | `string` | The user's Search ID. Format: varchar(64) | | | |
 |  `GDSProfileName` |  `string` |  The user's GDS profile name. Format: varchar(60) | | | Requires TMC Specific scope.|
+|  `SabreProfileId` |  `string` |  The user's Sabre Travel Profile Id. Format: varchar(60) | | | Requires TMC Specific scope.|
 
 * **NOTE**:  If MiddleName is provided, the NoMiddleName flag in TSAInfo section is set to false.
 
@@ -612,7 +613,9 @@ A list of advantage memberships associated to a user:
 | `OptionCode` |  `string` |  The option code. Format: Varchar(20) | | | |
 | `ProgramName` | `string` | The program name. Format: Varchar(20) | Cannot Update | | |
 
-* **NOTE**:  Multiple memberships for the same VendorType, VendorCode, ProgramCode, and CardNumber are identified and a warning is thrown.
+* **NOTES**:
+ * Multiple memberships for the same VendorType, VendorCode, ProgramCode, and CardNumber are identified and a warning is thrown.
+ * OriginStationCode and DestinationStationCode fields are deprecated and should no longer be used. Use OriginCode and DestinationCode instead.
 
 ***
 

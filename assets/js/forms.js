@@ -52,7 +52,7 @@ var DevcenterForms = (function($) {
           success: function() {
             ga('send', 'event', 'Form', 'Submit', 'Community Form');
             $("#concurCommunity").addClass('submited');
-            $('#form-success').removeClass('form-success-hidden');
+            $('#form-success').removeClass('hidden');
           },
           error: function() {
             ga('send', 'event', 'Form', 'Error', 'Community Form');
@@ -97,7 +97,7 @@ var DevcenterForms = (function($) {
           success: function() {
             ga('send', 'event', 'Form', 'Submit', 'Newsletter Request');
             $("#newsletterRequest").addClass('submited');
-            $('#form-success').removeClass('form-success-hidden');
+            $('#form-success').removeClass('hidden');
           },
           error: function() {
             ga('send', 'event', 'Form', 'Error', 'Newsletter Request');
@@ -141,7 +141,7 @@ var DevcenterForms = (function($) {
           success: function() {
             ga('send', 'event', 'Form', 'Submit', 'Sandbox Assistance');
             $("#sandboxAssistance").addClass('submited');
-            $('#form-success').removeClass('form-success-hidden');
+            $('#form-success').removeClass('hidden');
           },
           error: function() {
             ga('send', 'event', 'Form', 'Error', 'Sandbox Assistance');
@@ -188,7 +188,7 @@ var DevcenterForms = (function($) {
           success: function() {
             ga('send', 'event', 'Form', 'Submit', 'Contact Support');
             $("#contactSupport").addClass('submited');
-            $('#form-success').removeClass('form-success-hidden');
+            $('#form-success').removeClass('hidden');
           },
           error: function() {
             ga('send', 'event', 'Form', 'Error', 'Contact Support');
@@ -249,7 +249,7 @@ var DevcenterForms = (function($) {
           error: function(res) {
             ga('send', 'event', 'Form', 'Error', 'Sandbox Registration');
             $('#status-modal').modal('hide');
-            $('#form-error').removeClass('form-error-hidden');
+            $('#form-error').removeClass('hidden');
             $('#form-error > h3').append(res.responseText);
             if (res.statusText === 'error' && $('#form-error > h3').text() === '') {
               $('#form-error > h3').append('Login Timeout Error: Please proceed to <a href="https://www.concursolutions.com">www.concursolutions.com</a> and login with the credentials submitted below.');
@@ -258,7 +258,7 @@ var DevcenterForms = (function($) {
           success: function(data) {
             ga('send', 'event', 'Form', 'Submit', 'Sandbox Registration');
             $("#sandboxRegistration").addClass('submited');
-            $('#form-success').removeClass('form-success-hidden');
+            $('#form-success').removeClass('hidden');
 
             var verifyLoginPage = 'https://www.concursolutions.com/verify_login.asp?breeze=y';
             // create a new hidden form

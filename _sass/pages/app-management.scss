@@ -1,35 +1,22 @@
 .app-management {
-  .certification-badge {
-    &.certified {
-      color: $dark-green;
-    }
+  form .col-md-12,
+  form .col-md-8,
+  form .col-md-6 {
+    margin-bottom: 15px;
+  }
 
-    &.not-certified {
-      color: $orange;
-    }
+  form .form-group {
+    margin-bottom: 5px;
   }
 
   .has-error .Select-control {
     border-color: #a94442;
   }
 
-  .redirect-uris {
-    .fa-plus-circle,
-    .fa-minus-circle {
-      color: white;
-    }
-
-    .input-group-addon {
-      cursor: pointer;
-    }
-
-    .uri-add {
-      background-color: $dark-green;
-    }
-
-    .uri-delete {
-      background-color: $red;
-    }
+  .uri-delete {
+    background-color: $red;
+    color: white;
+    cursor: pointer;
   }
 }
 

@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "List Items",
-    "description": "",
+    "description": "The List Item API provides an automated solution to clients who would like to manage list items. This API provides methods to view, add, update or delete list items owned by the specified lists.",
     "version": "3.0"
   },
   "tags": [

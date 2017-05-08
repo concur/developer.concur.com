@@ -1,36 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<LoginPage /> should render with <LoginForm /> 1`] = `
 <div
-  className="row">
+  className="row"
+>
   <div
-    className="col-md-6">
+    className="col-md-6"
+  >
     <h2>
       Log in to App Management
     </h2>
     <p>
-      Don\'t have a Concur account? 
-      <Link
-        onlyActiveOnIndex={false}
-        style={Object {}}
-        to="/signup">
-        Sign Up here
-      </Link>
-    </p>
-    <p>
       <a
         href="https://www.concursolutions.com/profile/send_password_hint.asp"
         rel="noopener noreferrer"
-        target="_blank">
+        target="_blank"
+      >
         Forgot Password
       </a>
     </p>
     <hr />
     <ErrorAlert
-      error="" />
+      error=""
+    />
     <LoadingSpinner
       loading={false}
-      message="Loading..." />
+      message="Loading..."
+    />
     <ReduxForm
-      onSubmit={[Function]} />
+      onSubmit={[Function]}
+    />
   </div>
 </div>
 `;

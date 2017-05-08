@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "VendorGroup",
-    "description": "",
+    "description": "An invoice is a bill of sale for goods or services provided by a vendor. This API provides methods to create or delete invoice vendor groups that meet the search parameters.",
     "version": "3.0"
   },
   "tags": [

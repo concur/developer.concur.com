@@ -60,6 +60,8 @@ TripLink suppliers, travel management companies (TMCs), and Concur partners can 
 
 If you are a TMC or a Concur partner developer who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the Concur Connect Platform Team. Concur products are highly configurable, and not all clients will have access to all features.
 
+Some itinerary data may have come from Sabre. Concur encourages you to speak to Sabre about becoming a Sabre Authorized Developer.
+
 ## Authentication and authorization
 
 The Itinerary web service uses OAuth 2.0 for authenticating users and authorizing access to travel data.
@@ -228,6 +230,8 @@ The Bookings parent element contains a Booking child element for each included b
 | TicketMailingAddress |   |  | The mailing address for the booked ticket, if available. |
 | TicketPickupLocation |   |  | The pickup location for the booked ticket, if available |
 | TicketPickupNumber |   |  | The confirmation number to pick up the booked ticket, if available. |
+| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
+| CreditCardLastFour | String |  | The last four digits of credit card number. |
 | AirfareQuotes | Array |  | List of stored airfare quotes for this booking. For more information, see the **AirFareQuotes elements** table. |
 | ItinSourceName | String |  | The itinerary source. Format: TravelSupplier (NOTE TO TECH REVIEWERS: This element is not in the xsd but appears in the Post booking details request for TMCs example) |
 | AirlineTickets | Array |  | List of airline tickets for this booking. For more information, see the **AirLine Tickets elements** table. |
@@ -607,6 +611,8 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | ETicket | string |  | Whether the booking has an  e-ticket. Format: Y/N  |
 | IsOpenSegment | boolean |  | Whether the segment is open. Format: True/False  |
 | IsPreferredVendor | integer |  | If the airline is marked as a preferred property by the company. Format: True/False  |
+| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
+| CreditCardLastFour | String |  | The last four digits of credit card number. |
 | IsUpgradeAllowed | boolean |  | Whether the booking can be upgraded. Format: True/False  |
 | Meals | string |  | The meals included in the booking.  |
 | Miles | integer |  | The number of miles included in the booking.  |
@@ -663,6 +669,8 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | Body | string |  | The character code to indicate how many passengers the car can seat. B for 2-door, D for 4-door, F for Four-wheel drive, J for All Terrain, K for truck, L for Limo, P for pick-up, R for recreation, S for Sport, T for Convertible, V for Van, W for Wagon/Estate, X for special. |
 | Class | string |  | Character code to indicate the class of the car e.g. if it is economy, full size, compact, etc. Varies by Vendor. C for compact, E for economy, F for full size, I for Intermediate, L for Luxury, M for Mini, P for Premium, S for Standard, X for special. |
 | DiscountCode | string |  | The discount code used by the company/TMC to get a discounted rate. |
+| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
+| CreditCardLastFour | String |  | The last four digits of credit card number. |
 | DropoffCollectionAddress1 | string |  | The AddressLine1 for the dropoff address when the rental service offers dropoff. |
 | DropoffCollectionAddressType | string |  |   |
 | DropoffCollectionCategory | string |  |   |
@@ -735,6 +743,8 @@ The Hotel Booking parent element is the Hotel Element in the Segments Array in B
 | CheckinTime | string |  | The check in time for the hotel booking.  |
 | CheckoutTime | string |  | The check out time for the hotel booking.  |
 | Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
+| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
+| CreditCardLastFour | String |  | The last four digits of credit card number. |
 | DailyRate | decimal |  | Average per day rate for the hotel. If the rate varies over the duration, it can be specified using the charges model. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | dateTime | Y | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -893,6 +903,8 @@ The Rail Booking parent element is the Rail Element in the Segments Array in Boo
 | CarbonEmissionLbs | decimal |  | The pounds of carbon emission for this booking.  |
 | CarbonModel | integer |  | The model used to calculate the carbon emissions.  |
 | ClassOfService | string |  | The class of the booking. |
+| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
+| CreditCardLastFour | String |  | The last four digits of credit card number. |
 | Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | dateTime |  | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -1019,6 +1031,8 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | StartDateLocal | dateTime |  | The starting date of travel for this segment, in the local time of to the starting point. Format: YYYY-MM-DDThh:mm:ss |
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | ConfirmationNumber | sring |  | The confirmation number from the vendor.  |
+| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
+| CreditCardLastFour | String |  | The last four digits of credit card number. |
 | Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
 | DailyRate | decimal |  | Average per day rate for the booking. If the rate varies over the duration, it can be specified using the charges model. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |

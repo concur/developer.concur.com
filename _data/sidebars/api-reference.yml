@@ -86,6 +86,8 @@
         url: /api-reference/direct-connects/hotel/post-reservation-query.html
       - title: Post a reservation update
         url: /api-reference/direct-connects/hotel/post-reservation-update.html
+      - title: Hotel Direct Connect 2.0
+        url: /api-reference/direct-connects/hotel-service.html
 - title: Expense
   url: ''
   children:
@@ -123,6 +125,8 @@
         url: /api-reference/expense/expense-report/post-report-workflow-action.html
       - title: Reports
         url: /api-reference/expense/expense-report/reports.html
+      - title: Report Details
+        url: /api-reference/expense/expense-report/expense-report-get.html
       - title: Payment Batches
         url: /api-reference/expense/payment-batch/payment-batches.html
       - title: Quick Expense

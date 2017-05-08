@@ -4,31 +4,25 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import AppEditForm from '../../../components/AppDetailsPage/AppEditForm';
-import AppSecret from '../../../components/AppDetailsPage/AppSecret';
 import appReducer from '../../../reducers';
-import appFactory from '../../app.mock';
-
-const store = createStore(appReducer);
-const props = {
-  handleSubmit: jest.fn(),
-  initialValues: appFactory('id-1'),
-};
 
 describe('<AppEditForm />', () => {
-  let form;
+  const onSubmitClick = jest.fn();
+  let form, store;
 
   beforeEach(() => {
     jest.resetAllMocks();
+    store = createStore(appReducer)
     form = mount(
       <Provider store={store}>
-        <AppEditForm {...props} />
+        <AppEditForm handleSubmit={onSubmitClick} />
       </Provider>
     );
-  });
+  })
 
   it('should submit', () => {
     form.find('form').simulate('submit');
 
-    expect(props.handleSubmit).toHaveBeenCalled();
+    expect(onSubmitClick).toHaveBeenCalled();
   });
 });

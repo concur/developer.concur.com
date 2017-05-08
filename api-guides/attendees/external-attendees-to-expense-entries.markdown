@@ -57,7 +57,7 @@ The following sections provide the details for each API call.
 
 The method for identifying an expense entry depends on whether the expense entry needs to be created or it already exists. Regardless of whether you create a new expense entry or you search for an existing one, you can use the GET Reports API followed by the GET Report Details API to obtain the unique identifier for the expense entry.  
  1. https://developer.concur.com/api-reference/expense/expense-report/reports.html
- 2. https://developer.concur.com/api-reference-deprecated/version-two/expense-reports/expense-report-get.html
+ 2. https://developer.concur.com/api-reference/expense/expense-report/expense-report-get.html
 
 #### New Expense Entries
 

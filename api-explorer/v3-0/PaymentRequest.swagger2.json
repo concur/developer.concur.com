@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Payment Request",
-    "description": "",
+    "description": "A payment request is a request for payment (partial or full) of an invoice. This API provides methods to create or update a payment request, or view a payment request by ID.",
     "version": "3.0"
   },
   "tags": [

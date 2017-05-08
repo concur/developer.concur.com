@@ -44,7 +44,7 @@ describe('<NewAppForm />', () => {
 
       expect(formData.redirectUris.length).toBe(2);
 
-      form.find('.uri-delete').simulate('click');
+      form.find('.uri-delete').last().simulate('click');
 
       state = store.getState();
       formData = state.form.newApp.values;

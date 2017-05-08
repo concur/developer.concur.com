@@ -130,5 +130,5 @@ Content-Type: application/json
 `200 OK`
 
 
-[1]: /api-reference-deprecated/version-two/expense-reports/expense-report-get.html
+[1]: /api-reference/expense/expense-report/expense-report-get.html
 [2]: /api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-get.html

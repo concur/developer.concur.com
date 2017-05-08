@@ -1,38 +1,38 @@
 import React, { PropTypes } from 'react';
 
-const AppSecret = ({ clickHandler, secret }) => (
-  <div className="alert alert-warning">
-    <p>
-      You can regenerate your clientSecret below.
-      This process will clear your old clientSecret and require updated to your
-      apps or scripts.
-    </p>
-    <button
-      type="button"
-      className="btn orange"
-      onClick={clickHandler}
-    >
-      Regenerate Application clientSecret
-    </button>
-    {secret &&
-      <p>
-        <strong>
-          Here is your new clientSecret.
-        </strong>
-        <br />
-        <code>{secret}</code>
-      </p>
-    }
+const AppSecret = ({ clickHandler }) => (
+  <div>
+    <div className="col-md-8">
+      <a href="#client-secret-generation" data-toggle="collapse">Regenerate clientSecret</a>
+      <div
+        className="collapse panel panel-danger"
+        data-toggle="collapse"
+        id="client-secret-generation"
+      >
+        <div className="panel-body">
+          <p>
+            You can regenerate your clientSecret below.
+          </p>
+          <p>
+            <strong>WARNING: </strong>
+            This process will clear your old clientSecret and require updates to your
+            apps or scripts.
+          </p>
+          <button
+            type="button"
+            className="btn orange small"
+            onClick={clickHandler}
+          >
+            Regenerate clientSecret
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 );
 
 AppSecret.propTypes = {
   clickHandler: PropTypes.func.isRequired,
-  secret: PropTypes.string,
-};
-
-AppSecret.defaultProps = {
-  secret: null,
 };
 
 export default AppSecret;

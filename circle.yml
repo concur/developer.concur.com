@@ -24,16 +24,16 @@ test:
     - ./build/write_branch.sh
     - ./build/write_commit.sh
     - ./build/write_forms.sh
-    - DEVCENTER_API_ORCHESTRATION=https://test DEVCENTER_API_FORMS=https://test npm test && npm run build:webpack
+    - DEVCENTER_API_FORMS=https://test npm test -- --runInBand && npm run build:webpack
 
 deployment:
   preview:
     branch: preview
     commands:
-      - DEVCENTER_API_ORCHESTRATION=https://notfound DEVCENTER_API_FORMS=https://forms.preview.developer.concur.com npm run build
+      - DEVCENTER_API_FORMS=https://forms.preview.developer.concur.com npm run build
       - aws s3 sync ./_site s3://preview-developer-concur-com --region us-west-2 --output text --delete
   livesite:
     branch: livesite
     commands:
-      - DEVCENTER_API_ORCHESTRATION=https://notfound DEVCENTER_API_FORMS=https://forms.developer.concur.com npm run build
+      - DEVCENTER_API_FORMS=https://forms.developer.concur.com npm run build
       - aws s3 sync ./_site s3://livesite-developer-concur-com --region us-west-2 --output text --delete

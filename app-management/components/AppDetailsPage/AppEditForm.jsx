@@ -1,31 +1,28 @@
 import React, { PropTypes } from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 
-import { formValidator } from '../../utils/formValidator';
 import {
   InputField,
   TextareaField,
-  CheckboxField,
-  SelectField,
   MultiselectField,
   RedirectUris,
 } from '../FormFields';
-import AppSecret from './AppSecret';
+import { formValidator } from '../../utils/formValidator';
 
 // All selectable grants and scopes
 import grants from '../../data/grants.json';
 import scopes from '../../data/scopes.json';
-import applicationTypes from '../../data/applicationTypes.json';
+import appTypes from '../../data/appTypes.json';
 
 const constraints = {
-  appName: {
+  name: {
     presence: { message: 'is required' },
     length: {
       minimum: 3,
       maximum: 99,
     },
   },
-  appDescription: {
+  description: {
     presence: { message: 'is required' },
     length: {
       minimum: 10,
@@ -47,32 +44,17 @@ const constraints = {
   allowedScopes: {
     presence: { message: '- at least one is required.' },
   },
-  termsOfUseAgreement: {
-    presence: { message: 'is required' },
-  },
 };
 
 const EditAppForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit}>
     <fieldset>
       <div className="row">
-        <section className="col-md-6">
-          <Field
-            component={CheckboxField}
-            type="checkbox"
-            name="enabled"
-          >
-            Enabled
-          </Field>
+        <section className="col-md-8">
+          <hr />
+          <h3>App Details</h3>
         </section>
-        <section className="col-md-6">
-          <AppSecret
-            clickHandler={() => console.log('TODO: Implement')}
-          />
-        </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-8">
           <Field
             component={InputField}
             type="text"
@@ -81,7 +63,7 @@ const EditAppForm = ({ handleSubmit }) => (
             placeholder="App Name"
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-8">
           <Field
             component={TextareaField}
             name="description"
@@ -89,24 +71,20 @@ const EditAppForm = ({ handleSubmit }) => (
             placeholder="App Description"
           />
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-8">
           <Field
-            component={SelectField}
+            component={MultiselectField}
+            type="select-multiple"
             name="appType"
-            label="Application Type"
-            placeholder="Application Type"
-            options={applicationTypes}
+            label="App Type"
+            options={appTypes}
             simpleValue
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-8">
           <FieldArray component={RedirectUris} name="redirectUris" />
         </section>
-      </div>
-      <div className="row">
-        <section className="col-md-6">
+        <section className="col-md-8">
           <Field
             component={MultiselectField}
             type="select-multiple"
@@ -116,7 +94,7 @@ const EditAppForm = ({ handleSubmit }) => (
             simpleValue
           />
         </section>
-        <section className="col-md-6">
+        <section className="col-md-8">
           <Field
             component={MultiselectField}
             type="select-multiple"
@@ -127,19 +105,10 @@ const EditAppForm = ({ handleSubmit }) => (
           />
         </section>
       </div>
+      <footer>
+        <button type="submit" className="btn bright-blue">Update</button>
+      </footer>
     </fieldset>
-    {/*
-    <footer>
-      <button
-        type="submit"
-        className="btn bright-blue pull-right"
-        disabled={initialValues.certified}
-      >
-        Update
-      </button>
-      <Link to="/" className="btn grey pull-right">Cancel</Link>
-    </footer>
-    */}
   </form>
 );
 

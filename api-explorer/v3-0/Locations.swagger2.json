@@ -15,7 +15,7 @@
   ],
   "info": {
     "title": "Locations",
-    "description": "",
+    "description": "The valid city location codes in Concur. The location codes vary by client, and cannot be used across multiple clients. This API provides methods to get a list of valid locations for the supplied user, or get details of a location by ID.",
     "version": "3.0"
   },
   "tags": [

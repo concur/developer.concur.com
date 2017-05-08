@@ -1,17 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<Nav /> renders all other links when authenticated 1`] = `
 <div
-  className="clearfix">
+  className="clearfix"
+>
   <ul
-    className="nav navbar-nav">
+    className="nav navbar-nav"
+  >
     <li>
       <Link
         activeClassName="active"
         onlyActiveOnIndex={true}
         style={Object {}}
-        to="/">
+        to="/"
+      >
         <i
           aria-hidden="true"
-          className="fa fa-list" />
+          className="fa fa-list"
+        />
          My Apps
       </Link>
     </li>
@@ -20,10 +26,12 @@ exports[`<Nav /> renders all other links when authenticated 1`] = `
         activeClassName="active"
         onlyActiveOnIndex={false}
         style={Object {}}
-        to="/new">
+        to="/new"
+      >
         <i
           aria-hidden="true"
-          className="fa fa-plus" />
+          className="fa fa-plus"
+        />
          Create an App
       </Link>
     </li>
@@ -32,10 +40,12 @@ exports[`<Nav /> renders all other links when authenticated 1`] = `
         activeClassName="active"
         onlyActiveOnIndex={false}
         style={Object {}}
-        to="/logout">
+        to="/logout"
+      >
         <i
           aria-hidden="true"
-          className="fa fa-sign-out" />
+          className="fa fa-sign-out"
+        />
          Logout
       </Link>
     </li>
@@ -45,30 +55,22 @@ exports[`<Nav /> renders all other links when authenticated 1`] = `
 
 exports[`<Nav /> renders signup and login links when the user is not authenticated 1`] = `
 <div
-  className="clearfix">
+  className="clearfix"
+>
   <ul
-    className="nav navbar-nav">
+    className="nav navbar-nav"
+  >
     <li>
       <Link
         activeClassName="active"
         onlyActiveOnIndex={false}
         style={Object {}}
-        to="/signup">
+        to="/login"
+      >
         <i
           aria-hidden="true"
-          className="fa fa-user" />
-         Sign Up
-      </Link>
-    </li>
-    <li>
-      <Link
-        activeClassName="active"
-        onlyActiveOnIndex={false}
-        style={Object {}}
-        to="/login">
-        <i
-          aria-hidden="true"
-          className="fa fa-sign-in" />
+          className="fa fa-sign-in"
+        />
          Login
       </Link>
     </li>
