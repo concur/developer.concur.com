@@ -6,9 +6,6 @@ layout: reference
 
 # Migrating old tokens to new Oauth2 Bearer Tokens (JWT)
 
-### Special Note (Please Read First)
-**This documentation is presented for early preview purposes only as it is NOT final.** If you have any questions, please contact your Partner Enablement team representative before proceeding.
-
 * [Overview]()
 * [Exchanging a Token](#exchangetoken)
 * [Response Codes](#responsecodes)
@@ -103,12 +100,20 @@ successful call, responds with:
 | HTTP Status | Description                                      |
 |-------------|--------------------------------------------------|
 |   200       | OK - Successful call, response is in body.       |
-|   400       | Bad Request `JWT is missing or invalid'`          |
-|   401       | Unauthorized `Bad input or access denied or revoked token`       |
-|   403       | Forbidden `(error, error_description, code)`     |
-|   404       | Not Found `(error, error_description, code)`     |
+|   400       | Bad Request - see list of responses below.       |
+|   404       | Not Found                                        |
 |   500       | Server Error, error message is in body.          |
 |   503       | Server Timed Out, error message is in body.      |
+
+##### exchangeAccessToken Response Codes
+
+|   CODE        | Description                                      |
+|---------------|--------------------------------------------------|
+| OK            | OK - Successful call, response is in body.       |
+| INVALIDSCOPES | One or more scopes requested are not a subset of the allowed scopes.                                                            |
+| INVALIDAPP    | Application is invalid                           |
+| INVALIDTOKEN  | Bad or expired token                             |
+| UNAUTHORIZED  | Invalid credentials                              |
 
 ##### HTTP Status returned by oauth2
 

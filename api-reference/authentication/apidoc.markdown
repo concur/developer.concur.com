@@ -646,6 +646,10 @@ Connection: keep-alive
 | 118  | `invalid_request` | display is invalid                                     |
 | 119  | `invalid_request` | prompt is invalid                                      |
 | 119  | `invalid_request` | prompt must be set to consent for `offline_access`     |
+| 120  | `invalid_request` | `credtype` is invalid     |
+| 121  | `invalid_request` | `login_type` is invalid     |
+| 122  | `invalid_request` | proxies supplied are invalid     |
+| 123  | `invalid_request` | principal is disabled     |
 
 ##### /otp
 
