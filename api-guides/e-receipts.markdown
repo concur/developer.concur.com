@@ -129,7 +129,7 @@ Refer to the sample Receipt POST body below for guidance:
 }
 ```
 
-Test your API in the [API Explorer](https://concurapi.readme.io/docs/post-e-receipt).  
+Test your API in the [API Explorer](/api-explorer/v3-0/Receipts.md).  
 
 
 #### If the user connection is initiated from the Partner site, it should follow Web Flow:
