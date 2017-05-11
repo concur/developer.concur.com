@@ -65,29 +65,29 @@ Standard HTTPS port 443 should be used.
 #### Concur IP ranges
 If Hotel Supplier is using IP whitelisting policy, Concur will use following addresses to access Supplier’s systems from.
 
-`12.129.29.0/24` -	Production
-`12.129.29.199` -	Production
-`12.129.29.224/28` -	Production
-`12.129.29.86` -	Production
-`12.129.32.0/22` -	Production
-`12.130.250.17` -	Production
-`12.130.251.155` -	Production
-`193.165.112.0/28` -	q&a and development
-`199.108.17.100` -	Production
-`206.173.37.128/25` -	q&a and development
-`206.173.37.150` -	q&a and development
-`206.175.21.0/24` -	q&a and development
-`206.175.21.196` -	q&a and development
-`207.41.34.0/24` -	q&a and development
-`207.41.34.10` -	q&a and development
-`212.24.155.86` - q&a and development
-`32.58.240.145` -	production
-`62.23.83.128/25` -	production
-`62.23.83.135` -	production
-`63.239.255.0/24` - q&a and development
-`63.76.22.10` -	production
-`84.14.115.96/29` -	q&a and development
-`84.14.175.224/27` -	production
+* `12.129.29.0/24` -	Production
+* `12.129.29.199` -	Production
+* `12.129.29.224/28` -	Production
+* `12.129.29.86` -	Production
+* `12.129.32.0/22` -	Production
+* `12.130.250.17` -	Production
+* `12.130.251.155` -	Production
+* `193.165.112.0/28` -	q&a and development
+* `199.108.17.100` -	Production
+* `206.173.37.128/25` -	q&a and development
+* `206.173.37.150` -	q&a and development
+* `206.175.21.0/24` -	q&a and development
+* `206.175.21.196` -	q&a and development
+* `207.41.34.0/24` -	q&a and development
+* `207.41.34.10` -	q&a and development
+* `212.24.155.86` - q&a and development
+* `32.58.240.145` -	production
+* `62.23.83.128/25` -	production
+* `62.23.83.135` -	production
+* `63.239.255.0/24` - q&a and development
+* `63.76.22.10` -	production
+* `84.14.115.96/29` -	q&a and development
+* `84.14.175.224/27` -	production
 
 #### Authentication
 Hotel supplier authenticates itself to Concur by public certificate in SSL communication.
