@@ -131,8 +131,6 @@
         url: /api-reference/expense/payment-batch/payment-batches.html
       - title: Quick Expense
         url: /api-reference/expense/quick-expense/
-      - title: Receipts
-        url: /api-reference/expense/receipts/
 - title: Receipt Image
   url: /api-reference/image/
 - title: Insights
