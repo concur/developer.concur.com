@@ -129,7 +129,7 @@ Refer to the sample Receipt POST body below for guidance:
 }
 ```
 
-Test your API in the [API Explorer](/api-explorer/v3-0/Receipts.md).  
+Test your API in the [API Explorer](/api-explorer/v3-0/Receipts.html).  
 
 
 #### If the user connection is initiated from the Partner site, it should follow Web Flow:
