@@ -358,16 +358,17 @@ Displays photos and videos of a given hotel.
 
 >   **OTA name:** HotelDescriptiveInfo
 
-####Message structure
-
+#### Message structure
 
 OTA_HotelDescriptiveInfoRQ
+
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
 |  RequestorID |	N	| The corporate identifier|
 |  HotelCode |	Y	| The code that uniquely identifies a single hotel property. Used in other OTA messages.|
 
 OTA_HotelDescriptiveInfoRS
+
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
 |  HotelCode |	Y	|  The code that uniquely identifies a single hotel property. Used in other OTA messages.|
@@ -381,13 +382,13 @@ OTA_HotelDescriptiveInfoRS
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/"></Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="30708715-C77F-43A1-8B17-242568D4708C" Version="3">
-    <HotelDescriptiveInfos>
-     <HotelDescriptiveInfo ChainCode="XX" HotelCode="464844"></HotelDescriptiveInfo>
-    </HotelDescriptiveInfos>
-   </OTA_HotelDescriptiveInfoRQ>
+    <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="30708715-C77F-43A1-8B17-242568D4708C" Version="3">
+      <HotelDescriptiveInfos>
+        <HotelDescriptiveInfo ChainCode="XX" HotelCode="464844"></HotelDescriptiveInfo>
+      </HotelDescriptiveInfos>
+    </OTA_HotelDescriptiveInfoRQ>
   </Body>
- </Envelope>
+</Envelope>
 ```
  
 #### Example response
@@ -988,8 +989,8 @@ Returns detailed information about a hotel reservation.
 
 #### Message structure
 
-
 OTA_ReadRQ
+
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
 |  RequestorID |	N	| The corporate identifier|
@@ -999,8 +1000,8 @@ OTA_ReadRQ
 
 ```xml
 <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="DF59894F-BCCA-44CF-8B74-C0339C5DF036" Version="5.002">
-			<UniqueID ID="94514652"/>
-		</OTA_ReadRQ>
+    <UniqueID ID="94514652"/>
+</OTA_ReadRQ>
 ```
 
 Response is the same HotelResRS as for HotelResRQ.
@@ -1051,19 +1052,19 @@ OTA_CancelRS
 #### Example request
 
 ```xml
-   <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05">
-      <UniqueID Type="14" ID="88618333"></UniqueID>
-    </OTA_CancelRQ>
+<OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05">
+    <UniqueID Type="14" ID="88618333"></UniqueID>
+</OTA_CancelRQ>
 ```
 
 #### Example response
 
 ```xml
-  <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Status="Cancelled">
-      <Success/>
-      <UniqueID ID="88618333" Type="14"/>
-      <UniqueID ID="27607" Type="15"/>
-    </OTA_CancelRS>
+<OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Status="Cancelled">
+    <Success/>
+        <UniqueID ID="88618333" Type="14"/>
+        <UniqueID ID="27607" Type="15"/>
+</OTA_CancelRS>
 ```
 
 
@@ -1078,10 +1079,10 @@ OTA_CancelRS
     between user and hotel/reservation system:
 
 
-    ```xml
-	<UniqueID ID="88618333" Type="14"/>
-    <UniqueID ID="27607" Type="15"/>
-    ```
+   ```xml
+	 <UniqueID ID="88618333" Type="14"/>
+   <UniqueID ID="27607" Type="15"/>
+   ```
 	
 	
 2.  Company has workflow setup to perform automatic cancelation. Exactly same
@@ -1098,7 +1099,7 @@ and Warring in corresponding nodes of each message:
 
 ```xml
 <Errors>
-  <Error  Type=”13” Code="322" ShortText="1111"/>
+  <Error Type=”13” Code="322" ShortText="1111" />
 </Errors>
 ```
 
