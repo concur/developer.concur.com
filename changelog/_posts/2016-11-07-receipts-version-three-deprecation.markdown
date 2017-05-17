@@ -6,7 +6,7 @@ tags:
     - Receipts
     - Deprecation Notice
 references:
-    - url: /api-reference/expense/receipts/
+    - url: /api-reference-deprecated/version-three/receipts.html
       link: Receipts
 ---
 
