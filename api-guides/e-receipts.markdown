@@ -12,7 +12,7 @@ At Concur, e-receipts are digital representations of receipts with both a receip
 
 #### Accessing the Receipts API
 
-Unlike all the other Concur API endpoints, the Receipts endpoint requires the Concur Platform team to configure your sandbox to enable access. You can make that request from the Support Page [here](https://developer.concur.com/tools-support/support.html). Remember to include the name of the Concur representative you with whom you are working in the form.
+Unlike all the other Concur API endpoints, the Receipts endpoint requires the Concur Platform team to configure your sandbox to enable access. You can make that request from the Support Page [here](/tools-support/support.html). Remember to include the name of the Concur representative you with whom you are working in the form.
 
 
 To enable e-receipt posting to Concur, ensure that you have completed the following:
@@ -28,13 +28,13 @@ To enable e-receipt posting to Concur, ensure that you have completed the follow
 
 #### Posting an eReceipt: Submitting expenses to Concur
 
-Currently the Receipts service supports these three types of receipts: general purpose receipts, hotel receipts for either hospitality service or accommodation and ride receipt for a ride service. It is important to remember that the Receipts service only accepts receipts up to six months old. For more information, consult the Receipts article in the [developer.concur.com API Reference](https://developer.concur.com/api-reference/expense/receipts/index.html) materials.
+Currently the Receipts service supports these three types of receipts: general purpose receipts, hotel receipts for either hospitality service or accommodation and ride receipt for a ride service. It is important to remember that the Receipts service only accepts receipts up to six months old. For more information, consult the Receipts article in the [developer.concur.com API Reference](/api-reference-deprecated/version-three/receipts.html) materials.
 
 This diagram explains how to send an e-receipt to Concur. Developers should remember to both ***STORE*** and ***USE*** the instance URL as well as the refresh token.
 
 ![Send a receipt to Concur](images/Send_a_receipt_to_Concur.jpg)
 
-The POST fields required for the Receipt endpoint are located in the official Concur developer page [here](https://developer.concur.com/receipts/post-receipt), and test it out in our Swagger page [here](https://www.concursolutions.com/api/docs/index.html).
+The POST fields required for the Receipt endpoint are located in the official Concur developer page [here](/api-reference-deprecated/version-three/receipts.html), and test it out in our Swagger page [here](https://www.concursolutions.com/api/docs/index.html).
 
 
 #### Important

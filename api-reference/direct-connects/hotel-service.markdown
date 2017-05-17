@@ -126,7 +126,7 @@ To define, what operation needs to be performed, HTTP headers are used, as examp
 `SOAPAction:availability.`
 
 CDATA and HTML code inside of XML nodes and attributes are not allowed. These data will be escaped.
-The hotel suppliers should not use XML special characters - predifined entities: &, <, >, ", ' inside of ID elements like RatePlanID. 
+The hotel suppliers should not use XML special characters - predefined entities: &, <, >, ", ' inside of ID elements like RatePlanID. 
 
 Concur is using date as xs:date XML type "2017-05-01".
 
@@ -158,7 +158,7 @@ Hotel Service API 2.0 supports following operations:
 
 #### Hotel cancel
 1. Read Itinerary. Supplier replies with Reservation response.
-2. Cancel. After user agrees with Cancelation policy and clicks on Cancel button.
+2. Cancel. After user agrees with Cancellation policy and clicks on Cancel button.
 
 
 Use cases and message structure
@@ -294,60 +294,60 @@ OTA_HotelSearchRS
 1.  User searches for hotel by location: Airport, city, exact address or company
     location. Concur will always send Geocode for location.
 
-`<Position Latitude="50.867000" Longitude="7.150000"></Position>`
+    `<Position Latitude="50.867000" Longitude="7.150000"></Position>`
 
 2.  List of 100 hotels within search radius is displayed in that location, with
     hotels names, thumbnail pictures, address, star rating.
 
-![media](HotelSearch1.png)
+    ![media](./hotel2/HotelSearch1.png)
 
-  Thumbnail hotel image should be 70x70 pixels to prevent image artifacts by
-  scaling.
+    Thumbnail hotel image should be 70x70 pixels to prevent image artifacts by
+    scaling.
 
 3.  User searches for specific hotel in location by entering hotel name.
 
-   [./media/image2.png](./media/image2.png)
+    ![./media/image2.png](./hotel2/HotelSearch3.png)
 
-   **Important Note:** please note that only Left-side filter invokes new
-   request to the Hotel Supplier. Top-side filter is performing filtering of
-   already displayed results.
+    **Important Note:** please note that only Left-side filter invokes new
+    request to the Hotel Supplier. Top-side filter is performing filtering of
+    already displayed results.
 
- ![media](HotelSearch2.png) 
+    ![media](./hotel2/HotelSearch2.png) 
 
-   Specific hotel is displayed. 
+    Specific hotel is displayed. 
 
-   Hotel Search RQ contains hotel name as:
+    Hotel Search RQ contains hotel name as:
 
-```xml
-<Criterion>
- <Position Latitude="52.520007" Longitude="13.404954"></Position> 
- <HotelRef HotelName="novotel"></HotelRef>
- <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>
- <StayDateRange Start="2017-04-19" End="2017-04-20"></StayDateRange>
-</Criterion>
-```
+    ```xml
+    <Criterion>
+    <Position Latitude="52.520007" Longitude="13.404954"></Position> 
+    <HotelRef HotelName="novotel"></HotelRef>
+    <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>
+    <StayDateRange Start="2017-04-19" End="2017-04-20"></StayDateRange>
+    </Criterion>
+    ```
 
-Hotel Supplier only returns hotels with name matching search criteria defined by user.
+    Hotel Supplier only returns hotels with name matching search criteria defined by user.
 
    
 4.  User's company has some hotels set up as Preferred at the Hotel Supplier.
     User’s company has setup in Travel Config a search radius of 30 km.
 
-![media](HotelSearch3.png)
+    ![media](./hotel2/HotelSearch3.png)
 
-   User searches for hotels in 5 km radius.
+    User searches for hotels in 5 km radius.
 
-   SearchRQ message has two radiuses:
+    SearchRQ message has two radiuses:
 
-`<Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>`
+    `<Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>`
 
-   Out of 100 returned hotels in response from Hotel Supplier, first 10 hotels
-   are Most Preferred hotels from **30 km** radius. Next 10 hotels are
-   Preferred hotels from **30km** radius.
+    Out of 100 returned hotels in response from Hotel Supplier, first 10 hotels
+    are Most Preferred hotels from **30 km** radius. Next 10 hotels are
+    Preferred hotels from **30km** radius.
 
-`<HotelPreference>preferred</HotelPreference>`
+    `<HotelPreference>preferred</HotelPreference>`
 
-  Other 80 hotels are hotels with no preference from **5km** radius.
+    Other 80 hotels are hotels with no preference from **5km** radius.
   
 ### Hotel Descriptive Info
 
@@ -423,11 +423,11 @@ OTA_HotelDescriptiveInfoRS
 
    A pop-up with textual hotel description is shown.
 
-   ![media](HotelDescriptiveInfo1.png)
+   ![media](./hotel2/OTA_DescriptiveInfo1.png)
    
 2.  User clicks on hotel photo thumbnail. Gallery of hotel photos is displayed.
 
-![media](HotelDescriptiveInfo2.png)
+![media](./hotel2/OTA_DescriptiveInfo2.png)
 
 ### Hotel Availability
 
@@ -454,7 +454,7 @@ OTA_HotelAvailRS
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
 |  HotelCode |	Y	|  The code that uniquely identifies a single hotel property from HotelSearchRS.|
-|  RatePlan |	Y	| other than amout-specific information about rate, like accepted guarantee, cancelation policy etc.|
+|  RatePlan |	Y	| other than amount-specific information about rate, like accepted guarantee, cancellation policy etc.|
 |  AvailabilityStatus |	Y | Available or sold out indicator. |
 |  GuaranteeType |	Y	| To specify what guarantee is required. |
 |  CancelPenalties |	Y	| Defines the cancellation penalty of the hotel facility.|
@@ -768,13 +768,13 @@ Example response:
 
 
 
-6.  User clicks on Rules and Cancelation policy. Popup with cancelation policy
-    text appears. Cancelation policy is take from Cancel Penalty nodes.
+6.  User clicks on Rules and Cancellation policy. Popup with cancellation policy
+    text appears. Cancellation policy is take from Cancel Penalty nodes.
 
 7.  User clicks on button with room-rate price. Trip Review page is displayed
-    with rate details (average, summary and total) and cancelation policy.
+    with rate details (average, summary and total) and cancellation policy.
 
-![media](HotelAvail1.png)
+![media](./hotel2/HotelAvail1.png)
  
 ### Hotel Reservation
 
@@ -835,7 +835,7 @@ OTA_HotelResRS
                   <GuaranteeAccepted>
 					<PaymentCard  CardCode="VI" ExpireDate="0920">
 						<CardType>VISA</CardType>
-						<CardHolderName>FIRSTNAME TESTUSERRULES</CardHolderName>
+						<CardHolderName>FIRSTNAME LASTNAME</CardHolderName>
 						<CardNumber>
 							<PlainText>123456784111></PlainText>
 						</CardNumber> 
@@ -863,7 +863,7 @@ OTA_HotelResRS
 							<PersonName Language="en">
 								<NamePrefix>MR</NamePrefix>
 								<GivenName>FIRSTNAME</GivenName>
-								<Surname>TESTUSERRULES</Surname>
+								<Surname>LASTNAME</Surname>
 							</PersonName>
 							<Telephone PhoneNumber="3141011001"/>
 							<Email>lukas.knotek@concur.com</Email>
@@ -952,7 +952,7 @@ OTA_HotelResRS
 										<Customer>
 											<PersonName>
 												<GivenName>FIRSTNAME</GivenName>
-												<Surname>TESTUSERRULES</Surname>
+												<Surname>LASTNAME</Surname>
 											</PersonName>
 										</Customer>
 									</Profile>
@@ -969,18 +969,18 @@ OTA_HotelResRS
 
 1.  User clicks on in-policy (green) button with price. Trip confirmation page
     is shown. Hotel name, rate details, price per night(s), total price, and
-    cancelation policy is shown.
+    cancellation policy is shown.
 
-2.  User selects his credit card, agrees with Cancelation policy and clicks Next
+2.  User selects his credit card, agrees with Cancellation policy and clicks Next
     button. 
 
 3.  User picks credit card from Form of payment drop-down. Credit card details
     are sent **Guarantee/GuaranteeAccepted/PaymentCard.** Reservation message is
     sent. Once Reservation RS is returned by Hotel Supplier, trip is reserved.
 
-![media](HotelRes1.jpg)
+![media](./hotel2/HotelRes1.jpg)
 
-![media](HotelRes2.jpg)
+![media](./hotel2/HotelRes2.jpg)
 
  
 ### Read
@@ -1020,7 +1020,7 @@ In case the reservation has been cancelled, user's Itinerary will be updated acc
 
 >   **OTA name:** HotelRead
 
-![media](HotelRead1.jpg)
+![media](./hotel2/HotelRead1.jpg)
 
 ### Cancel
 
@@ -1045,8 +1045,8 @@ OTA_CancelRS
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
 |  UniqueID |	Y	|  A reference to identify the booking  reference.|
-|  UniqueID |	Y	|  A reference to identify the cancelation reference.|
-|  Status |	Y |  If cancelation is successful or not.|
+|  UniqueID |	Y	|  A reference to identify the cancellation reference.|
+|  Status |	Y |  If cancellation is successful or not.|
 |	Type  | Y |  A reference to the type of object defined by the UniqueID element.  | 
 
 #### Example request
@@ -1075,7 +1075,7 @@ OTA_CancelRS
 
 -   **UniqueID** with **Type="14"** identifies the reservation to cancel.
    
-   **Cancel response** should have two **UniqueIDs.** One is the reservation ID (same one as in request), one Cancelation Confirmation number for further dispute usage
+   **Cancel response** should have two **UniqueIDs.** One is the reservation ID (same one as in request), one Cancellation Confirmation number for further dispute usage
     between user and hotel/reservation system:
 
 
@@ -1085,8 +1085,8 @@ OTA_CancelRS
    ```
 	
 	
-2.  Company has workflow setup to perform automatic cancelation. Exactly same
-    Cancel RQ is sent by Concur, as in case of cancelation by user.
+2.  Company has workflow setup to perform automatic cancellation. Exactly same
+    Cancel RQ is sent by Concur, as in case of cancellation by user.
 
 
 Errors and Warnings
@@ -1103,7 +1103,7 @@ and Warring in corresponding nodes of each message:
 </Errors>
 ```
 
-Concur will process error codes automatically to create errror messages for users.
+Concur will process error codes automatically to create error messages for users.
 ShortText information should be used to provide more details for debugging purposes.
 
 Error codes recommended for specific errors
@@ -1141,19 +1141,10 @@ In case of request structure not parsed by the Hotel Supplier, the Protocol viol
 
 Other files
 -----------------
-Authentication schema
 
-![media](Authentication.xsd)
-
-Concur version of the OTA schema
-
-![media](HotelService2-brief.xsd)
-
-Stylesheet for the schema. Download in the same folder as .xsd file and open in web browser.
-![media](xs3p_better_doc.xsl)
-
-OTA codelist
-
-![media](OpenTravel_CodeList_2015_07_15.xlsm)
+* [Authentication schema](./hotel2/Authentication.xsd)
+* [Concur version of the OTA schema](./hotel2/HotelService2-brief.xsd)
+* [Stylesheet for the schema. Download in the same folder as .xsd file and open in web browser.](./hotel2/xs3p_better_doc.xsl)
+* [OTA codelist](./hotel2/OpenTravel_CodeList_2015_07_15.xlsm)
 
 
