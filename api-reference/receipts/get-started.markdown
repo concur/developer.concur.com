@@ -296,7 +296,7 @@ Successful POST requests will receive a response of 201 Created. The `Location` 
 
 If you are not providing an image with your receipt data, the body of the request should be your receipt JSON:
 
-Receipt images may be posted along with data. In this case, Concur will use the provided image instead of generating a new one. To post data and an image, use multipart form data. The `Content-Type:multipart/form-data` header must be set. The image should be included under the key `image`, and the receipt JSON should be included under the key `receipt`.
+Receipt images may be posted along with data. In this case, Concur will use the provided image instead of generating a new one. To post data and an image, use multipart form data. The `Content-Type:multipart/form-data` header must be set. The image should be included under the key `image`, and the receipt JSON should be included under the key `receipt`. Image files are limited to a maximum size of 5MB. Accepted file formats for image files are: image/png, image/jpg, image/jpeg, image/tiff, image/tif,image/ gif, and application/pdf.
 
 _Example Requests:_
 
@@ -318,7 +318,7 @@ curl -v -k -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID
 -H "Content-Type:multipart/form-data" \
 -H "link: <http://schema.concursolutions.com/{VALIDATION SCHEMA FROM SCHEMA ENDPOINT}.schema.json>;rel=describedBy" \
 -F "receipt=<{PATH TO YOUR RECEIPT JSON};type=application/json" \
--F "image=@{PATH TO YOUR IMAGE};type=image/{FILE EXTENSION OF YOUR IMAGE}"
+-F "image=@{PATH TO YOUR IMAGE};type={FILE EXTENSION OF YOUR IMAGE}"
 ```
 
 HTTPie data without image:
