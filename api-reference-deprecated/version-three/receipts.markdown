@@ -1,7 +1,7 @@
 ---
 title: Receipts 
 layout: reference
-redirect_from: /api-reference/expense/receipts
+redirect_from: /api-reference/expense/receipts/
 ---
 
 
