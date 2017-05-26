@@ -39,8 +39,7 @@ The configuration process has the following steps:
 4.	The Hotel Supplier creates testing endpoint on their system that Concur uses to access their inventory. The Hotel Supplier provides the URIs and credentials for their test system to Concur.
 5.	Concur creates a sandbox account for the Hotel Supplier.
 6.	The Hotel Supplier creates the application on their system that will accept the requests from Concur and return the appropriate responses. During development Concur provides support by clarifying  API usage and scenarios, and by testing interim milestones. 
-7.	Concur and the Hotel Supplier validate the application: 
-o	Concur sets up the vendor in the certification systems and runs a series of tests to validate the interaction between the two systems.
+7.	Concur and the Hotel Supplier validate the application: Concur sets up the vendor in the certification systems and runs a series of tests to validate the interaction between the two systems.
 8.	Once certification passes, the Hotel supplier sends Concur the production URIs and credentials.
 9.	Concur updates the production servers with the supplier’s production data.
 10.	Upon successful completion, the supplier will be live in Concur for any customer to enable.
@@ -62,6 +61,7 @@ As sensitive data and payment card details are transferred via API, the Hotel Su
 The Hotel Supplier needs to support secure communication of TLS 1.1 or newer. The Hotel Supplier will provide Concur HTTPS URL of its endpoint.
 Standard HTTPS port 443 should be used.
 
+
 #### Concur IP ranges
 If Hotel Supplier is using IP whitelisting policy, Concur will use following addresses to access Supplier’s systems from.
 
@@ -72,26 +72,27 @@ If Hotel Supplier is using IP whitelisting policy, Concur will use following add
 * `12.129.32.0/22` -	Production
 * `12.130.250.17` -	Production
 * `12.130.251.155` -	Production
-* `193.165.112.0/28` -	q&a and development
 * `199.108.17.100` -	Production
-* `206.173.37.128/25` -	q&a and development
-* `206.173.37.150` -	q&a and development
-* `206.175.21.0/24` -	q&a and development
-* `206.175.21.196` -	q&a and development
-* `207.41.34.0/24` -	q&a and development
-* `207.41.34.10` -	q&a and development
-* `212.24.155.86` - q&a and development
-* `32.58.240.145` -	production
-* `62.23.83.128/25` -	production
-* `62.23.83.135` -	production
-* `63.239.255.0/24` - q&a and development
-* `63.76.22.10` -	production
-* `84.14.115.96/29` -	q&a and development
-* `84.14.175.224/27` -	production
+* `32.58.240.145` -	Production
+* `62.23.83.128/25` -	Production
+* `62.23.83.135` -	Production
+* `63.76.22.10` -	Production
+* `84.14.175.224/27` -	Production
+
+* `193.165.112.0/28` -	QA
+* `206.173.37.128/25` -	QA
+* `206.173.37.150` -	QA 
+* `206.175.21.0/24` -	QA
+* `206.175.21.196` -	QA
+* `207.41.34.0/24` -	QA
+* `207.41.34.10` -	QA
+* `212.24.155.86` - QA
+* `63.239.255.0/24` - QA
+* `84.14.115.96/29` -	QA
 
 #### Authentication
-Hotel supplier authenticates itself to Concur by public certificate in SSL communication.
-Concur authenticates itself for Hotel Supplier using userID and password in each message SOAP header. 
+
+As authentication, Concur sends userID and password in each message SOAP header: 
 
 ```xml
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"> 
@@ -132,7 +133,7 @@ Concur is using date as xs:date XML type "2017-05-01".
 
 
 ### Response Times
-Concur needs to receive all responses within 55 seconds, otherwise it causes timeout. To prevent no show fees, duplicate bookings and other similar issues, Concur recommends to perform Auto-Cancel by the Hotel Supplier is ReadRQ message is not sent by Concur 5 minutes after HotelResRS message was sent to Concur. 
+Concur needs to receive all responses within 55 seconds, otherwise it causes timeout. To prevent no show fees, duplicate bookings and other similar issues, Concur recommends to perform Auto-Cancel by the Hotel Supplier if ReadRQ message is not sent by Concur 5 minutes after HotelResRS message was sent to Concur. 
 
 ## Supported operations
 Hotel Service API 2.0 supports following operations:
@@ -173,12 +174,6 @@ Concur Travel. That Requestor ID allows suppliers to shape Preference Level,
 specific rates etc. for customers. As not all suppliers require such features,
 this is optional setting in Concur Travel.
 
-#### Color coding for message structure diagrams:
-
-* Green for mandatory fields in HS2.0
-* Yellow for optional fields in HS2.0
-* Purple for future versions of HS
-* Gray for not supported nodes and attributes
 
 ### OTA operations 
 
@@ -232,7 +227,6 @@ OTA_HotelSearchRS
 			<Criteria>
 				<Criterion>
 					<Position Latitude="52.520007" Longitude="13.404954"/>
-					<RefPoint/>
 					<Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"/>
 					<StayDateRange Start="2017-04-30" End="2017-05-01"/>
 				</Criterion>
@@ -348,6 +342,8 @@ OTA_HotelSearchRS
     `<HotelPreference>preferred</HotelPreference>`
 
     Other 80 hotels are hotels with no preference from **5km** radius.
+    
+5.  If there are no hotels matching search criteria, error 424 "No hotels found which match this input" should be returned by the Hotel         Supplier. Please see Errors section for details.
   
 ### Hotel Descriptive Info
 
@@ -862,11 +858,11 @@ OTA_HotelResRS
 						<Customer Gender="Unknown">
 							<PersonName Language="en">
 								<NamePrefix>MR</NamePrefix>
-								<GivenName>FIRSTNAME</GivenName>
-								<Surname>LASTNAME</Surname>
+								<GivenName>John</GivenName>
+								<Surname>Smith</Surname>
 							</PersonName>
 							<Telephone PhoneNumber="3141011001"/>
-							<Email>lukas.knotek@concur.com</Email>
+							<Email>john.smith@inc.com</Email>
 							<Address>
 								<AddressLine>209 Madison Street Suite 400</AddressLine>
 								<CityName>Alexandria</CityName>
