@@ -81,8 +81,8 @@ Concur will make calls to the application connector's endpoint using SSL. During
 Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before Concur can access the connector.  
 Concur will use Http Basic authentication. The hotel supplier will need to provide credentials that Concur will send to the supplier's system for each message.
 
-##Outbound Messages
-The Concur outbound message format is based upon a subset of the <a href="http://www.opentravel.org/Specifications/SchemaIndex.aspx?FolderName=2011B" target="_blank">OTA2011B hotel standard.</a> Please refer to the Function links below for the details of the request and response format.
+## Outbound Messages
+The Concur outbound message format is based upon a subset of the OTA2011B hotel standard. Please refer to the Function links below for the details of the request and response format.
 
 Please note the following general information about this format:
 

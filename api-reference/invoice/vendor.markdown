@@ -129,7 +129,7 @@ None.
 [Vendors Schema](#schema)
 
 
-## <a name=vendorBankPut></a>Add/Update Vendor Banking
+## <a name="vendorBankPut"></a>Add/Update Vendor Banking
 
     PUT /api/v3.0/invoice/vendor/banks
     
@@ -147,7 +147,7 @@ Name | Type | Format | Description
 
 [Vendor Bank Schema](#vendorbanks)
 
-## <a name=vendorGroupPut></a>Add Vendor Group
+## <a name="vendorGroupPut"></a>Add Vendor Group
 
     PUT /api/v3.0/invoice/vendor/groups
     
@@ -167,7 +167,7 @@ Name | Type | Format | Description
 
 [Vendor Group Schema](#vendorgroups)
 
-## <a name=vendorGroupDelete></a>Delete Vendor Group
+## <a name="vendorGroupDelete"></a>Delete Vendor Group
 
     DELETE /api/v3.0/invoice/vendor/groups
 

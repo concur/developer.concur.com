@@ -8,7 +8,7 @@ layout: reference
 
 * [Overview]()
 * [Exchanging a Token](#exchangetoken)
-* [Response Codes](#responsecodes)
+* [Response Codes](#response_codes)
 
 Existing applications that uses the deprecated [/net2/oauth2](https://developer.concur.com/api-reference-deprecated/old-auth/old-auth.html) framework need to move to support the new Oauth2 Bearer Tokens. Applications will need to migrate their existing users who already have connected to it to obtain new Oauth2 tokens without requiring users to reauthorize. This can be done by exchanging an old access token for a new refresh token.
 

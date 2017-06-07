@@ -13,7 +13,7 @@ layout: reference
 
 ## <a name="company"></a>Obtain Company Token
 
-Company is a top-level principal within Concur and you would be able to obtain an access token and a refresh token on a Company's behalf just like you would be able to with a User. Only one authorization flow is currently available for obtaining tokens for a Company, which is the [Password grant](#password_grant).
+Company is a top-level principal within Concur and you would be able to obtain an access token and a refresh token on a Company's behalf just like you would be able to with a User. Only one authorization flow is currently available for obtaining tokens for a Company, which is the [Password grant](/api-reference/authentication/apidoc.html#password_grant).
 
 Instructions for obtaining a Company Token is here : https://developer.concur.com/api-reference/authentication/company-auth.html 
 
