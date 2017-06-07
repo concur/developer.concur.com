@@ -24,6 +24,7 @@ urls_to_ignore = [
   /^https:\/\/github.com\/concur\/developer.concur.com\/blob\/preview\/blog\/tag/,
   /^https:\/\/www.concursolutions.com\/api/,
   /^https:\/\/jekyllrb.com/,
+  /^https:\/\/concur.webex.com/,
   'https://developer.concur.com/oauth-20/web-flow',
   'https://developer.concur.com/receipts/post-receipt',
   'https://developer.concur.com/api-reference/user/company-notification-subscription-resource/company-notification-subscription-resource-post.html',
@@ -46,7 +47,6 @@ urls_to_ignore = [
   'https://github.com/concur/developer.concur.com/commit/0',
   'https://www.linkedin.com/company/5822',
   'https://www.tcconline.com/listNumbersByCode.action?confCode=3608516019',
-  'https://concur.webex.com/concur/j.php?MTID=md483b0c3f9b64a03b1e4676b40ef69c5',
   'https://tools.ietf.org/html/rfc7519#section-7.2',
   'https://tools.ietf.org/html/rfc6749#section-4.1',
   'https://tools.ietf.org/html/rfc7517'
