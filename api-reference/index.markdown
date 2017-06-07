@@ -14,7 +14,7 @@ If you’re new to the Concur APIs, follow these steps to make your first API ca
 ## 1. Provision your developer sandbox  
 
 
-Create a sandbox using our [Sandbox Setup Wizard][1] and follow these [instructions](#provision-sandbox).  
+Create a sandbox using our [Sandbox Setup Wizard][1].  
 
 
 ## 2. Make your first API call  

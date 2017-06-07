@@ -49,4 +49,7 @@ jekyll-archives:
     tag: '/tag/:name/'
     category: '/category/:name/'
 
-gems: ['octopress-paginate', 'jekyll-redirect-from', 'jekyll-bootstrap-sass']
+gems:
+  - octopress-paginate
+  - jekyll-redirect-from
+  - jekyll-bootstrap-sass
