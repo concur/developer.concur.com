@@ -47,6 +47,7 @@ urls_to_ignore = [
   'https://github.com/concur/developer.concur.com/commit/0',
   'https://www.linkedin.com/company/5822',
   'https://www.tcconline.com/listNumbersByCode.action?confCode=3608516019',
+  'https://tools.ietf.org/html/rfc7519#section-7.2',
   'https://tools.ietf.org/html/rfc6749#section-4.1',
   'https://tools.ietf.org/html/rfc7517'
 ]
@@ -56,6 +57,9 @@ options = {
   check_img_http: true,
   parallel: {
     in_processes: 10
+  },
+  hydra: {
+    max_concurrency: 50
   },
   empty_alt_ignore: true,
   file_ignore: files_to_ignore,
