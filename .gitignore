@@ -14,3 +14,4 @@ build/swagger-converter/converted/
 assets/js/bundle.js
 coverage
 .env
+tmp
