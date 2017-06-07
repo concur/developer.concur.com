@@ -58,7 +58,10 @@ options = {
   empty_alt_ignore: true,
   file_ignore: files_to_ignore,
   url_ignore: urls_to_ignore,
-  checks_to_ignore: ['ImageCheck', 'ScriptCheck']
+  checks_to_ignore: ['ImageCheck', 'ScriptCheck'],
+  cache: {
+    timeframe: '2w'
+  }
 }
 
 HTMLProofer.check_directory(SITE_DIRECTORY, options).run
