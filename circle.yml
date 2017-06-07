@@ -13,6 +13,8 @@ general:
       - livesite
 
 dependencies:
+  cache_directories:
+    - tmp/.htmlproofer
   override:
     - ./build/install_aws_cli.sh
     - gem install jekyll
