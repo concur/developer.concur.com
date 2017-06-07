@@ -57,9 +57,6 @@ options = {
   parallel: {
     in_processes: 10
   },
-  hydra: {
-    max_concurrency: 50
-  },
   empty_alt_ignore: true,
   file_ignore: files_to_ignore,
   url_ignore: urls_to_ignore,
