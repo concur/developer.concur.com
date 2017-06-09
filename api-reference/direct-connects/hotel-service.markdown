@@ -556,14 +556,11 @@ OTA_HotelAvailRS
 							<RateDescription>
 								<Text>CORPORATE RATE*Free Wi-Fi</Text>
 							</RateDescription>
-						<TPA_Extensions>
-							<RequireSeriesCode>true</RequireSeriesCode> 
-						</TPA_Extensions>	
+						  <TPA_Extensions>
+							  <RequireSeriesCode>true</RequireSeriesCode> 
+						  </TPA_Extensions>	
 						</Rate>
 					</Rates>
-					<TPA_Extensions>
-						<RequireSeriesCode>true</RequireSeriesCode> 
-					</TPA_Extensions>
 				</RoomRate>
 				<RoomRate RoomID="222" RatePlanID="222222">
 					<Rates>
