@@ -178,7 +178,7 @@ this is optional setting in Concur Travel.
 
 Concur will send two letter PrimaryLangID and AltLangID in ISO 639-1 format in all requests to specify in which language information is requested.
 If Hotel Supplier doesn't support PrimaryLangID, AltLangID should be used.
-Concur [supported languages](https://developer.concur.com/tools-support/reference/hotel-direct-connect-codes.html#method5)  
+Concur [supported languages](/tools-support/reference/hotel-direct-connect-codes.html#method5)  
 
 
 ### OTA operations 
