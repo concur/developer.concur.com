@@ -188,30 +188,30 @@ this is optional setting in Concur Travel.
 
 OTA_HotelSearchRQ
 
-|  Element |	Required	|  Description |
-|----------|---------------------------------------|-|
-|  RequestorID |	N	| The corporate identifier|
-|  Position |	Y	|  The Position element contains three attributes, Latitude, Longitude, used to indicate the geographic location(s) requested by the search, expressed in notation specified by ISO standard 6709.|
-|  Radius |	Y	| Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location.|
-|UnitOfMeasureCode| Y | The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code | 
-|  HotelRef |	N	| Indicates the detail of hotel reference information.|
-|  StayDateRange |	Y	| Range of dates, or fixed set of dates for Availability Request.|
+|  Element |	Required	| Data Type  |  Description |
+|----------|------------|--------------------------|-|
+|  RequestorID |	N | String1to32	| The corporate identifier|
+|  Position |	Y	| ComplexType |  The Position element contains three attributes, Latitude, Longitude, used to indicate the geographic location(s) requested by the search, expressed in notation specified by ISO standard 6709.|
+|  Radius |	Y	| ComplexType | Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location.|
+|UnitOfMeasureCode| Y | Integer| The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code | 
+|  HotelRef |	N	| String1to32 | Indicates the detail of hotel reference information.|
+|  StayDateRange |	Y | ComplexType	| Range of dates, or fixed set of dates for Availability Request.Format: YYYY-MM-DD|
 
 OTA_HotelSearchRS
 
-|  Element |	Required	|  Description |
-|----------|---------------------------------------|-|
-|  ChainCode |	N	| 2 letter GDS chain code. The code that identifies a hotel chain or management group. Used for Chain filter in UI, and for Travel Rules based on GDS codes|
-|  ChainName |	N	| Detailed property level information.|
-|  HotelName |	Y	|  A text field used to communicate the proper name of the hotel.|
-|  HotelCode |	Y	|  The code that uniquely identifies a single hotel property. Used in other OTA messages.|
-|  Position |	Y	|  The Position element contains three attributes, Latitude, Longitude, used to indicate the geographic location(s) requested by the search, expressed in notation specified by ISO standard 6709.|
-|  Address |	Y	| Public address of the hotel property.|
-|  ContactNumber |	N	| Contact numbers of the hotel property|
-| Award |	N	| An element that identifies the hotel ratings. |
-|  Amenities |	N	| This provides an area to pass amenity information.|
-|  Policy |	N	| Policy information for this hotel.|
-|  HotelPreference |	N	| Hotel preference level set by Travel Administrator.|
+|  Element |	Required | Data Type |  Description |
+|----------|-----------|---------------------------|-|
+|  ChainCode |	N	 | String1to8 | 2 letter GDS chain code. The code that identifies a hotel chain or management group. Used for Chain filter in UI, and for Travel Rules based on GDS codes|
+|  ChainName |	N	| String1to64 | Detailed property level information.|
+|  HotelName |	Y| String1to128	|  A text field used to communicate the proper name of the hotel.|
+|  HotelCode |	Y	| String1to16 |  The code that uniquely identifies a single hotel property. Used in other OTA messages.|
+|  Position |	Y	 | ComplexType |  The Position element contains three attributes, Latitude, Longitude, used to indicate the geographic location(s) requested by the search, expressed in notation specified by ISO standard 6709.|
+|  Address |	Y	| ComplexType | Public address of the hotel property.|
+|  ContactNumber |	N	| ComplexType | Contact numbers of the hotel property|
+| Award |	N	| ComplexType | An element that identifies the hotel ratings. Possible values: 1-5 |
+|  Amenities | N	| ComplexType| This provides an area to pass amenity information.|
+|  Policy |	N	 | ComplexType| Policy information for this hotel.|
+|  HotelPreference |	N | ComplexType	| Hotel preference level set by Travel Administrator.|
 
 #### Example request
 
