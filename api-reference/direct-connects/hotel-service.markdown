@@ -103,6 +103,7 @@ As authentication, Concur sends userID and password in each message SOAP header:
   </authentication>
 </Header>
 ```
+Login and password are provided by the Hotel supplier for Concur as API consumer, not per customer.
 
 ### Authentication.xsd:
 
@@ -1095,7 +1096,7 @@ and Warring in corresponding nodes of each message:
 
 ```xml
 <Errors>
-  <Error Type=”13” Code="322" ShortText="1111" />
+  <Error Type=”13” Code="424" ShortText="50.111,40.222,5,2" />
 </Errors>
 ```
 
@@ -1115,16 +1116,16 @@ Error codes recommended for specific errors
 | 314 |	Required data missing:country of residence | |
 | 315 |	Required data missing:confirmation number | |
 | 316 |	Required data missing:phone number | |
-| 320 | Invalid value | Comma separated node or attribute and sent value should be provided in ShortText. |  
-| 321 | Required field missing | Comma separated node or attribute and sent value  should be provided in ShortText. |  
-| 322 | No availability | Hotel Codes should be provided in ShortText. |  
-| 351 |	Credit card guarantee not accepted at hotel |  PaymentCardType should be provided in ShortText. |
+| 320 | Invalid value | Comma separated node or attribute and sent value should be provided in ShortText. Example: "StayDateRange:2019-11-33" |  
+| 321 | Required field missing | Comma separated node or attribute  should be provided in ShortText. Example: "HotelCode, StayDateRange" |  
+| 322 | No availability | Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555"|  
+| 351 |	Credit card guarantee not accepted at hotel |  CardType should be provided in ShortText. Example: "AmericanExpress" |
 | 365 |	Error credit card | For other than specified credit card errors, no information should be sent in ShortText. |
 | 385 |	Invalid confirmation or cancellation number | Reservation ID should be provided in ShortText. |
 | 420 |	Need e-mail address | |
-| 424 |	No hotels found which match this input |Search parameters - geocode and radius should be provided in ShortText as tokenized list: GEOCODE:xxx,RADIUS:yyy |
-| 400 | Invalid property code | List of comma separated Hotel Codes should be provided in ShortText.  |
-| 438 |	Requested rate not available | List of comma separated RatePlanID's should be provided in ShortText. |
+| 424 |	No hotels found which match this input |Search parameters - geocode and radius should be provided in ShortText as tokenized list: Latitude,Longitude,Radius, Unit of Meauser code. Example: "50.111,40.222,5,2" |
+| 400 | Invalid property code | List of comma separated Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555" |
+| 438 |	Requested rate not available | List of comma separated RatePlanID's should be provided in ShortText. Example: "111,222"  |
 | 748 | Invalid corporate ID | Requestor ID should be provided in ShortText. |
 
 In case of request structure not parsed by the Hotel Supplier, the Protocol violation Error should be returned, with details 
