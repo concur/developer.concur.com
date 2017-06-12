@@ -188,7 +188,7 @@ this is optional setting in Concur Travel.
 OTA_HotelSearchRQ
 
 |  Element |	Required	| Data Type  |  Description |
-|----------|---------------------------------------|-|
+|----------|------------|--------------------------|-|
 |  RequestorID |	N | String1to32	| The corporate identifier|
 |  Position |	Y	| ComplexType |  The Position element contains three attributes, Latitude, Longitude, used to indicate the geographic location(s) requested by the search, expressed in notation specified by ISO standard 6709.|
 |  Radius |	Y	| ComplexType | Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location.|
@@ -199,7 +199,7 @@ OTA_HotelSearchRQ
 OTA_HotelSearchRS
 
 |  Element |	Required | Data Type |  Description |
-|----------|---------------------------------------|-|
+|----------|-----------|---------------------------|-|
 |  ChainCode |	N	 | String1to8 | 2 letter GDS chain code. The code that identifies a hotel chain or management group. Used for Chain filter in UI, and for Travel Rules based on GDS codes|
 |  ChainName |	N	| String1to64 | Detailed property level information.|
 |  HotelName |	Y| String1to128	|  A text field used to communicate the proper name of the hotel.|
