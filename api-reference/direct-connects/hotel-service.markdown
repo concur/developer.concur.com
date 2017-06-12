@@ -974,11 +974,11 @@ OTA_HotelResRS
     are sent **Guarantee/GuaranteeAccepted/PaymentCard.** Reservation message is
     sent. Once Reservation RS is returned by Hotel Supplier, trip is reserved.
 
-![media](./hotel2/HotelRes1.jpg)
+    ![media](./hotel2/HotelRes1.jpg)
 
-![media](./hotel2/HotelRes2.jpg)
+    ![media](./hotel2/HotelRes2.jpg)
 
-4. Travel administrator configures travel configuration to recieve reservation confirmation on email. Multiple emails can be configured
+4.  Travel administrator configures travel configuration to recieve reservation confirmation on email. Multiple emails can be configured
 NotifyEmails will be sent in such reservation requests. The Hotel Supplier should send reservation confirmation to specified emails.
 
  
