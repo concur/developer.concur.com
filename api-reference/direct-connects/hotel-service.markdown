@@ -978,6 +978,9 @@ OTA_HotelResRS
 
 ![media](./hotel2/HotelRes2.jpg)
 
+4. Travel administrator configures travel configuration to recieve reservation confirmation on email. Multiple emails can be configured
+NotifyEmails will be sent in such reservation requests. The Hotel Supplier should send reservation confirmation to specified emails.
+
  
 ### Read
 
