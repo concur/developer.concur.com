@@ -96,12 +96,13 @@ As authentication, Concur sends userID and password in each message SOAP header:
 
 ```xml
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"> 
-<Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-  <authentication xmlns="http://www.concur.com/webservice/auth">
-    <userid>testLogin123</userid>
-    <password>xxxxxxxxxxxx</password> 
-  </authentication>
-</Header>
+    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <authentication xmlns="http://www.concur.com/webservice/auth">
+            <userid>testLogin123</userid>
+            <password>xxxxxxxxxxxx</password>
+        </authentication>
+    </Header>
+</Envelope>
 ```
 Login and password are provided by the Hotel supplier for Concur as API consumer, not per customer.
 
@@ -109,15 +110,21 @@ Login and password are provided by the Hotel supplier for Concur as API consumer
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.concur.com/webservice/auth" targetNamespace="http://www.concur.com/webservice/auth" elementFormDefault="qualified" version="1.0" id="TransactionControlHeader">
-	<xsd:element name="authentication">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="userid" type="xsd:string"/>
-				<xsd:element name="password" type="xsd:string"/>
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://www.concur.com/webservice/auth"
+    targetNamespace="http://www.concur.com/webservice/auth"
+    elementFormDefault="qualified"
+    version="1.0"
+    id="TransactionControlHeader">
+    <xsd:element name="authentication">
+        <xsd:complexType>
+          <xsd:sequence>
+              <xsd:element name="userid" type="xsd:string"/>
+              <xsd:element name="password" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
 </xsd:schema>
 ```
 
@@ -223,23 +230,29 @@ OTA_HotelSearchRS
 
 ```xml
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-	<Header xmlns="http://schemas.xmlsoap.org/soap/envelope/"/>
-	<Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-		<OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="0953A951-AD9E-4B30-A0E0-E68747381627" Version="4" PrimaryLangID="EN" AltLangID="EN" MaxResponses="100">
-			<POS>
-				<Source>
-					<RequestorID Type="1" ID="408748011"/>
-				</Source>
-			</POS>
-			<Criteria>
-				<Criterion>
-					<Position Latitude="52.520007" Longitude="13.404954"/>
-					<Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"/>
-					<StayDateRange Start="2017-04-30" End="2017-05-01"/>
-				</Criterion>
-			</Criteria>
-		</OTA_HotelSearchRQ>
-	</Body>
+    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/"/>
+    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <OTA_HotelSearchRQ
+          xmlns="http://www.opentravel.org/OTA/2003/05"
+          EchoToken="0953A951-AD9E-4B30-A0E0-E68747381627"
+          Version="4"
+          PrimaryLangID="EN"
+          AltLangID="EN"
+          MaxResponses="100">
+            <POS>
+                <Source>
+                    <RequestorID Type="1" ID="408748011"/>
+                </Source>
+            </POS>
+            <Criteria>
+                <Criterion>
+                    <Position Latitude="52.520007" Longitude="13.404954"/>
+                    <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"/>
+                    <StayDateRange Start="2017-04-30" End="2017-05-01"/>
+                </Criterion>
+            </Criteria>
+        </OTA_HotelSearchRQ>
+    </Body>
 </Envelope>
 ```
 
@@ -247,46 +260,61 @@ OTA_HotelSearchRS
 
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-	<SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
-	<soap:Body>
-		<OTA_HotelSearchRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" AltLangID="EN" PrimaryLangID="EN" Version="4">
-			<Success/>
-			<Properties>
-				<Property ChainCode="1609" ChainName="Radisson" HotelCode="ra" HotelName="Radisson Blu Hotel">
-					<Position Latitude="52.51955" Longitude="13.402762"/>
-					<Address>
-						<AddressLine>Karl-Liebknecht-Str. 3 </AddressLine>
-						<CityName>Berlin</CityName>
-						<CountryName Code="DE">Federal Republic of Germany</CountryName>
-					</Address>
-					<ContactNumbers>
-						<ContactNumber CountryAccessCode="49" PhoneNumber="30238280" PhoneTechType="1"/>
-						<ContactNumber CountryAccessCode="49" PhoneNumber="302382810" PhoneTechType="3"/>
-					</ContactNumbers>
-					<Award Rating="5"/>
-					<HotelAmenity Code="68"/>
-					<HotelAmenity Code="198"/>
-					<HotelAmenity Code="5"/>
-					<HotelAmenity Code="76"/>
-					<HotelAmenity Code="223"/>
-					<HotelAmenity Code="79"/>
-					<HotelAmenity Code="71"/>
-					<HotelAmenity Code="101"/>
-					<HotelAmenity Code="33"/>
-					<HotelAmenity Code="165"/>
-					<HotelAmenity Code="261"/>
-					<Policy CheckInTime="14:00:00" CheckOutTime="12:00:00"/>
-					<Amenities/>
-					<TPA_Extensions>
-						<HotelPreference>not_preferred</HotelPreference>
-						<TPA_HotelPreviewImageURI>
-							<URL>example.com/hotel1.jpg</URL>
-						</TPA_HotelPreviewImageURI>
-					</TPA_Extensions>
-				</Property>
-				</Properties>
-		</OTA_HotelSearchRS>
-	</soap:Body>
+    <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
+    <soap:Body>
+        <OTA_HotelSearchRS
+            xmlns="http://www.opentravel.org/OTA/2003/05"
+            xmlns:ns2="http://www.concur.com/webservice/auth"
+            AltLangID="EN"
+            PrimaryLangID="EN"
+            Version="4">
+            <Success/>
+            <Properties>
+                <Property
+                    ChainCode="1609"
+                    ChainName="Radisson"
+                    HotelCode="ra"
+                    HotelName="Radisson Blu Hotel">
+                    <Position Latitude="52.51955" Longitude="13.402762"/>
+                    <Address>
+                        <AddressLine>Karl-Liebknecht-Str. 3 </AddressLine>
+                        <CityName>Berlin</CityName>
+                        <CountryName Code="DE">Federal Republic of Germany</CountryName>
+                    </Address>
+                    <ContactNumbers>
+                        <ContactNumber
+                            CountryAccessCode="49"
+                            PhoneNumber="30238280"
+                            PhoneTechType="1"/>
+                        <ContactNumber
+                            CountryAccessCode="49"
+                            PhoneNumber="302382810"
+                            PhoneTechType="3"/>
+                    </ContactNumbers>
+                    <Award Rating="5"/>
+                    <HotelAmenity Code="68"/>
+                    <HotelAmenity Code="198"/>
+                    <HotelAmenity Code="5"/>
+                    <HotelAmenity Code="76"/>
+                    <HotelAmenity Code="223"/>
+                    <HotelAmenity Code="79"/>
+                    <HotelAmenity Code="71"/>
+                    <HotelAmenity Code="101"/>
+                    <HotelAmenity Code="33"/>
+                    <HotelAmenity Code="165"/>
+                    <HotelAmenity Code="261"/>
+                    <Policy CheckInTime="14:00:00" CheckOutTime="12:00:00"/>
+                    <Amenities/>
+                    <TPA_Extensions>
+                        <HotelPreference>not_preferred</HotelPreference>
+                        <TPA_HotelPreviewImageURI>
+                            <URL>example.com/hotel1.jpg</URL>
+                        </TPA_HotelPreviewImageURI>
+                    </TPA_Extensions>
+                </Property>
+            </Properties>
+        </OTA_HotelSearchRS>
+    </soap:Body>
 </soap:Envelope>
 ```
 
@@ -321,10 +349,10 @@ OTA_HotelSearchRS
 
     ```xml
     <Criterion>
-    <Position Latitude="52.520007" Longitude="13.404954"></Position> 
-    <HotelRef HotelName="novotel"></HotelRef>
-    <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>
-    <StayDateRange Start="2017-04-19" End="2017-04-20"></StayDateRange>
+        <Position Latitude="52.520007" Longitude="13.404954"></Position> 
+        <HotelRef HotelName="novotel"></HotelRef>
+        <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>
+        <StayDateRange Start="2017-04-19" End="2017-04-20"></StayDateRange>
     </Criterion>
     ```
 
@@ -340,13 +368,17 @@ OTA_HotelSearchRS
 
     SearchRQ message has two radiuses:
 
-    `<Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>`
+    ```xml
+    <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>
+    ```
 
     Out of 100 returned hotels in response from Hotel Supplier, first 10 hotels
     are Most Preferred hotels from **30 km** radius. Next 10 hotels are
     Preferred hotels from **30km** radius.
 
-    `<HotelPreference>preferred</HotelPreference>`
+    ```xml
+    <HotelPreference>preferred</HotelPreference>
+    ```
 
     Other 80 hotels are hotels with no preference from **5km** radius.
     
@@ -383,36 +415,47 @@ OTA_HotelDescriptiveInfoRS
 
 ```xml
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-  <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/"></Header>
-  <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-    <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="30708715-C77F-43A1-8B17-242568D4708C" Version="3">
-      <HotelDescriptiveInfos>
-        <HotelDescriptiveInfo ChainCode="XX" HotelCode="464844"></HotelDescriptiveInfo>
-      </HotelDescriptiveInfos>
-    </OTA_HotelDescriptiveInfoRQ>
-  </Body>
+    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/"></Header>
+    <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <OTA_HotelDescriptiveInfoRQ
+            xmlns="http://www.opentravel.org/OTA/2003/05"
+            EchoToken="30708715-C77F-43A1-8B17-242568D4708C"
+            Version="3">
+            <HotelDescriptiveInfos>
+                <HotelDescriptiveInfo ChainCode="XX" HotelCode="464844"></HotelDescriptiveInfo>
+            </HotelDescriptiveInfos>
+        </OTA_HotelDescriptiveInfoRQ>
+    </Body>
 </Envelope>
 ```
  
 #### Example response
 
 ```xml
-<OTA_HotelDescriptiveInfoRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth">
-<Success/>
-<HotelDescriptiveContents>
-<HotelDescriptiveContent ChainCode="XX" HotelCode="464844" HotelName="H2 Alexanderplatz">
-<HotelInfo><Descriptions><DescriptiveText> The H2 Hotel Berlin Alexanderplatz offers design, functionality and comfort. The H2 Hotel Berlin Alexanderplatz boasts a clear price structure and a design-oriented and modern ambience. </DescriptiveText>
-</Descriptions>
-</HotelInfo>
-<MultimediaDescriptions>
-<MultimediaDescription>
-<ImageItems>
-<ImageItem><ImageFormat><URL>https://iut-foto-origin.hrsstatic.com/foto/4/6/4/8/464844/464844_a_2448684.jpg</URL></ImageFormat></ImageItem>
-</ImageItems>
-</MultimediaDescription>
-</MultimediaDescriptions>
-</HotelDescriptiveContent>
-</HotelDescriptiveContents>
+<OTA_HotelDescriptiveInfoRS
+    xmlns="http://www.opentravel.org/OTA/2003/05"
+    xmlns:ns2="http://www.concur.com/webservice/auth">
+    <Success/>
+    <HotelDescriptiveContents>
+        <HotelDescriptiveContent ChainCode="XX" HotelCode="464844" HotelName="H2 Alexanderplatz">
+            <HotelInfo>
+                <Descriptions>
+                    <DescriptiveText>The H2 Hotel Berlin Alexanderplatz offers design, functionality and comfort. The H2 Hotel Berlin Alexanderplatz boasts a clear price structure and a design-oriented and modern ambience.</DescriptiveText>
+                </Descriptions>
+            </HotelInfo>
+            <MultimediaDescriptions>
+                <MultimediaDescription>
+                    <ImageItems>
+                        <ImageItem>
+                            <ImageFormat>
+                                <URL>https://iut-foto-origin.hrsstatic.com/foto/4/6/4/8/464844/464844_a_2448684.jpg</URL>
+                            </ImageFormat>
+                        </ImageItem>
+                    </ImageItems>
+                </MultimediaDescription>
+            </MultimediaDescriptions>
+        </HotelDescriptiveContent>
+    </HotelDescriptiveContents>
 </OTA_HotelDescriptiveInfoRS>
 ```
 
@@ -420,17 +463,15 @@ OTA_HotelDescriptiveInfoRS
 
 1.  User searches for hotels.
 
-   OTA\_DescriptiveInfoRQ.xml, OTA\_ DescriptiveInfoRS.xml
+    OTA\_DescriptiveInfoRQ.xml, OTA\_ DescriptiveInfoRS.xml
 
-  On any hotel, user clicks "Hotel Details" button.
+    On any hotel, user clicks "Hotel Details" button. A pop-up with textual hotel description is shown.
 
-   A pop-up with textual hotel description is shown.
-
-   ![media](./hotel2/OTA_DescriptiveInfo1.png)
+    ![media](./hotel2/OTA_DescriptiveInfo1.png)
    
 2.  User clicks on hotel photo thumbnail. Gallery of hotel photos is displayed.
 
-![media](./hotel2/OTA_DescriptiveInfo2.png)
+    ![media](./hotel2/OTA_DescriptiveInfo2.png)
 
 ### Hotel Availability
 
@@ -475,35 +516,39 @@ OTA_HotelAvailRS
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00" PrimaryLangID="en-us"
-				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
-				  xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelAvailRQ.xsd"
-				  Version="1">
-	<POS>
-		<Source ISOCountry="US" ISOCurrency="USD">
-			<RequestorID Type="18" ID="7777777" /> 
-		</Source>
-	</POS>
-	<AvailRequestSegments>
-		<AvailRequestSegment>
-			<HotelSearchCriteria>
-				<Criterion>
-					<HotelRef  HotelCode="HTL1111" />
-				</Criterion>	
-				<Criterion>	
-					<HotelRef  HotelCode="HTL2222" />
-				</Criterion>
-			</HotelSearchCriteria>
-			<StayDateRange Start="2012-08-15" End="2010-08-17" />
-			<RoomStayCandidates>
-				<RoomStayCandidate Quantity="1">
-					<GuestCounts>
-						<GuestCount  Count="1" />
-					</GuestCounts>
-				</RoomStayCandidate>
-			</RoomStayCandidates>
-		</AvailRequestSegment>
-	</AvailRequestSegments>
+<OTA_HotelAvailRQ
+    xmlns="http://www.opentravel.org/OTA/2003/05"
+    EchoToken="ABC123"
+    TimeStamp="2012-01-01T19:00:00"
+    PrimaryLangID="en-us"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelAvailRQ.xsd"
+    Version="1">
+    <POS>
+        <Source ISOCountry="US" ISOCurrency="USD">
+            <RequestorID Type="18" ID="7777777" /> 
+        </Source>
+    </POS>
+    <AvailRequestSegments>
+        <AvailRequestSegment>
+            <HotelSearchCriteria>
+                <Criterion>
+                    <HotelRef  HotelCode="HTL1111" />
+                </Criterion>	
+                <Criterion>	
+                    <HotelRef  HotelCode="HTL2222" />
+                </Criterion>
+            </HotelSearchCriteria>
+            <StayDateRange Start="2012-08-15" End="2010-08-17" />
+            <RoomStayCandidates>
+                <RoomStayCandidate Quantity="1">
+                    <GuestCounts>
+                        <GuestCount Count="1" />
+                    </GuestCounts>
+                </RoomStayCandidate>
+            </RoomStayCandidates>
+        </AvailRequestSegment>
+    </AvailRequestSegments>
 </OTA_HotelAvailRQ>
 ```
 
@@ -511,118 +556,139 @@ OTA_HotelAvailRS
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<OTA_HotelAvailRS xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="ABC123" TimeStamp="2012-01-01T19:00:00"
-				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
-				  xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelAvailRS.xsd"
-				  Version="1">
-	<Success />
-	<RoomStays>
-		<RoomStay>
-		<!--RoomStay represents 1 hotel-->
-			<RoomTypes>
-				<RoomType RoomID="111">
-					<RoomDescription>
-						<Text>Standard room, king bed</Text>
-						</RoomDescription>
-				</RoomType>
-				<RoomType RoomID="222">
-					<RoomDescription>
-						<Text>Exclusive room</Text>
-						</RoomDescription>
-				</RoomType>
-			</RoomTypes>
-			<RatePlans>
-				<RatePlan RatePlanID="111111" AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" >
-							<Guarantee GuaranteeType="Deposit"/>
-							<CancelPenalties>
-								<CancelPenalty NonRefundable="true">
-									<PenaltyDescription>
-										<Text>NONREFUNDABLE 100 PCT PENALTY</Text>
-									</PenaltyDescription>
-								</CancelPenalty>
-							</CancelPenalties>
-							<MealsIncluded Breakfast="false" Dinner="false" Lunch="false"/>
-				</RatePlan>
-				<RatePlan RatePlanID="222222" AvailabilityStatus="AvailableForSale" PrepaidIndicator="false">
-							<Guarantee GuaranteeType="Deposit"/>
-							<CancelPenalties>
-								<CancelPenalty NonRefundable="false">
-									<PenaltyDescription>
-										<Text>Cancel 2 days before arrival</Text>
-									</PenaltyDescription>
-								</CancelPenalty>
-							</CancelPenalties>
-							<MealsIncluded Breakfast="True" Dinner="false" Lunch="false"/>
-				</RatePlan>			
-			</RatePlans>
-			<RoomRates>
-				<RoomRate RoomID="111" RatePlanID="111111">
-					<Rates>
-						<Rate>
-							<Total AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
-							<RateDescription>
-								<Text>CORPORATE RATE*Free Wi-Fi</Text>
-							</RateDescription>
-						  <TPA_Extensions>
-							  <RequireSeriesCode>true</RequireSeriesCode> 
-						  </TPA_Extensions>	
-						</Rate>
-					</Rates>
-				</RoomRate>
-				<RoomRate RoomID="222" RatePlanID="222222">
-					<Rates>
-						<Rate>
-							<Total AmountBeforeTax="200.00" AmountAfterTax="220.00" CurrencyCode="USD" />
-							<RateDescription>
-								<Text>CORPORATE RATE*Free Wi-Fi</Text>
-							</RateDescription>
-							<TPA_Extensions>
-								<RequireSeriesCode>true</RequireSeriesCode> 
-							</TPA_Extensions>
-						</Rate>
-					</Rates>
-				</RoomRate>
-			</RoomRates>
-			<TimeSpan Start="2012-08-15" End="2010-08-17" />	
-			<BasicPropertyInfo HotelCode="HTL1111" />
-		</RoomStay>
-		<RoomStay>
-			<RoomTypes>
-				<RoomType RoomID="333">
-					<RoomDescription>
-					<Text>Double room, twin bed</Text>
-					</RoomDescription>
-				</RoomType>
-			</RoomTypes>
-			<RatePlans>
-				<RatePlan RatePlanID="333333" AvailabilityStatus="AvailableForSale" PrepaidIndicator="false">
-							<Guarantee GuaranteeType="Deposit"/>
-							<CancelPenalties>
-								<CancelPenalty NonRefundable="true">
-									<PenaltyDescription>
-										<Text>NONREFUNDABLE 100 PCT PENALTY</Text>
-									</PenaltyDescription>
-								</CancelPenalty>
-							</CancelPenalties>
-							<MealsIncluded Breakfast="false" Dinner="false" Lunch="false"/>
-				</RatePlan>			
-			</RatePlans>
-			<RoomRates>
-				<RoomRate RoomID="333" RatePlanID="333333">
-					<Rates>
-						<Rate>
-							<Total AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
-							<RateDescription>
-								<Text>CORPORATE RATE*Free Wi-Fi</Text>
-							</RateDescription>
-						</Rate>
-					</Rates>
-				</RoomRate>
-			</RoomRates>
-			<TimeSpan Start="2012-08-15" End="2010-08-17" />
-			<BasicPropertyInfo HotelCode="HTL2222" />
-		</RoomStay>
-	<RoomStays>	
+<OTA_HotelAvailRS
+    xmlns="http://www.opentravel.org/OTA/2003/05"
+    EchoToken="ABC123"
+    TimeStamp="2012-01-01T19:00:00"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelAvailRS.xsd"
+    Version="1">
+    <Success />
+    <RoomStays>
+        <RoomStay>
+            <!--RoomStay represents 1 hotel-->
+            <RoomTypes>
+                <RoomType RoomID="111">
+                    <RoomDescription>
+                        <Text>Standard room, king bed</Text>
+                    </RoomDescription>
+                </RoomType>
+                <RoomType RoomID="222">
+                    <RoomDescription>
+                        <Text>Exclusive room</Text>
+                    </RoomDescription>
+                </RoomType>
+            </RoomTypes>
+            <RatePlans>
+                <RatePlan
+                    RatePlanID="111111"
+                    AvailabilityStatus="AvailableForSale"
+                    PrepaidIndicator="false">
+                    <Guarantee GuaranteeType="Deposit"/>
+                    <CancelPenalties>
+                        <CancelPenalty NonRefundable="true">
+                            <PenaltyDescription>
+                                <Text>NONREFUNDABLE 100 PCT PENALTY</Text>
+                            </PenaltyDescription>
+                        </CancelPenalty>
+                    </CancelPenalties>
+                    <MealsIncluded Breakfast="false" Dinner="false" Lunch="false"/>
+                </RatePlan>
+                <RatePlan
+                    RatePlanID="222222"
+                    AvailabilityStatus="AvailableForSale"
+                    PrepaidIndicator="false">
+                    <Guarantee GuaranteeType="Deposit"/>
+                    <CancelPenalties>
+                        <CancelPenalty NonRefundable="false">
+                            <PenaltyDescription>
+                                <Text>Cancel 2 days before arrival</Text>
+                            </PenaltyDescription>
+                        </CancelPenalty>
+                    </CancelPenalties>
+                    <MealsIncluded Breakfast="True" Dinner="false" Lunch="false"/>
+                </RatePlan>
+            </RatePlans>
+            <RoomRates>
+                <RoomRate RoomID="111" RatePlanID="111111">
+                    <Rates>
+                        <Rate>
+                            <Total
+                                AmountBeforeTax="100.00"
+                                AmountAfterTax="110.00"
+                                CurrencyCode="USD" />
+                            <RateDescription>
+                                <Text>CORPORATE RATE*Free Wi-Fi</Text>
+                            </RateDescription>
+                            <TPA_Extensions>
+                                <RequireSeriesCode>true</RequireSeriesCode> 
+                            </TPA_Extensions>
+                        </Rate>
+                    </Rates>
+                </RoomRate>
+                <RoomRate RoomID="222" RatePlanID="222222">
+                    <Rates>
+                        <Rate>
+                            <Total
+                                AmountBeforeTax="200.00"
+                                AmountAfterTax="220.00"
+                                CurrencyCode="USD" />
+                            <RateDescription>
+                                <Text>CORPORATE RATE*Free Wi-Fi</Text>
+                            </RateDescription>
+                            <TPA_Extensions>
+                                <RequireSeriesCode>true</RequireSeriesCode> 
+                            </TPA_Extensions>
+                        </Rate>
+                    </Rates>
+                </RoomRate>
+            </RoomRates>
+            <TimeSpan Start="2012-08-15" End="2010-08-17" />	
+            <BasicPropertyInfo HotelCode="HTL1111" />
+        </RoomStay>
+        <RoomStay>
+            <RoomTypes>
+                <RoomType RoomID="333">
+                    <RoomDescription>
+                        <Text>Double room, twin bed</Text>
+                    </RoomDescription>
+                </RoomType>
+            </RoomTypes>
+            <RatePlans>
+                <RatePlan
+                    RatePlanID="333333"
+                    AvailabilityStatus="AvailableForSale"
+                    PrepaidIndicator="false">
+                    <Guarantee GuaranteeType="Deposit"/>
+                    <CancelPenalties>
+                        <CancelPenalty NonRefundable="true">
+                            <PenaltyDescription>
+                                <Text>NONREFUNDABLE 100 PCT PENALTY</Text>
+                            </PenaltyDescription>
+                        </CancelPenalty>
+                    </CancelPenalties>
+                    <MealsIncluded Breakfast="false" Dinner="false" Lunch="false"/>
+                </RatePlan>			
+            </RatePlans>
+            <RoomRates>
+                <RoomRate RoomID="333" RatePlanID="333333">
+                    <Rates>
+                        <Rate>
+                            <Total
+                                AmountBeforeTax="100.00"
+                                AmountAfterTax="110.00"
+                                CurrencyCode="USD" />
+                            <RateDescription>
+                                <Text>CORPORATE RATE*Free Wi-Fi</Text>
+                            </RateDescription>
+                        </Rate>
+                    </Rates>
+                </RoomRate>
+            </RoomRates>
+            <TimeSpan Start="2012-08-15" End="2010-08-17" />
+            <BasicPropertyInfo HotelCode="HTL2222" />
+        </RoomStay>
+    </RoomStays>	
 </OTA_HotelAvailRS>
 ```
 
@@ -650,123 +716,136 @@ Example request:
 
 ```xml
 <HotelSearchCriteria>
- <Criterion>
-	<HotelRef HotelCode="HTL1111"/>
-</Criterion>
-<Criterion>
-	<HotelRef HotelCode=" HTL2222"/>
-</Criterion>
+    <Criterion>
+        <HotelRef HotelCode="HTL1111"/>
+    </Criterion>
+    <Criterion>
+        <HotelRef HotelCode=" HTL2222"/>
+    </Criterion>
+</HotelSearchCriteria>
 ```
 
 Example response:
 
 ```xml
 <RoomStays>
-	<RoomStay>
-		<RoomTypes>
-			<RoomType RoomID="222">
-				<RoomDescription>Standard room, king bed</RoomDescription>
-			</RoomType>
-			<RoomType RoomID="999">
-				<RoomDescription>Exclusive room</RoomDescription>
-			</RoomType>
-		</RoomTypes>
-		<RatePlans>
-			<RatePlan RatePlanID="111111" />
-			<RatePlan RatePlanID="999999" />
-		</RatePlans>
-		<RoomRates>
-			<RoomRate>
-				<Rates>
-					<Rate RoomID="222" RatePlanID="111111" >
-						<Total AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
-						<RateDescription>
-							<Text>CORPORATE RATE*Free Wi-Fi</Text>
-						</RateDescription>
-						<TPA_Extensions>
-							<RequireSeriesCode>true</RequireSeriesCode>
-						</TPA_Extensions>
-					</Rate>
-				</Rates>
-			</RoomRate>
-			<RoomRate>
-				<Rates>
-					<Rate RoomID="999" RatePlanID="999999" >
-						<Total AmountBeforeTax="200.00" AmountAfterTax="220.00" CurrencyCode="USD" />
-						<RateDescription>
-							<Text>CORPORATE RATE*Free Wi-Fi</Text>
-						</RateDescription>
-						<TPA_Extensions>
-							<RequireSeriesCode>true</RequireSeriesCode>
-						</TPA_Extensions>
-					</Rate>
-				</Rates>
-			</RoomRate>
-		</RoomRates>
-		<TimeSpan Start="2012-08-15" End="2010-08-17" />
-		<BasicPropertyInfo HotelCode="HTL1111" />
-	</RoomStay>
-	<RoomStay>
-		<RoomTypes>
-			<RoomType RoomID="888">
-				<RoomDescription>Double room, twin bed</RoomDescription>
-			</RoomType>			
-		</RoomTypes>
-		<RatePlans>
-			<RatePlan RatePlanID="222222" />
-		</RatePlans>
-		<RoomRates>
-			<RoomRate>
-				<Rates>
-					<Rate RoomID="888" RatePlanID="222222" >
-						<Total AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
-						<RateDescription>
-							<Text>CORPORATE RATE*Free Wi-Fi</Text>
-						</RateDescription>						
-					</Rate>
-				</Rates>
-			</RoomRate>
-		</RoomRates>
-		<TimeSpan Start="2012-08-15" End="2010-08-17" />
-		<BasicPropertyInfo HotelCode="HTL2222" />
-	</RoomStay>
+    <RoomStay>
+        <RoomTypes>
+            <RoomType RoomID="222">
+                <RoomDescription>Standard room, king bed</RoomDescription>
+            </RoomType>
+            <RoomType RoomID="999">
+                <RoomDescription>Exclusive room</RoomDescription>
+            </RoomType>
+        </RoomTypes>
+        <RatePlans>
+            <RatePlan RatePlanID="111111" />
+            <RatePlan RatePlanID="999999" />
+        </RatePlans>
+        <RoomRates>
+            <RoomRate>
+                <Rates>
+                    <Rate RoomID="222" RatePlanID="111111" >
+                        <Total
+                            AmountBeforeTax="100.00"
+                            AmountAfterTax="110.00"
+                            CurrencyCode="USD" />
+                        <RateDescription>
+                            <Text>CORPORATE RATE*Free Wi-Fi</Text>
+                        </RateDescription>
+                        <TPA_Extensions>
+                            <RequireSeriesCode>true</RequireSeriesCode>
+                        </TPA_Extensions>
+                    </Rate>
+                </Rates>
+            </RoomRate>
+            <RoomRate>
+                <Rates>
+                    <Rate RoomID="999" RatePlanID="999999" >
+                        <Total
+                            AmountBeforeTax="200.00"
+                            AmountAfterTax="220.00"
+                            CurrencyCode="USD" />
+                        <RateDescription>
+                            <Text>CORPORATE RATE*Free Wi-Fi</Text>
+                        </RateDescription>
+                        <TPA_Extensions>
+                            <RequireSeriesCode>true</RequireSeriesCode>
+                        </TPA_Extensions>
+                    </Rate>
+                </Rates>
+            </RoomRate>
+        </RoomRates>
+        <TimeSpan Start="2012-08-15" End="2010-08-17" />
+        <BasicPropertyInfo HotelCode="HTL1111" />
+    </RoomStay>
+    <RoomStay>
+        <RoomTypes>
+            <RoomType RoomID="888">
+                <RoomDescription>Double room, twin bed</RoomDescription>
+            </RoomType>			
+        </RoomTypes>
+        <RatePlans>
+            <RatePlan RatePlanID="222222" />
+        </RatePlans>
+        <RoomRates>
+            <RoomRate>
+                <Rates>
+                    <Rate RoomID="888" RatePlanID="222222" >
+                        <Total
+                            AmountBeforeTax="100.00"
+                            AmountAfterTax="110.00"
+                            CurrencyCode="USD" />
+                        <RateDescription>
+                            <Text>CORPORATE RATE*Free Wi-Fi</Text>
+                        </RateDescription>						
+                    </Rate>
+                </Rates>
+            </RoomRate>
+        </RoomRates>
+        <TimeSpan Start="2012-08-15" End="2010-08-17" />
+        <BasicPropertyInfo HotelCode="HTL2222" />
+    </RoomStay>
+</RoomStays>
 ```
 
 2.  After user clicks on Get Rates button for not priced hotels, Avail RQ
     message will be sent for that hotel.
 
-   `<HotelRef HotelCode="101">`
+    ```xml
+    <HotelRef HotelCode="101">
+    ```
 
 3.  The user is requiring stay for multiple nights from **2012-08-15 to
     2010-08-17.** The Hotel Supplier should return total price per stay. Concur
     will divide Total price by number of nights to display nightly price on
     Hotel Search results page.
 
-```xml
-	<RoomRates>
-			<RoomRate>
-				<Rates>
-					<Rate RoomID="888" RatePlanID="222222" >
-				**		<Total AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />**
-						<RateDescription>
-							<Text>CORPORATE RATE*Free Wi-Fi</Text>
-						</RateDescription>						
-					</Rate>
-				</Rates>
-			</RoomRate>
-		**	<StayDateRange Start="2012-08-15" End="2010-08-17" />**
-		</RoomRates>
-```
+    ```xml
+    <RoomRates>
+        <RoomRate>
+            <Rates>
+                <Rate RoomID="888" RatePlanID="222222">
+                    <Total AmountBeforeTax="100.00" AmountAfterTax="110.00" CurrencyCode="USD" />
+                    <RateDescription>
+                        <Text>CORPORATE RATE*Free Wi-Fi</Text>
+                    </RateDescription>
+                </Rate>
+            </Rates>
+        </RoomRate>
+        <StayDateRange Start="2012-08-15" End="2010-08-17" />
+    </RoomRates>
+    ```
 
 4.  If hotel is sold out, the Hotel supplier should return in AvailRS:
 
-`<RatePlan AvailabilityStatus="ClosedOut">`
+    ```xml
+    <RatePlan AvailabilityStatus="ClosedOut">
+    ```
 
 5.  Next to rate description is supplier logo, policy mark (green, red, yellow,
     gray) and button with price in user's currency. If rate needs deposit,
     "deposit required" label is shown.
-
-
 
 6.  User clicks on Rules and Cancellation policy. Popup with cancellation policy
     text appears. Cancellation policy is take from Cancel Penalty nodes.
@@ -774,7 +853,7 @@ Example response:
 7.  User clicks on button with room-rate price. Trip Review page is displayed
     with rate details (average, summary and total) and cancellation policy.
 
-![media](./hotel2/HotelAvail1.png)
+    ![media](./hotel2/HotelAvail1.png)
  
 ### Hotel Reservation
 
@@ -820,149 +899,155 @@ OTA_HotelResRS
 
 ```xml
 <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05">
-  <POS>
-    <Source ISOCurrency="USD">
-      <RequestorID Type="1" ID="123"></RequestorID>
-    </Source>
-  </POS>
-  <HotelReservations>
-    <HotelReservation>
-      <RoomStays>
-        <RoomStay>
-          <RatePlans>
-            <RatePlan RatePlanID="CMY7SR3">
-                <GuaranteesAccepted>
-                  <GuaranteeAccepted>
-					<PaymentCard  CardCode="VI" ExpireDate="0920">
-						<CardType>VISA</CardType>
-						<CardHolderName>FIRSTNAME LASTNAME</CardHolderName>
-						<CardNumber>
-							<PlainText>123456784111></PlainText>
-						</CardNumber> 
-					</PaymentCard>
-                  </GuaranteeAccepted>
-                </GuaranteesAccepted>
-              </Guarantee>
-            </RatePlan>
-          </RatePlans>
-          <TimeSpan Start="2016-11-17" End="2016-11-18"></TimeSpan>
-          <BasicPropertyInfo HotelCode="437004"></BasicPropertyInfo>
-          <Comments>
-            <Comment>
-              <Text TextFormat="PlainText">late arrival</Text>
-            </Comment>
-          </Comments>
-        </RoomStay>
-      </RoomStays>
-	  <ResGuests>
-		<ResGuest>
-			<Profiles>
-				<ProfileInfo>
-					<Profile>
-						<Customer Gender="Unknown">
-							<PersonName Language="en">
-								<NamePrefix>MR</NamePrefix>
-								<GivenName>John</GivenName>
-								<Surname>Smith</Surname>
-							</PersonName>
-							<Telephone PhoneNumber="3141011001"/>
-							<Email>john.smith@inc.com</Email>
-							<Address>
-								<AddressLine>209 Madison Street Suite 400</AddressLine>
-								<CityName>Alexandria</CityName>
-								<PostalCode>22314</PostalCode>
-								<StateProv StateCode="VA"/>
-								<CountryName Code="US">USA</CountryName>
-							</Address>
-							<CitizenCountryName Code="US"/>
-						</Customer>
-						<CompanyInfo>
-							<CompanyName>CONCURTECH</CompanyName>
-						</CompanyInfo>
-					</Profile>
-				</ProfileInfo>
-			</Profiles>
-			<GuestCounts>
-				<GuestCount Count="1"/>
-			</GuestCounts>
-		</ResGuest>
-		</ResGuests>
-    </HotelReservation>
-	<TPA_Extensions>
-		<NotifyEmails>
-			<NotifyEmails>FIRSTNAME.LASTNAME@EXAMPLE.COM</NotifyEmails>
-		</NotifyEmails>
-	</TPA_Extensions>
-  </HotelReservations>
+    <POS>
+        <Source ISOCurrency="USD">
+            <RequestorID Type="1" ID="123"></RequestorID>
+        </Source>
+    </POS>
+    <HotelReservations>
+        <HotelReservation>
+            <RoomStays>
+                <RoomStay>
+                    <RatePlans>
+                        <RatePlan RatePlanID="CMY7SR3">
+                            <GuaranteesAccepted>
+                                <GuaranteeAccepted>
+                                    <PaymentCard  CardCode="VI" ExpireDate="0920">
+                                        <CardType>VISA</CardType>
+                                        <CardHolderName>FIRSTNAME LASTNAME</CardHolderName>
+                                        <CardNumber>
+                                            <PlainText>123456784111></PlainText>
+                                        </CardNumber> 
+                                    </PaymentCard>
+                                </GuaranteeAccepted>
+                            </GuaranteesAccepted>
+                            </Guarantee>
+                        </RatePlan>
+                    </RatePlans>
+                    <TimeSpan Start="2016-11-17" End="2016-11-18"></TimeSpan>
+                    <BasicPropertyInfo HotelCode="437004"></BasicPropertyInfo>
+                    <Comments>
+                        <Comment>
+                            <Text TextFormat="PlainText">late arrival</Text>
+                        </Comment>
+                    </Comments>
+                </RoomStay>
+            </RoomStays>
+            <ResGuests>
+                <ResGuest>
+                    <Profiles>
+                        <ProfileInfo>
+                            <Profile>
+                                <Customer Gender="Unknown">
+                                    <PersonName Language="en">
+                                        <NamePrefix>MR</NamePrefix>
+                                        <GivenName>John</GivenName>
+                                        <Surname>Smith</Surname>
+                                    </PersonName>
+                                    <Telephone PhoneNumber="3141011001"/>
+                                    <Email>john.smith@inc.com</Email>
+                                    <Address>
+                                        <AddressLine>209 Madison Street Suite 400</AddressLine>
+                                        <CityName>Alexandria</CityName>
+                                        <PostalCode>22314</PostalCode>
+                                        <StateProv StateCode="VA"/>
+                                        <CountryName Code="US">USA</CountryName>
+                                    </Address>
+                                    <CitizenCountryName Code="US"/>
+                                </Customer>
+                                <CompanyInfo>
+                                    <CompanyName>CONCURTECH</CompanyName>
+                                </CompanyInfo>
+                            </Profile>
+                        </ProfileInfo>
+                    </Profiles>
+                    <GuestCounts>
+                        <GuestCount Count="1"/>
+                    </GuestCounts>
+                </ResGuest>
+            </ResGuests>
+        </HotelReservation>
+        <TPA_Extensions>
+            <NotifyEmails>
+                <NotifyEmails>FIRSTNAME.LASTNAME@EXAMPLE.COM</NotifyEmails>
+            </NotifyEmails>
+        </TPA_Extensions>
+    </HotelReservations>
 </OTA_HotelResRQ>
 ```
 
 #### Example response
 
 ```xml
-<OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" ResResponseType="Reserved">
-			<Success/>
-			<HotelReservations>
-				<HotelReservation>
-					<UniqueID ID="94514652"/>
-					<RoomStays>
-						<RoomStay>
-							<RatePlans>
-								<RatePlan RatePlanID="CMY7SR3">
-									<CancelPenalties CancelPolicyIndicator="true">
-										<CancelPenalty>
-											<Deadline AbsoluteDeadline="2017-04-30T22:00"/>
-											<PenaltyDescription>
-												<Text>REFUNDABLE</Text>
-											</PenaltyDescription>
-											<PenaltyDescription>
-												<Text>CANCEL BY 2016-11-16T22:00</Text>
-											</PenaltyDescription>
-										</CancelPenalty>
-									</CancelPenalties>
-								</RatePlan>
-							</RatePlans>
-							<RoomRates>
-								<RoomRate>
-									<Rates>
-										<Rate RoomPricingType="Per stay">
-											<Total AmountAfterTax="89.10" AmountBeforeTax="89.10" CurrencyCode="EUR"/>
-										</Rate>
-									</Rates>
-								</RoomRate>
-							</RoomRates>
-							<TimeSpan Start="2016-11-17" End="2016-11-18" />
-							<BasicPropertyInfo HotelCode="437004" HotelName="monbijou">
-								<Address>
-									<AddressLine>Monbijouplatz 1 </AddressLine>
-									<CityName>Berlin</CityName>
-									<CountryName Code="DEU">Federal Republic of Germany</CountryName>
-								</Address>
-								<ContactNumbers>
-									<ContactNumber PhoneNumber="+1555666444"/>
-								</ContactNumbers>
-							</BasicPropertyInfo>
-						</RoomStay>
-					</RoomStays>
-					<ResGuests>
-						<ResGuest>
-							<Profiles>
-								<ProfileInfo>
-									<Profile>
-										<Customer>
-											<PersonName>
-												<GivenName>FIRSTNAME</GivenName>
-												<Surname>LASTNAME</Surname>
-											</PersonName>
-										</Customer>
-									</Profile>
-								</ProfileInfo>
-							</Profiles>
-						</ResGuest>
-					</ResGuests>
-				</HotelReservation>
-			</HotelReservations>
-		</OTA_HotelResRS>
+<OTA_HotelResRS
+    xmlns="http://www.opentravel.org/OTA/2003/05"
+    xmlns:ns2="http://www.concur.com/webservice/auth"
+    ResResponseType="Reserved">
+    <Success/>
+    <HotelReservations>
+        <HotelReservation>
+            <UniqueID ID="94514652"/>
+            <RoomStays>
+                <RoomStay>
+                    <RatePlans>
+                        <RatePlan RatePlanID="CMY7SR3">
+                            <CancelPenalties CancelPolicyIndicator="true">
+                                <CancelPenalty>
+                                    <Deadline AbsoluteDeadline="2017-04-30T22:00"/>
+                                    <PenaltyDescription>
+                                        <Text>REFUNDABLE</Text>
+                                    </PenaltyDescription>
+                                    <PenaltyDescription>
+                                        <Text>CANCEL BY 2016-11-16T22:00</Text>
+                                    </PenaltyDescription>
+                                </CancelPenalty>
+                            </CancelPenalties>
+                        </RatePlan>
+                    </RatePlans>
+                    <RoomRates>
+                        <RoomRate>
+                            <Rates>
+                                <Rate RoomPricingType="Per stay">
+                                    <Total
+                                        AmountAfterTax="89.10"
+                                        AmountBeforeTax="89.10"
+                                        CurrencyCode="EUR"/>
+                                </Rate>
+                            </Rates>
+                        </RoomRate>
+                    </RoomRates>
+                    <TimeSpan Start="2016-11-17" End="2016-11-18" />
+                    <BasicPropertyInfo HotelCode="437004" HotelName="monbijou">
+                        <Address>
+                            <AddressLine>Monbijouplatz 1 </AddressLine>
+                            <CityName>Berlin</CityName>
+                            <CountryName Code="DEU">Federal Republic of Germany</CountryName>
+                        </Address>
+                        <ContactNumbers>
+                            <ContactNumber PhoneNumber="+1555666444"/>
+                        </ContactNumbers>
+                    </BasicPropertyInfo>
+                </RoomStay>
+            </RoomStays>
+            <ResGuests>
+                <ResGuest>
+                    <Profiles>
+                        <ProfileInfo>
+                            <Profile>
+                                <Customer>
+                                    <PersonName>
+                                        <GivenName>FIRSTNAME</GivenName>
+                                        <Surname>LASTNAME</Surname>
+                                    </PersonName>
+                                </Customer>
+                            </Profile>
+                        </ProfileInfo>
+                    </Profiles>
+                </ResGuest>
+            </ResGuests>
+        </HotelReservation>
+    </HotelReservations>
+</OTA_HotelResRS>
 ```
 
 #### Use case scenario:
@@ -1063,10 +1148,13 @@ OTA_CancelRS
 #### Example response
 
 ```xml
-<OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Status="Cancelled">
+<OTA_CancelRS
+    xmlns="http://www.opentravel.org/OTA/2003/05"
+    xmlns:ns2="http://www.concur.com/webservice/auth"
+    Status="Cancelled">
     <Success/>
-        <UniqueID ID="88618333" Type="14"/>
-        <UniqueID ID="27607" Type="15"/>
+    <UniqueID ID="88618333" Type="14"/>
+    <UniqueID ID="27607" Type="15"/>
 </OTA_CancelRS>
 ```
 
@@ -1076,17 +1164,15 @@ OTA_CancelRS
 1.  User cancels his trip by hitting on Cancel button on Itinerary. Cancel RQ is
     sent by Concur.
 
--   **UniqueID** with **Type="14"** identifies the reservation to cancel.
+    - **UniqueID** with **Type="14"** identifies the reservation to cancel.
    
-   **Cancel response** should have two **UniqueIDs.** One is the reservation ID (same one as in request), one Cancellation Confirmation number for further dispute usage
+    **Cancel response** should have two **UniqueIDs.** One is the reservation ID (same one as in request), one Cancellation Confirmation number for further dispute usage
     between user and hotel/reservation system:
 
-
-   ```xml
-	 <UniqueID ID="88618333" Type="14"/>
-   <UniqueID ID="27607" Type="15"/>
-   ```
-	
+    ```xml
+    <UniqueID ID="88618333" Type="14"/>
+    <UniqueID ID="27607" Type="15"/>
+    ```
 	
 2.  Company has workflow setup to perform automatic cancellation. Exactly same
     Cancel RQ is sent by Concur, as in case of cancellation by user.
@@ -1102,7 +1188,7 @@ and Warring in corresponding nodes of each message:
 
 ```xml
 <Errors>
-  <Error Type=”13” Code="424" ShortText="50.111,40.222,5,2" />
+    <Error Type=”13” Code="424" ShortText="50.111,40.222,5,2" />
 </Errors>
 ```
 
@@ -1138,7 +1224,7 @@ In case of request structure not parsed by the Hotel Supplier, the Protocol viol
 
 ```xml
 <Errors>
-  <Error  Type=”7” ShortText="1111"/>
+    <Error Type=”7” ShortText="1111"/>
 </Errors>
 ```
 
