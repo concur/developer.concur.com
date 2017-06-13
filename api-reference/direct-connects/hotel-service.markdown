@@ -448,30 +448,30 @@ OTA_HotelAvailRQ
 
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
-|  RequestorID |	N	| The corporate identifier|
-|  ISOCurrency |	Y	|  The currency code in which the reservation will be ticketed in ISO 4217-3 encoding.|
-|  HotelCode |	Y	| The code that uniquely identifies a single hotel property from HotelSearchRS.|
-|  StayDateRange |	Y	| Range of dates, or fixed set of dates for Availability Request.|
-|  GuestNumber |	Y	| Number of guests for the inquiry. Concur only supports 1 guest operations.|
+|  RequestorID |	N	| String1to32 | The corporate identifier|
+|  ISOCurrency |	Y	| AlphaLength3 |  The currency code in which the reservation will be ticketed in ISO 4217-3 encoding.|
+|  HotelCode |	Y	| String1to16 | The code that uniquely identifies a single hotel property from HotelSearchRS.|
+|  StayDateRange |	Y	| ComplexType | Range of dates, or fixed set of dates for Availability Request.|
+|  GuestNumber |	Y	| Integer | Number of guests for the inquiry. Concur only supports 1 guest operations.|
 
 OTA_HotelAvailRS
 
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
-|  HotelCode |	Y	|  The code that uniquely identifies a single hotel property from HotelSearchRS.|
-|  RatePlan |	Y	| other than amount-specific information about rate, like accepted guarantee, cancellation policy etc.|
-|  AvailabilityStatus |	Y | Available or sold out indicator. |
-|  GuaranteeType |	Y	| To specify what guarantee is required. |
-|  CancelPenalties |	Y	| Defines the cancellation penalty of the hotel facility.|
-|  RatePlanID |	Y	| A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
-|  AmountBeforeTax |	Y	| The total amount not including any associated tax (e.g., sales tax, VAT, GST or any associated tax).|
-|  AmountAfterTax |	Y	| The total amount including all associated taxes (e.g., sales tax, VAT, GST or any associated tax). |
-|  CurrencyCode |	Y	|  An ISO 4217 (3) alpha character code that specifies a monetary unit.|
-|  RequireSeriesCode |	N	|  Set to true if series code/CVV is needed for that rate. |
-|  AlternateCurrencyInd |	N	| When true, indicates the amounts are provided in an alternate currency.  |
-|  RoomID |	Y	|  A string value representing the unique identification of a room. |
-|  RoomDescription |	N	|  Textual information regarding the room. |
-|  TimeSpan |	Y	| Range of dates, or fixed set of dates for Reservation Request.|
+|  HotelCode |	Y	| String1to16 |  The code that uniquely identifies a single hotel property from HotelSearchRS.|
+|  RatePlan |	Y	| ComplexType |  Other than amount-specific information about rate, like accepted guarantee, cancellation policy etc.|
+|  AvailabilityStatus |	Y | ComplexType | Available or sold out indicator. |
+|  GuaranteeType |	Y	| ComplexType | To specify what guarantee is required. |
+|  CancelPenalties |	Y	| ComplexType | Defines the cancellation penalty of the hotel facility.|
+|  RatePlanID |	Y	| String1to64 | A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
+|  AmountBeforeTax |	Y	| Money | The total amount not including any associated tax (e.g., sales tax, VAT, GST or any associated tax).|
+|  AmountAfterTax |	Y	| Money | The total amount including all associated taxes (e.g., sales tax, VAT, GST or any associated tax). |
+|  CurrencyCode |	Y	| AlphaLength3|  An ISO 4217 (3) alpha character code that specifies a monetary unit.|
+|  RequireSeriesCode | Boolean |	N	|  Set to true if series code/CVV is needed for that rate. |
+|  AlternateCurrencyInd |	N	| Boolean | When true, indicates the amounts are provided in an alternate currency.  |
+|  RoomID |	Y	| String1to16 |  A string value representing the unique identification of a room. |
+|  RoomDescription |	N	| String |  Textual information regarding the room. |
+|  TimeSpan |	Y	| ComplexType| Range of dates, or fixed set of dates for Reservation Request.|
 
 #### Example request
 
