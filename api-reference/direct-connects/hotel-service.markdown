@@ -182,11 +182,13 @@ Concur Travel. That Requestor ID allows suppliers to shape Preference Level,
 specific rates etc. for customers. As not all suppliers require such features,
 this is optional setting in Concur Travel.
 
-#### Languages
+#### Languages and Country codes
 
 Concur will send two letter PrimaryLangID and AltLangID in ISO 639-1 format in all requests to specify in which language information is requested.
 If Hotel Supplier doesn't support PrimaryLangID, AltLangID should be used.
 Concur [supported languages](/tools-support/reference/hotel-direct-connect-codes.html#method5)  
+
+Concur supports Country Codes in two-letter ISO 3166-1 alpha-2 format.
 
 
 ### OTA operations 
@@ -397,18 +399,18 @@ Displays photos and videos of a given hotel.
 
 OTA_HotelDescriptiveInfoRQ
 
-|  Element |	Required	|  Description |
-|----------|---------------------------------------|-|
-|  RequestorID |	N	| The corporate identifier|
-|  HotelCode |	Y	| The code that uniquely identifies a single hotel property. Used in other OTA messages.|
+|  Element |	Required | Data Type 	|  Description |
+|----------|-----------|---------------------------|-|
+|  RequestorID | N | String1to32	| The corporate identifier|
+|  HotelCode |	Y	| String1to16 | The code that uniquely identifies a single hotel property. Used in other OTA messages.|
 
 OTA_HotelDescriptiveInfoRS
 
-|  Element |	Required	|  Description |
-|----------|---------------------------------------|-|
-|  HotelCode |	Y	|  The code that uniquely identifies a single hotel property. Used in other OTA messages.|
-|  DescriptiveText |	N	|  Descriptive text that describes the hotel.|
-|  ImageItems |	N	| URL's hotel images.|
+|  Element |	Required	| Data Type	| Description |
+|----------|------------|--------------------------|-|
+|  HotelCode |	Y	| String1to16 |  The code that uniquely identifies a single hotel property. Used in other OTA messages.|
+|  DescriptiveText |	N | String	|  Descriptive text that describes the hotel.|
+|  ImageItems |	N	| URI | URL's hotel images.|
 
 
 #### Example request
@@ -485,32 +487,32 @@ Displays detailed information about rooms available in a given hotel.
 
 OTA_HotelAvailRQ
 
-|  Element |	Required	|  Description |
-|----------|---------------------------------------|-|
-|  RequestorID |	N	| The corporate identifier|
-|  ISOCurrency |	Y	|  The currency code in which the reservation will be ticketed in ISO 4217-3 encoding.|
-|  HotelCode |	Y	| The code that uniquely identifies a single hotel property from HotelSearchRS.|
-|  StayDateRange |	Y	| Range of dates, or fixed set of dates for Availability Request.|
-|  GuestNumber |	Y	| Number of guests for the inquiry. Concur only supports 1 guest operations.|
+|  Element |	Required	| Data Type | Description |
+|----------|------------|--------------------------|-|
+|  RequestorID |	N	| String1to32 | The corporate identifier|
+|  ISOCurrency |	Y	| AlphaLength3 |  The currency code in which the reservation will be ticketed in ISO 4217-3 encoding.|
+|  HotelCode |	Y	| String1to16 | The code that uniquely identifies a single hotel property from HotelSearchRS.|
+|  StayDateRange |	Y	| ComplexType | Range of dates, or fixed set of dates for Availability Request.|
+|  GuestNumber |	Y	| Integer | Number of guests for the inquiry. Concur only supports 1 guest operations.|
 
 OTA_HotelAvailRS
 
-|  Element |	Required	|  Description |
-|----------|---------------------------------------|-|
-|  HotelCode |	Y	|  The code that uniquely identifies a single hotel property from HotelSearchRS.|
-|  RatePlan |	Y	| other than amount-specific information about rate, like accepted guarantee, cancellation policy etc.|
-|  AvailabilityStatus |	Y | Available or sold out indicator. |
-|  GuaranteeType |	Y	| To specify what guarantee is required. |
-|  CancelPenalties |	Y	| Defines the cancellation penalty of the hotel facility.|
-|  RatePlanID |	Y	| A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
-|  AmountBeforeTax |	Y	| The total amount not including any associated tax (e.g., sales tax, VAT, GST or any associated tax).|
-|  AmountAfterTax |	Y	| The total amount including all associated taxes (e.g., sales tax, VAT, GST or any associated tax). |
-|  CurrencyCode |	Y	|  An ISO 4217 (3) alpha character code that specifies a monetary unit.|
-|  RequireSeriesCode |	N	|  Set to true if series code/CVV is needed for that rate. |
-|  AlternateCurrencyInd |	N	| When true, indicates the amounts are provided in an alternate currency.  |
-|  RoomID |	Y	|  A string value representing the unique identification of a room. |
-|  RoomDescription |	N	|  Textual information regarding the room. |
-|  TimeSpan |	Y	| Range of dates, or fixed set of dates for Reservation Request.|
+|  Element |	Required	| Data Type | Description |
+|----------|------------|--------------------------|-|
+|  HotelCode |	Y	| String1to16 |  The code that uniquely identifies a single hotel property from HotelSearchRS.|
+|  RatePlan |	Y	| ComplexType |  Other than amount-specific information about rate, like accepted guarantee, cancellation policy etc.|
+|  AvailabilityStatus |	Y | ComplexType | Available or sold out indicator. |
+|  GuaranteeType |	Y	| ComplexType | To specify what guarantee is required. |
+|  CancelPenalties |	Y	| ComplexType | Defines the cancellation penalty of the hotel facility.|
+|  RatePlanID |	Y	| String1to64 | A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
+|  AmountBeforeTax |	Y	| Money | The total amount not including any associated tax (e.g., sales tax, VAT, GST or any associated tax).|
+|  AmountAfterTax |	Y	| Money | The total amount including all associated taxes (e.g., sales tax, VAT, GST or any associated tax). |
+|  CurrencyCode |	Y	| AlphaLength3|  An ISO 4217 (3) alpha character code that specifies a monetary unit.|
+|  RequireSeriesCode | Boolean |	N	|  Set to true if series code/CVV is needed for that rate. |
+|  AlternateCurrencyInd |	N	| Boolean | When true, indicates the amounts are provided in an alternate currency.  |
+|  RoomID |	Y	| String1to16 |  A string value representing the unique identification of a room. |
+|  RoomDescription |	N	| String |  Textual information regarding the room. |
+|  TimeSpan |	Y	| ComplexType| Range of dates, or fixed set of dates for Reservation Request.|
 
 #### Example request
 
@@ -867,33 +869,33 @@ Allows user to book a room.
 
 OTA_HotelResRQ
 
-|  Element |	Required	|  Description |
-|----------|---------------------------------------|-|
-|  RequestorID |	N	| The corporate identifier|
-|  HotelCode |	Y	| The code that uniquely identifies a single hotel property from HotelAvailRS.|
-|  Customer |	Y	| Guest personal information: name, surname, email, telephone etc.|
-|  CompanyName |	Y	| Customer's company name. |
-|  GuestNumber |	Y	| Number of guests for the inquiry. Concur only supports 1 guest operations.|
-|  TimeSpan |	Y	| Range of dates, or fixed set of dates for Reservation Request.|
-|  RatePlanID |	Y	| A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
-|  PaymentCard |	Y	| Guarantee payment card details: CardType, CardHolderName, ExpireDate, CardNumber, Address. |
-|  Comments |	N	| Comments which apply to the whole Reservation. |
-|  NotifyEmails |	N	| Email to be notified. |
+|  Element |	Required	| Data Type | Description |
+|----------|------------|--------------------------|-|
+|  RequestorID |	N	| StringLength1to32 | The corporate identifier|
+|  HotelCode |	Y	| StringLength1to16 | The code that uniquely identifies a single hotel property from HotelAvailRS.|
+|  Customer |	Y	| ComplexType | Guest personal information: name, surname, email, telephone etc.|
+|  CompanyName |	Y	| StringLength1to32 | Customer's company name. |
+|  GuestNumber |	Y	| Integer | Number of guests for the inquiry. Concur only supports 1 guest operations.|
+|  TimeSpan |	Y	| ComplexType | Range of dates, or fixed set of dates for Reservation Request.|
+|  RatePlanID |	Y	| StringLength1to64 | A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
+|  PaymentCard |	Y	| ComplexType | Guarantee payment card details: CardType, CardHolderName, ExpireDate, CardNumber, Address. |
+|  Comments |	N	| String | Comments which apply to the whole Reservation. |
+|  NotifyEmails |	N	| ComplexType | Email to be notified. |
 
 OTA_HotelResRS
 
-|  Element |	Required	|  Description |
-|----------|---------------------------------------|-|
-|  ResResponseType |	Y	|  To specify a status to the transaction, if reservation was successful or canceled.|
-|  HotelCode |	Y	|  The code that uniquely identifies a single hotel property from HotelSearchRS.|
-|  RatePlanID |	Y	| A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
-|  CancelPenalties |	Y	| Defines the cancellation penalty of the hotel facility.|
-|  Customer |	Y	| Guest personal information: name, surname, email, telephone etc.|
-|  AmountBeforeTax |	Y	| The total amount not including any associated tax (e.g., sales tax, VAT, GST or any associated tax).|
-|  AmountAfterTax |	Y	| The total amount including all associated taxes (e.g., sales tax, VAT, GST or any associated tax). |
-|  CurrencyCode |	Y	|  An ISO 4217 (3) alpha character code that specifies a monetary unit.|
-|  TimeSpan |	Y	| Range of dates, or fixed set of dates for Reservation Request.|
-|  UniqueID |	Y	|  A reference to identify the booking.|
+|  Element |	Required	| Data Type | Description |
+|----------|------------|--------------------------|-|
+|  ResResponseType |	Y | ComplexType	|  To specify a status to the transaction, if reservation was successful or canceled.|
+|  HotelCode |	Y	| StringLength1to16 |  The code that uniquely identifies a single hotel property from HotelSearchRS.|
+|  RatePlanID |	Y	| StringLength1to64 | A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
+|  CancelPenalties |	Y	| ComplexType | Defines the cancellation penalty of the hotel facility.|
+|  Customer |	Y	| ComplexType | Guest personal information: name, surname, email, telephone etc.|
+|  AmountBeforeTax |	Y	| Money| The total amount not including any associated tax (e.g., sales tax, VAT, GST or any associated tax).|
+|  AmountAfterTax |	Y	| Money | The total amount including all associated taxes (e.g., sales tax, VAT, GST or any associated tax). |
+|  CurrencyCode |	Y | AlphaLength3	|  An ISO 4217 (3) alpha character code that specifies a monetary unit.|
+|  TimeSpan |	Y	| ComplexType | Range of dates, or fixed set of dates for Reservation Request.|
+|  UniqueID |	Y	|StringLength1to32 |  A reference to identify the booking.|
 
 #### Example request
 
@@ -1021,7 +1023,7 @@ OTA_HotelResRS
                         <Address>
                             <AddressLine>Monbijouplatz 1 </AddressLine>
                             <CityName>Berlin</CityName>
-                            <CountryName Code="DEU">Federal Republic of Germany</CountryName>
+                            <CountryName Code="DE">Federal Republic of Germany</CountryName>
                         </Address>
                         <ContactNumbers>
                             <ContactNumber PhoneNumber="+1555666444"/>
@@ -1079,10 +1081,10 @@ Returns detailed information about a hotel reservation.
 
 OTA_ReadRQ
 
-|  Element |	Required	|  Description |
-|----------|---------------------------------------|-|
-|  RequestorID |	N	| The corporate identifier|
-|  UniqueID |	Y	|  A reference to identify the booking.|
+|  Element |	Required	| Data Type | Description |
+|----------|------------|--------------------------|-|
+|  RequestorID |	N	| StringLength1to32 | The corporate identifier|
+|  UniqueID |	Y	| StringLength1to32 |  A reference to identify the booking.|
 
 #### Example request
 
@@ -1122,20 +1124,20 @@ Allows user to cancel a reservation.
 
 OTA_CancelRQ
 
-|  Element |	Required	|  Description |
-|----------|---------------------------------------|-|
-|  RequestorID |	N	| The corporate identifier|
-|  UniqueID |	Y	|  A reference to identify the booking.|
-|	Type  | Y |  A reference to the type of object defined by the UniqueID element.  | 
+|  Element |	Required	| Data Type | Description |
+|----------|------------|--------------------------|-|
+|  RequestorID |	N	| StringLength1to32 | The corporate identifier|
+|  UniqueID |	Y	| StringLength1to32 |  A reference to identify the booking.|
+|	Type  | Y | Integer |  A reference to the type of object defined by the UniqueID element.  | 
 
 OTA_CancelRS
 
-|  Element |	Required	|  Description |
-|----------|---------------------------------------|-|
-|  UniqueID |	Y	|  A reference to identify the booking  reference.|
-|  UniqueID |	Y	|  A reference to identify the cancellation reference.|
-|  Status |	Y |  If cancellation is successful or not.|
-|	Type  | Y |  A reference to the type of object defined by the UniqueID element.  | 
+|  Element |	Required	| Data Type | Description |
+|----------|------------|--------------------------|-|
+|  UniqueID |	Y	| StringLength1to32 |  A reference to identify the booking  reference.|
+|  UniqueID |	Y	| StringLength1to32 |  A reference to identify the cancellation reference.|
+|  Status |	Y | ComplexType |  If cancellation is successful or not.|
+|	Type  | Y | Integer |  A reference to the type of object defined by the UniqueID element.  | 
 
 #### Example request
 
@@ -1176,6 +1178,24 @@ OTA_CancelRS
 	
 2.  Company has workflow setup to perform automatic cancellation. Exactly same
     Cancel RQ is sent by Concur, as in case of cancellation by user.
+  
+3.  When reservation has been already canceled and Concur tries to cancel it, the Hotel Supplier should reply
+
+    ```xml
+    <OTA_CancelRS
+        xmlns="http://www.opentravel.org/OTA/2003/05"
+        xmlns:ns2="http://www.concur.com/webservice/auth"
+        PrimaryLangID="en"
+        Status="Cancelled"
+        Version="1">
+        <Success/>
+        <Warnings>
+            <Warning Code="95" ShortText="Booking already cancelled "/>
+        </Warnings>
+        <UniqueID ID="94600593" Type="14"/>
+        <UniqueID ID="48650" Type="15"/>
+    </OTA_CancelRS>
+    ```
 
 
 Errors and Warnings
