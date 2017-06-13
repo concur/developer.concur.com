@@ -366,14 +366,14 @@ Displays photos and videos of a given hotel.
 OTA_HotelDescriptiveInfoRQ
 
 |  Element |	Required | Data Type 	|  Description |
-|----------|---------------------------------------|-|
+|----------|-----------|---------------------------|-|
 |  RequestorID | N | String1to32	| The corporate identifier|
 |  HotelCode |	Y	| String1to16 | The code that uniquely identifies a single hotel property. Used in other OTA messages.|
 
 OTA_HotelDescriptiveInfoRS
 
 |  Element |	Required	|  Description |
-|----------|---------------------------------------|-|
+|----------|------------|--------------------------|-|
 |  HotelCode |	Y	| String1to16 |  The code that uniquely identifies a single hotel property. Used in other OTA messages.|
 |  DescriptiveText |	N | String	|  Descriptive text that describes the hotel.|
 |  ImageItems |	N	| URI | URL's hotel images.|
