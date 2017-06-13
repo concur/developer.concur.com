@@ -790,31 +790,31 @@ OTA_HotelResRQ
 
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
-|  RequestorID |	N	| The corporate identifier|
-|  HotelCode |	Y	| The code that uniquely identifies a single hotel property from HotelAvailRS.|
-|  Customer |	Y	| Guest personal information: name, surname, email, telephone etc.|
-|  CompanyName |	Y	| Customer's company name. |
-|  GuestNumber |	Y	| Number of guests for the inquiry. Concur only supports 1 guest operations.|
-|  TimeSpan |	Y	| Range of dates, or fixed set of dates for Reservation Request.|
-|  RatePlanID |	Y	| A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
-|  PaymentCard |	Y	| Guarantee payment card details: CardType, CardHolderName, ExpireDate, CardNumber, Address. |
-|  Comments |	N	| Comments which apply to the whole Reservation. |
-|  NotifyEmails |	N	| Email to be notified. |
+|  RequestorID |	N	| StringLength1to32 | The corporate identifier|
+|  HotelCode |	Y	| StringLength1to16 | The code that uniquely identifies a single hotel property from HotelAvailRS.|
+|  Customer |	Y	| ComplexType | Guest personal information: name, surname, email, telephone etc.|
+|  CompanyName |	Y	| StringLength1to32 | Customer's company name. |
+|  GuestNumber |	Y	| Integer | Number of guests for the inquiry. Concur only supports 1 guest operations.|
+|  TimeSpan |	Y	| ComplexType | Range of dates, or fixed set of dates for Reservation Request.|
+|  RatePlanID |	Y	| StringLength1to64 | A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
+|  PaymentCard |	Y	| ComplexType | Guarantee payment card details: CardType, CardHolderName, ExpireDate, CardNumber, Address. |
+|  Comments |	N	| String | Comments which apply to the whole Reservation. |
+|  NotifyEmails |	N	| ComplexType | Email to be notified. |
 
 OTA_HotelResRS
 
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
-|  ResResponseType |	Y	|  To specify a status to the transaction, if reservation was successful or canceled.|
-|  HotelCode |	Y	|  The code that uniquely identifies a single hotel property from HotelSearchRS.|
-|  RatePlanID |	Y	| A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
-|  CancelPenalties |	Y	| Defines the cancellation penalty of the hotel facility.|
-|  Customer |	Y	| Guest personal information: name, surname, email, telephone etc.|
-|  AmountBeforeTax |	Y	| The total amount not including any associated tax (e.g., sales tax, VAT, GST or any associated tax).|
-|  AmountAfterTax |	Y	| The total amount including all associated taxes (e.g., sales tax, VAT, GST or any associated tax). |
-|  CurrencyCode |	Y	|  An ISO 4217 (3) alpha character code that specifies a monetary unit.|
-|  TimeSpan |	Y	| Range of dates, or fixed set of dates for Reservation Request.|
-|  UniqueID |	Y	|  A reference to identify the booking.|
+|  ResResponseType |	Y | ComplexType	|  To specify a status to the transaction, if reservation was successful or canceled.|
+|  HotelCode |	Y	| StringLength1to16 |  The code that uniquely identifies a single hotel property from HotelSearchRS.|
+|  RatePlanID |	Y	| StringLength1to64 | A text field used to indicate a special ID code that is associated with the rate and is essential in the reservation request.|
+|  CancelPenalties |	Y	| ComplexType | Defines the cancellation penalty of the hotel facility.|
+|  Customer |	Y	| ComplexType | Guest personal information: name, surname, email, telephone etc.|
+|  AmountBeforeTax |	Y	| Money| The total amount not including any associated tax (e.g., sales tax, VAT, GST or any associated tax).|
+|  AmountAfterTax |	Y	| Money | The total amount including all associated taxes (e.g., sales tax, VAT, GST or any associated tax). |
+|  CurrencyCode |	Y | AlphaLength3	|  An ISO 4217 (3) alpha character code that specifies a monetary unit.|
+|  TimeSpan |	Y	| ComplexType | Range of dates, or fixed set of dates for Reservation Request.|
+|  UniqueID |	Y	|StringLength1to32 |  A reference to identify the booking.|
 
 #### Example request
 
