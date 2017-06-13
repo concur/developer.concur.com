@@ -365,18 +365,18 @@ Displays photos and videos of a given hotel.
 
 OTA_HotelDescriptiveInfoRQ
 
-|  Element |	Required	|  Description |
+|  Element |	Required | Data Type 	|  Description |
 |----------|---------------------------------------|-|
-|  RequestorID |	N	| The corporate identifier|
-|  HotelCode |	Y	| The code that uniquely identifies a single hotel property. Used in other OTA messages.|
+|  RequestorID | N | String1to32	| The corporate identifier|
+|  HotelCode |	Y	| String1to16 | The code that uniquely identifies a single hotel property. Used in other OTA messages.|
 
 OTA_HotelDescriptiveInfoRS
 
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
-|  HotelCode |	Y	|  The code that uniquely identifies a single hotel property. Used in other OTA messages.|
-|  DescriptiveText |	N	|  Descriptive text that describes the hotel.|
-|  ImageItems |	N	| URL's hotel images.|
+|  HotelCode |	Y	| String1to16 |  The code that uniquely identifies a single hotel property. Used in other OTA messages.|
+|  DescriptiveText |	N | String	|  Descriptive text that describes the hotel.|
+|  ImageItems |	N	| URI | URL's hotel images.|
 
 
 #### Example request
