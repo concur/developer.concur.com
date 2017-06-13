@@ -175,11 +175,13 @@ Concur Travel. That Requestor ID allows suppliers to shape Preference Level,
 specific rates etc. for customers. As not all suppliers require such features,
 this is optional setting in Concur Travel.
 
-#### Languages
+#### Languages and Country codes
 
 Concur will send two letter PrimaryLangID and AltLangID in ISO 639-1 format in all requests to specify in which language information is requested.
 If Hotel Supplier doesn't support PrimaryLangID, AltLangID should be used.
 Concur [supported languages](/tools-support/reference/hotel-direct-connect-codes.html#method5)  
+
+Concur supports Country Codes in two-letter ISO 3166-1 alpha-2 format.
 
 
 ### OTA operations 
