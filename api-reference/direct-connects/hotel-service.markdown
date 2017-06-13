@@ -936,7 +936,7 @@ OTA_HotelResRS
 								<Address>
 									<AddressLine>Monbijouplatz 1 </AddressLine>
 									<CityName>Berlin</CityName>
-									<CountryName Code="DEU">Federal Republic of Germany</CountryName>
+									<CountryName Code="DE">Federal Republic of Germany</CountryName>
 								</Address>
 								<ContactNumbers>
 									<ContactNumber PhoneNumber="+1555666444"/>
