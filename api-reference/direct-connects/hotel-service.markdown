@@ -996,8 +996,8 @@ OTA_ReadRQ
 
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
-|  RequestorID |	N	| The corporate identifier|
-|  UniqueID |	Y	|  A reference to identify the booking.|
+|  RequestorID |	N	| StringLength1to32 | The corporate identifier|
+|  UniqueID |	Y	| StringLength1to32 |  A reference to identify the booking.|
 
 #### Example request
 
@@ -1039,18 +1039,18 @@ OTA_CancelRQ
 
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
-|  RequestorID |	N	| The corporate identifier|
-|  UniqueID |	Y	|  A reference to identify the booking.|
-|	Type  | Y |  A reference to the type of object defined by the UniqueID element.  | 
+|  RequestorID |	N	| StringLength1to32 | The corporate identifier|
+|  UniqueID |	Y	| StringLength1to32 |  A reference to identify the booking.|
+|	Type  | Y | Integer |  A reference to the type of object defined by the UniqueID element.  | 
 
 OTA_CancelRS
 
 |  Element |	Required	|  Description |
 |----------|---------------------------------------|-|
-|  UniqueID |	Y	|  A reference to identify the booking  reference.|
-|  UniqueID |	Y	|  A reference to identify the cancellation reference.|
-|  Status |	Y |  If cancellation is successful or not.|
-|	Type  | Y |  A reference to the type of object defined by the UniqueID element.  | 
+|  UniqueID |	Y	| StringLength1to32 |  A reference to identify the booking  reference.|
+|  UniqueID |	Y	| StringLength1to32 |  A reference to identify the cancellation reference.|
+|  Status |	Y | ComplexType |  If cancellation is successful or not.|
+|	Type  | Y | Integer |  A reference to the type of object defined by the UniqueID element.  | 
 
 #### Example request
 
