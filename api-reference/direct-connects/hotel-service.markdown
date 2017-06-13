@@ -1090,6 +1090,18 @@ OTA_CancelRS
 	
 2.  Company has workflow setup to perform automatic cancellation. Exactly same
     Cancel RQ is sent by Concur, as in case of cancellation by user.
+  
+3.  When reservation has been already canceled and Concur tries to cancel it, the Hotel Supplier should reply 
+   ```
+        <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" PrimaryLangID="en" Status="Cancelled" Version="1">
+            <Success/>
+            <Warnings>
+                <Warning Code="95" ShortText="Booking already cancelled "/>
+            </Warnings>
+            <UniqueID ID="94600593" Type="14"/>
+            <UniqueID ID="48650" Type="15"/>
+        </OTA_CancelRS>
+  ```
 
 
 Errors and Warnings
