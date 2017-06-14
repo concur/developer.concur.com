@@ -208,7 +208,7 @@ OTA_HotelSearchRQ
 |  RequestorID |	N | String1to32	| The corporate identifier|
 |  Position |	Y	| ComplexType |  The Position element contains three attributes, Latitude, Longitude, used to indicate the geographic location(s) requested by the search, expressed in notation specified by ISO standard 6709.|
 |  Radius |	Y	| ComplexType | Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location.|
-|UnitOfMeasureCode| Y | Integer| The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code | 
+|UnitOfMeasureCode| Y | Integer| The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code. 1 for miles, 2 for kilometers.  | 
 |  HotelRef |	N	| String1to32 | Indicates the detail of hotel reference information.|
 |  StayDateRange |	Y | ComplexType	| Range of dates, or fixed set of dates for Availability Request.Format: YYYY-MM-DD|
 
@@ -699,6 +699,8 @@ OTA_HotelAvailRS
 **NOTE:** Concur currently expects total room price for more-than-one night
 stays!
 
+**NOTE:** Currently AmountAfterTax is used for nightly price calculation and display on Hotel Search Results page.
+
 RoomStay level nodes are used for individual hotels.
 
 Individual rates must have RoomType, RatePlan, and RoomRate nodes. Multiple
@@ -855,7 +857,7 @@ Example response:
 7.  User clicks on button with room-rate price. Trip Review page is displayed
     with rate details (average, summary and total) and cancellation policy.
 
-    ![media](./hotel2/HotelAvail1.png)
+    ![media](./hotel2/HotelAvail1.png)   
  
 ### Hotel Reservation
 
