@@ -208,7 +208,7 @@ OTA_HotelSearchRQ
 |  RequestorID |	N | String1to32	| The corporate identifier|
 |  Position |	Y	| ComplexType |  The Position element contains three attributes, Latitude, Longitude, used to indicate the geographic location(s) requested by the search, expressed in notation specified by ISO standard 6709.|
 |  Radius |	Y	| ComplexType | Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location.|
-|UnitOfMeasureCode| Y | Integer| The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code | 
+|UnitOfMeasureCode| Y | Integer| The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code. 1 for miles, 2 for kilometers.  | 
 |  HotelRef |	N	| String1to32 | Indicates the detail of hotel reference information.|
 |  StayDateRange |	Y | ComplexType	| Range of dates, or fixed set of dates for Availability Request.Format: YYYY-MM-DD|
 
