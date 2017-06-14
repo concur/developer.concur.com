@@ -699,6 +699,8 @@ OTA_HotelAvailRS
 **NOTE:** Concur currently expects total room price for more-than-one night
 stays!
 
+**NOTE:** Currently AmountAfterTax is used for nightly price calculation and display on Hotel Search Results page.
+
 RoomStay level nodes are used for individual hotels.
 
 Individual rates must have RoomType, RatePlan, and RoomRate nodes. Multiple
@@ -855,7 +857,7 @@ Example response:
 7.  User clicks on button with room-rate price. Trip Review page is displayed
     with rate details (average, summary and total) and cancellation policy.
 
-    ![media](./hotel2/HotelAvail1.png)
+    ![media](./hotel2/HotelAvail1.png)   
  
 ### Hotel Reservation
 
