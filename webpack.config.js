@@ -1,9 +1,10 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   entry: ['./app-management/entry.jsx'],
   output: {
-    path: './assets/js',
+    path: path.resolve(__dirname, './assets/js'),
     filename: 'bundle.js'
   },
   resolve: {
