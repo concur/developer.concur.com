@@ -59,10 +59,10 @@ Creating/Updating a Profile uses the same model as what is retrieved.
 * Minimum elements required to create a new user include:
 	* FirstName
 	* LastName
-	* TravelConfigID <i>(used to verify Agency and Company access to create user)</i>
+	* TravelConfigID _(used to verify Agency and Company access to create user)_
 	* LoginID
 	* Password
-	* <i>RuleClass (uses Default Rule Class if not provided)</i>
+	* _RuleClass (uses Default Rule Class if not provided)_
 * Omitted elements will be ignored and not updated
 * Empty elements of datatype string will be cleared out; nillable elements will be cleared out if set as nil refer to XSD for nillable elements.
 
@@ -80,7 +80,7 @@ Where access_token is the OAuth 2.0 access token of the user whose travel profil
 
 #### Data model
 The complete schema definition is available here: [Travel Profile XSD][3].
-<i>Concur reserves the right to change the XSD.  Reading/writing strictly to the XSD will result in breakage as new XML elements are added.</i>
+_Concur reserves the right to change the XSD.  Reading/writing strictly to the XSD will result in breakage as new XML elements are added._
 
 ####  Profile root element
 
@@ -624,9 +624,10 @@ A list of advantage memberships associated to a user:
 ### Error in XML Document
 
 This error message occurs, when the XML is not formatted in such a way that it can be read.
+
 ```xml
 <Error>
-	<Message>There is an error in XML document (1, 147).</Message>
+    <Message>There is an error in XML document (1, 147).</Message>
     <Server-Time>2017-06-22T16:51:37</Server-Time>
     <Id>3BDBC49E-8793-4515-BA0E-F9C71ADA7330</Id>
 </Error>
@@ -723,13 +724,13 @@ Authorization: OAuth {access token}
 
 ```xml
 <ProfileResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Action="Create" LoginId="william.never@email.com">
-	<General>
-		<FirstName>William</FirstName>
-		<LastName>Never</LastName>
-		<RuleClass>Default Rule Class</RuleClass>
-		<TravelConfigID>555</TravelConfigID>
-	</General>
-	<Password>password123</Password>
+    <General>
+        <FirstName>William</FirstName>
+        <LastName>Never</LastName>
+        <RuleClass>Default Rule Class</RuleClass>
+        <TravelConfigID>555</TravelConfigID>
+    </General>
+    <Password>password123</Password>
 </ProfileResponse>
 ```
 
@@ -747,9 +748,9 @@ Authorization: OAuth {access token}
 
 ```xml
 <ProfileResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Action="Update" LoginId="william.never@email.com">
-	<General>
-		<FirstName>Bill</FirstName>
-	</General>
+    <General>
+        <FirstName>Bill</FirstName>
+    </General>
 </ProfileResponse>
 ```
 
