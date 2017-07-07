@@ -1092,7 +1092,7 @@ OTA_ReadRQ
 
 ```xml
 <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="DF59894F-BCCA-44CF-8B74-C0339C5DF036" Version="5.002">
-    <UniqueID ID="94514652"/>
+    <UniqueID Type="14 ID="94514652"/>
 </OTA_ReadRQ>
 ```
 
@@ -1144,7 +1144,7 @@ OTA_CancelRS
 #### Example request
 
 ```xml
-<OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05">
+<OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" CancelType="Cancel">
     <UniqueID Type="14" ID="88618333"></UniqueID>
 </OTA_CancelRQ>
 ```
