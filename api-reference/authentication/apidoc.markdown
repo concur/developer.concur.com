@@ -166,6 +166,7 @@ Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 437
 
+POST BODY
 client_id=your-client_id
 &client_secret=your-client_secret
 &grant_type=refresh_token
@@ -350,6 +351,7 @@ Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 175
 
+POST BODY
 client_id=your-client_id
 &client_secret=your-client_secret
 &grant_type=password
@@ -412,6 +414,7 @@ Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 127
 
+POST BODY
 client_id=your-client_id
 &client_secret=your-client_secret
 &grant_type=client_credentials
@@ -492,6 +495,7 @@ Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 437
 
+POST BODY
 client_id=your-client_id
 &client_secret=your-client_secret
 &channel_handle=email adress
@@ -543,6 +547,7 @@ Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 437
 
+POST BODY
 client_id=your-client_id
 &client_secret=your-client_secret
 &channel_handle=email adress
