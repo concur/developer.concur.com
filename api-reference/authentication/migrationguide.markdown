@@ -8,7 +8,7 @@ layout: reference
 
 * [Overview]()
 * [Exchanging a Token](#exchangetoken)
-* [Response Codes](#responsecodes)
+* [Response Codes](#response_codes)
 
 Existing applications that uses the deprecated [/net2/oauth2](https://developer.concur.com/api-reference-deprecated/old-auth/old-auth.html) framework need to move to support the new Oauth2 Bearer Tokens. Applications will need to migrate their existing users who already have connected to it to obtain new Oauth2 tokens without requiring users to reauthorize. This can be done by exchanging an old access token for a new refresh token.
 
@@ -24,9 +24,15 @@ This is significantly different from how the deprecated /net2/Oauth2's method of
 **Step 1: Obtain Application Token**
 Clients can exchange OLD tokens for NEW Oauth2 tokens by calling the `exchangeRefreshToken/me` endpoint. In order to call this endpoint, you would first need to obtain an Application Token by calling the `/v0/token` endpoint with the [client_credentials](https://developer.concur.com/api-reference/authentication/apidoc.html#client_credentials) grant. 
 
+The endpoint also supports a parameter called "returnType=companyToken"  This parameter allows a partner who already has what is known as a "WSAdmin" token for a client, to exchange that token for a Company level refresh token.
+
 **Step 2: Call exchangeRefreshToken**
 
 `POST /appmgmt/v0/legacyApps/{OLDConsumerKey}/exchangeRefreshToken/me`
+
+If you are exchanging a WSAdmin token for a new Company level refresh token:
+
+`POST /appmgmt/v0/legacyApps/{OLDConsumerKey}/exchangeRefreshToken/me?returnType=companyToken`
 
 **Request Header**
 
@@ -46,7 +52,7 @@ Name | Type | Format | Description
 Sample Curl:
 
 ```shell
-curl -H 'Authorization: Bearer <accessToken>' -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST http://us.api.concursolutions.com/appmgmt/v0/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me
+curl -H 'Authorization: Bearer <accessToken>' -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST https://us.api.concursolutions.com/appmgmt/v0/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me
 ```
 
 successful call, responds with
@@ -64,6 +70,30 @@ successful call, responds with
     "CCARD"
   ],
   "context": "{\"userid\":\"7934467f-dcd1-4631-ba34-3ebd28343e8f\",\"cid\":\"3a55c75e-ac1e-4515-845c-0a4978452828\",\"ptype\":\"user\",\"userURI\":\"https://us.api.concursolutions.com/profile-service/v1/users/7934467f-dcd1-4631-ba34-3ebd28343e8f\",\"scope\":\"EXPRPT LIST BANK CCARD\"}"
+}
+```
+
+Sample Curl for WSAdmin token exchange for Company level refreh token:
+
+```shell
+curl -H 'Authorization: Bearer <accessToken>' -d '{"token": "1_oaCof444CaiNXg1FFG$Perr19qIo", "secret": "12345"}' -X POST https://us.api.concursolutions.com/appmgmt/v0/legacyApps/Bwu0mvTHtKYAnBb3Pgu9AW/exchangeRefreshToken/me?returnType=companyToken
+```
+
+successful call, responds with
+
+```json
+200 OK
+{
+  "token": "8c844478-745c-4c45-adf7-1e2777a50dbf",
+  "created": 1479407196809,
+  "expired": 1494959196809,
+  "scopes": [
+    "EXPRPT",
+    "LIST",
+    "BANK",
+    "CCARD"
+  ],
+  "context": "{\"userid\":\"7934467f-dcd1-4631-ba34-3ebd28343e8f\",\"cid\":\"3a55c75e-ac1e-4515-845c-0a4978452828\",\"ptype\":\"company\",\"userURI\":\"https://us.api.concursolutions.com/profile-service/v1/users/7934467f-dcd1-4631-ba34-3ebd28343e8f\",\"scope\":\"EXPRPT LIST BANK CCARD\"}"
 }
 ```
 

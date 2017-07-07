@@ -6,7 +6,7 @@ tags:
     - Receipts
     - Deprecation Notice
 references:
-    - url: /api-reference/expense/receipts/
+    - url: /api-reference-deprecated/version-three/receipts.html
       link: Receipts
 ---
 
@@ -19,7 +19,7 @@ Receipts version 4.0 is now available. Updates to the Receipts API were announce
 
 [Receipts API version 3.0](/api-reference-deprecated/version-three/receipts.html)
 
-[Receipts API version 4.0](https://developer.concur.com/api-reference/expense/receipts/)
+[Receipts API version 4.0](/api-reference/receipts/get-started.html)
 
 ### Configuration / Feature Activation
 

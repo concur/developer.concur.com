@@ -22,7 +22,7 @@ The Users resource represents a set of Concur users. It is always managed as a b
 
 This resource allows you to get profile information for a given user. If a request URL does not include a `?loginID` parameter then the response will be for the logged in user (and you must pass authentication information with your request).
 
-    GET /user/v1.0/user
+    GET api/user/v1.0/user
 
 ### Parameters
 
@@ -68,7 +68,7 @@ Note that this is a version 3.0 API and can be found [here](/api-explorer/v3-0/U
 
 Retrieves a list of configured fields on the Global employee form in Concur.
 
-    GET /user/v1.0/FormFields
+    GET api/user/v1.0/FormFields
 
 ### Response
 
@@ -100,7 +100,7 @@ Name | Type | Format | Description
 
 Adds or updates one or more users. The batch can contain up to 500 users.
 
-    POST /user/v1.0/users
+    POST api/user/v1.0/users
 
 This API requires as its arguments a batch element containing a UserProfile child element for each user to be added or updated. The UserProfile child elements will vary depending on the form configuration, and may contain the following elements.
 
@@ -164,7 +164,7 @@ Name | Type | Format | Description
 
 ## <a name="updatePwd"></a>Update a users password
 
-     POST /user/v1.0/Users/password
+     POST api/user/v1.0/Users/password
 
 Updates passwords for up to 500 users.
 

@@ -29,7 +29,7 @@ Postal address schema used for JPT receipts _only_.
 |address2|string|N/A||
 |city|string|N/A||
 |countrySubdivisionCode|string|^[a-zA-Z0-9]{1,3}$|1 to 3 character country subdivision code as defined in ISO 3166-2:2013|
-|__*countryCode*__|string|country-code|2 or 3 character country code as defined in ISO 3166-2:2013|
+|__*countryCode*__|string|country-code|2 or 3 character country code as defined in ISO 3166-1:2013|
 |postalCode|string|N/A||
 
 #### Address
@@ -40,7 +40,7 @@ Common address object used by all receipt types except for the JPT IC Card recei
 |streetAddress|string|N/A||
 |addressLocality|string|N/A|City|
 |addressRegion|string|^[a-zA-Z0-9]{1,3}$|1 to 3 character country subdivision code as defined in ISO 3166-2:2013|
-|__*addressCountry*__|string|country-code|2 or 3 character country code as defined in ISO 3166-2:2013|
+|__*addressCountry*__|string|country-code|2 or 3 character country code as defined in ISO 3166-1:2013|
 |postalCode|string|N/A||
 
 #### Air Receipt
@@ -158,7 +158,7 @@ Shared definitions that are utilized in multiple receipt types.
 |duration|string|^(-)?P(?:(-?[0-9,.]*)Y)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)W)?(?:(-?[0-9,.]*)D)?(?:T(?:(-?[0-9,.]*)H)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)S)?)?$|Duration of a time interval as defined in ISO 8601|
 |nonEmptyString|string|^(?!\s*$).+|Non-empty string. Length must be at least 1 character.|
 |addressRegion|string|^[a-zA-Z0-9]{1,3}$|1 to 3 character country subdivision code as defined in ISO 3166-2:2013|
-|addressCountry|string|country-code|2 or 3 character country code as defined in ISO 3166-2:2013|
+|addressCountry|string|country-code|2 or 3 character country code as defined in ISO 3166-1:2013|
 |currency|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 |currencyCode|string|currency-code|3-letter currency code as defined in ISO 4217|
 |latitude|number|N/A|Numeric latitude value between -90 and 90|
@@ -539,5 +539,5 @@ Schema for objects that make up an array of taxes. Used in most receipt types.
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
-|__*addressCountry*__|string|country-code|2 or 3 character country code as defined in ISO 3166-2:2013|
+|__*addressCountry*__|string|country-code|2 or 3 character country code as defined in ISO 3166-1:2013|
 |addressRegion|string|^[a-zA-Z0-9]{1,3}$|1 to 3 character country subdivision code as defined in ISO 3166-2:2013|

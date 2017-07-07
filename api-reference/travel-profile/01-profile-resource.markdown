@@ -59,10 +59,10 @@ Creating/Updating a Profile uses the same model as what is retrieved.
 * Minimum elements required to create a new user include:
 	* FirstName
 	* LastName
-	* TravelConfigID
+	* TravelConfigID _(used to verify Agency and Company access to create user)_
 	* LoginID
 	* Password
-	* <i>RuleClass (uses Default Rule Class if not provided)</i>
+	* _RuleClass (uses Default Rule Class if not provided)_
 * Omitted elements will be ignored and not updated
 * Empty elements of datatype string will be cleared out; nillable elements will be cleared out if set as nil refer to XSD for nillable elements.
 
@@ -80,7 +80,7 @@ Where access_token is the OAuth 2.0 access token of the user whose travel profil
 
 #### Data model
 The complete schema definition is available here: [Travel Profile XSD][3].
-<i>Concur reserves the right to change the XSD.  Reading/writing strictly to the XSD will result in breakage as new XML elements are added.</i>
+_Concur reserves the right to change the XSD.  Reading/writing strictly to the XSD will result in breakage as new XML elements are added._
 
 ####  Profile root element
 
@@ -621,6 +621,22 @@ A list of advantage memberships associated to a user:
 
 ## <a name="a4">Possible Warnings and Error Messages</a>
 
+### Error in XML Document
+
+This error message occurs, when the XML is not formatted in such a way that it can be read.
+
+```xml
+<Error>
+    <Message>There is an error in XML document (1, 147).</Message>
+    <Server-Time>2017-06-22T16:51:37</Server-Time>
+    <Id>3BDBC49E-8793-4515-BA0E-F9C71ADA7330</Id>
+</Error>
+```
+
+ The best way to find the cause of the error is by taking the body of your message and comparing it against the [Travel Profile XSD][3]. You can use free online sites to validate such as https://www.freeformatter.com/xml-validator-xsd.html
+ 
+### Standard Error Codes
+
 The codes and types of messages that can be returned on updates and creates:
 
 | CODE | Message Type | Notes | Example |
@@ -649,9 +665,9 @@ The codes and types of messages that can be returned on updates and creates:
 
 ##  Examples for Travel Suppliers
 
-###  Example 1: Get the travel profile for the user associated with the specified OAuth 2.0 access token
+####  Example 1: Get the travel profile for the user associated with the specified OAuth 2.0 access token
 
-####  Request
+#####  Request
 
 ```http
 GET {InstanceURI}/api/travelprofile/v2.0/profile HTTP/1.1
@@ -694,7 +710,49 @@ Authorization: OAuth {access token}
 ...
 ```
 
-#### Update and Create Examples Coming Soon
+#### Example 5: Create a new user
+
+##### Request
+
+```http
+POST https://www.concursolutions.com/api/travelprofile/v2.0/profile HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
+
+##### Body
+
+```xml
+<ProfileResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Action="Create" LoginId="william.never@email.com">
+    <General>
+        <FirstName>William</FirstName>
+        <LastName>Never</LastName>
+        <RuleClass>Default Rule Class</RuleClass>
+        <TravelConfigID>555</TravelConfigID>
+    </General>
+    <Password>password123</Password>
+</ProfileResponse>
+```
+
+#### Example 6: Update a user
+
+##### Request
+
+```http
+POST https://www.concursolutions.com/api/travelprofile/v2.0/profile HTTP/1.1
+Authorization: OAuth {access token}
+...
+```
+
+##### Body
+
+```xml
+<ProfileResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Action="Update" LoginId="william.never@email.com">
+    <General>
+        <FirstName>Bill</FirstName>
+    </General>
+</ProfileResponse>
+```
 
 
 ## <a name="a5">Get a list of travel profile summaries</a>
