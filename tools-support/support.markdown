@@ -4,7 +4,9 @@ layout: reference
 redirect_from: /docs-and-resources/support/
 ---
 
-<a class="btn dark-blue" href="https://open.concur.com" target="_blank">Service Status (North America and EMEA)</a>
+<a class="btn dark-blue" href="https://open.concur.com" target="_blank">
+  <i class="fa fa-plug" aria-hidden="true"></i> Service Status (North America and EMEA)
+</a>
 
 ## Support Portals
 
