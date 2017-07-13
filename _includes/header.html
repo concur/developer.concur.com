@@ -44,7 +44,7 @@
               <li><a href="https://www.concur.com/en-us/app-center" target="_blank">App Center</a></li>
             </ul>
           </li>
-          {% if page.url contains '/tools-support/' or page.url contains '/changelog/' or page.url contains 'newsletter-request.html' %}
+          {% if page.url contains '/tools-support/' or page.url contains '/changelog/' %}
           <li class="dropdown active">
           {% else %}
           <li class="dropdown">
@@ -53,13 +53,12 @@
               Tools & Support <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
+              <li><a href="{{ site.baseurl }}/tools-support/support.html">Request Support</a></li>
               <li><a href="{{ site.baseurl }}/changelog">Change Log</a></li>
               <li><a href="{{ site.baseurl }}/tools-support/tools/webtest.html">Tools</a></li>
               <li><a href="https://forum.developer.concur.com/">Forum</a></li>
-              <li><a href="{{ site.baseurl }}/tools-support/support.html">Support</a></li>
               <li><a href="{{ site.baseurl }}/tools-support/release-notes/index.html">Release Notes</a></li>
               <li><a href="{{ site.baseurl }}/tools-support/reference/custom-list-items.html">Reference</a></li>
-              <li><a href="{{ site.baseurl }}/newsletter-request.html">Newsletter</a></li>
             </ul>
           </li>
           <li {% if page.url == '/blog/' %} class="active" {% endif %}>
