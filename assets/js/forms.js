@@ -62,51 +62,6 @@ var DevcenterForms = (function($) {
     });
   }
 
-  function handleNewsletterRequestForm() {
-    $("#newsletterRequest").change(function() {
-      ($("#country").val() !== "USA") ? $("#state").attr("disabled", true) && $("#state").val("") : $("#state").attr("disabled", false);
-    });
-
-    $("#newsletterRequest").validate({
-      // Rules for form validation
-      rules: {
-        firstName: { required: true },
-        lastName: { required: true },
-        email: {
-          required: true,
-          email: true
-        }
-      },
-
-      // Messages for form validation
-      messages: {
-        firstName: { required: 'Please enter your first name' },
-        lastName: { required: 'Please enter your last name' },
-        email: { required: 'Please enter a valid email address' }
-      },
-
-      // Ajax form submition
-      submitHandler: function(form) {
-        if($('#email-alt').val()) {
-          return;
-        }
-        $(form).ajaxSubmit({
-          beforeSend: function() {
-            $('#newsletterRequest button[type="submit"]').attr('disabled', true);
-          },
-          success: function() {
-            ga('send', 'event', 'Form', 'Submit', 'Newsletter Request');
-            $("#newsletterRequest").addClass('submited');
-            $('#form-success').removeClass('hidden');
-          },
-          error: function() {
-            ga('send', 'event', 'Form', 'Error', 'Newsletter Request');
-          }
-        });
-      }
-    });
-  }
-
   function handleSandboxAssistanceForm() {
     $("#sandboxAssistance").validate({
       // Rules for form validation
@@ -292,7 +247,6 @@ var DevcenterForms = (function($) {
   return {
     init: function() {
       handleConcurCommunityForm();
-      handleNewsletterRequestForm();
       handleSandboxRegistrationForm();
       handleSandboxAssistanceForm();
       handleContactSupportForm();
