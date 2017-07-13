@@ -207,11 +207,7 @@ GEM
     ref (2.0.0)
     rouge (1.11.1)
     safe_yaml (1.0.4)
-    sass (3.5.0)
-      sass-listen (~> 3.0.7)
-    sass-listen (3.0.7)
-      rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9.7)
+    sass (3.4.21)
     sawyer (0.8.1)
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
@@ -235,10 +231,15 @@ DEPENDENCIES
   bootstrap-sass
   github-pages
   html-proofer
+  jekyll
   jekyll-bootstrap-sass
   jekyll-redirect-from
   octopress-paginate!
+  sass (= 3.4.21)
   therubyracer
+
+RUBY VERSION
+   ruby 2.2.5p319
 
 BUNDLED WITH
    1.15.1

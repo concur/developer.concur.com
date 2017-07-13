@@ -17,7 +17,6 @@ dependencies:
     - tmp/.htmlproofer
   override:
     - ./build/install_aws_cli.sh
-    - gem install jekyll
     - bundle install
     - npm install
 
