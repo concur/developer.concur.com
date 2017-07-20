@@ -1,7 +1,11 @@
 ---
-title: Requesting Partner Support
+title: Request Support - Partners
 layout: reference
 ---
+
+<a class="btn dark-blue" href="https://sapconcur.my.salesforce.com/secur/login_portal.jsp?orgId=00D600000007Dq3&portalId=06060000000PrEi" target="_blank">
+  <i class="fa fa-sign-in" aria-hidden="true"></i> Partner Support Case Login
+</a>
 
 **App Center Partners should never instruct a customer to log a ticket directly into Concur Customer Support** - If the issue is related to the integration between Concur and the Partner, the Partner must log the case.
 
@@ -22,5 +26,3 @@ Partner cases must include the following:
     3.  POST Body (if applicable)
     4. API Response
     5. Additional log information relevant to the issue (do not send more than is necessary)
-
-[Partner Support Case Login](https://sapconcur.my.salesforce.com/secur/login_portal.jsp?orgId=00D600000007Dq3&portalId=06060000000PrEi)
