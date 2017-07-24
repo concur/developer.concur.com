@@ -87,5 +87,11 @@ Name | Type | Format | Description
 `URI`	|	`string`	|	-	|	The URI to the resource.
 `UserDefinedDate`	|	`string`	|	-	|	The invoice date as assigned by the user.
 `VendorName`	|	`string`	|	-	|	**Required** The name of the vendor.
+`PaymentMethod`	|	`string`	|	-	|	Payment Method type tied to an Invoice.
+`LastModifiedDate`	|	`string`	|	-	|	The date the request was last modified.
+`ExtractedDate`	|	`string`	|	-	|	The date the request was extracted.
+
+
+
 
 
