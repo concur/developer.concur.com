@@ -2,7 +2,7 @@ machine:
   timezone:
     America/Los_Angeles
   ruby:
-    version: 2.2.2
+    version: 2.2.5
   node:
     version: 6.9.5
 
@@ -17,7 +17,6 @@ dependencies:
     - tmp/.htmlproofer
   override:
     - ./build/install_aws_cli.sh
-    - gem install jekyll
     - bundle install
     - npm install
 
