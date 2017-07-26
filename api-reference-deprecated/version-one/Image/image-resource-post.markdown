@@ -8,7 +8,7 @@ layout: reference
 ### Description
 Uploads a receipt image and associates it with the OAuth consumer. The user can view the image in the receipt management section of Concur.
 
-**NOTE**: The documentation for the version 3.0 Receipt Images resource can be found [here][1].
+**NOTE**: The documentation for the version 3.0 Receipt Images resource can be found [here](/api-reference/image/).
 
 ### Post Receipt Image Request
 
@@ -352,6 +352,5 @@ Content-Type: application/xml
 
 
 
-[1]: /preview/api-reference/image/index.html
 [2]: /api-reference-deprecated/version-one/Image/index.html
 [3]: /tools-support/reference/http-codes.html

@@ -31,7 +31,7 @@ layout: reference
 | [July](AppCenter_ReleaseNotes_July 2017_DRAFT.pdf)|
 | -- | [March](AppCenter_ReleaseNotes_March 2016_FINAL.pdf) | [March][1-11] | -- |
 | -- | -- | [April][1-12] | -- |
-| -- | [May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf) | [May][1-13] | [May](App_Center_Release_Notes_client_final_May2014_0.pdf) |
+| -- | [May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf) | [May][1-13] | [May](App_Center_Release_Notes_client_final_May2014.pdf) |
 | -- | [June](AppCenter_ReleaseNotes_June 2016_FINAL.pdf) | -- | [June][1-2] |
 | -- | [July](AppCenter_ReleaseNotes_July 2016_FINAL.pdf) | [July](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July][1-3] |
 | -- | [August](AppCenter_ReleaseNotes_August 2016_FINAL.pdf) | -- | [August][1-4] |
@@ -66,7 +66,7 @@ layout: reference
 ### <a name="april2016"></a>April 2016
 
 #### Travel: Form of Payment 1.0 Deprecated
-Effective May 1, 2016, Form of Payment 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0]({{site.baseurl}}/api-reference/travel/travel-profile/form-payment-resource.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
+Effective May 1, 2016, Form of Payment 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0](/api-reference/travel-profile/02-form-payment-resource.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
 
 Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/reference/deprecation-policy.html) for definitions additional information.
 
@@ -75,7 +75,7 @@ Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/referenc
 ### <a name="feb2016"></a>February 2016
 
 #### Travel Profile 1.0 Deprecated
-Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0]({{site.baseurl}}/api-reference/travel/travel-profile/index.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
+Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0](/api-reference/travel-profile/01-profile-resource.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
 
 Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/reference/deprecation-policy.html) for definitions additional information.
 
@@ -175,7 +175,7 @@ Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner
 
 **Effective Date:** July 2015 release
 
-[1-1]:App_Center_Release_Notes_client_final_May2014_0.pdf
+[1-1]:App_Center_Release_Notes_client_final_May2014.pdf
 [1-2]:App_Center_Release_Notes_final_June2014.pdf
 [1-3]:App_Center_Release_Notes_final_July2014.pdf
 [1-4]:App_Center_Release_Notes_final_Aug2014.pdf
@@ -185,7 +185,7 @@ Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner
 [1-8]:App_Center_Release_Notes_DecFinal_Dec12_2014.pdf
 [1-9]:App_Center_Release_Notes_Feb13_2015.pdf
 [1-10]:App_Center_Release_Notes_Feb27_2015.pdf
-[1-11]:App_Center_Release20_Notes_Mar13_2015.pdf
+[1-11]:App_Center_Release_Notes_Mar13_2015.pdf
 [1-12]:App_Center_ReleaseNotes_Mar27_2015.pdf
 [1-13]:AppCenter_ReleaseNotes_May2015FINAL.pdf
 
