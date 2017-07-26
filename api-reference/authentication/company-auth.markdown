@@ -4,10 +4,7 @@ layout: reference
 ---
 
 
-# PREVIEW - Company Level Authentication
-
-### Special Note (Please Read First)
-**This documentation is presented for early preview purposes only as is NOT final.** If you have any questions, please contact your Partner Enablement team representative before proceeding.
+# Company Level Authentication
 
 * [Overview]()
 * [Company](#company)
