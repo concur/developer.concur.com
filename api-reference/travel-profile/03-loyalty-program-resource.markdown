@@ -37,7 +37,7 @@ Updates the loyalty program information for the OAuth consumer. Loyalty contains
 
 **Travel Suppliers**
 
-If the request is sent from a travel supplier with an [OAuth token][4] for the user, they can set a new loyalty program number. Travel suppliers can only update their own loyalty program information.
+If the request is sent from a travel supplier with an [OAuth token](/api-reference-deprecated/old-auth/old-auth.html#access-tokens) for the user, they can set a new loyalty program number. Travel suppliers can only update their own loyalty program information.
 
 **Travel Management Companies**
 
@@ -45,7 +45,7 @@ If the request is sent by a TMC, the request can update any loyalty program for 
 
 ### Restrictions
 
-This function is only available to travel suppliers who have completed the [Concur application review process][2]. Suppliers may post loyalty membership information for their loyalty programs only.
+This function is only available to travel suppliers who have completed the [Concur application review process](/manage-apps/app-certification.html). Suppliers may post loyalty membership information for their loyalty programs only.
 
 ## Request
 
@@ -175,6 +175,3 @@ Content-Type: application/xml
     <ErrorDescription />
 </LoyaltyMembershipResponse>
 ```
-
-[1]: http://concur.github.io/developer.concur.com/api-reference/authentication/oauth-20-overview
-[4]: https://developer.concur.com/go-market/app-certification
