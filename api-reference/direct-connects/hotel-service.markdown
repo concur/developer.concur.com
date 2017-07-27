@@ -578,11 +578,13 @@ OTA_HotelAvailRS
                 <RoomType RoomID="111">
                     <RoomDescription>
                         <Text>Standard room, king bed</Text>
+                        <Text>Free Wi-Fi</Text>
                     </RoomDescription>
                 </RoomType>
                 <RoomType RoomID="222">
-                    <RoomDescription>
+                    <RoomDescription Name="President suite">
                         <Text>Exclusive room</Text>
+                        <Text>Free Wi-Fi</Text>
                     </RoomDescription>
                 </RoomType>
             </RoomTypes>
