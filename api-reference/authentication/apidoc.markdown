@@ -201,8 +201,7 @@ e013335d-b4ce-4c43-a7e4-b67abc1adcb0
 
 It is highly recommended that you store Refresh Tokens together with your user's authorization metadata in your application every time you obtain a new `refreshToken` as they might change depending on different scenarios.
 
-## <a name="
-_uri"></a>Base URIs
+## <a name="base_uri"></a>Base URIs
 
 When making API calls, the appropriate base URI for the user's geolocation should be used. The following are the available base URIs:
 
