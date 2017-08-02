@@ -11,8 +11,8 @@ The Concur's **company** API is used to help provision and manage companies and 
 
 * [Schema Definition](#scim)
 * [Get Company](#get)
-* [Create Company](#create)
-* [Update Company](#update)
+* [Create Company](#)
+* [Update Company](#)
 * [Response Codes](#response)
 
 ### Version
