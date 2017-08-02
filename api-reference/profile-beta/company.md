@@ -93,4 +93,5 @@ Here is a sample company response.
 |404| Resource not found|
 |429| Rate limit reached||
 |500| Internal Error||
+|503| Service Unavailable||
 ||||
