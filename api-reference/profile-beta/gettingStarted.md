@@ -1,6 +1,6 @@
 ---
 title: Getting Started with Profile
-layout: reference (Early Access)
+layout: reference
 ---
 
 Warning: Concur's Profile API is currently in **BETA** and is subject to change.
