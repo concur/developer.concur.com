@@ -20,7 +20,7 @@ The Concur's **company** API is used to help provision and manage companies and 
 
 ## <a name="scim"></a>Schema Definition
 
-The Company schema is inspired by the work for for [SCIM](https://tools.ietf.org/wg/scim/) (System for Cross-domain Identity Management), in particular, [RFC 7643](https://tools.ietf.org/html/rfc7643) & optionally [RFC 7644](https://tools.ietf.org/html/rfc7644).
+The Company schema is inspired by the work from [SCIM](https://tools.ietf.org/wg/scim/) (System for Cross-domain Identity Management), in particular, [RFC 7643](https://tools.ietf.org/html/rfc7643) & optionally [RFC 7644](https://tools.ietf.org/html/rfc7644).
 
 The latest version of the Company schema is always available at: [company.json](company.json).
 
