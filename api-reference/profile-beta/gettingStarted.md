@@ -7,7 +7,7 @@ Warning: Concur's Profile API is currently in **BETA** and is subject to change.
 
 
 # Profile API
-The Concur's Profile API consists a set of APIs to manage users, companies and apps within Concur. Profile API is `the` API for profile information for all Concur's profile data, including Enterprise applications such as Expense, Invoice, Request, and Travel, as well as Retail applications such as Hipmunk and TripIt. 
+The Concur's Profile API, currently in early beta, consists a set of APIs to manage users, companies and apps within Concur. Profile API is the API for profile information for all Concur's profile data, including Enterprise applications such as Expense, Invoice, Request, and Travel, as well as Retail applications such as Hipmunk and TripIt. 
 
 * [Profile Endpoints](#endpoint)
 * [Security](#security)
