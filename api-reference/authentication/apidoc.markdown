@@ -203,10 +203,12 @@ It is highly recommended that you store Refresh Tokens together with your user's
 
 ## <a name="base_uri"></a>Base URIs
 
-Environment | URI
------|------
-US Production |`https://us.api.concursolutions.com/oauth2/v0`
-EU Production |`https://emea.api.concursolutions.com/oauth2/v0`
+Environment | URI | Description
+-----|------|------
+US Production |`https://us.api.concursolutions.com/oauth2/v0` | Default for all API calls
+WWW-US Production | `https://www-us.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
+EU Production |`https://emea.api.concursolutions.com/oauth2/v0` | Default for EU users
+WWW-EU Production | `https://www-emea.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
 
 ## <a name="id_token"></a>ID Token
 
@@ -231,6 +233,8 @@ Authentication service will return an [OPENID](http://openid.net) compatible [ID
 
 ### Verifying an id_token
 The Authentication service exposes [JWKs](https://tools.ietf.org/html/rfc7517) that can be used to validate the id_token in the form of a JWT. Validating a JWT is described in detail in [RFC 7519 - sec 7.2](https://tools.ietf.org/html/rfc7519#section-7.2)
+
+This is the link to Concur's JSON Web Key for Oauth2. [https://www-us.api.concursolutions.com/oauth2/v0/jwks](https://www-us.api.concursolutions.com/oauth2/v0/jwks)
 
 ## <a name="auth_grant"></a>Authorization grant
 
@@ -284,6 +288,9 @@ Name | Type | Format | Description
 `code`|`string`| `UUID`  | The authorization code provided by Auth
 `grant_type`|`string` | | `authorization_code`
 
+**NOTE**
+
+Because of certificate issues with browser requests through Authorization Grant, callers should use the https://www-us.api.concursolutions.com base URI instead.
 
 ## <a name="password_grant"></a>Password grant
 
