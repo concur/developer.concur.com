@@ -11,9 +11,7 @@ The Concur's **company** API is used to help provision and manage companies and 
 
 * [Schema Definition](#scim)
 * [Get Company](#get)
-* [Create Company](#)
-* [Update Company](#)
-* [Response Codes](#response)
+* [Response Codes](#codes)
 
 ### Version
 1.0
@@ -84,7 +82,7 @@ Here is a sample company response.
 }
 ````
 
-## <a name="response"></a>Response Codes
+## <a name="codes"></a>Response Codes
 
 |**HTTP Status**|**Status**|**Description/Error Code**|
 |---------------|----------|---------------|

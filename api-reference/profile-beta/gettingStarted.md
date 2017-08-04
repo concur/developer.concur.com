@@ -11,7 +11,6 @@ The Concur's Profile API, currently in early beta, consists a set of APIs to man
 
 * [Profile Endpoints](#endpoint)
 * [Security](#security)
-* [Caveats](#caveats)
 
 ## <a name="endpoint"></a>Profile Endpoints
 
@@ -46,8 +45,4 @@ The access token must have at least one of user_read, company_read, app_read or 
 
 To obtain or refresh an access token, please refer to [the following document](https://preview.developer.concur.com/api-reference/authentication/getting-started.html).
 
-
-## <a name="caveats"></a>Caveats
-
-All Profile methods expect a `concur-correlationid` HTTP header from the client. You should generate a per-request unique string of at least 6 characters long and send this as the correlation id. API calls without this header will be rejected.
 
