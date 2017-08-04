@@ -26,9 +26,15 @@ The latest version of the Company schema is always available at: [company.json](
 
 ## <a name="get"></a>Get Company
 
-Each company in Profile is associated with a unique UUI. And your company JWT will limit the company you can query for. You can use the following endpoint to lookup your company:
+Each company in Profile is associated with a unique UUID. And your company access token will limit the company you can query for. You can use the following endpoint to lookup your company:
 
-    GET /profile-service/v1/me     (company JWT required)
+    GET /profile/v1/me     (access token required)
+
+
+Curl example:
+
+
+    curl -k -v -H "Authorization: Bearer $access-token" "https://$host/profile/v1/me"
 
 ### Company details 
 
