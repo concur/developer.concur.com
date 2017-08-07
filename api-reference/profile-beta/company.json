@@ -1,0 +1,231 @@
+{
+    "id": "com:concur:Company:1.0",
+    "name": "Concur Company",
+    "description": "A 1.0 Concur Company Account",
+    "attributes": [
+        {
+            "name": "id",
+            "type": "string",
+            "multiValued": false,
+            "description": "Unique identifier for the Company - a uuid.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readOnly",
+            "returned": "default",
+            "uniqueness": "server"
+        },
+        {
+            "name": "name",
+            "type": "string",
+            "multiValued": false,
+            "description": "The name of the company",
+            "required": false,
+            "CompanyRules": "read-only"
+        },
+        {
+            "name": "internetDomain",
+            "type": "string",
+            "multiValued": false,
+            "description": "The internet domain of the company",
+            "required": false,
+            "CompanyRules": "read-only"
+        },
+        {
+            "name": "companyDomain",
+            "type": "string",
+            "multiValued": false,
+            "description": "The company domain",
+            "required": false,
+            "CompanyRules": "read-only"
+        },
+        {
+            "name": "defaultLanguage",
+            "type": "string",
+            "multiValued": false,
+            "description": "Indicates the company's default language. ",
+            "required": false,
+            "CompanyRules": "read-only"
+        },
+        {
+            "name": "addresses",
+            "type": "complex",
+            "multiValued": true,
+            "description": "A physical mailing address for this company.",
+            "required": false,
+            "subAttributes": [
+                {
+                    "name": "id",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Unique identifier for the company's physical addresses - a uuid.",
+                    "required": false,
+                    "CompanyRules": "read-only"
+                },
+                {
+                    "name": "formatted",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "The full mailing address, formatted for  display or use with a mailing label.  This attribute MAY contain newlines.",
+                    "required": false,
+                    "CompanyRules": "read-only"
+                },
+                {
+                    "name": "streetAddress",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.  This attribute MAY contain newlines.",
+                    "required": false,
+                    "CompanyRules": "read-only"
+                },
+                {
+                    "name": "locality",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "The city or locality component.",
+                    "required": false,
+                    "CompanyRules": "read-only"
+
+                },
+                {
+                    "name": "region",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "The state or region component.",
+                    "required": false,
+                    "CompanyRules": "read-only"
+                },
+                {
+                    "name": "country",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "A two-letter country code defined in ISO 3166-1 alpha-2",
+                    "required": false,
+                    "CompanyRules": "read-only"
+                },
+                {
+                    "name": "postalCode",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "The zip code or postal code component.",
+                    "required": false,
+                    "CompanyRules": "read-only"
+                }
+            ]
+        },
+        {
+            "id": "com:concur:Travel:0.1",
+            "name": "Company Travel Data",
+            "description": "Company Travel Data",
+            "_comment": "This is WIP",
+            "attributes": [
+                {
+                    "name": "active",
+                    "type": "boolean",
+                    "multiValued": false,
+                    "description": "Active, true or false",
+                    "required": false,
+                    "CompanyRules": "read-only"
+                },
+                {
+                    "name": "offeringCode",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Travel offering for the company",
+                    "required": false,
+                    "CompanyRules": "read-only"
+                },
+                {
+                    "name": "isVendor",
+                    "type": "boolean",
+                    "multiValued": false,
+                    "description": "Whether the company is a vendor for travel",
+                    "required": false,
+                    "CompanyRules": "read-only"
+                },
+                {
+                    "name": "isBillable",
+                    "type": "boolean",
+                    "multiValued": false,
+                    "description": "Whether the company is billable for travel",
+                    "required": false,
+                    "CompanyRules": "read-only"
+                },
+                {
+                    "name": "contact",
+                    "type": "complex",
+                    "multiValued": false,
+                    "description": "Contact information for Travel.",
+                    "required": false,
+                    "subAttributes": [
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "multiValued": false,
+                            "description": "contact name.",
+                            "required": false,
+                            "CompanyRules": "read-only"
+                        },
+                        {
+                            "name": "phone",
+                            "type": "string",
+                            "multiValued": false,
+                            "description": "Conact's Phone number.",
+                            "required": false,
+                            "CompanyRules": "read-only"
+                        },
+                        {
+                            "name": "emailAddress",
+                            "type": "string",
+                            "multiValued": false,
+                            "description": "Conact's email address",
+                            "required": false,
+                            "CompanyRules": "read-only"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "com:concur:Expense:0.1",
+            "name": "Company Expense Data",
+            "description": "Company Expense Data",
+            "_comment": "This is WIP",
+            "attributes": [
+                {
+                    "name": "offeringCode",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Expense offering for the company",
+                    "required": false,
+                    "CompanyRules": "read-only"
+                },
+                {
+                    "name": "marketingName",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Marketing name for the offering",
+                    "required": false,
+                    "CompanyRules": "read-only"
+                }
+            ]
+        },
+        {
+            "id": "com:concur:PasswordPolicy:1.0",
+            "description": "Company password policies",
+            "required": false,
+            "attributes": [
+                {
+                    "name": "mobileAuthenticationLifetime",
+                    "type": "integer",
+                    "multiValued": false,
+                    "required": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none",
+                    "description": "Mobile session timeout in seconds.",
+                    "CompanyRules": "gt-eq 0"
+                }
+            ]
+        }
+    ]
+}

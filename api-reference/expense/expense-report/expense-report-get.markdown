@@ -650,7 +650,6 @@ Content-Type: application/xml
 
 
 [1]: https://en.wikipedia.org/wiki/ISO_4217
-[2]: https://developer.concur.com/expense-report/expense-report-resource/post-report-exceptions
 [3]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 [4]: https://en.wikipedia.org/wiki/ISO_3166-2
 [5]: https://developer.concur.com/users/users-resource/user-resource-get

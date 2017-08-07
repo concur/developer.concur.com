@@ -101,6 +101,19 @@
 		</xs:sequence>
 	</xs:complexType>
 	
+	<xs:complexType name="ConcurHotelDescriptionTPA_ExtensionsType">
+		<xs:annotation>
+			<xs:documentation source="Description" xml:lang="en">Concur-specific hotel description basic formatting support</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Description" type="ParagraphType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation source="Description" xml:lang="en">Hotel description paragraph. Only Name and Text are supported.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
 	<xs:simpleType name="ConcurGuaranteeRequiredType">
 		<xs:annotation>
 			<xs:documentation xml:lang="en">Flag indicating if guarantee (credit card) is required for given rate.</xs:documentation>
@@ -135,6 +148,7 @@
 			<xs:enumeration value="most_preferred"/>
 	 </xs:restriction>
 	</xs:simpleType>
+	
 	
 	<xs:simpleType name="PricingType">
 		<xs:annotation>
@@ -2829,6 +2843,7 @@
 					<xs:documentation xml:lang="en">Multimedia information about a collection of multimedia objects.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="TPA_Extensions" type="ConcurHotelDescriptionTPA_ExtensionsType" minOccurs="0"/>
 		</xs:sequence>							
 	</xs:complexType>
 	

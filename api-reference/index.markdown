@@ -44,8 +44,6 @@ After you have completed development and testing, submit your app for [certifica
 [2]: /docs/guides/REST-API-Basics.html
 [3]: https://forum.developer.concur.com/c/sandbox
 [4]: https://concursolutions.com/
-[5]: /docs/guides/index.html
-[6]: /docs/overviews/index.html
 [7]: /manage-apps/partner-applications.html
 [8]: /manage-apps/app-certification.html
 [9]: /api-reference/authentication/authentication.html#native
