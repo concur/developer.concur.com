@@ -11,6 +11,7 @@ The Concur's Profile API, currently in early beta, consists a set of APIs to man
 
 * [Profile Endpoints](#endpoint)
 * [Security](#security)
+* [Caveats](#caveats)
 
 ## <a name="endpoint"></a>Profile Endpoints
 
@@ -45,4 +46,8 @@ The access token must have at least one of user_read, company_read, app_read or 
 
 To obtain or refresh an access token, please refer to [the following document](https://preview.developer.concur.com/api-reference/authentication/getting-started.html).
 
+
+## <a name="caveats"></a>Caveats
+
+Profile APIs are under early beta and are subject to change. Changes in Profile do not follow the typical notification or deprecation processes. If you want to be included in the Profile related notifications, please email profile@concur.com.
 
