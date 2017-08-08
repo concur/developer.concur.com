@@ -582,7 +582,7 @@ Content-Type: application/xml
   |  `AmountDueCompanyCard`  | The total amount due to the company card for the report. |
   |  `TotalClaimedAmount`  | The total amount of all non-personal expenses in the report. |
   |  `TotalApprovedAmount`  | The total amount of approved expenses in the report. |
-  | `WorkflowActionURL` | The URL to post a workflow action to the report using the [Post Report Workflow Action](https://developer.concur.com/node/168) endpoint. |
+  | `WorkflowActionURL` | The URL to post a workflow action to the report using the [Post Report Workflow Action](/api-reference/expense/expense-report/post-report-workflow-action.html) endpoint. |
   |  `Entries`  | This parent element has a Count attribute indicating the number of entries (not including itemization entries) that are included in the report. It has an  `ExpenseEntry`  child element for each entry. Refer to the [Expense Entry Child Elements](#expentrychild) table for more information. |
 
   * **<a name="expentrychild" id="expentrychild"></a>Expense Entry Child Elements**

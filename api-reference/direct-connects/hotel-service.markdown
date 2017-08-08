@@ -409,7 +409,7 @@ OTA_HotelDescriptiveInfoRS
 |  Element |	Required	| Data Type	| Description |
 |----------|------------|--------------------------|-|
 |  HotelCode |	Y	| String1to16 |  The code that uniquely identifies a single hotel property. Used in other OTA messages.|
-|  DescriptiveText |	N | String	|  Descriptive text that describes the hotel.|
+|  Description |	N | Paragraph	|  Descriptive text that describes the hotel with basic formatting.|
 |  ImageItems |	N	| URI | URL's hotel images.|
 
 
@@ -440,11 +440,16 @@ OTA_HotelDescriptiveInfoRS
     <Success/>
     <HotelDescriptiveContents>
         <HotelDescriptiveContent ChainCode="XX" HotelCode="464844" HotelName="H2 Alexanderplatz">
-            <HotelInfo>
-                <Descriptions>
-                    <DescriptiveText>The H2 Hotel Berlin Alexanderplatz offers design, functionality and comfort. The H2 Hotel Berlin Alexanderplatz boasts a clear price structure and a design-oriented and modern ambience.</DescriptiveText>
-                </Descriptions>
-            </HotelInfo>
+            <TPA_Extensions>
+                <Description Name="Address">
+                    <Text>18, 36th Street</Text>
+                    <Text>New York, USA</Text>
+                </Description>
+                <Description>
+                    <Text>Lovely hotel in city center</Text>
+                    <Text>Close to subway</Text>
+                </Description>
+            </TPA_Extensions>
             <MultimediaDescriptions>
                 <MultimediaDescription>
                     <ImageItems>
@@ -573,11 +578,13 @@ OTA_HotelAvailRS
                 <RoomType RoomID="111">
                     <RoomDescription>
                         <Text>Standard room, king bed</Text>
+                        <Text>Free Wi-Fi</Text>
                     </RoomDescription>
                 </RoomType>
                 <RoomType RoomID="222">
-                    <RoomDescription>
+                    <RoomDescription Name="President suite">
                         <Text>Exclusive room</Text>
+                        <Text>Free Wi-Fi</Text>
                     </RoomDescription>
                 </RoomType>
             </RoomTypes>
@@ -883,6 +890,8 @@ OTA_HotelResRQ
 |  PaymentCard |	Y	| ComplexType | Guarantee payment card details: CardType, CardHolderName, ExpireDate, CardNumber, Address. |
 |  Comments |	N	| String | Comments which apply to the whole Reservation. |
 |  NotifyEmails |	N	| ComplexType | Email to be notified. |
+|  CustomFields |	N	| ComplexType | Custom trip fields. Need to be configured and mapped on Company or Travel Configuration level. |
+
 
 OTA_HotelResRS
 
@@ -975,6 +984,9 @@ OTA_HotelResRS
             <NotifyEmails>
                 <NotifyEmails>FIRSTNAME.LASTNAME@EXAMPLE.COM</NotifyEmails>
             </NotifyEmails>
+            <CustomFields>
+              <CustomField  Name="Cost center" Value="Sales"/>  
+            </CustomFields>
         </TPA_Extensions>
     </HotelReservations>
 </OTA_HotelResRQ>
@@ -1074,6 +1086,7 @@ OTA_HotelResRS
 4.  Travel administrator configures travel configuration to recieve reservation confirmation on email. Multiple emails can be configured
 NotifyEmails will be sent in such reservation requests. The Hotel Supplier should send reservation confirmation to specified emails.
 
+5. Travel administrator configures and maps Custom fields in Share custom fields page in Company administration. Configures user custom fields, like Cost center, are sent to the Hotel Supplier.
  
 ### Read
 

@@ -38,7 +38,7 @@ The POST fields required for the Receipt endpoint are located in the official Co
 
 
 #### Important
-- Use the ERECPT scope. More details [here](https://developer.concur.com/oauth-20/web-flow) Search Term: ERECPT
+- Use the ERECPT scope. More details [here](/api-reference-deprecated/old-auth/old-auth.html#web) Search Term: ERECPT
 - Use the easier Native Flow authentication for Application 2 in your sandbox to retrieve the user token
 - Ensure that your dates are recent. The Receipts endpoint rejects receipts with transaction dates older than six months
 

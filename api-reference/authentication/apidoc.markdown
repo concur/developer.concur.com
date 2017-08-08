@@ -15,7 +15,7 @@ If you are an existing partner with an existing app, please read both the [Migra
   * [Refreshing a token](#refresh_token)
   * [Revoking a token](#revoke_token)
   * [Token Management](#manage_token)
-  * [Base URIs](#base_uri)
+  * [Base URIs & Geolocation](#base_uri)
   * [ID Token](#id_token)
 * Types of grants
   * [Authorization grant](#auth_grant)
@@ -30,8 +30,7 @@ If you are an existing partner with an existing app, please read both the [Migra
 ## <a name="access_token"></a>Access Tokens
 
 
-The Oauth2 service generates access tokens for authenticated users, applications or companies. The tokens are created using the JSON Web Token (JWT) format.
-The token returned in the Oauth2 response can be used to access protected resources on Concur's services.
+The Oauth2 service generates access tokens for authenticated users, applications or companies. The token returned in the Oauth2 response can be used to access protected resources on Concur's services.
 
 The Oauth2 response can, depending on grant type contain these values
 
@@ -40,9 +39,10 @@ Name | Type | Format | Description
 `expires_in`|`string`|-|The lifetime in seconds of the access token
 `scope`|`string`|-|The scope of the access token as granted to the client application
 `token_type`|`string`|-| The type of token returned. Value will be `Bearer`
-`access_token`|`string`|-|JSON Web Token (JWT) used to access pprotected resources of Concur's services.
+`access_token`|`string`|-|Token used to access pprotected resources of Concur's services.
 `refresh_token`|`string`|-|Refresh token required to request a new access token for a given user.
-`geolocation`|`string`|-|The base URL for where the user profile lives
+`geolocation`|`string`|-|The base URL for where the user profile lives. See (#base_uri) for usage.
+`id_token`|`string`|-|The OCID Token in the JSON Web Token (JWT) format that describes the user or company
 
 **Token Response**
 
@@ -61,52 +61,10 @@ Connection: Close
   "token_type": "Bearer",
   "access_token": "access_token",
   "refresh_token": "refresh_token",
+  "id_token": "ocid_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```
-
-The structure of the access_token is as follows (as an example):
-
-**Header:**
-
-```json
-{
-  "typ": "JWT",
-  "alg": "RS256",
-  "kid": "1455614346"
-}
-```
-
-**Payload:**
-
-```json
-{
-  "concur.version": 2,
-  "aud": "*",
-  "sub": "08BDDA1E-0D4F-4261-9F1B-F9B8D9F817D6",
-  "iss": "https://[us|emea].api.concursolutions.com",
-  "exp": 1465194622,
-  "nbf": 1465191022,
-  "concur.type": "[user|company|app]",
-  "concur.app": "https://[us|emea].api.concursolutions.com/profile/v1/apps/08BDDA1E-0D4F-4261-9F1B-F9B8D9F817D6",
-  "concur.profile": "https://[us|emea].api.concursolutions.com/profile/v1/users/5C590898-57F2-4445-B638-846E83190BC1",
-  "concur.scopes": [
-    "resource.sub-resource.action"
-  ],
-  "iat": 1465191022
-}
-```
-
-* `concur.version` - is the version of the JWT schema in use.
-* `concur.type` - is the type of principal this JWT refers to. eg. user, company or application.
-* `concur.app` - a link to the app that created this token.
-* `concur.profile` - is a link to the user's profile.
-* `concur.scopes` - the scopes that the principal permitted the app to use on its behalf
-* `sub` - is a UUID4 identifier for the subject of the JWT.
-* `iss` - this is the datacenter/region that issued this token
-* `exp` - the unix timestamp at which the token will expire
-* `nbf` - the unix timestamp before which the token should not be used (not terribly interesting to us)
-* `iat` - the unix timestamp at which this token was issued
 
 
 ## <a name="obtain_token"></a>Obtaining a token
@@ -187,10 +145,11 @@ Connection: Close
 ```json
 {
   "expires_in": "3600",
-  "scope": "app-scope",
+  "scope": "app-scopes",
   "token_type": "Bearer",
-  "access_token": "new-access_token",
-  "refresh_token": "new-refresh_token",
+  "access_token": "access_token",
+  "refresh_token": "refresh_token",
+  "id_token": "ocid_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```
@@ -244,14 +203,18 @@ It is highly recommended that you store Refresh Tokens together with your user's
 
 ## <a name="base_uri"></a>Base URIs
 
-Environment | URI
------|------
-US Production |`https://us.api.concursolutions.com/oauth2/v0`
-EU Production |`https://emea.api.concursolutions.com/oauth2/v0`
+When making API calls, the appropriate base URI for the user's geolocation should be used. The following are the available base URIs:
+
+Environment | URI | Description
+-----|------|------
+US Production |`https://us.api.concursolutions.com/oauth2/v0` | Default for all API calls
+WWW-US Production | `https://www-us.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
+EU Production |`https://emea.api.concursolutions.com/oauth2/v0` | Default for EU users
+WWW-EU Production | `https://www-emea.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
 
 ## <a name="id_token"></a>ID Token
 
-If your application was registered with the 'openid' scope, the Authentication service will return an [OPENID](http://openid.net) compatible [ID token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken).
+Authentication service will return an [OPENID](http://openid.net) compatible [ID token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken) with every token request. This `id_token` is primarily used to describe information about a user or a company. You can obtain the userId from this token.
 
 **Sample id_token:**
 
@@ -272,6 +235,8 @@ If your application was registered with the 'openid' scope, the Authentication s
 
 ### Verifying an id_token
 The Authentication service exposes [JWKs](https://tools.ietf.org/html/rfc7517) that can be used to validate the id_token in the form of a JWT. Validating a JWT is described in detail in [RFC 7519 - sec 7.2](https://tools.ietf.org/html/rfc7519#section-7.2)
+
+This is the link to Concur's JSON Web Key for Oauth2. [https://www-us.api.concursolutions.com/oauth2/v0/jwks](https://www-us.api.concursolutions.com/oauth2/v0/jwks)
 
 ## <a name="auth_grant"></a>Authorization grant
 
@@ -325,6 +290,9 @@ Name | Type | Format | Description
 `code`|`string`| `UUID`  | The authorization code provided by Auth
 `grant_type`|`string` | | `authorization_code`
 
+**NOTE**
+
+Because of certificate issues with browser requests through Authorization Grant, callers should use the https://www-us.api.concursolutions.com base URI instead.
 
 ## <a name="password_grant"></a>Password grant
 
@@ -376,6 +344,7 @@ Connection: Close
   "token_type": "Bearer",
   "access_token": "access_token",
   "refresh_token": "refresh_token",
+  "id_token": "ocid_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```
@@ -433,9 +402,9 @@ Connection: Close
 ```json
 {
   "expires_in": "3600",
-  "scope": "scopes defined for application",
+  "scope": "app-scopes",
   "token_type": "Bearer",
-  "access_token": "JWT",
+  "access_token": "access_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```
@@ -569,10 +538,11 @@ Connection: keep-alive
 ```json
 {
   "expires_in": "3600",
-  "scope": "scopes-defined",
+  "scope": "app-scopes",
   "token_type": "Bearer",
-  "access_token": "access_token (JWT)",
+  "access_token": "access_token",
   "refresh_token": "refresh_token",
+  "id_token": "ocid_token",
   "geolocation": "https://us.api.concursolutions.com"
 }
 ```

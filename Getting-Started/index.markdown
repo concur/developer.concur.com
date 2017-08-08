@@ -50,8 +50,6 @@ You can interact with the API using Swagger [here](https://www.concursolutions.c
 - [C#](https://gist.github.com/dberke711/c8d0c9e04c7e76220d4e) (Generate access token native flow)
 - [PHP/curl](http://runnable.com/UtWlKVi9ZnsnAABx/upload-receipts-to-concur-using-php-curl) (POST image receipts)
 - [Python](https://gist.github.com/Trudeaucj/09c25e79c332e93703a0) (Generate access token)
-- Java using [Maven](https://github.com/Trudeaucj/Concur-java-examples)
-
 
 ## Ideas for a Concur-powered business travel app:
 
@@ -84,7 +82,7 @@ Before you build your first application that integrates with Concur, you will wa
   6. On the **Reporting Configuration** page, click **Done**.
   7. Click **Get Started**. You should now be on the **My Concur** page of your sandbox.
 
-For more detailed information go to [Set Up Developer Sandbox]({{ site.baseurl }}docs/get-started/setup-sandbox/ "Setup Sandbox") .
+For more detailed information go to [Set Up Developer Sandbox](/manage-apps/register.html) .
 
 <a name="token">**Generate an access token**</a>
 -----
@@ -138,7 +136,7 @@ For more detailed information go to [Set Up Developer Sandbox]({{ site.baseurl }
 
     <img src="{{ site.baseurl }}/getting-started/assets/getting-started6.png" width="600px" />
 
-    **Note: The steps demonstrated above follow the OAuth Native Flow.  If you prefer something similar to a Facebook login experience, you can check out the OAuth Web Flow [here]({{ site.baseurl }}/api-reference/authentication/web-flow.html)**
+    **Note: The steps demonstrated above follow the OAuth Native Flow.  If you prefer something similar to a Facebook login experience, you can check out the OAuth Web Flow [here](/api-reference-deprecated/old-auth/old-auth.html#web)**
 
 
 <a name="dummy">**POST/GET dummy data to/from Concur - the API or app**</a>
@@ -213,7 +211,7 @@ For more detailed information go to [Set Up Developer Sandbox]({{ site.baseurl }
       </Itinerary>
       ```
 
-      **Hack tip :** More details on the Itinerary API v1.1. [here](https://developer.concur.com/api-documentation/web-services/itinerary/itinerary-resource/itinerary-resource-get)
+      **Hack tip :** More details on the Itinerary API v1.1. [here](/api-reference/travel/itinerary-tmc-thirdparty/)
 
       POST Expense Report Header to Concur:
 
@@ -238,7 +236,7 @@ For more detailed information go to [Set Up Developer Sandbox]({{ site.baseurl }
 
       **Hack tip 2**: You need to generate a report header to be able to submit an expense entry.  A collection of entries is a report.
 
-      *Click [here](https://developer.concur.com/api-documentation/web-services/expense-report) to view the relationship of an Expense Report Header to an Expense Report Entry and search for **Expense Report Processes**.*
+      *Click [here](/api-reference/expense/expense-report/reports.html) to view the relationship of an Expense Report Header to an Expense Report Entry and search for **Expense Report Processes**.*
 
       GET Expense Report Details:
 
@@ -288,4 +286,4 @@ All app integrations with Concur can be found in the [App Center](https://www.co
 
  - [TravelText](https://www.concur.com/en-us/partners/transaction-capture/traveltext) - TravelText allows you to text your expenses right into Concur. No more paper receipts and Excel sheet mayhem!  Check out their video demo [here](https://www.youtube.com/watch?v=sxY_PO-QKZ0).
 
- - [Trover](https://www.concur.com/en-us/app-center/listing/nDhf34TiiC9RCocFM2xViin5c/Trover) - it's travel photography + business travel integration in one great app. Quoting from this [article](http://skift.com/2013/07/25/travel-photography-app-trover-secures-2-5-million-in-funding-from-concur/#/0), what they get for integrating with Concur is *"being able to tap into Concur’s experience, knowledge and “great visibility into travel patterns"*.
+ - [Trover](https://www.concur.com/en-us/app-center/listing/nDhf34TiiC9RCocFM2xViin5c/Trover) - it's travel photography + business travel integration in one great app. Quoting from this [article](https://skift.com/2013/07/25/travel-photography-app-trover-secures-2-5-million-in-funding-from-concur/), what they get for integrating with Concur is *"being able to tap into Concur’s experience, knowledge and “great visibility into travel patterns"*.

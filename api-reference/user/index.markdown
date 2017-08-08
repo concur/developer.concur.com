@@ -102,7 +102,7 @@ Adds or updates one or more users. The batch can contain up to 500 users.
 
     POST api/user/v1.0/users
 
-This API requires as its arguments a batch element containing a UserProfile child element for each user to be added or updated. The UserProfile child elements will vary depending on the form configuration, and may contain the following elements.
+This API requires as its arguments a `batch` element containing a `UserProfile` child element for each user to be added or updated. The UserProfile child elements will vary depending on the form configuration, and may contain the following elements.
 
 ### Request
 
@@ -161,6 +161,18 @@ Name | Type | Format | Description
 `FeedRecordNumber`|`string` | | The item number of the record in the feed.
 `Message`|`string` | | The error message.
 
+### Example
+```xml
+<batch xmlns="http://www.concursolutions.com/api/user/2011/02">
+    <UserProfile>
+        <LoginID>loginID</LoginID>
+        <EmployeeID>employeeID</EmployeeID>
+        <Active>N</Active>
+        <--! Any more required fields -->
+    </UserProfile>
+</batch>
+```
+
 
 ## <a name="updatePwd"></a>Update a users password
 
@@ -199,7 +211,7 @@ Name | Type | Format | Description
 ```xml
 <UserBatch xmlns="http://www.concursolutions.com/api/user/2011/02">
     <UserProfile>
-        <loginid>loginID/loginid>
+        <loginid>loginID</loginid>
         <password>password</password>
     </UserProfile>
 </UserBatch>

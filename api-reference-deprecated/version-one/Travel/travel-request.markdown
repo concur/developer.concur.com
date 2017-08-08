@@ -106,7 +106,7 @@ This request will return a **RequestsWithCount** parent element with the **Reque
 |  RequestID |  |  |  The unique identifier for the travel request, which appears in the Concur UI.   |
 |  RequestName | |  |  The name of the travel request. |
 |  Purpose | |  |  The purpose of the travel request. |
-|  RequestCurrency | |  |  The [3-letter ISO 4217 currency code][4] for the travel request currency. |
+|  RequestCurrency | |  |  The [3-letter ISO 4217 currency code][2] for the travel request currency. |
 |  RequestTotal | |  |  The total amount of the travel request. |
 |  RequestDate | |  |   The create date of the travel request. |
 |  StartDate | |  |   Start date of the travel request. |
@@ -156,7 +156,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
 |  RequestKey | |  | The encrypted database key for the travel request. |
 |  RequestName | |  | The name of the travel request. |
 |  Purpose | |  | The information from the Purpose field. |
-|  CurrencyCode | |  | The [3-letter ISO 4217 currency code][4] for the travel request currency. The travel request currency is defined as the travel request creator's default reimbursement currency. |
+|  CurrencyCode | |  | The [3-letter ISO 4217 currency code][2] for the travel request currency. The travel request currency is defined as the travel request creator's default reimbursement currency. |
 |  CreationDate | |  | The date the travel request was created. |
 |  HasException | |  | Whether the travel request has exceptions. Format: Y/N |
 |  EverSentBack | |  | Whether the travel request has ever been sent back to the employee. Format: Y/N |
@@ -282,7 +282,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
 |---------------|-------------------|------------|--------------------|
 |  CashAdvanceKey | | |  The unique identifier for the cash advance. |
 |  AmountRequested | | |   The amount requested in the cash advance, in the currency listed in the **CurrencyCode** element.|
-|  CurrencyCode | | |  The [3-letter ISO 4217 currency code][4] for the cash advance currency. |
+|  CurrencyCode | | |  The [3-letter ISO 4217 currency code][2] for the cash advance currency. |
 |  CurrencyName | | |  The name of the currency for the cash advance. |
 |  ExchangeRate | | |  The exchange rate that applies to the cash advance. |
 |  RequestDate | | |  Date of cash advance request from the detailed cash advance record. |
@@ -290,7 +290,7 @@ This request will return a **TravelRequestDetails** parent element with the foll
 |  StartingBalance | | |   The initial balance for the cash advance. |
 |  ApprovalStatusName | | |  The approval status of the cash advance. |
 |  ApprovalStatusKey | | |  The unique identifier for the approval status of the cash advance. |
-|  EmployeeCurrencyCode | | |  The [3-letter ISO 4217 currency code][4] for the employee's currency ("home currency"). |
+|  EmployeeCurrencyCode | | |  The [3-letter ISO 4217 currency code][2] for the employee's currency ("home currency"). |
 |  EmployeeCurrencyName | | |  The name of the employee's currency ("home currency"). |
 
 ### Examples
@@ -935,7 +935,7 @@ This request should contain a **Request** parent element with the following chil
 |  Name    |  Y                              |  The travel request name. |
 |  Purpose |  Depends on configuration       |  The business purpose of the travel request. Maximum length: 2000. |
 |  Comment |  Depends on configuration       |  The travel request header comment. |
-|  Custom1 through Custom20 |  Depends on configuration | The custom fields on the travel request Header form. May be required depending on configuration.<br/>  **NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][2] page for information on how to correctly submit list item values.|
+|  Custom1 through Custom20 |  Depends on configuration | The custom fields on the travel request Header form. May be required depending on configuration.<br/>  **NOTE**: If any of the custom fields are configured to contain list values, please refer to the [Posting Custom List Items][1] page for information on how to correctly submit list item values.|
 |  StartDate |  Depends on configuration |  The start date for the travel request. Format: YYYY-MM-DD |
 |  StartTime |  Depends on configuration |  The start time for the travel request. Format: hh:mm:ss |
 |  EndDate   |  Depends on configuration |  The end date for the travel request. Format: YYYY-MM-DD |
@@ -1104,6 +1104,5 @@ This request will return an **ActionStatus** parent element with the following c
 </ActionStatus>
 ```
 
-[1]: /api-reference/request/request.html
-[3]: http://concur.github.io/developer.concur.com/docs/reference/http-codes
-[4]: http://en.wikipedia.org/wiki/ISO_4217
+[1]: /tools-support/reference/custom-list-items.html
+[2]: http://en.wikipedia.org/wiki/ISO_4217

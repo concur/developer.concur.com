@@ -35,8 +35,11 @@ Name | Type | Format | Description
 `submitDateAfter`	|	`DateTime`	|	`query`	|	The payment request submit date is after this date.Format: YYYY-MM-DD.
 `paidDateBefore`	|	`DateTime`	|	`query`	|	The payment request paid date is before this date.Format: YYYY-MM-DD.
 `paidDateAfter`	|	`DateTime`	|	`query`	|	The payment request paid date is after this date.Format: YYYY-MM-DD.
-
-
+`payMethodType`	|	`string`	|	`query`	|	 	Payment Method type tied to an Invoice. Use GET /invoice/localizeddata to get the available Pay Method types.
+`lastModifiedDateBefore`	|	`DateTime`	|	`query`	|	The payment request last modified date is before this date.Format: YYYY-MM-DD.
+`lastModifiedDateAfter`	|	`DateTime`	|	`query`	|	The payment request last modified date is after this date.Format: YYYY-MM-DD.
+`extractedDateBefore`	|	`DateTime`	|	`query`	| The payment request extracted date is before this date.Format: YYYY-MM-DD.
+`extractedDateAfter`	|	`DateTime`	|	`query`	| The payment request extracted date is after this date.Format: YYYY-MM-DD.
 
 ## <a name="getID"></a>Retrieves a payment request digest based on ID
 
@@ -84,5 +87,11 @@ Name | Type | Format | Description
 `URI`	|	`string`	|	-	|	The URI to the resource.
 `UserDefinedDate`	|	`string`	|	-	|	The invoice date as assigned by the user.
 `VendorName`	|	`string`	|	-	|	**Required** The name of the vendor.
+`PaymentMethod`	|	`string`	|	-	|	Payment Method type tied to an Invoice.
+`LastModifiedDate`	|	`string`	|	-	|	The date the request was last modified.
+`ExtractedDate`	|	`string`	|	-	|	The date the request was extracted.
+
+
+
 
 

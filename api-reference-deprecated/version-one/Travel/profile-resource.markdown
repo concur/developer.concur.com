@@ -212,7 +212,7 @@ The General parent element contains the following child elements:
 |  EReceiptOptIn |  String |  Whether the user has opted in to receive e-receipts. Format: **True**\|**False** |
 |  MarketingOptIn |  String |  Whether the user has opted in to receive marketing information. Format: **True**\|**False** |
 |  HasOpenBooking |  Boolean |  Whether the user has the TripLink User (formerly Open Booking User) permission. Format: **true**\|**false** |
-|  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: Char(2) |
+|  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code][1] specification. Format: Char(2) |
 |  CompanyName |  String |  The user's company name. |
 
 ####  Telephones elements
@@ -222,7 +222,7 @@ The Telephones parent element contains a Telephone child element for each includ
 |  Element Name |  Data Type |  Description |
 | :----- | :----- | :----- |
 |  ContactOptIn |  String |  Whether the user has opted in to being contacted on this phone. Only appears when the phone type is Cell or Primary Mobile Phone. Format: **True**\|**False** |
-|  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: Char(2) |
+|  CountryCode |  String |  The country code in from the[ ISO 3166-1 alpha-2 country code][1] specification. Format: Char(2) |
 |  PhoneNumber |  String | The phone number as entered by the user, which may contain characters such as () or -. Format: Char(60) <br> **NOTE**: The user phone number may sometimes be incorrectly parsed if there are data input issues.|
 |  Extension |  String |  The phone extension. Format: Varchar(60) |
 
@@ -958,9 +958,4 @@ Content-Type: application/xml
 ```
 
 
-[3]: https://www.concursolutions.com/ns/PanamaUserProfile.xsd
-[4]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/form-payment-resource
-[5]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/loyalty-program-resource
-[6]: http://concur.github.io/developer.concur.com/api-reference/user/company-notification-subscription-resource
-[7]: http://concur.github.io/developer.concur.com/api-reference/travel/travel-profile/user-notification-resource
-[8]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+[1]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2

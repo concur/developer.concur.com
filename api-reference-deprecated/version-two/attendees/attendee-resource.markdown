@@ -10,7 +10,10 @@ The attendees in the Concur company. This resource can be used to retrieve atten
 2.0
 
 ## URI
-[https://www.concursolutions.com/api/expense/v2.0/attendees][1]
+
+```
+https://www.concursolutions.com/api/expense/v2.0/attendees
+```
 
 ## Operations
 [GET][2]
@@ -19,7 +22,6 @@ The attendees in the Concur company. This resource can be used to retrieve atten
 * [Attendee List][3] 
 * [Attendee Type ][4]
 
-[1]: https://www.concursolutions.com/api/expense/v2.0/attendees
 [2]: /api-reference-deprecated/version-two/attendees/attendee-resource-get.html
 [3]: /api-reference-deprecated/version-one/attendees/attendee-list-resource.html
 [4]: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html
