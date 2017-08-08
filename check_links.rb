@@ -19,7 +19,9 @@ urls_to_ignore = [
   'https://github.com/concur/developer.concur.com/commit/0',
   'https://www.linkedin.com/company/5822',
   'https://www.tcconline.com/listNumbersByCode.action?confCode=3608516019',
-  'https://open.concur.com'
+  'https://open.concur.com',
+  'http://fortawesome.github.com/Font-Awesome',
+  'http://matoilic.github.com/jquery.placeholder'
 ]
 
 options = {
