@@ -890,6 +890,8 @@ OTA_HotelResRQ
 |  PaymentCard |	Y	| ComplexType | Guarantee payment card details: CardType, CardHolderName, ExpireDate, CardNumber, Address. |
 |  Comments |	N	| String | Comments which apply to the whole Reservation. |
 |  NotifyEmails |	N	| ComplexType | Email to be notified. |
+|  CustomFields |	N	| ComplexType | Custom trip fields. Need to be configured and mapped on Company or Travel Configuration level. |
+
 
 OTA_HotelResRS
 
@@ -982,6 +984,9 @@ OTA_HotelResRS
             <NotifyEmails>
                 <NotifyEmails>FIRSTNAME.LASTNAME@EXAMPLE.COM</NotifyEmails>
             </NotifyEmails>
+            <CustomFields>
+              <CustomField  Name="Cost center" Value="Sales"/>  
+            </CustomFields>
         </TPA_Extensions>
     </HotelReservations>
 </OTA_HotelResRQ>
@@ -1081,6 +1086,7 @@ OTA_HotelResRS
 4.  Travel administrator configures travel configuration to recieve reservation confirmation on email. Multiple emails can be configured
 NotifyEmails will be sent in such reservation requests. The Hotel Supplier should send reservation confirmation to specified emails.
 
+5. Travel administrator configures and maps Custom fields in Share custom fields page in Company administration. Configures user custom fields, like Cost center, are sent to the Hotel Supplier.
  
 ### Read
 
