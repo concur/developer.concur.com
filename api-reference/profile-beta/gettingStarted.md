@@ -15,37 +15,39 @@ The Concur's Profile API, currently in early beta, consists a set of APIs to man
 
 ## <a name="endpoint"></a>Profile Endpoints
 
-The base URL for the Profile API is https://host/profile/v1/. Following hosts are available for your development and production needs:
+The base URL for the Profile API is at:**https://host/profile/v1/**. Following hosts are available for your development and production needs:
 
-|**Data Center **|**Environments**|**Endpoint**|**Description**|
+|**Data Center**|**Environments**|**Host**|**Description**|
 |---------------|---------------|----------|---------------|
 |US | Production |https://us.api.concursolutions.com ||
-|US | Production JWT only | https://www-us.api.concursolutions.com | This is for clients that cannot handle the server request for x.509 cert. |
+|US | Production - access token | https://www-us.api.concursolutions.com | This is for clients that cannot handle the server request for x.509 cert. |
 |US | Implementation | https://us-impl.api.concursolutions.com ||
-||||
 |EMEA | Production | https://emea.api.concursolutions.com ||
-|EMEA | Production JWT only | https://www-emea.api.concursolutions.com | This is for clients that cannot handle the server request for x.509 cert.|
+|EMEA | Production - access token | https://www-emea.api.concursolutions.com | This is for clients that cannot handle the server request for x.509 cert.|
 |EMEA | Implementation |https://emea-impl.api.concursolutions.com ||
-||||
+
 |CHINA | Production | https://cn.api.cnqr-cn.com ||
-|CHINA | Production JWT only | https://www-cn.api.cnqr-cn.com  |  This is for clients that cannot handle the server request for x.509 cert.|
+|CHINA | Production - access token | https://www-cn.api.cnqr-cn.com  |  This is for clients that cannot handle the server request for x.509 cert.|
 
 Profile APIs are data center aware. If an API call is made against a specific data center and the target resource UUID is not stored in that data center, you will receive a "301-redirect" that points to the right location for the resource.
 
 
 ## <a name="security"></a>Security
 
-Profile API can be accessed using 2 calling conventions. 
-* JWT (JSON Web Token) authentication
+Profile API can be accessed using two calling conventions.
+* Access Token based authentication
+* X.509 cert based authentication - Not open for public at this time
 
-### JWT Authentication
+### Access Token Authentication
 
-A JWT authenticated call is made in the context of a principal (user/company/app). This context is supplied by a [JWT](https://jwt.io/) representing the principal. When JTW is used, it must be supplied in the 'Authorization' HTTP header by the caller.
+An access token based authenticated call is made in the context of a principal (user/company/app).  When an access token is used, it must be supplied in the 'Authorization' HTTP header by the caller.
 
-The JWT must have at least one of user_read, company_read, app_read or "*" in its list of scopes. If you have a JWT that does not have those scopes, profile-service will reject your call. You should consider peeking inside the JWT to extract the "sub:" claim - this is the uuid of the principal and then making a X.509 authenticated all to profile with that uuid.
+The access token must have at least one of user_read, company_read, app_read or "*" in its list of scopes. Your Profile call will fail if the access token does not allow the operation for the related principal.
+
+To obtain or refresh an access token, please refer to [the following document](https://preview.developer.concur.com/api-reference/authentication/getting-started.html).
 
 
 ## <a name="caveats"></a>Caveats
 
-All Profile methods expect a `concur-correlationid` HTTP header from the client. You should generate a per-request unique string of at least 6 characters long and send this as the correlation id. API calls without this header will be rejected.
+Profile APIs are under early beta and are subject to change. Changes in Profile do not follow the typical notification or deprecation processes. If you want to be included in the Profile related notifications, please email profile@concur.com.
 
