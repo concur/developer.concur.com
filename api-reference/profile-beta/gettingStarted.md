@@ -49,5 +49,7 @@ To obtain or refresh an access token, please refer to [the following document](h
 
 ## <a name="caveats"></a>Caveats
 
-Profile APIs are under early beta and are subject to change. Changes in Profile do not follow the typical notification or deprecation processes. If you want to be included in the Profile related notifications, please email profile@concur.com.
+Profile APIs are under early beta and are subject to change. Changes in Profile do not follow the typical notification or deprecation processes. If you want to be included in the Profile related notifications, please email [profile@concur.com](mailto:profile@concur.com).
+
+
 
