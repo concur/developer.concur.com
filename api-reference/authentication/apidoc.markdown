@@ -266,7 +266,7 @@ Name | Type | Format | Description
   `response_type`|`string` | | `code`
   `state`|`string` | |
 
-
+This section should explain that the below is an internal Concur process
 `POST /oauth2/v0/verify_creds`
 
 Name | Type | Format | Description
@@ -274,6 +274,7 @@ Name | Type | Format | Description
 `loginid` | `string` | | LoginId of the user
 `password` | `string` | | User's password
 
+Is the below still applicable? if so it should be clear that this is an internal Concur process
 `POST /oauth2/v0/authorize_client`
 
 Name | Type | Format | Description
