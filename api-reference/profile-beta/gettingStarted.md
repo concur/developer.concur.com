@@ -29,7 +29,7 @@ The base URL for the Profile API is at:**https://host/profile/v1/**. Following h
 |CHINA | Production | https://cn.api.cnqr-cn.com ||
 |CHINA | Production - access token | https://www-cn.api.cnqr-cn.com  |  This is for clients that cannot handle the server request for x.509 cert.|
 
-Profile APIs are data center aware. If an API call is made against a specific data center and the target resource UUID is not stored in that data center, you will receive a "301-redirect" that points to the right location for the resource.
+Profile APIs are aware of the US and EMEA data centers. If an API call is made against a specific data center and the target resource is not stored in that data center, you will receive a "301-redirect" that points to the right location for the resource.
 
 
 ## <a name="security"></a>Security
@@ -49,5 +49,7 @@ To obtain or refresh an access token, please refer to [the following document](h
 
 ## <a name="caveats"></a>Caveats
 
-Profile APIs are under early beta and are subject to change. Changes in Profile do not follow the typical notification or deprecation processes. If you want to be included in the Profile related notifications, please email profile@concur.com.
+Profile APIs are under early beta and are subject to change. Changes in Profile do not follow the typical notification or deprecation processes. If you want to be included in the Profile related notifications, please email [profile@concur.com](mailto:profile@concur.com).
+
+
 
