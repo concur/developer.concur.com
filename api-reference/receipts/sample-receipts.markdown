@@ -13,6 +13,7 @@ Below we have sample receipt data and the corresponding receipt images for the f
 * [Car Rental](#car-rental)
 * [Ground Transport](#ground-transport)
 * [Hotel](#hotel)
+* [Rail (Multiple Tickets)](#rail-multiple-tickets)
 
 ### Air (Multiple Tickets)
 
@@ -1061,3 +1062,123 @@ Below we have sample receipt data and the corresponding receipt images for the f
 #### Generated Receipt Image
 
 ![Ground Transport Receipt Image](/api-reference/receipts/ground_transport.png)
+
+### Rail (Multiple Tickets)
+
+#### Receipt Data
+
+```json
+{
+    "taxInvoice": true,
+    "reference": "VDFG4567",
+    "dateTime": "2099-11-10T16:04:49-0700",
+    "total": "394.00",
+    "subtotal": "394.00",
+    "taxesTotal": "0.00",
+    "currencyCode": "GBP",
+    "itineraryLocator": "DSFJKLT4967",
+    "seller": {
+        "name": "ACME Corporation",
+        "description": "",
+        "taxId": "321-654321",
+        "location": {
+            "name": "Headquarters",
+            "number": "",
+            "latitude": 41.8819,
+            "longitude": -87.6278,
+            "internetAddress": "http://www.voyages-sncf.com",
+            "emailAddress": "info@uk.voyages-sncf.com",
+            "telephoneNumber": "0330 822 0333",
+            "address": {
+                "streetAddress": "34 Tower View",
+                "addressLocality": "Kings Hill, WEST MALLING",
+                "addressCountry": "GB",
+                "postalCode": "ME19 4ED"
+            }
+        }
+    },
+    "payments": [
+        {
+            "amount": "394.00",
+            "cardDetail": {
+                "cardType": "American Express",
+                "creditCardId": "4002"
+            }
+        }
+    ],
+    "railTickets": [
+        {
+            "ticketNumber": "C123456",
+            "recordLocator": "AZT222XFT9",
+            "issueDateTime": "2015-04-30T12:37:55-0700",
+            "passengerName": "John Doe",
+            "fare": "197.00",
+            "segments": [
+                {
+                    "departureStation": "Paris Est",
+                    "departureDateTime": "2015-11-25T10:00:00-0700",
+                    "arrivalStation": "Frankfurt Main HBF",
+                    "arrivalDateTime": "2015-11-26T12:00:00+0900",
+                    "trainNumber": "9557",
+                    "trainType": "TGV",
+                    "classOfServiceCode": "First Class",
+                    "fare": "98.50"
+                },
+                {
+                    "departureStation": "Frankfurt Main HBF",
+                    "departureDateTime": "2015-11-27T10:00:00-0700",
+                    "arrivalStation": "Paris Est",
+                    "arrivalDateTime": "2015-11-28T12:00:00+0900",
+                    "trainNumber": "9558",
+                    "trainType": "TGV",
+                    "classOfServiceCode": "First Class",
+                    "fare": "98.50"
+                }
+            ]
+        },
+        {
+            "ticketNumber": "C123457",
+            "recordLocator": "AZT222XFT9",
+            "issueDateTime": "2015-04-30T12:37:55-0700",
+            "passengerName": "Jane Doe",
+            "fare": "197.00",
+            "segments": [
+                {
+                    "departureStation": "Paris Est",
+                    "departureDateTime": "2015-11-25T10:00:00-0700",
+                    "arrivalStation": "Frankfurt Main HBF",
+                    "arrivalDateTime": "2015-11-26T12:00:00+0900",
+                    "trainNumber": "9557",
+                    "trainType": "TGV",
+                    "classOfServiceCode": "First Class",
+                    "fare": "98.50"
+                },
+                {
+                    "departureStation": "Frankfurt Main HBF",
+                    "departureDateTime": "2015-11-27T10:00:00-0700",
+                    "arrivalStation": "Paris Est",
+                    "arrivalDateTime": "2015-11-28T12:00:00+0900",
+                    "trainNumber": "9558",
+                    "trainType": "TGV",
+                    "classOfServiceCode": "First Class",
+                    "fare": "98.50"
+                }
+            ]
+        }
+    ],
+    "lineItems": [
+        {
+            "sequenceNumber": 1,
+            "semanticsCode": "FEE",
+            "description": "Credit Card Fee",
+            "dateTime": "2015-11-10T16:04:49-0700",
+            "subtotal": "4.92",
+            "total": "4.92"
+        }
+    ]
+}
+```
+
+#### Generated Receipt Image
+
+![Rail Receipt Image](/api-reference/receipts/rail-multiple-tickets.png)
