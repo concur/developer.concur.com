@@ -37,7 +37,7 @@ Name | Type | Format | Description
 
 ## <a name="getID"></a>Retrieve a receipt image by ID
 
-    GET  /api/v3.0/expense/receiptimage/{id}
+    GET  /api/v3.0/expense/receiptimages/{id}
 
 
 ### Parameters
@@ -63,7 +63,7 @@ Name | Type | Format | Description
 
 ## <a name="put"></a>Append a receipt image
 
-    PUT  /api/v3.0/expense/receiptimage/{id}
+    PUT  /api/v3.0/expense/receiptimages/{id}
 
 
 ### Parameters
@@ -77,7 +77,7 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete a receipt image
 
-    DELETE  /api/v3.0/expense/receiptimage/{id}
+    DELETE  /api/v3.0/expense/receiptimages/{id}
 
 
 ### Parameters
