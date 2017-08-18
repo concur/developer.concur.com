@@ -42,9 +42,9 @@ Profile API can be accessed using two calling conventions.
 
 An access token based authenticated call is made in the context of a principal (user/company/app).  When an access token is used, it must be supplied in the 'Authorization' HTTP header by the caller.
 
-The access token must have scopes that are relevant for the API call. For example, in order to call the Company API correctly, the token must include the `company.read` scope or the call will fail.
+The access token must have scopes that are relevant for the API call. For example, in order to call the Company API correctly, the token must include the `company.read` scope or the API call will fail. Similiarly, an API call to retrieve user informatin will succeed only if the token has `user.read` scope.
 
-To obtain or refresh an access token, please refer to [the following document](https://preview.developer.concur.com/api-reference/authentication/getting-started.html).
+To obtain or refresh an access token, please refer to [the following document](https://developer.concur.com/api-reference/authentication/getting-started.html).
 
 
 ## <a name="caveats"></a>Caveats
