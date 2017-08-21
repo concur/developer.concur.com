@@ -25,7 +25,6 @@ The base URL for the Profile API is at:**https://host/profile/v1/**. Following h
 |EMEA | Production | https://emea.api.concursolutions.com ||
 |EMEA | Production - access token | https://www-emea.api.concursolutions.com | This is for clients that cannot handle the server request for x.509 cert.|
 |EMEA | Implementation |https://emea-impl.api.concursolutions.com ||
-
 |CHINA | Production | https://cn.api.cnqr-cn.com ||
 |CHINA | Production - access token | https://www-cn.api.cnqr-cn.com  |  This is for clients that cannot handle the server request for x.509 cert.|
 
