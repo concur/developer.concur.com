@@ -24,7 +24,7 @@ The latest version of the User schema is always available at: [user.json](user.j
 
 ## <a name="get"></a>Get User
 
-Profile supports user information retrieval with access tokens. And the access token will limit the user, as well as the user attributes that you can query for. You can use the following endpoint to lookup your user:
+Profile supports user information retrieval with access tokens. And the access token will limit the user account, as well as the user attributes, that you can query for. You can use the following endpoint to lookup your user:
 
     GET /profile/v1/me     (access token required)
 
