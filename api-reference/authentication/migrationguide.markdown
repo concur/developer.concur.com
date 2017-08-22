@@ -7,10 +7,20 @@ layout: reference
 # Migrating old tokens to new Oauth2 Bearer Tokens (JWT)
 
 * [Overview]()
+* [Base URIs](#base_uris)
 * [Exchanging a Token](#exchangetoken)
 * [Response Codes](#response_codes)
 
 Existing applications that uses the deprecated [/net2/oauth2](https://developer.concur.com/api-reference-deprecated/old-auth/old-auth.html) framework need to move to support the new Oauth2 Bearer Tokens. Applications will need to migrate their existing users who already have connected to it to obtain new Oauth2 tokens without requiring users to reauthorize. This can be done by exchanging an old access token for a new refresh token.
+
+## <a name="base_uri"></a>Base URIs
+
+When making API calls, the appropriate base URI for the user's geolocation should be used. The following are the available base URIs:
+
+Environment | URI | Description
+-----|------|------
+US Production |`https://us.api.concursolutions.com` | Default for all API calls
+EU Production |`https://emea.api.concursolutions.com` | Default for EU users
 
 
 ## <a name="exchangetoken"></a>Exchanging a Token
