@@ -14,9 +14,9 @@ Triggers the Submit workflow action for the specified report. <br> **Important n
 
 |Parameter|Required/Optional|Description|
 |---------|-------------|---------|-----------------------|
-|{_reportId_}/submit | required | The identifier for the desired report and the submit keyword.|
+|{_reportKEY_}/submit | required | The identifier for the desired report and the submit keyword.|
 
-Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportId}/submit `
+Example: `https://www.concursolutions.com/api/expense/expensereport/v1.1/report/{reportKEY}/submit `
 
 **URI Source**: The reportId value is returned by the [Get List of Reports][2] and [Get Report Details][3] functions, and as part of the **Report-Details-Url** element of the [Post Expense Report Header][4] function.
 
@@ -26,8 +26,8 @@ application/xml
 ### Authorization header
 **Authorization**: This request requires an Authorization header with an OAuth token for a valid Concur user.
 
-**X-UserID**: This request requires an additional field in the authorization header, identifying the report owner. This identifier is the Concur login for the user, and is often also the email address of the user. The field format is:  
-X-UserID: expenseuser@example.com
+**X_UserID**: This request requires an additional field in the authorization header, identifying the report owner. This identifier is the Concur login for the user, and is often also the email address of the user. The field format is:  
+X_UserID: expenseuser@example.com
 
 ## Response
 
