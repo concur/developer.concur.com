@@ -4,7 +4,7 @@ layout: reference
 ---
 
 
-# Migrating old tokens to new Oauth2 Bearer Tokens (JWT)
+# Migrating old tokens to new Oauth2 Bearer Tokens
 
 * [Overview]()
 * [Base URIs](#base_uris)
@@ -25,7 +25,7 @@ EU Production |`https://emea.api.concursolutions.com` | Default for EU users
 
 ## <a name="exchangetoken"></a>Exchanging a Token
 
-In order to support new Oauth2, applications need to exchange old access token for new JWT based `accessToken` and `refreshToken` pair. Once obtained, applications should store these `refreshTokens` as part of users authorization data.
+In order to support new Oauth2, applications need to exchange old access token for new `accessToken` and `refreshToken` pair. Once obtained, applications should store these `refreshTokens` as part of users authorization data.
 
 The new Oauth2 `accessToken` has a one hour lifetime. Once expired, applications would need to call Oauth2's `/v0/token` endpoint using a `refresh_grant`, passing in the user's `refreshtoken` to obtain a fresh `accessToken`.
 
