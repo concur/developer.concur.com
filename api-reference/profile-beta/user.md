@@ -55,12 +55,10 @@ Here is a sample user response, without compact, but with expense schema.
     "dateOfBirth": "1990-01-01",
     "schemas": [
         "com:concur:User:1.0",
-        "com:concur:internal:product:Identifiers:1.0",
         "com:concur:Employee:1.0",
         "com:concur:TravelPreferences:1.0",
         "com:concur:Programs:1.0",
         "com:concur:Documents:1.0",
-        "com:concur:internal:Roles:1.0",
         "com:concur:Expense:0.2"
     ],
     "gender": "Male",
