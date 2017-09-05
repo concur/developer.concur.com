@@ -21,7 +21,8 @@ urls_to_ignore = [
   'https://www.tcconline.com/listNumbersByCode.action?confCode=3608516019',
   'https://open.concur.com',
   'http://fortawesome.github.com/Font-Awesome',
-  'http://matoilic.github.com/jquery.placeholder'
+  'http://matoilic.github.com/jquery.placeholder',
+  'http://runnable.com/UtWlKVi9ZnsnAABx/upload-receipts-to-concur-using-php-curl'
 ]
 
 options = {
