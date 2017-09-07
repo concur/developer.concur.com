@@ -43,7 +43,7 @@ This function requires as its arguments a **list-item-batch** element containing
 |  Element |  Required (must contain value)? |  Description |
 |---|---|
 |  name |  Y |  The name of the list item as it appears in the user interface. Maximum 64 characters. |  
-|  levelxcode |  Y, for each list level |There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][1] for more information.|
+|  levelxcode |  Y, for each list level |There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level. Hyphens are not allowed in this field.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][1] for more information.|
 |  start-date |  N |  The effective date when the list item should be active. Format: YYYY-MM-DD. |
 |  end-date |  N |  The effective date when the list item should be inactive. Format: YYYY-MM-DD. |
 
@@ -203,7 +203,7 @@ The request includes a **list-item-batch** element containing a **list-item** ch
 |  Element |  Required (must contain value)? |  Description |
 |----|----|----|
 |  name |  Y |  The name of the list item as it appears in the user interface. Maximum 64 characters. |   |
-|  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][4] for more information.|
+|  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level. Hyphens are not allowed in this field.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][4] for more information.|
 |  start-date |  N |  The effective date when the list item should be active. Format: YYYY-MM-DD.|
 |  end-date |  N |  The effective date when the list item should be inactive. Format: YYYY-MM-DD.|
 
@@ -326,7 +326,7 @@ The request includes a **list-item-batch** element containing a **list-item** ch
 |  Element |  Required (must contain value)? |  Description |
 |--------|-----------|-----------|
 |  name |  N |  The name of the list item as it appears in the user interface. Maximum 64 characters. |
-|  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][4] for more information.
+|  levelxcode |  Y, for each list level |  There must be one element for each list level. A three level list will require the elements: **level1code**, **level2code** and **level3code**.<br><br>Maximum 32 characters for each level. Hyphens are not allowed in this field.<br><br>**NOTE**: The level codes for the list item are used to uniquely identify the list item. Once a list item has been created, the level codes cannot be updated. Refer to [Changing a List Item Level Code][4] for more information.
 
 ####  XML Example Request
 
