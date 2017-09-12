@@ -7,7 +7,7 @@ layout: reference
   <i class="fa fa-sign-in" aria-hidden="true"></i> Partner Support Case Login
 </a>
 
-**App Center Partners should never instruct a customer to log a ticket directly into Concur Customer Support** - If the issue is related to the integration between Concur and the Partner, the Partner must log the case.
+**App Center Partners should never instruct a customer to log a ticket directly into Concur Customer Support** - If the issue is related to the integration between Concur and the Partner, the Partner must log the case. If you are an established App Center Partner and do not have log in credentials to the partner support portal, please write to <a href="mailto:appcenteralliance@concur.com?Subject=Support%20Portal%20Credentials">App Center Alliance</a> with your request.
 
 Partner cases must include the following:
 
