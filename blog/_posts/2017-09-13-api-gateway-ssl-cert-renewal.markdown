@@ -33,6 +33,8 @@ If you didn’t pin your certificate into your application or service:
 
 **Certificate Files**
 
-* [www.x.api](/blog/files/www.x.cert.pem)
-* [x.api](/blog/files/x.api.cert.pem)
-* [CA Chain Cert](/blog/files/ca_chain.cert.pem)
+There are two certificate files below, one for working with addresses that include www-*.api.concursolutions.com and one that works for addresses that include *.api.concursolutions.com. The third file is the CA Chain for verifying the certificates. 
+
+* [www.x.api](/blog/files/www.x.cert.pem) - For www-us.api, www-eu, www-us-impl and www-eu-impl
+* [x.api](/blog/files/x.api.cert.pem) - For us.api, emea.api, us-impl.api, and eu-impl.api
+* [CA Chain Cert](/blog/files/ca_chain.cert.pem) - common CA Chain file. 
