@@ -30,6 +30,7 @@ layout: reference
 | [May](AppCenter_ReleaseNotes_May 2017_DRAFT.pdf)|
 | [July](AppCenter_ReleaseNotes_July 2017_FINAL.pdf)|
 | [August](AppCenter_ReleaseNotes_August 2017_DRAFT.pdf)|
+| [September](AppCenter_ReleaseNotes_September 2017_DRAFT.pdf)|
 | -- | [March](AppCenter_ReleaseNotes_March 2016_FINAL.pdf) | [March][1-11] | -- |
 | -- | -- | [April][1-12] | -- |
 | -- | [May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf) | [May][1-13] | [May](App_Center_Release_Notes_client_final_May2014.pdf) |
