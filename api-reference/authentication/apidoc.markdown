@@ -41,7 +41,7 @@ Name | Type | Format | Description
 `token_type`|`string`|-| The type of token returned. Value will be `Bearer`
 `access_token`|`string`|-|Token used to access pprotected resources of Concur's services.
 `refresh_token`|`string`|-|Refresh token required to request a new access token for a given user.
-`geolocation`|`string`|-|The base URL for where the user profile lives. See (#base_uri) for usage.
+`geolocation`|`string`|-|The base URL for where the user profile lives. See [base URI](#base_uri) for usage.
 `id_token`|`string`|-|The OCID Token in the JSON Web Token (JWT) format that describes the user or company
 
 **Token Response**
@@ -200,6 +200,8 @@ e013335d-b4ce-4c43-a7e4-b67abc1adcb0
 ```
 
 It is highly recommended that you store Refresh Tokens together with your user's authorization metadata in your application every time you obtain a new `refreshToken` as they might change depending on different scenarios.
+
+FOR APP CENTER AND SUPPLIER PARTNERS supporting all geolocations, storing the authorization metadata, including the geolocation are REQUIRED.
 
 ## <a name="base_uri"></a>Base URIs
 
