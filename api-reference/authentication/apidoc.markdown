@@ -223,6 +223,9 @@ US Production |`https://us.api.concursolutions.com/oauth2/v0` | Default for all 
 WWW-US Production | `https://www-us.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
 EU Production |`https://emea.api.concursolutions.com/oauth2/v0` | Default for EU users
 WWW-EU Production | `https://www-emea.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
+APA Production | `https://cn.api.concurcdc.cn/oauth2/v0` | Default for APA users
+WWW-APA Production | `https://www-cn.api.concurcdc.cn/oauth2/v0` | Used by browsers during Authorization Code grant
+
 When obtaining the token, the user's geolocation will be included in the response. The user's geolocation should be stored, along with the token to support subsequent calls.
 
 ### Base URIs for All Other Calls
