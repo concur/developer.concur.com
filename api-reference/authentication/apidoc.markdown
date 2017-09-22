@@ -205,7 +205,17 @@ FOR APP CENTER AND SUPPLIER PARTNERS supporting all geolocations, storing the au
 
 ## <a name="base_uri"></a>Base URIs
 
-When making API calls, the appropriate base URI for the user's geolocation should be used. The following are the available base URIs:
+When making API calls, the appropriate base URI should be used. There are three different scenarios:
+1. Obtaining a token for a user
+2. Refreshing a token 
+3. Calling other APIs 
+
+The Base URI for obtaining a token will leverage your application's geolocation.  The Base URI for refreshing tokens and all other API calls will leverage the user's geolocation.
+
+### <a name="base_uri_obtain_token"></a>Base URIs for Obtaining a Token 
+When your application is created, you will be provided with a client ID, secret and environment. When obtaining a token for a user, your application should use the base URI for the environment in which your application exists. 
+
+The appropriate base URIs for obtaining a token are:
 
 Environment | URI | Description
 -----|------|------
@@ -213,6 +223,38 @@ US Production |`https://us.api.concursolutions.com/oauth2/v0` | Default for all 
 WWW-US Production | `https://www-us.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
 EU Production |`https://emea.api.concursolutions.com/oauth2/v0` | Default for EU users
 WWW-EU Production | `https://www-emea.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
+When obtaining the token, the user's geolocation will be included in the response. The user's geolocation should be stored, along with the token to support subsequent calls.
+
+### Base URIs for All Other Calls
+When refreshing a token or when calling any other APIs, the user's geolocation should be used as the base URI. 
+
+**Note:** Client side calls should use the www- variant of the base URI.
+
+For example: 
+When obtaining a token, if the response was the below:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Date: date-requested
+Content-Length: 3397
+Connection: Close
+```
+
+```json
+{
+  "expires_in": "3600",
+  "scope": "app-scopes",
+  "token_type": "Bearer",
+  "access_token": "access_token",
+  "refresh_token": "refresh_token",
+  "id_token": "ocid_token",
+  "geolocation": "https://us.api.concursolutions.com"
+}
+```
+
+When then calling the receipts API to post a receipt, your request should be made to https://us.api.concursolutions.com (if server side) or https://www-us.api.concursolutions.com (for clients).
+
 
 ## <a name="id_token"></a>ID Token
 
