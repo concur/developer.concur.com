@@ -297,9 +297,6 @@ The users *must be* able to authenticate themselves via a Concur username & pass
 * Applications that need explicit user authentication & authorization - & -
 * Applications that can securely store a code, access_token & refresh_token
 
-**Authorization Grant Sequence Diagram**
-![wsd](/api-reference/authentication/authorization_grant_diagram.png)
-
 
 **Grant details**
 
@@ -313,19 +310,17 @@ Name | Type | Format | Description
   `response_type`|`string` | | `code`
   `state`|`string` | |
 
+With this grant, the user has two authentication options:
+1. Username and password
+2. One-time link using a verified email address
 
-`POST /oauth2/v0/verify_creds`
+With both options, once the user is successfully authenticated and the user authorizes your application, the user will be redirected to the redirect_URI specified in the initial /authorize call with a temporary token appended.
 
-Name | Type | Format | Description
------|------| ------ | -----------
-`loginid` | `string` | | LoginId of the user
-`password` | `string` | | User's password
+`<redirect_uri>?cc=<token>`
 
-`POST /oauth2/v0/authorize_client`
+*If the user is not successfully authenticated or does not authorize the scopes for your application, an error code and description will be appended to the redirect URI. Please refer to the [Response Codes](#response_codes) section for more information.*
 
-Name | Type | Format | Description
------|------| ------ | -----------
-`allow` | `string` | |
+Your application must then exchange the temporary token for a long-lived token using the below.
 
 `POST /oauth2/v0/token`
 
@@ -336,6 +331,7 @@ Name | Type | Format | Description
 `redirect_uri`|`string` | | The redirect_uri that is registered for the application
 `code`|`string`| `UUID`  | The authorization code provided by Auth
 `grant_type`|`string` | | `authorization_code`
+
 
 **NOTE**
 
