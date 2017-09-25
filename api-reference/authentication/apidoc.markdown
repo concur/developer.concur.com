@@ -615,6 +615,15 @@ Connection: keep-alive
   "geolocation": <geolocation url where user lives>
 }
 ```
+##### /authorize
+
+If the authorization or authentication are unsuccessful, your application will receive an error code and description at the redirect_uri provided. 
+
+```Your_Redirect_Uri?
+ error_code=<>
+ &error_description=<>
+ ```
+In all cases, the friendly error description should be displayed to the user.
 
 ##### /token
 
