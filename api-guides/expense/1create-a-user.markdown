@@ -7,6 +7,8 @@ layout: reference
 
 ### Adding User Records:
 
+ADDING USERS TO CONCUR PRODUCTS VIA THE USER API IS NOT CURRENTLY SUPPORTED.  DURING THIS INTERIM PERIOD WHILE A NEW API IS BEING DEVELOPED, PLEASE USE THE FILE-BASED IMPORT PROCESSES.
+
 It is critical for clients & Partners to understand the difference between establishing employee data for a base User record vs. the employee data that serves other Concur features.
 
 Many Expense features require employee data that User Provisioning applications cannot populate since the current User API does not include those features at this time.  Therefore, the data pertaining to these features must be populated by the client using Concur specified import files. Concur Implementation staff will assist with the import file process.
