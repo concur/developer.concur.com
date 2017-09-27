@@ -92,7 +92,7 @@
   url: ''
   children:       
       - title: Introduction
-        url: /api-reference/direct-connects/hotel/hotel-service-2/Introduction.html
+        url: /api-reference/direct-connects/hotel-service-2/Introduction.html
       - title: Use-cases
         url: /api-reference/direct-connects/hotel-service-2/Use-cases.html
       - title: Headers
