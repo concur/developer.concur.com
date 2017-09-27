@@ -30,7 +30,7 @@ AppCenter will call this endpoint to obtain an `authToken`.
 Sample Curl:
 
 ```shell
-curl -E appcenter.p12:. -H 'concur-correlationid: githbuwiki' -XPOST http://us.api.concursolutions.com/profile-service/v1/keys/principals/08BCCA1E-0D4F-4261-9F1B-F778D96617D6/authtoken/
+curl -E appcenter.p12:. -H 'concur-correlationid: githbuwiki' -XPOST https://us.api.concursolutions.com/profile-service/v1/keys/principals/08BCCA1E-0D4F-4261-9F1B-F778D96617D6/authtoken/
 ```
 
 successful call, responds with
