@@ -1,0 +1,3 @@
+Sequence diagram
+
+Use cases
