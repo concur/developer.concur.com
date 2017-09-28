@@ -213,18 +213,17 @@ When making API calls, the appropriate base URI should be used. There are three 
 The Base URI for obtaining a token will leverage your application's geolocation.  The Base URI for refreshing tokens and all other API calls will leverage the user's geolocation.
 
 ### <a name="base_uri_obtain_token"></a>Base URIs for Obtaining a Token 
-When your application is created, you will be provided with a client ID, secret and environment. When obtaining a token for a user, your application should use the base URI for the environment in which your application exists. 
+When your application is created, you will be provided with a client ID, secret and geolocation. When obtaining a token for a user, your application should use the base URI for the geolocation in which your application exists. 
 
-The appropriate base URIs for obtaining a token are:
+There are two endpoints for each geolocation - one is the default (used for server side calls) and another used for client side calls.
+
+For example:
+For geolocation of https://us.api.concursolutions.com, the following endpoints are available:
 
 Environment | URI | Description
 -----|------|------
 US Production |`https://us.api.concursolutions.com/oauth2/v0` | Default for all API calls
 WWW-US Production | `https://www-us.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
-EU Production |`https://emea.api.concursolutions.com/oauth2/v0` | Default for EU users
-WWW-EU Production | `https://www-emea.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
-APA Production | `https://cn.api.concurcdc.cn/oauth2/v0` | Default for APA users
-WWW-APA Production | `https://www-cn.api.concurcdc.cn/oauth2/v0` | Used by browsers during Authorization Code grant
 
 When obtaining the token, the user's geolocation will be included in the response. The user's geolocation should be stored, along with the token to support subsequent calls.
 
