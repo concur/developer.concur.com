@@ -88,7 +88,7 @@
         url: /api-reference/direct-connects/hotel/post-reservation-update.html
       - title: Hotel Direct Connect 2.0
         url: /api-reference/direct-connects/hotel-service.html
-- title: Direct Connect: "Hotel Service 2"
+- title: "Direct Connect: Hotel Service 2"
   url: ''
   children:       
       - title: Introduction
