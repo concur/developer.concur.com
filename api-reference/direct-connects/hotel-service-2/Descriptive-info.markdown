@@ -1,4 +1,10 @@
-Descriptive Info
+---
+title: Descriptive Information 
+layout: reference
+---
+
+
+# Descriptive Info
 
 Message to retrive descriptive details about a given hotel. This may include text and/or a number of URL pointed to hosted images.  Concur does not host any hotel images. 
 

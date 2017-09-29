@@ -1,4 +1,9 @@
-Cancel
+---
+title: Cancel
+layout: reference
+---
+
+# Cancel
 
 Message used to indicate to the hotel supplier that a given reservation should be cancelled.
 

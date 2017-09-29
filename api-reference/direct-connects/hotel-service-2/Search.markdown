@@ -1,4 +1,9 @@
-Search
+---
+title: Search 
+layout: reference
+---
+
+# Search
 
 Message to perform the initial search for hotels.
 

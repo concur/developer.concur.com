@@ -1,3 +1,7 @@
+---
+title: Introduction
+layout: reference
+---
 
 ## Disclaimer
 This version is a draft only. Hotel Service 2.0 API is not final and is a subject to change.

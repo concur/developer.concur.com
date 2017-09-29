@@ -1,4 +1,9 @@
-Availablity
+---
+title: Availability 
+layout: reference
+---
+
+# Availablity
 
 Message to retrived the availability of hotels
 

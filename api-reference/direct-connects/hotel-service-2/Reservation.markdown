@@ -1,3 +1,8 @@
+---
+title: Reservation
+layout: reference
+---
+
 # Reservation Message
 
 Message to reserve a hotel.

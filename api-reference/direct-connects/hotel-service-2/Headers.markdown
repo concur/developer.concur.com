@@ -1,3 +1,7 @@
+---
+title: Headers 
+layout: reference
+---
 
 # HTTP Headers
 
