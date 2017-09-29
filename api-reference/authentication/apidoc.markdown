@@ -210,12 +210,12 @@ When making API calls, the appropriate base URI should be used. There are three 
 2. Refreshing a token 
 3. Calling other APIs 
 
-The Base URI for obtaining a token will leverage your application's geolocation.  The Base URI for refreshing tokens and all other API calls will leverage the user's geolocation.
+The Base URI for obtaining a token will leverage your application's geolocation.  The Base URI for refreshing tokens and all other API calls will leverage the token's geolocation.
 
 ### <a name="base_uri_obtain_token"></a>Base URIs for Obtaining a Token 
-When your application is created, you will be provided with a client ID, secret and geolocation. When obtaining a token for a user, your application should use the base URI for the geolocation in which your application exists. 
+When your application is created, you will be provided with a client ID, secret and geolocation. When obtaining a token, your application should use the base URI for the geolocation in which your application exists. 
 
-There are two endpoints for each geolocation - one is the default (used for server side calls) and another used for client side calls.
+There are two endpoints for each geolocation - one is the default (used for server-side calls) and the other should be used for client-side calls.
 
 For example:
 For geolocation of https://us.api.concursolutions.com, the following endpoints are available:
@@ -228,9 +228,9 @@ WWW-US Production | `https://www-us.api.concursolutions.com/oauth2/v0` | Used by
 When obtaining the token, the user's geolocation will be included in the response. The user's geolocation should be stored, along with the token to support subsequent calls.
 
 ### Base URIs for All Other Calls
-When refreshing a token or when calling any other APIs, the user's geolocation should be used as the base URI. 
+When refreshing a token or when calling any other APIs, the token's geolocation should be used as the base URI. 
 
-**Note:** Client side calls should use the www- variant of the base URI.
+**Note:** Client-side calls should use the www- variant of the base URI.
 
 For example: 
 When obtaining a token, if the response was the below:
