@@ -110,9 +110,7 @@
       - title: Read Itinerary
         url: /api-reference/direct-connects/hotel-service-2/Read-Itinerary.html    
       - title: Cancel
-        url: /api-reference/direct-connects/hotel-service-2/Cancel.html                  
-      - title: Appendix
-        url: /api-reference/direct-connects/hotel-service-2/Appendix.html    
+        url: /api-reference/direct-connects/hotel-service-2/Cancel.html
 - title: Expense
   url: ''
   children:
