@@ -77,7 +77,7 @@ Here is a sample company response.
   },
   "com:concur:Expense:0.1": {
     "offeringCode": "DIRECT-BREEZE+",
-    "marketingName": "Standard Edition"
+    "marketingName": "Standard Edition"  note: if this element states, "CTE" then the client is using "Professional Edition"
   }
 }
 ````
