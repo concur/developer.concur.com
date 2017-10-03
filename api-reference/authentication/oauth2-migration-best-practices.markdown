@@ -1,3 +1,8 @@
+---
+title: Oauth2 Migration Best Practices
+layout: reference
+---
+
 # Oauth2 Migration Best Practices
 
 ## 1.Old World Authentication
