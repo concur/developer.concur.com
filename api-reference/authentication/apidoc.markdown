@@ -210,28 +210,27 @@ When making API calls, the appropriate base URI should be used. There are three 
 2. Refreshing a token 
 3. Calling other APIs 
 
-The Base URI for obtaining a token will leverage your application's geolocation.  The Base URI for refreshing tokens and all other API calls will leverage the user's geolocation.
+The Base URI for obtaining a token will leverage your application's geolocation.  The Base URI for refreshing tokens and all other API calls will leverage the token's geolocation.
 
 ### <a name="base_uri_obtain_token"></a>Base URIs for Obtaining a Token 
-When your application is created, you will be provided with a client ID, secret and environment. When obtaining a token for a user, your application should use the base URI for the environment in which your application exists. 
+When your application is created, you will be provided with a client ID, secret and geolocation. When obtaining a token, your application should use the base URI for the geolocation in which your application exists. 
 
-The appropriate base URIs for obtaining a token are:
+There are two endpoints for each geolocation - one is the default (used for server-side calls) and the other should be used for client-side calls.
+
+For example:
+For geolocation of https://us.api.concursolutions.com, the following endpoints are available:
 
 Environment | URI | Description
 -----|------|------
 US Production |`https://us.api.concursolutions.com/oauth2/v0` | Default for all API calls
 WWW-US Production | `https://www-us.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
-EU Production |`https://emea.api.concursolutions.com/oauth2/v0` | Default for EU users
-WWW-EU Production | `https://www-emea.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
-APA Production | `https://cn.api.concurcdc.cn/oauth2/v0` | Default for APA users
-WWW-APA Production | `https://www-cn.api.concurcdc.cn/oauth2/v0` | Used by browsers during Authorization Code grant
 
 When obtaining the token, the user's geolocation will be included in the response. The user's geolocation should be stored, along with the token to support subsequent calls.
 
 ### Base URIs for All Other Calls
-When refreshing a token or when calling any other APIs, the user's geolocation should be used as the base URI. 
+When refreshing a token or when calling any other APIs, the token's geolocation should be used as the base URI. 
 
-**Note:** Client side calls should use the www- variant of the base URI.
+**Note:** Client-side calls should use the www- variant of the base URI.
 
 For example: 
 When obtaining a token, if the response was the below:
@@ -297,9 +296,6 @@ The users *must be* able to authenticate themselves via a Concur username & pass
 * Applications that need explicit user authentication & authorization - & -
 * Applications that can securely store a code, access_token & refresh_token
 
-**Authorization Grant Sequence Diagram**
-![wsd](/api-reference/authentication/authorization_grant_diagram.png)
-
 
 **Grant details**
 
@@ -313,19 +309,17 @@ Name | Type | Format | Description
   `response_type`|`string` | | `code`
   `state`|`string` | |
 
+With this grant, the user has two authentication options:
+1. Username and password
+2. One-time link using a verified email address
 
-`POST /oauth2/v0/verify_creds`
+With both options, once the user is successfully authenticated and the user authorizes your application, the user will be redirected to the redirect_URI specified in the initial /authorize call with a temporary token appended.
 
-Name | Type | Format | Description
------|------| ------ | -----------
-`loginid` | `string` | | LoginId of the user
-`password` | `string` | | User's password
+`<redirect_uri>?cc=<token>`
 
-`POST /oauth2/v0/authorize_client`
+*If the user is not successfully authenticated or does not authorize the scopes for your application, an error code and description will be appended to the redirect URI. Please refer to the [Response Codes](#response_codes) section for more information.*
 
-Name | Type | Format | Description
------|------| ------ | -----------
-`allow` | `string` | |
+Your application must then exchange the temporary token for a long-lived token using the below.
 
 `POST /oauth2/v0/token`
 
@@ -336,6 +330,7 @@ Name | Type | Format | Description
 `redirect_uri`|`string` | | The redirect_uri that is registered for the application
 `code`|`string`| `UUID`  | The authorization code provided by Auth
 `grant_type`|`string` | | `authorization_code`
+
 
 **NOTE**
 
@@ -619,6 +614,15 @@ Connection: keep-alive
   "geolocation": <geolocation url where user lives>
 }
 ```
+##### /authorize
+
+If the authorization or authentication are unsuccessful, your application will receive an error code and description at the redirect_uri provided. 
+
+```Your_Redirect_Uri?
+ error_code=<>
+ &error_description=<>
+ ```
+In all cases, the friendly error description should be displayed to the user.
 
 ##### /token
 
