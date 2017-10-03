@@ -11,6 +11,8 @@
         url: /api-reference/authentication/company-auth.html
       - title: Migrating to Oauth2 Tokens
         url: /api-reference/authentication/migrationguide.html
+      - title: Oauth2 Migration Best Practices
+        url: /api-reference/authentication/oauth2-migration-best-practices.html
       - title: Scopes
         url: /api-reference/authentication/scopes.html
 - title: Callouts
