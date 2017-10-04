@@ -154,11 +154,35 @@ Message to retrived the availability of hotels
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | *NonRefundable* | Y | Boolean	| Indicates that any prepayment for the reservation is non refundable, therefore a 100% penalty on the prepayment is applied, irrespective of deadline. **Do we need this? is it requiered?**|
-| *HoldTime* | N | Time	| The room will held up until this time without a guarantee. **Do we need this? is it requiered?** ** to be removed **|
-| *GuaranteeType* | Y | ComplexType	| The guarantee information to hold a reservation **Need to specify which type we support.** |
+| *HoldTime* | N | Time	| The room will held up until this time without a guarantee. **Do we need this? is it requiered?** **to be removed**|
+| *GuaranteeType* | Y | String| The guarantee information to hold a reservation **Need to specify which type we support.** |
 | Deadline | Y | ComplexType	| Guarantee deadline, absolute or relative. |
 
+Supported GuranteeTypes:
 
+	GuaranteeRequiredAlwaysConst    string = "A"
+	GuaranteeRequiredNeverConst     string = "N"
+	GuaranteeRequiredDepositConst   string = "D"
+	GuaranteeRequiredPrepayConst    string = "P"
+	GuaranteeRequiredGuaranteeConst string = "G"
+  
+  
+  GuaranteeTypeGuaranteeTypeGuaranteeRequired GuaranteeTypeGuaranteeType = "GuaranteeRequired"
+
+	// No guarantee is required.
+	GuaranteeTypeGuaranteeTypeNone GuaranteeTypeGuaranteeType = "None" used (mapped to never) default
+
+	GuaranteeTypeGuaranteeTypeCCDCVoucher GuaranteeTypeGuaranteeType = "CC/DC/Voucher" (we treat this as requried)
+
+	GuaranteeTypeGuaranteeTypeDeposit GuaranteeTypeGuaranteeType = "Deposit"
+
+	// Indicates prepayment, typically this means payment is required at booking.
+	GuaranteeTypeGuaranteeTypePrePay GuaranteeTypeGuaranteeType = "PrePay" 
+
+	// A deposit is required.
+	GuaranteeTypeGuaranteeTypeDepositRequired GuaranteeTypeGuaranteeType = "DepositRequired"
+  
+  
 **Deadline**
 
 **How much of this dead line stuff can we handle??**
