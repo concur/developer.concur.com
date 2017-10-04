@@ -65,3 +65,25 @@ Concur is using date as xs:date XML type "2017-05-01".
 CDATA and HTML code inside of XML nodes and attributes are not allowed. These data will be escaped.
 The hotel suppliers should not use XML special characters - predefined entities: &, <, >, ", ' inside of ID elements like RatePlanID. 
 
+## Message Structure
+
+All messages to and from the HS2 API follow this structure:
+
+### Requets
+
+Envelope
+  Header
+  Body
+  OTA_<message type>_RQ
+
+Note that the Header element in a request must contain the Authentication element.
+
+  
+### Response
+
+Envelope
+  Header
+  Body
+    OTA_<message type>_RS
+
+Note: The header in the response does not need the Authentication element.
