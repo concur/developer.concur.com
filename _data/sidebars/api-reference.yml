@@ -90,6 +90,29 @@
         url: /api-reference/direct-connects/hotel/post-reservation-update.html
       - title: Hotel Direct Connect 2.0
         url: /api-reference/direct-connects/hotel-service.html
+- title: "Direct Connect: Hotel Service 2"
+  url: ''
+  children:       
+      - title: Introduction
+        url: /api-reference/direct-connects/hotel-service-2/Introduction.html
+      - title: Use-cases
+        url: /api-reference/direct-connects/hotel-service-2/Use-cases.html
+      - title: Headers
+        url: /api-reference/direct-connects/hotel-service-2/Headers.html   
+      - title: Authentication and Error Handling
+        url: /api-reference/direct-connects/hotel-service-2/Authentication-and-Errors.html    
+      - title: Search
+        url: /api-reference/direct-connects/hotel-service-2/Search.html
+      - title: Availability
+        url: /api-reference/direct-connects/hotel-service-2/Availability.html  
+      - title: Descriptive Information
+        url: /api-reference/direct-connects/hotel-service-2/Descriptive-info.html    
+      - title: Reservation
+        url: /api-reference/direct-connects/hotel-service-2/Reservation.html    
+      - title: Read Itinerary
+        url: /api-reference/direct-connects/hotel-service-2/Read-Itinerary.html    
+      - title: Cancel
+        url: /api-reference/direct-connects/hotel-service-2/Cancel.html
 - title: Expense
   url: ''
   children:
