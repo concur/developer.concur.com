@@ -33,7 +33,7 @@ Message to retrived the availability of hotels
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| HotelSearchCriteria | Y | ComplexType | Specified hotel search criteria. |
+| HotelSearchCriteria | Y | ComplexType | Specified hotel search criteria. **How many HotelSerachCriteria do we have per AvailRequestSegment??**|
 | StayDateRange | N | ComplexType | Reer to StayDateRange in Search |
 | RoomStayCandidates | N | ComplexType | List of available room products. |
 
@@ -56,7 +56,7 @@ Message to retrived the availability of hotels
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *Quantity* | Y | int	| something |
+| *Quantity* | Y | int	| something **Do we need this?** |
 | GuestCounts | Y | ComplexType	| A collection of Guest Counts associated with Room Stay. **A child Guest Count element is required for each distinct age group. - the note about a child is unnessesary**|
 
 
