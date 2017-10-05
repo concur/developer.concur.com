@@ -3,6 +3,11 @@ title: Headers
 layout: reference
 ---
 
+Concur will send the username and password in both the HTTP header and the SOAP header.  The HTTP header, please refer to <Headers page>
+
+
+
+
 # HTTP Headers
 
 Concur will send the following HTTP headers in every request.  The contents of the Authentication header will be repeated in the SOAP pay-load.
@@ -41,8 +46,31 @@ Header: (http.Header) (len=4) {
 }
 ```
 
+# Soap Header
 
-# Message Headers
+The Soap header nested in the Envelope will contain an authentication element.
+
+**authentication**
+
+|  Element |	Required | Data Type 	|  Description |
+|----------|-----------|---------------------------|-|
+| userid | Y | String	| Contains the authentication details |
+| password | Y | String	| Contains the authentication details |
+
+Sample:
+
+```xml
+    <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <authentication xmlns="http://www.concur.com/webservice/auth">
+            <userid>testLogin123</userid>
+            <password>xxxxxxxxxxxx</password>
+        </authentication>
+    </Header>
+```
+Login and password are provided by the Hotel supplier for Concur as API consumer, not per customer.
+
+
+# OTA Message Headers
 
 Every message must contain the following requiered attributes and elements.  On top of these each message may specify extra attributes and elements. Refer to a specific messages' page for details.
 
