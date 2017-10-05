@@ -17,6 +17,7 @@ Concur will send the following HTTP headers in every request.  The contents of t
 Supported Soapactions:
 
 | Soapaction | Functionality |
+|----------|-----------|
 | search | Used in Search requests |
 | availability | Used in Availability requests |
 | detail | Used in Hotel Description requests | 
@@ -27,7 +28,18 @@ Supported Soapactions:
 Example HTTP Header from network capture:
 
 ```bash
- (http.Header) (len=4) {(string) (len=13) "Authorization": ([]string) (len=1 cap=1) {(string) (len=38) "*************************},(string) (len=12) "Content-Type": ([]string) (len=1 cap=1) {(string) (len=32) "application/xml; charset=\"utf-8\""},(string) (len=10) "Soapaction": ([]string) (len=1 cap=1) {(string) (len=6) "search"},(string) (len=10) "User-Agent": ([]string) (len=1 cap=1) {(string) (len=10) "gowsdl/0.1"}},
+	Header: (http.Header) (len=4) {
+		(string) (len=13) "Authorization": ([]string) (len=1 cap=1) {
+		(string) (len=38) "*************************
+		},
+		(string) (len=12) "Content-Type": ([]string) (len=1 cap=1) {
+		(string) (len=32) "application/xml; charset=\"utf-8\""
+		},
+		(string) (len=10) "Soapaction": ([]string) (len=1 cap=1) {
+		(string) (len=6) "search"
+		}
+	}
+
 ```
 
 
