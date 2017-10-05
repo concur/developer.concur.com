@@ -193,7 +193,7 @@ Supported GuranteeTypes:
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | *NonRefundable* | N | Boolean	| Indicates that any prepayment for the reservation is non refundable, therefore a 100% penalty on the prepayment is applied, irrespective of deadline. **Do we need this?** **not supported currently, to be removed**|
-| PenaltyDescription | N | ComplexType	| Text description of the Penalty in a given language. **max of 9**|
+| PenaltyDescription | N | ComplexType	| Text description of the Penalty in a given language. This element may contain a maximum of 9 children Text fields.  Any excess Text elements are dropped. |
 | Deadline | Y | ComplexType | Cancellation deadline, absolute or relative. See Deadline above |
 
 
