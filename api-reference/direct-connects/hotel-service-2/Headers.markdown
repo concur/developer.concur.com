@@ -5,6 +5,32 @@ layout: reference
 
 # HTTP Headers
 
+Concur will send the following HTTP headers in every request.  The contents of the Authentication header will be repeated in the SOAP pay-load.
+
+
+| Header name | Data Type | Description |
+|----------|-----------|---------------|
+| Authorization | string | A Base64 encoded string in the form of username:password |
+| Soapaction | string | The message type e.g search.  The action will always be sent in lowercase |
+| Content-Type | string | All communication with the HS2 API is by way of a "application/xml" content type |
+
+Supported Soapactions:
+
+| Soapaction | Functionality |
+| search | Used in Search requests |
+| availability | Used in Availability requests |
+| detail | Used in Hotel Description requests | 
+| book | Used in Reservation requests | 
+| read | Used in Read Itinerary requests | 
+| cancel | Used in Cancel requests | 
+
+Example HTTP Header from network capture:
+
+```bash
+ (http.Header) (len=4) {(string) (len=13) "Authorization": ([]string) (len=1 cap=1) {(string) (len=38) "*************************},(string) (len=12) "Content-Type": ([]string) (len=1 cap=1) {(string) (len=32) "application/xml; charset=\"utf-8\""},(string) (len=10) "Soapaction": ([]string) (len=1 cap=1) {(string) (len=6) "search"},(string) (len=10) "User-Agent": ([]string) (len=1 cap=1) {(string) (len=10) "gowsdl/0.1"}},
+```
+
+
 # Message Headers
 
 Every message must contain the following requiered attributes and elements.  On top of these each message may specify extra attributes and elements. Refer to a specific messages' page for details.
