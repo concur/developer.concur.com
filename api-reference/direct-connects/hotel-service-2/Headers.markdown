@@ -28,18 +28,17 @@ Supported Soapactions:
 Example HTTP Header from network capture:
 
 ```bash
-	Header: (http.Header) (len=4) {
-		(string) (len=13) "Authorization": ([]string) (len=1 cap=1) {
-		(string) (len=38) "*************************
-		},
-		(string) (len=12) "Content-Type": ([]string) (len=1 cap=1) {
-		(string) (len=32) "application/xml; charset=\"utf-8\""
-		},
-		(string) (len=10) "Soapaction": ([]string) (len=1 cap=1) {
-		(string) (len=6) "search"
-		}
+Header: (http.Header) (len=4) {
+	(string) (len=13) "Authorization": ([]string) (len=1 cap=1) {
+	(string) (len=38) "*************************
+	},
+	(string) (len=12) "Content-Type": ([]string) (len=1 cap=1) {
+	(string) (len=32) "application/xml; charset=\"utf-8\""
+	},
+	(string) (len=10) "Soapaction": ([]string) (len=1 cap=1) {
+	(string) (len=6) "search"
 	}
-
+}
 ```
 
 
