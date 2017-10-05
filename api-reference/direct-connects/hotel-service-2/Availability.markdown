@@ -155,33 +155,19 @@ Message to retrived the availability of hotels
 |----------|-----------|---------------------------|-|
 | *NonRefundable* | Y | Boolean	| Indicates that any prepayment for the reservation is non refundable, therefore a 100% penalty on the prepayment is applied, irrespective of deadline. **Do we need this? is it requiered?**|
 | *HoldTime* | N | Time	| The room will held up until this time without a guarantee. **Do we need this? is it requiered?** **to be removed**|
-| *GuaranteeType* | Y | String| The guarantee information to hold a reservation **Need to specify which type we support.** |
+| *GuaranteeType* | Y | String| The guarantee information to hold a reservation. |
 | Deadline | Y | ComplexType	| Guarantee deadline, absolute or relative. |
 
 Supported GuranteeTypes:
 
-	GuaranteeRequiredAlwaysConst    string = "A"
-	GuaranteeRequiredNeverConst     string = "N"
-	GuaranteeRequiredDepositConst   string = "D"
-	GuaranteeRequiredPrepayConst    string = "P"
-	GuaranteeRequiredGuaranteeConst string = "G"
-  
-  
-  GuaranteeTypeGuaranteeTypeGuaranteeRequired GuaranteeTypeGuaranteeType = "GuaranteeRequired"
-
-	// No guarantee is required.
-	GuaranteeTypeGuaranteeTypeNone GuaranteeTypeGuaranteeType = "None" used (mapped to never) default
-
-	GuaranteeTypeGuaranteeTypeCCDCVoucher GuaranteeTypeGuaranteeType = "CC/DC/Voucher" (we treat this as requried)
-
-	GuaranteeTypeGuaranteeTypeDeposit GuaranteeTypeGuaranteeType = "Deposit"
-
-	// Indicates prepayment, typically this means payment is required at booking.
-	GuaranteeTypeGuaranteeTypePrePay GuaranteeTypeGuaranteeType = "PrePay" 
-
-	// A deposit is required.
-	GuaranteeTypeGuaranteeTypeDepositRequired GuaranteeTypeGuaranteeType = "DepositRequired"
-  
+| GuaranteeType | Description |
+|---------------|-------------|  
+| Deposit | In Concur this value is seen as RequiredDeposit |
+| DepositRequired | In Concur this value is seen as RequiredDeposit |
+| CCDCVoucher | In Concur this value is seen as RequiredGuarantee |
+| PrePay | In Concur this value is seen as RequiredPrepay |
+| GuaranteeRequired | RequiredGuarantee. If the Guarantee type cannot be mapped to any accepted type, it will be set to RequiredGuarantee. Hence this value is the default |
+ 
   
 **Deadline**
 
