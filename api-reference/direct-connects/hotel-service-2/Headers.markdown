@@ -15,7 +15,7 @@ Concur will send the following HTTP headers in every request.  The contents of t
 
 | Header name | Data Type | Description |
 |----------|-----------|---------------|
-| Authorization | string | A Base64 encoded string in the form of username:password |
+| Authorization | string | A Base64 encoded string in the form of 'Basic <username:password>' |
 | Soapaction | string | The message type e.g search.  The action will always be sent in lowercase |
 | Content-Type | string | All communication with the HS2 API is by way of a "application/xml" content type |
 
