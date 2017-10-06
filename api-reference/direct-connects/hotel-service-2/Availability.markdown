@@ -19,21 +19,21 @@ Message to retrived the availability of hotels
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| AvailRequestSegments | Y | ComplexType	| A collection of AvailRequestSegment. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request. |
+| AvailRequestSegments | Y | ComplexType	| A collection of AvailRequestSegment. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request. Concur will ever only ever send one AvailRequestSegments |
 
 
 **AvailRequestSegments**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| AvailRequestSegment | Y | ComplexType | To accommodate the ability to perform multiple requests within one message, the availability request contains the repeating element, AvailRequestSegment. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request.  **do we support only one?** |
+| AvailRequestSegment | Y | ComplexType | To accommodate the ability to perform multiple requests within one message, the availability request contains the repeating element, AvailRequestSegment. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request. Concur will only ever send one AvailRequestSegment |
 
 
 **AvailRequestSegment**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| HotelSearchCriteria | Y | ComplexType | Specified hotel search criteria. **How many HotelSerachCriteria do we have per AvailRequestSegment??**|
+| HotelSearchCriteria | Y | ComplexType | Specified hotel search criteria. Concur will ever only ever send one HotelSearchCriteria. |
 | StayDateRange | N | ComplexType | Reer to StayDateRange in Search |
 | RoomStayCandidates | N | ComplexType | List of available room products. |
 
