@@ -171,14 +171,12 @@ Supported GuranteeTypes:
   
 **Deadline**
 
-**How much of this dead line stuff can we handle??**
-
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | *AbsoluteDeadline* | Y | TimeOrDateTimeType	| Defines the absolute deadline. Either this or the offset attributes may be used. |
-| *OffsetDropTime* | Y | String	| An enumerated type indicating when the deadline drop time goes into effect. Possible values include: "BeforeArrival", "AfterBooking", "AfterConfirmation" ** to be removed **|
-| *OffsetTimeUnit* | Y | TimeUnitType	| he units of time, e.g.: days, hours, etc., that apply to the deadline. ** to be removed **|
-| *OffsetUnitMultiplier* | Y | Numeric0to999	| The number of units of DeadlineTimeUnit. ** to be removed **|
+| *OffsetDropTime* | Y | String	| An enumerated type indicating when the deadline drop time goes into effect. Possible values include: "BeforeArrival", "AfterBooking", "AfterConfirmation" **to be removed**|
+| *OffsetTimeUnit* | Y | TimeUnitType	| he units of time, e.g.: days, hours, etc., that apply to the deadline. **to be removed**|
+| *OffsetUnitMultiplier* | Y | Numeric0to999	| The number of units of DeadlineTimeUnit. **to be removed**|
 
 
 **CancelPenalties**
