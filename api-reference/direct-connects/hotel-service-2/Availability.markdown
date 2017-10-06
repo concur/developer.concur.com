@@ -247,7 +247,7 @@ Supported GuranteeTypes:
 | *RoomPricingType* | Y | ComplexType	| something |
 | *UnitMultiplier* | Y | ComplexType	| something |
 | PaymentPolicies | Y | ComplexType	| something |
-| Total | Y | ComplexType	| something |
+| Total | Y | ComplexType	| A description of the rate. |
 | RateDescription | Y | ComplexType	| something |
 | TPA_extensions | N | ComplexType | something |
 
@@ -273,7 +273,7 @@ Supported GuranteeTypes:
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Text | Y | StringLength1to32 | something |
+| Text | Y | StringLength1to32 | Text field. Concur only expects one text field for the Rate Description. Any excess Text elements will be ignored. |
 
 
 **TPA_Extensions**
