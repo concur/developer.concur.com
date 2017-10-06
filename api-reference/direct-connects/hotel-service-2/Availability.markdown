@@ -208,7 +208,7 @@ Supported GuranteeTypes:
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *Breakfast* | Y | Boolean	| hen true, indicates breakfast is included. |
+| *Breakfast* | Y | Boolean	| When true, indicates breakfast is included. |
 | *Dinner* | Y | Boolean | When true, indicates dinner is included. |
 | *Lunch* | Y | Boolean | When true, indicates lunch is included. |
 
