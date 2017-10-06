@@ -295,7 +295,7 @@ Supported GuranteeTypes:
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *HotelCode* | Y | ComplexType	| something |
+| *HotelCode* | Y | ComplexType	| Refer to the HotelRef element described in Search |
 | Address | N | ComplexType	| Refer to Search |
 | ContactNumbers | N | ComplexType	| Refer to Search |
 
