@@ -217,23 +217,23 @@ Supported GuranteeTypes:
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| RoomRate | Y | ComplexType	| something |
+| RoomRate | Y | ComplexType	| Cotains the rate details.   |
 
 
 **RoomRate**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *RoomID* | Y | ComplexType	| something |
-| *RatePlanID* | Y | ComplexType	| something |
-| Rates | Y | ComplexType	| something |
+| *RoomID* | Y | ComplexType	| Room Type ID.  The combination of RoomID and RatePlanID must be unique for a RoomStay |
+| *RatePlanID* | Y | ComplexType	| Rate Plan ID for which this rate is applicable for. |
+| Rates | Y | ComplexType	| Contains the rate for the given room.  Concur only expects one Rate inside the Rates element. |
 
 
 **Rates**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Rate | Y | ComplexType	| something |
+| Rate | Y | ComplexType	| Contains the rate for the given room. |
 
 
 **Rate**
