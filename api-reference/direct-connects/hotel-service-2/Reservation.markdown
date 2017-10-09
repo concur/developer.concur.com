@@ -38,7 +38,7 @@ Message to reserve a hotel.
 | RatePlans | Y | ComplexType	| something |
 | Timespan | Y | ComplexType | See Availability |
 | BasicPropertyInfo | Y | ComplexType | See Availability |
-| Comments | Y | ComplexType | Comments from the user which are passed on to the hotel. |
+| Comments | N | ComplexType | Comments from the user which are passed on to the hotel. |
 
 
 **RatePlan**
