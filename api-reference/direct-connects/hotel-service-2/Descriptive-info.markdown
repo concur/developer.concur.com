@@ -6,7 +6,7 @@ layout: reference
 
 # Descriptive Info
 
-Message to retrive descriptive details about a given hotel. This may include text and/or a number of URL pointed to hosted images.  Concur does not host any hotel images. 
+Message to retrieve descriptive details about a given hotel. This may include text and/or a number of URL pointed to hosted images.  Concur does not host any hotel images. 
 
 |  SOAPAction |	OTA name | Message structure | 
 |----------|-----------|---------------------|
@@ -79,14 +79,14 @@ Message to retrive descriptive details about a given hotel. This may include tex
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| MultimediaDescription | N | ComplexType	| Holds a list of ImageItems each representing a single hotlel image. |
+| MultimediaDescription | N | ComplexType	| Holds a list of ImageItems each representing a single hotel image. |
 
 
 **MultimediaDescription**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| ImageItems | N | ComplexType	| Holds a list of ImageItems each representing a single hotle image. |
+| ImageItems | N | ComplexType	| Holds a list of ImageItems each representing a single hotel image. |
 
 
 **ImageItems**
@@ -107,5 +107,5 @@ Message to retrive descriptive details about a given hotel. This may include tex
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| URL | Y | StringLength1to32	| Contains a URl poiting to a hotel image. The supported image format is JPG.  |
+| URL | Y | StringLength1to32	| Contains a URl pointing to a hotel image. The supported image format is JPG.  |
 

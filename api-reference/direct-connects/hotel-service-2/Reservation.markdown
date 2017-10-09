@@ -28,7 +28,7 @@ Message to reserve a hotel.
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | RoomStays | Y | ComplexType	| A reference to identify the booking |
-| ResGuests | Y | ComplexType | List of Guests.  Concus only supports one guest |
+| ResGuests | Y | ComplexType | List of Guests.  Concur only supports one guest |
 
 
 **RoomStays**
@@ -60,7 +60,7 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| PaymentCard | Y | ComplexType	| something |
+| PaymentCard | Y | ComplexType	| see Payment Card in Availability |
 
 
 **PaymentCard**
@@ -68,15 +68,15 @@ Message to reserve a hotel.
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | CardType | Y | StringLength1to32	| something |
-| CardHolderName | Y | StringLength1to32	| something |
-| CardNumber | Y | ComplexType	| something |
+| CardHolderName | Y | StringLength1to32	| The name on the card |
+| CardNumber | Y | ComplexType	| The Card Number |
 
 
 **CardNumber**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| PlainText | Y | StringLength1to32	| something |
+| PlainText | Y | StringLength1to32	| The card number.  Only one element of this type is sent.|
 
 
 **Comments**
@@ -105,7 +105,7 @@ Message to reserve a hotel.
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | Profiles | Y | ComplexType	| something |
-| GuestCounts | Y | ComplexType	| Refer to GetCounts in Availablity.  |
+| GuestCounts | Y | ComplexType	| Refer to GetCounts in Availability.  |
 
 
 **Profile**
@@ -213,7 +213,7 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| UniqueID | Y | ComplexType | A reference to identify the booking max occurance 2|
+| UniqueID | Y | ComplexType | A reference to identify the booking max occurrence 2|
 | RoomStays | Y | StringLength1to32	| Refer to RoomStays in Availability |
 
 
