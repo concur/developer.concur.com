@@ -121,7 +121,7 @@ Message to reserve a hotel.
 | Telephone | Y | ComplexType	| something |
 | Email | Y | StringLength1to32	| something |
 | Address | Y | ComplexType	| Refer to Address in Search |
-| CitizenCountryName | Y | ComplexType	| something |
+| CitizenCountryName | Y | ComplexType	| ISO3166 representation of the user's Country as defined in their Concur Profile |
 
 **PersonName**
 
@@ -142,7 +142,7 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Code | Y | StringLength1to32 | something |
+| Code | Y | StringLength1to32 | ISO3166 Country Code |
 
 
 **CompanyInfo**
