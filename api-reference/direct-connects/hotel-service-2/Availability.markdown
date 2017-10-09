@@ -248,8 +248,8 @@ Supported GuranteeTypes:
 | *UnitMultiplier* | N | ComplexType	| **to be removed** |
 | PaymentPolicies | Y | ComplexType	| something |
 | Total | Y | ComplexType	| A description of the rate. |
-| RateDescription | Y | ComplexType	| something |
-| TPA_extensions | N | ComplexType | something |
+| RateDescription | N | ComplexType	| A textual description of a rate. At most, only one Rate Description element is expected. |
+| TPA_extensions | N | ComplexType | TPA extentions for a rate. |
 
 
 **PaymentPolicies**
