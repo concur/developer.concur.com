@@ -246,7 +246,7 @@ Supported GuranteeTypes:
 | *RateTimeUnit* | N | ComplexType	| **to be removed** |
 | *RoomPricingType* | N | ComplexType	| **to be removed** |
 | *UnitMultiplier* | N | ComplexType	| **to be removed** |
-| PaymentPolicies | N | ComplexType	| something |
+| PaymentPolicies | N | ComplexType	| Payment Policies for this rate. |
 | Total | Y | ComplexType	| A description of the rate. |
 | RateDescription | N | ComplexType	| A textual description of a rate. At most, only one Rate Description element is expected. |
 | TPA_extensions | N | ComplexType | TPA extentions for a rate. |
@@ -262,7 +262,7 @@ Supported GuranteeTypes:
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| AcceptedPayments | Y | ComplexType	| If used, at least once AcceptedPayment should be present |
+| AcceptedPayments | Y | ComplexType	| If used, at least one AcceptedPayment should be present |
 
 
 **AcceptedPayments**
