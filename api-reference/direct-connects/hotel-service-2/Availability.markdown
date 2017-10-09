@@ -240,12 +240,12 @@ Supported GuranteeTypes:
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *ChargeType* | Y | ComplexType	| something |
-| *GuaranteedInd* | Y | ComplexType	| something |
-| *NumberOfUnits* | Y | ComplexType	| something |
-| *RateTimeUnit* | Y | ComplexType	| something |
-| *RoomPricingType* | Y | ComplexType	| something |
-| *UnitMultiplier* | Y | ComplexType	| something |
+| *ChargeType* | N | ComplexType	| **to be removed** |
+| *GuaranteedInd* | N | ComplexType	| **to be removed** |
+| *NumberOfUnits* | N | ComplexType	| **to be removed** |
+| *RateTimeUnit* | N | ComplexType	| **to be removed** |
+| *RoomPricingType* | N | ComplexType	| **to be removed** |
+| *UnitMultiplier* | N | ComplexType	| **to be removed** |
 | PaymentPolicies | Y | ComplexType	| something |
 | Total | Y | ComplexType	| A description of the rate. |
 | RateDescription | Y | ComplexType	| something |
