@@ -246,17 +246,44 @@ Supported GuranteeTypes:
 | *RateTimeUnit* | N | ComplexType	| **to be removed** |
 | *RoomPricingType* | N | ComplexType	| **to be removed** |
 | *UnitMultiplier* | N | ComplexType	| **to be removed** |
-| PaymentPolicies | Y | ComplexType	| something |
+| PaymentPolicies | N | ComplexType	| something |
 | Total | Y | ComplexType	| A description of the rate. |
 | RateDescription | N | ComplexType	| A textual description of a rate. At most, only one Rate Description element is expected. |
 | TPA_extensions | N | ComplexType | TPA extentions for a rate. |
-
 
 **PaymentPolicies**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| GuaranteePayment | Y | ComplexType	| something |
+| GuaranteePayment | N | ComplexType	| Element containing the Guaranteee Payment type |
+
+
+**GuaranteePayment**
+
+|  Element |	Required | Data Type 	|  Description |
+|----------|-----------|---------------------------|-|
+| AcceptedPayments | Y | ComplexType	| If used, at least once AcceptedPayment should be present |
+
+
+**AcceptedPayments**
+
+|  Element |	Required | Data Type 	|  Description |
+|----------|-----------|---------------------------|-|
+| AcceptedPayment | Y | ComplexType	| Acctepted Payment type |
+
+
+**AcceptedPayment**
+
+|  Element |	Required | Data Type 	|  Description |
+|----------|-----------|---------------------------|-|
+| PaymentCard | Y | ComplexType	| Description of payment type. |
+
+
+**PaymentCard**
+
+|  Element |	Required | Data Type 	|  Description |
+|----------|-----------|---------------------------|-|
+| CardType  | Y | String	| String representation of a Card Type eg Visa, Mastercard, etc. |
 
 
 **Total**
