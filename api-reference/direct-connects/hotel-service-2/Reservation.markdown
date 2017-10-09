@@ -38,7 +38,7 @@ Message to reserve a hotel.
 | RatePlans | Y | ComplexType	| something |
 | Timespan | Y | ComplexType | See Availability |
 | BasicPropertyInfo | Y | ComplexType | See Availability |
-| Comments | Y | ComplexType | something |
+| Comments | Y | ComplexType | Comments from the user which are passed on to the hotel. |
 
 
 **RatePlan**
@@ -47,6 +47,7 @@ Message to reserve a hotel.
 |----------|-----------|---------------------------|-|
 | Guarantee | Y | ComplexType	| something |
 
+
 **Guarantee**
 
 |  Element |	Required | Data Type 	|  Description |
@@ -54,11 +55,13 @@ Message to reserve a hotel.
 | *GuaranteeType | Y | StringLength1to32	| something* |
 | GuaranteesAccepted | Y | ComplexType | something |
 
+
 **GuaranteesAccepted**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | PaymentCard | Y | ComplexType	| something |
+
 
 **PaymentCard**
 
@@ -67,6 +70,7 @@ Message to reserve a hotel.
 | CardType | Y | StringLength1to32	| something |
 | CardHolderName | Y | StringLength1to32	| something |
 | CardNumber | Y | ComplexType	| something |
+
 
 **CardNumber**
 
@@ -79,14 +83,14 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Comment | Y | ComplexType	| something |
+| Comment | Y | ComplexType	| Concur will only ever send one comment element made up of up to 9 text fields. |
 
 
 **Comment**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Text | Y | ComplexType	| something |
+| Text | Y | String	| Text representing the comment. |
 
 
 **Text**
