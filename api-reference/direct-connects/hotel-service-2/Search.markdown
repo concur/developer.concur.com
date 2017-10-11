@@ -104,8 +104,8 @@ Given the following example: <RadiusDistance="5"DistanceMax="30"UnitOfMeasureCod
 | ChainName | N | StringLength1to32	| Detailed property level information. |
 | HotelCode | Y | StringLength1to32	| The code that uniquely identifies a single hotel property. Used in other OTA messages. |
 | HotelName | Y | StringLength1to32	| 	A text field used to communicate the proper name of the hotel. |
-| Position | Y | ComplexType	| Refer to Position in the Request |
-| Address | Y | ComplexType	| something |
+| Position | Y | ComplexType	| Refer to Position in the Request. |
+| Address | Y | ComplexType	| Public address of the hotel property. |
 | ContactNumbers | N | ComplexType	| something Do we even care about this?  HRS does not seem to be returning this |
 | Award | N | ComplexType	| An element that identifies the hotel ratings. |
 | HotelAmenity | N | ComplexType | List of Hotel Amenities. |
@@ -118,11 +118,11 @@ Given the following example: <RadiusDistance="5"DistanceMax="30"UnitOfMeasureCod
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| AddressLine | Y | ComplexType	| something |
-| CityName | Y | ComplexType	| something |
-| PostalCode | Y | ComplexType	| something |
-| StateProv | Y | ComplexType	| something |
-| CountryName | Y | ComplexType	| Country name (e.g., Ireland) |
+| AddressLine | N | ComplexType	| Free form text field. Normally the screen name and number. This element may occur up to 5 times. |
+| CityName | N | ComplexType	| Free form text field. Name of the city. |
+| PostalCode | N | ComplexType	| Free form text field. The Postal Code. |
+| StateProv | N | ComplexType	| Free form text field. Name of the state |
+| CountryName | N | ComplexType	| Country name (e.g., Ireland) |
 
 
 **CountryName**
