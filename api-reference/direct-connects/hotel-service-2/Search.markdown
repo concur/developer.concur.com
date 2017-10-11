@@ -143,9 +143,9 @@ Given the following example: <RadiusDistance="5"DistanceMax="30"UnitOfMeasureCod
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| CountryAccessCode | Y | StringLength1to32 | something |
-| PhoneNumber | Y | StringLength1to32 | something |
-| PhoneTechType | Y | StringLength1to32 | What types do we support? |
+| CountryAccessCode | N | StringLength1to32 | The Country code. |
+| PhoneNumber | Y | StringLength1to32 | The phone number |
+| PhoneTechType | N | String | Concur currently only supports a PhoneTechType set to "1" **to be removed** |
 
 
 **Award**
