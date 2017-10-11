@@ -136,7 +136,7 @@ Given the following example: <RadiusDistance="5"DistanceMax="30"UnitOfMeasureCod
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| ContactNumber | Y | ComplexType | something |
+| ContactNumber | N | ComplexType | Element which contains the ContactNumber. Concur only excepts 1 ContactNumber element. |
 
 
 **ContactNumber**
