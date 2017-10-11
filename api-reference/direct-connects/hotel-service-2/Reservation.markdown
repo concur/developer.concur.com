@@ -35,8 +35,8 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| RatePlans | Y | ComplexType	| something |
-| Timespan | Y | ComplexType | See Availability |
+| RatePlans | Y | ComplexType	| Refer to RatePlans in Availability |
+| Timespan | Y | ComplexType | Refer to Time-span in Availability |
 | BasicPropertyInfo | Y | ComplexType | See Availability |
 | Comments | N | ComplexType | Comments from the user which are passed on to the hotel. |
 
@@ -45,14 +45,14 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Guarantee | Y | ComplexType	| something |
+| Guarantee | Y | ComplexType	| Refer to Guarantee in Availability |
 
 
 **Guarantee**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *GuaranteeType | Y | StringLength1to32	| something* |
+| *GuaranteeType* | Y | StringLength1to32	| Refer to GuaranteeType in Availability |
 | GuaranteesAccepted | Y | ComplexType | something |
 
 

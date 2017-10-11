@@ -5,7 +5,7 @@ layout: reference
 
 # Availablity
 
-Message to retrived the availability of hotels
+Message to retrieved the availability of hotels
 
 |  SOAPAction |	OTA name | Message structure | 
 |----------|-----------|---------------------|
@@ -19,14 +19,14 @@ Message to retrived the availability of hotels
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| AvailRequestSegments | Y | ComplexType	| A collection of AvailRequestSegment. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request. Concur will ever only ever send one AvailRequestSegments |
+| AvailRequestSegments | Y | ComplexType	| A collection of AvailRequestSegment. Each segment includes a collection of criteria that requests a book-able entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request. Concur will ever only ever send one AvailRequestSegments |
 
 
 **AvailRequestSegments**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| AvailRequestSegment | Y | ComplexType | To accommodate the ability to perform multiple requests within one message, the availability request contains the repeating element, AvailRequestSegment. Each segment includes a collection of criteria that requests a bookable entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request. Concur will only ever send one AvailRequestSegment |
+| AvailRequestSegment | Y | ComplexType | To accommodate the ability to perform multiple requests within one message, the availability request contains the repeating element, AvailRequestSegment. Each segment includes a collection of criteria that requests a book-able entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request. Concur will only ever send one AvailRequestSegment |
 
 
 **AvailRequestSegment**
@@ -34,7 +34,7 @@ Message to retrived the availability of hotels
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | HotelSearchCriteria | Y | ComplexType | Specified hotel search criteria. Concur will ever only ever send one HotelSearchCriteria. |
-| StayDateRange | N | ComplexType | Reer to StayDateRange in Search |
+| StayDateRange | N | ComplexType | Refer to StayDateRange in Search |
 | RoomStayCandidates | N | ComplexType | List of available room products. |
 
 
@@ -96,12 +96,12 @@ Message to retrived the availability of hotels
 
 **RoomStay**
 
-**In the spec the RoomTypes, RatePlans and RoomRates are not requiered. do they need to be?**
+**In the spec the RoomTypes, RatePlans and RoomRates are not required. do they need to be?**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| RoomTypes | Y | ComplexType	| Details on the Room Stay including Guest Counts, Time Span of this Room Stay, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Room Stay and finally finacial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties. |
-| RatePlans | Y | ComplexType	| A collection of Rate Plans associated with a particular Room Stay. The rate plan element is used to contain all the rate information for a single Rate Plan Code (ex RACK) for a given date range. A given Rate Plan may have variable rates, over the effective period of the Rate Plan, this is represented by the child element Rates.|
+| RoomTypes | Y | ComplexType	| Details on the Room Stay including Guest Counts, Time Span of this Room Stay, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Room Stay and finally financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties. |
+| RatePlans | Y | ComplexType	| A collection of Rate Plans associated with a particular Room Stay. The rate plan element is used to contain all the rate information for a single Rate Plan Code (eg RACK) for a given date range. A given Rate Plan may have variable rates, over the effective period of the Rate Plan, this is represented by the child element Rates.|
 | RoomRates | Y | ComplexType	| List of Room Rates |
 | TimeSpan | Y | DateTimeSpanType	| The Time Span which covers the Room Stay. The attributes of the OTA DateTimeSpan data type are based on the W3C base data types of timeInstant and timeDuration using ISO 8601. |
 | BasicPropertyInfo | N | ComplexType	| Property Information for the Room Stay. |
@@ -143,7 +143,7 @@ Message to retrived the availability of hotels
 |----------|-----------|---------------------------|-|
 | *RatePlanID* | Y | StringLength1to64	| A text field used to indicate a special  ID code that is associated with the rate and is essential in the reservation request in order to obtain the rate. Examples are Corporate ID. |
 | *AvailabilityStatus* | Y | StringLength1to32	| If hotel is sold out, the Hotel supplier must return an Availability status of ClosedOut. Even if it's sold out what other fields do we need? if any?  |
-| *PrepaidIndicator* | Y | Boolean	| When true, indicates if the rate is a prepaid rate. **false otherwise or ignored?**|
+| *PrepaidIndicator* | Y | Boolean	| When true, indicates if the rate is a pre-paid rate. **false otherwise or ignored?**|
 | Guarantee | Y | ComplexType	| Guarantee information that applies to the rate plan. Concur only expects 1 Guarantee element per RatePlan |
 | CancelPenalties | Y | ComplexType	| Collection of cancellation penalties. If the Cancel Penalties are not provided Concur will display "Cancellation policy not provided by vendor" |
 | MealsIncluded | Y | ComplexType	| Defines which meals are included with this rate program. Concur expects this to be set. |
@@ -153,8 +153,8 @@ Message to retrived the availability of hotels
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *NonRefundable* | Y | Boolean	| Indicates that any prepayment for the reservation is non refundable, therefore a 100% penalty on the prepayment is applied, irrespective of deadline. **Do we need this? is it requiered?**|
-| *HoldTime* | N | Time	| The room will held up until this time without a guarantee. **Do we need this? is it requiered?** **to be removed**|
+| *NonRefundable* | Y | Boolean	| Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **Do we need this? is it required?**|
+| *HoldTime* | N | Time	| The room will held up until this time without a guarantee. **Do we need this? is it required?** **to be removed**|
 | *GuaranteeType* | Y | String| The guarantee information to hold a reservation. |
 | Deadline | Y | ComplexType	| Guarantee deadline, absolute or relative. |
 
@@ -190,7 +190,7 @@ Supported GuranteeTypes:
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *NonRefundable* | N | Boolean	| Indicates that any prepayment for the reservation is non refundable, therefore a 100% penalty on the prepayment is applied, irrespective of deadline. **Do we need this?** **not supported currently, to be removed**|
+| *NonRefundable* | N | Boolean	| Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **Do we need this?** **not supported currently, to be removed**|
 | PenaltyDescription | N | ComplexType	| Text description of the Penalty in a given language. This element may contain a maximum of 9 children Text fields.  Any excess Text elements are dropped. |
 | Deadline | Y | ComplexType | Cancellation deadline, absolute or relative. See Deadline above |
 
@@ -217,7 +217,7 @@ Supported GuranteeTypes:
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| RoomRate | Y | ComplexType	| Cotains the rate details.   |
+| RoomRate | Y | ComplexType	| Contains the rate details.   |
 
 
 **RoomRate**
@@ -249,13 +249,13 @@ Supported GuranteeTypes:
 | PaymentPolicies | N | ComplexType	| Payment Policies for this rate. |
 | Total | Y | ComplexType	| A description of the rate. |
 | RateDescription | N | ComplexType	| A textual description of a rate. At most, only one Rate Description element is expected. |
-| TPA_extensions | N | ComplexType | TPA extentions for a rate. |
+| TPA_extensions | N | ComplexType | TPA extensions  for a rate. |
 
 **PaymentPolicies**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| GuaranteePayment | N | ComplexType	| Element containing the Guaranteee Payment type |
+| GuaranteePayment | N | ComplexType	| Element containing the Guarantee Payment type |
 
 
 **GuaranteePayment**
@@ -269,7 +269,7 @@ Supported GuranteeTypes:
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| AcceptedPayment | Y | ComplexType	| Acctepted Payment type |
+| AcceptedPayment | Y | ComplexType	| Accepted Payment type |
 
 
 **AcceptedPayment**
@@ -283,7 +283,7 @@ Supported GuranteeTypes:
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| CardType  | Y | String	| String representation of a Card Type eg Visa, Mastercard, etc. |
+| CardType  | Y | String	| String representation of a Card Type eg Visa, Master Card, etc. |
 
 
 **Total**
@@ -307,7 +307,7 @@ Supported GuranteeTypes:
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| RequireSeriesCode | Y | Boolean	| Flag to indicate if the CVV code is required for the given rate. If used ti must be set to either "true" or "false" |
+| RequireSeriesCode | Y | Boolean	| Flag to indicate if the CVV code is required for the given rate. If used it must be set to either "true" or "false" |
 
 
 **Timespan**
