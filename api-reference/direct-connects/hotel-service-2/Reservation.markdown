@@ -60,6 +60,12 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
+| *Default* | N | Boolean	|  |
+| *NoCardHolderInfoReqInd* | N | Boolean	|  |
+| *NameReqInd* | N | Boolean	|  |
+| *AddressReqInd* | N | Boolean	|  |
+| *PhoneReqInd* | N | Boolean	|  |
+| *InterbankNbrReqInd* | N | Boolean	|  |
 | PaymentCard | Y | ComplexType	| see Payment Card in Availability |
 
 
@@ -104,7 +110,7 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Profiles | Y | ComplexType	| something |
+| Profiles | Y | ComplexType	| List of Profiles. Concur will only ever send on profile. |
 | GuestCounts | Y | ComplexType	| Refer to GetCounts in Availability.  |
 
 
@@ -112,18 +118,19 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Customer | Y | ComplexType | something |
-| CompanyInfo | Y | ComplexType	| something |
+| Customer | Y | ComplexType | Element to describer a Customer. |
+| CompanyInfo | Y | ComplexType	| Element to capture the company name. |
 
 
 **Customer**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Gender | Y | StringLength1to32 | something |
-| PersonName | Y | ComplexType | something |
-| Telephone | Y | ComplexType	| something |
-| Email | Y | StringLength1to32	| something |
+| Gender | Y | String | Gender.  Concur will send either, "Male", "Female", "Unknown" |
+| BirthDate | Y | Date | Customer's birthday. |
+| PersonName | Y | ComplexType | Element representing a Customers name |
+| Telephone | Y | ComplexType	| Element representing a telephone number. |
+| Email | Y | StringLength1to32	| Email address |
 | Address | Y | ComplexType	| Refer to Address in Search |
 | CitizenCountryName | Y | ComplexType	| ISO3166 representation of the user's Country as defined in their Concur Profile |
 
@@ -131,15 +138,15 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| NamePrefic | Y | StringLength1to32 | something |
-| GivenName | Y | StringLength1to32 | something |
-| Surname | Y | StringLength1to32 | something |
+| NamePrefic | Y | StringLength1to32 | Customer's First name |
+| GivenName | N | StringLength1to32 | Customer's Given name |
+| Surname | Y | StringLength1to32 | Customer's Surname name |
 
 **Telephone**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| PhoneNumber | Y | StringLength1to32 | something |
+| PhoneNumber | Y | StringLength1to32 | A string representing a customer's phone number. |
 
 
 **CitizenCountryName**
@@ -153,7 +160,7 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Code | Y | StringLength1to32 | something |
+| CompanyName | Y | StringLength1to32 |  A string representing a customer's Company. |
 
 
 
