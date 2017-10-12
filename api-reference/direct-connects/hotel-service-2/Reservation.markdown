@@ -16,7 +16,7 @@ Message to reserve a hotel.
 
 ## Request
 
-**OTA_HotelResRQ **
+**OTA_HotelResRQ**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
