@@ -126,7 +126,7 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Gender | Y | String | Gender.  Concur will send either, "Male", "Female", "Unknown" |
+| Gender | Y | String | Gender.  Concur will send either, "Male", "Female", "Unknown", "Male_NoShare", "Female_NoShare" |
 | BirthDate | Y | Date | Customer's birthday. |
 | PersonName | Y | ComplexType | Element representing a Customers name |
 | Telephone | Y | ComplexType	| Element representing a telephone number. |
