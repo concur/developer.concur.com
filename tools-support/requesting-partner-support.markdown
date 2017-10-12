@@ -12,7 +12,8 @@ layout: reference
 Partner cases must include the following:
 
 1. App Name (Partners may have more than one certified app).
-2. Customer Name (the name that Concur recognizes)
+2. Customer Name (the name that Concur recognizes).
+    1. For Partner apps certified after September 2017, tickets must include the Entity Code (via the Company Info API) & the Correlation ID from the API response.
 3. Reproduction steps:
     1. provide contextual information related to the issue so our Engineers have an understanding of what your integration is attempting to do.
 4. If applicable:
