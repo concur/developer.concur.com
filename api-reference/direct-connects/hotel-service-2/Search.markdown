@@ -109,7 +109,7 @@ Given the following example: <RadiusDistance="5"DistanceMax="30"UnitOfMeasureCod
 | ContactNumbers | N | ComplexType	| something Do we even care about this?  HRS does not seem to be returning this |
 | Award | N | ComplexType	| An element that identifies the hotel ratings. |
 | HotelAmenity | N | ComplexType | List of Hotel Amenities. |
-| Policy | N | ComplexType	| **Not used now - need to confirm** |
+| Policy | N | ComplexType	| **Not used to be removed** |
 | Amenities | N | ComplexType	| **Not used now - need to confirm** |
 | TPA_Extensions | N | ComplexType | See TPA Extensions below |
 
@@ -162,7 +162,7 @@ Given the following example: <RadiusDistance="5"DistanceMax="30"UnitOfMeasureCod
 | *Code* | Y | OTA_CodeType	| Refer to OpenTravel Code List Hotel Amenity Code (HAC) |
 
 
-**Policy**
+**Policy - to be removed**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
