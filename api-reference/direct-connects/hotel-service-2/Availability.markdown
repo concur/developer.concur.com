@@ -142,7 +142,7 @@ Message to retrieved the availability of hotels
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | *RatePlanID* | Y | StringLength1to64	| A text field used to indicate a special  ID code that is associated with the rate and is essential in the reservation request in order to obtain the rate. Examples are Corporate ID. |
-| *AvailabilityStatus* | Y | StringLength1to32	| If hotel is sold out, the Hotel supplier must return an Availability status of ClosedOut. Even if it's sold out what other fields do we need? if any?  |
+| *AvailabilityStatus* | Y | StringLength1to32	| If hotel is sold out, the Hotel supplier must return an Availability status of ClosedOut. **Even if it's sold out what other fields do we need? if any?**  |
 | *PrepaidIndicator* | Y | Boolean	| When true, indicates if the rate is a pre-paid rate. **false otherwise or ignored?**|
 | Guarantee | Y | ComplexType	| Guarantee information that applies to the rate plan. Concur only expects 1 Guarantee element per RatePlan |
 | CancelPenalties | Y | ComplexType	| Collection of cancellation penalties. If the Cancel Penalties are not provided Concur will display "Cancellation policy not provided by vendor" |
