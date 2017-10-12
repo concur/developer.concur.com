@@ -119,20 +119,20 @@ Message to reserve a hotel.
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | Customer | Y | ComplexType | Element to describer a Customer. |
-| CompanyInfo | Y | ComplexType	| Element to capture the company name. |
+| CompanyInfo | N | ComplexType	| Element to capture the company name. |
 
 
 **Customer**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Gender | Y | String | Gender.  Concur will send either, "Male", "Female", "Unknown", "Male_NoShare", "Female_NoShare" |
-| BirthDate | Y | Date | Customer's birthday. |
-| PersonName | Y | ComplexType | Element representing a Customers name |
-| Telephone | Y | ComplexType	| Element representing a telephone number. |
-| Email | Y | StringLength1to32	| Email address |
-| Address | Y | ComplexType	| Refer to Address in Search |
-| CitizenCountryName | Y | ComplexType	| ISO3166 representation of the user's Country as defined in their Concur Profile |
+| Gender | N | String | Gender.  Concur will send either, "Male", "Female", "Unknown", "Male_NoShare", "Female_NoShare" |
+| BirthDate | N | Date | Customer's birthday. |
+| PersonName | N | ComplexType | Element representing a Customers name |
+| Telephone | N | ComplexType	| Element representing a telephone number. |
+| Email | N | StringLength1to32	| Email address |
+| Address | N | ComplexType	| Refer to Address in Search |
+| CitizenCountryName | N | ComplexType	| ISO3166 representation of the user's Country as defined in their Concur Profile |
 
 **PersonName**
 
