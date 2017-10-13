@@ -205,7 +205,7 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *ResResponseType* | Y | StringLength1to32	| something |
+| *ResResponseType* | Y | StringLength1to32	| **waiting to see what we actually support here as the list is quite big** |
 | HotelReservations | Y | ComplexType	| Concur only supports one reservation.  All extra reservations will be ignored. |
 
 
@@ -231,30 +231,8 @@ Message to reserve a hotel.
 | *ID* | Y | StringLength1to32	| A reference to identify the booking |
 
 
-
-
 Existing - of OTA UIT Type "14" to hold the booking UUID
 New - OTA UIT Type "40" to hold the confirmation number from the supplier.
-
-
-
-
-
-
-
-<Address>
-                  <AddressLine>Rosenstr. 1 </AddressLine>
-                  <CityName>Berlin</CityName>
-                  <CountryName Code="DEU">Federal Republic of Germany</CountryName>
-                </Address>
-                <ContactNumbers>
-                  <ContactNumber PhoneNumber="3024001722"/>
-                </ContactNumbers>
-
-
-
-
-
 
 
 
