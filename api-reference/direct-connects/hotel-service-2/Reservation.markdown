@@ -89,7 +89,7 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Comment | Y | ComplexType	| Concur will only ever send one comment element made up of up to 9 text fields. |
+| Comment | Y | ComplexType	| Concur will send one Text Element per Comment element. |
 
 
 **Comment**
@@ -170,30 +170,30 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| NotifyEmails | Y | ComplexType | A reference to identify the booking |
-| CustomFIelds | Y | ComplexType | A reference to identify the booking |
+| NotifyEmails | N | ComplexType | Email address which can be used by the vendor to contact the customer. |
+| CustomFIelds | N | ComplexType | A reference to identify the booking |
 
 
 **NotifyEmails**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| NotifyEmails | Y | StringLength1to32	| something |
+| NotifyEmails | Y | StringLength1to32	| There will be one NotifyEmails element per email address in the configuration. |
 
 
 **CustomFields**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| CustomField | Y | ComplexType	| something |
+| CustomField | Y | ComplexType	| A Custom Field in the form of a key-value pair. |
 
 
 **CustomField**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Name | Y | StringLength1to32	| something |
-| Value | Y | StringLength1to32	| something |
+| Name | Y | StringLength1to32	| Name of the Custom Field |
+| Value | N | StringLength1to32	| Value of the Custom Field |
 
 
 ---
