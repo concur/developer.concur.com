@@ -103,7 +103,7 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Text | Y | StringLength1to32	| something |
+| *TextFormat* | Y | StringLength1to32	| Set to "Plain Text" |
 
 
 **ResGuest**
