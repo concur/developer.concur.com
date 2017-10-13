@@ -21,7 +21,7 @@ layout: reference
   - [GET Image-Only Receipt by Receipt ID](#endpoint-get-an-image-only-receipt-by-id)
   - [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image-image-only)
 
-#### Definitions of Resources
+### Definitions of Resources
 
 - *__eReceipt__* - A schema-enforced resource with data and, optionally, an image. If an image is not provided, one will be generated from the data resource.
 - *__Image-Only Receipt__* - A standalone image without data.
@@ -510,13 +510,13 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 
 |Endpoint|Response Format|Request Summary|
 |---|---|---|
-|[POST /v4/users/:userId/images](#endpoint-post-an-image-only-receipt)|N/A|Post a receipt image|
-|[GET /v4/users/:userId/images](#endpoint-get-image-only-receipts-by-userid)|JSON|Get a user's receipt images|
-|[GET /v4/images/:receiptId](#endpoint-get-an-image-only-receipt-by-id)|JSON|Get an receipt image by ID|
+|[POST /v4/users/:userId/image-only-receipts](#endpoint-post-an-image-only-receipt)|N/A|Post an image-only receipts|
+|[GET /v4/users/:userId/image-only-receipts](#endpoint-get-image-only-receipts-by-userid)|JSON|Get a user's image-only receipts|
+|[GET /v4/image-only-receipts/:receiptId](#endpoint-get-an-image-only-receipt-by-id)|JSON|Get an image-only receipt by ID|
 
 ##### Endpoint: Post an Image-Only Receipt
 
-###### _POST /v4/users/:userId/images_
+###### _POST /v4/users/:userId/image-only-receipts_
 
 |Parameter|Requirement|Value|
 |---|---|---|
@@ -536,7 +536,7 @@ _Example Requests:_
 cURL:
 
 ```shell
-curl -vk -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN}/images \
+curl -vk -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN}/image-only-receipts \
 -H "Authorization: Bearer {YOUR ACCESS TOKEN}" \
 -H "Content-Type:multipart/form-data" \
 -F "image=@{PATH TO YOUR IMAGE};type=image/{FILE TYPE OF YOUR IMAGE}"
@@ -556,7 +556,7 @@ Connection: keep-alive
 
 ##### Endpoint: Get Image-Only Receipts By UserId
 
-###### _GET /v4/users/:userId/images_
+###### _GET /v4/users/:userId/image-only-receipts_
 
 |Parameter|Requirement|Value|
 |---|---|---|
@@ -569,13 +569,13 @@ _Example Requests:_
 cURL:
 
 ```shell
-curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/v4/users/{USER ID}/images
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/v4/users/{USER ID}/image-only-receipts
 ```
 
 HTTPie:
 
 ```shell
-http https://us.api.concursolutions.com/receipts/v4/users/{USER ID}/images "Authorization: Bearer {YOUR ACCESS TOKEN}"
+http https://us.api.concursolutions.com/receipts/v4/users/{USER ID}/image-only-receipts "Authorization: Bearer {YOUR ACCESS TOKEN}"
 ```
 
 _Example Response:_
@@ -590,13 +590,13 @@ Connection: keep-alive
 	    {
 	        "dateTimeReceived": "Wed May 24 2017 16:14:17 GMT+00:00",
 	        "id": "a90fc48e0f0a44f2bd4838fd773b07a5",
-	        "image": "https://us.api.concursolutions.com/receipts/v4/a90fc48e0f0a44f2bd4838fd773b07a5/image",
+	        "image": "https://us.api.concursolutions.com/receipts/v4/image-only-receipts/a90fc48e0f0a44f2bd4838fd773b07a5/image",
 	        "imageId": "2B7095DA565D3EB9AC82B6712FCC0F79",
 	        "userId": "abcd123456efg"
 	    },
 	    { ... },
 	],
-	"next": "https://us.api.concursolutions.com/receipts/v4/users/abcd123456efg/images/page/1507587575592_d4721b2f3b304a9a9325fabdad5f50ad"
+	"next": "https://us.api.concursolutions.com/receipts/v4/users/abcd123456efg/image-only-receipts/page/1507587575592_d4721b2f3b304a9a9325fabdad5f50ad"
 }
 ```
 
@@ -617,14 +617,14 @@ _Example Requests:_
 cURL:
 
 ```shell
-curl -vk -X GET https://us.api.concursolutions.com/receipts/v4/images/{RECEIPT ID} \
+curl -vk -X GET https://us.api.concursolutions.com/receipts/v4/image-only-receipts/{RECEIPT ID} \
 -H "Authorization: Bearer {YOUR ACCESS TOKEN}"
 ```
 
 HTTPie:
 
 ```shell
-http https://us.api.concursolutions.com/receipts/v4/images/{RECEIPT ID} "Authorization: Bearer {YOUR ACCESS TOKEN}"
+http https://us.api.concursolutions.com/receipts/v4/image-only-receipts/{RECEIPT ID} "Authorization: Bearer {YOUR ACCESS TOKEN}"
 ```
 
 _Example Response_
@@ -637,7 +637,7 @@ Connection: keep-alive
 {
     "dateTimeReceived": "Wed May 24 2017 16:14:17 GMT+00:00",
     "id": "a90fc48e0f0a44f2bd4838fd773b07a5",
-    "image": "https://us.api.concursolutions.com/receipts/v4/a90fc48e0f0a44f2bd4838fd773b07a5/image",
+    "image": "https://us.api.concursolutions.com/receipts/v4/image-only-receipts/a90fc48e0f0a44f2bd4838fd773b07a5/image",
     "imageId": "2B7095DA565D3EB9AC82B6712FCC0F79",
     "userId": "abcd123456efg"
 }
@@ -647,7 +647,7 @@ Connection: keep-alive
 
 ##### Endpoint: Get Receipt Image (Image-Only)
 
-###### _GET /v4/image-only-receipts/:receiptId/image_
+###### _GET /v4/image-only-receipts/:receiptId/image-only-receipts_
 
 |Parameter|Requirement|Value|
 |---|---|---|
