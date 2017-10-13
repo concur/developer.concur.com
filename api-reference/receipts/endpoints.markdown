@@ -23,7 +23,7 @@ layout: reference
 
 #### Definitions of Resources
 
-- *__eReceipt__* - A schema-enforced resource with data.
+- *__eReceipt__* - A schema-enforced resource with data and, optionally, an image. If an image is not provided, one will be generated from the data resource.
 - *__Image-Only Receipt__* - A standalone image without data.
 
 ### General
