@@ -7,12 +7,31 @@ layout: reference
 
 ## Get Started
 
+- [Overview](#overview)
 - [Version](#version)
 - [Regional Availability](#regional-availability)
 - [Explore the API](#explore-the-api)
   - [Prerequisites](#prerequisites)
   - [Acquire an Access Token](#retrieve-a-user-access-token)
   - [Explore the API in JavaScript](#explore-the-api-in-javascript)
+
+### Overview
+
+The Receipts V4 API aims to make our service as useful as possible. In order to do so we accept three different formulae for posting a receipt:
+
+1. __Receipt Data__ - Your receipt data is stored along with an automatically generated receipt image file.
+2. __Receipt Data & Receipt Image__ - Your receipt data and receipt image file are stored.
+3. __Receipt Image w/o Data__ - Your receipt image file is stored along with some accompanying metadata.
+
+All of the above are receipt resources, but the service draws a distinction between resources with data versus resources that are standalone images.
+
+Resources with data are schema-enforced and are referred to as eReceipts.
+
+Resources of standalone images are referred to as as Image-Only Receipts.
+
+These two different resources are sent/fetched from the Receipts V4 API via different endpoints:
+- eReceipts (Receipts With Data) - Use eReceipt Endpoints
+- Image-Only Receipts (Standalone Images Without Data) - Use Image-Only Receipt Endpoints
 
 ### Version
 

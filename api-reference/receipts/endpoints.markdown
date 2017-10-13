@@ -5,18 +5,26 @@ layout: reference
 
 # Endpoints
 
-- [GET Service Index](#endpoint-service-index)
-- [GET Schemas](#endpoint-schemas)
-- [GET Receipt Status by Receipt ID](#endpoint-get-receipt-status)
-- [Receipts with Data (eReceipts)](#eReceipts)
+- [Definitions of Resources](#definitions-of-resources)
+- [General](#general)
+  - [GET Service Index](#endpoint-service-index)
+  - [GET Receipt Status by Receipt ID](#endpoint-get-receipt-status)
+- [eReceipts](#ereceipts)
+  - [GET Schemas](#endpoint-schemas)
   - [POST Receipts](#endpoint-post-a-receipt)
   - [GET Receipts by User ID](#endpoint-get-receipts-by-userid)
   - [GET Receipts by Receipt ID](#endpoint-get-a-receipt-by-id)
   - [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image)
-- [Receipt Images (Image-Only Receipts)](#image\-only-receipts)
-  - [POST Receipt Images](#endpoint-post-a-receipt-image)
-  - [GET Receipt Images by User ID](#endpoint-get-receipt-images-by-userid)
-  - [GET Receipt Image by ID](#endpoint-get-a-receipt-image-by-id)
+- [Image-Only Receipts](#image-only-receipts)
+  - [POST Image-Only Receipts](#endpoint-post-an-image-only-receipt)
+  - [GET Image-Only Receipts by User ID](#endpoint-get-image-only-receipts-by-userid)
+  - [GET Image-Only Receipt by Receipt ID](#endpoint-get-an-image-only-receipt-by-id)
+  - [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image-image-only)
+
+#### Definitions of Resources
+
+- *__eReceipt__* - A schema-enforced resource with data.
+- *__Image-Only Receipt__* - A standalone image without data.
 
 ### General
 
@@ -24,24 +32,6 @@ layout: reference
 |---|---|---|
 |[GET /](#endpoint-service-index)|JSON|Get service index URLs|
 |[GET /v4/status/:receiptId](#endpoint-get-receipt-status)|JSON|Get the status of a receipt|
-
-### eReceipts
-
-|Endpoint|Response Format|Request Summary|
-|---|---|---|
-|[GET /schemas](#endpoint-schemas)|JSON|Get currently supported receipt schemas|
-|[POST /v4/users/:userId](#endpoint-post-a-receipt)|N/A|Post a receipt|
-|[GET /v4/users/:userId](#endpoint-get-receipts-by-userid)|JSON|Get a user's receipts|
-|[GET /v4/:receiptId](#endpoint-get-a-receipt-by-id)|JSON|Get a receipt by ID|
-|[GET /v4/:receiptId/image](#endpoint-get-receipt-image)|image file|Get a receipt image.|
-
-### Image-Only Receipts
-
-|Endpoint|Response Format|Request Summary|
-|---|---|---|
-|[POST /v4/users/:userId/images](#endpoint-post-a-receipt-image)|N/A|Post a receipt image|
-|[GET /v4/users/:userId/images](#endpoint-get-receipt-images-by-userid)|JSON|Get a user's receipt images|
-|[GET /v4/images/:receiptId](#endpoint-get-a-receipt-image-by-id)|JSON|Get an receipt image by ID|
 
 ##### Endpoint: Service Index
 
@@ -97,6 +87,16 @@ _Example Response:_
 ```
 
 [Back to Top](#endpoints)
+
+### eReceipts
+
+|Endpoint|Response Format|Request Summary|
+|---|---|---|
+|[GET /schemas](#endpoint-schemas)|JSON|Get currently supported receipt schemas|
+|[POST /v4/users/:userId](#endpoint-post-a-receipt)|N/A|Post a receipt|
+|[GET /v4/users/:userId](#endpoint-get-receipts-by-userid)|JSON|Get a user's receipts|
+|[GET /v4/:receiptId](#endpoint-get-a-receipt-by-id)|JSON|Get a receipt by ID|
+|[GET /v4/:receiptId/image](#endpoint-get-receipt-image)|image file|Get a receipt image.|
 
 ##### Endpoint: Schemas
 
@@ -506,7 +506,15 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 
 [Back to Top](#endpoints)
 
-##### Endpoint: Post a Receipt Image
+### Image-Only Receipts
+
+|Endpoint|Response Format|Request Summary|
+|---|---|---|
+|[POST /v4/users/:userId/images](#endpoint-post-an-image-only-receipt)|N/A|Post a receipt image|
+|[GET /v4/users/:userId/images](#endpoint-get-image-only-receipts-by-userid)|JSON|Get a user's receipt images|
+|[GET /v4/images/:receiptId](#endpoint-get-an-image-only-receipt-by-id)|JSON|Get an receipt image by ID|
+
+##### Endpoint: Post an Image-Only Receipt
 
 ###### _POST /v4/users/:userId/images_
 
@@ -546,7 +554,7 @@ Connection: keep-alive
 
 [Back to Top](#endpoints)
 
-##### Endpoint: Get Receipt Images By UserId
+##### Endpoint: Get Image-Only Receipts By UserId
 
 ###### _GET /v4/users/:userId/images_
 
@@ -594,9 +602,9 @@ Connection: keep-alive
 
 [Back to Top](#endpoints)
 
-##### Endpoint: Get a Receipt Image by ID
+##### Endpoint: Get an Image-Only Receipt by ID
 
-###### _GET /v4/images/:receiptId_
+###### _GET /v4/image-only-receipts/:receiptId_
 
 |Parameter|Requirement|Value|
 |---|---|---|
@@ -633,6 +641,32 @@ Connection: keep-alive
     "imageId": "2B7095DA565D3EB9AC82B6712FCC0F79",
     "userId": "abcd123456efg"
 }
+```
+
+[Back to Top](#endpoints)
+
+##### Endpoint: Get Receipt Image (Image-Only)
+
+###### _GET /v4/image-only-receipts/:receiptId/image_
+
+|Parameter|Requirement|Value|
+|---|---|---|
+|receiptId|required|The UUID of the receipt image to be returned.|
+
+Returns the image in the same format that it was originally received by the API.
+
+_Example Requests:_
+
+cURL:
+
+```shell
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/receipts/v4/image-only-receipts/{RECEIPT ID}/image
+```
+
+HTTPie:
+
+```shell
+http https://us.api.concursolutions.com/receipts/v4/image-only-receipts/{RECEIPT ID}/image "Authorization: Bearer {YOUR ACCESS TOKEN}"
 ```
 
 [Back to Top](#endpoints)
