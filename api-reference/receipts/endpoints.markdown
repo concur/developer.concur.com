@@ -510,7 +510,7 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 
 |Endpoint|Response Format|Request Summary|
 |---|---|---|
-|[POST /v4/users/:userId/image-only-receipts](#endpoint-post-an-image-only-receipt)|N/A|Post an image-only receipts|
+|[POST /v4/users/:userId/image-only-receipts](#endpoint-post-an-image-only-receipt)|N/A|Post an image-only receipt|
 |[GET /v4/users/:userId/image-only-receipts](#endpoint-get-image-only-receipts-by-userid)|JSON|Get a user's image-only receipts|
 |[GET /v4/image-only-receipts/:receiptId](#endpoint-get-an-image-only-receipt-by-id)|JSON|Get an image-only receipt by ID|
 
