@@ -225,7 +225,7 @@ Environment | URI | Description
 US Production |`https://us.api.concursolutions.com/oauth2/v0` | Default for all API calls
 WWW-US Production | `https://www-us.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
 
-When obtaining the token, the token's geolocation will be included in the response. The token's geolocation should be stored along with the token. The Developer's app will then be able to make subsequent calls using the correct end points per GEO location.
+> **When obtaining the token, the token's geolocation will be included in the response. The token's geolocation should be stored along with the token. The Developer's app will then be able to make subsequent calls using the correct end points per GEO location.**
 
 ### Base URIs for All Other Calls
 When refreshing a token or when calling any other APIs, the token's geolocation should be used as the base URI. 
