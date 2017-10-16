@@ -61,7 +61,7 @@ https://emea.api.concursolutions.com/receipts/
 
 Once you have registered your application, read about the [API endpoints](#endpoints) below, or click the button to download a request collection for Postman.
 
-<a href="https://app.getpostman.com/run-collection/56acd8062493df1bb6de" target="_blank" onclick="ga('send', 'event', 'Postman', 'Click', 'https://app.getpostman.com/run-collection/56acd8062493df1bb6de');">
+<a href="https://app.getpostman.com/run-collection/bfe85f4a4e435a161a8a" target="_blank" onclick="ga('send', 'event', 'Postman', 'Click', 'https://app.getpostman.com/run-collection/bfe85f4a4e435a161a8a');">
   <img src="https://run.pstmn.io/button.svg" alt="Run in Postman">
 </a>
 
