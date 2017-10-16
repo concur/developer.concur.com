@@ -525,7 +525,7 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 
 - Image constraints
   - Image size must not exceed 5MB
-  - Image must be one of the supported file types: PNG, JPG/JPEG, TIFF/TIF, GIF, or PDF
+  - Image must be one of the supported file types: image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, and application/pdf
 
 Successful POST requests will receive a response of 202 Accepted. The Location header of the response contains a URL for your receipt image. Once the receipt has been processed, it can be retrieved at this URL. The Link header of the response contains a processing-status URL for your receipt image.
 
@@ -536,10 +536,10 @@ _Example Requests:_
 cURL:
 
 ```shell
-curl -vk -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN}/image-only-receipts \
+curl -v -X POST https://us.api.concursolutions.com/receipts/v4/users/{USER ID FROM YOUR ID TOKEN}/image-only-receipts \
 -H "Authorization: Bearer {YOUR ACCESS TOKEN}" \
 -H "Content-Type:multipart/form-data" \
--F "image=@{PATH TO YOUR IMAGE};type=image/{FILE TYPE OF YOUR IMAGE}"
+-F "image=@{PATH TO YOUR IMAGE};type=image/{FILE MIME TYPE OF YOUR IMAGE}"
 ```
 
 _Example Response:_
@@ -562,7 +562,7 @@ Connection: keep-alive
 |---|---|---|
 |userId|required|The UUID of the user whose receipt images will be returned.|
 
-Returns the JSON metadata of receipt images for the user ID specified in the URL. Results should be paginated in the same manner as the normal receipt endpoint.
+Returns the JSON metadata of receipt images for the user ID specified in the URL. Results should be paginated in the same manner as the eReceipt endpoint.
 
 _Example Requests:_
 
@@ -617,7 +617,7 @@ _Example Requests:_
 cURL:
 
 ```shell
-curl -vk -X GET https://us.api.concursolutions.com/receipts/v4/image-only-receipts/{RECEIPT ID} \
+curl -v -X GET https://us.api.concursolutions.com/receipts/v4/image-only-receipts/{RECEIPT ID} \
 -H "Authorization: Bearer {YOUR ACCESS TOKEN}"
 ```
 
@@ -653,7 +653,7 @@ Connection: keep-alive
 |---|---|---|
 |receiptId|required|The UUID of the receipt image to be returned.|
 
-Returns the image in the same format that it was originally received by the API.
+Returns the image in the same format that it was originally received by the API (image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, or application/pdf).
 
 _Example Requests:_
 
