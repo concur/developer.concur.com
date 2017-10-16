@@ -6,15 +6,7 @@ machine:
   node:
     version: 6.9.5
 
-general:
-  branches:
-    only:
-      - preview
-      - livesite
-
 dependencies:
-  cache_directories:
-    - tmp/.htmlproofer
   override:
     - ./build/install_aws_cli.sh
     - bundle install
@@ -26,6 +18,7 @@ test:
     - ./build/write_commit.sh
     - ./build/write_forms.sh
     - DEVCENTER_API_FORMS=https://test npm test -- --runInBand && npm run build:webpack
+    - cp -r ./_site/* $CIRCLE_ARTIFACTS
 
 deployment:
   preview:
