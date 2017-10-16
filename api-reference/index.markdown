@@ -8,7 +8,10 @@ redirect_from:
 
 # Quick Start Guide
 
-If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs.  For App Center Partners, this overview lets you know what to expect during Development, Certification, and Support: https://prezi.com/p/lw0qqy51zcmd/
+If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs.  For App Center Partners, this overview lets you know what to expect during Development, Certification, and Support: 
+
+Enterprise B2B apps: <https://prezi.com/p/lw0qqy51zcmd/>
+User apps: coming soon
 
 
 ## 1. Provision your developer sandbox  
