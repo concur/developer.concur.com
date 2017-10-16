@@ -16,9 +16,7 @@ Changes committed to the `livesite` branch can be found here: [developer.concur.
 If you are an existing Concur partner and require support assistance, please open a partner support case [here.](https://na4.salesforce.com/secur/login_portal.jsp?orgId=00D600000007Dq3&portalId=06060000000PrEi)
 
 ### Sandboxes
-Create a sandbox [here](http://preview.developer.concur.com/manage-apps/register.html).
-
-If you require assistance configuring your sandbox, please complete this [support form](http://preview.developer.concur.com/sandbox-configuration-assistance.html).
+Get more information on requesting a sandbox [here](http://developer.concur.com/manage-apps/register.html).
 
 ---
 ## Sitemap

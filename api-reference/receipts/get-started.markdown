@@ -25,7 +25,7 @@ layout: reference
 ### Version
 
 - 4.0
-- [3.0](https://developer.concur.com/api-reference-deprecated/version-three/receipts.html) [Deprecation Notice](https://developer.concur.com/changelog/2016/11/07/receipts-version-three-deprecation.html).
+- [3.0](/api-reference-deprecated/version-three/receipts.html) [Deprecation Notice](/changelog/2016/11/07/receipts-version-three-deprecation.html).
 
 #### Overview of Version 4.0
 
