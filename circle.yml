@@ -17,7 +17,7 @@ test:
     - ./build/write_branch.sh
     - ./build/write_commit.sh
     - ./build/write_forms.sh
-    - DEVCENTER_API_FORMS=https://test npm test -- --runInBand && npm run build:webpack
+    - DEVCENTER_API_FORMS=https://test npm test -- --runInBand && npm run build
     - cp -r ./_site/* $CIRCLE_ARTIFACTS
 
 deployment:
