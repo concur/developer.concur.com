@@ -17,7 +17,7 @@ layout: reference
 
 ### Overview
 
-The Receipts V4 API aims to make our service as useful as possible. In order to do so we accept three different formulae for posting a receipt:
+The Receipts V4 API accepts three different formulae for posting a receipt:
 
 1. __Receipt Data__ - Your receipt data is stored along with an automatically generated receipt image file.
 2. __Receipt Data & Receipt Image__ - Your receipt data and receipt image file are stored.
