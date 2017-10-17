@@ -60,12 +60,12 @@ Message to reserve a hotel.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *Default* | N | Boolean	|  |
-| *NoCardHolderInfoReqInd* | N | Boolean	|  |
-| *NameReqInd* | N | Boolean	|  |
-| *AddressReqInd* | N | Boolean	|  |
-| *PhoneReqInd* | N | Boolean	|  |
-| *InterbankNbrReqInd* | N | Boolean	|  |
+| *Default* | N | Boolean	| This is to indicate that the information in the model is the default (e.g. if PaymentCard information is completed then this would be considered the default if the boolean is true). |
+| *NoCardHolderInfoReqInd* | N | Boolean	| If true, no credit card holder information is required. If false, it is required.” |
+| *NameReqInd* | N | Boolean	| If true, the credit card holder name is required. If false, it is not required. |
+| *AddressReqInd* | N | Boolean	| If true, credit card holder address is required. If false, it is not required. |
+| *PhoneReqInd* | N | Boolean	| If true, credit card holder phone number is required. If false, it is not required. |
+| *InterbankNbrReqInd* | N | Boolean	| If true, the credit card interbank number is required. If false, it is not required. |
 | PaymentCard | Y | ComplexType	| see Payment Card in Availability |
 
 
