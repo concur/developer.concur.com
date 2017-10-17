@@ -20,22 +20,22 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| HotelDescriptiveInfos | Y | ComplexType	| something |
+| HotelDescriptiveInfos | Y | ComplexType	| Concur will only ever send exactly one HotelDescriptiveInfo |
 
 
 **HotelDescriptiveInfos**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| HotelDescriptiveInfo | Y | ComplexType	| something |
+| HotelDescriptiveInfo | Y | ComplexType	| Element containing the ID of one property for which Hotel Details are requested for. |
 
 
 **HotelDescriptiveInfo**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *ChainCode* | Y | StringLength1to32	| something |
-| *HotelCode* | Y | StringLength1to32	| something |
+| *ChainCode* | Y | StringLength1to8	| **is this needed?** |
+| *HotelCode* | Y | StringLength1to16	| Refer to HotelCode in the Property element of the Search message. |
 
 ---
 
@@ -54,9 +54,9 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *ChainCode* | Y | StringLength1to32	| something |
-| *HotelCode* | Y | StringLength1to32	| something |
-| *HotelName* | Y | StringLength1to32	| something |
+| *ChainCode* | Y | StringLength1to16	| something |
+| *HotelCode* | Y | StringLength1to8	| Refer to HotelCode in the Property element of the Search message. |
+| *HotelName* | Y | StringLength1to32	| Concur always expects the Hotel Name to be provided. |
 | TPA_Extensions | N | StringLength1to32	| something |
 | MultimediaDescriptions | N | StringLength1to32	| something |
 
