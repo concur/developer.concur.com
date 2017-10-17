@@ -27,19 +27,14 @@ layout: reference
 | ---- | ---- | ---- | ---- |
 | [January](AppCenter_ReleaseNotes_Jan 2017_FINAL.pdf) | [January](AppCenter_ReleaseNotes_January_2016_FINAL.pdf) | -- | -- |
 | [February](AppCenter_ReleaseNotes_Feb 2017_FINAL.pdf) | [February](AppCenter_ReleaseNotes_February 2016_DRAFT.pdf) | [February][1-10]
-| [May](AppCenter_ReleaseNotes_May 2017_DRAFT.pdf)|
-| [July](AppCenter_ReleaseNotes_July 2017_FINAL.pdf)|
-| [August](AppCenter_ReleaseNotes_August 2017_DRAFT.pdf)|
-| [September](AppCenter_ReleaseNotes_September 2017_DRAFT.docx)|
-| [October](AppCenter_ReleaseNotes_October 2017_DRAFT.pdf)|
 | -- | [March](AppCenter_ReleaseNotes_March 2016_FINAL.pdf) | [March][1-11] | -- |
 | -- | -- | [April][1-12] | -- |
-| -- | [May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf) | [May][1-13] | [May](App_Center_Release_Notes_client_final_May2014.pdf) |
+| [May](AppCenter_ReleaseNotes_May 2017_DRAFT.pdf)| [May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf) | [May][1-13] | [May](App_Center_Release_Notes_client_final_May2014.pdf) |
 | -- | [June](AppCenter_ReleaseNotes_June 2016_FINAL.pdf) | -- | [June][1-2] |
-| -- | [July](AppCenter_ReleaseNotes_July 2016_FINAL.pdf) | [July](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July][1-3] |
-| -- | [August](AppCenter_ReleaseNotes_August 2016_FINAL.pdf) | -- | [August][1-4] |
-| -- | [September](AppCenter_ReleaseNotes_Sept 2016_FINAL.pdf) | [September](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September][1-5] |
-| -- | [October](AppCenter_ReleaseNotes_Oct 2016_FINAL.pdf) | [October](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October][1-6] |
+| [July](AppCenter_ReleaseNotes_July 2017_FINAL.pdf) | [July](AppCenter_ReleaseNotes_July 2016_FINAL.pdf) | [July](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July][1-3] |
+| [August](AppCenter_ReleaseNotes_August 2017_DRAFT.pdf) | [August](AppCenter_ReleaseNotes_August 2016_FINAL.pdf) | -- | [August][1-4] |
+| [September](AppCenter_ReleaseNotes_September 2017_DRAFT.docx) | [September](AppCenter_ReleaseNotes_Sept 2016_FINAL.pdf) | [September](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September][1-5] |
+| [October](AppCenter_ReleaseNotes_October 2017_DRAFT.pdf) | [October](AppCenter_ReleaseNotes_Oct 2016_FINAL.pdf) | [October](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October][1-6] |
 | -- | [November](AppCenter_ReleaseNotes_Nov 2016_FINAL.pdf) | -- | [November][1-7] |
 | -- | [December](AppCenter_ReleaseNotes_Dec 2016_FINAL.pdf) | [December](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December][1-8] |
 
