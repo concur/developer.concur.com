@@ -41,4 +41,4 @@ Message used to indicate to the hotel supplier that a given reservation should b
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | *Status* | Y | String	| Set to "Cancelled" or "Unsuccessful" |
-| UniqueID | Y | String	| See Unique ID above. Concur expects two UniqueIDs to be returned in the response.  The first with an Type of 14 containing the original reservation number and the second type of 15 containing a confirmation number.  Both elements are mandatory. |
+| UniqueID | Y | String	| See Unique ID above. Concur expects two UniqueIDs to be returned in the response.  The first with an Type of "14" containing the original reservation number and the second type of "15" containing a confirmation number.  Both elements are mandatory. |
