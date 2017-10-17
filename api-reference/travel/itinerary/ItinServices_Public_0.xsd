@@ -114,7 +114,17 @@ Use of xs:choice will hide repeated elements during XML validation
   <xs:complexType name="BookingType">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
 	<xs:element name="BookingOwner" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />
-	<xs:element name="BookingReferrer" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	<xs:element name="BookingReferrer" nillable="true" minOccurs="0" maxOccurs="1" >
+	  <xs:simpleType>
+	    <xs:restriction base="xs:string">
+		<xs:enumeration value="Concur Travel"/>
+		<xs:enumeration value="Hipmunk"/>
+		<xs:enumeration value="Sign-in with Concur"/>
+		<xs:enumeration value="Supplier Mobile"/>
+		<xs:enumeration value="Supplier Web"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	</xs:element>
 	<xs:element name="BookingSource" nillable="true" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
