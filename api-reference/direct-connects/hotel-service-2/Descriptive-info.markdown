@@ -54,11 +54,11 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *ChainCode* | Y | StringLength1to16	| something |
+| *ChainCode* | Y | StringLength1to16	| **still finding out if this is needed** |
 | *HotelCode* | Y | StringLength1to8	| Refer to HotelCode in the Property element of the Search message. |
 | *HotelName* | Y | StringLength1to32	| Concur always expects the Hotel Name to be provided. |
-| TPA_Extensions | N | StringLength1to32	| something |
-| MultimediaDescriptions | N | StringLength1to32	| something |
+| TPA_Extensions | N | StringLength1to32	| TPA Extensions. |
+| MultimediaDescriptions | N | StringLength1to32	| Concur only expects one MultimediaDescription element. |
 
 **TPA_Extensions**
 
@@ -86,7 +86,7 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| ImageItems | N | ComplexType	| Holds a list of ImageItems each representing a single hotel image. |
+| ImageItems | N | ComplexType | Holds a list of ImageItems each representing a single hotel image. |
 
 
 **ImageItems**
