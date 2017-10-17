@@ -28,6 +28,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.EnvironmentPlugin(['DEVCENTER_API_FORMS', 'DEVCENTER_API_ORCHESTRATION'])
+    new webpack.EnvironmentPlugin(['DEVCENTER_API_FORMS'])
   ]
 }
