@@ -40,45 +40,43 @@ Here is a sample company response.
 
 ````json
 {
-  "id": "d64d0d01-3725-45d9-94cf-2d9f954f29af",
-  "schemas": [
-    "com:concur:Travel:0.1",
-    "com:concur:Expense:0.1"
-  ],
-  "internetDomain": "-58dd6b19.com",  
-  "companyDomain": "-58dd6b19.com",
-  "entityId": "t0235460teqt",
-  "defaultLanguage": "en-us",
-  "companyId": 95255,
-  "name": "test company",
-  "meta": {
-    "principalType": "company"
-  },
-  "addresses": [
-    {
-      "formatted": "\n   nil\nUS",
-      "streetAddress": "",
-      "locality": "",
-      "region": "",
-      "country": "US",
-      "postalCode": null
+    "id": "59c5bfd1-1803-4ca8-b43a-df083a5c60f9",
+    "schemas": [
+        "com:concur:Travel:0.1",
+        "com:concur:Expense:0.1"
+    ],
+    "internetDomain": "lqy3corexp.com",
+    "companyDomain": "lqy3corexp.com",
+    "name": "lqy3corexp",
+    "defaultLanguage": "en-us",
+    "meta": {
+        "principalType": "company"
+    },
+    "com:concur:Expense:0.1": {
+        "offeringCode": "CES",
+        "marketingName": "CTE"
+    },
+    "addresses": [
+        {
+            "formatted": "\n   nil\nUS",
+            "streetAddress": "",
+            "locality": "",
+            "region": "",
+            "country": "US",
+            "postalCode": null
+        }
+    ],
+    "com:concur:Travel:0.1": {
+        "active": 1,
+        "offeringCode": "PROFESSIONAL",
+        "isVendor": false,
+        "isBillable": true,
+        "contact": {
+            "name": "Administrator Name",
+            "phone": "123-123-1234",
+            "emailAddress": null
+        }
     }
-  ],
-  "com:concur:Travel:0.1": {
-    "active": 1,
-    "offeringCode": "STANDARD",
-    "isVendor": false,
-    "isBillable": true,
-    "contact": {
-      "name": "test contact",
-      "phone": "",
-      "emailAddress": null
-    }
-  },
-  "com:concur:Expense:0.1": {
-    "offeringCode": "DIRECT-BREEZE+",
-    "marketingName": "Standard Edition"
-  }
 }
 ````
 
