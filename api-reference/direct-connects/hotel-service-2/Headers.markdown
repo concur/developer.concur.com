@@ -45,11 +45,11 @@ Header: (http.Header) (len=4) {
 	(string) (len=10) "Soapaction": ([]string) (len=1 cap=1) {
 	(string) (len=6) "search"
 	},
- (string) (len=6) "Accept": ([]string) (len=1 cap=1) {
- (string) (len=15) "application/xml"
+  (string) (len=6) "Accept": ([]string) (len=1 cap=1) {
+  (string) (len=15) "application/xml"
 	},
- (string) (len=14) "Accept-Charset": ([]string) (len=1 cap=1) {
- (string) (len=5) "utf-8"
+  (string) (len=14) "Accept-Charset": ([]string) (len=1 cap=1) {
+  (string) (len=5) "utf-8"
 	}
 }
 ```
