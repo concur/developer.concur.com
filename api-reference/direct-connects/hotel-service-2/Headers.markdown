@@ -18,6 +18,8 @@ Concur will send the following HTTP headers in every request.  The contents of t
 | Authorization | string | A Base64 encoded string in the form of 'Basic <username:password>' |
 | Soapaction | string | The message type e.g search.  The action will always be sent in lowercase |
 | Content-Type | string | All communication with the HS2 API is by way of a "application/xml" content type |
+| Accept | string | Concir will always set the Accept header to "application/xml". |
+| Accept-Charset | string | Concur will always set the Accept-Charset header to "utf-8". |
 
 Supported Soapactions:
 
@@ -42,6 +44,12 @@ Header: (http.Header) (len=4) {
 	},
 	(string) (len=10) "Soapaction": ([]string) (len=1 cap=1) {
 	(string) (len=6) "search"
+	},
+  (string) (len=6) "Accept": ([]string) (len=1 cap=1) {
+	(string) (len=15) "application/xml"
+	},
+  (string) (len=14) "Accept-Charset": ([]string) (len=1 cap=1) {
+	(string) (len=5) "utf-8"
 	}
 }
 ```
