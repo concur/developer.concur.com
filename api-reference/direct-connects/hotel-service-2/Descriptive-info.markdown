@@ -34,7 +34,7 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *ChainCode* | Y | StringLength1to8	| **is this needed?** |
+| *ChainCode* | N | StringLength1to8	| Optional element referencing the Hotel Chain Code. |
 | *HotelCode* | Y | StringLength1to16	| Refer to HotelCode in the Property element of the Search message. |
 
 ---
