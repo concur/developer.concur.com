@@ -64,15 +64,15 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Description | N | ComplexType	| something |
+| Description | N | ComplexType	| Represents text which will be rendred in the UI in the form of a heading and a paragraph |
 
 
 **Description**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *name* | Y | StringLength1to32	| something |
-| Text | Y | StringLength1to32	| At least one Text element must be present |
+| *name* | Y | StringLength1to32	| The contents of this element will be rendered as a heading on the Hotel Details page. |
+| Text | Y | StringLength1to255	| The contents of this element will be rendered as a paragraph.  Concur expects up to a maximum of 20 Text elements per Description, which will be concatenated to into one paragraph. |
 
 
 **MultimediaDescriptions**
@@ -86,7 +86,7 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| ImageItems | N | ComplexType | Holds a list of ImageItems each representing a single hotel image. |
+| ImageItems | N | ComplexType | Holds a list of ImageItems each representing a single hotel image.  Concur expects up to a maximum of 200 ImageItem elements. |
 
 
 **ImageItems**
@@ -100,12 +100,12 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| ImageFormat | N | ComplexType	| something |
+| ImageFormat | N | ComplexType	| ImageFormat |
 
 
 **ImageFormat**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| URL | Y | StringLength1to32	| Contains a URl pointing to a hotel image. The supported image format is JPG.  |
+| URL | Y | StringLength1to32	| Contains a URL pointing to a hotel image. The URLs are used in a client-side gallery widget, which works best with .png and .jpg files. |
 
