@@ -92,7 +92,6 @@ xmlns="http://www.opentravel.org/OTA/2003/05"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
 xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 ../Schemas/OTA_HotelAvailRQ.xsd"
 
-
 xmlns probably yes.  the rest?
 
 
