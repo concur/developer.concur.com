@@ -47,14 +47,13 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| HotelDescriptiveContent | Y | ComplexType	| something |
+| HotelDescriptiveContent | Y | ComplexType	| Contains Hote Details content which is made up of text and image URLs |
 
 
 **HotelDescriptiveContent**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *ChainCode* | Y | StringLength1to16	| **still finding out if this is needed** |
 | *HotelCode* | Y | StringLength1to8	| Refer to HotelCode in the Property element of the Search message. |
 | *HotelName* | Y | StringLength1to32	| Concur always expects the Hotel Name to be provided. |
 | TPA_Extensions | N | StringLength1to32	| TPA Extensions. |
