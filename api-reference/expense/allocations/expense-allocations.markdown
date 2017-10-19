@@ -1,7 +1,6 @@
 ---
 title: Allocations
 layout: reference
-reference-type: swagger
 ---
 
 # Allocations
