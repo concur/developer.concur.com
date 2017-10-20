@@ -68,32 +68,20 @@ Here is a sample company response.
     ],
     "com:concur:Travel:0.1": {
         "active": 1,
-        "offeringCode": "PROFESSIONAL",
+        "offeringCode": "STANDARD",
         "isVendor": false,
         "isBillable": true,
         "contact": {
-            "name": "Administrator Name",
-            "phone": "123-123-1234",
+            "name": "test contact",
+            "phone": "",
             "emailAddress": null
         }
+    },
+    "com:concur:Expense:0.1": {
+        "offeringCode": "DIRECT-BREEZE+",
+        "marketingName": "Standard Edition",
+        "_comment": "If marketingName is 'CTE', then the client is using 'Professional Edition'"
     }
-  ],
-  "com:concur:Travel:0.1": {
-    "active": 1,
-    "offeringCode": "STANDARD",
-    "isVendor": false,
-    "isBillable": true,
-    "contact": {
-      "name": "test contact",
-      "phone": "",
-      "emailAddress": null
-    }
-  },
-  "com:concur:Expense:0.1": {
-    "offeringCode": "DIRECT-BREEZE+",
-    "marketingName": "Standard Edition"  
-    "_comment": "If marketingName is 'CTE', then the client is using 'Professional Edition'
-  }
 }
 ````
 
