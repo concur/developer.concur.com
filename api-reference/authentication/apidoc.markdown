@@ -41,7 +41,7 @@ Name | Type | Format | Description
 `token_type`|`string`|-| The type of token returned. Value will be `Bearer`
 `access_token`|`string`|-|Token used to access pprotected resources of Concur's services.
 `refresh_token`|`string`|-|Refresh token required to request a new access token for a given user.
-`geolocation`|`string`|-|The base URL for where the user profile lives. See (#base_uri) for usage.
+`geolocation`|`string`|-|The base URL for where the user profile lives. See [base URI](#base_uri) for usage.
 `id_token`|`string`|-|The OCID Token in the JSON Web Token (JWT) format that describes the user or company
 
 **Token Response**
@@ -201,14 +201,62 @@ e013335d-b4ce-4c43-a7e4-b67abc1adcb0
 
 It is highly recommended that you store Refresh Tokens together with your user's authorization metadata in your application every time you obtain a new `refreshToken` as they might change depending on different scenarios.
 
+FOR APP CENTER AND SUPPLIER PARTNERS supporting all geolocations, storing the authorization metadata, including the geolocation are REQUIRED.
+
 ## <a name="base_uri"></a>Base URIs
 
-When making API calls, the appropriate base URI for the user's geolocation should be used. The following are the available base URIs:
+When making API calls, the appropriate base URI should be used. There are three different scenarios:
+1. Obtaining a token for a user
+2. Refreshing a token 
+3. Calling other APIs 
 
-Environment | URI
------|------
-US Production |`https://us.api.concursolutions.com/oauth2/v0`
-EU Production |`https://emea.api.concursolutions.com/oauth2/v0`
+The Base URI for obtaining a token will leverage your application's geolocation.  The Base URI for refreshing tokens and all other API calls will leverage the token's geolocation.
+
+### <a name="base_uri_obtain_token"></a>Base URIs for Obtaining a Token 
+When your application is created, you will be provided with a client ID, secret and geolocation. When obtaining a token, your application should use the base URI for the geolocation in which your application exists. 
+
+There are two endpoints for each geolocation - one is the default (used for server-side calls) and the other should be used for client-side calls.
+
+For example:
+For geolocation of https://us.api.concursolutions.com, the following endpoints are available:
+
+Environment | URI | Description
+-----|------|------
+US Production |`https://us.api.concursolutions.com/oauth2/v0` | Default for all API calls
+WWW-US Production | `https://www-us.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
+
+> **When obtaining the token, the token's geolocation will be included in the response. The token's geolocation should be stored along with the token. The Developer's app will then be able to make subsequent calls using the token and the correct end points based on the token's GEO location.**
+
+### Base URIs for All Other Calls
+When refreshing a token or when calling any other APIs, the token's geolocation should be used as the base URI. 
+
+**Note:** Client-side calls should use the www- variant of the base URI.
+
+For example: 
+When obtaining a token, if the response was the below:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Date: date-requested
+Content-Length: 3397
+Connection: Close
+```
+
+```json
+{
+  "expires_in": "3600",
+  "scope": "app-scopes",
+  "token_type": "Bearer",
+  "access_token": "access_token",
+  "refresh_token": "refresh_token",
+  "id_token": "ocid_token",
+  "geolocation": "https://us.api.concursolutions.com"
+}
+```
+
+When then calling the receipts API to post a receipt, your request should be made to https://us.api.concursolutions.com (if server side) or https://www-us.api.concursolutions.com (for clients).
+
 
 ## <a name="id_token"></a>ID Token
 
@@ -234,6 +282,8 @@ Authentication service will return an [OPENID](http://openid.net) compatible [ID
 ### Verifying an id_token
 The Authentication service exposes [JWKs](https://tools.ietf.org/html/rfc7517) that can be used to validate the id_token in the form of a JWT. Validating a JWT is described in detail in [RFC 7519 - sec 7.2](https://tools.ietf.org/html/rfc7519#section-7.2)
 
+This is the link to Concur's JSON Web Key for Oauth2. [https://www-us.api.concursolutions.com/oauth2/v0/jwks](https://www-us.api.concursolutions.com/oauth2/v0/jwks)
+
 ## <a name="auth_grant"></a>Authorization grant
 
 The authorization grant is the regular 3-legged oauth2 grant and is defined in detail in [RFC6749 sec-4.1](https://tools.ietf.org/html/rfc6749#section-4.1). This grant requires the user to explicitly authenticate themselves and authorise the application initiating the grant.
@@ -245,9 +295,6 @@ The users *must be* able to authenticate themselves via a Concur username & pass
 * non-Concur Applications - & -
 * Applications that need explicit user authentication & authorization - & -
 * Applications that can securely store a code, access_token & refresh_token
-
-**Authorization Grant Sequence Diagram**
-![wsd](/api-reference/authentication/authorization_grant_diagram.png)
 
 
 **Grant details**
@@ -262,19 +309,17 @@ Name | Type | Format | Description
   `response_type`|`string` | | `code`
   `state`|`string` | |
 
+With this grant, the user has two authentication options:
+1. Username and password
+2. One-time link using a verified email address
 
-`POST /oauth2/v0/verify_creds`
+With both options, once the user is successfully authenticated and the user authorizes your application, the user will be redirected to the redirect_URI specified in the initial /authorize call with a temporary token appended.
 
-Name | Type | Format | Description
------|------| ------ | -----------
-`loginid` | `string` | | LoginId of the user
-`password` | `string` | | User's password
+`<redirect_uri>?cc=<token>`
 
-`POST /oauth2/v0/authorize_client`
+*If the user is not successfully authenticated or does not authorize the scopes for your application, an error code and description will be appended to the redirect URI. Please refer to the [Response Codes](#response_codes) section for more information.*
 
-Name | Type | Format | Description
------|------| ------ | -----------
-`allow` | `string` | |
+Your application must then exchange the temporary token for a long-lived token using the below.
 
 `POST /oauth2/v0/token`
 
@@ -286,6 +331,10 @@ Name | Type | Format | Description
 `code`|`string`| `UUID`  | The authorization code provided by Auth
 `grant_type`|`string` | | `authorization_code`
 
+
+**NOTE**
+
+Because of certificate issues with browser requests through Authorization Grant, callers should use the https://www-us.api.concursolutions.com base URI instead.
 
 ## <a name="password_grant"></a>Password grant
 
@@ -565,6 +614,15 @@ Connection: keep-alive
   "geolocation": <geolocation url where user lives>
 }
 ```
+##### /authorize
+
+If the authorization or authentication are unsuccessful, your application will receive an error code and description at the redirect_uri provided. 
+
+```Your_Redirect_Uri?
+ error_code=<>
+ &error_description=<>
+ ```
+In all cases, the friendly error description should be displayed to the user.
 
 ##### /token
 

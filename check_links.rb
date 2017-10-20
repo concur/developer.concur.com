@@ -14,14 +14,15 @@ urls_to_ignore = [
   /^https:\/\/www.concursolutions.com\/api/,
   /^https:\/\/jekyllrb.com/,
   /^https:\/\/concur.webex.com/,
+  /^https:\/\/tools.ietf.org/,
   'https://speakerdeck.com/statik/complianceops-containers-in-regulated-environments',
   'https://github.com/concur/developer.concur.com/commit/0',
   'https://www.linkedin.com/company/5822',
   'https://www.tcconline.com/listNumbersByCode.action?confCode=3608516019',
-  'https://tools.ietf.org/html/rfc7519#section-7.2',
-  'https://tools.ietf.org/html/rfc6749#section-4.1',
-  'https://tools.ietf.org/html/rfc7517',
-  'https://open.concur.com'
+  'https://open.concur.com',
+  'http://fortawesome.github.com/Font-Awesome',
+  'http://matoilic.github.com/jquery.placeholder',
+  'http://runnable.com/UtWlKVi9ZnsnAABx/upload-receipts-to-concur-using-php-curl'
 ]
 
 options = {

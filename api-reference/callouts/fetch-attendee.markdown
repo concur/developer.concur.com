@@ -13,8 +13,7 @@ This callout differs from the standard Concur web services in the following ways
 * It uses an **outbound message** where Expense calls a public facing API endpoint provided by the application connector.  
 Refer to **Callouts >** [Core Concepts][1] for more information.
 * The client or third-party developers can configure and maintain the public web service interface (the application connector), or the connector can be maintained by Concur. This documentation specifies the request and response format required by Concur.
-* Concur provides a sample connector application that the client can install on their network and customize to interface with their system of record for attendees. Concur can also customize the connector.
-* (Optional- Professional/Premium only) The client can choose to create their own application connector using a different language, such as PHP, if preferred.
+* Clients can either choose to create their own application connector using PHP, Java, .NET etc or can use one of Concur Partner's Attendee Fetch applications.
 * The client Expense Administrator must select the attendee types that will use this functionality during application connector registration. Once the attendee types are selected, they will be automatically configured to not allow users to create new attendees manually.
 
 ### Works With These Concur Products

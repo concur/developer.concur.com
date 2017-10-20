@@ -8,13 +8,16 @@ redirect_from:
 
 # Quick Start Guide
 
-If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs:
+If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs.  For App Center Partners, this overview lets you know what to expect during Development, Certification, and Support: 
+
+Enterprise B2B apps: <https://prezi.com/p/lw0qqy51zcmd/>
+User apps: coming soon
 
 
 ## 1. Provision your developer sandbox  
 
 
-Create a sandbox using our [Sandbox Setup Wizard][1].  
+Request a sandbox to be created. There are different teams involved depending on the type of Developer:  [Sandbox Setup scenarios][1].  
 
 
 ## 2. Make your first API call  

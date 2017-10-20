@@ -2,11 +2,11 @@
 title: Expense - Professional Edition & Standard Edition
 layout: reference
 ---
-## ERP Integration
+## ERP Integration - This Guide is applicable to both Expense and Invoice ERP Integrations. All App Center ERP Partners must be able to support both Expense and Invoice for both product lines: Standard Edition and Professional Edition.
 
-This API Recipe describes API tasks associated with ERP Financial Integration. This App is intended for financial integration companies or finance leaders who want to streamline the processes once Expense Reports in Concur have been final-approved and are ready to be integrated into the client's financial system.
+This API Recipe describes API tasks associated with ERP Financial Integration. This App is intended for financial integration companies or finance leaders who want to streamline the processes once Expense Reports (or Invoice Payment Requests) in Concur have been final-approved and are ready to be integrated into the client's financial system.
 
-Before a partner can obtain expense report data from Concur, ensure that you have completed the following:
+Before a partner can obtain expense report or invoice data from Concur, ensure that you have completed the following:
 
 - Ensure your app has been certified by Concur
 - Ensure your organization has obtained a signed letter of Agreement from a client stating that you can obtain that client’s expense report data using the extract file created by Concur’s service
@@ -15,11 +15,11 @@ Before a partner can obtain expense report data from Concur, ensure that you hav
 - Ensure your app includes the ability to respond appropriately to [revoked token messages](/api-reference/authentication/apidoc.html#revoke_token)
 
 #### Professional Edition ERP Integration
-Professional Edition ERP Integration assumes that you are working for or on behalf of a Financial Integration Company. The client we support in common may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Contact Concur to request the CTE Extract Example Cases document. Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document.  contact = pdspe@concur.com
+Professional Edition ERP Integration assumes that you are working for or on behalf of a Financial Integration Company. The client we support in common may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Click this link and locate the "SAE Detailed Discussions" at the bottom of the page to review this important information: http://www.concurtraining.com/prdeployment/sts. Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document's videos.
 
 
 #### Standard Edition vs. Professional Edition
-Consult with your client so they can inform you if they are using Standard or Professional Edition of the Concur Service.  Both editions produce extract files that you will use as part of the integration, however, there are distinct differences between them in obtaining the extract files.  If the client is unsure of the Edition-type, Standard Edition will have a "Setup" menu option within the Administration menu as displayed to an administrative user.  Professional Edition will not have a "Setup" menu within the Administration menu.
+Consult with your client so they can inform you if they are using Standard or Professional Edition of the Concur Service.  Both editions produce extract files that you will use as part of the integration, however, there are distinct differences between them in obtaining the extract files.  If the client is unsure of the Edition-type, Standard Edition will have a "Setup" menu option within the Administration menu as displayed to an administrative user.  Professional Edition will not have a "Setup" menu within the Administration menu.  There is also a Company Info API that you can include in your app that will allow you to determine the Edition Type from the response.  This API's response also includes the entity code corresponding to the Concur customer. Store this value so you can include it for faster Support case resolution.
 
 ##### Get Extract Files for your client
 
@@ -31,7 +31,7 @@ Professional Edition:
 
 1.  Obtain a list extract definitions for your client. Keep in mind that the authorization header with the OAuth token must be for a valid user. The OAuth consumer must have one the following role in Concur: Web services Administrator for Professional ERP Integration.
 
-    Your GET request looks like the example:
+    Your GET request looks like the example for the Expense extract (ensure you also develop support for the Concur Invoice extract):
 
     ```http
     GET https://www.concursolutions.com/api/expense/extract/v1.0/ HTTP/1.1

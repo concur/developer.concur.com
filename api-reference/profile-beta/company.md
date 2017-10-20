@@ -77,6 +77,23 @@ Here is a sample company response.
             "emailAddress": null
         }
     }
+  ],
+  "com:concur:Travel:0.1": {
+    "active": 1,
+    "offeringCode": "STANDARD",
+    "isVendor": false,
+    "isBillable": true,
+    "contact": {
+      "name": "test contact",
+      "phone": "",
+      "emailAddress": null
+    }
+  },
+  "com:concur:Expense:0.1": {
+    "offeringCode": "DIRECT-BREEZE+",
+    "marketingName": "Standard Edition"  
+    "_comment": "If marketingName is 'CTE', then the client is using 'Professional Edition'
+  }
 }
 ````
 

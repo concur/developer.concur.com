@@ -5,9 +5,17 @@ redirect_from: /api-reference/expense/receipts/
 ---
 
 
-# Receipts (DEPRECATED 02/07/2017)
+# Receipts
 
-Please use [4.0](/api-reference/receipts/get-started.html) for any new development and apps.
+{% capture deprecation_content %}
+* POST `/common/receipts`
+
+<br>
+
+Going forward, please use the [v4 Receipts](/api-reference/receipts/get-started.html) for any new development and apps.
+{% endcapture %}
+
+{% include deprecation-alert.html deprecation_date="02/07/2017" unsupported_date="08/07/2017" content=deprecation_content %}
 
 The Receipts resource represents receipts that can be posted to Concur by a provider company on behalf of opted-in users. This resource currently supports three types of receipts:
 
@@ -22,18 +30,19 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 * The Receipt Service only accepts receipts that are up to 6 months old. Older receipts will not be accepted.
 * Unlike all the other Concur API endpoints, the e-receipt requires the Concur Platform team to configure your sandbox to enable access. You can request assistance via our Concur [forums](https://forum.developer.concur.com/c/sandbox)
 
+### Operations
 
 * [Create a new receipt](#post)
 * [Schema](#schema)
 
 ### Version
-3.0 will be deprecated on February 7, 2016. Receipts version 3.0 will be officially deprecated as per our policy on Februrary 7, 2017. The API can still be used **by existing applications** after deprecation, but will no longer be supported six months after deprecation date, which would be August 7, 2017.  
+3.0 will be deprecated on February 7, 2017. Receipts version 3.0 will be officially deprecated as per our policy on Februrary 7, 2017. The API can still be used **by existing applications** after deprecation, but will no longer be supported six months after deprecation date, which would be August 7, 2017.  
 
 Please use [4.0](/api-reference/receipts/get-started.html) for any new development and apps.  
 
 ## <a name="post"></a>Create a new receipt
 
-    POST  /api/v3.0/common/receipts
+    POST /api/v3.0/common/receipts
 
 
 ### Parameters
