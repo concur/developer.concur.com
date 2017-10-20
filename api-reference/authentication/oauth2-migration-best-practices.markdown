@@ -73,6 +73,6 @@ layout: reference
     - for a full list, review this doc: https://developer.concur.com/api-reference/authentication/apidoc.html#response_codes
 
 ### 4. Old auth v.s. new auth diagram
-![old v.s. new](https://raw.githubusercontent.com/concur/developer.concur.com/preview/api-reference/authentication/newAndOldAuthComparison.png)
+![old v.s. new](https://raw.githubusercontent.com/zenan-angus-wang/developer.concur.com/preview/api-reference/authentication/oldNewAuthComparion.png)
 
 
