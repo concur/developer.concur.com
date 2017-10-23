@@ -5,20 +5,22 @@ layout: reference
 
 # Oauth2 Migration Best Practices
 
-## 1.Old World Authentication
+## Old World Authentication
 
   - The old world authentication is a hybrid oauth2 implementation which has an endpoint that looks like this `/net2/oauth2/`
   - Client applications are identified by a `ConsumerKey` and `Secret` pair. Sometimes this are referred to as `client_id` and `client_secret`.
   - Access Tokens in the old world have a 12 months expiry period and refresh tokens live forever. This is typically not a good security practice and goes against the Oauth2 standards.
   - Tokens that are being used by clients today are issued for WSADMINs, meaning all tokens have administrative access.
+
+## New World Authentication
     
-### 2. Oauth2
+### 1. Oauth2
   - Concur's new Oauth2 implementation follows the established Oauth2 Authorization Framework RFC : https://tools.ietf.org/html/rfc6749
   - This new service has an endpoint of `/oauth2/v0/token`
   - Unlike the old world auth, access tokens have a 1 hour expiry and refresh tokens have a 6 months expiry. This is in accordance to the best practice of using short lived tokens. 
   - This would mean that clients would need to perform token management.
     
-### 3. Getting Started
+### 2. Getting Started
   - Getting clientID / clientSecret
     - Work with Concur's implementation team to obtain a new oauth2 `client_id` and `client_secret` and to define the scope of client's application. 
     - Process will take no longer than 48 hours.
@@ -28,7 +30,7 @@ layout: reference
     - `Refresh Token`: This token can change although most of the time this value is the same. Client applications should treat all returned refresh tokens are new values and overwrite the stored  you get it from the response.
     - `Refresh Token Expiry`: This date should be checked by a daily script and ensure that a refresh_grant is made to keep the refresh token alive indefinitely. If company policy dictates that the token should be allowed to expire, then you can skip this step. Once a refresh token has expired, clients would need to contact Concur's Implementation team to get a new company token.
         
-### 4. Token Management
+### 3. Token Management
   - Calling APIs with `accessTokens`
     - All APIs within Concur require the calling application present an `accessToken` in the Header using the "Bearer" keyword.
     - Example:
@@ -51,12 +53,15 @@ layout: reference
         - Retry the API call. 
       
     - More details about refreshing tokens here: https://developer.concur.com/api-reference/authentication/apidoc.html#refresh_token
-    
+
   - Handling errors
     - There are a few error codes that client applications should be aware of.
     - `403 Forbidden`: Requesting for tokens for users who cannot be requested for. Usually for companies that are not authorized by their administrators.
     - The bulk of errors will be returned as 400 errors and the response contains a `code` and `description`. Client applications should look for these values to determine what to do next.
-            
+
+
+
+
     | Code | Desc               | Comment  |
     |------|--------------------|----------|
     |  05  | Incorrect credentials. | clientID / secret not correct, or authtoken/password not correct |
@@ -66,3 +71,8 @@ layout: reference
     |  54  | Invalid Scope | requested scope exceeds what is permitted. |
 
     - for a full list, review this doc: https://developer.concur.com/api-reference/authentication/apidoc.html#response_codes
+
+### 4. Old auth v.s. new auth diagram
+![old v.s. new](./oldNewAuthComparion.png)
+
+

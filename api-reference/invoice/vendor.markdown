@@ -301,6 +301,7 @@ Name | Type | Format | Description
 `VendorCode`|`string`|-|**Required** The vendor code of the request.
 
 ### <a name="vendorgroups"></a>Vendor Group Input/Response Schema
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `Items`|`array`|[`VendorGroup`](#VendorGroup)|The result collection.
@@ -310,6 +311,7 @@ Name | Type | Format | Description
 `VendorGroup`|`array`|[`VendorGroup`](#VendorGroup)|**Required** Vendor Group List
 
 ### <a name="VendorGroup"></a>VendorGroup
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `ID`|`string`|-|The unique identifier of the resource.
