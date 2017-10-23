@@ -47,8 +47,12 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| HotelDescriptiveContent | Y | ComplexType	| Contains Hote Details content which is made up of text and image URLs |
+| HotelDescriptiveContents | Y | ComplexType	| Contains Hote Details content which is made up of text and image URLs |
 
+**HotelDescriptiveContents**
+|  Element |	Required | Data Type 	|  Description |
+|----------|-----------|---------------------------|-|
+| HotelDescriptiveContent | Y | ComplexType	| Contains Hote Details content which is made up of text and image URLs Concur only expects one HotelDescriptiveContent |
 
 **HotelDescriptiveContent**
 
