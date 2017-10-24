@@ -8,9 +8,12 @@ layout: reference
 
 Errors
 
+
+
 Concur is able to handle HTTP errors, but the preference is for the supplier to return an OTA error whenever possible.  Concur only ever expects one OTA error per message.  Any extra errors will be ignored. 
 Currently OTA Warnings are not supported and will be ignored. 
 
+If the error is specifically related to application level errors, please do not respond any other error types (HTTP etc.). If you have server level issues, then it is OK to respond with HTTP standard error codes.
 
 Errors should always be returned in a response. For example:
 
@@ -30,4 +33,65 @@ Errors should always be returned in a response. For example:
 	</soap:Body>
 </soap:Envelope>
 ```
+
+If an error is present in any message, then the content of that message is disguarded and only the error element is processed. 
+
+**How many errors do we actual handle now?**
+
+Concur expects the following Error Codes in any of the responses: Any codes outside of this specified list will be treated as **some generic code**, which is not guranteed to be monitored. 
+
+
+Concur will process error codes automatically to create error messages for users.
+ShortText information should be used to provide more details for debugging purposes.
+
+Error codes recommended for specific errors
+
+|  OTA Code |	Description | Note |
+|----------|----------------|-----------------------|
+| 188 |	Transaction error - please report | For errors not specified in other codes. Internal supplier log ID can be provided in ShortText for debugging.|
+| 240 |	Credit card has expired | |
+| 241 |	Expiration date is invalid | |
+| 242 | Credit card number is invalid or missing | |
+| 310 |	Required data missing:last name | |
+| 311 |	Required data missing:first name | |
+| 314 |	Required data missing:country of residence | |
+| 315 |	Required data missing:confirmation number | |
+| 316 |	Required data missing:phone number | |
+| 320 | Invalid value | Comma separated node or attribute and sent value should be provided in ShortText. Example: "StayDateRange:2019-11-33" |  
+| 321 | Required field missing | Comma separated node or attribute  should be provided in ShortText. Example: "HotelCode, StayDateRange" |  
+| 322 | No availability | Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555"|  
+| 351 |	Credit card guarantee not accepted at hotel |  CardType should be provided in ShortText. Example: "AmericanExpress" |
+| 365 |	Error credit card | For other than specified credit card errors, no information should be sent in ShortText. |
+| 385 |	Invalid confirmation or cancellation number | Reservation ID should be provided in ShortText. |
+| 420 |	Need e-mail address | |
+| 424 |	No hotels found which match this input |Search parameters - geocode and radius should be provided in ShortText as tokenized list: Latitude,Longitude,Radius, Unit of Meauser code. Example: "50.111,40.222,5,2" |
+| 400 | Invalid property code | List of comma separated Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555" |
+| 438 |	Requested rate not available | List of comma separated RatePlanID's should be provided in ShortText. Example: "111,222"  |
+| 748 | Invalid corporate ID | Requestor ID should be provided in ShortText. |
+
+In case of request structure not parsed by the Hotel Supplier, the Protocol violation Error should be returned, with details 
+
+```xml
+<Errors>
+    <Error Type=”7” ShortText="1111"/>
+</Errors>
+```
+
+
+
+1	Unknown	*								Indicates an unknown error.
+2	No implementation	*								Indicates that the target business system has no implementation for the intended request.
+3	Biz rule	*								Indicates that the XML message has passed a low-level validation check, but that the business rules for the request message were not met.
+4	Authentication	*								Indicates the message lacks adequate security credentials
+5	Authentication timeout	*								Indicates that the security credentials in the message have expired
+6	Authorization	*								Indicates the message lacks adequate security credentials
+7	Protocol violation	*								Indicates that a request was sent within a message exchange that does not align to the message
+8	Transaction model	*								Indicates that the target business system does not support the intended transaction-oriented operation
+9	Authentical model	*								Indicates the type of authentication requested is not recognized
+10	Required field missing	*								Indicates that an element or attribute that is required in by the schema (or required by agreement between trading partners) is missing from the message
+11	Advisory	*								
+12	Processing exception						*			Indicates that during processing of the request that a not further defined exception occurred.
+13	Application error						*			Indicates that an involved backend application returned an error or warning, which is passed back in the response message.
+
+
 
