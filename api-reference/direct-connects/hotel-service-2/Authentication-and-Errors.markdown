@@ -99,4 +99,5 @@ Any authentication errors should be returned using the HTTP 403 code.
 | 320 | Invalid value | Comma separated node or attribute and sent value should be provided in ShortText. Example: "StayDateRange:2019-11-33" |
 | 322 | No availability | Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555"|  
 | 424 |	No hotels found which match this input |Search parameters - geocode and radius should be provided in ShortText as tokenized list: Latitude,Longitude,Radius, Unit of Meauser code. Example: "50.111,40.222,5,2" |
+| 95 | Booking already cancelled | | 188 |	Transaction error - please report | For errors not specified in other codes. Internal supplier log ID can be provided in ShortText for debugging.| 
 
