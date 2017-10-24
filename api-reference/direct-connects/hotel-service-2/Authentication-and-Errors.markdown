@@ -77,21 +77,26 @@ In case of request structure not parsed by the Hotel Supplier, the Protocol viol
 </Errors>
 ```
 
-
+Error Types:
 
 1	Unknown	*								Indicates an unknown error.
+| 188 |	Transaction error - please report | For errors not specified in other codes. Internal supplier log ID can be provided in ShortText for debugging.|
+
+
 2	No implementation	*								Indicates that the target business system has no implementation for the intended request.
-3	Biz rule	*								Indicates that the XML message has passed a low-level validation check, but that the business rules for the request message were not met.
+
+
 4	Authentication	*								Indicates the message lacks adequate security credentials
-5	Authentication timeout	*								Indicates that the security credentials in the message have expired
-6	Authorization	*								Indicates the message lacks adequate security credentials
-7	Protocol violation	*								Indicates that a request was sent within a message exchange that does not align to the message
-8	Transaction model	*								Indicates that the target business system does not support the intended transaction-oriented operation
-9	Authentical model	*								Indicates the type of authentication requested is not recognized
+Any authentication errors should be returned using the HTTP 403 code.
+
+
 10	Required field missing	*								Indicates that an element or attribute that is required in by the schema (or required by agreement between trading partners) is missing from the message
-11	Advisory	*								
-12	Processing exception						*			Indicates that during processing of the request that a not further defined exception occurred.
+| 321 | Required field missing | Comma separated node or attribute  should be provided in ShortText. Example: "HotelCode, StayDateRange" |
+
+
 13	Application error						*			Indicates that an involved backend application returned an error or warning, which is passed back in the response message.
-
-
+| 242 | Credit card number is invalid or missing | |
+| 320 | Invalid value | Comma separated node or attribute and sent value should be provided in ShortText. Example: "StayDateRange:2019-11-33" |
+| 322 | No availability | Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555"|  
+| 424 |	No hotels found which match this input |Search parameters - geocode and radius should be provided in ShortText as tokenized list: Latitude,Longitude,Radius, Unit of Meauser code. Example: "50.111,40.222,5,2" |
 
