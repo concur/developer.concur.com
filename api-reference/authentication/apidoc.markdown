@@ -637,6 +637,7 @@ In all cases, the friendly error description should be displayed to the user.
 | 14   | `invalid_grant`   | Account Locked. Please contact support                 |
 | 16   | `invalid_request` | user lives elsewhere                                   |
 | 19   | `invalid_grant`   | Incorrect credentials. Please Retry                    |
+| 20   | `invalid_grant`   | Logon Denied. Please contact support (typically due to IP restriction)                    |
 | 51   | `invalid_request` | username was not supplied                              |
 | 52   | `invalid_request` | password was not supplied                              |
 | 53   | `invalid_client`  | company is not enabled for this client                 |
