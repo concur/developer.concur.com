@@ -34,48 +34,45 @@ Errors should always be returned in a response. For example:
 </soap:Envelope>
 ```
 
-If an error is present in any message, then the content of that message is disguarded and only the error element is processed. 
+If an error is present in any message, then the content of that message is disguarded and only the error element is processed. Any text from the supplier will be logged and a Concur message will be displayed to the user.  Currently Concur does not support displaying of supplier genereted errors.
 
 **How many errors do we actual handle now?**
 
-Concur expects the following Error Codes in any of the responses: Any codes outside of this specified list will be treated as **some generic code**, which is not guranteed to be monitored. 
+ 
+Any Errors without an Type attribute will automatically be treated as '1' meaning Unknown.  
+Any codes outside of this specified list will be treated as **some generic code**, which is not guranteed to be monitored. 
+
 
 
 Concur will process error codes automatically to create error messages for users.
 ShortText information should be used to provide more details for debugging purposes.
 
-Error codes recommended for specific errors
+|  Element |	Required | Data Type 	|  Description |
+|----------|-----------|---------------------------|-|
+| Errors |
 
-|  OTA Code |	Description | Note |
-|----------|----------------|-----------------------|
-| 188 |	Transaction error - please report | For errors not specified in other codes. Internal supplier log ID can be provided in ShortText for debugging.|
-| 240 |	Credit card has expired | |
-| 241 |	Expiration date is invalid | |
-| 242 | Credit card number is invalid or missing | |
-| 310 |	Required data missing:last name | |
-| 311 |	Required data missing:first name | |
-| 314 |	Required data missing:country of residence | |
-| 315 |	Required data missing:confirmation number | |
-| 316 |	Required data missing:phone number | |
-| 320 | Invalid value | Comma separated node or attribute and sent value should be provided in ShortText. Example: "StayDateRange:2019-11-33" |  
-| 321 | Required field missing | Comma separated node or attribute  should be provided in ShortText. Example: "HotelCode, StayDateRange" |  
-| 322 | No availability | Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555"|  
-| 351 |	Credit card guarantee not accepted at hotel |  CardType should be provided in ShortText. Example: "AmericanExpress" |
-| 365 |	Error credit card | For other than specified credit card errors, no information should be sent in ShortText. |
-| 385 |	Invalid confirmation or cancellation number | Reservation ID should be provided in ShortText. |
-| 420 |	Need e-mail address | |
-| 424 |	No hotels found which match this input |Search parameters - geocode and radius should be provided in ShortText as tokenized list: Latitude,Longitude,Radius, Unit of Meauser code. Example: "50.111,40.222,5,2" |
-| 400 | Invalid property code | List of comma separated Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555" |
-| 438 |	Requested rate not available | List of comma separated RatePlanID's should be provided in ShortText. Example: "111,222"  |
-| 748 | Invalid corporate ID | Requestor ID should be provided in ShortText. |
+**Errors**
 
-In case of request structure not parsed by the Hotel Supplier, the Protocol violation Error should be returned, with details 
+|  Element |	Required | Data Type 	|  Description |
+|----------|-----------|---------------------------|-|
+|Error|
+
+
+**Error**
+
+|  Element |	Required | Data Type 	|  Description |
+|----------|-----------|---------------------------|-|
+| *Type* |
+| *ShortText |
+| *Code* | 
 
 ```xml
 <Errors>
     <Error Type=”7” ShortText="1111"/>
 </Errors>
 ```
+
+Concur supports the following Error Type Codes in any of the responses.  An e
 
 Error Types:
 
@@ -106,5 +103,13 @@ Note: The OTA Error-Type code of 4 - Authentication (Indicates the message lacks
 | 322 | No availability | Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555"|  
 | 424 |	No hotels found which match this input | Search parameters - geocode and radius should be provided in ShortText as tokenized list: Latitude,Longitude,Radius, Unit of Meauser code. Example: "50.111,40.222,5,2" |
 | 95 | Booking already cancelled | 
+| 438 |	Requested rate not available | List of comma separated RatePlanID's should be provided in ShortText. Example: "111,222"  |
+| 748 | Invalid corporate ID | Requestor ID should be provided in ShortText. |
+| 400 | Invalid property code | List of comma separated Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555" |
+| 385 |	Invalid confirmation or cancellation number | Reservation ID should be provided in ShortText. |
+
+
+
+
 
 
