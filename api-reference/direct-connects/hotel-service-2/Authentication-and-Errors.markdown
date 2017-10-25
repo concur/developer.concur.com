@@ -79,8 +79,17 @@ In case of request structure not parsed by the Hotel Supplier, the Protocol viol
 
 Error Types:
 
+| Error Type Code | Error Type | Description |
+|----------|----------------|-----------------------|
+| 1	| Unknown	|	Indicates an unknown error. |
+| 2	| No implementation	| Indicates that the target business system has no implementation for the intended request. | 
+| 4	| Authentication | Indicates the message lacks adequate security credentials. |
+| 13 |	Application error						*			Indicates that an involved backend application returned an error or warning, which is passed back in the response message.
+
+
+
 1	Unknown	*								Indicates an unknown error.
-| 188 |	Transaction error - please report | For errors not specified in other codes. Internal supplier log ID can be provided in ShortText for debugging.|
+| 188 |	Transaction error | For errors not specified in other codes. Internal supplier log ID can be provided in ShortText for debugging.|
 
 
 2	No implementation	*								Indicates that the target business system has no implementation for the intended request.
@@ -90,14 +99,11 @@ Error Types:
 Any authentication errors should be returned using the HTTP 403 code.
 
 
-10	Required field missing	*								Indicates that an element or attribute that is required in by the schema (or required by agreement between trading partners) is missing from the message
-| 321 | Required field missing | Comma separated node or attribute  should be provided in ShortText. Example: "HotelCode, StayDateRange" |
-
-
 13	Application error						*			Indicates that an involved backend application returned an error or warning, which is passed back in the response message.
 | 242 | Credit card number is invalid or missing | |
 | 320 | Invalid value | Comma separated node or attribute and sent value should be provided in ShortText. Example: "StayDateRange:2019-11-33" |
 | 322 | No availability | Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555"|  
-| 424 |	No hotels found which match this input |Search parameters - geocode and radius should be provided in ShortText as tokenized list: Latitude,Longitude,Radius, Unit of Meauser code. Example: "50.111,40.222,5,2" |
-| 95 | Booking already cancelled | | 188 |	Transaction error - please report | For errors not specified in other codes. Internal supplier log ID can be provided in ShortText for debugging.| 
+| 424 |	No hotels found which match this input | Search parameters - geocode and radius should be provided in ShortText as tokenized list: Latitude,Longitude,Radius, Unit of Meauser code. Example: "50.111,40.222,5,2" |
+| 95 | Booking already cancelled | 
+
 
