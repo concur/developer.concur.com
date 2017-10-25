@@ -79,27 +79,28 @@ In case of request structure not parsed by the Hotel Supplier, the Protocol viol
 
 Error Types:
 
-| Error Type Code | Error Type | Description |
+| Code | Name | Description |
 |----------|----------------|-----------------------|
 | 1	| Unknown	|	Indicates an unknown error. |
 | 2	| No implementation	| Indicates that the target business system has no implementation for the intended request. | 
-| 4	| Authentication | Indicates the message lacks adequate security credentials. |
-| 13 |	Application error						*			Indicates that an involved backend application returned an error or warning, which is passed back in the response message.
+| 13 | Application error | Indicates that an involved backend application returned an error which is passed back in the response message. |
+
+Note: The OTA Error-Type code of 4 - Authentication (Indicates the message lacks adequate security credentials.) is not expcted by Concur.  For all authentication errors Concur expects an HTTP 403.
 
 
 
-1	Unknown	*								Indicates an unknown error.
+### Unknown	(Code 1)								Indicates an unknown error.
+| Error Code | Description | Example |
+|----------|----------------|-----------------------|
 | 188 |	Transaction error | For errors not specified in other codes. Internal supplier log ID can be provided in ShortText for debugging.|
 
 
-2	No implementation	*								Indicates that the target business system has no implementation for the intended request.
+### No implementation (Code 2)
 
 
-4	Authentication	*								Indicates the message lacks adequate security credentials
-Any authentication errors should be returned using the HTTP 403 code.
-
-
-13	Application error						*			Indicates that an involved backend application returned an error or warning, which is passed back in the response message.
+### Application error (Code 13)
+| Error Code | Description | Example |
+|----------|----------------|-----------------------|
 | 242 | Credit card number is invalid or missing | |
 | 320 | Invalid value | Comma separated node or attribute and sent value should be provided in ShortText. Example: "StayDateRange:2019-11-33" |
 | 322 | No availability | Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555"|  
