@@ -63,7 +63,7 @@ ShortText information should be used to provide more details for debugging purpo
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | *Type* |
-| *ShortText |
+| *ShortText* |
 | *Code* | 
 
 ```xml
