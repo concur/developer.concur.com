@@ -230,11 +230,7 @@ Message to reserve a hotel.
 |----------|-----------|---------------------------|-|
 | *ID* | Y | StringLength1to32	| A reference to identify the booking |
 
-
-Existing - of OTA UIT Type "14" to hold the booking UUID
-New - OTA UIT Type "40" to hold the confirmation number from the supplier.
-
-
+**Note:** OTA UIT Type "14" should hold the booking UUID, while OTA UIT Type "40" should hold the confirmation number from the supplier.
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
