@@ -42,7 +42,7 @@ Message to retrieved the availability of hotels
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Criterion | Y | ComplexType	| Refer to Criterion in Search.  Note that for Availability the Criterion will only have the HotelRef element. Other elements will not be sent. HotelSearchCriteria can contain multiple Criterion elements.  Each will have a unique HotelCode per Availability request. **Not current - we need to decide how to handle this because the spec says the position field is requiered here** |
+| Criterion | Y | ComplexType	| Refer to Criterion in Search.  Note that for Availability the Criterion will only have the HotelRef element. Other elements will not be sent. HotelSearchCriteria can contain multiple Criterion elements.  Each will have a unique HotelCode per Availability request. **we will not be sending this.  Spec to be changed** |
 
 
 **RoomStayCandidates**
@@ -56,7 +56,7 @@ Message to retrieved the availability of hotels
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *Quantity* | Y | int	| something **Do we need this?** |
+| *Quantity* | Y | int	| something **to be removed** |
 | GuestCounts | Y | ComplexType	| A collection of Guest Counts associated with Room Stay. **A child Guest Count element is required for each distinct age group. - the note about a child is unnessesary**|
 
 
@@ -96,7 +96,7 @@ Message to retrieved the availability of hotels
 
 **RoomStay**
 
-**In the spec the RoomTypes, RatePlans and RoomRates are not required. do they need to be?**
+For a descirption of the relationship between the RoomID and RatePlanID refer to "Relationship between RoomID and RatePlanID"
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
@@ -190,7 +190,7 @@ Supported GuranteeTypes:
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *NonRefundable* | N | Boolean	| Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **Do we need this?** **not supported currently, to be removed**|
+| *NonRefundable* | N | Boolean	| Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **to be removed**|
 | PenaltyDescription | N | ComplexType	| Text description of the Penalty in a given language. This element may contain a maximum of 9 children Text fields.  Any excess Text elements are dropped. |
 | Deadline | Y | ComplexType | Cancellation deadline, absolute or relative. See Deadline above |
 
@@ -203,8 +203,6 @@ Supported GuranteeTypes:
 
 
 **MealsIncluded**
-
-**do we need to default these two false? ignore when not set??**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
@@ -328,5 +326,53 @@ Supported GuranteeTypes:
 
 
 
+
+
+Relationship between RoomID and RatePlanID 
+
+The combination of these IDs must be unique per RoomStay.  IDs with the same values can be redefinined in multiple RoomStays
+
+```xml
+<OTA_HotelAvailRS>
+  <Success/>
+<!-- Hotel #1 with 3 rates -->
+  <RoomStays>
+    <RoomStay>
+      <RoomTypes>
+        <RoomType RoomID="RT1">...</RoomType>
+        <RoomType RoomID="RT2">...</RoomType>
+      </RoomTypes>
+      <RatePlans> <!-- Contains cancellation policy info, guarantee type etc. -->
+        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP1">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP2">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP3">...</RatePlan>
+      </RatePlans>
+      <RoomRates> <!-- Represents unique rate (hotel room), contains description part 1, rate cost & supported credit card etc. -->
+        <RoomRate RatePlanID="RP1" RoomID="RT1">...</RoomRate>
+        <RoomRate RatePlanID="RP2" RoomID="RT2">...</RoomRate> <!-- Note: RT2 is reused in two Room Rates -->
+        <RoomRate RatePlanID="RP3" RoomID="RT2">...</RoomRate>
+      </RoomRates>
+      ...
+    </RoomStay>
+<!-- Hotel #2 with 2 rates -->
+  <RoomStays>
+    <RoomStay>
+      <RoomTypes>
+        <RoomType RoomID="RT1">...</RoomType>
+        <RoomType RoomID="RT2">...</RoomType>
+      </RoomTypes>
+      <RatePlans>
+        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP1">...</RatePlan>
+        <RatePlan AvailabilityStatus="AvailableForSale" PrepaidIndicator="false" RatePlanID="RP2">...</RatePlan>
+      </RatePlans>
+      <RoomRates>
+        <RoomRate RatePlanID="RP1" RoomID="RT1">...</RoomRate>
+        <RoomRate RatePlanID="RP2" RoomID="RT2">...</RoomRate>
+      </RoomRates>
+      ...
+    </RoomStay>
+…
+</OTA_HotelAvailRS>
+```
 
 
