@@ -110,7 +110,7 @@ Given the following example: <RadiusDistance="5"DistanceMax="30"UnitOfMeasureCod
 | Award | N | ComplexType	| An element that identifies the hotel ratings. |
 | HotelAmenity | N | ComplexType | List of Hotel Amenities. |
 | Policy | N | ComplexType	| **Not used to be removed** |
-| Amenities | N | ComplexType	| **Not used now - need to confirm** |
+| Amenities | N | ComplexType	| **Not used to be removed** |
 | TPA_Extensions | N | ComplexType | See TPA Extensions below |
 
 
