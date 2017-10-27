@@ -326,9 +326,7 @@ Supported GuranteeTypes:
 
 
 
-
-
-Relationship between RoomID and RatePlanID 
+# Relationship between RoomID and RatePlanID 
 
 The combination of these IDs must be unique per RoomStay.  IDs with the same values can be redefinined in multiple RoomStays
 
