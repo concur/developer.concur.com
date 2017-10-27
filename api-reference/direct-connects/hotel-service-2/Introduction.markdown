@@ -87,9 +87,9 @@ Note that the Header element in a request must contain the Authentication elemen
   
 ### Response
 
-Envelope
-  Header
-  Body
-    OTA_<message type>_RS
+*Envelope
+  * Header
+  * Body
+    * OTA_<message type>_RS
 
-Note: The header in the response does not need the Authentication element.
+**Note:** The header in the response does not need the Authentication element.
