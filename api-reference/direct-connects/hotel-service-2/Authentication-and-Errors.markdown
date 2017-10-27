@@ -55,8 +55,6 @@ If an error is present in any message, then the content of that message is disgu
 | *Code* | Y | String | An Error Code for a specific error. |
 
 
-
-
 Concur supports the following Error Type Codes in any of the responses:
 
 ### Error Types
@@ -77,7 +75,9 @@ Concur expects the following Errors under the given Error Types:
 | 188 |	Transaction error | For errors not specified in other codes. Internal supplier log ID can be provided in ShortText for debugging.|
 
 ### No implementation (Error Type Code "2")
-
+| Error Code | Description | Example |
+|----------|----------------|-----------------------|
+| 1 |	Not implemented | The supplier can respond with this error if the end point called is not yet implemented. |
 
 ### Application error (Error Type Code "13")
 | Error Code | Description | Example |
