@@ -23,58 +23,43 @@ Errors should always be returned in a response. For example:
 	<soap:Body>
 		<OTA_HotelSearchRS xmlns="http://www.opentravel.org/OTA/2003/05"
 			xmlns:ns2="http://www.concur.com/webservice/auth" AltLangID="en"
-			EchoToken="5E41B39D-8F5E-49B3-9002-7666C98ECD7C" PrimaryLangID="en"
+			EchoToken="11111111-2222-3333-4444-555555555555" PrimaryLangID="en"
 			Version="4">
 			<Errors>
-				<Error Code="322" ShortText="No availability" Type="13">Unexpected
-					exception occurred</Error>
+				<Error Code="322" ShortText="No availability" Type="13"</Error>
 			</Errors>
 		</OTA_HotelSearchRS>
 	</soap:Body>
 </soap:Envelope>
 ```
 
-If an error is present in any message, then the content of that message is disguarded and only the error element is processed. Any text from the supplier will be logged and a Concur message will be displayed to the user.  Currently Concur does not support displaying of supplier genereted errors.
-
-**How many errors do we actual handle now?**
-
- 
-Any Errors without an Type attribute will automatically be treated as '1' meaning Unknown.  
-Any codes outside of this specified list will be treated as **some generic code**, which is not guranteed to be monitored. 
-
-
-
-Concur will process error codes automatically to create error messages for users.
-ShortText information should be used to provide more details for debugging purposes.
+If an error is present in any message, then the content of that message is disguarded and only the error element is processed. Any text from the supplier will be logged and a Concur message will be displayed to the user.  Currently Concur does not support displaying of supplier genereted errors directly in the UI.  Concur only uses the very first Error that is returned, therefore any excess Error elements are dropped.  Any Errors without a Type attribute will automatically be treated as '1' meaning Unknown.  See the Error Types table below. 
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Errors |
+| Errors | N | Complex |  Element used to hold Error elements.  Concur only ever expects one Error element. An empty Errors element will be treated as an Unknown error. |
 
 **Errors**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-|Error|
+| Error | Y | Complex | Element to describe a particual error. Extra text can be placed inside this element, however Concur expects the error message to be sent in the ShortText attribute. |
 
 
 **Error**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *Type* |
-| *ShortText* |
-| *Code* | 
+| *Type* | N | String | An Error Type Code. See the Error Types below. |
+| *ShortText* | Y | String | A description of the error.  The content of this attribute will be logged, but never displayed to the user. |
+| *Code* | Y | String | An Error Code for a specific error. |
 
-```xml
-<Errors>
-    <Error Type=”7” ShortText="1111"/>
-</Errors>
-```
 
-Concur supports the following Error Type Codes in any of the responses.  An e
 
-Error Types:
+
+Concur supports the following Error Type Codes in any of the responses:
+
+### Error Types
 
 | Code | Name | Description |
 |----------|----------------|-----------------------|
@@ -82,20 +67,19 @@ Error Types:
 | 2	| No implementation	| Indicates that the target business system has no implementation for the intended request. | 
 | 13 | Application error | Indicates that an involved backend application returned an error which is passed back in the response message. |
 
-Note: The OTA Error-Type code of 4 - Authentication (Indicates the message lacks adequate security credentials.) is not expcted by Concur.  For all authentication errors Concur expects an HTTP 403.
+**Note:** The OTA Error-Type code of 4 - Authentication (Indicates the message lacks adequate security credentials.) is not expcted by Concur.  For all authentication errors Concur expects an HTTP 403.
 
+Concur expects the following Errors under the given Error Types:
 
-
-### Unknown	(Code 1)								Indicates an unknown error.
+### Unknown	(Error Type Code "1")								Indicates an unknown error.
 | Error Code | Description | Example |
 |----------|----------------|-----------------------|
 | 188 |	Transaction error | For errors not specified in other codes. Internal supplier log ID can be provided in ShortText for debugging.|
 
+### No implementation (Error Type Code "2")
 
-### No implementation (Code 2)
 
-
-### Application error (Code 13)
+### Application error (Error Type Code "13")
 | Error Code | Description | Example |
 |----------|----------------|-----------------------|
 | 242 | Credit card number is invalid or missing | |
