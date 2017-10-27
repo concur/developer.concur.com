@@ -65,10 +65,6 @@ The radius element is used along with the Hotel Preference to categorise the sea
 | *DistanceMax* | N | NumericStringLength1to16 | Attribute indicating the distance from a reference point for Preferred (Corporate) hotels. |
 | *UnitOfMeasureCode* | Y | NumericStringLength1to16 | The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code (UOM). Concur uses "1" for miles, "2" for kilometers. |
 
-Move this to use cases and define a scenario where there is no DistaneMax specified
-
-Given the following example: <RadiusDistance="5"DistanceMax="30"UnitOfMeasureCode="2"></Radius>Out of 100 returned hotels in response from Hotel Supplierfirst 10 hotels are Most Preferredhotels from 30 km radius. Next 10 hotels are Preferredhotels from 30kmradius.Other 80 hotels are hotels with no preference within the 5km radius. Note: The preference level is defined by the HotelPreference element in the TPA_Extensions, which is outlined below
-
 
 **StayDateRange**
 
