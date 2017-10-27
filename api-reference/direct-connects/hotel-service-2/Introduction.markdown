@@ -77,17 +77,17 @@ All messages to and from the HS2 API follow this structure:
 
 ### Requests
 
-Envelope
-  Header
-  Body
-  OTA_<message type>_RQ
+* Envelope
+  * Header
+  * Body
+    * OTA_<message type>_RQ
 
-Note that the Header element in a request must contain the Authentication element.
+**Note:** The Header element in a request must contain the Authentication element.
 
   
 ### Response
 
-*Envelope
+* Envelope
   * Header
   * Body
     * OTA_<message type>_RS
