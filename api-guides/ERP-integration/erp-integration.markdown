@@ -6,8 +6,10 @@ layout: reference
 
 This API Recipe describes API tasks associated with ERP Financial Integration. This App is intended for financial integration companies or finance leaders who want to streamline the processes once Expense Reports (or Invoice Payment Requests) in Concur have been final-approved and are ready to be integrated into the client's financial system.
 
-Review the following presentation to understand what to expect during development, certification, and your role in support of your app:
+Review the following presentations to understand what to expect during development, certification, and your role in support of your app:
 <https://prezi.com/p/lw0qqy51zcmd/>
+
+This presentation explains how to support our multiple Data Centers: <https://prezi.com/view/8QcMUM2rHcvXQQIOUiwy/>
 
 Before a partner can obtain expense report or invoice data from Concur, ensure that you have completed the following:
 
