@@ -29,7 +29,7 @@ Navigate to [Extracts](https://developer.concur.com/api-reference/common/extract
 
 Professional Edition:
 
-1.  Obtain a list extract definitions for your client. Keep in mind that the authorization header with the OAuth token must be for a valid user. The OAuth consumer must have one the following role in Concur: Web services Administrator for Professional ERP Integration.
+1.  Obtain a list extract definitions for your client.
 
     Your GET request looks like the example for the Expense extract (ensure you also develop support for the Concur Invoice extract):
 
