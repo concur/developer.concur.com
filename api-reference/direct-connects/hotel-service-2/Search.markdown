@@ -113,7 +113,7 @@ The radius element is used along with the Hotel Preference to categorise the sea
 **Address**
 
 |  Element    |	Required | Data Type |  Description |
-|-------------|----------|---------------------------|-|
+|-------------|----------|-----------|--------------|
 | AddressLine | N        | Complex	 | Free form text field. Normally the screen name and number. This element may occur up to 5 times. |
 | CityName    | N        | Complex   | Free form text field. Name of the city. |
 | PostalCode  | N        | Complex   | Free form text field. The Postal Code. |
@@ -123,9 +123,9 @@ The radius element is used along with the Hotel Preference to categorise the sea
 
 **CountryName**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| Code | Y | StringLength0to64 | The name or ISO 3166 code of a country (e.g. as used in an address or to specify citizenship of a traveller). |
+| Element | Required | Data Type         | Description |
+|---------|----------|-------------------|-------------|
+| Code    | Y        | StringLength0to64 | The name or ISO 3166 code of a country (e.g. as used in an address or to specify citizenship of a traveller). |
 
 
 **ContactNumbers**
