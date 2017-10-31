@@ -154,7 +154,7 @@ The radius element is used along with the Hotel Preference to categorize the sea
 | *Rating* | Y        | Int       | Hotel rating should be integer number from 0 to 5, representation it's star rating. |
 
 
-**HotelAmenity**
+**HotelAmenity - to be removed**
 
 | Element |	Required | Data Type 	| Description |
 |---------|----------|--------------|-------------|
