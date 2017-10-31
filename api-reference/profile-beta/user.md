@@ -6,6 +6,8 @@ layout: reference
 Warning: Concur's Profile API is currentlly in **BETA** and is subject to change.
 
 
+[Getting Started with Profile](gettingStarted.html)  -  [Company API](company.html)  -  [**User API**](user.html)
+
 # User
 The Concur's **user** API is used to help provision and manage user accounts and profile details across multiple Concur products, including Expense, Invoice, Request, Travel and TripIt.
 
