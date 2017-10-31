@@ -81,33 +81,33 @@ The radius element is used along with the Hotel Preference to categorise the sea
 
 **OTA_HotelSearchRS**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| Properties | Y | Complex | Detailed property level information. |
+| Element    | Required  | Data Type 	| Description |
+|------------|-----------|--------------|-------------|
+| Properties | Y         | Complex      | Detailed property level information. |
 
 **Properties**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| Property | Y | Complex | A property that matches some or all of the search criteria. |
+| Element  | Required  | Data Type 	| Description |
+|----------|-----------|------------|-------------|
+| Property | Y         | Complex    | A property that matches some or all of the search criteria. |
 
 
 **Property**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| ChainCode | N | StringLength1to32	| 2 letter GDS chain code. The code that identifies a hotel chain or management group. Used for Chain filter in UI, and for Travel Rules based on GDS codes |
-| ChainName | N | StringLength1to32	| Detailed property level information. |
-| HotelCode | Y | StringLength1to32	| The code that uniquely identifies a single hotel property. Used in other OTA messages. |
-| HotelName | Y | StringLength1to32	| 	A text field used to communicate the proper name of the hotel. |
-| Position | Y | Complex | Refer to Position in the Request. |
-| Address | Y | Complex	| Public address of the hotel property. |
-| ContactNumbers | N | Complex	| something Do we even care about this?  HRS does not seem to be returning this |
-| Award | N | Complex | An element that identifies the hotel ratings. |
-| HotelAmenity | N | Complex | List of Hotel Amenities. |
-| Policy | N | Complex | **Not used to be removed** |
-| Amenities | N | Complex | **Not used to be removed** |
-| TPA_Extensions | N | Complex | See TPA Extensions below |
+|  Element       | Required | Data Type 	    |  Description |
+|----------------|----------|-------------------|--------------|
+| ChainCode      | N        | StringLength1to32	| 2 letter GDS chain code. The code that identifies a hotel chain or management group. Used for Chain filter in UI, and for Travel Rules based on GDS codes |
+| ChainName      | N        | StringLength1to32	| Detailed property level information. |
+| HotelCode      | Y        | StringLength1to32	| The code that uniquely identifies a single hotel property. Used in other OTA messages. |
+| HotelName      | Y        | StringLength1to32	| A text field used to communicate the proper name of the hotel. |
+| Position       | Y        | Complex           | Refer to Position in the Request. |
+| Address        | Y        | Complex	        | Public address of the hotel property. |
+| ContactNumbers | N        | Complex	        | something Do we even care about this?  HRS does not seem to be returning this |
+| Award          | N        | Complex           | An element that identifies the hotel ratings. |
+| HotelAmenity   | N        | Complex           | List of Hotel Amenities. |
+| Policy         | N        | Complex           | **Not used to be removed** |
+| Amenities      | N        | Complex           | **Not used to be removed** |
+| TPA_Extensions | N        | Complex           | See TPA Extensions below |
 
 
 **Address**
