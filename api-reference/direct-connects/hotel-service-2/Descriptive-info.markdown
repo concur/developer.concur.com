@@ -20,22 +20,22 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| HotelDescriptiveInfos | Y | ComplexType	| Concur will only ever send exactly one HotelDescriptiveInfo |
+| HotelDescriptiveInfos | Y | Complex | Concur will only ever send exactly one HotelDescriptiveInfo |
 
 
 **HotelDescriptiveInfos**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| HotelDescriptiveInfo | Y | ComplexType	| Element containing the ID of one property for which Hotel Details are requested for. |
+| HotelDescriptiveInfo | Y | Complex | Element containing the ID of one property for which Hotel Details are requested for. |
 
 
 **HotelDescriptiveInfo**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *ChainCode* | N | StringLength1to8	| Optional element referencing the Hotel Chain Code. |
-| *HotelCode* | Y | StringLength1to16	| Refer to HotelCode in the Property element of the Search message. |
+| *ChainCode* | N | StringLength1to8 | Optional element referencing the Hotel Chain Code. |
+| *HotelCode* | Y | StringLength1to16 | Refer to HotelCode in the Property element of the Search message. |
 
 ---
 
@@ -47,35 +47,35 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| HotelDescriptiveContents | Y | ComplexType	| Contains Hote Details content which is made up of text and image URLs |
+| HotelDescriptiveContents | Y | Complex | Contains Hote Details content which is made up of text and image URLs |
 
 **HotelDescriptiveContents**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| HotelDescriptiveContent | Y | ComplexType	| Contains Hote Details content which is made up of text and image URLs Concur only expects one HotelDescriptiveContent |
+| HotelDescriptiveContent | Y | Complex	| Contains Hote Details content which is made up of text and image URLs Concur only expects one HotelDescriptiveContent |
 
 **HotelDescriptiveContent**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *HotelCode* | Y | StringLength1to8	| Refer to HotelCode in the Property element of the Search message. |
-| *HotelName* | Y | StringLength1to32	| Concur always expects the Hotel Name to be provided. |
-| TPA_Extensions | N | StringLength1to32	| TPA Extensions. |
-| MultimediaDescriptions | N | StringLength1to32	| Concur only expects one MultimediaDescription element. |
+| *HotelCode* | Y | StringLength1to8 | Refer to HotelCode in the Property element of the Search message. |
+| *HotelName* | Y | StringLength1to32 | Concur always expects the Hotel Name to be provided. |
+| TPA_Extensions | N | StringLength1to32 | TPA Extensions. |
+| MultimediaDescriptions | N | StringLength1to32 | Concur only expects one MultimediaDescription element. |
 
 **TPA_Extensions**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Description | N | ComplexType	| Represents text which will be rendred in the UI in the form of a heading and a paragraph |
+| Description | N | Complex	| Represents text which will be rendred in the UI in the form of a heading and a paragraph |
 
 
 **Description**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *name* | Y | StringLength1to32	| The contents of this element will be rendered as a heading on the Hotel Details page. |
+| *name* | Y | StringLength1to32 | The contents of this element will be rendered as a heading on the Hotel Details page. |
 | Text | Y | StringLength1to255	| The contents of this element will be rendered as a paragraph.  Concur expects up to a maximum of 20 Text elements per Description, which will be concatenated to into one paragraph. |
 
 
@@ -83,28 +83,28 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| MultimediaDescription | N | ComplexType	| Holds a list of ImageItems each representing a single hotel image. |
+| MultimediaDescription | N | Complex | Holds a list of ImageItems each representing a single hotel image. |
 
 
 **MultimediaDescription**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| ImageItems | N | ComplexType | Holds a list of ImageItems each representing a single hotel image.  Concur expects up to a maximum of 200 ImageItem elements. |
+| ImageItems | N | Complex | Holds a list of ImageItems each representing a single hotel image.  Concur expects up to a maximum of 200 ImageItem elements. |
 
 
 **ImageItems**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| ImageItem | N | ComplexType	| Use one ImageItem per hotel image. |
+| ImageItem | N | Complex | Use one ImageItem per hotel image. |
 
 
 **ImageItem**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| ImageFormat | N | ComplexType	| ImageFormat |
+| ImageFormat | N | Complex	| ImageFormat |
 
 
 **ImageFormat**

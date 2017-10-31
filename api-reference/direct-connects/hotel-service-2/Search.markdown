@@ -20,13 +20,13 @@ Message to perform the initial search for hotels.
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | *MaxResponses* | Y | Int	| Concur currently supports 100 search results in one message. If more than 100 results are returned Concur drops all results after the 100th entry.|
-| Criteria | Y | ComplexType	| Specified hotel search criteria. |
+| Criteria | Y | Complex | Specified hotel search criteria. |
 
 **Criteria**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Criterion | Y | ComplexType	| Child elements that identify a single search criterion by criteria type. |
+| Criterion | Y | Complex	| Child elements that identify a single search criterion by criteria type. |
 
 **Criterion**
 
@@ -34,18 +34,18 @@ The criterion is used to define the search criteria.  Currently we support only 
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Position | Y | ComplexType	| Used to specify the geographic coordinates of a location, expressed in notation specified by ISO standard 6709. |
-| HotelRef | N | ComplexType	| Indicates the detail of hotel reference information. |
-| Radius | N | ComplexType	| Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location. |
-| StayDateRange | Y | ComplexType	| Range of dates using ISO 8601, or fixed set of dates for Availability Request. |
+| Position | Y | Complex	| Used to specify the geographic coordinates of a location, expressed in notation specified by ISO standard 6709. |
+| HotelRef | N | Complex	| Indicates the detail of hotel reference information. |
+| Radius | N | Complex	| Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location. |
+| StayDateRange | Y | Complex	| Range of dates using ISO 8601, or fixed set of dates for Availability Request. |
 
 
 **Position**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *Latitude* | Y | StringLength1to16	| The measure of the angular distance on a meridian north or south of the equator. |
-| *Longitude* | Y | StringLength1to16	| The measure of the angular distance on a meridian east or west of the prime meridian. |
+| *Latitude* | Y | StringLength1to16 | The measure of the angular distance on a meridian north or south of the equator. |
+| *Longitude* | Y | StringLength1to16 | The measure of the angular distance on a meridian east or west of the prime meridian. |
 
 **HotelRef**
 
@@ -70,8 +70,8 @@ The radius element is used along with the Hotel Preference to categorise the sea
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *Start* | Y | DateOrTimeOrDateTimeType	| The starting value of the time span. |
-| *End* | Y | DateOrTimeOrDateTimeType	| The ending value of the time span. |
+| *Start* | Y | DateOrTimeOrDateTimeType | The starting value of the time span. |
+| *End* | Y | DateOrTimeOrDateTimeType | The ending value of the time span. |
 
 
 ---
@@ -83,13 +83,13 @@ The radius element is used along with the Hotel Preference to categorise the sea
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Properties | Y | ComplexType	| Detailed property level information. |
+| Properties | Y | Complex | Detailed property level information. |
 
 **Properties**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| Property | Y | ComplexType	| A property that matches some or all of the search criteria. |
+| Property | Y | Complex | A property that matches some or all of the search criteria. |
 
 
 **Property**
@@ -100,25 +100,25 @@ The radius element is used along with the Hotel Preference to categorise the sea
 | ChainName | N | StringLength1to32	| Detailed property level information. |
 | HotelCode | Y | StringLength1to32	| The code that uniquely identifies a single hotel property. Used in other OTA messages. |
 | HotelName | Y | StringLength1to32	| 	A text field used to communicate the proper name of the hotel. |
-| Position | Y | ComplexType	| Refer to Position in the Request. |
-| Address | Y | ComplexType	| Public address of the hotel property. |
-| ContactNumbers | N | ComplexType	| something Do we even care about this?  HRS does not seem to be returning this |
-| Award | N | ComplexType	| An element that identifies the hotel ratings. |
-| HotelAmenity | N | ComplexType | List of Hotel Amenities. |
-| Policy | N | ComplexType	| **Not used to be removed** |
-| Amenities | N | ComplexType	| **Not used to be removed** |
-| TPA_Extensions | N | ComplexType | See TPA Extensions below |
+| Position | Y | Complex | Refer to Position in the Request. |
+| Address | Y | Complex	| Public address of the hotel property. |
+| ContactNumbers | N | Complex	| something Do we even care about this?  HRS does not seem to be returning this |
+| Award | N | Complex | An element that identifies the hotel ratings. |
+| HotelAmenity | N | Complex | List of Hotel Amenities. |
+| Policy | N | Complex | **Not used to be removed** |
+| Amenities | N | Complex | **Not used to be removed** |
+| TPA_Extensions | N | Complex | See TPA Extensions below |
 
 
 **Address**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| AddressLine | N | ComplexType	| Free form text field. Normally the screen name and number. This element may occur up to 5 times. |
-| CityName | N | ComplexType	| Free form text field. Name of the city. |
-| PostalCode | N | ComplexType	| Free form text field. The Postal Code. |
-| StateProv | N | ComplexType	| Free form text field. Name of the state |
-| CountryName | N | ComplexType	| Country name (e.g., Ireland) |
+|  Element    |	Required | Data Typ |  Description |
+|-------------|----------|---------------------------|-|
+| AddressLine | N        | Complex	| Free form text field. Normally the screen name and number. This element may occur up to 5 times. |
+| CityName    | N        | Complex  | Free form text field. Name of the city. |
+| PostalCode  | N        | Complex  | Free form text field. The Postal Code. |
+| StateProv   | N        | Complex  | Free form text field. Name of the state |
+| CountryName | N        | Complex	| Country name (e.g., Ireland) |
 
 
 **CountryName**
@@ -132,7 +132,7 @@ The radius element is used along with the Hotel Preference to categorise the sea
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| ContactNumber | N | ComplexType | Element which contains the ContactNumber. Concur only excepts 1 ContactNumber element. |
+| ContactNumber | N | Complex | Element which contains the ContactNumber. Concur only excepts 1 ContactNumber element. |
 
 
 **ContactNumber**
@@ -174,7 +174,7 @@ The radius element is used along with the Hotel Preference to categorise the sea
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | HotelPreference | Y | StringLength1to32	| A reference to identify the booking |
-| TPA_HotelPreviewImageURI | Y | ComplexType | A reference to identify the booking |
+| TPA_HotelPreviewImageURI | Y | Complex | A reference to identify the booking |
 
 
 **TPA_HotelPreviewImageURI**

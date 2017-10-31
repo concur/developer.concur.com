@@ -21,7 +21,7 @@ Message used to indicate to the hotel supplier that a given reservation should b
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | *CancelType* | Y | String	| **to be removed** |
-| UniqueID | Y | ComplexType	| Element to hold the Type and the ID of the reservation which should be cancelled. |
+| UniqueID | Y | Complex | Element to hold the Type and the ID of the reservation which should be cancelled. |
 
 **UniqueID**
 

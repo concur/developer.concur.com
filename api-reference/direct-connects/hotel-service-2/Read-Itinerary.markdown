@@ -19,15 +19,15 @@ Returns detailed information about a hotel reservation. Used in a process of boo
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| UniqueID | Y | ComplexType	| something |
+| UniqueID | Y | Complex | something |
 
 
 **UniqueID**
 
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
-| *Type* | Y | StringLength1to32	| Must be set to 14 | 
-| *ID* | Y | StringLength1to32	| UniqueID from HotelResRS is used as reservation ID |
+| *Type* | Y | StringLength1to32 | Must be set to 14 | 
+| *ID* | Y | StringLength1to32 | UniqueID from HotelResRS is used as reservation ID |
 
 ---
 
