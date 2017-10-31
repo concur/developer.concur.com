@@ -34,7 +34,7 @@ Message to retrieved the availability of hotels
 |  Element |	Required | Data Type 	|  Description |
 |----------|-----------|---------------------------|-|
 | HotelSearchCriteria | Y | Complex | Specified hotel search criteria. Concur will ever only ever send one HotelSearchCriteria. |
-| StayDateRange | N | ComplexType | Refer to StayDateRange in Search |
+| StayDateRange | N | Complex | Refer to StayDateRange in Search |
 | RoomStayCandidates | N | Complex | List of available room products. |
 
 
