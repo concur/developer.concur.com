@@ -112,13 +112,13 @@ The radius element is used along with the Hotel Preference to categorise the sea
 
 **Address**
 
-|  Element    |	Required | Data Typ |  Description |
+|  Element    |	Required | Data Type |  Description |
 |-------------|----------|---------------------------|-|
-| AddressLine | N        | Complex	| Free form text field. Normally the screen name and number. This element may occur up to 5 times. |
-| CityName    | N        | Complex  | Free form text field. Name of the city. |
-| PostalCode  | N        | Complex  | Free form text field. The Postal Code. |
-| StateProv   | N        | Complex  | Free form text field. Name of the state |
-| CountryName | N        | Complex	| Country name (e.g., Ireland) |
+| AddressLine | N        | Complex	 | Free form text field. Normally the screen name and number. This element may occur up to 5 times. |
+| CityName    | N        | Complex   | Free form text field. Name of the city. |
+| PostalCode  | N        | Complex   | Free form text field. The Postal Code. |
+| StateProv   | N        | Complex   | Free form text field. Name of the state |
+| CountryName | N        | Complex	 | Country name (e.g., Ireland) |
 
 
 **CountryName**
