@@ -72,7 +72,7 @@ The radius element is used along with the Hotel Preference to categorize the sea
 **StayDateRange**
 
 | Element | Required | Data Type 	     | Description |
-|---------|----------|---- --------------|-------------|
+|---------|----------|------------------|-------------|
 | *Start* | Y | DateOrTimeOrDateTimeType | The starting value of the time span. |
 | *End*   | Y | DateOrTimeOrDateTimeType | The ending value of the time span. |
 
