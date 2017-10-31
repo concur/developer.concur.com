@@ -7,9 +7,9 @@ layout: reference
 
 Message to perform the initial search for hotels.
 
-|  SOAPAction |	OTA name | Message structure | 
-|----------|-----------|---------------------|
-| search | HotelSearch | OTA_HotelSearchRQ |
+| SOAPAction | OTA name    | Message structure | 
+|------------|-------------|-------------------|
+| search     | HotelSearch | OTA_HotelSearchRQ |
 
 ---
 
@@ -17,61 +17,64 @@ Message to perform the initial search for hotels.
 
 **OTA_HotelSearchRQ**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| *MaxResponses* | Y | Int	| Concur currently supports 100 search results in one message. If more than 100 results are returned Concur drops all results after the 100th entry.|
-| Criteria | Y | Complex | Specified hotel search criteria. |
+| Element        | Required | Data Type 	| Description |
+|----------------|----------|---------------|-------------|
+| *MaxResponses* | Y        | Int           | Concur currently supports 100 search results in one message. If more than 100 results are returned Concur drops all results after the 100th entry.|
+| Criteria       | Y        | Complex       | Specified hotel search criteria. |
+
 
 **Criteria**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| Criterion | Y | Complex	| Child elements that identify a single search criterion by criteria type. |
+| Element   | Required | Data Type | Description |
+|-----------|----------|-----------|-------------|
+| Criterion | Y        | Complex   | Child elements that identify a single search criterion by criteria type. |
+
 
 **Criterion**
 
 The criterion is used to define the search criteria.  Currently we support only one Criterion.
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| Position | Y | Complex	| Used to specify the geographic coordinates of a location, expressed in notation specified by ISO standard 6709. |
-| HotelRef | N | Complex	| Indicates the detail of hotel reference information. |
-| Radius | N | Complex	| Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location. |
-| StayDateRange | Y | Complex	| Range of dates using ISO 8601, or fixed set of dates for Availability Request. |
+| Element       | Required | Data Type | Description |
+|---------------|----------|-----------|-------------|
+| Position      | Y        | Complex   | Used to specify the geographic coordinates of a location, expressed in notation specified by ISO standard 6709. |
+| HotelRef      | N        | Complex   | Indicates the detail of hotel reference information. |
+| Radius        | N        | Complex   | Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location. |
+| StayDateRange | Y        | Complex   | Range of dates using ISO 8601, or fixed set of dates for Availability Request. |
 
 
 **Position**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| *Latitude* | Y | StringLength1to16 | The measure of the angular distance on a meridian north or south of the equator. |
-| *Longitude* | Y | StringLength1to16 | The measure of the angular distance on a meridian east or west of the prime meridian. |
+| Element     |	Required | Data Type         | Description |
+|-------------|----------|-------------------|-------------|
+| *Latitude*  | Y        | StringLength1to16 | The measure of the angular distance on a meridian north or south of the equator. |
+| *Longitude* | Y        | StringLength1to16 | The measure of the angular distance on a meridian east or west of the prime meridian. |
+
 
 **HotelRef**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| *HotelName* | N | StringLength1to128	| A text field used to communicate the proper name of the hotel. |
-| *HotelCode* | N | StringLength1to16	| The code that uniquely identifies a single hotel property. The hotel code is decided between vendors. |
+| Element     |	Required | Data Type          | Description |
+|-------------|----------|--------------------|-------------|
+| *HotelName* | N        | StringLength1to128 | A text field used to communicate the proper name of the hotel. |
+| *HotelCode* | N        | StringLength1to16  | The code that uniquely identifies a single hotel property. The hotel code is decided between vendors. |
 
 
 **Radius**
 
-The radius element is used along with the Hotel Preference to categorise the search results. 
+The radius element is used along with the Hotel Preference to categorize the search results. 
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| *Distance* | Y | NumericStringLength1to16	| The distance from a reference point. |
-| *DistanceMax* | N | NumericStringLength1to16 | Attribute indicating the distance from a reference point for Preferred (Corporate) hotels. |
-| *UnitOfMeasureCode* | Y | NumericStringLength1to16 | The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code (UOM). Concur uses "1" for miles, "2" for kilometers. |
+| Element             |	Required | Data Type 	            | Description |
+|---------------------|----------|--------------------------|-------------|
+| *Distance*          | Y        | NumericStringLength1to16 | The distance from a reference point. |
+| *DistanceMax*       | N        | NumericStringLength1to16 | Attribute indicating the distance from a reference point for Preferred (Corporate) hotels. |
+| *UnitOfMeasureCode* | Y        | NumericStringLength1to16 | The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code (UOM). Concur uses "1" for miles, "2" for kilometers. |
 
 
 **StayDateRange**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
+| Element | Required | Data Type 	     | Description |
+|---------|----------|---- --------------|-------------|
 | *Start* | Y | DateOrTimeOrDateTimeType | The starting value of the time span. |
-| *End* | Y | DateOrTimeOrDateTimeType | The ending value of the time span. |
+| *End*   | Y | DateOrTimeOrDateTimeType | The ending value of the time span. |
 
 
 ---
@@ -130,58 +133,55 @@ The radius element is used along with the Hotel Preference to categorise the sea
 
 **ContactNumbers**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| ContactNumber | N | Complex | Element which contains the ContactNumber. Concur only excepts 1 ContactNumber element. |
+| Element       | Required | Data Type | Description |
+|---------------|----------|-----------|-------------|
+| ContactNumber | N        | Complex   | Element which contains the ContactNumber. Concur only excepts 1 ContactNumber element. |
 
 
 **ContactNumber**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| CountryAccessCode | N | StringLength1to32 | The Country code. |
-| PhoneNumber | Y | StringLength1to32 | The phone number |
-| PhoneTechType | N | String | Concur currently only supports a PhoneTechType set to "1" **to be removed** |
+| Element           | Required  | Data Type         | Description |
+|-------------------|-----------|-------------------|-------------|
+| CountryAccessCode | N         | StringLength1to32 | The Country code. |
+| PhoneNumber       | Y         | StringLength1to32 | The phone number. |
+| PhoneTechType     | N         | String            | Concur currently only supports a PhoneTechType set to "1" **to be removed** |
 
 
 **Award**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| *Rating* | Y | Int | Hotel rating should be integer number from 0 to 5, represention it's star rating. |
+| Element  | Required | Data Type | Description |
+|----------|----------|-----------|-------------|
+| *Rating* | Y        | Int       | Hotel rating should be integer number from 0 to 5, representation it's star rating. |
 
 
 **HotelAmenity**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| *Code* | Y | OTA_CodeType	| Refer to OpenTravel Code List Hotel Amenity Code (HAC) |
+| Element |	Required | Data Type 	| Description |
+|---------|----------|--------------|-------------|
+| *Code*  | Y        | OTA_CodeType	| Refer to OpenTravel Code List Hotel Amenity Code (HAC) |
 
 
 **Policy - to be removed**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| *CheckInTime* | Y | StringLength1to32	| something |
-| *CheckOutTime* | Y | StringLength1to32	| something |
-
+| Element        | Required | Data Type 	    | Description |
+|----------------|----------|-------------------|-------------|
+| *CheckInTime*  | Y        | StringLength1to32	| something |
+| *CheckOutTime* | Y        | StringLength1to32	| something |
 
 
 ### TPA Extensions
 
 **TPA_Extensions**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| HotelPreference | Y | StringLength1to32	| A reference to identify the booking |
-| TPA_HotelPreviewImageURI | Y | Complex | A reference to identify the booking |
+| Element                  | Required | Data Type 	      | Description |
+|--------------------------|----------|-------------------|-------------|
+| HotelPreference          | Y        | StringLength1to32 | A reference to identify the booking |
+| TPA_HotelPreviewImageURI | Y        | Complex           | A reference to identify the booking |
 
 
 **TPA_HotelPreviewImageURI**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| URL | Y | StringLength1to32	| Concur supports on one image URL in the Search Response.  For the ability to display more images refer to Decriptive Info.  The image will be used as a thumbnail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
-
-
+| Element |	Required | Data Type 	     | Description |
+|---------|----------|-------------------|-------------|
+| URL     | Y        | StringLength1to32 | Concur supports on one image URL in the Search Response.  For the ability to display more images refer to Decriptive Info.  The image will be used as a thumbnail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
 
