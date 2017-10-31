@@ -183,5 +183,5 @@ The radius element is used along with the Hotel Preference to categorize the sea
 
 | Element |	Required | Data Type 	     | Description |
 |---------|----------|-------------------|-------------|
-| URL     | Y        | StringLength1to32 | Concur supports on one image URL in the Search Response.  For the ability to display more images refer to Decriptive Info.  The image will be used as a thumbnail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
+| URL     | Y        | StringLength1to32 | Concur supports on one image URL in the Search Response.  For the ability to display more images refer to Descriptive Info.  The image will be used as a thumb-nail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
 
