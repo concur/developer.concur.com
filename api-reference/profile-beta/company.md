@@ -6,6 +6,8 @@ layout: reference
 Warning: Concur's Profile API is currentlly in **BETA** and is subject to change.
 
 
+[Getting Started with Profile](gettingStarted.html)  -  [**Company API**](company.html)  -  [User API](user.html)
+
 # Company
 The Concur's **company** API is used to help provision and manage companies and their profile details across multiple Concur products, including Expense, Invoice, Request, and Travel.
 
