@@ -36,7 +36,7 @@ const constraints = {
     validateUrlArray: {
       allowLocal: true,
     },
-    firstElementRequired: true,
+    firstElementRequired: false,
   },
   allowedGrants: {
     presence: { message: '- at least one is required.' },
