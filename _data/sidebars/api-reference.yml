@@ -110,8 +110,8 @@
         url: /api-reference/direct-connects/hotel-service-2/Use-cases.html
       - title: Headers
         url: /api-reference/direct-connects/hotel-service-2/Headers.html   
-      - title: Authentication and Error Handling
-        url: /api-reference/direct-connects/hotel-service-2/Authentication-and-Errors.html    
+      - title: Error Handling
+        url: /api-reference/direct-connects/hotel-service-2/Error-handling.html    
       - title: Search
         url: /api-reference/direct-connects/hotel-service-2/Search.html
       - title: Availability

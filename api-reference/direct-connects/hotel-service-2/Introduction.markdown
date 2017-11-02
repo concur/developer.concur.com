@@ -27,6 +27,13 @@ Hotel Service 2 API inventory is not accessible from Concur mobile. Concur produ
 
 ## Supported operations
 
+Search
+Availability
+Hotel Description
+Reservation
+Read-Itinerary
+Cancel
+
 ## Non-Functional Requirements
 
 ### Response Times
@@ -52,11 +59,10 @@ Standard HTTPS port 443 should be used.
 *Check with SM to see if we already have a publicly available list of IPs suppleiers/vendors have to whitelist.*
 
 
-## URLs and Headers
+## URLs 
 Concur will receive a single URL from the Hotel Supplier. All requests will go to that URL. 
-Content Type is application/xml.
-To define, what operation needs to be performed, HTTP headers are used, as example:
-`SOAPAction:availability.`
+
+For details of all required HTTP headers refer to <Header>
 
 Concur is using date as xs:date XML type "2017-05-01".
 
@@ -69,21 +75,21 @@ The hotel suppliers should not use XML special characters - predefined entities:
 
 All messages to and from the HS2 API follow this structure:
 
-### Requets
+### Requests
 
-Envelope
-  Header
-  Body
-  OTA_<message type>_RQ
+* Envelope
+  * Header
+  * Body
+    * OTA_<message type>_RQ
 
-Note that the Header element in a request must contain the Authentication element.
+**Note:** The Header element in a request must contain the Authentication element.
 
   
 ### Response
 
-Envelope
-  Header
-  Body
-    OTA_<message type>_RS
+* Envelope
+  * Header
+  * Body
+    * OTA_<message type>_RS
 
-Note: The header in the response does not need the Authentication element.
+**Note:** The header in the response does not need the Authentication element.
