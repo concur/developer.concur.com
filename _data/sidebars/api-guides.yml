@@ -3,7 +3,7 @@
 - title: ERP Integration
   url: ''
   children:
-      - title: Expense - Professional Edition & Standard Edition
+      - title: Expense and Invoice - Professional Edition & Standard Edition
         url: /api-guides/ERP-integration/erp-integration.html
 - title: Attendees
   url: ''
