@@ -30,7 +30,7 @@ username=<concur_username> eg. john.doe@gmail.com
 password=<password> eg. password1
 client_id=<clientId> eg. e01f725d-b4ce-4ce3-a664-b670cb5876cb0
 client_secret=<clientSecret> eg. 35c3bd92-fcb8-405e-a886-47ff3fba5664
-curl -X POST -H 'concur-correlationid: nameofapp' "$oauth2_base/v0/token" --data 'username=$username&password=$password&grant_type=password&client_secret=$client_secret&client_id=$client_id'
+curl -X POST -H 'concur-correlationid: nameofapp' "$oauth2_base/v0/token" --data "username=$username&password=$password&grant_type=password&client_secret=$client_secret&client_id=$client_id"
 ```
 
 Full docs: https://developer.concur.com/api-reference/authentication/apidoc.html#password_grant
@@ -194,7 +194,7 @@ Access Tokens have a default __One hour__ lifetime. In order to obtain a fresh `
 Utilizing the `geolocation` for the token, here's an example of a cURL call to obtain a new `accessToken`
 
 ```shell
-curl -X POST 'https://us.api.concursolutions.com/oauth2/v0/token' --data 'client_id=$client_id&client_secret=$client_secret&grant_type=refresh&refresh_token=<old refresh token>'
+curl -X POST 'https://us.api.concursolutions.com/oauth2/v0/token' --data "client_id=$client_id&client_secret=$client_secret&grant_type=refresh&refresh_token=<old refresh token>"
 ```
 
 FULL DOCS: <https://developer.concur.com/api-reference/authentication/apidoc.html#refresh_token>
