@@ -3,9 +3,9 @@ title: Use Cases
 layout: reference
 ---
 
-Sequence diagram
 
-Use cases
+
+# Use cases
 
 
 Move this to use cases and define a scenario where there is no DistaneMax specified
@@ -16,3 +16,9 @@ Given the following example: <RadiusDistance="5"DistanceMax="30"UnitOfMeasureCod
 Reservation and Read requests
 
 Concur will follow up a Reservation Request with a Read request as soon as possible after processing the Reservation Response. If a Read request does not arrive within 5 minutes for a given Reservation, then the supplier should treat that Reservation as an orphan and should thus seek to cancel it.
+
+
+
+
+
+# General system overview 
