@@ -3,7 +3,7 @@ title: Availability
 layout: reference
 ---
 
-# Availablity
+# Availability
 
 Message to retrieved the availability of hotels
 
