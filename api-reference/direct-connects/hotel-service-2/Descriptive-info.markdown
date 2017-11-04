@@ -68,7 +68,7 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 | Element     |	Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
-| Description | N        | Complex	 | Represents text which will be rendred in the UI in the form of a heading and a paragraph |
+| Description | N        | Complex	 | Represents text which will be rendered in the UI in the form of a heading and a paragraph |
 
 
 **Description**
