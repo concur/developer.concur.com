@@ -399,6 +399,8 @@ The AirLineTickets parent element is an array that contains the following child 
 | BaseFareCurrency   | string |  |   |
 | BaseFareNuc   | decimal |  |   |
 | BaseFareNucCurrency   | string |  |   |
+| ComparisonFare   | decimal |  |   |
+| ComparisonFareCurrency   | string |  |   |
 | DateCreatedUtc    | dateTime |  |   |
 | DateModifiedUtc  |  dateTime |  |   |
 | Endorsements   | string |  |   |
