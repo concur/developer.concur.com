@@ -11,9 +11,9 @@ The Hotel Services v2 Direct Connect from Concur Connect provides a method for T
 
 The Hotel Service 2.0 API from Concur is a specification based on OTA 2015 standard for Hotel Suppliers. Please refer to XSD schema of the service and WSDL service description. This Guide provides information how the Hotel Supplier can make their content available for Concur Travel users using Hotel Service 2.0 API. Once the Hotel Supplier has developed and certified their interface with Concur, their inventory will begin appearing in hotel searches by opted-in Travel users. This API has client/server architecture, where Concur acts as client, pulling information from the Hotel Supplier, who acts as server, responding to Concur’s requests. This guide specifies the request and response format required by Concur.
 
-This callout differs from the inbound Concur web services in the following ways:
+This call-out differs from the in-bound Concur web services in the following ways:
 
-* It uses an outbound message where Concur calls a public facing API endpoint provided by the hotel supplier.
+* It uses an out-bound message where Concur calls a public facing API end-point provided by the hotel supplier.
 * The supplier configures and maintains the public web service interface. This guide specifies the request and response format required by Concur.
 
 ## TOC
@@ -51,12 +51,12 @@ To allow Concur performing testing, the Hotel Supplier needs to provide testing 
 As sensitive data and payment card details are transferred via API, the Hotel Suppliers need to comply with PCI DSS standard. Concur is compliant with PCI DSS standard and undergoes regular security audits.
 
 #### HTTPS
-The Hotel Supplier needs to support secure communication of TLS 1.1 or newer. The Hotel Supplier will provide Concur HTTPS URL of its endpoint.
+The Hotel Supplier needs to support secure communication of TLS 1.1 or newer. The Hotel Supplier will provide Concur HTTPS URL of its end-point.
 Standard HTTPS port 443 should be used.
 
 #### Concur IP ranges
 
-*Check with SM to see if we already have a publicly available list of IPs suppleiers/vendors have to whitelist.*
+*Check with SM to see if we already have a publicly available list of IPs suppliers/vendors have to white-list.*
 
 
 ## URLs 
