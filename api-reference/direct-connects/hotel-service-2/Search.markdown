@@ -17,7 +17,7 @@ Message to perform the initial search for hotels.
 
 **OTA_HotelSearchRQ**
 
-| Element        | Required | Data Type 	| Description |
+| Element        | Required | Data Type 	  | Description |
 |----------------|----------|---------------|-------------|
 | *MaxResponses* | Y        | Int           | Concur currently supports 100 search results in one message. If more than 100 results are returned Concur drops all results after the 100th entry.|
 | Criteria       | Y        | Complex       | Specified hotel search criteria. |
@@ -62,7 +62,7 @@ The criterion is used to define the search criteria.  Currently we support only 
 
 The radius element is used along with the Hotel Preference to categorize the search results. 
 
-| Element             |	Required | Data Type 	            | Description |
+| Element             |	Required | Data Type 	              | Description |
 |---------------------|----------|--------------------------|-------------|
 | *Distance*          | Y        | NumericStringLength1to16 | The distance from a reference point. |
 | *DistanceMax*       | N        | NumericStringLength1to16 | Attribute indicating the distance from a reference point for Preferred (Corporate) hotels. |
@@ -71,7 +71,7 @@ The radius element is used along with the Hotel Preference to categorize the sea
 
 **StayDateRange**
 
-| Element | Required | Data Type 	     | Description |
+| Element | Required | Data Type 	       | Description |
 |---------|----------|-------------------|-------------|
 | *Start* | Y | DateOrTimeOrDateTimeType | The starting value of the time span. |
 | *End*   | Y | DateOrTimeOrDateTimeType | The ending value of the time span. |
@@ -84,7 +84,7 @@ The radius element is used along with the Hotel Preference to categorize the sea
 
 **OTA_HotelSearchRS**
 
-| Element    | Required  | Data Type 	| Description |
+| Element    | Required  | Data Type 	  | Description |
 |------------|-----------|--------------|-------------|
 | Properties | Y         | Complex      | Detailed property level information. |
 
@@ -97,15 +97,15 @@ The radius element is used along with the Hotel Preference to categorize the sea
 
 **Property**
 
-|  Element       | Required | Data Type 	    |  Description |
-|----------------|----------|-------------------|--------------|
+|  Element       | Required | Data Type 	      | Description |
+|----------------|----------|-------------------|-------------|
 | ChainCode      | N        | StringLength1to32	| 2 letter GDS chain code. The code that identifies a hotel chain or management group. Used for Chain filter in UI, and for Travel Rules based on GDS codes |
 | ChainName      | N        | StringLength1to32	| Detailed property level information. |
 | HotelCode      | Y        | StringLength1to32	| The code that uniquely identifies a single hotel property. Used in other OTA messages. |
 | HotelName      | Y        | StringLength1to32	| A text field used to communicate the proper name of the hotel. |
 | Position       | Y        | Complex           | Refer to Position in the Request. |
-| Address        | Y        | Complex	        | Public address of the hotel property. |
-| ContactNumbers | N        | Complex	        | something Do we even care about this?  HRS does not seem to be returning this |
+| Address        | Y        | Complex	          | Public address of the hotel property. |
+| ContactNumbers | N        | Complex	          | something Do we even care about this?  HRS does not seem to be returning this |
 | Award          | N        | Complex           | An element that identifies the hotel ratings. |
 | HotelAmenity   | N        | Complex           | List of Hotel Amenities. |
 | Policy         | N        | Complex           | **Not used to be removed** |
@@ -156,14 +156,14 @@ The radius element is used along with the Hotel Preference to categorize the sea
 
 **HotelAmenity - to be removed**
 
-| Element |	Required | Data Type 	| Description |
+| Element |	Required | Data Type 	  | Description |
 |---------|----------|--------------|-------------|
 | *Code*  | Y        | OTA_CodeType	| Refer to OpenTravel Code List Hotel Amenity Code (HAC) |
 
 
 **Policy - to be removed**
 
-| Element        | Required | Data Type 	    | Description |
+| Element        | Required | Data Type 	      | Description |
 |----------------|----------|-------------------|-------------|
 | *CheckInTime*  | Y        | StringLength1to32	| something |
 | *CheckOutTime* | Y        | StringLength1to32	| something |
@@ -181,7 +181,7 @@ The radius element is used along with the Hotel Preference to categorize the sea
 
 **TPA_HotelPreviewImageURI**
 
-| Element |	Required | Data Type 	     | Description |
+| Element |	Required | Data Type 	       | Description |
 |---------|----------|-------------------|-------------|
 | URL     | Y        | StringLength1to32 | Concur supports on one image URL in the Search Response.  For the ability to display more images refer to Descriptive Info.  The image will be used as a thumb-nail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
 
