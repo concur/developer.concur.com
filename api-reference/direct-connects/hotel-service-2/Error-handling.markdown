@@ -64,17 +64,17 @@ Concur supports the following Error Type Codes in any of the responses:
 
 Concur expects the following Errors under the given Error Types:
 
-### Unknown	(Error Type Code "1")								Indicates an unknown error.
+### Unknown	Error Type Code 1
 | Error Code | Description       | Example |
 |------------|-------------------|---------|
 | 188        | Transaction error | For errors not specified in other codes. Internal supplier log ID can be provided in ShortText for debugging.|
 
-### No implementation (Error Type Code "2")
+### No implementation Error Type Code 2
 | Error Code | Description     | Example |
 |------------|-----------------|---------|
 | 1          | Not implemented | The supplier can respond with this error if the end point called is not yet implemented. |
 
-### Application error (Error Type Code "13")
+### Application error Error Type Code 13
 | Error Code | Description                                 | Example |
 |------------|---------------------------------------------|---------|
 | 242        | Credit card number is invalid or missing    | Missing Credit Card number |
