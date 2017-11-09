@@ -51,8 +51,7 @@ To allow Concur performing testing, the Hotel Supplier needs to provide testing 
 As sensitive data and payment card details are transferred via API, the Hotel Suppliers need to comply with PCI DSS standard. Concur is compliant with PCI DSS standard and undergoes regular security audits.
 
 #### HTTPS
-The Hotel Supplier needs to support secure communication of TLS 1.1 or newer. The Hotel Supplier will provide Concur HTTPS URL of its end-point.
-Standard HTTPS port 443 should be used.
+Concur prefers to use the newer TLS 1.2, however TLS 1.1 is still supported. TLS 1.0 is **not** supported. The Hotel Supplier will provide Concur HTTPS URL of its end-point. Standard HTTPS port 443 should be used.
 
 #### Concur IP ranges
 
