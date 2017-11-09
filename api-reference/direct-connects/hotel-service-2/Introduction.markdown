@@ -61,7 +61,7 @@ Concur prefers to use the newer TLS 1.2, however TLS 1.1 is still supported. TLS
 ## URLs 
 Concur will receive a single URL from the Hotel Supplier. All requests will go to that URL. 
 
-For details of all required HTTP headers refer to <Header>
+For details of all required HTTP headers refer to Headers
 
 Concur is using date as xs:date XML type "2017-05-01".
 
