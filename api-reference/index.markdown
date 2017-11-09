@@ -10,8 +10,9 @@ redirect_from:
 
 If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs.  For App Center Partners, this overview lets you know what to expect during Development, Certification, and Support: 
 
-Enterprise B2B apps: <https://prezi.com/p/lw0qqy51zcmd/>
-User apps: coming soon
+Enterprise B2B apps: <https://prezi.com/p/lw0qqy51zcmd/> (this does not pertain to a Triplink app integration)
+
+User apps (B2C apps): coming soon (this does not pertain to a Triplink app integration)
 
 
 ## 1. Provision your developer sandbox  

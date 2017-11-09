@@ -3,7 +3,7 @@
   <!--
 *********************************************************
 
-Itinerary Model schema generated on 10/2/2017 2:12 PM
+Itinerary Model schema generated on 11/6/2017 2:53:09 PM
 
 
 Note. xs:all will support maxOccurs='unbounded' only in XSD v1.1
@@ -647,6 +647,14 @@ Use of xs:choice will hide repeated elements during XML validation
         </xs:simpleType>
       </xs:element>
       <xs:element name="Ticketless" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+	  <xs:element name="ComparisonFare" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+	  <xs:element name="ComparisonFareCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+		  <xs:simpleType>
+			  <xs:restriction base="xs:string">
+				  <xs:length value="3" />
+			  </xs:restriction>
+		  </xs:simpleType>
+	  </xs:element>
       <xs:element name="TicketType" nillable="true" minOccurs="0" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">

@@ -11,9 +11,9 @@ The Hotel Services v2 Direct Connect from Concur Connect provides a method for T
 
 The Hotel Service 2.0 API from Concur is a specification based on OTA 2015 standard for Hotel Suppliers. Please refer to XSD schema of the service and WSDL service description. This Guide provides information how the Hotel Supplier can make their content available for Concur Travel users using Hotel Service 2.0 API. Once the Hotel Supplier has developed and certified their interface with Concur, their inventory will begin appearing in hotel searches by opted-in Travel users. This API has client/server architecture, where Concur acts as client, pulling information from the Hotel Supplier, who acts as server, responding to Concur’s requests. This guide specifies the request and response format required by Concur.
 
-This callout differs from the inbound Concur web services in the following ways:
+This call-out differs from the in-bound Concur web services in the following ways:
 
-* It uses an outbound message where Concur calls a public facing API endpoint provided by the hotel supplier.
+* It uses an out-bound message where Concur calls a public facing API end-point provided by the hotel supplier.
 * The supplier configures and maintains the public web service interface. This guide specifies the request and response format required by Concur.
 
 ## TOC
@@ -26,6 +26,13 @@ Hotel Service 2 API inventory is not accessible from Concur mobile. Concur produ
 ## Process Overview
 
 ## Supported operations
+
+Search
+Availability
+Hotel Description
+Reservation
+Read-Itinerary
+Cancel
 
 ## Non-Functional Requirements
 
@@ -44,19 +51,18 @@ To allow Concur performing testing, the Hotel Supplier needs to provide testing 
 As sensitive data and payment card details are transferred via API, the Hotel Suppliers need to comply with PCI DSS standard. Concur is compliant with PCI DSS standard and undergoes regular security audits.
 
 #### HTTPS
-The Hotel Supplier needs to support secure communication of TLS 1.1 or newer. The Hotel Supplier will provide Concur HTTPS URL of its endpoint.
+The Hotel Supplier needs to support secure communication of TLS 1.1 or newer. The Hotel Supplier will provide Concur HTTPS URL of its end-point.
 Standard HTTPS port 443 should be used.
 
 #### Concur IP ranges
 
-*Check with SM to see if we already have a publicly available list of IPs suppleiers/vendors have to whitelist.*
+*Check with SM to see if we already have a publicly available list of IPs suppliers/vendors have to white-list.*
 
 
-## URLs and Headers
+## URLs 
 Concur will receive a single URL from the Hotel Supplier. All requests will go to that URL. 
-Content Type is application/xml.
-To define, what operation needs to be performed, HTTP headers are used, as example:
-`SOAPAction:availability.`
+
+For details of all required HTTP headers refer to <Header>
 
 Concur is using date as xs:date XML type "2017-05-01".
 
@@ -69,21 +75,21 @@ The hotel suppliers should not use XML special characters - predefined entities:
 
 All messages to and from the HS2 API follow this structure:
 
-### Requets
+### Requests
 
-Envelope
-  Header
-  Body
-  OTA_<message type>_RQ
+* Envelope
+  * Header
+  * Body
+    * OTA_<message type>_RQ
 
-Note that the Header element in a request must contain the Authentication element.
+**Note:** The Header element in a request must contain the Authentication element.
 
   
 ### Response
 
-Envelope
-  Header
-  Body
-    OTA_<message type>_RS
+* Envelope
+  * Header
+  * Body
+    * OTA_<message type>_RS
 
-Note: The header in the response does not need the Authentication element.
+**Note:** The header in the response does not need the Authentication element.
