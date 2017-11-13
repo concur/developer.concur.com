@@ -166,6 +166,7 @@ Supported GuranteeTypes:
 | DepositRequired   | In Concur this value is seen as RequiredDeposit .|
 | CCDCVoucher       | In Concur this value is seen as RequiredGuarantee. |
 | PrePay            | In Concur this value is seen as RequiredPrepay. |
+| None              | In Concur this value is seen as Never. No guarantee is required if user books a room with this type. |
 | GuaranteeRequired | RequiredGuarantee. If the Guarantee type cannot be mapped to any accepted type, it will be set to RequiredGuarantee, hence this value is the default. |
  
   
