@@ -3,7 +3,7 @@
   <!--
 *********************************************************
 
-Itinerary Model schema generated on 11/6/2017 2:53:09 PM
+Itinerary Model schema generated on 11/15/2017 3:28 PM
 
 
 Note. xs:all will support maxOccurs='unbounded' only in XSD v1.1
@@ -105,6 +105,13 @@ Use of xs:choice will hide repeated elements during XML validation
 	</xs:complexType>
 
 	<xs:complexType name="ItineraryBase_ArrayOfRuleViolations">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="RuleViolation" type="RuleViolationType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="Segment_ArrayOfRuleViolations">
     <xs:sequence maxOccurs="unbounded">
       <xs:choice maxOccurs="unbounded">
         <xs:element name="RuleViolation" type="RuleViolationType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
@@ -240,6 +247,7 @@ Use of xs:choice will hide repeated elements during XML validation
       <xs:element name="BestInternetVendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="CompanyReasonCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="CompanyRuleText" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="ViolationReasonCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
       <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
       <xs:element name="DateEntered" nillable="true" minOccurs="1" maxOccurs="1">
         <xs:simpleType>
@@ -2703,6 +2711,7 @@ Use of xs:choice will hide repeated elements during XML validation
 	  <xs:element name="IsGhostCard" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
 	  <xs:element name="CreditCardType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
 	  <xs:element name="CreditCardLastFour" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="RuleViolations" minOccurs="0" maxOccurs="unbounded" type="Segment_ArrayOfRuleViolations" />
 	</xs:choice>
   </xs:complexType>
   <xs:complexType name="TravelType">
