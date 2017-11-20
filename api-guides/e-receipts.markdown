@@ -34,7 +34,8 @@ The below Authentication Methods are available to obtain an access token.  Passw
 ![appflow_listing](https://user-images.githubusercontent.com/30883242/33037315-24acf7e4-cdff-11e7-835a-c18c27af9c2d.png)
 
 3. Concur&#39;s authorization service will redirect the user to your landing page.  Please follow the [App Center Design Guidelines](https://developer.concur.com/manage-apps/go-market-docs/app_center_ux_guidelines.pdf) to create a web page that listens for an HTTP GET request from Concur.
-4. The redirect URI will contain an **id** and **requestToken** parameters.  Example:  https://www.abcd.com/token?id=8568a4cd-8ffc-49d6-9417-be2d69aa075f&amp;requestToken=5l85ae5a-426f-4d6f-8af4-08648c4b696b
+4. The redirect URI will contain an **id** and **requestToken** parameters.  
+Example:   https://{partner_redirect_URI}?id=8568a4cd-8ffc-49d6-9417-be2d69aa075f&requestToken=5l85ae5a-426f-4d6f-8af4-08648c4b696b
 5. When your application receives the redirect call strip the **id** and **requestToken** values from the URI and use those on a Post request to the Concur Authorization service to obtain the official oauth2 accesstoken and refreshtoken for the user using the [password grant](https://developer.concur.com/api-reference/authentication/apidoc.html#password_grant) while being Geo Aware.
 6. Decode the **id\_token** to obtain the **sub** value and store this value as the user **id** (see [https://jwt.io](https://jwt.io) )
 7. An access token is valid only for one hour.  The access token should be cached in memory and discarded after use.
@@ -51,18 +52,21 @@ The below Authentication Methods are available to obtain an access token.  Passw
 
 ![webflow_auth](https://user-images.githubusercontent.com/30883242/33037320-2a7a8330-cdff-11e7-81f5-ed17a24de8b9.png)
 
-2. Your Application will make a call to the Concur Authorization service.  Example: GET /oauth2/v0/authorize?client\_id={your-app-clientId}&amp;redirect\_uri={your-app-redirect-uri}&amp;response\_type=code
+2. Your Application will make a call to the Concur Authorization service.  
+Example: GET /oauth2/v0/authorize?client\_id={your-app-clientId}&redirect\_uri={partner_redirect_URI}&response\_type=code
 3. The Concur Authorization service will prompt the user with two options: &quot;Username/Password&quot; or &quot;Send a link to my email&quot;.
 
 ![signin](https://user-images.githubusercontent.com/30883242/33037330-30f07ec2-cdff-11e7-88f5-cac05ddd1463.png)
 
 4. Handling the username/password option:
    - When users choose the username/password option, the authorization service will prompt the user to enter their concur credentials.
-   - After successfully logging in, the user&#39;s page will be redirected to the partner&#39;s redirect URI with a query parameter containing a one-time use code and user&#39;s geolocation which will be used to obtain an official oauth2 accesstoken and refreshtoken.  Example: https://{partner\_redirect\_URI}?{geolocation}&code=code-964c24ea-9200-45e7-a5ae-15e9cef0d445
+   - After successfully logging in, the user&#39;s page will be redirected to the partner&#39;s redirect URI with a query parameter containing a one-time use code and user&#39;s geolocation which will be used to obtain an official oauth2 accesstoken and refreshtoken.
+Example: https://{partner\_redirect\_URI}?{geolocation}&code=code-964c24ea-9200-45e7-a5ae-15e9cef0d445
 5. Handling the email option:
    - The email option is designed for users who do not want to use passwords or those that do not have passwords such as Single Sign-On (SSO) users.
    - Email is sent IF provides his/her **primary** Concur email address (email1).
-   - After user clicks on the &quot;Sign in with Concur&quot; link within the email, he/she will be redirected to the partner&#39;s redirect URI with a query parameter containing a one-time use code and user&#39;s geolocation which will be used to obtain an official oauth2 accesstoken and refreshtoken.  Example: https://{partner\_redirect\_URI}?{geolocation}&code=code-964c24ea-9200-45e7-a5ae-15e9cef0d445
+   - After user clicks on the &quot;Sign in with Concur&quot; link within the email, he/she will be redirected to the partner&#39;s redirect URI with a query parameter containing a one-time use code and user&#39;s geolocation which will be used to obtain an official oauth2 accesstoken and refreshtoken.
+Example: https://{partner\_redirect\_URI}?{geolocation}&code=code-964c24ea-9200-45e7-a5ae-15e9cef0d445
 
 ![otl email2](https://user-images.githubusercontent.com/30883242/33038302-2fe9ef88-ce02-11e7-8fc4-baa89afdbe32.png)
 
@@ -90,7 +94,8 @@ The below Authentication Methods are available to obtain an access token.  Passw
 
 
 
-4. After user clicks on the &quot;Sign in with Concur&quot; link within the email, he/she will be redirected to the partner&#39;s redirect URI with a query parameter containing a one-time token &#39;otl&#39; that will be used to obtain an official oauth2 accesstoken and refreshtoken.  Example: https://{partner\_redirect\_URI}&amp;otl= **7add4621f00b47e1aa2d8a61739c97e6**
+4. After user clicks on the &quot;Sign in with Concur&quot; link within the email, he/she will be redirected to the partner&#39;s redirect URI with a query parameter containing a one-time token &#39;otl&#39; that will be used to obtain an official oauth2 accesstoken and refreshtoken.  
+Example: https://{partner\_redirect\_URI}&otl=7add4621f00b47e1aa2d8a61739c97e6
 5. When your application receives the redirect call with the one-time token, strip the token value from the redirect URI and use that token on a Post request to the Concur Authorization service to obtain an official oauth2 accesstoken and refreshtoken using the [OTP grant](https://developer.concur.com/api-reference/authentication/apidoc.html#otp_grant) while being Geo Aware.
 6. Decode the **id\_token** to obtain the **sub** value and store this value as the user **id** (see [https://jwt.io](https://jwt.io) )
 7. An access token is valid only for one hour.  The access token should be cached in memory and discarded after use.
