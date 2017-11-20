@@ -8,13 +8,17 @@ redirect_from:
 
 # Quick Start Guide
 
-If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs:
+If you’re new to the Concur APIs, follow these steps to make your first API call and try some of our APIs.  For App Center Partners, this overview lets you know what to expect during Development, Certification, and Support: 
+
+Enterprise B2B apps: <https://prezi.com/p/lw0qqy51zcmd/> (this does not pertain to a Triplink app integration)
+
+eReceipt apps (B2C apps): <https://prezi.com/p/ur2i1m8thynz/> (this does not pertain to a Triplink app integration)
 
 
 ## 1. Provision your developer sandbox  
 
 
-Create a sandbox using our [Sandbox Setup Wizard][1].  
+Request a sandbox to be created. There are different teams involved depending on the type of Developer:  [Sandbox Setup scenarios][1].  
 
 
 ## 2. Make your first API call  
@@ -44,8 +48,6 @@ After you have completed development and testing, submit your app for [certifica
 [2]: /docs/guides/REST-API-Basics.html
 [3]: https://forum.developer.concur.com/c/sandbox
 [4]: https://concursolutions.com/
-[5]: /docs/guides/index.html
-[6]: /docs/overviews/index.html
 [7]: /manage-apps/partner-applications.html
 [8]: /manage-apps/app-certification.html
 [9]: /api-reference/authentication/authentication.html#native

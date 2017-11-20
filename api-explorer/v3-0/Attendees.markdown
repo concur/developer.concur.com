@@ -4,8 +4,10 @@ layout: reference
 reference-type: swagger
 ---
 
-**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
+{% capture deprecation_content %}
+* DELETE `/expense/attendees/{id}`
+{% endcapture %}
 
-* DELETE
+{% include deprecation-alert.html deprecation_date="05/19/2016" unsupported_date="11/19/2016" content=deprecation_content %}
 
 {% swagger /api-explorer/v3-0/Attendees.swagger2.json %}

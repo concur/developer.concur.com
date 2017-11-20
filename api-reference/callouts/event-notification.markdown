@@ -113,17 +113,13 @@ Refer to the [HTTP Codes][16] page for details of the common responses and error
   
 [2]:  /api-reference/expense/expense-report/reports.html
 [3]:  /api-reference/expense/expense-report/post-report-exceptions.html
-[4]:  /docs/overviews/index.html
 [5]:  http://forum.developer.concur.com/
-[6]:  /docs/overviews/index.html
 [7]:  https://developer.concur.com/api-documentation/core-concepts
-[8]:  /docs/overviews/index.html
 [9]:  /api-reference/callouts/delete-notification.html
 [10]: /api-reference/callouts/get-notifications-status.html
 [11]: /api-reference/callouts/post-event-notification.html
 [12]: /callouts/event-notification#installproc
 [13]: /callouts/event-notification#responses
 [14]: https://github.com/concurtech
-[15]: /docs/overviews/index.html
 [16]: /tools-support/reference/http-codes.html
 

@@ -369,5 +369,5 @@ Authorization: OAuth {access token}
 
 [Trip resource][2]
 
-[1]: http://concur.github.io/developer.concur.com/api-reference/authentication/web-flow
-[2]: http://concur.github.io/developer.concur.com/api-reference/travel/itinerary/trip/trip-resource
+[1]: /api-reference/travel/itinerary-tmc-thirdparty/#objects
+[2]: /api-reference/travel/itinerary/trip/trip-resource.html

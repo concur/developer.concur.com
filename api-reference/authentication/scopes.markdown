@@ -22,22 +22,39 @@ These are the list of scopes for the new world v4+ APIs.
 
 | Scopes        | Description |
 |---------------|-------------|
-| receipts.read | Read receipts and invoices |
-| receipts.write | Read and Write receipts and invoices |
-| receipts.writeonly | Write only access for receipts and invoices |
-| user.read | Read user profile |
-| user.write | Read and Write user profile |
+| budgetitem.read | Read access to budget data including fiscal calendar. |
+| budgetitem.write | Read and write access to budget data including fiscal calendar. |
 | company.read | Read company profile |
 | company.write | Read and Write company profile |
 | creditcardaccount.read | Read credit card account data |
-| travelrequest.write | Read and write Travel Requests |
-| openid | Return OPENID Token |
+| expense.report.read | Read only access to report resource within the Concur Expense service |
+| expense.report.readwrite | Read write access to report resource within the Concur Expense Report service |
+| expense.report.delete | Delete only access to report resource within the Concur Expense Report service | 
+| fiscalcalendar.read | Access to fiscal calendar |
+| fiscalcalendar.write | Read and write access to fiscal calendar. |
 | mileage.journey.read | Read-only access to mileage journey resources. |
 | mileage.journey.writeonly | Write-only access to mileage journey resources. |
 | mileage.vehicle.read | Read-only access to vehicle resources. |
 | mileage.vehicle.writeonly | Write-only access to vehicle resources. |
 | mileage.rate.read | Read-only access to rate configuration resources. |
 | mileage.rate.writeonly | Write-only access to rate configuration resources. |
+| openid | Return OPENID Token |
+| realtimeingest.location.writeonly | Post user location object upon trip completion | 
+| receipts.read | Read receipts and invoices |
+| receipts.write | Read and Write receipts and invoices |
+| receipts.writeonly | Write only access for receipts and invoices |
+| travel.receipts.read | Read requests for travel receipts |
+| travel.receipts.write | Read and Write travel receipts | 
+| travelallowance.itinerary.read | Read only access to Itinerary data | 
+| travelallowance.itinerary.writeonly | Write only access to Itinerary Data | 
+| travelallowance.configuration.read | Read only access to Itinerary Configuration data |
+| travelallowance.configuration.writeonly | Write only access to Itinerary Configuration data | 
+| travelallowance.itineraryresult.read | Read only access to Itinerary Result data |
+| travelrequest.write | Read and write Travel Requests |
+| user.read | Read user profile |
+| user.write | Read and Write user profile |
+
+
 
 ## <a name="connectscopes"></a>Old CONNECT API Scopes
 These are the list of scopes for the existing CONNECT APIs (v1.0 - v3.1)

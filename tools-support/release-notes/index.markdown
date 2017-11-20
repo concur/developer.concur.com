@@ -10,7 +10,7 @@ layout: reference
 | ---- | ---- | ---- | ---- |
 | -- | -- | -- | -- |
 | -- | [February](#feb2016) | [February][2-4] | -- |
-| -- | -- | -- | -- |
+| [March](/changelog/2017/03/20/Digital-Tax-Invoice-API-Account-Id.html) | [March Release](/blog/2016/03/15/march-release-notes.html) - [Quick Expense](/blog/2016/03/18/quick-expense-api-payment-type.html) | -- | -- |
 | -- | [April](#april2016) | [April][2-5] | -- |
 | -- | -- | [May][2-6] | [May][2-1] |
 | -- | -- | -- | [June][2-2] |
@@ -18,7 +18,7 @@ layout: reference
 | -- | -- | [August](#august2015) | -- |
 | -- | -- | -- | -- |
 | -- | -- | -- | [October][2-3] |
-| -- | -- | -- | -- |
+| -- | [November](/changelog/2016/11/19/connect-api-deprecation-notice.html) | -- | -- |
 | -- | -- | -- | -- |
 
 # App Center Release Notes
@@ -27,16 +27,14 @@ layout: reference
 | ---- | ---- | ---- | ---- |
 | [January](AppCenter_ReleaseNotes_Jan 2017_FINAL.pdf) | [January](AppCenter_ReleaseNotes_January_2016_FINAL.pdf) | -- | -- |
 | [February](AppCenter_ReleaseNotes_Feb 2017_FINAL.pdf) | [February](AppCenter_ReleaseNotes_February 2016_DRAFT.pdf) | [February][1-10]
-| [May](AppCenter_ReleaseNotes_May 2017_DRAFT.pdf)|
-| [July](AppCenter_ReleaseNotes_July 2017_DRAFT.pdf)|
 | -- | [March](AppCenter_ReleaseNotes_March 2016_FINAL.pdf) | [March][1-11] | -- |
 | -- | -- | [April][1-12] | -- |
-| -- | [May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf) | [May][1-13] | [May](App_Center_Release_Notes_client_final_May2014_0.pdf) |
+| [May](AppCenter_ReleaseNotes_May 2017_DRAFT.pdf)| [May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf) | [May][1-13] | [May](App_Center_Release_Notes_client_final_May2014.pdf) |
 | -- | [June](AppCenter_ReleaseNotes_June 2016_FINAL.pdf) | -- | [June][1-2] |
-| -- | [July](AppCenter_ReleaseNotes_July 2016_FINAL.pdf) | [July](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July][1-3] |
-| -- | [August](AppCenter_ReleaseNotes_August 2016_FINAL.pdf) | -- | [August][1-4] |
-| -- | [September](AppCenter_ReleaseNotes_Sept 2016_FINAL.pdf) | [September](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September][1-5] |
-| -- | [October](AppCenter_ReleaseNotes_Oct 2016_FINAL.pdf) | [October](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October][1-6] |
+| [July](AppCenter_ReleaseNotes_July 2017_FINAL.pdf) | [July](AppCenter_ReleaseNotes_July 2016_FINAL.pdf) | [July](AppCenter_ReleaseNotes_July2015FINAL.pdf) | [July][1-3] |
+| [August](AppCenter_ReleaseNotes_August 2017_DRAFT.pdf) | [August](AppCenter_ReleaseNotes_August 2016_FINAL.pdf) | -- | [August][1-4] |
+| [September](AppCenter_ReleaseNotes_September 2017_DRAFT.docx) | [September](AppCenter_ReleaseNotes_Sept 2016_FINAL.pdf) | [September](AppCenter_ReleaseNotes_Sept2015FINAL.pdf) | [September][1-5] |
+| [October](AppCenter_ReleaseNotes_October 2017_DRAFT.pdf) | [October](AppCenter_ReleaseNotes_Oct 2016_FINAL.pdf) | [October](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf) | [October][1-6] |
 | -- | [November](AppCenter_ReleaseNotes_Nov 2016_FINAL.pdf) | -- | [November][1-7] |
 | -- | [December](AppCenter_ReleaseNotes_Dec 2016_FINAL.pdf) | [December](AppCenter_ReleaseNotes_December2015FINAL.pdf) | [December][1-8] |
 
@@ -66,7 +64,7 @@ layout: reference
 ### <a name="april2016"></a>April 2016
 
 #### Travel: Form of Payment 1.0 Deprecated
-Effective May 1, 2016, Form of Payment 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0]({{site.baseurl}}/api-reference/travel/travel-profile/form-payment-resource.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
+Effective May 1, 2016, Form of Payment 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0](/api-reference/travel-profile/02-form-payment-resource.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
 
 Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/reference/deprecation-policy.html) for definitions additional information.
 
@@ -75,7 +73,7 @@ Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/referenc
 ### <a name="feb2016"></a>February 2016
 
 #### Travel Profile 1.0 Deprecated
-Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0]({{site.baseurl}}/api-reference/travel/travel-profile/index.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
+Effective May 1, 2016, the Travel Profile 1.0 API will be deprecated. Issues will continue to be addressed for this API until Nov. 1, 2016. After that date, no new issues will be addressed and the API will be retired. Therefore, we encourage all current users to migrate to [version 2.0](/api-reference/travel-profile/01-profile-resource.html) as soon as possible. Please note that after the API is in a retired state and there are three consecutive months of inactivity, the API will be decommissioned and no longer available.
 
 Please refer to our [deprecation policy]({{site.baseurl}}/tools-support/reference/deprecation-policy.html) for definitions additional information.
 
@@ -175,7 +173,7 @@ Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner
 
 **Effective Date:** July 2015 release
 
-[1-1]:App_Center_Release_Notes_client_final_May2014_0.pdf
+[1-1]:App_Center_Release_Notes_client_final_May2014.pdf
 [1-2]:App_Center_Release_Notes_final_June2014.pdf
 [1-3]:App_Center_Release_Notes_final_July2014.pdf
 [1-4]:App_Center_Release_Notes_final_Aug2014.pdf
@@ -185,7 +183,7 @@ Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner
 [1-8]:App_Center_Release_Notes_DecFinal_Dec12_2014.pdf
 [1-9]:App_Center_Release_Notes_Feb13_2015.pdf
 [1-10]:App_Center_Release_Notes_Feb27_2015.pdf
-[1-11]:App_Center_Release20_Notes_Mar13_2015.pdf
+[1-11]:App_Center_Release_Notes_Mar13_2015.pdf
 [1-12]:App_Center_ReleaseNotes_Mar27_2015.pdf
 [1-13]:AppCenter_ReleaseNotes_May2015FINAL.pdf
 

@@ -129,5 +129,4 @@ Content-Length: {length of content body}
 
 
 [1]: https://developer.concur.com/overview/partner-applications
-[2]: https://developer.concur.com/node/434#security
-[3]: https://developer.concur.com/node/434#idtypes
+[3]: /tools-support/reference/hotel-direct-connect-codes.html#method6

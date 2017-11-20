@@ -4,10 +4,7 @@ layout: reference
 ---
 
 
-# PREVIEW - Company Level Authentication
-
-### Special Note (Please Read First)
-**This documentation is presented for early preview purposes only as is NOT final.** If you have any questions, please contact your Partner Enablement team representative before proceeding.
+# Company Level Authentication
 
 * [Overview]()
 * [Company](#company)
@@ -33,7 +30,7 @@ AppCenter will call this endpoint to obtain an `authToken`.
 Sample Curl:
 
 ```shell
-curl -E appcenter.p12:. -H 'concur-correlationid: githbuwiki' -XPOST http://us.api.concursolutions.com/profile-service/v1/keys/principals/08BCCA1E-0D4F-4261-9F1B-F778D96617D6/authtoken/
+curl -E appcenter.p12:. -H 'concur-correlationid: githbuwiki' -XPOST https://us.api.concursolutions.com/profile-service/v1/keys/principals/08BCCA1E-0D4F-4261-9F1B-F778D96617D6/authtoken/
 ```
 
 successful call, responds with
