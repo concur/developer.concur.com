@@ -58,11 +58,11 @@ The below Authentication Methods are available to obtain an access token.  Passw
 
 4. Handling the username/password option:
    - When users choose the username/password option, the authorization service will prompt the user to enter their concur credentials.
-   - After successfully logging in, the user&#39;s page will be redirected to the partner&#39;s redirect URI with a query parameter containing a one-time use code and user&#39;s geolocation which will be used to obtain an official oauth2 accesstoken and refreshtoken.  Example: _ _https://{partner\_redirect\_URI}/?code=code-964c24ea-9200-45e7-a5ae-15e9cef0d445&amp;{user&#39;s geolocation}
+   - After successfully logging in, the user&#39;s page will be redirected to the partner&#39;s redirect URI with a query parameter containing a one-time use code and user&#39;s geolocation which will be used to obtain an official oauth2 accesstoken and refreshtoken.  Example: https://{partner\_redirect\_URI}?{geolocation}&code=code-964c24ea-9200-45e7-a5ae-15e9cef0d445
 5. Handling the email option:
    - The email option is designed for users who do not want to use passwords or those that do not have passwords such as Single Sign-On (SSO) users.
    - Email is sent IF provides his/her **primary** Concur email address (email1).
-   - After user clicks on the &quot;Sign in with Concur&quot; link within the email, he/she will be redirected to the partner&#39;s redirect URI with a query parameter containing a one-time use code and user&#39;s geolocation which will be used to obtain an official oauth2 accesstoken and refreshtoken.  Example: https://{partner\_redirect\_URI}/?code=code-964c24ea-9200-45e7-a5ae-15e9cef0d445&amp;{user&#39;s geolocation}
+   - After user clicks on the &quot;Sign in with Concur&quot; link within the email, he/she will be redirected to the partner&#39;s redirect URI with a query parameter containing a one-time use code and user&#39;s geolocation which will be used to obtain an official oauth2 accesstoken and refreshtoken.  Example: https://{partner\_redirect\_URI}?{geolocation}&code=code-964c24ea-9200-45e7-a5ae-15e9cef0d445
 
 ![otl email2](https://user-images.githubusercontent.com/30883242/33038302-2fe9ef88-ce02-11e7-8fc4-baa89afdbe32.png)
 
