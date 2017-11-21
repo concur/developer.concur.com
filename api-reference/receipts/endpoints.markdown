@@ -647,7 +647,7 @@ Connection: keep-alive
 
 ##### Endpoint: Get Receipt Image (Image-Only)
 
-###### _GET /v4/image-only-receipts/:receiptId/image-only-receipts_
+###### _GET /v4/image-only-receipts/:receiptId/image_
 
 |Parameter|Requirement|Value|
 |---|---|---|
