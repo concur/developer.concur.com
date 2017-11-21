@@ -13,6 +13,7 @@ layout: reference
 |---|---|---|
 |200|OK|Your GET request succeeded.|
 |201|Created|Your POST request succeeded. Please note that even though your request passed validation, the service still needs to create your receipt. Because of this processing time, your receipt might not be available for retrieval immediately.|
+|202|Accepted|Your request was accepted. Please note that even though your request was accepted, the service still needs to process your receipt. Because of this processing time, your receipt might not be available for retrieval immediately.|
 
 ### Failure Codes
 
