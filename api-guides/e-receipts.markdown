@@ -112,7 +112,7 @@ Example: https://{partner\_redirect\_URI}&otl=7add4621f00b47e1aa2d8a61739c97e6
 Getting Started with Receipts v4 documentation can be found [here](/api-reference/receipts/get-started.html).
 
 - Select a [Supported Receipt type](/api-reference/receipts/supported-receipt-types.html) that best fits your industry and retrieve the list [schemas](/api-reference/receipts/get-started.html) for the available receipt types.
-- To ensure that you are using the correct endpoint URLs, the safest practice is to check the service index before every request.   [Get service Index](/api-reference/receipts/get-started.html#endpoint-service-index)
+- To ensure that you are using the correct endpoint URLs, the safest practice is to check the service index before every request.   [Get service Index](/api-reference/receipts/endpoints.html#endpoint-service-index)
 - If your app currently generates a receipt image, (.png, .jpg,.tif, .pdf or other image file), you can include it in your post to Concur.
 - Concur generates a standard receipt for Partners who do not tender a receipt image.
 - Concur will display your App Logo on standard generated receipts (size 100x100 px)
@@ -121,7 +121,7 @@ Getting Started with Receipts v4 documentation can be found [here](/api-referenc
 
 1. Obtain a fresh access token for the user using [refresh grant](/api-reference/authentication/apidoc.html#refresh_token).
 2. You will need the user **Id** previously stored in the user&#39;s profile to post receipts on his/her behalf.
-3. Post receipt using the [Post Receipt](/api-reference/receipts/get-started.html#endpoint-post-a-receipt) endpoint
+3. Post receipt using the [Post Receipt](/api-reference/receipts/endpoints.html#endpoint-post-a-receipt) endpoint
 4. You should store the Concur\_Correlation\_ID and the Location Link from the response headers even for successful responses, this will facilitate support efforts in case of a missing receipt from User&#39;s Concur account.
 
 
