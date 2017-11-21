@@ -254,6 +254,7 @@
           "description": "The account code of the line item. A value must be supplied for either ExpenseType or AccountCode, but not both. This field is required if an ExpenseType value is not supplied."
         },
         "Allocation": {
+          "type": "array",
           "$ref": "#/definitions/Allocation"
         },
         "AmountWithoutVat": {
@@ -535,6 +536,7 @@
           "description": "A code which indicates which company journal the Purchase Order is assigned to. Use GET /purchase order/localizeddata to translate the code into text."
         },
         "LineItem": {
+          "type":"array",
           "$ref": "#/definitions/LineItem"
         },
         "Name": {
