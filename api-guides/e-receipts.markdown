@@ -162,13 +162,13 @@ To [revoke](/api-reference/authentication/apidoc.html#revoke_token) a user&#39;s
 
 #### Concur has multiple datacenters:
 
-US = https://us.api.concursolutions.com
+US = `https://us.api.concursolutions.com`
 
-EMEA = https://emea.api.concursolutions.com
+EMEA = `https://emea.api.concursolutions.com`
 
-China = https://apa1.concurcdc.cn
+China = `https://apa1.concurcdc.cn`
 
-You will need to be aware of the geolocation where the user exists in and make the call to the APIs correctly.  If there is a case where you will not / do not know the user&#39;s geolocation, then you should make the API call using the default US Base URI [https://us.api.concursolutions.com](https://us.api.concursolutions.com)and expect a geolocation error which will return the correct geoLocation for the user.  Sample of Error below:
+You will need to be aware of the geolocation where the user exists in and make the call to the APIs correctly.  If there is a case where you will not / do not know the user&#39;s geolocation, then you should make the API call using the default US Base URI `https://us.api.concursolutions.com` and expect a geolocation error which will return the correct geoLocation for the user.  Sample of Error below:
 
 ![error2](/assets/img/api-guides/e-receipts/error2.jpg)
 
