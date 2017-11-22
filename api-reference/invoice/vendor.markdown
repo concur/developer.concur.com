@@ -246,7 +246,7 @@ Name | Type | Format | Description
 `ID`|`string`|-|The unique identifier of the resource.
 `IsVisibleForContentExtraction`|`string`|-|Flag that indicates if the vendor will be available for OCR within Brainware
 `PaymentMethodType`|`string`|-|Preferred Payment Type for Vendor.
-`PaymentTerms`|`Integer between 1 and 999`|-|The Vendor Payment Terms.This field represents the number of days by which a payment must be made, for example, 30 days
+`PaymentTerms`|`Integer between 1 and 999`|-|The Vendor Payment Terms. This field represents the number of days by which a payment must be made, for example, 30 days
 `PostalCode`|`string`|-|The Vendor Postal Code / Zip.
 `ProvincialTaxID`|`string`|-|The Vendor Provincial Tax ID.
 `PurchaseOrderContactEmail`|`string`|-|The Purchase Order Contact Email.
