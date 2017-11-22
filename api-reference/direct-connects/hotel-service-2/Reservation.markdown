@@ -122,6 +122,7 @@ Message to reserve a hotel.
 | CompanyInfo | N        | Complex   | Element to capture the company name. |
 
 
+
 **Customer**
 
 | Element            | Required | Data Type         | Description |
