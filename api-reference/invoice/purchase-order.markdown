@@ -33,10 +33,9 @@ Creates or updates one or more purchase orders. All purchase order requests are 
 
 [Schema](#schema)
 
- <details><summary>Example</summary>
-  <p>
+- Example
     ```json
-    {
+     {
         "BillToAddress": {
           "Address1": "add1",
           "Address2": "add2",
@@ -97,11 +96,6 @@ Creates or updates one or more purchase orders. All purchase order requests are 
         "VendorAddressCode": "VEN1ADDR1"
     }
     ```
-
-    </p>
-  </details>
-
-
 ### Response  
 
 [Response schema](#schema-response)
