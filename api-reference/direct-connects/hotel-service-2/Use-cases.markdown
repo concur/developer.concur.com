@@ -20,7 +20,7 @@ Concur will follow up a Reservation Request with a Read request as soon as possi
 
 
 
-
+ 
 # General system overview 
 
 ![./media/image1.png](./images/diagrams/hs2-sequence-diagram.png)
