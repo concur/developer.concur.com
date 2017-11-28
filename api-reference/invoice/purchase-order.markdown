@@ -33,6 +33,69 @@ Create or update a Purchase Order. Batch processing is not available using the P
 
 [Schema](#schema)
 
+- Example
+    ```json
+     {
+        "BillToAddress": {
+          "Address1": "add1",
+          "Address2": "add2",
+          "Address3": "add3",
+          "City": "city",
+          "CountryCode": "US",
+          "ExternalID": "billtoapi",
+          "Name": "billto",
+          "PostalCode": "55426",
+          "StateProvince": "MN"
+        },
+        "CurrencyCode": "USD",
+        "OrderDate":"2011-08-12T20:17:46.384Z",
+
+        "ID": "API101",
+        "LedgerCode": "23",
+        "LineItem": [
+          {
+            "Allocation": [
+              {
+                "Amount": "10"
+              }
+            ],
+            "Description": "lin1",
+            "ExpenseType": "Advertising",
+            "ExternalID": "API100line1",
+            "IsReceiptRequired": "true",
+            "LineNumber": "1",
+            "PurchaseOrderReceipt": [
+              {
+                "DeliverySlipNumber": "DSN",
+                "GoodsReceiptNumber": "GRN",
+                "ID": "rec1",
+                "IsReceived": "true",
+                "ReceivedQuantity": "1"
+              }
+            ],
+            "PurchaseOrderReceiptType": "WQTY",
+            "Quantity": "1",
+            "UnitPrice": "10"
+           }
+        ],
+        "Name": "poName",
+        "PolicyExternalID": "PO",
+        "PurchaseOrderNumber": "API101",
+        "ShipToAddress": {
+          "Address1": "add1",
+          "Address2": "add2",
+          "City": "cityship",
+          "CountryCode": "US",
+          "ExternalID": "Shiptoapi",
+          "Name": "shiptoapi",
+          "PostalCode": "55426",
+          "State": "CA",
+          "StateProvince": "MN"
+        },
+        "VendorCode": "VEN1",
+        "VendorAddressCode": "VEN1ADDR1"
+    }
+    ```
 ### Response  
 
 [Response schema](#schema-response)
@@ -144,7 +207,6 @@ None.
 |`ExternalID`|`string`|-|**Required** A unique value supplied by the customer to identify a particular shipping or billing address.
 |`Name`|`string`|-|An optional name that can be given to the shipping or billing address.
 |`PostalCode`|`string`|-|**Required** The postal code of the shipping or billing address.
-|`State`|`string`|-|**Required** The state or province of the shipping or billing address.
 |`StateProvince`|`string`|-|**Required** The state or province of the shipping or billing address.
 
 #### <a name="lineItem"></a>LineItem  
@@ -191,7 +253,6 @@ None.
 |`ExternalID`|`string`|-|**Required** A unique value supplied by the customer to identify a particular shipping or billing address.
 |`Name`|`string`|-|An optional name that can be given to the shipping or billing address.
 |`PostalCode`|`string`|-|**Required** The postal code of the shipping or billing address.
-|`State`|`string`|-|**Required** The state or province of the shipping or billing address.
 |`StateProvince`|`string`|-|**Required** The state or province of the shipping or billing address.
 
 ## <a name="schema-response"></a>Response schema  

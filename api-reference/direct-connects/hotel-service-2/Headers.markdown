@@ -57,10 +57,10 @@ The Soap header nested in the Envelope will contain an authentication element.
 
 **authentication**
 
-|  Element |	Required | Data Type 	|  Description |
-|----------|-----------|---------------------------|-|
-| userid | Y | String	| Contains the authentication details |
-| password | Y | String	| Contains the authentication details |
+| Element  | Required | Data Type | Description |
+|----------|----------|-----------|-------------|
+| userid   | Y        | String    | Contains the authentication details |
+| password | Y        | String    | Contains the authentication details |
 
 Sample:
 
@@ -81,11 +81,11 @@ Every message must contain the following required attributes and elements.  On t
 
 ## Request Message Headers
 
-| Element         |	Required | Data Type          | Description |
+| Element         | Required | Data Type          | Description |
 |-----------------|----------|--------------------|-------------|
 | *EchoToken*     | Y        | StringLength1to128 | A reference for additional message identification, assigned by the requesting host system. |
-| *Timestamp*     | Y        | DateTimeType	      | Timestmap of XYZ operation - **To be confirmed what this actually means** |
-| *Version*       | Y        | Double	          | The OpenTravel message version indicated by a decimal value. |
+| *Timestamp*     | Y        | DateTimeType       | Timestmap of XYZ operation - **To be confirmed what this actually means** |
+| *Version*       | Y        | Double            | The OpenTravel message version indicated by a decimal value. |
 | *PrimaryLangID* | Y        | String             | The primary language preference for the message encoded as ISO 639-1 |
 | *AltLangID*     | Y        | String             | The alternate language for a customer or message encoded as ISO 639-1. |
 | POS             | Y        | Complex            | Point of Sale (POS) identifies the party or connection channel making the request. |
@@ -93,16 +93,16 @@ Every message must contain the following required attributes and elements.  On t
 
 **POS**
 
-| Element |	Required | Data Type | Description |
+| Element | Required | Data Type | Description |
 |---------|----------|-----------|-------------|
-| Sources | Y        | Complex	 | This holds the details about the requestor.  Max Occurrence 10 |
+| Sources | Y        | Complex   | This holds the details about the requestor.  Max Occurrence 10 |
 
 
 **Source**
 
 Concur will always send the ISOCountry and ISO Currency
 
-| Element       | Required | Data Type 	  | Description |
+| Element       | Required | Data Type    | Description |
 |---------------|----------|--------------|-------------|
 | *ISOCountry*  | Y        | ISO3166      | Country code |
 | *ISOCurrency* | Y        | AlphaLength3 | Currency Code |
@@ -111,7 +111,7 @@ Concur will always send the ISOCountry and ISO Currency
 
 **RequestorID**
 
-| Element | Required | Data Type 	     | Description |
+| Element | Required | Data Type         | Description |
 |---------|----------|-------------------|-------------|
 | *Type*  | Y        | StringLength1to32 | Concur will always send a Requestor ID type of 1 |
 | *ID*    | Y        | StringLength1to32 | The Requestor ID |
@@ -123,11 +123,11 @@ Concur will always send the ISOCountry and ISO Currency
 
 The supplier is required to respond with the following attributes and elements in the root of any message.  On top of these each message may specify extra attributes and elements. Refer to a specific messages' page for details.
 
-| Element         | Required | Data Type 	      | Description |
+| Element         | Required | Data Type          | Description |
 |-----------------|----------|--------------------|-------------|
 | *EchoToken*     | Y        | StringLength1to128 | Implementer: A reference for additional message identification, assigned by the requesting host system. When a request message includes an echo token the corresponding response message MUST include an echo token with an identical value.  |
 | *Timestamp*     | Y        | DateTimeType	      | Timestmap of the response operation. |
-| *Version*       | Y        | Double	          | The OpenTravel message version indicated by a decimal value. |
-| *PrimaryLangID* | Y        | String	          | The primary language preference for the message encoded as ISO 639-1 |
+| *Version*       | Y        | Double             | The OpenTravel message version indicated by a decimal value. |
+| *PrimaryLangID* | Y        | String             | The primary language preference for the message encoded as ISO 639-1 |
 | *AltLangID*     | Y        | String             | The alternate language for a customer or message encoded as ISO 639-1. |
 | Success / Error | Y        | Complex            | Indicates Success Or Error.  Refer to Errors page for more details regarding Error handling. |

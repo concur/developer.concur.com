@@ -43,7 +43,7 @@ If an error is present in any message, then the content of that message is disca
 
 **Error**
 
-| Element     |	Required | Data Type | Description |
+| Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
 | *Type*      | N        | String    | An Error Type Code. See the Error Types below. |
 | *ShortText* | Y        | String    | A description of the error.  The content of this attribute will be logged, but never displayed to the user. |
@@ -56,7 +56,7 @@ Concur supports the following Error Type Codes in any of the responses:
 
 | Code | Name              | Description |
 |------|-------------------|-------------|
-| 1    | Unknown           |	Indicates an unknown error. |
+| 1    | Unknown           | Indicates an unknown error. |
 | 2    | No implementation | Indicates that the target business system has no implementation for the intended request. | 
 | 13   | Application error | Indicates that an involved back-end application returned an error which is passed back in the response message. |
 
