@@ -33,10 +33,9 @@ Create or update a Purchase Order. Batch processing is not available using the P
 
 [Schema](#schema)
 
- <details><summary>Example</summary>
-  <p>
+- Example
     ```json
-    {
+     {
         "BillToAddress": {
           "Address1": "add1",
           "Address2": "add2",
@@ -97,11 +96,6 @@ Create or update a Purchase Order. Batch processing is not available using the P
         "VendorAddressCode": "VEN1ADDR1"
     }
     ```
-
-    </p>
-  </details>
-
-
 ### Response  
 
 [Response schema](#schema-response)
