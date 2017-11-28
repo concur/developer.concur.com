@@ -315,7 +315,7 @@ With this grant, the user has two authentication options:
 
 With both options, once the user is successfully authenticated and the user authorizes your application, the user will be redirected to the redirect_URI specified in the initial /authorize call with a temporary token appended.
 
-`<redirect_uri>?cc=<token>`
+`<redirect_uri>?geolocation=<token_geolocation>&cc=<token>`
 
 *If the user is not successfully authenticated or does not authorize the scopes for your application, an error code and description will be appended to the redirect URI. Please refer to the [Response Codes](#response_codes) section for more information.*
 
@@ -611,6 +611,7 @@ Connection: keep-alive
   "code": <number>,
   "error": <error>,
   "error_description": <error_description>,
+  "concur-correlationid": <concur_correlation_id>
   "geolocation": <geolocation url where user lives>
 }
 ```
