@@ -175,7 +175,7 @@ Message to reserve a hotel.
 
 | Element    | Required | Data Type | Description |
 |------------|----------|-----------|-------------|
-| Membership | N        | Complex   | A recurring element that identifies the type of reward program and custommer's identification number for this program. |
+| Membership | N        | Complex   | A recurring element that identifies the type of reward program and customer's identification number for this program. |
 
 
 **Membership**
