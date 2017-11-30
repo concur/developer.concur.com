@@ -25,10 +25,11 @@ Message to reserve a hotel.
 
 **HotelReservation**
 
-| Element   | Required | Data Type | Description |
-|-----------|----------|-----------|-------------|
-| RoomStays | Y        | Complex   | A reference to identify the booking. |
-| ResGuests | Y        | Complex   | List of Guests.  Concur only supports one guest. |
+| Element       | Required | Data Type | Description |
+|---------------|----------|-----------|-------------|
+| RoomStays     | Y        | Complex   | A reference to identify the booking. |
+| ResGuests     | Y        | Complex   | List of Guests.  Concur only supports one guest. |
+| ResGlobalInfo | N        | Complex   | Contains various information that affects the Reservation as a whole, typically list of reward programs (see Memberships). |
 
 
 **RoomStays**
@@ -162,6 +163,27 @@ Message to reserve a hotel.
 |-------------|----------|-------------------|-------------|
 | CompanyName | Y        | StringLength1to32 | A string representing a customer's Company. |
 
+
+**ResGlobalInfo**
+
+| Element     | Required | Data Type | Description |
+|-------------|----------|-----------|-------------|
+| Memberships | N        | Complex   | A collection of Memberships, provides a list of reward programs like e.g. loyalty cards. |
+
+
+**Memberships**
+
+| Element    | Required | Data Type | Description |
+|------------|----------|-----------|-------------|
+| Membership | N        | Complex   | A recurring element that identifies the type of reward program and custommer's identification number for this program. |
+
+
+**Membership**
+
+| Element       | Required | Data Type         | Description |
+|---------------|----------|-------------------|-------------|
+| *ProgramCode* | Y        | StringLength1to32 | The code or name of the reward program (e.g. "HotelLoyaltyProgram"). |
+| *AccountID*   | Y        | StringLength1to64 | The account identification number for this particular member in this particular program. |
 
 
 ### TPA Extensions
