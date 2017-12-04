@@ -194,6 +194,8 @@
   children:
       - title: Get Started
         url: /api-reference/receipts/get-started.html
+      - title: Endpoints
+        url: /api-reference/receipts/endpoints.html
       - title: Supported Receipt Types
         url: /api-reference/receipts/supported-receipt-types.html
       - title: Sample Receipts

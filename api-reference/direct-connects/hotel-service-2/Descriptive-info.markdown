@@ -32,7 +32,7 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 **HotelDescriptiveInfo**
 
-| Element     |	Required | Data Type         | Description |
+| Element     | Required | Data Type         | Description |
 |-------------|----------|-------------------|-------------|
 | *ChainCode* | N        | StringLength1to8  | Optional element referencing the Hotel Chain Code. |
 | *HotelCode* | Y        | StringLength1to16 | Refer to HotelCode in the Property element of the Search message. |
@@ -45,13 +45,13 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 **OTA_HotelDescriptiveInfoRS**
 
-| Element                  | Required | Data Type 	| Description |
+| Element                  | Required | Data Type   | Description |
 |--------------------------|----------|-------------|-------------|
 | HotelDescriptiveContents | Y        | Complex     | Contains Hote Details content which is made up of text and image URLs |
 
 **HotelDescriptiveContents**
 
-| Element                 |	Required | Data Type | Description |
+| Element                 | Required | Data Type | Description |
 |-------------------------|----------|-----------|-------------|
 | HotelDescriptiveContent | Y        | Complex	 | Contains Hotel Details content which is made up of text and image URLs Concur only expects one HotelDescriptiveContent |
 
@@ -66,9 +66,9 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 **TPA_Extensions**
 
-| Element     |	Required | Data Type | Description |
+| Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
-| Description | N        | Complex	 | Represents text which will be rendered in the UI in the form of a heading and a paragraph |
+| Description | N        | Complex   | Represents text which will be rendered in the UI in the form of a heading and a paragraph |
 
 
 **Description**
@@ -109,7 +109,7 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 **ImageFormat**
 
-| Element |	Required | Data Type         | Description |
+| Element | Required | Data Type         | Description |
 |---------|----------|-------------------|-------------|
 | URL     | Y        | StringLength1to32 | Contains a URL pointing to a hotel image. The URLs are used in a client-side gallery widget, which works best with .png and .jpg files. |
 

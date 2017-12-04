@@ -25,10 +25,11 @@ Message to reserve a hotel.
 
 **HotelReservation**
 
-| Element   | Required | Data Type | Description |
-|-----------|----------|-----------|-------------|
-| RoomStays | Y        | Complex   | A reference to identify the booking. |
-| ResGuests | Y        | Complex   | List of Guests.  Concur only supports one guest. |
+| Element       | Required | Data Type | Description |
+|---------------|----------|-----------|-------------|
+| RoomStays     | Y        | Complex   | A reference to identify the booking. |
+| ResGuests     | Y        | Complex   | List of Guests.  Concur only supports one guest. |
+| ResGlobalInfo | N        | Complex   | Contains various information that affects the Reservation as a whole, typically list of reward programs (see Memberships). |
 
 
 **RoomStays**
@@ -50,9 +51,9 @@ Message to reserve a hotel.
 
 **Guarantee**
 
-| Element            | Required | Data Type 	    | Description |
+| Element            | Required | Data Type         | Description |
 |--------------------|----------|-------------------|-------------|
-| *GuaranteeType*    | Y        | StringLength1to32	| Refer to GuaranteeType in Availability |
+| *GuaranteeType*    | Y        | StringLength1to32 | Refer to GuaranteeType in Availability |
 | GuaranteesAccepted | Y        | Complex           | something |
 
 
@@ -60,21 +61,21 @@ Message to reserve a hotel.
 
 | Element                  | Required | Data Type | Description |
 |--------------------------|----------|-----------|-------------|
-| *Default*                | N        | Boolean	  | This is to indicate that the information in the model is the default (e.g. if PaymentCard information is completed then this would be considered the default if the boolean is true). |
-| *NoCardHolderInfoReqInd* | N        | Boolean	  | If true, no credit card holder information is required. If false, it is required.” |
-| *NameReqInd*             | N        | Boolean	  | If true, the credit card holder name is required. If false, it is not required. |
-| *AddressReqInd*          | N        | Boolean	  | If true, credit card holder address is required. If false, it is not required. |
-| *PhoneReqInd*            | N        | Boolean	  | If true, credit card holder phone number is required. If false, it is not required. |
-| *InterbankNbrReqInd*     | N        | Boolean	  | If true, the credit card interbank number is required. If false, it is not required. |
-| PaymentCard              | Y        | Complex	  | see Payment Card in Availability |
+| *Default*                | N        | Boolean   | This is to indicate that the information in the model is the default (e.g. if PaymentCard information is completed then this would be considered the default if the boolean is true). |
+| *NoCardHolderInfoReqInd* | N        | Boolean   | If true, no credit card holder information is required. If false, it is required.” |
+| *NameReqInd*             | N        | Boolean   | If true, the credit card holder name is required. If false, it is not required. |
+| *AddressReqInd*          | N        | Boolean   | If true, credit card holder address is required. If false, it is not required. |
+| *PhoneReqInd*            | N        | Boolean   | If true, credit card holder phone number is required. If false, it is not required. |
+| *InterbankNbrReqInd*     | N        | Boolean   | If true, the credit card interbank number is required. If false, it is not required. |
+| PaymentCard              | Y        | Complex   | see Payment Card in Availability |
 
 
 **PaymentCard**
 
 | Element        | Required | Data Type         | Description |
 |----------------|----------|-------------------|-------------|
-| CardType       | Y        | StringLength1to32	| something |
-| CardHolderName | Y        | StringLength1to32	| The name on the card |
+| CardType       | Y        | StringLength1to32 | something |
+| CardHolderName | Y        | StringLength1to32 | The name on the card |
 | CardNumber     | Y        | Complex           | The Card Number |
 
 
@@ -96,7 +97,7 @@ Message to reserve a hotel.
 
 | Element | Required | Data Type | Description |
 |---------|----------|-----------|-------------|
-| Text    | Y        | String	 | Text representing the comment. |
+| Text    | Y        | String    | Text representing the comment. |
 
 
 **Text**
@@ -111,7 +112,7 @@ Message to reserve a hotel.
 | Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
 | Profiles    | Y        | Complex   | List of Profiles. Concur will only ever send on profile. |
-| GuestCounts | Y        | Complex	 | Refer to GetCounts in Availability. |
+| GuestCounts | Y        | Complex   | Refer to GetCounts in Availability. |
 
 
 **Profile**
@@ -119,7 +120,7 @@ Message to reserve a hotel.
 | Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
 | Customer    | Y        | Complex   | Element to describer a Customer. |
-| CompanyInfo | N        | Complex	 | Element to capture the company name. |
+| CompanyInfo | N        | Complex   | Element to capture the company name. |
 
 
 **Customer**
@@ -131,7 +132,7 @@ Message to reserve a hotel.
 | PersonName         | N        | Complex           | Element representing a Customers name |
 | Telephone          | N        | Complex           | Element representing a telephone number. |
 | Email              | N        | StringLength1to32 | Email address |
-| Address            | N        | Complex	        | Refer to Address in Search |
+| Address            | N        | Complex           | Refer to Address in Search |
 | CitizenCountryName | N        | Complex           | ISO3166 representation of the user's Country as defined in their Concur Profile |
 
 **PersonName**
@@ -163,6 +164,27 @@ Message to reserve a hotel.
 | CompanyName | Y        | StringLength1to32 | A string representing a customer's Company. |
 
 
+**ResGlobalInfo**
+
+| Element     | Required | Data Type | Description |
+|-------------|----------|-----------|-------------|
+| Memberships | N        | Complex   | A collection of Memberships, provides a list of reward programs like e.g. loyalty cards. |
+
+
+**Memberships**
+
+| Element    | Required | Data Type | Description |
+|------------|----------|-----------|-------------|
+| Membership | N        | Complex   | A recurring element that identifies the type of reward program and customer's identification number for this program. |
+
+
+**Membership**
+
+| Element       | Required | Data Type         | Description |
+|---------------|----------|-------------------|-------------|
+| *ProgramCode* | Y        | StringLength1to32 | The code or name of the reward program (e.g. "HotelLoyaltyProgram"). |
+| *AccountID*   | Y        | StringLength1to64 | The account identification number for this particular member in this particular program. |
+
 
 ### TPA Extensions
 
@@ -185,12 +207,12 @@ Message to reserve a hotel.
 
 | Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
-| CustomField | Y        | Complex	 | A Custom Field in the form of a key-value pair. |
+| CustomField | Y        | Complex   | A Custom Field in the form of a key-value pair. |
 
 
 **CustomField**
 
-| Element | Required | Data Type 	     | Description |
+| Element | Required | Data Type         | Description |
 |---------|----------|-------------------|-------------|
 | Name    | Y        | StringLength1to32 | Name of the Custom Field |
 | Value   | N        | StringLength1to32 | Value of the Custom Field |
@@ -203,7 +225,7 @@ Message to reserve a hotel.
 
 **OTA_HotelResRS**
 
-| Element           | Required | Data Type 	       | Description |
+| Element           | Required | Data Type         | Description |
 |-------------------|----------|-------------------|-------------|
 | *ResResponseType* | Y        | StringLength1to32 | **waiting to see what we actually support here as the list is quite big** |
 | HotelReservations | Y        | Complex           | Concur only supports one reservation.  All extra reservations will be ignored. |

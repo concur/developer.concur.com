@@ -12,7 +12,7 @@ If you’re new to the Concur APIs, follow these steps to make your first API ca
 
 Enterprise B2B apps: <https://prezi.com/p/lw0qqy51zcmd/> (this does not pertain to a Triplink app integration)
 
-User apps (B2C apps): coming soon (this does not pertain to a Triplink app integration)
+eReceipt apps (B2C apps): <https://prezi.com/p/ur2i1m8thynz/> (this does not pertain to a Triplink app integration)
 
 
 ## 1. Provision your developer sandbox  

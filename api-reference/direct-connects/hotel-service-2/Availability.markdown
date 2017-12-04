@@ -24,14 +24,14 @@ Message to retrieved the availability of hotels
 
 **AvailRequestSegments**
 
-| Element             |	Required | Data Type | Description |
+| Element             | Required | Data Type | Description |
 |---------------------|----------|-----------|-------------|
 | AvailRequestSegment | Y        | Complex   | To accommodate the ability to perform multiple requests within one message, the availability request contains the repeating element, AvailRequestSegment. Each segment includes a collection of criteria that requests a book-able entity, which may include designated rate plans, room types, amenities or services, and the request can be used for guest rooms or other inventory items for which availability is sought. Each segment would be presumed to have a unique date range for each request. Concur will only ever send one AvailRequestSegment |
 
 
 **AvailRequestSegment**
 
-| Element             |	Required | Data Type | Description |
+| Element             | Required | Data Type | Description |
 |---------------------|----------|-----------|-------------|
 | HotelSearchCriteria | Y        | Complex   | Specified hotel search criteria. Concur will ever only ever send one HotelSearchCriteria. |
 | StayDateRange       | N        | Complex   | Refer to StayDateRange in Search. |
@@ -54,10 +54,10 @@ Message to retrieved the availability of hotels
 
 **RoomStayCandidate**
 
-| Element     |	Required | Data Type | Description |
+| Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
 | *Quantity*  | Y        | Int	     | something **to be removed** |
-| GuestCounts | Y        | Complex	 | A collection of Guest Counts associated with Room Stay. **A child Guest Count element is required for each distinct age group. - the note about a child is unnessesary**|
+| GuestCounts | Y        | Complex   | A collection of Guest Counts associated with Room Stay. **A child Guest Count element is required for each distinct age group. - the note about a child is unnessesary**|
 
 
 **GuestCounts**
@@ -98,8 +98,8 @@ Message to retrieved the availability of hotels
 
 For a description of the relationship between the RoomID and RatePlanID refer to "Relationship between RoomID and RatePlanID"
 
-| Element           | Required | Data Type | Description |
-|-------------------|----------|-----------|-------------|
+| Element           | Required | Data Type    | Description |
+|-------------------|----------|--------------|-------------|
 | RoomTypes         | Y        | Complex      | Details on the Room Stay including Guest Counts, Time Span of this Room Stay, pointers to Res Guests, guest Memberships, Comments and Special Requests pertaining to this particular Room Stay and finally financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties. |
 | RatePlans         | Y        | Complex      | A collection of Rate Plans associated with a particular Room Stay. The rate plan element is used to contain all the rate information for a single Rate Plan Code (eg RACK) for a given date range. A given Rate Plan may have variable rates, over the effective period of the Rate Plan, this is represented by the child element Rates.|
 | RoomRates         | Y        | Complex      | List of Room Rates. |
@@ -116,7 +116,7 @@ For a description of the relationship between the RoomID and RatePlanID refer to
 
 **RoomType**
 
-| Element         |	Required  | Data Type         | Description |
+| Element         | Required  | Data Type         | Description |
 |-----------------|-----------|-------------------|-------------|
 | *RoomID*        | Y         | StringLength1to16 | A string value representing the unique identification of a room if the request is looking for a specific room type. |
 | RoomDescription | N         | Complex	          | Textual information regarding the room. |
@@ -125,7 +125,7 @@ For a description of the relationship between the RoomID and RatePlanID refer to
 
 **RoomDescription**
 
-| Element |	Required | Data Type 	     | Description |
+| Element | Required | Data Type         | Description |
 |---------|----------|-------------------|-------------|
 | Text    | Y        | StringLength1to32 | Only one text element is supported here.  If Multiple Text elements are specified the the last one is used and all others are dropped. All text passed is encoded. |
 
@@ -142,21 +142,21 @@ For a description of the relationship between the RoomID and RatePlanID refer to
 | Element              | Required | Data Type         | Description |
 |----------------------|----------|-------------------|-------------|
 | *RatePlanID*         | Y        | StringLength1to64 | A text field used to indicate a special  ID code that is associated with the rate and is essential in the reservation request in order to obtain the rate. Examples are Corporate ID. |
-| *AvailabilityStatus* | Y        | StringLength1to32 | If hotel is sold out, the Hotel supplier must return an Availability status of ClosedOut. **Even if it's sold out what other fields do we need? if any?**  |
-| *PrepaidIndicator*   | Y        | Boolean	          | When true, indicates if the rate is a pre-paid rate. **false otherwise or ignored?**|
-| Guarantee            | Y        | Complex	          | Guarantee information that applies to the rate plan. Concur only expects 1 Guarantee element per RatePlan |
-| CancelPenalties      | Y        | Complex	          | Collection of cancellation penalties. If the Cancel Penalties are not provided Concur will display "Cancellation policy not provided by vendor" |
-| MealsIncluded        | Y        | Complex	          | Defines which meals are included with this rate program. Concur expects this to be set. |
+| *AvailabilityStatus* | Y        | StringLength1to32 | If hotel is sold out, the Hotel supplier must return an Availability status of ClosedOut. **Even if it's sold out what other fields do we need? if any?** |
+| *PrepaidIndicator*   | Y        | Boolean           | When true, indicates if the rate is a pre-paid rate. **false otherwise or ignored?**|
+| Guarantee            | Y        | Complex           | Guarantee information that applies to the rate plan. Concur only expects 1 Guarantee element per RatePlan |
+| CancelPenalties      | Y        | Complex           | Collection of cancellation penalties. If the Cancel Penalties are not provided Concur will display "Cancellation policy not provided by vendor" |
+| MealsIncluded        | Y        | Complex           | Defines which meals are included with this rate program. Concur expects this to be set. |
 
 
 **Guarantee**
 
-| Element         |	Required | Data Type | Description |
+| Element         | Required | Data Type | Description |
 |-----------------|----------|-----------|-------------|
-| *NonRefundable* | Y        | Boolean	 | Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **Do we need this? is it required?**|
-| *HoldTime*      | N        | Time	     | The room will held up until this time without a guarantee. **Do we need this? is it required?** **to be removed**|
+| *NonRefundable* | Y        | Boolean   | Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **Do we need this? is it required?**|
+| *HoldTime*      | N        | Time      | The room will held up until this time without a guarantee. **Do we need this? is it required?** **to be removed**|
 | *GuaranteeType* | Y        | String    | The guarantee information to hold a reservation. |
-| Deadline        | Y        | Complex	 | Guarantee deadline, absolute or relative. |
+| Deadline        | Y        | Complex   | Guarantee deadline, absolute or relative. |
 
 Supported GuranteeTypes:
 
@@ -166,23 +166,24 @@ Supported GuranteeTypes:
 | DepositRequired   | In Concur this value is seen as RequiredDeposit .|
 | CCDCVoucher       | In Concur this value is seen as RequiredGuarantee. |
 | PrePay            | In Concur this value is seen as RequiredPrepay. |
+| None              | In Concur this value is seen as Never. No guarantee is required if user books a room with this type. |
 | GuaranteeRequired | RequiredGuarantee. If the Guarantee type cannot be mapped to any accepted type, it will be set to RequiredGuarantee, hence this value is the default. |
  
   
 **Deadline**
 
-| Element                | Required | Data Type	| Description |
-|------------------------|----------|---------------------------|-|
-| *AbsoluteDeadline*     | Y        | TimeOrDateTimeType	| Defines the absolute deadline. Either this or the offset attributes may be used. |
-| *OffsetDropTime*       | Y        | String	| An enumerated type indicating when the deadline drop time goes into effect. Possible values include: "BeforeArrival", "AfterBooking", "AfterConfirmation" **to be removed**|
-| *OffsetTimeUnit*       | Y        | TimeUnitType	| he units of time, e.g.: days, hours, etc., that apply to the deadline. **to be removed**|
-| *OffsetUnitMultiplier* | Y        | Numeric0to999	| The number of units of DeadlineTimeUnit. **to be removed**|
+| Element                | Required | Data Type          | Description |
+|------------------------|----------|--------------------|-------------|
+| *AbsoluteDeadline*     | Y        | TimeOrDateTimeType | Defines the absolute deadline. Either this or the offset attributes may be used. |
+| *OffsetDropTime*       | Y        | String             | An enumerated type indicating when the deadline drop time goes into effect. Possible values include: "BeforeArrival", "AfterBooking", "AfterConfirmation" **to be removed**|
+| *OffsetTimeUnit*       | Y        | TimeUnitType       | he units of time, e.g.: days, hours, etc., that apply to the deadline. **to be removed**|
+| *OffsetUnitMultiplier* | Y        | Numeric0to999      | The number of units of DeadlineTimeUnit. **to be removed**|
 
 
 **CancelPenalties**
 
 | Element       | Required | Data Type | Description |
-|---------------|----------|-----------|-----------|
+|---------------|----------|-----------|-------------|
 | CancelPenalty | Y        | Complex   | The Cancellation penalty. |
 
 
@@ -190,23 +191,23 @@ Supported GuranteeTypes:
 
 | Element            | Required | Data Type | Description |
 |--------------------|----------|-----------|-------------|
-| *NonRefundable*    | N        | Boolean	| Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **to be removed**|
+| *NonRefundable*    | N        | Boolean   | Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **to be removed**|
 | PenaltyDescription | N        | Complex   | Text description of the Penalty in a given language. This element may contain a maximum of 9 children Text fields.  Any excess Text elements are dropped. |
 | Deadline           | Y        | Complex   | Cancellation deadline, absolute or relative. See Deadline above |
 
 
 **PenaltyDescription**
 
-| Element |	Required | Data Type 	         | Description |
+| Element | Required | Data Type             | Description |
 |---------|----------|-----------------------|-------------|
 | Text    | Y        | FormattedTextTextType | Formatted text content |
 
 
 **MealsIncluded**
 
-| Element     |	Required | Data Type | Description |
+| Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
-| *Breakfast* | Y        | Boolean	 | When true, indicates breakfast is included. |
+| *Breakfast* | Y        | Boolean   | When true, indicates breakfast is included. |
 | *Dinner*    | Y        | Boolean   | When true, indicates dinner is included. |
 | *Lunch*     | Y        | Boolean   | When true, indicates lunch is included. |
 
@@ -224,12 +225,12 @@ Supported GuranteeTypes:
 |--------------|----------|-----------|-------------|
 | *RoomID*     | Y        | Complex   | Room Type ID.  The combination of RoomID and RatePlanID must be unique for a RoomStay. |
 | *RatePlanID* | Y        | Complex   | Rate Plan ID for which this rate is applicable for. |
-| Rates        | Y        | Complex	  | Contains the rate for the given room.  Concur only expects one Rate inside the Rates element. |
+| Rates        | Y        | Complex   | Contains the rate for the given room.  Concur only expects one Rate inside the Rates element. |
 
 
 **Rates**
 
-| Element |	Required | Data Type | Description |
+| Element | Required | Data Type | Description |
 |---------|----------|-----------|-------------|
 | Rate    | Y        | Complex   | Contains the rate for the given room. |
 
@@ -266,16 +267,16 @@ Supported GuranteeTypes:
 
 **AcceptedPayments**
 
-| Element         |	Required | Data Type | Description |
+| Element         | Required | Data Type | Description |
 |-----------------|----------|-----------|-------------|
-| AcceptedPayment | Y        | Complex	 | Accepted Payment type |
+| AcceptedPayment | Y        | Complex   | Accepted Payment type |
 
 
 **AcceptedPayment**
 
-| Element     |	Required | Data Type | Description |
+| Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
-| PaymentCard | Y        | Complex	 | Description of payment type. |
+| PaymentCard | Y        | Complex   | Description of payment type. |
 
 
 **PaymentCard**
@@ -287,12 +288,12 @@ Supported GuranteeTypes:
 
 **Total**
 
-| Element           | Required | Data Type    | Description | 
+| Element           | Required | Data Type    | Description |
 |-------------------|----------|--------------|-------------|
 | *AmountBeforeTax* | Y        | String       | The total amount not including any associated tax  (e.g., sales tax, VAT, GST or any associated tax). |
-| *AmountAFterTax*  | Y        | String	      | The total amount including all associated taxes  (e.g., sales tax, VAT, GST or any associated tax). |
+| *AmountAFterTax*  | Y        | String       | The total amount including all associated taxes  (e.g., sales tax, VAT, GST or any associated tax). |
 | *CurrencyCode*    | Y        | AlphaLength3 | Currency Code. |
-| *DecimalPlaces*   | N        | Int	      | Decimal places for currency code. Implementer: This is an ISO 4217 standard "minor unit" for the number of decimal places for a particular currency.|
+| *DecimalPlaces*   | N        | Int          | Decimal places for currency code. Implementer: This is an ISO 4217 standard "minor unit" for the number of decimal places for a particular currency.|
 
 
 **RateDescription**
@@ -311,7 +312,7 @@ Supported GuranteeTypes:
 
 **Timespan**
 
-| Element |	Required | Data Type 	            | Description |
+| Element | Required | Data Type                | Description |
 |---------|----------|--------------------------|-------------|
 | Start   | Y        | DateOrTimeOrDateTimeType | The starting value of the time span. |
 | End     | Y        | DateOrTimeOrDateTimeType | The ending value of the time span. |
