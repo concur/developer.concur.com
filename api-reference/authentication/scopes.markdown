@@ -23,12 +23,12 @@ Concur services follow these standard naming conventions for scopes.
 
 `<resource>.<sub-resource>.<action>`
 
-`<actions` are defined by the type of API calls that can be made. These are the known lists of actions Concur honors.
+`<actions>` are defined by the type of API calls that can be made. These are the known lists of actions Concur honors.
 
 | action     | description |
 | ---------- | ----------- |
 | `.read` | Read only access (GET) |
-| `.write` | Read AND Write access (GET,POST, UPDATE etc) |
+| `.write` | Read AND Write access (GET, POST, UPDATE etc) |
 | `.writeonly` | Write only access |
 
 ## <a name="v4apiscopes"></a>List of v4 API Scopes
