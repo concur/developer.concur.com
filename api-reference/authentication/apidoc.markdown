@@ -23,6 +23,7 @@ If you are an existing partner with an existing app, please read both the [Migra
   * [Client Credentials grant](#client_credentials)
   * [One time password grant](#otp_grant)
 * [Response Codes](#response_codes)
+* [Troubleshooting](#troubleshooting)
 
 **Note:** The old authentication documentation can be found [here](/api-reference-deprecated/old-auth/old-auth.html)
 
@@ -621,7 +622,8 @@ If the authorization or authentication are unsuccessful, your application will r
 ```Your_Redirect_Uri?
  error_code=<>
  &error_description=<>
- ```
+```
+
 In all cases, the friendly error description should be displayed to the user.
 
 ##### /token
@@ -693,3 +695,25 @@ In all cases, the friendly error description should be displayed to the user.
 | 80   | `invalid_request` | invalid channel type                                   |
 | 81   | `invalid_request` | bad channel handle                                     |
 | 82   | `invalid_request` | the number of open otp requests has been exceeded      |
+
+## <a name="troubleshooting"></a>Troubleshooting
+
+In order to assist with troubleshooting, Concur responds with a unique correlationId in the response header. The key to look for is `correlationid`. This unique code can be used during troubleshooting as it identifies the API call in the log files. You should record this information in your own API call logs as well so that you can pass this information on to the Concur support team.
+
+Example of the `correlationid` in the response:
+
+```
+< HTTP/1.1 200 OK
+< Server: cnqr-papeete
+< Date: Mon, 04 Dec 2017 22:07:05 GMT
+< Content-Type: application/json;charset=UTF-8
+< Content-Length: 2897
+< Connection: keep-alive
+< Concur-Correlationid: 2803b8f8-a42b-43c2-a739-b8768e4759b8
+```
+
+
+
+
+
+
