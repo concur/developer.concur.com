@@ -124,6 +124,13 @@ The radius element is used along with the Hotel Preference to categorize the sea
 | CountryName | N        | Complex   | Country name (e.g., Ireland) |
 
 
+**StateProv**
+
+| Element   | Required | Data Type        | Description |
+|-----------|----------|------------------|-------------|
+| StateCode | N        | StringLength1to8 | The standard code or abbreviation for the state, province, or region (note the code may not be available for all states). |
+
+
 **CountryName**
 
 | Element | Required | Data Type         | Description |
