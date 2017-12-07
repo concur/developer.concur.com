@@ -7,6 +7,7 @@ layout: reference
 # List of Scopes for all Concur APIs
 
 * [Overview]()
+* [Naming Conventions](#conventions)
 * [List of v4 API Scopes](#v4apiscopes)
 * [Old CONNECT API Scopes](#connectscopes)
 
@@ -15,6 +16,20 @@ Scope is a parameter as defined in the OAuth 2.0 standards (RFC6749) to enable a
 Scopes apply to applications only. Scopes play a crucial part in defining the ultimate access to a resource by a User.
 
 `User’s Roles/permissions + Claims +  App Scopes.`
+
+## <a name="conventions"></a>Naming Conventions
+
+Concur services follow these standard naming conventions for scopes. 
+
+`<resource>.<sub-resource>.<action>`
+
+`<actions>` are defined by the type of API calls that can be made. These are the known lists of actions Concur honors.
+
+| action     | description |
+| ---------- | ----------- |
+| `.read` | Read only access (GET) |
+| `.write` | Read AND Write access (GET, POST, UPDATE etc) |
+| `.writeonly` | Write only access |
 
 ## <a name="v4apiscopes"></a>List of v4 API Scopes
 
