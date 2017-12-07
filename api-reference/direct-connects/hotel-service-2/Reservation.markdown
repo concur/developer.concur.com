@@ -29,7 +29,7 @@ Message to reserve a hotel.
 |---------------|----------|-----------|-------------|
 | RoomStays     | Y        | Complex   | A reference to identify the booking. |
 | ResGuests     | Y        | Complex   | List of Guests.  Concur only supports one guest. |
-| ResGlobalInfo | N        | Complex   | Contains various information that affects the Reservation as a whole, typically list of reward programs (see Memberships). |
+| ResGlobalInfo | N        | Complex   | Contains various information that affects the Reservation as a whole, typically list of reward programs (see Memberships) or itinerary remarks (see Comments). |
 
 
 **RoomStays**
@@ -166,12 +166,12 @@ Message to reserve a hotel.
 
 **ResGlobalInfo**
 
-**Note:** This structure is used in both request and response. Different elements are used in each of them
+**Note:** This structure is used in both request and response. Different elements are used in each of them.
 
 | Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
 | Memberships | N        | Complex   | (request only) A collection of Memberships, provides a list of reward programs like e.g. loyalty cards. |
-| Comments    | N        | Complex   | (reqsponse only) A collection of Comments, provides a list of arbitrary reservation comments like e.g. modification code. |
+| Comments    | N        | Complex   | (response only) A collection of Comments, provides a list of arbitrary reservation comments like e.g. modification code. |
 
 
 **Memberships**
