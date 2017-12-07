@@ -192,7 +192,7 @@ Message to reserve a hotel.
 
 | Element    | Required | Data Type | Description |
 |------------|----------|-----------|-------------|
-| Comment | N        | Complex   | A recurring element that carries reservation comment. Up to 9 Comment elements |
+| Comment | N        | Complex   | A recurring element that carries reservation comment. Up to 9 Comment elements. |
 
 **Comment**
 
