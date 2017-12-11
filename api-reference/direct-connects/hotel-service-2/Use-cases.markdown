@@ -31,7 +31,7 @@ Usage
 
 1.1 Business traveler performs a search for hotels given a criteria.  
 
-1.2 The UI displays the available hotels.  The business traveler can then select a hotel with visible rates or request to get rates in case they are not present.  The Business traveler selects a hotel with rates.
+1.2 The UI displays the available hotels.  The business traveler can then select a hotel with visible rates or request to View Rooms in case they are not present.  The Business traveler selects a hotel with rates.
 
 1.3 The UI displays all available rates for the chosen hotel.  The Business user can see the Cancelletation Policy.  The business traveler clicks on Hotel Details.
 
@@ -42,7 +42,9 @@ Usage
 
 1.6 The UI displays the Rules and the Cancellation Policy for the chosen hotel.  The Business Travel closes the Rules and Cancellation Policy popuop.
 
-1.7 The UI displays all available rates for the chosen hotel.  The Business traveler selects the top most rate.  The Trip Summary page is displayed.  The Business traveler aggress to the hotel's rate rules, restrictions and cancellation policy.  
+1.7 The UI displays all available rates for the chosen hotel.  The Business traveler selects the top most rate.  The Trip Summary page is displayed where the Business traveler can set the Hotel Preferences, Enter Guest information (from their profile) and select the method of payment.  The Business traveler agrees to the hotel's rate rules, restrictions and cancellation policy and clicks Resever Hotel and Continue.
+
+1.8 the UI shows the Trip overview page where the Business traveler can add items to their itinerary, rewview the current itinerary 
 
 
 
