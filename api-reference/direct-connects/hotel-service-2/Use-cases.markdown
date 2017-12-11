@@ -19,6 +19,38 @@ Concur will follow up a Reservation Request with a Read request as soon as possi
 
 
 
+Basic Flow
+
+Configuration
+
+
+Usage
+
+1. Primary Actor - Business traveler
+2. Secondary Actor - Hotel Supplier
+
+1.1 Business traveler performs a search for hotels given a criteria.  
+
+1.2 The UI displays the available hotels.  The business traveler can then select a hotel with visible rates or request to get rates in case they are not present.  The Business traveler selects a hotel with rates.
+
+1.3 The UI displays all available rates for the chosen hotel.  The Business user can see the Cancelletation Policy.  The business traveler clicks on Hotel Details.
+
+1.4 The UI displays the hotel details including a long description.  The Business traveler closes the Hotel Details popup
+
+
+1.5 The UI displays all available rates for the chosen hotel. The business traveler clicks on Rules and Cancellation Policy.
+
+1.6 The UI displays the Rules and the Cancellation Policy for the chosen hotel.  The Business Travel closes the Rules and Cancellation Policy popuop.
+
+1.7 The UI displays all available rates for the chosen hotel.  The Business traveler selects the top most rate.  The Trip Summary page is displayed.  The Business traveler aggress to the hotel's rate rules, restrictions and cancellation policy.  
+
+
+
+
+
+
+
+
 
  
 # General system overview 
