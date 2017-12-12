@@ -42,9 +42,19 @@ Usage
 
 1.6 The UI displays the Rules and the Cancellation Policy for the chosen hotel.  The Business Travel closes the Rules and Cancellation Policy popuop.
 
-1.7 The UI displays all available rates for the chosen hotel.  The Business traveler selects the top most rate.  The Trip Summary page is displayed where the Business traveler can set the Hotel Preferences, Enter Guest information (from their profile) and select the method of payment.  The Business traveler agrees to the hotel's rate rules, restrictions and cancellation policy and clicks Resever Hotel and Continue.
+1.7 The UI displays all available rates for the chosen hotel.  The Business traveler selects the top most rate.  The Trip Summary page is displayed where the Business traveler can set the Hotel Preferences, Enter Guest information (from their profile), select the method of payment and view the total estiamted price.  The Business traveler agrees to the hotel's rate rules, restrictions and cancellation policy and clicks Resever Hotel and Continue.
 
-1.8 the UI shows the Trip overview page where the Business traveler can add items to their itinerary, rewview the current itinerary 
+1.8 The UI shows the Trip overview page where the Business traveler can add items to their itinerary, review the current itinerary.  The Business traveler clicks Next.
+
+1.9 The UI shows the Finished page where the Business traveler can review the trip overview and see the confirmation number.
+
+1.10 The Business user can view the trip in the Upcoming Trips tab on the main Travel page.  The Business traveler clicks on the Trip name. <this needs to be Business user needs to cofirm the booking>
+
+1.11 The UI shows Trip Confirmation page where a summary of the reservation can be seen. This page offers completeion and cancelation of the booking. The Business travel clicks Confirm Booking.
+
+1.12 The UI shows the Trip Overview page
+
+1.13 User cancels
 
 
 
