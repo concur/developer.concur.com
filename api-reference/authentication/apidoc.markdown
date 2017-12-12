@@ -611,7 +611,6 @@ Connection: keep-alive
   "code": <number>,
   "error": <error>,
   "error_description": <error_description>,
-  "concur-correlationid": <concur_correlation_id>
   "geolocation": <geolocation url where user lives>
 }
 ```
