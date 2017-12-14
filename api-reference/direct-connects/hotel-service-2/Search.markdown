@@ -142,7 +142,7 @@ The radius element is used along with the Hotel Preference to categorize the sea
 
 | Element       | Required | Data Type | Description |
 |---------------|----------|-----------|-------------|
-| ContactNumber | N        | Complex   | Element which contains the ContactNumber. Concur only excepts one (first) ContactNumber of each supported type. |
+| ContactNumber | N        | Complex   | Element which contains the ContactNumber. Concur only accepts one (first) ContactNumber of each supported type. |
 
 
 **ContactNumber**
