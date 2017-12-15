@@ -5,8 +5,8 @@ layout: reference
 
 ## Errors
 
-Concur is able to handle HTTP errors, but the preference is for the supplier to return an OTA error whenever possible.  Concur only ever expects one OTA error per message.  Any extra errors will be ignored. 
-Currently OTA Warnings are not supported and will be ignored. 
+Concur is able to handle HTTP errors, but the preference is for the supplier to return an OTA error whenever possible.  Concur only ever expects one OTA error per message.  Any extra errors will be ignored.
+Currently OTA Warnings are not supported and will be ignored.
 
 If the error is specifically related to application level errors, please do not respond with any other error types (HTTP etc.). If you have server level issues, then it is OK to respond with HTTP standard error codes.
 
@@ -21,14 +21,14 @@ Errors should always be returned in a response. For example:
 			EchoToken="11111111-2222-3333-4444-555555555555" PrimaryLangID="en"
 			Version="4">
 			<Errors>
-				<Error Code="322" ShortText="No availability" Type="13"</Error>
+				<Error Code="322" ShortText="No availability" Type="13"></Error>
 			</Errors>
 		</OTA_HotelSearchRS>
 	</soap:Body>
 </soap:Envelope>
 ```
 
-If an error is present in any message, then the content of that message is discarded and only the error element is processed. Any text from the supplier will be logged and a Concur message will be displayed to the user.  Currently Concur does not support displaying of supplier generated errors directly in the UI.  Concur only uses the very first Error that is returned, therefore any excess Error elements are dropped.  Any Errors without a Type attribute will automatically be treated as '1' meaning Unknown.  See the Error Types table below. 
+If an error is present in any message, then the content of that message is discarded and only the error element is processed. Any text from the supplier will be logged and a Concur message will be displayed to the user.  Currently Concur does not support displaying of supplier generated errors directly in the UI.  Concur only uses the very first Error that is returned, therefore any excess Error elements are dropped.  Any Errors without a Type attribute will automatically be treated as '1' meaning Unknown.  See the Error Types table below.
 
 | Element | Required | Data Type | Description |
 |---------|----------|-----------|-------------|
@@ -57,7 +57,7 @@ Concur supports the following Error Type Codes in any of the responses:
 | Code | Name              | Description |
 |------|-------------------|-------------|
 | 1    | Unknown           | Indicates an unknown error. |
-| 2    | No implementation | Indicates that the target business system has no implementation for the intended request. | 
+| 2    | No implementation | Indicates that the target business system has no implementation for the intended request. |
 | 13   | Application error | Indicates that an involved back-end application returned an error which is passed back in the response message. |
 
 **Note:** The OTA Error-Type code of 4 - Authentication (Indicates the message lacks adequate security credentials.) is not expected by Concur.  For all authentication errors Concur expects an HTTP 403.
@@ -89,9 +89,3 @@ Concur expects the following Errors under the given Error Types:
 | 748        | Invalid corporate ID                        | Requestor ID should be provided in ShortText. |
 | 400        | Invalid property code                       | List of comma separated Hotel Codes should be provided in ShortText. Example: "HTL4444,HTL5555" |
 | 385        | Invalid confirmation or cancellation number | Reservation ID should be provided in ShortText. |
-
-
-
-
-
-
