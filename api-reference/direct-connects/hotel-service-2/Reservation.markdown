@@ -8,7 +8,7 @@ layout: reference
 Message to reserve a hotel.
 
 
-| SOAPAction | OTA name | Message structure | 
+| SOAPAction | OTA name | Message structure |
 |------------|----------|-------------------|
 | book       | HotelRes | OTA_HotelResRQ |
 
@@ -77,6 +77,7 @@ Message to reserve a hotel.
 | CardType       | Y        | StringLength1to32 | something |
 | CardHolderName | Y        | StringLength1to32 | The name on the card |
 | CardNumber     | Y        | Complex           | The Card Number |
+| Address        | Y        | Complex           | Refer to Address in Search |
 
 
 **CardNumber**
@@ -272,4 +273,3 @@ Message to reserve a hotel.
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
 | RatePlans | Y        | Complex   | something |
-
