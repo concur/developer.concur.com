@@ -8,7 +8,7 @@ layout: reference
 Message to reserve a hotel.
 
 
-| SOAPAction | OTA name | Message structure | 
+| SOAPAction | OTA name | Message structure |
 |------------|----------|-------------------|
 | book       | HotelRes | OTA_HotelResRQ |
 
@@ -29,7 +29,7 @@ Message to reserve a hotel.
 |---------------|----------|-----------|-------------|
 | RoomStays     | Y        | Complex   | A reference to identify the booking. |
 | ResGuests     | Y        | Complex   | List of Guests.  Concur only supports one guest. |
-| ResGlobalInfo | N        | Complex   | Contains various information that affects the Reservation as a whole, typically list of reward programs (see Memberships). |
+| ResGlobalInfo | N        | Complex   | Contains various information that affects the Reservation as a whole, typically list of reward programs (see Memberships) or itinerary remarks (see Comments). |
 
 
 **RoomStays**
@@ -77,6 +77,7 @@ Message to reserve a hotel.
 | CardType       | Y        | StringLength1to32 | something |
 | CardHolderName | Y        | StringLength1to32 | The name on the card |
 | CardNumber     | Y        | Complex           | The Card Number |
+| Address        | Y        | Complex           | Refer to Address in Search |
 
 
 **CardNumber**
@@ -166,16 +167,19 @@ Message to reserve a hotel.
 
 **ResGlobalInfo**
 
+**Note:** This structure is used in both request and response. Different elements are used in each of them.
+
 | Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
-| Memberships | N        | Complex   | A collection of Memberships, provides a list of reward programs like e.g. loyalty cards. |
+| Memberships | N        | Complex   | (request only) A collection of Memberships, provides a list of reward programs like e.g. loyalty cards. |
+| Comments    | N        | Complex   | (response only) A collection of Comments, provides a list of arbitrary reservation comments like e.g. modification code. |
 
 
 **Memberships**
 
 | Element    | Required | Data Type | Description |
 |------------|----------|-----------|-------------|
-| Membership | N        | Complex   | A recurring element that identifies the type of reward program and customer's identification number for this program. |
+| Membership | N        | Complex   | A recurring element that identifies the type of reservation comment. |
 
 
 **Membership**
@@ -185,6 +189,18 @@ Message to reserve a hotel.
 | *ProgramCode* | Y        | StringLength1to32 | The code or name of the reward program (e.g. "HotelLoyaltyProgram"). |
 | *AccountID*   | Y        | StringLength1to64 | The account identification number for this particular member in this particular program. |
 
+**Comments**
+
+| Element    | Required | Data Type | Description |
+|------------|----------|-----------|-------------|
+| Comment | N        | Complex   | A recurring element that carries reservation comment. Up to 9 Comment elements. |
+
+**Comment**
+
+| Element       | Required | Data Type         | Description |
+|---------------|----------|-------------------|-------------|
+| *Name*        | N        | StringLength1to64 | Attribute containing comment title. |
+| *Text*        | Y        | string            | Comment payload. Up to 3 Text elements in the comment. Up to 200 characters in the Text. |
 
 ### TPA Extensions
 
@@ -257,4 +273,3 @@ Message to reserve a hotel.
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
 | RatePlans | Y        | Complex   | something |
-
