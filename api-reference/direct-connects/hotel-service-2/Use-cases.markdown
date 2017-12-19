@@ -58,9 +58,9 @@ Basic scenario encompassing all the functionality provided by Hotel Service 2 in
 
 1.13 The UI shows the Cancel Trip pop-up where the Business traveler may chooser to enter a comment. The Business traveler clicks OK.
 
-1.14 The UI shows the Rules and cancellation policy.  The Business traveler accepts the policies by chekcing the 'I agree ...' button and clicking Continue
+1.14 The UI shows the Rules and cancellation policy.  The Business traveler accepts the policies by checking the 'I agree ...' button and clicking Continue
 
-1.15 The UI shows the trip cancellation page where confirmation and cancellation numbers can be found.  <The Business traveler closes the pop-up and is now on the Trip page> -- check if the confirmation page is a popup and after closing where does the user end up?
+1.15 The UI shows the trip cancellation page where confirmation and cancellation numbers can be found.  <The Business traveler closes the pop-up and is now on the Trip page> -- check if the confirmation page is a pop-up and after closing where does the user end up?
 
 
 
