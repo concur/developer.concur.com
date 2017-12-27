@@ -9,12 +9,12 @@ layout: reference
 
 Basic scenario encompassing all the functionality provided by Hotel Service 2 incorporated into Concur Travel starting from a hotel search, throught to confirmation of a booking and ending with a cancelation.
 
-Actors:
+### Actors:
 
 1. Primary Actor - Business traveler
 1. Secondary Actor - Hotel Supplier
 
-Use-case:
+### Use-case:
 
 1. Business traveler performs a search for hotels given a criteria.  
 
@@ -49,16 +49,14 @@ Use-case:
 1. The UI shows the trip cancellation page where confirmation and cancellation numbers can be found.  <The Business traveler closes the pop-up and is now on the Trip page> -- check if the confirmation page is a pop-up and after closing where does the user end up?
 
 
-
-
-Search criteria
+## Search criteria
 
 Given the following example: 
 <RadiusDistance="5"DistanceMax="30"UnitOfMeasureCode="2">
 Out of 100 returned hotels in response from Hotel Supplier first 10 hotels are Most Preferred hotels from 30 km radius. Next 10 hotels are Preferred hotels from 30km radius. The remaining 80 hotels are hotels with no preference within the 5km radius. Note: The preference level is defined by the HotelPreference element in the TPA_Extensions, which is outlined in Search.
 
 
-Reservation and Read requests
+## Reservation and Read requests
 
 Concur will follow up a Reservation Request with a Read request as soon as possible after processing the Reservation Response. If a Read request does not arrive within 5 minutes for a given Reservation, then the supplier should treat that Reservation as an orphan and should thus seek to cancel it.
 
