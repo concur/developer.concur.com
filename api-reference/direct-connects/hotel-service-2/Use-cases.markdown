@@ -7,26 +7,7 @@ layout: reference
 
 # Use cases
 
-
-Move this to use cases and define a scenario where there is no DistaneMax specified
-
-Given the following example: <RadiusDistance="5"DistanceMax="30"UnitOfMeasureCode="2">Out of 100 returned hotels in response from Hotel Supplier first 10 hotels are Most Preferred hotels from 30 km radius. Next 10 hotels are Preferred hotels from 30kmradius.Other 80 hotels are hotels with no preference within the 5km radius. Note: The preference level is defined by the HotelPreference element in the TPA_Extensions, which is outlined below
-
-
-Reservation and Read requests
-
-Concur will follow up a Reservation Request with a Read request as soon as possible after processing the Reservation Response. If a Read request does not arrive within 5 minutes for a given Reservation, then the supplier should treat that Reservation as an orphan and should thus seek to cancel it.
-
-
-
-Basic Flow
-
-Configuration
-
-
-Usage
-
-Basic scenario encompassing all the functionality provided by Hotel Service 2 incorporated into Concur Travel. 
+Basic scenario encompassing all the functionality provided by Hotel Service 2 incorporated into Concur Travel starting from a hotel search, throught to confirmation of a booking and ending with a cancelation.
 
 1. Primary Actor - Business traveler
 2. Secondary Actor - Hotel Supplier
@@ -46,26 +27,37 @@ Basic scenario encompassing all the functionality provided by Hotel Service 2 in
 
 1.7 The UI displays all available rates for the chosen hotel.  The Business traveler selects the top most rate.  The Trip Summary page is displayed where the Business traveler can set the Hotel Preferences, Enter Guest information (from their profile), select the method of payment and view the total estimated price.  The Business traveler agrees to the hotel's rate rules, restrictions and cancellation policy and clicks Reserve Hotel and Continue.
 
-1.8 The UI shows the Trip overview page where the Business traveler can add items to their itinerary, review the current itinerary.  The Business traveler clicks Next.
+1.8 The UI shows the Trip Details page where the Business traveler can add items to their itinerary and review the current itinerary.  The Business traveler clicks Next.
 
-1.9 The UI shows the Finished page where the Business traveler can review the trip overview and see the confirmation number.
+1.9 The UI shows the Trip Booking Information page where the Business traveler can add trip details.  The Business traveler clicks Next.
 
-1.10 The Business user can view the trip in the Upcoming Trips tab on the main Travel page.  The Business traveler clicks on the Trip name. <this needs to be Business traveler needs to confirm the booking>
+1.10 The UI shows the Trip Confirmation page where the Business traveler can cofirm the booking on cancel it.  The Business traveler clicks Confirm Bookig.
 
-1.11 The UI shows Trip Confirmation page where a summary of the reservation can be seen. This page offers completion and cancellation of the booking. The Business travel clicks Confirm Booking.
+1.11 The UI shows the Finished page where the Business traveler can review the trip overview and see the confirmation number along with the trip locator.
 
-1.12 The UI shows the Trip Overview page.  The Business traveler chooses the cancel the hotel reservation, by clicking cancel.
+1.12 The Business user can view the trip in the Upcoming Trips tab on the main Travel page.  The Business traveler clicks on the Trip name. 
 
-1.13 The UI shows the Cancel Trip pop-up where the Business traveler may chooser to enter a comment. The Business traveler clicks OK.
+1.13 The UI shows the Trip Overview page.  The Business traveler chooses the cancel the hotel reservation, by clicking cancel.
 
-1.14 The UI shows the Rules and cancellation policy.  The Business traveler accepts the policies by checking the 'I agree ...' button and clicking Continue
+1.14 The UI shows the Cancel Trip pop-up where the Business traveler may chooser to enter a comment. The Business traveler clicks OK.
 
-1.15 The UI shows the trip cancellation page where confirmation and cancellation numbers can be found.  <The Business traveler closes the pop-up and is now on the Trip page> -- check if the confirmation page is a pop-up and after closing where does the user end up?
+1.15 The UI shows the Rules and cancellation policy.  The Business traveler accepts the policies by checking the 'I agree ...' button and clicking Continue
+
+1.16 The UI shows the trip cancellation page where confirmation and cancellation numbers can be found.  <The Business traveler closes the pop-up and is now on the Trip page> -- check if the confirmation page is a pop-up and after closing where does the user end up?
 
 
 
 
+Search criteria
 
+Given the following example: 
+<RadiusDistance="5"DistanceMax="30"UnitOfMeasureCode="2">
+Out of 100 returned hotels in response from Hotel Supplier first 10 hotels are Most Preferred hotels from 30 km radius. Next 10 hotels are Preferred hotels from 30km radius. The remaining 80 hotels are hotels with no preference within the 5km radius. Note: The preference level is defined by the HotelPreference element in the TPA_Extensions, which is outlined in Search.
+
+
+Reservation and Read requests
+
+Concur will follow up a Reservation Request with a Read request as soon as possible after processing the Reservation Response. If a Read request does not arrive within 5 minutes for a given Reservation, then the supplier should treat that Reservation as an orphan and should thus seek to cancel it.
 
 
 
