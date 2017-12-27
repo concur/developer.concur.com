@@ -46,7 +46,7 @@ Basic scenario encompassing all the functionality provided by Hotel Service 2 in
 
 1. The UI shows the Rules and cancellation policy.  The Business traveler accepts the policies by checking the 'I agree ...' button and clicking Continue
 
-1. The UI shows the trip cancellation page where confirmation and cancellation numbers can be found.  <The Business traveler closes the pop-up and is now on the Trip page> -- check if the confirmation page is a pop-up and after closing where does the user end up?
+1. The UI shows the trip cancellation page where confirmation and cancellation numbers can be found.  The Business traveler closes the pop-up.
 
 
 ## Search criteria
@@ -59,11 +59,7 @@ Out of 100 returned hotels in response from Hotel Supplier first 10 hotels are M
 ## Reservation and Read requests
 
 Concur will follow up a Reservation Request with a Read request as soon as possible after processing the Reservation Response. If a Read request does not arrive within 5 minutes for a given Reservation, then the supplier should treat that Reservation as an orphan and should thus seek to cancel it.
-
-
-
-
-
+ 
  
 # General system overview 
 
