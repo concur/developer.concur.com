@@ -20,7 +20,8 @@ layout: reference
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2" 
+   <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
+                      EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2" 
                       Version="4" PrimaryLangID="en" AltLangID="en" MaxResponses="100">
     <POS>
      <Source ISOCurrency="USD"></Source>
@@ -56,7 +57,9 @@ The initial Search request is followed up by an multi-property Availability requ
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2" Version="5" PrimaryLangID="en" AltLangID="en">
+   <OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
+                     EchoToken="5ADE581A-8A7C-4DA5-A67B-EED4E58A80E2"
+                     Version="5" PrimaryLangID="en" AltLangID="en">
     <POS>
      <Source ISOCurrency="USD"></Source>
     </POS>
@@ -177,7 +180,9 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="A78F3641-8674-43F9-B58C-AD928D1A75D9" Version="3" PrimaryLangID="en" AltLangID="en">
+   <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
+                               EchoToken="A78F3641-8674-43F9-B58C-AD928D1A75D9" 
+                               Version="3" PrimaryLangID="en" AltLangID="en">
     <POS>
      <Source ISOCurrency="USD"></Source>
     </POS>
@@ -195,7 +200,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelDescriptiveInfoRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth">
+    <OTA_HotelDescriptiveInfoRS xmlns="http://www.opentravel.org/OTA/2003/05" 
+                                xmlns:ns2="http://www.concur.com/webservice/auth">
       <Success/>
       <HotelDescriptiveContents>
         <HotelDescriptiveContent ChainCode="ZZ" HotelCode="419430" HotelName="Courtyard Prague Airport">
