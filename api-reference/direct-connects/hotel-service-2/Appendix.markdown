@@ -38,7 +38,9 @@ layout: reference
  ```
  
 ### Response
-
+```xml
+<search response goes here>
+```
 
 
 The initial Search request is followed up by an multi-property Availability request.  In the example request below Concur requests the availability for 13 properties.  This could because the initial search only yielded 13 properties or the configuration per vendor is set to request availability for a maximum of 13 properties. 
@@ -121,14 +123,9 @@ The initial Search request is followed up by an multi-property Availability requ
 
 ### Response
 
-
-
-
-
-
-
-
-
+```xml
+<response goes here>
+```
 
 ### Search results displayed
 
@@ -152,17 +149,10 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 
 ```
 
-
 ### Response
 ```xml
 
 ```
-
-
-
-
-
-
 
 # Hotel Description
 
@@ -171,7 +161,6 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 ### Request
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-
  <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
   <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
    <authentication xmlns="http://www.concur.com/webservice/auth">
@@ -193,7 +182,6 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
   </Body>
  </Envelope>
 ```
-
 
 ### Response
 ``` xml
