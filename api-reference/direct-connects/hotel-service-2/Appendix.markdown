@@ -336,7 +336,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" ResResponseType="Reserved">
+    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" 
+                    xmlns:ns2="http://www.concur.com/webservice/auth" ResResponseType="Reserved">
       <Success/>
       <HotelReservations>
         <HotelReservation>
@@ -630,7 +631,9 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
    </authentication>
   </Header>
   <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-   <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" CancelType="Cancel" EchoToken="2186EB84-23D9-4977-B8A5-B5083C8DE228" Version="3" PrimaryLangID="en" AltLangID="en">
+   <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" CancelType="Cancel"
+                 EchoToken="2186EB84-23D9-4977-B8A5-B5083C8DE228" 
+                 Version="3" PrimaryLangID="en" AltLangID="en">
     <POS>
      <Source ISOCurrency="USD"></Source>
     </POS>
@@ -647,7 +650,9 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
   <soap:Body>
-    <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Status="Cancelled">
+    <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" 
+                  xmlns:ns2="http://www.concur.com/webservice/auth" 
+                  Status="Cancelled">
       <Success/>
       <UniqueID ID="88618333" Type="14"/>
       <UniqueID ID="27607" Type="15"/>
