@@ -146,5 +146,152 @@ The initial Search request is followed up by an multi-property Availability requ
 
 Click the 'View Rooms' button on any search result will trigger a single-property request
 
+### Request
+```xml
+
+```
+
+
+### Response
+```xml
+
+```
+
+
+
+
+
+
+
+# Hotel Description
+
+### Request
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+   <authentication xmlns="http://www.concur.com/webservice/auth">
+    <userid>testLogin123</userid>
+    <password>txxxxxxxxxxxx;</password>
+   </authentication>
+  </Header>
+  <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+   <OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="A78F3641-8674-43F9-B58C-AD928D1A75D9" Version="3" PrimaryLangID="en" AltLangID="en">
+    <POS>
+     <Source ISOCurrency="USD"></Source>
+    </POS>
+    <HotelDescriptiveInfos>
+     <HotelDescriptiveInfo ChainCode="ZZ" HotelCode="419430"></HotelDescriptiveInfo>
+    </HotelDescriptiveInfos>
+   </OTA_HotelDescriptiveInfoRQ>
+  </Body>
+ </Envelope>
+```
+
+### Response
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
+  <soap:Body>
+    <OTA_HotelDescriptiveInfoRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth">
+      <Success/>
+      <HotelDescriptiveContents>
+        <HotelDescriptiveContent ChainCode="ZZ" HotelCode="419430" HotelName="Courtyard Prague Airport">
+          <HotelInfo>
+            <Descriptions>
+              <DescriptiveText>Prague (PRG): The Europort building which housed the hotel is located in front of the arrivial and departure halls at Prague-ruzyne Airport. The hotel will have direct access to the airport’s infrastructure and offer connections to both the walkway and transporation routes. The conveniently located Courtyard Prague Airport provides its guests upscale accommodation outside the buzzing city centre. Kept in a cosy elegant design, the comfortable rooms are fitted with coffee and tea maker and nice sitting and working area. The magnificent atrium with its modern structure and nice garden invites to stay and relax. Directly situated at Prague’s international airport, the hotel is about 16 kilometres from the city centre and the historic castle. In the nearby surroundings, guests can enjoy horseback riding, biking or kayaking. Oléo Pazzo Mediterranean Bistro is a contemporary restaurant decorated in warm and coulourful style with a show kitchen and a trendy bar. Other features are a fitness,a business center,meeting rooms.</DescriptiveText>
+            </Descriptions>
+          </HotelInfo>
+          <MultimediaDescriptions>
+            <MultimediaDescription>
+              <ImageItems>
+                <ImageItem>
+                  <ImageFormat>
+                    <URL>http://iut-foto-origin.hrsstatic.com/foto/3/8/9/8/389886/389886_fi_451616.jpg</URL>
+                  </ImageFormat>
+                </ImageItem>
+                <ImageItem>
+                  <ImageFormat>
+                    <URL>http://iut-foto-origin.hrsstatic.com/foto/3/8/9/8/389886/389886_u_6302064.jpg</URL>
+                  </ImageFormat>
+                </ImageItem>
+                <ImageItem>
+                  <ImageFormat>
+                    <URL>http://iut-foto-origin.hrsstatic.com/foto/3/8/9/8/389886/389886_u_451896.jpg</URL>
+                  </ImageFormat>
+                </ImageItem>
+              </ImageItems>
+            </MultimediaDescription>
+          </MultimediaDescriptions>
+          <TPA_Extensions>
+            <Description Name="First Description">
+                <Text>First line of first description.</Text>
+                <Text>Second line of first description.</Text>
+            </Description>
+            <Description>
+                <Text>Second description without name.</Text>
+            </Description>
+          </TPA_Extensions>
+        </HotelDescriptiveContent>
+      </HotelDescriptiveContents>
+    </OTA_HotelDescriptiveInfoRS>
+  </soap:Body>
+</soap:Envelope>
+```
+
+
+# Reservation
+
+
+### Request
+```xml
+
+```
+
+
+### Response
+```xml
+
+```
+
+
+# Read
+
+
+### Request
+```xml
+
+```
+
+
+### Response
+```xml
+
+```
+
+
+# Cancel
+
+### Request
+```xml
+
+```
+
+
+### Response
+```xml
+
+```
+
+
+
+
+
+
+
+
+
 
 
