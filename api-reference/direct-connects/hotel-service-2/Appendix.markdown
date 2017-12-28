@@ -3,9 +3,7 @@ title: Appendix
 layout: reference
 ---
 
-#Search
-
-### UI
+# Search
 
 ![./media/image1.png](./images/examples/search.png)
 
