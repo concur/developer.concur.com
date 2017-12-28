@@ -39,7 +39,7 @@ layout: reference
  
 ### Response
 ```xml
-<search response goes here>
+<search response goes here> add a complete samples folder so store the huge search response
 ```
 
 
