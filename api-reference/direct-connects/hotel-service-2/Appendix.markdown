@@ -168,6 +168,8 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 
 # Hotel Description
 
+<Screen shot of hoted details link here>
+
 ### Request
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -193,6 +195,7 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
   </Body>
  </Envelope>
 ```
+
 
 ### Response
 ``` xml
@@ -247,19 +250,217 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 </soap:Envelope>
 ```
 
+### Hotel Details displayed
+
+<image 5_1 goes here>
+
 
 # Reservation
 
+<image 4 and 6 here> potentilaly add 6_1 AND 6_2  and see if it's not too cluttered
 
 ### Request
 ```xml
-
+<?xml version="1.0" encoding="UTF-8"?>
+ <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+   <authentication xmlns="http://www.concur.com/webservice/auth">
+    <userid>testLogin123</userid>
+    <password>txxxxxxxxxxxx;</password>
+   </authentication>
+  </Header>
+  <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+   <OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
+                   EchoToken="6C85DDBD-EB62-444D-B2C3-F59BDF65BE98" 
+                   Version="6" PrimaryLangID="en" AltLangID="en">
+    <POS>
+     <Source ISOCurrency="USD"></Source>
+    </POS>
+    <HotelReservations>
+     <HotelReservation>
+      <RoomStays>
+       <RoomStay>
+        <RatePlans>
+         <RatePlan RatePlanID="XNFYP4I">
+          <Guarantee GuaranteeType="CC/DC/Voucher">
+           <GuaranteesAccepted>
+            <GuaranteeAccepted>
+             <PaymentCard CardCode="VI" ExpireDate="1220">
+              <CardType Code="VI">VISA</CardType>
+              <CardHolderName>HOTELSERVICEAMADEUS TESTUSERMOCK</CardHolderName>
+              <CardNumber>
+               <PlainText>xxxxxxxxxxxx4111</PlainText>
+              </CardNumber>
+             </PaymentCard>
+            </GuaranteeAccepted>
+           </GuaranteesAccepted>
+          </Guarantee>
+         </RatePlan>
+        </RatePlans>
+        <TimeSpan Start="2018-02-12" End="2018-02-13"></TimeSpan>
+        <BasicPropertyInfo HotelCode="419430"></BasicPropertyInfo>
+       </RoomStay>
+      </RoomStays>
+      <ResGuests>
+       <ResGuest>
+        <Profiles>
+         <ProfileInfo>
+          <Profile>
+           <Customer Gender="Unknown">
+            <PersonName Language="en">
+             <GivenName>HOTELSERVICEAMADEUS</GivenName>
+             <Surname>TESTUSERMOCK</Surname>
+            </PersonName>
+            <Telephone PhoneNumber="3141011001"></Telephone>
+            <Email>hrs_hs2_amadeus_mock@concurautm3.com</Email>
+            <Address>
+             <AddressLine>123 Sesame St.</AddressLine>
+             <CityName>Alexandria</CityName>
+             <PostalCode>22314</PostalCode>
+             <StateProv></StateProv>
+             <CountryName Code="US">USA</CountryName>
+            </Address>
+            <CitizenCountryName Code="US"></CitizenCountryName>
+           </Customer>
+           <CompanyInfo>
+            <CompanyName>CONCURTECH</CompanyName>
+           </CompanyInfo>
+          </Profile>
+         </ProfileInfo>
+        </Profiles>
+        <GuestCounts>
+         <GuestCount Count="1"></GuestCount>
+        </GuestCounts>
+       </ResGuest>
+      </ResGuests>
+     </HotelReservation>
+    </HotelReservations>
+   </OTA_HotelResRQ>
+  </Body>
+ </Envelope>
 ```
 
 
 ### Response
 ```xml
-
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
+  <soap:Body>
+    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" ResResponseType="Reserved">
+      <Success/>
+      <HotelReservations>
+        <HotelReservation>
+          <UniqueID ID="88618333"/>
+          <RoomStays>
+            <RoomStay>
+              <RatePlans>
+                <RatePlan RatePlanID="EZ57LL7">
+                  <CancelPenalties CancelPolicyIndicator="true">
+                    <CancelPenalty>
+                      <PenaltyDescription>
+                        <Text>test cancel policy 1</Text>
+                      </PenaltyDescription>
+                    </CancelPenalty>
+                    <CancelPenalty>
+                      <Deadline AbsoluteDeadline="2018-02-22T18:00"/>
+                    </CancelPenalty>
+                  </CancelPenalties>
+                </RatePlan>
+              </RatePlans>
+              <RoomRates>
+                <RoomRate>
+                  <Rates>
+                    <Rate RoomPricingType="Per stay">
+                      <PaymentPolicies>
+                        <GuaranteePayment>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard CardCode="VI"/>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
+                        </GuaranteePayment>
+                        <GuaranteePayment>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard CardCode="MC"/>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
+                        </GuaranteePayment>
+                        <GuaranteePayment>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard CardCode="CA"/>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
+                        </GuaranteePayment>
+                        <GuaranteePayment>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard CardCode="IK"/>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
+                        </GuaranteePayment>
+                        <GuaranteePayment>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard CardCode="AX"/>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
+                        </GuaranteePayment>
+                      </PaymentPolicies>
+                      <Total AmountAfterTax="85.00" AmountBeforeTax="85.00" CurrencyCode="EUR"/>
+                    </Rate>
+                  </Rates>
+                </RoomRate>
+              </RoomRates>
+              <TimeSpan End="2018-02-23" Start="2018-02-22"/>
+              <BasicPropertyInfo HotelCode="50709" HotelName="Alexander Plaza">
+                <Address>
+                  <AddressLine>Rosenstr. 1</AddressLine>
+                  <CityName>Berlin</CityName>
+                  <CountryName Code="DEU">Federal Republic of Germany</CountryName>
+                  <StateProv StateCode="BE">Berlin disctrict</StateProv>
+                  <PostalCode>BE123</PostalCode>
+                </Address>
+                <ContactNumbers>
+                  <ContactNumber PhoneNumber="3024001722"/>
+                </ContactNumbers>
+              </BasicPropertyInfo>
+            </RoomStay>
+          </RoomStays>
+          <ResGuests>
+            <ResGuest>
+              <Profiles>
+                <ProfileInfo>
+                  <Profile>
+                    <Customer>
+                      <PersonName>
+                        <GivenName>TESTER</GivenName>
+                        <Surname>Testovic</Surname>
+                      </PersonName>
+                    </Customer>
+                  </Profile>
+                </ProfileInfo>
+              </Profiles>
+            </ResGuest>
+          </ResGuests>
+          <ResGlobalInfo>
+            <Comments>
+              <Comment Name="Comment 1">
+                <Text>First line of Comment 1.</Text>
+                <Text>Second line of Comment 1.</Text>
+              </Comment>
+              <Comment>
+                <Text>First line of Comment 2 without name.</Text>
+              </Comment>
+            </Comments>
+          </ResGlobalInfo>
+        </HotelReservation>
+      </HotelReservations>
+    </OTA_HotelResRS>
+  </soap:Body>
+</soap:Envelope>
 ```
 
 
