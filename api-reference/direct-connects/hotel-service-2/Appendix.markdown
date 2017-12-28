@@ -250,9 +250,12 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 </soap:Envelope>
 ```
 
+
+
+
 ### Hotel Details displayed
 
-<image 5_1 goes here>
+<image 5_1 goes here image 17 (cancel policy)>
 
 
 # Reservation
@@ -466,32 +469,208 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 
 # Read
 
+<image 7 and 8 and 9 here>
 
 ### Request
 ```xml
-
+<?xml version="1.0" encoding="UTF-8"?>
+ <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+   <authentication xmlns="http://www.concur.com/webservice/auth">
+    <userid>testLogin123</userid>
+    <password>txxxxxxxxxxxx;</password>
+   </authentication>
+  </Header>
+  <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+   <OTA_ReadRQ xmlns="http://www.opentravel.org/OTA/2003/05" 
+               EchoToken="4E1B8BF4-ACBD-4709-9FCC-B59EB2550086" 
+               Version="5.002" PrimaryLangID="en" AltLangID="en">
+    <POS>
+     <Source ISOCurrency="USD"></Source>
+    </POS>
+    <UniqueID Type="14" ID="88618333"></UniqueID>
+   </OTA_ReadRQ>
+  </Body>
+ </Envelope>
 ```
 
 
 ### Response
 ```xml
-
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
+  <soap:Body>
+    <OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" 
+                    xmlns:ns2="http://www.concur.com/webservice/auth" 
+                    ResResponseType="Reserved">
+      <Success/>
+      <HotelReservations>
+        <HotelReservation>
+          <UniqueID ID="88621190"/>
+          <RoomStays>
+            <RoomStay>
+              <RatePlans>
+                <RatePlan RatePlanID="P4PGI5Q">
+                  <CancelPenalties CancelPolicyIndicator="true">
+                    <CancelPenalty>
+                      <PenaltyDescription>
+                        <Text>test cancel policy 1</Text>
+                      </PenaltyDescription>
+                    </CancelPenalty>
+                    <CancelPenalty>
+                      <PenaltyDescription>
+                        <Text>test cancel policy 2</Text>
+                      </PenaltyDescription>
+                      <PenaltyDescription>
+                        <Text>test cancel policy 3</Text>
+                      </PenaltyDescription>
+                    </CancelPenalty>
+                    <CancelPenalty>
+                      <Deadline AbsoluteDeadline="2018-02-22T18:00"/>
+                    </CancelPenalty>
+                  </CancelPenalties>
+                </RatePlan>
+              </RatePlans>
+              <RoomRates>
+                <RoomRate>
+                  <Rates>
+                    <Rate RoomPricingType="Per stay">
+                      <PaymentPolicies>
+                        <GuaranteePayment>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard CardCode="VI"/>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
+                        </GuaranteePayment>
+                        <GuaranteePayment>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard CardCode="MC"/>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
+                        </GuaranteePayment>
+                        <GuaranteePayment>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard CardCode="CA"/>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
+                        </GuaranteePayment>
+                        <GuaranteePayment>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard CardCode="IK"/>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
+                        </GuaranteePayment>
+                        <GuaranteePayment>
+                          <AcceptedPayments>
+                            <AcceptedPayment>
+                              <PaymentCard CardCode="AX"/>
+                            </AcceptedPayment>
+                          </AcceptedPayments>
+                        </GuaranteePayment>
+                      </PaymentPolicies>
+                      <Total AmountAfterTax="208.95" AmountBeforeTax="208.95" CurrencyCode="EUR"/>
+                    </Rate>
+                  </Rates>
+                </RoomRate>
+              </RoomRates>
+              <TimeSpan End="2018-02-23" Start="2018-02-22"/>
+              <BasicPropertyInfo ChainCode="1609" HotelCode="10517" HotelName="Radisson Blu Hotel">
+                <Address>
+                  <AddressLine>Karl-Liebknecht-Str. 3 </AddressLine>
+                  <CityName>Berlin</CityName>
+                  <CountryName Code="DEU">Federal Republic of Germany</CountryName>
+                  <StateProv StateCode="BE">Berlin disctrict</StateProv>
+                  <PostalCode>BE123</PostalCode>
+                </Address>
+                <ContactNumbers>
+                  <ContactNumber PhoneNumber="30238280"/>
+                </ContactNumbers>
+              </BasicPropertyInfo>
+            </RoomStay>
+          </RoomStays>
+          <ResGuests>
+            <ResGuest>
+              <Profiles>
+                <ProfileInfo>
+                  <Profile>
+                    <Customer>
+                      <PersonName>
+                        <GivenName>TESTER</GivenName>
+                        <Surname>Testovic</Surname>
+                      </PersonName>
+                    </Customer>
+                  </Profile>
+                </ProfileInfo>
+              </Profiles>
+            </ResGuest>
+          </ResGuests>
+          <ResGlobalInfo>
+            <Comments>
+              <Comment Name="Comment 1">
+                <Text>First line of Comment 1.</Text>
+                <Text>Second line of Comment 1.</Text>
+              </Comment>
+              <Comment>
+                <Text>First line of Comment 2 without name.</Text>
+              </Comment>
+            </Comments>
+          </ResGlobalInfo>
+        </HotelReservation>
+      </HotelReservations>
+    </OTA_HotelResRS>
+  </soap:Body>
+</soap:Envelope>
 ```
 
+<image 10 and 10_1 and 10_2 here>
 
 # Cancel
 
-### Request
-```xml
+<image 12 or 13 and 14 >
 
+### Request
+
+```xml
+ <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+   <authentication xmlns="http://www.concur.com/webservice/auth">
+    <userid>testLogin123</userid>
+    <password>txxxxxxxxxxxx;</password>
+   </authentication>
+  </Header>
+  <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+   <OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" CancelType="Cancel" EchoToken="2186EB84-23D9-4977-B8A5-B5083C8DE228" Version="3" PrimaryLangID="en" AltLangID="en">
+    <POS>
+     <Source ISOCurrency="USD"></Source>
+    </POS>
+    <UniqueID Type="14" ID="88618333"></UniqueID>
+   </OTA_CancelRQ>
+  </Body>
+ </Envelope>
 ```
 
 
 ### Response
 ```xml
-
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
+  <soap:Body>
+    <OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" Status="Cancelled">
+      <Success/>
+      <UniqueID ID="88618333" Type="14"/>
+      <UniqueID ID="27607" Type="15"/>
+    </OTA_CancelRS>
+  </soap:Body>
+</soap:Envelope>
 ```
 
+<image 15 and 16>
 
 
 
