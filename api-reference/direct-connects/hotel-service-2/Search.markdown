@@ -165,8 +165,8 @@ The radius element is used along with the Hotel Preference to categorize the sea
 
 | Element        | Required | Data Type         | Description |
 |----------------|----------|-------------------|-------------|
-| *CheckInTime*  | Y        | StringLength1to32	| something |
-| *CheckOutTime* | Y        | StringLength1to32	| something |
+| *CheckInTime*  | Y        | StringLength1to32	| **to be decided** |
+| *CheckOutTime* | Y        | StringLength1to32	| **to be decided** |
 
 
 ### TPA Extensions

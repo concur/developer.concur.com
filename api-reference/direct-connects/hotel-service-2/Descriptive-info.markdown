@@ -47,7 +47,7 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 | Element                  | Required | Data Type   | Description |
 |--------------------------|----------|-------------|-------------|
-| HotelDescriptiveContents | Y        | Complex     | Contains Hote Details content which is made up of text and image URLs |
+| HotelDescriptiveContents | Y        | Complex     | Contains Hotel Details content which is made up of text and image URLs |
 
 **HotelDescriptiveContents**
 

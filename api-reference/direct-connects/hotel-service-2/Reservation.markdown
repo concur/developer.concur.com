@@ -53,7 +53,7 @@ Message to reserve a hotel.
 | Element            | Required | Data Type         | Description |
 |--------------------|----------|-------------------|-------------|
 | *GuaranteeType*    | Y        | StringLength1to32 | Refer to GuaranteeType in Availability |
-| GuaranteesAccepted | Y        | Complex           | something |
+| GuaranteesAccepted | Y        | Complex           | **to be decided** |
 
 
 **GuaranteesAccepted**
@@ -73,7 +73,7 @@ Message to reserve a hotel.
 
 | Element        | Required | Data Type         | Description |
 |----------------|----------|-------------------|-------------|
-| CardType       | Y        | StringLength1to32 | something |
+| CardType       | Y        | StringLength1to32 | **to be decided** |
 | CardHolderName | Y        | StringLength1to32 | The name on the card |
 | CardNumber     | Y        | Complex           | The Card Number |
 
@@ -206,7 +206,7 @@ Message to reserve a hotel.
 
 | Element           | Required | Data Type         | Description |
 |-------------------|----------|-------------------|-------------|
-| *ResResponseType* | Y        | StringLength1to32 | **waiting to see what we actually support here as the list is quite big** |
+| *ResResponseType* | Y        | StringLength1to32 | **supported response types to be decided** |
 | HotelReservations | Y        | Complex           | Concur only supports one reservation.  All extra reservations will be ignored. |
 
 
@@ -235,5 +235,5 @@ Message to reserve a hotel.
 
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
-| RatePlans | Y        | Complex   | something |
+| RatePlans | Y        | Complex   | **to be decided** |
 
