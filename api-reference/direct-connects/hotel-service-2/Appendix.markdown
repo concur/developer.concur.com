@@ -156,6 +156,13 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 
 ```
 
+
+### Availability results displayed
+
+![./media/image1.png](./images/examples/17.png)
+
+
+
 # Hotel Description
 
 ![./media/image1.png](./images/examples/5_link.png)
@@ -242,7 +249,6 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 ### Hotel Details displayed
 
 ![./media/image1.png](./images/examples/5_1.png)
-![./media/image1.png](./images/examples/17.png)
 
 
 # Reservation
@@ -622,7 +628,6 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 ```
 ### Itinerary displayed
 
-![./media/image1.png](./images/examples/10.png)
 ![./media/image1.png](./images/examples/10_1.png)
 ![./media/image1.png](./images/examples/10_2.png)
 
