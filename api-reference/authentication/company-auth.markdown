@@ -78,6 +78,7 @@ client_id=your-client_id
 &grant_type=password
 &username=<companyId>
 &password=<authtoken>
+&credtype=authtoken
 ```
 
 **Response**

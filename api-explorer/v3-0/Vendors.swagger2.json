@@ -602,7 +602,7 @@
         },
         "ProvincialTaxID": {
           "type": "string",
-          "description": "The Vendor Provincial Tax ID."
+          "description": "The Vendor Provincial Tax ID. Note that this value is not encrypted at REST."
         },
         "PurchaseOrderContactEmail": {
           "type": "string",
@@ -637,7 +637,7 @@
         },
         "TaxID": {
           "type": "string",
-          "description": "The Vendor Tax ID."
+          "description": "The Vendor Tax ID. Note that this value is not encrypted at REST."
         },
         "TaxType": {
           "type": "string",

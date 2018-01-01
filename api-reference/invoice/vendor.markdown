@@ -248,7 +248,7 @@ Name | Type | Format | Description
 `PaymentMethodType`|`string`|-|Preferred Payment Type for Vendor.
 `PaymentTerms`|`Integer between 1 and 999`|-|The Vendor Payment Terms. This field represents the number of days by which a payment must be made, for example, 30 days
 `PostalCode`|`string`|-|The Vendor Postal Code / Zip.
-`ProvincialTaxID`|`string`|-|The Vendor Provincial Tax ID.
+`ProvincialTaxID`|`string`|-|The Vendor Provincial Tax ID. Note that this value is not encrypted at REST.
 `PurchaseOrderContactEmail`|`string`|-|The Purchase Order Contact Email.
 `PurchaseOrderContactFirstName`|`string`|-|The Purchase Order Contact First Name.
 `PurchaseOrderContactLastName`|`string`|-|The Purchase Order Contact Last Name.
@@ -257,7 +257,7 @@ Name | Type | Format | Description
 `ShippingTerms`|`string`|-|The Vendor Shipping Terms.
 `State`|`string`|-|The Vendor State.
 `StatusList`|`array`|[`Status`](#status)|**Required** Status results
-`TaxID`|`string`|-|The Vendor Tax ID.
+`TaxID`|`string`|-|The Vendor Tax ID. Note that this value is not encrypted at REST.
 `TaxType`|`string`|-|The Vendor Tax Type.
 `URI`|`string`|-|The URI to the resource.
 `VendorBankList`|`array`|[`VendorBank`](#VendorBank)|The list of a vendor's active banking information. **Read-Only**

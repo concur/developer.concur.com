@@ -19,12 +19,12 @@ Instructions for obtaining a Company Token is here : https://developer.concur.co
 
 ## <a name="usersbulk"></a>Calling /users Bulk API
 
-Once you have the Company Token, you would call the `/users` endpoint to retrieve a list of users that belong to that company.
+Once you have the Company Token, you would call the `/users/` endpoint to retrieve a list of users that belong to that company.
 
 This endpoint will also return basic company information together with the list of users.
 
 
-`GET /users`
+`GET /users/`
 
 **Query Parameters**
 
@@ -50,8 +50,8 @@ Sample Curl:
 
 ```shell
 curl -v -X GET -H "Authorization: Bearer $token" \
--H "Accept: application/json"
-'https://us.api.concursolutions.com/users?offset=0&limit=100&isactive=true'
+-H "Accept: application/json" \
+'https://us.api.concursolutions.com/users/?offset=0&limit=100&isactive=true'
 ```
 
 successful call, responds with
@@ -78,6 +78,7 @@ successful call, responds with
       "PrimaryEmail": "johndoe@gmail.com",
       "EmployeeID": "johndoe@gmail.com",
       "ID": "99BFFFC3-C0BE-44FF-A441-AE1FFFFFF75B8",
+      "Emails": ["PrimaryEmail", "VerifiedEmail", "email2", "email3", "email4", "email5"],
       "OrganizationUnit": null,
       "MiddleName": "",
       "LastName": "Doe",
@@ -91,6 +92,7 @@ successful call, responds with
       "PrimaryEmail": "janedoe@gmail.com",
       "EmployeeID": "janedoe@gmail.com",
       "ID": "55FFF504-C7B8-49FF-9E15-6248FFFFFCDB",
+      "Emails": ["PrimaryEmail", "VerifiedEmail", "email2", "email3", "email4", "email5"],
       "OrganizationUnit": null,
       "MiddleName": "",
       "LastName": "Doe",
