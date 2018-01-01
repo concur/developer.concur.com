@@ -158,7 +158,7 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 
 # Hotel Description
 
-<Screen shot of hoted details link here>
+![./media/image1.png](./images/examples/5_link.png)
 
 ### Request
 ```xml
@@ -239,16 +239,19 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 ```
 
 
-
-
 ### Hotel Details displayed
 
-<image 5_1 goes here image 17 (cancel policy)>
+![./media/image1.png](./images/examples/5_1.png)
+![./media/image1.png](./images/examples/17.png)
 
 
 # Reservation
 
-<image 4 and 6 here> potentilaly add 6_1 AND 6_2  and see if it's not too cluttered
+![./media/image1.png](./images/examples/4.png)
+![./media/image1.png](./images/examples/6.png)
+
+![./media/image1.png](./images/examples/6_1.png)
+![./media/image1.png](./images/examples/6_2.png)
 
 ### Request
 ```xml
@@ -458,7 +461,9 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 
 # Read
 
-<image 7 and 8 and 9 here>
+![./media/image1.png](./images/examples/7.png)
+![./media/image1.png](./images/examples/8.png)
+![./media/image1.png](./images/examples/9.png)
 
 ### Request
 ```xml
@@ -615,12 +620,16 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
   </soap:Body>
 </soap:Envelope>
 ```
+### Itinerary displayed
 
-<image 10 and 10_1 and 10_2 here>
+![./media/image1.png](./images/examples/10.png)
+![./media/image1.png](./images/examples/10_1.png)
+![./media/image1.png](./images/examples/10_2.png)
 
 # Cancel
 
-<image 12 or 13 and 14 >
+![./media/image1.png](./images/examples/12.png)
+![./media/image1.png](./images/examples/14.png)
 
 ### Request
 
@@ -663,14 +672,6 @@ Click the 'View Rooms' button on any search result will trigger a single-propert
 </soap:Envelope>
 ```
 
-<image 15 and 16>
-
-
-
-
-
-
-
-
-
+![./media/image1.png](./images/examples/15.png)
+![./media/image1.png](./images/examples/16.png)
 
