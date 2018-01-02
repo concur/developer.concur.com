@@ -121,6 +121,7 @@ Schema for car rentals. This does not include ride services or taxis.
 |rentalAgreementNumber|string|N/A|Agreement identifier.|
 |confirmationNumber|string|N/A|Booking confirmation identifier.|
 |vehicle|object|[vehicle](#vehicle)||
+|driverName|string|N/A|Name of the driver/renter of the vehicle.|
 |distance|object|[distance](#distance)|Distance traveled.|
 |odometerReadingOut|number|N/A|Odometer reading at the start of the rental period. A number with up to one decimal place is expected.|
 |odometerReadingIn|number|N/A|Odometer reading at the end of the rental period. A number with up to one decimal place is expected.|
