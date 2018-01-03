@@ -82,7 +82,7 @@ Schema for airline receipts.
 |__*marketingCarrier*__|string|^[a-zA-Z0-9]{3,8}$|Flight designator booking the flight.|
 |__*operatingCarrier*__|string|^[a-zA-Z0-9]{3,8}$|Flight designator operating the flight.|
 |__*classOfServiceCode*__|string|^[a-zA-Z]$|Class of service per the airline’s class of service codes. Most airlines use the same codes but some airlines have custom codes.|
-|__*fareBasisCode*__|string|^[a-zA-Z0-9]{3,8}$|Rate code the airline used to calculate the fare for this flight.|
+|__*fareBasisCode*__|string|^[a-zA-Z0-9]{2,8}$|Rate code the airline used to calculate the fare for this flight.|
 |ticketDesignatorCode|string|^[a-zA-Z0-9\*?]{1,10}$|A valid ticket designator code to indicate what type of discount is applied, such as for a child or infant, or airline employee. This is a 1 to 10 alphanumeric code and can optionally include a single asterisk. Ticket designators are free-form text codes which help identify ticket types. Airlines determine which ticket designators they will use as no standards currently exist.|
 |__*fare*__|string|^[-]?\d*\.?\d+$|Fare charged for the flight.|
 |taxes|array|[Taxes](#taxes)|Schema for objects that make up an array of taxes. Used in most receipt types.|
@@ -100,7 +100,7 @@ Schema for airline receipts.
 |IATAAgencyNumber|string|^[0-9]{8}$|8-character ID number assigned by the IATA to an agency.|
 |flightDesignator|string|^[a-zA-Z0-9]{3,8}$||
 |classOfServiceCode|string|^[a-zA-Z]$||
-|fareBasisCode|string|^[a-zA-Z0-9]{3,8}$||
+|fareBasisCode|string|^[a-zA-Z0-9]{2,8}$||
 |ticketDesignatorCode|string|^[a-zA-Z0-9\*?]{1,10}$||
 
 
