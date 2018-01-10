@@ -34,13 +34,12 @@ const constraints = {
   appType: {
     presence: { message: 'is required' },
   },
-  LegacyId: {
-  },
+
   redirectUris: {
     validateUrlArray: {
       allowLocal: true,
     },
-    firstElementRequired: true,
+    firstElementRequired: false,
   },
   allowedGrants: {
     presence: { message: '- at least one is required.' },
@@ -97,7 +96,7 @@ const NewAppForm = ({ handleSubmit }) => (
             component={InputField}
             type="text"
             name="legacyId"
-            label="Legacy Id &#42;"
+            label="Legacy Id"
             placeholder="Legacy Id"
           />
         </section>
