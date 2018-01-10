@@ -34,6 +34,7 @@ const constraints = {
   appType: {
     presence: { message: 'is required' },
   },
+
   redirectUris: {
     validateUrlArray: {
       allowLocal: true,
@@ -88,6 +89,15 @@ const NewAppForm = ({ handleSubmit }) => (
             name="appType"
             label="App Type &#42;"
             options={appTypes}
+          />
+        </section>
+        <section className="col-md-8">
+          <Field
+            component={InputField}
+            type="text"
+            name="legacyId"
+            label="Legacy Id"
+            placeholder="Legacy Id"
           />
         </section>
         <section className="col-md-8">
