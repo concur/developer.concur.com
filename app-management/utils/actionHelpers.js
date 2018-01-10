@@ -89,6 +89,7 @@ export const sharedHelpers = {
       allowedGrants: allowedGrants.map(matchElementToLabel(grants)),
       allowedScopes: allowedScopes.map(matchElementToLabel(scopes)),
       appType: appType.map(matchElementToLabel(appTypes)),
+      legacyId: applicationData['com:concur:internal:product:Identifiers:1.0'].legacyId,
       ...applicationData,
     };
   },
