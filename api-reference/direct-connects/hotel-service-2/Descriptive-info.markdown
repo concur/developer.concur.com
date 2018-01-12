@@ -1,14 +1,14 @@
 ---
-title: Descriptive Information 
+title: Descriptive Information
 layout: reference
 ---
 
 
 # Descriptive Info
 
-Message to retrieve descriptive details about a given hotel. This may include text and/or a number of URL pointed to hosted images.  Concur does not host any hotel images. 
+Message to retrieve descriptive details about a given hotel. This may include text and/or a number of URL pointed to hosted images.  Concur does not host any hotel images.
 
-| SOAPAction | OTA name             | Message structure | 
+| SOAPAction | OTA name             | Message structure |
 |------------|----------------------|-------------------|
 | detail     | HotelDescriptiveInfo | OTA_HotelDescriptiveInfoRQ |
 
@@ -75,7 +75,7 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 | Element | Required | Data Type          | Description |
 |---------|----------|--------------------|-------------|
-| *name*  | Y        | StringLength1to32  | The contents of this element will be rendered as a heading on the Hotel Details page. |
+| *name*  | N        | StringLength1to64  | The contents of this element will be rendered as a heading on the Hotel Details page. |
 | Text    | Y        | StringLength1to255 | The contents of this element will be rendered as a paragraph.  Concur expects up to a maximum of 20 Text elements per Description, which will be concatenated to into one paragraph. |
 
 
@@ -112,4 +112,3 @@ Message to retrieve descriptive details about a given hotel. This may include te
 | Element | Required | Data Type         | Description |
 |---------|----------|-------------------|-------------|
 | URL     | Y        | StringLength1to32 | Contains a URL pointing to a hotel image. The URLs are used in a client-side gallery widget, which works best with .png and .jpg files. |
-
