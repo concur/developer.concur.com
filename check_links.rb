@@ -22,7 +22,8 @@ urls_to_ignore = [
   'https://open.concur.com',
   'http://fortawesome.github.com/Font-Awesome',
   'http://matoilic.github.com/jquery.placeholder',
-  'http://runnable.com/UtWlKVi9ZnsnAABx/upload-receipts-to-concur-using-php-curl'
+  'http://runnable.com/UtWlKVi9ZnsnAABx/upload-receipts-to-concur-using-php-curl',
+  'http://digitalbush.com/projects/masked-input-plugin'
 ]
 
 options = {
