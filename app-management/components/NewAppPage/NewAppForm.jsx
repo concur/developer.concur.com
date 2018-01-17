@@ -95,7 +95,7 @@ const NewAppForm = ({ handleSubmit }) => (
           <Field
             component={InputField}
             type="text"
-            name="legacyId"
+            name="['com:concur:internal:product:Identifiers:1.0'].legacyId"
             label="Legacy Id"
             placeholder="Legacy Id"
           />
