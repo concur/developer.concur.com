@@ -5,6 +5,7 @@ $navbar-border-radius: 0;
 $navbar-default-link-color: $white;
 $navbar-default-link-hover-color: $concur-blue;
 $navbar-default-link-active-color: $navbar-default-link-color;
+$navbar-default-brand-hover-color: $concur-blue;
 
 // eliminate margin between navbar and page content
 nav.navbar {
@@ -42,8 +43,8 @@ a.navbar-brand {
   img {
     display: inline-block;
     float: left;
-    height: $navbar-height;
-    padding: 10px 0;
+    height: 67px;
+    padding: 19px;
   }
 
   .app-name {
