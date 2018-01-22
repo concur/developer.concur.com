@@ -405,7 +405,6 @@ _Example Response_
   "dateTimeReceived": "2016-09-28T21:41:21.087Z",
   "id": "85b76a2bf51a4ed7b8b252994d7d9e2b",
   "image": "",
-  "imageId": "",
   "receipt": {
     ...Receipt JSON...
   },
@@ -451,7 +450,6 @@ _Example Response:_
       "dateTimeReceived": "2016-09-28T21:41:21.087Z",
       "id": "85b76a2bf51a4ed7b8b252994d7d9e2b",
       "image": "",
-      "imageId": "",
       "receipt": {
         ...Receipt JSON...
       },
@@ -464,7 +462,6 @@ _Example Response:_
       "dateTimeReceived": "2016-09-28T19:59:30.488Z",
       "id": "df8c1161d917439c9e6f141fd0d6b588",
       "image": "",
-      "imageId": "",
       "receipt": {
         ...Receipt JSON...
       },
@@ -591,7 +588,6 @@ Connection: keep-alive
 	        "dateTimeReceived": "Wed May 24 2017 16:14:17 GMT+00:00",
 	        "id": "a90fc48e0f0a44f2bd4838fd773b07a5",
 	        "image": "https://us.api.concursolutions.com/receipts/v4/image-only-receipts/a90fc48e0f0a44f2bd4838fd773b07a5/image",
-	        "imageId": "2B7095DA565D3EB9AC82B6712FCC0F79",
 	        "userId": "abcd123456efg"
 	    },
 	    { ... },
@@ -638,7 +634,6 @@ Connection: keep-alive
     "dateTimeReceived": "Wed May 24 2017 16:14:17 GMT+00:00",
     "id": "a90fc48e0f0a44f2bd4838fd773b07a5",
     "image": "https://us.api.concursolutions.com/receipts/v4/image-only-receipts/a90fc48e0f0a44f2bd4838fd773b07a5/image",
-    "imageId": "2B7095DA565D3EB9AC82B6712FCC0F79",
     "userId": "abcd123456efg"
 }
 ```
