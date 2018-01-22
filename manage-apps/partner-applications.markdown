@@ -7,24 +7,14 @@ layout: reference
 
 ##  Registering a Partner Application
 
-The first action all developers need to take is to register a partner application with Concur. Before you can obtain a JSON Web Token (JWT), you need to register an application with Concur. You can do this by contacting your Partner Enablement Manager or Partner Account Manager. Once you have registered an application, you will receive a clientId and clientSecret. The clientId is a unique UUID4 identifier for your application, and the clientSecret is your application’s password. You will be using this credential to obtain tokens either for the application itself, or on behalf of a user. For more information on this process, please refer to our [Getting Started guide for authentication](/api-reference/authentication/getting-started.html)
+After a business has passed the Business Development vetting process for an App Center partnership, the Partner Certification team will be engaged to establish a sandbox and register an app for the Partner sandbox.  These steps must take place before a Partner can obtain a JSON Web Token (JWT).
 
-#####  To register a partner application
+Once the DEVELOPMENT application has been registered, you will receive a clientId, clientSecret, and a deep link to a test App Center listing. The clientId is a unique UUID4 identifier for your application and the clientSecret is your application’s password. You will be using this credential to obtain tokens for either the application itself or on behalf of a user. For more information on this process, please refer to our [Getting Started guide for authentication](/api-reference/authentication/getting-started.html).
 
-You can do this by contacting your Partner Enablement Manager or Partner Account Manager. We are currently developing a new, streamlined self-service process that will be available in the first half of 2017.
+Also see this content to learn what to expect of the certification process and how you must support your app:
 
-##  Managing Partner Applications
-
-You can do this by contacting your Partner Enablement Manager or Partner Account Manager. We are currently developing a new, streamlined self-service process that will be available in the first half of 2017.
-
-
-##  Enabling and Disabling Partner Applications
-
-You can do this by contacting your Partner Enablement Manager or Partner Account Manager. We are currently developing a new, streamlined self-service process that will be available in the first half of 2017.
-
-#####  To enable or disable an application
-
-You can do this by contacting your Partner Enablement Manager or Partner Account Manager. We are currently developing a new, streamlined self-service process that will be available in the first half of 2017.
+User Apps: <https://prezi.com/p/ur2i1m8thynz/>
+Enterprise Apps: <https://prezi.com/p/lw0qqy51zcmd/>
 
 
 
