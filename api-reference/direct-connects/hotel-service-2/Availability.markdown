@@ -42,7 +42,7 @@ Message to retrieved the availability of hotels
 
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
-| Criterion | Y        | Complex   | Refer to Criterion in Search.  Note that for Availability the Criterion will only have the HotelRef element. Other elements will not be sent. HotelSearchCriteria can contain multiple Criterion elements.  Each will have a unique HotelCode per Availability request. **we will not be sending this.  Spec to be changed** |
+| Criterion | Y        | Complex   | Refer to Criterion in Search.  Note that for Availability the Criterion will only have the HotelRef element. Other elements will not be sent. HotelSearchCriteria can contain multiple Criterion elements.  Each will have a unique HotelCode per Availability request. **to be removed** |
 
 
 **RoomStayCandidates**
@@ -57,7 +57,7 @@ Message to retrieved the availability of hotels
 | Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
 | *Quantity*  | Y        | Int	     | something **to be removed** |
-| GuestCounts | Y        | Complex   | A collection of Guest Counts associated with Room Stay. **A child Guest Count element is required for each distinct age group. - the note about a child is unnessesary**|
+| GuestCounts | Y        | Complex   | A collection of Guest Counts associated with Room Stay. **to be removed**|
 
 
 **GuestCounts**
@@ -72,7 +72,7 @@ Message to retrieved the availability of hotels
 | Element             | Required | Data Type | Description |
 |---------------------|----------|-----------|-------------|
 | *Count*             | Y        | Int	     | Concur only supports one Guest. |
-| *AgeQualifyingCode* | Y        | Int       | AgeQualifyingCode="10" **we don't need this, do we?**|
+| *AgeQualifyingCode* | Y        | Int       | AgeQualifyingCode="10" **to be removed**|
 
 
 ---
@@ -142,8 +142,8 @@ For a description of the relationship between the RoomID and RatePlanID refer to
 | Element              | Required | Data Type         | Description |
 |----------------------|----------|-------------------|-------------|
 | *RatePlanID*         | Y        | StringLength1to64 | A text field used to indicate a special  ID code that is associated with the rate and is essential in the reservation request in order to obtain the rate. Examples are Corporate ID. |
-| *AvailabilityStatus* | Y        | StringLength1to32 | If hotel is sold out, the Hotel supplier must return an Availability status of ClosedOut. **Even if it's sold out what other fields do we need? if any?** |
-| *PrepaidIndicator*   | Y        | Boolean           | When true, indicates if the rate is a pre-paid rate. **false otherwise or ignored?**|
+| *AvailabilityStatus* | Y        | StringLength1to32 | If hotel is sold out, the Hotel supplier must return an Availability status of ClosedOut. **Statuses to be decided** |
+| *PrepaidIndicator*   | Y        | Boolean           | When true, indicates if the rate is a pre-paid rate. **to be decided**|
 | Guarantee            | Y        | Complex           | Guarantee information that applies to the rate plan. Concur only expects 1 Guarantee element per RatePlan |
 | CancelPenalties      | Y        | Complex           | Collection of cancellation penalties. If the Cancel Penalties are not provided Concur will display "Cancellation policy not provided by vendor" |
 | MealsIncluded        | Y        | Complex           | Defines which meals are included with this rate program. Concur expects this to be set. |
@@ -153,8 +153,8 @@ For a description of the relationship between the RoomID and RatePlanID refer to
 
 | Element         | Required | Data Type | Description |
 |-----------------|----------|-----------|-------------|
-| *NonRefundable* | Y        | Boolean   | Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **Do we need this? is it required?**|
-| *HoldTime*      | N        | Time      | The room will held up until this time without a guarantee. **Do we need this? is it required?** **to be removed**|
+| *NonRefundable* | Y        | Boolean   | Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **to be decided**|
+| *HoldTime*      | N        | Time      | The room will held up until this time without a guarantee. **to be decided**|
 | *GuaranteeType* | Y        | String    | The guarantee information to hold a reservation. |
 | Deadline        | Y        | Complex   | Guarantee deadline, absolute or relative. |
 

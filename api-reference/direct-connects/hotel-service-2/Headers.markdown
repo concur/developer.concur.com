@@ -10,24 +10,24 @@ Concur will send the user-name and password in both the HTTP header and the SOAP
 
 Concur will send the following HTTP headers in every request.  The contents of the Authentication header will be repeated in the SOAP pay-load. Please note that some libraries used to handle the requests may be case sensitive.
 
-| Header name | Data Type | Description |
-|----------|-----------|---------------|
-| Authorization | String | A Base64 encoded string in the form of 'Basic <username:password>' |
-| Soapaction | String | The message type e.g search.  The action will always be sent in lower-case |
-| Content-Type | String | All communication with the HS2 API is by way of a "application/xml" content type |
-| Accept | string | Concur will always set the Accept header to "application/xml". |
-| Accept-Charset | String | Concur will always set the Accept-Charset header to "utf-8". |
+| Header name    | Data Type | Description |
+|----------------|-----------|-------------|
+| Authorization  | String    | A Base64 encoded string in the form of 'Basic <username:password>' |
+| Soapaction     | String    | The message type e.g search.  The action will always be sent in lower-case |
+| Content-Type   | String    | All communication with the HS2 API is by way of a "application/xml" content type |
+| Accept         | String    | Concur will always set the Accept header to "application/xml". |
+| Accept-Charset | String    | Concur will always set the Accept-Charset header to "utf-8". |
 
 Supported Soapactions:
 
-| Soapaction | Functionality |
-|----------|-----------|
-| search | Used to perform Search  |
+| Soapaction   | Functionality |
+|--------------|---------------|
+| search       | Used to perform Search  |
 | availability | Used to perform Availability |
-| detail | Used to perform Hotel Description | 
-| book | Used to perform Reservation | 
-| read | Used to perform Read Itinerary | 
-| cancel | Used to perform Cancel | 
+| detail       | Used to perform Hotel Description | 
+| book         | Used to perform Reservation | 
+| read         | Used to perform Read Itinerary | 
+| cancel       | Used to perform Cancel | 
 
 Example HTTP Header from network capture:
 
