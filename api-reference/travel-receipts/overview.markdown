@@ -12,7 +12,7 @@ The Travel Receipts service currently offers one endpoint for retrieving receipt
 
 ## <a name="endpoint"></a>Endpoint
 						
-	GET  /api/v1/receiptrequests
+	GET  /travelreceipts/v1/receiptrequests
 
 ### Parameters
 
@@ -25,7 +25,7 @@ Name | Type | Format | Description
 _cURL:_
 
 ```shell
-curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/api/v1/receiptrequests
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/travelreceipts/v1/receiptrequests
 ```
 						
 ## <a name="schema"></a>Schema							
@@ -45,10 +45,10 @@ Name | Type | Format | Description
 `ConfirmationNumber`	|	`string`	|	-	|	Confirmation number for the receipt request
 `FirstName`	|	`string`	|	-	|	First name of the guest for the receipt request
 `LastName`	|	`string`	|	-	|	Last name of the guest for the receipt request
-`RequestDate`	|	`date-time`	|	-	|	Date of the receipt request 
+`RequestDate`	|	`date-time`	|	-	|	Date of the receipt request (ISO8601 format)
 `RequestID`	|	`uuid`	|	-	|	ID for the receipt request
-`SegmentEndDate`	|	`date-time`	|	-	|	End date for the receipt request segment
-`SegmentStartDate`	|	`date-time`	|	-	|	Start date for the receipt request segment
+`SegmentEndDate`	|	`date-time`	|	-	|	End date for the receipt request segment (ISO8601 format)
+`SegmentStartDate`	|	`date-time`	|	-	|	Start date for the receipt request segment (ISO8601 format)
 
 
 
