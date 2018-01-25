@@ -13,7 +13,7 @@ If the user supplies a timestamp as a parameter, it is used as the start time fo
 1.0  
 
 ## <a name="auth"></a>Authentication
-Users must obtain an [access token from the Authentication API](https://developer.concur.com/api-reference/authentication/getting-started.html).
+Users must obtain an [access token from the Authentication API](/api-reference/authentication/getting-started.html).
 
 The user's `access_token` from the Authentication API response should then be used in the `Authorization` header of the Travel Receipts API calls.
 
