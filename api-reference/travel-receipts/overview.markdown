@@ -31,7 +31,7 @@ curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutio
 
 ## <a name="pagination"></a>Pagination
 
-The results of the API call are limited to a maximum of 25 receipt requests per page. The user can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. The user reached the last page of results when `next` is null/empty.
+The results of the API call are limited to a maximum of 25 receipt requests per page. The partner can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. The partner reached the last page of results when `next` is null/empty.
 
 ## <a name="schema"></a>Schema							
 
@@ -50,10 +50,10 @@ Name | Type | Format | Description
 `ConfirmationNumber`	|	`string`	|	-	|	Confirmation number for the receipt request
 `FirstName`	|	`string`	|	-	|	First name of the guest for the receipt request
 `LastName`	|	`string`	|	-	|	Last name of the guest for the receipt request
-`RequestDate`	|	`date-time`	|	-	|	Date of the receipt request (ISO8601 format)
+`RequestDate`	|	`date-time`	|	ISO 8601	|	Date of the receipt request
 `RequestID`	|	`uuid`	|	-	|	ID for the receipt request
-`SegmentEndDate`	|	`date-time`	|	-	|	End date for the receipt request segment (ISO8601 format)
-`SegmentStartDate`	|	`date-time`	|	-	|	Start date for the receipt request segment (ISO8601 format)
+`SegmentEndDate`	|	`date-time`	|	ISO 8601	|	End date for the receipt request segment
+`SegmentStartDate`	|	`date-time`	|	ISO 8601	|	Start date for the receipt request segment
 
 
 
