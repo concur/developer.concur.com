@@ -50,10 +50,10 @@ Name | Type | Format | Description
 `ConfirmationNumber`	|	`string`	|	-	|	Confirmation number for the receipt request
 `FirstName`	|	`string`	|	-	|	First name of the guest for the receipt request
 `LastName`	|	`string`	|	-	|	Last name of the guest for the receipt request
-`RequestDate`	|	`date-time`	|	-	|	Date of the receipt request (ISO8601 format)
+`RequestDate`	|	`date-time`	|	ISO 8601	|	Date of the receipt request
 `RequestID`	|	`uuid`	|	-	|	ID for the receipt request
-`SegmentEndDate`	|	`date-time`	|	-	|	End date for the receipt request segment (ISO8601 format)
-`SegmentStartDate`	|	`date-time`	|	-	|	Start date for the receipt request segment (ISO8601 format)
+`SegmentEndDate`	|	`date-time`	|	ISO 8601	|	End date for the receipt request segment
+`SegmentStartDate`	|	`date-time`	|	ISO 8601	|	Start date for the receipt request segment
 
 
 
