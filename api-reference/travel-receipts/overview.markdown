@@ -5,7 +5,7 @@ layout: reference
 
 # Technical Overview
 
-The Travel Receipts service currently offers one endpoint for retrieving receipt requests. See below for information on the optional parameters and response schema.
+The Travel Receipts service currently offers one endpoint for retrieving receipt requests. See below for information on the optional parameters, results pagination, and response schema.
 
 * [Endpoint](#endpoint)
 * [Pagination](#pagination)
@@ -13,14 +13,14 @@ The Travel Receipts service currently offers one endpoint for retrieving receipt
 
 ## <a name="endpoint"></a>Endpoint
 						
-	GET  /travelreceipts/v1/receiptrequests
+	GET  /travelreceipts/v1/receiptrequests/{ts}/{key}
 
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`ts`	|	`integer`	|	`int64`	|	The timestamp to specify a start time (if blank, defaults to last 24 hours)
-`key`	|	`string`	|	`uuid`	|	The current item key, populated from the previous response (from the 'Next' field in the response)
+`ts`	|	`integer`	|	`int64`	|	Optional parameter for the timestamp to specify a start time (if blank, defaults to last 24 hours)
+`key`	|	`string`	|	`uuid`	|	Optional parameter for the current item key, populated from the previous response (from the `next` field in the response)
 
 ### Example
 _cURL:_
@@ -31,7 +31,7 @@ curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutio
 
 ## <a name="pagination"></a>Pagination
 
-The results of the API call are limited to 25 receipt requests per page. The user can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. When `next` is null/empty then the user reached the last page of results.
+The results of the API call are limited to a maximum of 25 receipt requests per page. The user can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. The user reached the last page of results when `next` is null/empty.
 
 ## <a name="schema"></a>Schema							
 
@@ -39,11 +39,11 @@ The results of the API call are limited to 25 receipt requests per page. The use
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`Items`	|	`Array`	|	[Receipt Request](#receiptrequest)	|	An array of receipt request items
+`Items`	|	`Array`	|	[Receipt Request](#receiptrequest)	|	An array of Receipt Request items
 `Next`	|	`string`	|	-	|	Key for the next page of results
 
 
-### <a name="receiptreuqewst"></a>Receipt Request
+### <a name="receiptrequest"></a>Receipt Request
 		
 Name | Type | Format | Description
 -----|------|--------|------------
