@@ -31,7 +31,7 @@ curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutio
 
 ## <a name="pagination"></a>Pagination
 
-The results of the API call are limited to a maximum of 25 receipt requests per page. The user can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. The user reached the last page of results when `next` is null/empty.
+The results of the API call are limited to a maximum of 25 receipt requests per page. The partner can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. The partner reached the last page of results when `next` is null/empty.
 
 ## <a name="schema"></a>Schema							
 
