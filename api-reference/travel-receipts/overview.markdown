@@ -8,6 +8,7 @@ layout: reference
 The Travel Receipts service currently offers one endpoint for retrieving receipt requests. See below for information on the optional parameters and response schema.
 
 * [Endpoint](#endpoint)
+* [Pagination](#pagination)
 * [Schema](#schema)
 
 ## <a name="endpoint"></a>Endpoint
@@ -27,7 +28,11 @@ _cURL:_
 ```shell
 curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/travelreceipts/v1/receiptrequests
 ```
-						
+
+## <a name="pagination"></a>Pagination
+
+The results of the API call are limited to 25 receipt requests per page. The user can navigate to the next page of results through the `next` field in the response. Each page keeps the same timestamp but will have a different key. When `next` is null/empty then the user reached the last page of results.
+
 ## <a name="schema"></a>Schema							
 
 ### Response
