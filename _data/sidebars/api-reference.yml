@@ -223,6 +223,15 @@
         url: /api-reference/travel-profile/04-notification-company-resource.html
       - title: User Notification
         url: /api-reference/travel-profile/05-notification-user-resource.html
+- title: Travel Receipts
+  url: ''
+  children:
+      - title: Getting Started
+        url: /api-reference/travel-receipts/getting-started.html
+      - title: Technical Overview
+        url: /api-reference/travel-receipts/overview.html
+      - title: Example Response
+        url: /api-reference/travel-receipts/sample.html
 - title: Travel
   url: ''
   children:
