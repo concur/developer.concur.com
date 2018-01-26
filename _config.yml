@@ -7,26 +7,12 @@ canonical_site: https://developer.concur.com
 twitter_username: concurapi
 github_username:  concur
 repository_url: "https://github.com/concur/developer.concur.com/blob/preview/src/"
-exclude:
-  - build
-  - shippable.yml
-  - awscli-bundle.zip
-  - awscli-bundle
-  - README.md
-  - LICENSE
-  - Gemfile
-  - Gemfile.lock
-  - Vagrantfile
-  - node_modules
-  - app-management
 
 # Build settings
 kramdown:
   input: GFM
-
 sass:
   style: compressed
-
 source: src
 
 # sitemap plugin configuration
