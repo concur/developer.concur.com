@@ -54,7 +54,7 @@ Message to reserve a hotel.
 | Element            | Required | Data Type         | Description |
 |--------------------|----------|-------------------|-------------|
 | *GuaranteeType*    | Y        | StringLength1to32 | Refer to GuaranteeType in Availability |
-| GuaranteesAccepted | Y        | Complex           | something |
+| GuaranteesAccepted | Y        | Complex           | **to be decided** |
 
 
 **GuaranteesAccepted**
@@ -193,7 +193,7 @@ Message to reserve a hotel.
 
 | Element    | Required | Data Type | Description |
 |------------|----------|-----------|-------------|
-| Comment | N        | Complex   | A recurring element that carries reservation comment. Up to 9 Comment elements. |
+| Comment    | N        | Complex   | A recurring element that carries reservation comment. Up to 9 Comment elements. |
 
 **Comment**
 
@@ -272,4 +272,4 @@ Message to reserve a hotel.
 
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
-| RatePlans | Y        | Complex   | something |
+| RatePlans | Y        | Complex   | **to be decided**  |
