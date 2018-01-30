@@ -15,6 +15,7 @@ urls_to_ignore = [
   /^https:\/\/jekyllrb.com/,
   /^https:\/\/concur.webex.com/,
   /^https:\/\/tools.ietf.org/,
+  /^http:\/\/digitalbush.com\/projects\/masked-input-plugin/,
   'https://speakerdeck.com/statik/complianceops-containers-in-regulated-environments',
   'https://github.com/concur/developer.concur.com/commit/0',
   'https://www.linkedin.com/company/5822',

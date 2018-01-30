@@ -76,7 +76,7 @@ Content-Length: {length of content body}
         <Custom6 />
         <Custom7 />
         <Custom8>North America</Custom8>
-        <Custom9> />
+        <Custom9 />
         <Custom10 />
         <Custom11 />
         <Custom12 />

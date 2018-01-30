@@ -124,6 +124,13 @@ The radius element is used along with the Hotel Preference to categorize the sea
 | CountryName | N        | Complex   | Country name (e.g., Ireland) |
 
 
+**StateProv**
+
+| Element   | Required | Data Type        | Description |
+|-----------|----------|------------------|-------------|
+| StateCode | N        | StringLength1to8 | The standard code or abbreviation for the state, province, or region (note the code may not be available for all states). |
+
+
 **CountryName**
 
 | Element | Required | Data Type         | Description |
@@ -135,7 +142,7 @@ The radius element is used along with the Hotel Preference to categorize the sea
 
 | Element       | Required | Data Type | Description |
 |---------------|----------|-----------|-------------|
-| ContactNumber | N        | Complex   | Element which contains the ContactNumber. Concur only excepts 1 ContactNumber element. |
+| ContactNumber | N        | Complex   | Element which contains the ContactNumber. Concur only accepts one (first) ContactNumber of each supported type. |
 
 
 **ContactNumber**
@@ -144,7 +151,7 @@ The radius element is used along with the Hotel Preference to categorize the sea
 |-------------------|----------|-------------------|-------------|
 | CountryAccessCode | N        | StringLength1to32 | The Country code. |
 | PhoneNumber       | Y        | StringLength1to32 | The phone number. |
-| PhoneTechType     | N        | String            | Concur currently only supports a PhoneTechType set to "1" **to be removed** |
+| PhoneTechType     | N        | String            | Concur currently only supports a PhoneTechType set to "1" (phone) or "3" (fax). You can omit this field only in case you are providing one contact number. Anyway, we suggest to fill the type in all cases, it may become mandatory in the future. |
 
 
 **Award**
@@ -165,8 +172,8 @@ The radius element is used along with the Hotel Preference to categorize the sea
 
 | Element        | Required | Data Type         | Description |
 |----------------|----------|-------------------|-------------|
-| *CheckInTime*  | Y        | StringLength1to32	| something |
-| *CheckOutTime* | Y        | StringLength1to32	| something |
+| *CheckInTime*  | Y        | StringLength1to32	| **to be decided** |
+| *CheckOutTime* | Y        | StringLength1to32	| **to be decided** |
 
 
 ### TPA Extensions

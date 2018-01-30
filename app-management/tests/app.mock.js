@@ -19,5 +19,8 @@ export default function appFactory(id) {
       'authorization_code',
     ],
     description: 'This is my app.',
+    'com:concur:internal:product:Identifiers:1.0': {
+      legacyId: 'testLegacyId'
+    },
   };
 }

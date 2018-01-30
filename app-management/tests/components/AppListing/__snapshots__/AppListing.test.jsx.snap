@@ -63,6 +63,9 @@ exports[`<AppListing /> renders apps 1`] = `
             "Business",
           ],
           "certified": false,
+          "com:concur:internal:product:Identifiers:1.0": Object {
+            "legacyId": "testLegacyId",
+          },
           "description": "This is my app.",
           "enabled": true,
           "id": "id-1",
@@ -90,6 +93,9 @@ exports[`<AppListing /> renders apps 1`] = `
             "Business",
           ],
           "certified": false,
+          "com:concur:internal:product:Identifiers:1.0": Object {
+            "legacyId": "testLegacyId",
+          },
           "description": "This is my app.",
           "enabled": true,
           "id": "id-2",

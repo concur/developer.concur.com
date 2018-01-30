@@ -19,7 +19,7 @@ Returns detailed information about a hotel reservation. Used in a process of boo
 
 | Element  | Required | Data Type | Description |
 |----------|----------|-----------|-------------|
-| UniqueID | Y        | Complex   | something |
+| UniqueID | Y        | Complex   | **to be decided** |
 
 
 **UniqueID**
