@@ -20,6 +20,7 @@ layout: reference
 ## <a name="get"></a>Retrieve an existing vendor 
 
     GET  /api/v3.0/invoice/vendors
+    Note: If authenticating with a Company JWT the API will return all vendors associated with a specific entity.
 
 ### Parameters  
 
