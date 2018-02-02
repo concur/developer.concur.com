@@ -53,6 +53,7 @@ To identify a specific user by login ID or XMLSyncID, you can specify the follow
 |ItemsPerPage|number|integer|The includeMetadata query parameter combined with the ItemsPerPage and Page query parameters will cause the response to be divided into pages. The response will be wrapped in a ConcurResponse parent element, with both the response details and the paging metadata included. If the ItemsPerPage query parameter is not sent, the response will default to 200 if the Page query parameter is sent, or 1000 if the Page query parameter is not set. If the Page query parameter is not sent, the response will default to page 1.|
 |includeVirtualTrip|flag|integer	|Virtual trips are segments booked offline through the Travel Request product. Set the includeVirtualTrip query parameter to 1 to include those trips in the list.|
 |includeCanceledTrips	|true/false|string|The includeCanceledTrips query parameter will cause the request to also return trips with a status of Canceled. When this query parameter is set to true, the response will include the TripStatus element.|
+|includeGuestBookings |true/false|string|The includeGuestBookings query parameter will casuse the request to show guest bookings if set to true.It is set to false by default.|
 
 Here are some examples of how to format GET requests using a combination of these query parameters:
 
