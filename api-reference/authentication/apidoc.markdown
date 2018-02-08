@@ -106,7 +106,7 @@ To request a new access token using a valid refresh token, use the Oauth2 /token
 POST /oauth2/v0/token
 ```
 
-**Parameters**
+**Post Body**
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
@@ -347,7 +347,7 @@ Because of certificate issues with browser requests through Authorization Grant,
 
 The Password grant can be used when there is a trust relationship between the user and the application. The application either already has the user's credentials or can obtain the user's credentials by directly interacting with the user.
 
-**Parameters**
+**Post Body**
 
 Name | Type | Format | Description
 -----|------| ------ | --------------
@@ -414,7 +414,7 @@ Use the `application/x-www-form-urlencoded` content type and character encoding 
 
 `POST /oauth2/v0/token`
 
-**Parameters**
+**Post Body**
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
@@ -475,7 +475,7 @@ Use the `application/x-www-form-urlencoded` content type and character encoding 
 
 `POST /oauth2/v0/otp`
 
-**Parameters**
+**Post Body**
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -542,7 +542,7 @@ The One-time Password grant requires that all of the parameters, including clien
 
 `POST oauth2/v0/token`
 
-**Parameters**
+**Post Body**
 
 Name | Type | Format | Description
 -----|------|--------|------------

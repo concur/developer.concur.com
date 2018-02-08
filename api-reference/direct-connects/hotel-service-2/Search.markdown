@@ -105,7 +105,7 @@ The radius element is used along with the Hotel Preference to categorize the sea
 | HotelName      | Y        | StringLength1to32 | A text field used to communicate the proper name of the hotel. |
 | Position       | Y        | Complex           | Refer to Position in the Request. |
 | Address        | Y        | Complex           | Public address of the hotel property. |
-| ContactNumbers | N        | Complex           | something Do we even care about this?  HRS does not seem to be returning this |
+| ContactNumbers | N        | Complex           | Contact numbers |
 | Award          | N        | Complex           | An element that identifies the hotel ratings. |
 | HotelAmenity   | N        | Complex           | List of Hotel Amenities. |
 | Policy         | N        | Complex           | **Not used to be removed** |
