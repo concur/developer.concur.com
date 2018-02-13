@@ -218,8 +218,7 @@ When your application is created, you will be provided with a client ID, secret 
 
 There are two endpoints for each geolocation - one is the default (used for server-side calls) and the other should be used for client-side calls.
 
-For example:
-For geolocation of https://us.api.concursolutions.com, the following endpoints are available:
+The full list of available token geolocations is below:
 
 Environment | URI | Description
 -----|------|------
@@ -227,6 +226,8 @@ US Production |`https://us.api.concursolutions.com/oauth2/v0` | Default for all 
 WWW-US Production | `https://www-us.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
 EU Production |`https://emea.api.concursolutions.com/oauth2/v0` | Default for all API calls
 WWW-EU Production | `https://www-emea.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
+China Production |`https://cn.api.concurcdc.cn/oauth2/v0`| Default for all API Calls
+WWW-CN Production |`https://www-cn.api.concurcdc.cn/oauth2/v0`|Used by browsers during Authorization Code grant
 US Implementation |`https://us-impl.api.concursolutions.com/oauth2/v0` | For customers who have Implementation servers in the US
 EU Implementation |`https://emea-impl.api.concursolutions.com/oauth2/v0` | For customers who have Implementation servers in the EU
 
