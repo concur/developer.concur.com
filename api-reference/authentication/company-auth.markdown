@@ -16,9 +16,13 @@ layout: reference
 
 Company is a top-level principal within Concur and you would be able to obtain an access token and a refresh token on a Company's behalf just like you would be able to with a User. Only one authorization flow is currently available for obtaining tokens for a Company, which is the [Password grant](/api-reference/authentication/apidoc.html#password_grant).
 
-## <a name="obtain_token"></a>Obtaining a one-time auth token
+## <a name="obtain_token"></a>Obtaining an auth token
 
-To begin the authentication flow for a company, one must first obtain a temporary auth token through AppCenter's interface. AppCenter will request for a temporary auth token and hand it off to the partner, who will then in turn use [Password grant](/api-reference/authentication/apidoc.html#password_grant) to exchange the temporary auth token for a full access token and refresh token for the company. This auth flow diagram describes this handshake:
+To begin the authentication flow for a company, one must first obtain a temporary auth token through AppCenter's interface. AppCenter will request for a temporary auth token and hand it off to the partner, who will then in turn use [Password grant](/api-reference/authentication/apidoc.html#password_grant) to exchange the temporary auth token for a full access token and refresh token for the company. 
+
+Auth tokens have a One Day expiry, multi-use policy. Partners have 24 hours to exchange the auth token for a refresh and access token. Partners can also use this auth token multiple times within the 24 hours in case of network failure.
+
+This auth flow diagram describes this handshake:
 
 **Company Authentication Flow Sequence Diagram**
 ![wsd](company_auth_diagram.png)
