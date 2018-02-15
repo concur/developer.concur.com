@@ -8,9 +8,9 @@ layout: reference
 
 | 2018 | 2017 | 2016 | 2015 | 2014 |
 | ----- | ----- | ----- | ----- | ----- |
-| -- | -- | -- | -- |
-| -- | [February](#feb2016) | [February][2-4] | -- |
-| [March](/changelog/2017/03/20/Digital-Tax-Invoice-API-Account-Id.html) | [March Release](/blog/2016/03/15/march-release-notes.html) - [Quick Expense](/blog/2016/03/18/quick-expense-api-payment-type.html) | -- | -- |
+| -- | -- | -- | -- | -- |
+| -- | -- | [February](#feb2016) | [February][2-4] | -- |
+| -- | [March](/changelog/2017/03/20/Digital-Tax-Invoice-API-Account-Id.html) | [March Release](/blog/2016/03/15/march-release-notes.html) - [Quick Expense](/blog/2016/03/18/quick-expense-api-payment-type.html) | -- | -- |
 | -- | [April](#april2016) | [April][2-5] | -- |
 | -- | -- | [May][2-6] | [May][2-1] |
 | -- | -- | -- | [June][2-2] |
