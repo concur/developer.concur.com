@@ -172,9 +172,6 @@ You will need to be aware of the geolocation where the user exists in and make t
 
   ![error2](/assets/img/api-guides/e-receipts/error2.jpg)
 
-#### Make us better at making your experience easier.
-Share a Concur API process issue we can do better. Provide us with an explanation, screen shots and your recommendation [here](http://forum.developer.concur.com/).
-
 
 
 
