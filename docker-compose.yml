@@ -1,0 +1,29 @@
+version: '2'
+services:
+    concur_devcenter:
+        container_name: concur_devcenter
+        build: .
+        image: concur-devcenter:latest
+        ports:
+            - "4000:4000"
+        volumes:
+            - .:/opt/Concur/DevCenter
+        depends_on:
+            - concur_app_mgmt
+    concur_app_mgmt:
+        container_name: concur_app_mgmt
+        image: node:6.11.3-alpine
+        volumes:
+            - ./app-management:/opt/Concur/DevCenter
+        working_dir: /opt/Concur/DevCenter
+        environment:
+            - DEVCENTER_API_FORMS=${DEVCENTER_API_FORMS}
+        command: npm start
+    concur_app_mgmt_install:
+        container_name: concur_app_mgmt_install
+        image: concur_app_mgmt_install
+        build: ./app-management
+        volumes:
+            - ./app-management:/opt/Concur/DevCenter
+        working_dir: /opt/Concur/DevCenter
+        command: npm install

@@ -2,9 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: ['./app-management/entry.jsx'],
+  entry: ['./entry.jsx'],
   output: {
-    path: path.resolve(__dirname, './assets/js'),
+    path: path.resolve(__dirname, '../src/assets/js'),
     filename: 'bundle.js'
   },
   resolve: {

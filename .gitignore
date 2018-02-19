@@ -11,7 +11,7 @@ node_modules/
 api-reference/import-swagger.sh
 build/swagger-converter/converted/
 .jekyll-metadata
-assets/js/bundle.js
+src/assets/js/bundle.js
 coverage
 .env
 tmp

@@ -4,8 +4,8 @@
   "description": "developer.concur.com ====================",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack && bundle install && bundle exec jekyll serve --incremental & webpack -w & wait",
-    "build": "NODE_ENV=production webpack -p && bundle install && bundle exec jekyll build",
+    "start": "webpack -w",
+    "build": "NODE_ENV=production webpack -p",
     "build:webpack": "NODE_ENV=production webpack -p",
     "test": "jest",
     "test:watch": "jest --watch",
