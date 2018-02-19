@@ -2,12 +2,12 @@
 
 if [ ${CIRCLE_BRANCH} = "preview" ]
 then 
-  echo "server: https://forms.preview.developer.concur.com" > _data/forms.yml
+  echo "server: https://forms.preview.developer.concur.com" > src/_data/forms.yml
 elif [ ${CIRCLE_BRANCH} = "livesite" ]
 then 
-  echo "server: https://forms.developer.concur.com" > _data/forms.yml
+  echo "server: https://forms.developer.concur.com" > src/_data/forms.yml
 else
   echo "Branch ${CIRCLE_BRANCH} does not have a known forms server"
 fi
 
-cat _data/forms.yml
+cat src/_data/forms.yml
