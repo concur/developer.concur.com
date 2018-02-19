@@ -106,7 +106,7 @@ To request a new access token using a valid refresh token, use the Oauth2 /token
 POST /oauth2/v0/token
 ```
 
-**Parameters**
+**Post Body**
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
@@ -218,13 +218,19 @@ When your application is created, you will be provided with a client ID, secret 
 
 There are two endpoints for each geolocation - one is the default (used for server-side calls) and the other should be used for client-side calls.
 
-For example:
-For geolocation of https://us.api.concursolutions.com, the following endpoints are available:
+The full list of available token geolocations is below:
 
 Environment | URI | Description
 -----|------|------
 US Production |`https://us.api.concursolutions.com/oauth2/v0` | Default for all API calls
 WWW-US Production | `https://www-us.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
+EU Production |`https://emea.api.concursolutions.com/oauth2/v0` | Default for all API calls
+WWW-EU Production | `https://www-emea.api.concursolutions.com/oauth2/v0` | Used by browsers during Authorization Code grant
+China Production |`https://cn.api.concurcdc.cn/oauth2/v0`| Default for all API Calls
+WWW-CN Production |`https://www-cn.api.concurcdc.cn/oauth2/v0`|Used by browsers during Authorization Code grant
+US Implementation |`https://us-impl.api.concursolutions.com/oauth2/v0` | For customers who have Implementation servers in the US
+EU Implementation |`https://emea-impl.api.concursolutions.com/oauth2/v0` | For customers who have Implementation servers in the EU
+
 
 > **When obtaining the token, the token's geolocation will be included in the response. The token's geolocation should be stored along with the token. The Developer's app will then be able to make subsequent calls using the token and the correct end points based on the token's GEO location.**
 
@@ -342,7 +348,7 @@ Because of certificate issues with browser requests through Authorization Grant,
 
 The Password grant can be used when there is a trust relationship between the user and the application. The application either already has the user's credentials or can obtain the user's credentials by directly interacting with the user.
 
-**Parameters**
+**Post Body**
 
 Name | Type | Format | Description
 -----|------| ------ | --------------
@@ -409,7 +415,7 @@ Use the `application/x-www-form-urlencoded` content type and character encoding 
 
 `POST /oauth2/v0/token`
 
-**Parameters**
+**Post Body**
 
 Name | Type | Format | Description
 -----|------| ------ | -----------
@@ -470,7 +476,7 @@ Use the `application/x-www-form-urlencoded` content type and character encoding 
 
 `POST /oauth2/v0/otp`
 
-**Parameters**
+**Post Body**
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -537,7 +543,7 @@ The One-time Password grant requires that all of the parameters, including clien
 
 `POST oauth2/v0/token`
 
-**Parameters**
+**Post Body**
 
 Name | Type | Format | Description
 -----|------|--------|------------
