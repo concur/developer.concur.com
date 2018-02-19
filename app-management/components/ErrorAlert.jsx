@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const ErrorAlert = ({ error }) => (
   error ? <div className="alert alert-danger">{error}</div> : null
