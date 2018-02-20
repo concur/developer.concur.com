@@ -31,7 +31,7 @@
           "Resources"
         ],
         "summary": "Retrieves an existing vendor.",
-        "description": "Gets an existing vendor.",
+        "description": "Gets an existing vendor. Note: If authenticating with a Company JWT the API will return all vendors associated with a specific entity.",
         "parameters": [
           {
             "name": "limit",
