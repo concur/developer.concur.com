@@ -105,6 +105,13 @@
             "type": "string"
           },
           {
+            "name": "paymentMethodType",
+            "in": "query",
+            "description": "Payment Method Type to be searched. Valid values are ACH, CARD, CHECK, CLIENT, PAYPVD, VCHER, WIRE",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "address1",
             "in": "query",
             "description": "Address 1 to be searched",
