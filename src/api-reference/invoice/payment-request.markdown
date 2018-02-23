@@ -119,7 +119,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `Allocations`	|	`Array[Allocation]`	|	-	|	The details of the Payment Request Allocation Core Identity Fields.
 `AmountWithoutVat`	|	`string`	|	-	|	The net amount of the line item (excluding VAT).
-`Custom01` through `Custom20`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
+`Custom1` through `Custom20`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
 `Description`	|	`string`	|	-	|	Brief overview of the good or service ordered.
 `ExpenseTypeCode`	|	`string`	|	-	|	A code which indicates the Expense Type for the Line Item.
 `ItemCode`	|	`string`	|	-	|	Represents the item code (the unique code a vendor assigns to a good or code a vendor assigns to a good or service to identify it).
@@ -139,9 +139,9 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`Custom01` through `Custom07`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
-`Custom08`	|	`string`	|	-	|	A value that can be applied to a custom field 8 that is part of the allocation form.
-`Custom09`	|	`string`	|	-	|	A value that can be applied to a custom field 9 that is part of the allocation form.
+`Custom1` through `Custom7`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
+`Custom8`	|	`string`	|	-	|	A value that can be applied to a custom field 8 that is part of the allocation form.
+`Custom9`	|	`string`	|	-	|	A value that can be applied to a custom field 9 that is part of the allocation form.
 `Custom10`	|	`string`	|	-	|	A value that can be applied to a custom field 10 that is part of the allocation form.
 `Custom11` through `Custom20`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
 `Percentage`	|	`string`	|	-	|	**Required** The percentage of the Request Line Item that the individual allocation record. All Allocations associated to a given Line Item should add up to 100.
