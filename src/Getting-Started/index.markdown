@@ -86,7 +86,7 @@ For more detailed information go to [Set Up Developer Sandbox](/manage-apps/regi
 
 <a name="token">**Generate an access token**</a>
 -----
-The below covers generating an access token for the first time. If you are developing an application to be certified for the App Center or as a TripLink supplier, please refer to the ]certifications documentation](https://developer.concur.com/manage-apps/app-certification.html) for the grant types your application must support.
+This section provides a quick start guide for generating an access token. If you are developing an application to be certified for the App Center or as a TripLink supplier, please refer to the [certifications documentation](https://developer.concur.com/manage-apps/app-certification.html) for the grant types your application must support.
 
 1.  **Get your Consumer Key**  
 
