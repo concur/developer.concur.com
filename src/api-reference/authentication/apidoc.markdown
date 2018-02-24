@@ -346,7 +346,9 @@ Because of certificate issues with browser requests through Authorization Grant,
 ## <a name="password_grant"></a>Password grant
 
 
-The Password grant can be used when there is a trust relationship between the user and the application. The application either already has the user's credentials or can obtain the user's credentials by directly interacting with the user.
+The Password grant can be used when there is a trust relationship between the user and the application. There are two credential types allowed with Password Grant:
+1) "Password": with this credential type, the application either already has the user's credentials or can obtain the user's credentials by directly interacting with the user.
+2) "AuthToken": This credential type is used for connections from the App Center. For App Center partners and TripLink suppliers, please refer to the [certification documentation](https://developer.concur.com/manage-apps/app-certification.html) for more information.
 
 **Post Body**
 
@@ -357,7 +359,7 @@ Name | Type | Format | Description
   `grant_type`|`string` | | Specify which grant type you expect the oauth2 service to process. for password grant, the value is `password`
   `username`|`string` | | specify the username or userId
   `password`|`string` | | specify the user's password
-  `credtype`|`string` | | The credtype signifies to oauth2 which credential set is being submitted in the request. There are two supported values: `authtoken` and `password`. if omitted, oauth2 will assume the type is `password`.
+  `credtype`|`string` | | The credtype signifies to oauth2 which credential set is being submitted in the request. There are two supported values: `authtoken` and `password`. For connections from the App Center, use `authtoken`. if omitted, oauth2 will assume the type is `password`.
 
 **Request**
 
