@@ -17,7 +17,7 @@ Before you can obtain an `accessToken`, you need to register an application with
 In order for an application to call a Concur API, you need to obtain an `accessToken` on behalf of either a User, Company or Application. There are multiple ways of obtaining an `accessToken` through the various grants ([Password](/api-reference/authentication/apidoc.html#password_grant), [Authorization](/api-reference/authentication/apidoc.html#auth_grant), [Client Credentials](/api-reference/authentication/apidoc.html#client_credentials), [One-time Password](/api-reference/authentication/apidoc.html#otp_grant)) . 
 
 
-This section provides a quick start guide for generating an access token. If you are developing an application to be certified for the App Center or as a TripLink supplier, please refer to the [certification documentation](https://developer.concur.com/manage-apps/app-certification.html) for the grant types your application must support.
+This section provides a quick start guide for generating an access token. If you are developing an application to be certified for the App Center or as a TripLink supplier, please refer to the [certification documentation](/manage-apps/app-certification.html) for the grant types your application must support.
 
 For simplicity, we will use the Password grant flow as an example.  The Password grant flow is used when you need to authenticate a user, using its `username` and `password`. This is typically reserved from Concur applications (i.e. where the user's credentials will be captured and stored) but is used here for demonstration purposes.
 
