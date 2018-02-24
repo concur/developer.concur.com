@@ -348,7 +348,7 @@ Because of certificate issues with browser requests through Authorization Grant,
 
 The Password grant can be used when there is a trust relationship between the user and the application. There are two credential types allowed with Password Grant:
 1) "Password": with this credential type, the application either already has the user's credentials or can obtain the user's credentials by directly interacting with the user.
-2) "AuthToken": This credential type is used for connections from the App Center. For App Center partners and TripLink suppliers, please refer to the [certification documentation](https://developer.concur.com/manage-apps/app-certification.html) for more information.
+2) "AuthToken": This credential type is used for connections from the App Center. For App Center partners and TripLink suppliers, please refer to the [certification documentation](/manage-apps/app-certification.html) for more information.
 
 **Post Body**
 
