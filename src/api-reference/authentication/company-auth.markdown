@@ -52,8 +52,9 @@ successful call, responds with
 **AppCenter redirects User to Client's auth handler URI (Connect URL) and passing in the authToken**
 
 ```http
-301 Redirect https://client.app.url?id=3DA8D9PF04-B6D9-427D-44B4-909E37ABD9D6&requestToken=3979344784714c10a35d6f1fddd869f0
+301 Redirect https://client.app.url?id=$company_uuid&requestToken=$request_token&userID=$user_uuid
 ```
+At this point, the user should be prompted to sign in to your application. If the user doesn't not have account, the user should have the ability to create one. For applications that have user read scope, the User UUID can be used to pre-populate the account creation forms. Please see the [App Center User Experience guidelines](/manage-apps/go-market-docs/app_center_ux_guidelines.pdf) for more information. 
 
 **Client app calls Oauth2 password grant to get an access token for the company**
 
