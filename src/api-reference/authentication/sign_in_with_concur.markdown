@@ -66,7 +66,9 @@ _Back office applications_
 
 _Select_ **Sign in with Concur** _from the site login menu_
 
- ![](/sign_in_with_concur_images/login_screen_sample.png)
+
+ ![login screen sample](sign_in_with_concur_images/login_screen_sample.png)
+ 
 
 _Pick Authentication Option_
 
@@ -74,23 +76,30 @@ Single-sign on users can utilize the "Send a link to my email" option.
 
 
  ![sign in](sign_in_with_concur_images/authorization_grant_sign_in.png)
+ 
 
 _If the user selects "One-time Link":_
 
 _Enter Email address_
 
+
  ![sign in email option](sign_in_with_concur_images/authorization_grant_sign_in_email.png)
+ 
 
 _Confirmation page_
 
+
  ![email confirmation](sign_in_with_concur_images/authorization_grant_email_confirmation.png)
+ 
 
 _Email example_
+
 
 ![email sample](sign_in_with_concur_images/authorization_grant_email_sample.png)
 
 
 _If the user selects "Enter Concur Credentials":_
+
 
  ![sign in username and password option](sign_in_with_concur_images/authorization_grant_username_password.png)
 
@@ -99,6 +108,7 @@ _If the user selects "Enter Concur Credentials":_
 _Complete!_
 
 _For both authentication flows, once authorized, the account is provisioned and user is logged in_
+
 
  ![sign in complete](sign_in_with_concur_images/sign_in_with_concur_complete.png)
 
