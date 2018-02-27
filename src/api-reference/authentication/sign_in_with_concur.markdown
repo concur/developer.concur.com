@@ -73,26 +73,26 @@ _Pick Authentication Option_
 Single-sign on users can utilize the "Send a link to my email" option.
 
 
- ![](/sign_in_with_concur_images/authorization_grant_sign_in.png)
+ ![sign in](sign_in_with_concur_images/authorization_grant_sign_in.png)
 
 _If the user selects "One-time Link":_
 
 _Enter Email address_
 
- ![](/sign_in_with_concur_images/authorization_grant_sign_in_email.png)
+ ![sign in email option](sign_in_with_concur_images/authorization_grant_sign_in_email.png)
 
 _Confirmation page_
 
- ![](/sign_in_with_concur_images/authorization_grant_email_confirmation.png)
+ ![email confirmation](sign_in_with_concur_images/authorization_grant_email_confirmation.png)
 
 _Email example_
 
-![](/sign_in_with_concur_images/authorization_grant_email_sample.png)
+![email sample](sign_in_with_concur_images/authorization_grant_email_sample.png)
 
 
 _If the user selects "Enter Concur Credentials":_
 
- ![](/sign_in_with_concur_images/authorization_grant_username_password.png)
+ ![sign in username and password option](sign_in_with_concur_images/authorization_grant_username_password.png)
 
 
 
@@ -100,7 +100,7 @@ _Complete!_
 
 _For both authentication flows, once authorized, the account is provisioned and user is logged in_
 
- ![](/sign_in_with_concur_images/sign_in_with_concur_complete.png)
+ ![sign in complete](sign_in_with_concur_images/sign_in_with_concur_complete.png)
 
 # <a name="getting_started"></a>Getting Started
 
@@ -134,7 +134,7 @@ The first script adds the Concur style library to your page and the second appli
 
 Clicking this button renders the Sign in with Concur screen which presents two options to the user for signing in: 1) using Concur credentials OR 2) using a link sent via email. Option 2 is designed for users who do not want to use passwords or those that do not have passwords such as Single Sign On (SSO) users.
 
- ![](/sign_in_with_concur_images/authorization_grant_sign_in_email.png)
+ ![sign in email option](sign_in_with_concur_images/authorization_grant_sign_in_email.png)
 
 **3. Handle Authorization Completion**
 
