@@ -9,11 +9,9 @@ This version is a draft only. Hotel Service 2.0 API is not final and is a subjec
 ## Description
 The Hotel Services v2 Direct Connect from Concur Connect provides a method for Travel users to access hotel inventory.
 
-The Hotel Service 2.0 API from Concur is a specification based on OTA 2015 standard for Hotel Suppliers.
-Please refer to XSD schema of the service and WSDL service description.
-This Guide provides information how the Hotel Supplier can make their content available for Concur Travel users using Hotel Service 2.0 API. 
-Once the Hotel Supplier has developed and certified their interface with Concur, their inventory will begin appearing in hotel searches by opted-in Travel users.
-This API has client/server architecture, where Concur acts as client, pulling information from the Hotel Supplier, who acts as server, responding to Concur’s requests. This guide specifies the request and response format required by Concur.
+The Hotel Service 2.0 API from Concur is a specification based on OTA 2015 standard for Hotel Suppliers. Please refer to XSD schema of the service and WSDL service description.
+
+This Guide provides information concerning how the Hotel Supplier can make their content available for Concur Travel users using Hotel Service 2.0 API. Once the Hotel Supplier has developed and certified their interface with Concur, their inventory will begin appearing in hotel searches by opted-in Travel users. This API has client/server architecture, where Concur acts as client, pulling information from the Hotel Supplier, who acts as server, responding to Concur’s requests. This guide specifies the request and response format required by Concur.
 
 
 This callout differs from the inbound Concur web services in the following ways:
@@ -43,7 +41,7 @@ The configuration process has the following steps:
 8.	Once certification passes, the Hotel supplier sends Concur the production URIs and credentials.
 9.	Concur updates the production servers with the supplier’s production data.
 10.	Upon successful completion, the supplier will be live in Concur for any customer to enable.
-11.	The Travel client opts in to the Hotel callout (within the Travel Configuration) to allow their users to view and book the available inventory. Travel client sets ID which will identify them at Hotel suppliers for features like Corporate rates. 
+11.	The Travel client opts in to the Hotel callout (within the Travel Configuration) to allow their users to view and book the available inventory. Travel client sets ID which will identify them at Hotel suppliers for features like corporate rates. 
 
 ## Non-Functional Requirements
 
@@ -51,7 +49,7 @@ The configuration process has the following steps:
 The Hotel supplier needs to provide emergency technical contact email that will be used for communication in case of blocking technical issues.
 
 ### Testing environment
-To allow Concur performing testing, the Hotel Supplier needs to provide testing URL or specify properties for testing in production URL. Concur needs to be able to perform test bookings with testing credit cards.
+To allow Concur to perform testing, the Hotel Supplier needs to provide testing URL or specify properties for testing in production URL. Concur needs to be able to perform test bookings with testing credit cards.
 
 ### Security 
 #### PCI DSS compliance

@@ -27,7 +27,7 @@ The Authorization header must include Base64 encoded basic authentication creden
 
 ### Request Body
 
-The request containa a `CC_LimoCancelRequest` parent element with the child elements listed in the following table:
+The request contains a `CC_LimoCancelRequest` parent element with the child elements listed in the following table:
 
 |  Element |  Required/Optional |  Description |
 |:---------|:------------------|:--------------|
@@ -59,17 +59,17 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 
 |  Element |  Required? |  Description |
 |:---------|:------------------|:--------------|
-|  Error |  Y |  The error information, if an error occurred. This parent element contains the following child elements:<br>**ErrorCode:**  The code for the error. Will contain one of the following values:<br><br> 400: Credential related error <br> 800: Reservation cannot be cancelled <br>900: Unknown error  <br>**ErrorSource:** The source of the error.<br>**ErrorDescription:**The additional error information.|
+|  Error |  Y |  The error information, if an error occurred. This parent element contains the following child elements:<br>**ErrorCode:**  The code for the error. Will contain one of the following values:<br> 400: Credential related error <br> 800: Reservation cannot be cancelled <br>900: Unknown error  <br>**ErrorSource:** The source of the error.<br>**ErrorDescription:**The additional error information.|
 |  ReservationID |  N |  The identifier for the reservation. |
 |  Status |  N |  The status of the reservation. The value will be one of the following:<br>XB: Cancellation Requested  <br>XA: Cancellation Accepted  <br>XD: Cancellation Declined|
 |  ConfNum |  N |  The confirmation number for the reservation. |
 |  CancelPolicy |  N |  The cancellation policy for the reservation. |
 |  CancelNum |  N |  The cancellation number for the reservation. |
-|  PrimaryPassenger |  Y |  The passenger contact name for the reservation. This parent element contains the following child elements:<br>** FirstName:** The contact's first name.<br>**LastName:** The contact's last name.<br>**Phone:** The contact's phone number.<br>**Phone2:** The contact's backup phone number.<br>**CellPhone:** The contact's cell phone number.<br>**EmailAddress:** The contact's email address.|
+|  PrimaryPassenger |  Y |  The passenger contact name for the reservation. This parent element contains the following child elements:<br>**FirstName:** The contact's first name.<br>**LastName:** The contact's last name.<br>**Phone:** The contact's phone number.<br>**Phone2:** The contact's backup phone number.<br>**CellPhone:** The contact's cell phone number.<br>**EmailAddress:** The contact's email address.|
 |  ServiceType |  Y |  The type of service requested. Will contain one of the following values:<br>100: Point to point  <br>110: One way to airport  <br>111: One way from airport  <br>120: One way to train station  <br>121: One way from train station  <br>200: Hourly  <br>300: Airport to airport|
 |  ClassOfService |  N |  The requested service class. Will contain one of the following values:<br>100: Normal  <br>200: High  <br>300: Highest  <br>If this value is not provided by the user, it will default to 100.|
-|  PickupLocation |  Y |  The pick up location. This parent element contains the following child elements:<br>LocationType  One of the following: 100 - Address, 200 - Airport, 300 - Train station.<br>Airport Refer to the Airport Elements table. Provided if the LocationType = 200.<br>TrainStation  Refer to the Train Station Elements table. Provided if the LocationType = 300.<br>Address The street address of the location. Provided if the LocationType = 100.<br>City The location city.<br>State The location state. Preferably 2 characters, max 10 characters.<br>Country  The location's 2 character ISO 3166-1 alpha-2 country code. Example: US<br>PostalCode The location postal code.<br>ExtraNotes Additional notes about the location. Example: Ring doorbell, Holiday Inn, etc. |
-|  DropoffLocation |  Y |  The drop off location. This parent element contains the following child elements:<br>LocationType  One of the following: 100 - Address, 200 - Airport, 300 - Train station, 400 - As directed.<br>Airport  Refer to the Airport Elements table. Provided if the<br>LocationType = 200.<br>TrainStation Refer to the Train Station Elements table. Provided if the LocationType = 300.<br>Address The street address of the location. Provided if the LocationType = 100.<br>City The location city.<br>State The location state.<br>Country  The location's 2 character ISO 3166-1 alpha-2 country code.<br>Example: US<br>PostalCode  The location postal code.<br>ExtraNotes Additional notes about the location. Example: Apartment Building, gravel driveway, etc.|
+|  PickupLocation |  Y |  The pick up location. This parent element contains the following child elements:<br>**LocationType:**  One of the following: 100 - Address, 200 - Airport, 300 - Train station.<br>**Airport:** Refer to the Airport Elements table. Provided if the LocationType = 200.<br>**TrainStation:**  Refer to the Train Station Elements table. Provided if the LocationType = 300.<br>**Address:** The street address of the location. Provided if the LocationType = 100.<br>**City:** The location city.<br>**State:** The location state. Preferably 2 characters, max 10 characters.<br>**Country:**  The location's 2 character ISO 3166-1 alpha-2 country code. Example: US<br>**PostalCode:** The location postal code.<br>**ExtraNotes:** Additional notes about the location. Example: Ring doorbell, Holiday Inn, etc. |
+|  DropoffLocation |  Y |  The drop off location. This parent element contains the following child elements:<br>**LocationType:**  One of the following: 100 - Address, 200 - Airport, 300 - Train station, 400 - As directed.<br>**Airport:**  Refer to the Airport Elements table. Provided if the LocationType = 200.<br>**TrainStation:** Refer to the Train Station Elements table. Provided if the LocationType = 300.<br>**Address:** The street address of the location. Provided if the LocationType = 100.<br>**City:** The location city.<br>**State:** The location state.<br>**Country:**  The location's 2 character ISO 3166-1 alpha-2 country code. Example: US<br>**PostalCode:**  The location postal code.<br>**ExtraNotes:** Additional notes about the location. Example: Apartment Building, gravel driveway, etc.|
 |  StartDateTime |  Y |  The time, in GMT, that the reservation must begin.  **Format**: 2015-05-19T18:00:00 |
 |  EndDateTime |  N |  The time, in GMT that the reservation will end. Provided for hourly reservations. **Format**: 2015-05-19T18:00:00 |
 |  PickupInstructions |  N |  Additional instructions about the pick up request. |
@@ -83,12 +83,12 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 |  DropoffServiceArrangement |  N |  The details of the dropoff arrangement, if available. |
 |  ExtraStopArrangement |  N |  The details of the extra stop arrangement, if available. |
 |  RateInfo |  Y |  The booked rate details. Refer to the Rate Information Elements table for more information. |
-|  Vehicle |  Y |  The vehicle details. This parent element contains the following child elements:<br>VehicleType One of the following values:<br>100: Sedan  <br>200: Limo  <br>250: Stretch Limo  <br>300: SUV  <br>350: Stretch SUV  <br>400: Van  <br>450: Mini-Bus  <br>500: Motor Coach  <br>600: Shuttle  <br>700: Trolley  <br>800: Carriage  <br>900: Any<br>Description: The vehicle description.<br>MaxPassengers: The maximum number of passengers for the vehicle. Must be greater than zero.<br>VehicleID: Information to identify the specific vehicle. |
-|  Vendor |  Y |  The reservation vendor. This parent element contains the following child elements:<br>VendorCode:  The vendor code for the vendor. <br>VendorName:  The vendor's name.<br>PhoneNumber:  The vendor's phone number. |
-|  FormOfPayment |  Y |  The form of payment for the reservation. This parent element contains one of the following child elements:<br>CreditCard:  If present, the passenger will pay with credit card. Refer to the Reply Credit Card Elements table for the child elements.<br>Cash:  If present, the passenger will pay cash.<br>Check:  If present, the passenger will pay with a check.<br>DirectBilling:  If present, the passenger will pay through direct billing. |
+|  Vehicle |  Y |  The vehicle details. This parent element contains the following child elements:<br>**VehicleType:** One of the following values:<br>100: Sedan  <br>200: Limo  <br>250: Stretch Limo  <br>300: SUV  <br>350: Stretch SUV  <br>400: Van  <br>450: Mini-Bus  <br>500: Motor Coach  <br>600: Shuttle  <br>700: Trolley  <br>800: Carriage  <br>900: Any<br>**Description:** The vehicle description.<br>**MaxPassengers:** The maximum number of passengers for the vehicle. Must be greater than zero.<br>**VehicleID:** Information to identify the specific vehicle. |
+|  Vendor |  Y |  The reservation vendor. This parent element contains the following child elements:<br>**VendorCode:**  The vendor code for the vendor. <br>**VendorName:**  The vendor's name.<br>**PhoneNumber:**  The vendor's phone number. |
+|  FormOfPayment |  Y |  The form of payment for the reservation. This parent element contains one of the following child elements:<br>**CreditCard:**  If present, the passenger will pay with credit card. Refer to the Reply Credit Card Elements table for the child elements.<br>**Cash:**  If present, the passenger will pay cash.<br>**Check:**  If present, the passenger will pay with a check.<br>**DirectBilling:**  If present, the passenger will pay through direct billing. |
 |  RateDisclaimer |  N |  Disclaimer text about the rate. |
 |  ProviderFeedback |  N |  Any additional feedback from the supplier. |
-|  AccountingInfo |  N |  The accounting information for the reservation. This parent element contains the following child elements:<br>AccountingField1  through AccountingField5<br>These fields contain detailed accounting information. |
+|  AccountingInfo |  N |  The accounting information for the reservation. This parent element contains the following child elements:<br>**AccountingField1** through **AccountingField5**: These fields contain detailed accounting information. |
 
 ## Rate Information Elements
 
@@ -104,10 +104,10 @@ The response will include a CC_LimoCancelReply parent element, with the followin
 |DiscountType|  N |The type of discount applied.|
 |BasePrice| N |The reservation price without taxes, surcharges or service charges.|
 |ServiceCharge| N |The service charge for the reservation.|
-|SurCharge  |N  |This element contains the desc attribute, with text describing the reason for the surcharge. Example: <SurCharge desc="fuel">|
+|SurCharge  |N  |This element contains the desc attribute, with text describing the reason for the surcharge. Example: `<SurCharge desc="fuel">`|
 |Tax  |N  |The reservation tax.|
 |ExtraPickupCharge| N|  Any additional fees for the pickup service.|
-|ExtraDropoffCharge  |N |Any additional fees for the drop off service.|
+|ExtraDropoffCharge  |N |Any additional fees for the dropoff service.|
 |OptionalExtraStopCharge| N|  The charge for any additional stops.|
 |OptionalExtraTimeCharge  |N| The charge for each additional hour.|
 

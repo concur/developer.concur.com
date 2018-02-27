@@ -5,7 +5,7 @@ layout: reference
 
 # Request
 
-Concur Request automates the spend request and approval process for both travel and everyday expenses, giving you the data you need to accurately track and better control spending. By increasing visibility into planned expenses and up-to-date budget data, you can make strategic spending decisions before any spending actually occurs. The Request resource provides many abilities, including viewing requests and transition of request into the workflow.
+Concur Request automates the spend request and approval process for both travel and everyday expenses, giving you the data you need to accurately track and better control spending. By increasing visibility into planned expenses and up-to-date budget data, you can make strategic spending decisions before any spending actually occurs. The Request resource provides many abilities, including viewing requests and transition of requests into the workflow.
 
 * [Retrieve all requests](#method1)
 * [Retrieve a request by ID](#method2)
@@ -30,8 +30,8 @@ Name | Type | Format | Description
 `limit`	|	`Int32`	|	`query`	|	Number of records to return (default 100)	
 `user`	|	`string`	|	`query`	|	The login ID of the user who owns this Request. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.	
 `status`	|	`string`	|	`query`	|	The Status search term specifies which travel request or approval status to return. If no Status value is sent, the default Status of Active will be used.	
-`modifiedAfter`	|	`DateTime`	|	`query`	|	This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.	
-`modifiedBefore`	|	`DateTime`	|	`query`	|	This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.	
+`modifiedAfter`	|	`DateTime`	|	`query`	|	This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.	
+`modifiedBefore`	|	`DateTime`	|	`query`	|	This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments) were modified before the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.	
 `withSegmentTypes`	|	`Boolean`	|	`query`	|	Pass true to populate the SegmentType field in the result.	
 
 
@@ -66,7 +66,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `AgencyOfficeName`	|	`string`	|	-	|	The travel agency office name.
-`AllocationFormID`	|	`string`	|	-	|	The unique identifier of the Segment Form resource (See. the "Forms" resource for more information).
+`AllocationFormID`	|	`string`	|	-	|	The unique identifier of the Segment Form resource (See the "Forms" resource for more information).
 `ApprovalLimitDate`	|	`DateTime`	|	-	|	The date by which the Request must be approved. This element appears only when integrated with Concur Travel.
 `ApprovalStatusCode`	|	`string`	|	-	|	The code for the approval status the Request.
 `ApprovalStatusName`	|	`string`	|	-	|	The approval status of the Request.
@@ -85,7 +85,7 @@ Name | Type | Format | Description
 `Exceptions`	|	`Array`	|	[Exception](#exception)	|	This parent element has an Exception child element for each exception. See the Exception model for the full list of child elements.
 `ExtensionOf`	|	`string`	|	-	|	The ID of the initial Request that this Request is an extension of or adendum to.
 `HasException`	|	`string`	|	-	|	Indicates whether the Request has exceptions. Format: Y/N
-`HeaderFormID`	|	`string`	|	-	|	The unique identifier of the Header Form resource (See. the "Forms" resource for more information).
+`HeaderFormID`	|	`string`	|	-	|	The unique identifier of the Header Form resource (See the "Forms" resource for more information).
 `LastModifiedDate`	|	`DateTime`	|	-	|	The date the Request was last modified. Format: YYYY-MM-DDThh:mm:ss
 `LoginID`	|	`string`	|	-	|	The Concur login ID of the Request owner.
 `Name`	|	`string`	|	-	|	The name of the Request.
@@ -150,7 +150,7 @@ Name | Type | Format | Description
 `Comments`	|	`Array`	|	[Comment](#comment)	|	This parent element has a Comment child element for each comment. See the Comments model for the full list of child elements.
 `Custom1` through `Custom40`	|	`CustomField`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
 `EntryDescription`	|	`string`	|	-	|	The description of the Request entry.
-`EntryFormID`	|	`string`	|	-	|	The unique identifier of the Entry Form resource (See. the "Forms" resource for more information).
+`EntryFormID`	|	`string`	|	-	|	The unique identifier of the Entry Form resource (See the "Forms" resource for more information).
 `Exceptions`	|	`Array`	|	[Exception](#exception)	|	This parent element has an Exception child element for each exception. See the Exception model for the full list of child elements.
 `ExchangeRate`	|	`string`	|	-	|	The exchange rate that applies to the entry.
 `ExpenseTypeName`	|	`string`	|	-	|	The expense type name.
@@ -170,7 +170,7 @@ Name | Type | Format | Description
 				
 Name | Type | Format | Description
 -----|------|--------|------------
-`Custom1` through `1Custom20`	|	`CustomField`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
+`Custom1` through `Custom20`	|	`CustomField`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
 `Percentage`	|	`string`	|	-	|	The percentage of the expense that is included in this allocation.
 
 
@@ -204,7 +204,7 @@ Name | Type | Format | Description
 `ForeignCurrencyName`	|	`string`	|	-	|	The name of the currency for the foreign amount of the segment.
 `FormTypeCode`	|	`string`	|	-	|	The code for form type of the segment type.
 `FromLocationDetail`	|	`string`	|	-	|	The code for the starting location.
-`FromLocationID`	|	`string`	|	-	|	The unique identifier of the departure location. (See. the "Locations" resource for more information).
+`FromLocationID`	|	`string`	|	-	|	The unique identifier of the departure location. (See the "Locations" resource for more information).
 `FromLocationName`	|	`string`	|	-	|	The name of the starting location.
 `IsAgencyBooked`	|	`string`	|	-	|	Indicates whether the air segment was agency booked. Format: Y/N.
 `IsSelfBooked`	|	`string`	|	-	|	Indicates whether the air segment was self booked. Format: Y/N.
@@ -213,12 +213,12 @@ Name | Type | Format | Description
 `PostedAmount`	|	`string`	|	-	|	The posted amount of the segment in the Request currency.
 `RecordLocator`	|	`string`	|	-	|	Appears only when the Request is integrated with Concur Travel.
 `RemainingAmount`	|	`string`	|	-	|	The remaining amount of the segment in the Request currency.
-`SegmentFormID`	|	`string`	|	-	|	The unique identifier of the Segment Form resource (See. the "Forms" resource for more information).
+`SegmentFormID`	|	`string`	|	-	|	The unique identifier of the Segment Form resource (See the "Forms" resource for more information).
 `SegmentLocator`	|	`string`	|	-	|	The unique identifier for the Concur Travel segment associated with this segment. Appears only when the Request is integrated with Concur Travel.
 `SegmentType`	|	`string`	|	-	|	The type of itinerary segment. Format: air, car, hotel, rail, dining, event, ground, taxi, parking, other and so on
 `SegmentTypeCode`	|	`string`	|	-	|	The code for the type of itinerary segment.
 `ToLocationDetail`	|	`string`	|	-	|	The code for the ending location.
-`ToLocationID`	|	`string`	|	-	|	The unique identifier of the arrival location. (See. the "Locations" resource for more information).
+`ToLocationID`	|	`string`	|	-	|	The unique identifier of the arrival location. (See the "Locations" resource for more information).
 `ToLocationName`	|	`string`	|	-	|	The name of the ending location.
 `TripLocator`	|	`string`	|	-	|	The unique identifier for the Concur Travel trip associated with this segment. Appears only when the Request is integrated with Concur Travel.
 

@@ -57,7 +57,7 @@ Examples:
 application/xml
 
 ### Authorization header
-Authorization header with OAuth token for valid Concur user. In order to create or update booking for anyone other than the OAuth consumer, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
+Authorization header with OAuth token for a valid Concur user. In order to create or update booking for anyone other than the OAuth consumer, the OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard.
 
 ### Request body root elements
 The request contains a Booking parent element with the following child elements:
@@ -65,7 +65,7 @@ The request contains a Booking parent element with the following child elements:
 |  Required Element |  Description |
 |-------------------|--------------|
 |  BookingSource |  The supplier's name. |
-|  RecordLocator |  Record locator for this booking. This is often six alphameric characters but can have other formats depending on the booking source |
+|  RecordLocator |  Record locator for this booking. This is often six alphanumeric characters but can have other formats depending on the booking source |
 
 
 |  Optional Element |  Description |
@@ -74,13 +74,13 @@ The request contains a Booking parent element with the following child elements:
 |  FormOfPaymentName |  The name of the form of payment for the booking. |
 |  FormOfPaymentType |  The type of the form of payment. |
 |  TicketMailingAddress |  The mailing address for the booked ticket, if available. |
-|  TicketPickupLocation |  The pickup location for the booked ticket, if available |
+|  TicketPickupLocation |  The pickup location for the booked ticket, if available. |
 |  TicketPickupNumber |  The confirmation number to pick up the booked ticket, if available. |
 |  AirfareQuotes |  List of stored airfare quotes for this booking. |
 |  AirlineTickets |  List of Airline Tickets for this booking. |
 |  Charges |  List of Charges for this booking. |
 |  MiscChargeOrders |  List of Miscellaneous AirCharges for this booking. |
-|  Passengers | The *Passengers* element contains child element for each booked passenger. The description of each child element can be seen in a subsequent table. |
+|  Passengers | The *Passengers* element contains a *Passenger* child element for each booked passenger. The description of each child element can be seen in a subsequent table. |
 |  PassPrograms |  List of Pass Programs for this booking. |
 |  PhoneNumbers |  List of Phone numbers associated with this booking. |
 |  RailPayments |  List of Rail payments associated with rail segments in this booking. |
@@ -88,10 +88,10 @@ The request contains a Booking parent element with the following child elements:
 |  Delivery |  The method this booking was delivered.  |
 |  WaitListSegments |  The segments that the traveler is waitlisted for this booking. |
 |  Warnings |  The warnings associated with the booking. |
-|  WebAddresses |  List of web addresses such as emails, pickup urls, etc.. associated with this bookings |
+|  WebAddresses |  List of web addresses such as emails, pickup URLs, etc. associated with this bookings |
 
 
-### **Passengers** child elements:
+### **Passenger** child elements
 
 |  Required Element |  Description   |
 |-------------------|----------------|

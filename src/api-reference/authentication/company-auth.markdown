@@ -18,7 +18,7 @@ Company is a top-level principal within Concur and you would be able to obtain a
 
 ## <a name="obtain_token"></a>Obtaining an auth token
 
-To begin the authentication flow for a company, one must first obtain a temporary auth token through AppCenter's interface. AppCenter will request for a temporary auth token and hand it off to the partner, who will then in turn use [Password grant](/api-reference/authentication/apidoc.html#password_grant) to exchange the temporary auth token for a full access token and refresh token for the company. 
+To begin the authentication flow for a company, one must first obtain a temporary auth token through AppCenter's interface. AppCenter will request for a temporary auth token and hand it off to the partner, who will then in turn use [Password grant](/api-reference/authentication/apidoc.html#password_grant) to exchange the temporary auth token for a full access token and refresh token for the company.
 
 Auth tokens have a One Day expiry, multi-use policy. Partners have 24 hours to exchange the auth token for a refresh and access token. Partners can also use this auth token multiple times within the 24 hours in case of network failure.
 
@@ -61,7 +61,7 @@ Name | Type | Format | Description
 -----|------| ------ | --------------
   `client_id`|`string` | `UIID` | Applications client_id supplied by App Management
   `client_secret`|`string` | `UUID` | Applications client_secret supplied by App Management
-  `grant_type`|`string` | | Specify which grant type you expect the oauth2 service to process. for password grant, the value is `password`
+  `grant_type`|`string` | | Specify which grant type you expect the oauth2 service to process. For password grant, the value is `password`
   `username`|`string` | | specify the `companyId` to be used in the password grant request. The `id` above.
   `password`|`string` | | specify the `authToken` to be used in the password grant request. The `requestToken` above.
   `credtype`|`string` | | The credtype signifies to oauth2 which credential set is being submitted in the request. The value: `authtoken`.

@@ -30,7 +30,7 @@ This direct connect is only available to Travel Suppliers with Ground Transporta
 
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the <a href="http://forum.developer.concur.com/" target="_blank">developer forums.</a> if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the review process. Use the <a href="http://forum.developer.concur.com/" target="_blank">developer forums</a> if you have questions about the configuration settings.
 
 ### Configuration process
 

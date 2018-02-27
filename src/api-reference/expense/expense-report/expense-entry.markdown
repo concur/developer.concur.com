@@ -229,7 +229,7 @@ Name | Type | Format | Description
 `user`|````string````|`query`|The login ID of the user who owns the entries.
 
 
-### REquest URL
+### Request URL
 ```
 https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0wZ%24s4ftzvzTCg
 ```
@@ -258,7 +258,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `AllocationType`	|	`string`	|	-	|	The type of allocations for the expense. Possible values: P - partial allocation, F - full allocation, N - no allocation. Use the GET /expense/allocations function to get information about this entry's allocations.
 `ApprovedAmount`	|	`Decimal`	|	-	|	The approved amount of the expense entry, in the report currency.
-`CompanyCardTransactionID`	|	`string`	|	-	|	The unique identifier for a company card transaction that is associated with this expense. Concur Expense uses the Credit Card Import job to import company card transactions. Use the GET CommpanyCardTransactions function to get information about these card transactions. This element is null when there is no company card transaction associated with this expense.
+`CompanyCardTransactionID`	|	`string`	|	-	|	The unique identifier for a company card transaction that is associated with this expense. Concur Expense uses the Credit Card Import job to import company card transactions. Use the GET CompanyCardTransactions function to get information about these card transactions. This element is null when there is no company card transaction associated with this expense.
 `Custom1 through Custom40`	|	`CustomField`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
 `Description`	|	`string`	|	-	|	The description of the expense. Maximum length: 64 characters
 `ElectronicReceiptID`	|	`string`	|	-	|	The unique identifier for an eReceipt that is associated with this expense. Use the GET eReceipts function to get information about this eReceipt. This element is null when there is no eReceipt associated with this expense.

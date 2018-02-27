@@ -36,7 +36,7 @@ Authorization: OAuth {access token}
 application/xml
 
 ### Authorization header
-The Authorization header must have an OAuth token for valid Concur trip approver.
+The Authorization header must have an OAuth token for a valid Concur trip approver.
 
 ### Request body elements
 The request will contain a TripApprovalRQ parent element with a TransactionId attribute. The TransactionId value is used to identify request and response pairs, and can contain any alphanumeric string that does not contain special characters. The TripApprovalRQ element contains the following child elements:
@@ -139,6 +139,6 @@ Content-Type: application/xml
 |  507 |  No request data. |
 |  508 |  Request data is not well formatted XML. |
 |  509 |  XML Validation Error. XML schema validation errors will be supplied, if available. |
-|  510 |  TripLocator ir RecordLocator was not found |
+|  510 |  TripLocator or RecordLocator was not found |
 |  600 |  An error occured while approving the trip. |
 |  700 |  An error occured while rejecting the trip. |

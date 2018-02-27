@@ -93,18 +93,19 @@ The installation process includes installing the application connector, and regi
   |  Host Name   |  Enter the hostname for the connector. Example: https://{servername} |
   |  User Name   |  Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth. |
   |  Password    |  Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth. |
-
-
-
-   6. In the **Services** section, select **Send Notification**.
-   7. Click **Configure**. The **Configure Service** window appears.    
-   8. Enter the endpoint that the Concur will connect to on your server. Example: /concur/v1.0/notify
-   9. Select the **Enabled** check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.
-   10. In the Workflows section, select the workflow step for each expense report or travel request workflow that requires notifications.
-   11. Click **OK**.
-   12. Click **Test Connection**. Concur will attempt to access the configured endpoint with the provided user credentials.
-   13. Click **Save**. The application connector is now registered with Concur and enabled.
-
+  
+<ul>
+    <ol start="6">
+       <li>In the **Services** section, select **Send Notification**.
+       <li>Click **Configure**. The **Configure Service** window appears.    
+       <li>Enter the endpoint that Concur will connect to on your server. Example: /concur/v1.0/notify
+       <li>Select the **Enabled** check box if the endpoint is ready for use. Usually you will do this after you have implemented and tested the endpoint in your application connector.
+       <li>In the Workflows section, select the workflow step for each expense report or travel request workflow that requires notifications.
+       <li>Click **OK**.
+       <li>Click **Test Connection**. Concur will attempt to access the configured endpoint with the provided user credentials.
+       <li>Click **Save**. The application connector is now registered with Concur and enabled.
+    </ol>
+</ul>
 ### Responses and Errors
 Refer to the [HTTP Codes][16] page for details of the common responses and errors.
 

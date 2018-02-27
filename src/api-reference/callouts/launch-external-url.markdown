@@ -4,11 +4,11 @@ layout: reference
 ---
 
 ## Description
-The Launch External URL callout gives clients and developers a platform to extend the functionality of Concur providing a means to deliver custom user interactions, or access functionality found in an external system. The client can arrange to add an Expense Entry form field that is configured to use the Launch External URL call out to a Concur Expense Entry form.  Concur Expense will display this field with an attached button that launches a separate window when clicked. The window is controlled by an application connector, created by a third-party developer, the client, or Concur. The application connector is a web server that presents information in the window.
+The Launch External URL callout gives clients and developers a platform to extend the functionality of Concur providing a means to deliver custom user interactions, or access functionality found in an external system. The client can arrange to add an Expense Entry form field that is configured to use the Launch External URL callout to a Concur Expense Entry form. Concur Expense will display this field with an attached button that launches a separate window when clicked. The window is controlled by an application connector, created by a third-party developer, the client, or Concur. The application connector is a web server that presents information in the window.
 
-The application connector can access Concur data through the web services, or can access data in an external system. Once the user has completed their actions in the window (such as performing a search or completing a wizard), he/she clicks a button such as "Done" that indicates the user has concluded their work in the window.  The application connector then closes the window. 
+The application connector can access Concur data through the web services, or can access data in an external system. Once the user has completed their actions in the window (such as performing a search or completing a wizard), he/she clicks a button such as "Done" that indicates the user has concluded their work in the window. The application connector then closes the window. 
 
-The application connector can use web services to send information to Concur, to update field values on the expense entry form or other form types. The application connector may send the updates before or after the user closes the window. When the user returns to Concur, the page refreshes and he/she sees the updated values.
+The application connector can use web services to send information to Concur to update field values on the expense entry form or other form types. The application connector may send the updates before or after the user closes the window. When the user returns to Concur, the page refreshes and he/she sees the updated values.
 
 This callout differs from the standard Concur web services in the following ways:
 
@@ -69,18 +69,18 @@ Expense will not be able to connect to the application connector until a certifi
 
 Concur sends requests to the application connector using anonymous authorization (no username and password are provided) over HTTPS.
 
-The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that Concur supplies. Two of the required variables for the signature hash are username and password, which are entered in Concur on the **Register Application Connector** page in** Web Services **under **Administration**. The application connector must use the same username and password pair to generate it's validation signature hash.
+The application connector can validate the authenticity of the query by generating a signature hash from the provided variables and comparing it with the passed in values, including the signature hash that Concur supplies. Two of the required variables for the signature hash are username and password, which are entered in Concur on the **Register Application Connector** page in **Web Services** under **Administration**. The application connector must use the same username and password pair to generate it's validation signature hash.
 
 ### Functions 
 [Launch External URL Request][4]
 
 ###  Concur Expense Configuration
 
-An Expense text form field must be configured as the Launch URL control type and the form field must be added to the desired form before this callout can be used. The Launch URL control type will not appear in the list until a partner application using the Launch External URL api has been registered and enabled for the company. The administrator must select either a single-line or a multi-line control type, depending on the data that will be placed in the field.
+An Expense text form field must be configured as the Launch URL control type and the form field must be added to the desired form before this callout can be used. The Launch URL control type will not appear in the list until a partner application using the Launch External URL API has been registered and enabled for the company. The administrator must select either a single-line or a multi-line control type, depending on the data that will be placed in the field.
 
 **Notes:**
 
-* **The Launch External url currently only workds with Professional Edition.**
+* **The Launch External URL currently only works with Professional Edition.**
 * **It is also only available to be configured at the Expense Entry-level fields.**
 * **This Callout cannot be used with Standard Edition clients or from a Travel or Invoice field.**
 

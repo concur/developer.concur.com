@@ -34,8 +34,8 @@ Name |  Description
 `tripId`	|	The trip id
 `startDate={_date_}` |The URL-encoded start date (in Coordinated Universal Time, aka UTC) for the trip. Format: YYYY-MM-DD. If no query parameters are provided, the start date is set to today's date - 30 days. The request will only return trips that are ongoing during the provided dates, either starting on the date, or starting before the date and ongoing during the provided date.
 `endDate****={_date_}` | The URL-encoded UTC end date for the trip. Format: YYYY-MM-DD. If no query parameters are provided, the end date is set to today's date + 12 months. The request will only return trips that are ongoing during the provided dates, either ending on the date, or starting before the date and ongoing during the provided date.
-`createdAfterDate****={_date_}` | The URL-encoded UTC date for when the trip was created. The query string will return trips created on or after this date. Used with the createdbeforedate for finding trips created during a date range. Format: YYYY-MM-DD.
-`createdBeforeDate****={_date_}` | The URL-encoded UTC date for when the trip was created. The query string will return trips created on or before this date. Used with the createdafterdate for finding trips created during a date range. Format: YYYY-MM-DD.
+`createdAfterDate****={_date_}` | The URL-encoded UTC date for when the trip was created. The query string will return trips created on or after this date. Used with the createdBeforeDate for finding trips created during a date range. Format: YYYY-MM-DD.
+`createdBeforeDate****={_date_}` | The URL-encoded UTC date for when the trip was created. The query string will return trips created on or before this date. Used with the createdAfterDate for finding trips created during a date range. Format: YYYY-MM-DD.
 `lastModifiedDate****={_date_}` | The last modified UTC date of the trips and any their associated bookings. This query string will return only the trips where the trip or any of its associated bookings have a last modified date that is greater or equal to the supplied time. The provided date/time can be anytime between now and the first date of trip creation in the database. The format is either the date or the date and time combined.
 `bookingType={_type_}` | The trip includes at least one booking of this type. Format: Air, Car, Dining, Hotel, Parking, Rail, or Ride
 `userid_type=login&userid_value=_{loginID}_` | The loginID is the user's Concur login ID. The userid_value of ALL can be sent to get trip summaries for all users at the company. The userid_type and userid_value parameters can only be used if the OAuth consumer has one of the user roles listed above.
@@ -101,8 +101,8 @@ Name |  Description
 `TripStatus` |  The status of the trip. This element only appears if the **includeCanceledTrips** query parameter is used in the request.
 `StartDateLocal` |  The start date of the trip in the starting location's timezone. Format: YYYY-MM-DDThh:mm:ss.
 `EndDateLocal` |  The end date of the trip in the ending location's timezone. Format: YYYY-MM-DDThh:mm:ss.
-`UserLoginId` |  The user's login to Concur. Only appears when the OAuth consumer has one of the specified admin roles. `
-`DateModifiedUtc` |  The UTC date that this trip was last modified. Format: YYYY-MM-DDThh:mm:ss.`
+`UserLoginId` |  The user's login to Concur. Only appears when the OAuth consumer has one of the specified admin roles.
+`DateModifiedUtc` |  The UTC date that this trip was last modified. Format: YYYY-MM-DDThh:mm:ss.
 `id` |  Trip ID URI with encrypted ID.
 
 ## Paging
@@ -242,15 +242,15 @@ Name |  Description
 `Description` |  The trip description. Maximum length: 512 characters.
 `EndDateLocal` |  The end date of the trip in the ending location's timezone. Format: YYYY-MM-DDThh:mm:ss
 `EndDateUtc` |  The end date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss
-`IsPersonal` |  Whether the trip is a Business or Leisure trip. Format: true/false. |
-`ProjectName` |  The associated project name for the trip. Maximum length: 255 characters. |
-`StartDateLocal` |  The start date of the trip in the starting location's timezone. Format: YYYY-MM-DDThh:mm:ss |
-`StartDateUtc` |  The start date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss |
-`TripName` |  Name of the trip. Maximum length: 255 characters. |
-`Bookings` |  This parent element will contain a **Booking** child element for each booking associated with this itinerary. Refer to the Booking Child Elements table. |
-`RuleViolations` |  The list of rule violations associated with the itinerary. This parent element contains a **RuleViolation** child element for each associated rule violation. Refer to the [Public Itinerary XSD](/api-reference/travel/itinerary/ItinServices_Public_0.xsd) for more information. |
-`Status` |  The status of the itinerary. One of the following: 0- Confirmed; 1- Ticketed by agent; 2- Canceled
- |
+`IsPersonal` |  Whether the trip is a Business or Leisure trip. Format: true/false.
+`ProjectName` |  The associated project name for the trip. Maximum length: 255 characters.
+`StartDateLocal` |  The start date of the trip in the starting location's timezone. Format: YYYY-MM-DDThh:mm:ss
+`StartDateUtc` |  The start date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss
+`TripName` |  Name of the trip. Maximum length: 255 characters.
+`Bookings` |  This parent element will contain a **Booking** child element for each booking associated with this itinerary. Refer to the Booking Child Elements table.
+`RuleViolations` |  The list of rule violations associated with the itinerary. This parent element contains a **RuleViolation** child element for each associated rule violation. Refer to the [Public Itinerary XSD](/api-reference/travel/itinerary/ItinServices_Public_0.xsd) for more information.
+`Status` |  The status of the itinerary. One of the following: 0 = Confirmed; 1 = Ticketed by agent; 2 = Canceled
+
 
 ### Booking Child Elements
 
@@ -263,7 +263,7 @@ Name |  Description
 `FormOfPaymentName` |  The name of the form of payment for the booking. |
 `FormOfPaymentType` |  The type of the form of payment. |
 `PassengerCount` |  The number of passengers included in the booking. |
-`RecordLocator` |  Record locator for this booking. This is often six alphameric characters but can have other formats depending on the booking source. |
+`RecordLocator` |  Record locator for this booking. This is often six alphanumeric characters but can have other formats depending on the booking source. |
 `RetrievedDateUtc` |  The date the booking was last accessed, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 `TicketMailingAddress` |  The mailing address for the booked ticket, if any. |
 `TicketPickupLocation` |  The pickup location for the booked ticket, if any. |
@@ -271,7 +271,7 @@ Name |  Description
 `AirfareQuotes` |  List of stored airfare quotes. This parent element has a **Quote** child element for each airfare quote. The **Quote** parent element contains [Airfare Quotes Child Elements](#afchild)
 `AirlineTickets` |  List of Airline Tickets. This parent element contains [Airline Tickets Child Elements](#alchild)
 `Charges` |  The charges for the booking.
-`MiscChargeOrders` |  This parent element has a **MiscellaneousChargeOrder** child element for each included miscellaneous charge. The **MiscellaneousChargeOrder** parent element cotains [Miscellaneous Charge Order Child Elements](#mcchild)
+`MiscChargeOrders` |  This parent element has a **MiscellaneousChargeOrder** child element for each included miscellaneous charge. The **MiscellaneousChargeOrder** parent element contains [Miscellaneous Charge Order Child Elements](#mcchild)
 `Passengers` |  This parent element has a **Passenger** child element for each included passenger. Refer to the [Passenger Child Elements](#pchild)
 `PassPrograms` |  This parent element has [**Pass Program** child elements](#ppchild) for each pass program associated with the booking.
 `PhoneNumbers` |  This parent element has [**Phone Number Data** child elements](#phone) for each phone number associated with the booking.
@@ -309,7 +309,7 @@ Name |  Description
 Name |  Description
 -----| ------------
 `ManualAirlineTicket` |  The manual airline ticket for the booking.
-`AirlineTicket |  The airline ticket for the booking.
+`AirlineTicket` |  The airline ticket for the booking.
 `AirlineAdjustment` |  Any adjustment made to the booking.
 
 
@@ -669,7 +669,7 @@ Content-Type: application/xml
 
 ### Description
 
-Creates a new trip or updates an existing trip. A new trip will be created if the trip dates span no existing trip and the request doesn't include a tripId. If a tripId is included in the uri it will update the specified trip. The full trip information is included in the update request, which replaces the existing trip.
+Creates a new trip or updates an existing trip. A new trip will be created if the trip dates span no existing trip and the request doesn't include a tripId. If a tripId is included in the URI it will update the specified trip. The full trip information is included in the update request, which replaces the existing trip.
 
 This endpoint can be used to create trips for a user that is not the OAuth consumer. This is most often done when a travel supplier or Travel Management Company needs to create a trip on behalf of a user. The supplier or TMC must be registered with Concur and have a Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
@@ -728,13 +728,13 @@ This function requires as its arguments an **Itinerary** parent element. The par
 
 |DataType|Name| Data Supported Values|Comment|
 |:--|:------------:|:-------------:|:---------------------|
-|**Numeric**|**ProposalBatchSize**|1 to 3|The number of proposals in the batch. Maximum: 3
-|**Numeric**|**ProposalSequenceIndex**|1 to 3|The index of the proposal in the batch of proposals.|
-|**Text**|**AutoSelectProposal**|True, False|If true, then the proposal will be selected accordingly and replace the segments previously entered by the user. <br> If False, then the proposal will be up to the user to decide which proposal s/he wants to manually select.|
-|**Text**|**TicketIssued**|True, False| Are the tickets for this proposal issued or not.|
-|Text |**DisplayOnItinerary**| True |The value for this element has to be 'True'.|
-|N/A |**DisplayTitle**| N/A |This element should be empty.|
-|N/A |**ExternalId**| N/A | This element should be empty.|
+|Numeric|ProposalBatchSize|1 to 3|The number of proposals in the batch. Maximum: 3
+|Numeric|ProposalSequenceIndex|1 to 3|The index of the proposal in the batch of proposals.|
+|Text|AutoSelectProposal|True, False|If true, then the proposal will be selected accordingly and replace the segments previously entered by the user. <br> If False, then the proposal will be up to the user to decide which proposal s/he wants to manually select.|
+|Text|TicketIssued|True, False| Are the tickets for this proposal issued or not.|
+|Text |DisplayOnItinerary| True |The value for this element has to be 'True'.|
+|N/A|DisplayTitle| N/A |This element should be empty.|
+|N/A |ExternalId| N/A | This element should be empty.|
 
 
 ###  Optional Elements
@@ -783,7 +783,7 @@ This function requires as its arguments an **Itinerary** parent element. The par
 |  Delivery |  The method this booking was delivered.  |
 |  WaitListSegments |  The segments that the traveler is waitlisted for this booking. |
 |  Warning |  The warnings associated with the booking. |
-|  WebAddresses |  List of web addresses such as emails, pickup urls, etc.. associated with this booking. |
+|  WebAddresses |  List of web addresses such as emails, pickup URLs, etc. associated with this booking. |
 |  BookingReferrer |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with Concur, Supplier Mobile, Supplier Web |
 
 ###  XML Example Request
@@ -1503,7 +1503,7 @@ The request contains a Booking parent element with the following child elements:
 |-------------------|--------------|
 |  BookingSource |  The supplier's name. |
 |  ItinSourceName |  The itinerary source. Format: TravelSupplier |
-|  RecordLocator |  Record locator for this booking. This is often six alphameric characters but can have other formats depending on the booking source |
+|  RecordLocator |  Record locator for this booking. This is often six alphanumeric characters but can have other formats depending on the booking source |
 
 
 |  Optional Element |  Description |
@@ -1526,11 +1526,11 @@ The request contains a Booking parent element with the following child elements:
 |  Delivery |  The method this booking was delivered.  |
 |  WaitListSegments |  The segments that the traveler is waitlisted for this booking. |
 |  Warnings |  The warnings associated with the booking. |
-|  WebAddresses |  List of web addresses such as emails, pickup urls, etc.. associated with this bookings |
+|  WebAddresses |  List of web addresses such as emails, pickup URLs, etc. associated with this booking |
 |  BookingReferrer |  BookingReferrer  is used only in specific source  tracking scenarios when there is a need to distinguish between bookings with the same BookingSources coming through different flows. Do not populate without coordinating with your technical contact. The supported values are: Concur Travel, Hipmunk, Sign-in with Concur, Supplier Mobile, Supplier Web |
 
 
-### **Passengers** child elements:
+### Passenger child elements
 
 |  Required Element |  Description   |
 |-------------------|----------------|
@@ -1915,7 +1915,7 @@ The booking elements contain many child elements. For ease of use, these element
 
 |  Element |  Description |
 |----------|-------------|
-|  AirCondition |  The character code that indicates if car has air conditioner. R for AC, N for No AC |
+|  AirCondition |  The character code that indicates if car has an air conditioner. R for AC, N for No AC |
 |  Body |  The character code to indicate how many passengers the car can seat. |
 |  Class |  Character code to indicate the class of the car e.g. if it is economy, full size, compact, etc. Varies by Vendor |
 |  DiscountCode |  The discount code used by the company/TMC to get a discounted rate. |
@@ -2048,8 +2048,11 @@ The booking elements contain many child elements. For ease of use, these element
 |  Element |  Description |
 |----------|-------------|
 |  ConfirmationNumber |  The confirmation number from the vendor. |
-|  Core Elements - Optional |   |
+
+
+####  Core Elements - Optional
 |  Element |  Description |
+|----------|--------------|
 |  CancellationNumber |  The cancellation number from the vendor. This field should be set when you cancel a segment. |
 |  Charges |  The charges for this booking. Refer to the Charges Child Elements table. |
 |  DateCancelledUtc |  The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -2089,7 +2092,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  ConfirmationNumber |  The confirmation number from the vendor. |
 |  EndCityCode |  The ending [IATA airport code][1] of the booking. |
 |  StartCityCode |  The starting [IATA airport code][1] of the booking. |
-|  Vendor |  The two letter GDS vendor code. One of the following codes Vendor codes: |
+|  Vendor |  The two letter GDS vendor code. One of the following vendor codes: |
 
 ##### Vendor Codes
 
@@ -2330,7 +2333,7 @@ The booking elements contain many child elements. For ease of use, these element
 |  EndAddress |  The ending address of the booking. |
 |  EndAddress2 |  The ending address of the booking. |
 |  EndCity |  The ending address of the booking. |
-|  EndCityCode |  The ending address of the booking. |
+|  EndCityCode |  The [IATA airport code][1] for the ending city of the booking. |
 |  EndCountry |  The ending address of the booking. |
 |  EndDateUtc |  The booking ending time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 |  EndLatitude |  The latitude for the ending location of the booking. |
@@ -2349,8 +2352,8 @@ The booking elements contain many child elements. For ease of use, these element
 |  StartCityCode |  The [IATA airport code][1] for the starting city of the booking. |
 |  StartCountry |  The starting address of the booking. |
 |  StartDateUtc |  The starting date of travel for this segment, in UTC. Format: YYYY-MM-DDThh:mm:ss |
-|  StartLatitude |  The latitude of the restaurant. |
-|  StartLongitude |  The longitude of the restaurant. |
+|  StartLatitude |  The latitude of the starting location of the booking. |
+|  StartLongitude |  The longitude of the starting location of the booking. |
 |  StartPostalCode |  The starting address of the booking. Maximum length: 24 |
 |  StartState |  The starting address of the booking. Maximum length: 50 |
 |  Status |  The booking status. |
@@ -2360,6 +2363,14 @@ The booking elements contain many child elements. For ease of use, these element
 |  VendorName |  The name of the vendor. When using the Unknown Vendor Code ($$), this value appears as the vendor in the itinerary. |
 |  Charges |  The charges for this booking. Refer to the Charges Child Elements table. |
 |  Seats |  The seats for the booking. This parent element contains an **TravelSeat** element for each included seat. The **TravelSeat** element contains the following child elements:
+
+##### TravelSeat Elements
+
+|  Element |  Description |
+|----------|-------------|
+|  PassengerRph |  The passenger assigned to the seat. |
+|  SeatNumber |  The number of the seat. |  
+
 
 
 ####  Charges Child Elements
@@ -2433,13 +2444,6 @@ The booking elements contain many child elements. For ease of use, these element
 |  Vendor |  The vendor for the booking charge. |
 |  VendorChargeCode |  The vendor's code for the charge. |
 
-##### TravelSeat Elements
-
-|  Element |  Description |
-|----------|-------------|
-|  PassengerRph |  The passenger assigned to the seat. |
-|  SeatNumber |  The number of the seat. |  
-
 
 ###  Time Zone Formats
 
@@ -2508,6 +2512,7 @@ The booking elements contain many child elements. For ease of use, these element
 
 [1]: https://www.iata.org/publications/Pages/code-search.aspx
 [2]: https://en.wikipedia.org/wiki/ISO_4217
+[3]: https://developer.concur.com/api-reference/travel/itinerary/itinerary.html#semantics_codes
 [4]: https://www.tripit.com/developer
 [5]: https://en.wikipedia.org/wiki/ISO_4217
 [6]: https://en.wikipedia.org/wiki/Neutral_unit_of_construction_(airlines)

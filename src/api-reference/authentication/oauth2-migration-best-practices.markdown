@@ -8,7 +8,7 @@ layout: reference
 ## Old World Authentication
 
   - The old world authentication is a hybrid oauth2 implementation which has an endpoint that looks like this `/net2/oauth2/`
-  - Client applications are identified by a `ConsumerKey` and `Secret` pair. Sometimes this are referred to as `client_id` and `client_secret`.
+  - Client applications are identified by a `ConsumerKey` and `Secret` pair. Sometimes these are referred to as `client_id` and `client_secret`.
   - Access Tokens in the old world have a 12 months expiry period and refresh tokens live forever. This is typically not a good security practice and goes against the Oauth2 standards.
   - Tokens that are being used by clients today are issued for WSADMINs, meaning all tokens have administrative access.
 
@@ -27,7 +27,7 @@ layout: reference
     - Implementation Team will respond with new `client_id`, `client_secret`, company's `refreshToken` and `expiry date`. 
     - Client stores and configures application with this info.
   - Client applications should store the following tokens and data in their application.
-    - `Refresh Token`: This token can change although most of the time this value is the same. Client applications should treat all returned refresh tokens are new values and overwrite the stored  you get it from the response.
+    - `Refresh Token`: This token can change although most of the time this value is the same. Client applications should treat all returned refresh tokens as new values and overwrite the stored values with the new values you get from the response.
     - `Refresh Token Expiry`: This date should be checked by a daily script and ensure that a refresh_grant is made to keep the refresh token alive indefinitely. If company policy dictates that the token should be allowed to expire, then you can skip this step. Once a refresh token has expired, clients would need to contact Concur's Implementation team to get a new company token.
         
 ### 3. Token Management
@@ -40,7 +40,7 @@ layout: reference
         https://us.api.concursolutions.com/profile/v1/me
       ```
 
-    - More documentation here: https://developer.concur.com/api-reference/authentication/getting-started.html
+    - More documentation here: <https://developer.concur.com/api-reference/authentication/getting-started.html>
     
   - Refreshing expired `accessTokens`
     - Since `accessTokens` have a one hour expiry, clients would need to get a new `accessToken` before any API call is made. 
@@ -52,7 +52,7 @@ layout: reference
         - Update `expiry date` for `refreshToken`
         - Retry the API call. 
       
-    - More details about refreshing tokens here: https://developer.concur.com/api-reference/authentication/apidoc.html#refresh_token
+    - More details about refreshing tokens here: <https://developer.concur.com/api-reference/authentication/apidoc.html#refresh_token>
 
   - Handling errors
     - There are a few error codes that client applications should be aware of.
@@ -70,7 +70,7 @@ layout: reference
     |  16  | User lives elsewhere | There will be a geolocation field in the response to this error message. Use this as the base URL and retry the call.|
     |  54  | Invalid Scope | requested scope exceeds what is permitted. |
 
-    - for a full list, review this doc: https://developer.concur.com/api-reference/authentication/apidoc.html#response_codes
+    - for a full list, review this doc: <https://developer.concur.com/api-reference/authentication/apidoc.html#response_codes>
 
 ### 4. Old auth v.s. new auth diagram
 ![old v.s. new](./oldNewAuthComparion.png)
