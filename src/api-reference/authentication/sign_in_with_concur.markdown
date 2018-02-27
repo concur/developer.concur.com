@@ -104,7 +104,7 @@ _For both authentication flows, once authorized, the account is provisioned and 
 
 # <a name="getting_started"></a>Getting Started
 
-**1.**** Obtain your Application clientID and clientSecret**
+**1. Obtain your Application clientID and clientSecret**
 
 Before you can integrate **Sign in with Concur** into your application, you need to register your application with Concur. You can do this by contacting your Partner Enablement Manager or Partner Account Manager. Once you have registered an application, you will receive a _clientId _and _clientSecret_. The _clientId _is a unique UUID4 identifier for your application, and the _clientSecret _is your application password. You will be using this credential to obtain tokens either for the application itself, or on behalf of a user.
 
@@ -324,7 +324,7 @@ Within this response, is the "HasOpenBooking" parameter; if "true" the user is e
 
 If the user has travel only, they will not receive e-receipts.
 
-1. **Store the user permissions information. (optional)**
+2. **Store the user permissions information. (optional)**
 
 The user's permissions can then be used to determine which scopes and APIs are applicable for updates to an existing booking and/or e-receipts.
 
