@@ -184,7 +184,7 @@ Connection: Close
 
 Once the partner completes the oauth2 flow, they receive an `access_token` and `refresh_token`. Using the `access_token` and within the hour lifetime of the token, the partner has the ability to call Concur's APIs.Your application may call Concur's Profile API to obtain user information in order to provision an account in the partner's application.
 
-\*TripLink Suppliers see the appendix for more details.
+*TripLink Suppliers see the appendix for more details.*
 
 Here's an example to retrieve profile information for a User in the Production environment using cURL ( [Base URIs for other Environments](/api-reference/authentication/apidoc.html#base_uri)):
 
@@ -234,11 +234,13 @@ Below are a few special cases that require additional handling:
 
 In the case the user leaves the sign in process or sign in is unsuccessful, the user will be redirected to the following:
 
+```
 Your_Redirect_Uri?
 
  error_code=user_denied
 
  &error_description=The+user+denied+your+request.
+```
 
 Apps should then provide the user with alternative connection methods:
 
@@ -251,11 +253,13 @@ Apps should then provide the user with alternative connection methods:
 
 Customers have the option to disable applications for their users. In these cases, the user will be redirected to the following:
 
+```
 Your_Redirect_Uri?
 
  error_code=
 
  &error_description=
+```
 
 In this case, the user will not be able to access your application using Sign in with Concur. The error description should be displayed to the user and the user given alternate sign in methods (e.g. create an account).
 
@@ -295,11 +299,13 @@ To determine which permissions the user has access to, **each time a user signs 
 
 A user can have one or more permissions that will dictate the scopes applicable to that user.
 
+```
 curl -k -v -H "Accept: application/json"\
 
 -H "Authorization: Bearer …ypN2lukfWACR-26otN50c0OzY6kgY06RA"\
 
 https://us.api.concursolutions.com/api/user/v1.0/user
+```
 
 The detailed response can be found here: [/api-reference/user/](/api-reference/user/) (snippet below).
 
@@ -322,7 +328,7 @@ If the user has travel only, they will not receive e-receipts.
 
 The user's permissions can then be used to determine which scopes and APIs are applicable for updates to an existing booking and/or e-receipts.
 
-\* The user's permissions can change at any time. It is recommended that the permissions be checked each time the user logs in to determine whether new functionality is available to the user.
+* The user's permissions can change at any time. It is recommended that the permissions be checked each time the user logs in to determine whether new functionality is available to the user. *
 
 ## <a name="supported_languages"></a>Supported Languages
 
