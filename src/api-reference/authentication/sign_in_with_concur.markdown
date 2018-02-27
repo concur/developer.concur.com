@@ -116,7 +116,7 @@ _For both authentication flows, once authorized, the account is provisioned and 
 
 **1. Obtain your Application clientID and clientSecret**
 
-Before you can integrate **Sign in with Concur** into your application, you need to register your application with Concur. You can do this by contacting your Partner Enablement Manager or Partner Account Manager. Once you have registered an application, you will receive a _clientId _and _clientSecret_. The _clientId _is a unique UUID4 identifier for your application, and the _clientSecret _is your application password. You will be using this credential to obtain tokens either for the application itself, or on behalf of a user.
+Before you can integrate **Sign in with Concur** into your application, you need to register your application with Concur. You can do this by contacting your Partner Enablement Manager or Partner Account Manager. Once you have registered an application, you will receive a `clientId` and `clientSecret`. The `clientId` is a unique UUID4 identifier for your application, and the `clientSecret` is your application password. You will be using this credential to obtain tokens either for the application itself, or on behalf of a user.
 
 **2. Add the button to your application**
 
@@ -142,19 +142,26 @@ The first script adds the Concur style library to your page and the second appli
 
 
 
-Clicking this button renders the Sign in with Concur screen which presents two options to the user for signing in: 1) using Concur credentials OR 2) using a link sent via email. Option 2 is designed for users who do not want to use passwords or those that do not have passwords such as Single Sign On (SSO) users.
+Clicking this button renders the Sign in with Concur screen which presents two options to the user for signing in: 
+1) using Concur credentials 
+OR 
+2) using a link sent via email. 
+
+Option 2 is designed for users who do not want to use passwords or those that do not have passwords such as Single Sign On (SSO) users.
 
  ![sign in email option](sign_in_with_concur_images/authorization_grant_sign_in_email.png)
 
 **3. Handle Authorization Completion**
 
-When users choose the email option, an email will be sent to the user that contains the redirect_uri chosen by the partner in Step 1. If the user selects the username and password option, after accepting the scopes, the user is also sent to the redirect_uri provided.
+When users choose the email option, an email will be sent to the user that contains the `redirect_uri` chosen by the partner in Step 1. If the user selects the username and password option, after accepting the scopes, the user is also sent to the `redirect_uri` provided.
 
-There will also be a temporary one-time use code which is appended to this redirect_uri. For example, if our redirect URI is https://www.hipmunk.com/auth/concur/callback, the code will be returned as:
+There will also be a temporary one-time use code which is appended to this `redirect_uri`. For example, if our redirect URI is https://www.hipmunk.com/auth/concur/callback, the code will be returned as:
 
-        `https://www.hipmunk.com/auth/concur/callback?cc=<token>`
+        ```
+        https://www.hipmunk.com/auth/concur/callback?cc=<token>
+        ```
 
-The call to this redirect_uri will contain a temporary code `cc` which should be used to obtain an official oauth2 `accesstoken` and `refreshtoken`.
+The call to this `redirect_uri` will contain a temporary code `cc` which should be used to obtain an official oauth2 `accesstoken` and `refreshtoken`.
 
 The response for a successful call will look like this:
 
@@ -198,12 +205,13 @@ Once the partner completes the oauth2 flow, they receive an `access_token` and `
 
 Here's an example to retrieve profile information for a User in the Production environment using cURL ( [Base URIs for other Environments](/api-reference/authentication/apidoc.html#base_uri)):
 
+```
 curl -k -v -H "Accept: application/json"\
 
 -H "Authorization: Bearer …ypN2lukfWACR-26otN50c0OzY6kgY06RA"\
 
 https://us.api.concursolutions.com/profile/v1/me
-
+```
 
 
 The response from the Profile service will be a compact version of the User profile. The schema can be found [here](/api-reference/profile-beta/user.json).
@@ -238,7 +246,7 @@ Once the account is provisioned or matched, the application must:
 
 In all cases, the error description provided by Concur should be displayed to the user.
 
-Below are a few special cases that require additional handling:
+The following covers special cases that require additional handling.
 
 ## <a name="authorization_declined"></a>Authorization Declined
 
@@ -307,38 +315,38 @@ To determine which permissions the user has access to, **each time a user signs 
 
 1. **Call the User Profile API to get the user's permissions.**
 
-A user can have one or more permissions that will dictate the scopes applicable to that user.
+  A user can have one or more permissions that will dictate the scopes applicable to that user.
 
-```
-curl -k -v -H "Accept: application/json"\
+  ```
+  curl -k -v -H "Accept: application/json"\
 
--H "Authorization: Bearer …ypN2lukfWACR-26otN50c0OzY6kgY06RA"\
+  -H "Authorization: Bearer …ypN2lukfWACR-26otN50c0OzY6kgY06RA"\
 
-https://us.api.concursolutions.com/api/user/v1.0/user
-```
+  https://us.api.concursolutions.com/api/user/v1.0/user
+  ```
 
-The detailed response can be found here: [/api-reference/user/](/api-reference/user/) (snippet below).
+  The detailed response can be found here: [/api-reference/user/](/api-reference/user/) (snippet below).
 
-| **Name** | **Type** | **Format** | **Description** |
-| --- | --- | --- | --- |
-| ExpenseUser | string |   | Whether the user has access to Expense. Format: Y/N. |
-| TripUser | string |   | Whether the user has access to Travel. Format: Y/N. |
+  | **Name** | **Type** | **Format** | **Description** |
+  | --- | --- | --- | --- |
+  | ExpenseUser | string |   | Whether the user has access to Expense. Format: Y/N. |
+  | TripUser | string |   | Whether the user has access to Travel. Format: Y/N. |
 
-The response will indicate whether the is an Expense or Travel user.
+  The response will indicate whether the is an Expense or Travel user.
 
-**If an expense user only** , only the e-receipts scope is applicable and the user will not be eligible for other travel discounts or automated itinerary creation in Concur.
+  **If an expense user only** , only the e-receipts scope is applicable and the user will not be eligible for other travel         discounts or automated itinerary creation in Concur.
 
-**If a travel user, use the token to call the** [**Travel Profile API**](/api-reference/travel-profile/01-profile-resource.html) **.**
+  **If a travel user, use the token to call the** [**Travel Profile API**](/api-reference/travel-profile/01-profile-            resource.html) **.**
 
-Within this response, is the "HasOpenBooking" parameter; if "true" the user is eligible for TripLink.
+  Within this response, is the "HasOpenBooking" parameter; if "true" the user is eligible for TripLink.
 
-If the user has travel only, they will not receive e-receipts.
+  If the user has travel only, they will not receive e-receipts.
 
 2. **Store the user permissions information. (optional)**
 
-The user's permissions can then be used to determine which scopes and APIs are applicable for updates to an existing booking and/or e-receipts.
+  The user's permissions can then be used to determine which scopes and APIs are applicable for updates to an existing booking   and/or e-receipts.
 
-* The user's permissions can change at any time. It is recommended that the permissions be checked each time the user logs in to determine whether new functionality is available to the user. *
+  * The user's permissions can change at any time. It is recommended that the permissions be checked each time the user logs       in to determine whether new functionality is available to the user. *
 
 ## <a name="supported_languages"></a>Supported Languages
 
