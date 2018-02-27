@@ -146,7 +146,8 @@ The call to this redirect_uri will contain a temporary code `cc` which should be
 
 The response for a successful call will look like this:
 
-`**HTTP/** 1.1200 **OK**
+`
+**HTTP/** 1.1200 **OK**
 
 Content-Type: application/json;charset=UTF-8
 
@@ -172,7 +173,8 @@ Connection: Close
 
   "geolocation":"https://us.api.concursolutions.com"
 
-}`
+}
+`
 
 
 
