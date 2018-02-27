@@ -112,7 +112,8 @@ Before you can integrate **Sign in with Concur** into your application, you need
 
 The first script adds the Concur style library to your page and the second applies the style to your button.
 
-`<script
+`
+<script
 
         data-client-id=[yourClientID]
 
@@ -126,7 +127,8 @@ The first script adds the Concur style library to your page and the second appli
 
         <div id="concur-signin"></div>
 
-    </div>`
+    </div>
+`
 
 
 
