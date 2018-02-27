@@ -112,7 +112,8 @@ Before you can integrate **Sign in with Concur** into your application, you need
 
 The first script adds the Concur style library to your page and the second applies the style to your button.
 
-```<script
+```
+<script
 
         data-client-id=[yourClientID]
 
@@ -126,7 +127,8 @@ The first script adds the Concur style library to your page and the second appli
 
         <div id="concur-signin"></div>
 
-    </div>```
+    </div>
+```
 
 
 
@@ -146,7 +148,8 @@ The call to this redirect_uri will contain a temporary code `cc` which should be
 
 The response for a successful call will look like this:
 
-```**HTTP/** 1.1200 **OK**
+```
+**HTTP/** 1.1200 **OK**
 
 Content-Type: application/json;charset=UTF-8
 
@@ -172,7 +175,8 @@ Connection: Close
 
   "geolocation":"https://us.api.concursolutions.com"
 
-}```
+}
+```
 
 
 
