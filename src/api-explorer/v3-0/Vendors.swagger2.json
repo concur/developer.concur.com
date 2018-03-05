@@ -31,7 +31,7 @@
           "Resources"
         ],
         "summary": "Retrieves an existing vendor.",
-        "description": "Gets an existing vendor.",
+        "description": "Gets an existing vendor. Note: If authenticating with a Company JWT the API will return all vendors associated with a specific entity.",
         "parameters": [
           {
             "name": "limit",
@@ -101,6 +101,13 @@
             "name": "addressCode",
             "in": "query",
             "description": "Address Code to be searched",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "paymentMethodType",
+            "in": "query",
+            "description": "Payment Method Type to be searched. Valid values are ACH, CARD, CHECK, CLIENT, PAYPVD, VCHER, WIRE",
             "required": false,
             "type": "string"
           },

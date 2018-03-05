@@ -20,6 +20,7 @@ layout: reference
 ## <a name="get"></a>Retrieve an existing vendor 
 
     GET  /api/v3.0/invoice/vendors
+    Note: If authenticating with a Company JWT the API will return all vendors associated with a specific entity.
 
 ### Parameters  
 
@@ -34,6 +35,7 @@ Name | Type | Format | Description
 `vendorName`|`string`|`query`|Vendor Name to be searched
 `taxID`|`string`|`query`|Tax ID to be searched
 `buyerAccountNumber`|`string`|`query`|Buyer Account Number to be searched
+`paymentMethodType`|`string`|`query`|Payment Method Type - valid values are ACH, CARD, CHECK, CLIENT, PAYPVD, VCHER, WIRE
 `addressCode`|`string`|`query`|Address Code to be searched
 `address1`|`string`|`query`|Address 1 to be searched
 `address2`|`string`|`query`|Address 2 to be searched
