@@ -311,7 +311,7 @@ Depending on the products the customer has enabled, integrations and features av
 - Expense Only Access:* 
   - E-receipt
 
-* Special Note: For TripLink Suppliers that support the [Travel Receipts API](https://developer.concur.com/api-reference/travel-receipts/getting-started.html), this API does not support Expense only users. It is recommended that e-receipts be posted for these or all users via the [Receipts API](https://developer.concur.com/api-reference/receipts/get-started.html).
+* Special Note: For TripLink Suppliers that support the [Travel Receipts API](/api-reference/travel-receipts/getting-started.html), this API does not support Expense only users. It is recommended that e-receipts be posted for these or all users via the [Receipts API](/api-reference/receipts/get-started.html).
 
 To determine which permissions the user has access to, **each time a user signs in** \*, your application should:
 
