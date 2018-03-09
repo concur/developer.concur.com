@@ -2,7 +2,8 @@
  * Wrapper components to render SkyForm fields with validation errors
  */
 
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Select from 'react-select';
 import { Field } from 'redux-form';
 
