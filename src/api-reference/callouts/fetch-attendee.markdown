@@ -71,7 +71,7 @@ Refer to the **Installation Process** for more information.
 ## Installation Process
 The installation process includes installing the application connector, and registering it with Concur.
 
-Fist, the client or third-party developer will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. 
+First, the client or third-party developer will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. 
 
 During installation, the client or developer will select and configure an externally available endpoint on the host server for Concur to send the attendee search request to. 
 
