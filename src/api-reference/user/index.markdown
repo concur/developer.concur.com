@@ -11,7 +11,7 @@ The Users resource represents a set of Concur users. It is always managed as a b
 * [Retrieve a users information](#getUser)
 * [Retrieve all users based on search criteria](#getall)
 * [Retrieve the list of required fields for creating a user](#requiredFields)
-* [Create or update a users account information](#createUser)
+* [Update a users account information](#createUser) - Create a User is not supported at this time.
 * [Update a users password](#updatePwd)
 
 
