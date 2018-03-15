@@ -6,6 +6,8 @@ layout: reference
 
 # PREVIEW - Get Users Bulk API
 
+## THIS IS AN EXPERIMENTAL API. PLEASE DO NOT USE WITHOUT PRIOR AUTHORIZATION FROM THE CORE-SERVICES TEAM IN CONCUR. ##
+
 * [Overview]()
 * [Obtain Company Token](#company)
 * [Calling /users Bulk API](#usersbulk)
