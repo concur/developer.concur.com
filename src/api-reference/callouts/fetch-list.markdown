@@ -10,8 +10,6 @@ This callout differs from the inbound Concur web services in the following ways:
 
 * It uses an **outbound** **message** where Expense calls a public facing API endpoint provided by the application connector.  
 * The third-party developer or client can configure and maintain the public web service interface (the application connector), or the connector can be maintained by Concur. This guide specifies the request and response format required by Concur.
-* Concur provides a sample connector application that the developer or client can install on their network and customize to interface with their system of record for list items. Concur can also customize the connector.
-* The developer or client can choose to create their own application connector using a different language, such as PHP, if preferred.
 * The client Expense administrator must configure a list (most commonly a connected list), and Concur must perform database configuration on the list before this service can be used.
 
 ## Works With These Concur Products

@@ -6,21 +6,23 @@ layout: reference
 
 ## Description    
 
-The Concur Fetch Attendee version 2.0 callout allows clients to import attendee information from their internal system to Expense when a user is adding attendees to an expense. The Expense service sends the attendee search fields to an application connector, created by the client, a third-party developer, or Concur. The connector is hosted by the client or third-party developer, and has access to the attendee system of record. The connector uses the attendee information sent from Expense to search for all matching attendee records in the client's system. Once the connector has the list of possible matches, it sends the attendee data to Expense. The user sees the list of matches and can select the appropriate attendee for the expense.
+The Concur Fetch Attendee version 2.0 callout allows clients to import attendee information from their internal system to Concur when a user is adding attendees to an entry. The Concur service sends the attendee search fields to an application connector, created by the client, a third-party developer, or Concur. The connector is hosted by the client or third-party developer, and has access to the attendee system of record. The connector uses the attendee information sent from Concur to search for all matching attendee records in the client's system. Once the connector has the list of possible matches, it sends the attendee data to Concur. The user sees the list of matches and can select the appropriate attendee for the entry.
 
 This callout differs from the standard Concur web services in the following ways:
 
-* It uses an **outbound message** where Expense calls a public facing API endpoint provided by the application connector.  
+* It uses an **outbound message** where Concur calls a public facing API endpoint provided by the application connector.  
 Refer to **Callouts >** [Core Concepts][1] for more information.
 * The client or third-party developers can configure and maintain the public web service interface (the application connector), or the connector can be maintained by Concur. This documentation specifies the request and response format required by Concur.
-* Clients can either choose to create their own application connector using PHP, Java, .NET, etc., or can use one of Concur Partner's Attendee Fetch applications.
-* The client Expense Administrator must select the attendee types that will use this functionality during application connector registration. Once the attendee types are selected, they will be automatically configured to not allow users to create new attendees manually.
+
+* Clients can either choose to create their own application connector using PHP, Java, .NET etc or can use one of Concur Partner's Attendee Fetch applications.
+* The client Concur Administrator must select the attendee types that will use this functionality during application connector registration. Once the attendee types are selected, they will be automatically configured to not allow users to create new attendees manually.
 
 ### Works With These Concur Products
 
 * **Expense** for Concur Professional/Premium
 * **Expense** for Concur Standard
 * **Expense** for Mobile
+* **Request** for Concur Professional/Premium
 
 
 ### Product Restrictions    
@@ -38,25 +40,27 @@ Information on how to download, install, and configure the application connector
 The configuration process has the following steps:
 
 1. Client, third party developer, or Concur downloads, installs, configures, and customizes the application connector.
-2. (Optional--Professional/Premium only) Expense Admin creates a new attendee type to use with the connector.
+
+2. (Optional- Professional/Premium only) client Concur admin creates a new attendee type to use with the connector.
+
 3. Client registers the application connector, selecting the attendee types that will use the connector.
 Once the configuration is complete, the callout uses the following process:
 	1. The user selects the appropriate attendee type in the **Search Attendees** window.
 	2. The user enters information into an attendee field and clicks **Search**.
-	3. Expense sends the attendee search field information to the application connector. This request includes all attendee fields, with any blank values formatted as an empty string.
-	4. The application connector queries the attendee system of record and returns a list of results to Expense.  
+	3. Concur sends the attendee search field information to the application connector. This request includes all attendee fields, with any blank values formatted as an empty string.
+	4. The application connector queries the attendee system of record and returns a list of results to Concur.  
 **NOTE**: The results list is limited to 100 records.  
-	5. Expense displays the results in the **Search Results** section of the **Search Attendees** window.  
-**NOTE**: If the application connector does not respond or returns an error, the user is notified in a popup window within Expense.
+	5. Concur displays the results in the **Search Results** section of the **Search Attendees** window.  
+**NOTE**: If the application connector does not respond or returns an error, the user is notified in a popup window within Concur.
 Concur will not resend the request unless the user manually initiates the search again.
-	6. If the user adds the attendees to the expense entry, the attendee information is saved in Expense.
+	6. If the user adds the attendees to the entry, the attendee information is saved in Concur.
 
 ### Security
   Concur will make calls to the application connector's endpoint using SSL. During configuration, Concur will connect to the application connector to validate that its hostname and access credentials are valid.
 
 In the code Concur provides for a sample application connector, credentials are stored in a web configuration file that varies by platform, such as web.xml or web.config. However, if you are hosting the connector, you can customize where and how the credentials are stored by customizing HTTPBasicAuth.java or Authentication.cs.
 
-Expense will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. You will need to install the signed certificate before Concur can access the connector.
+Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. You will need to install the signed certificate before Concur can access the connector.
 
 
 ### Authentication
@@ -100,8 +104,8 @@ The client then registers the application connector with Concur:
 12. Click Test Connection. Concur will attempt to access the configured endpoint with the provided user credentials.
 13. Click Save. The application connector is now registered with Concur and enabled.
 
-### Concur Expense Configuration
-The Expense administrator can select which attendee types use the connector when registering the application connector. These attendee types will be automatically configured to not allow users to create new attendees manually.
+### Concur Configuration
+The Concur administrator can select which attendee types use the connector when registering the application connector. These attendee types will be automatically configured to not allow users to create new attendees manually.
 
 **Professional/Premium only:** If desired, the administrator can create a new attendee type specifically for use with the connector.
 
