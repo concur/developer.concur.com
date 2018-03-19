@@ -11,9 +11,8 @@ The Users resource represents a set of Concur users. It is always managed as a b
 * [Retrieve a user's information](#getUser)
 * [Retrieve all users based on search criteria](#getall)
 * [Retrieve the list of required fields for creating a user](#requiredFields)
-* [Create or update a user's account information](#createUser)
+* [Update a user's account information](#createUser) - Create a User is not supported at this time.
 * [Update a user's password](#updatePwd)
-
 
 ### Version
 1.0
@@ -98,11 +97,11 @@ Name | Type | Format | Description
 
 ## <a name="createUser"></a>Create or update a user's account information
 
-Adds or updates one or more users. The batch can contain up to 500 users.
+Updates one or more users. The batch can contain up to 500 users. (Creating Users is not fully supported at this time)
 
     POST api/user/v1.0/users
 
-This API requires as its arguments a `batch` element containing a `UserProfile` child element for each user to be added or updated. The UserProfile child elements will vary depending on the form configuration, and may contain the following elements.
+This API requires as its arguments a `batch` element containing a `UserProfile` child element for each user to be added (in the future) or updated. The UserProfile child elements will vary depending on the form configuration, and may contain the following elements.
 
 ### Request
 
@@ -141,7 +140,7 @@ Name | Type | Format | Description
 `records-succeeded`|`string` | | The number of records processed that were successfully added or updated.
 `records-failed`|`string` | | The number of records processed that were not successfully added or updated.
 
-When any users are successfully added or updated:
+When any users are successfully updated:
 
 The request will return the UserDetails parent element with a UserInfo element for each successfully added or updated user. The UserInfo elements will contain the following child elements:
 
