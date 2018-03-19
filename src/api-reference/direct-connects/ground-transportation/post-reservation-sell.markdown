@@ -74,8 +74,8 @@ If this value is not provided by the user, it will default to 100
 The pick up location. This parent element contains the following child elements:
 
 * **LocationType:** One of the following: 100 - Address, 200 - Airport, 300 - Train station.
-* **Airport:**	Refer to the Airport Elements table. Provided if the LocationType = 200.
-* **TrainStation:**	Refer to the Train Station Elements table. Provided if the LocationType = 300.
+* **Airport:**	Refer to the **Airport elements** table. Provided if the LocationType = 200.
+* **TrainStation:**	Refer to the **Train Station elements** table. Provided if the LocationType = 300.
 * **Address:**	The street address of the location. Provided if the LocationType = 100.
 * **City:**	The location city.
 * **State:**	The location state. Preferably 2 characters, max 10 characters.
@@ -87,8 +87,8 @@ The pick up location. This parent element contains the following child elements:
 The drop off location. This parent element contains the following child elements:
 
 * **LocationType:** 	One of the following: 100 - Address, 200 - Airport, 300 - Train station, 400 - As directed.
-* **Airport:**	Refer to the Airport Elements table. Provided if the LocationType = 200.
-* **TrainStation:** 	Refer to the Train Station Elements table. Provided if the LocationType = 300.
+* **Airport:**	Refer to the **Airport elements** table. Provided if the LocationType = 200.
+* **TrainStation:** 	Refer to **the Train Station elements** table. Provided if the LocationType = 300.
 * **Address:**	The street address of the location. Provided if the LocationType = 100.
 * **City:**	The location city.
 * **State:**	The location state. Preferably 2 characters, max 10 characters.
@@ -97,8 +97,7 @@ The drop off location. This parent element contains the following child elements
 * **ExtraNotes:**	Additional notes about the location. Example: Apartment Building, gravel driveway, etc.
 
 #### StartDateTime
-The time, in GMT, that the reservation must begin.
-**Format:** 2015-05-19T18:00:00
+The time, in GMT, that the reservation must begin. **Format:** 2015-05-19T18:00:00
 
 #### EndDateTime
 The time, in GMT that the reservation will end. Provided for hourly reservations. **Format:** 2015-05-19T18:00:00
@@ -185,7 +184,7 @@ The reservation vendor. This parent element contains the following child element
 #### FormOfPayment
 The form of payment for the reservation. This parent element contains one of the following child elements:
 
-* CreditCard:	If present, the passenger will pay with credit card. Refer to the Reply Credit Card: Elements table for the child elements.
+* CreditCard:	If present, the passenger will pay with credit card. Refer to the **Reply Credit Card elements** table for the child elements.
 * Cash:	If present, the passenger will pay cash.
 * Check:	If present, the passenger will pay with a check.
 * DirectBilling:	If present, the passenger will pay through direct billing.
@@ -201,28 +200,23 @@ The details of the pickup arrangement, if available.
 
 #### DropoffServiceArrangement
 The details of the dropoff arrangement, if available.
-ExtraStopArrangement	The details of the extra stop arrangement, if available.
+
+####ExtraStopArrangement
+The details of the extra stop arrangement, if available.
 
 #### RequestedDriver
 The name of the requested driver, if available.
-
-* SpecialServiceRequest	: The details of the special service request, if available.
-* PickupServiceArrangement:	The details of the pickup arrangement, if available.
-* DropoffServiceArrangement:	The details of the dropoff arrangement, if available.
-* ExtraStopArrangement:	The details of the extra stop arrangement, if available.
 
 ### Airport Elements
 
 #### AirportCode
 The IATA code for the airport.
 
-* Flight:	The flight information. This parent element contains the following child elements:
-	* CarrierCode:	The airline code.
-	* FlightNumber:	The flight number.
-	* ArrivalDateTime:	The flight arrival time. Only provided for the PickupLocation element.
- **Format:** 2015-05-19T18:00:00
-	* DepartureDateTime:	The flight departure time. Only provided for the DropoffLocation element.
-**Format:** 2015-05-19T18:00:00
+Flight:	The flight information. This parent element contains the following child elements:
+* CarrierCode:	The airline code.
+* FlightNumber:	The flight number.
+* ArrivalDateTime:	The flight arrival time. Only provided for the PickupLocation element. **Format:** 2015-05-19T18:00:00
+* DepartureDateTime:	The flight departure time. Only provided for the DropoffLocation element. **Format:** 2015-05-19T18:00:00
 
 ### Train Station Elements
 
@@ -244,10 +238,8 @@ The train information. This parent element contains the following child elements
 * CarrierCode:	The code of the train carrier.
 * CarrierName:	The name of the train carrier.
 * TrainNumber:	The train number.
-* ArrivalDateTime:	The train arrival time. Only provided for the PickupLocation element.
-**Format:** 2015-05-19T18:00:00
-* DepartureDateTime:	The train arrival time. Only provided for the PickupLocation element.
-**Format:** 2015-05-19T18:00:00
+* ArrivalDateTime:	The train arrival time. Only provided for the PickupLocation element. **Format:** 2015-05-19T18:00:00
+* DepartureDateTime:	The train arrival time. Only provided for the PickupLocation element. **Format:** 2015-05-19T18:00:00
 
 
 ### Credit Card Elements
@@ -366,13 +358,13 @@ The response will include a **CC_LimoSellReply** parent element, with the follow
 
 |Element |Required? |Description |
 |-------|-----------|-----------|
-|Error | Y | The error information, if an error occurred. For information about the child elements of this parent element, see the *Error elements* table below. |
+|Error | Y | The error information, if an error occurred. For information about the child elements of this parent element, see the **Error elements** table below. |
 |ReservationID|	N|	The identifier for the reservation.|
 |Status|N|	The status of the reservation. The value will be one of the following:<br/>RB: Reservation Pending<br/>RA: Reservation Accepted (Reserved)<br/>RD: Reservation Declined|
 |ConfNum|	N	|The confirmation number for the reservation.|
 |CancelPolicy	|N	|The cancellation policy for the reservation.|
 |CancelNum	|N	|The cancellation number for the reservation.|
-|PrimaryPassenger	|Y	|The passenger contact name for the reservation. For information about the child elements of this parent element, see the *PrimaryPassenger elements* table below. |
+|PrimaryPassenger	|Y	|The passenger contact name for the reservation. For information about the child elements of this parent element, see the **PrimaryPassenger elements** table below. |
 |  ServiceType | Y  |  The type of service requested. Will contain one of the following values: <br/>100: Point to point <br/>110: One way to airport  <br/>111: One way from airport  <br/>120: One way to train station  <br/>121: One way from train station  <br/>200: Hourly  <br/>300: Airport to airport |
 |  ClassOfService | N  |  The requested service class. Will contain one of the following values:<br/>100: Normal  <br/>200: High  <br/>300: Highest<br/><br/>If this value is not provided by the user, it will default to 100. |
 |  PickupLocation | Y  |  The pick up location. For information about the child elements of this parent element, see the **PickupLocation elements** table below. |

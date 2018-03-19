@@ -43,20 +43,19 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  ClassOfService |  N |  The requested service class. Will contain one of the following values:<br/>100: Normal  <br/>200: High  <br/>300: Highest<br/><br/>If this value is not provided by the user, it will default to 100. |
 |  PickupLocation |  Y |  The pick up location. For information about the child elements of this parent element, see the **PickupLocation elements** table below. |
 |  DropoffLocation |  Y |  The drop off location. For information about the child elements of this parent element, see the **DropoffLocation elements** table below. |
-|  StartDateTime |  Y |  The time, in GMT, that the reservation must begin. **Format**: 2015-05-19T18:00:00 |
-|  EndDateTime |  N |  The time, in GMT that the reservation will end. Provided for hourly reservations. **Format**: 2015-05-19T18:00:00 |
+|  StartDateTime |  Y |  The time, in GMT, that the reservation must begin. Format: 2015-05-19T18:00:00 |
+|  EndDateTime |  N |  The time, in GMT that the reservation will end. Provided for hourly reservations. Format: 2015-05-19T18:00:00 |
 |  PickupInstructions |  N |  Additional instructions about the pick up request. |
 |  DropoffInstructions |  N |  Additional instructions about the drop off request. |
 |  LanguageCode |  Y |  The language of the traveler. Will be one of the following options: <br/>en: English  <br/>en-us: English (US)  <br/>en-gb: English (UK)  <br/>fr: French  <br/>fr-ca: French (Canadian)  <br/>de: German  <br/>pt: Portuguese  <br/>es: Spanish  <br/>nl: Dutch  <br/>it: Italian  <br/>ja: Japanese  <br/>pl: Polish  <br/>pt-br: Portuguese (Brazilian)  <br/>ru: Russian  <br/>hu: Hungarian  <br/>ko: Korean  <br/>sv: Swedish  <br/>zh-cn: Chinese  <br/>zh-tw: Traditional Chinese|
-|  Currency |  Y |  The <a href="http://en.wikipedia.org/wiki/ISO_4217" target="_blank">3-letter ISO 4217 currency code</a>
- for the reservation amount. |
+|  Currency |  Y |  The <a href="http://en.wikipedia.org/wiki/ISO_4217" target="_blank">3-letter ISO 4217 currency code</a> for the reservation amount. |
 |  NumPassengers |  N |  The number of passengers. |
 |  RequestedDriver |  N |  The name of the requested driver, if available. |
 |  SpecialServiceRequest |  N |  The details of the special service request, if available. |
 |  PickupServiceArrangement |  N |  The details of the pickup arrangement, if available. |
 |  DropoffServiceArrangement |  N |  The details of the dropoff arrangement, if available. |
 |  ExtraStopArrangement |  N |  The details of the extra stop arrangement, if available. |
-|  RateInfo |  Y |  The booked rate details. Refer to the Rate Information Elements table for more information. |
+|  RateInfo |  Y |  The booked rate details. Refer to the **Rate Information elements** table for more information. |
 |  Vehicle |  Y |  The vehicle details. For information about the child elements of this parent element, see the **Vehicle elements** table below. |
 |  Vendor |  Y |  The reservation vendor. For information about the child elements of this parent element, see the **Vendor elements** table below. |
 |  FormOfPayment |  Y |  The form of payment for the reservation. For information about the child elements of this parent element, see the **FormOfPayment elements** table below. |
@@ -88,8 +87,8 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  Element |  Description |
 |-------------|----------------------|
 |  LocationType |  One of the following: 100 - Address, 200 - Airport, 300 - Train station. |
-|  Airport |  Refer to the Airport Elements table. Provided if the LocationType = 200. |  
-|  TrainStation |  Refer to the Train Station Elements table. Provided if the LocationType = 300. |
+|  Airport |  Refer to the **Airport elements** table. Provided if the LocationType = 200. |  
+|  TrainStation |  Refer to the **Train Station elements** table. Provided if the LocationType = 300. |
 |  Address |  The street address of the location. Provided if the LocationType = 100. |
 |  City |  The location city. |
 |  State |  The location state. Preferably 2 characters, max 10 characters. |
@@ -102,8 +101,8 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |  Element |  Description |
 |-------------|----------------------|
 |  LocationType |  One of the following: 100 - Address, 200 - Airport, 300 - Train station, 400 - As directed. |
-|  Airport |  Refer to the Airport Elements table. Provided if the LocationType = 200. |  
-|  TrainStation |  Refer to the Train Station Elements table. Provided if the LocationType = 300. |
+|  Airport |  Refer to the **Airport elements** table. Provided if the LocationType = 200. |  
+|  TrainStation |  Refer to the **Train Station elements** table. Provided if the LocationType = 300. |
 |  Address |  The street address of the location. Provided if the LocationType = 100. |
 |  City |  The location city. |
 |  State |  The location state. Preferably 2 characters, max 10 characters. |
@@ -132,7 +131,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 
 |  Element |  Description |
 |-------------|----------------------|
-|  CreditCard |  If present, the passenger will pay with credit card. Refer to the Reply Credit Card Elements table for the child elements. |
+|  CreditCard |  If present, the passenger will pay with credit card. Refer to the **Reply Credit Card elements** table for the child elements. |
 |  Cash |  If present, the passenger will pay cash. |  
 |  Check |  If present, the passenger will pay with a check. |
 |  DirectBilling |  If present, the passenger will pay through direct billing. |
@@ -171,7 +170,7 @@ The request will contain a **CC_LimoPostBackRequest** parent element, containing
 |CarrierName	  |The name of the train carrier.|
 |TrainNumber |The train number.|
 |ArrivalDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
-|DepartureDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
+|DepartureDateTime |The train departure time. Only provided for the DropoffLocation element. Format: 2015-05-19T18:00:00|
 
 #### Rate Information elements
 

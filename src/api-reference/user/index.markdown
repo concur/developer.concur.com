@@ -8,17 +8,16 @@ layout: reference
 The Users resource represents a set of Concur users. It is always managed as a batch of users, even if the batch contains only one user.
 
 
-* [Retrieve a users information](#getUser)
+* [Retrieve a user's information](#getUser)
 * [Retrieve all users based on search criteria](#getall)
 * [Retrieve the list of required fields for creating a user](#requiredFields)
-* [Update a users account information](#createUser) - Create a User is not supported at this time.
-* [Update a users password](#updatePwd)
-
+* [Update a user's account information](#createUser) - Create a User is not supported at this time.
+* [Update a user's password](#updatePwd)
 
 ### Version
 1.0
 
-## <a name="getUser"></a>Retrieve a users information
+## <a name="getUser"></a>Retrieve a user's information
 
 This resource allows you to get profile information for a given user. If a request URL does not include a `?loginID` parameter then the response will be for the logged in user (and you must pass authentication information with your request).
 
@@ -35,7 +34,7 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------| ------ | --------------
-`loginID`|`string` | | The user's logon ID.
+`loginID`|`string` | | The user's login ID.
 `Active`|`string` | | Whether the user is currently active. Format: Y/N.
 `FirstName`|`string` | | The user's first name.
 `LastName`|`string` | | The user's last name.
@@ -96,7 +95,7 @@ Name | Type | Format | Description
 `ListName`|`string` | | The name of the list associated with the field.
 `HierLevel`|`string` | | The list level of the field. If it is the second level field in a two-level list, the value would be 2.
 
-## <a name="createUser"></a>Create or update a users account information
+## <a name="createUser"></a>Create or update a user's account information
 
 Updates one or more users. The batch can contain up to 500 users. (Creating Users is not fully supported at this time)
 
@@ -110,7 +109,7 @@ Name | Type | Format | Description
 -----|------| ------ | --------------
 `EmpId`|`string` | | Required. The unique identifier for the user. The default value is the user's email address. Maximum 48 characters.
 `FeedRecordNumber`|`string` | | Required. The record number in the current batch.
-`LoginId`|`string` | | Required. The user's logon ID. The default value is the user's email address. Maximum 128 characters.
+`LoginId`|`string` | | Required. The user's login ID. The default value is the user's email address. Maximum 128 characters.
 `LocaleName`|`string` | | The user's language locale code. Maximum 5 characters. One of the Supported Locales. Example: United States English is en_US. The supported languages vary by company but always include en_US.
 `Active`|`string` | | Whether the user is currently active. Format: Y/N.
 `Password`|`string` | | Required. The user's password. This element can be used to enter the password for a new user, but cannot be used to update the password for an existing user. Maximum 255 characters.
@@ -130,8 +129,8 @@ Name | Type | Format | Description
 `TripUser`|`boolean` | `Y/N`| Whether the user has access to Travel.
 `InvoiceUser`|`boolean` | `Y/N` | Whether the user has access to Invoice.
 `InvoiceApprover`|`boolean` | `Y/N` | Whether the user is an Invoice approver.
-`ExpenseApproverEmployeeID`|`string` | | The employee ID of the user's Expense approver. Maximum 48 characters.If you are importing both a user and their approver, the approver should be listed before the user in the batch.
-`NewLoginID`|`string` | | Use this element to change the Login ID for an existing employee. Maximum 128 characters..
+`ExpenseApproverEmployeeID`|`string` | | The employee ID of the user's Expense approver. Maximum 48 characters. If you are importing both a user and their approver, the approver should be listed before the user in the batch.
+`NewLoginID`|`string` | | Use this element to change the Login ID for an existing employee. Maximum 128 characters.
 `NewEmployeeID`|`string` | | Use this element to change the Employee ID for an existing employee. Maximum 48 characters.
 
 ### Response
@@ -174,7 +173,7 @@ Name | Type | Format | Description
 ```
 
 
-## <a name="updatePwd"></a>Update a users password
+## <a name="updatePwd"></a>Update a user's password
 
      POST api/user/v1.0/Users/password
 
@@ -185,11 +184,11 @@ This function requires as its arguments a UserBatch element containing a User ch
 
 Name | Type | Format | Description
 -----|------| ------ | --------------
-`LoginID`|`string` | | Required. The user's logon ID. The default value is the user's email address.
+`LoginID`|`string` | | Required. The user's login ID. The default value is the user's email address.
 `Password`|`string` | | The user's new password.
 
 ### Response
-This request will return a BatchResult parent element with the following child elements
+This request will return a BatchResult parent element with the following child elements:
 
 Name | Type | Format | Description
 -----|------| ------ | --------------

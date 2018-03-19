@@ -77,8 +77,7 @@ This request will return a **ReportDetails** parent element.
   ReportImageURL |  The URL to access the image associated with the report. This URL is valid for 30 minutes after the web service call. |
   Country |  The report country. Maximum 2 characters. Format: [The ISO 3166-1 alpha-2 country code][3]. Example: United States is US. |
   CountrySubdivision |  The report country subdivision. Format: [ISO 3166-2:2007 country subdivision][4]. |
-  ProcessingPaymentDate |  The date that the report completed all approvals and was ready to be extracted for payment  
-Format: YYYY-MM-DD |
+  ProcessingPaymentDate |  The date that the report completed all approvals and was ready to be extracted for payment. Format: YYYY-MM-DD |
   ReceiptsReceived |  If Y, then this report has its receipt receipt confirmed by the Expense Processor. Format: Y/N |
   ReportOwner |  This parent element includes details about the employee who is the report owner. It saves the caller from calling the Get User Information function to get employee information commonly used in accounting integration. The **ReportOwner** element includes the most recent information about the report owner, at the time the report is requested. |
   EmployeeBankAccount |  This parent element includes the bank account data found on the **Bank Information** page in Profile. This data is used in **Payment System** integrations where the payment system reimburses the employee via this bank account.
@@ -104,7 +103,7 @@ Format: YYYY-MM-DD |
 |  LocationName |  The location for the expense entry, usually the city name. |
 |  LocationSubdivision |  The location's State, Province, or Country Subdivision. Maximum 6 characters. |
 |  LocationCountry |  The location's Country. Maximum 2 characters. |
-|  OrgUnit1 through OrgUnit |  The details from the Org Unit custom fields. These may not have data, depending on configuration. Maximum 48 characters for each field. |
+|  OrgUnit1 through OrgUnit6 |  The details from the Org Unit custom fields. These may not have data, depending on configuration. Maximum 48 characters for each field. |
 |  Custom1 through Custom40 |  The details from the Custom fields. These may not have data, depending on configuration. Refer to the **Custom Fields elements** table for more information.  |
 |  FormID |  The ID for the expense entry form. |
 |  EntryImageID |  The unique identifier for the image associated with the entry. |
@@ -118,7 +117,7 @@ Format: YYYY-MM-DD |
 |  HasAllocation |  Defines the amount of allocations for the expense. Maximum 1 character. Possible values are: P, for partial allocation, F, for full allocation, or N, for no allocation. |
 |  IsCreditCardCharge |  Whether the expense came from a credit card feed. Maximum 1 character. Format: Y/N |
 |  IsPersonalCardCharge |  Whether the expense came from a personal card feed. Maximum 1 character. Format: Y/N |
-| ReceiptRequired | Whether the original receipt is required for the entry. Maximum 1 character. Format: Y/N |
+|  ReceiptRequired | Whether the original receipt is required for the entry. Maximum 1 character. Format: Y/N |
 |  ImageRequired |  Whether a receipt image is required for the entry. Maximum 1 character. Format: Y/N |
 |  E-ReceiptID |  The ID for the attached e-receipt, if available. |
 |  LastModifiedDate |  The date the expense entry was last changed. Maximum 19 characters. Format: YYYY-MM-DDThh:mm:ss |
@@ -127,7 +126,7 @@ Format: YYYY-MM-DD |
 |  ReportEntryReceiptReceived |  If Y, then this entry has been marked as reviewed by a processor. Maximum 1 character. Format: Y/N |
 |  ReportEntryReceiptType |  Maximum 1 character. One of these: <br> T = tax receipt <br> R= regular receipt <br> N = no receipt |
 |  CardTransaction |  This parent element includes the card transaction data found in the card transaction associated to this expense entry. This data is used in **Payment System** integrations where the payment system reimburses the card issuer for the indicated card account. Refer to the **CardTransaction elements** table. |
-|  ExpensePay |  Whether the entry was paid using the Expense Pay service. This element have a value if the report has reached the Processing Payment workflow step. Format: Yes/No |
+|  ExpensePay |  Whether the entry was paid using the Expense Pay service. This element has a value if the report has reached the Processing Payment workflow step. Format: Yes/No |
 
 ### Itemization elements
 
@@ -163,7 +162,7 @@ Format: YYYY-MM-DD |
 |  Company |  The attendee's company name. Maximum 150 characters. |
 |  Title |  The attendee's title. Maximum 32 characters. |
 |  ExternalID |  The unique identifier for the attendee, managed outside Concur. Maximum 48 characters. |
-|  Custom1 through Custom20 |  The details from the Custom fields. These may not have data, depending on configuration. Refer to the **Custom Fields elements** table for more information. |
+|  Custom1 through Custom20 |  The details from the custom fields. These may not have data, depending on configuration. Refer to the **Custom Fields elements** table for more information. |
 |  HasExceptionsPrevYear |  Whether the attendee has exceptions in the previous year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
 |  HasExceptionsYTD |  Whether the attendee has exceptions in the current year, based on yearly total limits for attendees. Maximum 1 character. Format: Y/N |
 |  IsDeleted |  Whether the attendee is marked as deleted. Maximum 1 character. Format: Y/N |
@@ -184,7 +183,7 @@ Format: YYYY-MM-DD |
 |  Percentage |  The percentage of the expense that is included in this allocation. Maximum 11 characters. |
 |  AccountCode1 |  The primary accounting code assigned to the expense type associated with this allocation. Typically, expense types have only this primary account code. |
 |  AccountCode2 | The secondary or alternative accounting code assigned to the expense type associated with this allocation. In rare cases some expense types include this accounting code to handle special cases. One example of these special cases is when using travel allowance, where one expense would use the primary account code for the allowed amount, and the alternative account code for the overage. Another example is personal use of a company car. <br> Refer to the _Expense: Account Codes Setup Guide_ for more information on how Concur Expense determines which accounting codes to use.  |
-|  Custom1 through Custom20 |  The custom fields associated with the allocation. These may not have data, depending on your configuration. TRefer to the **Custom Fields elements** table for more information. |  
+|  Custom1 through Custom20 |  The custom fields associated with the allocation. These may not have data, depending on your configuration. Refer to the **Custom Fields elements** table for more information. |  
 |  JournalEntriesList |  This parent element contains at least one **JournalEntry** child element. It contains multiple **JournalEntry** elements if the allocation has multiple journal entries. Refer to the **JournalEntry elements** table for more information. |
 |  VATDataList |  This parent element contains one **VATData** element for each VAT line item. This element will be empty if there are no VAT line items. Refer to the **VATData elements** table for more information. |
 
@@ -198,7 +197,7 @@ Format: YYYY-MM-DD |
 |  PayeePaymentTypeName |  Payee payment type. Maximum 64 characters. One of these: <br> Company = Company <br> Employee = Employee <br> Payment Type for the Credit Card Payment Type |
 |  PayeePaymentCode |  Payment code name for the payee. Maximum 80 characters. |
 |  AccountCode |  The account code Concur Expense determines should apply to this journal entry. For journal entries associated to an allocation, Concur Expense uses the business logic described in the _Expense: Account Codes Setup Guide_ to determine whether the primary or secondary account code should apply.  When there is no allocation associated to the journal entry, Concur Expense uses clearing account codes for Credit Card and Cash Advance for personal use of a company paid expense or a cash advance issued to an employee respectively. Maximum 48 characters. <br> **NOTE**: The developer should almost always use this accounting code when creating financial transactions in financial systems. In some situations a developer may need to use the accounting codes in the Allocation parent element.|
-|  DebitOrCredit |  Maximum 2 characters. Either: <br> DR = Debit <br> CR = credit |
+|  DebitOrCredit |  Maximum 2 characters. Either: <br> DR = Debit <br> CR = Credit |
 |  Amount |  Value, as credit or debit, of the amount to be exchanged between the payer and payee for this expense account code (not an absolute value) Maximum 23 characters. EXAMPLES: Value of zero, credit, or debit, as the following:  <br> 0 (Zero) "0"  <br> \+ (Plus / Debit) "+50.00"  <br> \- (Minus / Credit) "-50.00" |
 |  JobRunKey |  Either the unique identifier for job run for the accounting extract that processed this journal, or a static value indicating the journal was processed by Manual Pay, Expense Pay, or some other system. |
 
@@ -210,7 +209,7 @@ Format: YYYY-MM-DD |
 |  TaxAuthorityLabel |  5-digit code that appears on the expense entry pages. Maximum 5 characters. |
 |  TaxTransactionAmount |  Calculated tax amount for this expense in the spend currency. Maximum 23 characters. |
 |  TaxPostedAmount |  Calculated tax amount for this expense entry in the reimbursement currency. Maximum 23 characters. |
-|  Source |  Specifies how the tax data was derived. Maximum 4 characters. One of these: <br> CARD= Provided from company card  <br> USER = Entered by employee  <br> SYST = Calculated by system  <br> PROC = Entered by processor |
+|  Source |  Specifies how the tax data was derived. Maximum 4 characters. One of these: <br> CARD = Provided from company card  <br> USER = Entered by employee  <br> SYST = Calculated by system  <br> PROC = Entered by processor |
 |  TaxReclaimTransactionAmount |  Calculated amount of tax eligible for reclaim in the spend currency. Maximum 23 characters. |
 |  TaxReclaimPostedAmount |  Calculated amount of tax eligible for reclaim in the reimbursement currency. Maximum 23 characters. |
 
@@ -218,7 +217,7 @@ Format: YYYY-MM-DD |
 
 |  Element |  Description |
 | -------- | ------------ |
-|  AccountNumber |  Credit card number used for this expense. This value is encrypted in the repsonse. Maximum 255 characters. |
+|  AccountNumber |  Credit card number used for this expense. This value is encrypted in the response. Maximum 255 characters. |
 |  CardDescription |  The name on the credit card used for this expense. Maximum 255 characters. |
 |  CardTypeCode |  Type of credit card. |
 |  TransactionReferenceNumber |  Reference number from the credit card vendor. Maximum 64 characters. |

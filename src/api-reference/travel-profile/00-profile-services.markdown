@@ -13,13 +13,13 @@ The Travel Profile service consists of a set of resources that provide travel pr
 
 These web services can be used to retrieve travel profile information for a specified user, or a list of travel profile summaries.
 
-Available to Developers, travel suppliers, and TMCs
+Available to Developers, travel suppliers, and TMCs.
 
 ### [Form of Payment][3]
 
 These web services can be used to view a user's methods of payment. The scope of information returned varies depending on who makes the request.
 
-Available to Developers, travel suppliers, and TMCs
+Available to Developers, travel suppliers, and TMCs.
 
 ### [Loyalty Program][4]
 

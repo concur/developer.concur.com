@@ -43,7 +43,7 @@ Authorization: OAuth {access token}
 
 ##  Response
 
-##  Content Types
+###  Content Types
 
 * application/xml
 * application/json

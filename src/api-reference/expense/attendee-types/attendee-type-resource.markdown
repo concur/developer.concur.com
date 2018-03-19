@@ -8,7 +8,7 @@ layout: reference
 
 The Attendee Type resource represents the type of attendee as configured in Concur.
 
-* [Retrieve all attendees types](#get)
+* [Retrieve all attendee types](#get)
 * [Retrieve attendee types by ID](#getID)
 * [Create a new attendee type](#post) **DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**
 * [Update existing attendee type](#put)

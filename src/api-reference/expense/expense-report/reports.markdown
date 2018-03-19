@@ -43,27 +43,27 @@ Name | Type | Format | Description
 `countryCode`	|	`string`	|	`query`	|	The report country. Maximum 2 characters. Format: The ISO 3166-1 alpha-2 country code. Example: United States is US.
 `batchID`	|	`string`	|	`query`	|	The unique identifier for a payment batch where there is at least one report payee within the report. Use the BatchID from Response of GET Payment Batch List.
 `vendorName`	|	`string`	|	`query`	|	The Vendor Description that is the vendor for at least one expense entry in the report.
-`hasVAT`	|	`Boolean`	|	`query`	|	Determines if the report has at least one expense entry with VAT details. FORMAT: true or false.
-`hasImages`	|	`Boolean`	|	`query`	|	Determines if the report has at least one expense entry with an entry image or if there is a report image for this report. FORMAT: true or false.
-`hasAttendees`	|	`Boolean`	|	`query`	|	Determines if the report has at least one expense entry with an attendee. FORMAT: true or false.
-`hasBillableExpenses`	|	`Boolean`	|	`query`	|	The IsBillable flag for at least one expense entry in the report. FORMAT: true or false.
-`isTestUser`	|	`Boolean`	|	`query`	|	The report owner is a test user using the report for testing purposes in a non-production envirnment. FORMAT: true or false.
+`hasVAT`	|	`Boolean`	|	`query`	|	Determines if the report has at least one expense entry with VAT details. Format: true or false.
+`hasImages`	|	`Boolean`	|	`query`	|	Determines if the report has at least one expense entry with an entry image or if there is a report image for this report. Format: true or false.
+`hasAttendees`	|	`Boolean`	|	`query`	|	Determines if the report has at least one expense entry with an attendee. Format: true or false.
+`hasBillableExpenses`	|	`Boolean`	|	`query`	|	The IsBillable flag for at least one expense entry in the report. Format: true or false.
+`isTestUser`	|	`Boolean`	|	`query`	|	The report owner is a test user using the report for testing purposes in a non-production environment. Format: true or false.
 `expenseGroupConfigID`	|	`string`	|	`query`	|	The unique identifier for the expense group configuration associated to the report's expense group. Use the ID from the Response of the Expense Group Configurations V3.
 `costObject`	|	`string`	|	`query`	|	The list item code for an allocation field for at least allocation in the report.
-`entryTransactionDateBefore`	|	`DateTime`	|	`query`	|	The entry transaction date for at least one expense entry in the report is before this date.Format: YYYY-MM-DD
-`entryTransactionDateAfter`	|	`DateTime`	|	`query`	|	The entry transaction date for at least one expense entry in the report is after this date.Format: YYYY-MM-DD
-`createDateBefore`	|	`DateTime`	|	`query`	|	The report create date is before this date.Format: YYYY-MM-DD
-`createDateAfter`	|	`DateTime`	|	`query`	|	The report create date is after this date.Format: YYYY-MM-DD
-`userDefinedDateBefore`	|	`DateTime`	|	`query`	|	The report user defined date is before this date.Format: YYYY-MM-DD
-`userDefinedDateAfter`	|	`DateTime`	|	`query`	|	The report user defined date is after this date.Format: YYYY-MM-DD
-`submitDateBefore`	|	`DateTime`	|	`query`	|	The report submit date is before this date.Format: YYYY-MM-DD
-`submitDateAfter`	|	`DateTime`	|	`query`	|	The report submit date is after this date.Format: YYYY-MM-DD
-`processingPaymentDateBefore`	|	`DateTime`	|	`query`	|	The report processing payment date is before this date.Format: YYYY-MM-DD
+`entryTransactionDateBefore`	|	`DateTime`	|	`query`	|	The entry transaction date for at least one expense entry in the report is before this date. Format: YYYY-MM-DD
+`entryTransactionDateAfter`	|	`DateTime`	|	`query`	|	The entry transaction date for at least one expense entry in the report is after this date. Format: YYYY-MM-DD
+`createDateBefore`	|	`DateTime`	|	`query`	|	The report create date is before this date. Format: YYYY-MM-DD
+`createDateAfter`	|	`DateTime`	|	`query`	|	The report create date is after this date. Format: YYYY-MM-DD
+`userDefinedDateBefore`	|	`DateTime`	|	`query`	|	The report user defined date is before this date. Format: YYYY-MM-DD
+`userDefinedDateAfter`	|	`DateTime`	|	`query`	|	The report user defined date is after this date. Format: YYYY-MM-DD
+`submitDateBefore`	|	`DateTime`	|	`query`	|	The report submit date is before this date. Format: YYYY-MM-DD
+`submitDateAfter`	|	`DateTime`	|	`query`	|	The report submit date is after this date. Format: YYYY-MM-DD
+`processingPaymentDateBefore`	|	`DateTime`	|	`query`	|	The report processing payment date is before this date. Format: YYYY-MM-DD
 `processingPaymentDateAfter`	|	`DateTime`	|	`query`	|	The report processing payment date is after this date. Format: YYYY-MM-DD
-`paidDateBefore`	|	`DateTime`	|	`query`	|	The report paid date is before this date.Format: YYYY-MM-DD
-`paidDateAfter`	|	`DateTime`	|	`query`	|	The report paid date is after this date.Format: YYYY-MM-DD
-`modifiedDateBefore`	|	`DateTime`	|	`query`	|	The report modified date is before this date.Format: YYYY-MM-DD
-`modifiedDateAfter`	|	`DateTime`	|	`query`	|	The report modified date is after this date.Format: YYYY-MM-DD
+`paidDateBefore`	|	`DateTime`	|	`query`	|	The report paid date is before this date. Format: YYYY-MM-DD
+`paidDateAfter`	|	`DateTime`	|	`query`	|	The report paid date is after this date. Format: YYYY-MM-DD
+`modifiedDateBefore`	|	`DateTime`	|	`query`	|	The report modified date is before this date. Format: YYYY-MM-DD
+`modifiedDateAfter`	|	`DateTime`	|	`query`	|	The report modified date is after this date. Format: YYYY-MM-DD
 
 
 ### Request URL
@@ -313,14 +313,14 @@ Name | Type | Format | Description
 `PersonalAmount`	|	`Decimal`	|	-	|	The total amount of expenses marked as personal. Maximum 23 characters.
 `PolicyID`	|	`string`	|	-	|	The unique identifier of the policy that applies to this report. Maximum 64 characters.
 `ProcessingPaymentDate`	|	`DateTime`	|	-	|	The date that the report completed all approvals and was ready to be extracted for payment.
-`ReceiptsReceived`	|	`Boolean`	|	-	|	If Y, then this report has its receipt receipt confirmed by the Expense Processor. Format: Y/N
+`ReceiptsReceived`	|	`Boolean`	|	-	|	If Y, then this entry has been marked as confirmed by the Expense Processor. Format: Y/N
 `SubmitDate`	|	`DateTime`	|	-	|	The date the report was submitted.
 `Total`	|	`Decimal`	|	-	|	The total amount of the report.
 `TotalApprovedAmount`	|	`Decimal`	|	-	|	The total amount of approved expenses in the report. Maximum 23 characters.
 `TotalClaimedAmount`	|	`Decimal`	|	-	|	The total amount of all non-personal expenses in the report. Maximum 23 characters.
 `URI`	|	`string`	|	-	|	The URI to the resource.
 `UserDefinedDate`	|	`DateTime`	|	-	|	The date of the report assigned by the user.
-`WorkflowActionUrl`	|	`string`	|	-	|	The URL to post a workflow action to the report using the Post Report Workflow Action function..
+`WorkflowActionUrl`	|	`string`	|	-	|	The URL to post a workflow action to the report using the Post Report Workflow Action function.
 
 
 

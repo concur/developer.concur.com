@@ -27,19 +27,19 @@ Name | Type | Format | Description
 `approvalStatus`	|	`string`	|	`query`	|	A code representing a Payment Request Approval Status. Use GET /invoice/localizeddata to get the available approval status codes.
 `paymentStatus`	|	`string`	|	`query`	|	A code representing a Payment Request Payment Status. Use GET /invoice/localizeddata to get the available payment status codes
 `vendorInvoiceNumber`	|	`string`	|	`query`	|	Vendor invoice number tied to invoice.
-`createDateBefore`	|	`DateTime`	|	`query`	|	The payment request create date is before this date.Format: YYYY-MM-DD.
-`createDateAfter`	|	`DateTime`	|	`query`	|	The payment request create date is after this date.Format: YYYY-MM-DD.
-`userDefinedDateBefore`	|	`DateTime`	|	`query`	|	The payment request user defined date is before this date.Format: YYYY-MM-DD.
-`userDefinedDateAfter`	|	`DateTime`	|	`query`	|	The payment request user defined date is after this date.Format: YYYY-MM-DD.
-`submitDateBefore`	|	`DateTime`	|	`query`	|	The payment request submit date is before this date.Format: YYYY-MM-DD.
-`submitDateAfter`	|	`DateTime`	|	`query`	|	The payment request submit date is after this date.Format: YYYY-MM-DD.
-`paidDateBefore`	|	`DateTime`	|	`query`	|	The payment request paid date is before this date.Format: YYYY-MM-DD.
-`paidDateAfter`	|	`DateTime`	|	`query`	|	The payment request paid date is after this date.Format: YYYY-MM-DD.
+`createDateBefore`	|	`DateTime`	|	`query`	|	The payment request create date is before this date. Format: YYYY-MM-DD.
+`createDateAfter`	|	`DateTime`	|	`query`	|	The payment request create date is after this date. Format: YYYY-MM-DD.
+`userDefinedDateBefore`	|	`DateTime`	|	`query`	|	The payment request user defined date is before this date. Format: YYYY-MM-DD.
+`userDefinedDateAfter`	|	`DateTime`	|	`query`	|	The payment request user defined date is after this date. Format: YYYY-MM-DD.
+`submitDateBefore`	|	`DateTime`	|	`query`	|	The payment request submit date is before this date. Format: YYYY-MM-DD.
+`submitDateAfter`	|	`DateTime`	|	`query`	|	The payment request submit date is after this date. Format: YYYY-MM-DD.
+`paidDateBefore`	|	`DateTime`	|	`query`	|	The payment request paid date is before this date. Format: YYYY-MM-DD.
+`paidDateAfter`	|	`DateTime`	|	`query`	|	The payment request paid date is after this date. Format: YYYY-MM-DD.
 `payMethodType`	|	`string`	|	`query`	|	 	Payment Method type tied to an Invoice. Use GET /invoice/localizeddata to get the available Pay Method types.
-`lastModifiedDateBefore`	|	`DateTime`	|	`query`	|	The payment request last modified date is before this date.Format: YYYY-MM-DD.
-`lastModifiedDateAfter`	|	`DateTime`	|	`query`	|	The payment request last modified date is after this date.Format: YYYY-MM-DD.
-`extractedDateBefore`	|	`DateTime`	|	`query`	| The payment request extracted date is before this date.Format: YYYY-MM-DD.
-`extractedDateAfter`	|	`DateTime`	|	`query`	| The payment request extracted date is after this date.Format: YYYY-MM-DD.
+`lastModifiedDateBefore`	|	`DateTime`	|	`query`	|	The payment request last modified date is before this date. Format: YYYY-MM-DD.
+`lastModifiedDateAfter`	|	`DateTime`	|	`query`	|	The payment request last modified date is after this date. Format: YYYY-MM-DD.
+`extractedDateBefore`	|	`DateTime`	|	`query`	| The payment request extracted date is before this date. Format: YYYY-MM-DD.
+`extractedDateAfter`	|	`DateTime`	|	`query`	| The payment request extracted date is after this date. Format: YYYY-MM-DD.
 
 ## <a name="getID"></a>Retrieves a payment request digest based on ID
 

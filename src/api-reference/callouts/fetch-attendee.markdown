@@ -13,6 +13,7 @@ This callout differs from the standard Concur web services in the following ways
 * It uses an **outbound message** where Concur calls a public facing API endpoint provided by the application connector.  
 Refer to **Callouts >** [Core Concepts][1] for more information.
 * The client or third-party developers can configure and maintain the public web service interface (the application connector), or the connector can be maintained by Concur. This documentation specifies the request and response format required by Concur.
+
 * Clients can either choose to create their own application connector using PHP, Java, .NET etc or can use one of Concur Partner's Attendee Fetch applications.
 * The client Concur Administrator must select the attendee types that will use this functionality during application connector registration. Once the attendee types are selected, they will be automatically configured to not allow users to create new attendees manually.
 
@@ -39,7 +40,9 @@ Information on how to download, install, and configure the application connector
 The configuration process has the following steps:
 
 1. Client, third party developer, or Concur downloads, installs, configures, and customizes the application connector.
+
 2. (Optional- Professional/Premium only) client Concur admin creates a new attendee type to use with the connector.
+
 3. Client registers the application connector, selecting the attendee types that will use the connector.
 Once the configuration is complete, the callout uses the following process:
 	1. The user selects the appropriate attendee type in the **Search Attendees** window.
@@ -68,12 +71,12 @@ Refer to the **Installation Process** for more information.
 
 ### Functions
 
-[Version 2.0: Post Attendee Search Request][5]
+[Version 3.0: Post Attendee Search Request][5]
 
 ## Installation Process
 The installation process includes installing the application connector, and registering it with Concur.
 
-Fist, the client or third-party developer will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. A sample connector is available on the Sample Code page under Callouts, and details of the installation process are available at **Callouts > Core Concepts > Sample Connector Procedures**.
+First, the client or third-party developer will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. A sample connector is available on the Sample Code page under Callouts, and details of the installation process are available at **Callouts > Core Concepts > Sample Connector Procedures**.
 
 During installation, the client or developer will select and configure an externally available endpoint on the host server for Concur to send the attendee search request to. Refer to Security for more information about the security requirements of the application connector.
 
@@ -88,7 +91,7 @@ The client then registers the application connector with Concur:
    |Field	|Description|
    |------|------------|
    |Name|Enter the name that should appear in the list of connectors.|
-   |Description|Enter the description of the function of the connector, such as what back-endsystem it might connect to.|
+   |Description|Enter the description of the function of the connector, such as what back-end system it might connect to.|
    |Host Name|Enter the hostname for the connector. Example: `https://{servername}`|
    |User Name|Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth.|
    |Password|Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth.1.0|  
@@ -107,7 +110,7 @@ The Concur administrator can select which attendee types use the connector when 
 **Professional/Premium only:** If desired, the administrator can create a new attendee type specifically for use with the connector.
 
 ### Responses and Errors
-Refer to the HTTP Codes page for details of the common responses and errors.
+Refer to the [HTTP Codes page](https://developer.concur.com/tools-support/reference/http-codes.html) for details of the common responses and errors.
 
 
 [1]: /docs/guides/REST-API-Basics.html

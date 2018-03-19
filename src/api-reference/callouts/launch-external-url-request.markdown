@@ -35,7 +35,7 @@ https://{servername}/concur/form/v1.0/get?xcompanydomain={URL-encoded company do
 |  signature |  The URL-encoded signature hash. |
 
 ### Authenticating the Request
-To authenticate the request, the developer of the page in the app connector will need to generate an auth signature and compare it with the one passed in the query string.
+To authenticate the request, the developer of the page in the application connector will need to generate an auth signature and compare it with the one passed in the query string.
 
 When the request is received by the connector:
 
@@ -57,7 +57,7 @@ If the signature hashes match then you know the credentials are valid and the re
 
 * You can store the nonce to help prevent replay attacks if necessary.
 * The order of the query parameters is not important, but the values in the base signature string must be combined in the correct order to generate the signature hash correctly.
- |
+
 
 ####  XML Example Request
 
