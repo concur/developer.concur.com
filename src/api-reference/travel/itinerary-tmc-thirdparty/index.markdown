@@ -2512,7 +2512,7 @@ The booking elements contain many child elements. For ease of use, these element
 
 [1]: https://www.iata.org/publications/Pages/code-search.aspx
 [2]: https://en.wikipedia.org/wiki/ISO_4217
-[3]: https://developer.concur.com/api-reference/travel/itinerary/itinerary.html#semantics_codes
+[3]: /api-reference/travel/itinerary/itinerary.html#semantics_codes
 [4]: https://www.tripit.com/developer
 [5]: https://en.wikipedia.org/wiki/ISO_4217
 [6]: https://en.wikipedia.org/wiki/Neutral_unit_of_construction_(airlines)
