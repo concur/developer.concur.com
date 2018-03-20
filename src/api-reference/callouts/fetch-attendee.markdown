@@ -105,6 +105,6 @@ The Concur administrator can select which attendee types use the connector when 
 **Professional/Premium only:** If desired, the administrator can create a new attendee type specifically for use with the connector.
 
 
-[1]: /api-reference/callouts/callouts-application-connectors.html  
+[1]: /api-reference/callouts/callouts-application-connectors.html
 [2]: http://forum.developer.concur.com/
-[5]: /api-reference/callouts/post-fetch-attendee.html 
+[5]: /api-reference/callouts/post-fetch-attendee.html
