@@ -97,7 +97,7 @@ Name | Type | Format | Description
 
 ## <a name="createUser"></a>Create or update a user's account information
 
-**NOTE: The success rate of using this API to *fully* create users is highly variable.  The developer or customer should expect to do follow-up work to the user profiles in order for the Users profiles to be 100% compelte.  At this time, the variability of a User from one customer to the next stems from the products the customer purchased and the customers' configuration choices within the products.  Therefore, manual edits or updates via a file import are likely required to complete the User profile. Future releases will address these topics. De-provisioning a User 100% is supported.**
+**NOTE: The success rate of using this API to *fully* create users is highly variable.  The developer or customer should expect to do follow-up work to the user profiles in order for the Users profiles to be 100% complete.  At this time, the variability of a User from one customer to the next stems from the products the customer purchased and the customers' configuration choices within the products.  Therefore, manual edits or updates via a file import are likely required to complete the User profile. Future releases will address these topics. De-provisioning a User 100% is supported.**
 
 Updates one or more users. The batch can contain up to 500 users. (Creating Users is not fully supported at this time)
 
