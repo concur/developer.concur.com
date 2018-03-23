@@ -32,7 +32,7 @@ Updates the loyalty program information for the OAuth consumer. Loyalty contains
 * Points Total
 * Segment Total
 * Next Status
-* Unit to Next Status
+* Points to Next Status
 * Segments to Next Status
 
 **Travel Suppliers**
@@ -72,12 +72,12 @@ This request contains the **LoyaltyMembershipUpdate** parent element with a **Me
 | VendorType | The type of vendor that manages the loyalty program. Format: A, C or H<br>A – Air<br>C – Car<br>H – Hotel<br>This element is required when the request is sent by a TMC, and is ignored when the request is sent by a travel supplier. |
 | AccountNo | The user's account identifier in the loyalty program. |
 | Status | Name of the user's current level in the loyalty program.  Examples: Gold or Premier. |
-| StatusBenefits | Description of a benefit of the loyalty program at the at current status. Example: You are entitled to free breakfast. |
+| StatusBenefits | Description of a benefit of the loyalty program at the current status. Example: You are entitled to free breakfast. |
 | PointTotal | The user's total number of points in the loyalty program. |
 | SegmentTotal | The user's total segments in the loyalty program. |
 | NextStatus | Name or description of next higher status level in the  loyalty program. |
 | PointsUntilNextStatus | Loyalty points required to next status level. |
-| SegmentsUntilNextStatus | Booking segment to next status level. |
+| SegmentsUntilNextStatus | Booking segments to next status level. |
 
 ###  XML Example Request From Travel Supplier
 

@@ -74,7 +74,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | PickupServiceArrangement |  N |  |The details of the pickup arrangement, if available. |
 | DropoffServiceArrangement |  N |  |The details of the dropoff arrangement, if available. |
 | ExtraStopArrangement |  N |  |The details of the extra stop arrangement, if available. |
-| RateInfo |  Y |  |The booked rate details. Refer to the Rate Information Elements table for more information. |
+| RateInfo |  Y |  |The booked rate details. Refer to the **Rate Information elements** table for more information. |
 | Vehicle |  Y |  |The vehicle details. For information about the child elements of this parent element, see the **Vehicle elements** table. |
 | Vendor |  Y |  |The reservation vendor. For information about the child elements of this parent element, see the **Vendor elements** table.|
 | FormOfPayment |  Y |  |The form of payment for the reservation. For information about the child elements of this parent element, see the **FormOfPayment elements** table.|
@@ -107,8 +107,8 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
 | LocationType |  | |One of the following: 100 - Address, 200 - Airport, 300 - Train station. |
-| Airport |  | |Refer to the Airport Elements table. Provided if the LocationType = 200. |
-| TrainStation |  | |Refer to the Train Station Elements table. Provided if the LocationType = 300. |
+| Airport |  | |Refer to the **Airport elements** table. Provided if the LocationType = 200. |
+| TrainStation |  | |Refer to the **Train Station elements** table. Provided if the LocationType = 300. |
 | Address |  | |The street address of the location. Provided if the LocationType = 100. |
 | City |  | |The location city. |
 | State |  | |The location state. Preferably 2 characters, max 10 characters. |
@@ -116,13 +116,13 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 | PostalCode |  | |The location postal code. |
 | ExtraNotes |  | |Additional notes about the location. Example: Ring doorbell, Holiday Inn, etc. |
 
-### PickupLocation <a name="DropoffLocation"></a>
+### DropoffLocation <a name="DropoffLocation"></a>
 
 |Element Name|Required/Optional|Data Type|Description|
 |------------|-----------------|---------|-----------|
-|LocationType | | |One of the following: 100 - Address, 200 - Airport, 300 - Train station, 400 - As directed. |
-| Airport |  | |Refer to the Airport Elements table. Provided if the LocationType = 200. |
-| TrainStation |  | |Refer to the Train Station Elements table. Provided if the LocationType = 300. |
+| LocationType | | |One of the following: 100 - Address, 200 - Airport, 300 - Train station, 400 - As directed. |
+| Airport |  | |Refer to the **Airport elements** table. Provided if the LocationType = 200. |
+| TrainStation |  | |Refer to the **Train Station elements** table. Provided if the LocationType = 300. |
 | Address |  | |The street address of the location. Provided if the LocationType = 100. |
 | City |  | |The location city. |
 | State |  | |The location state. Preferably 2 characters, max 10 characters. |
@@ -164,7 +164,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |------------|-----------------|---------|-----------|
 |RateID	|Y| |The rate identifier.|
 |Rate	|Y| |The BasePrice + ServiceCharge + SurCharge + Tax|
-|RateTypeCode	|Y| |	The code for the rate type. Will be one of the following options: <br>F: Flat rate <br>H: Hourly <br>E: |Estimated amount <br>N: Currently not available|
+|RateTypeCode	|Y| |	The code for the rate type. Will be one of the following options: <br>F: Flat rate <br>H: Hourly <br>E: Estimated amount <br>N: Currently not available|
 |CategoryCode	|N|	|Extra information that will be passed back during sell request to help identify the rate.|
 |Currency	|Y|	|The 3-letter ISO 4217 currency code for the rate amount.|
 |NoRateText	|N|	|Explanation of rate type. Provided if RateTypeCode = N|
@@ -172,7 +172,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |DiscountType	|N|	|The type of discount applied.|
 |BasePrice	|N|	|The reservation price without taxes, surcharges or service charges.|
 |ServiceCharge	|N|	|The service charge for the reservation.|
-|SurCharge	|N|	|This element contains the desc attribute, with text describing the reason for the surcharge. Example: <SurCharge desc="fuel">|
+|SurCharge	|N|	|This element contains the desc attribute, with text describing the reason for the surcharge. Example: `<SurCharge desc="fuel">`|
 |Tax	|N|	|The reservation tax.|
 |ExtraPickupCharge	|N|	|Any additional fees for the pickup service.|
 |ExtraDropoffCharge	|N|	|Any additional fees for the drop off service.|
@@ -221,7 +221,7 @@ The response will include a CC_LimoReservationDetailReply parent element, with t
 |CarrierName	| |  |The name of the train carrier.|
 |TrainNumber	| | |The train number.|
 |ArrivalDateTime| | |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
-|DepartureDateTime| | |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
+|DepartureDateTime| | |The train departure time. Only provided for the DropoffLocation element. Format: 2015-05-19T18:00:00|
 
 ## XML Example of Successful Response
 

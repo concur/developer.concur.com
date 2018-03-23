@@ -67,7 +67,7 @@ The **Source** element contains the following element:
 |  Element |  Description |
 |----------|---------------------------------------|
 |  Position |  The hotel search center position. Position is sent all the time and is in LatLon format (degrees as float numbers). It should be used as position source for actual search. This element has two attributes:<br/>**Latitude**: The latitude at the center of the hotel search.<br/>**Longitude**: The longitude at the center of the hotel search. |
-|  Address |  The address information for the hotel search. Optional. For information about this child elements of this parent element, see the **Address elements** table below. |
+|  Address |  The address information for the hotel search. Optional. For information about the child elements of this parent element, see the **Address elements** table below. |
 |  RefPoint |  The reference point for the search. Optional. This element has the **Name** attribute, containing the location city, state and country. Example: Redmond, WA, USA |
 |  HotelRef |  The hotel information. Optional. This element can have the following attribute:<br/>**HotelName**: The hotel name supplied by the customer. This attribute only appears if the customer provided a name. This value should be interpreted as a "contains" style match. |
 |  Radius |  The hotel search radius from the starting position. This element has three possible attributes:<br/>**Distance**: The distance to search from the defined center.<br/>**DistanceMeasure**: The unit of measurement to use when calculating the search radius with the Distance value. Values: Miles = M, Kilometers = K. If not included, the following attribute should be used:<br/>**UnitOfMeasureCode**: The code for the unit of measure. Values: Miles = 2, Kilometers = 1<br/><br/>**NOTE**: Only return hotels within this search radius. You can use a simple box search. |
@@ -135,7 +135,7 @@ The **OTA_HotelSearchRS** parent element contains the following child elements:
 |  Element |  Required (must contain value)? |  Description |
 |----------|---------------------|-----------------------------|
 |  Success |  N |  This element is returned if the request was successful. |
-|  Properties |  |  This element contains a **Property** parent element for each hotel property returned. For information about this child elements of this parent element, see the **Property elements** table below. |
+|  Properties |  |  This element contains a **Property** parent element for each hotel property returned. For information about the child elements of this parent element, see the **Property elements** table below. |
 
 #### Property elements
 
@@ -150,8 +150,8 @@ The **Property** element has the following child elements:
 |  Element |  Description |
 |----------|---------------------------------------|
 |  Position |  The hotel position. This element has two attributes:<br/>**Latitude**: The latitude of the hotel.<br/>**Longitude**: The longitude of the hotel.
-|  Address |  The address of the hotel. Optional. Provide this element if you would like the address to display in the search results. For information about this child elements of this parent element, see the **Address elements** table below. |
-|  TPA_Extensions |  For information about this child elements of this parent element, see the **TPA_Extensions elements** table below.  |
+|  Address |  The address of the hotel. Optional. Provide this element if you would like the address to display in the search results. For information about the child elements of this parent element, see the **Address elements** table below. |
+|  TPA_Extensions |  For information about the child elements of this parent element, see the **TPA_Extensions elements** table below.  |
 
 #### Address elements
 

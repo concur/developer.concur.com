@@ -77,3 +77,8 @@
   children:
       - title: Connection Requests
         url: /api-explorer/v3-2/ConnectionRequests.html
+- title: v4.0
+  url: ''
+  children:
+      - title: Quick Expenses
+        url: /api-explorer/v4-0/QuickExpenses.html

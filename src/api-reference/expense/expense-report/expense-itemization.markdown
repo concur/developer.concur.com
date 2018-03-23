@@ -326,7 +326,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `AllocationType`	|	`string`	|	-	|	The type of allocation for the itemization. Possible values: P - partial allocation, F - full allocation, N - no allocation. Use the GET /expense/allocations function to get information about this entry's allocations.
 `ApprovedAmount`	|	`Decimal`	|	-	|	The approved amount of the expense itemization, in the report currency.
-`Custom1 through Custom 40`	|	`CustomField`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the GET /common/listitems operation to learn the item name. Maximum length: 64 characters
+`Custom1 through Custom40`	|	`CustomField`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration. If the form field is configured as a List data type, the value will be the item code for this list. Use the GET /common/listitems operation to learn the item name. Maximum length: 64 characters
 `Description`	|	`string`	|	-	|	The description of the expense. Maximum length: 64 characters
 `EntryID`	|	`string`	|	-	|	**Required** The ID of the expense entry that is the parent for the itemization. Use the GET /expense/entries endpoint to learn the entry ID for the expense itemizations.
 `ExpenseTypeCode`	|	`string`	|	-	|	**Required** The code for the expense type. Use the GET /expense/expensegroupconfigurations endpoint to learn the expense type code for expense types that are active for this report's policy.

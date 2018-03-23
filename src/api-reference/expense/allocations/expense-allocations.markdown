@@ -26,7 +26,7 @@ This resource can be used to retrieve information about the allocations that are
 |-----|------|--------|------------|
 |`limit`|`Int32`|`query`|The number of records to return. The default is 25 and the maximum is 100.
 |`offset`|`string`|`query`|The starting point of the next set of results, after the limit specified in the limit field has been reached.
-|`repordID`|`string`|`query`|The unique identifier for the report as it appears in the Concur Expense UI. Format: A variable-length string. Maximum length: 32 characters.
+|`reportID`|`string`|`query`|The unique identifier for the report as it appears in the Concur Expense UI. Format: A variable-length string. Maximum length: 32 characters.
 |`entryID`|`string`|`query`|The unique identifier for the expense entry.
 |`itemizationID`|`string`|`query`|The unique identifier for the expense itemization.
 

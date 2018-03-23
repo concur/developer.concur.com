@@ -32,7 +32,7 @@ Name | Type | Format | Description
 `city`	|	`string`	|	`query`	|	The city name of the location.
 `countrySubdivision`	|	`string`	|	`query`	|	The ISO 3166-2:2007 country subdivision code for the location. Example: US-WA
 `country`	|	`string`	|	`query`	|	The 2-letter ISO 3166-1 country code for the location. Example: United States is US
-`administrativeRegio`n	|	`string`	|	`query`	|	The administrative region of the location. An administrative region is a government unit, such as a county, that contains one or more cities.
+`administrativeRegion`	|	`string`	|	`query`	|	The administrative region of the location. An administrative region is a government unit, such as a county, that contains one or more cities.
 
 
 

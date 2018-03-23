@@ -22,12 +22,12 @@ Version 1.0
 
 ### Itineraries and trips
 
-The terms itinerary and trip are synonyms. Trip is the name used for the Concur web serice resource that represents an itinerary.
+The terms itinerary and trip are synonyms. Trip is the name used for the Concur web service resource that represents an itinerary.
 
 ### Itinerary, booking record, and segment
 
 * An _itinerary_ is the container for all bookings in a trip. An itinerary can have more than one booking.
-* A _booking record_ is the container for all segments booked with from a source with the same unique identifier (_record locator_ or _confirmation number_). A single booking can have multiple segments.
+* A _booking record_ is the container for all segments booked from a source with the same unique identifier (_record locator_ or _confirmation number_). A single booking can have multiple segments.
 * A _segment_ includes details about the travel booking.
 
 ## Who can use this web service?
@@ -56,7 +56,7 @@ TripLink suppliers, travel management companies (TMCs), and Concur partners can 
 ### Third-party developers
 
 * Request trip information for Concur users.
-* Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
+* Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][4] if you have questions about the configuration settings.
 
 If you are a TMC or a Concur partner developer who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the Concur Connect Platform Team. Concur products are highly configurable, and not all clients will have access to all features.
 
@@ -160,7 +160,7 @@ The Itinerary Reference documentation includes the following reference informati
 The Itinerary data model defines data elements  that are returned or sent when getting, creating, updating, or deleting trips and bookings with the /api/travel/trip/v1.1 and /api/travel/booking/v1.1 resources respectively.
 Trips include all bookings in an itinerary whereas a booking includes only a specific segment of an itinerary.  It includes the following elements:
 
-* [Root elements] (#root_elements)
+* [Root elements](#root_elements)
 * [Booking elements](#booking_elements)
 * [AirfareQuotes elements](#airfarequotes_elements)
 * [Passengers elements](#passengers_elements)
@@ -204,19 +204,19 @@ Trips include all bookings in an itinerary whereas a booking includes only a spe
 | StartDateUtc          | DateTime     | Y        | The date when this trip started in UTC format. Format: YYYY-MM-DDThh:mm:ss. |
 | TripName              | String       | Y        | Name of the trip. Maximum length 255 characters.  |
 | TripStatus            | unsignedByte | Y        | The status of the trip. This element only appears if the includeCanceledTrips query parameter is used in the request.|
-| UserLoginId           |              | Y        | The user's login to Concur. This element appears only when the OAuth token is associated with a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.(NOTE TO TECH REVIEWERS: This element is not in the xsd but appears in the Get List of Itineraries response example)|
+| UserLoginId           |              | Y        | The user's login to Concur. This element appears only when the OAuth token is associated with a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. (NOTE TO TECH REVIEWERS: This element is not in the xsd but appears in the Get List of Itineraries response example)|
 | Bookings              | Array        | Y        | An array of bookings that contains a Booking child element for each included booking.|
 | Custom Attributes     | Array        |          |    |
 | RuleViolations        | Array        | N        | The list of rule violations associated with the itinerary. This parent element contains a RuleViolation child element for each associated rule violation.|
 
 #### <a name="booking_elements" id="booking_elements">Booking elements</a>
-The Bookings parent element contains a Booking child element for each included booking. TripLink suppliers have access only to a subset of the Booking elements. The TripLink column indicates with a Y if a specific elment is available for a TripLink supplier. Each booking element contains the following child elements:
+The Bookings parent element contains a Booking child element for each included booking. TripLink suppliers have access only to a subset of the Booking elements. The TripLink column indicates with a Y if a specific element is available for a TripLink supplier. Each booking element contains the following child elements:
 
 | Element  | Data Type | TripLink | Description |
 |-----------------------------|-----------|----------|------------------------------------------|
 | BookingOwner | String | Y | Specifies the tool that supplied the booking to Concur Travel. The possible values are: ConcurTravel, OpenBookingEmail, AmadeusETravel, ConcurConnectAPI, OpenBookingSupplier and TripIt |
 | BookingSource | String | Y | For TMCs: The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place. <br/>For TripLink suppliers: The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place. This could be a GDS, OTA, Vendor Code for Supplier website or Supplier Direct Connect API <br/>(NOTE TO TECH REVIEWERS: Is the definition for this element different for a TMC vs. a TripLink supplier?) |
-| Source |   | Y | This element is obsolete and is supported only for backward compatibility. (NOTE TO TECH REVIEWERS:This element is not in the XSD because it is obsolete. Should we continue to keep this in the documentation? If yes, should we create a separate topic titled "Obsolete Elements" and document it there?) |
+| Source |   | Y | This element is obsolete and is supported only for backward compatibility. (NOTE TO TECH REVIEWERS: This element is not in the XSD because it is obsolete. Should we continue to keep this in the documentation? If yes, should we create a separate topic titled "Obsolete Elements" and document it there?) |
 | DateBookedLocal | DateTime | Y | The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 | DateCreatedUtc | DateTime | Y | The date the booking was created, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | DateModifiedUtc | DateTime | Y | The date the booking was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -297,7 +297,7 @@ The Bookings parent element contains a Booking child element for each included b
 | TicketDocumentIdentifier   | string |  |   |
 | TotalAdjustment    | decimal |  |   |
 | TotalAdjustmentCurrency  | string |  |   |
-| Taxes         | Array |  | This parent element contains a Tax child element for each rail adjustment tax. For more information, see the **Tax elements** table later on this page. |
+| Taxes         | Array |  | This parent element contains a **Tax** child element for each rail adjustment tax. For more information, see the **Tax elements** table later on this page. |
 
 ##### RailPayment elements
 
@@ -352,7 +352,7 @@ The passenger parent element is the Passengers Element in Booking Elements. This
 
 #### <a name="airlinetickets_elements" id="airlinetickets_elements">AirlineTickets elements</a>
 
-The AirLineTickets parent element is an array that contains the following child elements.
+The AirlineTickets parent element is an array that contains the following child elements.
 
 | Element Name | Data Type | TripLink | Description |
 |---------------------|-----------|----------|--------------------------------------------|
@@ -602,7 +602,6 @@ The Air Booking parent element is the Air Element in the Segments Array in Booki
 | StartTerminal | string | Y | The departure terminal for the booking. <br/>For TripLink suppliers: Will not appear in the response if the request is from a TripLink - Open Booking Air supplier that does not own the booking. |
 | Status | string |  | The  GDS based booking status for the segment such as HK, HL, BK, etc. |
 | TimeZone | string | Y | The time zone of the booking. Format: One of the supported Olson or Windows Time Zones. (need link; may need to create a separate page to store the time zone formats.)  |
-| Element  | Data Type |  | Description |
 | AircraftCode | string |  | The code for the aircraft type. |
 | Bags | string |  | The number of bags included in the booking.  |
 | Cabin | string |  | The section of the airplane for the booking.  |
@@ -643,7 +642,7 @@ The Car Booking parent element is the Car Element in the Segments Array in Booki
 | ConfirmationNumber | string |  | The confirmation number from the vendor.  |
 | EndDateLocal | dateTime | Y | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 | StartDateLocal | dateTime | Y | The booking starting time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
-| Vendor | string |  | The two letter GDS vendor code. See the [Car Vendor Codes][3] table for  car vendor codes. (need link)|
+| Vendor | string |  | The two letter GDS vendor code. See the [Car Vendor Codes][5] table for  car vendor codes.|
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | CancellationPolicy | string |  | The cancellation policy from the vendor. |
 | Charges | Parent Element |  | The charges for this booking. For more information, see the **Charges elements** table. |
@@ -745,7 +744,7 @@ The Hotel Booking parent element is the Hotel Element in the Segments Array in B
 | CheckinTime | string |  | The check in time for the hotel booking.  |
 | CheckoutTime | string |  | The check out time for the hotel booking.  |
 | Currency | string |  | The [3-letter ISO 4217 currency code][1] for the booking. |
-| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
+| CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc.). |
 | CreditCardLastFour | String |  | The last four digits of credit card number. |
 | DailyRate | decimal |  | Average per day rate for the hotel. If the rate varies over the duration, it can be specified using the charges model. |
 | DateCancelledUtc | dateTime |  | The date the booking was cancelled, in UTC. Format: YYYY-MM-DDThh:mm:ss |
@@ -1027,10 +1026,8 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 
 | Element  | Data Type | TripLink | Description |
 |--------------------|--------------|----------|--------------------------------------|
-| EndDateLocal | dateTime |  | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
-| StartCity | string |  | The starting address of the booking. |
-| StartCityCode | string |  | The [IATA airport code][2] for the starting city of the booking.  |
-| StartDateLocal | dateTime |  | The starting date of travel for this segment, in the local time of to the starting point. Format: YYYY-MM-DDThh:mm:ss |
+
+
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | ConfirmationNumber | sring |  | The confirmation number from the vendor.  |
 | CreditCardType | String |  | The type of credit card (e.g. Visa/Mastercard/etc). |
@@ -1043,8 +1040,9 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | EndAddress | string |  | The ending address of the booking. |
 | EndAddress2 | sring |  | The ending address of the booking. |
 | EndCity | string |  | The ending address of the booking. |
-| EndCityCode | string |  | The ending address of the booking. |
+| EndCityCode | string |  | The [IATA airport code][2] for the ending city of the booking.|
 | EndCountry | string |  | The ending address of the booking. |
+| EndDateLocal | dateTime |  | The booking ending time and date, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss |
 | EndDateUtc | dateTime |  | The booking ending time and date, in UTC. Format: YYYY-MM-DDThh:mm:ss |
 | EndLatitude | string |  | The latitude for the ending location of the booking.  |
 | EndLocation | sring |  | The ending location of the booking.  |
@@ -1054,16 +1052,17 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 | TransportMode | string |  | The transport mode of the booking.  |
 | Notes | string |  | Additional information about the booking. |
 | NumPersons | unsignedByte |  | The number of persons booked for the trip. |
-| PhoneNumber | string |  | The parking phone number. |
+| PhoneNumber | string |  | The booking phone number. |
 | SpecialInstructions | sring |  | The instructions for the booking. Max Length: 256 |
 | StartAddress | string |  | The starting address of the booking. |
 | StartAddress2 | string |  | The starting address of the booking. |
 | StartCity | sring |  | The starting address of the booking. |
 | StartCityCode | string |  | The [IATA airport code][2] for the starting city of the booking.  |
 | StartCountry | string |  | The starting address of the booking. |
+| StartDateLocal | dateTime |  | The starting date of travel for this segment, in the local time of to the starting point. Format: YYYY-MM-DDThh:mm:ss |
 | StartDateUtc | dateTime |  | The starting date of travel for this segment, in UTC. Format: YYYY-MM-DDThh:mm:ss |
-| StartLatitude | string |  | The latitude of the restaurant. |
-| StartLongitude | sring |  | The longitude of the restaurant. |
+| StartLatitude | string |  | The latitude of the booking. |
+| StartLongitude | sring |  | The longitude of the booking. |
 | StartPostalCode | string |  | The starting address of the booking. Maximum length: 24  |
 | StartState | string |  | The starting address of the booking. Maximum length: 50  |
 | Status | string |  | The booking  status.  |
@@ -1821,7 +1820,9 @@ Concur converts local date/time to UTC.  In order to do that we need to be able 
 
 
 
-
-
+[1]: https://en.wikipedia.org/wiki/ISO_4217
+[2]: https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A
 [3]: https://www.concur.com/en-us/connect-platform/suppliers
+[4]: https://forum.developer.concur.com/
+[5]: https://developer.concur.com/api-reference/travel/itinerary/itinerary.html#car_vendor_codes
 [9]: Itinerarywebserviceoverview.png

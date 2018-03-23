@@ -38,7 +38,7 @@ https://www.concursolutions.com/api/v3.0/expense/digitaltaxinvoices?limit=5
 
 ## <a name="getID"></a>Retrieve a single digital tax invoice by ID
 
-    GET  /api/v3.0/expense/digitaltaxinvoices{id}
+    GET  /api/v3.0/expense/digitaltaxinvoices/{id}
 
 
 ### Parameters
@@ -57,7 +57,7 @@ https://www.concursolutions.com/api/v3.0/expense/digitaltaxinvoices/gWj3IHRYiHZG
 
 ## <a name="put"></a>Update a specified digital tax invoice
 
-    PUT  /api/v3.0/expense/digitaltaxinvoices{id}
+    PUT  /api/v3.0/expense/digitaltaxinvoices/{id}
 
 
 ### Parameters
@@ -76,7 +76,7 @@ https://www.concursolutions.com/api/v3.0/expense/digitaltaxinvoices/gWj3IHRYiHZG
 |Name | Type | Format | Description
 |-----|------|--------|------------
 |`Items`	|	`array`	|[Digital Tax Invoice](#digitaltaxinvoice)	|	The result collection.
-|`NextPage`	|	`string`	-	|	The URI of the next page of results, if any.
+|`NextPage`	|	`string` |	-	|	The URI of the next page of results, if any.
 
 
 ### <a name="digitaltaxinvoice"></a>Digital Tax Invoice

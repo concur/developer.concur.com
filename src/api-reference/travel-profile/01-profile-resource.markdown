@@ -218,7 +218,7 @@ The Addresses parent element contains an Address child element for each included
 |  Element Name |  Data Type |  Description |  Update |  Create | Comments |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | `Type attribute` | `string` | Address type. Values are: Home or Work | required | required | If multiple values are provided for either address type, the last one will be the one saved in the creation/update. |
-|  `Street` |  `string` |  Street Address. Format: nvarchar(max)) | | | |
+|  `Street` |  `string` |  Street Address. Format: nvarchar(max) | | | |
 |  `City` |  `string` |  The city name. Format: nvarchar(30) | | | |
 |  `StateProvince` |  `string` |  The state or province. Format: nvarchar(30) | | | ISO Validation Coming Soon |
 |  `CountryCode` |  `string` |  The country code in from the [ISO 3166-1 alpha-2 country code][1] specification. Format: char(2)| | | |
@@ -372,7 +372,7 @@ The Air parent element contains the user's air travel preferences and contains t
 |  `SegmentTotal` |  `string` |  The user's total segments in the loyalty program. | | | |
 |  `NextStatus` |  `string` |  Name or description of next higher status level in the  loyalty program. | | | |
 |  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. | | | |
-|  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. | | | |
+|  `SegmentsUntilNextStatus` |  `string` |  Booking segments to next status level. | | | |
 |  `IsSenator` | `boolean` | Lufthansa specific field. Format: **true**\|**false** | | | |
 
 
@@ -393,7 +393,7 @@ The Rail parent element contains the user's rail travel preferences and contains
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | `Seat` | `string` | This element contains seat preferences. Format: **Aisle**, **Window**, **DontCare** | | | |
 | `Coach` | `string` | This element contains coach preferences. Format: **Compartment**, **Coach**, **CoachWithTable**, **DontCare** | | | |
-| `NoiseComfort` | `string` | This element cotains noise comfort preferences. Format: **QuietSpace**, **MobileSpace**, **DontCare** | | | |
+| `NoiseComfort` | `string` | This element contains noise comfort preferences. Format: **QuietSpace**, **MobileSpace**, **DontCare** | | | |
 | `Bed` | `string` | This element contains bed preferences. Format: **Lower**, **Upper**, **Middle**, **DontCare** | | | |
 |`BedCategory` | `string` | This element contains bed category preferences. Format: **WomenOnly**, **MenOnly**, **DontCare** | | | |
 | `Berth` | `string` | This element contains berth preferences. Format: **Lower**, **Upper**, **Middle**, **DontCare** | | | |
@@ -418,9 +418,9 @@ The Rail parent element contains the user's rail travel preferences and contains
 |  `Expiration` |  `DateTime` |  The user's expiration date in the loyalty program.  Min - 01/01/1753, Max - 12/31/9999 | | | | |
 |  `NextStatus` |  `string` |  Name or description of next higher status level in the  loyalty program. | | | |
 |  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. | | | |
-|  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. | | | |
+|  `SegmentsUntilNextStatus` |  `string` |  Booking segments to next status level. | | | |
 |  `BahnCardClass` |  `string` |  Bahn card class. Valid values are First and Second. | | | |
-|  `BahnCardType` |  `string` |  Bahn card type. Valid values include NA (for non-rail programs), Card25, Card50, Card100, Business25. and Business50.. | | | |
+|  `BahnCardType` |  `string` |  Bahn card type. Valid values include NA (for non-rail programs), Card25, Card50, Card100, Business25, and Business50. | | | |
 
 
 
@@ -453,7 +453,7 @@ The Car parent element contains the user's car travel preferences. It contains t
 |  `Expiration` |  `DateTime` |  The user's expiration date in the loyalty program.  | | | Min - 01/01/1753, Max - 12/31/9999 |
 |  `NextStatus` |  `string` |  Name or description of next higher status level in the  loyalty program. | | | |
 |  `PointsUntilNextStatus` |  `string` |  Loyalty points required to next status level. | | |  |
-|  `SegmentsUntilNextStatus` |  `string` |  Booking segment to next status level. | | | |
+|  `SegmentsUntilNextStatus` |  `string` |  Booking segments to next status level. | | | |
 
 
 ***
@@ -581,7 +581,7 @@ A list of unused tickets associated to a user
 | `TicketType` | `string` | The type of unused ticket. Format: Varchar(1) | | | |
 | `IssueDate` |  `date`   | The date of issue for the unused ticket. Format: YYYY-MM-DD. | | | Min - 01/01/1753, Max - 12/31/9999 |
 | `ExpirationDate` | `date` | The date of expiration for the unused ticket. Format: YYYY-MM-DD. | | | Min - 01/01/1753, Max - 12/31/9999 |
-| `Notes`  | `string` | Notes associated to that unused ticket. Format: Varchar(255) | | | |
+| `Notes`  | `string` | Notes associated to the unused ticket. Format: Varchar(255) | | | |
 
 ***
 
@@ -634,7 +634,7 @@ This error message occurs, when the XML is not formatted in such a way that it c
 </Error>
 ```
 
- The best way to find the cause of the error is by taking the body of your message and comparing it against the [Travel Profile XSD][3]. You can use free online sites to validate such as https://www.freeformatter.com/xml-validator-xsd.html
+ The best way to find the cause of the error is by taking the body of your message and comparing it against the [Travel Profile XSD][3]. You can use free online sites to validate such as <https://www.freeformatter.com/xml-validator-xsd.html>
  
 ### Standard Error Codes
 
@@ -850,7 +850,7 @@ The ProfileSummary element contains the profile information for the response and
 | :----- | :----- | :----- | :----- |
 |  Status |  `string` |  Current status of the user: Active or Inactive. |
 |  LoginID |  `string` |  The Concur user login ID. |
-|  XMLProfileSyncID |  `string` |  TThe user's XML Profile Sync ID, if available. |
+|  XMLProfileSyncID |  `string` |  The user's XML Profile Sync ID, if available. |
 |  ProfileLastModifiedUTC |  `string` |  The date, in UTC, when the travel profile was last modified. Format: YYYY-MM-DDThh:mm:ss. |
 
 ###  Example

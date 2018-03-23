@@ -26,7 +26,7 @@ Each workflow step in a workflow is associated with a workflow role. Professiona
 The System role is used when the workflow actions can be completed programatically. Any workflow action can be completed this way, depending on the client's business process. The workflow role can be configured while adding the report workflow step. Some steps may require the System role. When using this role, the OAuth consumer must have the following user role:
 
 * Standard/Developer Sandbox: Can Administer
-* Professional: Company Admin or Web Services Administrator.
+* Professional: Company Admin or Web Services Administrator
 
 The expense report owner must have an approver or processor assigned to them before the System role can make changes to their reports.
 
@@ -68,8 +68,8 @@ This request should contain a **WorkflowAction** parent element with the followi
 
 |  Element |  Required/optional |  Description |
 |----------|--------------------|--------------|
-|  Action |  required |  The name of the workflow action. Possible values are: **Approve** , **Send Back to Employee** , or **Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Expense Admin >Workflow to learn details. |
-|  Comment |  required, for Send Back to Employee |  Must be used with the Send Back to Employee workflow action. This comment is visible wherever report comments are available to the employee, approver, authorization request administrator, and/or processor. Max length: 2000 |
+|  Action |  required |  The name of the workflow action. Possible values are: **Approve**, **Send Back to Employee**, or **Recall to Employee**. Must be one of the workflow actions available for the workflow step. Consult Expense Admin > Workflow to learn details. |
+|  Comment |  required, for Send Back to Employee |  Must be used with the **Send Back to Employee** workflow action. This comment is visible wherever report comments are available to the employee, approver, authorization request administrator, and/or processor. Max length: 2000 |
 
 ### Response
 

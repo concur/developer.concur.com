@@ -100,7 +100,7 @@ The **ResGuest** element contains a **Profiles** child element with information 
 
 |  Element |  Description |
 |----------|---------------------------------------|
-|  PersonName |  This element contains the following child elements:**GivenName**: The guest's given name. <br/>**Surname**: The guest's surname. |
+|  PersonName |  This element contains the following child elements:<br/>**GivenName**: The guest's given name. <br/>**Surname**: The guest's surname. |
 |  Telephone |  This element has a PhoneNumber attribute containing the guest's phone number. |
 |  Email |  The guest's email address. |
 |  Address |  This parent element has the following child elements:<br/>**AddressLine**: The first address line.<br/>**CityName**: The address city. <br/>**PostalCode**: The address postal code. <br/>**StateProv**: The address state/province. <br/>**CountryName**: The 2-character address country name. Format: US |
@@ -142,7 +142,6 @@ Content-Length: {length of content body}
                     <RoomTypes>
                         <RoomType NumberOfUnits="1" />
                     </RoomTypes>
-
                     <RatePlans>
                         <RatePlan RatePlanCode="2222222" />
                     </RatePlans>

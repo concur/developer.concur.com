@@ -83,8 +83,8 @@ The request will contain a **CC_LimoUpdateRequest** parent element, containing t
 |  Element |  Description |
 |-------------|----------------------|
 |  LocationType |  One of the following: 100 - Address, 200 - Airport, 300 - Train station. |
-|  Airport |  Refer to the Airport Elements table. Provided if the LocationType = 200. |  
-|  TrainStation |  Refer to the Train Station Elements table. Provided if the LocationType = 300. |
+|  Airport |  Refer to the **Airport elements** table. Provided if the LocationType = 200. |  
+|  TrainStation |  Refer to the **Train Station elements** table. Provided if the LocationType = 300. |
 |  Address |  The street address of the location. Provided if the LocationType = 100. |
 |  City |  The location city. |
 |  State |  The location state. Preferably 2 characters, max 10 characters. |
@@ -97,8 +97,8 @@ The request will contain a **CC_LimoUpdateRequest** parent element, containing t
 |  Element |  Description |
 |-------------|----------------------|
 |  LocationType |  One of the following: 100 - Address, 200 - Airport, 300 - Train station, 400 - As directed. |
-|  Airport |  Refer to the Airport Elements table. Provided if the LocationType = 200. |  
-|  TrainStation |  Refer to the Train Station Elements table. Provided if the LocationType = 300. |
+|  Airport |  Refer to the **Airport elements** table. Provided if the LocationType = 200. |  
+|  TrainStation |  Refer to the **Train Station elements** table. Provided if the LocationType = 300. |
 |  Address |  The street address of the location. Provided if the LocationType = 100. |
 |  City |  The location city. |
 |  State |  The location state. Preferably 2 characters, max 10 characters. |
@@ -157,7 +157,7 @@ The request will contain a **CC_LimoUpdateRequest** parent element, containing t
 |CarrierName	  |The name of the train carrier.|
 |TrainNumber |The train number.|
 |ArrivalDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
-|DepartureDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
+|DepartureDateTime |The train departure time. Only provided for the DropoffLocation element. Format: 2015-05-19T18:00:00|
 
 #### Credit Card elements
 
@@ -306,7 +306,7 @@ The response will include a **CC_LimoUpdateReply** parent element, with the foll
 |CarrierName	  |The name of the train carrier.|
 |TrainNumber |The train number.|
 |ArrivalDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
-|DepartureDateTime |The train arrival time. Only provided for the PickupLocation element. Format: 2015-05-19T18:00:00|
+|DepartureDateTime |The train departure time. Only provided for the DropoffLocation element. Format: 2015-05-19T18:00:00|
 
 #### Reply Credit Card elements
 

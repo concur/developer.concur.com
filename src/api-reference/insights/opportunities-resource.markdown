@@ -5,7 +5,7 @@ layout: reference
 
 # Opportunities
 
-Retrieves a collection of opportunities for a specified trip or for all trips that fall within a date range
+Retrieves a collection of opportunities for a specified trip or for all trips that fall within a date range.
 
 * [Retrieve a collection of opportunities for a specified trip or for all trips that fall within a date range](#get)
 * [Schema](#schema)
@@ -13,7 +13,7 @@ Retrieves a collection of opportunities for a specified trip or for all trips th
 ### Version
 3.0
 
-## <a name="get"></a>Retrieve all connection requests tht match the TripLink supplier ID
+## <a name="get"></a>Retrieve all connection requests that match the TripLink supplier ID
 
     GET  https://www.concursolutions.com/api/v3.0/insights/opportunities
 
@@ -50,7 +50,7 @@ Name | Type | Format | Description
 `IsActive`	|	`boolean`	|	-	|	Indicates that the opportunity is currently active
 `StartCityCode`	|	`string`	|	-	|	The city code of the originating city where the opportunity is offered
 `StartDateLocal`	|	`DateTime`	|	-	|	The local start date of the location where the opportunity is offered
-`tartPostalCode	`|	`string`	|	-	|	The postal code of the originating location where the opportunity is offered
+`StartPostalCode	`|	`string`	|	-	|	The postal code of the originating location where the opportunity is offered
 `TripId	`|	`string`	|	-	|	The trip id of the associated itinerary
-`Type`	|	`string`	|	-	|	['Hotel' or 'Car' or 'Air' or 'Rail' or 'Taxi' or 'Service']The type of opportunity
+`Type`	|	`string`	|	-	|	The type of opportunity. Possible values: 'Hotel', 'Car', 'Air', 'Rail', 'Taxi' or 'Service'
 `URI`	|	`string`	|	-	|	The URI to the resource.					

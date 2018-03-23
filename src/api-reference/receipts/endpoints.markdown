@@ -246,7 +246,7 @@ _Example Response:_
 
 This endpoint may be used to see the current processing status of a receipt.
 
-When a successful POST request is made is made the ```Link``` header of the response contains a 'processing-status' URL. This processing-status URL will be available for two weeks after the initial POST and will provide information regarding the processing status of your receipt.
+When a successful POST request is made the ```Link``` header of the response contains a 'processing-status' URL. This processing-status URL will be available for two weeks after the initial POST and will provide information regarding the processing status of your receipt.
 
 There are four possible top level statuses: `ACCEPTED`, `FAILED`, `PROCESSING`, and `PROCESSED`.
 
@@ -325,7 +325,7 @@ Creating a receipt requires JSON data about the transaction and, optionally, an 
 
 Successful POST requests will receive a response of 201 Created. The `Location` header of the response contains a URL for your receipt. Once the receipt has been processed, it can be retrieved at this URL. The `Link` header of the response contains a processing-status URL for your receipt. More information can be found [here](#endpoint-get-receipt-status).
 
-If you are not providing an image with your receipt data, the body of the request should be your receipt JSON:
+If you are not providing an image with your receipt data, the body of the request should be your receipt JSON.
 
 Receipt images may be posted along with data. In this case, Concur will use the provided image instead of generating a new one. To post data and an image, use multipart form data. The `Content-Type:multipart/form-data` header must be set. The image should be included under the key `image`, and the receipt JSON should be included under the key `receipt`. Image files are limited to a maximum size of 5MB. Accepted file formats for image files are: image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, and application/pdf.
 

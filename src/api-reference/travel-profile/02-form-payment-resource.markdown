@@ -93,7 +93,7 @@ Name | Type | Format | Description |
 `AccountNo` | `string`|`-` |The credit card account number. |
 `ExpDate` |`date/time`|`-` |The expiration date of the credit card. Format: YYYY-MM |
 `NameOnCard` | `string` |`-` |The name on the credit card. **Business Cards only.** |
-`UsageType`|`string` |`-` |For what purpose the card is to be used, which will be one of the following values: **Corporate** , **Business** |
+`UsageType`|`string` |`-` |For what purpose the card is to be used, which will be one of the following values: **Corporate**, **Business** |
 `BillingAddress` |`string`|`-` |This parent element contains information about the billing address. For information about the child elements of this parent element, see the **BillingAddress element** table below. |
 `Segments`|`string`|`-` |A list of segments with which the card may be used. For information about the child elements of this parent element, see the **Segment element** table below
 
@@ -173,7 +173,7 @@ Error Messages|Possible Issues|
 `You must specify at least one credit card to add or update` | An empty list of CreditCards is being supplied |
 `Cannot update Corporate (Ghost) cards using this service` | Attempting to update a card with `UsageType = Corporate` |
 `Cannot update Mandatory field for Corporate (Ghost) cards using this service.` | This field is only used by Ghost cards, which cannot be updated using this service.|
-`Only one segment of a particular type can be profviced for each Credit Card.` | Duplicate segmentes are being supplied to an individual credit card (ie multiple car segments) |
+`Only one segment of a particular type can be provided for each Credit Card.` | Duplicate segments are being supplied to an individual credit card (ie multiple car segments) |
 `You do not have permissions for element: {type}` | An attempt is being made to update a card of a conflicting vendor type |
 `Forbidden Request` | The entity trying access the Form of Payment endpoint does not have the proper permissions. |
 `Invalid Account Number` | Account Number check failed due to prefix, length, luhn, or other required format [See Below](#a5) |
