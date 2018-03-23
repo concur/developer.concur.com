@@ -1,0 +1,251 @@
+- title: API Reference
+  url: /api-reference/
+- title: Authentication
+  url: ''
+  children:
+      - title: Getting Started
+        url: /api-reference/authentication/getting-started.html
+      - title: Authentication
+        url: /api-reference/authentication/apidoc.html
+      - title: Company Level Authentication
+        url: /api-reference/authentication/company-auth.html
+      - title: Migrating to Oauth2 Tokens
+        url: /api-reference/authentication/migrationguide.html
+      - title: Oauth2 Migration Best Practices
+        url: /api-reference/authentication/oauth2-migration-best-practices.html
+      - title: Scopes
+        url: /api-reference/authentication/scopes.html
+#- title: Budget
+#  url: ''
+#  children:
+#      - title: Budget Category
+#        url: /api-reference/budget/budget-category.html
+#      - title: Budget Header
+#        url: /api-reference/budget/budget-header.html
+#      - title: Cost Object Field
+#        url: /api-reference/budget/cost-object-field.html
+#      - title: Fiscal Year
+#        url: /api-reference/budget/fiscal-year.html
+- title: Callouts
+  url: ''
+  children:
+      - title: Callouts and Application Connectors
+        url: /api-reference/callouts/callouts-application-connectors.html
+      - title: Delete notification requests
+        url: /api-reference/callouts/delete-notification.html
+      - title: Event Notification Callout
+        url: /api-reference/callouts/event-notification.html
+      - title: Fetch Attendee Version 2 Callout
+        url: /api-reference/callouts/fetch-attendee.html
+      - title: Fetch List Callout
+        url: /api-reference/callouts/fetch-list.html
+      - title: Get notifications by status
+        url: /api-reference/callouts/get-notifications-status.html
+      - title: Launch an external URL request
+        url: /api-reference/callouts/launch-external-url-request.html
+      - title: Launch External URL Callout
+        url: /api-reference/callouts/launch-external-url.html
+      - title: Post an event notification request
+        url: /api-reference/callouts/post-event-notification.html
+      - title: Post an attendee search request
+        url: /api-reference/callouts/post-fetch-attendee.html
+      - title: Post a list search request
+        url: /api-reference/callouts/post-list-search-request.html
+      - title: Travel Request Validation
+        url: /api-reference/callouts/request-validation.html
+- title: Common
+  url: ''
+  children:
+      - title: Connection Requests
+        url: /api-reference/common/connection-requests/connection-requests-resource.html
+      - title: Extracts
+        url: /api-reference/common/extracts/extracts.html
+      - title: List Item
+        url: /api-reference/common/list-item/
+      - title: Locations
+        url: /api-reference/common/locations/locations-resource.html
+      - title: Suppliers
+        url: /api-reference/common/suppliers/suppliers-resource.html
+- title: Direct Connects
+  url: ''
+  children:
+      - title: Ground Transportation Direct Connect
+        url: /api-reference/direct-connects/ground-transportation.html
+      - title: Cancel a reservation
+        url: /api-reference/direct-connects/ground-transportation/cancel-reservation.html
+      - title: Post a reservation detail search
+        url: /api-reference/direct-connects/ground-transportation/post-reservation-detail-search.html
+      - title: Post a reservation sell request
+        url: /api-reference/direct-connects/ground-transportation/post-reservation-sell.html
+      - title: Post a transportation search
+        url: /api-reference/direct-connects/ground-transportation/post-transportation-search.html
+      - title: Update reservation with supplier
+        url: /api-reference/direct-connects/ground-transportation/update-reservation-supplier.html
+      - title: Update reservation with Travel
+        url: /api-reference/direct-connects/ground-transportation/update-reservation-travel.html
+      - title: Hotel Direct Connect
+        url: /api-reference/direct-connects/hotel.html
+      - title: Post an availability search
+        url: /api-reference/direct-connects/hotel/post-availability-search.html
+      - title: Post a booking rule search
+        url: /api-reference/direct-connects/hotel/post-booking-rule-search.html
+      - title: Post a hotel search
+        url: /api-reference/direct-connects/hotel/post-hotel-search.html
+      - title: Post a new reservation
+        url: /api-reference/direct-connects/hotel/post-new-reservation.html
+      - title: Post a reservation cancellation
+        url: /api-reference/direct-connects/hotel/post-reservation-cancellation.html
+      - title: Post a reservation query
+        url: /api-reference/direct-connects/hotel/post-reservation-query.html
+      - title: Post a reservation update
+        url: /api-reference/direct-connects/hotel/post-reservation-update.html
+      - title: Hotel Direct Connect 2.0
+        url: /api-reference/direct-connects/hotel-service.html
+- title: "Direct Connect: Hotel Service 2"
+  url: ''
+  children:       
+      - title: Introduction
+        url: /api-reference/direct-connects/hotel-service-2/Introduction.html
+      - title: Use-cases
+        url: /api-reference/direct-connects/hotel-service-2/Use-cases.html
+      - title: Headers
+        url: /api-reference/direct-connects/hotel-service-2/Headers.html   
+      - title: Error Handling
+        url: /api-reference/direct-connects/hotel-service-2/Error-handling.html    
+      - title: Search
+        url: /api-reference/direct-connects/hotel-service-2/Search.html
+      - title: Availability
+        url: /api-reference/direct-connects/hotel-service-2/Availability.html  
+      - title: Descriptive Information
+        url: /api-reference/direct-connects/hotel-service-2/Descriptive-info.html    
+      - title: Reservation
+        url: /api-reference/direct-connects/hotel-service-2/Reservation.html    
+      - title: Read Itinerary
+        url: /api-reference/direct-connects/hotel-service-2/Read-Itinerary.html    
+      - title: Cancel
+        url: /api-reference/direct-connects/hotel-service-2/Cancel.html
+      - title: FAQ
+        url: /api-reference/direct-connects/hotel-service-2/FAQ.html
+      - title: Appendix
+        url: /api-reference/direct-connects/hotel-service-2/Appendix.html
+- title: Expense
+  url: ''
+  children:
+      - title: Allocations
+        url: /api-reference/expense/allocations/expense-allocations.html
+      - title: Attendee Type
+        url: /api-reference/expense/attendee-types/attendee-type-resource.html
+      - title: Attendees
+        url: /api-reference/expense/attendees/
+      - title: Digital Tax Invoices
+        url: /api-reference/expense/digital-tax-invoices/digital-tax-invoice.html
+      - title: Company Card Transactions
+        url: /api-reference/expense/expense-report/company-card-transaction-resource.html
+      - title: Expense Delegators
+        url: /api-reference/expense/expense-report/expense-delegators.html
+      - title: Entry Attendee Associations
+        url: /api-reference/expense/expense-report/expense-entry-attendee.html
+      - title: Entries
+        url: /api-reference/expense/expense-report/expense-entry.html
+      - title: Expense Form Field
+        url: /api-reference/expense/expense-report/expense-form-field.html
+      - title: Expense Form
+        url: /api-reference/expense/expense-report/expense-form.html
+      - title: Expense Group Configurations
+        url: /api-reference/expense/expense-report/expense-group-configurations.html
+      - title: Itemizations
+        url: /api-reference/expense/expense-report/expense-itemization.html
+      - title: Integration Status
+        url: /api-reference/expense/expense-report/integration-status.html
+      - title: Create an exception to a report
+        url: /api-reference/expense/expense-report/post-report-exceptions.html
+      - title: Submit an expense report
+        url: /api-reference/expense/expense-report/post-report-submission.html
+      - title: Post an expense report workflow action
+        url: /api-reference/expense/expense-report/post-report-workflow-action.html
+      - title: Reports
+        url: /api-reference/expense/expense-report/reports.html
+      - title: Report Details
+        url: /api-reference/expense/expense-report/expense-report-get.html
+      - title: Payment Batches
+        url: /api-reference/expense/payment-batch/payment-batches.html
+      - title: Quick Expense
+        url: /api-reference/expense/quick-expense/
+- title: Receipt Image
+  url: /api-reference/image/
+- title: Insights
+  url: ''
+  children:
+      - title: Latest Bookings
+        url: /api-reference/insights/latest-bookings-resource.html
+      - title: Opportunities
+        url: /api-reference/insights/opportunities-resource.html
+- title: Invoice
+  url: ''
+  children:
+      - title: Retrieve Payment Request Digests
+        url: /api-reference/invoice/payment-request-digest.html
+      - title: Payment Request
+        url: /api-reference/invoice/payment-request.html
+      - title: Purchase Orders
+        url: /api-reference/invoice/purchase-order.html
+      - title: Sales Tax Validation
+        url: /api-reference/invoice/sales-tax-validation.html
+      - title: Vendors
+        url: /api-reference/invoice/vendor.html
+- title: Receipts
+  url: ''
+  children:
+      - title: Get Started
+        url: /api-reference/receipts/get-started.html
+      - title: Endpoints
+        url: /api-reference/receipts/endpoints.html
+      - title: Supported Receipt Types
+        url: /api-reference/receipts/supported-receipt-types.html
+      - title: Sample Receipts
+        url: /api-reference/receipts/sample-receipts.html
+      - title: Response Codes
+        url: /api-reference/receipts/response-codes.html
+- title: Request
+  url: /api-reference/request/request.html
+- title: Travel Profile
+  url: ''
+  children:
+      - title: Travel Profile Services
+        url: /api-reference/travel-profile/00-profile-services.html
+      - title: Travel Profile
+        url: /api-reference/travel-profile/01-profile-resource.html
+      - title: Form of Payment
+        url: /api-reference/travel-profile/02-form-payment-resource.html
+      - title: Loyalty Program
+        url: /api-reference/travel-profile/03-loyalty-program-resource.html
+      - title: Company Notification
+        url: /api-reference/travel-profile/04-notification-company-resource.html
+      - title: User Notification
+        url: /api-reference/travel-profile/05-notification-user-resource.html
+- title: Travel Receipts
+  url: ''
+  children:
+      - title: Getting Started
+        url: /api-reference/travel-receipts/getting-started.html
+      - title: Technical Overview
+        url: /api-reference/travel-receipts/overview.html
+      - title: Example Response
+        url: /api-reference/travel-receipts/sample.html
+- title: Travel
+  url: ''
+  children:
+      - title: Itinerary Web Service (TMC/Third-Party)
+        url: /api-reference/travel/itinerary-tmc-thirdparty/
+      - title: Booking
+        url: /api-reference/travel/itinerary/booking/booking-resource.html
+      - title: Itinerary Service
+        url: /api-reference/travel/itinerary/itinerary.html
+      - title: Trips
+        url: /api-reference/travel/itinerary/trip/trip-resource.html
+      - title: Travel Services
+        url: /api-reference/travel/travel.html
+      - title: Trip Approval
+        url: /api-reference/travel/trip-approval/trip-approval-resource.html
+- title: User
+  url: /api-reference/user/

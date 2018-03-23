@@ -13,8 +13,6 @@ general:
       - livesite
 
 dependencies:
-  cache_directories:
-    - tmp/.htmlproofer
   override:
     - ./build/install_aws_cli.sh
     - bundle install
@@ -32,7 +30,6 @@ deployment:
     branch: preview
     commands:
       - DEVCENTER_API_FORMS=https://forms.preview.developer.concur.com npm run build
-      - ruby check_links.rb
       - aws s3 sync ./_site s3://preview-developer-concur-com --region us-west-2 --output text --delete
   livesite:
     branch: livesite

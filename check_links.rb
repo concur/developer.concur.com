@@ -15,12 +15,14 @@ urls_to_ignore = [
   /^https:\/\/jekyllrb.com/,
   /^https:\/\/concur.webex.com/,
   /^https:\/\/tools.ietf.org/,
+  /^http:\/\/digitalbush.com\/projects\/masked-input-plugin/,
   'https://speakerdeck.com/statik/complianceops-containers-in-regulated-environments',
   'https://github.com/concur/developer.concur.com/commit/0',
   'https://www.linkedin.com/company/5822',
   'https://www.tcconline.com/listNumbersByCode.action?confCode=3608516019',
   'https://open.concur.com',
-  'http://fortawesome.github.com/Font-Awesome',
+  'http://fortawesome.github.com/Font-Awesome/',
+  'http://fortawesome.github.io/Font-Awesome/icons/',
   'http://matoilic.github.com/jquery.placeholder',
   'http://runnable.com/UtWlKVi9ZnsnAABx/upload-receipts-to-concur-using-php-curl'
 ]

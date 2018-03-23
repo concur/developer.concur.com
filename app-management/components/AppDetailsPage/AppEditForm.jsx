@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 
 import {
@@ -32,6 +33,7 @@ const constraints = {
   appType: {
     presence: { message: 'is required' },
   },
+
   redirectUris: {
     validateUrlArray: {
       allowLocal: true,
@@ -79,6 +81,15 @@ const EditAppForm = ({ handleSubmit }) => (
             label="App Type"
             options={appTypes}
             simpleValue
+          />
+        </section>
+        <section className="col-md-8">
+          <Field
+            component={InputField}
+            type="text"
+            name="['com:concur:internal:product:Identifiers:1.0'].legacyId"
+            label="Legacy Id"
+            placeholder="Legacy Id"
           />
         </section>
         <section className="col-md-8">
