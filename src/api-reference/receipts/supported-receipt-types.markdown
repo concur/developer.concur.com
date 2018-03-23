@@ -21,7 +21,7 @@ See the schema documentation below for the specifications of each type, plus the
 ### Schemas
 
 #### Address-Original
-Postal address schema used for JPT receipts _only_.
+Postal address schema used for JPT (Japan Public Transportation) receipts _only_.
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|
@@ -165,7 +165,7 @@ Shared definitions that are utilized in multiple receipt types.
 |latitude|number|N/A|Numeric latitude value between -90 and 90|
 |longitude|number|N/A|Numeric longitude value between -180 and 180|
 |positiveInteger|integer|N/A|Positive integer value of at least 1|
-|positiveNumber|number|N/A|Positive number value of at least value as 0|
+|positiveNumber|number|N/A|Positive number value of at least 0|
 |negativeCurrency|string|^[-]\d*\.?\d+$|String representing a negative amount of money, normally used for a discount. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 
 ##### distance
@@ -388,7 +388,7 @@ The payments array allows for one or more payment methods used in the transactio
 |__*amount*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
 |__*cardDetail*__|object|[cardDetail](#cardDetail)|Credit card information.|
 
-#### cardDetail
+##### cardDetail
 
 |Property Name|Type|Format|Description|
 |---|---|---|---|

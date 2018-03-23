@@ -42,7 +42,7 @@ In this step, you will enable the Event Notification functionality in your Concu
    | ----- |------|
    |  Name |  Enter the name that should appear in the list of connectors. |
    |  Description |  Enter the description of the function of the connector, such as what back-end system it connects to. |
-   |  Host Name |  Enter the hostname for the connector.  **Example:** `https://{servername}` |
+   |  Host Name |  Enter the hostname for the connector. Example: `https://{servername}` |
    |  User Name |  Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth. |
    |  Password |  Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth. |  
 6. In the **Services** section, select **External Report Validation**.
@@ -102,7 +102,7 @@ In this step, the connector will perform the required validation on the Request 
 
 The Request data is validated by the application connector. The validation can produce one of the following results:
 
-* The Request passed validation and can be Approved.
+* The Request passed validation and can be approved.
 * The Request did not pass validation and must be returned to the employee with an informational message explaining the problem.
 
 In the next step, the application connector will update the Request with the validation results.

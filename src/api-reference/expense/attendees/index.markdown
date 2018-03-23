@@ -269,7 +269,7 @@ Name | Type | Format | Description
 `Suffix`	|	`string`	|	-	|	The attendee's name suffix. Maximum length: 32 characters
 `Title`	|	`string`	|	-	|	The attendee's title. Maximum length: 32 characters
 `TotalAmountPrevYear`	|	`Decimal`	|	-	|	The total amount spent on the attendee in the previous calendar year.
-`otalAmountYTD`	|	`Decimal`	|	-	|	The total amount spent on the attendee in the current calendar year.
+`TotalAmountYTD`	|	`Decimal`	|	-	|	The total amount spent on the attendee in the current calendar year.
 `URI`	|	`string`	|	-	|	The URI to the resource.
 `VersionNumber`	|	`Int32`	|	-	|	The attendee's version number.
 

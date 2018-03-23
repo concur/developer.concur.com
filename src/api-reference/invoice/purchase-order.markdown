@@ -96,6 +96,7 @@ Create or update a Purchase Order. Batch processing is not available using the P
         "VendorAddressCode": "VEN1ADDR1"
     }
     ```
+
 ### Response  
 
 [Response schema](#schema-response)
@@ -162,7 +163,7 @@ None.
 |`AmountWithoutVat`|`string`|-|The net amount of the Purchase Order (excluding VAT).
 |`BillToAddress`|`object`|[`BillToAddress`](#bill-to-address)|**Required** The customer's billing address, which is where the vendor should send the bill.
 |`CurrencyCode`|`string`|-|The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order.
-|`Custom1 through Custom24`|`string`|-|A value that can be applied to a custom field 1 that is part of the purchase order header form.
+|`Custom1 through Custom24`|`string`|-|A value that can be applied to a custom field that is part of the purchase order header form.
 |`Description`|`string`|-|A description of the purchase order.
 |`DiscountPercentage`|`string`|-|The discount from the vendor, if the discount terms are met.
 |`DiscountTerms`|`string`|-|The net discount terms that the vendor offers, when discounts apply.
@@ -176,7 +177,7 @@ None.
 |`PoVendorTaxId`|`string`|-|The Vendor Tax ID.
 |`ProvincialTaxId`|`string`|-|The Vendor Provincial Tax ID.
 |`PurchaseOrderNumber`|`string`|-|The purchase order number.
-|`ReceiptType`|`string`|-|The Purchase Order Receipt type (Depricated.) Use the PurchaseOrderReceiptType at line item level instead.
+|`ReceiptType`|`string`|-|The Purchase Order Receipt type (Depricated). Use the PurchaseOrderReceiptType at line item level instead.
 |`RequestedBy`|`string`|-|The person who requests the goods in the purchase order.
 |`RequestedDeliveryDate`|`string`|-|The date the purchase order instructed the vendor to deliver the goods. Format YYYY-MM-DD
 |`Shipping`|`string`|-|The total shipping cost for the purchase order.

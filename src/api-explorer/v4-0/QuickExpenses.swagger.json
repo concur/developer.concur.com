@@ -1,0 +1,1002 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Quick Expense Service (QES) is the RESTful service that manages CRUD for quick expense.",
+    "version": "4.0.0",
+    "title": "Quick Expense Service",
+    "termsOfService": "http://www.concur.com"
+  },
+  "host": "us.api.concursolutions.com",
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Quick Expenses",
+      "description": "Quick Expense API"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/quickexpense/v4/quickexpenses": {
+      "get": {
+        "tags": [
+          "Quick Expenses"
+        ],
+        "summary": "This Rest API is used to return quick expenses for all users",
+        "description": "This API will return the list of quick expenses for all users.",
+        "parameters": [
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accept-language",
+            "in": "header",
+            "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "pagingRequestParams",
+            "description": "pagingRequestParams",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PagingRequestParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Quick Expenses",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PagedResources"
+              }
+            }
+          },
+          "403": {
+            "description": "User doesn't have appropriate roles to view quick expenses",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        }
+      }
+    },
+    "/quickexpense/v4/users/{userId}/context/{contextType}/quickexpenses": {
+      "get": {
+        "tags": [
+          "Quick Expenses"
+        ],
+        "summary": "This Rest API is used to return quick expenses for given user.",
+        "description": "This API will return the list of quick expenses for a given user.",
+        "parameters": [
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accept-language",
+            "in": "header",
+            "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "pagingRequestParams",
+            "description": "pagingRequestParams",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PagingRequestParams"
+            }
+          },
+          {
+            "name": "isAvailable",
+            "in": "query",
+            "description": "Filters QuickExpenses by availability: Default returns all quick expenses, true/false returns only available/unavailable quick expenses.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The unique identifier of the Concur user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contextType",
+            "in": "path",
+            "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "TRAVELER",
+              "WSADMIN",
+              "PROXY"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An array of Quick Expenses",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PagedResources"
+              }
+            }
+          },
+          "403": {
+            "description": "User doesn't have appropriate roles to view quick expense",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Quick Expenses"
+        ],
+        "summary": "This Rest API is used to create a quick expense.",
+        "description": "This API will create quick expense.",
+        "parameters": [
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accept-language",
+            "in": "header",
+            "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "quickExpenseRequest",
+            "description": "quickExpenseRequest",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/QuickExpenseRequest"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The unique identifier of the Concur user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contextType",
+            "in": "path",
+            "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "TRAVELER"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NewQuickExpenseResponse"
+            }
+          },
+          "201": {
+            "description": "Sucessfully created new quick expense",
+            "schema": {
+              "$ref": "#/definitions/NewQuickExpenseResponse"
+            }
+          },
+          "403": {
+            "description": "User doesn't have appropriate roles to create quick expense",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        }
+      }
+    },
+    "/quickexpense/v4/users/{userId}/context/{contextType}/quickexpenses/{quickExpenseId}": {
+      "get": {
+        "tags": [
+          "Quick Expenses"
+        ],
+        "summary": "This Rest API is used to return a Quick Expense by given Id",
+        "description": "This API will return the quick expense by given Id",
+        "parameters": [
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accept-language",
+            "in": "header",
+            "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "quickExpenseId",
+            "in": "path",
+            "description": "Id of the required quick expense",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The unique identifier of the Concur user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contextType",
+            "in": "path",
+            "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "TRAVELER",
+              "WSADMIN",
+              "PROXY"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quick Expense",
+            "schema": {
+              "$ref": "#/definitions/QuickExpenseResponse"
+            }
+          },
+          "403": {
+            "description": "User doesn't have appropriate roles to view Quick Expense",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Quick Expenses"
+        ],
+        "summary": "This Rest API is used to update a quick Expense.",
+        "description": "This API requires a valid ME_KEY or SYNC_GUUID of the Quick Expense to be updated.",
+        "parameters": [
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accept-language",
+            "in": "header",
+            "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "quickExpenseId",
+            "in": "path",
+            "description": "quickExpenseId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "quickExpenseUpdateRequest",
+            "description": "quickExpenseUpdateRequest",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/QuickExpenseRequest"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The unique identifier of the Concur user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contextType",
+            "in": "path",
+            "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "TRAVELER"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully updated quick expense",
+            "schema": {
+              "$ref": "#/definitions/UriResponse"
+            }
+          },
+          "403": {
+            "description": "User doesn't have appropriate roles to update quick expense",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "404": {
+            "description": "Quick Expense not found"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Quick Expenses"
+        ],
+        "summary": "This Rest API is used to delete a Quick Expense by given Id.",
+        "description": "This API will delete a quick expense by given Id",
+        "operationId": "deleteQuickExpenseByIdUsingDELETE",
+        "parameters": [
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "The unique identifier of the consumer making the API calls. Minimum length: 6 characters",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accept-language",
+            "in": "header",
+            "description": "The unique identifier of the user's locale that indicates the language in which the API response should be formulated",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "quickExpenseId",
+            "in": "path",
+            "description": "Id could be SyncGuid or MeKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The unique identifier of the Concur user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contextType",
+            "in": "path",
+            "description": "The access level of the Concur user, which determines the form fields they can view/modify",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "TRAVELER",
+              "WSADMIN",
+              "PROXY"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted the Quick Expense"
+          },
+          "403": {
+            "description": "User doesn't have appropriate roles to delete a Quick Expense"
+          },
+          "404": {
+            "description": "Quick Expense not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PageMetadata": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalElements": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "QuickExpenseResponse": {
+      "type": "object",
+      "properties": {
+        "comment": {
+          "type": "string",
+          "description": "Comment"
+        },
+        "employeeKey": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Employee key associated with quick expense"
+        },
+        "expenseType": {
+          "description": "Expense Type",
+          "$ref": "#/definitions/ExpenseType"
+        },
+        "location": {
+          "description": "Location details of quick expense entry.",
+          "$ref": "#/definitions/Location"
+        },
+        "mobileEntryKey": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Mobile entry key idenfifier."
+        },
+        "paymentType": {
+          "description": "Payment Type",
+          "$ref": "#/definitions/PaymentType"
+        },
+        "quickExpenseId": {
+          "type": "string",
+          "description": "This is the sync guid of quick expense entry"
+        },
+        "receiptImageId": {
+          "type": "string",
+          "description": "Receipt Image Id"
+        },
+        "transactionAmount": {
+          "description": "Transaction Amount",
+          "$ref": "#/definitions/Amount"
+        },
+        "transactionDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Transaction Date. Format YYYY-MM-DD"
+        },
+        "vendor": {
+          "type": "string",
+          "description": "Vendor Name"
+        }
+      },
+      "description": "It represents quick expense details."
+    },
+    "Amount": {
+      "type": "object",
+      "required": [
+        "currencyCode",
+        "value"
+      ],
+      "properties": {
+        "currencyCode": {
+          "type": "string",
+          "description": "The 3-letter ISO 4217 currency code (https://en.wikipedia.org/wiki/ISO_4217) for the amount"
+        },
+        "value": {
+          "type": "number",
+          "format": "double",
+          "description": "The amount value"
+        }
+      }
+    },
+    "PagedResources": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "$ref": "#/definitions/Collection«object»"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/PageMetadata"
+        }
+      }
+    },
+    "ExpenseType": {
+      "type": "object",
+      "required": [
+        "code",
+        "id",
+        "name"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The code of the expense type"
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the expense type"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the expense type, localized to the user's language"
+        }
+      }
+    },
+    "QuickExpenseRequest": {
+      "type": "object",
+      "required": [
+        "location",
+        "transactionAmount",
+        "transactionDate"
+      ],
+      "properties": {
+        "attendeeCaptureKey": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Attendee capture key"
+        },
+        "comment": {
+          "type": "string",
+          "description": "This is comment attached to quick expense."
+        },
+        "creditCardKey": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Credit card key identifier"
+        },
+        "entryDetails": {
+          "type": "string",
+          "description": "Quick expense Entry Details"
+        },
+        "ereceiptId": {
+          "type": "string"
+        },
+        "expenseTypeId": {
+          "type": "string",
+          "description": "This is the expense type id of quick expense."
+        },
+        "location": {
+          "description": "It represents a location of the quick expense. It contains Location Id, Name, City, Country Sub Division Code (or State) and Country",
+          "$ref": "#/definitions/Location"
+        },
+        "paymentTypeId": {
+          "type": "string",
+          "description": "This is the payment type id of quick expense.",
+          "enum": [
+            "CASHX",
+            "CPAID",
+            "PENDC"
+          ]
+        },
+        "personalCardKey": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Personal card key identifier"
+        },
+        "receiptCaptureKey": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Receipt capture key"
+        },
+        "receiptImageId": {
+          "type": "string",
+          "description": "This is receipt image id attached to quick expense"
+        },
+        "segmentId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Segments Id of the trip. It is also called Segments Locator"
+        },
+        "sourceCode": {
+          "type": "string",
+          "description": "Quick expense source code. For Connect, It should be APIXX. For Mobile, It needs to be empty.",
+          "enum": [
+            "APIXX"
+          ]
+        },
+        "transactionAmount": {
+          "description": "This identifies the currency and value of the transaction",
+          "$ref": "#/definitions/Amount"
+        },
+        "transactionDate": {
+          "type": "string",
+          "format": "date",
+          "description": "This is the transaction date of the quick expense. Format: YYYY-MM-DD"
+        },
+        "tripId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Trip Id of the trip. It is also called Itin Locator"
+        },
+        "validMinYear": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "vendor": {
+          "type": "string",
+          "description": "Name of the vendor"
+        }
+      }
+    },
+    "Collection«object»": {
+      "type": "object"
+    },
+    "UriResponse": {
+      "type": "object",
+      "required": [
+        "uri"
+      ],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "description": "Uri of the created resource"
+        }
+      }
+    },
+    "NewQuickExpenseResponse": {
+      "type": "object",
+      "properties": {
+        "mobileEntryKeyUri": {
+          "type": "string"
+        },
+        "quickExpenseIdUri": {
+          "type": "string"
+        }
+      }
+    },
+    "Date": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "day": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hours": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minutes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "month": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "seconds": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timezoneOffset": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "year": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "PagedResources«QuickExpenseResponse»": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "$ref": "#/definitions/Collection«QuickExpenseResponse»"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "page": {
+          "$ref": "#/definitions/PageMetadata"
+        }
+      }
+    },
+    "QuickExpense": {
+      "type": "object",
+      "required": [
+        "quickExpenseId"
+      ],
+      "properties": {
+        "comment": {
+          "type": "string",
+          "description": "Comment"
+        },
+        "ereceiptId": {
+          "type": "string"
+        },
+        "expenseType": {
+          "description": "Expense Type",
+          "$ref": "#/definitions/ExpenseType"
+        },
+        "location": {
+          "description": "Location details of quick expense entry.",
+          "$ref": "#/definitions/Location"
+        },
+        "paymentType": {
+          "description": "Payment Type",
+          "$ref": "#/definitions/PaymentType"
+        },
+        "quickExpenseId": {
+          "type": "string",
+          "description": "This is the sync guid of quick expense entry"
+        },
+        "receiptImageId": {
+          "type": "string",
+          "description": "Receipt Image Id"
+        },
+        "segmentId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "This is the segment id associated with quick expense entry."
+        },
+        "transactionAmount": {
+          "description": "Transaction Amount",
+          "$ref": "#/definitions/Amount"
+        },
+        "transactionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Transaction Date"
+        },
+        "tripId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "This is the trip id associated with quick expense entry."
+        },
+        "vendor": {
+          "type": "string",
+          "description": "Vendor Name"
+        }
+      },
+      "description": "It represents quick expense details."
+    },
+    "Event": {
+      "type": "object",
+      "required": [
+        "correlationId",
+        "eventType",
+        "facts",
+        "id",
+        "timeStamp",
+        "topic"
+      ],
+      "properties": {
+        "correlationId": {
+          "type": "string",
+          "description": "Unique ID to trace event notification"
+        },
+        "data": {
+          "type": "string",
+          "description": "The data provided in published event"
+        },
+        "eventType": {
+          "type": "string",
+          "description": "Type of the event. Example: ReceiptCaptureInserted, CreditCardInserted etc"
+        },
+        "facts": {
+          "type": "object",
+          "description": "The data provided by publisher in Key Value pairs. Key \"userId\" is required",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "type": "string",
+          "description": "ID of the event, assigned by the publisher when event is published"
+        },
+        "subtopic": {
+          "type": "string",
+          "description": "The sub topic of published event"
+        },
+        "timeStamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time stamp when event was published"
+        },
+        "topic": {
+          "type": "string",
+          "description": "The topic name to which events are published."
+        }
+      }
+    },
+    "PaymentType": {
+      "type": "object",
+      "required": [
+        "code",
+        "id",
+        "name"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The code of the payment type"
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the Payment type"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the payment type, localized to the user's language"
+        }
+      }
+    },
+    "ValidationError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "The detailed message of the validation error"
+        },
+        "source": {
+          "type": "string",
+          "description": "The type of validation which failed"
+        }
+      }
+    },
+    "ErrorMessage": {
+      "type": "object",
+      "required": [
+        "errorMessage",
+        "httpStatus",
+        "path",
+        "timestamp"
+      ],
+      "properties": {
+        "errorId": {
+          "type": "string",
+          "description": "The unique identifier of the error associated with the response or is it error response itself"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "The detailed error message"
+        },
+        "httpStatus": {
+          "type": "string",
+          "description": "The http response code and phrase for the response"
+        },
+        "path": {
+          "type": "string",
+          "description": "The URI of the attempted request"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2016-10-04T00:53:25.931+0000",
+          "description": "The time when the error was captured"
+        },
+        "validationErrors": {
+          "type": "array",
+          "description": "The validation error messages",
+          "items": {
+            "$ref": "#/definitions/ValidationError"
+          }
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        },
+        "templated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Location": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "The location city"
+        },
+        "countryCode": {
+          "type": "string",
+          "description": "The location country ISO 3166-1 code (https://en.wikipedia.org/wiki/ISO_3166-1)"
+        },
+        "countrySubDivisionCode": {
+          "type": "string",
+          "description": "The location country sub division ISO 3166-2 code (https://en.wikipedia.org/wiki/ISO_3166-2)"
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique identifier of the location"
+        },
+        "name": {
+          "type": "string",
+          "description": "The location name"
+        }
+      },
+      "description": "It represents location."
+    },
+    "Collection«QuickExpenseResponse»": {
+      "type": "object"
+    }
+  }
+}

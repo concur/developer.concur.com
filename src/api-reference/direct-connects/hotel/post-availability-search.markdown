@@ -40,7 +40,7 @@ The **OTA_HotelAvailRQ** parent element contains the following child elements:
 |  Element Name | Required/Optional | Data Type | Description |
 |---------------|-------------------|-----------|-------------|
 | POS |  | Object | The point of sale information. |
-| AvailRequestSegments |  | Array | This parent element contains an AvailRequestSegment element for the requested availability.|
+| AvailRequestSegments |  | Array | This parent element contains an **AvailRequestSegment** element for the requested availability.|
 
 ### POS child elements
 
@@ -129,7 +129,7 @@ The **OTA_HotelAvailRS** parent element has the following child elements:
 |  Element Name | Required (must contain value)? | Data Type | Description |
 |---------------|-------------------|-----------|-------------|
 |  Success |  N |  | This element is returned if the request was successful. |
-|  RoomStays |  Y | Array | This parent element contains a **RoomStay** parent element for each hotel room returned. Refer to the RoomStay Child Elements table for information about the child elements. |
+|  RoomStays |  Y | Array | This parent element contains a **RoomStay** parent element for each hotel room returned. Refer to the **RoomStay** child elements table for information about the child elements. |
 |  BasicPropertyInfo |  Y |  |  This element contains the **HotelCode** attribute, which contains the code for the hotel that this rate applies to. |
 |  TPA_Extensions |  N |  |  |
 
@@ -139,8 +139,8 @@ The **OTA_HotelAvailRS** parent element has the following child elements:
 |  Element Name | Required (must contain value)? | Data Type | Description |
 |---------------|-------------------|-----------|-------------|
 |  RatePlans | Y |  | The room rate plan. This parent element contains the following child element: <br/>RatePlan: This element has the RatePlanCode attribute, defining the code for the room rate.  |
-|  RoomRates |  |  | This parent element has a RoomRate child element. The RoomRate element has a Rates child element. |
-|  BasicPropertyInfo | Y |  | This element contains the HotelCode attribute, which contains the code for the hotel that this rate applies to. |
+|  RoomRates |  |  | This parent element has a **RoomRate** child element. The RoomRate element has a **Rates** child element. |
+|  BasicPropertyInfo | Y |  | This element contains the **HotelCode** attribute, which contains the code for the hotel that this rate applies to. |
 |  TPA_Extensions | N |  | This element contains the **RequireSeriesCode** child element, which has a value of true or false. This element indicates whether CVV should be queried and sent. |
 
 ### Rates child elements

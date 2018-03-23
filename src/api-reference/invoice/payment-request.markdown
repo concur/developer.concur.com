@@ -73,7 +73,7 @@ Name | Type | Format | Description
 `Description`	|	`string`	|	-	|	User entered description of the Payment Request.
 `DiscountPercentage`	|	`string`	|	-	|	The discount from the supplier if the discount terms are met.
 `DiscountTerms`	|	`string`	|	-	|	The NET discount terms with a supplier when discounts apply.
-`EmployeeEmailAddress`	|	`string`	|	-	|	The email address of the employee to whom the request should be assigned. Not evaluated if EmployeeLoginId or EmployeeId match an employee. This value isrequired if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; PurchaseOrderNumber; ExternalPolicyId.
+`EmployeeEmailAddress`	|	`string`	|	-	|	The email address of the employee to whom the request should be assigned. Not evaluated if EmployeeLoginId or EmployeeId match an employee. This value is required if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; PurchaseOrderNumber; ExternalPolicyId.
 `EmployeeId`	|	`string`	|	-	|	The company ID of the employee to whom the request should be assigned. Has precedence over EmployeeEmail; not evaluated if EmployeeLoginId matches an employee. This value is required if none of the following are provided: LedgerCode, EmployeeLoginId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.
 `EmployeeLoginId`	|	`string`	|	-	|	The login ID of the employee to whom the request should be assigned. Has precedence over EmployeeId and EmployeeEmail. This value is required if none of the following are provided: LedgerCode, EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.
 `ExternalPolicyId`	|	`string`	|	-	|	The external policy ID of the Payment Request. This value is required if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; EmployeeEmail; PurchaseOrderNumber.
@@ -81,7 +81,7 @@ Name | Type | Format | Description
 `InvoiceDate`	|	`string`	|	-	|	The date the Vendor issued the Invoice.
 `InvoiceNumber`	|	`string`	|	-	|	The Invoice Number from the vendor for the Payment Request.
 `InvoiceReceivedDate`	|	`string`	|	-	|	The date on which the invoice was received.
-`IsEmergencyCheckRun`	|	`string`	|	-	|	Is an emergency check run required(Y/N).
+`IsEmergencyCheckRun`	|	`string`	|	-	|	Is an emergency check run required (Y/N).
 `IsInvoiceConfirmed`	|	`string`	|	-	|	Indicates if the Payment Request Invoice is confirmed or in a different status (true/false).
 `LedgerCode`	|	`string`	|	-	|	A code which indicates which company journal the Payment Request is assigned to. Use GET /invoice/localizeddata to obtain valid codes. This value is required if none of the following are provided: EmployeeLoginId; EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.
 `LineItems`	|	`Array[LineItem]`	|	-	|	The details of the Core Payment Request Line Item Identity Fields.
@@ -100,14 +100,14 @@ Name | Type | Format | Description
 `PaymentDueDate`	|	`string`	|	-	|	The date the vendor needs to be paid by.
 `PaymentTermsDays`	|	`string`	|	-	|	This number, along with type of payment terms (example: NET), determine when the invoice is expected to be paid.
 `ProvincialTaxId`	|	`string`	|	-	|	The Vendor Provincial Tax ID.
-`PurchaseOrderId`	|	`string`	|	-	|	The ID of the Purchase Order to which the Payment Request should be matched. This value isrequired if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId; EmployeeEmail; ExternalPolicyId.
+`PurchaseOrderId`	|	`string`	|	-	|	The ID of the Purchase Order to which the Payment Request should be matched. This value is required if none of the following are provided: LedgerCode, EmployeeLoginId, EmployeeId, EmployeeEmail, ExternalPolicyId.
 `ReceiptConfirmationType`	|	`string`	|	-	|	A code which indicates the receipt confirmation type for this Payment Request (Invoice Confirmation, for example). Use GET /invoice/localizeddata to translate the code into text.
 `ShippingAmount`	|	`string`	|	-	|	The value for the Shipping Amount header field.
 `TaxAmount`	|	`string`	|	-	|	The value for the Tax Amount header field.
-`VatAmountOne`	|	`string`	|	-	|	The amount of VAT included in the invoice total. (First of two VAT amount fields available..
-`VatAmountTwo`	|	`string`	|	-	|	The amount of VAT included in the invoice total. (Second of two VAT amount fields available..
-`VatRateOne`	|	`string`	|	-	|	The VAT rate applied to the net invoice total. (Should relate to the first VAT amount field..
-`VatRateTwo`	|	`string`	|	-	|	The VAT rate applied to the net invoice total. (Should relate to the second VAT amount field..
+`VatAmountOne`	|	`string`	|	-	|	The amount of VAT included in the invoice total (first of two VAT amount fields available).
+`VatAmountTwo`	|	`string`	|	-	|	The amount of VAT included in the invoice total (second of two VAT amount fields available).
+`VatRateOne`	|	`string`	|	-	|	The VAT rate applied to the net invoice total (should relate to the first VAT amount field).
+`VatRateTwo`	|	`string`	|	-	|	The VAT rate applied to the net invoice total (should relate to the second VAT amount field).
 `VendorRemitToIdentifier`	|	`VendorIdentifier`	|	-	|	**Required** Used to identify the vendor location for payment remittance. At a minimum, the VendorCode or the combination of (VendorName, Address1 and PostalCode) are required. Use of as many fields as possible is encouraged to ensure a single vendor can be identified. If more than one vendor matches the information provided, the Payment Request creation attempt will fail.
 `VendorShipFromAddressCode`	|	`string`	|	-	|	The code which identifies the location from which the vendor shipped items listed in the invoice.
 `VendorTaxId`	|	`string`	|	-	|	The Vendor Tax ID.

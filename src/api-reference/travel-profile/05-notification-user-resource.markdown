@@ -73,7 +73,7 @@ The request will include a **Notification** parent element, with the following c
 | ObjectURI | The URI for the object. The developer can use the appropriate GET endpoint with the ObjectURI to get complete details for the trip. For Itinerary, the ObjectURI value is the same as the TripId value. |
 | EventDateTime | When the event happened. Format: YYYY-MM-DDThh:mm:ss |
 | EventType | The type of the change. Format: CREATE, UPDATE, CANCEL |
-| Context | This is not used yet but will be used in future to specify the change in the trip. Developers can use this in conjunction with EventType to decide how to process the notification. |
+| Context | This is not used yet but will be used in the future to specify the change in the trip. Developers can use this in conjunction with EventType to decide how to process the notification. |
 | TripId | The unique identifier for the trip. Format: String |
 
 ###  Example: Post a of notification in XML format
