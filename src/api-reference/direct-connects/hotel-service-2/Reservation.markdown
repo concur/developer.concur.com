@@ -269,6 +269,7 @@ Message to reserve a hotel.
 | *ID*     | Y        | StringLength1to32 | A reference to identify the booking |
 
 **Note:** OTA UIT Type "14" should hold the booking UUID, while OTA UIT Type "40" should hold the confirmation number from the supplier.
+You can also optionally supply ID with Type "1000" (cancellation/modification code). This one will be rendered on itinerary page and can be used to reach hotel directly to cancel/modify the booking.
 
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
