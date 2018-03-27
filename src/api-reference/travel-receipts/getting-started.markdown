@@ -32,13 +32,13 @@ Examples:
 cURL:
 
 ```shell
-curl -d "client_secret={YOUR SECRET}&client_id={YOUR CLIENT ID}&grant_type=password&username={YOUR USERNAME}&password={YOUR PASSWORD}" https://us.api.concursolutions.com/oauth2/v0/token
+curl -d "client_secret={YOUR SECRET}&client_id={YOUR CLIENT ID}&grant_type=client_credentials" https://us.api.concursolutions.com/oauth2/v0/token
 ```
 
 HTTPie:
 
 ```shell
-http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={YOUR SECRET} client_id={YOUR CLIENT ID} grant_type=password username={YOUR USERNAME} password=P{YOUR PASSWORD}
+http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={YOUR SECRET} client_id={YOUR CLIENT ID} grant_type=client_credentials
 ```
 
 
