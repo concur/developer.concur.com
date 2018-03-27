@@ -97,7 +97,7 @@ Name | Type | Format | Description
 
 ## <a name="createUser"></a>Create or update a user's account information
 
-**NOTE: The User API cannot add User profiles completely for *all* customers. The developer or customer should expect to do follow-up work to the user profiles in order for the User profiles to be 100% ready for use. This variability is due to the customer's configuration choices that may not supported by this API. Manual edits or updates via a file import are likely required to complete the User profiles started with this API. Future releases will address these topics.**
+**NOTE: The User API cannot add User profiles completely for *all* customers. The developer or customer should expect to do follow-up work to the user profiles in order for the User profiles to be 100% ready for use. This variability is due to the customer's configuration choices that may not be supported by this API. Manual edits or updates via a file import are likely required to complete the User profiles started with this API. Future releases will address these topics.**
 
 Updates one or more users. The batch can contain up to 500 users. (Creating Users is not fully supported at this time)
 
