@@ -267,13 +267,13 @@ Name | Type | Format | Description
 `ExpenseTypeCode`	|	`string`	|	-	|	**Required** The code for the expense type. Use GET /expense/expensegroupconfigurations to learn the expense type code for expense types that are active for this report's policy.
 `ExpenseTypeName`	|	`string`	|	-	|	**Required** The name of the expense type, localized to the user's language.
 `FormID`	|	`string`	|	-	|	The ID of the form used by this expense entry.
-`HasAppliedCashAdvance`	|	`Boolean`	|	-	|	Whether the entry has a cash advance applied to it. Use the GET ExpenseEntryAccountingCalculations function to get cash advance application information for this entry. Format: true or false
+`HasAppliedCashAdvance`	|	`Boolean`	|	-	|	Whether the entry has a cash advance applied to it. Format: true or false
 `HasAttendees`	|	`Boolean`	|	-	|	Indicates whether the expense has attendees. Use the GET /expense/entryattendeeassociations function to get information about this entry's attendees. Format: true or false
 `HasComments`	|	`Boolean`	|	-	|	Whether the expense has comments. Use the GET ExpenseEntryComments function to get information about this entry's comments. Format: true or false
 `HasExceptions`	|	`Boolean`	|	-	|	Whether the expense has exceptions. Use the GET ExpenseEntryExceptions function to get information about this entry's exceptions. Format: true or false
 `HasImage`	|	`Boolean`	|	-	|	Indicates whether there is an entry image attached to the entry. Use the GET Entry Images function to get this entry image. Format: true or false
 `HasItemizations`	|	`Boolean`	|	-	|	Indicates whether the expense has itemizations. Use the GET /expense/itemizations function to get information about this entry's itemizations. Format: true or false
-`HasVAT`	|	`Boolean`	|	-	|	Indicates whether the entry has VAT data. Use the GET ExpenseEntryAccountingCalculations function to get VAT information for this entry. Format: true or false
+`HasVAT`	|	`Boolean`	|	-	|	Indicates whether the entry has VAT data. Format: true or false
 `ID`	|	`string`	|	-	|	The unique identifier of the resource.
 `IsBillable	`|	`Boolean`	|	-	|	Indicates whether the expense is billable. Format: true or false
 `IsImageRequired`	|	`Boolean`	|	-	|	Indicates whether an entry image is required for the entry. Format: true or false

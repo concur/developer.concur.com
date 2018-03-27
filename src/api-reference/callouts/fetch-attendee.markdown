@@ -58,8 +58,6 @@ Concur will not resend the request unless the user manually initiates the search
 ### Security
   Concur will make calls to the application connector's endpoint using SSL. During configuration, Concur will connect to the application connector to validate that its hostname and access credentials are valid.
 
-In the code Concur provides for a sample application connector, credentials are stored in a web configuration file that varies by platform, such as web.xml or web.config. However, if you are hosting the connector, you can customize where and how the credentials are stored by customizing HTTPBasicAuth.java or Authentication.cs.
-
 Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. You will need to install the signed certificate before Concur can access the connector.
 
 
@@ -76,9 +74,11 @@ Refer to the **Installation Process** for more information.
 ## Installation Process
 The installation process includes installing the application connector, and registering it with Concur.
 
-First, the client or third-party developer will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. A sample connector is available on the Sample Code page under Callouts, and details of the installation process are available at **Callouts > Core Concepts > Sample Connector Procedures**.
 
-During installation, the client or developer will select and configure an externally available endpoint on the host server for Concur to send the attendee search request to. Refer to Security for more information about the security requirements of the application connector.
+First, the client or third-party developer will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. 
+
+
+During installation, the client or developer will select and configure an externally available endpoint on the host server for Concur to send the attendee search request to. 
 
 The client then registers the application connector with Concur:  
 
@@ -109,10 +109,7 @@ The Concur administrator can select which attendee types use the connector when 
 
 **Professional/Premium only:** If desired, the administrator can create a new attendee type specifically for use with the connector.
 
-### Responses and Errors
-Refer to the [HTTP Codes page](https://developer.concur.com/tools-support/reference/http-codes.html) for details of the common responses and errors.
 
-
-[1]: /docs/guides/REST-API-Basics.html
+[1]: /api-reference/callouts/callouts-application-connectors.html
 [2]: http://forum.developer.concur.com/
-[5]: /api-reference/expense/attendees/index.html
+[5]: /api-reference/callouts/post-fetch-attendee.html
