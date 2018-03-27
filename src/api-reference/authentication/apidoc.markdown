@@ -157,17 +157,17 @@ Connection: Close
 
 ## <a name="revoke_token"></a>Revoking a token
 
-All refresh_tokens associated to a user for an application can be revoked by calling the `https://us.api.concursolutions.com/appmgmt/v0/connections` endpoint with a `DELETE` action. You have to provide the User's `accessToken` in the Authorization Header as `Authorization: Bearer <access_token>`.
+All refresh_tokens associated to a user for an application can be revoked by calling the `https://us.api.concursolutions.com/app-mgmt/v0/connections` endpoint with a `DELETE` action. You have to provide the User's `accessToken` in the Authorization Header as `Authorization: Bearer <access_token>`.
 
 ```
-DELETE https://us.api.concursolutions.com/appmgmt/v0/connections
+DELETE https://us.api.concursolutions.com/app-mgmt/v0/connections
 ```
 
 
 **Request**
 
 ```http
-DELETE /appmgmt/v0/connections HTTP/1.1
+DELETE /app-mgmt/v0/connections HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer <access_token>
 ```
@@ -176,7 +176,7 @@ Authorization: Bearer <access_token>
 
 ```http
 
-curl -X DELETE -H "Authorization: Bearer <accessToken>" "https://us.api.concursolutions.com/appmgmt/v0/connections"
+curl -X DELETE -H "Authorization: Bearer <accessToken>" "https://us.api.concursolutions.com/app-mgmt/v0/connections"
 ```
 
 **Response**
