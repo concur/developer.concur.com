@@ -25,7 +25,9 @@ https://emea.api.concursolutions.com/travelreceipts/v1/receiptrequests/
 ## <a name="auth"></a>Authentication
 Partners must obtain an [access token from the Authentication API](/api-reference/authentication/getting-started.html).
 
-The partner's `access_token` from the Authentication API response should then be used in the `Authorization` header of the Travel Receipts API calls.
+The partner's `access_token` from the Authentication API response should then be used in the `Authorization` header of the Travel Receipts API calls. 
+
+Note: A token needs to be fetched for each datacenter, you cannot use the same token for US and EMEA.
 
 Examples:
 
