@@ -1,10 +1,10 @@
 ---
-title: Budget
+title: Budget Tracking Field
 layout: reference
 ---
 
 
-# Budget Tracking Field Definition
+# Budget Tracking Field
 * [Retrieve all Budget Tracking Field](#getall)
 * [Retrieve a Budget Tracking Field](#get)
 * [Create/Update a Budget Tracking Field](#post)
@@ -126,7 +126,7 @@ id	|	`string`	|	`path`	|	The budget tracking field's key field (sync guid).
 Name | Type | Format | Description
 -----|------|--------|------------
 `budgetSequenceNumber`	|	`string`	|	-	|	The sequence/order in which budget tracking field definition appears in the budget UI.
-`dataType`	|	`string`	|	-	|	**Required** The data type of this field or field collection.  This value, along with the cost object field definition(s) below determines how the cost tracking field will be used by admininstrators. Valid values are LIST, MLIST, and VARCHAR.
+`dataType`	|	`string`	|	-	|	**Required** The data type of this field or field collection.  This value, along with the budget tracking field definition(s) below determines how the budget tracking field will be used by admininstrators. Valid values are LIST, MLIST, and VARCHAR.
 `costObjectFieldDefinitions`    |   `Array[CostObjectFieldDefinition]`  |   -   |   **Required** The list of field defintion(s) that make up this field.  Should be a single entry for VARCHAR or LIST and can be one or more entries for MLIST. 
 `lastModifiedDate`	|	`datetime`	|	-	|	The last time the budget tracking was updated.  Date is in GMT **READ ONLY**
 `status`	|	`string`	|	-	|	**Required** The status of this budget tracking field. Valid options are OPEN and REMOVED.
@@ -145,8 +145,8 @@ Name | Type | Format | Description
 `defaultValue`	|	`string`	|	-	|	The default value of this field.
 `displayName`	|	`string`	|	-	|	**Required** The user-facing name
 `hierarchyCode`	|	`string`	|	-	|	The key value that we'll use to pass in this field value in budget items and spending items. If this is not supplied, it defaults to the next available integer.
-`lastModifiedDate`	|	`datetime`	|	-	|	The last time this Budget Tracking definition was updated.  Date is in GMT **READ ONLY**
-`status`	|	`string`	|	-	|	**Required** The status of this Budget Tracking field. Valid options are OPEN and REMOVED.
+`lastModifiedDate`	|	`datetime`	|	-	|	The last time this budget tracking definition was updated.  Date is in GMT **READ ONLY**
+`status`	|	`string`	|	-	|	**Required** The status of this budget tracking field. Valid options are OPEN and REMOVED.
 `syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
 
 ### CostObjectMapping
@@ -154,10 +154,10 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `featureTypeCode`	|	`string`	|	-	|	 **Required** The product of the field we're mapping to.  Valid values are REQUEST, TRAVEL, EXPENSE, PAYMENT_REQUEST, and PURCHASE_REQUEST.
-`lastModifiedDate`	|	`datetime`	|	-	|	The last time this Budget Tracking definition was updated.  Date is in GMT **READ ONLY**
+`lastModifiedDate`	|	`datetime`	|	-	|	The last time this budget tracking definition was updated.  Date is in GMT **READ ONLY**
 `productFieldId`    |   `string` |   -   |   The Concur forms and fields for the id we're mapping.
 `spendingItemLevel`	|	`string`	|	-	|   **Required** The location inside the feature of the field we're mapping.  Valid values are HEADER, DETAIL, and ALLOCATION
-`status`	|	`string`	|	-	|	**Required** The status of this Budget Tracking mapping. Valid options are OPEN and REMOVED.
+`status`	|	`string`	|	-	|	**Required** The status of this budget tracking mapping. Valid options are OPEN and REMOVED.
 `syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
 `mappingType`   |   `string`    |   -   |   **Required** Determines if this mapping is to a field on a form or if it's always a constant value.  If this mapping is always set to a constant value, set this value to CONSTANT, otherwise it should be FIELD.
 `mappingValue`  |   `string`    |   -   |   The constant value if mappingType is CONSTANT.  Should be null if mappingType if FIELD.

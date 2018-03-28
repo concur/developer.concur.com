@@ -1,5 +1,5 @@
 ---
-title: Budget
+title: Budget Category
 layout: reference
 ---
 
