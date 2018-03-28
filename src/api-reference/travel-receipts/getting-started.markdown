@@ -25,20 +25,22 @@ https://emea.api.concursolutions.com/travelreceipts/v1/receiptrequests/
 ## <a name="auth"></a>Authentication
 Partners must obtain an [access token from the Authentication API](/api-reference/authentication/getting-started.html).
 
-The partner's `access_token` from the Authentication API response should then be used in the `Authorization` header of the Travel Receipts API calls.
+The partner's `access_token` from the Authentication API response should then be used in the `Authorization` header of the Travel Receipts API calls. 
+
+Note: A token needs to be fetched for each datacenter, you cannot use the same token for US and EMEA.
 
 Examples:
 
 cURL:
 
 ```shell
-curl -d "client_secret={YOUR SECRET}&client_id={YOUR CLIENT ID}&grant_type=password&username={YOUR USERNAME}&password={YOUR PASSWORD}" https://us.api.concursolutions.com/oauth2/v0/token
+curl -d "client_secret={YOUR SECRET}&client_id={YOUR CLIENT ID}&grant_type=client_credentials" https://us.api.concursolutions.com/oauth2/v0/token
 ```
 
 HTTPie:
 
 ```shell
-http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={YOUR SECRET} client_id={YOUR CLIENT ID} grant_type=password username={YOUR USERNAME} password=P{YOUR PASSWORD}
+http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={YOUR SECRET} client_id={YOUR CLIENT ID} grant_type=client_credentials
 ```
 
 
