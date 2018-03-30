@@ -3,8 +3,6 @@ machine:
     America/Los_Angeles
   ruby:
     version: 2.2.5
-  node:
-    version: 6.11.3
 
 general:
   branches:
@@ -16,23 +14,19 @@ dependencies:
   override:
     - ./build/install_aws_cli.sh
     - bundle install
-    - npm install
 
 test:
   override:
     - ./build/write_branch.sh
     - ./build/write_commit.sh
     - ./build/write_forms.sh
-    - DEVCENTER_API_FORMS=https://test npm test -- --runInBand && npm run build:webpack
 
 deployment:
   preview:
     branch: preview
     commands:
-      - DEVCENTER_API_FORMS=https://forms.preview.developer.concur.com npm run build
-      - aws s3 sync ./_site s3://preview-developer-concur-com --region us-west-2 --output text --delete
+      - aws s3 sync ./_site s3://preview-developer-concur-com --region us-west-2 --output text
   livesite:
     branch: livesite
     commands:
-      - DEVCENTER_API_FORMS=https://forms.developer.concur.com npm run build
-      - aws s3 sync ./_site s3://livesite-developer-concur-com --region us-west-2 --output text --delete
+      - aws s3 sync ./_site s3://livesite-developer-concur-com --region us-west-2 --output text
