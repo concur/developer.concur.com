@@ -19,7 +19,7 @@ Partner developers must determine which configurations are required for their so
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
 ## Authentication
-The Travel Request web service supports the OAuth 2.0 authentication model. Any additional required elements for the web service requests are covered in the function documentation.
+The Travel Request web service supports the OAuth 2.0 authentication model. Any additional required elements for the web service requests are covered in the function documentation. Company token is not supported.
 
 ## <a name="a1">Requests version 1.0</a>
 
