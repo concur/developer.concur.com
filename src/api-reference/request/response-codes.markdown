@@ -34,10 +34,17 @@ layout: reference
 |400|Bad Request|`multiLegNotAllowed` cannot save a multi leg, multi-leg is not enabled for this entity|The multi leg support is not allowed for the entity||
 |400|Bad Request|`reportTemplateNotFound` failed to retrieve report template|The multi leg support is not allowed for the entity||
 |401|Unauthorized|`invalidUser` the request's user is invalid	invalid or non existent authorization HTTP header|||
-|403|Forbidden|`permissionDenied` permission denied	user approving his own request, or without approver/processor role|||
+|403|Forbidden|`permissionDenied` permission denied|User approving his own request, or without approver/processor role||
+|403|Forbidden|`requestStatusNotApproved` the request is not approved or canceled after approval|||
+|403|Forbidden|`userIsNotAllowed` User is not allowed to access this resource|||
+|403|Forbidden|`requestStartDateInTheFuture` report cannot be create from an approved request before request start|||
 |404|Not Found|`notFound` resource not found|You try to get a non-existing request|GET /v4/requests/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|
 |408|Request Timeout|`timeOut` timeout has occurred|||
+|500|Internal Server Error|`timeOut` timeout has occurred|||
 |500|Internal Server Error|`createReportError` error while creating an expense report|||
 |500|Internal Server Error|`internalServerError`internal server error|||
-|503|Service Unavailable||||
+|500|Internal Server Error|`associateReportError` error while associating a report to a request|||
+|503|Service Unavailable|`circuitBreaker` Circuit Breaker is open, please try again on a different node|||
+|503|Service Unavailable|`entityOffline` Entity is offline, please try again later.|||
+
 
