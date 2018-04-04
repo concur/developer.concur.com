@@ -6,11 +6,8 @@ _site
 .DS_Store
 .sass-cache
 .jekyll-metadata
-npm-debug.log
-node_modules/
-api-reference/import-swagger.sh
+src/api-reference/import-swagger.sh
 build/swagger-converter/converted/
 .jekyll-metadata
-assets/js/bundle.js
-coverage
 .env
+tmp

@@ -1,0 +1,71 @@
+@import "colors";
+
+$border-radius-base: 0;
+$font-family-base: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+
+$headings-font-family: "Open Sans", sans-serif;
+$headings-font-weight: 200;
+$headings-font-color: #444;
+$text-color: $text-gray;
+
+$grid-float-breakpoint: 992px;
+$grid-float-breakpoint-max: $grid-float-breakpoint - 1;
+
+$link-color: $concur-link-color;
+$link-hover-color: $concur-link-color;
+
+// components
+@import "components/navbar";
+@import "components/navbar-searchbox";
+@import "components/navbar-notice";
+@import "components/jumbotrons";
+@import "components/breadcrumbs";
+@import "components/footer";
+@import "components/back-to-top";
+@import "components/sidebar";
+@import "components/code-highlighting";
+
+// pages
+@import "pages/shared";
+@import "pages/home";
+@import "pages/go-to-market";
+@import "pages/why-concur";
+@import "pages/swagger";
+@import "pages/blog";
+@import "pages/search";
+@import "pages/markdown";
+
+// third party/vendor
+@import "vendor/github-markdown";
+@import "vendor/animate";
+
+@import "bootstrap";
+
+// Bootstrap component override
+@import "components/buttons";
+@import "components/dropdowns";
+
+// Other styles
+
+// eliminates positioning jumps when a scrollbar is missing
+html {
+  overflow-y: scroll;
+}
+
+body {
+  h1, h2, h3, h4, h5, h6 {
+    color: $text-gray;
+    margin-top: 5px;
+    text-shadow: none;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}

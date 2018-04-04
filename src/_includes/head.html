@@ -1,0 +1,52 @@
+{% if site.data.branch.branchname != 'livesite' %}
+  <title>[{{ site.data.branch.branchname }}] Concur Developer Portal | {{ page.title }}</title>
+{% else %}
+  <title>Concur Developer Portal | {{ page.title }}</title>
+{% endif %}
+
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The starting point for anyone interested in building anything with the Concur platform that reaches 25 million business travelers.">
+<meta name="author" content="">
+
+{% if site.data.branch.branchname != 'livesite' %}
+  <meta name="robots" content="noindex">
+{% endif %}
+
+<!-- Sitemap link -->
+<link rel="sitemap" type="application/xml" title="Sitemap" href="{{ site.baseurl }}/sitemap.xml" />
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="{{ site.baseurl }}/assets/img/concur_favicon.ico" type="image/png">
+
+<!-- Canonical link-->
+<link rel="canonical" href="{{ site.canonical_site | append: page.url }}" data-proofer-ignore>
+
+<!-- CSS Global Compulsory -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css">
+
+<!-- CSS Implementing Plugins -->
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/plugins/font-awesome/css/font-awesome.min.css">
+
+{% if page.reference-type == 'swagger' %}
+  <link href="{{ site.baseurl }}/swagger-ui/css/typography.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="{{ site.baseurl }}/swagger-ui/css/screen.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="{{ site.baseurl }}/swagger-ui/css/print.css" media="print" rel="stylesheet" type="text/css">
+  <link href="{{ site.baseurl }}/swagger-ui/css/style.css" media="screen" rel="stylesheet" type="text/css">
+  <!-- <link href="{{ site.baseurl }}/swagger-ui/css/ecebook.css" rel="stylesheet" type="text/css"/> -->
+{% endif %}
+
+<link rel="alternate" type="application/rss+xml" title="Concur Developer Portal RSS" href="/feed.xml" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60446701-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

@@ -15,11 +15,6 @@ Changes committed to the `livesite` branch can be found here: [developer.concur.
 ### Existing Concur Partners
 If you are an existing Concur partner and require support assistance, please open a partner support case [here.](https://na4.salesforce.com/secur/login_portal.jsp?orgId=00D600000007Dq3&portalId=06060000000PrEi)
 
-### Sandboxes
-Create a sandbox [here](http://preview.developer.concur.com/manage-apps/register.html).
-
-If you require assistance configuring your sandbox, please complete this [support form](http://preview.developer.concur.com/sandbox-configuration-assistance.html).
-
 ---
 ## Sitemap
 The Concur Developer Website is organized into three main sections:  
@@ -36,7 +31,6 @@ The Concur Developer Website is organized into three main sections:
 ### <a name="app"></a>App Management
 `manage-apps` contains all html and markdown files for all app management functions:
 
-* `register.html` is the form used to create new sandboxes
 * `go-to-market.html` is the page that contains links to all documents required to deploy an app to end users
 * `app-certification.markdown` provides information on the app certification process
 * `partner-applications.markdown` provides information on registering and managing apps
