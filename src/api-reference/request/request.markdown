@@ -19,8 +19,7 @@ layout: reference
   - [ResourceLink](#resourcelink)
   - [RequestLink](#requestlink)
   - [Link](#link)
-- [Examples](#examples)
-  - [Create expense](#create-expense_examples)
+
 
 
 
