@@ -569,7 +569,7 @@ eg.
 curl -X POST --H 'Content-Type: application/json' --H 'Accept: application/json' --header "Authorization: Bearer {YOUR ACCESS TOKEN}" -d {YOUR EXPENSE JSON HERE} https://us.api.concursolutions.com/travelrequest/v4/requests/9DDC9963D1C09B48AC8F13193D607225/expenses
 
 *Body*
-
+```json
 {
   "businessPurpose": "Test Expense creation",
   "expenseType": {
@@ -581,9 +581,10 @@ curl -X POST --H 'Content-Type: application/json' --H 'Accept: application/json'
   },
   "transactionDate": "2017-07-01T09:30:00.000Z"
 }
+```
 
 *Response*
-
+```json
 {
   "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/38DB3AAE426A354EA424C0DAE7568AB2",
   "id": "38DB3AAE426A354EA424C0DAE7568AB2",
@@ -707,3 +708,4 @@ curl -X POST --H 'Content-Type: application/json' --H 'Accept: application/json'
       "tripType": "ROUND_TRIP"
     }
 }
+```
