@@ -26,28 +26,27 @@ Concur Request automates the spend request and approval process for both travel 
 
 The Request V4 API has 5 resources:
 
-1. __Estimate resource__ - Estimate the previsional cost of request segments.
-2. __Expense resource__ - You can  select, create, update or delete an expense or show the list of expense link to a request.
-3. __Request resource__ - You can select, create, update or delete a request or show a list of requests.
-4. __Travel Agency resource__ - You can get the description of a travel agency office.
-5. __Workflow resource__ - You can advance a request in a new authorized status.
+1. __Expense resource__ - You can  select, create, update or delete an expense or show the list of expense link to a request.
+2. __Request resource__ - You can select, create, update or delete a request or show a list of requests.
+3. __Travel Agency resource__ - You can get the description of a travel agency office.
+4. __Workflow resource__ - You can advance a request in a new authorized status.
 
 Manage documents used for pre-spend authorizations within Concur Request.
 
 ### <a name="version"></a>Version
 
 - 4.0
-- [3.0](/api-reference-deprecated/version-three/request.html)
+- [3.0](/api-reference-deprecated/version-three/request/request.html)
 - [1.0](/api-reference-deprecated/version-one/Travel/travel-request.html)
 
 #### <a name="overviewV4"></a>Overview of Version 4.0
 
-Version 4.0 of the Requests API offers features like passive approval, Data retention, rigth to be forgotten or estimate.
+Version 4.0 of the Requests API offers features like passive approval, Data retention, rigth to be forgotten.
 
 It works only with the new [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
 
 ### <a name="regionalavailability"></a>Regional Availability
-#### <a name="sawagger"></a>With swagger
+#### <a name="swagger"></a>With swagger
 For US production
 ```
 https://sea-raas.concurasp.com
@@ -77,7 +76,7 @@ curl -X POST --H 'Content-Type: application/json' --H 'Accept: application/json'
 
 ### <a name="explore-api"></a>Explore the API
 
-#### <a name="prerequisites">Prerequisites
+#### <a name="prerequisites"></a>Prerequisites
 
 1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
 2. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
@@ -88,7 +87,7 @@ Once you have registered your application, read about the [API endpoints](/api-r
   <img src="https://run.pstmn.io/button.svg" alt="Run in Postman">
 </a>
 
-#### <a name="token">Retrieve a User Access Token:
+#### <a name="token"></a>Retrieve a User Access Token:
 
 Before making requests to the Requests API, you must [obtain an access token from the Authentication API](https://developer.concur.com/api-reference/authentication/getting-started.html).
 
@@ -112,7 +111,7 @@ http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={Y
 
 Below are some simple NodeJS code snippets for getting a token and posting a request.
 
-##### <a name="retrieve-token">Retrieve a User Access Token:
+##### <a name="retrieve-token"></a>Retrieve a User Access Token:
 
 ```js
 'use strict';
@@ -134,7 +133,7 @@ request.post({
     });
 ```
 
-##### <a name="post-request">Post a Request
+##### <a name="post-request"></a>Post a Request
 
 ```js
 'use strict';

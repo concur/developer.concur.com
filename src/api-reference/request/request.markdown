@@ -12,21 +12,28 @@ layout: reference
   - [Workflow](#workflow-resource)
 - [Data Format](#data-format)
   - [Request](#request)
-  - [ApprovalStatus](#status)
+  - [ApprovalStatus](#approvalstatus)
   - [Customfield](#customfield)
   - [Location](#location)
   - [Amount](#amount)
   - [ResourceLink](#resourcelink)
   - [RequestLink](#requestlink)
   - [Link](#link)
+  - [Expense](#expense)
+  - [Allocation](#allocation)
+  - [Exchange Rate](#exchangerate)
+  - [Expense Type](#expensetype)
+  - [Travel Allowance](#travelallowance)
+  - [Trip Data](#tripdata)
+  - [Vendor](#vendor)
+  - [Segment Leg](#segmentleg)
+  - [Segment Type](#segmenttype)
 
 
-
-
-### <a name="resource">Resources
+### <a name="resource"></a>Resources
 Manage documents used for pre-spend authorizations within Concur Request.
 
-#### <a name="request-resource">Request
+#### <a name="request-resource"></a>Request
 - __Create a new request__
 
 POST /v4/requests
@@ -89,7 +96,7 @@ Name | Parameter Type | Data Type | Description
 requestUuid | path | string | Required The unique identifier of the Request
 
 *Response:*
-[HTTP status](#httpstatus)
+Response code
 
 - __Create an expense report linked to an approved request__
 
@@ -104,7 +111,7 @@ requestUuid | path | string | Required The unique identifier of the Request
 [ResourceLink](#resourcelink)
 
 
-#### <a name="workflowresource">Workflow resource
+#### <a name="workflow-resource"></a>Workflow resource
 
 Manage workflow transitions for a Request document.
 - __Move an existing request in the approval workflow__
@@ -132,7 +139,7 @@ action | path | string | Required The state transition to be executed (submit, a
 *Response:*
 [Request](#request-resource)
 
-#### <a name="expense-resource">Expense resource
+#### <a name="expense-resource"></a>Expense resource
 
 Manage expected expense entries attached to a Request document.
 - __Create a new expected expense__
@@ -147,7 +154,7 @@ body | object | [Expense resource](#expense-resource) | __Required__ The expense
 
 *Response:*
 
-Get expected expenses attached to a request
+- __Get expected expenses attached to a request__
 
 GET /v4/requests/{requestUuid}/expenses
 
@@ -196,12 +203,12 @@ Name | Parameter Type | Data Type | Description
 expenseUuid | path | string | __Required__ The unique identifier of the Expense to delete
 
 *Response:*
-[HTTP status](#httpstatus)
+Response code
 
-#### <a name="travel-agency-resource">Travel agency resource
+#### <a name="travel-agency-resource"></a>Travel agency resource
 
 Manage the configuration for travel agencies integrated with Concur Request.
-Get the description of a travel agency office
+- __Get the description of a travel agency office__
 
 GET /v4/travelagencies/{agencyUuid}
 
@@ -219,13 +226,13 @@ name | string | - | The travel agency office name
 proposalType | string| - | The travel agency proposal type. Possible value: CWT, CWTF, AEBT or API
 
 
-### <a name="data-format">Data Format
-#### <a name="request">Request
+### <a name="data-format"></a>Data Format
+#### <a name="request"></a>Request
 Name | Type | Format | Description |
 ------------- | :-------: | :--------: | ------
 approvalLimitDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date by which the Request must be approved. This element appears only when integrated with Concur Travel (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-approvalStatus | object | [ApprovalStatus](#status) | The approval status of the Request |
-| authorizedDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | For approved request, the date at which the approval process was completed (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
+approvalStatus | object | [Approval Status](#approvalstatus) | The approval status of the Request |
+authorizedDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | For approved request, the date at which the approval process was completed (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 businessPurpose | string | - | The business purpose of the Request
 closed | boolean | - | Indicates whether this request is closed
 creationDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date the Request was created (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
@@ -252,19 +259,22 @@ totalPostedAmount | object | [Amount](#amount) | The total amount of the Request
 totalRemainingAmount | object | [Amount](#amount) | The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the request
 travelAgency | object | [ResourceLink](#resourcelink) | The travel agency office that is managing the trip associated to this request
 operations | array | [Link](#link) | Links to operations available for the request, depends on the current approval status
-#### <a name="status">ApprovalStatus
+
+#### <a name="approvalstatus">Approval Status
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 code | string | - | The code for the approval status the Request. Possible values: NOT_SUBMITTED, SUBMITTED, APPROVED, CANCELED or SENTBACK
 name | string | - | The approval status of the Request in the current user's language
-#### <a name="customfield">CustomField
+
+#### <a name="customfield"></a>CustomField
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 code | string | - | The short code for the list item. For non-list fields, this value will be blank
 value | string | -  | The value of the non-list item. For list fields, this value will contain the name of the list item
 listItemId | string | - | The unique id of the item in case of a list item
 href | string | - | The link to get this list item on the list service. Empty for non-list items.
-#### <a name="location">Location
+
+#### <a name="location"></a>Location
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 countryCode | string | [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html) | The ISO 3166-1 country code
@@ -272,29 +282,32 @@ countrySubDivisionCode | string | [ISO 3166-2](https://www.iso.org/standard/6354
 city | string | - | The city name
 iataCode | string | - | The IATA code of the location
 name | string | - | The name of the location
-#### <a name="amount">Amount
+
+#### <a name="amount"></a>Amount
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 value | number | - | Required The amount in the defined currency
 currency | string | [ISO 4217:2015](#https://www.iso.org/standard/64758.html) | Required The 3-letter ISO 4217 code for the currency in which the amount is expressed
-#### <a name="resourcelink">ResourceLink
+
+#### <a name="resourcelink"></a>Resource Link
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource
 id | string |[RFC 4122](https://tools.ietf.org/html/rfc4122) | Unique identifier of the related object
 template | string | - | Hyperlink template to the resource
-#### <a name="requestlink">RequestLink
+
+#### <a name="requestlink"></a>Request Link
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 requestId | string | 4 to 6 alphanumeric characters | The public key of the Request (unique per customer)
-#### <a name="link">Link
+
+#### <a name="link"></a>Link
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 rel | string | [RFC 5988](https://tools.ietf.org/html/rfc5988) | Relation type as defined by the server. There are registered relation types listed in RFC 5988 6.2.2. Initial Registry Contents including pagination relation types of next, prev, first and last
 href| string| [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource
 
-#### <a name="expense">Expense
-
+#### <a name="expense"></a>Expense
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 allocations | object | [Allocation](#allocation) | The details of the allocations for this expense.
@@ -318,7 +331,7 @@ travelAllowance | object | [Travel Allowance](#travelallowance) | The Travel all
 tripData | object | [Trip Data](#tripdata) | The description of the trip
 vendor | object | [Vendor](#vendor) | The vendor of the expense entry
 
-#### <a name="allocation">Allocation
+#### <a name="allocation"></a>Allocation
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 allocationAmount | object | [Amount](#amount) | The amount of the allocation calculated with the percentage value multiplied by the transaction amount on the expense. This amount is given in the transaction's currency and rounded to 8 decimals after decimal point.
@@ -331,25 +344,25 @@ percentage | number | - | The percentage of the total expense that this allocati
 postedAmount | object | [Amount](#amount) | The amount of the allocation calculated with the percentage value multiplied by the posted amount on the expense. This amount is given in the user's currency and rounded to 8 decimals after decimal point.
 systemAllocation | boolean | - | Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only
 
-#### <a name="exchangerate">Exchange Rate
+#### <a name="exchangerate"></a>Exchange Rate
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 operation | string | - | Exchange rate operation. Possible values are: MULTIPLY or DIVIDE
 value | number | - | Exchange rate value
 
-#### <a name="expensetype">Expense Type
+#### <a name="expensetype"></a>Expense Type
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 id | string | - | Required Unique identifier of the expense type
 name | string | - | Name of the expense type
 href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource for the expense type definition
 
-#### <a name="travelallowance">Travel AllowanceLink
+#### <a name="travelallowance"></a>Travel Allowance
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 dailyTravelAllowanceId | string | - | The fixed daily travel allowance id associated with the expense
 
-#### <a name="tripdata">Trip Data
+#### <a name="tripdata"></a>Trip Data
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 agencyBooked | boolean | - | True if this travel is (or has to be) handled by a travel agency
@@ -358,13 +371,13 @@ tripType | string | - | Indicates the type of this trip. Should be one of "ONE_W
 segmentType | object | [Segment Type](#segmenttype) | Required The type of the segment
 selfBooked | boolean | - | True if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS
 
-#### <a name="vendor">Vendor
+#### <a name="vendor"></a>Vendor
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 id | string | - | The vendor identifier of the entry
 name | string | - | The vendor description of the entry
 
-#### <a name="segmentleg">Segment Leg
+#### <a name="segmentleg"></a>Segment Leg
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 comment | string | - | Contains the last comment saved in this segment leg.
@@ -383,7 +396,7 @@ startTime | time | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.
 segmentLocator | string | - | This is the identifier for ConcurTravel segments (if applicable)
 vendorName | string | - | Contains the vendor description of the segment leg.
 
-#### <a name="segmenttype">Segment Type
+#### <a name="segmenttype"></a>Segment Type
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 category| enum | - | Describes the category of this segment type. Possible values are: REQ_SEG_AIRFR, REQ_SEG_CARRT, REQ_SEG_HOTEL, REQ_SEG_LIMOF, REQ_SEG_RAILF, REQ_SEG_TAXIF, REQ_SEG_MISC, REQ_SEG_PARKG, REQ_SEG_DININ, REQ_SEG_EVENT
@@ -396,5 +409,3 @@ eg.
     "category": "REQ_SEG_AIRFR",
     "code": "AIRFR"
 }
-
-
