@@ -24,7 +24,7 @@ Concur Request automates the spend request and approval process for both travel 
 
 ### <a name="overview"></a>Overview
 
-The Request V4 API has 5 resources:
+The Request V4 API has 4 resources:
 
 1. __Expense resource__ - You can  select, create, update or delete an expense or show the list of expense link to a request.
 2. __Request resource__ - You can select, create, update or delete a request or show a list of requests.
