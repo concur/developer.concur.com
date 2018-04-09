@@ -644,7 +644,7 @@ Response code : **200**
   ]
 }
 ```
-Response code : **200**
+Response code : **201**
 
 #### DELETE /v4/requests/{requestUuid}
 <code>curl -X DELETE --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9lOTAxNjdhMi0xMmY5LTQ0NTAtYTc1Zi0wOTkwZTNjZTgyMzIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiZTkwMTY3YTItMTJmOS00NDUwLWE3NWYtMDk5MGUzY2U4MjMyIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyOTM2MDIwLCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI5MzI0MjAsImlhdCI6MTUyMjkzMjQyMCwiY29uY3VyLmNvbXBhbnkiOiIyN2RkY2NiMC05YTY3LTQ2NDktYTQzNS04YWIwYWExY2VmNjUifQ.YhFKmHoslr0YjsNFJpy8KHigCxYxJRZAjJerOBkKOLIqmrocCHBD7IxFf7oMZVjSn_COQA5lFT9PuTL_XHma4GudKBOHHywuTSbMBeO7DiG-wrPjC4SGsjvGM--JdJdpBbpRys2qscn-VfTby3kVx9m1iqlr7WlMRwmpx9JgN5X5AeJLg-cNnQy7PJSG47EwLbOLgsm2bZwb3Cbjwea_-xFMPS1mREdLA0ZLSBc8PDvQnv4QWkxzZ0tdhYoHqxa1YdGWWh1u1V3KdcHlHZ2Y0gcnXaeD_EzaE3SNMEg8bBINrQ0IMiBQlYHcm5wSuyy1kCpSi3pJ-KVGDua3z2tMdA' 'https://us.api.concursolutions.com/travelrequest/v4/requests/DCD010D83598C346AF9079F8E9555B37'</code>
@@ -810,7 +810,7 @@ Response code : **200**
   "template": "https://us.api.concursolutions.com/expensereports/v4/users/e90167a2-12f9-4450-a75f-0990e3ce8232/context/TRAVELER/reports/{id}"
 }
 ```
-Response code : **200**
+Response code : **201**
 
 
 <a name="travel-agency-resource"></a>
@@ -890,4 +890,4 @@ Response code : **200**
   }
 }
 ```
-Response code : **200**
+Response code : **201**
