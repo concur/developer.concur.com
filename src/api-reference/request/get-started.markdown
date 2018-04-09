@@ -26,10 +26,10 @@ Concur Request automates the spend request and approval process for both travel 
 
 The Request V4 API has 4 resources:
 
-1. __Expense resource__ - You can  select, create, update or delete an expense or show the list of expense link to a request.
-2. __Request resource__ - You can select, create, update or delete a request or show a list of requests.
-3. __Travel Agency resource__ - You can get the description of a travel agency office.
-4. __Workflow resource__ - You can advance a request in a new authorized status.
+1. __Request resource__ - You can read, create, update or delete a Request and get the list of Requests.
+2. __Workflow resource__ - You can perform action in the approval workflow of a Request (submit, approve, cancel...)
+3. __Expense resource__ - You can read, create, update or delete an expense, and get the list of expected expenses for a specific Request.
+4. __Travel Agency resource__ - You can get the description of a travel agency office.
 
 Manage documents used for pre-spend authorizations within Concur Request.
 

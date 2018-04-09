@@ -6,10 +6,10 @@ layout: reference
 # Request endpoints
 
 - [Resources](#resource)
-  - [Expense](#expense-resource)
   - [Request](#request-resource)
-  - [Travel Agency](#travel-agency-resource)
   - [Workflow](#workflow-resource)
+  - [Expense](#expense-resource)
+  - [Travel Agency](#travel-agency-resource)
 - [Data Format](#data-format)
   - [Request](#request)
   - [ApprovalStatus](#approvalstatus)
