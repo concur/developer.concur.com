@@ -11,7 +11,7 @@ Concur Request automates the spend request and approval process for both travel 
 - [Overview](#overview)
 - [Version](#version)
   - [Overview version V4.0](#overviewV4)
-- [Regional Availability](#regional)
+- [Regional Availability](#regionalavailability)
   - [With Swagger](#swagger)
   - [With Curl](#curl)
 - [Explore the API](#explore-api)
@@ -24,7 +24,7 @@ Concur Request automates the spend request and approval process for both travel 
 
 ### <a name="overview"></a>Overview
 
-The Request V4 API has 4 resources:
+The Request V4 API exposes four different resources:
 
 1. __Request resource__ - You can read, create, update or delete a Request and get the list of Requests.
 2. __Workflow resource__ - You can perform action in the approval workflow of a Request (submit, approve, cancel...)
@@ -41,9 +41,8 @@ Manage documents used for pre-spend authorizations within Concur Request.
 
 #### <a name="overviewV4"></a>Overview of Version 4.0
 
-Version 4.0 of the Requests API offers features like passive approval, Data retention, rigth to be forgotten.
-
-It works only with the new [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
+Version 4.0 of the Requests API allows to interact with Requests, Expenses, Workflow and get Travel Agency information.
+Version 4.0 of the Requests API works only with the new [Authentication API](/api-reference/authentication/apidoc.html).
 
 ### <a name="regionalavailability"></a>Regional Availability
 #### <a name="swagger"></a>With swagger
@@ -78,10 +77,10 @@ curl -X POST --H 'Content-Type: application/json' --H 'Accept: application/json'
 
 #### <a name="prerequisites"></a>Prerequisites
 
-1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
-2. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
+1. [Create a sandbox](/manage-apps/register.html) if you don't already have one.
+2. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
 
-Once you have registered your application, read about the [API endpoints](/api-reference/receipts/endpoints.html), or click the button to download a request collection for Postman.
+Once you have registered your application, read about the [API endpoints](/api-reference/request/endpoints.html), or click the button to download a request collection for Postman.
 
 <a href="https://app.getpostman.com/run-collection/bfe85f4a4e435a161a8a" target="_blank" onclick="ga('send', 'event', 'Postman', 'Click', 'https://app.getpostman.com/run-collection/bfe85f4a4e435a161a8a');">
   <img src="https://run.pstmn.io/button.svg" alt="Run in Postman">
@@ -89,9 +88,9 @@ Once you have registered your application, read about the [API endpoints](/api-r
 
 #### <a name="token"></a>Retrieve a User Access Token:
 
-Before making requests to the Requests API, you must [obtain an access token from the Authentication API](https://developer.concur.com/api-reference/authentication/getting-started.html).
+Before issuing requests to the Requests API, you must [obtain an access token from the Authentication API](/api-reference/authentication/getting-started.html).
 
-The response will include an `access_token` field, which contains your access token. For subsequent calls, you will need to include this access token in the `Authorization` header of your calls. An `id_token` will be also included in the response. In order to retrieve the unique ID for your user, you will have to decode this `id_token` at [jwt.io](https://jwt.io/). You will need this ID in order to post requests.
+The response will include an `access_token` field, which contains your access token. For subsequent calls, you will need to include this access token in the `Authorization` header of your calls. An `id_token` will be also included in the response. In order to retrieve the unique ID for your user, you will have to decode this `id_token` at [jwt.io](https://jwt.io/). You will need this ID in order to issue requests on the API.
 
 Examples:
 
@@ -109,7 +108,7 @@ http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={Y
 
 #### <a name="javascript">Explore the API in JavaScript
 
-Below are some simple NodeJS code snippets for getting a token and posting a request.
+Below are some simple NodeJS code snippets for getting a token and issuing a request on the API.
 
 ##### <a name="retrieve-token"></a>Retrieve a User Access Token:
 
@@ -150,8 +149,7 @@ const options = {
     headers: {
         'Authorization': `Bearer ${ACCESS_TOKEN}`,
         'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(request),
-        'Link': '<https://schema.concursolutions.com/general-receipt.schema.json>;rel=describedBy'
+        'Content-Length': Buffer.byteLength(request)
     }
 };
 

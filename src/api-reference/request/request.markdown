@@ -34,7 +34,7 @@ layout: reference
 Manage documents used for pre-spend authorizations within Concur Request.
 
 #### <a name="request-resource"></a>Request
-- __Create a new request__
+- __Create a new Request__
 
 POST /v4/requests
 
@@ -47,17 +47,19 @@ POST /v4/requests
 
 [Request](#request)
 
-- __Get the list of existing requests__
+- __Get the list of existing Requests__
 
 GET /v4/requests
 
 *Parameters:*
-No parameter
+Name | Parameter Type | Data Type | Description
+--- | :---: | :---: | ------
+userId | path | string | Optional The unique identifier of the User
 
 *Response:*
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-data | array | [Request](#request) | List of requests
+data | array | [Request](#request) | List of Requests
 operations | string | [RFC 5988](https://tools.ietf.org/html/rfc5988) | Pagination links to next/prev/first/last pages
 
 - __Get the content of an existing request__
@@ -73,7 +75,7 @@ requestUuid | path | string | Required The unique identifier of the Request
 
 [Request](#request)
 
-- __Update the content of an existing request__
+- __Update the content of an existing Request__
 
 PUT /v4/requests/{requestUuid}
 
@@ -86,7 +88,7 @@ requestUuid | path | string | Required The unique identifier of the Request
 
 [Request](#request)
 
-- __Delete an existing request__
+- __Delete an existing Request__
 
 DELETE /v4/requests/{requestUuid}
 
@@ -98,7 +100,7 @@ requestUuid | path | string | Required The unique identifier of the Request
 *Response:*
 Response code
 
-- __Create an expense report linked to an approved request__
+- __Create an expense report linked to an approved Request__
 
 POST /v4/requests/{requestUuid}/reports
 
@@ -114,7 +116,7 @@ requestUuid | path | string | Required The unique identifier of the Request
 #### <a name="workflow-resource"></a>Workflow resource
 
 Manage workflow transitions for a Request document.
-- __Move an existing request in the approval workflow__
+- __Move an existing Request in the approval workflow__
 
 POST /v4/requests/{requestUuid}/{action}
 
@@ -149,12 +151,12 @@ POST /v4/requests/{requestUuid}/expenses
 *Parameters:*
 Name | Parameter Type | Data Type | Description
 --- | :---: | :---: | ------
-requestUuid | path | string | __Required__ The unique identifier of the Request to which the expense is attached
-body | object | [Expense resource](#expense-resource) | __Required__ The expense content to create
+requestUuid | path | string | __Required__ The unique identifier of the Request to which the Expense is attached
+body | object | [Expense resource](#expense-resource) | __Required__ The Expense content to create
 
 *Response:*
 
-- __Get expected expenses attached to a request__
+- __Get expected Expenses attached to a Request__
 
 GET /v4/requests/{requestUuid}/expenses
 
@@ -169,7 +171,7 @@ Name | Type | Format | Description
 data | array | [Expense](#expense) | List of entries attached to a Request.
 operations | string | [RFC 5988](https://tools.ietf.org/html/rfc5988) | Pagination links to next/prev/first/last page.
 
-- __Get an existing expected expense__
+- __Get an existing expected Expense__
 
 GET /v4/expenses/{expenseUuid}
 
@@ -181,7 +183,7 @@ expenseUuid | path | string | __Required__ The unique identifier of the Expense
 *Response:*
 [Expense](#expense)
 
-- __Update the content of an existing expected expense__
+- __Update the content of an existing expected Expense__
 
 PUT /v4/expenses/{expenseUuid}
 
@@ -189,12 +191,12 @@ PUT /v4/expenses/{expenseUuid}
 Name | Parameter Type | Data Type | Description
 --- | :---: | :---: | ------
 expenseUuid | path | string | __Required__ The unique identifier of the Expense to update
-body | object | [Expense](#expense) | Required The expense content to update
+body | object | [Expense](#expense) | Required The Expense content to update
 
 *Response:*
 [Expense](#expense)
 
-- __Delete an expected expense from the request__
+- __Delete an expected Expense from the Request__
 
 DELETE /v4/expenses/{expenseUuid}
 *Parameters:*
@@ -232,16 +234,16 @@ Name | Type | Format | Description |
 ------------- | :-------: | :--------: | ------
 approvalLimitDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date by which the Request must be approved. This element appears only when integrated with Concur Travel (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 approvalStatus | object | [Approval Status](#approvalstatus) | The approval status of the Request |
-authorizedDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | For approved request, the date at which the approval process was completed (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
+authorizedDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | For approved Request, the date at which the approval process was completed (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 businessPurpose | string | - | The business purpose of the Request
-closed | boolean | - | Indicates whether this request is closed
+closed | boolean | - | Indicates whether this Request is closed
 creationDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date the Request was created (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 comment | string | - | The last comment attached to this Request
 custom1 to custom20 | object | [CustomField](#customfield) | The details from the Custom fields. These fields may not have data, depending on the configuration
 endDate | date | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | The end date of the Request (in the format yyyy-MM-dd)
 endTime | time | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | The end time of the Request (in the format HH:mm)
 everSentBack | boolean | - | Indicates whether the Request has ever been sent back to the employee
-expenses | array | [ResourceLink](#resourcelink) | Expected expenses attached to this Request
+expenses | array | [ResourceLink](#resourcelink) | Expected Expenses attached to this Request
 extensionOf | object | [RequestLink](#requestlink) | The Request that this Request is an extension of, or adendum to
 href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource for this Request
 id | string | - | The unique identifier of the Request
@@ -254,11 +256,11 @@ requestId | string | 4 to 6 alphanumeric characters | The public key of the Requ
 startDate | date | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | The start date of the Request (in the format yyyy-MM-dd)
 startTime | time | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | The start time of the Request (in the format HH:mm)
 submitDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date the Request was submitted (last submit date in case of recall) (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-totalApprovedAmount | object | [Amount](#amount) | The total amount of approved expenses in the Request, expressed in the reimbursement currency of the employee at the time he created the request
-totalPostedAmount | object | [Amount](#amount) | The total amount of the Request, expressed in the reimbursement currency of the employee at the time he created the request
-totalRemainingAmount | object | [Amount](#amount) | The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the request
-travelAgency | object | [ResourceLink](#resourcelink) | The travel agency office that is managing the trip associated to this request
-operations | array | [Link](#link) | Links to operations available for the request, depends on the current approval status
+totalApprovedAmount | object | [Amount](#amount) | The total amount of approved Expenses in the Request, expressed in the reimbursement currency of the employee at the time he created the Request
+totalPostedAmount | object | [Amount](#amount) | The total amount of the Request, expressed in the reimbursement currency of the employee at the time he created the Request
+totalRemainingAmount | object | [Amount](#amount) | The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the Request
+travelAgency | object | [ResourceLink](#resourcelink) | The travel agency office that is managing the trip associated to this Request
+operations | array | [Link](#link) | Links to operations available for the Request, depends on the current approval status
 
 #### <a name="approvalstatus">Approval Status
 Name | Type | Format | Description
@@ -310,38 +312,38 @@ href| string| [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the
 #### <a name="expense"></a>Expense
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-allocations | object | [Allocation](#allocation) | The details of the allocations for this expense.
-approvedAmount | object | [Amount](#amount) | The approved amount of the expense entry, in the transaction currency of the request
+allocations | object | [Allocation](#allocation) | The details of the allocations for this Expense.
+approvedAmount | object | [Amount](#amount) | The approved amount of the Expense entry, in the transaction currency of the Request
 budgetAccrualDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date to determine which budgets are affected (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 businessPurpose | string | - | The business purpose of the Request entry
 custom1 to custom40 | object | [CustomField](#customfield) | The details from the Custom fields. These fields may not have data, depending on the configuration
 exchangeRate | object | [Exchange Rate](#exchangerate) | The exchange rate that applies to the entry
-expenseType | object | [Expense Type](#expensetype) | The expense type of the entry. Required for expected expenses, automatically set for segments depending on the SegmentType code.
+expenseType | object | [Expense Type](#expensetype) | The Expense type of the entry. Required for expected Expenses, automatically set for segments depending on the SegmentType code.
 href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource for this Request entry
-id | string | - | The unique identifier of the expense entry
-lastComment | string | - | The last comment (most recent) of the expense entry
-lastModifiedDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date when this expense was last modified
-location | object | [Location](#location) | The location of the expense entry
+id | string | - | The unique identifier of the Expense entry
+lastComment | string | - | The last comment (most recent) of the Expense entry
+lastModifiedDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date when this Expense was last modified
+location | object | [Location](#location) | The location of the Expense entry
 orgUnit1 to orgUnit6 | object | [Amount](#amount) | The details from the Custom fields. These fields may not have data, depending on the configuration
-postedAmount | object | [Amount](#amount) | The posted amount of the expense entry, in the transaction currency of the request
-remainingAmount | object | [Amount](#amount) | The remaining amount of the expense entry, in the transaction currency of the request
-transactionAmount | object | [Amount](#amount) | Required The amount of the expense entry, in the transaction currency paid to the vendor
+postedAmount | object | [Amount](#amount) | The posted amount of the Expense entry, in the transaction currency of the Request
+remainingAmount | object | [Amount](#amount) | The remaining amount of the Expense entry, in the transaction currency of the Request
+transactionAmount | object | [Amount](#amount) | Required The amount of the Expense entry, in the transaction currency paid to the vendor
 transactionDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | Required The date of the transaction (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 travelAllowance | object | [Travel Allowance](#travelallowance) | The Travel allowance
 tripData | object | [Trip Data](#tripdata) | The description of the trip
-vendor | object | [Vendor](#vendor) | The vendor of the expense entry
+vendor | object | [Vendor](#vendor) | The vendor of the Expense entry
 
 #### <a name="allocation"></a>Allocation
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-allocationAmount | object | [Amount](#amount) | The amount of the allocation calculated with the percentage value multiplied by the transaction amount on the expense. This amount is given in the transaction's currency and rounded to 8 decimals after decimal point.
-approvedAmount | object | [Amount](#amount) | The amount of the allocation calculated with the percentage value multiplied by the approved amount on the expense. This amount is given in the user's currency and rounded to 8 decimals after decimal point.
+allocationAmount | object | [Amount](#amount) | The amount of the allocation calculated with the percentage value multiplied by the transaction amount on the Expense. This amount is given in the transaction's currency and rounded to 8 decimals after decimal point.
+approvedAmount | object | [Amount](#amount) | The amount of the allocation calculated with the percentage value multiplied by the approved amount on the Expense. This amount is given in the user's currency and rounded to 8 decimals after decimal point.
 allocationId | string | - | The unique allocation identifier
 custom1 to custom20 | object | [CustomField](#customfield) | The details from the Custom fields. These fields may not have data, depending on the configuration
-expenseId | string | - | The unique identifier of the expense associated with the allocation
+expenseId | string | - | The unique identifier of the Expense associated with the allocation
 percentEdited | boolean | - | Whether the allocation percent has been edited
-percentage | number | - | The percentage of the total expense that this allocation represents
-postedAmount | object | [Amount](#amount) | The amount of the allocation calculated with the percentage value multiplied by the posted amount on the expense. This amount is given in the user's currency and rounded to 8 decimals after decimal point.
+percentage | number | - | The percentage of the total Expense that this allocation represents
+postedAmount | object | [Amount](#amount) | The amount of the allocation calculated with the percentage value multiplied by the posted amount on the Expense. This amount is given in the user's currency and rounded to 8 decimals after decimal point.
 systemAllocation | boolean | - | Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only
 
 #### <a name="exchangerate"></a>Exchange Rate
@@ -353,14 +355,14 @@ value | number | - | Exchange rate value
 #### <a name="expensetype"></a>Expense Type
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-id | string | - | Required Unique identifier of the expense type
-name | string | - | Name of the expense type
-href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource for the expense type definition
+id | string | - | Required Unique identifier of the Expense type
+name | string | - | Name of the Expense type
+href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource for the Expense type definition
 
 #### <a name="travelallowance"></a>Travel Allowance
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-dailyTravelAllowanceId | string | - | The fixed daily travel allowance id associated with the expense
+dailyTravelAllowanceId | string | - | The fixed daily travel allowance id associated with the Expense
 
 #### <a name="tripdata"></a>Trip Data
 Name | Type | Format | Description
