@@ -41,20 +41,22 @@ POST /v4/requests
 *Parameters:*
 | Name | Parameter Type | Data Type | Description |
 | :---: | :-------: | :--------: | ------ |
-| - | body | [Request](#request) | Required The content of the Request to create |
+| - | body | [Request](#request) | __Required__ The content of the Request to create |
 
 *Response:*
+| Name | Type | Format | Description
+| --- | :---: | :---: | ------
+| - | object | [Request](#request) | The request created
 
-[Request](#request)
 
 - __Get the list of existing Requests__
 
 GET /v4/requests
 
 *Parameters:*
-Name | Parameter Type | Data Type | Description
---- | :---: | :---: | ------
-userId | path | string | Optional The unique identifier of the User
+| Name | Parameter Type | Data Type | Description
+| --- | :---: | :---: | ------
+| userId | query | string | __Optional__ The unique identifier of the User owning the Requests if not provided userId will be infered based upon the authentication token provided
 
 *Response:*
 Name | Type | Format | Description
@@ -67,11 +69,17 @@ operations | string | [RFC 5988](https://tools.ietf.org/html/rfc5988) | Paginati
 GET /v4/requests/{requestUuid}
 
 *Parameters:*
-Name | Parameter Type | Data Type | Description
---- | :---: | :---: | ------
-requestUuid | path | string | Required The unique identifier of the Request
+| Name | Parameter Type | Data Type | Description
+| --- | :---: | :---: | ------
+| requestUuid | path | string | __Required__ The unique identifier of the Request
+| userId | query | string | __Optional__ The unique identifier of the User owning the Request with unique identifier {requestUuid} if not provided userId will be infered based upon the authentication token provided
 
 *Response:*
+| Name | Type | Format | Description
+| --- | :---: | :---: | ------
+| - | object | [Request](#request) | The request having {requestUuid} as unique identifer
+
+
 
 [Request](#request)
 
@@ -80,11 +88,15 @@ requestUuid | path | string | Required The unique identifier of the Request
 PUT /v4/requests/{requestUuid}
 
 *Parameters:*
-Name | Parameter Type | Data Type | Description
---- | :---: | :---: | ------
-requestUuid | path | string | Required The unique identifier of the Request
-- | body | [Request](#request) | Required The content of the Request to update
+| Name | Parameter Type | Data Type | Description
+| --- | :---: | :---: | ------
+| requestUuid | path | string | __Required__ The unique identifier of the Request
+| - | body | [Request](#request) | __Required__ The content of the Request to update
+
 *Response:*
+| Name | Type | Format | Description
+| --- | :---: | :---: | ------
+| - | object | [Request](#request) | The request having {requestUuid} as unique identifer after update
 
 [Request](#request)
 
@@ -93,24 +105,29 @@ requestUuid | path | string | Required The unique identifier of the Request
 DELETE /v4/requests/{requestUuid}
 
 *Parameters:*
-Name | Parameter Type | Data Type | Description
---- | :---: | :---: | ------
-requestUuid | path | string | Required The unique identifier of the Request
+| Name | Parameter Type | Data Type | Description
+| --- | :---: | :---: | ------
+| requestUuid | path | string | __Required__ The unique identifier of the Request
 
 *Response:*
-Response code
+| Name | Type | Format | Description
+| --- | :---: | :---: | ------
+| - | - | - | No content, response code only
+
 
 - __Create an expense report linked to an approved Request__
 
 POST /v4/requests/{requestUuid}/reports
 
 *Parameters:*
-Name | Parameter Type | Data Type | Description
---- | :---: | :---: | ------
-requestUuid | path | string | Required The unique identifier of the Request
+| Name | Parameter Type | Data Type | Description
+| --- | :---: | :---: | ------
+| requestUuid | path | string | __Required__ The unique identifier of the Request
 
 *Response:*
-[ResourceLink](#resourcelink)
+| Name | Type | Format | Description
+| --- | :---: | :---: | ------
+| - | object | [ResourceLink](#resourcelink) | The resource link leading to the created report
 
 
 #### <a name="workflow-resource"></a>Workflow resource
@@ -133,13 +150,16 @@ The HATEOAS links for actions available given the current user and state are lis
         sendback: reject the Request and send back to the Traveler
 
 *Parameters:*
-Name | Parameter Type | Data Type | Description
---- | :---: | :---: | ------
-requestUuid | path | string | __Required__ The unique identifier of the Request
-action | path | string | Required The state transition to be executed (submit, approve, recall, sendback, cancel, close or reopen)
+| Name | Parameter Type | Data Type | Description
+| --- | :---: | :---: | ------
+| requestUuid | path | string | __Required__ The unique identifier of the Request
+| action | path | string | __Required__ The state transition to be executed (submit, approve, recall, sendback, cancel, close or reopen)
 
 *Response:*
-[Request](#request-resource)
+| Name | Type | Format | Description
+| --- | :---: | :---: | ------
+| - | object | [Request](#request) | The request having {requestUuid} as unique identifer
+
 
 #### <a name="expense-resource"></a>Expense resource
 
@@ -149,63 +169,82 @@ Manage expected expense entries attached to a Request document.
 POST /v4/requests/{requestUuid}/expenses
 
 *Parameters:*
-Name | Parameter Type | Data Type | Description
---- | :---: | :---: | ------
-requestUuid | path | string | __Required__ The unique identifier of the Request to which the Expense is attached
-body | object | [Expense resource](#expense-resource) | __Required__ The Expense content to create
+| Name | Parameter Type | Data Type | Description
+| --- | :---: | :---: | ------
+| requestUuid | path | string | __Required__ The unique identifier of the Request to which the Expense is attached
+| body | object | [Expense](#expense) | __Required__ The Expense content to create
+| userId | query | string | __Optional__ The unique identifier of the User performing the request if not provided userId will be infered based upon the authentication token provided
+
 
 *Response:*
+| Name | Type | Format | Description
+| --- | :---: | :---: | ------
+| - | - | - | No content, response code only
 
 - __Get expected Expenses attached to a Request__
 
 GET /v4/requests/{requestUuid}/expenses
 
 *Parameters:*
-Name | Parameter Type | Data Type | Description
---- | :---: | :---: | ------
-requestUuid | path | string | __Required__ The unique identifier of the Request
+| Name | Parameter Type | Data Type | Description
+| --- | :---: | :---: | ------
+| requestUuid | path | string | __Required__ The unique identifier of the Request
+| userId | query | string | __Optional__ The unique identifier of the User performing the request if not provided userId will be infered based upon the authentication token provided
+
 
 *Response:*
-Name | Type | Format | Description
---- | :---: | :---: | ------
-data | array | [Expense](#expense) | List of entries attached to a Request.
-operations | string | [RFC 5988](https://tools.ietf.org/html/rfc5988) | Pagination links to next/prev/first/last page.
+| Name | Type | Format | Description
+| --- | :---: | :---: | ------
+| data | array | [Expense](#expense) | List of entries attached to a Request.
+| operations | string | [RFC 5988](https://tools.ietf.org/html/rfc5988) | Pagination links to next/prev/first/last page.
 
 - __Get an existing expected Expense__
 
 GET /v4/expenses/{expenseUuid}
 
 *Parameters:*
-Name | Parameter Type | Data Type | Description
---- | :---: | :---: | ------
-expenseUuid | path | string | __Required__ The unique identifier of the Expense
+| Name | Parameter Type | Data Type | Description
+| --- | :---: | :---: | ------
+| expenseUuid | path | string | __Required__ The unique identifier of the Expense
+| userId | query | string | __Optional__ The unique identifier of the User performing the request if not provided userId will be infered based upon the authentication token provided
+
 
 *Response:*
-[Expense](#expense)
+| Name | Type | Format | Description
+| --- | :---: | :---: | ------
+| - | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer
+
 
 - __Update the content of an existing expected Expense__
 
 PUT /v4/expenses/{expenseUuid}
 
 *Parameters:*
-Name | Parameter Type | Data Type | Description
---- | :---: | :---: | ------
-expenseUuid | path | string | __Required__ The unique identifier of the Expense to update
-body | object | [Expense](#expense) | Required The Expense content to update
+| Name | Parameter Type | Data Type | Description
+| --- | :---: | :---: | ------
+| expenseUuid | path | string | __Required__ The unique identifier of the Expense to update
+| body | object | [Expense](#expense) | __Required__ The Expense content to update
+| userId | query | string | __Optional__ The unique identifier of the User performing the request if not provided userId will be infered based upon the authentication token provided
 
 *Response:*
-[Expense](#expense)
+| Name | Type | Format | Description
+| --- | :---: | :---: | ------
+| - | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer after update
 
 - __Delete an expected Expense from the Request__
 
 DELETE /v4/expenses/{expenseUuid}
 *Parameters:*
-Name | Parameter Type | Data Type | Description
---- | :---: | :---: | ------
-expenseUuid | path | string | __Required__ The unique identifier of the Expense to delete
+| Name | Parameter Type | Data Type | Description
+| --- | :---: | :---: | ------
+| expenseUuid | path | string | __Required__ The unique identifier of the Expense to delete
+| userId | query | string | __Optional__ The unique identifier of the User performing the request if not provided userId will be infered based upon the authentication token provided
+
 
 *Response:*
-Response code
+| Name | Type | Format | Description
+| --- | :---: | :---: | ------
+| - | - | - | No content, response code only
 
 #### <a name="travel-agency-resource"></a>Travel agency resource
 
@@ -215,17 +254,17 @@ Manage the configuration for travel agencies integrated with Concur Request.
 GET /v4/travelagencies/{agencyUuid}
 
 *Parameters:*
-Name | Parameter Type | Data Type | Description
---- | :---: | :---: | ------
-agencyUuid | path | string | __Required__ The unique identifier of the Travel Agency
+| Name | Parameter Type | Data Type | Description
+| --- | :---: | :---: | ------
+| agencyUuid | path | string | __Required__ The unique identifier of the Travel Agency
 
 *Response:*
-Name | Type | Format | Description
---- | :---: | :---: | ------
-emailAddress | string | - | The travel agency email address
-id | string | - | The travel agency unique identifier
-name | string | - | The travel agency office name
-proposalType | string| - | The travel agency proposal type. Possible value: CWT, CWTF, AEBT or API
+| Name | Type | Format | Description
+| --- | :---: | :---: | ------
+| emailAddress | string | - | The travel agency email address
+| id | string | - | The travel agency unique identifier
+| name | string | - | The travel agency office name
+| proposalType | string| - | The travel agency proposal type. Possible value: CWT, CWTF, AEBT or API
 
 
 ### <a name="data-format"></a>Data Format
@@ -288,8 +327,8 @@ name | string | - | The name of the location
 #### <a name="amount"></a>Amount
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-value | number | - | Required The amount in the defined currency
-currency | string | [ISO 4217:2015](#https://www.iso.org/standard/64758.html) | Required The 3-letter ISO 4217 code for the currency in which the amount is expressed
+value | number | - | __Required__ The amount in the defined currency
+currency | string | [ISO 4217:2015](#https://www.iso.org/standard/64758.html) | __Required__ The 3-letter ISO 4217 code for the currency in which the amount is expressed
 
 #### <a name="resourcelink"></a>Resource Link
 Name | Type | Format | Description
@@ -318,7 +357,7 @@ budgetAccrualDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) 
 businessPurpose | string | - | The business purpose of the Request entry
 custom1 to custom40 | object | [CustomField](#customfield) | The details from the Custom fields. These fields may not have data, depending on the configuration
 exchangeRate | object | [Exchange Rate](#exchangerate) | The exchange rate that applies to the entry
-expenseType | object | [Expense Type](#expensetype) | The Expense type of the entry. Required for expected Expenses, automatically set for segments depending on the SegmentType code.
+expenseType | object | [Expense Type](#expensetype) | The Expense type of the entry. __Required__ for expected Expenses, automatically set for segments depending on the SegmentType code.
 href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource for this Request entry
 id | string | - | The unique identifier of the Expense entry
 lastComment | string | - | The last comment (most recent) of the Expense entry
@@ -327,8 +366,8 @@ location | object | [Location](#location) | The location of the Expense entry
 orgUnit1 to orgUnit6 | object | [Amount](#amount) | The details from the Custom fields. These fields may not have data, depending on the configuration
 postedAmount | object | [Amount](#amount) | The posted amount of the Expense entry, in the transaction currency of the Request
 remainingAmount | object | [Amount](#amount) | The remaining amount of the Expense entry, in the transaction currency of the Request
-transactionAmount | object | [Amount](#amount) | Required The amount of the Expense entry, in the transaction currency paid to the vendor
-transactionDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | Required The date of the transaction (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
+transactionAmount | object | [Amount](#amount) | __Required__ The amount of the Expense entry, in the transaction currency paid to the vendor
+transactionDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | __Required__ The date of the transaction (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 travelAllowance | object | [Travel Allowance](#travelallowance) | The Travel allowance
 tripData | object | [Trip Data](#tripdata) | The description of the trip
 vendor | object | [Vendor](#vendor) | The vendor of the Expense entry
@@ -355,7 +394,7 @@ value | number | - | Exchange rate value
 #### <a name="expensetype"></a>Expense Type
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-id | string | - | Required Unique identifier of the Expense type
+id | string | - | __Required__ Unique identifier of the Expense type
 name | string | - | Name of the Expense type
 href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource for the Expense type definition
 
@@ -370,7 +409,7 @@ Name | Type | Format | Description
 agencyBooked | boolean | - | True if this travel is (or has to be) handled by a travel agency
 legs | list | [Segment Leg](#segmentleg) | The list of the legs of the travel
 tripType | string | - | Indicates the type of this trip. Should be one of "ONE_WAY", "ROUND_TRIP" or "MULTI_STOPS". IF not provided, will be detected from the given legs.
-segmentType | object | [Segment Type](#segmenttype) | Required The type of the segment
+segmentType | object | [Segment Type](#segmenttype) | __Required__ The type of the segment
 selfBooked | boolean | - | True if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS
 
 #### <a name="vendor"></a>Vendor
