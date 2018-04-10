@@ -19,16 +19,16 @@ Concur Request automates the spend request and approval process for both travel 
   - [Acquire an Access Token](#token)
   - [Explore the API in JavaScript](#javascript)
     - [Retrieve a User Access Token](#retrieve-token)
-    - [Post a Request](#post-request)
+    - [Post a request](#post-request)
 
 
 ### <a name="overview"></a>Overview
 
 The Request V4 API exposes four different resources:
 
-1. __Request resource__ - You can read, create, update or delete a Request and get the list of Requests.
-2. __Workflow resource__ - You can perform action in the approval workflow of a Request (submit, approve, cancel...)
-3. __Expense resource__ - You can read, create, update or delete an expense, and get the list of expected expenses for a specific Request.
+1. __Request resource__ - You can read, create, update or delete a request and get the list of Requests.
+2. __Workflow resource__ - You can perform action in the approval workflow of a request (submit, approve, cancel...)
+3. __Expense resource__ - You can read, create, update or delete an expense, and get the list of expected expenses for a specific request.
 4. __Travel Agency resource__ - You can get the description of a travel agency office.
 
 Manage documents used for pre-spend authorizations within Concur Request.
@@ -41,8 +41,8 @@ Manage documents used for pre-spend authorizations within Concur Request.
 
 #### <a name="overviewV4"></a>Overview of Version 4.0
 
-Version 4.0 of the Requests API allows to interact with Requests, Expenses, Workflow and get Travel Agency information.
-Version 4.0 of the Requests API works only with the new [Authentication API](/api-reference/authentication/apidoc.html).
+Version 4.0 of Request API allows to interact with Requests, Expenses, Workflow and get Travel Agency information.
+Version 4.0 of Request API works only with the new [Authentication API](/api-reference/authentication/apidoc.html).
 
 ### <a name="regionalavailability"></a>Regional Availability
 #### <a name="swagger"></a>With swagger
@@ -132,7 +132,7 @@ request.post({
     });
 ```
 
-##### <a name="post-request"></a>Post a Request
+##### <a name="post-request"></a>Post a request
 
 ```js
 'use strict';
