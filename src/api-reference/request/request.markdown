@@ -56,7 +56,7 @@ GET /v4/requests
 *Parameters:*
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
-| userId | query | string | __Optional__ The unique identifier of the User owning the Requests if not provided userId will be infered based upon the authentication token provided
+| userId | query | string | __Optional__ The unique identifier of the User owning the Requests to list. If supplying a specific user token userId will be infered based upon the authentication token provided and override any other input. If provided using a company token the userId will filter the returned Requests, only the Requests captured by user having unique identifier userId will be returned.
 
 *Response:*
 Name | Type | Format | Description
@@ -72,7 +72,6 @@ GET /v4/requests/{requestUuid}
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | requestUuid | path | string | __Required__ The unique identifier of the Request
-| userId | query | string | __Optional__ The unique identifier of the User owning the Request with unique identifier {requestUuid} if not provided userId will be infered based upon the authentication token provided
 
 *Response:*
 | Name | Type | Format | Description
@@ -173,7 +172,6 @@ POST /v4/requests/{requestUuid}/expenses
 | --- | :---: | :---: | ------
 | requestUuid | path | string | __Required__ The unique identifier of the Request to which the Expense is attached
 | body | object | [Expense](#expense) | __Required__ The Expense content to create
-| userId | query | string | __Optional__ The unique identifier of the User performing the request if not provided userId will be infered based upon the authentication token provided
 
 
 *Response:*
@@ -189,7 +187,6 @@ GET /v4/requests/{requestUuid}/expenses
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | requestUuid | path | string | __Required__ The unique identifier of the Request
-| userId | query | string | __Optional__ The unique identifier of the User performing the request if not provided userId will be infered based upon the authentication token provided
 
 
 *Response:*
@@ -206,7 +203,6 @@ GET /v4/expenses/{expenseUuid}
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | expenseUuid | path | string | __Required__ The unique identifier of the Expense
-| userId | query | string | __Optional__ The unique identifier of the User performing the request if not provided userId will be infered based upon the authentication token provided
 
 
 *Response:*
@@ -224,7 +220,6 @@ PUT /v4/expenses/{expenseUuid}
 | --- | :---: | :---: | ------
 | expenseUuid | path | string | __Required__ The unique identifier of the Expense to update
 | body | object | [Expense](#expense) | __Required__ The Expense content to update
-| userId | query | string | __Optional__ The unique identifier of the User performing the request if not provided userId will be infered based upon the authentication token provided
 
 *Response:*
 | Name | Type | Format | Description
@@ -238,7 +233,6 @@ DELETE /v4/expenses/{expenseUuid}
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | expenseUuid | path | string | __Required__ The unique identifier of the Expense to delete
-| userId | query | string | __Optional__ The unique identifier of the User performing the request if not provided userId will be infered based upon the authentication token provided
 
 
 *Response:*
