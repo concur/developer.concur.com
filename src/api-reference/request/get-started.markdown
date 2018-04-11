@@ -4,7 +4,7 @@ layout: reference
 ---
 
 # Request
-Concur Request automates the spend request and approval process for both travel and everyday expenses, giving you the data you need to accurately track and better control spending. By increasing visibility into planned expenses and up-to-date budget data, you can make strategic spending decisions before any spending actually occurs. The Request resource provides many abilities, including requests creation and transition into the approval workflow.
+Concur Request automates the spend request and approval process for both travel and everyday expenses, giving you the data you need to accurately track and better control spending. By increasing visibility into planned expenses and up-to-date budget data, you can make strategic spending decisions before any spending actually occurs. The Request resource provides many abilities, including Requests creation and transition into the approval workflow.
 
 ## Get Started
 
@@ -26,10 +26,10 @@ Concur Request automates the spend request and approval process for both travel 
 
 The Request V4 API exposes four different resources:
 
-1. __Request resource__ - You can read, create, update or delete a request and get the list of Requests.
-2. __Workflow resource__ - You can perform action in the approval workflow of a request (submit, approve, cancel...)
-3. __Expense resource__ - You can read, create, update or delete an expense, and get the list of expected expenses for a specific request.
-4. __Travel Agency resource__ - You can get the description of a travel agency office.
+1. __Request resource__ - You can read, create, update or delete a Request and get the list of Requests.
+2. __Workflow resource__ - You can perform action in the approval workflow of a Request (submit, approve, cancel...)
+3. __Expense resource__ - You can read, create, update or delete an Expense, and get the list of expected Expenses for a specific Request.
+4. __Travel Agency resource__ - You can get the description of a Travel Agency office.
 
 Manage documents used for pre-spend authorizations within Concur Request.
 

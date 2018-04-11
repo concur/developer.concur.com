@@ -7,14 +7,285 @@ layout: reference
 
 Below we have sample request data and the corresponding request answers:
 
-* [expense-resource](#expense-resource)
-* [request-resource](#request-resource)
-* [travel-agency-resource](#travel-agency-resource)
-* [workflow-resource](#workflow-resource)
+* [Request resource](#request-resource)
+* [Expense resource](#expense-resource)
+* [Workflow-resource](#workflow-resource)
+* [Travel-agency-resource](#travel-agency-resource)
+
+
+<a name="request-resource"></a>
+### Request resource
+<i>Manage documents used for pre-spend authorizations within Concur Request</i><br />
+
+
+#### GET /v4/requests
+<code>curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy84OWRkN2M5MC02ZWY0LTQxZDEtOWFlOC0zMDNiYWQyNTg3NGQiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiODlkZDdjOTAtNmVmNC00MWQxLTlhZTgtMzAzYmFkMjU4NzRkIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyODUwMjMzLCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI4NDY2MzMsImlhdCI6MTUyMjg0NjYzMywiY29uY3VyLmNvbXBhbnkiOiIwNWIzYjc4Zi04OTMwLTRmMWUtOTY4MS03NDMxYzkzMmM0MDIifQ.S9trem03nqas3tJmWeI13q7Dcim_IWeWTW-S8YiQ7TkErtU1CLOgwr-XckVTz4trkteiz5XGMFc1pkNjTCGyHRYSVyWEs7GzcEoygo6Ub7cQo3S1Sk9tr0aW3eV7rHQFdUVobGs1OIbQWiHfUjrl8jEQm8aZOEMJcACJUPMPIbmxrlKr8gkNnEmLZkcBZuC96iYLkRh7y5_8NTpWe0uM8j18MCPnBwG5Kjka1aaD0tg0UAu9bFnf74EEa8OE9dRa2Y5AXZmNHQ5n0fvvoWoREL2lGLUtCFYu9NgxZpd5hHGxj4EyPzbdSg4bXEapZCgK87xclj2n1jydyXaHmxjkLA' 'https://us.api.concursolutions.com/travelrequest/v4/requests'</code>
+```json
+{
+  "data": [
+    {
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/D5C57CBC397E2A4693DDA66337D86798",
+      "id": "D5C57CBC397E2A4693DDA66337D86798",
+      "approvalStatus": {
+        "code": "NOT_SUBMITTED",
+        "name": "Not Submitted"
+      },
+      "approved": false,
+      "businessPurpose": "essai",
+      "canceledPostApproval": false,
+      "closed": false,
+      "creationDate": "2018-04-04T13:05:41Z",
+      "everSentBack": false,
+      "expenses": [],
+      "name": "test expected expense",
+      "pendingApproval": false,
+      "requestId": "3334",
+      "totalApprovedAmount": {
+        "value": 100,
+        "currency": "USD"
+      },
+      "totalPostedAmount": {
+        "value": 100,
+        "currency": "USD"
+      },
+      "totalRemainingAmount": {
+        "value": 100,
+        "currency": "USD"
+      }
+    }
+  ],
+  "operations": []
+}
+```
+Response code : **200**
+
+#### POST /v4/requests
+<code>curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy8wZTE0ODg2ZC02YWJiLTQ0ZDgtYmQzOC1jNGU4MTBiN2JkMDIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiMGUxNDg4NmQtNmFiYi00NGQ4LWJkMzgtYzRlODEwYjdiZDAyIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyOTMzNTU5LCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI5Mjk5NTksImlhdCI6MTUyMjkyOTk1OSwiY29uY3VyLmNvbXBhbnkiOiIyN2RkY2NiMC05YTY3LTQ2NDktYTQzNS04YWIwYWExY2VmNjUifQ.Z6F5eF5iBZYKQZOd8AuAJFKUEpXIOGSl3rYyu0yuJMtubaGIce63omWouLNAaXk7k3QOIEBlRyDeeIGM_-Qvc9w7tD_q7mQ7BhvRWKK7iS7ip5sOKJD5ZMT1702kcDj4MCZ9mmOokbk11RIXbOQy_ucSTIHNMa648lkZOu6yssw8FtinwynIEKbKDIyZ_GHeBZJikYFZwi4gyMD_WjNmW5NCIHtQrDRqNwuhost63_ouCd0iZ91V3uwKZ7Zc4TsQSbvJ_Lp_NvF9DFtaf8p1V4NMSwBdigajF6m0l7hVyWAQrzIoN0OpyGUknLxyGfFYsAsc4xoaFjsF9XkBQrIBXw' -d '{
+             "businessPurpose": "essai2",
+            "expenses": [],
+            "name": "test request 2"
+          }
+        ],
+        "operations": []
+      }' 'https://us.api.concursolutions.com/travelrequest/v4/requests'</code>
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/636DDB60C45E1F429FFCB1655371CD45",
+  "id": "636DDB60C45E1F429FFCB1655371CD45",
+  "approvalStatus": {
+    "code": "NOT_SUBMITTED",
+    "name": "Not Submitted"
+  },
+  "approved": false,
+  "businessPurpose": "essai2",
+  "canceledPostApproval": false,
+  "closed": false,
+  "creationDate": "2018-04-05T12:11:52Z",
+  "everSentBack": false,
+  "expenses": [],
+  "lastModified": "2018-04-05T12:11:52Z",
+  "name": "test request 2",
+  "owner": {
+    "href": "https://us.api.concursolutions.com/profile/v1/users/0e14886d-6abb-44d8-bd38-c4e810b7bd02",
+    "id": "0e14886d-6abb-44d8-bd38-c4e810b7bd02",
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+  },
+  "pendingApproval": false,
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "requestId": "3336",
+  "totalApprovedAmount": {
+    "value": 0,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 0,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 0,
+    "currency": "USD"
+  },
+  "operations": [
+    {
+      "rel": "submit",
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/636DDB60C45E1F429FFCB1655371CD45/submit"
+    }
+  ]
+}
+```
+Response code : **201**
+
+#### DELETE /v4/requests/{requestUuid}
+<code>curl -X DELETE --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9lOTAxNjdhMi0xMmY5LTQ0NTAtYTc1Zi0wOTkwZTNjZTgyMzIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiZTkwMTY3YTItMTJmOS00NDUwLWE3NWYtMDk5MGUzY2U4MjMyIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyOTM2MDIwLCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI5MzI0MjAsImlhdCI6MTUyMjkzMjQyMCwiY29uY3VyLmNvbXBhbnkiOiIyN2RkY2NiMC05YTY3LTQ2NDktYTQzNS04YWIwYWExY2VmNjUifQ.YhFKmHoslr0YjsNFJpy8KHigCxYxJRZAjJerOBkKOLIqmrocCHBD7IxFf7oMZVjSn_COQA5lFT9PuTL_XHma4GudKBOHHywuTSbMBeO7DiG-wrPjC4SGsjvGM--JdJdpBbpRys2qscn-VfTby3kVx9m1iqlr7WlMRwmpx9JgN5X5AeJLg-cNnQy7PJSG47EwLbOLgsm2bZwb3Cbjwea_-xFMPS1mREdLA0ZLSBc8PDvQnv4QWkxzZ0tdhYoHqxa1YdGWWh1u1V3KdcHlHZ2Y0gcnXaeD_EzaE3SNMEg8bBINrQ0IMiBQlYHcm5wSuyy1kCpSi3pJ-KVGDua3z2tMdA' 'https://us.api.concursolutions.com/travelrequest/v4/requests/DCD010D83598C346AF9079F8E9555B37'</code>
+
+> true
+
+Response code : **200**
+
+#### GET /v4/requests/{requestUuid}
+<code>curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy8wZTE0ODg2ZC02YWJiLTQ0ZDgtYmQzOC1jNGU4MTBiN2JkMDIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiMGUxNDg4NmQtNmFiYi00NGQ4LWJkMzgtYzRlODEwYjdiZDAyIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyOTMzNTU5LCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI5Mjk5NTksImlhdCI6MTUyMjkyOTk1OSwiY29uY3VyLmNvbXBhbnkiOiIyN2RkY2NiMC05YTY3LTQ2NDktYTQzNS04YWIwYWExY2VmNjUifQ.Z6F5eF5iBZYKQZOd8AuAJFKUEpXIOGSl3rYyu0yuJMtubaGIce63omWouLNAaXk7k3QOIEBlRyDeeIGM_-Qvc9w7tD_q7mQ7BhvRWKK7iS7ip5sOKJD5ZMT1702kcDj4MCZ9mmOokbk11RIXbOQy_ucSTIHNMa648lkZOu6yssw8FtinwynIEKbKDIyZ_GHeBZJikYFZwi4gyMD_WjNmW5NCIHtQrDRqNwuhost63_ouCd0iZ91V3uwKZ7Zc4TsQSbvJ_Lp_NvF9DFtaf8p1V4NMSwBdigajF6m0l7hVyWAQrzIoN0OpyGUknLxyGfFYsAsc4xoaFjsF9XkBQrIBXw' 'https://us.api.concursolutions.com/travelrequest/v4/requests/0A611A545EA456409EB6DC48CBFC2539'</code>
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/0A611A545EA456409EB6DC48CBFC2539",
+  "id": "0A611A545EA456409EB6DC48CBFC2539",
+  "approvalStatus": {
+    "code": "NOT_SUBMITTED",
+    "name": "Not Submitted"
+  },
+  "approved": false,
+  "businessPurpose": "essai",
+  "canceledPostApproval": false,
+  "closed": false,
+  "creationDate": "2018-04-05T12:07:09Z",
+  "everSentBack": false,
+  "expenses": [
+    {
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/E5783FF07CE905479BC799B75911649A",
+      "id": "E5783FF07CE905479BC799B75911649A",
+      "template": "https://us.api.concursolutions.com/travelrequest/v4/expenses/{id}"
+    }
+  ],
+  "lastModified": "2018-04-05T12:07:35Z",
+  "name": "test request 1",
+  "owner": {
+    "href": "https://us.api.concursolutions.com/profile/v1/users/0e14886d-6abb-44d8-bd38-c4e810b7bd02",
+    "id": "0e14886d-6abb-44d8-bd38-c4e810b7bd02",
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+  },
+  "pendingApproval": false,
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "requestId": "3334",
+  "totalApprovedAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "operations": [
+    {
+      "rel": "submit",
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/0A611A545EA456409EB6DC48CBFC2539/submit"
+    }
+  ]
+}
+```
+Response code : **200**
+
+#### PUT /v4/requests/{requestUuid}
+<code>curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy8yOTZkOWYzMi03NGY3LTQ3YzMtYWY2Yy00ODZiOTY3NTRiZGIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiMjk2ZDlmMzItNzRmNy00N2MzLWFmNmMtNDg2Yjk2NzU0YmRiIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIzMjY5MDAwLCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjMyNjU0MDAsImlhdCI6MTUyMzI2NTQwMCwiY29uY3VyLmNvbXBhbnkiOiI0ZjMzZTA4Zi1hZGJhLTQyNTAtODA0NC05YWIyZjNjNmU3ZDkifQ.hlgK4JrHMCj_GJkXLKtkD8zZNjqNOBdUhbRqSJ89-4onxzMV1PB1ZLUZvq-RsA_nKXPRxUNRdisaqngaQslllvaBDoKSP6zm-0KttWZFeqeWWlPaIkO_a082iayzdcseaOOLIpnJEpWwkgUpz2SdBCzZ3dHSN1hTRXC47d9Dtao1wrnCfTgEpbVOjpD3CGgS5E3voZv1AfsfbeAyBWyPWFjHjot8J0ej5HFVMz7J7QUcZE6hDZUVU564s2MF2H4LCMIR_9hGoEJZXLYS0_xmJ7AGw_k7ZkhPf-A2EhwIlRi194VbjWy3vZfhuU3ofnv2_Ayod3N2S90J862goJ76qQ' -d '{
+        "approvalStatus": {
+          "code": "NOT_SUBMITTED",
+          "name": "Not Submitted"
+        },
+        "businessPurpose": "x",
+        "closed": false,
+        "everSentBack": false,
+        "expenses": [
+          {
+            "id": "BB9424178EBAF148BEC63F653452E5E5"
+          }
+        ],
+        "id": "E82B0B803671004B9A5D952F34FBD01E",
+        "name": "test2",
+        "owner": {
+          "id": "296d9f32-74f7-47c3-af6c-486b96754bdb"
+        },
+        "policy": {
+          "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+        },
+        "requestId": "3334",
+        "totalApprovedAmount": {
+          "currency": "USD",
+          "value": 160
+        },
+        "totalPostedAmount": {
+          "currency": "USD",
+          "value": 160
+        },
+        "totalRemainingAmount": {
+          "currency": "USD",
+          "value": 160
+        }
+      }' 'https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E'</code>
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E",
+  "id": "E82B0B803671004B9A5D952F34FBD01E",
+  "approvalStatus": {
+    "code": "NOT_SUBMITTED",
+    "name": "Not Submitted"
+  },
+  "approved": false,
+  "businessPurpose": "x",
+  "canceledPostApproval": false,
+  "closed": false,
+  "creationDate": "2018-04-09T09:13:46Z",
+  "everSentBack": false,
+  "expenses": [
+    {
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/BB9424178EBAF148BEC63F653452E5E5",
+      "id": "BB9424178EBAF148BEC63F653452E5E5",
+      "template": "https://us.api.concursolutions.com/travelrequest/v4/expenses/{id}"
+    }
+  ],
+  "lastModified": "2018-04-09T09:29:52Z",
+  "name": "test2",
+  "owner": {
+    "href": "https://us.api.concursolutions.com/profile/v1/users/296d9f32-74f7-47c3-af6c-486b96754bdb",
+    "id": "296d9f32-74f7-47c3-af6c-486b96754bdb",
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+  },
+  "pendingApproval": false,
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "requestId": "3334",
+  "totalApprovedAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "operations": [
+    {
+      "rel": "submit",
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E/submit"
+    }
+  ]
+}
+```
+Response code : **200**
+
+#### POST /v4/requests/{requestUuid}/reports
+<code>curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9lOTAxNjdhMi0xMmY5LTQ0NTAtYTc1Zi0wOTkwZTNjZTgyMzIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiZTkwMTY3YTItMTJmOS00NDUwLWE3NWYtMDk5MGUzY2U4MjMyIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyOTM2MDIwLCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI5MzI0MjAsImlhdCI6MTUyMjkzMjQyMCwiY29uY3VyLmNvbXBhbnkiOiIyN2RkY2NiMC05YTY3LTQ2NDktYTQzNS04YWIwYWExY2VmNjUifQ.YhFKmHoslr0YjsNFJpy8KHigCxYxJRZAjJerOBkKOLIqmrocCHBD7IxFf7oMZVjSn_COQA5lFT9PuTL_XHma4GudKBOHHywuTSbMBeO7DiG-wrPjC4SGsjvGM--JdJdpBbpRys2qscn-VfTby3kVx9m1iqlr7WlMRwmpx9JgN5X5AeJLg-cNnQy7PJSG47EwLbOLgsm2bZwb3Cbjwea_-xFMPS1mREdLA0ZLSBc8PDvQnv4QWkxzZ0tdhYoHqxa1YdGWWh1u1V3KdcHlHZ2Y0gcnXaeD_EzaE3SNMEg8bBINrQ0IMiBQlYHcm5wSuyy1kCpSi3pJ-KVGDua3z2tMdA' 'https://us.api.concursolutions.com/travelrequest/v4/requests/19148EE9411DF9459F6AEBBCA53BD646/reports'</code>
+```json
+{
+  "href": "https://us.api.concursolutions.com/expensereports/v4/users/e90167a2-12f9-4450-a75f-0990e3ce8232/context/TRAVELER/reports/08B7B58B045641509EFE",
+  "id": "08B7B58B045641509EFE",
+  "template": "https://us.api.concursolutions.com/expensereports/v4/users/e90167a2-12f9-4450-a75f-0990e3ce8232/context/TRAVELER/reports/{id}"
+}
+```
+Response code : **201**
 
 
 <a name="expense-resource"></a>
-### expense-resource
+### Expense resource
 <i>Manage expected expense entries attached to a Request document</i><br />
 
 #### DELETE /v4/expenses/{expenseUuid}
@@ -542,297 +813,8 @@ Response code : **200**
 Response code : **201**
 
 
-<a name="request-resource"></a>
-### request-resource
-<i>Manage documents used for pre-spend authorizations within Concur Request</i><br />
-
-
-#### GET /v4/requests
-<code>curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy84OWRkN2M5MC02ZWY0LTQxZDEtOWFlOC0zMDNiYWQyNTg3NGQiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiODlkZDdjOTAtNmVmNC00MWQxLTlhZTgtMzAzYmFkMjU4NzRkIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyODUwMjMzLCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI4NDY2MzMsImlhdCI6MTUyMjg0NjYzMywiY29uY3VyLmNvbXBhbnkiOiIwNWIzYjc4Zi04OTMwLTRmMWUtOTY4MS03NDMxYzkzMmM0MDIifQ.S9trem03nqas3tJmWeI13q7Dcim_IWeWTW-S8YiQ7TkErtU1CLOgwr-XckVTz4trkteiz5XGMFc1pkNjTCGyHRYSVyWEs7GzcEoygo6Ub7cQo3S1Sk9tr0aW3eV7rHQFdUVobGs1OIbQWiHfUjrl8jEQm8aZOEMJcACJUPMPIbmxrlKr8gkNnEmLZkcBZuC96iYLkRh7y5_8NTpWe0uM8j18MCPnBwG5Kjka1aaD0tg0UAu9bFnf74EEa8OE9dRa2Y5AXZmNHQ5n0fvvoWoREL2lGLUtCFYu9NgxZpd5hHGxj4EyPzbdSg4bXEapZCgK87xclj2n1jydyXaHmxjkLA' 'https://us.api.concursolutions.com/travelrequest/v4/requests'</code>
-```json
-{
-  "data": [
-    {
-      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/D5C57CBC397E2A4693DDA66337D86798",
-      "id": "D5C57CBC397E2A4693DDA66337D86798",
-      "approvalStatus": {
-        "code": "NOT_SUBMITTED",
-        "name": "Not Submitted"
-      },
-      "approved": false,
-      "businessPurpose": "essai",
-      "canceledPostApproval": false,
-      "closed": false,
-      "creationDate": "2018-04-04T13:05:41Z",
-      "everSentBack": false,
-      "expenses": [],
-      "name": "test expected expense",
-      "pendingApproval": false,
-      "requestId": "3334",
-      "totalApprovedAmount": {
-        "value": 100,
-        "currency": "USD"
-      },
-      "totalPostedAmount": {
-        "value": 100,
-        "currency": "USD"
-      },
-      "totalRemainingAmount": {
-        "value": 100,
-        "currency": "USD"
-      }
-    }
-  ],
-  "operations": []
-}
-```
-Response code : **200**
-
-#### POST /v4/requests
-<code>curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy8wZTE0ODg2ZC02YWJiLTQ0ZDgtYmQzOC1jNGU4MTBiN2JkMDIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiMGUxNDg4NmQtNmFiYi00NGQ4LWJkMzgtYzRlODEwYjdiZDAyIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyOTMzNTU5LCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI5Mjk5NTksImlhdCI6MTUyMjkyOTk1OSwiY29uY3VyLmNvbXBhbnkiOiIyN2RkY2NiMC05YTY3LTQ2NDktYTQzNS04YWIwYWExY2VmNjUifQ.Z6F5eF5iBZYKQZOd8AuAJFKUEpXIOGSl3rYyu0yuJMtubaGIce63omWouLNAaXk7k3QOIEBlRyDeeIGM_-Qvc9w7tD_q7mQ7BhvRWKK7iS7ip5sOKJD5ZMT1702kcDj4MCZ9mmOokbk11RIXbOQy_ucSTIHNMa648lkZOu6yssw8FtinwynIEKbKDIyZ_GHeBZJikYFZwi4gyMD_WjNmW5NCIHtQrDRqNwuhost63_ouCd0iZ91V3uwKZ7Zc4TsQSbvJ_Lp_NvF9DFtaf8p1V4NMSwBdigajF6m0l7hVyWAQrzIoN0OpyGUknLxyGfFYsAsc4xoaFjsF9XkBQrIBXw' -d '{
-             "businessPurpose": "essai2",
-            "expenses": [],
-            "name": "test request 2"
-          }
-        ],
-        "operations": []
-      }' 'https://us.api.concursolutions.com/travelrequest/v4/requests'</code>
-```json
-{
-  "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/636DDB60C45E1F429FFCB1655371CD45",
-  "id": "636DDB60C45E1F429FFCB1655371CD45",
-  "approvalStatus": {
-    "code": "NOT_SUBMITTED",
-    "name": "Not Submitted"
-  },
-  "approved": false,
-  "businessPurpose": "essai2",
-  "canceledPostApproval": false,
-  "closed": false,
-  "creationDate": "2018-04-05T12:11:52Z",
-  "everSentBack": false,
-  "expenses": [],
-  "lastModified": "2018-04-05T12:11:52Z",
-  "name": "test request 2",
-  "owner": {
-    "href": "https://us.api.concursolutions.com/profile/v1/users/0e14886d-6abb-44d8-bd38-c4e810b7bd02",
-    "id": "0e14886d-6abb-44d8-bd38-c4e810b7bd02",
-    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
-  },
-  "pendingApproval": false,
-  "policy": {
-    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
-  },
-  "requestId": "3336",
-  "totalApprovedAmount": {
-    "value": 0,
-    "currency": "USD"
-  },
-  "totalPostedAmount": {
-    "value": 0,
-    "currency": "USD"
-  },
-  "totalRemainingAmount": {
-    "value": 0,
-    "currency": "USD"
-  },
-  "operations": [
-    {
-      "rel": "submit",
-      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/636DDB60C45E1F429FFCB1655371CD45/submit"
-    }
-  ]
-}
-```
-Response code : **201**
-
-#### DELETE /v4/requests/{requestUuid}
-<code>curl -X DELETE --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9lOTAxNjdhMi0xMmY5LTQ0NTAtYTc1Zi0wOTkwZTNjZTgyMzIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiZTkwMTY3YTItMTJmOS00NDUwLWE3NWYtMDk5MGUzY2U4MjMyIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyOTM2MDIwLCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI5MzI0MjAsImlhdCI6MTUyMjkzMjQyMCwiY29uY3VyLmNvbXBhbnkiOiIyN2RkY2NiMC05YTY3LTQ2NDktYTQzNS04YWIwYWExY2VmNjUifQ.YhFKmHoslr0YjsNFJpy8KHigCxYxJRZAjJerOBkKOLIqmrocCHBD7IxFf7oMZVjSn_COQA5lFT9PuTL_XHma4GudKBOHHywuTSbMBeO7DiG-wrPjC4SGsjvGM--JdJdpBbpRys2qscn-VfTby3kVx9m1iqlr7WlMRwmpx9JgN5X5AeJLg-cNnQy7PJSG47EwLbOLgsm2bZwb3Cbjwea_-xFMPS1mREdLA0ZLSBc8PDvQnv4QWkxzZ0tdhYoHqxa1YdGWWh1u1V3KdcHlHZ2Y0gcnXaeD_EzaE3SNMEg8bBINrQ0IMiBQlYHcm5wSuyy1kCpSi3pJ-KVGDua3z2tMdA' 'https://us.api.concursolutions.com/travelrequest/v4/requests/DCD010D83598C346AF9079F8E9555B37'</code>
-
-> true
-
-Response code : **200**
-
-#### GET /v4/requests/{requestUuid}
-<code>curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy8wZTE0ODg2ZC02YWJiLTQ0ZDgtYmQzOC1jNGU4MTBiN2JkMDIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiMGUxNDg4NmQtNmFiYi00NGQ4LWJkMzgtYzRlODEwYjdiZDAyIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyOTMzNTU5LCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI5Mjk5NTksImlhdCI6MTUyMjkyOTk1OSwiY29uY3VyLmNvbXBhbnkiOiIyN2RkY2NiMC05YTY3LTQ2NDktYTQzNS04YWIwYWExY2VmNjUifQ.Z6F5eF5iBZYKQZOd8AuAJFKUEpXIOGSl3rYyu0yuJMtubaGIce63omWouLNAaXk7k3QOIEBlRyDeeIGM_-Qvc9w7tD_q7mQ7BhvRWKK7iS7ip5sOKJD5ZMT1702kcDj4MCZ9mmOokbk11RIXbOQy_ucSTIHNMa648lkZOu6yssw8FtinwynIEKbKDIyZ_GHeBZJikYFZwi4gyMD_WjNmW5NCIHtQrDRqNwuhost63_ouCd0iZ91V3uwKZ7Zc4TsQSbvJ_Lp_NvF9DFtaf8p1V4NMSwBdigajF6m0l7hVyWAQrzIoN0OpyGUknLxyGfFYsAsc4xoaFjsF9XkBQrIBXw' 'https://us.api.concursolutions.com/travelrequest/v4/requests/0A611A545EA456409EB6DC48CBFC2539'</code>
-```json
-{
-  "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/0A611A545EA456409EB6DC48CBFC2539",
-  "id": "0A611A545EA456409EB6DC48CBFC2539",
-  "approvalStatus": {
-    "code": "NOT_SUBMITTED",
-    "name": "Not Submitted"
-  },
-  "approved": false,
-  "businessPurpose": "essai",
-  "canceledPostApproval": false,
-  "closed": false,
-  "creationDate": "2018-04-05T12:07:09Z",
-  "everSentBack": false,
-  "expenses": [
-    {
-      "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/E5783FF07CE905479BC799B75911649A",
-      "id": "E5783FF07CE905479BC799B75911649A",
-      "template": "https://us.api.concursolutions.com/travelrequest/v4/expenses/{id}"
-    }
-  ],
-  "lastModified": "2018-04-05T12:07:35Z",
-  "name": "test request 1",
-  "owner": {
-    "href": "https://us.api.concursolutions.com/profile/v1/users/0e14886d-6abb-44d8-bd38-c4e810b7bd02",
-    "id": "0e14886d-6abb-44d8-bd38-c4e810b7bd02",
-    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
-  },
-  "pendingApproval": false,
-  "policy": {
-    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
-  },
-  "requestId": "3334",
-  "totalApprovedAmount": {
-    "value": 150,
-    "currency": "USD"
-  },
-  "totalPostedAmount": {
-    "value": 150,
-    "currency": "USD"
-  },
-  "totalRemainingAmount": {
-    "value": 150,
-    "currency": "USD"
-  },
-  "operations": [
-    {
-      "rel": "submit",
-      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/0A611A545EA456409EB6DC48CBFC2539/submit"
-    }
-  ]
-}
-```
-Response code : **200**
-
-#### PUT /v4/requests/{requestUuid}
-<code>curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy8yOTZkOWYzMi03NGY3LTQ3YzMtYWY2Yy00ODZiOTY3NTRiZGIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiMjk2ZDlmMzItNzRmNy00N2MzLWFmNmMtNDg2Yjk2NzU0YmRiIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIzMjY5MDAwLCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjMyNjU0MDAsImlhdCI6MTUyMzI2NTQwMCwiY29uY3VyLmNvbXBhbnkiOiI0ZjMzZTA4Zi1hZGJhLTQyNTAtODA0NC05YWIyZjNjNmU3ZDkifQ.hlgK4JrHMCj_GJkXLKtkD8zZNjqNOBdUhbRqSJ89-4onxzMV1PB1ZLUZvq-RsA_nKXPRxUNRdisaqngaQslllvaBDoKSP6zm-0KttWZFeqeWWlPaIkO_a082iayzdcseaOOLIpnJEpWwkgUpz2SdBCzZ3dHSN1hTRXC47d9Dtao1wrnCfTgEpbVOjpD3CGgS5E3voZv1AfsfbeAyBWyPWFjHjot8J0ej5HFVMz7J7QUcZE6hDZUVU564s2MF2H4LCMIR_9hGoEJZXLYS0_xmJ7AGw_k7ZkhPf-A2EhwIlRi194VbjWy3vZfhuU3ofnv2_Ayod3N2S90J862goJ76qQ' -d '{
-        "approvalStatus": {
-          "code": "NOT_SUBMITTED",
-          "name": "Not Submitted"
-        },
-        "businessPurpose": "x",
-        "closed": false,
-        "everSentBack": false,
-        "expenses": [
-          {
-            "id": "BB9424178EBAF148BEC63F653452E5E5"
-          }
-        ],
-        "id": "E82B0B803671004B9A5D952F34FBD01E",
-        "name": "test2",
-        "owner": {
-          "id": "296d9f32-74f7-47c3-af6c-486b96754bdb"
-        },
-        "policy": {
-          "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
-        },
-        "requestId": "3334",
-        "totalApprovedAmount": {
-          "currency": "USD",
-          "value": 160
-        },
-        "totalPostedAmount": {
-          "currency": "USD",
-          "value": 160
-        },
-        "totalRemainingAmount": {
-          "currency": "USD",
-          "value": 160
-        }
-      }' 'https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E'</code>
-```json
-{
-  "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E",
-  "id": "E82B0B803671004B9A5D952F34FBD01E",
-  "approvalStatus": {
-    "code": "NOT_SUBMITTED",
-    "name": "Not Submitted"
-  },
-  "approved": false,
-  "businessPurpose": "x",
-  "canceledPostApproval": false,
-  "closed": false,
-  "creationDate": "2018-04-09T09:13:46Z",
-  "everSentBack": false,
-  "expenses": [
-    {
-      "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/BB9424178EBAF148BEC63F653452E5E5",
-      "id": "BB9424178EBAF148BEC63F653452E5E5",
-      "template": "https://us.api.concursolutions.com/travelrequest/v4/expenses/{id}"
-    }
-  ],
-  "lastModified": "2018-04-09T09:29:52Z",
-  "name": "test2",
-  "owner": {
-    "href": "https://us.api.concursolutions.com/profile/v1/users/296d9f32-74f7-47c3-af6c-486b96754bdb",
-    "id": "296d9f32-74f7-47c3-af6c-486b96754bdb",
-    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
-  },
-  "pendingApproval": false,
-  "policy": {
-    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
-  },
-  "requestId": "3334",
-  "totalApprovedAmount": {
-    "value": 150,
-    "currency": "USD"
-  },
-  "totalPostedAmount": {
-    "value": 150,
-    "currency": "USD"
-  },
-  "totalRemainingAmount": {
-    "value": 150,
-    "currency": "USD"
-  },
-  "operations": [
-    {
-      "rel": "submit",
-      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E/submit"
-    }
-  ]
-}
-```
-Response code : **200**
-
-#### POST /v4/requests/{requestUuid}/reports
-<code>curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9lOTAxNjdhMi0xMmY5LTQ0NTAtYTc1Zi0wOTkwZTNjZTgyMzIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiZTkwMTY3YTItMTJmOS00NDUwLWE3NWYtMDk5MGUzY2U4MjMyIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyOTM2MDIwLCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI5MzI0MjAsImlhdCI6MTUyMjkzMjQyMCwiY29uY3VyLmNvbXBhbnkiOiIyN2RkY2NiMC05YTY3LTQ2NDktYTQzNS04YWIwYWExY2VmNjUifQ.YhFKmHoslr0YjsNFJpy8KHigCxYxJRZAjJerOBkKOLIqmrocCHBD7IxFf7oMZVjSn_COQA5lFT9PuTL_XHma4GudKBOHHywuTSbMBeO7DiG-wrPjC4SGsjvGM--JdJdpBbpRys2qscn-VfTby3kVx9m1iqlr7WlMRwmpx9JgN5X5AeJLg-cNnQy7PJSG47EwLbOLgsm2bZwb3Cbjwea_-xFMPS1mREdLA0ZLSBc8PDvQnv4QWkxzZ0tdhYoHqxa1YdGWWh1u1V3KdcHlHZ2Y0gcnXaeD_EzaE3SNMEg8bBINrQ0IMiBQlYHcm5wSuyy1kCpSi3pJ-KVGDua3z2tMdA' 'https://us.api.concursolutions.com/travelrequest/v4/requests/19148EE9411DF9459F6AEBBCA53BD646/reports'</code>
-```json
-{
-  "href": "https://us.api.concursolutions.com/expensereports/v4/users/e90167a2-12f9-4450-a75f-0990e3ce8232/context/TRAVELER/reports/08B7B58B045641509EFE",
-  "id": "08B7B58B045641509EFE",
-  "template": "https://us.api.concursolutions.com/expensereports/v4/users/e90167a2-12f9-4450-a75f-0990e3ce8232/context/TRAVELER/reports/{id}"
-}
-```
-Response code : **201**
-
-
-<a name="travel-agency-resource"></a>
-### travel-agency-resource
-<i>Manage the configuration for travel agencies integrated with Concur Request</i><br />
-
-#### GET /v4/travelagencies/{agencyUuid}
-<code>curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9lOTAxNjdhMi0xMmY5LTQ0NTAtYTc1Zi0wOTkwZTNjZTgyMzIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiZTkwMTY3YTItMTJmOS00NDUwLWE3NWYtMDk5MGUzY2U4MjMyIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyOTM2MDIwLCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI5MzI0MjAsImlhdCI6MTUyMjkzMjQyMCwiY29uY3VyLmNvbXBhbnkiOiIyN2RkY2NiMC05YTY3LTQ2NDktYTQzNS04YWIwYWExY2VmNjUifQ.YhFKmHoslr0YjsNFJpy8KHigCxYxJRZAjJerOBkKOLIqmrocCHBD7IxFf7oMZVjSn_COQA5lFT9PuTL_XHma4GudKBOHHywuTSbMBeO7DiG-wrPjC4SGsjvGM--JdJdpBbpRys2qscn-VfTby3kVx9m1iqlr7WlMRwmpx9JgN5X5AeJLg-cNnQy7PJSG47EwLbOLgsm2bZwb3Cbjwea_-xFMPS1mREdLA0ZLSBc8PDvQnv4QWkxzZ0tdhYoHqxa1YdGWWh1u1V3KdcHlHZ2Y0gcnXaeD_EzaE3SNMEg8bBINrQ0IMiBQlYHcm5wSuyy1kCpSi3pJ-KVGDua3z2tMdA' 'https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B'</code>
-```json
-{
-  "href": "https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B",
-  "id": "86B720AF168F1C4CA52E37AC710E897B",
-  "emailAddress": "dd@ff.com",
-  "name": "myAgency"
-}
-```
-Response code : **200**
-
-
-
 <a name="workflow-resource"></a>
-### workflow-resource
+### Workflow resource
 <i>Manage workflow transitions for a Request document</i><br />
 
 #### POST /v4/requests/{requestUuid}/{action}
@@ -891,3 +873,19 @@ Response code : **200**
 }
 ```
 Response code : **201**
+
+<a name="travel-agency-resource"></a>
+### Travel Agency resource
+<i>Manage the configuration for travel agencies integrated with Concur Request</i><br />
+
+#### GET /v4/travelagencies/{agencyUuid}
+<code>curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy9lOTAxNjdhMi0xMmY5LTQ0NTAtYTc1Zi0wOTkwZTNjZTgyMzIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiZTkwMTY3YTItMTJmOS00NDUwLWE3NWYtMDk5MGUzY2U4MjMyIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyOTM2MDIwLCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI5MzI0MjAsImlhdCI6MTUyMjkzMjQyMCwiY29uY3VyLmNvbXBhbnkiOiIyN2RkY2NiMC05YTY3LTQ2NDktYTQzNS04YWIwYWExY2VmNjUifQ.YhFKmHoslr0YjsNFJpy8KHigCxYxJRZAjJerOBkKOLIqmrocCHBD7IxFf7oMZVjSn_COQA5lFT9PuTL_XHma4GudKBOHHywuTSbMBeO7DiG-wrPjC4SGsjvGM--JdJdpBbpRys2qscn-VfTby3kVx9m1iqlr7WlMRwmpx9JgN5X5AeJLg-cNnQy7PJSG47EwLbOLgsm2bZwb3Cbjwea_-xFMPS1mREdLA0ZLSBc8PDvQnv4QWkxzZ0tdhYoHqxa1YdGWWh1u1V3KdcHlHZ2Y0gcnXaeD_EzaE3SNMEg8bBINrQ0IMiBQlYHcm5wSuyy1kCpSi3pJ-KVGDua3z2tMdA' 'https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B'</code>
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B",
+  "id": "86B720AF168F1C4CA52E37AC710E897B",
+  "emailAddress": "dd@ff.com",
+  "name": "myAgency"
+}
+```
+Response code : **200**

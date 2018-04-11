@@ -34,34 +34,34 @@ layout: reference
 Manage documents used for pre-spend authorizations within Concur Request.
 
 #### <a name="request-resource"></a>Request
-- __Create a new request__
+- __Create a new Request__
 
 POST /v4/requests
 
 *Parameters:*
 | Name | Parameter Type | Data Type | Description |
 | :---: | :-------: | :--------: | ------ |
-| - | body | [Request](#request) | __Required__ The content of the request to create |
+| - | body | [Request](#request) | __Required__ The content of the Request to create |
 
 *Response:*
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
-| - | object | [Request](#request) | The request created
+| - | object | [Request](#request) | The created Request
 
 
-- __Get the list of existing requests__
+- __Get the list of existing Requests__
 
 GET /v4/requests
 
 *Parameters:*
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
-| userId | query | string | __Optional__ The unique identifier of the User owning the requests to list. If supplying a specific user token userId will be infered based upon the authentication token provided and override any other input. If provided using a company token the userId will filter the returned Requests, only the Requests captured by user having unique identifier userId will be returned.
+| userId | query | string | __Optional__ The unique identifier of the User owning the Requests to list. If supplying a specific user token userId will be infered based upon the authentication token provided and override any other input. If provided using a company token the userId will filter the returned Requests, only the Requests captured by user having unique identifier userId will be returned.
 
 *Response:*
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-data | array | [Request](#request) | List of requests
+data | array | [Request](#request) | List of Requests
 operations | string | [RFC 5988](https://tools.ietf.org/html/rfc5988) | Pagination links to next/prev/first/last pages
 
 - __Get the content of an existing request__
@@ -71,42 +71,42 @@ GET /v4/requests/{requestUuid}
 *Parameters:*
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the request
+| requestUuid | path | string | __Required__ The unique identifier of the Request
 
 *Response:*
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
-| - | object | [Request](#request) | The request having {requestUuid} as unique identifer
+| - | object | [Request](#request) | The Request having {requestUuid} as unique identifer
 
 
 
 [Request](#request)
 
-- __Update the content of an existing request__
+- __Update the content of an existing Request__
 
 PUT /v4/requests/{requestUuid}
 
 *Parameters:*
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the request
-| - | body | [Request](#request) | __Required__ The content of the request to update
+| requestUuid | path | string | __Required__ The unique identifier of the Request
+| - | body | [Request](#request) | __Required__ The content of the Request to update
 
 *Response:*
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
-| - | object | [Request](#request) | The request having {requestUuid} as unique identifer after update
+| - | object | [Request](#request) | The Request having {requestUuid} as unique identifer after update
 
 [Request](#request)
 
-- __Delete an existing request__
+- __Delete an existing Request__
 
 DELETE /v4/requests/{requestUuid}
 
 *Parameters:*
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the request
+| requestUuid | path | string | __Required__ The unique identifier of the Request
 
 *Response:*
 | Name | Type | Format | Description
@@ -114,14 +114,14 @@ DELETE /v4/requests/{requestUuid}
 | - | - | - | No content, response code only
 
 
-- __Create an expense report linked to an approved r®equest__
+- __Create an expense report linked to an approved Request__
 
 POST /v4/requests/{requestUuid}/reports
 
 *Parameters:*
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the request
+| requestUuid | path | string | __Required__ The unique identifier of the Request
 
 *Response:*
 | Name | Type | Format | Description
@@ -131,38 +131,38 @@ POST /v4/requests/{requestUuid}/reports
 
 #### <a name="workflow-resource"></a>Workflow resource
 
-Manage workflow transitions for a request document.
-- __Move an existing request in the approval workflow__
+Manage workflow transitions for a Request document.
+- __Move an existing Request in the approval workflow__
 
 POST /v4/requests/{requestUuid}/{action}
 
-The HATEOAS links for actions available given the current user and state are listed in the operations of the request resource.
+The HATEOAS links for actions available given the current user and state are listed in the operations of the Request resource.
 
     Traveler actions
         submit: initiate the approval workflow
-        recall: get back the request, usually to modify the content
-        cancel: cancel the request and attached itineraries
-        close: archive the request
-        reopen: get back an archived request
+        recall: get back the Request, usually to modify the content
+        cancel: cancel the Request and attached itineraries
+        close: archive the Request
+        reopen: get back an archived Request
     Approver / Processor actions
-        approve: move the request to the next approval step
-        sendback: reject the request and send back to the Traveler
+        approve: move the Request to the next approval step
+        sendback: reject the Request and send back to the Traveler
 
 *Parameters:*
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the request
+| requestUuid | path | string | __Required__ The unique identifier of the Request
 | action | path | string | __Required__ The state transition to be executed (submit, approve, recall, sendback, cancel, close or reopen)
 
 *Response:*
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
-| - | object | [Request](#request) | The request having {requestUuid} as unique identifer
+| - | object | [Request](#request) | The Request having {requestUuid} as unique identifer
 
 
 #### <a name="expense-resource"></a>Expense resource
 
-Manage expected expense entries attached to a request document.
+Manage expected expense entries attached to a Request document.
 - __Create a new expected expense__
 
 POST /v4/requests/{requestUuid}/expenses
@@ -170,7 +170,7 @@ POST /v4/requests/{requestUuid}/expenses
 *Parameters:*
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the request to which the Expense is attached
+| requestUuid | path | string | __Required__ The unique identifier of the Request to which the Expense is attached
 | body | object | [Expense](#expense) | __Required__ The Expense content to create
 
 
@@ -179,20 +179,20 @@ POST /v4/requests/{requestUuid}/expenses
 | --- | :---: | :---: | ------
 | - | - | - | No content, response code only
 
-- __Get expected Expenses attached to a request__
+- __Get expected Expenses attached to a Request__
 
 GET /v4/requests/{requestUuid}/expenses
 
 *Parameters:*
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the request
+| requestUuid | path | string | __Required__ The unique identifier of the Request
 
 
 *Response:*
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
-| data | array | [Expense](#expense) | List of entries attached to a request.
+| data | array | [Expense](#expense) | List of entries attached to a Request.
 | operations | string | [RFC 5988](https://tools.ietf.org/html/rfc5988) | Pagination links to next/prev/first/last page.
 
 - __Get an existing expected Expense__
@@ -226,7 +226,7 @@ PUT /v4/expenses/{expenseUuid}
 | --- | :---: | :---: | ------
 | - | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer after update
 
-- __Delete an expected Expense from the request__
+- __Delete an expected Expense from the Request__
 
 DELETE /v4/expenses/{expenseUuid}
 *Parameters:*
@@ -265,41 +265,41 @@ GET /v4/travelagencies/{agencyUuid}
 #### <a name="request"></a>Request
 Name | Type | Format | Description |
 ------------- | :-------: | :--------: | ------
-approvalLimitDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date by which the request must be approved. This element appears only when integrated with Concur Travel (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-approvalStatus | object | [Approval Status](#approvalstatus) | The approval status of the request |
-authorizedDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | For approved request, the date at which the approval process was completed (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-businessPurpose | string | - | The business purpose of the request
-closed | boolean | - | Indicates whether this request is closed
-creationDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date the request was created (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-comment | string | - | The last comment attached to this request
+approvalLimitDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date by which the Request must be approved. This element appears only when integrated with Concur Travel (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
+approvalStatus | object | [Approval Status](#approvalstatus) | The approval status of the Request |
+authorizedDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | For approved Request, the date at which the approval process was completed (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
+businessPurpose | string | - | The business purpose of the Request
+closed | boolean | - | Indicates whether this Request is closed
+creationDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date the Request was created (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
+comment | string | - | The last comment attached to this Request
 custom1 to custom20 | object | [CustomField](#customfield) | The details from the Custom fields. These fields may not have data, depending on the configuration
-endDate | date | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | The end date of the request (in the format yyyy-MM-dd)
-endTime | time | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | The end time of the request (in the format HH:mm)
-everSentBack | boolean | - | Indicates whether the request has ever been sent back to the employee
-expenses | array | [ResourceLink](#resourcelink) | Expected Expenses attached to this request
-extensionOf | object | [RequestLink](#requestlink) | The request that this request is an extension of, or adendum to
-href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource for this request
-id | string | - | The unique identifier of the request
-lastModified | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date the request was last modified (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-mainDestination | object | [ResourceLink](#resourcelink) | The main destination for Travel related requests
-name | string | - | The name of the request
-owner | object | [ResourceLink](#resourcelink) | The employee who owns the request
-policy | object | [ResourceLink](#resourcelink) | The policy that applies to the request
-requestId | string | 4 to 6 alphanumeric characters | The public key of the request (unique per customer)
-startDate | date | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | The start date of the request (in the format yyyy-MM-dd)
-startTime | time | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | The start time of the request (in the format HH:mm)
-submitDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date the request was submitted (last submit date in case of recall) (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-totalApprovedAmount | object | [Amount](#amount) | The total amount of approved Expenses in the request, expressed in the reimbursement currency of the employee at the time he created the request
-totalPostedAmount | object | [Amount](#amount) | The total amount of the request, expressed in the reimbursement currency of the employee at the time he created the request
-totalRemainingAmount | object | [Amount](#amount) | The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the request
-travelAgency | object | [ResourceLink](#resourcelink) | The travel agency office that is managing the trip associated to this request
-operations | array | [Link](#link) | Links to operations available for the request, depends on the current approval status
+endDate | date | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | The end date of the Request (in the format yyyy-MM-dd)
+endTime | time | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | The end time of the Request (in the format HH:mm)
+everSentBack | boolean | - | Indicates whether the Request has ever been sent back to the employee
+expenses | array | [ResourceLink](#resourcelink) | Expected Expenses attached to this Request
+extensionOf | object | [RequestLink](#requestlink) | The Request that this Request is an extension of, or adendum to
+href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource for this Request
+id | string | - | The unique identifier of the Request
+lastModified | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date the Request was last modified (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
+mainDestination | object | [ResourceLink](#resourcelink) | The main destination for Travel related Requests
+name | string | - | The name of the Request
+owner | object | [ResourceLink](#resourcelink) | The employee who owns the Request
+policy | object | [ResourceLink](#resourcelink) | The policy that applies to the Request
+requestId | string | 4 to 6 alphanumeric characters | The public key of the Request (unique per customer)
+startDate | date | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | The start date of the Request (in the format yyyy-MM-dd)
+startTime | time | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | The start time of the Request (in the format HH:mm)
+submitDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date the Request was submitted (last submit date in case of recall) (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
+totalApprovedAmount | object | [Amount](#amount) | The total amount of approved Expenses in the Request, expressed in the reimbursement currency of the employee at the time he created the Request
+totalPostedAmount | object | [Amount](#amount) | The total amount of the Request, expressed in the reimbursement currency of the employee at the time he created the Request
+totalRemainingAmount | object | [Amount](#amount) | The total amount not included in an Expense report, expressed in the reimbursement currency of the employee at the time he created the Request
+travelAgency | object | [ResourceLink](#resourcelink) | The travel agency office that is managing the trip associated to this Request
+operations | array | [Link](#link) | Links to operations available for the Request, depends on the current approval status
 
 #### <a name="approvalstatus">Approval Status
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-code | string | - | The code for the approval status the request. Possible values: NOT_SUBMITTED, SUBMITTED, APPROVED, CANCELED or SENTBACK
-name | string | - | The approval status of the request in the current user's language
+code | string | - | The code for the approval status the Request. Possible values: NOT_SUBMITTED, SUBMITTED, APPROVED, CANCELED or SENTBACK
+name | string | - | The approval status of the Request in the current user's language
 
 #### <a name="customfield"></a>CustomField
 Name | Type | Format | Description
@@ -334,7 +334,7 @@ template | string | - | Hyperlink template to the resource
 #### <a name="requestlink"></a>Request Link
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-requestId | string | 4 to 6 alphanumeric characters | The public key of the request (unique per customer)
+requestId | string | 4 to 6 alphanumeric characters | The public key of the Request (unique per customer)
 
 #### <a name="link"></a>Link
 Name | Type | Format | Description
@@ -346,20 +346,20 @@ href| string| [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 allocations | object | [Allocation](#allocation) | The details of the allocations for this Expense.
-approvedAmount | object | [Amount](#amount) | The approved amount of the Expense entry, in the transaction currency of the request
+approvedAmount | object | [Amount](#amount) | The approved amount of the Expense entry, in the transaction currency of the Request
 budgetAccrualDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date to determine which budgets are affected (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
-businessPurpose | string | - | The business purpose of the request entry
+businessPurpose | string | - | The business purpose of the Request entry
 custom1 to custom40 | object | [CustomField](#customfield) | The details from the Custom fields. These fields may not have data, depending on the configuration
 exchangeRate | object | [Exchange Rate](#exchangerate) | The exchange rate that applies to the entry
 expenseType | object | [Expense Type](#expensetype) | The Expense type of the entry. __Required__ for expected Expenses, automatically set for segments depending on the SegmentType code.
-href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource for this request entry
+href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource for this Request entry
 id | string | - | The unique identifier of the Expense entry
 lastComment | string | - | The last comment (most recent) of the Expense entry
 lastModifiedDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date when this Expense was last modified
 location | object | [Location](#location) | The location of the Expense entry
 orgUnit1 to orgUnit6 | object | [Amount](#amount) | The details from the Custom fields. These fields may not have data, depending on the configuration
-postedAmount | object | [Amount](#amount) | The posted amount of the Expense entry, in the transaction currency of the request
-remainingAmount | object | [Amount](#amount) | The remaining amount of the Expense entry, in the transaction currency of the request
+postedAmount | object | [Amount](#amount) | The posted amount of the Expense entry, in the transaction currency of the Request
+remainingAmount | object | [Amount](#amount) | The remaining amount of the Expense entry, in the transaction currency of the Request
 transactionAmount | object | [Amount](#amount) | __Required__ The amount of the Expense entry, in the transaction currency paid to the vendor
 transactionDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | __Required__ The date of the transaction (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 travelAllowance | object | [Travel Allowance](#travelallowance) | The Travel allowance
