@@ -28,7 +28,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `offset`	|	`string`	|	`query`	|	Starting page offset	
 `limit`	|	`Int32`	|	`query`	|	Number of records to return (default 100)	
-`user`	|	`string`	|	`query`	|	The login ID of the user who owns this Request. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.	
+`user`	|	`string`	|	`query`	|	The login ID of the user who owns this Request. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter. Company-level token is not supported.
 `status`	|	`string`	|	`query`	|	The Status search term specifies which travel request or approval status to return. If no Status value is sent, the default Status of Active will be used.	
 `modifiedAfter`	|	`DateTime`	|	`query`	|	This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.	
 `modifiedBefore`	|	`DateTime`	|	`query`	|	This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments) were modified before the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.	
