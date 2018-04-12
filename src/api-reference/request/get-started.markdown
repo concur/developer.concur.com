@@ -4,7 +4,7 @@ layout: reference
 ---
 
 # Request
-Concur Request automates the spend request and approval process for both travel and everyday expenses, giving you the data you need to accurately track and better control spending. By increasing visibility into planned expenses and up-to-date budget data, you can make strategic spending decisions before any spending actually occurs. The Request resource provides many abilities, including Requests creation and transition into the approval workflow.
+Concur Request automates the spend request and approval process for both travel and everyday expenses, giving you the data you need to accurately track and better control spending. By increasing visibility into planned expenses and up-to-date budget data, you can make strategic spending decisions before any spending actually occurs. The Request API provides many possibilities, particularly Requests creation and transition into the approval workflow.
 
 ## Get Started
 
@@ -88,7 +88,7 @@ Once you have registered your application, read about the [API endpoints](/api-r
 
 #### <a name="token"></a>Retrieve a User Access Token:
 
-Before issuing requests to the Requests API, you must [obtain an access token from the Authentication API](/api-reference/authentication/getting-started.html).
+Before issuing requests to the API, you must [obtain an access token from the Authentication API](/api-reference/authentication/getting-started.html).
 
 The response will include an `access_token` field, which contains your access token. For subsequent calls, you will need to include this access token in the `Authorization` header of your calls. An `id_token` will be also included in the response. In order to retrieve the unique ID for your user, you will have to decode this `id_token` at [jwt.io](https://jwt.io/). You will need this ID in order to issue requests on the API.
 
@@ -108,7 +108,7 @@ http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={Y
 
 #### <a name="javascript">Explore the API in JavaScript
 
-Below are some simple NodeJS code snippets for getting a token and issuing a request on the API.
+Below are some simple NodeJS code snippets for getting a token and issuing a request to the API.
 
 ##### <a name="retrieve-token"></a>Retrieve a User Access Token:
 
