@@ -18,47 +18,6 @@ Below we have sample request data and the corresponding request answers:
 <i>Manage documents used for pre-spend authorizations within Concur Request</i><br />
 
 
-#### GET /v4/requests
-<code>curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy84OWRkN2M5MC02ZWY0LTQxZDEtOWFlOC0zMDNiYWQyNTg3NGQiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiODlkZDdjOTAtNmVmNC00MWQxLTlhZTgtMzAzYmFkMjU4NzRkIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyODUwMjMzLCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI4NDY2MzMsImlhdCI6MTUyMjg0NjYzMywiY29uY3VyLmNvbXBhbnkiOiIwNWIzYjc4Zi04OTMwLTRmMWUtOTY4MS03NDMxYzkzMmM0MDIifQ.S9trem03nqas3tJmWeI13q7Dcim_IWeWTW-S8YiQ7TkErtU1CLOgwr-XckVTz4trkteiz5XGMFc1pkNjTCGyHRYSVyWEs7GzcEoygo6Ub7cQo3S1Sk9tr0aW3eV7rHQFdUVobGs1OIbQWiHfUjrl8jEQm8aZOEMJcACJUPMPIbmxrlKr8gkNnEmLZkcBZuC96iYLkRh7y5_8NTpWe0uM8j18MCPnBwG5Kjka1aaD0tg0UAu9bFnf74EEa8OE9dRa2Y5AXZmNHQ5n0fvvoWoREL2lGLUtCFYu9NgxZpd5hHGxj4EyPzbdSg4bXEapZCgK87xclj2n1jydyXaHmxjkLA' 'https://us.api.concursolutions.com/travelrequest/v4/requests'</code>
-```json
-{
-  "data": [
-    {
-      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/D5C57CBC397E2A4693DDA66337D86798",
-      "id": "D5C57CBC397E2A4693DDA66337D86798",
-      "approvalStatus": {
-        "code": "NOT_SUBMITTED",
-        "name": "Not Submitted"
-      },
-      "approved": false,
-      "businessPurpose": "essai",
-      "canceledPostApproval": false,
-      "closed": false,
-      "creationDate": "2018-04-04T13:05:41Z",
-      "everSentBack": false,
-      "expenses": [],
-      "name": "test expected expense",
-      "pendingApproval": false,
-      "requestId": "3334",
-      "totalApprovedAmount": {
-        "value": 100,
-        "currency": "USD"
-      },
-      "totalPostedAmount": {
-        "value": 100,
-        "currency": "USD"
-      },
-      "totalRemainingAmount": {
-        "value": 100,
-        "currency": "USD"
-      }
-    }
-  ],
-  "operations": []
-}
-```
-Response code : **200**
-
 #### POST /v4/requests
 <code>curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE0NTU2MTQzNDYifQ.eyJjb25jdXIuc2NvcGVzIjpbInRyYXZlbHJlcXVlc3Qud3JpdGUiXSwiYXVkIjoiKiIsImNvbmN1ci5wcm9maWxlIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tL3Byb2ZpbGUvdjEvcHJpbmNpcGFscy8wZTE0ODg2ZC02YWJiLTQ0ZDgtYmQzOC1jNGU4MTBiN2JkMDIiLCJjb25jdXIudmVyc2lvbiI6MywiY29uY3VyLnR5cGUiOiJ1c2VyIiwiY29uY3VyLmFwcCI6Imh0dHBzOi8vcnFhMy5hcGkuY29uY3VyYXNwLmNvbS9wcm9maWxlL3YxL2FwcHMvNzhjMzg4MWMtM2I2NS00YjgxLWE0YzAtNjI0ZDQxZDBjZmNlIiwic3ViIjoiMGUxNDg4NmQtNmFiYi00NGQ4LWJkMzgtYzRlODEwYjdiZDAyIiwiaXNzIjoiaHR0cHM6Ly9ycWEzLmFwaS5jb25jdXJhc3AuY29tIiwiZXhwIjoxNTIyOTMzNTU5LCJjb25jdXIuYXBwSWQiOiI3OGMzODgxYy0zYjY1LTRiODEtYTRjMC02MjRkNDFkMGNmY2UiLCJuYmYiOjE1MjI5Mjk5NTksImlhdCI6MTUyMjkyOTk1OSwiY29uY3VyLmNvbXBhbnkiOiIyN2RkY2NiMC05YTY3LTQ2NDktYTQzNS04YWIwYWExY2VmNjUifQ.Z6F5eF5iBZYKQZOd8AuAJFKUEpXIOGSl3rYyu0yuJMtubaGIce63omWouLNAaXk7k3QOIEBlRyDeeIGM_-Qvc9w7tD_q7mQ7BhvRWKK7iS7ip5sOKJD5ZMT1702kcDj4MCZ9mmOokbk11RIXbOQy_ucSTIHNMa648lkZOu6yssw8FtinwynIEKbKDIyZ_GHeBZJikYFZwi4gyMD_WjNmW5NCIHtQrDRqNwuhost63_ouCd0iZ91V3uwKZ7Zc4TsQSbvJ_Lp_NvF9DFtaf8p1V4NMSwBdigajF6m0l7hVyWAQrzIoN0OpyGUknLxyGfFYsAsc4xoaFjsF9XkBQrIBXw' -d '{
              "businessPurpose": "essai2",

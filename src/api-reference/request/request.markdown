@@ -49,21 +49,6 @@ POST /v4/requests
 | - | object | [Request](#request) | The created Request
 
 
-- __Get the list of existing Requests__
-
-GET /v4/requests
-
-*Parameters:*
-| Name | Parameter Type | Data Type | Description
-| --- | :---: | :---: | ------
-| userId | query | string | __Optional__ The unique identifier of the User owning the Requests to list. If supplying a specific user token userId will be infered based upon the authentication token provided and override any other input. If provided using a company token the userId will filter the returned Requests, only the Requests captured by user having unique identifier userId will be returned.
-
-*Response:*
-Name | Type | Format | Description
---- | :---: | :---: | ------
-data | array | [Request](#request) | List of Requests
-operations | string | [RFC 5988](https://tools.ietf.org/html/rfc5988) | Pagination links to next/prev/first/last pages
-
 - __Get the content of an existing request__
 
 GET /v4/requests/{requestUuid}
