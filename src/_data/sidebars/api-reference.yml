@@ -15,17 +15,19 @@
         url: /api-reference/authentication/oauth2-migration-best-practices.html
       - title: Scopes
         url: /api-reference/authentication/scopes.html
-#- title: Budget
-#  url: ''
-#  children:
-#      - title: Budget Category
-#        url: /api-reference/budget/budget-category.html
-#      - title: Budget Header
-#        url: /api-reference/budget/budget-header.html
-#      - title: Cost Object Field
-#        url: /api-reference/budget/cost-object-field.html
-#      - title: Fiscal Year
-#        url: /api-reference/budget/fiscal-year.html
+- title: Budget
+  url: ''
+  children:
+      - title: Getting Started
+        url: /api-reference/budget/getting-started.html
+      - title: Fiscal Year
+        url: /api-reference/budget/fiscal-year.html
+      - title: Budget Header
+        url: /api-reference/budget/budget-header.html
+      - title: Budget Category
+        url: /api-reference/budget/budget-category.html
+      - title: Cost Object Field
+        url: /api-reference/budget/cost-object-field.html
 - title: Callouts
   url: ''
   children:
