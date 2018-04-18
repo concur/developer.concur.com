@@ -209,7 +209,16 @@
       - title: Response Codes
         url: /api-reference/receipts/response-codes.html
 - title: Request
-  url: /api-reference/request/request.html
+  url: ''
+  children:
+      - title: Get Started
+        url: /api-reference/request/get-started.html
+      - title: Endpoints
+        url: /api-reference/request/request.html
+      - title: Response Codes
+        url: /api-reference/request/response-codes.html
+      - title: Examples
+        url: /api-reference/request/examples.html
 - title: Travel Profile
   url: ''
   children:
