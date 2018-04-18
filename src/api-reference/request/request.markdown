@@ -39,11 +39,13 @@ Manage documents used for pre-spend authorizations within Concur Request.
 POST /v4/requests
 
 *Parameters:*
+
 | Name | Parameter Type | Data Type | Description |
 | :---: | :-------: | :--------: | ------ |
 | - | body | [Request](#request) | __Required__ The content of the Request to create |
 
 *Response:*
+
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
 | - | object | [Request](#request) | The created Request
@@ -54,11 +56,13 @@ POST /v4/requests
 GET /v4/requests/{requestUuid}
 
 *Parameters:*
+
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | requestUuid | path | string | __Required__ The unique identifier of the Request
 
 *Response:*
+
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
 | - | object | [Request](#request) | The Request having {requestUuid} as unique identifer
@@ -72,12 +76,14 @@ GET /v4/requests/{requestUuid}
 PUT /v4/requests/{requestUuid}
 
 *Parameters:*
+
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | requestUuid | path | string | __Required__ The unique identifier of the Request
 | - | body | [Request](#request) | __Required__ The content of the Request to update
 
 *Response:*
+
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
 | - | object | [Request](#request) | The Request having {requestUuid} as unique identifer after update
@@ -89,11 +95,13 @@ PUT /v4/requests/{requestUuid}
 DELETE /v4/requests/{requestUuid}
 
 *Parameters:*
+
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | requestUuid | path | string | __Required__ The unique identifier of the Request
 
 *Response:*
+
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
 | - | - | - | No content, response code only
@@ -104,11 +112,13 @@ DELETE /v4/requests/{requestUuid}
 POST /v4/requests/{requestUuid}/reports
 
 *Parameters:*
+
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | requestUuid | path | string | __Required__ The unique identifier of the Request
 
 *Response:*
+
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
 | - | object | [ResourceLink](#resourcelink) | The resource link leading to the created report
@@ -134,12 +144,14 @@ The HATEOAS links for actions available given the current user and state are lis
         sendback: reject the Request and send back to the Traveler
 
 *Parameters:*
+
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | requestUuid | path | string | __Required__ The unique identifier of the Request
 | action | path | string | __Required__ The state transition to be executed (submit, approve, recall, sendback, cancel, close or reopen)
 
 *Response:*
+
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
 | - | object | [Request](#request) | The Request having {requestUuid} as unique identifer
@@ -153,6 +165,7 @@ Manage expected expense entries attached to a Request document.
 POST /v4/requests/{requestUuid}/expenses
 
 *Parameters:*
+
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | requestUuid | path | string | __Required__ The unique identifier of the Request to which the Expense is attached
@@ -160,6 +173,7 @@ POST /v4/requests/{requestUuid}/expenses
 
 
 *Response:*
+
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
 | - | - | - | No content, response code only
@@ -169,12 +183,14 @@ POST /v4/requests/{requestUuid}/expenses
 GET /v4/requests/{requestUuid}/expenses
 
 *Parameters:*
+
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | requestUuid | path | string | __Required__ The unique identifier of the Request
 
 
 *Response:*
+
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
 | data | array | [Expense](#expense) | List of entries attached to a Request.
@@ -185,12 +201,14 @@ GET /v4/requests/{requestUuid}/expenses
 GET /v4/expenses/{expenseUuid}
 
 *Parameters:*
+
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | expenseUuid | path | string | __Required__ The unique identifier of the Expense
 
 
 *Response:*
+
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
 | - | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer
@@ -201,12 +219,14 @@ GET /v4/expenses/{expenseUuid}
 PUT /v4/expenses/{expenseUuid}
 
 *Parameters:*
+
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | expenseUuid | path | string | __Required__ The unique identifier of the Expense to update
 | body | object | [Expense](#expense) | __Required__ The Expense content to update
 
 *Response:*
+
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
 | - | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer after update
@@ -214,13 +234,16 @@ PUT /v4/expenses/{expenseUuid}
 - __Delete an expected Expense from the Request__
 
 DELETE /v4/expenses/{expenseUuid}
+
 *Parameters:*
+
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | expenseUuid | path | string | __Required__ The unique identifier of the Expense to delete
 
 
 *Response:*
+
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
 | - | - | - | No content, response code only
@@ -233,11 +256,13 @@ Manage the configuration for travel agencies integrated with Concur Request.
 GET /v4/travelagencies/{agencyUuid}
 
 *Parameters:*
+
 | Name | Parameter Type | Data Type | Description
 | --- | :---: | :---: | ------
 | agencyUuid | path | string | __Required__ The unique identifier of the Travel Agency
 
 *Response:*
+
 | Name | Type | Format | Description
 | --- | :---: | :---: | ------
 | emailAddress | string | - | The travel agency email address
@@ -248,6 +273,7 @@ GET /v4/travelagencies/{agencyUuid}
 
 ### <a name="data-format"></a>Data Format
 #### <a name="request"></a>Request
+
 Name | Type | Format | Description |
 ------------- | :-------: | :--------: | ------
 approvalLimitDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date by which the Request must be approved. This element appears only when integrated with Concur Travel (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
@@ -280,13 +306,15 @@ totalRemainingAmount | object | [Amount](#amount) | The total amount not include
 travelAgency | object | [ResourceLink](#resourcelink) | The travel agency office that is managing the trip associated to this Request
 operations | array | [Link](#link) | Links to operations available for the Request, depends on the current approval status
 
-#### <a name="approvalstatus">Approval Status
+#### <a name="approvalstatus"></a>Approval Status
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 code | string | - | The code for the approval status the Request. Possible values: NOT_SUBMITTED, SUBMITTED, APPROVED, CANCELED or SENTBACK
 name | string | - | The approval status of the Request in the current user's language
 
 #### <a name="customfield"></a>CustomField
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 code | string | - | The short code for the list item. For non-list fields, this value will be blank
@@ -295,6 +323,7 @@ listItemId | string | - | The unique id of the item in case of a list item
 href | string | - | The link to get this list item on the list service. Empty for non-list items.
 
 #### <a name="location"></a>Location
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 countryCode | string | [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html) | The ISO 3166-1 country code
@@ -304,12 +333,14 @@ iataCode | string | - | The IATA code of the location
 name | string | - | The name of the location
 
 #### <a name="amount"></a>Amount
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 value | number | - | __Required__ The amount in the defined currency
 currency | string | [ISO 4217:2015](#https://www.iso.org/standard/64758.html) | __Required__ The 3-letter ISO 4217 code for the currency in which the amount is expressed
 
 #### <a name="resourcelink"></a>Resource Link
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource
@@ -317,17 +348,20 @@ id | string |[RFC 4122](https://tools.ietf.org/html/rfc4122) | Unique identifier
 template | string | - | Hyperlink template to the resource
 
 #### <a name="requestlink"></a>Request Link
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 requestId | string | 4 to 6 alphanumeric characters | The public key of the Request (unique per customer)
 
 #### <a name="link"></a>Link
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 rel | string | [RFC 5988](https://tools.ietf.org/html/rfc5988) | Relation type as defined by the server. There are registered relation types listed in RFC 5988 6.2.2. Initial Registry Contents including pagination relation types of next, prev, first and last
 href| string| [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource
 
 #### <a name="expense"></a>Expense
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 allocations | object | [Allocation](#allocation) | The details of the allocations for this Expense.
@@ -352,6 +386,7 @@ tripData | object | [Trip Data](#tripdata) | The description of the trip
 vendor | object | [Vendor](#vendor) | The vendor of the Expense entry
 
 #### <a name="allocation"></a>Allocation
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 allocationAmount | object | [Amount](#amount) | The amount of the allocation calculated with the percentage value multiplied by the transaction amount on the Expense. This amount is given in the transaction's currency and rounded to 8 decimals after decimal point.
@@ -365,12 +400,14 @@ postedAmount | object | [Amount](#amount) | The amount of the allocation calcula
 systemAllocation | boolean | - | Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only
 
 #### <a name="exchangerate"></a>Exchange Rate
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 operation | string | - | Exchange rate operation. Possible values are: MULTIPLY or DIVIDE
 value | number | - | Exchange rate value
 
 #### <a name="expensetype"></a>Expense Type
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 id | string | - | __Required__ Unique identifier of the Expense type
@@ -378,11 +415,13 @@ name | string | - | Name of the Expense type
 href | string | [RFC 3986](https://tools.ietf.org/html/rfc3986) | Hyperlink to the resource for the Expense type definition
 
 #### <a name="travelallowance"></a>Travel Allowance
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 dailyTravelAllowanceId | string | - | The fixed daily travel allowance id associated with the Expense
 
 #### <a name="tripdata"></a>Trip Data
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 agencyBooked | boolean | - | True if this travel is (or has to be) handled by a travel agency
@@ -392,12 +431,14 @@ segmentType | object | [Segment Type](#segmenttype) | __Required__ The type of t
 selfBooked | boolean | - | True if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS
 
 #### <a name="vendor"></a>Vendor
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 id | string | - | The vendor identifier of the entry
 name | string | - | The vendor description of the entry
 
 #### <a name="segmentleg"></a>Segment Leg
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 comment | string | - | Contains the last comment saved in this segment leg.
@@ -417,6 +458,7 @@ segmentLocator | string | - | This is the identifier for ConcurTravel segments (
 vendorName | string | - | Contains the vendor description of the segment leg.
 
 #### <a name="segmenttype"></a>Segment Type
+
 Name | Type | Format | Description
 --- | :---: | :---: | ------
 category| enum | - | Describes the category of this segment type. Possible values are: REQ_SEG_AIRFR, REQ_SEG_CARRT, REQ_SEG_HOTEL, REQ_SEG_LIMOF, REQ_SEG_RAILF, REQ_SEG_TAXIF, REQ_SEG_MISC, REQ_SEG_PARKG, REQ_SEG_DININ, REQ_SEG_EVENT

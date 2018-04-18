@@ -28,12 +28,12 @@ layout: reference
 |400|Bad Request|`invalidLocation` the location cannot be resolved, no city found for countryCode={countryCode} and cityName={cityName}|No location found matching the country code and city name provided||
 |400|Bad Request|`invalidLocation` the location cannot be resolved, multiple locations available for countryCode={countryCode} and cityName={cityName}|Multiple locations found matching the country code and city name provided||
 |400|Bad Request|`invalidPolicy` invalid policy id||POST /v4/requests -d {"policy": {"id":"ABC"}} where ABC is not a valid policy for the current user|
-|400|Bad Request|`listValidationError` validation of list items failed||POST /v4/requests -d {"custom1":{"code":"CONCUR"}} where CONCUR is not a valid value for the field custom1
-|400|Bad Request|`missingRequiredField`	at least 1 required field has an empty value|A request with no value on a mandatory field has been submitted||
-|400|Bad Request|`blockingException` at least 1 blocking exception|A request with a blocking exception has been submitted|||
+|400|Bad Request|`listValidationError` validation of list items failed||POST /v4/requests -d {"custom1":{"code":"CONCUR"}} where CONCUR is not a valid value for the field custom1|
+|400|Bad Request|`missingRequiredField` at least 1 required field has an empty value|A request with no value on a mandatory field has been submitted||
+|400|Bad Request|`blockingException` at least 1 blocking exception|A request with a blocking exception has been submitted||
 |400|Bad Request|`multiLegNotAllowed` cannot save a multi leg, multi-leg is not enabled for this entity|The multi leg support is not allowed for the entity||
 |400|Bad Request|`reportTemplateNotFound` failed to retrieve report template|The multi leg support is not allowed for the entity||
-|401|Unauthorized|`invalidUser` the request's user is invalid	invalid or non existent authorization HTTP header|||
+|401|Unauthorized|`invalidUser` the request's user is invalid|invalid or non existent authorization HTTP header||
 |403|Forbidden|`permissionDenied` permission denied|User approving his own request, or without approver/processor role||
 |403|Forbidden|`requestStatusNotApproved` the request is not approved or canceled after approval|||
 |403|Forbidden|`userIsNotAllowed` User is not allowed to access this resource|||
@@ -46,5 +46,3 @@ layout: reference
 |500|Internal Server Error|`associateReportError` error while associating a report to a request|||
 |503|Service Unavailable|`circuitBreaker` Circuit Breaker is open, please try again on a different node|The server node might be unavailable, be retrying the request you may reach a healthy node||
 |503|Service Unavailable|`entityOffline` Entity is offline, please try again later.|||
-
-
