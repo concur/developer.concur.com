@@ -257,18 +257,18 @@ GET /v4/travelagencies/{agencyUuid}
 
 *Parameters:*
 
- Name | Parameter Type | Data Type | Description
+Name | Parameter Type | Data Type | Description
 --- | :---: | :---: | ------
- agencyUuid | path | string | __Required__ The unique identifier of the Travel Agency
+agencyUuid | path | string | __Required__ The unique identifier of the Travel Agency
 
 *Response:*
 
- Name | Type | Format | Description
- --- | :---: | :---: | ------
- emailAddress | string | - | The travel agency email address
- id | string | - | The travel agency unique identifier
- name | string | - | The travel agency office name
- proposalType | string| - | The travel agency proposal type. Possible value: CWT, CWTF, AEBT or API
+Name | Type | Format | Description
+--- | :---: | :---: | ------
+emailAddress | string | - | The travel agency email address
+id | string | - | The travel agency unique identifier
+name | string | - | The travel agency office name
+proposalType | string| - | The travel agency proposal type. Possible value: CWT, CWTF, AEBT or API
 
 
 ### <a name="data-format"></a>Data Format
