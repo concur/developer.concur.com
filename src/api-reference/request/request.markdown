@@ -40,15 +40,15 @@ POST /v4/requests
 
 *Parameters:*
 
-| Name | Parameter Type | Data Type | Description |
-| :---: | :-------: | :--------: | ------ |
-| - | body | [Request](#request) | __Required__ The content of the Request to create |
+Name | Parameter Type | Data Type | Description
+--- | :-------: | :--------: | ------
+\- | body | [Request](#request) | __Required__ The content of the Request to create
 
 *Response:*
 
-| Name | Type | Format | Description
-| --- | :---: | :---: | ------
-| - | object | [Request](#request) | The created Request
+Name | Type | Format | Description
+--- | :---: | :---: | ------
+\- | object | [Request](#request) | The created Request
 
 
 - __Get the content of an existing request__
@@ -57,15 +57,15 @@ GET /v4/requests/{requestUuid}
 
 *Parameters:*
 
-| Name | Parameter Type | Data Type | Description
-| --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the Request
+Name | Parameter Type | Data Type | Description
+--- | :---: | :---: | ------
+requestUuid | path | string | __Required__ The unique identifier of the Request
 
 *Response:*
 
-| Name | Type | Format | Description
-| --- | :---: | :---: | ------
-| - | object | [Request](#request) | The Request having {requestUuid} as unique identifer
+Name | Type | Format | Description
+--- | :---: | :---: | ------
+\- | object | [Request](#request) | The Request having {requestUuid} as unique identifer
 
 
 
@@ -77,16 +77,16 @@ PUT /v4/requests/{requestUuid}
 
 *Parameters:*
 
-| Name | Parameter Type | Data Type | Description
-| --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the Request
-| - | body | [Request](#request) | __Required__ The content of the Request to update
+Name | Parameter Type | Data Type | Description
+--- | :---: | :---: | ------
+requestUuid | path | string | __Required__ The unique identifier of the Request
+\- | body | [Request](#request) | __Required__ The content of the Request to update
 
 *Response:*
 
-| Name | Type | Format | Description
-| --- | :---: | :---: | ------
-| - | object | [Request](#request) | The Request having {requestUuid} as unique identifer after update
+Name | Type | Format | Description
+--- | :---: | :---: | ------
+\- | object | [Request](#request) | The Request having {requestUuid} as unique identifer after update
 
 [Request](#request)
 
@@ -96,15 +96,15 @@ DELETE /v4/requests/{requestUuid}
 
 *Parameters:*
 
-| Name | Parameter Type | Data Type | Description
-| --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the Request
+Name | Parameter Type | Data Type | Description
+--- | :---: | :---: | ------
+requestUuid | path | string | __Required__ The unique identifier of the Request
 
 *Response:*
 
-| Name | Type | Format | Description
-| --- | :---: | :---: | ------
-| - | - | - | No content, response code only
+Name | Type | Format | Description
+--- | :---: | :---: | ------
+\- | - | - | No content, response code only
 
 
 - __Create an expense report linked to an approved Request__
@@ -113,15 +113,15 @@ POST /v4/requests/{requestUuid}/reports
 
 *Parameters:*
 
-| Name | Parameter Type | Data Type | Description
-| --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the Request
+Name | Parameter Type | Data Type | Description
+--- | :---: | :---: | ------
+requestUuid | path | string | __Required__ The unique identifier of the Request
 
 *Response:*
 
-| Name | Type | Format | Description
-| --- | :---: | :---: | ------
-| - | object | [ResourceLink](#resourcelink) | The resource link leading to the created report
+Name | Type | Format | Description
+--- | :---: | :---: | ------
+\- | object | [ResourceLink](#resourcelink) | The resource link leading to the created report
 
 
 #### <a name="workflow-resource"></a>Workflow resource
@@ -145,16 +145,16 @@ The HATEOAS links for actions available given the current user and state are lis
 
 *Parameters:*
 
-| Name | Parameter Type | Data Type | Description
-| --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the Request
-| action | path | string | __Required__ The state transition to be executed (submit, approve, recall, sendback, cancel, close or reopen)
+Name | Parameter Type | Data Type | Description
+--- | :---: | :---: | ------
+requestUuid | path | string | __Required__ The unique identifier of the Request
+action | path | string | __Required__ The state transition to be executed (submit, approve, recall, sendback, cancel, close or reopen)
 
 *Response:*
 
-| Name | Type | Format | Description
-| --- | :---: | :---: | ------
-| - | object | [Request](#request) | The Request having {requestUuid} as unique identifer
+Name | Type | Format | Description
+--- | :---: | :---: | ------
+\- | object | [Request](#request) | The Request having {requestUuid} as unique identifer
 
 
 #### <a name="expense-resource"></a>Expense resource
@@ -166,17 +166,17 @@ POST /v4/requests/{requestUuid}/expenses
 
 *Parameters:*
 
-| Name | Parameter Type | Data Type | Description
-| --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the Request to which the Expense is attached
-| body | object | [Expense](#expense) | __Required__ The Expense content to create
+Name | Parameter Type | Data Type | Description
+--- | :---: | :---: | ------
+requestUuid | path | string | __Required__ The unique identifier of the Request to which the Expense is attached
+body | object | [Expense](#expense) | __Required__ The Expense content to create
 
 
 *Response:*
 
-| Name | Type | Format | Description
-| --- | :---: | :---: | ------
-| - | - | - | No content, response code only
+Name | Type | Format | Description
+--- | :---: | :---: | ------
+\- | - | - | No content, response code only
 
 - __Get expected Expenses attached to a Request__
 
@@ -184,17 +184,17 @@ GET /v4/requests/{requestUuid}/expenses
 
 *Parameters:*
 
-| Name | Parameter Type | Data Type | Description
-| --- | :---: | :---: | ------
-| requestUuid | path | string | __Required__ The unique identifier of the Request
+Name | Parameter Type | Data Type | Description
+--- | :---: | :---: | ------
+requestUuid | path | string | __Required__ The unique identifier of the Request
 
 
 *Response:*
 
-| Name | Type | Format | Description
-| --- | :---: | :---: | ------
-| data | array | [Expense](#expense) | List of entries attached to a Request.
-| operations | string | [RFC 5988](https://tools.ietf.org/html/rfc5988) | Pagination links to next/prev/first/last page.
+Name | Type | Format | Description
+--- | :---: | :---: | ------
+data | array | [Expense](#expense) | List of entries attached to a Request.
+operations | string | [RFC 5988](https://tools.ietf.org/html/rfc5988) | Pagination links to next/prev/first/last page.
 
 - __Get an existing expected Expense__
 
@@ -202,16 +202,16 @@ GET /v4/expenses/{expenseUuid}
 
 *Parameters:*
 
-| Name | Parameter Type | Data Type | Description
-| --- | :---: | :---: | ------
-| expenseUuid | path | string | __Required__ The unique identifier of the Expense
+Name | Parameter Type | Data Type | Description
+--- | :---: | :---: | ------
+expenseUuid | path | string | __Required__ The unique identifier of the Expense
 
 
 *Response:*
 
-| Name | Type | Format | Description
-| --- | :---: | :---: | ------
-| - | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer
+Name | Type | Format | Description
+--- | :---: | :---: | ------
+\- | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer
 
 
 - __Update the content of an existing expected Expense__
@@ -220,16 +220,16 @@ PUT /v4/expenses/{expenseUuid}
 
 *Parameters:*
 
-| Name | Parameter Type | Data Type | Description
-| --- | :---: | :---: | ------
-| expenseUuid | path | string | __Required__ The unique identifier of the Expense to update
-| body | object | [Expense](#expense) | __Required__ The Expense content to update
+ Name | Parameter Type | Data Type | Description
+ --- | :---: | :---: | ------
+ expenseUuid | path | string | __Required__ The unique identifier of the Expense to update
+ body | object | [Expense](#expense) | __Required__ The Expense content to update
 
 *Response:*
 
-| Name | Type | Format | Description
-| --- | :---: | :---: | ------
-| - | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer after update
+ Name | Type | Format | Description
+ --- | :---: | :---: | ------
+ \- | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer after update
 
 - __Delete an expected Expense from the Request__
 
@@ -237,16 +237,16 @@ DELETE /v4/expenses/{expenseUuid}
 
 *Parameters:*
 
-| Name | Parameter Type | Data Type | Description
-| --- | :---: | :---: | ------
-| expenseUuid | path | string | __Required__ The unique identifier of the Expense to delete
+Name | Parameter Type | Data Type | Description
+--- | :---: | :---: | ------
+expenseUuid | path | string | __Required__ The unique identifier of the Expense to delete
 
 
 *Response:*
 
-| Name | Type | Format | Description
-| --- | :---: | :---: | ------
-| - | - | - | No content, response code only
+ Name | Type | Format | Description
+ --- | :---: | :---: | ------
+ \- | - | - | No content, response code only
 
 #### <a name="travel-agency-resource"></a>Travel agency resource
 
@@ -257,24 +257,24 @@ GET /v4/travelagencies/{agencyUuid}
 
 *Parameters:*
 
-| Name | Parameter Type | Data Type | Description
-| --- | :---: | :---: | ------
-| agencyUuid | path | string | __Required__ The unique identifier of the Travel Agency
+ Name | Parameter Type | Data Type | Description
+--- | :---: | :---: | ------
+ agencyUuid | path | string | __Required__ The unique identifier of the Travel Agency
 
 *Response:*
 
-| Name | Type | Format | Description
-| --- | :---: | :---: | ------
-| emailAddress | string | - | The travel agency email address
-| id | string | - | The travel agency unique identifier
-| name | string | - | The travel agency office name
-| proposalType | string| - | The travel agency proposal type. Possible value: CWT, CWTF, AEBT or API
+ Name | Type | Format | Description
+ --- | :---: | :---: | ------
+ emailAddress | string | - | The travel agency email address
+ id | string | - | The travel agency unique identifier
+ name | string | - | The travel agency office name
+ proposalType | string| - | The travel agency proposal type. Possible value: CWT, CWTF, AEBT or API
 
 
 ### <a name="data-format"></a>Data Format
 #### <a name="request"></a>Request
 
-Name | Type | Format | Description |
+Name | Type | Format | Description
 ------------- | :-------: | :--------: | ------
 approvalLimitDate | timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339) | The date by which the Request must be approved. This element appears only when integrated with Concur Travel (in the format yyyy-MM-dd'T'HH:mm:ss.SSS'Z')
 approvalStatus | object | [Approval Status](#approvalstatus) | The approval status of the Request |
