@@ -176,6 +176,6 @@ Error Messages|Possible Issues|
 `Only one segment of a particular type can be provided for each Credit Card.` | Duplicate segments are being supplied to an individual credit card (ie multiple car segments) |
 `You do not have permissions for element: {type}` | An attempt is being made to update a card of a conflicting vendor type |
 `Forbidden Request` | The entity trying access the Form of Payment endpoint does not have the proper permissions. |
-`Invalid Account Number` | Account Number check failed due to prefix, length, luhn, or other required format [See Reference][1](#account-number-validation) |
+`Invalid Account Number` | Account Number check failed due to prefix, length, luhn, or other required format [See Reference][1] |
 
-[1]: /api-references/travel-profile/ZZ-reference-resource.html
+[1]: /api-references/travel-profile/ZZ-reference-resource.html#account-number-validation
