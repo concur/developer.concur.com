@@ -356,7 +356,7 @@ The Air parent element contains the user's air travel preferences and contains t
 | ----- | ----- | ----- | ----- | ----- | ----- |
 |  `AirMemberships` |    | The AirMemberships element only appears if the request came from a travel supplier for this travel type, or from a TMC. This element contains [AirMembership child elements](#airmember). | | | |
 |  `Seat` |   | This element contains [air seat child elements](#airseat). | | | |
-|  `Meals` | `string`   | This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are: <br> Regular Meal (DEFAULT VALUE) <br> BBML = Baby Meal  <br> BLML = Bland Meal  <br> CHML = Child Meal  <br> DBML = Diabetic Meal  <br> FPML = Fruit Platter  <br> GFML = Gluten Intolerant Meal  <br> HNML = Hindu Meal  <br> KSML = Kosher Meal  <br> LCML = Low Calorie Meal  <br> LSML = Low Salt Meal  <br> MOML = Muslim Meal  <br> NLML = Low Lactose Meal  <br> NSML = No Salt Meal  <br> PFML = Peanut Free Meal  <br> SFML = Seafood Meal  <br>  VGML = Vegetarian  <br> RVML = Vegetarian Raw Vegan Meal  <br> KVML = Vegetarian Kosher <br> VLML = Vegetarian Lacto-Ovo  <br> | | | |
+|  `Meals` | `string`   | This parent element contains the MealCode child element that indicates the meal preference of the traveler. The possible values are: <br> Regular Meal (DEFAULT VALUE) <br> BBML = Baby Meal  <br> BLML = Bland Meal  <br> CHML = Child Meal  <br> DBML = Diabetic Meal  <br> FPML = Fruit Platter  <br> GFML = Gluten Intolerant Meal  <br> HNML = Hindu Meal  <br> KSML = Kosher Meal  <br> LCML = Low Calorie Meal  <br> LSML = Low Salt Meal  <br> MOML = Muslim Meal  <br> NLML = Low Lactose Meal  <br> NSML = No Salt Meal  <br> PFML = Peanut Free Meal  <br> SFML = Seafood Meal  <br>  VGML = Vegetarian  <br> RVML = Vegetarian Raw Vegan Meal  <br> KVML = Vegetarian Kosher <br> VLML = Vegetarian Lacto-Ovo  <br> AVML = Asian Vegetarian Meal <br> | | | |
 |  `HomeAirport` |  `string` |  The user's home airport. varchar(3) | | | Must be an existing IATA code. |
 |  `AirOther` |  `string` |  Other Air related description | | | |
 
@@ -615,6 +615,7 @@ A list of advantage memberships associated to a user:
 | `ProgramName` | `string` | The program name. Format: Varchar(20) | Cannot Update | | |
 
 * **NOTES**:
+ * For List of Available Advantage Memberships [See Reference][1](#advantage-membership-programs)
  * Multiple memberships for the same VendorType, VendorCode, ProgramCode, and CardNumber are identified and a warning is thrown.
  * OriginStationCode and DestinationStationCode fields are deprecated and should no longer be used. Use OriginCode and DestinationCode instead.
 
@@ -900,7 +901,7 @@ Content-Type: application/xml
 
 
 
-
+[1]: /api-references/travel-profile/ZZ-reference-resource.html
 [3]: https://www.concursolutions.com/ns/TravelUserProfile.xsd
 [4]: https://www.concursolutions.com/ns/TravelProfileSummaryV2.xsd
 [8]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2

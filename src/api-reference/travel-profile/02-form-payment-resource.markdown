@@ -99,17 +99,17 @@ Name | Type | Format | Description |
 
 #### BillingAddress element
 
-Element Name|Required/Optional|Data Type|Description|
+Element Name|Type|Format|Description|
 ------------|-----------------|---------|-----------|
 `StreetAddress` | `string`|`-`  |The street and unit information for the billing address.|
 `City` | `string`| `-` |The city information for the billing address.|
 `StateProvince` | `string`| `-` |The state or province information for the billing address.|
 `Country`| `string`|`-`  |The country information for the billing address.|
 `ZipCode`| `string`| `-` | The zip code information for the billing address.|
-
+* **NOTE:** Billing Address is required to create or update credit cards.
 #### Segments element
 
-Element Name|Required/Optional|Data Type|Description|
+Element Name|Type|Format|Description|
 ------------|-----------------|---------|-----------|
 `Type` | `string`|`-`  |Type of Segment, which will be one of the following values: Air, Rail, Hotel, Car, Ground|
 `Mandatory` | `boolean`| `-` |A Boolean that notes if this card must be used for payment for this segment type. **Corporate Ghost Cards only.** |
@@ -176,28 +176,6 @@ Error Messages|Possible Issues|
 `Only one segment of a particular type can be provided for each Credit Card.` | Duplicate segments are being supplied to an individual credit card (ie multiple car segments) |
 `You do not have permissions for element: {type}` | An attempt is being made to update a card of a conflicting vendor type |
 `Forbidden Request` | The entity trying access the Form of Payment endpoint does not have the proper permissions. |
-`Invalid Account Number` | Account Number check failed due to prefix, length, luhn, or other required format [See Below](#a5) |
+`Invalid Account Number` | Account Number check failed due to prefix, length, luhn, or other required format [See Reference][1](#account-number-validation) |
 
-## <a name="a5">Account Number Validation</a>
-
-Vendor|Luhn Required|Length(s)|Prefix(s)|
----------|-------------|------|---------|
-AmericanExpress| Yes | 15 | 34, 37 |
-DinersClub| Yes | 14 | 36, 38, 39, 300, 301, 302, 303, 304, 305, 309 |
-Discover| Yes | 16, 19 | 65, 644-649, 6011, 622126-622925|
-MasterCard| Yes | 16 | 51, 52, 53, 54, 55, 2221-2720 |
-Visa| Yes | 13, 16, 19 | 4 |
-CarteBlanche| Yes | 14 | 300, 301, 302, 303, 304, 305|
-Enroute| Yes | 15 | 2014, 2049 |
-UniversalAirTravel| Yes | 15 | 1 |
-JCB| Yes | 16 | 3528-3589 |
-AmericanAirlines| | | N/A |
-DeltaEquity| | | N/A |
-NorthwestAirlines| | | N/A |
-TWAGetaway| | | N/A |
-UnitedTravelCard| | | N/A |
-UnitedCreditCard| | | N/A |
-EuroCard| | | N/A |
-CanadianAirlines| | | N/A |
-AlaskaAirBarter| | | N/A |
-ChinaUnionPay| Yes | 16-19 | 62 |
+[1]: /api-references/travel-profile/ZZ-reference-resource.html
