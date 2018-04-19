@@ -87,33 +87,33 @@ Name | Type | Format | Description |
 
 The CreditCard element contains the following child elements:
 
-Name | Type | Format | Description |
+Name | Type | Required | Description |
 ------------|-----------------|---------|-------------|
-`Vendor` |`string` |`-` |The card vendor. One of the following options: Unknown, AmericanExpress, DinersClub, Discover, MasterCard, Visa, CarteBlanche, Enroute, UniversalAirTravel, JCB, AmericanAirlines, DeltaEquity, NorthwestAirlines, TWAGetaway, UnitedTravelCard, UnitedCreditCard, EuroCard, CanadianAirlines, AlaskaAirBarter, PurchaseOrder, AwardCredit, Debit, ChinaUnionPay, Cash, CompanyPaid, CreditCard |
-`AccountNo` | `string`|`-` |The credit card account number. |
+`Vendor` |`string` |`Creation` |The card vendor. One of the following options: Unknown, AmericanExpress, DinersClub, Discover, MasterCard, Visa, CarteBlanche, Enroute, UniversalAirTravel, JCB, AmericanAirlines, DeltaEquity, NorthwestAirlines, TWAGetaway, UnitedTravelCard, UnitedCreditCard, EuroCard, CanadianAirlines, AlaskaAirBarter, PurchaseOrder, AwardCredit, Debit, ChinaUnionPay, Cash, CompanyPaid, CreditCard |
+`AccountNo` | `string`|`Always` |The credit card account number. |
 `ExpDate` |`date/time`|`-` |The expiration date of the credit card. Format: YYYY-MM |
-`NameOnCard` | `string` |`-` |The name on the credit card. **Business Cards only.** |
+`NameOnCard` | `string` |`Creation` |The name on the credit card. **Business Cards only.** |
 `UsageType`|`string` |`-` |For what purpose the card is to be used, which will be one of the following values: **Corporate**, **Business** |
-`BillingAddress` |`string`|`-` |This parent element contains information about the billing address. For information about the child elements of this parent element, see the **BillingAddress element** table below. |
-`Segments`|`string`|`-` |A list of segments with which the card may be used. For information about the child elements of this parent element, see the **Segment element** table below
+`BillingAddress` |`string`|`Required` |This parent element contains information about the billing address. For information about the child elements of this parent element, see the **BillingAddress element** table below. |
+`Segments`|`string`|`Required` |A list of segments with which the card may be used. For information about the child elements of this parent element, see the **Segment element** table below
 
 #### BillingAddress element
 
-Element Name|Type|Format|Description|
+Element Name|Type|Required|Description|
 ------------|-----------------|---------|-----------|
-`StreetAddress` | `string`|`-`  |The street and unit information for the billing address.|
-`City` | `string`| `-` |The city information for the billing address.|
-`StateProvince` | `string`| `-` |The state or province information for the billing address.|
-`Country`| `string`|`-`  |The country information for the billing address.|
-`ZipCode`| `string`| `-` | The zip code information for the billing address.|
-* **NOTE:** Billing Address is required to create or update credit cards.
+`StreetAddress` | `string`|`Required`  |The street and unit information for the billing address.|
+`City` | `string`| `Required` |The city information for the billing address.|
+`StateProvince` | `string`| `Required` |The state or province information for the billing address.|
+`Country`| `string`|`Required`  |The country information for the billing address.|
+`ZipCode`| `string`| `Required` | The zip code information for the billing address.|
+
 #### Segments element
 
 Element Name|Type|Format|Description|
 ------------|-----------------|---------|-----------|
-`Type` | `string`|`-`  |Type of Segment, which will be one of the following values: Air, Rail, Hotel, Car, Ground|
+`Type` | `string`|`Required`  |Type of Segment, which will be one of the following values: Air, Rail, Hotel, Car, Ground|
 `Mandatory` | `boolean`| `-` |A Boolean that notes if this card must be used for payment for this segment type. **Corporate Ghost Cards only.** |
-`Default` | `boolean`| `-` |A Boolean that notes if this card has a default use for payment for this segment type. |
+`Default` | `boolean`| `Required` |A Boolean that notes if this card has a default use for payment for this segment type. |
 
 
 ### Examples for Travel Suppliers
