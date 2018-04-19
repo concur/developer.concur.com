@@ -615,7 +615,7 @@ A list of advantage memberships associated to a user:
 | `ProgramName` | `string` | The program name. Format: Varchar(20) | Cannot Update | | |
 
 * **NOTES**:
- * For List of Available Advantage Memberships [See Reference][1](#advantage-membership-programs)
+ * For List of Available Advantage Memberships [See Reference][1]
  * Multiple memberships for the same VendorType, VendorCode, ProgramCode, and CardNumber are identified and a warning is thrown.
  * OriginStationCode and DestinationStationCode fields are deprecated and should no longer be used. Use OriginCode and DestinationCode instead.
 
@@ -901,7 +901,7 @@ Content-Type: application/xml
 
 
 
-[1]: /api-references/travel-profile/ZZ-reference-resource.html
+[1]: /api-references/travel-profile/ZZ-reference-resource.html#advantage-membership-programs
 [3]: https://www.concursolutions.com/ns/TravelUserProfile.xsd
 [4]: https://www.concursolutions.com/ns/TravelProfileSummaryV2.xsd
 [8]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
