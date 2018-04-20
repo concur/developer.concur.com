@@ -17,6 +17,7 @@ When submitting credit cards, the following checks are performed on the submitte
 
 Vendor|Luhn Required|Length(s)|Prefix(s)|
 ---------|-------------|------|---------|
+Unknown| | | N/A |
 AmericanExpress| Yes | 15 | 34, 37 |
 DinersClub| Yes | 14 | 36, 38, 39, 300, 301, 302, 303, 304, 305, 309 |
 Discover| Yes | 16, 19 | 65, 644-649, 6011, 622126-622925|
@@ -35,7 +36,13 @@ UnitedCreditCard| | | N/A |
 EuroCard| | | N/A |
 CanadianAirlines| | | N/A |
 AlaskaAirBarter| | | N/A |
+PurchaseOrder| | | N/A |
+AwardCredit| | | N/A |
+Debit| | | N/A |
 ChinaUnionPay| Yes | 16-19 | 62 |
+Cash| | | N/A |
+CompanyPaid| | | N/A |
+CreditCard| | | N/A |
 
 ## <a name="a2">Advantage Membership Programs</a>
 
@@ -103,3 +110,27 @@ Rail | UK Rail | Z0 | VLC | VALLEY STUDENT RAILCARD |
 Rail | UK Rail | Z0 | VLS | VALLEY LINES SENIOR RAILCARD |
 Rail | UK Rail | Z0 | YNG | 16-25 RAILCARD |
 
+## <a name="a2">Air Meal Types</a>
+
+Code|Meal Name|
+---------|-------------|
+BBML | Baby Meal|
+BLML | Bland Meal |
+CHML | Child Meal |
+DBML | Diabetic Meal |
+FPML | Fruit Platter |
+GFML | Gluten Intolerant Meal |
+HNML | Hindu Meal |
+KSML | Kosher Meal |
+LCML | Low Calorie Meal |
+LSML | Low Salt Meal |
+MOML | Muslim Meal |
+NLML | Low Lactose Meal |
+NSML | No Salt Meal |
+PFML | Peanut Free Meal |
+SFML | Seafood Meal |
+VGML | Vegetarian |
+RVML | Vegetarian Raw Vegan Meal |
+KVML | Vegetarian Kosher |
+VLML | Vegetarian Lacto-Ovo |
+AVML | Asian Vegetarian Meal |

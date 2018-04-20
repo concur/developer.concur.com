@@ -89,7 +89,7 @@ The CreditCard element contains the following child elements:
 
 Name | Type | Required | Description |
 ------------|-----------------|---------|-------------|
-`Vendor` |`string` |`Creation` |The card vendor. One of the following options: Unknown, AmericanExpress, DinersClub, Discover, MasterCard, Visa, CarteBlanche, Enroute, UniversalAirTravel, JCB, AmericanAirlines, DeltaEquity, NorthwestAirlines, TWAGetaway, UnitedTravelCard, UnitedCreditCard, EuroCard, CanadianAirlines, AlaskaAirBarter, PurchaseOrder, AwardCredit, Debit, ChinaUnionPay, Cash, CompanyPaid, CreditCard |
+`Vendor` |`string` |`Creation` |The card vendor. [See Reference][1] for list of vendors |
 `AccountNo` | `string`|`Always` |The credit card account number. |
 `ExpDate` |`date/time`|`-` |The expiration date of the credit card. Format: YYYY-MM |
 `NameOnCard` | `string` |`Creation` |The name on the credit card. **Business Cards only.** |
@@ -178,4 +178,4 @@ Error Messages|Possible Issues|
 `Forbidden Request` | The entity trying access the Form of Payment endpoint does not have the proper permissions. |
 `Invalid Account Number` | Account Number check failed due to prefix, length, luhn, or other required format [See Reference][1] |
 
-[1]: /api-references/travel-profile/ZZ-reference-resource.html#account-number-validation
+[1]: /api-references/travel-profile/99-reference-resource.html#account-number-validation
