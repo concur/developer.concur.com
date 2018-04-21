@@ -42,13 +42,13 @@ POST /v4/requests
 
 Name | Parameter Type | Data Type | Description
 --- | :-------: | :--------: | ------
-\- | body | [Request](#request) | __Required__ The content of the Request to create
+- | body | [Request](#request) | __Required__ The content of the Request to create
 
 *Response:*
 
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-\- | object | [Request](#request) | The created Request
+- | object | [Request](#request) | The created Request
 
 
 - __Get the content of an existing request__
@@ -65,7 +65,7 @@ requestUuid | path | string | __Required__ The unique identifier of the Request
 
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-\- | object | [Request](#request) | The Request having {requestUuid} as unique identifer
+- | object | [Request](#request) | The Request having {requestUuid} as unique identifer
 
 
 
@@ -80,13 +80,13 @@ PUT /v4/requests/{requestUuid}
 Name | Parameter Type | Data Type | Description
 --- | :---: | :---: | ------
 requestUuid | path | string | __Required__ The unique identifier of the Request
-\- | body | [Request](#request) | __Required__ The content of the Request to update
+- | body | [Request](#request) | __Required__ The content of the Request to update
 
 *Response:*
 
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-\- | object | [Request](#request) | The Request having {requestUuid} as unique identifer after update
+- | object | [Request](#request) | The Request having {requestUuid} as unique identifer after update
 
 [Request](#request)
 
@@ -104,7 +104,7 @@ requestUuid | path | string | __Required__ The unique identifier of the Request
 
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-\- | - | - | No content, response code only
+- | - | - | No content, response code only
 
 
 - __Create an expense report linked to an approved Request__
@@ -121,7 +121,7 @@ requestUuid | path | string | __Required__ The unique identifier of the Request
 
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-\- | object | [ResourceLink](#resourcelink) | The resource link leading to the created report
+- | object | [ResourceLink](#resourcelink) | The resource link leading to the created report
 
 
 #### <a name="workflow-resource"></a>Workflow resource
@@ -154,7 +154,7 @@ action | path | string | __Required__ The state transition to be executed (submi
 
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-\- | object | [Request](#request) | The Request having {requestUuid} as unique identifer
+- | object | [Request](#request) | The Request having {requestUuid} as unique identifer
 
 
 #### <a name="expense-resource"></a>Expense resource
@@ -176,7 +176,7 @@ body | object | [Expense](#expense) | __Required__ The Expense content to create
 
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-\- | - | - | No content, response code only
+- | - | - | No content, response code only
 
 - __Get expected Expenses attached to a Request__
 
@@ -211,7 +211,7 @@ expenseUuid | path | string | __Required__ The unique identifier of the Expense
 
 Name | Type | Format | Description
 --- | :---: | :---: | ------
-\- | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer
+- | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer
 
 
 - __Update the content of an existing expected Expense__
@@ -229,7 +229,7 @@ PUT /v4/expenses/{expenseUuid}
 
  Name | Type | Format | Description
  --- | :---: | :---: | ------
- \- | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer after update
+ - | object | [Expense](#expense) | The Expense having {expenseUuid} as unique identifer after update
 
 - __Delete an expected Expense from the Request__
 
@@ -246,7 +246,7 @@ expenseUuid | path | string | __Required__ The unique identifier of the Expense 
 
  Name | Type | Format | Description
  --- | :---: | :---: | ------
- \- | - | - | No content, response code only
+ - | - | - | No content, response code only
 
 #### <a name="travel-agency-resource"></a>Travel agency resource
 
