@@ -23,7 +23,7 @@ Code|Message|Response Body|Information|Wrong input example
 400|Bad Request|`invalidDate` error while parsing date value {dateValue}|A date or datetime value couldn't be parsed|POST /v4/requests -d {"startDate":"2017-01"}
 400|Bad Request|`invalidUuid` for concur-correlationid {correlationId}|The concur correlation id of the request is not a valid UUID|
 400|Bad Request|`invalidUuid` {requestName}|The name of the request doesn't have the expected format|GET /v4/requests/123
-400|Bad Request|`invalidLocation` the location cannot be resolved, please provide either {iataCode} or {countryCode} and {cityName}|Required location input is missing|POST /v4/requests -d `{"mainDestination": {"city":"Paris"}}
+400|Bad Request|`invalidLocation` the location cannot be resolved, please provide either {iataCode} or {countryCode} and {cityName}|Required location input is missing|POST /v4/requests -d {"mainDestination": {"city":"Paris"}}
 400|Bad Request|`invalidLocation` the location cannot be resolved, no location found for iataCode={iataCode}|No location found matching the iataCode provided|
 400|Bad Request|`invalidLocation` the location cannot be resolved, no city found for countryCode={countryCode} and cityName={cityName}|No location found matching the country code and city name provided|
 400|Bad Request|`invalidLocation` the location cannot be resolved, multiple locations available for countryCode={countryCode} and cityName={cityName}|Multiple locations found matching the country code and city name provided|
