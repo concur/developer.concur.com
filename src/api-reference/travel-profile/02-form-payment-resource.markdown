@@ -87,33 +87,33 @@ Name | Type | Format | Description |
 
 The CreditCard element contains the following child elements:
 
-Name | Type | Format | Description |
+Name | Type | Required | Description |
 ------------|-----------------|---------|-------------|
-`Vendor` |`string` |`-` |The card vendor. One of the following options: Unknown, AmericanExpress, DinersClub, Discover, MasterCard, Visa, CarteBlanche, Enroute, UniversalAirTravel, JCB, AmericanAirlines, DeltaEquity, NorthwestAirlines, TWAGetaway, UnitedTravelCard, UnitedCreditCard, EuroCard, CanadianAirlines, AlaskaAirBarter, PurchaseOrder, AwardCredit, Debit, ChinaUnionPay, Cash, CompanyPaid, CreditCard |
-`AccountNo` | `string`|`-` |The credit card account number. |
+`Vendor` |`string` |`Creation` |The card vendor. [See Reference][1] for list of vendors |
+`AccountNo` | `string`|`Always` |The credit card account number. |
 `ExpDate` |`date/time`|`-` |The expiration date of the credit card. Format: YYYY-MM |
-`NameOnCard` | `string` |`-` |The name on the credit card. **Business Cards only.** |
+`NameOnCard` | `string` |`Creation` |The name on the credit card. **Business Cards only.** |
 `UsageType`|`string` |`-` |For what purpose the card is to be used, which will be one of the following values: **Corporate**, **Business** |
-`BillingAddress` |`string`|`-` |This parent element contains information about the billing address. For information about the child elements of this parent element, see the **BillingAddress element** table below. |
-`Segments`|`string`|`-` |A list of segments with which the card may be used. For information about the child elements of this parent element, see the **Segment element** table below
+`BillingAddress` |`string`|`Required` |This parent element contains information about the billing address. For information about the child elements of this parent element, see the **BillingAddress element** table below. |
+`Segments`|`string`|`Required` |A list of segments with which the card may be used. For information about the child elements of this parent element, see the **Segment element** table below
 
 #### BillingAddress element
 
-Element Name|Required/Optional|Data Type|Description|
+Element Name|Type|Required|Description|
 ------------|-----------------|---------|-----------|
-`StreetAddress` | `string`|`-`  |The street and unit information for the billing address.|
-`City` | `string`| `-` |The city information for the billing address.|
-`StateProvince` | `string`| `-` |The state or province information for the billing address.|
-`Country`| `string`|`-`  |The country information for the billing address.|
-`ZipCode`| `string`| `-` | The zip code information for the billing address.|
+`StreetAddress` | `string`|`Required`  |The street and unit information for the billing address.|
+`City` | `string`| `Required` |The city information for the billing address.|
+`StateProvince` | `string`| `Required` |The state or province information for the billing address.|
+`Country`| `string`|`Required`  |The country information for the billing address.|
+`ZipCode`| `string`| `Required` | The zip code information for the billing address.|
 
 #### Segments element
 
-Element Name|Required/Optional|Data Type|Description|
+Element Name|Type|Format|Description|
 ------------|-----------------|---------|-----------|
-`Type` | `string`|`-`  |Type of Segment, which will be one of the following values: Air, Rail, Hotel, Car, Ground|
+`Type` | `string`|`Required`  |Type of Segment, which will be one of the following values: Air, Rail, Hotel, Car, Ground|
 `Mandatory` | `boolean`| `-` |A Boolean that notes if this card must be used for payment for this segment type. **Corporate Ghost Cards only.** |
-`Default` | `boolean`| `-` |A Boolean that notes if this card has a default use for payment for this segment type. |
+`Default` | `boolean`| `Required` |A Boolean that notes if this card has a default use for payment for this segment type. |
 
 
 ### Examples for Travel Suppliers
@@ -176,28 +176,6 @@ Error Messages|Possible Issues|
 `Only one segment of a particular type can be provided for each Credit Card.` | Duplicate segments are being supplied to an individual credit card (ie multiple car segments) |
 `You do not have permissions for element: {type}` | An attempt is being made to update a card of a conflicting vendor type |
 `Forbidden Request` | The entity trying access the Form of Payment endpoint does not have the proper permissions. |
-`Invalid Account Number` | Account Number check failed due to prefix, length, luhn, or other required format [See Below](#a5) |
+`Invalid Account Number` | Account Number check failed due to prefix, length, luhn, or other required format [See Reference][1] |
 
-## <a name="a5">Account Number Validation</a>
-
-Vendor|Luhn Required|Length(s)|Prefix(s)|
----------|-------------|------|---------|
-AmericanExpress| Yes | 15 | 34, 37 |
-DinersClub| Yes | 14 | 36, 38, 39, 300, 301, 302, 303, 304, 305, 309 |
-Discover| Yes | 16, 19 | 65, 644-649, 6011, 622126-622925|
-MasterCard| Yes | 16 | 51, 52, 53, 54, 55, 2221-2720 |
-Visa| Yes | 13, 16, 19 | 4 |
-CarteBlanche| Yes | 14 | 300, 301, 302, 303, 304, 305|
-Enroute| Yes | 15 | 2014, 2049 |
-UniversalAirTravel| Yes | 15 | 1 |
-JCB| Yes | 16 | 3528-3589 |
-AmericanAirlines| | | N/A |
-DeltaEquity| | | N/A |
-NorthwestAirlines| | | N/A |
-TWAGetaway| | | N/A |
-UnitedTravelCard| | | N/A |
-UnitedCreditCard| | | N/A |
-EuroCard| | | N/A |
-CanadianAirlines| | | N/A |
-AlaskaAirBarter| | | N/A |
-ChinaUnionPay| Yes | 16-19 | 62 |
+[1]: /api-references/travel-profile/99-reference-resource.html#account-number-validation
