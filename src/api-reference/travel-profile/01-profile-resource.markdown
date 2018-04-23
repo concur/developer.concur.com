@@ -901,8 +901,8 @@ Content-Type: application/xml
 
 
 
-[1]: /api-references/travel-profile/99-reference-resource.html#advantage-membership-programs
-[2]: /api-references/travel-profile/99-reference-resource.html#air-meal-types
+[1]: /api-reference/travel-profile/99-reference-resource.html#advantage-membership-programs
+[2]: /api-reference/travel-profile/99-reference-resource.html#air-meal-types
 [3]: https://www.concursolutions.com/ns/TravelUserProfile.xsd
 [4]: https://www.concursolutions.com/ns/TravelProfileSummaryV2.xsd
 [8]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
