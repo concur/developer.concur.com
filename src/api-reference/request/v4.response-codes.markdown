@@ -3,9 +3,11 @@ title: Response Codes
 layout: reference
 ---
 
-# Request
+# Request - Response Codes
 
-## Response Codes
+** Pre-release Version 4.0**
+
+If a new or existing project please use version [3.0](./v3.request.html) of this API.
 
 ### Success Codes
 
