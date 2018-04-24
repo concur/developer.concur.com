@@ -5,38 +5,57 @@ layout: reference
 
 # Request endpoints
 
-- [Resources](#resource)
-  - [Request](#request-resource)
-  - [Workflow](#workflow-resource)
-  - [Expense](#expense-resource)
-  - [Travel Agency](#travel-agency-resource)
-- [Data Format](#data-format)
-  - [Request](#request)
-  - [ApprovalStatus](#approvalstatus)
-  - [Customfield](#customfield)
-  - [Location](#location)
-  - [Amount](#amount)
-  - [ResourceLink](#resourcelink)
-  - [RequestLink](#requestlink)
-  - [Link](#link)
-  - [Expense](#expense)
-  - [Allocation](#allocation)
-  - [Exchange Rate](#exchangerate)
-  - [Expense Type](#expensetype)
-  - [Travel Allowance](#travelallowance)
-  - [Trip Data](#tripdata)
-  - [Vendor](#vendor)
-  - [Segment Leg](#segmentleg)
-  - [Segment Type](#segmenttype)
+** Pre-release Version 4.0**
 
+If a new or existing project please use version [3.0](./v3.request.html) of this API.
 
-### <a name="resource"></a>Resources
+* [Resources](#resource)
+  * [Request](#request-resource)
+    * [Create a new Request](#request-resource-create)
+    * [Get the content of an existing request](#request-resource-get)
+    * [Update the content of an existing Request](#request-resource-update)
+    * [Delete an existing Request](#request-resource-delete)
+    * [Create an expense report linked to an approved Request](#request-resource-create-expense-linked)
+  * [Workflow](#workflow-resource)
+    * Move an existing Request in the approval workflow
+  * [Expense](#expense-resource)
+    * Create a new expected expense
+    * Get expected Expenses attached to a Request
+    * Get an existing expected Expense
+    * Update the content of an existing expected Expense
+    * Delete an expected Expense from the Request
+  * [Travel Agency](#travel-agency-resource)
+    * Get the description of a travel agency office
+* [Schema](#schema)
+  * [Request](#request)
+  * [ApprovalStatus](#approvalstatus)
+  * [Customfield](#customfield)
+  * [Location](#location)
+  * [Amount](#amount)
+  * [ResourceLink](#resourcelink)
+  * [RequestLink](#requestlink)
+  * [Link](#link)
+  * [Expense](#expense)
+  * [Allocation](#allocation)
+  * [Exchange Rate](#exchangerate)
+  * [Expense Type](#expensetype)
+  * [Travel Allowance](#travelallowance)
+  * [Trip Data](#tripdata)
+  * [Vendor](#vendor)
+  * [Segment Leg](#segmentleg)
+  * [Segment Type](#segmenttype)
+
+## <a name="resource"></a>Resources
+
 Manage documents used for pre-spend authorizations within Concur Request.
 
-#### <a name="request-resource"></a>Request
-- __Create a new Request__
+### <a name="request-resource"></a>Request
 
+#### <a name="request-resource-create"></a>Create a new Request
+
+```
 POST /v4/requests
+```
 
 *Parameters:*
 
@@ -51,29 +70,29 @@ Name|Type|Format|Description
 -|object|[Request](#request)|The created Request
 
 
-- __Get the content of an existing request__
+#### <a name="request-resource-get"></a>Get the content of an existing request
 
+```
 GET /v4/requests/{requestUuid}
+```
 
 *Parameters:*
 
 Name|Parameter Type|Data Type|Description
----|---|---|------
+---|---|---|---
 requestUuid|path|string|**Required** The unique identifier of the Request
 
 *Response:*
 
 Name|Type|Format|Description
----|---|---|------
+---|---|---|---
 -|object|[Request](#request)|The Request having {requestUuid} as unique identifer
 
+#### <a name="request-resource-update"></a>Update the content of an existing Request
 
-
-[Request](#request)
-
-- __Update the content of an existing Request__
-
+```
 PUT /v4/requests/{requestUuid}
+```
 
 *Parameters:*
 
@@ -88,11 +107,11 @@ Name|Type|Format|Description
 ---|---|---|------
 -|object|[Request](#request)|The Request having {requestUuid} as unique identifer after update
 
-[Request](#request)
+#### <a name="request-resource-delete"></a>Delete an existing Request
 
-- __Delete an existing Request__
-
+```
 DELETE /v4/requests/{requestUuid}
+```
 
 *Parameters:*
 
@@ -106,10 +125,11 @@ Name|Type|Format|Description
 ---|---|---|------
 -|-|-|No content, response code only
 
+#### <a name="request-resource-create-expense-linked"></a>Create an expense report linked to an approved Request
 
-- __Create an expense report linked to an approved Request__
-
+```
 POST /v4/requests/{requestUuid}/reports
+```
 
 *Parameters:*
 
@@ -123,25 +143,27 @@ Name|Type|Format|Description
 ---|---|---|------
 -|object|[ResourceLink](#resourcelink)|The resource link leading to the created report
 
-
-#### <a name="workflow-resource"></a>Workflow resource
+### <a name="workflow-resource"></a>Workflow
 
 Manage workflow transitions for a Request document.
-- __Move an existing Request in the approval workflow__
 
+#### Move an existing Request in the approval workflow
+
+```
 POST /v4/requests/{requestUuid}/{action}
+```
 
 The HATEOAS links for actions available given the current user and state are listed in the operations of the Request resource.
 
-    Traveler actions
-        submit: initiate the approval workflow
-        recall: get back the Request, usually to modify the content
-        cancel: cancel the Request and attached itineraries
-        close: archive the Request
-        reopen: get back an archived Request
-    Approver / Processor actions
-        approve: move the Request to the next approval step
-        sendback: reject the Request and send back to the Traveler
+* Traveler actions
+  * submit: initiate the approval workflow
+  * recall: get back the Request, usually to modify the content
+  * cancel: cancel the Request and attached itineraries
+  * close: archive the Request
+  * reopen: get back an archived Request
+* Approver / Processor actions
+  * approve: move the Request to the next approval step
+  * sendback: reject the Request and send back to the Traveler
 
 *Parameters:*
 
@@ -157,12 +179,15 @@ Name|Type|Format|Description
 -|object|[Request](#request)|The Request having {requestUuid} as unique identifer
 
 
-#### <a name="expense-resource"></a>Expense resource
+### <a name="expense-resource"></a>Expense
 
 Manage expected expense entries attached to a Request document.
-- __Create a new expected expense__
 
+#### Create a new expected expense
+
+```
 POST /v4/requests/{requestUuid}/expenses
+```
 
 *Parameters:*
 
@@ -171,23 +196,23 @@ Name|Parameter Type|Data Type|Description
 requestUuid|path|string|**Required** The unique identifier of the Request to which the Expense is attached
 body|object|[Expense](#expense)|**Required** The Expense content to create
 
-
 *Response:*
 
 Name|Type|Format|Description
 ---|---|---|------
 -|-|-|No content, response code only
 
-- __Get expected Expenses attached to a Request__
+#### Get expected Expenses attached to a Request
 
+```
 GET /v4/requests/{requestUuid}/expenses
+```
 
 *Parameters:*
 
 Name|Parameter Type|Data Type|Description
 ---|---|---|------
 requestUuid|path|string|**Required** The unique identifier of the Request
-
 
 *Response:*
 
@@ -196,9 +221,11 @@ Name|Type|Format|Description
 data|array|[Expense](#expense)|List of entries attached to a Request.
 operations|string|[RFC 5988](https://tools.ietf.org/html/rfc5988)|Pagination links to next/prev/first/last page.
 
-- __Get an existing expected Expense__
+#### Get an existing expected Expense
 
+```
 GET /v4/expenses/{expenseUuid}
+```
 
 *Parameters:*
 
@@ -206,17 +233,17 @@ Name|Parameter Type|Data Type|Description
 ---|---|---|------
 expenseUuid|path|string|**Required** The unique identifier of the Expense
 
-
 *Response:*
 
 Name|Type|Format|Description
 ---|---|---|------
 -|object|[Expense](#expense)|The Expense having {expenseUuid} as unique identifer
 
+#### Update the content of an existing expected Expense
 
-- __Update the content of an existing expected Expense__
-
+```
 PUT /v4/expenses/{expenseUuid}
+```
 
 *Parameters:*
 
@@ -231,9 +258,11 @@ PUT /v4/expenses/{expenseUuid}
  ---|---|---|------
  -|object|[Expense](#expense)|The Expense having {expenseUuid} as unique identifer after update
 
-- __Delete an expected Expense from the Request__
+#### Delete an expected Expense from the Request
 
+```
 DELETE /v4/expenses/{expenseUuid}
+```
 
 *Parameters:*
 
@@ -241,19 +270,21 @@ Name|Parameter Type|Data Type|Description
 ---|---|---|------
 expenseUuid|path|string|**Required** The unique identifier of the Expense to delete
 
-
 *Response:*
 
  Name|Type|Format|Description
  ---|---|---|------
  -|-|-|No content, response code only
 
-#### <a name="travel-agency-resource"></a>Travel agency resource
+### <a name="travel-agency-resource"></a>Travel agency
 
 Manage the configuration for travel agencies integrated with Concur Request.
-- __Get the description of a travel agency office__
 
+#### Get the description of a travel agency office
+
+```
 GET /v4/travelagencies/{agencyUuid}
+```
 
 *Parameters:*
 
@@ -270,8 +301,8 @@ id|string|-|The travel agency unique identifier
 name|string|-|The travel agency office name
 proposalType|string|-|The travel agency proposal type. Possible value: CWT, CWTF, AEBT or API
 
+### <a name="schema"></a>Schema
 
-### <a name="data-format"></a>Data Format
 #### <a name="request"></a>Request
 
 Name|Type|Format|Description
