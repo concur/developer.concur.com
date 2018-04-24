@@ -178,4 +178,4 @@ Error Messages|Possible Issues|
 `Forbidden Request` | The entity trying access the Form of Payment endpoint does not have the proper permissions. |
 `Invalid Account Number` | Account Number check failed due to prefix, length, luhn, or other required format [See Reference][1] |
 
-[1]: /api-references/travel-profile/99-reference-resource.html#account-number-validation
+[1]: /api-reference/travel-profile/99-reference-resource.html#account-number-validation
