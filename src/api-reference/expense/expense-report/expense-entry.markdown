@@ -229,7 +229,7 @@ Name | Type | Format | Description
 `user`|````string````|`query`|The login ID of the user who owns the entries.
 
 
-### REquest URL
+### Request URL
 ```
 https://www.concursolutions.com/api/v3.0/expense/entries/gWidFO7ikXV66iSvqtG6Yd0wZ%24s4ftzvzTCg
 ```
@@ -258,7 +258,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `AllocationType`	|	`string`	|	-	|	The type of allocations for the expense. Possible values: P - partial allocation, F - full allocation, N - no allocation. Use the GET /expense/allocations function to get information about this entry's allocations.
 `ApprovedAmount`	|	`Decimal`	|	-	|	The approved amount of the expense entry, in the report currency.
-`CompanyCardTransactionID`	|	`string`	|	-	|	The unique identifier for a company card transaction that is associated with this expense. Concur Expense uses the Credit Card Import job to import company card transactions. Use the GET CommpanyCardTransactions function to get information about these card transactions. This element is null when there is no company card transaction associated with this expense.
+`CompanyCardTransactionID`	|	`string`	|	-	|	The unique identifier for a company card transaction that is associated with this expense. Concur Expense uses the Credit Card Import job to import company card transactions. Use the GET CompanyCardTransactions function to get information about these card transactions. This element is null when there is no company card transaction associated with this expense.
 `Custom1 through Custom40`	|	`CustomField`	|	-	|	The details from the Custom fields. These fields may not have data, depending on the configuration.
 `Description`	|	`string`	|	-	|	The description of the expense. Maximum length: 64 characters
 `ElectronicReceiptID`	|	`string`	|	-	|	The unique identifier for an eReceipt that is associated with this expense. Use the GET eReceipts function to get information about this eReceipt. This element is null when there is no eReceipt associated with this expense.
@@ -267,13 +267,13 @@ Name | Type | Format | Description
 `ExpenseTypeCode`	|	`string`	|	-	|	**Required** The code for the expense type. Use GET /expense/expensegroupconfigurations to learn the expense type code for expense types that are active for this report's policy.
 `ExpenseTypeName`	|	`string`	|	-	|	**Required** The name of the expense type, localized to the user's language.
 `FormID`	|	`string`	|	-	|	The ID of the form used by this expense entry.
-`HasAppliedCashAdvance`	|	`Boolean`	|	-	|	Whether the entry has a cash advance applied to it. Use the GET ExpenseEntryAccountingCalculations function to get cash advance application information for this entry. Format: true or false
+`HasAppliedCashAdvance`	|	`Boolean`	|	-	|	Whether the entry has a cash advance applied to it. Format: true or false
 `HasAttendees`	|	`Boolean`	|	-	|	Indicates whether the expense has attendees. Use the GET /expense/entryattendeeassociations function to get information about this entry's attendees. Format: true or false
 `HasComments`	|	`Boolean`	|	-	|	Whether the expense has comments. Use the GET ExpenseEntryComments function to get information about this entry's comments. Format: true or false
 `HasExceptions`	|	`Boolean`	|	-	|	Whether the expense has exceptions. Use the GET ExpenseEntryExceptions function to get information about this entry's exceptions. Format: true or false
 `HasImage`	|	`Boolean`	|	-	|	Indicates whether there is an entry image attached to the entry. Use the GET Entry Images function to get this entry image. Format: true or false
 `HasItemizations`	|	`Boolean`	|	-	|	Indicates whether the expense has itemizations. Use the GET /expense/itemizations function to get information about this entry's itemizations. Format: true or false
-`HasVAT`	|	`Boolean`	|	-	|	Indicates whether the entry has VAT data. Use the GET ExpenseEntryAccountingCalculations function to get VAT information for this entry. Format: true or false
+`HasVAT`	|	`Boolean`	|	-	|	Indicates whether the entry has VAT data. Format: true or false
 `ID`	|	`string`	|	-	|	The unique identifier of the resource.
 `IsBillable	`|	`Boolean`	|	-	|	Indicates whether the expense is billable. Format: true or false
 `IsImageRequired`	|	`Boolean`	|	-	|	Indicates whether an entry image is required for the entry. Format: true or false

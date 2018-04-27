@@ -33,7 +33,7 @@ None.
 
 [Schema](#schema)
 
-## <a name="put"></a>Update invoices with a calcuated tax amount and tax rate  
+## <a name="put"></a>Update invoices with a calculated tax amount and tax rate  
 
     PUT  /api/v3.0/invoice/salestaxvalidationrequest
 
@@ -47,13 +47,13 @@ None.
 
 [Invoice](#invoice)
 
-### Response  
+### Response
 
 [Status schema](#schema-status)
 
-##<a name="schema"></a>Invoices schema  
+## <a name="schema"></a>Invoices schema
 
-###Invoices  
+### Invoices
 
 | Name | Type | Format | Description|
 |-----|------|--------|------------|
@@ -61,7 +61,7 @@ None.
 | `NextPage`|`string`|-|The URI of the next page of results, if any.|
 | `TotalCount`|`Int32`|-|
 
-###<a name="invoice"></a>Invoice  
+### <a name="invoice"></a>Invoice
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -87,7 +87,7 @@ None.
 |`URI`|`string`|-|The URI to the resource.
 |`VendorInvoiceNumber`|`string`|-|The vendor invoice number that is associated with the invoice.
 
-###<a name="billToAddress"></a>BillToAddress  
+### <a name="billToAddress"></a>BillToAddress  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -102,7 +102,7 @@ None.
 |`State`|`string`|-|**Required** The state or province of the shipping or billing address.
 |`StateProvince`|`string`|-|**Required** The state or province of the shipping or billing address.
 
-###<a name="LineItem"></a>LineItem  
+### <a name="LineItem"></a>LineItem  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -117,7 +117,7 @@ None.
 |`UnitPrice`|`string`|-|The unit price for the line item.
 |`Vendor`|`object`|[`InvoiceVendor`](#Vendor)|Details about the vendor for each line item.
 
-###<a name="Vendor"></a>Vendor  
+### <a name="Vendor"></a>Vendor  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -131,7 +131,7 @@ None.
 |`VendorAddressName`|`string`|-|**Required** Name for Vendor Address.
 |`VendorName`|`string`|-|**Required** The name of the vendor.
 
-###<a name="ShipToAddress"></a>ShipToAddress  
+### <a name="ShipToAddress"></a>ShipToAddress  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
@@ -146,7 +146,7 @@ None.
 |`State`|`string`|-|**Required** The state or province of the shipping or billing address.
 |`StateProvince`|`string`|-|**Required** The state or province of the shipping or billing address.
 
-##<a name="schema-status"></a>Status schema  
+## <a name="schema-status"></a>Status schema  
 
 |Name | Type | Format | Description
 |-----|------|--------|------------

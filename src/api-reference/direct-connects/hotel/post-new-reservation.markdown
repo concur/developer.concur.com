@@ -68,7 +68,7 @@ The **Source** element contains the following element:
 |  RoomStays |  This parent element contains the **RoomStay** child element. For information about the **RoomStay** element, see the **RoomStay elements** table below. |
 |  ResGuests |  This parent element contains the **ResGuest** element. The **ResGuest** element contains the **Profiles** element. The **Profiles** element contains the **ProfileInfo** element, which contains a **Profile** child element for each guest. The **Profile** child element contains the **Customer** parent element; for information about the **Customer** element, see the **Customer elements** table below. |
 |  ResGlobalInfo |  This parent element contains a **Memberships** child element. This element contains a **Membership** child element with the following attributes:<br/>**ProgramCode**: The name of the membership program.<br/>**AccountID**: The account number for the membership program. |
-|  TPA_Extensions |  This parent elements contains a **CustomFields** element that contains a **CustomField** element for each custom field in the request. The **CustomField** elements have the following attributes:<br/>**Name**: The name of the custom field.<br/>**Type**: The type of information the custom field contains.<br/><br/>**NOTE**: Some of the regular profile fields can be included in the **CustomField** elements. Their Type = Profile. Supported fields are: Cost Center, Employee ID, Manager, Employee Title, Organization Unit and XML Sync ID. Sharing the profile item has to be enabled for the vendor (vendor requests these values), then it can be enabled in specific travel configurations (customer wants to share the items with the vendor). |
+|  TPA_Extensions |  This parent element contains a **CustomFields** element that contains a **CustomField** element for each custom field in the request. The **CustomField** elements have the following attributes:<br/>**Name**: The name of the custom field.<br/>**Type**: The type of information the custom field contains.<br/><br/>**NOTE**: Some of the regular profile fields can be included in the **CustomField** elements. Their Type = Profile. Supported fields are: Cost Center, Employee ID, Manager, Employee Title, Organization Unit and XML Sync ID. Sharing the profile item has to be enabled for the vendor (vendor requests these values), then it can be enabled in specific travel configurations (customer wants to share the items with the vendor). |
 
 #### RoomStay Request elements
 
@@ -87,7 +87,7 @@ The **Source** element contains the following element:
 |  Element |  Description |
 |----------|---------------------------------------|
 |  PersonName |  This element contains the following child elements:<br/>**NamePrefix**: The user's name prefix.<br/>**GivenName**: The user's given name. <br/>**Surname**: The user' surname. |
-|  Telephone |  This element has a PhoneNumber attribute containing the guests' phone number. |   | |
+|  Telephone |  This element has a PhoneNumber attribute containing the guests' phone number. |
 |  Email |  The guest's email address. |
 |  Address |  This parent element has the following child elements:<br/>**AddressLine**: The first address line.<br/>**CityName**: The address city. <br/>**PostalCode**: The address postal code. <br/>**StateProv**: The address state/province. <br/>**CountryName**: The 3-character address country name. Format: USA |
 

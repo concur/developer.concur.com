@@ -15,17 +15,19 @@
         url: /api-reference/authentication/oauth2-migration-best-practices.html
       - title: Scopes
         url: /api-reference/authentication/scopes.html
-#- title: Budget
-#  url: ''
-#  children:
-#      - title: Budget Category
-#        url: /api-reference/budget/budget-category.html
-#      - title: Budget Header
-#        url: /api-reference/budget/budget-header.html
-#      - title: Cost Object Field
-#        url: /api-reference/budget/cost-object-field.html
-#      - title: Fiscal Year
-#        url: /api-reference/budget/fiscal-year.html
+- title: Budget
+  url: ''
+  children:
+      - title: Getting Started
+        url: /api-reference/budget/getting-started.html
+      - title: Fiscal Year
+        url: /api-reference/budget/fiscal-year.html
+      - title: Budget Header
+        url: /api-reference/budget/budget-header.html
+      - title: Budget Category
+        url: /api-reference/budget/budget-category.html
+      - title: Cost Object Field
+        url: /api-reference/budget/cost-object-field.html
 - title: Callouts
   url: ''
   children:
@@ -103,25 +105,25 @@
         url: /api-reference/direct-connects/hotel-service.html
 - title: "Direct Connect: Hotel Service 2"
   url: ''
-  children:       
+  children:
       - title: Introduction
         url: /api-reference/direct-connects/hotel-service-2/Introduction.html
       - title: Use-cases
         url: /api-reference/direct-connects/hotel-service-2/Use-cases.html
       - title: Headers
-        url: /api-reference/direct-connects/hotel-service-2/Headers.html   
+        url: /api-reference/direct-connects/hotel-service-2/Headers.html
       - title: Error Handling
-        url: /api-reference/direct-connects/hotel-service-2/Error-handling.html    
+        url: /api-reference/direct-connects/hotel-service-2/Error-handling.html
       - title: Search
         url: /api-reference/direct-connects/hotel-service-2/Search.html
       - title: Availability
-        url: /api-reference/direct-connects/hotel-service-2/Availability.html  
+        url: /api-reference/direct-connects/hotel-service-2/Availability.html
       - title: Descriptive Information
-        url: /api-reference/direct-connects/hotel-service-2/Descriptive-info.html    
+        url: /api-reference/direct-connects/hotel-service-2/Descriptive-info.html
       - title: Reservation
-        url: /api-reference/direct-connects/hotel-service-2/Reservation.html    
+        url: /api-reference/direct-connects/hotel-service-2/Reservation.html
       - title: Read Itinerary
-        url: /api-reference/direct-connects/hotel-service-2/Read-Itinerary.html    
+        url: /api-reference/direct-connects/hotel-service-2/Read-Itinerary.html
       - title: Cancel
         url: /api-reference/direct-connects/hotel-service-2/Cancel.html
       - title: FAQ
@@ -207,7 +209,10 @@
       - title: Response Codes
         url: /api-reference/receipts/response-codes.html
 - title: Request
-  url: /api-reference/request/request.html
+  url: ''
+  children:
+      - title: Endpoints
+        url: /api-reference/request/v3.request.html
 - title: Travel Profile
   url: ''
   children:

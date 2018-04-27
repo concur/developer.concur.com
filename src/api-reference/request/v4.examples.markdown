@@ -1,0 +1,927 @@
+---
+title: Examples
+layout: reference
+---
+
+# Request Examples
+
+** Pre-release Version 4.0**
+
+If a new or existing project please use version [3.0](./v3.request.html) of this API.
+
+Below we have sample request data and the corresponding request answers:
+
+* [Request resource](#request-resource)
+* [Expense resource](#expense-resource)
+* [Workflow resource](#workflow-resource)
+* [Travel Agency resource](#travel-agency-resource)
+
+### <a name="request-resource">Request resource</a>
+
+Manage documents used for pre-spend authorizations within Concur Request
+
+#### POST
+
+```
+curl -X POST 'https://us.api.concursolutions.com/travelrequest/v4/requests' --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}' -d
+```
+
+```json
+{
+  "businessPurpose": "essai2",
+  "expenses": [],
+  "name": "test request 2"
+}
+],
+"operations": []
+}
+```
+
+Response code : **201**
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/636DDB60C45E1F429FFCB1655371CD45",
+  "id": "636DDB60C45E1F429FFCB1655371CD45",
+  "approvalStatus": {
+    "code": "NOT_SUBMITTED",
+    "name": "Not Submitted"
+  },
+  "approved": false,
+  "businessPurpose": "essai2",
+  "canceledPostApproval": false,
+  "closed": false,
+  "creationDate": "2018-04-05T12:11:52Z",
+  "everSentBack": false,
+  "expenses": [],
+  "lastModified": "2018-04-05T12:11:52Z",
+  "name": "test request 2",
+  "owner": {
+    "href": "https://us.api.concursolutions.com/profile/v1/users/0e14886d-6abb-44d8-bd38-c4e810b7bd02",
+    "id": "0e14886d-6abb-44d8-bd38-c4e810b7bd02",
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+  },
+  "pendingApproval": false,
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "requestId": "3336",
+  "totalApprovedAmount": {
+    "value": 0,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 0,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 0,
+    "currency": "USD"
+  },
+  "operations": [
+    {
+      "rel": "submit",
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/636DDB60C45E1F429FFCB1655371CD45/submit"
+    }
+  ]
+}
+```
+
+#### DELETE
+
+```
+curl -X DELETE https://us.api.concursolutions.com/travelrequest/v4/requests/DCD010D83598C346AF9079F8E9555B37 --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
+```
+
+Response code : **200**
+
+#### GET
+```
+curl -X GET https://us.api.concursolutions.com/travelrequest/v4/requests/0A611A545EA456409EB6DC48CBFC2539 --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
+```
+
+Response code : **200**
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/0A611A545EA456409EB6DC48CBFC2539",
+  "id": "0A611A545EA456409EB6DC48CBFC2539",
+  "approvalStatus": {
+    "code": "NOT_SUBMITTED",
+    "name": "Not Submitted"
+  },
+  "approved": false,
+  "businessPurpose": "essai",
+  "canceledPostApproval": false,
+  "closed": false,
+  "creationDate": "2018-04-05T12:07:09Z",
+  "everSentBack": false,
+  "expenses": [
+    {
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/E5783FF07CE905479BC799B75911649A",
+      "id": "E5783FF07CE905479BC799B75911649A",
+      "template": "https://us.api.concursolutions.com/travelrequest/v4/expenses/{id}"
+    }
+  ],
+  "lastModified": "2018-04-05T12:07:35Z",
+  "name": "test request 1",
+  "owner": {
+    "href": "https://us.api.concursolutions.com/profile/v1/users/0e14886d-6abb-44d8-bd38-c4e810b7bd02",
+    "id": "0e14886d-6abb-44d8-bd38-c4e810b7bd02",
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+  },
+  "pendingApproval": false,
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "requestId": "3334",
+  "totalApprovedAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "operations": [
+    {
+      "rel": "submit",
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/0A611A545EA456409EB6DC48CBFC2539/submit"
+    }
+  ]
+}
+```
+
+#### PUT
+
+```
+curl -X PUT https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
+```
+
+```json
+{
+  "approvalStatus": {
+    "code": "NOT_SUBMITTED",
+    "name": "Not Submitted"
+  },
+  "businessPurpose": "x",
+  "closed": false,
+  "everSentBack": false,
+  "expenses": [
+    {
+      "id": "BB9424178EBAF148BEC63F653452E5E5"
+    }
+  ],
+  "id": "E82B0B803671004B9A5D952F34FBD01E",
+  "name": "test2",
+  "owner": {
+    "id": "296d9f32-74f7-47c3-af6c-486b96754bdb"
+  },
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "requestId": "3334",
+  "totalApprovedAmount": {
+    "currency": "USD",
+    "value": 160
+  },
+  "totalPostedAmount": {
+    "currency": "USD",
+    "value": 160
+  },
+  "totalRemainingAmount": {
+    "currency": "USD",
+    "value": 160
+  }
+}
+```
+
+Response code : **200**
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E",
+  "id": "E82B0B803671004B9A5D952F34FBD01E",
+  "approvalStatus": {
+    "code": "NOT_SUBMITTED",
+    "name": "Not Submitted"
+  },
+  "approved": false,
+  "businessPurpose": "x",
+  "canceledPostApproval": false,
+  "closed": false,
+  "creationDate": "2018-04-09T09:13:46Z",
+  "everSentBack": false,
+  "expenses": [
+    {
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/BB9424178EBAF148BEC63F653452E5E5",
+      "id": "BB9424178EBAF148BEC63F653452E5E5",
+      "template": "https://us.api.concursolutions.com/travelrequest/v4/expenses/{id}"
+    }
+  ],
+  "lastModified": "2018-04-09T09:29:52Z",
+  "name": "test2",
+  "owner": {
+    "href": "https://us.api.concursolutions.com/profile/v1/users/296d9f32-74f7-47c3-af6c-486b96754bdb",
+    "id": "296d9f32-74f7-47c3-af6c-486b96754bdb",
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+  },
+  "pendingApproval": false,
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "requestId": "3334",
+  "totalApprovedAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "operations": [
+    {
+      "rel": "submit",
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E/submit"
+    }
+  ]
+}
+```
+
+#### POST reports
+
+```
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/requests/19148EE9411DF9459F6AEBBCA53BD646/reports'
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/expensereports/v4/users/e90167a2-12f9-4450-a75f-0990e3ce8232/context/TRAVELER/reports/08B7B58B045641509EFE",
+  "id": "08B7B58B045641509EFE",
+  "template": "https://us.api.concursolutions.com/expensereports/v4/users/e90167a2-12f9-4450-a75f-0990e3ce8232/context/TRAVELER/reports/{id}"
+}
+```
+
+Response code : **201**
+
+
+
+
+
+
+
+
+
+
+### <a name="expense-resource">Expense resource</a>
+
+Manage expected Expense entries attached to a Request document
+
+#### DELETE /v4/expenses/{expenseUuid}
+
+```
+curl -X DELETE --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/expenses/B4D37C35E16E904F90C182D5751D3440'
+```
+
+```json
+true
+```
+Response code : **200**
+
+#### GET /v4/expenses/{expenseUuid}
+
+```
+curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/expenses/B4D37C35E16E904F90C182D5751D3440'
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/B4D37C35E16E904F90C182D5751D3440",
+  "id": "B4D37C35E16E904F90C182D5751D3440",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 100,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 100,
+        "currency": "USD"
+      },
+      "allocationId": "C82B90376930AC4DB12AFD7F346C4147",
+      "postedAmount": {
+        "value": 100,
+        "currency": "USD"
+      },
+      "expenseId": "B4D37C35E16E904F90C182D5751D3440",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 100,
+    "currency": "USD"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "LODGE",
+    "name": "Lodging",
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/89dd7c90-6ef4-41d1-9ae8-303bad25874d/context/TRAVELER/expensetypes/LODGE"
+  },
+  "postedAmount": {
+    "value": 100,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 100,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 100,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-04-26T00:00:00Z",
+  "tripData": {
+    "agencyBooked": true,
+    "selfBooked": false,
+    "tripType": "ONE_WAY",
+    "legs": [
+      {
+        "endDate": "2018-04-27",
+        "endLocation": {
+          "id": "3E114E21BFF94BF2BCEC785C088434D3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "name": "Paris",
+          "lnKey": 9715
+        },
+        "endLocationDetail": "essi",
+        "id": "D176347809DD1A4C8806F6DFC5ACDF67",
+        "returnLeg": false,
+        "startDate": "2018-04-26"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_HOTEL",
+      "code": "HOTEL"
+    }
+  }
+}
+```
+Response code : **200**
+
+#### PUT /v4/expenses/{expenseUuid}
+
+```
+curl -X PUT https://us.api.concursolutions.com/travelrequest/v4/expenses/67CFD6E5808CA8489B7BC6F8B5A5A2BB --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
+```
+
+```json
+{
+  "id": "67CFD6E5808CA8489B7BC6F8B5A5A2BB",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 50,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 50,
+        "currency": "USD"
+      },
+      "allocationId": "2C4AB6D4DC002947B476191118897486",
+      "postedAmount": {
+        "value": 50,
+        "currency": "USD"
+      },
+      "expenseId": "67CFD6E5808CA8489B7BC6F8B5A5A2BB",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 50,
+    "currency": "USD"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "LODGE",
+    "name": "Lodging",
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/e90167a2-12f9-4450-a75f-0990e3ce8232/context/TRAVELER/expensetypes/LODGE"
+  },
+  "postedAmount": {
+    "value": 50,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 50,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 50,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-04-20T00:00:00Z",
+  "tripData": {
+    "agencyBooked": true,
+    "selfBooked": false,
+    "tripType": "ONE_WAY",
+    "legs": [
+      {
+        "endDate": "2018-04-25",
+        "endLocation": {
+          "id": "D30619B7DFF6420FA7AA437DDC7F6ED6",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-06",
+          "city": "Nice",
+          "name": "Nice",
+          "lnKey": 9630
+        },
+        "endLocationDetail": "dd",
+        "endTime": "12:00",
+        "id": "A9C1026EC0BA824E98EE5873137E5BD6",
+        "returnLeg": false,
+        "startDate": "2018-04-20",
+        "startTime": "21:00"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_HOTEL",
+      "code": "HOTEL"
+    }
+  }
+}
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/67CFD6E5808CA8489B7BC6F8B5A5A2BB",
+  "id": "67CFD6E5808CA8489B7BC6F8B5A5A2BB",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 50,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 50,
+        "currency": "USD"
+      },
+      "allocationId": "2C4AB6D4DC002947B476191118897486",
+      "postedAmount": {
+        "value": 50,
+        "currency": "USD"
+      },
+      "expenseId": "67CFD6E5808CA8489B7BC6F8B5A5A2BB",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 50,
+    "currency": "USD"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "LODGE",
+    "name": "Lodging",
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/e90167a2-12f9-4450-a75f-0990e3ce8232/context/TRAVELER/expensetypes/LODGE"
+  },
+  "postedAmount": {
+    "value": 50,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 50,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 50,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-04-20T00:00:00Z",
+  "tripData": {
+    "agencyBooked": true,
+    "selfBooked": false,
+    "tripType": "ONE_WAY",
+    "legs": [
+      {
+        "endDate": "2018-04-25",
+        "endLocation": {
+          "id": "D30619B7DFF6420FA7AA437DDC7F6ED6",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-06",
+          "city": "Nice",
+          "name": "Nice",
+          "lnKey": 9630
+        },
+        "endLocationDetail": "dd",
+        "endTime": "12:00",
+        "id": "A9C1026EC0BA824E98EE5873137E5BD6",
+        "returnLeg": false,
+        "startDate": "2018-04-20",
+        "startTime": "21:00"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_HOTEL",
+      "code": "HOTEL"
+    }
+  }
+}
+```
+Response code : **200**
+
+#### GET /v4/requests/{requestUuid}/expenses
+
+```
+curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/requests/D5C57CBC397E2A4693DDA66337D86798/expenses'
+```
+
+```json
+[
+  {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/B4D37C35E16E904F90C182D5751D3440",
+    "id": "B4D37C35E16E904F90C182D5751D3440",
+    "allocations": [
+      {
+        "allocationAmount": {
+          "value": 100,
+          "currency": "USD"
+        },
+        "approvedAmount": {
+          "value": 100,
+          "currency": "USD"
+        },
+        "allocationId": "C82B90376930AC4DB12AFD7F346C4147",
+        "postedAmount": {
+          "value": 100,
+          "currency": "USD"
+        },
+        "expenseId": "B4D37C35E16E904F90C182D5751D3440",
+        "percentEdited": false,
+        "systemAllocation": true,
+        "percentage": 100
+      }
+    ],
+    "approvedAmount": {
+      "value": 100,
+      "currency": "USD"
+    },
+    "exchangeRate": {
+      "value": 1,
+      "operation": "MULTIPLY"
+    },
+    "expenseType": {
+      "id": "LODGE",
+      "name": "Lodging",
+      "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/89dd7c90-6ef4-41d1-9ae8-303bad25874d/context/TRAVELER/expensetypes/LODGE"
+    },
+    "postedAmount": {
+      "value": 100,
+      "currency": "USD"
+    },
+    "remainingAmount": {
+      "value": 100,
+      "currency": "USD"
+    },
+    "transactionAmount": {
+      "value": 100,
+      "currency": "USD"
+    },
+    "transactionDate": "2018-04-26T00:00:00Z",
+    "tripData": {
+      "agencyBooked": true,
+      "selfBooked": false,
+      "tripType": "ONE_WAY",
+      "legs": [
+        {
+          "endDate": "2018-04-27",
+          "endLocation": {
+            "id": "3E114E21BFF94BF2BCEC785C088434D3",
+            "countryCode": "FR",
+            "countrySubDivisionCode": "FR-75",
+            "city": "Paris",
+            "name": "Paris",
+            "lnKey": 9715
+          },
+          "endLocationDetail": "essi",
+          "id": "D176347809DD1A4C8806F6DFC5ACDF67",
+          "returnLeg": false,
+          "startDate": "2018-04-26"
+        }
+      ],
+      "segmentType": {
+        "category": "REQ_SEG_HOTEL",
+        "code": "HOTEL"
+      }
+    }
+  }
+]
+```
+Response code : **200**
+
+
+#### POST /v4/requests/{requestUuid}/expenses
+
+```
+curl -X POST https://us.api.concursolutions.com/travelrequest/v4/requests/6FE50186B84E4D4F9AFAB7555673FD47/expenses --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
+```
+
+```json
+{
+  "allocations": [
+    {
+      "allocationAmount": {
+        "currency": "USD",
+        "value": 150
+      },
+      "approvedAmount": {
+        "currency": "USD",
+        "value": 150
+      },
+      "percentEdited": false,
+      "percentage": 0,
+      "postedAmount": {
+        "currency": "USD",
+        "value": 150
+      },
+      "systemAllocation": false
+    }
+  ],
+  "approvedAmount": {
+    "currency": "USD",
+    "value": 150
+  },
+  "budgetAccrualDate": "2018-04-06T00:00:00Z",
+  "businessPurpose": "test",
+  "exchangeRate": {
+    "operation": "MULTIPLY",
+    "value": 1
+  },
+  "expenseType": {
+    "id": "AIRFR",
+    "name": "Airfare",
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/7fabbc5a-0002-4845-a777-dabd93fdd513/context/TRAVELER/expensetypes/AIRFR"
+  },
+  "lastComment": "",
+  "location": {
+    "id": "A168CDBA58AE42868961BC00278A91B3",
+    "countryCode": "FR",
+    "countrySubDivisionCode": "FR-75",
+    "city": "Paris",
+    "iataCode": "CDG",
+    "name": "Charles De Gaulle Intl",
+    "lnKey": 83745
+  },
+  "postedAmount": {
+    "currency": "USD",
+    "value": 150
+  },
+  "remainingAmount": {
+    "currency": "USD",
+    "value": 150
+  },
+  "transactionAmount": {
+    "currency": "USD",
+    "value": 150
+  },
+  "transactionDate": "2018-04-06T00:00:00Z",
+  "tripData": {
+    "agencyBooked": false,
+    "legs": [
+      {
+        "endLocation": {
+          "id": "CE4A6DCAC4A14D08803C28F6D5CB20F0",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-06",
+          "city": "Nice",
+          "iataCode": "NCE",
+          "name": "Cote D Azur",
+          "lnKey": 84228
+        },
+        "returnLeg": false,
+        "startDate": "2018-04-06",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl",
+          "lnKey": 83745
+        },
+        "startTime": "12:00",
+        "startLocationDetail": "none"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_AIRFR",
+      "code": "AIRFR"
+    },
+    "selfBooked": false,
+    "tripType": "ONE_WAY"
+  }
+}
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/24D51B349A8A3F46AA2B45132C52B8EB",
+  "id": "24D51B349A8A3F46AA2B45132C52B8EB",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 150,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 150,
+        "currency": "USD"
+      },
+      "allocationId": "B9C92AB3D85923419D4C1F727F179B4A",
+      "postedAmount": {
+        "value": 150,
+        "currency": "USD"
+      },
+      "expenseId": "24D51B349A8A3F46AA2B45132C52B8EB",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "AIRFR",
+    "name": "Airfare",
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/7fabbc5a-0002-4845-a777-dabd93fdd513/context/TRAVELER/expensetypes/AIRFR"
+  },
+  "postedAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 150,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-04-06T00:00:00Z",
+  "tripData": {
+    "agencyBooked": false,
+    "selfBooked": false,
+    "tripType": "ONE_WAY",
+    "legs": [
+      {
+        "endLocation": {
+          "id": "CE4A6DCAC4A14D08803C28F6D5CB20F0",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-06",
+          "city": "Nice",
+          "iataCode": "NCE",
+          "name": "Cote D Azur",
+          "lnKey": 84228
+        },
+        "id": "8F0768610390444BA514FE12BB3CBABF",
+        "returnLeg": false,
+        "startDate": "2018-04-06",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl",
+          "lnKey": 83745
+        },
+        "startLocationDetail": "none",
+        "startTime": "12:00"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_AIRFR",
+      "code": "AIRFR"
+    }
+  }
+}
+```
+Response code : **201**
+
+<a name="workflow-resource"></a>
+
+### Workflow resource
+
+Manage workflow transitions for a Request document
+
+#### POST /v4/requests/{requestUuid}/{action}
+
+```
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/requests/B9A2A99BAA4FC441A2D61DB637BAF0ED/submit'
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/requests/B9A2A99BAA4FC441A2D61DB637BAF0ED",
+  "id": "B9A2A99BAA4FC441A2D61DB637BAF0ED",
+  "approvalStatus": {
+    "code": "SUBMITTED",
+    "name": "Submitted & Pending Approval"
+  },
+  "approved": false,
+  "businessPurpose": "ddd",
+  "canceledPostApproval": false,
+  "closed": false,
+  "creationDate": "2018-04-05T13:03:52Z",
+  "everSentBack": false,
+  "expenses": [
+    {
+      "href": "https://us.api.concursolutions.com/travelrequest/v4/expenses/FA7F74D09D1BEB4BAE387A1F83EFF3AA",
+      "id": "FA7F74D09D1BEB4BAE387A1F83EFF3AA",
+      "template": "https://us.api.concursolutions.com/travelrequest/v4/expenses/{id}"
+    }
+  ],
+  "lastModified": "2018-04-05T13:12:36Z",
+  "name": "test agence",
+  "owner": {
+    "href": "https://us.api.concursolutions.com/profile/v1/users/e90167a2-12f9-4450-a75f-0990e3ce8232",
+    "id": "e90167a2-12f9-4450-a75f-0990e3ce8232",
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
+  },
+  "pendingApproval": true,
+  "policy": {
+    "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
+  },
+  "requestId": "333C",
+  "submitDate": "2018-04-05T13:12:35Z",
+  "totalApprovedAmount": {
+    "value": 100,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 100,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 100,
+    "currency": "USD"
+  },
+  "travelAgency": {
+    "href": "https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B",
+    "id": "86B720AF168F1C4CA52E37AC710E897B",
+    "template": "https://us.api.concursolutions.com/travelrequest/v4/travelagencies/{id}"
+  }
+}
+```
+Response code : **201**
+
+<a name="travel-agency-resource"></a>
+
+### Travel Agency resource
+
+Manage the configuration for travel agencies integrated with Concur Request
+
+#### GET /v4/travelagencies/{agencyUuid}
+
+```
+curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B'
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B",
+  "id": "86B720AF168F1C4CA52E37AC710E897B",
+  "emailAddress": "dd@ff.com",
+  "name": "myAgency"
+}
+```
+Response code : **200**

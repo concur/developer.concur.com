@@ -29,7 +29,7 @@ Name | Type | Format | Description
 `limit`|`Int32`|`query`|The maximum number of items to be returned in a response. The default is 25 and cannot exceed 1000.
 `offset`|`string`|`query`|Specifies the starting point for the next query when iterating through the collection response. Use with paged collections of resources.
 `sortDirection`|`string`|`query`|Ascending or descending, The default value will be ascending.
-`sortBy`|`string`|`query`|Field you need to the results to be sorted by. Vendor Name will be made default if no value is sent. Only fields that are added to the vendor form can be used here. Fields have to be specified by name as specified in Doc.
+`sortBy`|`string`|`query`|Field you need the results to be sorted by. Vendor Name will be made default if no value is sent. Only fields that are added to the vendor form can be used here. Fields have to be specified by name as specified in Doc.
 `searchType`|`string`|`query`|Valid Options - exact, begins, contains and ends - Applies for the entire given search parameters. The default value if not sent is exact.
 `vendorCode`|`string`|`query`|Vendor Code to be searched
 `vendorName`|`string`|`query`|Vendor Name to be searched
@@ -43,7 +43,7 @@ Name | Type | Format | Description
 `city`|`string`|`query`|City to be searched
 `state`|`string`|`query`|State to be searched
 `postalCode`|`string`|`query`|Postal Code to be searched
-`approved`|`string`|`query`|Find Approved/Un Approved Vendors , True/False
+`approved`|`string`|`query`|Find Approved/Unapproved Vendors, True/False
 `country`|`string`|`query`|Country to be searched
 `custom1`|`string`|`query`|Custom 1 to be searched
 `custom2`|`string`|`query`|Custom 2 to be searched
@@ -286,7 +286,7 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `AccountNumber`|`string`|-|**Required** The account number.
 `AccountType`|`enum`|-|**Required** The account type--CHCK for Checking, SAVE for Savings.
-`AddressCode`|`string`|-|**Required**The Address Code.
+`AddressCode`|`string`|-|**Required** The Address Code.
 `BankCode`|`string`|-|Bank Code
 `BankName`|`string`|-|The bank name.
 `BranchCode`|`string`|-|Branch Code

@@ -175,7 +175,7 @@ zh-tw: Traditional Chinese
 |  CarrierName |  The name of the train carrier. |
 |  TrainNumber |  The train number. |
 |  ArrivalDateTime |  The train arrival time. Only provided for the PickupLocation element. **Format**: 2015-05-19T18:00:00 |
-|  DepartureDateTime |  The train arrival time. Only provided for the PickupLocation element. **Format**: 2015-05-19T18:00:00 |
+|  DepartureDateTime |  The train departure time. Only provided for the DropoffLocation element. **Format**: 2015-05-19T18:00:00 |
 
 ##  Response
 
@@ -236,7 +236,7 @@ The response will include a **CC_LimoSearchReply** parent element, with the foll
 |-----------|-----------|
 |  VendorCode |  The vendor code for the vendor. |
 |  VendorName |  The vendor's name. |
-|  PhoneNumber: |  The vendor's phone number. |
+|  PhoneNumber|  The vendor's phone number. |
 
 **AcceptedFops**: The accepted forms of payment. Required. This parent element contains the **FormOfPayment** child element. The **FormOfPayment** element contains the allowed forms of payment. The possible child elements are:
 
@@ -252,6 +252,7 @@ The response will include a **CC_LimoSearchReply** parent element, with the foll
 #### Rate Information Elements
 
 |  Element |  Required? |  Description |
+|----------|------------|--------------|
 |  RateID |  Y |  The rate identifier. |
 |  Rate |  Y |  The BasePrice + ServiceCharge + SurCharge + Tax |
 |  RateTypeCode |  Y |  The code for the rate type. Will be one of the following options:<br/>F: Flat rate<br/>H: Hourly<br/>E: Estimated amount<br/>N: Currently not available |

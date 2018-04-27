@@ -21,7 +21,7 @@ If you are an existing partner with an existing app, please read both the [Migra
   * [Authorization grant](#auth_grant)
   * [Password grant](#password_grant)
   * [Client Credentials grant](#client_credentials)
-  * [One time password grant](#otp_grant)
+  * [One Time Password grant](#otp_grant)
 * [Response Codes](#response_codes)
 * [Troubleshooting](#troubleshooting)
 
@@ -33,14 +33,14 @@ If you are an existing partner with an existing app, please read both the [Migra
 
 The Oauth2 service generates access tokens for authenticated users, applications or companies. The token returned in the Oauth2 response can be used to access protected resources on Concur's services.
 
-The Oauth2 response can, depending on grant type contain these values
+The Oauth2 response can, depending on grant type contain these values:
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `expires_in`|`string`|-|The lifetime in seconds of the access token
 `scope`|`string`|-|The scope of the access token as granted to the client application
 `token_type`|`string`|-| The type of token returned. Value will be `Bearer`
-`access_token`|`string`|-|Token used to access pprotected resources of Concur's services.
+`access_token`|`string`|-|Token used to access protected resources of Concur's services.
 `refresh_token`|`string`|-|Refresh token required to request a new access token for a given user.
 `geolocation`|`string`|-|The base URL for where the user profile lives. See [base URI](#base_uri) for usage.
 `id_token`|`string`|-|The OCID Token in the JSON Web Token (JWT) format that describes the user or company
@@ -85,7 +85,7 @@ In order to obtain a token, the client application needs to call the Oauth2 endp
   * [Authorization grant](#auth_grant)
   * [Password grant](#password_grant)
   * [Client Credentials grant](#client_credentials)
-  * [One time password grant](#otp_grant)
+  * [One Time Password grant](#otp_grant)
 
 ## <a name="refresh_token"></a>Refreshing a token
 
@@ -94,7 +94,7 @@ The refresh grant is used to refresh an access_token that has expired. This gran
 
 **Token Lifetime**
 
-A refresh token has a **six month** lifetime. if the refresh token expires, the client application must reinitiate the authorization process. When a refresh token is used to request a new access token, both a new access token as well as a new refresh token are returned in the response.
+A refresh token has a **six month** lifetime. If the refresh token expires, the client application must reinitiate the authorization process. When a refresh token is used to request a new access token, both a new access token as well as a new refresh token are returned in the response.
 
 It is recommended that the client application use the refresh grant to request a new access token as the initial step of accessing protected resources of Concur's services.
 
@@ -157,17 +157,17 @@ Connection: Close
 
 ## <a name="revoke_token"></a>Revoking a token
 
-All refresh_tokens associated to a user for an application can be revoked by calling the `https://us.api.concursolutions.com/appmgmt/v0/connections` endpoint with a `DELETE` action. You have to provide the User's `accessToken` in the Authorization Header as `Authorization: Bearer <access_token>`.
+All refresh_tokens associated to a user for an application can be revoked by calling the `https://us.api.concursolutions.com/app-mgmt/v0/connections` endpoint with a `DELETE` action. You have to provide the User's `accessToken` in the Authorization Header as `Authorization: Bearer <access_token>`.
 
 ```
-DELETE https://us.api.concursolutions.com/appmgmt/v0/connections
+DELETE https://us.api.concursolutions.com/app-mgmt/v0/connections
 ```
 
 
 **Request**
 
 ```http
-DELETE /appmgmt/v0/connections HTTP/1.1
+DELETE /app-mgmt/v0/connections HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer <access_token>
 ```
@@ -176,7 +176,7 @@ Authorization: Bearer <access_token>
 
 ```http
 
-curl -X DELETE -H "Authorization: Bearer <accessToken>" "https://us.api.concursolutions.com/appmgmt/v0/connections"
+curl -X DELETE -H "Authorization: Bearer <accessToken>" "https://us.api.concursolutions.com/app-mgmt/v0/connections"
 ```
 
 **Response**
@@ -423,7 +423,7 @@ Name | Type | Format | Description
 -----|------| ------ | -----------
 `client_id`|`string` | `UUID` | **Required** Applications client_id supplied by App Management
 `client_secret`|`string` | `UUID` | **Required** Applications client_secret supplied by App Management
-`grant_type`|`string` | | **Required** Specify which grant type you expect the oauth2 service to process. for client_credentials grant, the value is `client_credentials`
+`grant_type`|`string` | | **Required** Specify which grant type you expect the oauth2 service to process. For client_credentials grant, the value is `client_credentials`
 
 **Request**
 
@@ -541,7 +541,7 @@ Date: date-requested
 
 **Request an access token**
 
-The One-time Password grant requires that all of the parameters, including client application defined parameters to be sent in the request body when requesting an access token. Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
+The One Time Password grant requires that all of the parameters, including client application defined parameters to be sent in the request body when requesting an access token. Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
 
 `POST oauth2/v0/token`
 

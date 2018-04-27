@@ -478,7 +478,7 @@
         },
         "HasAppliedCashAdvance": {
           "type": "boolean",
-          "description": "Whether the entry has a cash advance applied to it. Use the GET ExpenseEntryAccountingCalculations function to get cash advance application information for this entry. Format: true or false"
+          "description": "Whether the entry has a cash advance applied to it. Format: true or false"
         },
         "HasAttendees": {
           "type": "boolean",
@@ -502,7 +502,7 @@
         },
         "HasVAT": {
           "type": "boolean",
-          "description": "Indicates whether the entry has VAT data. Use the GET ExpenseEntryAccountingCalculations function to get VAT information for this entry. Format: true or false"
+          "description": "Indicates whether the entry has VAT data. Format: true or false"
         },
         "ID": {
           "type": "string",

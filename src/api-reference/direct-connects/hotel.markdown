@@ -30,7 +30,7 @@ The configuration process has the following steps:
 
 1. The Hotel Supplier creates the application on their system that will accept the requests from Concur and return the appropriate responses.
 2. The Hotel Supplier creates the endpoint on their system that Concur uses to access their inventory.
-3. Concur creates a production company for the hotel supplier.
+3. Concur creates a production company for the Hotel Supplier.
 4. The Hotel Supplier registers their application with Concur by logging in to their production company.
 5. Concur and the Hotel Supplier validate the application:
     * The Hotel Supplier develops to the Concur API and provides a test system.
@@ -77,8 +77,8 @@ The variable part doesn't need to be at the end:
 `https://{servername}/concur/hotel/HotelAvail/v1/`
 
 ## Security
-Concur will make calls to the application connector's endpoint using SSL. During configuration, Concur will connect to the application connector to validate that its hostname and access credentials are valid.  
-Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before Concur can access the connector.  
+Concur will make calls to the application connector's endpoint using SSL. During configuration, Concur will connect to the application connector to validate that its hostname and access credentials are valid.  <br/>
+Concur will not be able to connect to the application connector until a certificate signed by a Certificate Authority (CA) is installed in the application connector. If you are hosting the application connector, you will need to install the signed certificate before Concur can access the connector.  <br/>
 Concur will use Http Basic authentication. The hotel supplier will need to provide credentials that Concur will send to the supplier's system for each message.
 
 ## Outbound Messages
