@@ -73,7 +73,7 @@ Name | Type | Format | Description
 
 ```http
 POST /oauth2/v0/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 175
@@ -90,7 +90,7 @@ client_id=your-client_id
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 Date: date-requested
 Content-Length: 3397
 Connection: Close

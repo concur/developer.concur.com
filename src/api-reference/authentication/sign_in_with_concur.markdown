@@ -168,7 +168,7 @@ The response for a successful call will look like this:
 ```
 **HTTP/** 1.1200 **OK**
 
-Content-Type: application/json;charset=UTF-8
+;Content-Type: application/json
 
 Date: date-requested
 
