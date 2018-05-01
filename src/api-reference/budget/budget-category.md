@@ -4,8 +4,8 @@ layout: reference
 ---
 
 This resource is used to retrieve and update budget categories which are collections of expense types used for budget
-matching.  Each budget item header may have one budget category and only line items with expense types contained in that
-budget category will be accumulated to the budget. 
+matching.  Each budget item header may have one budget category.  If it does, only line items with expense types 
+contained in that budget category will be accumulated to the budget. 
 
 # Budget Category
 * [Retrieve all Budget Categories](#getall)
@@ -33,7 +33,7 @@ budget category will be accumulated to the budget.
 [Budget Category Array](#budgetcategory)
 
 
-## <a name="get"></a>Retrieve a Budget Item Header
+## <a name="get"></a>Retrieve a Budget Category
 
     GET  /budget/v4/budgetCategory/{id} 
 
