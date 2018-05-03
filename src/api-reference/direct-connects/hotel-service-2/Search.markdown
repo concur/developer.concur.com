@@ -36,7 +36,7 @@ The criterion is used to define the search criteria.  Currently we support only 
 
 | Element       | Required | Data Type | Description |
 |---------------|----------|-----------|-------------|
-| Position      | Y        | Complex   | Used to specify the geographic coordinates of a location, expressed in notation specified by ISO standard 6709. |
+| Position      | Y        | Complex   | Used to specify the geographic coordinates of a location, expressed in notation specified by ISO standard 6709. **Required for Search request only, but optional for Availability request!** |
 | HotelRef      | N        | Complex   | Indicates the detail of hotel reference information. |
 | Radius        | N        | Complex   | Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location. |
 | StayDateRange | Y        | Complex   | Range of dates using ISO 8601, or fixed set of dates for Availability Request. |
