@@ -193,6 +193,8 @@
         url: /api-reference/invoice/sales-tax-validation.html
       - title: Vendors
         url: /api-reference/invoice/vendor.html
+      - title: Purchase Request
+        url: /api-reference/invoice/purchase-request.html
 - title: Receipts
   url: ''
   children:
