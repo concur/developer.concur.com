@@ -57,7 +57,7 @@ Create a Purchase Request based on provided header and line item details. If the
                   "uomCode" : "DA",
                   "shipping" : "13.5",
                   "tax" : "11",
-                  "supplierPartID" : "DAQT1",
+                  "supplierPartId" : "DAQT1",
                   "url" :[
                       "http://officesupplies.com/monitor"
                   ],
@@ -77,7 +77,7 @@ Create a Purchase Request based on provided header and line item details. If the
                   "uomCode" : "DA",
                   "shipping" : "15",
                   "tax" : "17.5",
-                  "supplierPartID" : "DAQT2",
+                  "supplierPartId" : "DAQT2",
                   "url" :[
                       "http://officesupplies.com/officechair"
                   ],
@@ -142,11 +142,11 @@ None
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
-|`userID`|`string`|-|**Required**: The employee that is requesting the items. This is UUID of the employee. Either UserID or UserEmail or UserLoginID is required to identify employee
-|`userEmail`|`string`|-|**Required**: The employee that is requesting the items. This is employee's email. Either UserID or UserEmail or UserLoginID is required to identify employee
-|`userLoginID`|`string`|-|**Required**: The employee that is requesting the items. This is employee's ID. Either UserID or UserEmail or UserLoginID is required to identify employee
+|`userId`|`string`|-|**Required**: The employee that is requesting the items. This is UUID of the employee. Either UserId or UserEmail or UserLoginId is required to identify employee
+|`userEmail`|`string`|-|**Required**: The employee that is requesting the items. This is employee's email. Either UserId or UserEmail or UserLoginId is required to identify employee
+|`userLoginId`|`string`|-|**Required**: The employee that is requesting the items. This is employee's Id. Either UserId or UserEmail or UserLoginId is required to identify employee
 |`description`|`string`|-|A description of the purchase request
-|`policyExternalId`|`string`|-|**Required**: The external identifier of the policy that should be associated with the purchase order. The external ID is a property of the policy configuration screen. Clients will need to get these ID's from the Implementation team
+|`policyExternalId`|`string`|-|**Required**: The external identifier of the policy that should be associated with the purchase order. The external Id is a property of the policy configuration screen. Clients will need to get these ID's from the Implementation team
 |`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order. The values used here will be used for all items on this request. IE: USD 
 |`notesToSupplier`|`string`|-|Notes you want to print on the transmitted PO PDF sent to your supplier
 |`comments`|`string`|-|Internal comments you want to record related to this record
@@ -168,7 +168,7 @@ None
 |`uoMCode`|`string`|-|Unit of Measure (UOM) code for the purchase request item. Accepted values are the UOM Codes setup in the Unit of Measure configuration
 |`shipping`|`decimal`|-|The total shipping cost for the Item
 |`tax`|`decimal`|-|Tax amount that is associated with the line item
-|`supplierPartID`|`string`|-|An ID value that helps to identify the line item. This could be a value such as the vendor’s part number or even the manufacturer number
+|`supplierPartId`|`string`|-|An Id value that helps to identify the line item. This could be a value such as the vendor’s part number or even the manufacturer number
 |`url`|`string`|-|A URL related to the item. You can have multiple URL's per item
 |`notesToVendor`|`string`|-|Notes related to the Item that can display on the transmitted PO PDF to the vendor
 |`comments`|`string`|-|Internal comments you want to record related to this record
