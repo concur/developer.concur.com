@@ -3,7 +3,6 @@ title: Company
 layout: reference
 ---
 
-Warning: Concur's Profile API is currentlly in **BETA** and is subject to change.
 
 
 [Getting Started with Profile](gettingStarted.html)  -  [**Company API**](company.html)  -  [User API](user.html)
