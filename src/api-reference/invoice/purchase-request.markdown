@@ -107,7 +107,7 @@ Create a Purchase Request based on provided header and line item details. If the
 
 ## <a name="get"></a>Get details of a purchase request
 
-    POST  /purchaserequest/v1/purchaserequests/{id}?mode=COMPACT
+    GET  /purchaserequest/v1/purchaserequests/{id}?mode=COMPACT
 
 Gets purchase request details. Currently only supported mode is COMPACT which return basic returns of created purchase request.
 
