@@ -144,7 +144,7 @@ None
 |-----|------|--------|------------
 |`userID`|`string`|-|**Required**: The employee that is requesting the items. This is UUID of the employee. Either UserID or UserEmail or UserLoginID is required to identify employee
 |`userEmail`|`string`|-|**Required**: The employee that is requesting the items. This is employee's email. Either UserID or UserEmail or UserLoginID is required to identify employee
-|`userLoginID`|`string`|-|**Required**: The employee that is requesting the items. This is employee's login ID. Either UserID or UserEmail or UserLoginID is required to identify employee
+|`userLoginID`|`string`|-|**Required**: The employee that is requesting the items. This is employee's ID. Either UserID or UserEmail or UserLoginID is required to identify employee
 |`description`|`string`|-|A description of the purchase request
 |`policyExternalId`|`string`|-|**Required**: The external identifier of the policy that should be associated with the purchase order. The external ID is a property of the policy configuration screen. Clients will need to get these ID's from the Implementation team
 |`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order. The values used here will be used for all items on this request. IE: USD 
