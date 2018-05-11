@@ -128,7 +128,7 @@ The first script adds the Concur style library to your page and the second appli
         data-redirect-uri=[yourRedirectURI]
         data-oauth-uri="https://www-us.api.concursolutions.com"
 
-        src="https://static.concursolutions.com/nui/oauth/0001/concur-signin.js">
+        src="https://static.concursolutions.com/nui/oauth/0.0.1/concur-signin.js">
 </script>
 
 <div style="float:right">
