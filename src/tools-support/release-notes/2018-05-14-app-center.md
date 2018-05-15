@@ -44,7 +44,7 @@ Make expense management easier by linking your Carzonrent and Concur Expense acc
 Discover the future of corporate mobility with Carzonrent and SAP Concur. Click “Connect” to get started linking accounts!
 
 Carzonrent works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the SAP Concur App Center under User Connections (formerly Apps for
-Me) at https://www.concur.com/appcenter. For more information about the Carzonrent integration, visit https://book.carzonrent.com/concur/connectconcur.
+Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Carzonrent integration, visit [https://book.carzonrent.com/concur/connectconcur](https://book.carzonrent.com/concur/connectconcur).
 
 ## <a name="apps-for-me-now-available-connection"></a>Apps for Me / User Connection Apps Coming Soon
 
@@ -81,7 +81,7 @@ How do we make our client experience better?
 
 Start your cleaner, greener journey with us today - simply hit the request information button, visit our website www.greentomatocars.com or call our friendly team on +44 (0)207 107 0779 and let us help reduce your costs, admin burden and carbon footprint.
 Green Tomato Cars works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for
-Me) at https://www.concur.com/appcenter. For more information about the Green Tomato Cars integration, visit https://online.greentomatocars.com/web-portal/login.
+Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Green Tomato Cars integration, visit [https://online.greentomatocars.com/web-portal/login](https://online.greentomatocars.com/web-portal/login).
 
 ### <a name="taiwan-treats"></a>Taiwan Taxis
 
@@ -91,7 +91,7 @@ Taiwan Taxi leverages cutting edge technology to satisfy customers’ transporta
 
 Taiwan Taxi records the GPS coordinates of pick-up and drop-off locations and can even record the taxi ride time as required by some companies, giving companies increased visibility into ground transportation expenses. With straightforward, upfront pricing, companies also can enjoy cost savings on ground transportation.
 
-Taiwan Taxi works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at https://www.concur.com/appcenter. For more information about the Taiwan Taxi integration, visit http://www.taiwantaxi.com.tw/en/en_about.html.
+Taiwan Taxi works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Taiwan Taxi integration, visit [http://www.taiwantaxi.com.tw/en/en_about.html](http://www.taiwantaxi.com.tw/en/en_about.html).
 
 ### <a name="parken+"></a>Parken+
 
@@ -106,8 +106,8 @@ With more than 9,500 parking garages available in our parking inventory, Parken+
 
 By connecting your Concur account with Parken+, you can easily submit your expense receipts directly to SAP Concur. Save time & money by using Parken+!
 
-Parken+ works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at https://www.concur.com/appcenter. For more information about the Parken+ integration, visit
-http://www.parken.plus/.
+Parken+ works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Parken+ integration, visit
+[http://www.parken.plus/](http://www.parken.plus/).
 
 ### <a name="qwykr"></a>Qwykr
 
@@ -115,7 +115,7 @@ Qwykr is a complete ground travel solution for the business traveler. Qwykr feat
 
 For the Concur user, Qwykr automatically enters the receipt to the rider’s expense report with all of the proper IRS required documentation included. This assures complete compliance with IRS reporting regulations.
 
-Qwykr works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at https://www.concur.com/appcenter. For more information about Qwykr, visit their website at http://qwykr.com/.
+Qwykr works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about Qwykr, visit their website at [http://qwykr.com/](http://qwykr.com/).
 
 ## <a name="china-data-center"></a>China Data Center Client Notification
 
@@ -123,4 +123,4 @@ Qwykr works with Expense for Concur Standard and Expense for Concur Professional
 
 On May 15th, the App Center will be activated for clients hosted on the China Data Center. The App Center will appear as a tab within Concur at Concurcdc.cn. Via the App Center, China Data Center clients will be able to contact Ctrip Corporate Travel and WeChat Fapiao Connector in order to enable the integrations, and can connect to Concur for Mobile. More connectors are coming soon!
 
-For more information on App Center Activation, visit https://go.concur.com/china-dc-app-center-resources.html or the US/global public site at https://www.concur.com/app-center.
+For more information on App Center Activation, visit [https://go.concur.com/china-dc-app-center-resources.html](https://go.concur.com/china-dc-app-center-resources.html) or the US / global public site at [https://www.concur.com/app-center](https://www.concur.com/app-center).
