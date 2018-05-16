@@ -5,6 +5,19 @@ layout: reference
 
 # User Locations
 
+* [Overview](#overview)
+* [Prerequisites](#prerequisites)
+* [Regional Availability](#regionalAvailability)
+* [Schema](#schema)
+  * [Client](#client)
+  * [Users](#users)
+  * [Locations](#locations)
+  * [Source Partner](#sourcePartner)
+  * [Transaction](#transaction)
+* [Request Headers](#requestHeaders)
+* [Response Headers](#responseHeaders)
+* [Status Codes](#statusCodes)
+* [Example](#example)
 
 ## Overview
 
