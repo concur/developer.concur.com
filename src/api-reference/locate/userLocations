@@ -1,0 +1,244 @@
+# User Location
+
+
+## Overview
+
+
+The goal of this API is to allow customers and 3rd party vendors to add their traveler's location data to Concur Locate so it can be utilized locate and contact travelers to address their duty of care requirements.
+
+This API supports POST only.
+
+
+## Prerequisites
+
+
+1. [Obtain a client ID, secret and sandbox environment](https://developer.concur.com/manage-apps/partner-applications.html) if you don't already have one.
+2. Obtain your [Source partner](#sourcePartner) information. This will be provided along with your application credentials.
+3. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
+This API supports [Client Credentials Grant] (https://developer.concur.com/api-reference/authentication/apidoc.html#client_credentials) only. Your sandbox will be configured to accept posts from your application.
+
+## Regional Availability
+
+```
+https://us.api.concursolutions.com/locate/api/v1/user/locations
+```
+```
+https://emea.api.concursolutions.com/locate/api/v1/user/locations
+```
+
+## Request Headers
+
+RFC 4122 concur-correlationid
+
+RFC 7235 Authorization (Bearer {JWT})
+
+RFC 7230 Host
+
+RFC 7231 User-Agent
+
+RFC 7231 Accept
+
+RFC7231 Accept-Language
+
+RFC7231 Accept-Encoding
+
+RFC 7231 Referer
+
+DNT: 1
+
+Connection: keep-alive
+
+## Schema
+_POST /locate/api/v1/user/locations_
+
+See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema. Property names mentioned in __*bold italics*__ are required fields.
+
+The user locations API includes users and itineraries (locations) in addition to information about the company and post type (add or cancel).
+
+  | Property Name  | Type    | Format | Description
+  | ---------------| --------| -------| -----------
+  | _*UserLocations*_ | Object | JSON | Contains the Client, Users, Locations, Source Partner and Transaction.
+  | _*Client*_  |  Object |  JSON  |  This indicates which entity within the organization the traveler belongs to.
+  | _*Users*_ | Object | JSON | This is the users' information. This will be used to either create a new traveler or to match with an existing traveler.
+  | _*Locations*_ |Object | JSON | This is the users' location information. Multiple locations can be passed for a single user.
+  | _*SourcePartner*_ | Object | JSON | This is used to identify your application. This information will be provided to you in advance.
+  | _*Transaction*_ | Object | JSON | Whether this transaction adds or cancels itineraries/locations.
+
+### Client
+This indicates which entity within the organization the traveler belongs to. This will vary by client. You will be provided with a list of the applicable agencies for each customer.
+
+| Property Name | Values / Length | Type | Description
+| ---------------| -------------| -----| -----------
+| _*Id*_ | 36 | String| Id: This maps to the top-level agency (corporation).
+| firstSubLevel | 36 | String | This is the child corporation one level below the top level corporation.
+| secondSubLevel | 36 | String | This is the sub level of the child corporation (firstsublevel).
+
+### Users
+This information will be used to match or create a new user. Either login ID or email address must be provided. If an existing user is not found for the login ID or email, one will be created.                            
+
+| Property Name | Values / Length | Type | Description
+| ------------- | ------ | ---- | -----------
+| userID | |
+| firstName | 100 | String |
+| lastName | 100 | String |
+| email | 255 | String |
+| employeeId | 19 | String | Either employeeId or concurLoginId must be provided.
+| mobileCountryCode | 3 | String |
+| mobile | 10 | String |
+| optedIn | 'True' / 'False' | String |
+| concurLoginId | 128 | String | Either employeeId or concurLoginId must be provided.
+| affiliation | 255 | String | Used to indicate the type of traveler (e.g. employee, student, faculty)  
+
+
+### Locations
+This section includes information about the traveler's future or current location. Either the location latitude and longitude OR the IATA (airport) code must be present. If both are present, the latitude and longitude take precedence.
+
+| Property Name | Values / Length | Type | Description
+| ------------- | ------ | ---- | -----------
+| locationId | | String |
+| locationAddress | 512 | String |
+| locationName | 100 | String |
+| locationDescription | 100 | String |
+| locationPhone | 50 | String |
+| locationLatitude | | String | Either the airport or latitude/longitude must be provided.
+| locationLongitude | | String | Either the airport or latitude/longitude must be provided.
+| locationIATACode | 3 | String | [IATA Airport Codes](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A) Either the airport or latitude/longitude must be provided.
+| startDate | 16 | String (format YYYY-MM-DDTHH:MM) | traveler's arrival date
+| endDate | 16 | String (format YYYY-MM-DDTHH:MM) | traveler's departure date
+| timezoneId | 60 | String |
+| visitorID | 5 | This corresponds to the user ID provided in the [Users](#users) schema
+
+### Source partner
+This information will be provided to you along with your client ID and secret.
+
+| Property Name | Values / Length | Type | Description
+| ------------- | ------ | ---- | -----------
+| _*Id*_ | 5 | String |
+| name | 100 | String |
+| description | 100 | String |
+
+### Transaction
+Itineraries can be added or cancelled. This section allows you to indicate whether this is an addition of a new itinerary or cancellation of an existing itinerary.
+
+| transactionId | 5 | String | This is a unique identifier generated by your application for the request.
+| createdDate  | 16 | String (format YYYY-MM-DDTHH:MM) |
+| transactionType | 10 | 'Add' or 'Cancel' |
+
+
+## Response Headers
+
+RFC7231 Content-Encoding
+
+RFC7231 Content-Type: application/json
+
+Date
+
+RFC7230 Transfer-Encoding
+
+RFC7231 Vary
+
+## Status Codes
+
+200 OK
+
+204 No Content / Empty Response
+
+400 Bad Request
+
+401 Unauthorised / 403 Forbidden
+
+500 Internal Server Error
+
+Exceptions from the service will be mapped to one of the aforementioned
+error codes.
+
+
+## Example
+
+
+### Request URL
+
+  ```
+  https://{baseURI}/locate/api/v1/user/locations
+  ```
+
+### Request
+
+```
+ curl -X POST \--header \'Content-Type: application/json\' \--header   
+ \'Accept: application/json\' \--header \'Authorization: Bearer        
+ \<JWT\> -d \'{
+  "userLocations": [
+    {
+       "client": {
+        "id": "CTG",
+        "firstSubLevel": "Test_SL1_Demo",
+        "secondSubLevel": "Test_SL2_Demo"
+      },
+      "users": [
+        {
+           "userId": 0,
+          "firstName": "Test",
+          "lastName": "User",
+          "email": "clientOneXML@tuser.com",
+          "employeeId": "Cli123",
+          "mobileCountryCode": "string",
+          "mobile": "442345623456",
+          "optedIn": true,
+          "concurLoginId": "",
+"affiliation": "Student"
+        }
+      ],
+      "locations": [
+        {
+          "locationId": 0,
+          "locationAddress": "Off Fox Street, Landstown AZ 45456",
+          "locationName": "Youth Hostel",
+          "locationDescription": "Travel Stuff",
+          "locationLatitude": "57.2019",
+          "locationLongitude": "-3.19778",
+          "locationIataCode": "",
+          "startDate": "2017-11-02T12:07",
+          "endDate": "2017-11-02T12:07",
+          "timezoneId": "Europe/London",
+          "locationPhone": "string",
+          "visitorId": [
+            0
+          ]
+        }
+      ],
+      "sourcePartner": {
+         "id": "TD",
+        "name": "Terra Dotta",
+        "description": "Universities stuff"
+      },
+      "transaction": {
+        "transactionId": "Nui-API",
+        "createdDate": "2017-11-02T12:05",
+        "transactionType": "Add"
+      }
+    }
+  ]
+}
+
+```
+### Response Header
+
+```
+{                                                                                                  
+ "access-control-allow-origin": "*",                                                         
+ "date": "Mon, 15 May 2018 14:28:07 GMT",                                                     
+ "access-control-allow-credentials": "false",                                                 
+ "server": "Apache-Coyote/1.1",                                                                 
+ "content-length": "20",                                                                        
+ "content-type\": "application/json"                                                           
+ }                                                
+```
+
+### Response Body
+
+```
+{                       
+"messageText": "OK"                          
+ }                       
+```
