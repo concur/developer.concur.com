@@ -17,10 +17,10 @@ This API supports POST only.
 ## Prerequisites
 
 
-1. [Obtain a client ID, secret and sandbox environment](https://developer.concur.com/manage-apps/partner-applications.html) if you don't already have one.
+1. [Obtain a client ID, secret and sandbox environment](/manage-apps/partner-applications.html) if you don't already have one.
 2. Obtain your [Source partner](#sourcePartner) information. This will be provided along with your application credentials.
-3. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
-This API supports [Client Credentials Grant] (https://developer.concur.com/api-reference/authentication/apidoc.html#client_credentials) only. Your sandbox will be configured to accept posts from your application.
+3. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
+This API supports [Client Credentials Grant](/api-reference/authentication/apidoc.html#client_credentials) only. Your sandbox will be configured to accept posts from your application.
 
 ## Regional Availability
 
@@ -31,27 +31,7 @@ https://us.api.concursolutions.com/locate/api/v1/user/locations
 https://emea.api.concursolutions.com/locate/api/v1/user/locations
 ```
 
-## Request Headers
 
-RFC 4122 concur-correlationid
-
-RFC 7235 Authorization (Bearer {JWT})
-
-RFC 7230 Host
-
-RFC 7231 User-Agent
-
-RFC 7231 Accept
-
-RFC7231 Accept-Language
-
-RFC7231 Accept-Encoding
-
-RFC 7231 Referer
-
-DNT: 1
-
-Connection: keep-alive
 
 ## Schema
 _POST /locate/api/v1/user/locations_
@@ -129,6 +109,15 @@ Itineraries can be added or cancelled. This section allows you to indicate wheth
 | createdDate  | 16 | String (format YYYY-MM-DDTHH:MM) |
 | transactionType | 10 | 'Add' or 'Cancel' |
 
+## Request Headers
+
+* [RFC 7230 Host](https://tools.ietf.org/html/rfc7230#section-5.4)
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7231 Referer](https://tools.ietf.org/html/rfc7231#section-5.5.2)
+* [RFC 7231 User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3)
 
 ## Response Headers
 
@@ -144,15 +133,12 @@ RFC7231 Vary
 
 ## Status Codes
 
-200 OK
 
-204 No Content / Empty Response
-
-400 Bad Request
-
-401 Unauthorised / 403 Forbidden
-
-500 Internal Server Error
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* 204 No Content / Empty Response
+* 400 Bad Request
+* 401 Unauthorised / 403 Forbidden
+* 500 Internal Server Error
 
 Exceptions from the service will be mapped to one of the aforementioned
 error codes.
