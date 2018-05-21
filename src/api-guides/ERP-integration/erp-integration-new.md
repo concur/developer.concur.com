@@ -23,7 +23,7 @@ layout: reference
 * [Purchase Order data sent to Concur](#purchase-order)
 * [Purchase Order Receipt data sent to Concur](#purchase-order-receipt)
 
-Thank you for your interest in an App Center Partnership to develop an ERP integration between Concur’s products and your chosen ERP brand. The App Center Certification Program requires each desired ERP Brand to be certified.  The certified application must support the Expense & Invoice products for both of Concur’s Editions (Standard + Professional Edition).   The Partner can decide to pursue a Basic integration or an Advanced integration.  The following table explains the high-level requirements for each type of integration. Below the table are the details for each item within the table.
+Thank you for your interest in an App Center Partnership to develop an ERP integration between Concur’s products and your chosen ERP brand. The App Center Certification Program requires each desired ERP Brand to be certified. The certified application must support the Expense & Invoice products for both of Concur’s Editions (Standard + Professional Edition). The Partner can decide to pursue a Basic integration or an Advanced integration. The following table explains the high-level requirements for each type of integration. Below the table are the details for each item within the table.
 
 Phased Approaches - We recognize there is a likelihood of certifying the following in phases and we will provide guidance to the phases available if necessary.	 
 
@@ -45,15 +45,15 @@ Manage Lists of Cost Object Codes|https://developer.concur.com/api-reference/com
 
 Development Item|Resources|Basic|Advanced
 ---|---|---|---
-1. Financial Postings via Extract file API|https://developer.concur.com/api-reference/common/extracts/extracts.html|:black_circle:|:black_circle:
-2. Manage Lists of Cost Object Codes|https://developer.concur.com/api-reference/common/list-item/|:black_circle:|:black_circle:
-3. Vendor data – Add & Update Concur|https://developer.concur.com/api-reference/invoice/vendor.html|:black_circle:|:black_circle:
-4. Purchase Order data sent to Concur|https://developer.concur.com/api-reference/invoice/purchase-order.html||:black_circle:
-5. Purchase Order Receipt data sent to Concur|https://developer.concur.com/api-reference/invoice/purchase-order.html#put-receipts||:black_circle:
+Financial Postings via Extract file API|https://developer.concur.com/api-reference/common/extracts/extracts.html|:black_circle:|:black_circle:
+Manage Lists of Cost Object Codes|https://developer.concur.com/api-reference/common/list-item/|:black_circle:|:black_circle:
+Vendor data – Add & Update Concur|https://developer.concur.com/api-reference/invoice/vendor.html|:black_circle:|:black_circle:
+Purchase Order data sent to Concur|https://developer.concur.com/api-reference/invoice/purchase-order.html||:black_circle:
+Purchase Order Receipt data sent to Concur|https://developer.concur.com/api-reference/invoice/purchase-order.html#put-receipts||:black_circle:
 
 ## <a name="training"></a>Concur product training
 
-Use the following websites to get familiar with the Concur product and then submit expense reports or invoices in your own sandbox.  This will better position you to conduct end-to-end testing and be able to correlate a User's experience to what you obtain via the APIs.
+Use the following websites to get familiar with the Concur product and then submit expense reports or invoices in your own sandbox. This will better position you to conduct end-to-end testing and be able to correlate a User's experience to what you obtain via the APIs.
 
 * http://www.concurtraining.com/
 * http://www.concurtraining.com/prdeployment/sts - **REQUIRED** - review the videos within this link to ensure you are familiar with the unique types of transactions that can occur in the Expense product and their resulting impacts on the financial picture in the extract file.
@@ -67,11 +67,11 @@ Use the following websites to get familiar with the Concur product and then subm
 The Company Profile [resource](https://developer.concur.com/api-reference/profile-beta/company.html) provides the Partner with 2 key pieces of information:
 
 1. Company UUID - Partner will record this value per customer connection and use it when submitting Support cases.
-1. MarketingName data element - Partner will record this value per customer.  This will indicate the Edition Type a customer is using:
+1. MarketingName data element - Partner will record this value per customer. This will indicate the Edition Type a customer is using:
   1. "CTE" or "Enterprise" values mean the customer is using Professional Edition
   1. "Standard" value means the customer is using Standard Edition
 
-## <a name="extract"></a>1. Expense & Invoice Financial Posting via Extract File APIs
+## <a name="extract"></a>Expense & Invoice Financial Posting via Extract File APIs
 > BASIC & ADVANCED options - applicable to both Expense + Invoice. Differences exist between Standard & Professional
 
 Both Edition types produce extract files that you will use as part of the integration, however, there are distinct differences between them in obtaining the extract file, so it is important to first determine the Edition Type as noted above.
@@ -203,18 +203,18 @@ Navigate to [Payment Batches](https://developer.concur.com/api-reference/expense
 1. Close the desired batch by using [Close a payment batch](https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html#closepaymentbatch) Example
 1. Retrieve the file you want by using [Retrieve a payment batch file](https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html#getbatchfile) Example
 
-## <a name="manage-lists"></a>2. Manage Lists of Cost Object Codes:
+## <a name="manage-lists"></a>Manage Lists of Cost Object Codes:
 
 BASIC & ADVANCED options - applicable to both Standard + Professional Editions and Expense + Invoice
 
-## <a name="vendor-data"></a>3. Vendor data – Add & Update Concur:
+## <a name="vendor-data"></a>Vendor data – Add & Update Concur:
 
 BASIC & ADVANCED options - applicable to both Standard + Professional Editions - Invoice only
 
-## <a name="purchase-order"></a>4. Purchase Order data sent to Concur:
+## <a name="purchase-order"></a>Purchase Order data sent to Concur:
 
 ADVANCED option - applicable to both Standard + Professional Editions - Invoice only
 
-## <a name="purchase-order-receipt"></a>5. Purchase Order Receipt data sent to Concur:
+## <a name="purchase-order-receipt"></a>Purchase Order Receipt data sent to Concur:
 
 ADVANCED option - applicable to both Standard + Professional Editions - Invoice only
