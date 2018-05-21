@@ -38,8 +38,8 @@ Company Info|Use this [resource](https://developer.concur.com/api-reference/prof
 
 Development Item|Resources|Basic|Advanced
 ---|---|---|---
-1. Financial Postings via Extract file API|https://developer.concur.com/api-reference/common/extracts/extracts.html|:black_circle:|:black_circle:
-2. Manage Lists of Cost Object Codes|https://developer.concur.com/api-reference/common/list-item/|:black_circle:|:black_circle:
+Financial Postings via Extract file API|https://developer.concur.com/api-reference/common/extracts/extracts.html|:black_circle:|:black_circle:
+Manage Lists of Cost Object Codes|https://developer.concur.com/api-reference/common/list-item/|:black_circle:|:black_circle:
 
 ## <a name="invoice"></a>Invoice
 
