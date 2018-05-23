@@ -54,7 +54,7 @@ Name | Type | Format | Description
 `RequestID`	|	`uuid`	|	-	|	ID for the receipt request
 `SegmentEndDate`	|	`date-time`	|	ISO 8601	|	End date for the receipt request segment
 `SegmentStartDate`	|	`date-time`	|	ISO 8601	|	Start date for the receipt request segment
-
+`Vendor`	|	`string`	|	-	|	Vendor code for the receipt request
 
 
 
