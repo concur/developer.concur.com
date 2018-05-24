@@ -24,9 +24,9 @@ layout: reference
 
 2018|2017|2016|2015|2014
 ---|---|---|---|---
---|[January](AppCenter_ReleaseNotes_Jan 2017_FINAL.pdf)|[January](AppCenter_ReleaseNotes_January_2016_FINAL.pdf)|--|--
---|[February](AppCenter_ReleaseNotes_Feb 2017_FINAL.pdf)|[February](AppCenter_ReleaseNotes_February 2016_DRAFT.pdf)|[February][1-10]|--
---|--|[March](AppCenter_ReleaseNotes_March 2016_FINAL.pdf)|[March][1-11]|--
+--|[January](./AppCenter_ReleaseNotes_Jan 2017_FINAL.pdf)|[January](./AppCenter_ReleaseNotes_January_2016_FINAL.pdf)|--|--
+--|[February](./AppCenter_ReleaseNotes_Feb 2017_FINAL.pdf)|[February](./AppCenter_ReleaseNotes_February 2016_DRAFT.pdf)|[February][1-10]|--
+--|--|[March](./AppCenter_ReleaseNotes_March 2016_FINAL.pdf)|[March][1-11]|--
 --|--|--|[April][1-12]|--
 [May](./2018-05-14-app-center.md)|[May](AppCenter_ReleaseNotes_May 2017_DRAFT.pdf)|[May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf)|[May][1-13]|[May](App_Center_Release_Notes_client_final_May2014.pdf)
 --|--|[June](AppCenter_ReleaseNotes_June 2016_FINAL.pdf)|--|[June][1-2]
