@@ -11,7 +11,7 @@ layout: reference
 --|--|[February](#feb2016)|[February][2-4]|--
 --|[March](/changelog/2017/03/20/Digital-Tax-Invoice-API-Account-Id.html)|[March Release](/blog/2016/03/15/march-release-notes.html) - [Quick Expense](/blog/2016/03/18/quick-expense-api-payment-type.html)|--|--
 --|--|[April](#april2016)|[April][2-5]|--
-[May](AppCenter_ReleaseNotes_May 2018_DRAFT.pdf)|--|--|[May][2-6]|[May][2-1]
+---|--|--|[May][2-6]|[May][2-1]
 --|--|--|--|[June][2-2]
 --|--|--|[July](#july2015)|--
 --|--|--|[August](#august2015)|--
@@ -28,7 +28,7 @@ layout: reference
 --|[February](AppCenter_ReleaseNotes_Feb 2017_FINAL.pdf)|[February](AppCenter_ReleaseNotes_February 2016_DRAFT.pdf)|[February][1-10]|--
 --|--|[March](AppCenter_ReleaseNotes_March 2016_FINAL.pdf)|[March][1-11]|--
 --|--|--|[April][1-12]|--
---|[May](AppCenter_ReleaseNotes_May 2017_DRAFT.pdf)|[May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf)|[May][1-13]|[May](App_Center_Release_Notes_client_final_May2014.pdf)
+[May](./2018-05-14-app-center.md)|[May](AppCenter_ReleaseNotes_May 2017_DRAFT.pdf)|[May](AppCenter_ReleaseNotes_May 2016_FINAL.pdf)|[May][1-13]|[May](App_Center_Release_Notes_client_final_May2014.pdf)
 --|--|[June](AppCenter_ReleaseNotes_June 2016_FINAL.pdf)|--|[June][1-2]
 --|[July](AppCenter_ReleaseNotes_July 2017_FINAL.pdf)|[July](AppCenter_ReleaseNotes_July 2016_FINAL.pdf)|[July](AppCenter_ReleaseNotes_July2015FINAL.pdf)|[July][1-3]
 --|[August](AppCenter_ReleaseNotes_August 2017_DRAFT.pdf)|[August](AppCenter_ReleaseNotes_August 2016_FINAL.pdf)|--|[August][1-4]
