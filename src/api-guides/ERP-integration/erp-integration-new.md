@@ -73,7 +73,7 @@ The Company Profile [resource](https://developer.concur.com/api-reference/profil
 
 ## <a name="extract"></a>Expense & Invoice Financial Posting via Extract File APIs
 > BASIC & ADVANCED options - applicable to both Expense + Invoice. Differences exist between Standard & Professional
-
+H
 Both Edition types produce extract files that you will use as part of the integration, however, there are distinct differences between them in obtaining the extract file, so it is important to first determine the Edition Type as noted above.
 
 The client may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Click this link and locate the “SAE Detailed Discussions” at the bottom of the page to review this important information: [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts). Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document’s videos.
