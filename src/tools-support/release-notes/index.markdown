@@ -24,6 +24,8 @@ layout: reference
 
 * [May 2018](./2018-05-14-app-center.md)
 * [December 2017](./AppCenter-ReleaseNotes-December-2017-Final.pdf)
+* [October 2017](AppCenter-ReleaseNotes-October-2017-DRAFT.pdf)
+* [September 2017](AppCenter-ReleaseNotes-September-2017-DRAFT.docx)
 
 2018|2017|2016|2015|2014
 ---|---|---|---|---
@@ -35,10 +37,10 @@ layout: reference
 --|--|[June](AppCenter_ReleaseNotes_June 2016_FINAL.pdf)|--|[June][1-2]
 --|[July](AppCenter_ReleaseNotes_July 2017_FINAL.pdf)|[July](AppCenter_ReleaseNotes_July 2016_FINAL.pdf)|[July](AppCenter_ReleaseNotes_July2015FINAL.pdf)|[July][1-3]
 --|[August](AppCenter_ReleaseNotes_August 2017_DRAFT.pdf)|[August](AppCenter_ReleaseNotes_August 2016_FINAL.pdf)|--|[August][1-4]
---|[September](AppCenter_ReleaseNotes_September 2017_DRAFT.docx)|[September](AppCenter_ReleaseNotes_Sept 2016_FINAL.pdf)|[September](AppCenter_ReleaseNotes_Sept2015FINAL.pdf)|[September][1-5]
---|[October](AppCenter_ReleaseNotes_October 2017_DRAFT.pdf)|[October](AppCenter_ReleaseNotes_Oct 2016_FINAL.pdf)|[October](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf)|[October][1-6]
+--||[September](AppCenter_ReleaseNotes_Sept 2016_FINAL.pdf)|[September](AppCenter_ReleaseNotes_Sept2015FINAL.pdf)|[September][1-5]
+--|--|[October](AppCenter_ReleaseNotes_Oct 2016_FINAL.pdf)|[October](AppCenter_ReleaseNotes_Oct2015FINAL_10_16_15.pdf)|[October][1-6]
 --|--|[November](AppCenter_ReleaseNotes_Nov 2016_FINAL.pdf)|--|[November][1-7]
---||[December](AppCenter_ReleaseNotes_Dec 2016_FINAL.pdf)|[December](AppCenter_ReleaseNotes_December2015FINAL.pdf)|[December][1-8]
+--|--|[December](AppCenter_ReleaseNotes_Dec 2016_FINAL.pdf)|[December](AppCenter_ReleaseNotes_December2015FINAL.pdf)|[December][1-8]
 
 # Combined App Center and Developer Platform Release Notes
 
