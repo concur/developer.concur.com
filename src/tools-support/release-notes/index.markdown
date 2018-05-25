@@ -5,76 +5,77 @@ layout: reference
 
 # Developer Platform Release Notes
 
-2018|2017|2016|2015|2014
----|---|---|---|---
---|--|--|--|--
---|--|[February](#feb2016)|[February][2-4]|--
---|[March](/changelog/2017/03/20/Digital-Tax-Invoice-API-Account-Id.html)|[March Release](/blog/2016/03/15/march-release-notes.html) - [Quick Expense](/blog/2016/03/18/quick-expense-api-payment-type.html)|--|--
---|--|[April](#april2016)|[April][2-5]|--
----|--|--|[May][2-6]|[May][2-1]
---|--|--|--|[June][2-2]
---|--|--|[July](#july2015)|--
---|--|--|[August](#august2015)|--
---|--|--|--|--
---|--|--|--|[October][2-3]
---|--|[November](/changelog/2016/11/19/connect-api-deprecation-notice.html)|--|--
---|--|--|--|--
+* [March](/changelog/2017/03/20/Digital-Tax-Invoice-API-Account-Id.html)
+* [November](/changelog/2016/11/19/connect-api-deprecation-notice.html)
+* [April](#april2016)
+* [Quick Expense](/blog/2016/03/18/quick-expense-api-payment-type.html)
+* [March Release](/blog/2016/03/15/march-release-notes.html)
+* [February](#feb2016)
+* [August](#august2015)
+* [July](#july2015)
+* [2-6]:API-ReleaseNotes-May2015.pdf
+* [2-5]:Concur-Platform-ReleaseNotes-draft-April2015.pdf
+* [February 2015](developer-platform-2015-02-01.pdf)
+* [October 2014](developer-platform-2014-10-01.pdf)
+* [June 2014](./developer-platform-2014-06-01.pdf)
+* [May 2014](./developer-platform-2014-05-01.pdf)
 
 # App Center Release Notes
 
-* [May 2018](./2018-05-14-app-center.md)
-* [December 2017](./AppCenter-ReleaseNotes-December-2017-Final.pdf)
-* [October 2017](./AppCenter-ReleaseNotes-October-2017-DRAFT.pdf)
-* [September 2017](./AppCenter-ReleaseNotes-September-2017-DRAFT.docx)
-* [August 2017](./AppCenter-ReleaseNotes-August-2017-DRAFT.pdf)
-* [July 2017](./AppCenter-ReleaseNotes-July-2017-FINAL.pdf)
-* [May 2017](./AppCenter-ReleaseNotes-May-2017-DRAFT.pdf)
-* [February 2017](./AppCenter-ReleaseNotes-Feb-2017-FINAL.pdf)
-* [January 2017](./AppCenter-ReleaseNotes-Jan-2017-FINAL.pdf)
-* [December 2016](./AppCenter-ReleaseNotes-Dec-2016-FINAL.pdf)
-* [November 2016](./AppCenter-ReleaseNotes-Nov-2016-FINAL.pdf)
-* [October 2016](./AppCenter-ReleaseNotes-Oct-2016-FINAL.pdf)
-* [September 2016](./AppCenter-ReleaseNotes-Sept-2016-FINAL.pdf)
-* [August 2016](./AppCenter-ReleaseNotes-August-2016-FINAL.pdf)
-* [July 2016](./AppCenter-ReleaseNotes-July-2016-FINAL.pdf)
-* [June 2016](./AppCenter-ReleaseNotes-June-2016-FINAL.pdf)
-* [May 2016](./AppCenter-ReleaseNotes-May-2016-FINAL.pdf)
-* [March 2016](./AppCenter-ReleaseNotes-March-2016-FINAL.pdf)
-* [February 2016](./AppCenter-ReleaseNotes-February-2016-DRAFT.pdf)
-* [January 2016](./AppCenter-ReleaseNotes-January-2016-FINAL.pdf)
-* [December 2015](./AppCenter-ReleaseNotes-December-2015-FINAL.pdf)
-* [October 2015](./AppCenter-ReleaseNotes-October-2015-FINAL.pdf)
-* [September 2015](./AppCenter-ReleaseNotes-September-2015-FINAL.pdf)
-* [July 2015](./AppCenter-ReleaseNotes-July-2015-FINAL.pdf)
-* [May 2015](./AppCenter-ReleaseNotes-May-2015-FINAL.pdf)
-* [March 2015 - 2](./App-Center-ReleaseNotes-Mar27-2015.pdf)
-* [March 2015 - 1](./App-Center-Release-Notes-Mar13-2015.pdf)
-* [February 2015 - 2](./App-Center-Release-Notes-Feb27-2015.pdf)
-* [February 2015 - 1](./App-Center-Release-Notes-Feb13-2015.pdf)
-* [December 2014](./App-Center-Release-Notes-DecFinal-Dec12-2014.pdf)
-* [November 2014](./App-Center-Release-Notes-final-Nov142014.pdf)
-* [October 2014](./2014-10-10-app-center.pdf)
-* [September 2014](./App-Center-Release-Notes-final-Sep2014.pdf)
-* [August 2014](./App-Center-Release-Notes-final-Aug2014.pdf)
-* [July 2014](./App-Center-Release-Notes-final-July2014.pdf)
-* [June 2014](./App-Center-Release-Notes-final-June2014.pdf)
-* [May 2014](./App-Center-Release-Notes-client-final-May2014.pdf)
+* [May 2018](./app-center-2018-05-14.md)
+* [February 2018](./app-center-2018-02-01.pdf)
+* [December 2017](./app-center-2017-12-01.pdf)
+* [October 2017](./app-center-2017-10-01.pdf)
+* [September 2017](./app-center-2017-09-01.docx)
+* [August 2017](./app-center-2017-08-01.pdf)
+* [July 2017](./app-center-2017-07-01.pdf)
+* [May 2017](./app-center-2017-05-01.pdf)
+* [February 2017](./app-center-2017-02-01.pdf)
+* [January 2017](./app-center-2017-01-01.pdf)
+* [December 2016](./app-center-2016-12-01.pdf)
+* [November 2016](./app-center-2016-11-01.pdf)
+* [October 2016](./app-center-2016-10-01.pdf)
+* [September 2016](./app-center-2016-09-01.pdf)
+* [August 2016](./app-center-2016-08-01.pdf)
+* [July 2016](./app-center-2016-07-01.pdf)
+* [June 2016](./app-center-2016-06-01.pdf)
+* [May 2016](./app-center-2016-05-01.pdf)
+* [March 2016](./app-center-2016-03-01.pdf)
+* [February 2016](./app-center-2016-02-01.pdf)
+* [January 2016](./app-center-2016-01-01.pdf)
+* [December 2015](./app-center-2015-12-01.pdf)
+* [October 2015](./app-center-2015-10-01.pdf)
+* [September 2015](./app-center-2015-09-01.pdf)
+* [July 2015](./app-center-2015-07-01.pdf)
+* [May 2015](./app-center-2015-05-01.pdf)
+* [March 2015 - 2](./app-center-2015-03-27.pdf)
+* [March 2015 - 1](./app-center-2015-03-13.pdf)
+* [February 2015 - 2](./app-center-2015-02-27.pdf)
+* [February 2015 - 1](./app-center-2015-02-13.pdf)
+* [December 2014](./app-center-2014-12-12.pdf)
+* [November 2014](./app-center-2014-11-14.pdf)
+* [October 2014](./app-center-2014-10-10.pdf)
+* [September 2014](./app-center-2014-09-01.pdf)
+* [August 2014](./app-center-2014-08-01.pdf)
+* [July 2014](./app-center-2014-07-01.pdf)
+* [June 2014](./app-center-2014-06-01.pdf)
+* [May 2014](./app-center-2014-05-01.pdf)
 
 # Combined App Center and Developer Platform Release Notes
 
-* [April 2014][3-13]
-* [March 2014][3-12]
-* [February 2014][3-11]
-* [January 2014][3-10]
-* [December 2013][3-9]
-* [November 2013][3-8]
-* [October 2013][3-7]
-* [September 2013][3-6]
-* [August 2013][3-5]
-* [July 2013][3-4]
-* [June 2013][3-3]
-* [May 2013][3-2]
-* [April 2013][3-1]
+* [3-1]:Concur-Connect-Client-Facing-Release-Notes-April-2013.pdf
+* [3-2]:Concur-Connect-Client-Facing-Release-Notes-May-2013.pdf
+* [3-3]:Concur-Connect-Client-Facing-Release-Notes-June-2013.pdf
+* [3-4]:Concur-Connect-Client-Facing-Release-Notes-July-2013.pdf
+* [3-5]:Concur-Connect-Client-Facing-Release-Notes-August-2013.pdf
+* [3-6]:Concur-Platform-Client-Facing-Release-Notes-September-2013.pdf
+* [3-7]:Concur-Platform-Client-Facing-Release-Notes-October-2013.pdf
+* [3-8]:Concur-Platform-Client-Facing-Release-Notes-November-2013.pdf
+* [3-9]:Concur-Platform-Client-Facing-Release-Notes-December-2013.pdf
+* [3-10]:Concur-Platform-Client-Release-Notes-final-Jan2014.pdf
+* [3-11]:Concur-Platform-Client-Release-Notes-final-Feb2014.pdf
+* [3-12]:Concur-Platform-Client-Release-Notes-final-March2014.pdf
+* [3-13]:Concur-Platform-Client-Release-Notes-final.pdf
 
 ## Release Notes
 
@@ -182,23 +183,3 @@ Changes to the APIs and Scopes for Travel Profile API in Register/Modify Partner
 * Moved: Custom Fields under Company Details
 
 **Effective Date:** July 2015 release
-
-[2-1]:Concur-Platform-Client-Release-Notes-final-May2014.pdf
-[2-2]:Concur-Platform-Client-Release-Notes-draft-June2014.pdf
-[2-3]:Concur-Platform-Release-Notes-final-October2014.pdf
-[2-4]:Concur-Platform-Client-Release-Notes-final-February2015.pdf
-[2-5]:Concur-Platform-ReleaseNotes-draft-April2015.pdf
-[2-6]:API-ReleaseNotes-May2015.pdf
-[3-1]:Concur-Connect-Client-Facing-Release-Notes-April-2013.pdf
-[3-2]:Concur-Connect-Client-Facing-Release-Notes-May-2013.pdf
-[3-3]:Concur-Connect-Client-Facing-Release-Notes-June-2013.pdf
-[3-4]:Concur-Connect-Client-Facing-Release-Notes-July-2013.pdf
-[3-5]:Concur-Connect-Client-Facing-Release-Notes-August-2013.pdf
-[3-6]:Concur-Platform-Client-Facing-Release-Notes-September-2013.pdf
-[3-7]:Concur-Platform-Client-Facing-Release-Notes-October-2013.pdf
-[3-8]:Concur-Platform-Client-Facing-Release-Notes-November-2013.pdf
-[3-9]:Concur-Platform-Client-Facing-Release-Notes-December-2013.pdf
-[3-10]:Concur-Platform-Client-Release-Notes-final-Jan2014.pdf
-[3-11]:Concur-Platform-Client-Release-Notes-final-Feb2014.pdf
-[3-12]:Concur-Platform-Client-Release-Notes-final-March2014.pdf
-[3-13]:Concur-Platform-Client-Release-Notes-final.pdf
