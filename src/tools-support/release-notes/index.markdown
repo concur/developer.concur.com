@@ -3,24 +3,6 @@ title: Release Notes
 layout: reference
 ---
 
-# Developer Platform Release Notes
-
-* [March 2017](./dev-platform-2017-03-01.markdown)
-* [November 2016](./dev-platform-2016-11-01.markdown)
-* [April 2016](./dev-platform-2016-04-01.markdown)
-* [March 2016 - 2](./dev-platform-2016-03-02.markdown)
-* [March 2016 - 1](./dev-platform-2016-03-01.markdown)
-* [February 2016](./dev-platform-2016-02-01.markdown)
-* [August 2015](./dev-platform-2015-08-01.markdown)
-* [July 2015](./dev-platform-2015-07-01.markdown)
-* [May 2015](./dev-platform-2015-05-01.pdf)
-
-* [2-5]:Concur-Platform-ReleaseNotes-draft-April2015.pdf ***********************
-* [February 2015](dev-platform-2015-02-01.pdf)
-* [October 2014](dev-platform-2014-10-01.pdf)
-* [June 2014](./dev-platform-2014-06-01.pdf)
-* [May 2014](./dev-platform-2014-05-01.pdf)
-
 # App Center Release Notes
 
 * [May 2018](./app-center-2018-05-14.markdown)
@@ -61,6 +43,22 @@ layout: reference
 * [July 2014](./app-center-2014-07-01.pdf)
 * [June 2014](./app-center-2014-06-01.pdf)
 * [May 2014](./app-center-2014-05-01.pdf)
+
+# Developer Platform Release Notes
+
+* [March 2017](./dev-platform-2017-03-01.markdown)
+* [November 2016](./dev-platform-2016-11-01.markdown)
+* [April 2016](./dev-platform-2016-04-01.markdown)
+* [March 2016 - 2](./dev-platform-2016-03-02.markdown)
+* [March 2016 - 1](./dev-platform-2016-03-01.markdown)
+* [February 2016](./dev-platform-2016-02-01.markdown)
+* [August 2015](./dev-platform-2015-08-01.markdown)
+* [July 2015](./dev-platform-2015-07-01.markdown)
+* [May 2015](./dev-platform-2015-05-01.pdf)
+* [February 2015](dev-platform-2015-02-01.pdf)
+* [October 2014](dev-platform-2014-10-01.pdf)
+* [June 2014](./dev-platform-2014-06-01.pdf)
+* [May 2014](./dev-platform-2014-05-01.pdf)
 
 # Combined App Center and Developer Platform Release Notes
 
