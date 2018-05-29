@@ -5,8 +5,8 @@ layout: reference
 
 # App Center Release Notes
 
-* [June 2018](./app-center-2018-06-01.markdown)
-* [May 2018](./app-center-2018-05-14.markdown)
+* [June 2018](./app-center-2018-06-01.html)
+* [May 2018](./app-center-2018-05-14.html)
 * [February 2018](./app-center-2018-02-01.pdf)
 * [December 2017](./app-center-2017-12-01.pdf)
 * [October 2017](./app-center-2017-10-01.pdf)
@@ -47,14 +47,14 @@ layout: reference
 
 # Developer Platform Release Notes
 
-* [March 2017](./dev-platform-2017-03-01.markdown)
-* [November 2016](./dev-platform-2016-11-01.markdown)
-* [April 2016](./dev-platform-2016-04-01.markdown)
-* [March 2016 - 2](./dev-platform-2016-03-02.markdown)
-* [March 2016 - 1](./dev-platform-2016-03-01.markdown)
-* [February 2016](./dev-platform-2016-02-01.markdown)
-* [August 2015](./dev-platform-2015-08-01.markdown)
-* [July 2015](./dev-platform-2015-07-01.markdown)
+* [March 2017](./dev-platform-2017-03-01.html)
+* [November 2016](./dev-platform-2016-11-01.html)
+* [April 2016](./dev-platform-2016-04-01.html)
+* [March 2016 - 2](./dev-platform-2016-03-02.html)
+* [March 2016 - 1](./dev-platform-2016-03-01.html)
+* [February 2016](./dev-platform-2016-02-01.html)
+* [August 2015](./dev-platform-2015-08-01.html)
+* [July 2015](./dev-platform-2015-07-01.html)
 * [May 2015](./dev-platform-2015-05-01.pdf)
 * [February 2015](dev-platform-2015-02-01.pdf)
 * [October 2014](dev-platform-2014-10-01.pdf)
