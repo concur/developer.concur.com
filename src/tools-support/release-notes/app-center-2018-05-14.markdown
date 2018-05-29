@@ -1,13 +1,7 @@
 ---
-title: SAP Concur App Center Release Notes
+title: SAP Concur App Center Release Notes - May 2018
 layout: reference
 ---
-
-## SAP Concur App Center Release Notes
-
-Month: May 2018
-
-Audience: Client
 
 ## Contents
 
@@ -25,7 +19,7 @@ Audience: Client
 
 ### <a name="carzonrent"></a>Carzonrent
 
-![Carzonrent Logo](./2018-05-14-app-center-carzonrent-logo.png)
+![Carzonrent Logo](./app-center-2018-05-14-carzonrent-logo.png)
 
 Carzonrent is one of India's largest personal ground transportation service providers, offering end-to-end long and short-term car rental/hire solutions through its fleet of more than 8,000 cars across the country. Carzonrent is available in 65 cities, 9 international airports, major railway stations, prominent hotels, and malls across India – meaning you can rent or hire a car wherever and whenever needed. More than 25,000 travelers trust Carzonrent every day.
 
@@ -50,7 +44,7 @@ Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). F
 
 ### <a name="green-tomato-cars"></a>Green Tomato Cars
 
-Green Tomato Cars launched in 2006 as London’s first ethical and eco-friendly passenger car company and now offer ground transport solutions nationwide. Environmental responsibility was at the heart of the business when it was established and that ethos remains central to the company today. Our mission statement – ‘’Ethical transport to meet the needs of our customers that does not cost the earth” - strongly connects the company with its roots.
+Green Tomato Cars launched in 2006 as London’s first ethical and eco-friendly passenger car company and now offer ground transport solutions nationwide. Environmental responsibility was at the heart of the business when it was established and that ethos remains central to the company today. Our mission statement – _"Ethical transport to meet the needs of our customers that does not cost the earth”_ - strongly connects the company with its roots.
 
 We were the first London private hire company to:
 * use hybrid vehicles
@@ -80,12 +74,13 @@ How do we make our client experience better?
 * Fixed journey pricing – no surging
 
 Start your cleaner, greener journey with us today - simply hit the request information button, visit our website www.greentomatocars.com or call our friendly team on +44 (0)207 107 0779 and let us help reduce your costs, admin burden and carbon footprint.
+
 Green Tomato Cars works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for
 Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Green Tomato Cars integration, visit [https://online.greentomatocars.com/web-portal/login](https://online.greentomatocars.com/web-portal/login).
 
 ### <a name="taiwan-treats"></a>Taiwan Taxis
 
-![Taiwan Taxis Logo](./2018-05-14-app-center-taiwan-taxis-logo.png)
+![Taiwan Taxis Logo](./app-center-2018-05-14-taiwan-taxis-logo.png)
 
 Taiwan Taxi leverages cutting edge technology to satisfy customers’ transportation requirements and to keep employees safe. There is no need for employees to pay in cash and e-receipts are sent to Concur Expense automatically for effortless expensing.
 
@@ -95,7 +90,7 @@ Taiwan Taxi works with Expense for Concur Standard and Expense for Concur Profes
 
 ### <a name="parken+"></a>Parken+
 
-![Parken+ Logo](./2018-05-14-app-center-parken-logo.png)
+![Parken+ Logo](./app-center-2018-05-14-parken-logo.png)
 
 With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying parking spots across major cities nationwide.
 

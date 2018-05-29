@@ -14,12 +14,14 @@ If the partner supplies a timestamp as a parameter, it is used as the start time
 
 ### Regional Availability
 
+#### US
 ```
-https://us.api.concursolutions.com/travelreceipts/v1/receiptrequests/
+https://us.api.concursolutions.com/travelreceipts/v1/receiptrequests
 ```
 
+#### EMEA
 ```
-https://emea.api.concursolutions.com/travelreceipts/v1/receiptrequests/
+https://emea.api.concursolutions.com/travelreceipts/v1/receiptrequests
 ```
 
 ## <a name="auth"></a>Authentication
