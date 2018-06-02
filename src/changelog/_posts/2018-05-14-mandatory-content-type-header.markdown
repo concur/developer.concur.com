@@ -10,7 +10,7 @@ tags:
 
 In order to be compliant with the IETF Oauth2 Specification, specifically Appendix B (https://tools.ietf.org/html/draft-ietf-oauth-v2-31#appendix-B) the Authentication team will be releasing an update in the June Release (6/15/2018) that has a potential to break existing clients.
 
-From the above date onwards, all calls to Oauth2's /token endpoint MUST have the content-type header.
+From the above date onwards, all calls to Oauth2's /token and /otp endpoints MUST have the content-type header.
 
 `Content-Type: application/x-www-form-urlencoded`
 
