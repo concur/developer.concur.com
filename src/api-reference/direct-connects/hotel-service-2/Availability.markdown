@@ -207,7 +207,7 @@ Supported GuranteeTypes:
 
 | Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
-| *Breakfast* | Y        | Boolean   | When true, indicates breakfast is included. |
+| *Breakfast* | Y        | Boolean   | When true, indicates breakfast is included, when false, indicates it is excluded. In both cases this information is showed to a customer in the rate description. |
 | *Dinner*    | Y        | Boolean   | When true, indicates dinner is included. |
 | *Lunch*     | Y        | Boolean   | When true, indicates lunch is included. |
 

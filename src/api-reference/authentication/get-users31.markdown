@@ -43,7 +43,7 @@ Name | Type | Format | Description
 ```http
 
 GET /users HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Host: us.api.concursolutions.com
 
 ```

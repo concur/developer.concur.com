@@ -49,7 +49,7 @@ Name | Type | Format | Description
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 Date: date-requested
 Content-Length: 3397
 Connection: Close
@@ -100,7 +100,7 @@ It is recommended that the client application use the refresh grant to request a
 
 **Refreshing the token**
 
-To request a new access token using a valid refresh token, use the Oauth2 /token endpoint. Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
+To request a new access token using a valid refresh token, use the Oauth2 /token endpoint. Use the `application/x-www-form-urlencoded` content type.
 
 ```
 POST /oauth2/v0/token
@@ -120,7 +120,7 @@ Name | Type | Format | Description
 
 ```http
 POST /oauth2/v0/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 437
@@ -137,7 +137,7 @@ client_id=your-client_id
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 Date: date-requested
 Content-Length: 3397
 Connection: Close
@@ -244,7 +244,7 @@ When obtaining a token, if the response was the below:
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 Date: date-requested
 Content-Length: 3397
 Connection: Close
@@ -365,7 +365,7 @@ Name | Type | Format | Description
 
 ```http
 POST /oauth2/v0/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 175
@@ -382,7 +382,7 @@ client_id=your-client_id
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 Date: date-requested
 Content-Length: 3397
 Connection: Close
@@ -413,7 +413,7 @@ example bad login
 
 ## <a name="client_credentials"></a>Client Credentials grant
 
-Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
+Use the `application/x-www-form-urlencoded` content type.
 
 `POST /oauth2/v0/token`
 
@@ -429,7 +429,7 @@ Name | Type | Format | Description
 
 ```http
 POST /oauth2/v0/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 127
@@ -444,7 +444,7 @@ client_id=your-client_id
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 Date: date-requested
 Content-Length: 1626
 Connection: Close
@@ -474,7 +474,7 @@ The One-time Password grant type leverages email, phone (text messaging), instan
 
 **Request a one-time token to be sent to the user**
 
-Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
+Use the `application/x-www-form-urlencoded` content type.
 
 `POST /oauth2/v0/otp`
 
@@ -509,7 +509,7 @@ If the calling application chooses to send custom parameters, all of these exact
 
 ```http
 POST /oauth2/v0/otp HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Accept: application/json
 Host: us.api.concursolutions.com
 Connection: close
@@ -541,7 +541,7 @@ Date: date-requested
 
 **Request an access token**
 
-The One Time Password grant requires that all of the parameters, including client application defined parameters to be sent in the request body when requesting an access token. Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
+The One Time Password grant requires that all of the parameters, including client application defined parameters to be sent in the request body when requesting an access token. Use the `application/x-www-form-urlencoded` content type.
 
 `POST oauth2/v0/token`
 
@@ -562,7 +562,7 @@ Name | Type | Format | Description
 
 ```http
 POST /oauth2/v0/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 437
@@ -714,7 +714,7 @@ Example of the `correlationid` in the response:
 < HTTP/1.1 200 OK
 < Server: cnqr-papeete
 < Date: Mon, 04 Dec 2017 22:07:05 GMT
-< Content-Type: application/json;charset=UTF-8
+< Content-Type: application/json
 < Content-Length: 2897
 < Connection: keep-alive
 < Concur-Correlationid: 2803b8f8-a42b-43c2-a739-b8768e4759b8
