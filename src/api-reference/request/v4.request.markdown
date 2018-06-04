@@ -64,7 +64,6 @@ Name|Type|Format|Description
 ---|---|---|------
 -|object|[Request](#request)|The created Request
 
-[Back to top](#request-endpoints)
 
 #### <a name="request-resource-get"></a>Get the content of an existing request
 
@@ -84,7 +83,6 @@ Name|Type|Format|Description
 ---|---|---|---
 -|object|[Request](#request)|The Request having {requestUuid} as unique identifer
 
-[Back to top](#request-endpoints)
 
 #### <a name="request-resource-update"></a>Update the content of an existing Request
 
@@ -107,7 +105,6 @@ Name|Type|Format|Description
 ---|---|---|------
 -|object|[Request](#request)|The Request having {requestUuid} as unique identifer after update
 
-[Back to top](#request-endpoints)
 
 #### <a name="request-resource-delete"></a>Delete an existing Request
 
@@ -127,7 +124,6 @@ Name|Type|Format|Description
 ---|---|---|------
 -|-|-|No content, response code only
 
-[Back to top](#request-endpoints)
 
 #### <a name="request-resource-create-expense-linked"></a>Create an expense report linked to an approved Request
 
@@ -147,7 +143,6 @@ Name|Type|Format|Description
 ---|---|---|------
 -|object|[ResourceLink](#resourcelink)|The resource link leading to the created report
 
-[Back to top](#request-endpoints)
 
 ### <a name="workflow-resource"></a>Workflow Resources
 
@@ -184,7 +179,6 @@ Name|Type|Format|Description
 ---|---|---|------
 -|object|[Request](#request)|The Request having {requestUuid} as unique identifer
 
-[Back to top](#request-endpoints)
 
 ### <a name="expense-resource"></a>Expense Resources
 
@@ -209,7 +203,6 @@ Name|Type|Format|Description
 ---|---|---|------
 -|-|-|No content, response code only
 
-[Back to top](#request-endpoints)
 
 #### <a name="get-expected-expense-attached-request-resource"></a>Get expected Expenses attached to a Request
 
@@ -230,7 +223,6 @@ Name|Type|Format|Description
 data|array|[Expense](#expense)|List of entries attached to a Request.
 operations|string|[RFC 5988](https://tools.ietf.org/html/rfc5988)|Pagination links to next/prev/first/last page.
 
-[Back to top](#request-endpoints)
 
 #### <a name="get-existing-expense-expense-resource"></a>Get an existing expected Expense
 
@@ -250,7 +242,6 @@ Name|Type|Format|Description
 ---|---|---|------
 -|object|[Expense](#expense)|The Expense having {expenseUuid} as unique identifer
 
-[Back to top](#request-endpoints)
 
 #### <a name="update-content-existing-expected-expense-resource"></a>Update the content of an existing expected Expense
 
@@ -271,7 +262,6 @@ PUT /v4/expenses/{expenseUuid}
  ---|---|---|------
  -|object|[Expense](#expense)|The Expense having {expenseUuid} as unique identifer after update
 
-[Back to top](#request-endpoints)
 
 #### <a name="delete-expected-expense-request-resource"></a>Delete an expected Expense from the Request
 
@@ -291,7 +281,6 @@ expenseUuid|path|string|**Required** The unique identifier of the Expense to del
  ---|---|---|------
  -|-|-|No content, response code only
 
-[Back to top](#request-endpoints)
 
 ### <a name="travel-agency-resource"></a>Travel Agency Resources
 
@@ -318,7 +307,6 @@ id|string|-|The travel agency unique identifier
 name|string|-|The travel agency office name
 proposalType|string|-|The travel agency proposal type. Possible value: `CWT`, `CWTF`, `AEBT` or `API`
 
-[Back to top](#request-endpoints)
 
 ### <a name="schema"></a>Schema
 
@@ -359,7 +347,6 @@ totalRemainingAmount|object|[Amount](#amount)|The total amount not included in a
 travelAgency|object|[ResourceLink](#resourcelink)|The travel agency office that is managing the trip associated to this Request
 operations|array|[Link](#link)|Links to operations available for the Request, depends on the current approval status
 
-[Back to top](#request-endpoints)
 
 #### <a name="approvalstatus"></a>Approval Status
 
@@ -368,7 +355,6 @@ Name|Type|Format|Description
 code|string|-|The code for the approval status the Request. <br>Possible values: `NOT_SUBMITTED`, `SUBMITTED`, `APPROVED`, `CANCELED` or `SENTBACK`
 name|string|-|The approval status of the Request in the current user's language
 
-[Back to top](#request-endpoints)
 
 #### <a name="customfield"></a>CustomField
 
@@ -379,7 +365,6 @@ value|string|-|The value of the non-list item. For list fields, this value will 
 listItemId|string|-|The unique id of the item in case of a list item
 href|string|-|The link to get this list item on the list service. Empty for non-list items
 
-[Back to top](#request-endpoints)
 
 #### <a name="location"></a>Location
 
@@ -391,7 +376,6 @@ city|string|-|The city name of the location
 iataCode|string|-|The IATA code of the location
 name|string|-|The name of the location
 
-[Back to top](#request-endpoints)
 
 #### <a name="amount"></a>Amount
 
@@ -400,7 +384,6 @@ Name|Type|Format|Description
 value|number|-|**Required** The amount in the defined currency
 currency|string|[ISO 4217:2015](#https://www.iso.org/standard/64758.html)|**Required** The 3-letter ISO 4217 code for the currency in which the amount is expressed
 
-[Back to top](#request-endpoints)
 
 #### <a name="resourcelink"></a>ResourceLink
 
@@ -410,7 +393,6 @@ href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the res
 id|string|[RFC 4122](https://tools.ietf.org/html/rfc4122)|Unique identifier of the related object
 template|string|-|Hyperlink template to the resource
 
-[Back to top](#request-endpoints)
 
 #### <a name="requestlink"></a>RequestLink
 
@@ -418,7 +400,6 @@ Name|Type|Format|Description
 ---|---|---|------
 requestId|string|4 to 6 alphanumeric characters|The public key of the Request (unique per customer)
 
-[Back to top](#request-endpoints)
 
 #### <a name="link"></a>Link
 
@@ -427,7 +408,6 @@ Name|Type|Format|Description
 rel|string|[RFC 5988](https://tools.ietf.org/html/rfc5988)|Relation type as defined by the server. There are registered relation types listed in RFC 5988 6.2.2. Initial Registry Contents including pagination relation types of next, prev, first and last
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource
 
-[Back to top](#request-endpoints)
 
 #### <a name="expense"></a>Expense
 
@@ -455,7 +435,6 @@ travelAllowance|object|[Travel Allowance](#travelallowance)|The Travel allowance
 tripData|object|[Trip Data](#tripdata)|The description of the trip
 vendor|object|[Vendor](#vendor)|The vendor of the Expense entry
 
-[Back to top](#request-endpoints)
 
 #### <a name="allocation"></a>Allocation
 
@@ -471,7 +450,6 @@ percentage|number|-|The percentage of the total Expense that this allocation rep
 postedAmount|object|[Amount](#amount)|The amount of the allocation calculated with the percentage value multiplied by the posted amount on the Expense. This amount is given in the user's currency and rounded to 8 decimals after decimal point.
 systemAllocation|boolean|-|Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only
 
-[Back to top](#request-endpoints)
 
 #### <a name="exchangerate"></a>Exchange Rate
 
@@ -480,7 +458,6 @@ Name|Type|Format|Description
 operation|string|-|Exchange rate operation. Possible values are: `MULTIPLY` or `DIVIDE`
 value|number|-|Exchange rate value
 
-[Back to top](#request-endpoints)
 
 #### <a name="expensetype"></a>Expense Type
 
@@ -490,7 +467,6 @@ id|string|-|**Required** Unique identifier of the Expense type
 name|string|-|Name of the Expense type
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for the Expense type definition
 
-[Back to top](#request-endpoints)
 
 #### <a name="travelallowance"></a>Travel Allowance
 
@@ -498,7 +474,6 @@ Name|Type|Format|Description
 ---|---|---|------
 dailyTravelAllowanceId|string|-|The fixed daily travel allowance id associated with the Expense
 
-[Back to top](#request-endpoints)
 
 #### <a name="tripdata"></a>Trip Data
 
@@ -510,7 +485,6 @@ tripType|string|-|Indicates the type of this trip. Should be one of `ONE_WAY`, `
 segmentType|object|[Segment Type](#segmenttype)|**Required** The type of the segment
 selfBooked|boolean|-|True if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS
 
-[Back to top](#request-endpoints)
 
 #### <a name="vendor"></a>Vendor
 
@@ -519,7 +493,6 @@ Name|Type|Format|Description
 id|string|-|The vendor identifier of the entry
 name|string|-|The vendor description of the entry
 
-[Back to top](#request-endpoints)
 
 #### <a name="segmentleg"></a>Segment Leg
 
@@ -541,7 +514,6 @@ startTime|time|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html
 segmentLocator|string|-|This is the identifier for ConcurTravel segments (if applicable)
 vendorName|string|-|Contains the vendor description of the segment leg.
 
-[Back to top](#request-endpoints)
 
 #### <a name="segmenttype"></a>Segment Type
 

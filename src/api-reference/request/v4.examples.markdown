@@ -160,7 +160,6 @@ Responde Body:
   ]
 }
 ```
-[Back to top](#request-examples)
 
 #### <a name="request-resource-get"></a>Get the content of an existing Request
 #### GET /v4/requests/{requestUuid}
@@ -268,7 +267,6 @@ Response Body:
   ]
 }
 ```
-[Back to top](#request-examples)
 
 #### <a name="request-resource-update"></a> Update the content of an existing Request
 #### PUT /v4/requests/{requestUuid}
@@ -399,7 +397,6 @@ Response Body:
   ]
 }
 ```
-[Back to top](#request-examples)
 
 #### <a name="request-resource-delete"></a>Delete an existing Request
 #### DELETE /v4/requests/{requestUuid}
@@ -412,9 +409,9 @@ Response Body:
 ```json
 true
 ```
+
 Response Code : **200**
 
-[Back to top](#request-examples)
 
 #### <a name="request-resource-create-expense-linked"></a>Create an expense report linked to an approved Request
 #### POST /v4/requests/{requestUuid}/reports
@@ -434,7 +431,6 @@ Response Body:
 
 Response Code : **201**
 
-[Back to top](#request-examples)
 
 ### <a name="workflow-resource">Workflow resources</a>
 
@@ -539,9 +535,9 @@ Response Body:
   ]
 }
 ```
+
 Response code : **200**
 
-[Back to top](#request-examples)
 
 ### <a name="expense-resource">Expense resources</a>
 
@@ -735,9 +731,9 @@ Response Body:
   }
 }
 ```
+
 Response code : **201**
 
-[Back to top](#request-examples)
 
 #### <a name="get-expected-expense-attached-request-resource"></a>Get expected Expenses attached to a Request
 #### GET /v4/requests/{requestUuid}/expenses
@@ -964,9 +960,9 @@ Response Body:
   }
 ]
 ```
+
 Response code : **200**
 
-[Back to top](#request-examples)
 
 #### <a name="get-existing-expense-expense-resource"></a>Get the content of an existing expected Expense
 #### GET /v4/expenses/{expenseUuid}
@@ -1089,7 +1085,9 @@ Response Body:
   }
 }
 ```
+
 Response code : **200**
+
 
 ##### Expense Type DINNER
 ```
@@ -1151,9 +1149,9 @@ Response Body:
   "transactionDate": "2018-07-17T00:00:00.000Z"
 }
 ```
+
 Response code : **200**
 
-[Back to top](#request-examples)
 
 #### <a name="update-content-existing-expected-expense-resource"></a>Update the content of an existing expected Expense
 #### PUT /v4/expenses/{expenseUuid}
@@ -1386,9 +1384,9 @@ Response Body:
   }
 }
 ```
+
 Response code : **200**
 
-[Back to top](#request-examples)
 
 #### <a name="delete-expected-expense-request-resource"></a>Delete an expected Expense from the Request
 #### DELETE /v4/expenses/{expenseUuid}
@@ -1401,9 +1399,9 @@ Response Body:
 ```json
 true
 ```
+
 Response Code : **200**
 
-[Back to top](#request-examples)
 
 <a name="travel-agency-resource"></a>
 
@@ -1427,6 +1425,5 @@ Response Body:
   "name": "myCompanyAgency"
 }
 ```
-Response Code : **200**
 
-[Back to top](#request-examples)
+Response Code : **200**
