@@ -26,23 +26,23 @@ If a new or existing project please use version [3.0](./v3.request.html) of this
 * [Travel Agency Resources](#travel-agency-resource)
   * [Get the description of a travel agency office](#get-travel-agency-description-resource)
 * [Schema](#schema)
-  	* [Request](#request)
-  	* [ApprovalStatus](#approvalstatus)
-  	* [Customfield](#customfield)
-  	* [Location](#location)
-  	* [Amount](#amount)
-  	* [ResourceLink](#resourcelink)
-  	* [RequestLink](#requestlink)
-  	* [Link](#link)
-  	* [Expense](#expense)
-  	* [Allocation](#allocation)
-  	* [Exchange Rate](#exchangerate)
-  	* [Expense Type](#expensetype)
-  	* [Travel Allowance](#travelallowance)
-  	* [Trip Data](#tripdata)
-  	* [Vendor](#vendor)
-  	* [Segment Leg](#segmentleg)
-  	* [Segment Type](#segmenttype)
+  * [Request](#request)
+  * [ApprovalStatus](#approvalstatus)
+  * [Customfield](#customfield)
+  * [Location](#location)
+  * [Amount](#amount)
+  * [ResourceLink](#resourcelink)
+  * [RequestLink](#requestlink)
+  * [Link](#link)
+  * [Expense](#expense)
+  * [Allocation](#allocation)
+  * [Exchange Rate](#exchangerate)
+  * [Expense Type](#expensetype)
+  * [Travel Allowance](#travelallowance)
+  * [Trip Data](#tripdata)
+  * [Vendor](#vendor)
+  * [Segment Leg](#segmentleg)
+  * [Segment Type](#segmenttype)
 
 ### <a name="request-resource"></a>Request Resources
 
@@ -97,7 +97,7 @@ Name|Parameter Type|Data Type|Description
 requestUuid|path|string|**Required** The unique identifier of the Request
 -|body|[Request](#request)|**Required** The content of the Request to update
 
-Important: In the case of an UPDATE, the Request Body must contain both the modified values and the existing values. In order to enhance the user experience, Concur is currently working on a development in order to manage the partial update. 
+Important: In the case of an UPDATE, the Request Body must contain both the modified values and the existing values. In order to enhance the user experience, Concur is currently working on a development in order to manage the partial update.
 
 *Response:*
 
