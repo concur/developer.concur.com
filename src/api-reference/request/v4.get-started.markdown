@@ -38,7 +38,7 @@ Workflow|You can perform action in the approval workflow of a Request (submit, a
 Expense|You can read, create, update or delete an Expense, and get the list of expected Expenses for a specific Request.
 Travel Agency|You can get the description of a Travel Agency office.
 
-Manage documents used for pre-spend authorizations within Concur Request.
+These resources are used to manage documents used for pre-spend authorizations within Concur Request.
 
 ## <a name="version"></a>Version
 
@@ -83,7 +83,7 @@ curl -X POST --H 'Content-Type: application/json' --H 'Accept: application/json'
 1. [Create a sandbox](/manage-apps/register.html) if you don't already have one.
 2. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
 
-Once you have registered your application, read about the [API endpoints](/api-reference/request/endpoints.html), or click the button to download a request collection for Postman.
+Once you have registered your application, read about the [API endpoints](/api-reference/request/v4.endpoints.html), or click the button to download a request collection for Postman.
 
 [Run in Postman](https://app.getpostman.com/run-collection/bfe85f4a4e435a161a8a)
 
@@ -132,7 +132,7 @@ request.post({
   });
 ```
 
-#### <a name="post-request"></a>Post a request
+#### <a name="post-request"></a>Post a request:
 
 ```javascript
 'use strict';
