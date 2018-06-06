@@ -103,7 +103,7 @@ This section includes information about the traveler's future or current locatio
 | locationIATACode | 3 | String | [IATA Airport Codes](https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A) Either the airport or latitude/longitude must be provided.
 | startDate | 16 | String (format YYYY-MM-DDTHH:MM) | traveler's arrival date
 | endDate | 16 | String (format YYYY-MM-DDTHH:MM) | traveler's departure date
-| timezoneId | 60 | String | As a reference the full set of timezones can be found at <http://joda-time.sourceforge.net/timezones.html> A subset of the aforementioned timezones are referred to by the UserLocation API. These are found in a table in the Locate Database.
+| timezoneId | 60 | String | As a reference the full set of timezones can be found at <http://joda-time.sourceforge.net/timezones.html>
 | visitorID | 5 | This corresponds to the user ID provided in the [Users](#users) schema
 
 ### Source partner
