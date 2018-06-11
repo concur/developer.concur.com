@@ -14,7 +14,7 @@ layout: reference
 
 ## Overview
 
-The new Budget Service API is in Beta. If you are interested in using the Budget Service API, then please contact you account manager for further details. 
+The new Budget Service API is in Beta. If you are interested in using the Budget Service API, then please contact your account manager for further details. 
 
 
 This resource is used to retrieve and update budget categories which are collections of expense types used for budget
