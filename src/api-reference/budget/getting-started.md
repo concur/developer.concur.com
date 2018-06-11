@@ -17,7 +17,7 @@ layout: reference
 
 ### Overview
 
-The new Budget Service API is in Beta. If you are interested in using the Budget Service API, then please contact your account manager for further details. 
+The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details. 
 
 The Budget service exposes budget and fiscal year data.  Partners may use the service endpoints to read and alter fiscal year, budget, and budget matching configuration.
 Summary and detailed balance amounts are also available to read, but may not be altered via the API.
