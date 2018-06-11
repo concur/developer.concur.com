@@ -3,17 +3,23 @@ title: Budget Category
 layout: reference
 ---
 
-This resource is used to retrieve and update budget categories which are collections of expense types used for budget
-matching.  Each budget item header may have one budget category.  If it does, only line items with expense types 
-contained in that budget category will be accumulated to the budget. 
-
 # Budget Category
+* [Overview](#overview)
 * [Retrieve all Budget Categories](#getall)
 * [Retrieve a Budget Category](#get)
 * [Create/Update a Budget Category](#post)
 * [Remove a Budget Category](#delete)
 * [Retrieve all valid Expense Types](#getExpTypes)
 * [Schema](#schema)
+
+## Overview
+
+The new Budget Service API is in Beta. If you are interested in using the Budget Service API, then please contact you account manager for further details. 
+
+
+This resource is used to retrieve and update budget categories which are collections of expense types used for budget
+matching.  Each budget item header may have one budget category.  If it does, only line items with expense types 
+contained in that budget category will be accumulated to the budget. 
 
 
 ## Version
@@ -23,6 +29,18 @@ contained in that budget category will be accumulated to the budget.
 ## <a name="getall"></a>Retrieve all Budget Categories
 
     GET  /budget/v4/budgetCategory
+
+cURL:
+
+```shell
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/budget/v4/budgetCategory
+```
+
+HTTPie:
+
+```shell
+http https://us.api.concursolutions.com/budget/v4/budgetCategory 'Authorization:Bearer {YOUR ACCESS TOKEN}'
+```
 
 ### Parameters
 
@@ -36,6 +54,19 @@ contained in that budget category will be accumulated to the budget.
 ## <a name="get"></a>Retrieve a Budget Category
 
     GET  /budget/v4/budgetCategory/{id} 
+    
+cURL:
+
+```shell
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/budget/v4/budgetCategory/{id} 
+```
+
+HTTPie:
+
+```shell
+http https://us.api.concursolutions.com/budget/v4/budgetCategory/{id}  'Authorization:Bearer {YOUR ACCESS TOKEN}'
+```
+
 
 ### Parameters
 
@@ -81,6 +112,23 @@ id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
 ## <a name="post"></a>Create/Update a Budget Category
 
     POST  /budget/v4/budgetCategory
+    
+```shell
+curl -v -X POST https://us.api.concursolutions.com/budget/v4/budgetCategory  \
+-H "Authorization: Bearer {YOUR ACCESS TOKEN}" \
+-H "Content-Type: application/json" \
+-d @{PATH TO YOUR BUDGET CATAEGORY JSON}
+```
+
+HTTPie:
+
+```shell
+http POST https://us.api.concursolutions.com/budget/v4/budgetCategory \
+"Authorization:Bearer {YOUR ACCESS TOKEN}" \
+"Content-Type: application/json" \
+< {PATH TO YOUR BUDGET CATAEGORY JSON}
+```
+
 
 
 ### Parameters
@@ -97,6 +145,19 @@ Name | Type | Format | Description
 ## <a name="delete"></a>Delete a Budget Category
 
     DELETE  /budget/v4/budgetCategory/{id}
+    
+```shell
+curl -v -X DELETE https://us.api.concursolutions.com/budget/v4/budgetCategory/{id}  \
+-H "Authorization: Bearer {YOUR ACCESS TOKEN}" \
+-H "Content-Type: application/json" \
+```
+
+```shell
+http DELETE https://us.api.concursolutions.com/budget/v4/budgetCategory/{id} \
+"Authorization:Bearer {YOUR ACCESS TOKEN}" \
+"Content-Type: application/json" \
+```
+
 
 ### Parameters
 

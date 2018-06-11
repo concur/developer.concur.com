@@ -13,8 +13,11 @@ layout: reference
 - [Explore the API](#explore-the-api)
   - [Prerequisites](#prerequisites)
   - [Acquire an Access Token](#retrieve-a-user-access-token)
+  - [Roles & Scopes](#roles-and-scopes)
 
 ### Overview
+
+The new Budget Service API is in Beta. If you are interested in using the Budget Service API, then please contact you account manager for further details. 
 
 The Budget service exposes budget and fiscal year data.  Partners may use the service endpoints to read and alter fiscal year, budget, and budget matching configuration.
 Summary and detailed balance amounts are also available to read, but may not be altered via the API.
@@ -61,3 +64,14 @@ HTTPie:
 http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={YOUR SECRET} client_id={YOUR CLIENT ID} grant_type=password username={YOUR USERNAME} password=P{YOUR PASSWORD}
 ```
 
+#### Roles and Scopes:
+
+The user needs to have the Budget Administrator role in order to access the api. 
+
+The GET api endpoints for fiscal year require fiscalcalendar.read or budgetitem.read scope.
+
+POST and DELETE endpoints require fiscalcalendar.write or budgetitem.write scope.
+
+Budget Item Header, Budget Item Category GET end points require budgetitem.read.
+ 
+Budget Item Header, Budget Item Category POST and DELETE end points require budgetitem.write. 

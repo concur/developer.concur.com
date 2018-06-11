@@ -3,15 +3,20 @@ title: Budget Header
 layout: reference
 ---
 
-This resource is used to retrieve and update information about a budget that spans a single fiscal year.  Each budget
-has multiple details that correspond to fiscal periods--months, quarters, or a single period for a yearly budget.
-
 # Budget Item Header
+* [Overview](#overview)
 * [Retrieve all Budget Item Headers](#getall)
 * [Retrieve a Budget Item Header](#get)
 * [Create/Update a Budget Item Header](#post)
 * [Remove a Budget Item Header](#delete)
 * [Schema](#schema)
+
+### Overview
+
+The new Budget Service API is in Beta. If you are interested in using the Budget Service API, then please contact you account manager for further details. 
+
+This resource is used to retrieve and update information about a budget that spans a single fiscal year.  Each budget
+has multiple details that correspond to fiscal periods--months, quarters, or a single period for a yearly budget.
 
 
 ## Version
@@ -21,6 +26,16 @@ has multiple details that correspond to fiscal periods--months, quarters, or a s
 ## <a name="getall"></a>Retrieve all Budget Item Headers
 
     GET  /budget/v4/budgetItemHeader 
+    
+```shell
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/budget/v4/budgetItemHeader  
+```
+
+HTTPie:
+
+```shell
+http https://us.api.concursolutions.com/budget/v4/budgetItemHeader 'Authorization:Bearer {YOUR ACCESS TOKEN}'
+```
 
 ### Parameters
 
@@ -112,6 +127,17 @@ offset	|	`integer`	|	`query`	|	The start of the page offset.  Defaults to zero.
 ## <a name="get"></a>Retrieve a Budget Item Header
 
     GET  /budget/v4/budgetItemHeader/{id} 
+    
+```shell
+curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id} 
+```
+
+HTTPie:
+
+```shell
+http https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}  'Authorization:Bearer {YOUR ACCESS TOKEN}'
+```
+
 
 ### Parameters
 
@@ -265,6 +291,21 @@ id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
 
     POST  /budget/v4/budgetItemHeader
 
+```shell
+curl -v -X POST https://us.api.concursolutions.com/budget/v4/budgetItemHeader  \
+-H "Authorization: Bearer {YOUR ACCESS TOKEN}" \
+-H "Content-Type: application/json" \
+-d @{PATH TO YOUR BUDGET ITEM HEADER JSON}
+```
+
+HTTPie:
+
+```shell
+http POST https://us.api.concursolutions.com/budget/v4/budgetItemHeader \
+"Authorization:Bearer {YOUR ACCESS TOKEN}" \
+"Content-Type: application/json" \
+< {PATH TO YOUR BUDGET ITEM HEADER JSON}
+```
 
 ### Parameters
 
@@ -358,6 +399,19 @@ Name | Type | Format | Description
 ## <a name="delete"></a>Delete a Budget Item Header
 
     DELETE  /budget/v4/budgetItemHeader/{id}
+    
+```shell
+curl -v -X DELETE https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}  \
+-H "Authorization: Bearer {YOUR ACCESS TOKEN}" \
+-H "Content-Type: application/json" \
+```
+
+```shell
+http DELETE https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id} \
+"Authorization:Bearer {YOUR ACCESS TOKEN}" \
+"Content-Type: application/json" \
+```
+
 
 
 ### Parameters
