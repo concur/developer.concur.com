@@ -267,9 +267,18 @@ Message to reserve a hotel.
 | Element  | Required | Data Type         | Description |
 |----------|----------|-------------------|-------------|
 | *ID*     | Y        | StringLength1to32 | A reference to identify the booking |
+| *Type*   | Y        | StringLength1to32 | A reference to identify the type of UniqueID, see Type - possible values below |
 
-**Note:** OTA UIT Type "14" should hold the booking UUID, while OTA UIT Type "40" should hold the confirmation number from the supplier.
-You can also optionally supply ID with Type "1000" (cancellation/modification code). This one will be rendered on itinerary page and can be used to reach hotel directly to cancel/modify the booking.
+
+**Type - possible values**
+
+| Value | Description |
+|-------|-------------|
+| 14    | Reservation ID used in subsequent calls (Itinerary, Cancel) |
+| 15    | Cancellation number, displayed in UI, proof of cancellation |
+| 40    | Confirmation number for future use (not used now) |
+| 1000  | Cancellation/modification code. This one will be rendered on itinerary page and can be used to change the reservation outside of Concur system. Concur-specific OTA extension. |
+
 
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
