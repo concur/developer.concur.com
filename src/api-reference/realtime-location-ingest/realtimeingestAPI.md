@@ -127,6 +127,7 @@ error codes.
     "longitude": -122.200676,
     "name": "Bellevue",
     "address": {
+      "streetAddress": "601 108th Ave NE"
       "addressCountry": "US",
       "addressLocality": "Bellevue",
       "addressRegion": "WA",
