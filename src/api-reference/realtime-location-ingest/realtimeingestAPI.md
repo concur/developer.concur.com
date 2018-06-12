@@ -1,9 +1,9 @@
 ---
-title: Realtime Ingest Locations
+title: Realtime Ingest Location
 layout: reference
 ---
 
-# Realtime Ingest Locations
+# Realtime Ingest Location
 
 * [Overview](#overview)
 * [Prerequisites](#prerequisites)
@@ -25,8 +25,8 @@ This API supports POST request only.
 
 ## Prerequisites
 
-1. [Create sandbox environment](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
-2. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
+1. [Create sandbox environment](/manage-apps/register.html) if you don't already have one.
+2. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
 
 
 ## Regional Availability
