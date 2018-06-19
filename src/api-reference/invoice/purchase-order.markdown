@@ -168,16 +168,16 @@ None.
 |`DiscountPercentage`|`string`|-|The discount from the vendor, if the discount terms are met.
 |`DiscountTerms`|`string`|-|The net discount terms that the vendor offers, when discounts apply.
 |`ID`|`string`|-|The unique identifier of the resource.
-|`LineItem`|`object`|[`LineItem`](#lineItem)|**Required** The line items in a purchase order.
+|`LineItem`|`array`|[`LineItem`](#lineItem)|**Required** The line items in a purchase order.
 |`Name`|`string`|-|A name for the purchase order.
 |`NeededByDate`|`string`|-|The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD
 |`OrderDate`|`string`|-|The date when goods were ordered. Format: YYYY-MM-DD
 |`PaymentTerms`|`string`|-|The net payment terms that have been set up with a vendor.
-|`PolicyExternalID`|`string`|-|The external identifier of the policy that should be associated with the purchase order. The external ID is a property of the policy in its configuration.
+|`PolicyExternalID`|`string`|-|**Required** The external identifier of the policy that should be associated with the purchase order. The external Id is a property of the policy configuration screen. Clients will need to get these ID’s from the Implementation team if using professional version. For standard version the value is always "PO".
 |`PoVendorTaxId`|`string`|-|The Vendor Tax ID.
 |`ProvincialTaxId`|`string`|-|The Vendor Provincial Tax ID.
 |`PurchaseOrderNumber`|`string`|-|The purchase order number.
-|`ReceiptType`|`string`|-|The Purchase Order Receipt type (Depricated). Use the PurchaseOrderReceiptType at line item level instead.
+|`ReceiptType`|`string`|-|The Purchase Order Receipt type (Deprecated). Use the PurchaseOrderReceiptType at line item level instead.
 |`RequestedBy`|`string`|-|The person who requests the goods in the purchase order.
 |`RequestedDeliveryDate`|`string`|-|The date the purchase order instructed the vendor to deliver the goods. Format YYYY-MM-DD
 |`Shipping`|`string`|-|The total shipping cost for the purchase order.
@@ -225,6 +225,7 @@ None.
 |`IsReceiptRequired`|`string`|-|Indicates whether the line item requires a receipt. Format: true or false
 |`LineNumber`|`string`|-|**Required** The line item number within the purchase order.
 |`Quantity`|`string`|-|The quantity associated with the line item.
+|`PurchaseOrderReceiptType`|`string`|-|Purchase order ReceiptType of the line item. Accepted values are QUANTITY_RECEIPT or NONE. If a value is not provided, it will default to NONE.  If you are using Concur Receiving and need to enter Goods Receipts against the resulting PO lines use QUANTITY_RECEIPT.
 |`RequestedBy`|`string`|-|The person who requests the goods in the line item of the purchase order.
 |`RequestedDeliveryDate`|`string`|-|The date the line item of the purchase order instructed the vendor to deliver the goods. Format: YYYY-MM-DD
 |`SupplierPartID`|`string`|-|Any number that might help to identify the line item. This could be a value such as the vendor's part number or even the manufacturer number.

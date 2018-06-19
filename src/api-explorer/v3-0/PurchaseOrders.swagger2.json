@@ -108,6 +108,7 @@
   },
   "definitions": {
     "Allocation": {
+      "required":["Amount", "GrossAmount", "Percentage"],
       "properties": {
         "Amount": {
           "type": "string",
@@ -204,6 +205,7 @@
       }
     },
     "BillToAddress": {
+      "required":["Address1", "City", "CountryCode", "ExternalID", "PostalCode"],
       "properties": {
         "Address1": {
           "type": "string",
@@ -248,6 +250,7 @@
       }
     },
     "LineItem": {
+      "required":["LineNumber"],
       "properties": {
         "AccountCode": {
           "type": "string",
@@ -255,7 +258,9 @@
         },
         "Allocation": {
           "type": "array",
-          "$ref": "#/definitions/Allocation"
+          "items": {
+            "$ref": "#/definitions/Allocation"
+          }
         },
         "AmountWithoutVat": {
           "type": "string",
@@ -370,7 +375,7 @@
         },
         "PurchaseOrderReceiptType": {
           "type": "string",
-          "description": "Purchase order ReceiptType of the line item. Can be NONE or WQTY (Receipt type Quantity). "
+          "description": "Purchase order ReceiptType of the line item. Accepted values are QUANTITY_RECEIPT or NONE. If a value is not provided, it will default to NONE.  If you are using Concur Receiving and need to enter Goods Receipts against the resulting PO lines use QUANTITY_RECEIPT. "
         },
         "Quantity": {
           "type": "string",
@@ -407,6 +412,7 @@
       }
     },
     "PurchaseOrder": {
+      "required":["BillToAddress", "LineItem", "PolicyExternalID", "ShipToAddress"],
       "properties": {
         "AmountWithoutVat": {
           "type": "string",
@@ -537,7 +543,9 @@
         },
         "LineItem": {
           "type":"array",
-          "$ref": "#/definitions/LineItem"
+          "items": {
+            "$ref": "#/definitions/LineItem"
+          }
         },
         "Name": {
           "type": "string",
@@ -557,7 +565,7 @@
         },
         "PolicyExternalID": {
           "type": "string",
-          "description": "The external identifier of the policy that should be associated with the purchase order. The external ID is a property of the policy in its configuration."
+          "description": " The external identifier of the policy that should be associated with the purchase order. The external Id is a property of the policy configuration screen. Clients will need to get these ID’s from the Implementation team if using professional version. For standard version the value is always 'PO'"
         },
         "PoVendorTaxId": {
           "type": "string",
@@ -573,7 +581,7 @@
         },
         "ReceiptType": {
           "type": "string",
-          "description": "The Purchase Order Receipt type (Depricated.) Use the PurchaseOrderReceiptType at line item level instead."
+          "description": "The Purchase Order Receipt type (Deprecated.) Use the PurchaseOrderReceiptType at line item level instead."
         },
         "RequestedBy": {
           "type": "string",
@@ -645,6 +653,7 @@
       }
     },
     "PurchaseOrderReceipt": {
+      "required":["IsReceived","LineItemExternalID","PurchaseOrderNumber"],
       "properties": {
         "Custom1": {
           "type": "string",
@@ -769,6 +778,7 @@
       }
     },
     "ShipToAddress": {
+      "required":["Address1", "City", "CountryCode", "ExternalID", "PostalCode"],
       "properties": {
         "Address1": {
           "type": "string",
