@@ -64,15 +64,6 @@ Create or update a Purchase Order. Batch processing is not available using the P
             "ExternalID": "API100line1",
             "IsReceiptRequired": "true",
             "LineNumber": "1",
-            "PurchaseOrderReceipt": [
-              {
-                "DeliverySlipNumber": "DSN",
-                "GoodsReceiptNumber": "GRN",
-                "ID": "rec1",
-                "IsReceived": "true",
-                "ReceivedQuantity": "1"
-              }
-            ],
             "PurchaseOrderReceiptType": "WQTY",
             "Quantity": "1",
             "UnitPrice": "10"
