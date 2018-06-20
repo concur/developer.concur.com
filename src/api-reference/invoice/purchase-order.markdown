@@ -153,7 +153,7 @@ None.
 |-----|------|--------|------------
 |`AmountWithoutVat`|`string`|-|The net amount of the Purchase Order (excluding VAT).
 |`BillToAddress`|`object`|[`BillToAddress`](#bill-to-address)|**Required** The customer's billing address, which is where the vendor should send the bill.
-|`CurrencyCode`|`string`|-|The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order.
+|`CurrencyCode`|`string`|-|**Required** The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order.
 |`Custom1 through Custom24`|`string`|-|A value that can be applied to a custom field that is part of the purchase order header form.
 |`Description`|`string`|-|A description of the purchase order.
 |`DiscountPercentage`|`string`|-|The discount from the vendor, if the discount terms are met.
@@ -162,7 +162,7 @@ None.
 |`LineItem`|`array`|[`LineItem`](#lineItem)|**Required** The line items in a purchase order.
 |`Name`|`string`|-|A name for the purchase order.
 |`NeededByDate`|`string`|-|The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD
-|`OrderDate`|`string`|-|The date when goods were ordered. Format: YYYY-MM-DD
+|`OrderDate`|`string`|-|**Required** The date when goods were ordered. Format: YYYY-MM-DD
 |`PaymentTerms`|`string`|-|The net payment terms that have been set up with a vendor.
 |`PolicyExternalID`|`string`|-|**Required** The external identifier of the policy that should be associated with the purchase order. The external Id is a property of the policy configuration screen. Clients will need to get these ID’s from the Implementation team if using professional version. For standard version the value is always "PO".
 |`PoVendorTaxId`|`string`|-|The Vendor Tax ID.
@@ -184,8 +184,8 @@ None.
 |`VatRateOne`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
 |`VatRateTwo`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
 |`VendorAccountNumber`|`string`|-|The vendor account number.
-|`VendorAddressCode`|`string`|-|The code that identifies the vendor's remit address for the purchase order.
-|`VendorCode`|`string`|-|The code that identifies the vendor for the purchase order.
+|`VendorAddressCode`|`string`|-|**Required** The code that identifies the vendor's remit address for the purchase order.
+|`VendorCode`|`string`|-|**Required** The code that identifies the vendor for the purchase order.
 
 #### <a name="bill-to-address"></a>BillToAddress  
 
@@ -212,16 +212,16 @@ None.
 |`Custom1 through Custom20`|`string`|-|A value that can be applied to a custom field 1 that is part of the purchase order line item form.
 |`Description`|`string`|-|A description of the line item.
 |`ExpenseType`|`string`|-|The expense type of the line item. A value must be supplied for either ExpenseType or AccountCode, but not both. This field is required if an AccountCode value is not supplied.
-|`ExternalID`|`string`|-|A customer-supplied value that uniquely identifies the line item within the purchase order.
+|`ExternalID`|`string`|-|**Required** A customer-supplied value that uniquely identifies the line item within the purchase order.
 |`IsReceiptRequired`|`string`|-|Indicates whether the line item requires a receipt. Format: true or false
 |`LineNumber`|`string`|-|**Required** The line item number within the purchase order.
-|`Quantity`|`string`|-|The quantity associated with the line item.
+|`Quantity`|`string`|-|**Required** The quantity associated with the line item.
 |`PurchaseOrderReceiptType`|`string`|-|Purchase order ReceiptType of the line item. Accepted values are QUANTITY_RECEIPT or NONE. If a value is not provided, it will default to NONE.  If you are using Concur Receiving and need to enter Goods Receipts against the resulting PO lines use QUANTITY_RECEIPT.
 |`RequestedBy`|`string`|-|The person who requests the goods in the line item of the purchase order.
 |`RequestedDeliveryDate`|`string`|-|The date the line item of the purchase order instructed the vendor to deliver the goods. Format: YYYY-MM-DD
 |`SupplierPartID`|`string`|-|Any number that might help to identify the line item. This could be a value such as the vendor's part number or even the manufacturer number.
 |`Tax`|`string`|-|Any tax that is associated with the line item.
-|`UnitPrice`|`string`|-|The price of each item of the line item.
+|`UnitPrice`|`string`|-|**Required** The price of each item of the line item.
 |`VatAmount`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
 |`VatRate`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
 

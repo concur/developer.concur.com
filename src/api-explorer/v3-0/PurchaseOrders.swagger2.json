@@ -250,7 +250,7 @@
       }
     },
     "LineItem": {
-      "required":["LineNumber"],
+      "required":["LineNumber", "ExternalID", "Quantity", "UnitPrice"],
       "properties": {
         "AccountCode": {
           "type": "string",
@@ -409,7 +409,7 @@
       }
     },
     "PurchaseOrder": {
-      "required":["BillToAddress", "LineItem", "PolicyExternalID", "ShipToAddress"],
+      "required":["BillToAddress", "LineItem", "PolicyExternalID", "ShipToAddress", "CurrencyCode", "OrderDate", "VendorAddressCode", "VendorCode"],
       "properties": {
         "AmountWithoutVat": {
           "type": "string",
@@ -582,7 +582,7 @@
         },
         "RequestedBy": {
           "type": "string",
-          "description": "The person that requests the goods associated to the purchase order.\r\n            \tIf the setting \"Assign invoice to Purchase Request Owner\" is turned on, our system will read this value\r\n            \tto identify a valid invoice owner.\r\n            \tThis value will be matched against the following Employee fields in the order given:\r\n                1. Employee Login ID\r\n                2. Employee ID\r\n                3. Employee Email Address\r\n                4. Employee Name (\"first_name last_name\" or \"last_name, first_name\")"
+          "description": "The person who requests the goods in the purchase order."
         },
         "RequestedDeliveryDate": {
           "type": "string",
