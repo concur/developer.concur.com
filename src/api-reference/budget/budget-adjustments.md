@@ -1,3 +1,6 @@
+## Overview
+The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details.
+
 This resource is used to add budget adjustments. Each budget item detail may have one or more budget adjustments and adjustments can be made to manually add or subtract the budget, spent or pending balances.
 
 # Budget Adjustments
