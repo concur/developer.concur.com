@@ -20,65 +20,42 @@ layout: reference
 
 This API provides an endpoint to ingest real time user location information from Rideshare Services. 
 
-This API supports POST request only.
-
-
-## Prerequisites
-
-1. [Create sandbox environment](/manage-apps/register.html) if you don't already have one.
-2. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
-
-
 ## Regional Availability
 
 ```
 https://us.api.concursolutions.com/realtimeingest
 ```
 
-#### Retrieve a User Access Token:
-
-Before making requests to the Receipts API, you must [obtain an access token from the Authentication API](https://developer.concur.com/api-reference/authentication/getting-started.html) with the scope "realtimeingest.location.writeonly"
-
-The response will include an `access_token` field, which contains your access token. For subsequent calls, you will need to include this access token in the `Authorization` header of your calls. An `id_token` will be also included in the response. In order to retrieve the unique ID for your user, you will have to decode this `id_token` at [jwt.io](https://jwt.io/). You will need this ID in order to post receipts.
-
-Examples:
-
-cURL:
-
-```shell
-curl -d "client_secret={YOUR SECRET}&client_id={YOUR CLIENT ID}&grant_type=password&username={YOUR USERNAME}&password={YOUR PASSWORD}" https://us.api.concursolutions.com/oauth2/v0/token
-```
-
 ## Schema
-_POST /location/:uuid
+
+POST /location/:uuid
 
 See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema. Property names mentioned in __*bold italics*__ are required fields.
 
 The user locations API includes users and itineraries (locations) in addition to information about the company and post type (add or cancel).
 
-  | Property Name         | Type   | Format   | Description                                                  |
-  | --------------------- | ------ | -------- | ------------------------------------------------------------ |
-  | __*uuid*__            | String |          | Contains the uuid of the user.                               |
-  | __*dropOffDateTime*__ | String | DateTime | Date Time where the user was dropped off (in RFC3339 format) |
-  | __*dropOffLocation*__ | Object | JSON     | Location where the user was dropped off                      |
+  | Property Name         | Type   | Format   | Description                                                               |
+  | --------------------- | ------ | -------- | ------------------------------------------------------------------------- |
+  | __*uuid*__            | String | -        | **Required** UUID of the user.                                            |
+  | __*dropOffDateTime*__ | String | DateTime | **Required** Date Time where the user was dropped off (in RFC3339 format) |
+  | __*dropOffLocation*__ | Object | JSON     | **Required** Location where the user was dropped off                      |
 
-### dropOffLocation  
-  
-  | Property Name   | Type   | Format | Description                                           |
-  | --------------- | ------ | ------ | ----------------------------------------------------- |
-  | __*name*__      | String |        | Canonical name of the location.                       |
-  | __*latitude*__  | Number | Float  | Numeric value of latitude (Range -90.00 and 90.00)    |
-  | __*longitude*__ | Number | Float  | Numeric value of longitude (Range -180.00 and 180.00) |
-  | __*address*__   | Object | JSON   | Address where the user was dropped off                |
+### dropOffLocation   
+  | Property Name   | Type   | Format | Description                                                        |
+  | --------------- | ------ | ------ | ------------------------------------------------------------------ |
+  | __*name*__      | String | -      | Canonical name of the location.                                    |
+  | __*latitude*__  | Number | Float  | **Required** Numeric value of latitude (Range -90.00 and 90.00)    |
+  | __*longitude*__ | Number | Float  | **Required** Numeric value of longitude (Range -180.00 and 180.00) |
+  | __*address*__   | Object | JSON   | Address where the user was dropped off                             |
 
   ### address
   | Property Name         | Type   | Format | Description                                                             |
   | --------------------- | ------ | ------ | ----------------------------------------------------------------------- |
-  | __*streetAddress*__   | String |        | Street address of the location.                                         |
-  | __*addressLocality*__ | String |        | Canonical City name of the address                                      |
-  | __*addressRegion*__   | String |        | 1 to 3 character country subdivision code as defined in ISO 3166-2:2013 |
-  | __*addressCountry*__  | String |        | 2 or 3 character country code as defined in ISO 3166-1:2013             |
-  | __*postalCode*__      | String |        | Postal code of the address                                              |
+  | __*streetAddress*__   | String | -      | Street address of the location.                                         |
+  | __*addressLocality*__ | String | -      | Canonical City name of the address                                      |
+  | __*addressRegion*__   | String | -      | 1 to 3 character country subdivision code as defined in ISO 3166-2:2013 |
+  | __*addressCountry*__  | String | -      | 2 or 3 character country code as defined in ISO 3166-1:2013             |
+  | __*postalCode*__      | String | -      | Postal code of the address                                              |
 
 
 ## Request Headers
@@ -87,7 +64,7 @@ The user locations API includes users and itineraries (locations) in addition to
 
 ## Response Headers
 
-* [concur-correlationId] Concur specific custom header
+* [concur-correlationid] Concur specific custom header
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 * [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
 * [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
@@ -100,26 +77,22 @@ The user locations API includes users and itineraries (locations) in addition to
 * [401 Unauthorised](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [406 Not Acceptable](https://tools.ietf.org/html/rfc7231#section-6.5.6)
 
-Exceptions from the service will be mapped to one of the aforementioned
-error codes.
-
 
 ## Example
 
-
 ### Request URL
-
-  ```
-  https://{baseURI}/location/:uuid
-  ```
+```
+https://{baseURI}/location/{uuid}
+```
 
 ### Request
-
 ```
- curl -X POST \
- --header \'Content-Type: application/json\' \
- --header \'Authorization: Bearer \<JWT\> \
- -d \'{
+POST https://{baseURI}/location/{uuid}
+Content-Type: application/json
+Authorization: Bearer {access-token}
+```
+```json
+{
   "uuid": "uuid",
   "dropOffDateTime": "2018-06-08T09:00:45-0600",
   "dropOffLocation": {
@@ -127,34 +100,32 @@ error codes.
     "longitude": -122.200676,
     "name": "Bellevue",
     "address": {
-      "streetAddress": "601 108th Ave NE"
+      "streetAddress": "601 108th Ave NE",
       "addressCountry": "US",
       "addressLocality": "Bellevue",
       "addressRegion": "WA",
       "postalCode": "98004"
     },
   }
-}\'
+}
 ```
-### Response Header
 
-```
-{                           
- "date": "Mon, 11 Jun 2018 17:43:28 GMT", 
- "server": "pproxy/d8b665e", 
- "content-length": "170",       
- "content-type": "application/json",
- "concur-correlationId": "concur-correlationId"
- }                                                
+### Response Header
+```                          
+ Date: Mon, 11 Jun 2018 17:43:28 GMT
+ Server: pproxy/d8b665e
+ Content-Length: 170     
+ Content-Type: application/json
+ concur-correlationid: concur-correlationid
+                                                 
 ```
 
 ### Response Body
-
-```
+```json
 { 
   "concur-correlationId": "concur-correlationId",
   "requestId": "requestId",  
-  "appVersion": "appVersion"                    
+  "appVersion": "appVersion",                    
   "message": "Event Received"                          
  }                       
 ```
