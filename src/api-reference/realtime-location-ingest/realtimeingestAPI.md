@@ -26,41 +26,18 @@ This API provides an endpoint to ingest real time user location information from
 https://us.api.concursolutions.com/realtimeingest
 ```
 
-## Schema
-
-POST /location/:uuid
-
-See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema. Property names mentioned in __*bold italics*__ are required fields.
-
-The user locations API includes users and itineraries (locations) in addition to information about the company and post type (add or cancel).
-
-  | Property Name         | Type   | Format   | Description                                                               |
-  | --------------------- | ------ | -------- | ------------------------------------------------------------------------- |
-  | __*uuid*__            | String | -        | **Required** UUID of the user.                                            |
-  | __*dropOffDateTime*__ | String | DateTime | **Required** Date Time where the user was dropped off (in RFC3339 format) |
-  | __*dropOffLocation*__ | Object | JSON     | **Required** Location where the user was dropped off                      |
-
-### dropOffLocation   
-  | Property Name   | Type   | Format | Description                                                        |
-  | --------------- | ------ | ------ | ------------------------------------------------------------------ |
-  | __*name*__      | String | -      | Canonical name of the location.                                    |
-  | __*latitude*__  | Number | Float  | **Required** Numeric value of latitude (Range -90.00 and 90.00)    |
-  | __*longitude*__ | Number | Float  | **Required** Numeric value of longitude (Range -180.00 and 180.00) |
-  | __*address*__   | Object | JSON   | Address where the user was dropped off                             |
-
-  ### address
-  | Property Name         | Type   | Format | Description                                                             |
-  | --------------------- | ------ | ------ | ----------------------------------------------------------------------- |
-  | __*streetAddress*__   | String | -      | Street address of the location.                                         |
-  | __*addressLocality*__ | String | -      | Canonical City name of the address                                      |
-  | __*addressRegion*__   | String | -      | 1 to 3 character country subdivision code as defined in ISO 3166-2:2013 |
-  | __*addressCountry*__  | String | -      | 2 or 3 character country code as defined in ISO 3166-1:2013             |
-  | __*postalCode*__      | String | -      | Postal code of the address                                              |
-
-
 ## Request Headers
 
 * [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+### Request Payload
+| Name                  | Type   | Format   | Description                                                               |
+| --------------------- | ------ | -------- | ------------------------------------------------------------------------- |
+| __*uuid*__            | String | -        | **Required** UUID of the user.                                            |
+| __*dropOffDateTime*__ | String | DateTime | **Required** Date Time where the user was dropped off (in RFC3339 format) |
+| __*dropOffLocation*__ | Object | JSON     | **Required** Location where the user was dropped off                      |
+
+Please refer the schema section for more information regarding each field in the payload.
 
 ## Response Headers
 
@@ -70,13 +47,22 @@ The user locations API includes users and itineraries (locations) in addition to
 * [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
 * [RFC 7231 Server](https://tools.ietf.org/html/rfc7231#section-7.4.2)
 
+### Response Payload
+| Name                       | Type   | Format | Description                          |
+| -------------------------- | ------ | ------ | ------------------------------------ |
+| __*concur-correlationId*__ | String | -      | Concur specific custom field         |
+| __*requestId*__            | String | -      | Unique ID for thr request            |
+| __*appVersion*__           | String | -      | Application version number           |
+| __*message*__              | String | -      | Success/Error message                |
+| __*errorDescription*__     | Object | JSON   | Description of error (if applicable) |
+
+
 ## Status Codes
 
 * [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
 * [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
 * [401 Unauthorised](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [406 Not Acceptable](https://tools.ietf.org/html/rfc7231#section-6.5.6)
-
 
 ## Example
 
@@ -129,3 +115,38 @@ Authorization: Bearer {access-token}
   "message": "Event Received"                          
  }                       
 ```
+
+## Schema
+
+See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema. Property names mentioned in __*bold italics*__ are required fields.
+
+The user locations API includes users and itineraries (locations) in addition to information about the company and post type (add or cancel).
+
+  | Property Name         | Type   | Format   | Description                                                               |
+  | --------------------- | ------ | -------- | ------------------------------------------------------------------------- |
+  | __*uuid*__            | String | -        | **Required** UUID of the user.                                            |
+  | __*dropOffDateTime*__ | String | DateTime | **Required** Date Time where the user was dropped off (in RFC3339 format) |
+  | __*dropOffLocation*__ | Object | JSON     | **Required** Location where the user was dropped off                      |
+
+### dropOffLocation   
+  | Property Name   | Type   | Format | Description                                                        |
+  | --------------- | ------ | ------ | ------------------------------------------------------------------ |
+  | __*name*__      | String | -      | Canonical name of the location.                                    |
+  | __*latitude*__  | Number | Float  | **Required** Numeric value of latitude (Range -90.00 and 90.00)    |
+  | __*longitude*__ | Number | Float  | **Required** Numeric value of longitude (Range -180.00 and 180.00) |
+  | __*address*__   | Object | JSON   | Address where the user was dropped off                             |
+
+  ### address
+  | Property Name         | Type   | Format | Description                                                             |
+  | --------------------- | ------ | ------ | ----------------------------------------------------------------------- |
+  | __*streetAddress*__   | String | -      | Street address of the location.                                         |
+  | __*addressLocality*__ | String | -      | Canonical City name of the address                                      |
+  | __*addressRegion*__   | String | -      | 1 to 3 character country subdivision code as defined in ISO 3166-2:2013 |
+  | __*addressCountry*__  | String | -      | 2 or 3 character country code as defined in ISO 3166-1:2013             |
+  | __*postalCode*__      | String | -      | Postal code of the address                                              |
+
+  ### errorDescription
+| Name            | Type  | Format | Description                                  |
+| --------------- | ----- | ------ | -------------------------------------------- |
+| __*fieldName*__ | Array | -      | Errors associated with the given *fieldName* |
+
