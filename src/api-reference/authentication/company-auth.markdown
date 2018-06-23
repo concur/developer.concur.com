@@ -54,7 +54,7 @@ successful call, responds with
 ```http
 301 Redirect https://client.app.url?id=$company_uuid&requestToken=$request_token&userID=$user_uuid
 ```
-At this point, the user should be prompted to sign in to your application. If the user doesn't not have account, the user should have the ability to create one. For applications that have user read scope, the User UUID can be used to pre-populate the account creation forms. Please see the [App Center User Experience guidelines](/manage-apps/go-market-docs/app_center_ux_guidelines.pdf) for more information. 
+At this point, the user should be prompted to sign in to your application. If the user doesn't not have account, the user should have the ability to create one. For applications that have user read scope, the User UUID can be used to pre-populate the account creation forms. Please see the [App Center User Experience guidelines](/manage-apps/go-market-docs/app-center-ux-guidelines.pdf) for more information. 
 
 **Client app calls Oauth2 password grant to get an access token for the company**
 
