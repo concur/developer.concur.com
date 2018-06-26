@@ -108,6 +108,7 @@
   },
   "definitions": {
     "Allocation": {
+      "required":["Amount", "GrossAmount", "Percentage"],
       "properties": {
         "Amount": {
           "type": "string",
@@ -204,6 +205,7 @@
       }
     },
     "BillToAddress": {
+      "required":["Address1", "City", "CountryCode", "ExternalID", "PostalCode"],
       "properties": {
         "Address1": {
           "type": "string",
@@ -248,6 +250,7 @@
       }
     },
     "LineItem": {
+      "required":["LineNumber", "ExternalID", "Quantity", "UnitPrice"],
       "properties": {
         "AccountCode": {
           "type": "string",
@@ -255,7 +258,9 @@
         },
         "Allocation": {
           "type": "array",
-          "$ref": "#/definitions/Allocation"
+          "items": {
+            "$ref": "#/definitions/Allocation"
+          }
         },
         "AmountWithoutVat": {
           "type": "string",
@@ -365,12 +370,9 @@
           "type": "string",
           "description": "The line item number within the purchase order."
         },
-        "PurchaseOrderReceipt": {
-          "$ref": "#/definitions/PurchaseOrderReceipt"
-        },
         "PurchaseOrderReceiptType": {
           "type": "string",
-          "description": "Purchase order ReceiptType of the line item. Can be NONE or WQTY (Receipt type Quantity). "
+          "description": "Purchase order ReceiptType of the line item. Accepted values are QUANTITY_RECEIPT or NONE. If a value is not provided, it will default to NONE.  If you are using Concur Receiving and need to enter Goods Receipts against the resulting PO lines use QUANTITY_RECEIPT. "
         },
         "Quantity": {
           "type": "string",
@@ -407,6 +409,7 @@
       }
     },
     "PurchaseOrder": {
+      "required":["BillToAddress", "LineItem", "PolicyExternalID", "ShipToAddress", "CurrencyCode", "OrderDate", "VendorAddressCode", "VendorCode"],
       "properties": {
         "AmountWithoutVat": {
           "type": "string",
@@ -537,7 +540,9 @@
         },
         "LineItem": {
           "type":"array",
-          "$ref": "#/definitions/LineItem"
+          "items": {
+            "$ref": "#/definitions/LineItem"
+          }
         },
         "Name": {
           "type": "string",
@@ -557,7 +562,7 @@
         },
         "PolicyExternalID": {
           "type": "string",
-          "description": "The external identifier of the policy that should be associated with the purchase order. The external ID is a property of the policy in its configuration."
+          "description": " The external identifier of the policy that should be associated with the purchase order. The external Id is a property of the policy configuration screen. Clients will need to get these ID’s from the Implementation team if using professional version. For standard version the value is always 'PO'"
         },
         "PoVendorTaxId": {
           "type": "string",
@@ -573,11 +578,11 @@
         },
         "ReceiptType": {
           "type": "string",
-          "description": "The Purchase Order Receipt type (Depricated.) Use the PurchaseOrderReceiptType at line item level instead."
+          "description": "The Purchase Order Receipt type (Deprecated.) Use the PurchaseOrderReceiptType at line item level instead."
         },
         "RequestedBy": {
           "type": "string",
-          "description": "The person that requests the goods associated to the purchase order.\r\n            \tIf the setting \"Assign invoice to Purchase Request Owner\" is turned on, our system will read this value\r\n            \tto identify a valid invoice owner.\r\n            \tThis value will be matched against the following Employee fields in the order given:\r\n                1. Employee Login ID\r\n                2. Employee ID\r\n                3. Employee Email Address\r\n                4. Employee Name (\"first_name last_name\" or \"last_name, first_name\")"
+          "description": "The person who requests the goods in the purchase order."
         },
         "RequestedDeliveryDate": {
           "type": "string",
@@ -644,98 +649,6 @@
         }
       }
     },
-    "PurchaseOrderReceipt": {
-      "properties": {
-        "Custom1": {
-          "type": "string",
-          "description": "Custom 1 value for purchase order line item receipt."
-        },
-        "Custom10": {
-          "type": "string",
-          "description": "Custom 10 value for purchase order line item receipt."
-        },
-        "Custom2": {
-          "type": "string",
-          "description": "Custom 2 value for purchase order line item receipt."
-        },
-        "Custom3": {
-          "type": "string",
-          "description": "Custom 3 value for purchase order line item receipt."
-        },
-        "Custom4": {
-          "type": "string",
-          "description": "Custom 4 value for purchase order line item receipt."
-        },
-        "Custom5": {
-          "type": "string",
-          "description": "Custom 5 value for purchase order line item receipt."
-        },
-        "Custom6": {
-          "type": "string",
-          "description": "Custom 6 value for purchase order line item receipt."
-        },
-        "Custom7": {
-          "type": "string",
-          "description": "Custom 7 value for purchase order line item receipt."
-        },
-        "Custom8": {
-          "type": "string",
-          "description": "Custom 8 value for purchase order line item receipt."
-        },
-        "Custom9": {
-          "type": "string",
-          "description": "Custom 9 value for purchase order line item receipt."
-        },
-        "Deleted": {
-          "type": "string",
-          "description": "Delete status of purchase order line item receipt."
-        },
-        "DeliverySlipNumber": {
-          "type": "string",
-          "description": "Delivery slip number for a purchase order line item receipt."
-        },
-        "GoodsReceiptNumber": {
-          "type": "string",
-          "description": "Goods receipt number for a purchase order line item receipt. This field is Required for V2 Version"
-        },
-        "ID": {
-          "type": "string",
-          "description": "The unique identifier of the resource."
-        },
-        "IsReceived": {
-          "type": "string",
-          "description": "Indicates whether the line item was received. Optional for V2 Version."
-        },
-        "LineItemExternalID": {
-          "type": "string",
-          "description": "A customer-supplied value that uniquely identifies the line item within the purchase order."
-        },
-        "PurchaseOrderNumber": {
-          "type": "string",
-          "description": "The purchase order number."
-        },
-        "ReceivedDate": {
-          "type": "string",
-          "description": "The date the line item was received. Format: YYYY-MM-DD"
-        },
-        "ReceivedQuantity": {
-          "type": "string",
-          "description": "The number of items that were received."
-        },
-        "UnitOfMeasureCode": {
-          "type": "string",
-          "description": "Unit of measure code for a purchase order line item receipt."
-        },
-        "URI": {
-          "type": "string",
-          "description": "The URI to the resource."
-        },
-        "Version": {
-          "type": "string",
-          "description": "The URI to the resource."
-        }
-      }
-    },
     "PurchaseOrderResult": {
       "properties": {
         "ErrorCode": {
@@ -769,6 +682,7 @@
       }
     },
     "ShipToAddress": {
+      "required":["Address1", "City", "CountryCode", "ExternalID", "PostalCode"],
       "properties": {
         "Address1": {
           "type": "string",
