@@ -1,0 +1,312 @@
+# Get Started
+
+* [Overview](#overview)
+* [New Scopes] (#newscopes)
+* [Get Payment API](#getpaymentapi)
+* [Payment Status API](#paymentstatusapi)
+* [Sample Schema](#schema)
+
+# <a name="overview"></a>Overview
+
+SAP Concur partners with external payment providers for processing invoice payments. These payment partners are listed on the App Center and can integrate with the Invoice product by using the Pay APIs listed below. Payment providers can use the Get Payment API to get a list of all the payments and can use the Payment Status API to send back payment status.
+
+# <a name="newscopes"></a>New Scopes
+
+The following new scopes have been added and the company JWT will need to include these:
+invoice.partnerpayment.write
+invoice.partnerpayment.read
+
+# <a name="getpaymentapi"></a>Get Payment API
+
+This API will be used by payment providers to get information about invoices that need to be paid by them.
+
+
+* [Sample for getting a payment](#post-a-payload)
+* [Sample Schema](#schema)
+
+## <a name="post-a-payload"></a>Sample for getting a payment
+
+### Request
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`Authorization`|`string`|`header`|**Required** Bearer Token that identifies the caller. This is the company JWT.
+`Accept`|`string`|`header`|`application/json`
+
+### Response
+
+#### Status Codes
+
+* 200 OK
+* 401 Unauthorized
+* 403 Forbidden
+* 404 Not Found
+
+### Example
+
+#### Request
+
+```
+GET https://us.api.concursolutions.com/payments?companyId=company-uuid
+Accept: application/json
+Authorization: BEARER {token}
+```
+
+#### Response
+
+Ensure the headers are kept separate as a code block from the payload for ease of reading.
+
+```json
+
+{
+  "Accept": "application/json"
+}
+
+```
+
+```json
+
+{
+  "payments": [
+    {
+      "invoices": [
+        {
+          "invoiceAmount": {
+    	      "amount": "string",
+    	      "currency": "string"
+  	   },
+	  "invoiceID": "string",
+          "invoiceNumber": "string",
+          "notesToSupplier": "string",        
+	  "paymentAmount": {
+    	      "amount": "string",
+    	      "currency": "string"
+  	   }
+        }
+      ],
+      "paymentDueDate": "string",
+      "paymentId": "string",
+      "paymentMethod": "string",
+      "totalAmount": {
+    	      "amount": "string",
+    	      "currency": "string"
+  	   },
+      "buyerAccountNumber": "string",
+      "vendorCode": "string",
+      "vendorName": "string",
+      "vendor": {
+        "address": {
+          "addressLine1": "string",
+          "addressLine2": "string",
+          "addressLine3": "string",
+          "city": "string",
+          "countryCode": "string",
+          "countryName": "string",
+          "postalCode": "string",
+          "vendorAddrCode": "string"
+        },       
+        "contact": {
+          "email": "string",
+          "firstName": "string",
+          "lastName": "string",
+          "phoneNumber": "string"
+        }    
+      }
+    }
+  ]
+}
+
+```
+
+
+
+
+
+# <a name="paymentstatusapi"></a>Payment Status API
+
+This API will be used by payment providers to provide status of payments retrieved by them.
+This wiki explains the entire flow - https://wiki.concur.com/confluence/display/CPAY/Platform+Pay+Provider+Integration+Workflow 
+
+
+* [Sample for updating a payment](#post-a-payload)
+* [Sample Schema](#schema)
+	* [Sample Common](#schema-common)
+
+## <a name="post-a-payload"></a>Sample for updating a payment
+
+### Request
+
+#### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`Authorization`|`string`|`header`|**Required** Bearer Token that identifies the caller. This is the company JWT.
+`Content-Type`|`string`|`header`|`application/json`
+
+#### Payload
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`providerReference`|`string`|-|Unique identifier of the payment in the pay provider's system
+`status`|`string`|-|**Required** Used to depict success, error or any other intermediate state, defined by Concur
+`statusMessage`|`string`|-|description of the status *Partner can provide anything they want*
+`statusDate`|`string`|YYYY-MM-DD|**Required** The date that the pay provider recorded this status change
+`paymentInitiationDate`|`string`|YYYY-MM-DD|the date the payment was initiated
+`paymentSettlementDate`|`string`|YYYY-MM-DD|the date the payment will be in the payees account
+`thirdPartyPaymentIdentifier`|`string`|-|check number if the payment was done via check or trace number for ACH payments
+`paymentMethod`|`string`|-|**Required if the status is Paid, Check Processed, Card Processed** Payment method used by the pay provider
+`paidAmount`|`Amount`|-|**Required if the status is Paid, Check Processed, Card Processed** Amount paid by the pay provider
+
+### Response
+
+#### Status Codes
+
+* 200 OK
+* 400 Unauthorized
+* 404 Not Found
+* 500 Internal server error
+
+
+### Example
+
+#### Request
+
+`PATCH /payments/{paymentId}`
+
+```json
+
+{
+  "providerReference" : "string", 
+  "status" : "string",
+  "statusMessage" : "string",
+  "statusDate" : "string",
+  "paymentInitiationDate" : "string",
+  "paymentSettlementDate" : "string",
+  "thirdPartyPaymentIdentifier" : "string",
+  "paymentMethod" : "string",
+  "paidAmount" : {
+    	      "amount": "string",
+    	      "currency": "string"
+  	   }
+}
+
+```
+
+#### Response
+
+```json
+
+HttpStatus: 200 (OK)
+{
+"providerReference" : "string", 
+  "status" : "string",
+  "statusMessage" : "string",
+  "statusDate" : "string",
+  "paymentInitiationDate" : "string",
+  "paymentSettlementDate" : "string",
+  "thirdPartyPaymentIdentifier" : "string",
+  "paymentMethod" : "string",
+  "paidAmount" : {
+    	      "amount": "string",
+    	      "currency": "string"
+  	   }
+}
+
+HttpStatus: 404 (Not Found) - EX:
+{
+  "errors": [
+    {
+      "errorCode": "notFound",
+      "errorMessage": "Not found ..."
+    }
+  ]
+}
+
+HttpStatus: 400 (Bad Request) - EX:
+{
+  "errors": [
+    {
+      "errorCode": "missingRequiredProp",
+      "errorMessage": "Missing required property: <property name>"
+    }
+  ]
+}
+
+HttpStatus: 500 (Internal server error) - EX:
+{
+  "errors": [
+    {
+      "errorCode": "internalServerError",
+      "errorMessage": "Internal server error ..."
+    }
+  ]
+}
+
+```
+
+
+## <a name="schema"></a>Sample Schema
+
+### <a name="schema-common"></a>Sample Common
+
+### Payments
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`invoices`|`array`|-|Array of invoices that need to be batched in a payment
+`paymentDueDate`|`string`|YYYY-MM-DD|The date by which the payment should be made. Format: YYYY-MM-DD
+`paymentID`|`string`|-|Unique identifier of the payment in Concur
+`paymentMethod`|`string`|-|Payment method for the payment
+`totalAmount`|Amount|JSON|Total amount of the payment
+`vendor`|`Vendor`|JSON|Vendor requesting the payment
+
+### Invoices
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`invoiceAmount`|`Amount`|JSON|Amount on the invoice
+`invoiceNumber`|`string`|-|Invoice Number
+`invoiceID`|`string`|-|Unique idenifier of the invoice in Concur
+`notesToSupplier`|`string`|-|Notes to the supplier
+`paymentAmount`|`Amount`|JSON|Payment amount on the invoice
+
+### Vendor
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`address`|`Address`|JSON|Amount on the invoice
+`buyerAccountNumber`|`string`|-|Buyer Account Number
+`contact`|`Contact`|JSON|Vendor contact details
+`vendorCode`|`string`|-|Vendor Code
+`vendorName`|`string`|-|Vendor Name
+
+### Address
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`addressLine1`|`string`|-|Address line 1
+`addressLine2`|`string`|-|Address line 2
+`addressLine3`|`string`|-|Address line 3
+`city`|`string`|-|Vendor Code
+`countryCode`|`string`|-|Country Code
+`countryName`|`string`|-|Country Name
+`postalCode`|`string`|-|Postal Code
+`vendorAddrCode`|`string`|-|Vendor Address Code
+
+### Contact
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`email`|`string`|-|Email Address
+`firstName`|`string`|-|First Name
+`lastName`|`string`|-|Last Name
+`phoneNumber`|`string`|-|Phone Number
+`vendorCode`|`string`|-|Vendor Code
+`vendorName`|`string`|-|Vendor Name
+
+### Amount
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`amount`|`string`|-|Amount
+`currency`|`string`|-|Currency Code
