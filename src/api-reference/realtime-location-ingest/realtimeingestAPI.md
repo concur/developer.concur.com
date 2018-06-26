@@ -6,40 +6,35 @@ layout: reference
 # Realtime Ingest Location
 
 * [Overview](#overview)
-* [Prerequisites](#prerequisites)
-* [Regional Availability](#regionalAvailability)
-* [Schema](#schema)
-  * [dropOffLocation](#dropOffLocation)
-  * [address](#address)
-* [Request Headers](#requestHeaders)
-* [Response Headers](#responseHeaders)
-* [Status Codes](#statusCodes)
+* [Regional Availability](#regional-availability)
+* [Request Headers](#request-headers)
+* [Response Headers](#response-headers)
+* [Status Codes](#status-codes)
 * [Example](#example)
-
-## Overview
+* [Schema](#schema)
+  * [dropOffLocation](#schema-dropOffLocation)
+  * [address](#schema-address)
+  * [errorDescription](#schema-errorDescription)
+  
+## <a name="overview"></a>Overview
 
 This API provides an endpoint to ingest real time user location information from Rideshare Services. 
 
-## Regional Availability
+## <a name="regional-availability"></a>Regional Availability
 
 ```
 https://us.api.concursolutions.com/realtimeingest
 ```
 
-## Request Headers
+## <a name="request-headers"></a>Request Headers
 
 * [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
 
 ### Request Payload
-| Name                  | Type   | Format   | Description                                                               |
-| --------------------- | ------ | -------- | ------------------------------------------------------------------------- |
-| __*uuid*__            | String | -        | **Required** UUID of the user.                                            |
-| __*dropOffDateTime*__ | String | DateTime | **Required** Date Time where the user was dropped off (in RFC3339 format) |
-| __*dropOffLocation*__ | Object | JSON     | **Required** Location where the user was dropped off                      |
 
-Please refer the schema section for more information regarding each field in the payload.
+Please refer the [Schema](#schema) section for more information regarding each field in the payload.
 
-## Response Headers
+## <a name="response-headers"></a>Response Headers
 
 * [concur-correlationid] Concur specific custom header
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
@@ -48,35 +43,38 @@ Please refer the schema section for more information regarding each field in the
 * [RFC 7231 Server](https://tools.ietf.org/html/rfc7231#section-7.4.2)
 
 ### Response Payload
-| Name                       | Type   | Format | Description                          |
-| -------------------------- | ------ | ------ | ------------------------------------ |
-| __*concur-correlationId*__ | String | -      | Concur specific custom field         |
-| __*requestId*__            | String | -      | Unique ID for thr request            |
-| __*appVersion*__           | String | -      | Application version number           |
-| __*message*__              | String | -      | Success/Error message                |
-| __*errorDescription*__     | Object | JSON   | Description of error (if applicable) |
 
+Name|Type|Format|Description
+---|---|---|---
+concur-correlationId|String|-|Concur specific custom field
+requestId|String|-|Unique ID for the request
+appVersion|String|-|Application version number
+message|String|-|Success / Error message
+errorDescription|Object|JSON|Description of error, if applicable
 
-## Status Codes
+## <a name="status-codes"></a>Status Codes
 
 * [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
 * [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
 * [401 Unauthorised](https://tools.ietf.org/html/rfc7235#section-3.1)
 * [406 Not Acceptable](https://tools.ietf.org/html/rfc7231#section-6.5.6)
 
-## Example
+## <a name="example"></a>Example
 
 ### Request URL
+
 ```
 https://{baseURI}/location/{uuid}
 ```
 
 ### Request
+
 ```
 POST https://{baseURI}/location/{uuid}
 Content-Type: application/json
 Authorization: Bearer {access-token}
 ```
+
 ```json
 {
   "uuid": "uuid",
@@ -91,19 +89,19 @@ Authorization: Bearer {access-token}
       "addressLocality": "Bellevue",
       "addressRegion": "WA",
       "postalCode": "98004"
-    },
+    }
   }
 }
 ```
 
 ### Response Header
-```                          
- Date: Mon, 11 Jun 2018 17:43:28 GMT
- Server: pproxy/d8b665e
- Content-Length: 170     
- Content-Type: application/json
- concur-correlationid: concur-correlationid
-                                                 
+
+```
+Date: Mon, 11 Jun 2018 17:43:28 GMT
+Server: pproxy/d8b665e
+Content-Length: 170     
+Content-Type: application/json
+concur-correlationid: {concur-correlationid}
 ```
 
 ### Response Body
@@ -116,37 +114,39 @@ Authorization: Bearer {access-token}
  }                       
 ```
 
-## Schema
+## <a name="schema"></a>Schema
 
-See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema. Property names mentioned in __*bold italics*__ are required fields.
+See the schema documentation below for the specifications of each type, plus the various schemas that are shared components of each receipt schema.
 
 The user locations API includes users and itineraries (locations) in addition to information about the company and post type (add or cancel).
 
-  | Property Name         | Type   | Format   | Description                                                               |
-  | --------------------- | ------ | -------- | ------------------------------------------------------------------------- |
-  | __*uuid*__            | String | -        | **Required** UUID of the user.                                            |
-  | __*dropOffDateTime*__ | String | DateTime | **Required** Date Time where the user was dropped off (in RFC3339 format) |
-  | __*dropOffLocation*__ | Object | JSON     | **Required** Location where the user was dropped off                      |
+Property Name|Type|Format|Description
+---|---|---|---
+uuid|String|-|**Required** UUID of the user.
+dropOffDateTime|String|DateTime|**Required** Date Time where the user was dropped off (in RFC3339 format)
+dropOffLocation|Object|JSON|**Required** Location where the user was dropped off
 
-### dropOffLocation   
-  | Property Name   | Type   | Format | Description                                                        |
-  | --------------- | ------ | ------ | ------------------------------------------------------------------ |
-  | __*name*__      | String | -      | Canonical name of the location.                                    |
-  | __*latitude*__  | Number | Float  | **Required** Numeric value of latitude (Range -90.00 and 90.00)    |
-  | __*longitude*__ | Number | Float  | **Required** Numeric value of longitude (Range -180.00 and 180.00) |
-  | __*address*__   | Object | JSON   | Address where the user was dropped off                             |
+### <a name="schema-dropOffLocation"></a>dropOffLocation   
 
-  ### address
-  | Property Name         | Type   | Format | Description                                                             |
-  | --------------------- | ------ | ------ | ----------------------------------------------------------------------- |
-  | __*streetAddress*__   | String | -      | Street address of the location.                                         |
-  | __*addressLocality*__ | String | -      | Canonical City name of the address                                      |
-  | __*addressRegion*__   | String | -      | 1 to 3 character country subdivision code as defined in ISO 3166-2:2013 |
-  | __*addressCountry*__  | String | -      | 2 or 3 character country code as defined in ISO 3166-1:2013             |
-  | __*postalCode*__      | String | -      | Postal code of the address                                              |
+Property Name|Type|Format|Description
+---|---|---|---
+name|String|-|Canonical name of the location.
+latitude|Number|Float|**Required** Numeric value of latitude (Range -90.00 and 90.00)
+longitude|Number|Float|**Required** Numeric value of longitude (Range -180.00 and 180.00)
+address|Object|JSON|Address where the user was dropped off
 
-  ### errorDescription
-| Name            | Type  | Format | Description                                  |
-| --------------- | ----- | ------ | -------------------------------------------- |
-| __*fieldName*__ | Array | -      | Errors associated with the given *fieldName* |
+### <a name="schema-address"></a>address
 
+Property Name|Type|Format|Description
+---|---|---|---
+streetAddress|String|-|Street address of the location.
+addressLocality|String|-|Canonical City name of the address
+addressRegion|String|-|1 to 3 character country subdivision code as defined in ISO 3166-2:2013
+addressCountry|String|-|2 or 3 character country code as defined in ISO 3166-1:2013
+postalCode|String|-|Postal code of the address
+
+### <a name="schema-errorDescription"></a>errorDescription
+
+Property Name|Type|Format|Description
+---|---|---|---
+fieldName|Array|-|Errors associated with the given *fieldName*
