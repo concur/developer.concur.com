@@ -1,7 +1,7 @@
 # Get Started
 
 * [Overview](#overview)
-* [New Scopes] (#newscopes)
+* [New Scopes](#newscopes)
 * [Get Payment API](#getpaymentapi)
 * [Payment Status API](#paymentstatusapi)
 * [Sample Schema](#schema)
