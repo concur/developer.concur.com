@@ -182,6 +182,8 @@
         url: /api-reference/invoice/sales-tax-validation.html
       - title: Vendors
         url: /api-reference/invoice/vendor.html
+      - title: Payments
+        url: /api-reference/invoice/invoice-pay.html
 - title: Receipts
   url: ''
   children:
