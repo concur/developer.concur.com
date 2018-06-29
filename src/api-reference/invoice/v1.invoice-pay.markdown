@@ -125,7 +125,6 @@ Ensure the headers are kept separate as a code block from the payload for ease o
 # <a name="paymentstatusapi"></a>Payment Status API
 
 This API will be used by payment providers to provide status of payments retrieved by them.
-This wiki explains the entire flow - https://wiki.concur.com/confluence/display/CPAY/Platform+Pay+Provider+Integration+Workflow 
 
 
 * [Sample for updating a payment](#post-a-payload)
@@ -180,6 +179,7 @@ Name | Type | Format | Description
   "status" : "string",
   "statusMessage" : "string",
   "statusDate" : "string",
+  "paymentAdjustmentNotes" : "string",
   "paymentInitiationDate" : "string",
   "paymentSettlementDate" : "string",
   "thirdPartyPaymentIdentifier" : "string",
