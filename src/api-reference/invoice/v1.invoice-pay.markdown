@@ -209,7 +209,7 @@ PATCH https://us.api.concursolutions.com/payments/{paymentId}
 
 #### Response
 
-```json
+```
 
 HttpStatus: 200 (OK)
 {
