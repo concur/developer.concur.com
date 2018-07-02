@@ -182,7 +182,10 @@ Name|Type|Format|Description
 
 #### Request
 
-`PATCH /payments/{paymentId}`
+```
+PATCH https://us.api.concursolutions.com/payments/{paymentId}
+
+```
 
 ```json
 
