@@ -13,13 +13,11 @@ SAP Concur partners with external payment providers for processing invoice payme
 # <a name="newscopes"></a>New Scopes
 
 The following new scopes have been added and the company JWT will need to include these:
-invoice.partnerpayment.write
-invoice.partnerpayment.read
+* invoice.partnerpayment.write
 
 # <a name="getpaymentapi"></a>Get Payment API
 
 This API will be used by payment providers to get information about invoices that need to be paid by them.
-
 
 * [Sample for getting a payment](#post-a-payload)
 * [Sample Schema](#schema)
@@ -28,8 +26,8 @@ This API will be used by payment providers to get information about invoices tha
 
 ### Request
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `Authorization`|`string`|`header`|**Required** Bearer Token that identifies the caller. This is the company JWT.
 `Accept`|`string`|`header`|`application/json`
 
@@ -118,13 +116,26 @@ Ensure the headers are kept separate as a code block from the payload for ease o
 
 ```
 
-
-
-
-
 # <a name="paymentstatusapi"></a>Payment Status API
 
 This API will be used by payment providers to provide status of payments retrieved by them.
+The following statuses can be sent.
+Status|Meaning|Status available in the Payment Confirmation Extract
+---|---|---
+`PENDING_RETRIEVAL`|Not yet retrieved by the payment provider|Not available
+`RETRIEVED`|Retrieved by the payment provider|Not available
+`PROCESSING`|Payment is being processed by the payment provider|Not available
+`REJECTED`|Payment was rejected by the payment provider|Not available
+`RETURNED`|Payment was returned by the bank|Not available
+`CANCELED`|Payment was canceled|`CANCEL`
+`CHECK_PRINTED`|Check was printed|Not available
+`CHECK_MAILED`|Check was mailed|Not available
+`CHECK_PROCESSED`|Check was processed|`PAID`
+`CHECK_VOIDED`|Check was voided|`VOID`
+`PAID`|Payment was successfully made|`PAID`
+`CARD_EMAIL_SENT`|Email with card information sent to vendor|Not available
+`CARD_AUTHORIZED`|Card was authorized by the merchant|Not available
+`CARD_SETTLED`|Card was settled by vendor|`PAID`
 
 
 * [Sample for updating a payment](#post-a-payload)
@@ -137,24 +148,25 @@ This API will be used by payment providers to provide status of payments retriev
 
 #### Parameters
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `Authorization`|`string`|`header`|**Required** Bearer Token that identifies the caller. This is the company JWT.
 `Content-Type`|`string`|`header`|`application/json`
 
 #### Payload
 
-Name | Type | Format | Description
------|------|--------|------------
-`providerReference`|`string`|-|Unique identifier of the payment in the pay provider's system
-`status`|`string`|-|**Required** Used to depict success, error or any other intermediate state, defined by Concur
-`statusMessage`|`string`|-|description of the status *Partner can provide anything they want*
-`statusDate`|`string`|YYYY-MM-DD|**Required** The date that the pay provider recorded this status change
-`paymentInitiationDate`|`string`|YYYY-MM-DD|the date the payment was initiated
-`paymentSettlementDate`|`string`|YYYY-MM-DD|the date the payment will be in the payees account
-`thirdPartyPaymentIdentifier`|`string`|-|check number if the payment was done via check or trace number for ACH payments
-`paymentMethod`|`string`|-|**Required if the status is Paid, Check Processed, Card Processed** Payment method used by the pay provider
-`paidAmount`|`Amount`|-|**Required if the status is Paid, Check Processed, Card Processed** Amount paid by the pay provider
+Name|Type|Format|Description
+---|---|---|---
+`providerReference`|`string`|-|Unique identifier of the payment in the payment provider's system
+`status`|`string`|-|**Required** Used to depict success, error or any other intermediate state.Refer the description of the API to get a list of statuses accepted by the API
+`statusMessage`|`string`|-|Description of the status *Partner can provide anything they want*
+`statusDate`|`string`|YYYY-MM-DD|**Required** Date that the payment provider recorded this status change
+`paymentInitiationDate`|`string`|YYYY-MM-DD|Date the payment was initiated
+`paymentSettlementDate`|`string`|YYYY-MM-DD|Date the payment will be in the payees account
+`thirdPartyPaymentIdentifier`|`string`|-|Check number if the payment was done via check or trace number for ACH payments
+`paymentMethod`|`string`|-|**Required if the status is Paid, Check Processed, Card Processed** Payment method used by the payment provider
+`paidAmount`|`Amount`|-|**Required if the status is Paid, Check Processed, Card Processed** Amount paid by the payment provider
+`paymentAdjustmentNotes`|`string`|-|Notes to the vendor regarding the amount paid (underpayment due to damages, for example).
 
 ### Response
 
@@ -244,15 +256,14 @@ HttpStatus: 500 (Internal server error) - EX:
 
 ```
 
-
 ## <a name="schema"></a>Sample Schema
 
 ### <a name="schema-common"></a>Sample Common
 
 ### Payments
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `invoices`|`array`|-|Array of invoices that need to be batched in a payment
 `paymentDueDate`|`string`|YYYY-MM-DD|The date by which the payment should be made. Format: YYYY-MM-DD
 `paymentID`|`string`|-|Unique identifier of the payment in Concur
@@ -262,8 +273,8 @@ Name | Type | Format | Description
 
 ### Invoices
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `invoiceAmount`|`Amount`|JSON|Amount on the invoice
 `invoiceNumber`|`string`|-|Invoice Number
 `invoiceID`|`string`|-|Unique idenifier of the invoice in Concur
@@ -272,8 +283,8 @@ Name | Type | Format | Description
 
 ### Vendor
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `address`|`Address`|JSON|Amount on the invoice
 `buyerAccountNumber`|`string`|-|Buyer Account Number
 `contact`|`Contact`|JSON|Vendor contact details
@@ -282,8 +293,8 @@ Name | Type | Format | Description
 
 ### Address
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `addressLine1`|`string`|-|Address line 1
 `addressLine2`|`string`|-|Address line 2
 `addressLine3`|`string`|-|Address line 3
@@ -295,8 +306,8 @@ Name | Type | Format | Description
 
 ### Contact
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `email`|`string`|-|Email Address
 `firstName`|`string`|-|First Name
 `lastName`|`string`|-|Last Name
@@ -306,7 +317,7 @@ Name | Type | Format | Description
 
 ### Amount
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `amount`|`string`|-|Amount
 `currency`|`string`|-|Currency Code
