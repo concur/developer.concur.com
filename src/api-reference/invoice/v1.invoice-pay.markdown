@@ -66,50 +66,50 @@ Ensure the headers are kept separate as a code block from the payload for ease o
 
 {
   "payments": [
-    {
-      "invoices": [
-        {
-          "invoiceAmount": {
-    	      "amount": "string",
-    	      "currency": "string"
-  	   },
-	  "invoiceID": "string",
-          "invoiceNumber": "string",
-          "notesToSupplier": "string",        
-	  "paymentAmount": {
-    	      "amount": "string",
-    	      "currency": "string"
-  	   }
+	{
+		"invoices": [
+		{
+			"invoiceAmount":{
+				"amount": "string",
+				"currency": "string"
+			},
+			"invoiceID": "string",
+			"invoiceNumber": "string",
+			"notesToSupplier": "string",        
+			"paymentAmount":{
+				"amount": "string",
+				"currency": "string"
+			}
         }
-      ],
-      "paymentDueDate": "string",
-      "paymentId": "string",
-      "paymentMethod": "string",
-      "totalAmount": {
-    	      "amount": "string",
-    	      "currency": "string"
-  	   },
-      "buyerAccountNumber": "string",
-      "vendorCode": "string",
-      "vendorName": "string",
-      "vendor": {
-        "address": {
-          "addressLine1": "string",
-          "addressLine2": "string",
-          "addressLine3": "string",
-          "city": "string",
-          "countryCode": "string",
-          "countryName": "string",
-          "postalCode": "string",
-          "vendorAddrCode": "string"
-        },       
-        "contact": {
-          "email": "string",
-          "firstName": "string",
-          "lastName": "string",
-          "phoneNumber": "string"
-        }    
-      }
+		],
+		"paymentDueDate": "string",
+		"paymentId": "string",
+		"paymentMethod": "string",
+		"totalAmount":{
+    	    "amount": "string",
+    	    "currency": "string"
+		},
+		"buyerAccountNumber": "string",
+		"vendorCode": "string",
+		"vendorName": "string",
+		"vendor":{
+			"address":{
+				"addressLine1": "string",
+				"addressLine2": "string",
+				"addressLine3": "string",
+				"city": "string",
+				"countryCode": "string",
+				"countryName": "string",
+				"postalCode": "string",
+				"vendorAddrCode": "string"
+			},       
+			"contact": {
+				"email": "string",
+				"firstName": "string",
+				"lastName": "string",
+				"phoneNumber": "string"
+			}    
+		}
     }
   ]
 }
@@ -187,19 +187,19 @@ Name|Type|Format|Description
 ```json
 
 {
-  "providerReference" : "string", 
-  "status" : "string",
-  "statusMessage" : "string",
-  "statusDate" : "string",
-  "paymentAdjustmentNotes" : "string",
-  "paymentInitiationDate" : "string",
-  "paymentSettlementDate" : "string",
-  "thirdPartyPaymentIdentifier" : "string",
-  "paymentMethod" : "string",
-  "paidAmount" : {
-    	      "amount": "string",
-    	      "currency": "string"
-  	   }
+	"providerReference" : "string", 
+	"status" : "string",
+	"statusMessage" : "string",
+	"statusDate" : "string",
+	"paymentAdjustmentNotes" : "string",
+	"paymentInitiationDate" : "string",
+	"paymentSettlementDate" : "string",
+	"thirdPartyPaymentIdentifier" : "string",
+	"paymentMethod" : "string",
+	"paidAmount" : {
+    	"amount": "string",
+    	"currency": "string"
+  	}
 }
 
 ```
@@ -210,18 +210,18 @@ Name|Type|Format|Description
 
 HttpStatus: 200 (OK)
 {
-"providerReference" : "string", 
-  "status" : "string",
-  "statusMessage" : "string",
-  "statusDate" : "string",
-  "paymentInitiationDate" : "string",
-  "paymentSettlementDate" : "string",
-  "thirdPartyPaymentIdentifier" : "string",
-  "paymentMethod" : "string",
-  "paidAmount" : {
-    	      "amount": "string",
-    	      "currency": "string"
-  	   }
+	"providerReference" : "string", 
+	"status" : "string",
+	"statusMessage" : "string",
+	"statusDate" : "string",
+	"paymentInitiationDate" : "string",
+	"paymentSettlementDate" : "string",
+	"thirdPartyPaymentIdentifier" : "string",
+	"paymentMethod" : "string",
+	"paidAmount" : {
+    	"amount": "string",
+    	"currency": "string"
+  	}
 }
 
 HttpStatus: 404 (Not Found) - EX:
