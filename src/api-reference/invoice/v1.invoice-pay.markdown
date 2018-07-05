@@ -16,8 +16,8 @@ layout: reference
   * [Vendor](#schema-vendor)
   * [Amount](#schema-amount)
   * [Payment Update](#schema-payment-update)
-  ** [Payment Update Status](#schema-payment-update-status)
-  ** [Payment Method](#schema-payment-method)
+    * [Payment Update Status](#schema-payment-update-status)
+	* [Payment Method](#schema-payment-method)
   * [Errors](#schema-errors)
   * [Error](#schema-error)
 
