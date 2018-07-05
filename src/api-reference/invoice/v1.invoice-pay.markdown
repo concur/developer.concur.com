@@ -187,18 +187,18 @@ Content-Type: application/json
 
 ```json
 {
-  "providerReference" : "string",
-  "status" : "string",
-  "statusMessage" : "string",
-  "statusDate" : "string",
-  "paymentAdjustmentNotes" : "string",
-  "paymentInitiationDate" : "string",
-  "paymentSettlementDate" : "string",
-  "thirdPartyPaymentIdentifier" : "string",
-  "paymentMethod" : "string",
+  "providerReference" : "hdoesofdl",
+  "status" : "PAID",
+  "statusMessage" : "Payment was successful",
+  "paymentAdjustmentNotes" : null,
+  "statusDate" : "2018-05-10",
+  "paymentInitiationDate" : "2018-05-09",
+  "paymentSettlementDate" : "2018-05-09",
+  "thirdPartyPaymentIdentifier" : "69249",
+  "paymentMethod" : "CHECK",
   "paidAmount" : {
-    "amount": "string",
-    "currency": "string"
+    "amount": "30.00",
+    "currency": "USD"
   }
 }
 ```
@@ -215,8 +215,9 @@ Content-Type: application/json
   "providerReference" : "hdoesofdl",
   "status" : "PAID",
   "statusMessage" : "Payment was successful",
+  "paymentAdjustmentNotes" : null,
   "statusDate" : "2018-05-10",
-  "paymentInitiationDate" : "2018-05-08",
+  "paymentInitiationDate" : "2018-05-09",
   "paymentSettlementDate" : "2018-05-09",
   "thirdPartyPaymentIdentifier" : "69249",
   "paymentMethod" : "CHECK",
