@@ -93,27 +93,27 @@ Content-Type: application/json
     {
       "paymentId": "0f27533f-ce38-4f43-a2f3-fa9f0e6b33fc",
       "paymentMethod": "PAYPVD",
-      "paymentDueDate": "2018-08-09", 
+      "paymentDueDate": "2018-08-09",
       "totalAmount":{
         "amount": "30.00",
         "currency": "USD"
-      },  	  
+      },
       "invoices": [
         {
-          "invoiceNumber": "AGH87",		
-          "invoiceID": "1ADFBB440D7045F68DE2",		  
+          "invoiceNumber": "AGH87",
+          "invoiceID": "1ADFBB440D7045F68DE2",
           "invoiceAmount":{
             "amount": "30.00",
             "currency": "USD"
-          },   
+          },
           "paymentAmount":{
             "amount": "30.00",
             "currency": "USD"
           },
-          "notesToSupplier": null     		  
+          "notesToSupplier": null
         }
-      ],     
-      "vendor":{  
+      ],
+      "vendor":{
         "addressLine1": "PO Box 0-ach",
         "addressLine2": null,
         "addressLine3": null,
