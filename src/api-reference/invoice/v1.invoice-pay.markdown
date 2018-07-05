@@ -92,7 +92,7 @@ Content-Type: application/json
 {
   "payments": [
     {
-	  "paymentId": "0f27533f-ce38-4f43-a2f3-fa9f0e6b33fc",
+      "paymentId": "0f27533f-ce38-4f43-a2f3-fa9f0e6b33fc",
       "paymentMethod": "PAYPVD",
       "paymentDueDate": "2018-08-09", 
       "totalAmount":{
@@ -115,7 +115,7 @@ Content-Type: application/json
         }
       ],     
       "vendor":{  
-		"addressLine1": "PO Box 0-ach",
+        "addressLine1": "PO Box 0-ach",
         "addressLine2": null,
         "addressLine3": null,
         "vendorAddrCode": "1160",
