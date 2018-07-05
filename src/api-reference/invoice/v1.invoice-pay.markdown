@@ -14,8 +14,6 @@ layout: reference
   * [Payment](#schema-payment)
   * [Invoice](#schema-invoice)
   * [Vendor](#schema-vendor)
-  * [Address](#schema-address)
-  * [Contact](#schema-contact)
   * [Amount](#schema-amount)
   * [Payment Update](#schema-payment-update)
   * [Payment Update Status](#schema-payment-update-status)
@@ -261,16 +259,9 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`address`|`object`|[Address](#schema-address)|Amount on the invoice
 `buyerAccountNumber`|`string`|-|Buyer Account Number
-`contact`|`object`|[Contact](#schema-contact)|Vendor contact details
 `vendorCode`|`string`|-|Vendor Code
 `vendorName`|`string`|-|Vendor Name
-
-### <a name="schema-address"></a>Address
-
-Name | Type | Format | Description
------|------|--------|------------
 `addressLine1`|`string`|-|Address line 1
 `addressLine2`|`string`|-|Address line 2
 `addressLine3`|`string`|-|Address line 3
@@ -279,17 +270,10 @@ Name | Type | Format | Description
 `countryName`|`string`|-|Country Name
 `postalCode`|`string`|-|Postal Code
 `vendorAddrCode`|`string`|-|Vendor Address Code
-
-### <a name="schema-contact"></a>Contact
-
-Name | Type | Format | Description
------|------|--------|------------
 `email`|`string`|-|Email Address
 `firstName`|`string`|-|First Name
 `lastName`|`string`|-|Last Name
 `phoneNumber`|`string`|-|Phone Number
-`vendorCode`|`string`|-|Vendor Code
-`vendorName`|`string`|-|Vendor Name
 
 ### <a name="schema-amount"></a>Amount
 
