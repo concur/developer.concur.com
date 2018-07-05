@@ -232,28 +232,28 @@ Content-Type: application/json
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`payments`|`array`|[Payment](#schema-payment)|Array of payments
+`payments`|`array`|[`Payment`](#schema-payment)|Array of payments
 
 ### <a name="schema-payment"></a>Payment
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`invoices`|`array`|[Invoice](#schema-invoice)|Array of invoices that need to be batched in a payment
+`invoices`|`array`|[`Invoice`](#schema-invoice)|Array of invoices that need to be batched in a payment
 `paymentDueDate`|`string`|YYYY-MM-DD|The date by which the payment should be made. Format: YYYY-MM-DD
 `paymentID`|`string`|-|Unique identifier of the payment in Concur
 `paymentMethod`|`string`|-|Payment method for the payment
-`totalAmount`|`object`|[Amount](#schema-amount)|Total amount of the payment
-`vendor`|`object`|[Vendor](#schema-vendor)|Vendor requesting the payment
+`totalAmount`|`object`|[`Amount`](#schema-amount)|Total amount of the payment
+`vendor`|`object`|[`Vendor`](#schema-vendor)|Vendor requesting the payment
 
 ### <a name="schema-invoice"></a>Invoice
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`invoiceAmount`|`object`|[Amount](#schema-amount)|Amount on the invoice
+`invoiceAmount`|`object`|[`Amount`](#schema-amount)|Amount on the invoice
 `invoiceNumber`|`string`|-|Invoice Number
 `invoiceID`|`string`|-|Unique identifier of the invoice in Concur
 `notesToSupplier`|`string`|-|Notes to the supplier
-`paymentAmount`|`object`|[Amount](#schema-amount)|Payment amount on the invoice
+`paymentAmount`|`object`|[`Amount`](#schema-amount)|Payment amount on the invoice
 
 ### <a name="schema-vendor"></a>Vendor
 
