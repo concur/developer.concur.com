@@ -211,17 +211,17 @@ Content-Type: application/json
 
 ```json
 {
-  "providerReference" : "string",
-  "status" : "string",
-  "statusMessage" : "string",
-  "statusDate" : "string",
-  "paymentInitiationDate" : "string",
-  "paymentSettlementDate" : "string",
-  "thirdPartyPaymentIdentifier" : "string",
-  "paymentMethod" : "string",
+  "providerReference" : "hdoesofdl",
+  "status" : "PAID",
+  "statusMessage" : "Payment was successful",
+  "statusDate" : "2018-05-10",
+  "paymentInitiationDate" : "2018-05-08",
+  "paymentSettlementDate" : "2018-05-09",
+  "thirdPartyPaymentIdentifier" : "69249",
+  "paymentMethod" : "CHECK",
   "paidAmount" : {
-    "amount": "string",
-    "currency": "string"
+    "amount": "30.00",
+    "currency": "USD"
   }
 }
 ```
