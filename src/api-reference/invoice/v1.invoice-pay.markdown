@@ -294,7 +294,7 @@ Name|Type|Format|Description
 `paymentSettlementDate`|`string`|YYYY-MM-DD|The date the payment will be in the payees account
 `thirdPartyPaymentIdentifier`|`string`|-|Check number if the payment was done via check or trace number for ACH payments
 `paymentMethod`|`string`|-|**Required if the status is Paid, Check Processed, Card Processed** Payment method used by the pay provider
-`paidAmount`|`object`|[Amount](#schema-amount)|**Required if the status is Paid, Check Processed, Card Processed** Amount paid by the pay provider
+`paidAmount`|`object`|[`Amount`](#schema-amount)|**Required if the status is Paid, Check Processed, Card Processed** Amount paid by the pay provider
 
 #### <a name="schema-payment-update-status"></a>Payment Update Status
 
