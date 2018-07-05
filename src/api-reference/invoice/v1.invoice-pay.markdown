@@ -293,7 +293,7 @@ Name|Type|Format|Description
 `paymentInitiationDate`|`string`|YYYY-MM-DD|The date the payment was initiated
 `paymentSettlementDate`|`string`|YYYY-MM-DD|The date the payment will be in the payees account
 `thirdPartyPaymentIdentifier`|`string`|-|Check number if the payment was done via check or trace number for ACH payments
-`paymentMethod`|`string`|-|**Required if the status is Paid, Check Processed, Card Processed** Payment method used by the pay provider
+`paymentMethod`|`string`|[`Payment Method`](#schema-payment-method)|**Required if the status is Paid, Check Processed, Card Processed** Payment method used by the pay provider
 `paidAmount`|`object`|[`Amount`](#schema-amount)|**Required if the status is Paid, Check Processed, Card Processed** Amount paid by the pay provider
 
 #### <a name="schema-payment-update-status"></a>Payment Update Status
@@ -314,6 +314,16 @@ Status|Meaning|Status available in the Payment Confirmation Extract
 `CARD_EMAIL_SENT`|Email with card information sent to vendor|Not available
 `CARD_AUTHORIZED`|Card was authorized by the merchant|Not available
 `CARD_SETTLED`|Card was settled by vendor|`PAID`
+
+#### <a name="schema-payment-method"></a>Payment Method
+
+Payment Method|Meaning
+---|---
+`ACH`|ACH payment
+`CHECK`|Check payment
+`WIRE`|Wire payment
+`CARD`|Virtual Card payment
+`OTHER`|Any other payment method
 
 ### <a name="schema-errors"></a>Errors
 
