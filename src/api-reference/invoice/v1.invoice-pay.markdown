@@ -110,7 +110,7 @@ Content-Type: application/json
           "paymentAmount":{
             "amount": "30.00",
             "currency": "USD"
-          }
+          },
           "notesToSupplier": null     		  
         }
       ],     
