@@ -288,15 +288,16 @@ Name | Type | Format | Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`providerReference`|`string` (max 100)|-|Unique identifier of the payment in the pay provider's system
+`providerReference`|`string` (max 100)|-|Unique identifier of the payment in the payment provider's system
 `status`|`string`|[`Payment Update Status`](#schema-payment-update-status)|**Required** Used to depict success, error or any other intermediate state, defined by Concur
-`statusMessage`|`string` (max 255)|-|description of the status *Partner can provide anything they want*
-`statusDate`|`string`|YYYY-MM-DD|**Required** The date that the pay provider recorded this status change
+`statusMessage`|`string` (max 255)|-|description of the status *Payment provider can provide anything they want*
+`paymentAdjustmentNotes`|`string` (max 255)|-|Payment adjustment notes sent by the payment provider
+`statusDate`|`string`|YYYY-MM-DD|**Required** The date that the payment provider recorded this status change
 `paymentInitiationDate`|`string`|YYYY-MM-DD|The date the payment was initiated
 `paymentSettlementDate`|`string`|YYYY-MM-DD|The date the payment will be in the payees account
 `thirdPartyPaymentIdentifier`|`string` max (255)|-|Check number if the payment was done via check or trace number for ACH payments
-`paymentMethod`|`string`|[`Payment Method`](#schema-payment-method)|**Required if the status is Paid, Check Processed, Card Processed** Payment method used by the pay provider
-`paidAmount`|`object`|[`Amount`](#schema-amount)|**Required if the status is Paid, Check Processed, Card Processed** Amount paid by the pay provider
+`paymentMethod`|`string`|[`Payment Method`](#schema-payment-method)|**Required if the status is Paid, Check Processed, Card Processed** Payment method used by the payment provider
+`paidAmount`|`object`|[`Amount`](#schema-amount)|**Required if the status is Paid, Check Processed, Card Processed** Amount paid by the payment provider
 
 #### <a name="schema-payment-update-status"></a>Payment Update Status
 
