@@ -92,48 +92,44 @@ Content-Type: application/json
 {
   "payments": [
     {
+	  "paymentId": "0f27533f-ce38-4f43-a2f3-fa9f0e6b33fc",
+      "paymentMethod": "PAYPVD",
+      "paymentDueDate": "2018-08-09", 
+      "totalAmount":{
+        "amount": "30.00",
+        "currency": "USD"
+      },  	  
       "invoices": [
         {
+          "invoiceNumber": "AGH87",		
+          "invoiceID": "1ADFBB440D7045F68DE2",		  
           "invoiceAmount":{
-            "amount": "string",
-            "currency": "string"
-          },
-          "invoiceID": "string",
-          "invoiceNumber": "string",
-          "notesToSupplier": "string",        
+            "amount": "30.00",
+            "currency": "USD"
+          },   
           "paymentAmount":{
-            "amount": "string",
-            "currency": "string"
+            "amount": "30.00",
+            "currency": "USD"
           }
+          "notesToSupplier": null,     		  
         }
-      ],
-      "paymentDueDate": "string",
-      "paymentId": "string",
-      "paymentMethod": "string",
-      "totalAmount":{
-        "amount": "string",
-        "currency": "string"
-      },
-      "buyerAccountNumber": "string",
-      "vendorCode": "string",
-      "vendorName": "string",
-      "vendor":{
-        "address":{
-          "addressLine1": "string",
-          "addressLine2": "string",
-          "addressLine3": "string",
-          "city": "string",
-          "countryCode": "string",
-          "countryName": "string",
-          "postalCode": "string",
-          "vendorAddrCode": "string"
-        },       
-        "contact": {
-          "email": "string",
-          "firstName": "string",
-          "lastName": "string",
-          "phoneNumber": "string"
-        }    
+      ],     
+      "vendor":{  
+		"addressLine1": "PO Box 0-ach",
+        "addressLine2": null,
+        "addressLine3": null,
+        "vendorAddrCode": "1160",
+        "city": "Chicago0",
+        "postalCode": "60680-28160",
+        "countryName": "UNITED STATES",
+        "countryCode": "US",
+        "firstName": null,
+        "lastName": null,
+        "phoneNumber": null,
+        "email": null,
+        "vendorCode": "1160",
+        "vendorName": "Dell",
+        "buyerAccountNumber": "Buyer account number"
       }
     }
   ]
