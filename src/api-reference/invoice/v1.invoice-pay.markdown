@@ -16,8 +16,8 @@ layout: reference
   * [Vendor](#schema-vendor)
   * [Amount](#schema-amount)
   * [Payment Update](#schema-payment-update)
-  * [Payment Update Status](#schema-payment-update-status)
-  * [Payment Method](#schema-payment-method)
+  ** [Payment Update Status](#schema-payment-update-status)
+  ** [Payment Method](#schema-payment-method)
   * [Errors](#schema-errors)
   * [Error](#schema-error)
 
@@ -301,7 +301,7 @@ Name|Type|Format|Description
 
 #### <a name="schema-payment-update-status"></a>Payment Update Status
 
-Status|Meaning|Status available in the Payment Confirmation Extract
+Value|Description|Status available in the Payment Confirmation Extract
 ---|---|---
 `PENDING_RETRIEVAL`|Not yet retrieved by the payment provider|Not available
 `RETRIEVED`|Retrieved by the payment provider|Not available
@@ -320,7 +320,7 @@ Status|Meaning|Status available in the Payment Confirmation Extract
 
 #### <a name="schema-payment-method"></a>Payment Method
 
-Payment Method|Meaning
+Value|Description
 ---|---
 `ACH`|ACH payment
 `CHECK`|Check payment
