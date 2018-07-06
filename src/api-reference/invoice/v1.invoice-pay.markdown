@@ -234,7 +234,7 @@ Content-Type: application/json
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`payments`|`array`|[`payment`](#schema-payment)|Array of payments
+`payments`|`array`|[Payment](#schema-payment)|Array of payments
 
 ### <a name="schema-payment"></a>Payment
 
