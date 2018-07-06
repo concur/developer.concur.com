@@ -33,7 +33,7 @@ The following new scopes have been added and the company JWT will need to includ
 
 ## <a name="obtain-payment"></a>Obtaining payments (Get Payment API)
 
-Payment providers can use this API to get a list of payments.
+Payment providers can use this endpoint to get a list of payments.
 
 ### Request
 
