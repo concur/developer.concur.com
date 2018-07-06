@@ -7,7 +7,7 @@ layout: reference
 
 * [Overview](#overview)
 * [Scopes](#scopes)
-* [Obtaining a payment](#obtain-payment)
+* [Obtaining payments](#obtain-payment)
 * [Updating a payment with status](#updating-payment)
 * [Schema](#schema)
   * [Payments](#schema-payments)
@@ -23,7 +23,7 @@ layout: reference
 
 ## <a name="overview"></a>Overview
 
-SAP Concur partners with external payment providers for processing invoice payments. These payment partners are listed on the App Center and can integrate with the Invoice product by using the Pay APIs listed below. Payment providers can use the Get Payment API to get a list of all the payments and can use the Payment Status API to send back payment status.
+SAP Concur partners with external payment providers for processing invoice payments. These payment providers are listed on the App Center and can integrate with the Invoice product by using the Pay APIs listed below. Payment providers can use these APIs to get a list of all the payments authorized to be processed by them and to send back status of those payments.
 
 ## <a name="scopes"></a>Scopes
 
@@ -31,9 +31,9 @@ The following new scopes have been added and the company JWT will need to includ
 
 * `invoice.partnerpayment.write`
 
-## <a name="obtain-payment"></a>Obtaining a payment
+## <a name="obtain-payment"></a>Obtaining payments (Get Payment API)
 
-This API will be used by payment providers to get information about invoices that need to be paid by them.
+Payment providers use this API to get a list of payments.
 
 ### Request
 
@@ -137,7 +137,7 @@ Content-Type: application/json
 
 ## <a name="updating-payment"></a>Updating a payment with status
 
-Providers use this endpoint to provide updates to the status of payments.
+Payment providers use this endpoint to provide updates to the status of payments.
 
 ### Request
 
