@@ -240,22 +240,22 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`invoices`|`array`|[`invoice`](#schema-invoice)|Array of invoices that need to be batched in a payment
+`invoices`|`array`|[Invoice](#schema-invoice)|Array of invoices that need to be batched in a payment
 `paymentDueDate`|`string`|YYYY-MM-DD|The date by which the payment should be made. Format: YYYY-MM-DD
 `paymentID`|`string`|-|Unique identifier of the payment in Concur
 `paymentMethod`|`string`|-|Payment method for the payment
-`totalAmount`|`object`|[`amount`](#schema-amount)|Total amount of the payment
-`vendor`|`object`|[`vendor`](#schema-vendor)|Vendor requesting the payment
+`totalAmount`|`object`|[Amount](#schema-amount)|Total amount of the payment
+`vendor`|`object`|[Vendor](#schema-vendor)|Vendor requesting the payment
 
 ### <a name="schema-invoice"></a>Invoice
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`invoiceAmount`|`object`|[`amount`](#schema-amount)|Amount on the invoice
+`invoiceAmount`|`object`|[Amount](#schema-amount)|Amount on the invoice
 `invoiceNumber`|`string`|-|Invoice Number
 `invoiceID`|`string`|-|Unique identifier of the invoice in Concur
 `notesToSupplier`|`string`|-|Notes to the supplier
-`paymentAmount`|`object`|[`amount`](#schema-amount)|Payment amount on the invoice
+`paymentAmount`|`object`|[Amount](#schema-amount)|Payment amount on the invoice
 
 ### <a name="schema-vendor"></a>Vendor
 
@@ -289,15 +289,15 @@ Name | Type | Format | Description
 Name|Type|Format|Description
 ---|---|---|---
 `providerReference`|`string`|-|Unique identifier of the payment in the payment provider's system (max 100)
-`status`|`string`|[`payment update status`](#schema-payment-update-status)|**Required** Used to depict success, error or any other intermediate state, defined by Concur
+`status`|`string`|[Payment Update Status](#schema-payment-update-status)|**Required** Used to depict success, error or any other intermediate state, defined by Concur
 `statusMessage`|`string`|-|description of the status (max 255) *Payment provider can provide anything they want*
 `paymentAdjustmentNotes`|`string`|-|Payment adjustment notes sent by the payment provider  (max 255)
 `statusDate`|`string`|YYYY-MM-DD|**Required** The date that the payment provider recorded this status change
 `paymentInitiationDate`|`string`|YYYY-MM-DD|The date the payment was initiated
 `paymentSettlementDate`|`string`|YYYY-MM-DD|The date the payment will be in the payees account
 `thirdPartyPaymentIdentifier`|`string`|-|Check number if the payment was done via check or trace number for ACH payments  max (255)
-`paymentMethod`|`string`|[`payment method`](#schema-payment-method)|**Required if the status is Paid, Check Processed, Card Processed** Payment method used by the payment provider
-`paidAmount`|`object`|[`amount`](#schema-amount)|**Required if the status is Paid, Check Processed, Card Processed** Amount paid by the payment provider
+`paymentMethod`|`string`|[Payment Method](#schema-payment-method)|**Required if the status is Paid, Check Processed, Card Processed** Payment method used by the payment provider
+`paidAmount`|`object`|[Amount](#schema-amount)|**Required if the status is Paid, Check Processed, Card Processed** Amount paid by the payment provider
 
 #### <a name="schema-payment-update-status"></a>Payment Update Status
 
@@ -332,7 +332,7 @@ Value|Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`errors`|`array`|[error](#schema-error)|An array of errors.
+`errors`|`array`|[Error](#schema-error)|An array of errors.
 
 ### <a name="schema-error"></a>Error
 
