@@ -3,14 +3,8 @@ title: SAP Concur App Center Release Notes - June 2018
 layout: reference
 ---
 
-
 ## Contents
----
-title: SAP Concur App Center Release Notes - June 2018
-layout: reference
----
 
-## Contents
 * [Apps for Me / User Connection Apps Now Available](#apps-for-me-now-available-connection)
   * [Carey](#Carey)
   * [Embarque](#Embarque)
@@ -27,7 +21,7 @@ layout: reference
 
 Carey International is a trusted leader in innovative chauffeured service solutions, customer-centric travel technology, and ground transportation logistics management; providing world-class service, unparalleled safety, and general peace of mind to the world’s most discerning travelers since 1921. Spanning more than 1,000 cities worldwide, Carey’s award-winning global franchise network offers consistent standards of service and unmatched business control for both travelers and arrangers alike.
 
-Carey® features a world-class fleet of late-model executive and luxury vehicles, a corps of professional chauffeurs, and a full portfolio of specialized transportation logistics management services. 
+Carey® features a world-class fleet of late-model executive and luxury vehicles, a corps of professional chauffeurs, and a full portfolio of specialized transportation logistics management services.
 
 Make manual expensing a thing of the past. By integrating Carey and SAP Concur, electronic receipts for Carey ground transportation services booked via web or mobile will automatically flow directly into Concur Expense.
 
@@ -36,11 +30,11 @@ Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). F
 
 ### <a name="Embarque"></a>Embarque
 
-When your car service not only serves your needs, but anticipates them, a perfect synergy arises between a traveler and a trip. A modern alternative to conventional transportation, Embarque invites travelers to think differently, making their journeys as effortless and efficient as possible. 
+When your car service not only serves your needs, but anticipates them, a perfect synergy arises between a traveler and a trip. A modern alternative to conventional transportation, Embarque invites travelers to think differently, making their journeys as effortless and efficient as possible.
 
 Embarque vehicles are safe, and reliable, clean and modern, and fuel efficient. Drivers are rigorously vetted, professional, and dedicated to safety.
 
-Embarque is another innovation created by Carey International, a trusted leader in chauffeured service solutions, customer-centric travel technology, and ground transportation logistics management; providing world-class service, unparalleled safety, and general peace of mind to the world’s most discerning travelers since 1921. 
+Embarque is another innovation created by Carey International, a trusted leader in chauffeured service solutions, customer-centric travel technology, and ground transportation logistics management; providing world-class service, unparalleled safety, and general peace of mind to the world’s most discerning travelers since 1921.
 
 Embarque works with Expense for Concur Standard and Expense for Concur Professional. It will is now available in the SAP Concur App Center under User Connections (formerly Apps for
 Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about Embarque, visit [http://www.Embarque.com](http://www.Embarque.com).
@@ -58,7 +52,6 @@ Taiwan Taxi works with Expense for Concur Standard and Expense for Concur Profes
 ## <a name="apps-for-me-connection-coming-soon"></a>Apps for Me / User Connection Apps Coming Soon
 
 ### <a name="green-tomato-cars"></a>Green Tomato Cars
-
 
 Green Tomato Cars launched in 2006 as London’s first ethical and eco-friendly passenger car company and now offer ground transport solutions nationwide. Environmental responsibility was at the heart of the business when it was established and that ethos remains central to the company today. Our mission statement – ‘’Ethical transport to meet the needs of our customers that does not cost the earth” - strongly connects the company with its roots.
 
