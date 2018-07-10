@@ -539,6 +539,7 @@ Response Body:
   ]
 }
 ```
+
 Response code : **200**
 
 [Back to top](#request-examples)
@@ -735,6 +736,7 @@ Response Body:
   }
 }
 ```
+
 Response code : **201**
 
 [Back to top](#request-examples)
@@ -964,6 +966,7 @@ Response Body:
   }
 ]
 ```
+
 Response code : **200**
 
 [Back to top](#request-examples)
@@ -1090,6 +1093,37 @@ Response Body:
 }
 ```
 Response code : **200**
+
+##### Expense Type DINNER
+```
+curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/expenses/C286A46A2DDF984EA28E41CEA278667D'
+```
+
+Response Body:
+```json
+{
+  "href": "https://rqa3-raas.concurasp.com/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
+  "id": "C286A46A2DDF984EA28E41CEA278667D",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 80,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 80,
+        "currency": "USD"
+      },
+      "allocationId": "780B3FA5B83EC24F922EBE7B5D4AED63",
+      "postedAmount": {
+        "value": 80,
+        "currency": "USD"
+      },
+      "expenseId": "C286A46A2DDF984EA28E41CEA278667D",
+=======
+Response code : **200**
+
+[Back to top](#request-examples)
 
 ##### Expense Type DINNER
 ```

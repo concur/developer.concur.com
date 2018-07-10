@@ -104,6 +104,8 @@ userId|path|string|The unique identifier of the Request owner. <br> **Required**
 
 Important: In the case of an UPDATE, the Request Body must contain both the modified values and the existing values. In order to enhance the user experience, Concur is currently working on a development in order to manage the partial update. 
 
+Important: In the case of an UPDATE, the Request Body must contain both the modified values and the existing values. In order to enhance the user experience, Concur is currently working on a development in order to manage the partial update.
+
 *Response:*
 
 Name|Type|Format|Description
