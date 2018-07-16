@@ -56,13 +56,13 @@ APPROVED|Returns approved travel requests. If you use this search term with the 
 
 ```
 https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/
-https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?status={status}
-https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?loginid={loginID}
-https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate={date}
-https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedafterdate=2012-01-01T00:00:00
-https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?modifiedbeforedate={date}
-https://www.concursolutions.com//api/travelrequest/v1.0/requestslist/?modifiedbeforedate=2012-01-01T00:00:00
-https://www.concursolutions.com/api/travelrequest/v1.0/requestslist/?status={status}&loginid={loginID}
+https://www.concursolutions.com/api/travelrequest/v1.0/requestslist?status={status}
+https://www.concursolutions.com/api/travelrequest/v1.0/requestslist?loginid={loginID}
+https://www.concursolutions.com/api/travelrequest/v1.0/requestslist?modifiedafterdate={date}
+https://www.concursolutions.com/api/travelrequest/v1.0/requestslist?modifiedafterdate=2012-01-01T00:00:00
+https://www.concursolutions.com/api/travelrequest/v1.0/requestslist?modifiedbeforedate={date}
+https://www.concursolutions.com//api/travelrequest/v1.0/requestslist?modifiedbeforedate=2012-01-01T00:00:00
+https://www.concursolutions.com/api/travelrequest/v1.0/requestslist?status={status}&loginid={loginID}
 ```
 
 ### Headers
