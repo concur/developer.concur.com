@@ -130,6 +130,7 @@
   },
   "definitions": {
     "PurchaseOrderReceipt": {
+      "required":["IsReceived","LineItemExternalID","PurchaseOrderNumber"],
       "properties": {
         "Custom1": {
           "type": "string",
