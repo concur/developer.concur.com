@@ -18,11 +18,10 @@ Version 4.0 of Request API works only with the new [Authentication API](/api-ref
 * [Overview](#overview)
 * [Version](#version)
 * [Regional Availability](#regionalavailability)
-  * [With Swagger](#swagger)
   * [With Curl](#curl)
 * [Explore the API](#explore-api)
   * [Prerequisites](#prerequisites)
-  * [Acquire an Access Token](#token)
+  * [Obtain an Access Token](#token)
   * [Explore the API in JavaScript](#javascript)
     * [Retrieve a User Access Token](#retrieve-token)
     * [Post a request](#post-request)
@@ -33,7 +32,7 @@ The Request V4 API exposes four different resources:
 
 Resource|Description
 ---|---
-Request|You can read, create, update or delete a Request and get the list of Requests.
+Request|You can read, create, update or delete a Request and get the list of an existing Request.
 Workflow|You can perform action in the approval workflow of a Request (submit, approve, cancel...)
 Expense|You can read, create, update or delete an Expense, and get the list of expected Expenses for a specific Request.
 Travel Agency|You can get the description of a Travel Agency office.
@@ -47,14 +46,6 @@ These resources are used to manage documents used for pre-spend authorizations w
 * [1.0](/api-reference/request/v1.request.html)
 
 ## <a name="regionalavailability"></a>Regional Availability
-
-### <a name="swagger"></a>With swagger
-
-Region|URI
----|---
-US Production|https://sea-raas.concurasp.com
-EMEA production|https://par-raas.concurasp.com/
-China production|https://raas.service.cnqr.io/
 
 ### <a name="curl"></a>With curl
 
@@ -111,7 +102,7 @@ http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={Y
 
 Below are some simple NodeJS code snippets for getting a token and issuing a request to the API.
 
-#### <a name="retrieve-token"></a>Retrieve a User Access Token:
+#### <a name="retrieve-token"></a>Retrieve a User or Company Access Token:
 
 ```javascript
 'use strict';

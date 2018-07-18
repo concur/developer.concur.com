@@ -35,6 +35,8 @@ Code|Message|Response Body|Information|Wrong input example
 400|Bad Request|`blockingException` at least 1 blocking exception|A request with a blocking exception has been submitted|
 400|Bad Request|`multiLegNotAllowed` cannot save a multi leg, multi-leg is not enabled for this entity|The multi leg support is not allowed for the entity|
 400|Bad Request|`reportTemplateNotFound` failed to retrieve report template|The multi leg support is not allowed for the entity|
+400|Bad Request|`unsupportedParam` the request has unsupported parameter(s)|Some parameter(s) of the request are not supported|
+400|Bad Request|`missingRequiredParam`the request is missing required parameter(s)|The request is missing some required parameter(s)|
 401|Unauthorized|`invalidUser` the request's user is invalid|invalid or non existent authorization HTTP header|
 403|Forbidden|`permissionDenied` permission denied|User approving his own request, or without approver/processor role|
 403|Forbidden|`requestStatusNotApproved` the request is not approved or canceled after approval||
