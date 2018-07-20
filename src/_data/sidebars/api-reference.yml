@@ -228,7 +228,5 @@
         url: /api-reference/travel/itinerary/trip/trip-resource.html
       - title: Travel Services
         url: /api-reference/travel/travel.html
-      - title: Trip Approval
-        url: /api-reference/travel/trip-approval/trip-approval-resource.html
 - title: User
   url: /api-reference/user/
