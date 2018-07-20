@@ -34,6 +34,9 @@ The following new scopes have been added and the company JWT will need to includ
 ## <a name="obtain-payment"></a>Obtaining payments
 
 Payment providers can use this endpoint to get a list of payments.
+* This API will return all payments with a status [PENDING_RETRIEVAL](#schema-payment-update-status) and payment method PAVPVD. After an invoice is approved and extracted it will be converted into a payment with status [PENDING_RETRIEVAL](#schema-payment-update-status)
+* It will return a max of 500 records at a time. In order to ensure that all payments are retrieved, call this API till you receive an empty payment in the response.
+* Payment provider will need to acknowledge that payments were received. This can be done by using the [API to update payment status](#updating-payment) and updating the status of the payment to [RETRIEVED](#schema-payment-update-status)
 
 ### Request
 
@@ -243,8 +246,8 @@ Name | Type | Format | Description
 `invoices`|`array`|[Invoice](#schema-invoice)|Array of invoices that need to be batched in a payment
 `paymentDueDate`|`string`|YYYY-MM-DD|The date by which the payment should be made. Format: YYYY-MM-DD
 `paymentID`|`string`|-|Unique identifier of the payment in Concur
-`paymentMethod`|`string`|-|Payment method for the payment
-`totalAmount`|`object`|[Amount](#schema-amount)|Total amount of the payment
+`paymentMethod`|`string`|-|The value is always PAYPVD which means that the client wants to pay using a payment provider
+`totalAmount`|`object`|[Amount](#schema-amount)|This amount needs to be paid to the vendor
 `vendor`|`object`|[Vendor](#schema-vendor)|Vendor requesting the payment
 
 ### <a name="schema-invoice"></a>Invoice
@@ -253,8 +256,8 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `invoiceAmount`|`object`|[Amount](#schema-amount)|Amount on the invoice
 `invoiceNumber`|`string`|-|Invoice Number
-`invoiceID`|`string`|-|Unique identifier of the invoice in Concur
-`notesToSupplier`|`string`|-|Notes to the supplier
+`invoiceID`|`string`|-|Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as paymentRequestID in other Invoice APIs
+`notesToSupplier`|`string`|-|Notes to the supplier contain remittance information that the buyer wants to provide to the supplier
 `paymentAmount`|`object`|[Amount](#schema-amount)|Payment amount on the invoice
 
 ### <a name="schema-vendor"></a>Vendor
@@ -296,7 +299,7 @@ Name|Type|Format|Description
 `paymentInitiationDate`|`string`|YYYY-MM-DD|The date the payment was initiated
 `paymentSettlementDate`|`string`|YYYY-MM-DD|The date the payment will be in the payees account
 `thirdPartyPaymentIdentifier`|`string`|-|Check number if the payment was done via check or trace number for ACH payments  max (255)
-`paymentMethod`|`string`|[Payment Method](#schema-payment-method)|**Required if the status is Paid, Check Processed, Card Processed** Payment method used by the payment provider
+`paymentMethod`|`string`|[Payment Provider Method](#schema-payment-provider-method)|**Required if the status is Paid, Check Processed, Card Processed** Payment method used by the payment provider
 `paidAmount`|`object`|[Amount](#schema-amount)|**Required if the status is Paid, Check Processed, Card Processed** Amount paid by the payment provider
 
 #### <a name="schema-payment-update-status"></a>Payment Update Status
@@ -318,7 +321,7 @@ Value|Description|Status available in the Payment Confirmation Extract
 `CARD_AUTHORIZED`|Card was authorized by the merchant|Not available
 `CARD_SETTLED`|Card was settled by vendor|`PAID`
 
-#### <a name="schema-payment-method"></a>Payment Method
+#### <a name="schema-payment-privider-method"></a>Payment Provider Method
 
 Value|Description
 ---|---
