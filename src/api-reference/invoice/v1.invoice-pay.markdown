@@ -29,7 +29,7 @@ SAP Concur partners with external payment providers for processing invoice payme
 
 The following new scopes have been added and the company JWT will need to include these:
 
-* `invoice.partnerpayment.write`
+* `invoice.providerpayment.write`
 
 ## <a name="obtain-payment"></a>Obtaining payments
 
