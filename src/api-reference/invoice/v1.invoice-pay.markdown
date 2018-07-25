@@ -246,7 +246,7 @@ Name | Type | Format | Description
 `invoices`|`array`|[Invoice](#schema-invoice)|Array of invoices that need to be batched in a payment
 `paymentDueDate`|`string`|YYYY-MM-DD|The date by which the payment should be made. Format: YYYY-MM-DD
 `paymentID`|`string`|-|Unique identifier of the payment in Concur
-`paymentMethod`|`string`|-|The value is always PAYPVD which means that the client wants to pay using a payment provider
+`paymentMethod`|`string`|-|The value is always PAYPVD which means that the client wants to pay using a payment provider (max 6)
 `totalAmount`|`object`|[Amount](#schema-amount)|This amount needs to be paid to the vendor
 `vendor`|`object`|[Vendor](#schema-vendor)|Vendor requesting the payment
 
@@ -264,21 +264,21 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`buyerAccountNumber`|`string`|-|Buyer Account Number
-`vendorCode`|`string`|-|Vendor Code
-`vendorName`|`string`|-|Vendor Name
-`addressLine1`|`string`|-|Address line 1
-`addressLine2`|`string`|-|Address line 2
-`addressLine3`|`string`|-|Address line 3
-`city`|`string`|-|Vendor Code
-`countryCode`|`string`|-|Country Code
+`buyerAccountNumber`|`string`|-|Buyer Account Number (max 50)
+`vendorCode`|`string`|-|Vendor Code (max 32)
+`vendorName`|`string`|-|Vendor Name (max 255)
+`addressLine1`|`string`|-|Address line 1 (max 255)
+`addressLine2`|`string`|-|Address line 2 (max 255)
+`addressLine3`|`string`|-|Address line 3 (max 255)
+`city`|`string`|-|City (max 255)
+`countryCode`|`string`|-|Country Code (max 2)
 `countryName`|`string`|-|Country Name
-`postalCode`|`string`|-|Postal Code
-`vendorAddrCode`|`string`|-|Vendor Address Code
-`email`|`string`|-|Email Address
-`firstName`|`string`|-|First Name
-`lastName`|`string`|-|Last Name
-`phoneNumber`|`string`|-|Phone Number
+`postalCode`|`string`|-|Postal Code (max 20)
+`vendorAddrCode`|`string`|-|Vendor Address Code (max 64)
+`email`|`string`|-|Email Address (max 255)
+`firstName`|`string`|-|First Name (max 255)
+`lastName`|`string`|-|Last Name (max 255)
+`phoneNumber`|`string`|-|Phone Number (max 25)
 
 ### <a name="schema-amount"></a>Amount
 
