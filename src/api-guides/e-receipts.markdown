@@ -19,7 +19,7 @@ At Concur, e-receipts are digital representations of receipts with both a receip
 
 ### User Connections / Authentication
 
-The below Authentication Methods are available to obtain an access token.  Password Grant and either Authorization or One-Time Password Grants are required for Certification:
+The below Authentication Methods are available to obtain an access token.  Password Grant or Authorization Grant or One-Time Password Grant is required for Certification:
 
 - [Password Grant](/api-reference/authentication/apidoc.html#password_grant) – Connect from the Concur App Center.
 - [Authorization Grant](/api-reference/authentication/apidoc.html#auth_grant) – Connect from the Partner App.
