@@ -3,7 +3,12 @@ title: Budget Category
 layout: reference
 ---
 
-# Budget Category
+# Menu
+* [Getting Started](#overview)
+* [Fiscal Year](#overview)
+* [Budget Item](#overview)
+
+# Budget Category - Beta
 * [Overview](#overview)
 * [Retrieve all Budget Categories](#getall)
 * [Retrieve a Budget Category](#get)
@@ -30,12 +35,6 @@ contained in that budget category will be accumulated to the budget.
 
     GET  /budget/v4/budgetCategory
 
-cURL:
-
-```shell
-curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/budget/v4/budgetCategory
-```
-
 HTTPie:
 
 ```shell
@@ -55,12 +54,6 @@ http https://us.api.concursolutions.com/budget/v4/budgetCategory 'Authorization:
 
     GET  /budget/v4/budgetCategory/{id} 
     
-cURL:
-
-```shell
-curl -H "Authorization: Bearer {YOUR ACCESS TOKEN}" https://us.api.concursolutions.com/budget/v4/budgetCategory/{id} 
-```
-
 HTTPie:
 
 ```shell
@@ -112,13 +105,7 @@ id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
 ## <a name="post"></a>Create/Update a Budget Category
 
     POST  /budget/v4/budgetCategory
-    
-```shell
-curl -v -X POST https://us.api.concursolutions.com/budget/v4/budgetCategory  \
--H "Authorization: Bearer {YOUR ACCESS TOKEN}" \
--H "Content-Type: application/json" \
--d @{PATH TO YOUR BUDGET CATAEGORY JSON}
-```
+
 
 HTTPie:
 
@@ -146,11 +133,7 @@ Name | Type | Format | Description
 
     DELETE  /budget/v4/budgetCategory/{id}
     
-```shell
-curl -v -X DELETE https://us.api.concursolutions.com/budget/v4/budgetCategory/{id}  \
--H "Authorization: Bearer {YOUR ACCESS TOKEN}" \
--H "Content-Type: application/json" \
-```
+HTTPie:
 
 ```shell
 http DELETE https://us.api.concursolutions.com/budget/v4/budgetCategory/{id} \
