@@ -249,8 +249,8 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `invoices`|`array`|[Invoice](#schema-invoice)|Array of invoices that need to be batched in a payment
 `paymentDueDate`|`string`|YYYY-MM-DD|The date by which the payment should be made. Format: YYYY-MM-DD
-`paymentID`|`string`|-|Unique identifier of the payment in Concur
-`paymentMethod`|`string`|-|The value is always PAYPVD which means that the client wants to pay using a payment provider (max 6)
+`paymentID`|`string`|-|Unique identifier of the payment in Concur (max 36)
+`paymentMethod`|`string`|-|The value is always PAYPVD which means that the client wants to pay using a payment provider (max 15)
 `totalAmount`|`object`|[Amount](#schema-amount)|This amount needs to be paid to the vendor
 `vendor`|`object`|[Vendor](#schema-vendor)|Vendor requesting the payment
 
@@ -288,7 +288,7 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`amount`|`string`|-|Amount
+`amount`|`string`|-|Amount (max 20)
 `currency`|`string`|-|Currency Code
 
 ### <a name="schema-payment-update"></a>Payment Update
