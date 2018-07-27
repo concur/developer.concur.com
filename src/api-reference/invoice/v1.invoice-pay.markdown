@@ -259,9 +259,9 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `invoiceAmount`|`object`|[Amount](#schema-amount)|Amount on the invoice
-`invoiceNumber`|`string`|-|Invoice Number
-`invoiceID`|`string`|-|Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as paymentRequestID in other Invoice APIs
-`notesToSupplier`|`string`|-|Notes to the supplier contain remittance information that the buyer wants to provide to the supplier
+`invoiceNumber`|`string`|-|Invoice Number (max 50)
+`invoiceID`|`string`|-|Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as paymentRequestID in other Invoice APIs (max 20)
+`notesToSupplier`|`string`|-|Notes to the supplier contain remittance information that the buyer wants to provide to the supplier (max 500)
 `paymentAmount`|`object`|[Amount](#schema-amount)|Payment amount on the invoice
 
 ### <a name="schema-vendor"></a>Vendor
@@ -276,7 +276,7 @@ Name | Type | Format | Description
 `addressLine3`|`string`|-|Address line 3 (max 255)
 `city`|`string`|-|City (max 255)
 `countryCode`|`string`|-|Country Code (max 2)
-`countryName`|`string`|-|Country Name
+`countryName`|`string`|-|Country Name (max 64)
 `postalCode`|`string`|-|Postal Code (max 20)
 `vendorAddrCode`|`string`|-|Vendor Address Code (max 64)
 `email`|`string`|-|Email Address (max 255)
@@ -289,7 +289,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `amount`|`string`|-|Amount (max 20)
-`currency`|`string`|-|Currency Code
+`currency`|`string`|-|Currency Code (max 3)
 
 ### <a name="schema-payment-update"></a>Payment Update
 
