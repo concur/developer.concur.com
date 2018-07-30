@@ -10,6 +10,11 @@ layout: reference
 * [Get a single extract job](#getexjd)
 * [Get a single extract job status](#getexjs)
 * [Post an extract job initiation request](#postexjr)
+* [Schema](#schema)
+  * [Definitions](#schema-definitions)
+  * [Definition](#schema-definition)
+  * [Jobs](#schema-jobs)
+  * [Job](#schema-job)
 
 ## Version
 
