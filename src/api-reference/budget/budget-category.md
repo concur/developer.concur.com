@@ -3,7 +3,7 @@ title: Budget Category
 layout: reference
 ---
 
->Warning: Concur’s Budget v4 API is currentlly in PRE-RELEASE and is only available to approved early adopters. To become an early adopter, contact your SAP Concur Representative and have them contact the App Center team.
+>Preview: Concur’s Budget v4 API is currentlly in PRE-RELEASE and is only available to approved early adopters. To become an early adopter, contact your SAP Concur Representative and have them contact the App Center team.
 
 This resource is used to retrieve and update budget categories which are collections of expense types used for budget
 matching.  Each budget item header may have one budget category.  If it does, only line items with expense types 
