@@ -6,7 +6,7 @@ layout: reference
 * [Get an array of extract definitions](#get-definitions)
 * [Get a single extract definition](#get-definition)
 * [Get an extract file or files](#get-file)
-* [Get an array of extract jobs](#getexjl)
+* [Get an array of extract jobs](#get-job-array)
 * [Get a single extract job](#getexjd)
 * [Get a single extract job status](#getexjs)
 * [Post an extract job initiation request](#postexjr)
@@ -159,7 +159,7 @@ Content-Type: application/xml
 </definition>
 ```
 
-## <a name="get-file"></a>GET an extract file or files
+## <a name="get-file"></a>Get an extract file or files
 
 The extracted data for the specified extract job.
 
@@ -240,7 +240,7 @@ Content-Type: application/zip
 { zip archive data}
 ```
 
-## <a name="get-job-list"></a>Get an array of extract jobs
+## <a name="get-job-array"></a>Get an array of extract jobs
 
 Requests a list of the last 100 extract jobs ran for the specified Extract Definition.
 
@@ -393,7 +393,7 @@ Content-Type: application/xml
 </job>
 ```
 
-## <a name="getexjs"></a>Get Extract Job Status
+## <a name="getexjs"></a>Get a single extract job status
 
 Retrieves the details of the specified extract definition.
 
