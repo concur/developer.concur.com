@@ -5,11 +5,11 @@ layout: reference
 
 * [Get an array of extract definitions](#get-definitions)
 * [Get a single extract definition](#get-definition)
-* [GET an extract file or files](#get-file)
-* [GET an extract job list](#getexjl)
-* [GET extract job details](#getexjd)
-* [GET extract job status](#getexjs)
-* [POST an extract job initiation request](#postexjr)
+* [Get an extract file or files](#get-file)
+* [Get an array of extract jobs](#getexjl)
+* [Get a single extract job](#getexjd)
+* [Get a single extract job status](#getexjs)
+* [Post an extract job initiation request](#postexjr)
 
 ## Version
 
@@ -21,13 +21,17 @@ layout: reference
 /api/expense/extract/v1.0/
 ```
 
+## Authorization
+
+The `Authorization` header with OAuth token for valid Concur user must be included with all API calls. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
+
 ## <a name="get-definitions"></a>Get an array of extract definitions
 
 ### Request
 
 #### Headers
 
-* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) Required: Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
 
 #### Parameters
 
@@ -59,7 +63,7 @@ Name | Type | Format | Description
 
 ```
 GET https://www.concursolutions.com/api/expense/extract/v1.0/
-Authorization: OAuth {access token}
+Authorization: OAuth {token}
 ```
 
 #### Response
@@ -97,7 +101,7 @@ Retrieves the details of the specified extract definition.
 
 #### Headers
 
-* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) Required: Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
 
 #### Parameters
 
@@ -105,7 +109,11 @@ Name|Type|Format|Description
 ---|---|---|---
 `DefinitionID`|`string`|-|**Required** The identifier for the desired extract definition.
 
-Template: `https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}`
+##### URI Template
+
+```
+https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}
+```
 
 #### Payload
 
@@ -133,7 +141,7 @@ Name|Type|Format|Description
 
 ```
 GET https://www.concursolutions.com/api/expense/extract/v1.0/n59FpBJ8hN3qVWTFIrtxkOT5pef6DmIj3
-Authorization: OAuth {access token}
+Authorization: OAuth {token}
 ```
 
 #### Response
@@ -161,7 +169,7 @@ The response is the extracted data in `text/csv` format if there was a single fi
 
 #### Headers
 
-* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) Required: Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
 
 #### Parameters
 
@@ -170,7 +178,11 @@ Name|Type|Format|Description
 `DefinitionID`|`string`|-|**Required** The definition identifier.
 `JobID`|`string`|-|**Required** The identifier for the job.
 
-Template: `https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job/{JobID}/file`
+##### URI Template
+
+```
+https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job/{JobID}/file
+```
 
 #### Payload
 
@@ -202,7 +214,7 @@ Name|Type|Format|Description
 
 ```
 GET https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd/file
-Authorization: OAuth {access token}
+Authorization: OAuth {token}
 ```
 
 #### Response
@@ -228,7 +240,7 @@ Content-Type: application/zip
 { zip archive data}
 ```
 
-## <a name="get-job-list"></a>Get an extract job list
+## <a name="get-job-list"></a>Get an array of extract jobs
 
 Requests a list of the last 100 extract jobs ran for the specified Extract Definition.
 
@@ -236,7 +248,7 @@ Requests a list of the last 100 extract jobs ran for the specified Extract Defin
 
 #### Headers
 
-* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) Required: Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
 
 #### Parameters
 
@@ -244,7 +256,11 @@ Name|Type|Format|Description
 ---|---|---|---
 `DefinitionID`|`string`|-|**Required** The definition identifier.
 
-Template: `https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job`
+##### URI Template
+
+```
+https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job
+```
 
 #### Payload
 
@@ -272,7 +288,7 @@ Name|Type|Format|Description
 
 ```
 GET https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job HTTP/1.1
-Authorization: OAuth {access token}
+Authorization: OAuth {token}
 ```
 
 #### Response
@@ -309,6 +325,217 @@ Content-Type: application/xml
 </jobs>
 ```
 
+## <a name="getexjd"></a>Get a single extract job
+
+Retrieves the details of the specified extract definition.
+
+### Request
+
+#### Headers
+
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+#### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`DefinitionID`|`string`|-|**Required** The identifier for the desired extract definition.
+`JobID`|`string`|-|**Required** The identifier for the job and the job keyword.
+
+##### URI Template
+
+```
+https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job/{JobID}
+```
+
+#### Payload
+
+None
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+
+#### Headers
+
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5) `application/xml`
+
+#### Payload
+
+[Job](#schema-job)
+
+### Example
+
+#### Request
+
+```
+GET https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd
+Authorization: OAuth {token}
+```
+
+#### Response
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+```
+
+```xml
+<job xmlns="...">
+  <id>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd></id>
+  <status-link>https://www.concursolutions.com/api/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd/status</status-link>
+  <start-time>2010-01-12T18:30:01</start-time>
+  <stop-time>2010-01-12T18:31:01</stop-time>
+  <status>Complete</status>
+  <file-link> https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd/file</file-link>
+</job>
+```
+
+## <a name="getexjs"></a>Get Extract Job Status
+
+Retrieves the details of the specified extract definition.
+
+### Request
+
+#### Headers
+
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+
+#### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`DefinitionID`|`string`|-|**Required** The identifier for the desired extract definition.
+`JobID`|`string`|-|**Required** The identifier for the job and the job keyword.
+
+##### URI Template
+
+```
+https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job/{JobID}/status
+```
+
+#### Payload
+
+None
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+
+#### Headers
+
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5) `application/xml`
+
+#### Payload
+
+[Job](#schema-job)
+
+### Example
+
+#### Request
+
+```
+https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps/status
+{Header}: {Value}
+```
+
+#### Response
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+```
+
+```xml
+<job xmlns="http://www.concursolutions.com/api/expense/extract/2010/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <id>https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps</id>
+  <status-link>https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps/status</status-link>
+  <start-time>2011-08-25T14:25:22.58</start-time>
+  <stop-time>2011-08-25T14:25:23.537</stop-time>
+  <status>Completed</status>
+  <file-link>https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps/file</file-link>
+</job>
+```
+
+## <a name="postexjr"></a>Post an extract job initiation request
+
+Initiates a new extract job for the specified extract definition. The job will be scheduled to start as soon as possible. The value will be Queued until the job begins.
+
+### Request
+
+#### Headers
+
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5) `application/xml`
+
+#### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`DefinitionID`|`string`|-|**Required** The identifier for the desired extract definition.
+
+##### URI Template
+
+```
+https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job
+```
+
+#### Payload
+
+[Definition](#schema-definition)
+
+### Response
+
+#### Status Codes
+
+* [201 Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)
+
+#### Headers
+
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5) `application/xml`
+* [RFC 7231 Location](https://tools.ietf.org/html/rfc7231#section-7.1.2)
+
+#### Payload
+
+[Job](#schema-job)
+
+### Example
+
+#### Request
+
+```
+POST https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job
+Authorization: OAuth {token}
+Content-Type: application/xml
+```
+
+```xml
+<definition xmlns="http://www.concursolutions.com/api/expense/extract/2010/02">
+  <id>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd</id>
+</definition>
+```
+
+#### Response
+
+```
+HTTP/1.1 201 Created
+Location: https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd
+Content-Type: application/xml
+```
+
+```xml
+<job xmlns="...">
+  <id>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd</id>
+  <status-link> https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd/status</status-link>
+  <start-time>2010-01-13T18:30:02Z</start-time>
+  <status>Queued</status>
+</job>
+```
+
 ## <a name="schema"></a>Schema
 
 ### <a name="schema-definitions"></a>Definitions
@@ -336,225 +563,8 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `id`|`string`|-|The unique job identifier with encrypted ID.
-`status`-link|`string`|-|A URI for retrieving the current job status, with encrypted ID. The **status-link** value is used as the URI when requesting the job status.
-`start-time`|`string`|-|The time, in UTC (GMT), that the job is scheduled to start.
-`stop-time`|`string`|-|The time, in UTC (GMT), that the job finished. Not included if the job is still running.
+`status-link`|`string`|-|A URI for retrieving the current job status, with encrypted ID. The **status-link** value is used as the URI when requesting the job status.
+`start-time`|`string`|-|The time in UTC (GMT) the job is scheduled to start.
+`stop-time`|`string`|-|The time in UTC (GMT) the job finished. Not included if the job is still running.
 `status`|`string`|-|The current status of the job.
-`file-link`|`string`|-|A URI for retrieving the file or files produced by the job run, with encrypted ID. Not included if the job is still running. The **file-link** value is used as the URI when retrieving the extract data.
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-###  <a name="getexjd"></a>Get Extract Job Details
-Retrieves the details of the specified extract definition.
-
-#### Get Extract Job Details Request
-
-```http
-GET https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job/{JobID} HTTP/1.1
-Authorization: OAuth {access token}
-...
-```
-
-#### Request parameters
-
-#### Path parameters
-
-| Parameter |Required/Optional| Description |
-|-----------------|--------|-----------------------------|
- | {_DefinitionID_ | required | The identifier for the desired extract definition. |
- | job/{_JobID_} | required | The identifier for the job and the job keyword. |
-
-Example: `https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd`
-
-#### Headers
-
-##### Authorization header
-Required. Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
-
-##### Accept header
-application/xml
-
-#### Get Extract Job Details Response
-
-##### Content-Type header
-application/xml
-
-#### Root elements
-This request will return a **job** parent element with the following child elements.
-
-##### job elements
-
-| Element | Description |
-| ------- | ----------- |
-| id |  The unique job identifier with encrypted ID. |
-| status-link | The URI to get the current status of the job, with encrypted ID. The **status-link** value is used as the URI when requesting the job status. |
-| start-time | The time, in UTC (GMT), that the job is scheduled to start. |
-| stop-time | The time, in UTC (GMT), that the job finished. Not included if the job is still running. |
-| status | The current status of the extract job. |
-| file-link | A URI for retrieving the file or files produced by the job run, with encrypted ID. Not included if the job is still running. The **file-link** value is used as the URI when retrieving the extract data. |
-
-####  XML example of successful response
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/xml
-
-<job xmlns="...">
-    <id>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd></id>
-    <status-link>https://www.concursolutions.com/api/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd/status</status-link>
-    <start-time>2010-01-12T18:30:01</start-time>
-    <stop-time>2010-01-12T18:31:01</stop-time>
-    <status>Complete</status>
-    <file-link> https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd/file</file-link>
-</job>
-```
-
-## <a name="getexjs"></a>Get Extract Job Status
-Retrieves the details of the specified extract definition.
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-####  Get Extract Job Status Request
-
-```http
-GET https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job/{JobID}/status HTTP/1.1
-Authorization: OAuth {access token}
-...
-```
-
-#### Request parameters
-
-#### Path parameters
-
-| Parameter |Required/Optional| Description |
-|-----------------|--------|-----------------------------|
-|{_DefinitionID_} | required | The identifier for the desired extract definition. |
-| job/{_JobID_}/status | required | The identifier for the job and the job and status keywords. |
-
-Example: `https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps/status`
-
-#### Headers
-
-##### Authorization header
-Required. Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
-
-##### Content-Type header
-application/xml
-
-####  Get Extract Job Status Response
-
-#### Content types
-application/xml
-
-#### Response body
-This request will return a **job** parent element with the following child elements.
-
-##### job elements
-
-| Element | Description |
-| ------- | ----------- |
-| id | The unique job identifier. |
-| status-link | The URI to get the current status of the job. |
-| start-time | The time, in UTC (GMT), when the job started. |
-| stop-time | The time, in UTC (GMT), when the job finished. Not included if the job is still running. |
-| status | The current status of the job. Format: Queued, Running, Completed, Failed |
-| file-link | The URI used to retrieve the file or files produced by this job run. Not included if the job is still running. |
-| id | The extract definition ID URI with encrypted ID. |
-
-####  XML example of successful response
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/xml
-
-<job xmlns="http://www.concursolutions.com/api/expense/extract/2010/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-    <id>https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps</id>
-    <status-link>https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps/status</status-link>
-    <start-time>2011-08-25T14:25:22.58</start-time>
-    <stop-time>2011-08-25T14:25:23.537</stop-time>
-    <status>Completed</status>
-    <file-link>https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps/file</file-link>
-</job>
-```
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-## <a name="postexjr"></a>Post an extract job initiation request
-Initiates a new extract job for the specified extract definition.
-
-#### Request
-
-#### Request parameters
-
-#### Path parameters
-
-| Parameter |Required/Optional| Description |
-|-----------------|--------|-----------------------------|
-|{_DefinitionID_}/job | required | The definition identifier and the job keyword. |
-
-Example: `https://www.concursolutions.com/api/expense/extract/v1.0/{DefinitionID}/job`
-
-#### Headers
-
-#### Authorization header
-Required. Authorization header with OAuth token for valid Concur user. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
-
-#### Content-Type header
-application/xml
-
-#### Request body
-
-This request requires a **definition** parent element with the following child element.
-
-#### definition element
-
-|  Element |  Required (must contain value)? |  Description |
-|--------------|-------------------------------------------|-------------------|
-|  id |  Y |  The unique job identifier with encrypted ID. |
-
-####  Response
-
-### Response body
-This request will return a **job** parent element with the following child elements.
-
-#### job elements
-
-|  Element |  Description |
-|-------------|------------------|
-|  id |  The unique job identifier with encrypted ID. |
-|  start-time |  The time, in UTC (GMT), that the job is scheduled to start. |
-|  status-link |  A URI for retrieving the current status of the job, with encrypted ID. |
-|  status |  The current status of the job. |
-
-If the job was successfully scheduled, the HTTP response code will be 201 Created and the Location response header will contain the URI of the newly scheduled job. The job will be scheduled to start as soon as possible. The  value will be Queued until the job begins.
-
-#### Examples
-
-####  XML example request
-
-```http
-POST https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job HTTP/1.1
-Authorization: OAuth {access token}
-Content-Type: application/xml
-...
-
-<definition xmlns="http://www.concursolutions.com/api/expense/extract/2010/02">
-    <id>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd</id>
-</definition>
-```
-
-####  XML example of successful response
-
-```http
-HTTP/1.1 201 Created
-Location: https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd
-Content-Type: application/xml
-...
-
-<job xmlns="...">
-    <id>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd</id>
-    <status-link> https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd/status</status-link>
-    <start-time>2010-01-13T18:30:02Z</start-time>
-    <status>Queued</status>
-</job>
-```
+`file-link`|`string`|-|A URI for retrieving the file or files produced by the job run, with encrypted ID. Not included if the job is still running. The `file-link` value is used as the URI when retrieving the extract data.
