@@ -39,12 +39,12 @@ Both Edition types produce extract files that you will use as part of the integr
 The client may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Click this link and locate the “SAE Detailed Discussions” at the bottom of the page to review this important information: http://www.concurtraining.com/prdeployment/sts. Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document’s videos.
 
 1. [Get an array of extract definitions](#get-definitions)
-  1. Locate the desired definitions for your client. You may need to obtain additional details as there may be multiple files to obtain depending on client requirements.
-  1. Record the Definition ID to use in subsequent API requests.
-1. [Get an array of extract jobs](#get-job-array)
-  1. OPTIONAL: the Partner only needs to do this if the Partner is running the job, otherwise skip this step.
-  1. Determine which jobs are interesting and record their `file-link`.
-1. [Get an extract file or files](#get-file)
+  * Locate the desired definitions for your client. You may need to obtain additional details as there may be multiple files to obtain depending on client requirements.
+  * Record the Definition ID to use in subsequent API requests.
+2. [Get an array of extract jobs](#get-job-array)
+  * OPTIONAL: the Partner only needs to do this if the Partner is running the job, otherwise skip this step.
+  * Determine which jobs are interesting and record their `file-link`.
+3. [Get an extract file or files](#get-file)
 
 ## <a name="get-definitions"></a>Get an array of extract definitions
 
