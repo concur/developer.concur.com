@@ -25,7 +25,7 @@ Create a Purchase Request based on provided header and line item details. If the
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
-|`X_AUTH_TOKEN`|`string`|`header`|**Required**: Bearer Token that identifies the caller. This is the company JWT
+|`Authorization`|`string`|`header`|**Required**: Bearer Token that identifies the caller. This is the company JWT
 |`Content-Type`|`string`|`header`|**Required**: application/json
 |`purchaseRequest`|`string`|`body`|**Required**: The details of the purchase request
 
@@ -53,49 +53,49 @@ Create a Purchase Request based on provided header and line item details. If the
       "comments" : "office supplies request",
       "custom1" : "ADVT",
 
-          "lineItems" : [
-              {
-                  "purchaseType" : "SERVICES",
-                  "vendorCode" :"VEN1",
-                  "vendorAddressCode" : "ADDR1",
-                  "description" : "monitor",
-                  "quantity" : "20",
-                  "unitPrice" : "154.4",
-                  "receiptType" : "QUANTITY_RECEIPT",
-                  "neededByDate": "2018-06-28",
-                  "uomCode" : "DA",
-                  "shipping" : "13.5",
-                  "tax" : "11",
-                  "supplierPartId" : "DAQT1",
-                  "url" :[
-                      "http://officesupplies.com/monitor"
-                  ],
-                  "notesToVendor" : "Phase 1 request monitor",
-                  "comments" : "Phase 1 request for new employees for monitor",
-                  "custom2" : "LGVT1"
-              },
-              {
-                  "purchaseType" : "GOODS",
-                  "vendorCode" :"VEN1",
-                  "vendorAddressCode" : "ADDR1",
-                  "description" : "office chair",
-                  "quantity" : "20",
-                  "unitPrice" : "346.2",
-                  "receiptType" : "NONE",
-                  "neededByDate": "2018-06-28",
-                  "uomCode" : "DA",
-                  "shipping" : "15",
-                  "tax" : "17.5",
-                  "supplierPartId" : "DAQT2",
-                  "url" :[
-                      "http://officesupplies.com/officechair"
-                  ],
-                  "notesToVendor" : "Phase 1 request office chair",
-                  "comments" : "Phase 1 request for new employees for office chair",
-                  "custom3" : "DEPT",
-                  "custom4" : "SALES"
-              }
-          ]
+      "lineItems" : [
+          {
+              "purchaseType" : "SERVICES",
+              "vendorCode" :"VEN1",
+              "vendorAddressCode" : "ADDR1",
+              "description" : "monitor",
+              "quantity" : "20",
+              "unitPrice" : "154.4",
+              "receiptType" : "QUANTITY_RECEIPT",
+              "neededByDate": "2018-06-28",
+              "uomCode" : "DA",
+              "shipping" : "13.5",
+              "tax" : "11",
+              "supplierPartId" : "DAQT1",
+              "url" :[
+                  "http://officesupplies.com/monitor"
+              ],
+              "notesToVendor" : "Phase 1 request monitor",
+              "comments" : "Phase 1 request for new employees for monitor",
+              "custom2" : "LGVT1"
+          },
+          {
+              "purchaseType" : "GOODS",
+              "vendorCode" :"VEN1",
+              "vendorAddressCode" : "ADDR1",
+              "description" : "office chair",
+              "quantity" : "20",
+              "unitPrice" : "346.2",
+              "receiptType" : "NONE",
+              "neededByDate": "2018-06-28",
+              "uomCode" : "DA",
+              "shipping" : "15",
+              "tax" : "17.5",
+              "supplierPartId" : "DAQT2",
+              "url" :[
+                  "http://officesupplies.com/officechair"
+              ],
+              "notesToVendor" : "Phase 1 request office chair",
+              "comments" : "Phase 1 request for new employees for office chair",
+              "custom3" : "DEPT",
+              "custom4" : "SALES"
+          }
+      ]
   }'
   ```
     
@@ -122,7 +122,7 @@ Gets purchase request details. Currently only supported mode is COMPACT which re
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
-|`X_AUTH_TOKEN`|`string`|`header`|**Required**: Bearer Token that identifies the caller. This is the company JWT
+|`Authorization`|`string`|`header`|**Required**: Bearer Token that identifies the caller. This is the company JWT
 |`Content-Type`|`string`|`header`|**Required**: application/json
 |`mode`|`string`|`parameter`|**Required**: Specifies mode for get purchase request details. Currently supported mode COMPACT
 
@@ -139,7 +139,7 @@ None
  ```json
      {
         "purchaseRequestId" : "de9c0894-b807-6943-8e3f-49a707da3456",
-        "purchaseRequestNumber" : "PR100000",
+        "purchaseRequestNumber" : "100000",
         "purchaseRequestQueueStatus" : "CREATED",
         "purchaseRequestWorkflowStatus" : "Approved"
      }
@@ -177,7 +177,7 @@ None
 |`shipping`|`decimal`|-|The total shipping cost for the Item
 |`tax`|`decimal`|-|Tax amount that is associated with the line item
 |`supplierPartId`|`string`|-|An Id value that helps to identify the line item. This could be a value such as the vendor’s part number or even the manufacturer number
-|`url`|`string`|-|A valid URL related to the item. You can have multiple URL's per item
+|`url`|`array`|-|A valid URL related to the item. You can have multiple URL's per item
 |`notesToVendor`|`string`|-|Notes related to the Item that can display on the transmitted PO PDF to the vendor
 |`comments`|`string`|-|Internal comments you want to record related to this record
 |`custom1 through custom20`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in Concur
