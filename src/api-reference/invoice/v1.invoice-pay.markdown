@@ -27,9 +27,10 @@ SAP Concur partners with external payment providers for processing invoice payme
 
 ## <a name="scopes"></a>Scopes
 
-The following new scopes have been added and the company JWT will need to include these:
+The following scopes will need to be included in the company JWT:
 
 * `invoice.providerpayment.write`
+* `company.read`
 
 ## <a name="obtain-payment"></a>Obtaining payments
 
@@ -245,8 +246,8 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `invoices`|`array`|[Invoice](#schema-invoice)|Array of invoices that need to be batched in a payment
 `paymentDueDate`|`string`|YYYY-MM-DD|The date by which the payment should be made. Format: YYYY-MM-DD
-`paymentID`|`string`|-|Unique identifier of the payment in Concur
-`paymentMethod`|`string`|-|The value is always PAYPVD which means that the client wants to pay using a payment provider (max 6)
+`paymentID`|`string`|-|Unique identifier of the payment in Concur (max 36)
+`paymentMethod`|`string`|-|The value is always PAYPVD which means that the client wants to pay using a payment provider (max 15)
 `totalAmount`|`object`|[Amount](#schema-amount)|This amount needs to be paid to the vendor
 `vendor`|`object`|[Vendor](#schema-vendor)|Vendor requesting the payment
 
@@ -255,9 +256,9 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `invoiceAmount`|`object`|[Amount](#schema-amount)|Amount on the invoice
-`invoiceNumber`|`string`|-|Invoice Number
-`invoiceID`|`string`|-|Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as paymentRequestID in other Invoice APIs
-`notesToSupplier`|`string`|-|Notes to the supplier contain remittance information that the buyer wants to provide to the supplier
+`invoiceNumber`|`string`|-|Invoice Number (max 50)
+`invoiceID`|`string`|-|Unique identifier of the invoice in Concur. This can be used to get additional invoice information from other APIs. This is the same as paymentRequestID in other Invoice APIs (max 20)
+`notesToSupplier`|`string`|-|Notes to the supplier contain remittance information that the buyer wants to provide to the supplier (max 500)
 `paymentAmount`|`object`|[Amount](#schema-amount)|Payment amount on the invoice
 
 ### <a name="schema-vendor"></a>Vendor
@@ -272,7 +273,7 @@ Name | Type | Format | Description
 `addressLine3`|`string`|-|Address line 3 (max 255)
 `city`|`string`|-|City (max 255)
 `countryCode`|`string`|-|Country Code (max 2)
-`countryName`|`string`|-|Country Name
+`countryName`|`string`|-|Country Name (max 64)
 `postalCode`|`string`|-|Postal Code (max 20)
 `vendorAddrCode`|`string`|-|Vendor Address Code (max 64)
 `email`|`string`|-|Email Address (max 255)
@@ -284,8 +285,8 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`amount`|`string`|-|Amount
-`currency`|`string`|-|Currency Code
+`amount`|`string`|-|Amount (max 20)
+`currency`|`string`|-|Currency Code (max 3)
 
 ### <a name="schema-payment-update"></a>Payment Update
 
