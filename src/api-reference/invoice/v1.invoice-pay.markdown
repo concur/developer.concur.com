@@ -27,12 +27,9 @@ SAP Concur partners with external payment providers for processing invoice payme
 
 ## <a name="scopes"></a>Scopes
 
-The following new scope has been added and the company JWT will need to include it:
+The following scopes will need to be included in the company JWT:
 
 * `invoice.providerpayment.write`
-
-This service internally calls the Profile service which requires the following scope:
-
 * `company.read`
 
 ## <a name="obtain-payment"></a>Obtaining payments
