@@ -33,7 +33,7 @@ Use the following resources to get familiar with the Concur product and then sub
 
 ### <a name="profile"></a>Company Profile
 
-The Company Profile [resource](https://developer.concur.com/api-reference/profile-beta/company.html) provides the Partner with 2 key pieces of information:
+The Company Profile [resource](https://developer.concur.com/api-reference/profile-beta/company.html) provides the partner with 2 key pieces of information:
 
 1. Company UUID - Partner will record this value per customer connection and use it when submitting Support cases.
 1. MarketingName data element - Partner will record this value per customer. This will indicate the Edition Type a customer is using:
@@ -45,11 +45,11 @@ The Company Profile [resource](https://developer.concur.com/api-reference/profil
 
 ### <a name="integration-extract"></a>Expense & Invoice Financial Posting via Extract File APIs
 
-> BASIC & ADVANCED options - applicable to both Expense + Invoice. Differences exist between Standard & Professional. Both Edition types produce extract files that you will use as part of the integration, however, there are distinct differences between them in obtaining the extract file, so it is important to first determine the Edition Type as noted above.
+The client may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Click this link and locate the **“SAE Detailed Discussions”** section at the bottom of the page to review this important information: [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts). Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document’s videos.
 
-The client may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Click this link and locate the “SAE Detailed Discussions” at the bottom of the page to review this important information: [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts). Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document’s videos.
+Differences exist between Standard & Professional in regards to how the client code obtains the data / extract file so it is important to first determine the Edition Type as noted in the [Company Profile](#profile) prerequisites section.
 
-The integration is slightly different depending on Expense or Invoice:
+The integration is slightly different depending on Expense or Invoice.
 
 * Expense: Standard Accounting Extract
 * Invoice: Payment Requests Accounting Extract
