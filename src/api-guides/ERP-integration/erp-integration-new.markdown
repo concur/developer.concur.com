@@ -7,13 +7,12 @@ layout: reference
 * [Prerequisites](#prerequisites)
   * [Quick Connect](#quick-connect)
   * [Company Profile](#profile)
-* [Expense & Invoice Financial Posting via Extract File APIs](#extract)
-  * [Professional Edition](#extract-pro)
-  * [Standard Edition](#standard)
-* [Manage Lists of Cost Object Codes](#manage-lists)
-* [Vendor data – Add & Update Concur](#vendor-data)
-* [Purchase Order data sent to Concur](#purchase-order)
-* [Purchase Order Receipt data sent to Concur](#purchase-order-receipt)
+* [Integration](#integration)
+  * [Expense & Invoice Financial Posting via Extract File APIs](#integration-extract)
+  * [Manage Lists of Cost Object Codes](#integration-manage-lists)
+  * [Vendor data – Add & Update Concur](#integration-vendor-data)
+  * [Purchase Order data sent to Concur](#integration-purchase-order)
+  * [Purchase Order Receipt data sent to Concur](#integration-purchase-order-receipt)
 
 Thank you for your interest in an App Center Partnership to develop an ERP integration between Concur’s products and your chosen ERP brand. The App Center Certification Program requires each desired ERP Brand to be certified. The certified application must support the Expense & Invoice products for both of Concur’s Editions (Standard + Professional Edition). Unless noted as 'Optional' all portions are required.
 
@@ -41,32 +40,50 @@ The Company Profile [resource](https://developer.concur.com/api-reference/profil
   1. "CTE" or "Enterprise" values mean the customer is using Professional Edition
   1. "Standard" value means the customer is using Standard Edition
 
-## <a name="extract"></a>Expense & Invoice Financial Posting via Extract File APIs
+
+## <a name="integration"></a>Integration
+
+### <a name="integration-extract"></a>Expense & Invoice Financial Posting via Extract File APIs
 
 > BASIC & ADVANCED options - applicable to both Expense + Invoice. Differences exist between Standard & Professional. Both Edition types produce extract files that you will use as part of the integration, however, there are distinct differences between them in obtaining the extract file, so it is important to first determine the Edition Type as noted above.
 
 The client may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Click this link and locate the “SAE Detailed Discussions” at the bottom of the page to review this important information: [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts). Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document’s videos.
 
-### <a name="extract-pro"></a>Professional Edition
+The integration is slightly different depending on Expense or Invoice:
+
+* Expense: Standard Accounting Extract
+* Invoice: Payment Requests Accounting Extract
+
+#### <a name="extract-pro"></a>Professional Edition
 
 Partners with clients using Professional Edition have access to the Extracts v1 API. The typical code flow for this approach is listed [here](./api-reference/common/extracts/v1.extracts.html#erp-integration).
 
-### <a name="extract-standard"></a>Standard Edition
+#### <a name="extract-standard"></a>Standard Edition
 
 Partners with clients using Standard Edition have access to the Payment Batches v1.1 API. The typical code flow for this approach is listed [here](./api-reference/expense/payment-batch/v1.payment-batches.hmtl#erp-integration)
 
-## <a name="manage-lists"></a>Manage Lists of Cost Object Codes:
+### <a name="integration-manage-lists"></a>Manage Lists of Cost Object Codes:
+
+The integration is different depending on Expense or Invoice:
+
+* Expense: **Optional** Use of the List API is not required for the Expense integration at this time. The mutual Client may need to manage the initial load of large volumes of data themselves via a file import due to the capacity limitations of the current List API. This is also true if their ongoing maintenance of List values involves a large volume.
+
+* Invoice: **Required** Use of the List API is required for the Invoice integration (e.g. for the custom list values that are part of the Vendor Master records). However, use of the API is contingent on the volume of List data. Due to capacity limitations of the List API, the mutual Client may need to manage the initial load of large volumes of data themselves via a file import. This is also true if their ongoing maintenance of List values involves a large volume. Large numbers of list values for vendors are not expected for Invoice compared to Expense.
 
 [List Item v3 API](./api-reference/common/list-item/v3.list-item.html)
 
-## <a name="vendor-data"></a>Vendor data – Add & Update Concur:
+### <a name="integration-vendor-data"></a>Vendor data – Add & Update Concur:
 
 [Vendor v3 API](./api-reference/invoice/v3.vendor.html)
 
-## <a name="purchase-order"></a>Purchase Order data sent to Concur:
+### <a name="integration-purchase-order"></a>Purchase Order data sent to Concur
+
+**Optional** for the basic integration and **Required** for the advanced integration.
 
 [Purchase Order v3 API](./api-reference/invoice/v3.purchase-order.html)
 
-## <a name="purchase-order-receipt"></a>Purchase Order Receipt data sent to Concur:
+**Optional** for the basic integration and **Required** for the advanced integration.
+
+### <a name="integration-purchase-order-receipt"></a>Purchase Order Receipt data sent to Concur:
 
 ADVANCED option - applicable to both Standard + Professional Editions - Invoice only
