@@ -30,22 +30,6 @@ layout: reference
 
 The `Authorization` header with OAuth token for valid Concur user must be included with all API calls. The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
 
-## Enterprise Resource Planning Integration
-
-For the purposes of ERP integration this API is available to Professional Edition.
-
-Both Edition types produce extract files that you will use as part of the integration, however, there are distinct differences between them in obtaining the extract file, so it is important to first determine the Edition Type.
-
-The client may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Click this link and locate the “SAE Detailed Discussions” at the bottom of the page to review this important information: http://www.concurtraining.com/prdeployment/sts. Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document’s videos.
-
-1. [Get an array of extract definitions](#get-definitions)
-  * Locate the desired definitions for your client. You may need to obtain additional details as there may be multiple files to obtain depending on client requirements.
-  * Record the Definition ID to use in subsequent API requests.
-2. [Get an array of extract jobs](#get-job-array)
-  * OPTIONAL: the Partner only needs to do this if the Partner is running the job, otherwise skip this step.
-  * Determine which jobs are interesting and record their `file-link`.
-3. [Get an extract file or files](#get-file)
-
 ## <a name="get-definitions"></a>Get an array of extract definitions
 
 ### Request
@@ -589,3 +573,15 @@ Name | Type | Format | Description
 `stop-time`|`string`|-|The time in UTC (GMT) the job finished. Not included if the job is still running.
 `status`|`string`|-|The current status of the job.
 `file-link`|`string`|-|A URI for retrieving the file or files produced by the job run, with encrypted ID. Not included if the job is still running. The `file-link` value is used as the URI when retrieving the extract data.
+
+## <a name="erp-integration"></a>Enterprise Resource Planning Integration
+
+For the purposes of ERP integration this API is available to Professional Edition. For Standard Edition go here.
+
+1. [Get an array of extract definitions](#get-definitions)
+  * Locate the desired definitions for your client. You may need to obtain additional details as there may be multiple files to obtain depending on client requirements.
+  * Record the Definition ID to use in subsequent API requests.
+2. [Get an array of extract jobs](#get-job-array)
+  * OPTIONAL: the Partner only needs to do this if the Partner is running the job, otherwise skip this step.
+  * Determine which jobs are interesting and record their `file-link`.
+3. [Get an extract file or files](#get-file)
