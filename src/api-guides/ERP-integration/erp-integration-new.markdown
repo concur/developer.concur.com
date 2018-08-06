@@ -9,13 +9,7 @@ layout: reference
   * [Company Profile](#profile)
 * [Expense & Invoice Financial Posting via Extract File APIs](#extract)
   * [Professional Edition](#extract-pro)
-    * [Obtain a list of extract definitions for your client](#extract-pro-obtain)
-    * [Locate the desired definitions for your client](#extract-pro-locate)
-    * [Record the Definition ID to use in subsequent API requests](#extract-pro-record)
-    * [Obtain and record the Job_ID](#extract-pro-jobid)
-    * [GET the status of the Extract File Job using this GET request](#extract-pro-status)
-    * [GET the desired file using the GET request](#extract-pro-file)
-  * [Standard Edition ERP Integration](#standard)
+  * [Standard Edition](#standard)
 * [Manage Lists of Cost Object Codes](#manage-lists)
 * [Vendor data – Add & Update Concur](#vendor-data)
 * [Purchase Order data sent to Concur](#purchase-order)
@@ -53,118 +47,25 @@ The Company Profile [resource](https://developer.concur.com/api-reference/profil
 
 The client may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Click this link and locate the “SAE Detailed Discussions” at the bottom of the page to review this important information: [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts). Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document’s videos.
 
-GET Extract Files for your client's financial posting into their ERP (Professional Edition and Standard Edition)
-
 ### <a name="extract-pro"></a>Professional Edition
 
-Use the following process and the API resource to obtain extract files for your client from Concur.
+Partners with clients using Professional Edition have access to the Extracts v1 API. The typical code flow for this approach is listed [here](./api-reference/common/extracts/v1.extracts.html#erp-integration).
 
-#### <a name="extract-pro-obtain"></a>Obtain a list of extract definitions for your client
+### <a name="extract-standard"></a>Standard Edition
 
-> Ensure you also develop support for the Concur Invoice extract.
-
-API: [https://developer.concur.com/api-reference/common/extracts/v1.extracts.html](https://developer.concur.com/api-reference/common/extracts/extracts.html)
-
-#### <a name="extract-pro-locate"></a>Locate the desired definitions for your client
-
-You may need to obtain additional details as there may be multiple files to obtain depending on client requirements.
-
-#### <a name="extract-pro-record"></a>Record the Definition ID to use in subsequent API requests
-
-Successful response example:
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/xml
-```
-
-```xml
-<definition xmlns="http://www.concursolutions.com/api/expense/extract/2010/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-  <id>https://www.concursolutions.com/api/expense/extract/v1.0/n59FpBJ8hN3qVWTFIrtxkOT5$pef6DmIj3</id>
-  <name>AMEX Remittance - US</name>
-  <job-link>https://www.concursolutions.com/api/expense/extract/v1.0/n59FpBJ8hN3qVWTFIrtxkOT5$pef6DmIj3/job</job-link>
-</definition>
-```
-
-#### <a name="extract-pro-jobid"></a>Obtain and record the Job_ID
-
-XML example of a successful response:
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/xml
-```
-
-```xml
-<jobs xmlns="...">
-  <job>
-    <id>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd</id>
-    <status-link>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/uIo87jk3SHudi$sdlYle8$peot$pD21jyd/status</status-link>
-    <start-time>2010-01-13T18:30:02Z</start-time>
-    <status>Queued</status>
-  </job>
-  <job>
-    <id>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/21UwwqA3jk25Lis77jF$piiD21c89lLwEq</id>
-    <status-link>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/21UwwqA3jk25Lis77jF$piiD21c89lLwEq/status</status-link>
-    <start-time>2010-01-13T18:30:02Z</start-time>
-    <stop-time>2010-01-13T18:30:50Z</stop-time>
-    <status>Complete</status>
-    <file-link>https://www.concursolutions.com/api/expense/extract/v1.0/nYoPK$pZmcowMRUqcl5bnDAwwsMydyt$xd/job/21UwwqA3jk25Lis77jF$piiD21c89lLwEq/file</file-link>
-  </job>
-</jobs>
-```
-
-#### <a name="extract-pro-status"></a>GET the status of the Extract File Job using this GET request
-
-OPTIONAL: the Partner only needs to do this if the Partner is running the job, otherwise skip this step.
-
-XML example of a successful response:
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/xml
-```
-
-```xml
-<job xmlns="http://www.concursolutions.com/api/expense/extract/2010/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-  <id>https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps</id>
-  <status-link>https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps/status</status-link>
-  <start-time>2011-08-25T14:25:22.58</start-time>
-  <stop-time>2011-08-25T14:25:23.537</stop-time>
-  <status>Completed</status>
-  <file-link>https://www.concursolutions.com/api/expense/extract/v1.0/nX8O9$pytn6vJEWvLOZxyy3GcNGyj0ZklG/job/nIJp1lR2R0LNT4XcO5fXG$s$sZmVuRTuG$ps/file</file-link>
-</job>
-```
-
-#### <a name="extract-pro-file"></a>GET the desired file using the GET request
-
-TBD
-
-### <a name="standard"></a>Standard Edition ERP Integration
-
-Use the following process and the API resource to obtain extract files for your client from Concur. This is your API resource: [https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html](https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html)
-
-**API’s used to obtain extract files for your client**
-
-Before you begin, you need to close the Payment Manager batch using the appropriate API’s in order for you to retrieve the files using the API below. Ask your client not to close the batch manually through the User Interface.
-
-Navigate to [Payment Batches](https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html).
-
-1. Obtain a list of your client’s batches by using [Get list of batches](https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html#getpaymentbatches) Example
-1. Close the desired batch by using [Close a payment batch](https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html#closepaymentbatch) Example
-1. Retrieve the file you want by using [Retrieve a payment batch file](https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html#getbatchfile) Example
+Partners with clients using Standard Edition have access to the Payment Batches v1.1 API. The typical code flow for this approach is listed [here](./api-reference/expense/payment-batch/v1.payment-batches.hmtl#erp-integration)
 
 ## <a name="manage-lists"></a>Manage Lists of Cost Object Codes:
 
-BASIC & ADVANCED options - applicable to both Standard + Professional Editions and Expense + Invoice
+[List Item v3 API](./api-reference/common/list-item/v3.list-item.html)
 
 ## <a name="vendor-data"></a>Vendor data – Add & Update Concur:
 
-BASIC & ADVANCED options - applicable to both Standard + Professional Editions - Invoice only
+[Vendor v3 API](./api-reference/invoice/v3.vendor.html)
 
 ## <a name="purchase-order"></a>Purchase Order data sent to Concur:
 
-ADVANCED option - applicable to both Standard + Professional Editions - Invoice only
+[Purchase Order v3 API](./api-reference/invoice/v3.purchase-order.html)
 
 ## <a name="purchase-order-receipt"></a>Purchase Order Receipt data sent to Concur:
 
