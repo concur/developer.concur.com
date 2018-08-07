@@ -6,11 +6,13 @@ layout: reference
 # Budget - Beta
 
 # Menu
-* [Getting Started](#overview)
-* [Fiscal Year](#overview)
-* [Budget Category](#overview)
-* [Budget Item](#overview)
 
+- [Getting Started](#overview)
+- [Fiscal Year](#overview)
+- [Budget Category](#overview)
+- [Budget Item](#overview)
+- [Budget Adjustments](#overview)
+- [Budget Tracking Fields](#overview)
 
 ## Getting Started
 
@@ -24,17 +26,18 @@ layout: reference
 
 ### Overview
 
-The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details. 
+The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details.
 
-The Budget service exposes budget and fiscal year data.  Partners may use the service endpoints to read and alter fiscal year, budget, and budget matching configuration.
+The Budget service exposes budget and fiscal year data. Partners may use the service endpoints to read and alter fiscal year, budget, and budget matching configuration.
 Summary and detailed balance amounts are also available to read, but may not be altered via the API.
 
 The sequence to configure budgets is to first setup the fiscal year and then the budget categories (if applicable) before creating budget items.
-Budget items may use budget tracking fields as filters. The budget tracking field can only be configured in the application. Also budget owner,
-manager and budget viewer permissions have to be assigned to users prior to configuring budgets.
+Budget Tracking Fields are dimensions of a budget such as cost center, department, project which can be used to filter spending items. The budget tracking field can only be configured in the application. Also budget owner,
+manager and budget viewer permissions have to be assigned to users prior to configuring budgets. Budget adjustments are used to change the budget amount, spent and pending consumption balances for a given budget period and transaction date.
 
 ### Version
-4.0  
+
+4.0
 
 ### Regional Availability
 
@@ -50,8 +53,8 @@ https://emea.api.concursolutions.com/budget/v4/
 
 #### Prerequisites
 
-1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
-2. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
+1.  [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
+2.  Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
 
 Once you have registered your application, read about the [Budget Category](/api-reference/budget/budget-category.html), [Fiscal Year](/api-reference/budget/fiscal-year.html), [Budget Tracking Field](/api-reference/budget/cost-object.html), and [Budget Item Header](/api-reference/budget/budget-header.html) endpoints.
 
@@ -71,12 +74,12 @@ http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={Y
 
 #### Roles and Scopes:
 
-The user needs to have the Budget Administrator role in order to access the api. 
+The user needs to have the Budget Administrator role in order to access the api.
 
 The GET api endpoints for fiscal year require fiscalcalendar.read or budgetitem.read scope.
 
 POST and DELETE endpoints require fiscalcalendar.write or budgetitem.write scope.
 
 Budget Item Header, Budget Item Category GET end points require budgetitem.read.
- 
-Budget Item Header, Budget Item Category POST and DELETE end points require budgetitem.write. 
+
+Budget Item Header, Budget Item Category POST and DELETE end points require budgetitem.write.
