@@ -29,7 +29,7 @@ Examples: expense.report.delete
 `{actions}` are common authorizations across resources.
 
 Action|Description|Examples
----|---
+---|---|---
 `read`|Read only access (GET)|`receipts.read`, `expense.report.read`
 `write`|Read AND Write access (GET, POST, UPDATE etc)|`company.write`, `travel.receipts.write`
 `writeonly`|Write only access|`mileage.journey.writeonly`, `receipts.writeonly`
