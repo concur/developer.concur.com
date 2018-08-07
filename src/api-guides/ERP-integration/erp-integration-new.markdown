@@ -16,8 +16,6 @@ layout: reference
 
 Thank you for your interest in an App Center Partnership to develop an ERP integration between Concur’s products and your chosen ERP brand. The App Center Certification Program requires each desired ERP Brand to be certified. The certified application must support the Expense & Invoice products for both of Concur’s Editions (Standard + Professional Edition). Unless noted as 'Optional' all portions are required.
 
-> Phased Approaches - We recognize there is a likelihood of certifying the following in a phased approach. We will provide guidance on which segments can be phased together. Regardless of the phase that is pursued, both Standard & Professional Editions MUST be supported with each phase. You cannot go to production with support for only one of the Edition types since your sales team will not know which Edition-type a prospect uses.
-
 ## <a name="learn"></a>Learn
 
 Use the following resources to get familiar with the Concur product and then submit expense reports or invoices in your own sandbox. This will better position you to conduct end-to-end testing and be able to correlate a User's experience to what you obtain via the APIs.
@@ -42,6 +40,22 @@ The Company Profile [resource](https://developer.concur.com/api-reference/profil
 
 
 ## <a name="integration"></a>Integration
+
+Phased development approaches
+
+We recognize there is a likelihood of certifying the following in a phased approach. We will provide guidance on which segments can be phased together. Regardless of the phase that is pursued, both Standard & Professional Editions must be supported with each phase. You cannot go to production with support for only one of the Edition types since your sales team will not know which Edition-type a prospect uses.
+
+A typical phased approach would include:
+
+Phase 1
+
+A. Quick Connect
+B. #1 below for both Expense and Invoice: Financial Postings via Extract File APIs for both Professional and Standard Editions.
+
+Phase 2
+
+C. #2, 3, 4, 5 for the Advanced Option
+D. #2, 3 for the Basic Option
 
 ### <a name="integration-extract"></a>Expense & Invoice Financial Posting via Extract File APIs
 
