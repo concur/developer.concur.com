@@ -3,6 +3,8 @@ title: Budget Adjustments
 layout: reference
 ---
 
+PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subject to change. An Early Adopter program is available. To become an early adopter, contact your SAP Concur Representative and have them contact Team Adaptation.
+
 # Menu
 
 - [Getting Started](#overview)
@@ -11,7 +13,7 @@ layout: reference
 - [Budget Tracking Fields](#overview)
 - [Budget Item](#overview)
 
-# Budget Item - Beta
+# Budget Adjustments - Beta
 
 - [Overview](#overview)
 - [Create/Update a Budget Adjustments](#post)
