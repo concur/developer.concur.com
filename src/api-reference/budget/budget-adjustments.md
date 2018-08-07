@@ -18,7 +18,7 @@ This resource is used to add budget adjustments. Each budget item detail may hav
 
 4.0
 
-## <a name=“post”></a> Create a list of Budget Adjustments
+## <a name="post"></a> Create a list of Budget Adjustments
 
     POST /budget/v4/adjustments
 
@@ -34,9 +34,9 @@ Name | Type | Format | Description
 ---|---|---|---
 `adjustments`|`Array[budgetAdjustment]`|`body`|**Required** A JSON representation of a array of Adjustments
 
-## <a name=“schema”></a>Schema
+## <a name="schema"></a>Schema
 
-### <a name=“budgetAdjustment”></a>Budget Adjustment
+### <a name="budgetAdjustment"></a>Budget Adjustment
 
 Name | Type | Format | Description
 ---|---|---|---
