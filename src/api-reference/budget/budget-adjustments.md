@@ -13,7 +13,7 @@ PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subjec
 - [Budget Tracking Fields](#overview)
 - [Budget Item](#overview)
 
-# Budget Adjustments - Beta
+# Budget Adjustments - PRE-RELEASE
 
 - [Overview](#overview)
 - [Create/Update a Budget Adjustments](#post)
@@ -21,7 +21,7 @@ PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subjec
 
 ## Overview
 
-The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details.
+The new Budget Service API is in **PRE-RELEASE**. If you are interested in using the Budget Service API, then please contact your account manager for further details.
 
 This resource is used to add budget adjustments. Each budget item detail may have one or more budget adjustments and adjustments can be made to manually add or subtract the budget, spent or pending balances.
 

@@ -13,7 +13,7 @@ PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subjec
 - [Budget Tracking](#overview)
 - [Budget Adjustments](#overview)
 
-# Fiscal Year - Beta
+# Fiscal Year - PRE-RELEASE
 
 - [Overview](#overview)
 - [Retrieve all Fiscal Years](#getall)
@@ -24,7 +24,7 @@ PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subjec
 
 ### Overview
 
-The new Budget Service API is in **Beta** . If you are interested in using the Budget Service API, then please contact your account manager for further details.
+The new Budget Service API is in **PRE-RELEASE** . If you are interested in using the Budget Service API, then please contact your account manager for further details.
 The Fiscal Calendar is used both for Reporting and Budget. A Fiscal year can start and end at any date as long as the end date is after the start date and
 does not span more than 2 years. Fiscal year cannot overlap. Fiscal Period cannot overlap and limited to 24 per fiscal year.
 

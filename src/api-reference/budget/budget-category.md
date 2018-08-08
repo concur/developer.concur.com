@@ -13,7 +13,7 @@ PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subjec
 - [Budget Tracking Fields](#overview)
 - [Budget Adjustments](#overview)
 
-# Budget Category - Beta
+# Budget Category - PRE-RELEASE
 
 - [Overview](#overview)
 - [Retrieve all Budget Categories](#getall)
@@ -25,7 +25,7 @@ PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subjec
 
 ## Overview
 
-The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details.
+The new Budget Service API is in **PRE-RELEASE**. If you are interested in using the Budget Service API, then please contact your account manager for further details.
 
 This resource is used to retrieve and update budget categories which are collections of expense types used for budget
 matching. Each budget item header may have one budget category. If it does, only line items with expense types

@@ -13,7 +13,7 @@ PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subjec
 - [Budget Tracking Fields](#overview)
 - [Budget Adjustments](#overview)
 
-# Budget Item - Beta
+# Budget Item - PRE-RELEASE
 
 - [Overview](#overview)
 - [Retrieve all Budget Item](#getall)
@@ -24,7 +24,7 @@ PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subjec
 
 ### Overview
 
-The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details.
+The new Budget Service API is in **PRE-RELEASE**. If you are interested in using the Budget Service API, then please contact your account manager for further details.
 
 This resource is used to retrieve and update information about a budget that spans a single fiscal year. Each budget
 has multiple details that correspond to fiscal periods--months, quarters, or a single period for a yearly budget.

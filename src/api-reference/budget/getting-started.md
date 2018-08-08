@@ -5,7 +5,7 @@ layout: reference
 
 PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subject to change. An Early Adopter program is available. To become an early adopter, contact your SAP Concur Representative and have them contact Team Adaptation.
 
-# Budget - Beta
+# Budget - PRE-RELEASE
 
 # Menu
 
@@ -28,7 +28,7 @@ PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subjec
 
 ### Overview
 
-The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details.
+The new Budget Service API is in **PRE-RELEASE**. If you are interested in using the Budget Service API, then please contact your account manager for further details.
 
 The Budget service exposes budget and fiscal year data. Partners may use the service endpoints to read and alter fiscal year, budget, and budget matching configuration.
 Summary and detailed balance amounts are also available to read, but may not be altered via the API.
