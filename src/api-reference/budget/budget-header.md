@@ -585,9 +585,30 @@ Name | Type | Format | Description
 HTTP Error Code | Description
 ---|---
 `200`|`OK - Successful call, response is in body.`
-`400`|`Bad Request - The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. For example, a Budget Item needs to have a name longer than 1 character.`
+`400`|`Bad Request - The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. For example, a Budget Item needs to have a name longer than 1 character. The response will have a list of validation errors in the body. See below for an example 400 response.`
 `401`|`Unauthorized - The user could not be authenticated.`
 `403`|`Forbidden - The user does not have the necessary permissions to perform the request`
 `404`|`Not Found - The resource could not be found or does not exist`
 `500`|`Server Error - Error message in response body`
 `503`|`Server Timeout - Error message in response body`
+
+### Example 400 Response
+
+**Response**
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+```
+```json
+{
+  "status" : false, 
+  "errorMessageList" : 
+  [
+      {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_ITEM_NAME_REQUIRED", "errorMessage" : "Budget item name is required"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_ITEM_NAME_ERROR", "errorMessage" : "Budget item name should be more than 1 characters"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_ITEM_OWNER_REQUIRED", "errorMessage" : "Budget item owner is required"}
+  ]
+}
+```
+
