@@ -259,9 +259,29 @@ Name | Type | Format | Description
 HTTP Error Code | Description
 ---|---
 `200`|`OK - Successful call, response is in body.`
-`400`|`Bad Request - The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. For example, a new Fiscal Year must not have gaps in between other existing Fiscal Years.`
+`400`|`Bad Request - The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. For example, a new Fiscal Year must not have gaps in between other existing Fiscal Years. The response will have a list of validation errors in the body. See below for an example 400 response.`
 `401`|`Unauthorized - The user could not be authenticated.`
 `403`|`Forbidden - The user does not have the necessary permissions to perform the request`
 `404`|`Not Found - The resource could not be found or does not exist`
 `500`|`Server Error - Error message in response body`
 `503`|`Server Timeout - Error message in response body`
+
+### Example JSON of a 400 Response
+
+**Response**
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+```
+```json
+{
+  "status" : false, 
+  "errorMessageList" : 
+  [
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.FISCAL_YEARS_HAVE_GAP", "errorMessage" : "Fiscal years should not have gaps between them"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.FISCAL_YEAR_NAME", "errorMessage" : "Fiscal Year Name is missing"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.FISCAL_PERIOD_TYPE_YEARLY_IN_USE", "errorMessage" : "Fiscal period type 'YEARLY' is in use and can not be removed"}
+  ]
+}
+```
