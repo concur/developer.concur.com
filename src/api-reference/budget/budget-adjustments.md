@@ -50,7 +50,7 @@ Name | Type | Format | Description
 `description`|`string`|-|A friendly user-friendly description of the adjustment
 `transactionDate`|`date`|YYYY-MM-DD |**Required if amount type is either SPENT_AMOUNT or PENDING_AMOUNT** Must be within the fiscal period.
 
-### Errors
+### HTTP Response Codes
 HTTP Error Code | Description
 ---|---
 `200`|`OK - Successful call, response is in body.`
