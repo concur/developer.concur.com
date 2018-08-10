@@ -256,4 +256,4 @@ Name | Type | Format | Description
 `spendDate` |   `date`  |   -   |   If the current date is after this Fiscal Period's start date, this field shows the current date.  **READ ONLY**
 
 ### Errors
-Fiscal Years have a set of rules & validations that must be met in order to successfully save. If these validations or rules fail, the budget service will return a 400 error with a description of the validation that failed.
+Fiscal Years have a set of rules & validations that must be met in order to successfully save. If these validations or rules fail, the budget service will return a 400 error with a description of the validation that failed. If the error message is not clear or appears to be incorrect, please contact support for help.
