@@ -605,7 +605,7 @@ Content-Type: application/json
   "status" : false, 
   "errorMessageList" : 
   [
-      {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_ITEM_NAME_REQUIRED", "errorMessage" : "Budget item name is required"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_ITEM_NAME_REQUIRED", "errorMessage" : "Budget item name is required"},
     {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_ITEM_NAME_ERROR", "errorMessage" : "Budget item name should be more than 1 characters"},
     {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_ITEM_OWNER_REQUIRED", "errorMessage" : "Budget item owner is required"}
   ]
