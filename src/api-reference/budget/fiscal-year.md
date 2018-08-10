@@ -266,7 +266,7 @@ HTTP Error Code | Description
 `500`|`Server Error - Error message in response body`
 `503`|`Server Timeout - Error message in response body`
 
-### Example JSON of a 400 Response
+### Example 400 Response with JSON
 
 **Response**
 
