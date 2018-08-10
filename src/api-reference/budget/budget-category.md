@@ -225,7 +225,7 @@ HTTP Error Code | Description
 `503`|`Server Timeout - Error message in response body`
 
 
-### Example 400 Response
+### Example 400 Response with JSON
 
 **Response**
 
