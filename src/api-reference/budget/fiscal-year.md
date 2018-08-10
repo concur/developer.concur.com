@@ -234,9 +234,9 @@ Name | Type | Format | Description
 `status`	|	`string`	|	-	|	**Required** The status of this Fiscal Year. Valid values are 'OPEN', 'CLOSED' and 'REMOVED'
 `syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
 `lastModified`  |   `datetime`  |   -   |   The UTC date and time when this object was last changed.  **READ ONLY**
-`monthlyFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 **Required** The list of monthly fiscal periods in this fiscal year. Fiscal periods must complete fill the parent fiscal year with no overlaps. 
-`quarterlyFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of quarterly Fiscal Periods in this fiscal year.  If this parameter is not specified, quaterly fiscal periods are automatically generated based on the monthly fiscal periods supplied.  
-`yearlyFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of yearly Fiscal Periods in this Fiscal Year.  If this parameter is not specified, one period is created that fills the fiscal year.
+`monthlyFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 **Required** The list of monthly Fiscal Periods in this Fiscal Year. Fiscal periods must complete fill the parent Fiscal Year with no overlaps. 
+`quarterlyFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of quarterly Fiscal Periods in this Fiscal Year.  If this parameter is not specified, quaterly Fiscal Periods are automatically generated based on the monthly Fiscal Periods supplied.  
+`yearlyFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of yearly Fiscal Periods in this Fiscal Year.  If this parameter is not specified, one period is created that fills the Fiscal Year.
 `customFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of custom Fiscal Periods in this Fiscal Year.  Custom Fiscal Periods are API-only and will not display on user budget dashboards.  
 `fiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of all Fiscal Periods in this Fiscal Year.  **READ ONLY**
 `openAndClosedFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of all Fiscal Periods in this Fiscal Year, sorted by status.  **READ ONLY**
