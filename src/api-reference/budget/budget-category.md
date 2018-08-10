@@ -214,4 +214,12 @@ Name | Type | Format | Description
 `syncGuid`	|	`string`	|	-	|	The budget service's key for this object.  (If this field is not supplied, the service will use an existing expense type entry if one exists.
 
 ### Errors
-Budget Categories have a set of rules & validations that must be met in order to successfully save. If these validations or rules fail, the budget service will return a 400 error with a description of the validation that failed. If the error message is not clear or appears to be incorrect, please contact support for help.
+HTTP Error Code | Description
+---|---
+`200`|`OK - Successful call, response is in body.`
+`400`|`Bad Request - The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. For example, a Budget Category must have a name.`
+`401`|`Unauthorized - The user could not be authenticated.`
+`403`|`Forbidden - The user does not have the necessary permissions to perform the request`
+`404`|`Not Found - The resource could not be found or does not exist`
+`500`|`Server Error - Error message in response body`
+`503`|`Server Timeout - Error message in response body`
