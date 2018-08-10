@@ -49,3 +49,6 @@ Name | Type | Format | Description
 `amountType`|`string`|-|**Required** The type of the budget’s balance to adjust. Valid values are BUDGET_AMOUNT, SPENT_AMOUNT, PENDING_AMOUNT
 `description`|`string`|-|A friendly user-friendly description of the adjustment
 `transactionDate`|`date`|YYYY-MM-DD |**Required if amount type is either SPENT_AMOUNT or PENDING_AMOUNT** Must be within the fiscal period.
+
+### Errors
+Budget Adjustments have a set of rules & validations that must be met in order to successfully save. If these validations or rules fail, the budget service will return a 400 error with a description of the validation that failed. If the error message is not clear or appears to be incorrect, please contact support for help.
