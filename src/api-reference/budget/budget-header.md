@@ -20,15 +20,15 @@ layout: reference
 
 The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details. 
 
-This resource is used to retrieve and update information about a budget that spans a single fiscal year.  Each budget
-has multiple details that correspond to fiscal periods--months, quarters, or a single period for a yearly budget.
+This resource is used to retrieve and update information about a budget that spans a single fiscal year.  Each Budget
+has multiple details that correspond to Fiscal Periods--months, quarters, or a single period for a yearly budget.
 
 
 ## Version
 4.0  
 
 
-## <a name="getall"></a>Retrieve all Budget Item
+## <a name="getall"></a>Retrieve all Budget Items
 
     GET  /budget/v4/budgetItemHeader 
     
@@ -581,4 +581,5 @@ Name | Type | Format | Description
 `syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
 `spendDate` |   `date`  |   -   |   If the current date is after this fiscal period's start date, this field shows the current date.  **READ ONLY**
 
-
+### Errors
+Budget Items have a set of rules & validations that must be met in order to successfully save. If these validations or rules fail, the budget service will return a 400 error with a description of the validation that failed. If the error message is not clear or appears to be incorrect, please contact support for help.
