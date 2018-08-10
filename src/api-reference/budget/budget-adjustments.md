@@ -62,4 +62,6 @@ HTTP Error Code | Description
 `503`|`Server Timeout - Error message in response body`
 
 ### Example 400 Response
-```{"message": "{"status" : false, "errorMessageList" : [{"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_PERIOD_REQUIRED", "errorMessage" : "Budget period is missing"}, {"errorType" : "ERROR", "errorCode" : "BUDGET.AMOUNT_TYPE_REQUIRED", "errorMessage" : "Amount type is required"}, {"errorType" : "ERROR", "errorCode" : "BUDGET.CANNOT_ADJUST_ZERO", "errorMessage" : "An Adjustment with zero amount cannot be made"}]}"}```
+```{
+"message": "{"status" : false, "errorMessageList" : [{"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_PERIOD_REQUIRED", "errorMessage" : "Budget period is missing"}, {"errorType" : "ERROR", "errorCode" : "BUDGET.AMOUNT_TYPE_REQUIRED", "errorMessage" : "Amount type is required"}, {"errorType" : "ERROR", "errorCode" : "BUDGET.CANNOT_ADJUST_ZERO", "errorMessage" : "An Adjustment with zero amount cannot be made"}]}"
+}```
