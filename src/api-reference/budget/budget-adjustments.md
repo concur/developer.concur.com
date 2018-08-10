@@ -54,7 +54,7 @@ Name | Type | Format | Description
 HTTP Error Code | Description
 ---|---
 `200`|`OK - Successful call, response is in body.`
-`400`|`Bad Request - The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. For example, a Budget Adjustment of amount 0 can not be made. See below for example 400 response.`
+`400`|`Bad Request - The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. For example, a Budget Adjustment of amount 0 can not be made. The response will have a list of validation errors in the body. See below for an example 400 response.`
 `401`|`Unauthorized - The user could not be authenticated.`
 `403`|`Forbidden - The user does not have the necessary permissions to perform the request`
 `404`|`Not Found - The resource could not be found or does not exist`
@@ -69,7 +69,6 @@ HTTP Error Code | Description
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 ```
-
 ```json
 {
   "status" : false, 
