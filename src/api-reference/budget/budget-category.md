@@ -213,13 +213,35 @@ Name | Type | Format | Description
 `name`	|	`string`	|	-	|	The name for this expense type if it maps to an expense type set up in Concur. **READ ONLY**
 `syncGuid`	|	`string`	|	-	|	The budget service's key for this object.  (If this field is not supplied, the service will use an existing expense type entry if one exists.
 
-### Errors
+### HTTP Response Codes
 HTTP Error Code | Description
 ---|---
 `200`|`OK - Successful call, response is in body.`
-`400`|`Bad Request - The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. For example, a Budget Category must have a name.`
+`400`|`Bad Request - The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. For example, a Budget Category must have a name. The response will have a list of validation errors in the body. See below for an example 400 response.`
 `401`|`Unauthorized - The user could not be authenticated.`
 `403`|`Forbidden - The user does not have the necessary permissions to perform the request`
 `404`|`Not Found - The resource could not be found or does not exist`
 `500`|`Server Error - Error message in response body`
 `503`|`Server Timeout - Error message in response body`
+
+
+### Example 400 Response
+
+**Response**
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+```
+```json
+{
+  "status" : false, 
+  "errorMessageList" : 
+  [
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_PERIOD_REQUIRED", "errorMessage" : "Budget period is missing"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.AMOUNT_TYPE_REQUIRED", "errorMessage" : "Amount type is required"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.CANNOT_ADJUST_ZERO", "errorMessage" : "An Adjustment with zero amount cannot be made"}
+  ]
+}
+```
+
