@@ -23,8 +23,8 @@ The new Budget Service API is in **Beta**. If you are interested in using the Bu
 
 
 This resource is used to retrieve and update budget categories which are collections of expense types used for budget
-matching.  Each budget item header may have one budget category.  If it does, only line items with expense types 
-contained in that budget category will be accumulated to the budget. 
+matching.  Each budget item header may have one Budget Category.  If it does, only line items with expense types 
+contained in that Budget Category will be accumulated to the budget. 
 
 
 ## Version
@@ -213,3 +213,5 @@ Name | Type | Format | Description
 `name`	|	`string`	|	-	|	The name for this expense type if it maps to an expense type set up in Concur. **READ ONLY**
 `syncGuid`	|	`string`	|	-	|	The budget service's key for this object.  (If this field is not supplied, the service will use an existing expense type entry if one exists.
 
+### Errors
+Budget Categories have a set of rules & validations that must be met in order to successfully save. If these validations or rules fail, the budget service will return a 400 error with a description of the validation that failed. If the error message is not clear or appears to be incorrect, please contact support for help.
