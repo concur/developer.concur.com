@@ -71,5 +71,13 @@ Content-Type: application/json
 ```
 
 ```json
-{"status" : false, "errorMessageList" : [{"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_PERIOD_REQUIRED", "errorMessage" : "Budget period is missing"}, {"errorType" : "ERROR", "errorCode" : "BUDGET.AMOUNT_TYPE_REQUIRED", "errorMessage" : "Amount type is required"}, {"errorType" : "ERROR", "errorCode" : "BUDGET.CANNOT_ADJUST_ZERO", "errorMessage" : "An Adjustment with zero amount cannot be made"}]}
+{
+  "status" : false, 
+  "errorMessageList" : 
+  [
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_PERIOD_REQUIRED", "errorMessage" : "Budget period is missing"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.AMOUNT_TYPE_REQUIRED", "errorMessage" : "Amount type is required"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.CANNOT_ADJUST_ZERO", "errorMessage" : "An Adjustment with zero amount cannot be made"}
+  ]
+}
 ```
