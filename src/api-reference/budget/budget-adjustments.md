@@ -52,6 +52,7 @@ Name | Type | Format | Description
 
 ### Errors
 HTTP Error Code | Description
+---|---
 `200`|`OK - Successful call, response is in body.`
 `400`|`Bad Request - The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. For example, a Budget Adjustment of amount 0 can not be made.`
 `401`|`Unauthorized - The user could not be authenticated.`
