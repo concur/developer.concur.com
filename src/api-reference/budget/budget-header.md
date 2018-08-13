@@ -207,7 +207,7 @@ id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
         "employeeUuid":"eb6082b0-3a9a-4e79-a350-e6e067f34969",
         "syncGuid":"7ce7dfe0-6168-4b93-bb35-386bf023acc6",
         "name":"Dan Lee",
-	"email":"dan.lee@xyz.com
+	"email":"dan.lee@xyz.com"
       }
     ],
     "budgetItemDetails":[
