@@ -594,13 +594,13 @@ HTTP Error Code | Description
 
 ### Example 400 Response with JSON
 
+
 **Response**
 
 ```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 ```
-
 ```json
 {
   "status" : false, 
