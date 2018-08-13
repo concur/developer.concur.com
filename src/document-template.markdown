@@ -1,4 +1,7 @@
-# Service Name
+---
+title: Service Name
+layout: reference
+---
 
 [Terms of Use](./Terms-of-Use.markdown)
 
