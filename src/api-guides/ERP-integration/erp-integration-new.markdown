@@ -29,11 +29,12 @@ We recognize there is a likelihood of certifying the following in a phased appro
 
 A typical phased approach would include:
 
-Phase 1|Phase 2|Phase 3
+Phase 1|Phase 2
 ---|---
-Quick Connect|Manage lists of Cost Object codes|Send Purchase Order data to Concur
-Company Profile|Add and update Vendor data|Send Purchase Order Receipt data to Concur
-Financial posting via Extract|-|-
+Quick Connect|Manage lists of Cost Object codes (Basic + Advanced)
+Company Profile|Add and update Vendor data (Basic + Advanced)
+Financial posting via Extract|Send Purchase Order data to Concur (Advanced)
+-|Send Purchase Order Receipt data to Concur (Advanced)
 
 ## <a name="integration"></a>Integration
 
@@ -85,6 +86,8 @@ The List API should be executed in an asynchronous manner. Here are two document
 ### <a name="integration-vendor-data"></a>Add and update Vendor data
 
 [Vendor v3 API](./api-reference/invoice/v3.vendor.html)
+
+Invoice Only: **Required** for the basic integration and **Required** for the advanced integration.
 
 ### <a name="integration-purchase-order"></a>Send Purchase Order data to Concur
 
