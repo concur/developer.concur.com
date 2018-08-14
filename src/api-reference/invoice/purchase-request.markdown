@@ -13,7 +13,6 @@ layout: reference
 - [Explore the API](#explore-the-api)
   - [Prerequisites](#prerequisites)
   - [Acquire an Access Token](#retrieve-a-user-access-token)
-  - [Explore the API in JavaScript](#explore-the-api-in-javascript)
 
 ### Overview
 
@@ -25,11 +24,11 @@ The Purchase Request API resources allow you to create and automatically submit 
 ### Regional Availability
 
 ```
-https://us.api.concursolutions.com/purchaserequest/v1/
+https://us.api.concursolutions.com/purchaserequest/v4/
 ```
 
 ```
-https://emea.api.concursolutions.com/purchaserequest/v1/
+https://emea.api.concursolutions.com/purchaserequest/v4/
 ```
 
 ### Explore the API
@@ -41,7 +40,7 @@ https://emea.api.concursolutions.com/purchaserequest/v1/
 
 Once you have registered your application, read about the [Purchase Request API endpoints](/api-reference/invoice/purchase-request-endpoints.html), or click the button to download a request collection for Postman.
 
-<a href="https://www.getpostman.com/collections/d32c323a768d7137fadd" target="_blank" onclick="ga('send', 'event', 'Postman', 'Click', 'https://www.getpostman.com/collections/6a3a96b05489a0e23288');">
+<a href="https://app.getpostman.com/run-collection/d32c323a768d7137fadd" target="_blank" onclick="ga('send', 'event', 'Postman', 'Click', 'https://www.getpostman.com/collections/6a3a96b05489a0e23288');">
   <img src="https://run.pstmn.io/button.svg" alt="Run in Postman">
 </a>
 

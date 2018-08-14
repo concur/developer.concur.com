@@ -17,7 +17,7 @@ layout: reference
 
 ## <a name="post"></a>Create a new purchase request  
 
-    POST  /purchaserequest/v1/purchaserequests
+    POST  /purchaserequest/v4/purchaserequests
 
 Create a Purchase Request based on provided header and line item details. If the request is valid it returns back a unique identifier to look at purchase request details and creates a purchase request in back ground.
 
@@ -39,7 +39,7 @@ Create a Purchase Request based on provided header and line item details. If the
   Curl Data:
   ```shell
   curl -X POST \
-    https://us.api.concursolutions.com/purchaserequest/v1/purchaserequests \
+    https://us.api.concursolutions.com/purchaserequest/v4/purchaserequests \
     -H 'Authorization: Bearer <ACTUAL JWT COMES HERE>' \
     -H 'Cache-Control: no-cache' \
     -H 'Content-Type: application/json' \
@@ -108,13 +108,13 @@ Create a Purchase Request based on provided header and line item details. If the
  ```json
      {
         "id" : "b1e22581-ff4a-48e9-981b-2f5065579096",
-        "uri": "http://us.api.concursolutions.com/purchaserequest/v1/purchaserequests/b1e22581-ff4a-48e9-981b-2f5065579096?mode=COMPACT"
+        "uri": "http://us.api.concursolutions.com/purchaserequest/v4/purchaserequests/b1e22581-ff4a-48e9-981b-2f5065579096?mode=COMPACT"
      }
  ```
 
 ## <a name="get"></a>Get details of a purchase request
 
-    GET  /purchaserequest/v1/purchaserequests/{id}?mode=COMPACT
+    GET  /purchaserequest/v4/purchaserequests/{id}?mode=COMPACT
 
 Gets purchase request details. Currently only supported mode is COMPACT which returns basic info about the purchase request along with any exceptions if present.
 
