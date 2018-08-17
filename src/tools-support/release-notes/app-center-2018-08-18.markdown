@@ -1,5 +1,5 @@
 ---
-title: SAP Concur App Center Release Notes - July 2018
+title: SAP Concur App Center Release Notes - August 2018
 layout: reference
 ---
 
