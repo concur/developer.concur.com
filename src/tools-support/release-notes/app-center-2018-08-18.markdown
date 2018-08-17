@@ -5,8 +5,6 @@ layout: reference
 
 ## Contents
 
-## Contents
-
 * [Apps for Me / User Connection Apps Now Available](#apps-for-me-now-available-connection)
   * [Concur Travel on Slack – Beta](#slack-beta)
 * [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon)
