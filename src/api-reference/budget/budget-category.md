@@ -107,16 +107,43 @@ id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
     POST  /budget/v4/budgetCategory
 
 
-HTTPie:
+### Example
 
-```shell
-http POST https://us.api.concursolutions.com/budget/v4/budgetCategory \
-"Authorization:Bearer {YOUR ACCESS TOKEN}" \
-"Content-Type: application/json" \
-< {PATH TO YOUR BUDGET CATAEGORY JSON}
+#### Request
+```http
+POST https://us.api.concursolutions.com/budget/v4/budgetCategory
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+Content-Type: application/json
+```
+```json
+{
+  "name": "Advertising Category",
+  "description": "Advertising",
+  "expenseTypes": [
+    {
+      "featureTypeCode": "EXPENSE",
+      "expenseTypeCode": "ADVT"
+    },
+    {
+      "featureTypeCode": "PAYMENT_REQUEST",
+      "expenseTypeCode": "ADVT"
+    }
+  ],
+  "statusType": "OPEN"
+}
 ```
 
-
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
 
 ### Parameters
 
