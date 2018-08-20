@@ -53,14 +53,18 @@ Expires: Wed, 13 Jul 2020 17:33:03 GMT
 Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
 Content-Length: 1270
 ```
-[Budget Category Array](#budgetcategory)
+Response Data Type: [Budget Category Array](#budgetcategory)
 
 
 ## <a name="get"></a>Retrieve a Budget Category
 
     GET  /budget/v4/budgetCategory/{id} 
     
-### Example
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------			
+id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
 
 #### Request
 ```http
@@ -80,24 +84,6 @@ Expires: Wed, 13 Jul 2020 17:33:03 GMT
 Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
 Content-Length: 1270
 ```
-
-[Budget Category](#budgetcategory)
-
-
-
-
-### Parameters
-
-Name | Type | Format | Description
------|------|--------|------------			
-id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
-
-### Response
-
-[Budget Category](#budgetcategory)
-
-### Example JSON Response
-
 ```json
 {
   "name":"Marketing and Outreach",
@@ -126,13 +112,13 @@ id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
   ]
 } 
 ```
+Response Data Type: [Budget Category](#budgetcategory)
+
+
 
 ## <a name="post"></a>Create/Update a Budget Category
 
     POST  /budget/v4/budgetCategory
-
-
-### Example
 
 #### Request
 ```http
@@ -157,6 +143,8 @@ Content-Type: application/json
   "statusType": "OPEN"
 }
 ```
+Request Data Type: [Budget Category](#budgetcategory)
+
 
 #### Response
 ```http
