@@ -35,10 +35,26 @@ contained in that Budget Category will be accumulated to the budget.
 
     GET  /budget/v4/budgetCategory
 
-HTTPie:
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetCategory
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+Content-Type: application/json
+```
 
-```shell
-http https://us.api.concursolutions.com/budget/v4/budgetCategory 'Authorization:Bearer {YOUR ACCESS TOKEN}'
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
+```json
+{}
 ```
 
 ### Parameters
@@ -54,11 +70,31 @@ http https://us.api.concursolutions.com/budget/v4/budgetCategory 'Authorization:
 
     GET  /budget/v4/budgetCategory/{id} 
     
-HTTPie:
+### Example
 
-```shell
-http https://us.api.concursolutions.com/budget/v4/budgetCategory/{id}  'Authorization:Bearer {YOUR ACCESS TOKEN}'
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetCategory/{id}
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+Content-Type: application/json
 ```
+
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
+```json
+{}
+```
+
+
 
 
 ### Parameters
@@ -160,12 +196,25 @@ Name | Type | Format | Description
 
     DELETE  /budget/v4/budgetCategory/{id}
     
-HTTPie:
+### Example
 
-```shell
-http DELETE https://us.api.concursolutions.com/budget/v4/budgetCategory/{id} \
-"Authorization:Bearer {YOUR ACCESS TOKEN}" \
-"Content-Type: application/json" \
+#### Request
+```http
+DELETE https://us.api.concursolutions.com/budget/v4/budgetCategory/{id}
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+Content-Type: application/json
+```
+
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
 ```
 
 
