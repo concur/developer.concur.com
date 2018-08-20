@@ -42,6 +42,7 @@ Message to retrieve descriptive details about a given hotel. This may include te
 
 ## Response
 
+The maximum allowed size of OTA_HotelDescriptiveInfoRS is 150 KB. Any response that exceeds this limit shall be dropped.
 
 **OTA_HotelDescriptiveInfoRS**
 

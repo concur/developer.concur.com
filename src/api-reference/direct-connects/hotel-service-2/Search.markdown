@@ -82,6 +82,8 @@ The radius element is used along with the Hotel Preference to categorize the sea
 
 ## Response
 
+The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds this limit shall be dropped.
+
 **OTA_HotelSearchRS**
 
 | Element    | Required  | Data Type    | Description |
