@@ -53,16 +53,6 @@ Expires: Wed, 13 Jul 2020 17:33:03 GMT
 Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
 Content-Length: 1270
 ```
-```json
-{}
-```
-
-### Parameters
-
-    N/A
-    
-### Response
-
 [Budget Category Array](#budgetcategory)
 
 
@@ -90,9 +80,8 @@ Expires: Wed, 13 Jul 2020 17:33:03 GMT
 Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
 Content-Length: 1270
 ```
-```json
-{}
-```
+
+[Budget Category](#budgetcategory)
 
 
 
