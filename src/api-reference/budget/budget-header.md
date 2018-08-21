@@ -157,20 +157,6 @@ id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
 
     GET  /budget/v4/budgetItemHeader/{id} 
 
-HTTPie:
-
-```shell
-http https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}  'Authorization:Bearer {YOUR ACCESS TOKEN}'
-```
-
-
-
-
-
-
-
-
-
 #### Request
 ```http
 GET https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}
