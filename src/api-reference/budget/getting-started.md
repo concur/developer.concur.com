@@ -63,10 +63,14 @@ The response will include an `access_token` field, which contains your access to
 
 Examples:
 
-HTTPie:
-
-```shell
-http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={YOUR SECRET} client_id={YOUR CLIENT ID} grant_type=password username={YOUR USERNAME} password={YOUR PASSWORD}
+#### Request
+```http
+POST https://us.api.concursolutions.com/oauth2/v0/token
+client_secret:{YOUR SECRET}
+client_id:{YOUR CLIENT ID}
+grant_type:password
+username:{YOUR USERNAME}
+password:{YOUR PASSWORD}
 ```
 
 #### Roles and Scopes:
