@@ -157,7 +157,7 @@ Name | Type | Format | Description
 
 #### Request
 ```http
-GET https://us.api.concursolutions.com/budget/v4/fiscalYear
+POST https://us.api.concursolutions.com/budget/v4/fiscalYear
 Authorization: Bearer: {YOUR ACCESS TOKEN}
 ```
 
