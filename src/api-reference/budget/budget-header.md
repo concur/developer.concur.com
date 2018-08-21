@@ -36,10 +36,10 @@ Name | Type | Format | Description
 -----|------|--------|------------			
 adminView	|	`boolean`	|	`query`	|	If true, returns all budgets for this entity, if false, returns only the budgets owned by the current user.  Defaults to false.
 offset	|	`integer`	|	`query`	|	The start of the page offset.  Defaults to zero.
-
-    *Note: due to response size and performance considerations, this endpoint does not return budgetItemDetails*
     
     GET  /budget/v4/budgetItemHeader 
+    *Note: due to response size and performance considerations, this endpoint does not return budgetItemDetails*
+
 
 #### Request
 ```http
