@@ -30,14 +30,6 @@ has multiple details that correspond to Fiscal Periods--months, quarters, or a s
 
 ## <a name="getall"></a>Retrieve all Budget Items
 
-    GET  /budget/v4/budgetItemHeader 
-    
-HTTPie:
-
-```shell
-http https://us.api.concursolutions.com/budget/v4/budgetItemHeader 'Authorization:Bearer {YOUR ACCESS TOKEN}'
-```
-
 ### Parameters
 
 Name | Type | Format | Description
@@ -46,10 +38,28 @@ adminView	|	`boolean`	|	`query`	|	If true, returns all budgets for this entity, 
 offset	|	`integer`	|	`query`	|	The start of the page offset.  Defaults to zero.
 
     *Note: due to response size and performance considerations, this endpoint does not return budgetItemDetails*
+    
+    GET  /budget/v4/budgetItemHeader 
 
-### Response
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetItemHeader
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
 
-[Paged Budget Item Header List Schema](#budgetItemHeaderList)
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
+Response Data Type: [Paged Budget Item Header List Schema](#budgetItemHeaderList)
+
 
 ### JSON Example Response
 
@@ -137,6 +147,13 @@ offset	|	`integer`	|	`query`	|	The start of the page offset.  Defaults to zero.
 
 ## <a name="get"></a>Retrieve a Budget Item
 
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------			
+id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
+
+
     GET  /budget/v4/budgetItemHeader/{id} 
 
 HTTPie:
@@ -146,15 +163,32 @@ http https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}  'Author
 ```
 
 
-### Parameters
 
-Name | Type | Format | Description
------|------|--------|------------			
-id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
 
-### Response
 
-[Budget Item Header Schema](#budgetItemHeader)
+
+
+
+
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
+
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
+Response Data: [Budget Item Header](#budgetItemHeader)
+
 
 ### JSON Example Response
 
@@ -305,29 +339,40 @@ id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
 
 ## <a name="post"></a>Create/Update a Budget Item
 
-    POST  /budget/v4/budgetItemHeader
-
-HTTPie:
-
-```shell
-http POST https://us.api.concursolutions.com/budget/v4/budgetItemHeader \
-"Authorization:Bearer {YOUR ACCESS TOKEN}" \
-"Content-Type: application/json" \
-< {PATH TO YOUR BUDGET ITEM HEADER JSON}
-```
-
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `budgetItemheader`	|	-	|	`body`	|	**Required** A JSON representation of a Budget Item
 
-### Response
+    POST  /budget/v4/budgetItemHeader
 
+
+
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetItemHeader
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
+
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
+Response Data:
 Name | Type | Format | Description
 -----|------|--------|------------
 `success`	|	`boolean`	|	-	|
 `budgetItemHeaderSyncGuid`  |   `guid`    | -   |   The key of the created/updated budget item header
+
+
 
 ### JSON Example Update POST Body
 
@@ -415,28 +460,26 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete a Budget Item Header
 
-    DELETE  /budget/v4/budgetItemHeader/{id}
-
-```shell
-http DELETE https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id} \
-"Authorization:Bearer {YOUR ACCESS TOKEN}" \
-"Content-Type: application/json" \
-```
-
-
-
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------
 id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
 
+    DELETE  /budget/v4/budgetItemHeader/{id}
+
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
 ### Response
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `success`	|	`boolean`	|	-	|
 `budgetItemHeaderSyncGuid`  |   `guid`    | -   |   The key of the created/updated budget item header
+
 
 
 ## <a name="schema"></a>Schema
