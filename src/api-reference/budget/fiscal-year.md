@@ -28,20 +28,20 @@ does not span more than 2 years. Fiscal Years cannot overlap. Fiscal Periods can
 
 ## <a name="getall"></a>Retrieve all Fiscal Years
 
-    GET  /budget/v4/fiscalYear
-
-HTTPie:
-
-```shell
-http https://us.api.concursolutions.com/budget/v4/fiscalYear 'Authorization:Bearer {YOUR ACCESS TOKEN}'
-```
-
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------			
 lastModifiedAfter	|	`datetime`	|	`query`	|	Use this field if you only want Fiscal Years that were changed after the supplied date.  The supplied date will be interpreted in the UTC time zone.  If lastModifiedAfter is not supplied, the service will return all Fiscal Years, regardless of modified date.  Format: YYYY-MM-DDTHH:MM:SS (Example: 2016-03-29T16:12:20) 
 includeRemoved	|	`boolean`	|	`query`	|	 If this parameter is "true", the service will return all Fiscal Years, including those that were previously removed.  If not supplied, this field defaults to "false". 
+
+    GET  /budget/v4/fiscalYear
+
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/fiscalYear
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
 
 ### Response
 
@@ -58,12 +58,6 @@ id	|	`string`	|	`path`	|	The Fiscal Year's key field (sync guid).
 
     GET  /budget/v4/fiscalYear/{id} 
 
-
-#### Request
-```http
-GET https://us.api.concursolutions.com/budget/v4/fiscalYear/{id}
-Authorization: Bearer: {YOUR ACCESS TOKEN}
-```
 
 #### Response
 ```http
