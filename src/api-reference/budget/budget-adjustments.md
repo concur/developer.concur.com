@@ -20,13 +20,13 @@ This resource is used to add budget adjustments. Each budget item detail may hav
 
 ## <a name=“post”></a> Create a list of Budget Adjustments
 
-    POST /budget/v4/adjustments
-
 #### Parameters
 
 Name | Type | Format | Description
 ---|---|---|---
 `useMonthlyRollingUpdate`|`boolean`|`query`|If true, all adjustments for a given month, adjustment type, amount type & description will be rolled up to one adjustment.
+
+    POST /budget/v4/adjustments
 
 #### Payload
 
