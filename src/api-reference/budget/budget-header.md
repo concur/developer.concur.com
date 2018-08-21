@@ -354,6 +354,7 @@ Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
 Content-Length: 1270
 ```
 Response Data:
+
 Name | Type | Format | Description
 -----|------|--------|------------
 `success`	|	`boolean`	|	-	|
