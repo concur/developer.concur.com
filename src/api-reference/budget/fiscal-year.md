@@ -50,23 +50,33 @@ includeRemoved	|	`boolean`	|	`query`	|	 If this parameter is "true", the service
 
 ## <a name="get"></a>Retrieve a Fiscal Year
 
-    GET  /budget/v4/fiscalYear/{id} 
-
-HTTPie:
-
-```shell
-http https://us.api.concursolutions.com/budget/v4/fiscalYear/{id} 'Authorization:Bearer {YOUR ACCESS TOKEN}'
-```
-
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------			
 id	|	`string`	|	`path`	|	The Fiscal Year's key field (sync guid).
 
-### Response
+    GET  /budget/v4/fiscalYear/{id} 
 
-[Fiscal Year Schema](#fiscalyear)
+
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/fiscalYear/{id}
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
+
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
+Response Data: [Fiscal Year Schema](#fiscalyear)
 
 ### Example JSON Response
 
@@ -141,25 +151,24 @@ id	|	`string`	|	`path`	|	The Fiscal Year's key field (sync guid).
 
 ## <a name="post"></a>Create/Update a Fiscal Year
 
-    POST  /budget/v4/fiscalYear
-
-HTTPie:
-
-```shell
-http POST https://us.api.concursolutions.com/budget/v4/fiscalYear \
-"Authorization:Bearer {YOUR ACCESS TOKEN}" \
-"Content-Type: application/json" \
-< {PATH TO YOUR FISCAL YEAR JSON}
-```
-
-*Note: unless there is a need to do so, the client should only specify monthly Fiscal Periods when creating/updating a 
-Fiscal Year.  The system will auto-generate the quarterly and yearly Fiscal Periods.*
-
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `fiscalYear`	|	`array`	|	`body`	|	**Required** A JSON representation of a Fiscal Year
+
+
+    POST  /budget/v4/fiscalYear
+
+
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/fiscalYear
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
+
+*Note: unless there is a need to do so, the client should only specify monthly Fiscal Periods when creating/updating a 
+Fiscal Year.  The system will auto-generate the quarterly and yearly Fiscal Periods.*
 
 ### Response
 
@@ -205,20 +214,31 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete a Fiscal Year
 
-    DELETE  /budget/v4/fiscalYear/{id}
-
-```shell
-http DELETE https://us.api.concursolutions.com/budget/v4/fiscalYear/{id} \
-"Authorization:Bearer {YOUR ACCESS TOKEN}" \
-"Content-Type: application/json" \
-```
-
-
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------
 id	|	`string`	|	`path`	|	The Fiscal Years's key field (sync guid).
+
+    DELETE  /budget/v4/fiscalYear/{id}
+
+#### Request
+```http
+DELETE https://us.api.concursolutions.com/budget/v4/fiscalYear/{id}
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
+
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
 
 
 ## <a name="schema"></a>Schema
