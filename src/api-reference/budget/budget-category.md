@@ -53,18 +53,20 @@ Expires: Wed, 13 Jul 2020 17:33:03 GMT
 Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
 Content-Length: 1270
 ```
-Response Data Type: [Budget Category Array](#budgetcategory)
+Response Data Type: Array of [Budget Category](#budgetcategory)
 
 
 ## <a name="get"></a>Retrieve a Budget Category
 
-    GET  /budget/v4/budgetCategory/{id} 
-    
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------			
 id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
+
+
+    GET  /budget/v4/budgetCategory/{id} 
+    
 
 #### Request
 ```http
@@ -118,7 +120,15 @@ Response Data Type: [Budget Category](#budgetcategory)
 
 ## <a name="post"></a>Create/Update a Budget Category
 
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`budgetCategory`	|	-	|	`body`	|	**Required** A JSON representation of a Budget Category
+
+
     POST  /budget/v4/budgetCategory
+
 
 #### Request
 ```http
@@ -143,6 +153,7 @@ Content-Type: application/json
   "statusType": "OPEN"
 }
 ```
+
 Request Data Type: [Budget Category](#budgetcategory)
 
 
@@ -157,24 +168,21 @@ Expires: Wed, 13 Jul 2020 17:33:03 GMT
 Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
 Content-Length: 1270
 ```
+Response Data Type: [Budget Category](#budgetcategory)
+
+
+## <a name="delete"></a>Delete a Budget Category
 
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`budgetCategory`	|	-	|	`body`	|	**Required** A JSON representation of a Budget Category
+id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
 
-### Response
-
-[Budget Category](#budgetcategory)
-
-
-## <a name="delete"></a>Delete a Budget Category
 
     DELETE  /budget/v4/budgetCategory/{id}
     
-### Example
-
+        
 #### Request
 ```http
 DELETE https://us.api.concursolutions.com/budget/v4/budgetCategory/{id}
@@ -195,13 +203,6 @@ Content-Length: 1270
 ```
 
 
-### Parameters
-
-Name | Type | Format | Description
------|------|--------|------------
-id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
-
-
 ## <a name="getExpTypes"></a>Retrieve all valid Expense Types
 
     GET  /budget/v4/budgetCategory/expenseTypes
@@ -211,11 +212,9 @@ id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
     PAYMENT_REQUEST are returned and the caller should assume that identical expense types exist for REQUEST and 
     PURCHASE_REQUEST.* 
     
-### Parameters
-
 ### Response
 
-[Expense Type Array](#expensetype)
+Array of [Expense Type](#expensetype)
 
 ### Example JSON Response
 
