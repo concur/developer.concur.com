@@ -58,6 +58,11 @@ id	|	`string`	|	`path`	|	The Fiscal Year's key field (sync guid).
 
     GET  /budget/v4/fiscalYear/{id} 
 
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/fiscalYear/{id}
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
 
 #### Response
 ```http
