@@ -16,6 +16,8 @@ layout: reference
   * [Jobs](#schema-jobs)
   * [Job](#schema-job)
 
+The client may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Click this link and locate the **“SAE Detailed Discussions”** section at the bottom of the page to review this important information: [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts). Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document’s videos.
+
 ## Version
 
 1.0

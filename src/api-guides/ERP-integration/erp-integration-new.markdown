@@ -46,20 +46,13 @@ Financial posting via Extract|Send Purchase Order data to Concur (Advanced)
 
 ### <a name="profile"></a>Company Profile
 
-The [Profile Company API v1](https://developer.concur.com/api-reference/profile-beta/company.html) provides the partner with 2 key pieces of information:
-
-* Company `UUID` - Partner will record this value per customer connection and use it when submitting Support cases.
-* `MarketingName` data element - Partner will record this value per customer. This will indicate the edition type a customer is using:
-  * `CTE` or `Enterprise` means the customer is using Professional Edition.
-  * `Standard` means the customer is using Standard Edition.
+[Profile Company API v1 ERP Integration](https://developer.concur.com/api-reference/profile-beta/company.html#erp-integration)
 
 ### <a name="integration-extract"></a>Financial posting via Extract
 
 **Professional Edition**: Typical code flow is listed in the [Extracts v1 API ERP Integration](./api-reference/common/extracts/v1.extracts.html#erp-integration).
 
 **Standard Edition**: Typical code flow is listed in the  [Payment Batches v1 API ERP Integration](./api-reference/expense/payment-batch/v1.payment-batches.hmtl#erp-integration)
-
-The client may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Click this link and locate the **“SAE Detailed Discussions”** section at the bottom of the page to review this important information: [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts). Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document’s videos.
 
 Differences exist between Standard & Professional in regards to how the client code obtains the data / extract file so it is important to first determine the Edition Type as noted in the [Company Profile](#profile) prerequisites section.
 
@@ -74,9 +67,9 @@ The integration is slightly different depending on Expense or Invoice.
 
 The integration is different depending on Expense or Invoice:
 
-* **Invoice**: **Required** Use of the List API is required for the Invoice integration (e.g. for the custom list values that are part of the Vendor Master records). However, use of the API is contingent on the volume of List data. Due to capacity limitations of the List API, the mutual Client may need to manage the initial load of large volumes of data themselves via a file import. This is also true if their ongoing maintenance of List values involves a large volume. Large numbers of list values for vendors are not expected for Invoice compared to Expense.
+* **Invoice**: **Required** Use of the List API is required for the Invoice integration (e.g. for the custom list values that are part of the Vendor Master records).
 
-* **Expense**: _Optional_ Use of the List API is not required for the Expense integration at this time. The mutual Client may need to manage the initial load of large volumes of data themselves via a file import due to the capacity limitations of the current List API. This is also true if their ongoing maintenance of List values involves a large volume.
+* **Expense**: _Optional_ Use of the List API is not required for the Expense integration at this time.
 
 The List API should be executed in an asynchronous manner. Here are two documents that illustrates asynchronous execution:
 

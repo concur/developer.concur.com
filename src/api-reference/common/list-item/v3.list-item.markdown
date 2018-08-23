@@ -3,10 +3,9 @@ title: List Item
 layout: reference
 ---
 
-
-# List Items
-
 The Concur List Item web service provides an automated solution to clients who would like to add, update or delete list items.
+
+Use of the API is contingent on the volume of List data. Due to capacity limitations of the List API, the mutual Client may need to manage the initial load of large volumes of data themselves via a file import due to capacity limitations. This is also true if their ongoing maintenance of List values involves a large volume. Large numbers of list values for vendors are not expected for Invoice compared to Expense.
 
 * [Retrieve all list items based on the search criteria](#get)
 * [Retrieve a list item by ID](#getID)
