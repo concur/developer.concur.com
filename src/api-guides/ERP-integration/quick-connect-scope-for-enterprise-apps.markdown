@@ -16,7 +16,7 @@ The links and diagram below illustrate the process to get a company-level Access
 
 Development Item|Resources
 ---|---
-Authorization|[Authentication - ERP Integration](./api-reference/authentication/apidoc.markdown#erp-integration)
+Authorization|[Authentication - Enterprise Business Applications](./api-reference/authentication/apidoc.markdown#enterprise-business-applications)
 Development & Certification|[Enterprise App Development & Certification](https://prezi.com/p/lw0qqy51zcmd/)
 Landing Page|To develop the **Landing Page** read the [Apps for My Business](./manage-apps/go-market-docs/app-center-ux-guidelines-enterprise.pdf) and / or [Apps for Me](https://developer.concur.com/manage-apps/go-market-docs/app-center-ux-guidelines-consumer.pdf) User Experience Guidelines to learn more about certification. The Certification PM will provide you a checklist that will be adhered to during the Certification walkthrough call.
 ERP applications (only)|ERP Partner Integrations - the Partner will need to develop a solution that facilitates a way for the customer / partner to refresh the OAuth2 Access Token when the customer uses an on-premise ERP system.

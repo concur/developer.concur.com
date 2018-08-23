@@ -716,7 +716,7 @@ Example of the `correlationid` in the response:
 < Concur-Correlationid: 2803b8f8-a42b-43c2-a739-b8768e4759b8
 ```
 
-## <a name="erp-integration"></a>Enterprise Resource Planning Integration
+## <a name="enterprise-business-applications"></a>Enterprise Business Applications
 
 Only the [Password Grant Type](#password_grant) is available for obtaining company-level tokens.
 
