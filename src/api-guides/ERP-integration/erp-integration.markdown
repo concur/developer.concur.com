@@ -38,13 +38,13 @@ Financial posting via Extract|Send Purchase Order data to Concur (Advanced)
 
 ### <a name="quick-connect"></a>Quick Connect
 
-[Quick Connect Scope for Enterprise Apps](./api-guides/ERP-integration/quick-connect-scope-for-enterprise-apps.html)
+[Quick Connect Scope for Enterprise Apps](./quick-connect-scope-for-enterprise-apps.html)
 
 **Quick Connect** describes the process customers use to connect their Concur site with an App Center Partner's Enterprise application. See the separate Quick Connect scope document for details to guide you through the development of this required piece to your certified application.
 
 ### <a name="profile"></a>Company Profile
 
-[Profile Company API v1 ERP Integration](https://developer.concur.com/api-reference/profile-beta/company.html#erp-integration)
+[Profile Company API v1 ERP Integration](/api-reference/profile-beta/company.html#erp-integration)
 
 ### <a name="integration-extract"></a>Financial posting via Extract
 
