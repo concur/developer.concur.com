@@ -47,10 +47,10 @@
   children:
       - title: Connection Requests
         url: /api-reference/common/connection-requests/connection-requests-resource.html
-      - title: Extracts
-        url: /api-reference/common/extracts/extracts.html
-      - title: List Item
-        url: /api-reference/common/list-item/
+      - title: Extracts v1
+        url: /api-reference/common/extracts/v1.extracts.html
+      - title: List Item v3
+        url: /api-reference/common/list-item/v3.list-item.html
       - title: Locations
         url: /api-reference/common/locations/locations-resource.html
       - title: Suppliers
@@ -156,8 +156,8 @@
         url: /api-reference/expense/expense-report/reports.html
       - title: Report Details
         url: /api-reference/expense/expense-report/expense-report-get.html
-      - title: Payment Batches
-        url: /api-reference/expense/payment-batch/payment-batches.html
+      - title: Payment Batches v1.1
+        url: /api-reference/expense/payment-batch/v1.payment-batches.html
       - title: Quick Expense
         url: /api-reference/expense/quick-expense/
 - title: Receipt Image
@@ -176,12 +176,12 @@
         url: /api-reference/invoice/payment-request-digest.html
       - title: Payment Request
         url: /api-reference/invoice/payment-request.html
-      - title: Purchase Orders
-        url: /api-reference/invoice/purchase-order.html
+      - title: Purchase Orders v3
+        url: /api-reference/invoice/v3.purchase-order.html
       - title: Sales Tax Validation
         url: /api-reference/invoice/sales-tax-validation.html
-      - title: Vendors
-        url: /api-reference/invoice/vendor.html
+      - title: Vendor v3
+        url: /api-reference/invoice/v3.vendor.html
 - title: Receipts
   url: ''
   children:
