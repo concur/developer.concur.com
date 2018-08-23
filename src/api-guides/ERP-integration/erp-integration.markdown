@@ -20,8 +20,8 @@ Thank you for your interest in an App Center Partnership to develop an ERP integ
 
 Use the following resources to get familiar with the Concur product and then submit expense reports or invoices in your own sandbox. This will better position you to conduct end-to-end testing and be able to correlate a User's experience to what you obtain via the APIs.
 
-* **Training Toolkit** at http://www.concurtraining.com/ - These resources help you learn the Concur product basics, administration and reporting.
-* **Shared Technical Services Videos** at http://www.concurtraining.com/prdeployment/sts - The videos found here will help you understand the unique types of transactions that can occur in the Expense product and their resulting impacts on the financial picture in the extract file.
+* **Training Toolkit** at [http://www.concurtraining.com/](http://www.concurtraining.com/) - These resources help you learn the Concur product basics, administration and reporting.
+* **Shared Technical Services Videos** at [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts) - The videos found here will help you understand the unique types of transactions that can occur in the Expense product and their resulting impacts on the financial picture in the extract file.
 
 ## <a name="phases"></a>Phased Development Approaches
 
@@ -48,9 +48,9 @@ Financial posting via Extract|Send Purchase Order data to Concur (Advanced)
 
 ### <a name="integration-extract"></a>Financial posting via Extract
 
-**Professional Edition**: Typical code flow is listed in the [Extracts v1 API ERP Integration](./api-reference/common/extracts/v1.extracts.html#erp-integration).
+**Professional Edition**: Typical code flow is listed in the [Extracts v1 API ERP Integration](/api-reference/common/extracts/v1.extracts.html#erp-integration).
 
-**Standard Edition**: Typical code flow is listed in the  [Payment Batches v1 API ERP Integration](./api-reference/expense/payment-batch/v1.payment-batches.hmtl#erp-integration)
+**Standard Edition**: Typical code flow is listed in the  [Payment Batches v1 API ERP Integration](/api-reference/expense/payment-batch/v1.payment-batches.hmtl#erp-integration)
 
 Differences exist between Standard & Professional in regards to how the client code obtains the data / extract file so it is important to first determine the Edition Type as noted in the [Company Profile](#profile) prerequisites section.
 
@@ -61,7 +61,7 @@ The integration is slightly different depending on Expense or Invoice.
 
 ### <a name="integration-manage-lists"></a>Manage lists of Cost Object codes
 
-[List Item v3 API](./api-reference/common/list-item/v3.list-item.html)
+[List Item v3 API](/api-reference/common/list-item/v3.list-item.html)
 
 The integration is different depending on Expense or Invoice:
 
@@ -71,23 +71,23 @@ The integration is different depending on Expense or Invoice:
 
 The List API should be executed in an asynchronous manner. Here are two documents that illustrates asynchronous execution:
 
-* https://spring.io/guides/gs/async-method/
-* https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
+* [https://spring.io/guides/gs/async-method/](https://spring.io/guides/gs/async-method/)
+* [https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/](https://spring.io/guides/gs/async-method/)
 
 ### <a name="integration-vendor-data"></a>Add and update Vendor data
 
-[Vendor v3 API](./api-reference/invoice/v3.vendor.html)
+[Vendor v3 API](/api-reference/invoice/v3.vendor.html)
 
 Invoice Only: **Required** for the basic integration and **Required** for the advanced integration.
 
 ### <a name="integration-purchase-order"></a>Send Purchase Order data to Concur
 
-[Purchase Order v3 API](./api-reference/invoice/v3.purchase-order.html)
+[Purchase Order v3 API](/api-reference/invoice/v3.purchase-order.html)
 
 Invoice Only: **Optional** for the basic integration and **Required** for the advanced integration.
 
 ### <a name="integration-purchase-order-receipt"></a>Send Purchase Order Receipt data to Concur
 
-[Purchase Order v3 API Receipt Schema](./api-reference/invoice/v3.purchase-order.html#schema-receipt)
+[Purchase Order v3 API Receipt Schema](/api-reference/invoice/v3.purchase-order.html#schema-receipt)
 
 Invoice Only: **Optional** for the basic integration and **Required** for the advanced integration.
