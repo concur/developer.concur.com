@@ -1,5 +1,5 @@
 ---
-title: Payment Batches
+title: Payment Batches v1.1
 layout: reference
 ---
 

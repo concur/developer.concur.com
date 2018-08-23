@@ -28,7 +28,7 @@ Consult with your client so they can inform you if they are using Standard or Pr
 
 Use the following process and their associated API to obtain extract files for your client from Concur:
 
-Navigate to [Extracts](https://developer.concur.com/api-reference/common/extracts/extracts.html).
+Navigate to [Extracts v1](https://developer.concur.com/api-reference/common/extracts/v1.extracts.html).
 
 Professional Edition:
 
@@ -188,20 +188,20 @@ Standard Edition ERP Integration assumes that you are working for or on behalf o
 #### API’s used to obtain extract files for your client
 Before you begin, you need to close the Payment Manager batch using the appropriate API’s in order for you to retrieve the files using the API below. Ask your client not to close the batch manually through the User Interface.
 
-  Navigate to [Payment Batches](https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html).
+  Navigate to [Payment Batches](./api-reference/expense/payment-batch/v1.payment-batches.html).
 
-  1.  **Obtain a list of your client’s batches** by using [Get list of batches]( https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html#getpaymentbatches)
+  1.  **Obtain a list of your client’s batches** by using [Get list of batches](./api-reference/expense/payment-batch/v1.payment-batches.html#getpaymentbatches)
     Example
 
           GET /expense/paymentbatch/v1.1/batch/_{BatchID}_/file
 
-  2.  **Close the desired batch** by using [Close a payment batch]( https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html#closepaymentbatch)
+  2.  **Close the desired batch** by using [Close a payment batch](./api-reference/expense/payment-batch/v1.payment-batches.html#closepaymentbatch)
     Example
 
 
           POST /expense/paymentbatch/v1.2/batch/{BatchID}/close
 
-  3.  **Retrieve the file you want** by using [Retrieve a payment batch file](https://developer.concur.com/api-reference/expense/payment-batch/payment-batches.html#getbatchfile)
+  3.  **Retrieve the file you want** by using [Retrieve a payment batch file](./api-reference/expense/payment-batch/v1.payment-batches.html#getbatchfile)
     Example
 
           GET /expense/paymentbatch/v1.1/batch/_{BatchID}_/file
