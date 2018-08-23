@@ -50,9 +50,9 @@ Financial posting via Extract|Send Purchase Order data to Concur (Advanced)
 
 **Professional Edition**: Typical code flow is listed in the [Extracts v1 API ERP Integration](/api-reference/common/extracts/v1.extracts.html#erp-integration).
 
-**Standard Edition**: Typical code flow is listed in the  [Payment Batches v1 API ERP Integration](/api-reference/expense/payment-batch/v1.payment-batches.hmtl#erp-integration)
+**Standard Edition**: Typical code flow is listed in the  [Payment Batches v1 API ERP Integration](/api-reference/expense/payment-batch/v1.payment-batches.html#erp-integration)
 
-Differences exist between Standard & Professional in regards to how the client code obtains the data / extract file so it is important to first determine the Edition Type as noted in the [Company Profile](#profile) prerequisites section.
+Differences exist between Standard & Professional in regards to how the client code obtains the data / extract file so it is important to first determine the Edition Type as noted in the [Company Profile](#profile) section.
 
 The integration is slightly different depending on Expense or Invoice.
 
@@ -72,7 +72,7 @@ The integration is different depending on Expense or Invoice:
 The List API should be executed in an asynchronous manner. Here are two documents that illustrates asynchronous execution:
 
 * [https://spring.io/guides/gs/async-method/](https://spring.io/guides/gs/async-method/)
-* [https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/](https://spring.io/guides/gs/async-method/)
+* [https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/)
 
 ### <a name="integration-vendor-data"></a>Add and update Vendor data
 
