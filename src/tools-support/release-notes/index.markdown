@@ -3,8 +3,15 @@ title: Release Notes
 layout: reference
 ---
 
+# Client Release Notes
+
+* [Professional Edition](http://www.concurtraining.com/customers/tech_pubs/_RN_CCC.htm)
+* [Standard Edition](http://www.concurtraining.com/customers/tech_pubs/_RN_CCC_CPS.htm)
+
 # App Center Release Notes
 
+* [August 2018](./app-center-2018-08-18.html)
+* [July 2018](./app-center-2018-07-10.html)
 * [June 2018](./app-center-2018-06-01.html)
 * [May 2018](./app-center-2018-05-14.html)
 * [February 2018](./app-center-2018-02-01.pdf)

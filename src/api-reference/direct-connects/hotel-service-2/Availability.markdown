@@ -80,6 +80,8 @@ Message to retrieved the availability of hotels
 
 ## Response
 
+The maximum allowed size of OTA_HotelAvailRS is 1 MB. Any response that exceeds this limit shall be dropped.
+
 **OTA_HotelAvailRS**
 
 | Element   | Required | Data Type | Description |

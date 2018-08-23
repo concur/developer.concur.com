@@ -24,8 +24,7 @@ Concur Request automates the spend request and approval process for both travel 
 
 ## Version
 
-3.0 (Current)
-[1.0](/api-reference/request/v1.request.html)
+3.0 (Current) [1.0](/api-reference/v1.request.html)
 
 ## <a name="method1"></a>Retrieve all requests
 
@@ -48,7 +47,7 @@ Name|Type|Format|Description
 ## <a name="method2"></a>Retrieve a request by ID
 
 ```
-GET /api/v3.0/travelrequest/request/{id}
+GET /api/v3.0/travelrequest/requests/{id}
 ```
 
 ### Parameters

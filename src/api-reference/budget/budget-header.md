@@ -3,24 +3,40 @@ title: Budget Header
 layout: reference
 ---
 
+# Menu
+* [Getting Started](#overview)
+* [Fiscal Year](#overview)
+* [Budget Category](#overview)
+
+# Budget Item - Beta
+* [Overview](#overview)
+* [Retrieve all Budget Item](#getall)
+* [Retrieve a Budget Item](#get)
+* [Create/Update a Budget Item](#post)
+* [Remove a Budget Item](#delete)
+* [Schema](#schema)
+
+### Overview
+
+The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details. 
+
 This resource is used to retrieve and update information about a budget that spans a single fiscal year.  Each budget
 has multiple details that correspond to fiscal periods--months, quarters, or a single period for a yearly budget.
-
-# Budget Item Header
-* [Retrieve all Budget Item Headers](#getall)
-* [Retrieve a Budget Item Header](#get)
-* [Create/Update a Budget Item Header](#post)
-* [Remove a Budget Item Header](#delete)
-* [Schema](#schema)
 
 
 ## Version
 4.0  
 
 
-## <a name="getall"></a>Retrieve all Budget Item Headers
+## <a name="getall"></a>Retrieve all Budget Item
 
     GET  /budget/v4/budgetItemHeader 
+    
+HTTPie:
+
+```shell
+http https://us.api.concursolutions.com/budget/v4/budgetItemHeader 'Authorization:Bearer {YOUR ACCESS TOKEN}'
+```
 
 ### Parameters
 
@@ -77,15 +93,25 @@ offset	|	`integer`	|	`query`	|	The start of the page offset.  Defaults to zero.
           "externalUserSyncGuid":"8002250890004822936",
           "employeeUuid":"210fe25f-e326-495c-847a-de333173f616",
           "syncGuid":"f779261d-77ce-4123-b739-d842ef6f104d",
-          "name":"Jean Normandy"
+          "name":"Jean Normandy",
+	  "email":"jean.normandy@xyz.com"
          },
-        "budgetApprovers":[],
+        "budgetApprovers":[
+	  {
+          "externalUserSyncGuid":"8002250890004822936",
+          "employeeUuid":"210fe25f-e326-495c-847a-de333173f616",
+          "syncGuid":"f779261d-77ce-4123-b739-d842ef6f104d",
+          "name":"Jean Normandy",
+	  "email":"jean.normandy@xyz.com"
+         }
+        ],
         "budgetViewers":[
           {
             "externalUserSyncGuid":"5005380230004873464",
             "employeeUuid":"eb6082b0-3a9a-4e79-a350-e6e067f34969",
             "syncGuid":"7ce7dfe0-6168-4b93-bb35-386bf023acc6",
-            "name":"Dan Lee"
+            "name":"Dan Lee",
+	    "email":"dan.lee@xyz.com"
           }
         ],
         "fiscalYear":{
@@ -109,9 +135,16 @@ offset	|	`integer`	|	`query`	|	The start of the page offset.  Defaults to zero.
 ```
 
 
-## <a name="get"></a>Retrieve a Budget Item Header
+## <a name="get"></a>Retrieve a Budget Item
 
     GET  /budget/v4/budgetItemHeader/{id} 
+
+HTTPie:
+
+```shell
+http https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}  'Authorization:Bearer {YOUR ACCESS TOKEN}'
+```
+
 
 ### Parameters
 
@@ -159,13 +192,22 @@ id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
       "syncGuid":"f779261d-77ce-4123-b739-d842ef6f104d",
       "name":"Jean Normandy"
      },
-    "budgetApprovers":[],
+    "budgetApprovers":[
+       {
+        "externalUserSyncGuid":"8002250890004822936",
+        "employeeUuid":"210fe25f-e326-495c-847a-de333173f616",
+        "syncGuid":"f779261d-77ce-4123-b739-d842ef6f104d",
+        "name":"Jean Normandy",
+        "email":"jean.normandy@xyz.com"
+       }
+    ],
     "budgetViewers":[
       {
         "externalUserSyncGuid":"5005380230004873464",
         "employeeUuid":"eb6082b0-3a9a-4e79-a350-e6e067f34969",
         "syncGuid":"7ce7dfe0-6168-4b93-bb35-386bf023acc6",
-        "name":"Dan Lee"
+        "name":"Dan Lee",
+	"email":"dan.lee@xyz.com
       }
     ],
     "budgetItemDetails":[
@@ -261,10 +303,18 @@ id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
   }
 ```
 
-## <a name="post"></a>Create/Update a Budget Item Header
+## <a name="post"></a>Create/Update a Budget Item
 
     POST  /budget/v4/budgetItemHeader
 
+HTTPie:
+
+```shell
+http POST https://us.api.concursolutions.com/budget/v4/budgetItemHeader \
+"Authorization:Bearer {YOUR ACCESS TOKEN}" \
+"Content-Type: application/json" \
+< {PATH TO YOUR BUDGET ITEM HEADER JSON}
+```
 
 ### Parameters
 
@@ -301,13 +351,21 @@ Name | Type | Format | Description
     },
     "owner":{
       "externalUserSyncGuid":"8002250890004822936",
-      "employeeUuid":"210fe25f-e326-495c-847a-de333173f616"
+      "employeeUuid":"210fe25f-e326-495c-847a-de333173f616",
+      "email":"jean.normandy@xyz.com"
      },
-    "budgetApprovers":[],
+    "budgetApprovers":[
+     {
+        "externalUserSyncGuid":"5005380230004873464",
+        "employeeUuid":"eb6082b0-3a9a-4e79-a350-e6e067f34969",
+	"email":"dan.lee@xyz.com"
+      }
+    ],
     "budgetViewers":[
       {
         "externalUserSyncGuid":"5005380230004873464",
-        "employeeUuid":"eb6082b0-3a9a-4e79-a350-e6e067f34969"
+        "employeeUuid":"eb6082b0-3a9a-4e79-a350-e6e067f34969",
+        "email":"dan.lee@xyz.com"
       }
     ],
     "budgetItemDetails":[
@@ -359,6 +417,13 @@ Name | Type | Format | Description
 
     DELETE  /budget/v4/budgetItemHeader/{id}
 
+```shell
+http DELETE https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id} \
+"Authorization:Bearer {YOUR ACCESS TOKEN}" \
+"Content-Type: application/json" \
+```
+
+
 
 ### Parameters
 
@@ -397,19 +462,19 @@ Name | Type | Format | Description
 `active`	|	`boolean`	|	-	|	Indicates if this budget should be displayed on user screens **READ ONLY**
 `annualBudget`	|	`decimal`	|	-	|	The total budget amount and accumulated balances for this budget header. **READ ONLY** 
 `budgetAmounts`	|	`Array[BudgetAmounts]`	|	-	|	The accumulated budget amounts for this budget.  **READ ONLY**
-`budgetApprovers`	|	`Array[BudgetPerson]`	|	-	|	The users who can approve spending for this budget.  If approvers exist, the spending item only matches this budget if one of the approvers is the submitter or is above the submitter in the manager hierarchy.
+`budgetApprovers`	|	`Array[BudgetPerson]`	|	-	|	Manager Hierarchy only.
 `budgetCategory`	|	`BudgetCategory`	|	-	|	The budget category for this budget item.  If a budget category is present, spending items must match one of the expense types in the budget category in order to match this budget.
 `budgetItemDetails`	|	`Array[BudgetItemDetail]`	|	-	|	**Required** Specify the budget information for each fiscal period in the fiscal year.
 `budgetItemStatusType`	|	`string`	|	-	|	The status of this budget item. Valid values are 'OPEN', 'CLOSED', and 'REMOVED' (Closed means no spending may be attached to this budget.)
 `budgetViewers`	|	`Array[BudgetPerson]`	|	-	|	The users who can view this budget
 `costObjects`	|	`Array[CostObjectValue]`	|	-	|	The cost object list for matching spending items.
-`currencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.
-`description`	|	`string`	|	-	|	**Required** The user-friendly name for this budget.
-`fiscalYear`	|	`FiscalYear`	|	-	|	**Requred** The fiscal year for this budget.  Only the sync_guid is technically required for creating/updating a budget.
+`currencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona. This is the currencycode of the budget amount. Spending Items are converted using yesterday's closing value. 
+`description`	|	`string`	|	-	|	**Required** The user-friendly name for this budget. This description is displayed to end users on desktop and mobile.
+`fiscalYear`	|	`FiscalYear`	|	-	|	**Required** The fiscal year for this budget.  Only the sync_guid is technically required for creating/updating a budget.
 `isTest`	|	`boolean`	|	-	|	The test flag for the budget item.  If true, this budget will only match spending submitted by test users.
 `name`	|	`string`	|	-	|	**Required** The admin-facing name for this budget.
 `owned`	|	`string`	|	-	|	A flag indicating if the current user is the owner of this budget.  **READ ONLY**
-`owner`	|	`BudgetPerson`	|	-	|	**Required** The user who is ultimately responsible for this budget.  He/she may approve spending for the budget.
+`owner`	|	[`BudgetPerson`](#abcde)	|	-	|	**Required** The user who is ultimately responsible for this budget.  He/she may approve spending for the budget.
 `periodType`	|	`string`	|	-	|	The type of period within the fiscal year that this budget's details use. **READ ONLY**
 `syncGuid`	|	`string`	|	-	|	The key for this object.
 
@@ -423,7 +488,7 @@ Name | Type | Format | Description
 `budgetItemBalances`	|	`Array[BudgetItemBalance]`	|	-	|	Shows the break-out of budget spending by product and workflow state.  **READ ONLY**
 `budgetItemDetailStatusType`	|	`string`	|	-	|	The status of this budget item. Valid values are 'OPEN', 'CLOSED', and 'REMOVED' (Closed means no spending may be attached to this budget.)
 `currencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.
-`fiscalPeriod`	|	`FiscalPeriod`	|	-	|	**Requred** The fiscal period for this budget amount.  Only the sync_guid is technically required for creating/updating a budget.
+`fiscalPeriod`	|	`FiscalPeriod`	|	-	|	**Required** The fiscal period for this budget amount.  Only the sync_guid is technically required for creating/updating a budget.
 `syncGuid`	|	`string`	|	-	|	The key for this object.
 
 
@@ -441,11 +506,14 @@ Name | Type | Format | Description
 
 ### BudgetPerson
 
+Provide externalUserSyncGuid or email of the user for looking up the person.
+
 Name | Type | Format | Description
 -----|------|--------|------------
-`externalUserSyncGuid`	|	`string`	|	-	|	**Required** The unique identifier for this user. This must match the CUUID from Concur's profile service.
+`externalUserSyncGuid`	|	`string`	|	-	|	The unique identifier for this user. This must match the CUUID from Concur's profile service.
 `name`	|	`string`	|	-	|	The user's name.  Provided for convenience.  **READ ONLY**
 `syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
+`email`	|	`string`	|	-	|	The email address of the person to lookup.
 
 
 ### BudgetCategory
