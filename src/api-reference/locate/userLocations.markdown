@@ -72,7 +72,7 @@ This indicates which entity within the organization the traveler belongs to. Thi
 | secondSubLevel | 36 | String | This is the sub level of the child corporation (firstsublevel).
 
 ### Users
-This information will be used to match or create a new user. Either login ID or email address must be provided. If an existing user is not found for the login ID or email, one will be created. The mobile field must unique for a particular user. It must not be shared between different users. If mobile number is not provided then the email will be used to create or update the user. The same email can be associated with different users. In such a case the validation for uniqueness will happen through the email, corporation, first name, last name. mobileCountryCode should be either the two character country code like US or IT or it should be the nDigit international country code like 001 or 91.                            
+This information will be used to match or create a new user. Either login ID or email address must be provided. If an existing user is not found for the login ID or email, one will be created. The mobile field must unique for a particular user. It must not be shared between different users. If mobile number is not provided then the email will be used to create or update the user. The same email can be associated with different users. In such a case the validation for uniqueness will happen through the email, corporation, first name, last name combination. mobileCountryCode should be either the two character country code like US or IT or it should be the nDigit international country code like 001 or 91.                            
 
 | Property Name | Values / Length | Type | Description
 | ------------- | ----------------| ---- | -----------
