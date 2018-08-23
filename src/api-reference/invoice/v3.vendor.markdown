@@ -1,5 +1,5 @@
 ---
-title: Vendors
+title: Vendor v3
 layout: reference
 ---
 
