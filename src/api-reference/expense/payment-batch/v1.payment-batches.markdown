@@ -98,6 +98,8 @@ Error Number|Description
 
 ## <a name="erp-integration"></a>Enterprise Resource Planning Integration
 
+For the purposes of ERP integration this API is available to Standard Edition. For Professional Edition use [Extracts v1 API ERP Integration](/api-reference/common/extracts/v1.extracts.html#erp-integration).
+
 Before you begin, you need to close the Payment Manager batch using the appropriate API’s in order for you to retrieve the files using the API below. Ask your client not to close the batch manually through the User Interface.
 
 1. Obtain a list of your client’s batches by using [Get list of batches](#getpaymentbatches)
