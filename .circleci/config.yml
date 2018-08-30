@@ -24,13 +24,6 @@ jobs:
           paths:
             - _site
 
-  deploy_test:
-    docker:
-      - image: cgswong/aws:aws
-    steps:
-      - attach_workspace:
-          at: ./
-      - run: aws s3 sync ./_site s3://test-developer-concur-com --delete --region us-west-2 --output text
   deploy_preview:
     docker:
       - image: cgswong/aws:aws
@@ -56,13 +49,6 @@ workflows:
                 only: 
                   - preview
                   - livesite
-                  - feature/circle-2.0
-        - deploy_test:
-            filters:
-              branches:
-                only: feature/circle-2.0
-            requires:
-              - build
         - deploy_preview:
             filters:
               branches:
