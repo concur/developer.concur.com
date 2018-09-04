@@ -1,5 +1,5 @@
 ---
-title: Invoice Pay Version 1.0
+title: Invoice Pay v1
 layout: reference
 ---
 
