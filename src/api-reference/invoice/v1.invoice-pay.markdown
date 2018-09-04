@@ -1,5 +1,5 @@
 ---
-title: Invoice Pay Version 1.0
+title: Invoice Pay v1
 layout: reference
 ---
 
@@ -79,7 +79,7 @@ Not applicable.
 #### Request
 
 ```
-GET https://us.api.concursolutions.com/payments?companyId={companyId}
+GET https://us.api.concursolutions.com/invoice/provider-payment/v1/payments?companyId={companyId}
 Accept: application/json
 Authorization: BEARER {token}
 ```
@@ -184,7 +184,7 @@ Name|Type|Format|Description
 #### Request
 
 ```
-POST https://us.api.concursolutions.com/payments/{paymentId}
+POST https://us.api.concursolutions.com/invoice/provider-payment/v1/payments/{paymentId}
 Authorization: BEARER {token}
 Content-Type: application/json
 ```
