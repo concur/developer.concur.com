@@ -134,7 +134,7 @@ Getting Started with Receipts v4 documentation can be found [here](/api-referenc
 3. The below elements are returned with the new Access Token, replace previously stored values for the user in your database:
    - **refresh\_token** _(Replace)_
    - **refresh\_expires\_in** _(Replace)_
-4. If the user does not log in for six months his/her refresh token will expire and the user&#39;s Partner account and Concur account will be de-linked.
+4. If the user does not log in for six months his/her refresh token will expire and the user&#39;s Partner account and Concur account will be de-linked. To prevent this from happening, build a scheduled job that scans your database for expiration dates and refreshes tokens x days prior to expiration. (If a partner chooses not to refresh the token, the partner will need to make sure the user is aware that the app has been disconnected.)
 
 #### Migrating Tokens (Applies to existing Partners/existing Apps Only)
 
