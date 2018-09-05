@@ -13,6 +13,8 @@ It is not our intention to tell you what colors and fonts to use. Maintaining yo
 * [Design guidelines](#design-guidelines)
   * [Account linking process](#design-guidelines-account-linking-process)
   * [Connect](#design-guidelines-connect)
+    * [Activate + Connect](#design-guidelines-connect-activate)
+    * [Request Information](#design-guidelines-connect-request-information)
   * [Accept Terms](#design-guidelines-accept-terms)
   * [Landing Page](#design-guidelines-landing-page)
     * [Verification](#landing-page-verification)
@@ -70,11 +72,15 @@ Step 5 Confirmation
 
 There are two possible configurations for enterprise listings that modify the primary action for the user.
 
-1. **“Connect” as the primary action.** In this configuration, “Connect” is more prominent. This should be used in cases where the user can self-service and connect their Concur account to your application automatically.
+### <a name="design-guidelines-connect-activate"></a>Activate + Connect
+
+In this configuration **Connect** is the prominent call to action. This should be used in cases where the user can self-service and connect their Concur account to your application automatically.
 
 ![Connect - Activate](./app-center-ux-guidelines-enterprise-activate.png)
 
-2. **“Request information” as the primary action.** In this configuration, “Request information” is more prominent. This should be used in cases where the customer must contact the partner before connecting. This may be the case for applications which have multiple options, versions and/or varying pricing.
+### <a name="design-guidelines-connect-request-information"></a>Request Information
+
+In this configuration “Request information” is more prominent. This should be used in cases where the customer must contact the partner before connecting. This may be the case for applications which have multiple options, versions and/or varying pricing.
 
 ![Request Information](./app-center-ux-guidelines-both-request-information.png)
 
