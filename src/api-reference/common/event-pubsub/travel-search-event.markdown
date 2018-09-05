@@ -57,12 +57,12 @@ Name|Type|Format|Description
 ---|---|---|---
 `departures`|`String`|IATA Airport Code|List of departure airports selected by the traveler.
 `arrivals`|`String`|IATA Airport Code|List of destination airports selected by the traveler.
-`departureDate`|`String`|YYYY-MM-DD|Departure date, UTC.
-`departureTime`|`String`|HH:MM:SS|Departure time, UTC.
-`departureTimeWindow`|`Integer`||Time window (+/-) from selected departure time in hours.
-`arrivalDate`|`String`|YYYY-MM-DD|Arrival date, UTC.
-`arrivalTime`|`String`|HH:MM:SS|Arrival time, UTC.
-`arrivalTimeWindow`|`Integer`||Time window (+/-) from selected arrival time in hours.
+`departureDate`|`String`|YYYY-MM-DD|Date traveler will depart from the origin, UTC. Either the departure date/time OR the arrival date/time will be populated.
+`departureTime`|`String`|HH:MM:SS|Departure time, UTC.  Either the departure date/time OR the arrival date/time will be populated.
+`departureTimeWindow`|`Integer`||Time window (+/-) from selected departure time, in hours.  Either the departure date/time OR the arrival date/time will be populated.
+`arrivalDate`|`String`|YYYY-MM-DD|Date in which the traveler will arrive in the destination, UTC. Either the departure date/time OR the arrival date/time will be populated.
+`arrivalTime`|`String`|HH:MM:SS|Time in which the traveler will arrive in the destination, UTC.  Either the departure date/time OR the arrival date/time will be populated.
+`arrivalTimeWindow`|`Integer`||Time window (+/-) from selected to arrive in the destination, in hours.  Either the departure date/time OR the arrival date/time will be populated.
 
 ### <a name="schema-hotel-request"></a>Hotel
 
@@ -82,7 +82,7 @@ Name|Type|Format|Description
 `userId`|`String`|GUID|Uniquely identifies the user performing the search. *NOTE:* In the event travel is booked by an arranger, this is the traveler. In cases where the individual is booking on behalf of a guest, this is the user performing the search.
 `refPointLatitude`|`Number`|Double | Search location, latitude.
 `refPointLongitude`|`Number`|Double | Search location, longitude.
-`refPointName`|`String`||Location name as entered by the user.
+`refPointName`|`String`||Reference point location name.
 `radiusDistance`|`Integer`||Distance from the reference point as selected by the user.
 `distanceUnit`|`String`|Mile, Kilometer|Unit for radius distance.
 `checkInDate`|`String`|YYYY-MM-DD|Arrival date, UTC.
