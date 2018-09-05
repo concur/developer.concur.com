@@ -46,12 +46,37 @@ This section provides guidelines for the process for an administrator to connect
 
 The connection flow begins from the SAP Concur App Center. Once the user has accepted the terms of the connection, the user will be redirected to your site.
 
+Step 1 Connect
+
+![Step 1 Connect](./app-center-ux-guidelines-enterprise-connect.png)
+
+Step 2 Accept Terms
+
+![Step 2 Accepts Terms](./app-center-ux-guidelines-enterprise-terms-and-conditions.png)
+
+Step 3 Landing Page
+
+![Step 3 Landing Page](./app-center-ux-guidelines-enterprise-landing-page.png)
+
+Step 4 Account Creation
+
+![Step 4 Account Creation](./app-center-ux-guidelines-enterprise-account-creation.png)
+
+Step 5 Confirmation
+
+![Step 5 Confirmation](./app-center-ux-guidelines-both-confirmation.png)
+
 ### <a name="design-guidelines-connect"></a>Connect
 
 There are two possible configurations for enterprise listings that modify the primary action for the user.
 
 1. **“Connect” as the primary action.** In this configuration, “Connect” is more prominent. This should be used in cases where the user can self-service and connect their Concur account to your application automatically.
+
+![Connect - Activate](./app-center-ux-guidelines-enterprise-activate.png)
+
 2. **“Request information” as the primary action.** In this configuration, “Request information” is more prominent. This should be used in cases where the customer must contact the partner before connecting. This may be the case for applications which have multiple options, versions and/or varying pricing.
+
+![Request Information](./app-center-ux-guidelines-both-request-information.png)
 
 ### <a name="design-guidelines-accept-terms"></a>Accept Terms
 
@@ -78,6 +103,8 @@ If your application activation requires pre-requisites (e.g. a contract or other
 
 * Enter the verification code OR
 * Contact Us
+
+![Verification](./app-center-ux-guidelines-both-verification.png)
 
 IMPORTANT: Any administrator can connect to your application from the SAP Concur App Center. It is possible that administrators that have not completed the pre-requisites will access your landing page. The “Contact Us” option will allow users that have not yet completed pre-requisites but are interested in connecting to your application to contact you. Requests generated from this landing page must be continuously monitored. You may use the inquiry link used in your listing (for more information on the inquiry link please refer to the [App Center Listing Form submission document](./app-center-partner-listing-form.docx)).
 
@@ -120,6 +147,8 @@ Additionally, you may decide to display links for the user to your app’s home 
 Note: If you provide links to your home page, it is recommended that links open a new browser window to clearly indicate that the connection was successfully completed and to display your page in a larger form factor.
 
 For “Verification” apps, this should provide the user information on what will occur next such as to expect an email to book their first service, follow-up on their free trial and/or what to expect from their Concur integration.
+
+![Confirmation](./app-center-ux-guidelines-both-confirmation.png)
 
 ## <a name="guideline-checklist"></a>Guideline Checklist
 
