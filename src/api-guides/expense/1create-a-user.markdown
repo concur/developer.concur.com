@@ -7,7 +7,7 @@ layout: reference
 
 ### Adding User Records:
 
-ADDING USERS TO CONCUR PRODUCTS VIA THE USER API IS NOT CURRENTLY SUPPORTED.  DURING THIS INTERIM PERIOD WHILE A NEW API IS BEING DEVELOPED, PLEASE USE THE FILE-BASED IMPORT PROCESSES.
+ADDING USERS TO CONCUR:  The User API cannot add User profiles completely for all customers. The developer or customer should expect to do follow-up work to the user profiles in order for the User profiles to be 100% ready for use. This variability is due to the customer’s configuration choices that may not be supported by this API. Manual edits or updates via a file import are likely required to complete the User profiles started with this API. Future releases will address these topics.
 
 It is critical for clients & Partners to understand the difference between establishing employee data for a base User record vs. the employee data that serves other Concur features.
 

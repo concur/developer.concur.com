@@ -63,7 +63,7 @@ Refer to the **Installation Process** for more information.
 
 ### Functions
 
-[Version 3.0: Post Attendee Search Request](/api-reference/expense/attendees/index.html)
+[Version 3.0: Post Attendee Search Request](/api-reference/callouts/post-fetch-attendee.html)
 
 ## Installation Process
 
