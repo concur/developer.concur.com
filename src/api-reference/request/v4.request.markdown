@@ -1,4 +1,4 @@
----
+# Ne---
 title: Request endpoints
 layout: reference
 ---
@@ -11,7 +11,8 @@ If a new or existing project please use version [3.0](./v3.request.html) of this
 
 * [Request Resources](#request-resource)
   * [Create a new Request](#request-resource-create)
-  * [Get the content of an existing request](#request-resource-get)
+  * [Get the list of existing Requests](#request-resource-getlist)
+  * [Get the content of an existing Request](#request-resource-get)
   * [Update the content of an existing Request](#request-resource-update)
   * [Delete an existing Request](#request-resource-delete)
   * [Create an expense report linked to an approved Request](#request-resource-create-expense-linked)
@@ -19,30 +20,30 @@ If a new or existing project please use version [3.0](./v3.request.html) of this
   * [Move an existing Request in the approval workflow](#Move-existing-request-in-approval-workflow)
 * [Expense Resources](#expense-resource)
   * [Create a new expected expense](#create-new-expected-expense-resource)
-  * [Get expected Expenses attached to a Request](#get-expected-expense-attached-request-resource)
-  * [Get an existing expected Expense](#get-existing-expense-expense-resource)
-  * [Update the content of an existing expected Expense](#update-content-existing-expected-expense-resource)
-  * [Delete an expected Expense from the Request](#delete-expected-expense-request-resource)
+  * [Get expected expenses attached to a Request](#get-expected-expense-attached-request-resource)
+  * [Get an existing expected expense](#get-existing-expense-expense-resource)
+  * [Update the content of an existing expected expense](#update-content-existing-expected-expense-resource)
+  * [Delete an expected expense from the Request](#delete-expected-expense-request-resource)
 * [Travel Agency Resources](#travel-agency-resource)
   * [Get the description of a travel agency office](#get-travel-agency-description-resource)
 * [Schema](#schema)
-    * [Request](#request)
-    * [ApprovalStatus](#approvalstatus)
-    * [Customfield](#customfield)
-    * [Location](#location)
-    * [Amount](#amount)
-    * [ResourceLink](#resourcelink)
-    * [RequestLink](#requestlink)
-    * [Link](#link)
-    * [Expense](#expense)
-    * [Allocation](#allocation)
-    * [Exchange Rate](#exchangerate)
-    * [Expense Type](#expensetype)
-    * [Travel Allowance](#travelallowance)
-    * [Trip Data](#tripdata)
-    * [Vendor](#vendor)
-    * [Segment Leg](#segmentleg)
-    * [Segment Type](#segmenttype)
+  * [Request](#request)
+  * [ApprovalStatus](#approvalstatus)
+  * [Customfield](#customfield)
+  * [Location](#location)
+  * [Amount](#amount)
+  * [ResourceLink](#resourcelink)
+  * [RequestLink](#requestlink)
+  * [Link](#link)
+  * [Expense](#expense)
+  * [Allocation](#allocation)
+  * [Exchange Rate](#exchangerate)
+  * [Expense Type](#expensetype)
+  * [Travel Allowance](#travelallowance)
+  * [Trip Data](#tripdata)
+  * [Vendor](#vendor)
+  * [Segment Leg](#segmentleg)
+  * [Segment Type](#segmenttype)
 
 ### <a name="request-resource"></a>Request Resources
 
@@ -57,7 +58,7 @@ POST /v4/requests
 Name|Parameter Type|Data Type|Description
 ---|-------|--------|------
 -|body|[Request](#request)|**Required** The content of the Request to create
-userId|path|string|The unique identifier of the Request owner for whom the Request will be created. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|path|string|The unique identifier of the Request owner for whom the Request will be created. <br> The corresponding user name will be displayed in the audit trail of the Request <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 *Response:*
 
@@ -65,9 +66,28 @@ Name|Type|Format|Description
 ---|---|---|------
 -|object|[Request](#request)|The created Request
 
-[Back to top](#request-endpoints)
+#### <a name="request-resource-getlist"></a>Get the list of existing Requests
 
-#### <a name="request-resource-get"></a>Get the content of an existing request
+```
+GET /v4/requests
+```
+
+*Parameters:*
+
+Name|Parameter Type|Data Type|Description
+---|---|---|---
+view|path|string|Name of the perimeter defining the requests to get. <br> If no View value is sent, the default view of ALL will be used
+userId|path|string|The unique identifier of the Request owner to use when searching for Requests
+modifiedBefore|path|DateTime|This returns Requests in which the associated dependents (Header, Expected Expenses, Segments, Allocations, Attendees, Comments) were modified before the specified date and time. This search term can be used along with other search terms to narrow the results. <br> The date and time (if desired) should be in UTC. Both ISO format (YYYY-MM-DDThh:mm:ss) and YYYY-MM-DD format is accepted
+modifiedAfter|path|DateTime|This returns Requests in which the associated dependents (Header, Expected Expenses, Segments, Allocations, Attendees, Comments) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. <br> The date and time (if desired) should be in UTC. Both ISO format (YYYY-MM-DDThh:mm:ss) and YYYY-MM-DD format is accepted
+
+*Response:*
+
+Name|Type|Format|Description
+---|---|---|---
+-|object|[Request](#request)|The list of Request(s) meeting the values set in the parameters
+
+#### <a name="request-resource-get"></a>Get the content of an existing Request
 
 ```
 GET /v4/requests/{requestUuid}
@@ -78,15 +98,13 @@ GET /v4/requests/{requestUuid}
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
 requestUuid|path|string|**Required** The unique identifier of the Request
-userId|path|string|The unique identifier of the Request owner to use when searching for Requests. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 *Response:*
 
 Name|Type|Format|Description
 ---|---|---|---
--|object|[Request](#request)|The Request having {requestUuid} as unique identifer
+-|object|[Request](#request)|The Request having {requestUuid} as unique identifier
 
-[Back to top](#request-endpoints)
 
 #### <a name="request-resource-update"></a>Update the content of an existing Request
 
@@ -100,19 +118,16 @@ Name|Parameter Type|Data Type|Description
 ---|---|---|------
 requestUuid|path|string|**Required** The unique identifier of the Request
 -|body|[Request](#request)|**Required** The content of the Request to update
-userId|path|string|The unique identifier of the Request owner. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|path|string|The unique identifier of the user performing the update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
-Important: In the case of an UPDATE, the Request Body must contain both the modified values and the existing values. In order to enhance the user experience, Concur is currently working on a development in order to manage the partial update.
-
-Important: In the case of an UPDATE, the Request Body must contain both the modified values and the existing values. In order to enhance the user experience, Concur is currently working on a development in order to manage the partial update.
+Important: In the case of an UPDATE, the Request Body must contain both the modified values and the existing values. In order to enhance the user experience, Concur is currently working on a development in order to manage the partial update. 
 
 *Response:*
 
 Name|Type|Format|Description
 ---|---|---|------
--|object|[Request](#request)|The Request having {requestUuid} as unique identifer after update
+-|object|[Request](#request)|The Request having {requestUuid} as unique identifier after update
 
-[Back to top](#request-endpoints)
 
 #### <a name="request-resource-delete"></a>Delete an existing Request
 
@@ -125,15 +140,13 @@ DELETE /v4/requests/{requestUuid}
 Name|Parameter Type|Data Type|Description
 ---|---|---|------
 requestUuid|path|string|**Required** The unique identifier of the Request
-userId|path|string|The unique identifier of the Request owner. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|path|string|The unique identifier of the user performing the deletion. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 *Response:*
 
 Name|Type|Format|Description
 ---|---|---|------
 -|-|-|No content, response code only
-
-[Back to top](#request-endpoints)
 
 #### <a name="request-resource-create-expense-linked"></a>Create an Expense Report linked to an approved Request
 
@@ -146,15 +159,12 @@ POST /v4/requests/{requestUuid}/reports
 Name|Parameter Type|Data Type|Description
 ---|---|---|------
 requestUuid|path|string|**Required** The unique identifier of the Request
-userId|path|string|The unique identifier of the Request for whom the expense report will be created. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 *Response:*
 
 Name|Type|Format|Description
 ---|---|---|------
 -|object|[ResourceLink](#resourcelink)|The resource link leading to the created report
-
-[Back to top](#request-endpoints)
 
 ### <a name="workflow-resource"></a>Workflow Resources
 
@@ -173,8 +183,8 @@ Name|Parameter Type|Data Type|Description
 requestUuid|path|string|**Required** The unique identifier of the Request
 action|path|string|**Required** The state transition to be executed (`submit`, `approve`, `recall`, `sendback`, `cancel`, `close` or `reopen`)
 comment|path|string|Must be used with the Send Back to Employee workflow action. This comment is visible wherever Request comments are available to the employee, approver, and/or Request administrator
-userId|path|string|The unique identifier of the action owner. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
-companyID|path|string|The unique identifier of the company.
+userId|path|string|The unique identifier of the user performing the status transition. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+companyID|path|string|The unique identifier of the company
 
 The HATEOAS links for actions available given the current user and state are listed in the operations of the Request resource.
 
@@ -194,8 +204,6 @@ Name|Type|Format|Description
 ---|---|---|------
 -|object|[Request](#request)|The Request having {requestUuid} as unique identifier
 
-[Back to top](#request-endpoints)
-
 ### <a name="expense-resource"></a>Expense Resources
 
 Manage expected expense entries attached to a Request document.
@@ -212,15 +220,13 @@ Name|Parameter Type|Data Type|Description
 ---|---|---|------
 requestUuid|path|string|**Required** The unique identifier of the Request to which the Expense is attached
 body|object|[Expense](#expense)|**Required** The Expense content to create
-userId|path|string|The unique identifier of the Request owner. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|path|string|The unique identifier of the user performing the expense creation. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 *Response:*
 
 Name|Type|Format|Description
 ---|---|---|------
 -|-|-|No content, response code only
-
-[Back to top](#request-endpoints)
 
 #### <a name="get-expected-expense-attached-request-resource"></a>Get expected Expenses attached to a Request
 
@@ -233,7 +239,7 @@ GET /v4/requests/{requestUuid}/expenses
 Name|Parameter Type|Data Type|Description
 ---|---|---|------
 requestUuid|path|string|**Required** The unique identifier of the Request
-userId|path|string|The unique identifier of the Request owner. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|path|string|The unique identifier of the user viewing the expected expenses attached to a Request. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 *Response:*
 
@@ -241,8 +247,6 @@ Name|Type|Format|Description
 ---|---|---|------
 data|array|[Expense](#expense)|List of entries attached to a Request.
 operations|string|[RFC 5988](https://tools.ietf.org/html/rfc5988)|Pagination links to next/prev/first/last page.
-
-[Back to top](#request-endpoints)
 
 #### <a name="get-existing-expense-expense-resource"></a>Get an existing expected Expense
 
@@ -255,15 +259,13 @@ GET /v4/expenses/{expenseUuid}
 Name|Parameter Type|Data Type|Description
 ---|---|---|------
 expenseUuid|path|string|**Required** The unique identifier of the Expense
-userId|path|string|The unique identifier of the Request owner. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|path|string|The unique identifier of the user viewing the expected expense. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 *Response:*
 
 Name|Type|Format|Description
 ---|---|---|------
 -|object|[Expense](#expense)|The Expense having {expenseUuid} as unique identifier
-
-[Back to top](#request-endpoints)
 
 #### <a name="update-content-existing-expected-expense-resource"></a>Update the content of an existing expected Expense
 
@@ -277,15 +279,13 @@ PUT /v4/expenses/{expenseUuid}
  ---|---|---|------
 expenseUuid|path|string|**Required** The unique identifier of the Expense to update
 body|object|[Expense](#expense)|**Required** The Expense content to update
-userId|path|string|The unique identifier of the Request owner. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|path|string|The unique identifier of the user performing the expense update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 *Response:*
 
  Name|Type|Format|Description
  ---|---|---|------
  -|object|[Expense](#expense)|The Expense having {expenseUuid} as unique identifer after update
-
-[Back to top](#request-endpoints)
 
 #### <a name="delete-expected-expense-request-resource"></a>Delete an expected Expense from the Request
 
@@ -298,15 +298,13 @@ DELETE /v4/expenses/{expenseUuid}
 Name|Parameter Type|Data Type|Description
 ---|---|---|------
 expenseUuid|path|string|**Required** The unique identifier of the Expense to delete
-userId|path|string|The unique identifier of the Request owner. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
+userId|path|string|The unique identifier of the user performing the deletion of the expense. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
 *Response:*
 
  Name|Type|Format|Description
  ---|---|---|------
  -|-|-|No content, response code only
-
-[Back to top](#request-endpoints)
 
 ### <a name="travel-agency-resource"></a>Travel Agency Resources
 
@@ -332,8 +330,6 @@ emailAddress|string|-|The travel agency email address
 id|string|-|The travel agency unique identifier
 name|string|-|The travel agency office name
 proposalType|string|-|The travel agency proposal type. Possible value: `CWT`, `CWTF`, `AEBT` or `API`
-
-[Back to top](#request-endpoints)
 
 ### <a name="schema"></a>Schema
 
@@ -374,16 +370,12 @@ totalRemainingAmount|object|[Amount](#amount)|The total amount not included in a
 travelAgency|object|[ResourceLink](#resourcelink)|The travel agency office that is managing the trip associated to this Request
 operations|array|[Link](#link)|Links to operations available for the Request, depends on the current approval status
 
-[Back to top](#request-endpoints)
-
 #### <a name="approvalstatus"></a>Approval Status
 
 Name|Type|Format|Description
 ---|---|---|------
 code|string|-|The code for the approval status the Request. <br>Possible values: `NOT_SUBMITTED`, `SUBMITTED`, `APPROVED`, `CANCELED` or `SENTBACK`
 name|string|-|The approval status of the Request in the current user's language
-
-[Back to top](#request-endpoints)
 
 #### <a name="customfield"></a>CustomField
 
@@ -393,8 +385,6 @@ code|string|-|The short code for the list item. For non-list fields, this value 
 value|string|-|The value of the non-list item. For list fields, this is the unique id of the item
 listItemId|string|-|The unique id of the item in case of a list field
 href|string|-|The link to get this list item on the list service. Empty for non-list items
-
-[Back to top](#request-endpoints)
 
 #### <a name="location"></a>Location
 
@@ -406,16 +396,12 @@ city|string|-|The city name of the location
 iataCode|string|-|The IATA code of the location
 name|string|-|The name of the location
 
-[Back to top](#request-endpoints)
-
 #### <a name="amount"></a>Amount
 
 Name|Type|Format|Description
 ---|---|---|------
 value|number|-|**Required** The amount in the defined currency
 currency|string|[ISO 4217:2015](#https://www.iso.org/standard/64758.html)|**Required** The 3-letter ISO 4217 code for the currency in which the amount is expressed
-
-[Back to top](#request-endpoints)
 
 #### <a name="resourcelink"></a>ResourceLink
 
@@ -425,15 +411,11 @@ href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the res
 id|string|[RFC 4122](https://tools.ietf.org/html/rfc4122)|Unique identifier of the related object
 template|string|-|Hyperlink template to the resource
 
-[Back to top](#request-endpoints)
-
 #### <a name="requestlink"></a>RequestLink
 
 Name|Type|Format|Description
 ---|---|---|------
 requestId|string|4 to 6 alphanumeric characters|The public key of the Request (unique per customer)
-
-[Back to top](#request-endpoints)
 
 #### <a name="link"></a>Link
 
@@ -441,8 +423,6 @@ Name|Type|Format|Description
 ---|---|---|------
 rel|string|[RFC 5988](https://tools.ietf.org/html/rfc5988)|Relation type as defined by the server. There are registered relation types listed in RFC 5988 6.2.2. Initial Registry Contents including pagination relation types of next, prev, first and last
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource
-
-[Back to top](#request-endpoints)
 
 #### <a name="expense"></a>Expense
 
@@ -470,8 +450,6 @@ travelAllowance|object|[Travel Allowance](#travelallowance)|The Travel allowance
 tripData|object|[Trip Data](#tripdata)|The description of the trip
 vendor|object|[Vendor](#vendor)|The vendor of the Expense entry
 
-[Back to top](#request-endpoints)
-
 #### <a name="allocation"></a>Allocation
 
 Name|Type|Format|Description
@@ -486,16 +464,12 @@ percentage|number|-|The percentage of the total Expense that this allocation rep
 postedAmount|object|[Amount](#amount)|The amount of the allocation calculated with the percentage value multiplied by the posted amount on the Expense. This amount is given in the user's currency and rounded to 8 decimals after decimal point.
 systemAllocation|boolean|-|Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only
 
-[Back to top](#request-endpoints)
-
 #### <a name="exchangerate"></a>Exchange Rate
 
 Name|Type|Format|Description
 ---|---|---|------
 operation|string|-|Exchange rate operation. Possible values are: `MULTIPLY` or `DIVIDE`
 value|number|-|Exchange rate value
-
-[Back to top](#request-endpoints)
 
 #### <a name="expensetype"></a>Expense Type
 
@@ -505,15 +479,11 @@ id|string|-|**Required** Unique identifier of the Expense type
 name|string|-|Name of the Expense type
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for the Expense type definition
 
-[Back to top](#request-endpoints)
-
 #### <a name="travelallowance"></a>Travel Allowance
 
 Name|Type|Format|Description
 ---|---|---|------
 dailyTravelAllowanceId|string|-|The fixed daily travel allowance id associated with the Expense
-
-[Back to top](#request-endpoints)
 
 #### <a name="tripdata"></a>Trip Data
 
@@ -525,16 +495,12 @@ tripType|string|-|Indicates the type of this trip. Should be one of `ONE_WAY`, `
 segmentType|object|[Segment Type](#segmenttype)|**Required** The type of the segment
 selfBooked|boolean|-|True if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS
 
-[Back to top](#request-endpoints)
-
 #### <a name="vendor"></a>Vendor
 
 Name|Type|Format|Description
 ---|---|---|------
 id|string|-|The vendor identifier of the entry
 name|string|-|The vendor description of the entry
-
-[Back to top](#request-endpoints)
 
 #### <a name="segmentleg"></a>Segment Leg
 
@@ -555,8 +521,6 @@ startLocationDetail|string|-|Details about the start location. This would contai
 startTime|time|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)|The time for the beginning of this segment leg (in the form HH:MM)
 segmentLocator|string|-|This is the identifier for ConcurTravel segments (if applicable)
 vendorName|string|-|Contains the vendor description of the segment leg.
-
-[Back to top](#request-endpoints)
 
 #### <a name="segmenttype"></a>Segment Type
 
