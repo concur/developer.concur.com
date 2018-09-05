@@ -34,7 +34,7 @@ It is not our intention to tell you what colors and fonts to use. Maintaining yo
 
 ## <a name="word-on-accessibility"></a>A word on accessibility
 
-This guide also includes some suggestions on how to ensure your site is Section 508 compliant. At SAP Concur, we work hard to make sure our critical services are available and usable by every employee at the companies who use our products. From private companies to government agencies, we have a wide range of users with varying levels of abilities. Observing accessibility best practices in your product helps us meet our commitment to provide quality software to our entire user base.
+This guide also includes some suggestions on how to ensure your site is [Section 508 compliant](https://www.section508.gov/content/learn). At SAP Concur, we work hard to make sure our critical services are available and usable by every employee at the companies who use our products. From private companies to government agencies, we have a wide range of users with varying levels of abilities. Observing accessibility best practices in your product helps us meet our commitment to provide quality software to our entire user base.
 
 ## <a name="design-guidelines"></a>Design guidelines
 
@@ -42,7 +42,7 @@ This guide includes requirements and recommendations for your App Center partner
 
 ### <a name="design-guidelines-account-linking-process"></a>Account linking process
 
-This section provides guidelines for the process for an administrator to connect their company’s SAP Concur instance your application. A “user” (described generically within this document) for Enterprise applications is the company administrator (for more information on permissions required to activate an Enterprise application, please refer to the activation guide). Note that not all steps below will apply to all applications. This guide, however, attempts to cover the common variations.
+This section provides guidelines for the process for an administrator to connect their company’s SAP Concur instance your application. A “user” (described generically within this document) for Enterprise applications is the company administrator (for more information on permissions required to activate an Enterprise application, please refer to the [activation guide](./guide-to-enabling-app-center-solutions-basic.pdf)). Note that not all steps below will apply to all applications. This guide, however, attempts to cover the common variations.
 
 The connection flow begins from the SAP Concur App Center. Once the user has accepted the terms of the connection, the user will be redirected to your site.
 
@@ -57,7 +57,7 @@ There are two possible configurations for enterprise listings that modify the pr
 
 The Terms & Conditions for your application will differ between Enterprise and Consumer applications. Enterprise applications require an additional, company-wide authorization.
 
-For more information on the terms & conditions, please refer to the documentation on the Developer Portal.
+For more information on the terms & conditions, please refer to the [documentation on the Developer Portal](./app-center-letter-of-authorization-faq-customer.pdf).
 
 ### <a name="design-guidelines-landing-page"></a>Landing Page
 
@@ -79,7 +79,7 @@ If your application activation requires pre-requisites (e.g. a contract or other
 * Enter the verification code OR
 * Contact Us
 
-IMPORTANT: Any administrator can connect to your application from the SAP Concur App Center. It is possible that administrators that have not completed the pre-requisites will access your landing page. The “Contact Us” option will allow users that have not yet completed pre-requisites but are interested in connecting to your application to contact you. Requests generated from this landing page must be continuously monitored. You may use the inquiry link used in your listing (for more information on the inquiry link please refer to the App Center Listing Form submission document).
+IMPORTANT: Any administrator can connect to your application from the SAP Concur App Center. It is possible that administrators that have not completed the pre-requisites will access your landing page. The “Contact Us” option will allow users that have not yet completed pre-requisites but are interested in connecting to your application to contact you. Requests generated from this landing page must be continuously monitored. You may use the inquiry link used in your listing (for more information on the inquiry link please refer to the [App Center Listing Form submission document](./app-center-partner-listing-form.docx)).
 
 #### <a name="landing-page-sign-in-or-up"></a>Sign In or Sign Up
 
@@ -103,7 +103,7 @@ For most Enterprise Applications, administrators will set up a new account speci
 
 To facilitate ease of use and encourage users to complete registration, it is recommended that this page only include necessary information to create the account.
 
-Account details can be pre-populated in this form leveraging SAP Concur API’s. For more information, please refer to documentation on the Developer Portal. Once the user submits the form, your application will begin the authentication process. Your Partner Enablement representative will provide the technical details for implementation based on your SAP Concur integration type.
+Account details can be pre-populated in this form leveraging SAP Concur API’s. For more information, please refer to [documentation](/api-reference/authentication/get-users31.html) on the Developer Portal. Once the user submits the form, your application will begin the authentication process. Your Partner Enablement representative will provide the technical details for implementation based on your SAP Concur integration type.
 
 If your account creation process requires multiple steps, provide a progress indicator so the user knows what is required. If the form requires information the user may not have, allow the user to come back and complete the form at a later time and proceed with account creation.
 
