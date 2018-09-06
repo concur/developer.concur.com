@@ -36,7 +36,7 @@ It is not our intention to tell you what colors and fonts to use. Maintaining yo
 
 ## <a name="word-on-accessibility"></a>A word on accessibility
 
-This guide also includes some suggestions on how to ensure your site is [Section 508 compliant](https://www.section508.gov/content/learn). At SAP Concur, we work hard to make sure our critical services are available and usable by every employee at the companies who use our products. From private companies to government agencies, we have a wide range of users with varying levels of abilities. Observing accessibility best practices in your product helps us meet our commitment to provide quality software to our entire user base.
+This guide also includes some suggestions on how to ensure your site is [Section 508 compliant](https://www.section508.gov). At SAP Concur, we work hard to make sure our critical services are available and usable by every employee at the companies who use our products. From private companies to government agencies, we have a wide range of users with varying levels of abilities. Observing accessibility best practices in your product helps us meet our commitment to provide quality software to our entire user base.
 
 ## <a name="design-guidelines"></a>Design guidelines
 
