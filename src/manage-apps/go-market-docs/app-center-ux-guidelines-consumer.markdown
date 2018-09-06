@@ -8,7 +8,7 @@ In this guide, we will help you implement the connection between an SAP Concur u
 It is not our intention to tell you what colors and fonts to use. Maintaining your brand integrity is important, and these guielines do not interfere with that. Rather, our goal is for user to have a pleasant and consistent experience across all of our partner applications. Observing these guidelines will help ensure that our shared users have positive experiences with both of our companies as a result of our partnership.
 
 * [A word on accessibility](#word-on-accessibility)
-* [Account linking process example](#design-guidelines-account-linking-process)
+* [Account linking example](#design-guidelines-account-linking-example)
 * [Design guidelines](#design-guidelines)
   * [Connect](#design-guidelines-connect)
     * [Connect](#design-guidelines-connect-button)
@@ -33,7 +33,7 @@ It is not our intention to tell you what colors and fonts to use. Maintaining yo
 
 This guide also includes some suggestions on how to ensure your site is [Section 508 compliant](https://www.section508.gov/content/learn). At SAP Concur, we work hard to make sure our critical services are available and usable by every employee at the companies who use our products. From private companies to government agencies, we have a wide range of users with varying levels of abilities. Observing accessibility best practices in your product helps us meet our commitment to provide quality software to our entire user base.
 
-## <a name="design-guidelines-account-linking-process"></a>Account linking process example
+## <a name="design-guidelines-account-linking-example"></a>Account linking example
 
 This section provides an example of the process for an end-user (consumer) to connect their SAP Concur account with your application. Note that not all steps below will apply to all applications. This guide, however, attempts to cover the common variations.
 
@@ -83,6 +83,9 @@ Connection Request applies to TripLink suppliers with loyalty accounts. For more
 ### <a name="design-guidelines-accept-terms"></a>Accept Terms
 
 The user accepts the SAP Concur Terms & Conditions. These terms apply to the use of the SAP Concur App Center and data sharing.
+
+
+![Accept Terms](./app-center-ux-guidelines-consumer-terms-and-conditions-small.png)
 
 ### <a name="design-guidelines-landing-page"></a>Landing Page
 
