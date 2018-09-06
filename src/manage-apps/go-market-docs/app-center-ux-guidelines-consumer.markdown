@@ -13,7 +13,7 @@ It is not our intention to tell you what colors and fonts to use. Maintaining yo
 * [Design guidelines](#design-guidelines)
   * [Account linking process](#design-guidelines-account-linking-process)
   * [Connect](#design-guidelines-connect)
-    * [Connect](#design-guidelines-connect)
+    * [Connect](#design-guidelines-connect-button)
     * [Connection Request](#design-guidelines-consumer-connection-request)
   * [Accept Terms](#design-guidelines-accept-terms)
   * [Landing Page](#design-guidelines-landing-page)
@@ -69,15 +69,16 @@ Step 5 Confirmation
 
 There are two possible configurations for consumer listings:
 
-### <a name="design-guidelines-connection"></a> Connect
+#### <a name="design-guidelines-connect-button"></a> Connect
 
 In this configuration **Connect** is the prominent call to action. This applies to App Center partners and TripLink suppliers without loyalty accounts. This configuration and flow is depicted above.
 
 ![Connect](./app-center-ux-guidelines-consumer-connect-button.png)
 
-### <a name="design-guidelines-connect-connection-request"></a>Connection Request
+#### <a name="design-guidelines-connect-connection-request"></a>Connection Request
 
 Connection Request applies to TripLink suppliers with loyalty accounts. For more information on this flow, please refer to the TripLink supplier guide.
+
 ![Connection Request](./app-center-ux-guidelines-consumer-connection-request.png)
 
 ### <a name="design-guidelines-accept-terms"></a>Accept Terms
@@ -116,7 +117,8 @@ IMPORTANT:
 
 Users should be directed to close the window as the connection is complete. Additionally, you may decide to display links for the user to your app’s home page.
 Note: If you provide links to your home page, it is recommended that links open a new browser window to clearly indicate that the connection was successfully completed and to display your page in a larger form factor.
-![Confirmation](./app-center-ux-guidelines-both-confirmation.png)
+
+![Confirmation](./app-center-ux-guidelines-consumer-confirmation.png)
 
 ## <a name="guideline-checklist"></a>Guideline Checklist
 
@@ -129,7 +131,7 @@ This section provides a summarized checklist of the required and recommended com
 * All pages
   * Must support a form factor of 800x600 (required)
   * Must provide back/forward navigation, where applicable. (required)
-  * Should be Section 508 Compliance (strongly recommended)
+  * Should be [Section 508 Compliance](https://www.section508.gov/content/learn) (strongly recommended)
   * Should include support and help options clearly throughout the process.
   * Must support major browsers and versions. The full list of Concur- supported browsers is available here. (required)
   * Should adhere to your company’s brand and marketing guidelines
