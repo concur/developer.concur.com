@@ -17,11 +17,11 @@ It is not our intention to tell you what colors and fonts to use. Maintaining yo
     * [Connection Request](#design-guidelines-consumer-connection-request)
   * [Accept Terms](#design-guidelines-accept-terms)
   * [Landing Page](#design-guidelines-landing-page)
-  * [Sign Up](#design-guidelines-sign-up)
+  * [Account Creation](#design-guidelines-account-creation)
   * [Confirmation](#design-guidelines-confirmation)
 * [Guideline Checklist](#guideline-checklist)
   * [Landing Page(s)](#guideline-checklist-landing-page)
-  * [Sign Up](#guideline-checklist-sign-up)
+  * [Account Creation](#guideline-checklist-account-creation)
   * [Confirmation Page](#guideline-checklist-confirmation)
   * [Disconnect](#guideline-checklist-disconnect)
 * [Accessibility best practices](#accesibility-best-practices)
@@ -45,23 +45,23 @@ This section provides guidelines for the process for an end-user (consumer) to c
 
 The connection flow begins from the SAP Concur App Center. Once the user has accepted the terms of the connection, the user will be redirected to your site.
 
-Step 1 Connect
+**Step 1 Connect**
 
 ![Step 1 Connect](./app-center-ux-guidelines-consumer-connect.png)
 
-Step 2 Accept Terms
+**Step 2 Accept Terms**
 
 ![Step 2 Accepts Terms](./app-center-ux-guidelines-consumer-terms-and-conditions.png)
 
-Step 3 Landing Page
+**Step 3 Landing Page**
 
 ![Step 3 Landing Page](./app-center-ux-guidelines-consumer-landing-page.png)
 
-Step 4 Account Creation
+**Step 4 Account Creation**
 
 ![Step 4 Account Creation](./app-center-ux-guidelines-consumer-account-creation.png)
 
-Step 5 Confirmation
+**Step 5 Confirmation**
 
 ![Step 5 Confirmation](./app-center-ux-guidelines-consumer-confirmation.png)
 
@@ -99,7 +99,7 @@ This page should:
 
 ![Landing Page](./app-center-ux-guidelines-consumer-landing-page-small.png)
 
-### <a name="design-guidelines-sign-up"></a>Sign Up
+### <a name="design-guidelines-account-creation"></a>Account Creation
 
 To encourage users to complete registration, it is recommended that this page only include necessary information to create the account.
 Account details can be pre-populated in this form leveraging SAP Concur API’s. For more information, please refer to documentation on the Developer Portal. Once the user submits the form, your application will begin the authentication process. Your Partner Enablement representative will provide the technical details for implementation based on your SAP Concur integration type.
@@ -113,12 +113,8 @@ Once the connection is complete, indicate that the connection was successful.
 
 ![Confirmation](./app-center-ux-guidelines-consumer-confirmation-small.png)
 
-IMPORTANT:
+Users should be directed to close the window as the connection is complete and may be redirected to the application home page. 
 
-Users should be directed to close the window as the connection is complete. Additionally, you may decide to display links for the user to your app’s home page.
-Note: If you provide links to your home page, it is recommended that links open a new browser window to clearly indicate that the connection was successfully completed and to display your page in a larger form factor.
-
-![Confirmation](./app-center-ux-guidelines-consumer-confirmation.png)
 
 ## <a name="guideline-checklist"></a>Guideline Checklist
 
@@ -141,7 +137,7 @@ This section provides a summarized checklist of the required and recommended com
   * Must include links to your terms and conditions and privacy policy (required)
  
 
-### <a name="guideline-checklist-sign-up"></a>Sign Up
+### <a name="guideline-checklist-account-creation"></a>Account Creation
 
 * Should include a progress indicator (recommended)
 
