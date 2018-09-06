@@ -33,7 +33,7 @@ It is not our intention to tell you what colors and fonts to use. Maintaining yo
 
 This guide also includes some suggestions on how to ensure your site is [Section 508 compliant](https://www.section508.gov/content/learn). At SAP Concur, we work hard to make sure our critical services are available and usable by every employee at the companies who use our products. From private companies to government agencies, we have a wide range of users with varying levels of abilities. Observing accessibility best practices in your product helps us meet our commitment to provide quality software to our entire user base.
 
-### <a name="design-guidelines-account-linking-process"></a>Account linking process example
+## <a name="design-guidelines-account-linking-process"></a>Account linking process example
 
 This section provides an example of the process for an end-user (consumer) to connect their SAP Concur account with your application. Note that not all steps below will apply to all applications. This guide, however, attempts to cover the common variations.
 
@@ -63,7 +63,6 @@ The connection flow begins from the SAP Concur App Center. Once the user has acc
 
 The following guidelines should be used to develop your connection user experience and will be used to evaluate your application during the [certification process](/manage-apps/app-certification.html).
 
-Required elements are essential, and recommended elements are optional but useful for creating a comprehensive integration with Concur.
 
 ### <a name="design-guidelines-connect"></a>Connect
 
