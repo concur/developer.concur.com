@@ -75,7 +75,7 @@ Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). F
 
 ### <a name="marcel"></a>Marcel
 
-![Parken+ Logo](./app-center-2018-06-01-marcel-logo.png)
+![Marcel Logo](./app-center-2018-06-01-marcel-logo.png)
 
 Marcel is a chauffeured car service for your trips through Paris & the Ile-de-France. Marcel is a high-quality alternative to existing services for sustainable and responsible mobility.
 
