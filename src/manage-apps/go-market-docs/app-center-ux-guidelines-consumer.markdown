@@ -3,15 +3,13 @@ title: App Center - User Experience Guidelines for "Apps for Me"
 layout: reference
 ---
 
-Welcome to the SAP Concur App Center!
+In this guide, we will help you implement the connection between an SAP Concur user's account and your application. You will find best practices for user-centered design, examples of dos-and-don’ts, and suggested steps to guide the user through the connection process.
 
-We are very excited to partner with your company. In this guide, we will help you streamline the process of connecting a user’s SAP Concur account to your system. You will find best practices for user- centered design, examples of dos-and-don’ts, and suggested steps to guide the administrator through the connection process.
-
-It is not our intention to tell you what colors and fonts to use. Maintaining your brand integrity is important, and these guielines do not interfere with that. Rather, our goal is for SAP Concur administrator to have a pleasant and consistent experience across all of our partner applications. Observing these guidelines will help ensure that our shared users have positive experiences with both of our companies as a result of our partnership.
+It is not our intention to tell you what colors and fonts to use. Maintaining your brand integrity is important, and these guielines do not interfere with that. Rather, our goal is for user to have a pleasant and consistent experience across all of our partner applications. Observing these guidelines will help ensure that our shared users have positive experiences with both of our companies as a result of our partnership.
 
 * [A word on accessibility](#word-on-accessibility)
+* [Account linking process example](#design-guidelines-account-linking-process)
 * [Design guidelines](#design-guidelines)
-  * [Account linking process](#design-guidelines-account-linking-process)
   * [Connect](#design-guidelines-connect)
     * [Connect](#design-guidelines-connect-button)
     * [Connection Request](#design-guidelines-consumer-connection-request)
@@ -35,15 +33,11 @@ It is not our intention to tell you what colors and fonts to use. Maintaining yo
 
 This guide also includes some suggestions on how to ensure your site is [Section 508 compliant](https://www.section508.gov/content/learn). At SAP Concur, we work hard to make sure our critical services are available and usable by every employee at the companies who use our products. From private companies to government agencies, we have a wide range of users with varying levels of abilities. Observing accessibility best practices in your product helps us meet our commitment to provide quality software to our entire user base.
 
-## <a name="design-guidelines"></a>Design guidelines
+### <a name="design-guidelines-account-linking-process"></a>Account linking process example
 
-This guide includes requirements and recommendations for your App Center partnership with SAP Concur. These guidelines will allow you to integrate SAP Concur’s user-centered design approach into the end user’s and administrator experience, creating a seamless integration. Required elements are essential, and recommended elements are optional but useful for creating a comprehensive integration with Concur.
+This section provides an example of the process for an end-user (consumer) to connect their SAP Concur account with your application. Note that not all steps below will apply to all applications. This guide, however, attempts to cover the common variations.
 
-### <a name="design-guidelines-account-linking-process"></a>Account linking process
-
-This section provides guidelines for the process for an end-user (consumer) to connect their SAP Concur account with your application. Note that not all steps below will apply to all applications. This guide, however, attempts to cover the common variations.
-
-The connection flow begins from the SAP Concur App Center. Once the user has accepted the terms of the connection, the user will be redirected to your site.
+The connection flow begins from the SAP Concur App Center. Once the user has accepted the terms of the connection, the user will be redirected to your site to connect.
 
 **Step 1 Connect**
 
@@ -64,6 +58,12 @@ The connection flow begins from the SAP Concur App Center. Once the user has acc
 **Step 5 Confirmation**
 
 ![Step 5 Confirmation](./app-center-ux-guidelines-consumer-confirmation.png)
+
+## <a name="design-guidelines"></a>Design guidelines
+
+The following guidelines should be used to develop your connection user experience and will be used to evaluate your application during the [certification process](/manage-apps/app-certification.html).
+
+Required elements are essential, and recommended elements are optional but useful for creating a comprehensive integration with Concur.
 
 ### <a name="design-guidelines-connect"></a>Connect
 
