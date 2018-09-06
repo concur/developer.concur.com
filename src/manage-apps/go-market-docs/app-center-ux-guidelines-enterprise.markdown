@@ -3,15 +3,13 @@ title: App Center - User Experience Guidelines for Enterprise Applications
 layout: reference
 ---
 
-Welcome to the SAP Concur App Center!
-
-We are very excited to partner with your company. In this guide, we will help you streamline the process of connecting a user’s SAP Concur account to your system. You will find best practices for user- centered design, examples of dos-and-don’ts, and suggested steps to guide the administrator through the connection process.
+In this guide, we will help you implement the connection process between an a company's SAP Concur instance to your system. You will find best practices for user-centered design, examples of dos-and-don’ts, and suggested steps to guide the administrator through the connection process.
 
 It is not our intention to tell you what colors and fonts to use. Maintaining your brand integrity is important, and these guielines do not interfere with that. Rather, our goal is for SAP Concur administrator to have a pleasant and consistent experience across all of our partner applications. Observing these guidelines will help ensure that our shared users have positive experiences with both of our companies as a result of our partnership.
 
 * [A word on accessibility](#word-on-accessibility)
+* [Account linking example](#design-guidelines-account-linking-example)
 * [Design guidelines](#design-guidelines)
-  * [Account linking process](#design-guidelines-account-linking-process)
   * [Connect](#design-guidelines-connect)
     * [Activate + Connect](#design-guidelines-connect-activate)
     * [Request Information](#design-guidelines-connect-request-information)
@@ -38,35 +36,36 @@ It is not our intention to tell you what colors and fonts to use. Maintaining yo
 
 This guide also includes some suggestions on how to ensure your site is [Section 508 compliant](https://www.section508.gov). At SAP Concur, we work hard to make sure our critical services are available and usable by every employee at the companies who use our products. From private companies to government agencies, we have a wide range of users with varying levels of abilities. Observing accessibility best practices in your product helps us meet our commitment to provide quality software to our entire user base.
 
-## <a name="design-guidelines"></a>Design guidelines
 
-This guide includes requirements and recommendations for your App Center partnership with SAP Concur. These guidelines will allow you to integrate SAP Concur’s user-centered design approach into the end user’s and administrator experience, creating a seamless integration. Required elements are essential, and recommended elements are optional but useful for creating a comprehensive integration with Concur.
-
-### <a name="design-guidelines-account-linking-process"></a>Account linking process
+## <a name="design-guidelines-account-linking-example"></a>Account linking example
 
 This section provides guidelines for the process for an administrator to connect their company’s SAP Concur instance your application. A “user” (described generically within this document) for Enterprise applications is the company administrator (for more information on permissions required to activate an Enterprise application, please refer to the [activation guide](./guide-to-enabling-app-center-solutions-basic.pdf)). Note that not all steps below will apply to all applications. This guide, however, attempts to cover the common variations.
 
 The connection flow begins from the SAP Concur App Center. Once the user has accepted the terms of the connection, the user will be redirected to your site.
 
-Step 1 Connect
+**Step 1 Connect**
 
 ![Step 1 Connect](./app-center-ux-guidelines-enterprise-connect.png)
 
-Step 2 Accept Terms
+**Step 2 Accept Terms**
 
 ![Step 2 Accepts Terms](./app-center-ux-guidelines-enterprise-terms-and-conditions.png)
 
-Step 3 Landing Page
+**Step 3 Landing Page**
 
 ![Step 3 Landing Page](./app-center-ux-guidelines-enterprise-landing-page.png)
 
-Step 4 Account Creation
+**Step 4 Account Creation**
 
 ![Step 4 Account Creation](./app-center-ux-guidelines-enterprise-account-creation.png)
 
-Step 5 Confirmation
+**Step 5 Confirmation**
 
-![Step 5 Confirmation](./app-center-ux-guidelines-both-confirmation.png)
+![Step 5 Confirmation](./app-center-ux-guidelines-enterprise-confirmation.png)
+
+## <a name="design-guidelines"></a>Design guidelines
+
+The following guidelines should be used to develop your connection user experience and will be used to evaluate your application during the [certification process](/manage-apps/app-certification.html).
 
 ### <a name="design-guidelines-connect"></a>Connect
 
@@ -140,6 +139,8 @@ Account details can be pre-populated in this form leveraging SAP Concur API’s.
 
 If your account creation process requires multiple steps, provide a progress indicator so the user knows what is required. If the form requires information the user may not have, allow the user to come back and complete the form at a later time and proceed with account creation.
 
+![Account Creation](./app-center-ux-guidelines-enterprise-account-creation-small.png)
+
 ### <a name="design-guidelines-confirmation"></a>Confirmation
 
 Once the connection is complete, indicate that the connection was successful.
@@ -154,7 +155,7 @@ Note: If you provide links to your home page, it is recommended that links open 
 
 For “Verification” apps, this should provide the user information on what will occur next such as to expect an email to book their first service, follow-up on their free trial and/or what to expect from their Concur integration.
 
-![Confirmation](./app-center-ux-guidelines-both-confirmation.png)
+![Confirmation](./app-center-ux-guidelines-enterprise-confirmation-small.png)
 
 ## <a name="guideline-checklist"></a>Guideline Checklist
 
@@ -174,7 +175,7 @@ This section provides a summarized checklist of the required and recommended com
   * Must include your company branding and specific application brand, if applicable (required)
 * On the first page (at a minimum),
   * Must clearly indicate this is an integration with Concur (required)
-  * Should include links to your terms and conditions and privacy policy (strongly recommended)
+  * Must include links to your terms and conditions and privacy policy (required)
   * Verification apps, should provide a link to the inquiry form (strongly recommended)
 
 ### <a name="guideline-checklist-account-creation"></a>Account Creation
