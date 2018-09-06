@@ -1,4 +1,4 @@
-# Ne---
+---
 title: Request endpoints
 layout: reference
 ---
@@ -76,10 +76,10 @@ GET /v4/requests
 
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
-view|path|string|Name of the perimeter defining the requests to get.<br> Possible values : "ALL", "ACTIVE", "UNSUBMITTED", "PENDING", "VALIDATED", "APPROVED", "CANCELED", "CLOSED", "SUBMITTED", "TOAPPROVE", "PENDINGEBOOKING". If no view value is sent, the default view "ALL" will be used
+view|path|string|Name of the perimeter defining the requests to get.<br> Possible values : `ALL`, `ACTIVE`, `UNSUBMITTED`, `PENDING`, `VALIDATED`, `APPROVED`, `CANCELED`, `CLOSED`, `SUBMITTED`, `TOAPPROVE`, `PENDINGEBOOKING`.<br> If no view value is sent, the default view `ALL` will be used
 userId|path|string|The unique identifier of the Request owner to use when searching for Requests
-modifiedBefore|path|DateTime|This returns Requests in which the associated dependents (Header, Expected Expenses, Segments, Allocations, Attendees, Comments) were modified before the specified date and time. This search term can be used along with other search terms to narrow the results. <br> The date and time (if desired) should be in UTC. Both ISO format (YYYY-MM-DDThh:mm:ss) and YYYY-MM-DD format is accepted
-modifiedAfter|path|DateTime|This returns Requests in which the associated dependents (Header, Expected Expenses, Segments, Allocations, Attendees, Comments) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. <br> The date and time (if desired) should be in UTC. Both ISO format (YYYY-MM-DDThh:mm:ss) and YYYY-MM-DD format is accepted
+modifiedBefore|path|DateTime|This returns Requests in which the associated dependents (Header, Expected Expenses, Segments, Allocations, Attendees, Comments) were modified before the specified date and time. This search term can be used along with other search terms to narrow the results. <br> The date and time (if desired) should be in UTC. Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted
+modifiedAfter|path|DateTime|This returns Requests in which the associated dependents (Header, Expected Expenses, Segments, Allocations, Attendees, Comments) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. <br> The date and time (if desired) should be in UTC. Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted
 
 *Response:*
 
