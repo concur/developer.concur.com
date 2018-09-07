@@ -1,5 +1,5 @@
 ---
-title: App Center - User Experience Guidelines for Enterprise Applications
+title: SAP Concur App Center - User Experience Guidelines for Enterprise Applications
 layout: reference
 ---
 
