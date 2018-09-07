@@ -27,7 +27,9 @@ Create a Purchase Request based on provided header and line item details. If the
 |-----|------|--------|------------
 |`Authorization`|`string`|`header`|**Required**: Bearer Token that identifies the caller. This is the company JWT
 |`Content-Type`|`string`|`header`|**Required**: application/json
+|`concur-correlationid`|`string`|`header`|A unique correlation id the caller of API can pass to track specific requests if needed
 |`purchaseRequest`|`string`|`body`|**Required**: The details of the purchase request
+
 
 ### Input  
 
@@ -124,6 +126,7 @@ Gets purchase request details. Currently only supported mode is COMPACT which re
 |-----|------|--------|------------
 |`Authorization`|`string`|`header`|**Required**: Bearer Token that identifies the caller. This is the company JWT
 |`Content-Type`|`string`|`header`|**Required**: application/json
+|`concur-correlationid`|`string`|`header`|A unique correlation id the caller of API can pass to track specific requests if needed
 |`mode`|`string`|`parameter`|**Required**: Specifies mode for get purchase request details. Currently supported mode COMPACT
 
 ### Input  

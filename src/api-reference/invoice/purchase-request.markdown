@@ -38,11 +38,7 @@ https://emea.api.concursolutions.com/purchaserequest/v4/
 1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
 2. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
 
-Once you have registered your application, read about the [Purchase Request API endpoints](/api-reference/invoice/purchase-request-endpoints.html), or click the button to download a request collection for Postman.
-
-<a href="https://app.getpostman.com/run-collection/d32c323a768d7137fadd" target="_blank" onclick="ga('send', 'event', 'Postman', 'Click', 'https://www.getpostman.com/collections/6a3a96b05489a0e23288');">
-  <img src="https://run.pstmn.io/button.svg" alt="Run in Postman">
-</a>
+Once you have registered your application, read about the [Purchase Request API endpoints](/api-reference/invoice/purchase-request-endpoints.html).
 
 #### Retrieve a User Access Token:
 
