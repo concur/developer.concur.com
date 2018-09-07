@@ -3,8 +3,6 @@ title: Travel Search Event
 layout: reference
 ---
 
-# Travel Search Event
-
 **Preview** _This is a prerelease version of the service and is subject to change before final release._
 
 Subscribers to this event will receive search criteria for travel searches performed within Concur's online booking tool.
