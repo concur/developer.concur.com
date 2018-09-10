@@ -39,7 +39,7 @@ This guide also includes some suggestions on how to ensure your site is [Section
 
 ## <a name="design-guidelines-account-linking-example"></a>Account linking example
 
-This section provides guidelines for the process for an administrator to connect their company’s SAP Concur instance your application. A “user” (described generically within this document) for Enterprise applications is the company administrator (for more information on permissions required to activate an Enterprise application, please refer to the [activation guide](./guide-to-enabling-app-center-solutions-basic.pdf)). Note that not all steps below will apply to all applications. This guide, however, attempts to cover the common variations.
+This section provides guidelines for the process for an administrator to connect their company’s SAP Concur instance your application. A “user” (described generically within this document) for Enterprise applications is the company administrator (for more information on permissions required to activate an Enterprise application, please refer to the [activation guide](./guide-to-enabling-app-center-solutions-basic.html)). Note that not all steps below will apply to all applications. This guide, however, attempts to cover the common variations.
 
 The connection flow begins from the SAP Concur App Center. Once the user has accepted the terms of the connection, the user will be redirected to your site.
 
@@ -87,7 +87,7 @@ In this configuration “Request information” is more prominent. This should b
 
 The Terms & Conditions for your application will differ between Enterprise and Consumer applications. Enterprise applications require an additional, company-wide authorization.
 
-For more information on the terms & conditions, please refer to the [documentation on the Developer Portal](./app-center-letter-of-authorization-faq-customer.pdf).
+For more information on the terms & conditions, please refer to the [documentation on the Developer Portal](./app-center-letter-of-authorization-faq-customer.html).
 
 ### <a name="design-guidelines-landing-page"></a>Landing Page
 
