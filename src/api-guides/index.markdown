@@ -1,5 +1,5 @@
 ---
-title: API Guides
+title: Integration Guides
 layout: reference
 ---
 
