@@ -1,0 +1,13 @@
+table.gsc-table-result {
+  border-collapse: separate;
+}
+
+table.gsc-above-wrapper-area-container,
+table.gsc-above-wrapper-area-container tbody,
+table.gsc-above-wrapper-area-container tr,
+table.gsc-above-wrapper-area-container td,
+table.gsc-above-wrapper-area-container div {
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+}

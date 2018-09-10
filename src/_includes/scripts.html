@@ -1,0 +1,45 @@
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- forms -->
+<script src="{{ site.baseurl }}/assets/plugins/sky-forms/version-2.0.1/js/jquery.validate.min.js"></script>
+<script src="{{ site.baseurl }}/assets/plugins/sky-forms/version-2.0.1/js/jquery.form.min.js"></script>
+
+<!-- Swagger -->
+<!-- <script src="/swagger-ui/lib/jquery-1.8.0.min.js" type="text/javascript"></script> -->
+
+{% if site.data.branch.branchname == 'preview' %}
+  {% assign URL = 'preview.developer.concur.com/api-explorer-proxy' %}
+{% else %}
+  {% assign URL = 'developer.concur.com/api-explorer-proxy' %}
+{% endif %}
+
+<script>
+  var replacementURL = "{{ URL }}";
+</script>
+
+{% if page.reference-type == 'swagger' %}
+  <script src="{{ site.baseurl }}/swagger-ui/lib/jquery.slideto.min.js" type="text/javascript"></script>
+  <script src="{{ site.baseurl }}/swagger-ui/lib/jquery.wiggle.min.js" type="text/javascript"></script>
+  <script src="{{ site.baseurl }}/swagger-ui/lib/jquery.ba-bbq.min.js" type="text/javascript"></script>
+  <script src="{{ site.baseurl }}/swagger-ui/lib/handlebars-2.0.0.js" type="text/javascript"></script>
+  <script src="{{ site.baseurl }}/swagger-ui/lib/underscore-min.js" type="text/javascript"></script>
+  <script src="{{ site.baseurl }}/swagger-ui/lib/backbone-min.js" type="text/javascript"></script>
+  <script src="{{ site.baseurl }}/swagger-ui/swagger-ui.js" type="text/javascript"></script>
+  <script src="{{ site.baseurl }}/swagger-ui/lib/highlight.7.3.pack.js" type="text/javascript"></script>
+  <script src="{{ site.baseurl }}/swagger-ui/lib/marked.js" type="text/javascript"></script>
+  <script src="{{ site.baseurl }}/swagger-ui/lib/swagger-oauth.js" type="text/javascript"></script>
+  <script src="{{ site.baseurl }}/assets/js/swagger.js"></script>
+{% endif %}
+
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="{{ site.baseurl }}/assets/plugins/back-to-top.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="{{ site.baseurl }}/assets/js/app.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    App.init();
+  });
+</script>

@@ -11,6 +11,7 @@
   "dependencies": {
     "@concur/concur-utils": "^1.0.25",
     "commander": "^2.9.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "underscore.string": "^3.3.4"
   }
 }

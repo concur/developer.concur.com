@@ -1,0 +1,15 @@
+<div class="alert alert-danger">
+  <p>
+    {% if include.unsupported_date %}
+      <strong>
+        The following APIs will be deprecated on {{ include.deprecation_date }} and unsupported on {{ include.unsupported_date }}:
+      </strong>
+    {% else %}
+    <strong>The following APIs will be deprecated on {{ include.deprecation_date }}:</strong>
+    {% endif %}
+  </p>
+
+  <p>{{ include.content | markdownify }}</p>
+
+  <small>This API will be deprecated as per our <a href="/tools-support/reference/deprecation-policy.html">API Lifecycle & Deprecation Policy.</a></small>
+</div>

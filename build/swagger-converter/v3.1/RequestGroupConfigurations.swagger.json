@@ -1,0 +1,311 @@
+{
+  "apiVersion": "3.1",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.1",
+  "resourcePath": "RequestGroupConfigurations",
+  "apis": [
+    {
+      "path": "/travelrequest/requestgroupconfigurations",
+      "description": "Get all Request group configurations.",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_user_offset_limit",
+          "responseClass": "RequestGroupConfigurationCollection",
+          "summary": "Get all Request group configurations.",
+          "notes": "Get a Request group configuration owned by the user based on the search criteria.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "Starting page offset",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "Determines the number of records to return (default 10)",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "10",
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/travelrequest/requestgroupconfigurations/{id}",
+      "description": "Gets a Request group configuration by ID.",
+      "operations": []
+    },
+    {
+      "path": "/travelrequest/requestgroupconfigurations",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/travelrequest/requestgroupconfigurations",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "AgencyOffice": {
+      "id": "AgencyOffice",
+      "displayName": "AgencyOffice",
+      "properties": {
+        "ID": {
+          "description": "The ID of the travel agency office.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The travel agency office name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Policy": {
+      "id": "Policy",
+      "displayName": "Policy",
+      "properties": {
+        "HeaderFormID": {
+          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsDefault": {
+          "description": "Indicates whether this policy is the default. Format: true or false",
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the policy.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "NoCreation": {
+          "description": "Indicates whether this policy allows the creation of new Requests by the user. Format: true or false",
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentTypes": {
+          "description": "The list of segment types activated for this policy.",
+          "type": "Array",
+          "items": {
+            "$ref": "SegmentType",
+            "displayName": "SegmentType"
+          },
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "RequestGroupConfiguration": {
+      "id": "RequestGroupConfiguration",
+      "displayName": "RequestGroupConfiguration",
+      "properties": {
+        "AgencyOffices": {
+          "description": "The list of travel agency offices activated for this group configuration.",
+          "type": "Array",
+          "items": {
+            "$ref": "AgencyOffice",
+            "displayName": "AgencyOffice"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "DefaultPolicyID": {
+          "description": "The unique identifier of the first policy which allows creation of new Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the Request group Configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Policies": {
+          "description": "The list of policies and expense types.",
+          "type": "Array",
+          "items": {
+            "$ref": "Policy",
+            "displayName": "Policy"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestTypes": {
+          "description": "The list of Request types activated for this group configuration.",
+          "type": "Array",
+          "items": {
+            "$ref": "RequestType",
+            "displayName": "RequestType"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "RequestGroupConfigurationCollection": {
+      "id": "RequestGroupConfigurationCollection",
+      "displayName": "RequestGroupConfigurations",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "RequestGroupConfiguration",
+            "displayName": "RequestGroupConfiguration"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "RequestType": {
+      "id": "RequestType",
+      "displayName": "RequestType",
+      "properties": {
+        "Code": {
+          "description": "The Request type code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The Request type name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "SegmentType": {
+      "id": "SegmentType",
+      "displayName": "SegmentType",
+      "properties": {
+        "DisplayOrder": {
+          "description": "The display order of the icon associated with the segment type.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IconCode": {
+          "description": "The code for the icon associated with the segment type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "The name of the segment type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentCustomFormID": {
+          "description": "The unique identifier of the Segment Form resource which contains custom fields (See. the \"Forms\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentFormID": {
+          "description": "The unique identifier of the Segment Form resource (See. the \"Forms\" resource for more information).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SegmentTypeCode": {
+          "description": "The code for the type of itinerary segment.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    }
+  }
+}

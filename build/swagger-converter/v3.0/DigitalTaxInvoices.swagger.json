@@ -1,0 +1,258 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "DigitalTaxInvoices",
+  "apis": [
+    {
+      "path": "/expense/digitaltaxinvoices",
+      "description": "Get all digital tax invoices",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_offset_limit_modifiedafter",
+          "responseClass": "DigitalTaxInvoiceCollection",
+          "summary": "Get all digital tax invoices",
+          "notes": "Gets all digital tax invoices that can be validated by the user based on the search criteria.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The number of records to return. Default value: 25",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "25",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "modifiedafter",
+              "description": "A modification date for the queue record; this parameter can be used to limit the results of the GET request to the queue items that have been added since the last time the validation company queried the queue. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/digitaltaxinvoices/{id}",
+      "description": "Get a single digital tax invoice by ID",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id",
+          "responseClass": "DigitalTaxInvoiceGetSingle",
+          "summary": "Get a single digital tax invoice by ID",
+          "notes": "Gets a single digital tax invoice by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the digital tax invoice.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/digitaltaxinvoices/{id}",
+      "description": "Update a digital tax invoice by ID",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_content_id",
+          "responseClass": "Void",
+          "summary": "Update a digital tax invoice by ID",
+          "notes": "Updates the specified digital tax invoice.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "A status update for the digital tax invoice.",
+              "dataType": "DigitalTaxInvoicePut",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the digital tax invoice to update.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/digitaltaxinvoices",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/expense/digitaltaxinvoices",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "DigitalTaxInvoiceCollection": {
+      "id": "DigitalTaxInvoiceCollection",
+      "displayName": "DigitalTaxInvoices",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "DigitalTaxInvoiceGetAll",
+            "displayName": "DigitalTaxInvoice"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "DigitalTaxInvoiceGetAll": {
+      "id": "DigitalTaxInvoiceGetAll",
+      "displayName": "DigitalTaxInvoice",
+      "properties": {
+        "ConcurReceiptID": {
+          "description": "The ID of the digital tax invoice in plain text.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "DigitalTaxInvoiceGetSingle": {
+      "id": "DigitalTaxInvoiceGetSingle",
+      "displayName": "DigitalTaxInvoice",
+      "properties": {
+        "AccountID": {
+          "description": "The unique identifier assigned by the validation partner to the Concur client company that owns the digital tax invoices.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ConcurReceiptID": {
+          "description": "The ID of the digital tax invoice in plain text.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "DocumentID": {
+          "description": "The ID of the report in plain text.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ReceiptData": {
+          "description": "The digital tax invoice data.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "DigitalTaxInvoicePut": {
+      "id": "DigitalTaxInvoicePut",
+      "displayName": "DigitalTaxInvoice",
+      "properties": {
+        "Comment": {
+          "description": "A comment that describes the digital tax invoice status. Maximum length: 2000 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Status": {
+          "description": "A status that describes the digital tax invoice. Format: VALID - Valid; INVLD - Invalid; WARNG - Valid with warnings ",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Expense Group Configurations",
+    "description": "Expense Group Configurations specify the allowed expense types, policies, payment types, and expense settings allowed for the expense group. This API provides methods to view the expense group details by user or by expense group ID." ,
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/expense/expensegroupconfigurations": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get an expense group configuration",
+        "description": "Gets the configuration of an expense group.",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user associated with this expense group configuration. The user must have the Web Services Admin role to use this parameter.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The number of records to return Default value: 10",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ExpenseGroupConfigurationCollection"
+            }
+          }
+        }
+      }
+    },
+    "/expense/expensegroupconfigurations/{id}": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get an expense group configuration by ID",
+        "description": "Gets an expense group configuration by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the expense group configuration.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user associated with this expense group configuration. The user must have the Web Services Admin role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ExpenseGroupConfiguration"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AttendeeType": {
+      "properties": {
+        "Code": {
+          "type": "string",
+          "description": "The attendee type code."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the attendee type."
+        }
+      }
+    },
+    "CashAdvance": {
+      "properties": {
+        "AllowUserCarryBalance": {
+          "type": "boolean",
+          "description": "Indicates whether users are allowed to carry a cash advance balance forward from one report to another. Format: true or false"
+        },
+        "AllowUserLinkMultiple": {
+          "type": "boolean",
+          "description": "Indicates whether users are allowed to link multiple cash advances to one expense report. Format: true or false"
+        },
+        "AllowUserUpdateExchangeRate": {
+          "type": "boolean",
+          "description": "Indicates whether users are allowed to update the currency exchange rate for expense entries. Format: true or false"
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the cash advance workflow."
+        },
+        "WorkflowID": {
+          "type": "string",
+          "description": "The unique identifier for the cash advance workflow. Null means there is no such workflow."
+        }
+      }
+    },
+    "ExpenseGroupConfiguration": {
+      "properties": {
+        "AllowUserDigitalTaxInvoice": {
+          "type": "boolean",
+          "description": "Indicates whether users are allowed to upload digital tax invoices. Format: true or false"
+        },
+        "AllowUserRegisterYodlee": {
+          "type": "boolean",
+          "description": "Indicates whether users in the expense group are allowed to register Yodlee credit cards. Format: true or false"
+        },
+        "AttendeeListFormID": {
+          "type": "string",
+          "description": "The unique identifier for the attendee list form."
+        },
+        "AttendeeListFormName": {
+          "type": "string",
+          "description": "The name of the attendee list form."
+        },
+        "AttendeeTypes": {
+          "$ref": "#/definitions/AttendeeType"
+        },
+        "CashAdvance": {
+          "$ref": "#/definitions/CashAdvance"
+        },
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier of the resource."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the expense group configuration."
+        },
+        "PaymentTypes": {
+          "$ref": "#/definitions/PaymentType"
+        },
+        "Policies": {
+          "$ref": "#/definitions/Policy"
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI to the resource."
+        }
+      }
+    },
+    "ExpenseGroupConfigurationCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/ExpenseGroupConfiguration"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    },
+    "ExpenseType": {
+      "properties": {
+        "Code": {
+          "type": "string",
+          "description": "The code for the expense type. Expense types define expenses within an expense category. For example, Business Meal is an expense type in the MEALS category."
+        },
+        "ExpenseCode": {
+          "type": "string",
+          "description": "The code for the expense category. The expense category code controls the function of an expense entry. Format: OTHER - Standard, COCARMILE - Company Car, PCARMILE - Personal Car, MFUEL - Fuel For Mileage, LODGING - Lodging, MEALS - Meals, OTHERNP - Other Not Partially Approvable, JPYPTRAN - Japanese Public Transportation"
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the expense type."
+        }
+      }
+    },
+    "PaymentType": {
+      "properties": {
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier of the resource."
+        },
+        "IsDefault": {
+          "type": "boolean",
+          "description": "Determines whether this payment type is the default. Format: true or false"
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the payment type."
+        }
+      }
+    },
+    "Policy": {
+      "properties": {
+        "ExpenseTypes": {
+          "$ref": "#/definitions/ExpenseType"
+        },
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier of the resource."
+        },
+        "IsDefault": {
+          "type": "boolean",
+          "description": "Indicates whether this policy is the default. Format: true or false"
+        },
+        "IsInheritable": {
+          "type": "boolean",
+          "description": "Indicates whether the descendent nodes in the Expense Feature Hierarchy are covered by this policy. Format: true or false"
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the policy."
+        }
+      }
+    }
+  }
+}

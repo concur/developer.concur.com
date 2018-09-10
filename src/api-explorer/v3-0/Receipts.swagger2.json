@@ -1,0 +1,366 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Receipts",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/common/receipts": {
+      "post": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Create a new receipt entry",
+        "description": "Creates a new receipt entry. This operation enables a provider company to post receipts to Concur.",
+        "parameters": [
+          {
+            "name": "content",
+            "in": "body",
+            "description": "The Receipt object to create.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReceiptPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CreateResponse": {
+      "properties": {
+        "ID": {
+          "type": "string"
+        },
+        "URI": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomField": {
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The name of the custom field. Maximum length: 128 characters"
+        },
+        "Value": {
+          "type": "string",
+          "description": "The value of the custom field. Maximum length: 256 characters"
+        }
+      }
+    },
+    "Decimal": {
+      "properties": {}
+    },
+    "GeneralDetail": {
+      "properties": {
+        "LineItems": {
+          "$ref": "#/definitions/LineItem"
+        }
+      }
+    },
+    "HotelDetail": {
+      "properties": {
+        "AverageDailyRoomRate": {
+          "type": "number",
+          "format": "double",
+          "description": "The sum of the room rate for each night stayed, divided by the number of nights stayed. Range: -922,337,203,685,477 to 922,337,203,685,477"
+        },
+        "CheckinDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The check-in date and time. Format: YYYY-MM-DDThh:mm"
+        },
+        "CheckoutDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The check-out date and time. Format: YYYY-MM-DDThh:mm"
+        },
+        "ConfirmationNumber": {
+          "type": "string",
+          "description": "The confirmation number for the booking. Maximum length: 32 characters"
+        },
+        "GNR": {
+          "type": "string",
+          "description": "The Guest Name Record (GNR) for the stay. Maximum length: 20 characters"
+        },
+        "LineItems": {
+          "$ref": "#/definitions/LineItem"
+        },
+        "NumberInParty": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The number of people for this stay."
+        },
+        "RatePlanType": {
+          "type": "string",
+          "description": "The rate plan type that is used to calculate the room rate. Possible values are rate plan types defined using hospitality industry standards. Maximum length: 50 characters"
+        },
+        "RoomNumber": {
+          "type": "string",
+          "description": "The room number for the stay. Maximum length: 15 characters"
+        },
+        "RoomType": {
+          "type": "string",
+          "description": "The type of room. Possible values are room types defined using hospitality industry standards, such as Single, Double, Suite, and so on. Maximum length: 50 characters"
+        }
+      }
+    },
+    "LineItem": {
+      "properties": {
+        "Amount": {
+          "type": "number",
+          "format": "double",
+          "description": "The total charged amount for the line item. Range: -922,337,203,685,477 to 922,337,203,685,477"
+        },
+        "Date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the line item was charged. Format: YYYY-MM-DDThh:mm"
+        },
+        "Description": {
+          "type": "string",
+          "description": "The item's description. Maximum length: 100 characters"
+        },
+        "Description2": {
+          "type": "string",
+          "description": "Additional details about the item. In the receipt image, the secondary description appears on the line following the primary description. Maximum length: 32 characters"
+        },
+        "Quantity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The quantity of units. Format: Any positive number"
+        },
+        "Rate": {
+          "type": "number",
+          "format": "double",
+          "description": "The amount charged per unit. Range: -922,337,203,685,477 to 922,337,203,685,477"
+        },
+        "RateType": {
+          "type": "string",
+          "description": "The unit of measure or rate type. Possible values: HOUR or PER HOUR, DAY or PER DAY, WEEK or PER WEEK, MONTH or PER MONTH. Maximum length: 10 characters"
+        },
+        "Reference": {
+          "type": "string",
+          "description": "The item's SKU, identifier, or some other attribute the provider uses to reference the item. Maximum length: 32 characters"
+        },
+        "SequenceNumber": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The order in which the item appears in the sequence of line items."
+        }
+      }
+    },
+    "Location": {
+      "properties": {
+        "Address": {
+          "type": "string",
+          "description": "The provider's street address. Maximum length: 100 characters"
+        },
+        "Address2": {
+          "type": "string",
+          "description": "The provider's secondary street address. Maximum length: 50 characters"
+        },
+        "City": {
+          "type": "string",
+          "description": "The provider's city. Maximum length: 100 characters"
+        },
+        "CountryCode": {
+          "type": "string",
+          "description": "The provider's country. Format: <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2\">2-letter ISO 3166-1 country code</a>"
+        },
+        "CountrySubdivisionCode": {
+          "type": "string",
+          "description": "The provider's state, province, or other country subdivision. Format: <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_3166-2\">ISO 3166-2:2007 country subdivision</a> code YYY, where YYY is the one-to-three–character subdivision code"
+        },
+        "EmailAddress": {
+          "type": "string",
+          "description": "The provider's email address. Maximum length: 255 characters"
+        },
+        "FaxNumber": {
+          "type": "string",
+          "description": "The provider's fax number. Maximum length: 32 characters"
+        },
+        "InternetAddress": {
+          "type": "string",
+          "description": "The provider's Web address. Maximum length: 255 characters"
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the provider's location, such as an airport, car rental agency, property, store, or other named location. Maximum length: 100 characters"
+        },
+        "PostalCode": {
+          "type": "string",
+          "description": "The provider's postal code. Maximum length: 20 characters"
+        },
+        "TelephoneNumber": {
+          "type": "string",
+          "description": "The provider's telephone number. Maximum length: 100 characters"
+        }
+      }
+    },
+    "MatchingFact": {
+      "properties": {
+        "Type": {
+          "type": "string",
+          "description": "The type of matching fact that is used to identify the Concur user who owns the receipt. Possible values: OAuth, Login"
+        },
+        "Value": {
+          "type": "string",
+          "description": "The value of the matching fact. If the Type element is set to OAuth, this value must be the access token for the Concur user who owns the receipt. In this case, the access token must not be expired or revoked. If the Type element is set to Login, this value must be the login ID of the Concur user who owns the receipt."
+        }
+      }
+    },
+    "Merchant": {
+      "properties": {
+        "Location": {
+          "$ref": "#/definitions/Location"
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the provider (merchant). Maximum length: 64 characters"
+        }
+      }
+    },
+    "Nullable`1": {
+      "properties": {
+        "HasValue": {
+          "type": "boolean"
+        },
+        "Value": {
+          "$ref": "#/definitions/Decimal"
+        }
+      }
+    },
+    "PaymentCard": {
+      "properties": {
+        "AuthorizationCode": {
+          "type": "string",
+          "description": "The authorization code that the card interchange provided when it approved this purchase. Maximum length: 15 characters"
+        },
+        "MaskedNumber": {
+          "type": "string",
+          "description": "The masked card number for the credit card. With the exception of the AX (American Express) card type, this is the last four digits of the card number. For American Express, the value can be one of these, in order of preference: a) The first six digits and the last four digits of the card number. b) The last five digits. c) The last four digits."
+        },
+        "Type": {
+          "type": "string",
+          "description": "The card interchange for the credit card. Possible values: AX (American Express), DC (Diner's Club), DS (Discover), CA (MasterCard), VI (Visa), CB (Carte Blanche), ER (Enroute), TP (Universal Air Travel), JC (JCB), EC (EuroCard), OTHER (other types)"
+        }
+      }
+    },
+    "ReceiptPost": {
+      "properties": {
+        "Amount": {
+          "type": "number",
+          "format": "double",
+          "description": "The net amount of the transaction. A positive number means a payment is due. A negative number means a refund is due. Zero means no payment or refund is due. Range: -922,337,203,685,477 to 922,337,203,685,477"
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the currency paid to the provider."
+        },
+        "CustomFields": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "FormofPaymentCode": {
+          "type": "string",
+          "description": "The code for the form of payment. Possible values: CASH (Cash), CCARD (Credit Card), CPAID (Company Paid)"
+        },
+        "GeneralDetail": {
+          "$ref": "#/definitions/GeneralDetail"
+        },
+        "HotelDetail": {
+          "$ref": "#/definitions/HotelDetail"
+        },
+        "ImageBase64": {
+          "type": "string",
+          "description": "The binary receipt image in Base64 encoding. This API supports PNG, JPEG, JPG, and PDF file formats."
+        },
+        "MatchingFact": {
+          "$ref": "#/definitions/MatchingFact"
+        },
+        "Merchant": {
+          "$ref": "#/definitions/Merchant"
+        },
+        "PaymentCard": {
+          "$ref": "#/definitions/PaymentCard"
+        },
+        "RideDetail": {
+          "$ref": "#/definitions/RideDetail"
+        },
+        "TransactionDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time when the transaction happened. Format: YYYY-MM-DDThh:mm"
+        },
+        "Type": {
+          "type": "string",
+          "description": "The type of receipt. Possible values: General, Ride, Hotel"
+        }
+      }
+    },
+    "RideDetail": {
+      "properties": {
+        "DriverName": {
+          "type": "string",
+          "description": "The name of the driver. Maximum length: 255 characters"
+        },
+        "DropoffLatitude": {
+          "type": "number",
+          "format": "double",
+          "description": "The latitude of the ride end location. Range: -90 to 90"
+        },
+        "DropoffLongitude": {
+          "type": "number",
+          "format": "double",
+          "description": "The longitude of the ride end location. Range: -180 to 180"
+        },
+        "EndDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The ending date and time for the ride. Format: YYYY-MM-DDThh:mm"
+        },
+        "LineItems": {
+          "$ref": "#/definitions/LineItem"
+        },
+        "StartDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The starting date and time for the ride. Format: YYYY-MM-DDThh:mm"
+        },
+        "VehicleNumber": {
+          "type": "string",
+          "description": "The unique identifier for the vehicle. Maximum length: 50 characters"
+        }
+      }
+    }
+  }
+}

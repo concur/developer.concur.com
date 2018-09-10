@@ -1,0 +1,181 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "VendorBank",
+    "description": "An invoice is a bill of sale for goods or services provided by a vendor. This API provides methods to create or update banking information for the specified invoice vendor.",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/invoice/vendor/banks": {
+      "put": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Updates/creates vendor banking information.",
+        "description": "Updates/creates vendor banking information.",
+        "parameters": [
+          {
+            "name": "vendorBanks",
+            "in": "body",
+            "description": "The vendor bank details.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VendorBankCollection"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VendorBankCollection"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Status": {
+      "properties": {
+        "Code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Code of request result"
+        },
+        "Message": {
+          "type": "string",
+          "description": "Message of request result"
+        },
+        "RecordNumber": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Record Number for create/update request."
+        },
+        "Type": {
+          "type": "string",
+          "description": "Type request result"
+        }
+      }
+    },
+    "VendorBank": {
+      "properties": {
+        "AccountNumber": {
+          "type": "string",
+          "required": true,
+          "description": "The account number."
+        },
+        "AccountType": {
+          "type": "string",
+          "required": true,
+          "description": "The account type--CHCK for checking, SAVE for saving"
+        },
+        "AddressCode": {
+          "type": "string",
+          "required": true,
+          "description": "The Vendor Address Code."
+        },
+        "BankCode": {
+          "type": "string",
+          "description": "Bank Code"
+        },
+        "BankName": {
+          "type": "string",
+          "description": "The bank name."
+        },
+        "BranchCode": {
+          "type": "string",
+          "description": "Branch Code"
+        },
+        "BranchLocation": {
+          "type": "string",
+          "description": "The branch location"
+        },
+        "CountryCode": {
+          "type": "string",
+          "description": "The country code."
+        },
+        "CurrencyAlphaCode": {
+          "type": "string",
+          "description": "The currency alpha Code."
+        },
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier of the resource."
+        },
+        "IsActive": {
+          "type": "string",
+          "required": true,
+          "description": "Is information active"
+        },
+        "NameOnAccount": {
+          "type": "string",
+          "required": true,
+          "description": "The name on the account."
+        },
+        "RoutingNumber": {
+          "type": "string",
+          "description": "The routing number."
+        },
+        "StatusList": {
+          "$ref": "#/definitions/Status"
+        },
+        "TransType": {
+          "type": "string",
+          "description": "The trans type."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI to the resource."
+        },
+        "VendorCode": {
+          "type": "string",
+          "required": true,
+          "description": "The vendor code of the request."
+        }
+      }
+    },
+    "VendorBankCollection": {
+      "properties": {
+        "VendorBank": {
+          "$ref": "#/definitions/VendorBank"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "RequestRunSummary": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "TotalCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Record Number for create/update request."
+        },
+        "Items": {
+          
+        }
+      }
+    }
+  }
+}

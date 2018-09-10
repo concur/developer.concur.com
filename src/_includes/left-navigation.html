@@ -1,0 +1,43 @@
+{% assign sidebar = page.url | remove_first: '/' | split: '/' | first %}
+{% assign items = site.data.sidebars[sidebar] %}
+
+<ul class="list-group sidebar-nav-v1 hidden-print" id="sidebar-nav">
+
+{% for item in items %}
+
+  {% if item.children == nil or item.children == empty %}
+    <li class="list-group-item {% if item.url == page.url %}active{% endif %}">
+      <a href="{{ item.url }}">{{ item.title }}</a>
+    </li>
+
+  {% else %}
+
+    {% comment %}
+    Determine if the current page is a child of the item. If so, show the item
+    as active and uncollapse the item's children
+    {% endcomment %}
+    {% assign active_children = item.children | where: "url", page.url %}
+    {% if active_children.size > 0 %}
+      {% assign active_item = true %}
+    {% else %}
+      {% assign active_item = false %}
+    {% endif %}
+
+    <li class="list-group-item list-toggle {% if active_item %}active{% endif %}">
+      <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-{{ item.title | slugify }}">
+        {{ item.title }}
+      </a>
+      <ul id="collapse-{{ item.title | slugify }}" class="collapse {% if active_item %}in{% endif %}">
+        {% for child in item.children %}
+          <li {% if child.url == page.url %} class="active" {% endif %}>
+            <a href="{{ child.url }}">{{ child.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </li>
+
+  {% endif %}
+
+{% endfor %}
+
+</ul>

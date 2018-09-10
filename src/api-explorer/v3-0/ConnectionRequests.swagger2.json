@@ -1,0 +1,253 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Connection Requests",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/common/connectionrequests": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get all connection requests",
+        "description": "Gets all connection requests that match the TripLink supplier ID.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached. The default is the beginning of the page.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The number of records to return. The default is 5 and the maximum is 10.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "The status code representing the state of the connection request. The possible values are Pending, Processing, Connected, Failed, and Retry.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ConnectionRequestCollection"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Create a connection request",
+        "description": "Creates a connection request on behalf of the specified user.",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user for whom to create the connection request. The user must have the Web Services Admin role to use this parameter.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateResponse"
+            }
+          }
+        }
+      }
+    },
+    "/common/connectionrequests/{id}": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get a connection request by ID",
+        "description": "Gets a connection request by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The connection request ID.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ConnectionRequestGet"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Update a connection request by ID",
+        "description": "Updates the specified connection request. Only the fields provided in the supplied object are updated. Missing fields will not be altered.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The connection request ID.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "in": "body",
+            "description": "The connection request object to update.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ConnectionRequestPut"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Delete a connection request",
+        "description": "Deletes a connection request by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The connection request ID.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ConnectionRequestCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/ConnectionRequestGet"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    },
+    "ConnectionRequestGet": {
+      "properties": {
+        "FirstName": {
+          "type": "string",
+          "description": "The user's first name."
+        },
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier of the resource."
+        },
+        "LastModified": {
+          "type": "string",
+          "description": "The date and time when the connection request was last modified. Format: UTC"
+        },
+        "LastName": {
+          "type": "string",
+          "description": "The user's last name."
+        },
+        "LoyaltyNumber": {
+          "type": "string",
+          "description": "The user's travel loyalty number."
+        },
+        "MiddleName": {
+          "type": "string",
+          "description": "The user's middle name."
+        },
+        "RequestToken": {
+          "type": "string",
+          "description": "The request token."
+        },
+        "Status": {
+          "type": "string",
+          "description": "The status code representing the state of the connection request."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI to the resource."
+        }
+      }
+    },
+    "ConnectionRequestPut": {
+      "properties": {
+        "Status": {
+          "type": "string",
+          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+        }
+      }
+    },
+    "CreateResponse": {
+      "properties": {
+        "ID": {
+          "type": "string",
+          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+        }
+      }
+    },
+    "Void": {
+      "properties": {}
+    }
+  }
+}

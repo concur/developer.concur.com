@@ -1,0 +1,357 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "Lists",
+  "apis": [
+    {
+      "path": "/common/lists",
+      "description": "Gets all lists",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_limit_offset",
+          "responseClass": "ListGetCollection",
+          "summary": "Gets all lists",
+          "notes": "Returns all lists based on the search criteria.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The number of records to return. The default is 25 and the maximum is 100.",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "25",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "The start of the page offset. The default is from the beginning.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/lists/{id}",
+      "description": "Get a single list by ID",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id",
+          "responseClass": "ListGet",
+          "summary": "Get a single list by ID",
+          "notes": "Returns a list by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The unique identifier for the list.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/lists",
+      "description": "Create a new list",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_content",
+          "responseClass": "CreateResponse",
+          "summary": "Create a new list",
+          "notes": "Create a new list",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "list object to create",
+              "dataType": "ListPost",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/lists/{id}",
+      "description": "Update list",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_id_content",
+          "responseClass": "Void",
+          "summary": "Update list",
+          "notes": "Updates list specified in the URL.  Only the fields provided in the supplied object will be updated, missing fields will not be altered.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The unique identifier for the list.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The list object to update",
+              "dataType": "ListPut",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/lists",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/common/lists",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "CreateResponse": {
+      "id": "CreateResponse",
+      "displayName": "Response",
+      "properties": {
+        "ID": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ListGet": {
+      "id": "ListGet",
+      "displayName": "List",
+      "properties": {
+        "ConnectorID": {
+          "description": "Optional. Defines the encrypted ConnectorID. If not provided then the list isn't associated with a connector.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DisplayCodeFirst": {
+          "description": "Required. Defines whether CODE should appear before TEXT, or vice-versa.",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExternalThreshold": {
+          "description": "Optional. Default value is 1. Defines the threshold from where the level starts being external. This value can only be set if a ConnectorID is provided.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsVendorList": {
+          "description": "Required. Defines whether it is a vendor list.",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "Required. Defines a name for the list. This name must be unique.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SearchCriteriaCode": {
+          "description": "Required. Defines whether the search criteria should apply to the CODE or to the TEXT.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ListGetCollection": {
+      "id": "ListGetCollection",
+      "displayName": "Lists",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "ListGet",
+            "displayName": "List"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ListPost": {
+      "id": "ListPost",
+      "displayName": "List",
+      "properties": {
+        "ConnectorID": {
+          "description": "Optional. Defines the encrypted ConnectorID. If not provided then the list isn't associated with a connector.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DisplayCodeFirst": {
+          "description": "Required. Defines whether CODE should appear before TEXT, or vice-versa.",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ExternalThreshold": {
+          "description": "Optional. Default value is 1. Defines the threshold from where the level starts being external. This value can only be set if a ConnectorID is provided.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsVendorList": {
+          "description": "Required. Defines whether it is a vendor list.",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Name": {
+          "description": "Required. Defines a name for the list. This name must be unique.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "SearchCriteriaCode": {
+          "description": "Required. Defines whether the search criteria should apply to the CODE or to the TEXT.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "ListPut": {
+      "id": "ListPut",
+      "displayName": "List",
+      "properties": {
+        "DisplayCodeFirst": {
+          "description": "Optional. Defines whether CODE should appear before TEXT, or vice-versa.",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Name": {
+          "description": "Optional. Defines a name for the list. This name must be unique.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SearchCriteriaCode": {
+          "description": "Optional. Defines whether the search criteria should apply to the CODE or to the TEXT.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

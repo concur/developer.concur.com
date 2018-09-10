@@ -1,0 +1,35 @@
+{% assign archive_category = include.category %}
+{% assign posts = site.categories[include.category] %}
+
+<!-- Year range for the posts in the archive -->
+{% assign year_of_first_post = posts.last.date | date: '%Y' | times: 1 %}
+{% assign year_of_last_post = posts.first.date | date: '%Y' | times: 1 %}
+
+<h1 class="post-title">Archives</h1>
+
+<div id="archive-menu">
+  <div class="list-group panel">
+    <!-- Display each year as a collapsable item -->
+    {% for year in (year_of_first_post..year_of_last_post) reversed %}
+
+      <a href="#{{ year }}" class="list-group-item" data-toggle="collapse" data-parent="#archive-menu">{{ year }}</a>
+      <div class="collapse" id="{{ year }}">
+
+        <!-- Display each post under the year -->
+        {% for post in posts %}
+
+          {% assign post_year = post.date | date: "%Y" | times: 1 %}
+          {% if year == post_year %}
+            <a href="{{ post.url }}"  class="list-group-item">
+              <span>{{ post.title }}<span>
+              <span class="pull-right">{{ post.date | date: "%A, %B %-d" }}</span>
+            </a>
+          {% endif %}
+
+        {% endfor %}
+
+      </div>
+
+    {% endfor %} <!-- Close Year Loop -->
+  </div>
+</div>

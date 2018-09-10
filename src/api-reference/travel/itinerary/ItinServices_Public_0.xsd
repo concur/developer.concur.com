@@ -1,0 +1,3483 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <!--
+*********************************************************
+
+Itinerary Model schema generated on 11/15/2017 3:28 PM
+
+
+Note. xs:all will support maxOccurs='unbounded' only in XSD v1.1
+Until then almost everywhere xs:choice is used instead of "future xs:all"
+ or xs:sequence. 
+Use of xs:choice will hide repeated elements during XML validation
+(xs:sequence can't be used because of elements order restriction)
+*********************************************************
+-->
+  <xs:element name="ItineraryOrBooking" abstract="true"/>
+  <xs:element name="Itinerary" type="ItineraryType" substitutionGroup="ItineraryOrBooking"/>
+  <xs:element name="Booking" type="BookingType" substitutionGroup="ItineraryOrBooking"/>
+  <xs:complexType name="ItineraryType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="id" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />
+		<xs:element name="TripId" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />
+		<xs:element name="ItinLocator" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="BookedVia" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />      
+      <xs:element name="BookedByFirstName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="BookedByLastName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="HasOpenBookingPassive" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="UserLoginId"   maxOccurs="1" minOccurs="0"  nillable="true" type="xs:string" />
+								
+	<xs:element name="CancelComments" nillable="true" minOccurs="0" maxOccurs="1">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+        <xs:maxLength value="256" />
+        </xs:restriction>
+    </xs:simpleType>
+    </xs:element>
+	<xs:element name="ClientLocator" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	<xs:element name="TripLinkLocator" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Comments" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="512" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateBookedLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Description" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="512" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+	  <xs:element name="TravelRequestId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="IsPersonal" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Indicates whether this is a Business or Leisure trip.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:boolean" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ProjectName" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Project associated with this trip.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="255" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="TripName" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="255" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TripStatus" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="Bookings" minOccurs="0" maxOccurs="unbounded" type="Itinerary_ArrayOfBookings" />
+		<xs:element name="CustomAttributes" minOccurs="0" maxOccurs="unbounded" type="ItineraryBase_ArrayOfCustomAttributes" />
+		<xs:element name="RuleViolations" minOccurs="0" maxOccurs="unbounded" type="ItineraryBase_ArrayOfRuleViolations" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="Itinerary_ArrayOfBookings">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Booking" type="BookingType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="ItineraryBase_ArrayOfCustomAttributes">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="CustomAttribute" type="CustomAttributeType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ItineraryBase_ArrayOfRuleViolations">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="RuleViolation" type="RuleViolationType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="Segment_ArrayOfRuleViolations">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="RuleViolation" type="RuleViolationType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+	<xs:element name="BookingOwner" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />
+	<xs:element name="BookingReferrer" nillable="true" minOccurs="0" maxOccurs="1" >
+	  <xs:simpleType>
+	    <xs:restriction base="xs:string">
+		<xs:enumeration value="Concur Travel"/>
+		<xs:enumeration value="Hipmunk"/>
+		<xs:enumeration value="Sign-in with Concur"/>
+		<xs:enumeration value="Supplier Mobile"/>
+		<xs:enumeration value="Supplier Web"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	</xs:element>
+	<xs:element name="BookingSource" nillable="true" minOccurs="1" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="32" />
+            </xs:restriction>
+          </xs:simpleType>
+	</xs:element>
+      <xs:element name="DateBookedLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="FareExpiresEmailDatetimeUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="FormOfPaymentName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="FormOfPaymentType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="IsGhostCard" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+	  <xs:element name="CreditCardType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="CreditCardLastFour" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="LastTicketDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="PassengerCount" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="RecordLocator" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RetrievedDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="TicketMailingAddress" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="TicketPickupLocation" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="TicketPickupNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="AirfareQuotes" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfAirfareQuotes" />
+      <xs:element name="AirlineTickets" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfAirlineTickets" />
+      <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfCharges" />
+      <xs:element name="MiscChargeOrders" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfMiscChargeOrders" />
+      <xs:element name="Passengers" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfPassengers" />
+      <xs:element name="PassPrograms" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfPassPrograms" />
+      <xs:element name="PhoneNumbers" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfPhoneNumbers" />
+      <xs:element name="RailPayments" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfRailPayments" />
+	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfRemarks" />		
+      <xs:element name="Segments" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfSegments" />
+      <xs:element name="Delivery" minOccurs="0" type="DeliveryType" />
+      <xs:element name="WaitListSegments" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Warnings" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WebAddresses" minOccurs="0" maxOccurs="unbounded" type="BookingRecord_ArrayOfWebAddresses" />
+      <xs:element name="Source" nillable="false" minOccurs="0" maxOccurs="1" type="xs:string" />    
+      <xs:element name="AgencyName" nillable="true"	  minOccurs="0" maxOccurs="1" type="xs:string" />    
+	  <xs:element name="AgencyPCC" nillable="true"	  minOccurs="0" maxOccurs="1" type="xs:string" />    
+	  <xs:element name="AgencyNumber" nillable="true"	  minOccurs="0" maxOccurs="1" type="xs:string" /> 
+    </xs:choice>
+  </xs:complexType>
+	<xs:complexType name="CustomAttributeType">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Data" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DisplayTitle" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DisplayValue" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Name" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="128" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DataType" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Unknown" />
+						<xs:enumeration value="String" />
+						<xs:enumeration value="Enumeration" />
+						<xs:enumeration value="Numeric" />
+						<xs:enumeration value="Boolean" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DisplayOnItinerary" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+			<xs:element name="ExternalId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="RuleViolationType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="BestGdsPrice" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="BestGdsVendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="BestInternetPrice" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="BestInternetVendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="CompanyReasonCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="CompanyRuleText" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="ViolationReasonCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DateEntered" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:dateTime" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndCity" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="EndDate" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:dateTime" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NumberOfStops" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="QuotedPrice" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+	  <xs:element name="RuleAction" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />	
+      <xs:element name="RuleName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="SegmentType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="SelectedOtherAmount" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="SelectedOtherAmountType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="StartCity" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="StartDate" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:dateTime" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TariffPrice" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="TravelerComments" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="BookingRecord_ArrayOfAirfareQuotes">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Quote" type="QuoteType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingRecord_ArrayOfAirlineTickets">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="AirlineAdjustment" type="AirlineAdjustmentType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="ManualAirlineTicket" type="ManualAirlineTicketType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="AirlineTicket" type="AirlineTicketType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingRecord_ArrayOfCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Percent" type="PercentType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Rate" type="RateType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="RateWithAllowance" type="RateWithAllowanceType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingRecord_ArrayOfMiscChargeOrders">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="MiscellaneousChargeOrder" type="MiscellaneousChargeOrderType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingRecord_ArrayOfPassengers">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Passenger" type="PassengerType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingRecord_ArrayOfPassPrograms">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="PassProgram" type="PassProgramType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingRecord_ArrayOfPhoneNumbers">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="PhoneNumberData" type="PhoneNumberDataType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingRecord_ArrayOfRailPayments">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="RailAdjustment" type="RailAdjustmentType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="RailPayment" type="RailPaymentType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="BookingRecord_ArrayOfRemarks">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>	
+  <xs:complexType name="BookingRecord_ArrayOfSegments">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Hotel" type="HotelType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Dining" type="DiningType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Ride" type="RideType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Rail" type="RailType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Parking" type="ParkingType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Car" type="CarType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Air" type="AirType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+		<xs:element name="Event" type="EventType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+	  <xs:element name="Travel" type="TravelType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DeliveryType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="LocationAdditionalDetails" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="AddressLine1" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="AddressLine2" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="City" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Country" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="LocationDesc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Email" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Latitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="Longitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="LocationName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PhoneNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="ReferenceNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="State" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Type" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Zip" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="BookingRecord_ArrayOfWebAddresses">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="WebAddressData" type="WebAddressDataType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QuoteType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="BaseFare" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="BaseFareCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="BaseFareNuc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="BaseFareNucCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Endorsements" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="500" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IssueByDate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="TotalFare" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="TotalFareCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AirlineCharges" minOccurs="0" maxOccurs="unbounded" type="AirfareQuote_ArrayOfAirlineCharges" />
+      <xs:element name="Taxes" minOccurs="0" maxOccurs="unbounded" type="AirfareQuote_ArrayOfTaxes" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="AirlineAdjustmentType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="AddCollectAmount" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="AdjustmentDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="AdjustmentDateTimeUTC" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="AdjustmentType" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="1" />
+            <xs:pattern value="[VCRAO]" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="PassengerName" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PlatingCarrierNumericCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The first 3 characters of the ticket that identify the plating carrier (airline) for the ticket. PlatingCarrierNumericCode + PlatingControlNumber = TicketNumber</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PlatingControlNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The last 10 characters of ticket that identify the control number for the ticket. PlatingCarrierNumericCode + PlatingControlNumber = TicketNumber</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RecordLocator" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TotalAdjustment" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="TotalAdjustmentCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Taxes" minOccurs="0" maxOccurs="unbounded" type="AirlineAdjustment_ArrayOfTaxes" />
+      <xs:element name="AirlineCharges" minOccurs="0" maxOccurs="unbounded" type="AirlineAdjustment_ArrayOfAirlineCharges" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="ManualAirlineTicketType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="BaseFare" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="BaseFareCurrency" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="TotalFare" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TotalFareCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AirlineCharges" minOccurs="0" maxOccurs="unbounded" type="ManualAirlineTicket_ArrayOfAirlineCharges" />
+      <xs:element name="Taxes" minOccurs="0" maxOccurs="unbounded" type="ManualAirlineTicket_ArrayOfTaxes" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="AirlineTicketType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="AddCollectAmount" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+		<xs:element name="AccountingLine" minOccurs="0" maxOccurs="1">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		<xs:element name="BaseFare" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="BaseFareCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="BaseFareNuc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="BaseFareNucCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Endorsements" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="500" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="InvoiceNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IssueDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="IssueDateTimeUTC" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="IssuingIataAgencyNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="IssuingPseudoCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="9" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="LinearFareConstructor" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="500" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="MasterTicketNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="13" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NameReference" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PassengerName" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PlatingCarrierNumericCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The first 3 characters of the ticket that identify the plating carrier (airline) for the ticket. PlatingCarrierNumericCode + PlatingControlNumber = TicketNumber</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PlatingControlNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The last 10 characters of ticket that identify the control number for the ticket. PlatingCarrierNumericCode + PlatingControlNumber = TicketNumber</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ProgramCarrierCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ProgramMembershipNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RecordLocator" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SabreDkNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Ticketless" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+	  <xs:element name="ComparisonFare" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+	  <xs:element name="ComparisonFareCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+		  <xs:simpleType>
+			  <xs:restriction base="xs:string">
+				  <xs:length value="3" />
+			  </xs:restriction>
+		  </xs:simpleType>
+	  </xs:element>
+      <xs:element name="TicketType" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="1" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TotalFare" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="TotalFareCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TourIdentifier" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AirlineCharges" minOccurs="0" maxOccurs="unbounded" type="AirlineTicket_ArrayOfAirlineCharges" />
+      <xs:element name="AirlineTicketCoupons" minOccurs="0" maxOccurs="unbounded" type="AirlineTicket_ArrayOfAirlineTicketCoupons" />
+      <xs:element name="AirlineTicketExchanges" minOccurs="0" maxOccurs="unbounded" type="AirlineTicket_ArrayOfAirlineTicketExchanges" />
+      <xs:element name="AirlineTicketFareBreakups" minOccurs="0" maxOccurs="unbounded" type="AirlineTicket_ArrayOfAirlineTicketFareBreakups" />
+      <xs:element name="Taxes" minOccurs="0" maxOccurs="unbounded" type="AirlineTicket_ArrayOfTaxes" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="FixedType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Amount" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+            <xs:pattern value="[A-Za-z]{3,3}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Description" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The description of the charge</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IsPaid" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="IsPrimary" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="SemanticsCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="15" />
+            <xs:pattern value="^[A-Za-z0-9]+$" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+		<xs:element name="SemanticsVendorType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorChargeCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>A vendor-specific code for the charge.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="PercentType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Amount" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+            <xs:pattern value="[A-Za-z]{3,3}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Description" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The description of the charge</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IsPaid" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="IsPrimary" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="SemanticsCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="15" />
+            <xs:pattern value="^[A-Za-z0-9]+$" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SemanticsVendorType" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1" />
+            <xs:pattern value="[CHAEFGPR]" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorChargeCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>A vendor-specific code for the charge.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RateType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Amount" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+            <xs:pattern value="[A-Za-z]{3,3}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Description" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The description of the charge</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IsPaid" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="IsPrimary" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="NumUnits" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="PerUnit" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The unit of measure for the charge. Values represent rates like per DAY, WEEK, or MONTH.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+            <xs:pattern value="^[A-Za-z0-9]+$" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SemanticsCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="15" />
+            <xs:pattern value="^[A-Za-z0-9]+$" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SemanticsVendorType" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1" />
+            <xs:pattern value="[CHAEFGPR]" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorChargeCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>A vendor-specific code for the charge.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RateWithAllowanceType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="AllowanceAmount" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="AllowanceIsUnlimited" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="AllowanceNumUnits" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="AllowanceUnit" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The unit of measure for the allowance associated with the charge. For instance, a car weekly rate might allow 5000 miles included in the rate.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+            <xs:pattern value="^[A-Za-z0-9]+$" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Amount" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+            <xs:pattern value="[A-Za-z]{3,3}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Description" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The description of the charge</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IsPaid" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="IsPrimary" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="NumUnits" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="PerUnit" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The unit of measure for the charge. Values represent rates like per DAY, WEEK, or MONTH.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+            <xs:pattern value="^[A-Za-z0-9]+$" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SemanticsCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="15" />
+            <xs:pattern value="^[A-Za-z0-9]+$" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SemanticsVendorType" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1" />
+            <xs:pattern value="[CHAEFGPR]" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorChargeCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>A vendor-specific code for the charge.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="MiscellaneousChargeOrderType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="IssueDate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="PlatingCarrierNumericCode" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The first 3 characters of the ticket that identify the plating carrier (airline) for the ticket. PlatingCarrierNumericCode + PlatingControlNumber = TicketNumber</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PlatingControlNumber" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The last 10 characters of ticket that identify the control number for the ticket. PlatingCarrierNumericCode + PlatingControlNumber = TicketNumber</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TotalAmount" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TotalAmountCurrency" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="PassengerType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="FirstNameNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="LastNameNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="NameFirst" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NameLast" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NameMiddle" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NamePrefix" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NameRemark" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NameSuffix" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NameTitle" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="TextName" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="250" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="FrequentTravelerPrograms" minOccurs="0" maxOccurs="unbounded" type="BookingRecordPassenger_ArrayOfFrequentTravelerPrograms" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="PassProgramType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Amount" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="Name" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Type" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="UserFirstName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="UserLastName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="PhoneNumberDataType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="PassengerRPH" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="PhoneNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Type" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Description" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RailAdjustmentType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="AdjustmentDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="AdjustmentDateTimeUTC" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="AdjustmentType" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="1" />
+            <xs:pattern value="[CRAO]" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="TicketDocumentIdentifier" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TotalAdjustment" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="TotalAdjustmentCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Taxes" minOccurs="0" maxOccurs="unbounded" type="RailAdjustment_ArrayOfTaxes" />
+      <xs:element name="RailCharges" minOccurs="0" maxOccurs="unbounded" type="RailAdjustment_ArrayOfRailCharges" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RailPaymentType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="BaseFare" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="BaseFareCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="IssueByDate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="IssueDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="IssueDateTimeUTC" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+	  <xs:element name="TaxInvoice" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+	  <xs:element name="vatApplicable" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+	  <xs:element name="IncludesVAT" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="TicketDocumentIdentifier" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TicketType" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TotalFare" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="TotalFareCurrency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RailCharges" minOccurs="0" maxOccurs="unbounded" type="RailPayment_ArrayOfRailCharges" />
+      <xs:element name="Taxes" minOccurs="0" maxOccurs="unbounded" type="RailPayment_ArrayOfTaxes" />
+    </xs:choice>
+  </xs:complexType>
+	<xs:complexType name="TripLinkRemarksType">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="TripLinkRemark" minOccurs="0" maxOccurs="unbounded" type="TripLinkRemarks_ArrayOfTripLinkRemark" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="HotelType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="CancellationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CancellationPolicy" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="512" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CheckinTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="CheckoutTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="ConfirmationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+            <xs:pattern value="[A-Za-z]{3,3}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DailyRate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="DateCancelledUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DiscountCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EquipmentCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="FrequentTravelerId" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="HadDeposit" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="HotelPropertyId" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+	  <xs:element name="IsGhostCard" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+	  <xs:element name="CreditCardType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="CreditCardLastFour" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="IsPreferredVendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="IsUpgradeAllowed" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="ModificationCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Name" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Notes" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="NumPersons" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="NumRooms" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="PartnerMembershipId" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PassiveType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PhoneNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="RateAccess" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="RateCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RateType" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RoomDescription" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="200" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RoomType" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SpecialInstructions" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="256" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress2" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCountry" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="SearchLocationLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="SearchLocationLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartPostalCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartState" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9]{2}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TimeZoneId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="TimeZone" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />		
+      <xs:element name="TotalRate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="UpgradedDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorFlags" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="HotelSegment_ArrayOfCharges" />
+      <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="HotelSegment_ArrayOfRemarks" />
+      <xs:element name="HotelServiceVendorName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="HotelServiceLocalizedVendorName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+  </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="DiningType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="CancellationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ConfirmationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateCancelledUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="FrequentTravelerId" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IsPreferredVendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="IsUpgradeAllowed" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="Name" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Notes" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="NumPersons" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="PhoneNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="ReservationId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="RestaurantId" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress2" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCountry" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartPostalCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartState" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9]{2}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TimeZoneId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="TimeZone" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="UpgradedDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+		<xs:element name="VendorName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorFlags" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="DiningSegment_ArrayOfCharges" />
+	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="DiningSegment_ArrayOfRemarks" />
+	</xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RideType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="CancellationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CancellationPolicy" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="512" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ConfirmationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+            <xs:pattern value="[A-Za-z]{3,3}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateCancelledUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DropoffInstructions" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="300" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Duration" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="EndAddress" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndAddress2" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndCountry" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="EndLocation" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndLocationCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndLocationName" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="EndPostalCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndState" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IsPreferredVendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="IsUpgradeAllowed" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="MeetingInstructions" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="300" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Miles" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="Name" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Notes" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="NumberOfHours" nillable="true" minOccurs="0" maxOccurs="1" type="xs:double" />
+      <xs:element name="NumPersons" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="OperatedByVendor" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="128" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PassiveCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PhoneNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupInstructions" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="300" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ProviderFeedback" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="300" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Rate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="RateDescription" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="300" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RateNotes" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="RateType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="ReservationId" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SpecialInstructions" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="256" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress2" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCountry" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartLocation" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartLocationCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartLocationName" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartPostalCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartState" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9]{2}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TimeZoneId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="TimeZone" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="TotalRate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="UpgradedDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9$]{2,2}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+		<xs:element name="VendorName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+		<xs:element name="VendorFlags" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="RideSegment_ArrayOfCharges" />
+	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="RideSegment_ArrayOfRemarks" />
+	  <xs:element name="IsGhostCard" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />	
+	  <xs:element name="CreditCardType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="CreditCardLastFour" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />	  
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RailType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Amenities" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Cabin" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CancellationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CarbonEmissionLbs" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="CarbonModel" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="ClassOfService" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="16" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ConfirmationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+            <xs:pattern value="[A-Za-z]{3,3}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateCancelledUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DiscountCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Duration" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="EndCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndCountry" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="EndLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="EndPlatform" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndRailStation" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndRailStationName" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndState" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ETicket" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="FareType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="FrequentTravelerId" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+	  <xs:element name="IsGhostCard" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+	  <xs:element name="CreditCardType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="CreditCardLastFour" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="IsPreferredVendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="IsUpgradeAllowed" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="LegId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="Meals" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Miles" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="Notes" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="NumPersons" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="NumStops" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="OperatedByTrainNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="OperatedByVendor" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="128" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RateCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RouteRestrictCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="SpecialInstructions" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="256" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCountry" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:dateTime" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartPlatform" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartRailStation" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartRailStationName" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartState" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9]{2}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TimeZoneId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="TimeZone" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="TotalRate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="TrainNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TrainTypeCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TrainTypeName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="TransportMode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="UpgradedDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+		<xs:element name="VendorName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorFlags" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="WagonNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="RailSegment_ArrayOfCharges" />
+      <xs:element name="Seats" minOccurs="0" maxOccurs="unbounded" type="RailSegment_ArrayOfSeats" />
+	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="RailSegment_ArrayOfRemarks" />		
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="ParkingType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="CancellationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ClassOfService" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ConfirmationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+            <xs:pattern value="[A-Za-z]{3,3}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateCancelledUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="FrequentTravelerId" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IsPreferredVendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="IsUpgradeAllowed" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="Name" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Notes" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="OperatedByVendor" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="128" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ParkingLocationId" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PhoneNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Pin" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RateCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress2" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCountry" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:dateTime" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartLocation" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartPostalCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartState" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9]{2}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TimeZoneId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="TimeZone" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="TotalRate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="UpgradedDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorFlags" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="ParkingSegment_ArrayOfCharges" />
+	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="ParkingSegment_ArrayOfRemarks" />		
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="CarType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="AirCondition" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Body" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="CancellationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Class" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="ConfirmationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+            <xs:pattern value="[A-Za-z]{3,3}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DailyRate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="DateCancelledUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DiscountCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DropoffCollectionAddress1" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DropoffCollectionAddressType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DropoffCollectionCategory" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DropoffCollectionCity" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DropoffCollectionCityCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DropoffCollectionCountry" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DropoffCollectionLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DropoffCollectionLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DropoffCollectionNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DropoffCollectionPhoneNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DropoffCollectionPostalCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DropoffCollectionState" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="EndAddress" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndAddress2" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndCloseTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="EndCountry" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="EndLocation" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="EndOpenTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="EndPhoneNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="EndPostalCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndState" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="FrequentTravelerId" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+	  <xs:element name="IsGhostCard" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+	  <xs:element name="CreditCardType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="CreditCardLastFour" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="IsPreferredVendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="IsUpgradeAllowed" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="Notes" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="NumCars" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="NumPersons" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="PhoneNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupDeliveryAddress1" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupDeliveryAddressType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupDeliveryCategory" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupDeliveryCity" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupDeliveryCityCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupDeliveryCountry" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupDeliveryLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupDeliveryLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupDeliveryNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupDeliveryPhoneNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupDeliveryPostalCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PickupDeliveryState" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="RateCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RateType" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SpecialEquipment" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="SpecialInstructions" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="256" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress2" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCloseTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="StartCountry" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartLocation" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartOpenTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="StartPostalCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartState" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9]{2}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TimeZoneId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="TimeZone" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="TotalRate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="Transmission" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="UpgradedDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorFlags" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="CarSegment_ArrayOfCharges" />
+   	  <xs:element name="VendorName"	 minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="CarSegment_ArrayOfRemarks" />		
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="EventType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="CancellationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CesId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="CliqbookId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="ConfirmationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+            <xs:pattern value="[A-Za-z]{3,3}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateCancelledUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EReceiptStatus" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="IsPreferredVendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="IsUpgradeAllowed" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="Name" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Notes" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="NumPersons" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="PhoneNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="SegmentKey" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="SegmentLocator" minOccurs="0" maxOccurs="1" type="xs:long" />
+      <xs:element name="SentToAirplus" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="StartAddress" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress2" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="80" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCountry" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartPostalCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartState" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9]{2}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TimeZoneId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="TimeZone" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="TotalRate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="TransientSegmentNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="Type" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="UpgradedDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorFlags" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="EventSegment_ArrayOfCharges" />
+      <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="EventSegment_ArrayOfRemarks" />
+    </xs:choice>
+  </xs:complexType>  
+  <xs:complexType name="AirType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="AircraftCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Bags" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Cabin" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CancellationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CancellationPolicy" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="512" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CarbonEmissionLbs" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="CarbonModel" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="CheckedBaggage" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ClassOfService" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ConfirmationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DateCancelledUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Duration" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="EndCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndGate" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndTerminal" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ETicket" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="FlightNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="FrequentTravelerId" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IsOpenSegment" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="IsPreferredVendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="IsUpgradeAllowed" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="LegId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="Meals" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Miles" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="Notes" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="NumStops" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="OpenSegment" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="OperatedByFlightNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="OperatedByVendor" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="128" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="OperatedByVendorName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Services" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="SpecialInstructions" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="256" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartGate" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartTerminal" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9]{2}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TimeZoneId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="TimeZone" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="UpgradedDateTime" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="VendorName" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="VendorFlags" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="AirSegment_ArrayOfCharges" />
+      <xs:element name="Seats" minOccurs="0" maxOccurs="unbounded" type="AirSegment_ArrayOfSeats" />
+	  <xs:element name="Remarks" minOccurs="0" maxOccurs="unbounded" type="AirSegment_ArrayOfRemarks" />
+	  <xs:element name="IsGhostCard" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+	  <xs:element name="CreditCardType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="CreditCardLastFour" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="RuleViolations" minOccurs="0" maxOccurs="unbounded" type="Segment_ArrayOfRuleViolations" />
+	</xs:choice>
+  </xs:complexType>
+  <xs:complexType name="TravelType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="CancellationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ConfirmationNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+            <xs:pattern value="[A-Za-z]{3,3}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DailyRate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="DateCancelledUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateCreatedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndAddress" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndAddress2" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+       <xs:element name="EndCountry" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="EndLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="EndLocation" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="EndPostalCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndState" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+	  <xs:element name="IsGhostCard" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+	  <xs:element name="CreditCardType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="CreditCardLastFour" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="TransportMode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Notes" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="NumPersons" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="PhoneNumber" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="SpecialInstructions" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="256" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartAddress2" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="60" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCity" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCountry" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartDateUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="StartLatitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartLocation" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartLongitude" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="StartPostalCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartState" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9]{2}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TimeZoneId" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="TimeZone" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="TotalRate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Charges" minOccurs="0" maxOccurs="unbounded" type="CarSegment_ArrayOfCharges" />
+   	  <xs:element name="VendorName"	 minOccurs="0" maxOccurs="1" type="xs:string" />
+    </xs:choice>
+  </xs:complexType>
+	  
+  <xs:complexType name="WebAddressDataType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="PassengerRPH" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="WebAddress" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="250" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Format" nillable="true" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Type" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Description" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="AirfareQuote_ArrayOfAirlineCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AirfareQuote_ArrayOfTaxes">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Tax" type="TaxType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AirlineAdjustment_ArrayOfTaxes">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Tax" type="TaxType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AirlineAdjustment_ArrayOfAirlineCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ManualAirlineTicket_ArrayOfAirlineCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AirlineTicket_ArrayOfAirlineTicketFareBreakups">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="AirlineTicketFareBreakup" type="AirlineTicketFareBreakupType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ManualAirlineTicket_ArrayOfTaxes">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Tax" type="TaxType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AirlineTicket_ArrayOfAirlineCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AirlineTicket_ArrayOfAirlineTicketCoupons">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="AirlineTicketCoupon" type="AirlineTicketCouponType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AirlineTicket_ArrayOfAirlineTicketExchanges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="AirlineTicketExchange" type="AirlineTicketExchangeType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AirlineTicket_ArrayOfTaxes">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Tax" type="TaxType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingRecordPassenger_ArrayOfFrequentTravelerPrograms">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="RailProgram" type="RailProgramType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="FrequentFlyer" type="FrequentFlyerType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RailAdjustment_ArrayOfTaxes">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Tax" type="TaxType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RailAdjustment_ArrayOfRailCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RailPayment_ArrayOfRailCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RailPayment_ArrayOfTaxes">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Tax" type="TaxType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="TripLinkRemarks_ArrayOfTripLinkRemark">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="Text" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="HotelSegment_ArrayOfCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Rate" type="RateType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="RateWithAllowance" type="RateWithAllowanceType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Percent" type="PercentType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="HotelSegment_ArrayOfRemarks">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>		
+  <xs:complexType name="DiningSegment_ArrayOfCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Percent" type="PercentType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Rate" type="RateType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="RateWithAllowance" type="RateWithAllowanceType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="DiningSegment_ArrayOfRemarks">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RideSegment_ArrayOfCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="RateWithAllowance" type="RateWithAllowanceType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Percent" type="PercentType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Rate" type="RateType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="RideSegment_ArrayOfRemarks">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>	
+  <xs:complexType name="RailSegment_ArrayOfCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Rate" type="RateType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="RateWithAllowance" type="RateWithAllowanceType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Percent" type="PercentType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="RailSegment_ArrayOfRemarks">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>	
+  <xs:complexType name="RailSegment_ArrayOfSeats">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="RailSeat" type="RailSeatType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParkingSegment_ArrayOfCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Percent" type="PercentType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="RateWithAllowance" type="RateWithAllowanceType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Rate" type="RateType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="ParkingSegment_ArrayOfRemarks">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EventSegment_ArrayOfCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Rate" type="RateType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="RateWithAllowance" type="RateWithAllowanceType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Percent" type="PercentType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="EventSegment_ArrayOfRemarks">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CarSegment_ArrayOfCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Rate" type="RateType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="RateWithAllowance" type="RateWithAllowanceType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Percent" type="PercentType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="CarSegment_ArrayOfRemarks">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AirSegment_ArrayOfCharges">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Fixed" type="FixedType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Percent" type="PercentType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="Rate" type="RateType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+        <xs:element name="RateWithAllowance" type="RateWithAllowanceType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="AirSegment_ArrayOfRemarks">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="TripLinkRemarks" type="TripLinkRemarksType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AirSegment_ArrayOfSeats">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="AirSeat" type="AirSeatType" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AirlineTicketFareBreakupType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="BaseFare" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="ClassOfService" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="16" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="EndCityCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="FareBasisCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IsRefundable" nillable="true" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+      <xs:element name="StartCityCode" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="TotalFare" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="TaxType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="TaxAmount" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+	  <xs:element name="TaxRate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="TaxType" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="4" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+	  <xs:element name="TaxAuthority" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+	  <xs:element name="TaxName" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="AirlineTicketCouponType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="ClassOfService" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CouponNumber" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="CouponStatus" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EndCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="FlightNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NotValidAfterDate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="NotValidBeforeDate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="RateCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="24" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartCityCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StartDateLocal" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="8" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TicketDesignator" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Vendor" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="AirlineTicketExchangeType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Amount" nillable="true" minOccurs="0" maxOccurs="1" type="xs:decimal" />
+      <xs:element name="AppliedSegment1" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="AppliedSegment10" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="AppliedSegment2" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="AppliedSegment3" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="AppliedSegment4" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="AppliedSegment5" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="AppliedSegment6" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="AppliedSegment7" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="AppliedSegment8" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="AppliedSegment9" nillable="true" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+      <xs:element name="Currency" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="OldRecordLocator" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+	  <xs:element name="DateModifiedUtc" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />	
+      <xs:element name="PlatingCarrierNumericCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PlatingControlNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RailProgramType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Description" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DiscountProgramExpirationDate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DiscountProgramType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="ProgramNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ProgramVendor" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StatusExpirationDate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="FrequentFlyerType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="AirlineVendor" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Description" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="DiscountProgramExpirationDate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+      <xs:element name="DiscountProgramType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="FrequentFlyerNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ProgramVendor" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StatusExpirationDate" nillable="true" minOccurs="0" maxOccurs="1" type="xs:dateTime" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RailSeatType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Amenities" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="BerthPosition" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Deck" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="FacingForward" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="FareSpaceComfort" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="PassengerRph" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="SeatNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SeatPosition" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="SeatType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="SpaceType" nillable="true" minOccurs="0" maxOccurs="1" type="xs:string" />
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="16" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="WagonNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="WagonType" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="16" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="AirSeatType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="PassengerRph" nillable="true" minOccurs="0" maxOccurs="1" type="xs:integer" />
+      <xs:element name="SeatNumber" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Status" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="16" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>

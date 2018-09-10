@@ -1,0 +1,1198 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "Attendees",
+  "apis": [
+    {
+      "path": "/expense/attendees",
+      "description": "Get all attendees",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_externalID_attendeeTypeID_offset_limit_user",
+          "responseClass": "AttendeeCollection",
+          "summary": "Get all attendees",
+          "notes": "Gets all attendees owned by the specified user.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "externalID",
+              "description": "The external ID of an attendee. By entering a value for this parameter, you can limit the results to the attendees who match the specified external ID. Up to 10 comma-separated external IDs may be specified.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "attendeeTypeID",
+              "description": "The ID of an attendee type. By entering a value for this parameter, you can limit the results to the attendees who match the specified type.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The number of records to return. Default value: 25",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "25",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/attendees/{id}",
+      "description": "Get a single attendee by ID",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id_user",
+          "responseClass": "AttendeeGet",
+          "summary": "Get a single attendee by ID",
+          "notes": "Gets a single attendee by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The attendee ID.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/attendees",
+      "description": "Create a new attendee",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_content_user",
+          "responseClass": "CreateResponse",
+          "summary": "Create a new attendee",
+          "notes": "Creates a new attendee.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The Attendee object to create.",
+              "dataType": "AttendeePost",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/attendees/{id}",
+      "description": "Update an attendee by ID",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_id_content_user",
+          "responseClass": "Void",
+          "summary": "Update an attendee by ID",
+          "notes": "Updates the specified attendee. Only the fields provided in the supplied object are updated. Missing fields are not altered.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The attendee ID.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The partial or complete Attendee object to update.",
+              "dataType": "AttendeePut",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/attendees/{id}",
+      "description": "Delete an attendee by ID",
+      "operations": [
+        {
+          "httpMethod": "DELETE",
+          "nickname": "Delete_id_user",
+          "responseClass": "Void",
+          "summary": "Delete an attendee by ID",
+          "notes": "Deletes the specified attendee.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the attendee to delete.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/attendees",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/expense/attendees",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "AttendeeCollection": {
+      "id": "AttendeeCollection",
+      "displayName": "Attendees",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "AttendeeGet",
+            "displayName": "Attendee"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "AttendeeGet": {
+      "id": "AttendeeGet",
+      "displayName": "Attendee",
+      "properties": {
+        "AttendeeTypeCode": {
+          "description": "A code that indicates the type of attendee. Examples: EMPLOYEE, SPOUSE, BUSGUEST. Maximum length: 40 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "AttendeeTypeID": {
+          "description": "The ID of the attendee type. To obtain the attendee type ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/AttendeeTypes/Get_offset_limit_get_0\">GET /expense/attendeetypes</a> endpoint. The value of the ID element in the response is the attendee type ID. ",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Company": {
+          "description": "The name of the attendee's company. Maximum length: 150 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for monetary amounts related to an attendee.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom25": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExternalID": {
+          "description": "A unique identifier for the attendee, assigned outside of Concur. Maximum length: 48 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FirstName": {
+          "description": "The attendee's first name. Maximum length: 50 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HasExceptionsPrevYear": {
+          "description": "Determines whether the attendee had exceptions in the previous year, based on yearly total limits for attendees. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HasExceptionsYTD": {
+          "description": "Determines whether the attendee has exceptions in the current year, based on yearly total limits for attendees. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastName": {
+          "description": "The attendee's last name. Maximum length: 132 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "MiddleInitial": {
+          "description": "The attendee's middle initial. Maximum length: 1 character",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OwnerLoginID": {
+          "description": "The login ID of the user who owns the attendee record.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OwnerName": {
+          "description": "The name of the user who owns the attendee record.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Suffix": {
+          "description": "The attendee's name suffix. Maximum length: 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Title": {
+          "description": "The attendee's title. Maximum length: 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalAmountPrevYear": {
+          "description": "The total amount spent on the attendee in the previous calendar year.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalAmountYTD": {
+          "description": "The total amount spent on the attendee in the current calendar year.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VersionNumber": {
+          "description": "The attendee's version number.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "AttendeePost": {
+      "id": "AttendeePost",
+      "displayName": "Attendee",
+      "properties": {
+        "AttendeeTypeID": {
+          "description": "The ID of the attendee type. To obtain the attendee type ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/AttendeeTypes/Get_offset_limit_get_0\">GET /expense/attendeetypes</a> endpoint. The value of the ID element in the response is the attendee type ID. ",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Company": {
+          "description": "The name of the attendee's company. Maximum length: 150 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for monetary amounts related to an attendee.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom25": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExternalID": {
+          "description": "A unique identifier for the attendee, assigned outside of Concur. Maximum length: 48 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FirstName": {
+          "description": "The attendee's first name. Maximum length: 50 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastName": {
+          "description": "The attendee's last name. Maximum length: 132 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "MiddleInitial": {
+          "description": "The attendee's middle initial. Maximum length: 1 character",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Suffix": {
+          "description": "The attendee's name suffix. Maximum length: 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Title": {
+          "description": "The attendee's title. Maximum length: 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalAmountYTD": {
+          "description": "The total amount spent on the attendee in the current calendar year.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "AttendeePut": {
+      "id": "AttendeePut",
+      "displayName": "Attendee",
+      "properties": {
+        "AttendeeTypeID": {
+          "description": "The ID of the attendee type. To obtain the attendee type ID value, use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/AttendeeTypes/Get_offset_limit_get_0\">GET /expense/attendeetypes</a> endpoint. The value of the ID element in the response is the attendee type ID. ",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Company": {
+          "description": "The name of the attendee's company. Maximum length: 150 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for monetary amounts related to an attendee.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom25": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "A custom field associated with the attendee. This field may or may not have data, depending on how Expense is configured.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExternalID": {
+          "description": "A unique identifier for the attendee, assigned outside of Concur. Maximum length: 48 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FirstName": {
+          "description": "The attendee's first name. Maximum length: 50 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastName": {
+          "description": "The attendee's last name. Maximum length: 132 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "MiddleInitial": {
+          "description": "The attendee's middle initial. Maximum length: 1 character",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Suffix": {
+          "description": "The attendee's name suffix. Maximum length: 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Title": {
+          "description": "The attendee's title. Maximum length: 32 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalAmountYTD": {
+          "description": "The total amount spent on the attendee in the current calendar year.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "CreateResponse": {
+      "id": "CreateResponse",
+      "displayName": "Response",
+      "properties": {
+        "ID": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "CustomField": {
+      "id": "CustomField",
+      "displayName": null,
+      "properties": {
+        "Code": {
+          "description": "For list fields, this is the list item code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ListItemID": {
+          "description": "For list fields, this is the list item ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Type": {
+          "description": "The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Decimal": {
+      "id": "Decimal",
+      "displayName": null,
+      "properties": {}
+    },
+    "Nullable`1": {
+      "id": "Nullable`1",
+      "displayName": null,
+      "properties": {
+        "HasValue": {
+          "description": null,
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": null,
+          "type": "Decimal",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

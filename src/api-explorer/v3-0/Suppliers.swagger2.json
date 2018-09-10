@@ -1,0 +1,358 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Suppliers",
+    "description": "TripLink supplier information.",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/common/suppliers": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Gets All Suppliers by Search Criteria",
+        "description": "Returns all Suppliers based on the search criteria.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "Address",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "address2",
+            "in": "query",
+            "description": "Address",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "City",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "State",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "zip",
+            "in": "query",
+            "description": "Zip",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "description": "Country Code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "description": "Phone",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "mcCode",
+            "in": "query",
+            "description": "MCC Code (Ex: Delta Airline - 3058)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "taxId",
+            "in": "query",
+            "description": "Tax Id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "merchantType",
+            "in": "query",
+            "description": "Merchant Type Code(Ex: Visa - VI, Amex - AX) ",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "merchantID",
+            "in": "query",
+            "description": "Merchant Id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "iataCode",
+            "in": "query",
+            "description": "IATA Code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "relevance",
+            "in": "query",
+            "description": "Relevance of the Search results",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SupplierCollection"
+            }
+          }
+        }
+      }
+    },
+    "/common/suppliers/{id}": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get a single Supplier by ID",
+        "description": "Returns a single Supplier ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Supplier Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SupplierSingle"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SupplierCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/SupplierGet"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    },
+    "SupplierGet": {
+      "properties": {
+        "BusinessName": {
+          "type": "string",
+          "description": "Name"
+        },
+        "City": {
+          "type": "string",
+          "description": "City"
+        },
+        "CountryCode": {
+          "type": "string",
+          "description": "Country Code"
+        },
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier of the resource."
+        },
+        "PostalCode": {
+          "type": "string",
+          "description": "Zip"
+        },
+        "State": {
+          "type": "string",
+          "description": "State"
+        },
+        "StreetAddress": {
+          "type": "string",
+          "description": "Address"
+        },
+        "StreetAddress2": {
+          "type": "string",
+          "description": "Address2 "
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI to the resource."
+        }
+      }
+    },
+    "SupplierSingle": {
+      "properties": {
+        "AmadeusId": {
+          "type": "string",
+          "description": "Amadeus Id"
+        },
+        "AustinTetra": {
+          "type": "string",
+          "description": "Austin Tetra"
+        },
+        "BusinessName": {
+          "type": "string",
+          "description": "Name"
+        },
+        "ChainCode": {
+          "type": "string",
+          "description": "Chain Code"
+        },
+        "ChainName": {
+          "type": "string",
+          "description": "Chain Name"
+        },
+        "City": {
+          "type": "string",
+          "description": "City"
+        },
+        "CountryCode": {
+          "type": "string",
+          "description": "Country Code"
+        },
+        "CreditCardVendorId": {
+          "type": "string",
+          "description": "Creditcard Vendor Id"
+        },
+        "DunsNumber": {
+          "type": "string",
+          "description": "Duns Number"
+        },
+        "Email": {
+          "type": "string",
+          "description": "Email"
+        },
+        "Fax": {
+          "type": "string",
+          "description": "Fax"
+        },
+        "GalileoId": {
+          "type": "string",
+          "description": "Galileo Id"
+        },
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier of the resource."
+        },
+        "MccCode": {
+          "type": "string",
+          "description": "MCC Code (Ex: Delta Airline - 3058)"
+        },
+        "NorthstarId": {
+          "type": "string",
+          "description": "Northstar Id"
+        },
+        "PegasusId": {
+          "type": "string",
+          "description": "Pegasus Id"
+        },
+        "Phone": {
+          "type": "string",
+          "description": "Phone"
+        },
+        "PostalCode": {
+          "type": "string",
+          "description": "Zip"
+        },
+        "PrimaryNaics": {
+          "type": "string",
+          "description": "Primary Naics Code"
+        },
+        "PrimarySic": {
+          "type": "string",
+          "description": "Primary Sic Code"
+        },
+        "PropertyCode": {
+          "type": "string",
+          "description": "undefined:ConnectSwaggerDocs-SUP_PARAM_PROPERTY_CODE"
+        },
+        "SabreId": {
+          "type": "string",
+          "description": "Sabre Id"
+        },
+        "SecondaryNaics": {
+          "type": "string",
+          "description": "Secondary Naics Code"
+        },
+        "SecondarySic": {
+          "type": "string",
+          "description": "Secondary Sic Code"
+        },
+        "State": {
+          "type": "string",
+          "description": "State"
+        },
+        "StreetAddress": {
+          "type": "string",
+          "description": "Address"
+        },
+        "StreetAddress2": {
+          "type": "string",
+          "description": "Address2 "
+        },
+        "TaxId": {
+          "type": "string",
+          "description": "Tax Id"
+        },
+        "TollFree": {
+          "type": "string",
+          "description": "Toll Free "
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI to the resource."
+        },
+        "WebUrl": {
+          "type": "string",
+          "description": "Web Address"
+        },
+        "WorldspanId": {
+          "type": "string",
+          "description": "Worldspan Id"
+        }
+      }
+    }
+  }
+}

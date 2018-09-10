@@ -1,0 +1,21 @@
+.swagger-section .container {
+  width: inherit;
+}
+
+/*Swagger Tables - Prevent Side Scrolling*/
+.parameter {
+  width: 100% !important;
+}
+
+.body-textarea {
+  width: 100% !important;
+}
+
+#resources_container {
+  margin-left: -47px;
+  margin-right: -15px;
+}
+
+#Resources_endpoint_list {
+  margin-left: -26px;
+}

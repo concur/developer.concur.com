@@ -1,0 +1,4602 @@
+{
+    "id": "com:concur:User:1.0",
+    "name": "Concur User",
+    "description": "A 1.0 Concur User Account",
+    "attributes": [
+      {
+        "name": "id",
+        "type": "string",
+        "multiValued": false,
+        "description": "Unique identifier for the User - a uuid.",
+        "required": false,
+        "caseExact": false,
+        "mutability": "readOnly",
+        "returned": "default",
+        "uniqueness": "server"
+      },
+      {
+        "name": "name",
+        "type": "complex",
+        "multiValued": false,
+        "description": "The components of the user's real name",
+        "required": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "uniqueness": "none",
+        "CTERules": "read-only",
+        "subAttributes": [
+          {
+            "name": "formatted",
+            "type": "string",
+            "multiValued": false,
+            "description": "The full name, including all middle names, title, and suffixes as appropriate, formatted for display (e.g., 'Ms. Barbara J Jensen, III').",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "familyName",
+            "type": "string",
+            "multiValued": false,
+            "description": "The family name of the User, or last name in most Western languages (e.g., 'Jensen' given the full name 'Ms. Barbara J Jensen, III').",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "givenName",
+            "type": "string",
+            "multiValued": false,
+            "description": "The given name of the User, or first name in most Western languages (e.g., 'Barbara' given the full name 'Ms. Barbara J Jensen, III').",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "middleName",
+            "type": "string",
+            "multiValued": false,
+            "description": "The middle name(s) of the User (e.g., 'Jane' given the full name 'Ms. Barbara J Jensen, III').",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "honorificPrefix",
+            "type": "string",
+            "multiValued": false,
+            "description": "The honorific prefix(es) of the User, or title in most Western languages (e.g., 'Ms.' given the full name 'Ms. Barbara J Jensen, III').",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "honorificSuffix",
+            "type": "string",
+            "multiValued": false,
+            "description": "The honorific suffix(es) of the User, or  suffix in most Western languages (e.g., 'III' given the full name  'Ms. Barbara J Jensen, III').",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          }
+        ]
+      },
+      {
+        "name": "gender",
+        "type": "string",
+        "multiValued": false,
+        "description": "The user's gender",
+        "required": false,
+        "caseExact": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "uniqueness": "none",
+        "CTERules": "read-only"
+      },
+      {
+        "name": "dateOfBirth",
+        "type": "dateTime",
+        "multiValued": false,
+        "description": "The user's date of birth in the datetime format specified in RFC7643, e.g., 2008-01-23T04:56:22Z",
+        "required": false,
+        "caseExact": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "uniqueness": "none",
+        "CTERules": "read-only"
+      },
+      {
+        "name": "displayName",
+        "type": "string",
+        "multiValued": false,
+        "description": "The name of the User, suitable for display  to end-users.  The name SHOULD be the full name of the User being  described, if known.",
+        "required": false,
+        "caseExact": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "uniqueness": "none",
+        "CTERules": "read-only"
+      },
+      {
+        "name": "nickName",
+        "type": "string",
+        "multiValued": false,
+        "description": "The casual way to address the user in real  life, e.g., 'Bob' or 'Bobby' instead of 'Robert'.  This attribute  SHOULD NOT be used to represent a User's username (e.g., 'bjensen' or  'mpepperidge').",
+        "required": false,
+        "caseExact": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "uniqueness": "none",
+        "CTERules": "read-only"
+      },
+      {
+        "name": "profileImageURL",
+        "type": "string",
+        "multiValued": false,
+        "description": "A link to the user's profile image.",
+        "required": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "uniqueness": "none",
+        "CTERules": "read-only"
+      },
+      {
+        "name": "userType",
+        "type": "string",
+        "multiValued": false,
+        "description": "Used to identify the type of the User. Currently only Retail & Enterprise are accepted values",
+        "required": false,
+        "caseExact": false,
+        "mutability": "readOnly",
+        "returned": "default",
+        "uniqueness": "none",
+        "canonicalValues": [
+          "Retail",
+          "Enterprise"
+        ]
+      },
+      {
+        "name": "preferredLanguage",
+        "type": "string",
+        "multiValued": false,
+        "description": "Indicates the User's preferred written or spoken language.  Generally used for selecting a localized user interface; Only RFC5646 language-tags are accepted",
+        "required": false,
+        "caseExact": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "uniqueness": "none",
+        "CTERules": "read-only"
+      },
+      {
+        "name": "locale",
+        "type": "string",
+        "multiValued": false,
+        "description": "Used to indicate the User's default location for purposes of localizing items such as currency, date time format, or numerical representations; Only RFC5646 language-tags are accepted",
+        "required": false,
+        "caseExact": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "uniqueness": "none",
+        "CTERules": "read-only"
+      },
+      {
+        "name": "timezone",
+        "type": "string",
+        "multiValued": false,
+        "description": "The User's time zone in the 'Olson' time zone database format, e.g., 'America/Los_Angeles'.",
+        "required": false,
+        "caseExact": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "uniqueness": "none",
+        "CTERules": "read-only"
+      },
+      {
+        "name": "active",
+        "type": "boolean",
+        "multiValued": false,
+        "description": "A Boolean value indicating whether the User is active.",
+        "required": true,
+        "mutability": "readWrite",
+        "returned": "default",
+        "CTERules": "read-only"
+      },
+      {
+        "name": "emails",
+        "type": "complex",
+        "multiValued": true,
+        "description": "Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g.,          'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and 'other'.",
+        "required": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "uniqueness": "none",
+        "CTERules": "read-only",
+        "subAttributes": [
+          {
+            "name": "id",
+            "type": "string",
+            "multiValued": false,
+            "description": "Unique identifier for the emails - a uuid.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readOnly",
+            "returned": "default",
+            "uniqueness": "server"
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "multiValued": false,
+            "description": "Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g.,          'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and 'other'.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "display",
+            "type": "string",
+            "multiValued": false,
+            "description": "A human-readable name, primarily used for display purposes.  READ-ONLY.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "multiValued": false,
+            "description": "A label indicating the attribute's function, e.g., 'work' or 'home'.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none",
+            "canonicalValues": [
+              "Business",
+              "Business2",
+              "Personal",
+              "Other",
+              "Other2",
+              "SMS"
+            ]
+          },
+          {
+            "name": "primary",
+            "type": "boolean",
+            "multiValued": false,
+            "description": "A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred mailing address or primary email address.  The primary attribute value 'true' MUST appear no more than once.",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default"
+          },
+          {
+            "name": "notifications",
+            "type": "boolean",
+            "multiValued": false,
+            "description": "Notifications opt-in for emails",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default"
+          },
+          {
+            "name": "dateAdded",
+            "type": "dateTime",
+            "multiValued": false,
+            "description": "The date and time the email was added to the user/'s profile.",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "verified",
+            "type": "boolean",
+            "multiValued": false,
+            "description": "flag to note which email has been verified by the user.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "dateVerified",
+            "type": "dateTime",
+            "multiValued": false,
+            "description": "The date and time the email was verified",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          }
+        ]
+      },
+      {
+        "name": "phoneNumbers",
+        "type": "complex",
+        "multiValued": true,
+        "description": "Phone numbers for the User.  The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., 'tel:+1-201-555-0123'. Canonical type values of 'work', 'home', 'mobile', 'fax', 'pager', and 'other'.",
+        "required": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "CTERules": "read-only",
+        "subAttributes": [
+          {
+            "name": "id",
+            "type": "string",
+            "multiValued": false,
+            "description": "Unique identifier for phone numbers - a uuid.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readOnly",
+            "returned": "default",
+            "uniqueness": "server"
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "multiValued": false,
+            "description": "Phone number of the User.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "display",
+            "type": "string",
+            "multiValued": false,
+            "description": "A human-readable name, primarily used for display purposes.  READ-ONLY.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "multiValued": false,
+            "description": "A label indicating the attribute's function, e.g., 'work', 'home', 'mobile'.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none",
+            "canonicalValues": [
+              "Work",
+              "Home",
+              "Cell",
+              "Fax",
+              "Pager",
+              "Other"
+            ]
+          },
+          {
+            "name": "primary",
+            "type": "boolean",
+            "multiValued": false,
+            "description": "A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred phone number or primary phone number.  The primary attribute value 'true' MUST appear no more than once.",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default"
+          },
+          {
+            "name": "countryCode",
+            "type": "string",
+            "multiValued": false,
+            "description": "A two-letter code defined in ISO 3166-1 alpha-2 denoting the country the phone number was issued in. e.g., US",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default"
+          },
+          {
+            "name": "countryISDCode",
+            "type": "string",
+            "multiValued": false,
+            "description": "E164 assigned country code",
+            "required": false,
+            "mutability": "readOnly",
+            "returned": "default"
+          },
+          {
+            "name": "notifications",
+            "type": "boolean",
+            "multiValued": false,
+            "description": "LNA Opt-in for mobile devices",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default"
+          },
+          {
+            "name": "verified",
+            "type": "boolean",
+            "multiValued": false,
+            "description": "flag to note phone number has been verified by the user.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          }
+        ]
+      },
+      {
+        "name": "ims",
+        "type": "complex",
+        "multiValued": true,
+        "description": "Instant messaging addresses for the User.",
+        "required": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "CTERules": "read-only",
+        "subAttributes": [
+          {
+            "name": "id",
+            "type": "string",
+            "multiValued": false,
+            "description": "Unique identifier for ims - a uuid.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readOnly",
+            "returned": "default",
+            "uniqueness": "server"
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "multiValued": false,
+            "description": "Instant messaging address for the User.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "display",
+            "type": "string",
+            "multiValued": false,
+            "description": "A human-readable name, primarily used for display purposes.  READ-ONLY.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "multiValued": false,
+            "description": "A label indicating the attribute's     function, e.g., 'aim', 'gtalk', 'xmpp'.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none",
+            "canonicalValues": [
+              "aim",
+              "gtalk",
+              "icq",
+              "xmpp",
+              "msn",
+              "skype",
+              "qq",
+              "yahoo"
+            ]
+          },
+          {
+            "name": "primary",
+            "type": "boolean",
+            "multiValued": false,
+            "description": "A Boolean value indicating the 'primary'     or preferred attribute value for this attribute, e.g., the preferred     messenger or primary messenger.  The primary attribute value 'true'     MUST appear no more than once.",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default"
+          },
+          {
+            "name": "notifications",
+            "type": "boolean",
+            "multiValued": false,
+            "description": "Notifications opt-in for ims",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default"
+          }
+        ]
+      },
+      {
+        "name": "addresses",
+        "type": "complex",
+        "multiValued": true,
+        "description": "A physical mailing address for this User.      Canonical type values of 'work', 'home', and 'other'.  This attribute      is a complex type with the following sub-attributes.",
+        "required": false,
+        "mutability": "readWrite",
+        "returned": "default",
+        "uniqueness": "none",
+        "CTERules": "read-only",
+        "subAttributes": [
+          {
+            "name": "id",
+            "type": "string",
+            "multiValued": false,
+            "description": "Unique identifier for the User's physical addresses - a uuid.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readOnly",
+            "returned": "default",
+            "uniqueness": "server"
+          },
+          {
+            "name": "formatted",
+            "type": "string",
+            "multiValued": false,
+            "description": "The full mailing address, formatted for      display or use with a mailing label.  This attribute MAY contain      newlines.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "streetAddress",
+            "type": "string",
+            "multiValued": false,
+            "description": "The full street address component,      which may include house number, street name, P.O. box, and multi-line      extended street address information.  This attribute MAY contain      newlines.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "locality",
+            "type": "string",
+            "multiValued": false,
+            "description": "The city or locality component.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "region",
+            "type": "string",
+            "multiValued": false,
+            "description": "The state or region component.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "country",
+            "type": "string",
+            "multiValued": false,
+            "description": "A two-letter country code defined in ISO 3166-1 alpha-2",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "postalCode",
+            "type": "string",
+            "multiValued": false,
+            "description": "The zip code or postal code component.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "multiValued": false,
+            "description": "A label indicating the attribute's function, e.g., 'work' or 'home'.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none",
+            "canonicalValues": [
+              "Work",
+              "Home",
+              "Other"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "emergencyContact",
+        "type": "complex",
+        "multiValued": false,
+        "description": "Emergency Contact information for the User.",
+        "required": false,
+        "mutability": "readWrite",
+        "CTERules": "read-only",
+        "subAttributes": [
+          {
+            "name": "name",
+            "type": "string",
+            "multiValued": false,
+            "description": "Emergency contact name.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "uniqueness": "none",
+            "subAttributes": [
+              {
+                "name": "formatted",
+                "type": "string",
+                "multiValued": false,
+                "description": "The full name, including all middle names, title, and suffixes as appropriate, formatted for display (e.g., 'Ms. Barbara J Jensen, III').",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "familyName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The family name of the User, or last name in most Western languages (e.g., 'Jensen' given the full name 'Ms. Barbara J Jensen, III').",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "givenName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The given name of the User, or first name in most Western languages (e.g., 'Barbara' given the full name 'Ms. Barbara J Jensen, III').",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "middleName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The middle name(s) of the User (e.g., 'Jane' given the full name 'Ms. Barbara J Jensen, III').",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "honorificPrefix",
+                "type": "string",
+                "multiValued": false,
+                "description": "The honorific prefix(es) of the User, or title in most Western languages (e.g., 'Ms.' given the full name 'Ms. Barbara J Jensen, III').",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "honorificSuffix",
+                "type": "string",
+                "multiValued": false,
+                "description": "The honorific suffix(es) of the User, or  suffix in most Western languages (e.g., 'III' given the full name  'Ms. Barbara J Jensen, III').",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              }
+            ]
+          },
+          {
+            "name": "phone",
+            "type": "string",
+            "multiValued": false,
+            "description": "Phone number of the emergency contact.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "uniqueness": "none"
+          },
+          {
+            "name": "phone2",
+            "type": "string",
+            "multiValued": false,
+            "description": "Alternative phone number of the emergency contact.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "uniqueness": "none"
+          },
+          {
+            "name": "relationship",
+            "type": "string",
+            "multiValued": false,
+            "description": "Emergency contact relationship.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "uniqueness": "none",
+            "canonicalValues": [
+              "Spouse",
+              "Brother",
+              "Parent",
+              "Sister",
+              "Life Partner",
+              "Other"
+            ]
+          },
+          {
+            "name": "streetAddress",
+            "type": "string",
+            "multiValued": false,
+            "description": "The full street address component,      which may include house number, street name, P.O. box, and multi-line      extended street address information.  This attribute MAY contain      newlines.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "uniqueness": "none"
+          },
+          {
+            "name": "locality",
+            "type": "string",
+            "multiValued": false,
+            "description": "The city or locality component.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "uniqueness": "none"
+          },
+          {
+            "name": "region",
+            "type": "string",
+            "multiValued": false,
+            "description": "The state or region component.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "uniqueness": "none"
+          },
+          {
+            "name": "country",
+            "type": "string",
+            "multiValued": false,
+            "description": "A two-letter country code defined in ISO 3166-1 alpha-2",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "uniqueness": "none"
+          },
+          {
+            "name": "postalCode",
+            "type": "string",
+            "multiValued": false,
+            "description": "The zip code or postal code component.",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "uniqueness": "none"
+          }
+        ]
+      },
+      {
+        "id": "com:concur:Employee:1.0",
+        "name": "Employee Information",
+        "description": "Company, Org, Manager info and other enterprise info",
+        "_comment": "This is WIP",
+        "attributes": [
+          {
+            "name": "companyUUID",
+            "type": "string",
+            "multiValued": false,
+            "description": "Concur UUID of the company",
+            "required": false,
+            "mutability": "readOnly",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "companyInternalId",
+            "type": "integer",
+            "multiValued": false,
+            "description": "outtask_company.id for this CTE user. Not set if this is not a CTE user",
+            "required": false,
+            "mutability": "readOnly",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "employeeId",
+            "type": "string",
+            "multiValued": false,
+            "description": "user's ID within the company",
+            "required": true,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "company"
+          },
+          {
+            "name": "jobTitle",
+            "type": "string",
+            "multiValued": false,
+            "description": "user's job title in the company",
+            "required": true,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "managerId",
+            "type": "string",
+            "multiValued": false,
+            "description": "user's manager's ID (UUID)",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "orgUnitId",
+            "type": "integer",
+            "multiValued": false,
+            "description": "outtask org_unit_id for this CTE user. Not set if this is not a CTE user",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          },
+          {
+            "name": "costCenter",
+            "type": "complex",
+            "multiValued": false,
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default"
+          },
+          {
+            "name": "activeDataRetentionPolicyId",
+            "type": "string",
+            "multiValued": false,
+            "description": "user's active data retention policy Id",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "_comment": "If not specified, company default data retention policy shall be used"
+          },
+          {
+            "name": "terminationDate",
+            "type": "dateTime",
+            "multiValued": false,
+            "description": "Termination Date if the employee is terminated, this can also be used to calculate the data retention period",
+            "required": false,
+            "caseExact": false,
+            "mutability": "readWrite",
+            "returned": "default",
+            "uniqueness": "none"
+          }
+        ]
+      },
+      {
+        "id": "com:concur:Documents:1.0",
+        "name": "Documents",
+        "description": "Travel & other documents of a user - e.g. Driving License, Passport, Visa etc",
+        "CTERules": "read-only",
+        "_comment": "This is WIP",
+        "attributes": [
+          {
+            "name": "driverLicense",
+            "type": "complex",
+            "multiValued": true,
+            "description": "list of driving licenses for this user",
+            "required": false,
+            "subAttributes": [
+              {
+                "name": "number",
+                "type": "string",
+                "multiValued": false,
+                "description": "driving license number",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "issuingAuthority",
+                "type": "string",
+                "multiValued": false,
+                "description": "the authority that issued this license",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "issuingCountry",
+                "type": "string",
+                "multiValued": false,
+                "description": "A two-letter code defined in ISO 3166-1 alpha-2 denoting the country that issued this license",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "expiration",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "expiration date for this license",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              }
+            ]
+          },
+          {
+            "name": "nationalIdentifications",
+            "type": "complex",
+            "multiValued": true,
+            "description": "list of national identifications for this user",
+            "required": false,
+            "subAttributes": [
+              {
+                "name": "number",
+                "type": "string",
+                "multiValued": false,
+                "description": "national identification number",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "issuingCountry",
+                "type": "string",
+                "multiValued": false,
+                "description": "A two-letter code defined in ISO 3166-1 alpha-2 denoting the country that issued this identification",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "expiration",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "expiration date for this identification",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              }
+            ]
+          },
+          {
+            "name": "visa",
+            "type": "complex",
+            "multiValued": true,
+            "description": "list of visa",
+            "required": false,
+            "subAttributes": [
+              {
+                "name": "number",
+                "type": "string",
+                "multiValued": false,
+                "description": "visa number",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "issuedForCountry",
+                "type": "string",
+                "multiValued": false,
+                "description": "A two-letter code defined in ISO 3166-1 alpha-2 denoting the country that issued this visa",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "placeIssued",
+                "type": "string",
+                "multiValued": false,
+                "description": "place at which the visa was issued",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "issuedByCountry",
+                "type": "string",
+                "multiValued": false,
+                "description": "A two-letter code defined in ISO 3166-1 alpha-2 denoting the country in which the visa was issued",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "dateIssued",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "visa issue date",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "expiration",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "visa expiration date",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              }
+            ]
+          },
+          {
+            "name": "hasNoPassport",
+            "type": "boolean",
+            "multiValued": false,
+            "description": "A boolean indicating that the user does not have a passport.",
+            "required": false,
+            "mutability": "readWrite",
+            "returned": "default"
+          },
+          {
+            "name": "passport",
+            "type": "complex",
+            "multiValued": true,
+            "description": "list of passports",
+            "required": false,
+            "subAttributes": [
+              {
+                "name": "number",
+                "type": "string",
+                "multiValued": false,
+                "description": "passport number",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "issuingCountry",
+                "type": "string",
+                "multiValued": false,
+                "description": "A two-letter code defined in ISO 3166-1 alpha-2 denoting the country that issued this passport",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "nationality",
+                "type": "string",
+                "multiValued": false,
+                "description": "the nationality of the passport holder",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "placeIssued",
+                "type": "string",
+                "multiValued": false,
+                "description": "place at which the passport was issued",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "dateIssued",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "passport issue date",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "expiration",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "passport expiration date",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "com:concur:Programs:1.0",
+        "name": "Programs",
+        "description": "Loyalty programs, Vendor partnerships etc for this User",
+        "CTERules": "read-only",
+        "_comment": "This is WIP",
+        "attributes": [
+          {
+            "name": "air",
+            "type": "complex",
+            "multiValued": true,
+            "description": "list of air loyalty programs for this user",
+            "required": false,
+            "CTERules": "[]",
+            "subAttributes": [
+              {
+                "name": "vendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "vendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "account",
+                "type": "string",
+                "multiValued": false,
+                "description": "Program account number",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "CTERules": "[]"
+              },
+              {
+                "name": "status",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "points",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership Points",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segments",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership segments",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "pointsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Points till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segmentsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Segments till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "expiration",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "Expiration Date",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "default",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "Default Program",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "statusBenefits",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status benefits",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "nextStatus",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership next status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "extraData",
+                "type": "complex",
+                "multiValued": true,
+                "description": "Extra Air loyalty data for this User",
+                "required": false,
+                "subAttributes": [
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  }
+                ]
+              },
+              {
+                "name": "seat",
+                "type": "complex",
+                "multiValued": false,
+                "description": "seat preference for the user",
+                "required": false,
+                "subAttributes": [
+                  {
+                    "name": "interrowPosition",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Inter-row position preference",
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "canonicalValues": [
+                      "Window",
+                      "Aisle",
+                      "AisleAcross",
+                      "Center",
+                      "Middle",
+                      "Isolated",
+                      "NOPREF"
+                    ]
+                  },
+                  {
+                    "name": "sectionPosition",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Seat section position preference",
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "canonicalValues": [
+                      "Bulkhead",
+                      "Forward",
+                      "Tail",
+                      "Wing",
+                      "Exit",
+                      "Rear",
+                      "RearTail",
+                      "NOPREF"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "meal",
+                "type": "string",
+                "multiValued": false,
+                "description": "airline meal preference",
+                "required": false,
+                "caseExact": false,
+                "canonicalValues": [
+                  "BLML",
+                  "CHML",
+                  "DBML",
+                  "FPML",
+                  "GFML",
+                  "HNML",
+                  "BBML",
+                  "KSML",
+                  "LCML",
+                  "LSML",
+                  "MOML",
+                  "NSML",
+                  "NLML",
+                  "PFML",
+                  "SFML",
+                  "VGML",
+                  "KVML",
+                  "VLML",
+                  "RVML",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "homeAirport",
+                "type": "string",
+                "multiValued": false,
+                "description": "Home Airport of the User. Must be a 3 letter airport code",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "CTERules": "['length-equal 3']"
+              },
+              {
+                "name": "messageToVendor",
+                "type": "string",
+                "multiValued": false,
+                "description": "An additional message, free form text that is sent to the air vendor",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              }
+            ]
+          },
+          {
+            "name": "rail",
+            "type": "complex",
+            "multiValued": true,
+            "description": "list of rail loyalty programs for this user",
+            "required": false,
+            "CTERules": "[]",
+            "subAttributes": [
+              {
+                "name": "vendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "vendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readOnly",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "account",
+                "type": "string",
+                "multiValued": false,
+                "description": "Program account number",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "CTERules": "[]"
+              },
+              {
+                "name": "status",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "points",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership Points",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segments",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership segments",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "pointsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Points till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segmentsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Segments till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "expiration",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "Expiration Date",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "default",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "Default Program",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "statusBenefits",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status benefits",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "nextStatus",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership next status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "extraData",
+                "type": "complex",
+                "multiValued": true,
+                "description": "Extra Rail loyalty data for this User",
+                "required": false,
+                "subAttributes": [
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  }
+                ]
+              },
+              {
+                "name": "seat",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail seat preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Window",
+                  "Aisle",
+                  "DontCare"
+                ],
+                "subAttributes": [
+                  {
+                    "name": "interrowPosition",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Inter-row position preference",
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "canonicalValues": [
+                      "Window",
+                      "Aisle",
+                      "AisleAcross",
+                      "Center",
+                      "Middle",
+                      "Isolated",
+                      "NOPREF"
+                    ]
+                  },
+                  {
+                    "name": "sectionPosition",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Seat section position preference",
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "canonicalValues": [
+                      "Bulkhead",
+                      "Forward",
+                      "Tail",
+                      "Wing",
+                      "Exit",
+                      "Rear",
+                      "RearTail",
+                      "NOPREF"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "coach",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail coach type preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Compartment",
+                  "Coach",
+                  "CoachWithTable",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "noiseComfort",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail noise comfort preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "QuietSpace",
+                  "MobileSpace",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "bed",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail bed preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Lower",
+                  "Upper",
+                  "Middle",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "bedCategory",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail bed category preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "WomenOnly",
+                  "MenOnly",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "berth",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail berth preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Lower",
+                  "Upper",
+                  "Middle",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "deck",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail deck preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Lower",
+                  "Upper",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "fareSpaceComfort",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail fare space comfort preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "DedicatedBusiness",
+                  "Business",
+                  "IntermediateLeisure",
+                  "Leisure",
+                  "StandardLeisure",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "space",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail space preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Panorama",
+                  "SeatWithTable",
+                  "Solo",
+                  "Salon",
+                  "Kiosk",
+                  "InclineSeat",
+                  "DuoSideBySide",
+                  "DuoFaceToFace",
+                  "Club6",
+                  "Club4",
+                  "Carre",
+                  "DisabledCompanionSpace",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "meal",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail meal preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "LowFat",
+                  "LowSalt",
+                  "GlutenFree",
+                  "Diabetic",
+                  "Muslim",
+                  "Kosher",
+                  "Vegetarian",
+                  "VegetarianLactoOvo",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "contingency",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail contigency type preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Bike",
+                  "WomenOnly",
+                  "WheelchairSpace",
+                  "BlindWithDog",
+                  "DontCare"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "car",
+            "type": "complex",
+            "multiValued": true,
+            "description": "list of car loyalty programs for this user",
+            "required": false,
+            "CTERules": "[]",
+            "subAttributes": [
+              {
+                "name": "vendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "vendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readOnly",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "account",
+                "type": "string",
+                "multiValued": false,
+                "description": "Program account number",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "CTERules": "[]"
+              },
+              {
+                "name": "status",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "points",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership Points",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segments",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership segments",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "pointsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Points till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segmentsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Segments till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "expiration",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "Expiration Date",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "default",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "Default Program",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "statusBenefits",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status benefits",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "nextStatus",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership next status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "extraData",
+                "type": "complex",
+                "multiValued": true,
+                "description": "Extra Car loyalty data for this User",
+                "required": false,
+                "subAttributes": [
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  }
+                ]
+              },
+              {
+                "name": "smoking",
+                "type": "string",
+                "multiValued": false,
+                "description": "smoking preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Smoking",
+                  "NonSmoking",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "carType",
+                "type": "string",
+                "multiValued": false,
+                "description": "car type preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Economy",
+                  "Compact",
+                  "Intermediate",
+                  "Standard",
+                  "FullSize",
+                  "Luxury",
+                  "Premium",
+                  "Mini",
+                  "EconomyHybrid",
+                  "CompactHybrid",
+                  "IntermediateHybrid",
+                  "StandardHybrid",
+                  "FullSizeHybrid",
+                  "MiniVan",
+                  "StandardSUV",
+                  "FullSizeSUV",
+                  "FullSizePickup",
+                  "Specialized",
+                  "IntermediateSUV",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "transmission",
+                "type": "string",
+                "multiValued": false,
+                "description": "transmission preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Automatic",
+                  "Manual",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "gpsEnabled",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "A boolean indicating if the user wants a gps_enabled car",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "skirack",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "A boolean indicating if the user wants a car with a ski rack",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "messageToVendor",
+                "type": "string",
+                "multiValued": false,
+                "description": "An additional message, free form text that is sent to the car vendor",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              }
+            ]
+          },
+          {
+            "name": "hotel",
+            "type": "complex",
+            "multiValued": true,
+            "description": "list of hotel loyalty programs for this user",
+            "required": false,
+            "CTERules": "[]",
+            "subAttributes": [
+              {
+                "name": "vendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "vendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readOnly",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "account",
+                "type": "string",
+                "multiValued": false,
+                "description": "Program account number",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "CTERules": "[]"
+              },
+              {
+                "name": "status",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "points",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership Points",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segments",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership segments",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "pointsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Points till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segmentsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Segments till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "expiration",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "Expiration Date",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "default",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "Default Program",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "statusBenefits",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status benefits",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "nextStatus",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership next status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "extraData",
+                "type": "complex",
+                "multiValued": true,
+                "description": "Extra Hotel loyalty data for this user",
+                "required": false,
+                "subAttributes": [
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  }
+                ]
+              },
+              {
+                "name": "smoking",
+                "type": "string",
+                "multiValued": false,
+                "description": "smoking preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Smoking",
+                  "NonSmoking",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "remark",
+                "type": "string",
+                "multiValued": false,
+                "description": "hotel remark",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "CTERules": "read-only"
+              },
+              {
+                "name": "roomType",
+                "type": "string",
+                "multiValued": false,
+                "description": "room type preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "King",
+                  "Queen",
+                  "Double",
+                  "Single",
+                  "Twin",
+                  "Disability",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "foamPillows",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer foam pillows",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "crib",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer crib",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "rollawayBed",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer rollaway bed",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "gym",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer hotels with a gym",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "pool",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer hotels with a pool",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "restaurant",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer hotels with a restaurant",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "accessForWheelchair",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer hotels with access for wheelchairs",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "accessForBlind",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer hotels with access for the blind",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "roomService",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer room service",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "earlyCheckin",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer early checkin",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "messageToVendor",
+                "type": "string",
+                "multiValued": false,
+                "description": "An additional message, free form text that is sent to the hotel vendor",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "com:concur:TravelPreferences:1.0",
+        "name": "Travel Preferences",
+        "description": "Air, Rail, Car & Hotel preferences for this User",
+        "CTERules": "read-only",
+        "attributes": [
+          {
+            "name": "air",
+            "type": "complex",
+            "multiValued": false,
+            "description": "Air preferences for this User",
+            "required": false,
+            "subAttributes": [
+              {
+                "name": "vendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "vendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "account",
+                "type": "string",
+                "multiValued": false,
+                "description": "Program account number",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "CTERules": "[]"
+              },
+              {
+                "name": "status",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "points",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership Points",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segments",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership segments",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "pointsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Points till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segmentsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Segments till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "expiration",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "Expiration Date",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "default",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "Default Program",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "statusBenefits",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status benefits",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "nextStatus",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership next status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "extraData",
+                "type": "complex",
+                "multiValued": true,
+                "description": "Extra Air loyalty data for this User",
+                "required": false,
+                "subAttributes": [
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  }
+                ]
+              },
+              {
+                "name": "seat",
+                "type": "complex",
+                "multiValued": false,
+                "description": "seat preference for the user",
+                "required": false,
+                "subAttributes": [
+                  {
+                    "name": "interrowPosition",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Inter-row position preference",
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "canonicalValues": [
+                      "Window",
+                      "Aisle",
+                      "AisleAcross",
+                      "Center",
+                      "Middle",
+                      "Isolated",
+                      "NOPREF"
+                    ]
+                  },
+                  {
+                    "name": "sectionPosition",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Seat section position preference",
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "canonicalValues": [
+                      "Bulkhead",
+                      "Forward",
+                      "Tail",
+                      "Wing",
+                      "Exit",
+                      "Rear",
+                      "RearTail",
+                      "NOPREF"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "meal",
+                "type": "string",
+                "multiValued": false,
+                "description": "airline meal preference",
+                "required": false,
+                "caseExact": false,
+                "canonicalValues": [
+                  "BLML",
+                  "CHML",
+                  "DBML",
+                  "FPML",
+                  "GFML",
+                  "HNML",
+                  "BBML",
+                  "KSML",
+                  "LCML",
+                  "LSML",
+                  "MOML",
+                  "NSML",
+                  "NLML",
+                  "PFML",
+                  "SFML",
+                  "VGML",
+                  "KVML",
+                  "VLML",
+                  "RVML",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "homeAirport",
+                "type": "string",
+                "multiValued": false,
+                "description": "Home Airport of the User. Must be a 3 letter airport code",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "CTERules": "['length-equal 3']"
+              },
+              {
+                "name": "messageToVendor",
+                "type": "string",
+                "multiValued": false,
+                "description": "An additional message, free form text that is sent to the air vendor",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              }
+            ]
+          },
+          {
+            "name": "rail",
+            "type": "complex",
+            "multiValued": false,
+            "description": "Rail preferences for this User",
+            "required": false,
+            "subAttributes": [
+              {
+                "name": "vendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "vendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readOnly",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "account",
+                "type": "string",
+                "multiValued": false,
+                "description": "Program account number",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "CTERules": "[]"
+              },
+              {
+                "name": "status",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "points",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership Points",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segments",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership segments",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "pointsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Points till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segmentsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Segments till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "expiration",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "Expiration Date",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "default",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "Default Program",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "statusBenefits",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status benefits",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "nextStatus",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership next status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "extraData",
+                "type": "complex",
+                "multiValued": true,
+                "description": "Extra Rail loyalty data for this User",
+                "required": false,
+                "subAttributes": [
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  }
+                ]
+              },
+              {
+                "name": "seat",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail seat preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Window",
+                  "Aisle",
+                  "DontCare"
+                ],
+                "subAttributes": [
+                  {
+                    "name": "interrowPosition",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Inter-row position preference",
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "canonicalValues": [
+                      "Window",
+                      "Aisle",
+                      "AisleAcross",
+                      "Center",
+                      "Middle",
+                      "Isolated",
+                      "NOPREF"
+                    ]
+                  },
+                  {
+                    "name": "sectionPosition",
+                    "type": "string",
+                    "multiValued": false,
+                    "description": "Seat section position preference",
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "canonicalValues": [
+                      "Bulkhead",
+                      "Forward",
+                      "Tail",
+                      "Wing",
+                      "Exit",
+                      "Rear",
+                      "RearTail",
+                      "NOPREF"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "coach",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail coach type preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Compartment",
+                  "Coach",
+                  "CoachWithTable",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "noiseComfort",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail noise comfort preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "QuietSpace",
+                  "MobileSpace",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "bed",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail bed preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Lower",
+                  "Upper",
+                  "Middle",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "bedCategory",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail bed category preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "WomenOnly",
+                  "MenOnly",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "berth",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail berth preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Lower",
+                  "Upper",
+                  "Middle",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "deck",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail deck preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Lower",
+                  "Upper",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "fareSpaceComfort",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail fare space comfort preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "DedicatedBusiness",
+                  "Business",
+                  "IntermediateLeisure",
+                  "Leisure",
+                  "StandardLeisure",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "space",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail space preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Panorama",
+                  "SeatWithTable",
+                  "Solo",
+                  "Salon",
+                  "Kiosk",
+                  "InclineSeat",
+                  "DuoSideBySide",
+                  "DuoFaceToFace",
+                  "Club6",
+                  "Club4",
+                  "Carre",
+                  "DisabledCompanionSpace",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "meal",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail meal preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "LowFat",
+                  "LowSalt",
+                  "GlutenFree",
+                  "Diabetic",
+                  "Muslim",
+                  "Kosher",
+                  "Vegetarian",
+                  "VegetarianLactoOvo",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "contingency",
+                "type": "string",
+                "multiValued": false,
+                "description": "Rail contigency type preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Bike",
+                  "WomenOnly",
+                  "WheelchairSpace",
+                  "BlindWithDog",
+                  "DontCare"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "car",
+            "type": "complex",
+            "multiValued": false,
+            "description": "Car preferences for this User",
+            "required": false,
+            "subAttributes": [
+              {
+                "name": "vendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "vendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readOnly",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "account",
+                "type": "string",
+                "multiValued": false,
+                "description": "Program account number",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "CTERules": "[]"
+              },
+              {
+                "name": "status",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "points",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership Points",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segments",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership segments",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "pointsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Points till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segmentsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Segments till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "expiration",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "Expiration Date",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "default",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "Default Program",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "statusBenefits",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status benefits",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "nextStatus",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership next status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "extraData",
+                "type": "complex",
+                "multiValued": true,
+                "description": "Extra Car loyalty data for this User",
+                "required": false,
+                "subAttributes": [
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  }
+                ]
+              },
+              {
+                "name": "smoking",
+                "type": "string",
+                "multiValued": false,
+                "description": "smoking preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Smoking",
+                  "NonSmoking",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "carType",
+                "type": "string",
+                "multiValued": false,
+                "description": "car type preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Economy",
+                  "Compact",
+                  "Intermediate",
+                  "Standard",
+                  "FullSize",
+                  "Luxury",
+                  "Premium",
+                  "Mini",
+                  "EconomyHybrid",
+                  "CompactHybrid",
+                  "IntermediateHybrid",
+                  "StandardHybrid",
+                  "FullSizeHybrid",
+                  "MiniVan",
+                  "StandardSUV",
+                  "FullSizeSUV",
+                  "FullSizePickup",
+                  "Specialized",
+                  "IntermediateSUV",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "transmission",
+                "type": "string",
+                "multiValued": false,
+                "description": "transmission preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Automatic",
+                  "Manual",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "gpsEnabled",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "A boolean indicating if the user wants a gps_enabled car",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "skirack",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "A boolean indicating if the user wants a car with a ski rack",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "messageToVendor",
+                "type": "string",
+                "multiValued": false,
+                "description": "An additional message, free form text that is sent to the car vendor",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              }
+            ]
+          },
+          {
+            "name": "hotel",
+            "type": "complex",
+            "multiValued": false,
+            "description": "Hotel preferences for this User",
+            "required": false,
+            "subAttributes": [
+              {
+                "name": "vendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "vendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the Vendor",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readOnly",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorCode",
+                "type": "string",
+                "multiValued": false,
+                "description": "The code of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "parentChainVendorName",
+                "type": "string",
+                "multiValued": false,
+                "description": "The name of the parent chain vendor",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "account",
+                "type": "string",
+                "multiValued": false,
+                "description": "Program account number",
+                "required": true,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none",
+                "CTERules": "[]"
+              },
+              {
+                "name": "status",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "points",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership Points",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segments",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Membership segments",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "pointsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Points till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "segmentsNext",
+                "type": "integer",
+                "multiValued": false,
+                "description": "Segments till next status",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "expiration",
+                "type": "dateTime",
+                "multiValued": false,
+                "description": "Expiration Date",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "default",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "Default Program",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "statusBenefits",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership status benefits",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "nextStatus",
+                "type": "string",
+                "multiValued": false,
+                "description": "Membership next status",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+              },
+              {
+                "name": "extraData",
+                "type": "complex",
+                "multiValued": true,
+                "description": "Extra Hotel loyalty data for this user",
+                "required": false,
+                "subAttributes": [
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "key",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": true,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  },
+                  {
+                    "name": "value",
+                    "type": "string",
+                    "multiValued": false,
+                    "required": false,
+                    "caseExact": false,
+                    "mutability": "readWrite",
+                    "returned": "default",
+                    "uniqueness": "none"
+                  }
+                ]
+              },
+              {
+                "name": "smoking",
+                "type": "string",
+                "multiValued": false,
+                "description": "smoking preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "Smoking",
+                  "NonSmoking",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "remark",
+                "type": "string",
+                "multiValued": false,
+                "description": "hotel remark",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "CTERules": "read-only"
+              },
+              {
+                "name": "roomType",
+                "type": "string",
+                "multiValued": false,
+                "description": "room type preference",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "canonicalValues": [
+                  "King",
+                  "Queen",
+                  "Double",
+                  "Single",
+                  "Twin",
+                  "Disability",
+                  "DontCare"
+                ]
+              },
+              {
+                "name": "foamPillows",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer foam pillows",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "crib",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer crib",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "rollawayBed",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer rollaway bed",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "gym",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer hotels with a gym",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "pool",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer hotels with a pool",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "restaurant",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer hotels with a restaurant",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "accessForWheelchair",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer hotels with access for wheelchairs",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "accessForBlind",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer hotels with access for the blind",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "roomService",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer room service",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "earlyCheckin",
+                "type": "boolean",
+                "multiValued": false,
+                "description": "prefer early checkin",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              },
+              {
+                "name": "messageToVendor",
+                "type": "string",
+                "multiValued": false,
+                "description": "An additional message, free form text that is sent to the hotel vendor",
+                "required": false,
+                "mutability": "readWrite",
+                "returned": "default"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "com:concur:Expense:0.2",
+        "name": "Expense Employee Data",
+        "description": "Expense employee data",
+        "_comment": "This is WIP",
+        "attributes": [
+          {
+            "name": "active",
+            "type": "boolean",
+            "multiValued": false,
+            "description": "Active true or false",
+            "required": false
+          },
+          {
+            "name": "countryCode",
+            "type": "string",
+            "multiValued": false,
+            "description": "country code, not blank",
+            "required": false
+          },
+          {
+            "name": "countrySubdivision",
+            "type": "string",
+            "multiValued": false,
+            "description": "Country subdivision, not blank",
+            "required": false
+          },
+          {
+            "name": "firstName",
+            "type": "string",
+            "multiValued": false,
+            "description": "first name, not blank",
+            "required": false
+          },
+          {
+            "name": "lastName",
+            "type": "string",
+            "multiValued": false,
+            "description": "last name, not blank",
+            "required": false
+          },
+          {
+            "name": "localeCode",
+            "type": "string",
+            "multiValued": false,
+            "description": "locale code, not blank",
+            "required": false
+          },
+          {
+            "name": "middleInitial",
+            "type": "string",
+            "multiValued": false,
+            "description": "middle initial",
+            "required": false
+          },
+          {
+            "name": "cashAdvanceAccountCode",
+            "type": "string",
+            "multiValued": false,
+            "description": "cash advance code",
+            "required": false
+          },
+          {
+            "name": "driverId",
+            "type": "string",
+            "multiValued": false,
+            "description": "driver id",
+            "required": false
+          },
+          {
+            "name": "ledger",
+            "type": "string",
+            "multiValued": false,
+            "description": "Ledger code. If this is a connected list field it must be in the connected list data and in the ledger list",
+            "required": false
+          },
+          {
+            "name": "reimbursementCurrency",
+            "type": "string",
+            "multiValued": false,
+            "description": "valid three digit currency code in the list of system reimbursement currencies",
+            "required": false
+          },
+          {
+            "name": "reimbursementType",
+            "type": "string",
+            "multiValued": false,
+            "description": "reimbursement type",
+            "required": false
+          },
+          {
+            "name": "customData",
+            "type": "complex",
+            "multiValued": true,
+            "required": false,
+            "subAttributes": [
+              {
+                "name": "customFieldName",
+                "type": "string",
+                "description": "Name of the custom field"
+              },
+              {
+                "name": "customFieldValue",
+                "type": "string",
+                "description": "Value of the custom field"
+              },
+              {
+                "name": "customFieldName",
+                "type": "string",
+                "description": "Name of the custom field"
+              },
+              {
+                "name": "customFieldValue",
+                "type": "string",
+                "description": "Value of the custom field"
+              }
+            ]
+          },
+          {
+            "name": "orgUnitData",
+            "type": "complex",
+            "multiValued": true,
+            "required": false,
+            "subAttributes": [
+              {
+                "name": "orgUnitName",
+                "type": "string",
+                "description": "Name of the custom org unit field"
+              },
+              {
+                "name": "orgUnitValue",
+                "type": "string",
+                "description": "Value of the custom org unit field"
+              }
+            ]
+          },
+          {
+            "name": "approvers",
+            "type": "complex",
+            "multiValued": true,
+            "subAttributes": [
+              {
+                "name": "approverType",
+                "type": "string",
+                "canonicalValues": [
+                  "AuthorizationRequestApprover",
+                  "BudgetApprover",
+                  "ExpenseApprover",
+                  "CashAdvanceApprover",
+                  "InvoiceApprover",
+                  "PaymentApprover",
+                  "PurchaseRequestApprover",
+                  "RequestApprover",
+                  "ReportApprover",
+                  "StatementApprover"
+                ]
+              },
+              {
+                "name": "approverUuid",
+                "type": "string",
+                "description": "UUID of default approver"
+              },
+              {
+                "name": "approver2Uuid",
+                "type": "string",
+                "description": "UUID of second approver"
+              }
+            ]
+          },
+          {
+            "name": "delegates",
+            "type": "complex",
+            "multiValued": true,
+            "subAttributes": [
+              {
+                "name": "canApprove",
+                "type": "boolean"
+              },
+              {
+                "name": "canApproveTemporary",
+                "type": "boolean"
+              },
+              {
+                "name": "canPrepare",
+                "type": "boolean"
+              },
+              {
+                "name": "canPrepareForApproval",
+                "type": "boolean"
+              },
+              {
+                "name": "canReceiveApprovalEmail",
+                "type": "boolean"
+              },
+              {
+                "name": "canReceiveEmail",
+                "type": "boolean"
+              },
+              {
+                "name": "canSubmit",
+                "type": "boolean"
+              },
+              {
+                "name": "canSubmitTravelRequest",
+                "type": "boolean"
+              },
+              {
+                "name": "canUseBi",
+                "type": "boolean"
+              },
+              {
+                "name": "canViewReceipt",
+                "type": "boolean"
+              },
+              {
+                "name": "delegateUUID",
+                "type": "string"
+              },
+              {
+                "name": "delegatorUUID",
+                "type": "string"
+              },
+              {
+                "name": "productCode",
+                "type": "string",
+                "canonicalValues": [
+                  "EXP",
+                  "PMT",
+                  "PUR",
+                  "ENR",
+                  "REQ",
+                  "SHD"
+                ]
+              },
+              {
+                "name": "temporaryDelegationFromDate",
+                "type": "dateTime"
+              },
+              {
+                "name": "temporaryDelegationToDate",
+                "type": "dateTime"
+              }
+            ]
+          },
+          {
+            "name": "delegators",
+            "type": "complex",
+            "multiValued": true,
+            "subAttributes": [
+              {
+                "name": "canApprove",
+                "type": "boolean"
+              },
+              {
+                "name": "canApproveTemporary",
+                "type": "boolean"
+              },
+              {
+                "name": "canPrepare",
+                "type": "boolean"
+              },
+              {
+                "name": "canPrepareForApproval",
+                "type": "boolean"
+              },
+              {
+                "name": "canReceiveApprovalEmail",
+                "type": "boolean"
+              },
+              {
+                "name": "canReceiveEmail",
+                "type": "boolean"
+              },
+              {
+                "name": "canSubmit",
+                "type": "boolean"
+              },
+              {
+                "name": "canSubmitTravelRequest",
+                "type": "boolean"
+              },
+              {
+                "name": "canUseBi",
+                "type": "boolean"
+              },
+              {
+                "name": "canViewReceipt",
+                "type": "boolean"
+              },
+              {
+                "name": "delegateUUID",
+                "type": "string"
+              },
+              {
+                "name": "delegatorUUID",
+                "type": "string"
+              },
+              {
+                "name": "prodCode",
+                "type": "string",
+                "canonicalValues": [
+                  "EXP",
+                  "PMT",
+                  "PUR",
+                  "ENR",
+                  "REQ",
+                  "SHD"
+                ]
+              },
+              {
+                "name": "temporaryDelegationFromDate",
+                "type": "dateTime"
+              },
+              {
+                "name": "temporaryDelegationToDate",
+                "type": "dateTime"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
