@@ -1,5 +1,5 @@
 ---
-title: App Center - User Experience Guidelines for "Apps for Me"
+title: SAP Concur App Center - User Experience Guidelines for "Apps for Me"
 layout: reference
 ---
 
@@ -115,7 +115,7 @@ Once the connection is complete, indicate that the connection was successful.
 
 ![Confirmation](./app-center-ux-guidelines-consumer-confirmation-small.png)
 
-Users should be directed to close the window as the connection is complete and may be redirected to the application home page. 
+Users should be directed to close the window as the connection is complete and may be redirected to the application home page.
 
 
 ## <a name="guideline-checklist"></a>Guideline Checklist
@@ -129,7 +129,7 @@ This section provides a summarized checklist of the required and recommended com
 * All pages
   * Must support a form factor of 800x600 (required)
   * Must provide back/forward navigation, where applicable. (required)
-  * Should be [Section 508 Compliance](https://www.section508.gov/content/learn) (strongly recommended)
+  * Should be [Section 508 Compliance](https://www.section508.gov) (strongly recommended)
   * Should include support and help options clearly throughout the process.
   * Must support major browsers and versions. The full list of Concur- supported browsers is available here. (required)
   * Should adhere to your company’s brand and marketing guidelines
@@ -137,7 +137,7 @@ This section provides a summarized checklist of the required and recommended com
 * On the first page (at a minimum),
   * Must clearly indicate this is an integration with Concur (required)
   * Must include links to your terms and conditions and privacy policy (required)
- 
+
 
 ### <a name="guideline-checklist-account-creation"></a>Account Creation
 
