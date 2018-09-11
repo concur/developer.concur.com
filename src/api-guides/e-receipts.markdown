@@ -33,7 +33,7 @@ The below Authentication Methods are available to obtain an access token.  Passw
 
     ![appflow_listing](/assets/img/api-guides/e-receipts/appflow_listing.png)
 
-3. Concur&#39;s authorization service will redirect the user to your landing page.  Please follow the [App Center Design Guidelines](/manage-apps/go-market-docs/app-center-ux-guidelines.pdf) to create a web page that listens for an HTTP GET request from Concur.
+3. Concur&#39;s authorization service will redirect the user to your landing page.  Please follow the [App Center Design Guidelines](/manage-apps/go-market-docs/app-center-ux-guidelines-consumer.html) to create a web page that listens for an HTTP GET request from Concur.
 4. The redirect URI will contain an **id** and **requestToken** parameters.  
 Example:   https://{partner_redirect_URI}?id=8568a4cd-8ffc-49d6-9417-be2d69aa075f&requestToken=5l85ae5a-426f-4d6f-8af4-08648c4b696b
 5. When your application receives the redirect call strip the **id** and **requestToken** values from the URI and use those on a Post request to the Concur Authorization service to obtain the official oauth2 accesstoken and refreshtoken for the user using the [password grant](/api-reference/authentication/apidoc.html#password_grant) while [being Geo Aware](#being_geo_aware).

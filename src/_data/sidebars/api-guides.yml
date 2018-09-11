@@ -1,4 +1,4 @@
-- title: API Guides
+- title: Integration Guides
   url: /api-guides/
 - title: ERP Integration
   url: ''
@@ -12,15 +12,6 @@
         url: /api-guides/attendees/external-attendees-to-expense-entries.html
 - title: eReceipts Recipe
   url: /api-guides/e-receipts.html
-- title: Expense
-  url: ''
-  children:
-      - title: 1. READ First
-        url: /api-guides/expense/1create-a-user.html
-      - title: 2. How To Provision A Basic User Record Into Concur
-        url: /api-guides/expense/2how-to-provision-a-basic-user-record-into-Concur.html
-      - title: 3. How To Identify Group Codes for Standard Edition Clients
-        url: /api-guides/expense/3how-to-identify-group-codes-for-standard-edition-clients.html
 - title: Travel
   url: ''
   children:
