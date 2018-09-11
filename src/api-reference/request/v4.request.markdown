@@ -1,9 +1,7 @@
 ---
-title: Request endpoints
+title: Travel Request v4 - Request Endpoints
 layout: reference
 ---
-
-# <a name="request-endpoints"> Request Endpoints
 
 ** Pre-release Version 4.0**
 
@@ -120,7 +118,7 @@ requestUuid|path|string|**Required** The unique identifier of the Request
 -|body|[Request](#request)|**Required** The content of the Request to update
 userId|path|string|The unique identifier of the user performing the update. <br> **Required** when connecting with a Company token, if empty a 400 `missingRequiredParam` error code will be displayed
 
-Important: In the case of an UPDATE, the Request Body must contain both the modified values and the existing values. In order to enhance the user experience, Concur is currently working on a development in order to manage the partial update. 
+Important: In the case of an UPDATE, the Request Body must contain both the modified values and the existing values. In order to enhance the user experience, Concur is currently working on a development in order to manage the partial update.
 
 *Response:*
 

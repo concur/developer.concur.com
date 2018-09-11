@@ -1,9 +1,7 @@
 ---
-title: Response Codes
+title: Travel Request v4 - Response Codes
 layout: reference
 ---
-
-# Request - Response Codes
 
 ** Pre-release Version 4.0**
 
