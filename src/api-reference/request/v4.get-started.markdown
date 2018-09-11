@@ -48,24 +48,10 @@ These resources are used to manage documents used for pre-spend authorizations w
 
 ## <a name="regionalavailability"></a>Regional Availability
 
-### <a name="curl"></a>With curl
-
-For US production
-
 ```
-curl -X POST --H 'Content-Type: application/json' --H 'Accept: application/json' --header "Authorization: Bearer {YOUR ACCESS TOKEN}" -d { "name": "Your action name" } https://us.api.concursolutions.com/travelrequest/v4/...
-```
-
-For EMEA production
-
-```
-curl -X POST --H 'Content-Type: application/json' --H 'Accept: application/json' --header "Authorization: Bearer {YOUR ACCESS TOKEN}" -d { "name": "Your action name" } https://emea.api.concursolutions.com/travelrequest/v4/...
-```
-
-For China production
-
-```
-curl -X POST --H 'Content-Type: application/json' --H 'Accept: application/json' --header "Authorization: Bearer {YOUR ACCESS TOKEN}" -d { "name": "Your action name" } https://cn.api.concurdc.cn/travelrequest/v4/...
+US Production:    https://us.api.concursolutions.com/travelrequest/v4/
+EMEA Production:  https://emea.api.concursolutions.com/travelrequest/v4/
+China Production: https://cn.api.concurdc.cn/travelrequest/v4/
 ```
 
 ## <a name="explore-api"></a>Explore the API
