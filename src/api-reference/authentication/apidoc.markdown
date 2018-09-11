@@ -159,34 +159,18 @@ All refresh_tokens associated to a user for an application can be revoked by cal
 DELETE https://us.api.concursolutions.com/app-mgmt/v0/connections
 ```
 
-
 **Request**
 
-```http
-DELETE /app-mgmt/v0/connections HTTP/1.1
-Content-Type: application/json
-Authorization: Bearer <access_token>
-```
-
-**Sample cURL:**
-
-```http
-
-curl -X DELETE -H "Authorization: Bearer <accessToken>" "https://us.api.concursolutions.com/app-mgmt/v0/connections"
+```shell
+DELETE https://us.api.concursolutions.com/app-mgmt/v0/connections
+Authorization: Bearer {token}
 ```
 
 **Response**
 
-```http
+```shell
 HTTP/1.1 200 OK
-Content-Type: application/json
-Date: date-requested
-Content-Length: 9
-Connection: Close
-
-"deleted"
 ```
-
 
 ## <a name="manage_token"></a>Managing tokens
 
