@@ -403,12 +403,12 @@ content-type: application/json
 ```
 
 ```json
-{                       
+{
     "processedTransactions": {
-    "Nui-API" : "Successfully Processed"
+        "Nui-API" : "Successfully Processed"
     },
     "unprocessedTransactions": {
-    "AWS4e-N1QaN-swer-456": "Transaction type not found"
+        "AWS4e-N1QaN-swer-456": "Transaction type not found"
     }
 } 
 ```
