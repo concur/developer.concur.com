@@ -1,5 +1,5 @@
 ---
-title: Travel Request v4 - Request Endpoints
+title: Travel Request v4 - Endpoints
 layout: reference
 ---
 
@@ -43,15 +43,15 @@ If a new or existing project please use version [3.0](./v3.request.html) of this
   * [Segment Leg](#segmentleg)
   * [Segment Type](#segmenttype)
 
+## HTTP Status Codes and Headers
+
+To learn more about request headers and response HTTP status codes and headers for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html) and [Travel Request v4 - Headers](./v4.headers.html).
+
 # <a name="request-resource"></a>Request Resources
 
 ## <a name="request-resource-create"></a>Create a new Request
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -71,25 +71,17 @@ POST /v4/requests
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 [Request](#request) - The created Request
 
+### Example
+
+[Example](./v4.examples.html#request-resource-create)
+
 ## <a name="request-resource-getlist"></a>Get the list of existing Requests
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -112,25 +104,17 @@ None
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 [Request](#request) - The list of Request(s) meeting the values set in the parameters
 
+### Example
+
+[Example](./v4.examples.html#request-resource-get-list)
+
 ## <a name="request-resource-get"></a>Get the content of an existing Request
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -150,25 +134,17 @@ None
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 [Request](#request) - The Request having {requestUuid} as unique identifier
 
+### Example
+
+[Example](./v4.examples.html#request-resource-get)
+
 ## <a name="request-resource-update"></a>Update the content of an existing Request
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -191,25 +167,17 @@ PUT /v4/requests/{requestUuid}
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 [Request](#request) - The Request having {requestUuid} as unique identifier after update
 
+### Example
+
+[Example](./v4.examples.html#request-resource-update)
+
 ## <a name="request-resource-delete"></a>Delete an existing Request
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -230,25 +198,17 @@ None
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 None
 
+### Example
+
+[Example](./v4.examples.html#request-resource-delete)
+
 ## <a name="request-resource-create-expense-linked"></a>Create an Expense Report linked to an approved Request
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -267,17 +227,13 @@ POST /v4/requests/{requestUuid}/reports
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 [ResourceLink](#resourcelink) - The resource link leading to the created report
+
+### Example
+
+[Example](./v4.examples.html#request-resource-create-expense-linked)
 
 # <a name="workflow-resource"></a>Workflow Resources
 
@@ -286,10 +242,6 @@ Manage workflow transitions for a Request document.
 ## <a name="Move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -325,17 +277,13 @@ POST /v4/requests/{requestUuid}/{action}
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 [Request](#request) - The Request having {requestUuid} as unique identifier
+
+### Example
+
+[Example](./v4.examples.html#move-existing-request-in-approval-workflow)
 
 # <a name="expense-resource"></a>Expense Resources
 
@@ -344,10 +292,6 @@ Manage expected expense entries attached to a Request document.
 ## <a name="create-new-expected-expense-resource"></a>Create a new expected expense
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -368,25 +312,17 @@ POST /v4/requests/{requestUuid}/expenses
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 None
 
+### Example
+
+[Example](./v4.examples.html#create-new-expected-expense-resource)
+
 ## <a name="get-expected-expense-attached-request-resource"></a>Get expected Expenses attached to a Request
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -407,27 +343,19 @@ None
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 [Expense](#expense) - List of entries attached to a Request.
 
 operations - [RFC 5988](https://tools.ietf.org/html/rfc5988) Pagination links to next/prev/first/last page.
 
+### Example
+
+[Example](./v4.examples.html#get-expected-expense-attached-request-resource)
+
 ## <a name="get-existing-expense-expense-resource"></a>Get an existing expected Expense
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -447,25 +375,17 @@ None
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 [Expense](#expense) - The Expense having {expenseUuid} as unique identifier
 
+### Example
+
+[Example](./v4.examples.html#get-existing-expense-expense-resource)
+
 ## <a name="update-content-existing-expected-expense-resource"></a>Update the content of an existing expected Expense
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -486,25 +406,17 @@ PUT /v4/expenses/{expenseUuid}
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 [Expense](#expense) - The Expense having {expenseUuid} as unique identifier after update
 
+### Example
+
+[Example](./v4.examples.html#update-content-existing-expected-expense-resource)
+
 ## <a name="delete-expected-expense-request-resource"></a>Delete an expected Expense from the Request
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -525,17 +437,13 @@ None
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 None
+
+### Example
+
+[Example](./v4.examples.html#delete-expected-expense-request-resource)
 
 # <a name="travel-agency-resource"></a>Travel Agency Resources
 
@@ -544,10 +452,6 @@ Manage the configuration for travel agencies integrated with Concur Request.
 ## <a name="get-travel-agency-description-resource"></a>Get the description of a travel agency office
 
 ### Request
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
 
 #### Parameters
 
@@ -567,14 +471,6 @@ None
 
 ### Response
 
-#### Status Codes
-
-See [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-
-#### Headers
-
-See [Travel Request v4 - Headers](./v4.headers.html)
-
 #### Payload
 
 Name|Type|Format|Description
@@ -583,6 +479,10 @@ emailAddress|string|-|The travel agency email address
 id|string|-|The travel agency unique identifier
 name|string|-|The travel agency office name
 proposalType|string|-|The travel agency proposal type. Possible value: `CWT`, `CWTF`, `AEBT` or `API`
+
+### Example
+
+[Example](./v4.examples.html#get-travel-agency-description-resource)
 
 ## <a name="schema"></a>Schema
 

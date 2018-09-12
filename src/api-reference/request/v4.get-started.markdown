@@ -40,11 +40,12 @@ These resources are used to manage documents used for pre-spend authorizations w
 ## <a name="version"></a>Version
 
 * 4.0
-  * [4.0 Endpoints specifications](/api-reference/request/v4.request.html)
-  * [4.0 Endpoints examples](/api-reference/request/v4.examples.html)
-  * [4.0 Endpoint response codes](/api-reference/request/v4.response-codes.html)
-* [3.0](/api-reference/request/v3.request.html)
-* [1.0](/api-reference/request/v1.request.html)
+  * [Travel Request v4 - Endpoints](./v4.endpoints.html)
+  * [Travel Request v4 - Examples](./v4.examples.html)
+  * [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
+  * [Travel Request v4 - Headers](./headers.html)
+* [3.0](./v3.request.html)
+* [1.0](./v1.request.html)
 
 ## <a name="regionalavailability"></a>Regional Availability
 

@@ -7,7 +7,7 @@ layout: reference
 
 If a new or existing project please use version [3.0](./v3.request.html) of this API.
 
-HTTP Status Code|Response Body|Information|Wrong input example
+HTTP Status Code|Response Body|Description|Wrong input example
 ---|---
 200 OK|-|Your GET request succeeded.|-
 201 Created|-|Your POST request succeeded.|-

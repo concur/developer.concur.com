@@ -17,7 +17,7 @@ Below we have sample request data and the corresponding request answers:
   * [Delete an existing Request - DELETE](#request-resource-delete)
   * [Create an expense report linked to an approved Request - POST](#request-resource-create-expense-linked)
 * [Workflow resource](#workflow-resource)
-  * [Move an existing Request in the approval workflow - POST](#Move-existing-request-in-approval-workflow)
+  * [Move an existing Request in the approval workflow - POST](#move-existing-request-in-approval-workflow)
 * [Expense resource](#expense-resource)
   * [Create a new expected expense - POST](#create-new-expected-expense-resource)
   * [Get expected Expenses attached to a Request - GET](#get-expected-expense-attached-request-resource)
@@ -557,7 +557,7 @@ Authorization: Bearer {token}
 
 Manage workflow transitions for a Request document
 
-### <a name="Move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
+### <a name="move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
 
 #### Request
 
