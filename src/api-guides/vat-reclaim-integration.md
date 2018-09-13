@@ -86,11 +86,11 @@ copy and paste the url into a browser session to render the image.  This is a te
 
 ### <a name="obtain-invoice-data-for-vat-reclaim"></a>Obtain Invoice Data for VAT Reclaim
 
-[Payment Request Digests v3 API](/api-reference/invoice/payment-request-digest.html)
-
 There are 3 steps the Partner's app will take to obtain Invoice data (slightly different than the steps for Expense):
 
 1. GET a list of Payment Request Digests.
+
+[Payment Request Digests v3 API](/api-reference/invoice/payment-request-digest.html)
 
 The search parameters should focus on invoices that can no longer be edited in the SAP-Concur User interface. Use the        following search parameters:
 
