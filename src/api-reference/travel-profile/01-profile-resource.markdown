@@ -135,8 +135,8 @@ The General parent element contains the following child elements.
 |  `EReceiptOptIn` |  `boolean` |  Whether the user has opted in to receive e-receipts. Format: **true**\|**false** | |  |
 |  `HasOpenBooking` |  `boolean` |  Whether the user has the TripLink User (formerly Open Booking User) permission. Format: **true**\|**false** | Cannot Update | | |
 |  `CountryCode` |  `string` |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: char(2) | Cannot Update | | |
-|  `CompanyName` |  `string` |  The user's company name. Format: nvarchar(255) | Cannot Update | | |
-|  `CompanyID` | `string` | The user's company ID. Format: varchar(255) | Cannot Update | | Requires Company Details scope. |
+|  `CompanyName` |  `string` |  The user's company name. Format: nvarchar(255) | Cannot Update. | | |
+|  `CompanyID` | `string` | The user's company ID. Format: varchar(255) | Cannot Update. | | Requires Company Details scope. |
 |  `RuleClass` |  `string` |  The user's rule class. Format: nvarchar(60) | | | Must already be setup in the company. |
 |  `TravelConfigID` | `string` | The user's TravelConfig. Format: varchar(255) | | Required | |
 |  `MedicalAlerts` | `string` |  The user's medical alerts. Format: nvarchar(255) | | | Requires Medical Alerts Scope. |

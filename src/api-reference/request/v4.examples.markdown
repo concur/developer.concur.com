@@ -1,9 +1,7 @@
 ---
-title: Examples
+title: Travel Request v4 - Examples
 layout: reference
 ---
-
-# <a name="request-examples">Request APIs Resources Examples
 
 ** Pre-release Version 4.0**
 
@@ -12,50 +10,54 @@ If a new or existing project please use version [3.0](./v3.request.html) of this
 Below we have sample request data and the corresponding request answers:
 
 * [Request resources](#request-resource)
-	* [Create a new Request - POST](#request-resource-create)
-    * [Get the content of an existing request - GET](#request-resource-get)
-    * [Update the content of an existing Request - PUT](#request-resource-update)
-    * [Delete an existing Request - DELETE](#request-resource-delete)
-    * [Create an expense report linked to an approved Request - POST](#request-resource-create-expense-linked)
+  * [Create a new Request - POST](#request-resource-create)
+  * [Get the list of existing Requests - GET](#request-resource-get-list)
+  * [Get the content of an existing Request - GET](#request-resource-get)
+  * [Update the content of an existing Request - PUT](#request-resource-update)
+  * [Delete an existing Request - DELETE](#request-resource-delete)
+  * [Create an expense report linked to an approved Request - POST](#request-resource-create-expense-linked)
 * [Workflow resource](#workflow-resource)
-	* [Move an existing Request in the approval workflow - POST](#Move-existing-request-in-approval-workflow)
+  * [Move an existing Request in the approval workflow - POST](#move-existing-request-in-approval-workflow)
 * [Expense resource](#expense-resource)
-	* [Create a new expected expense - POST](#create-new-expected-expense-resource)
-	* [Get expected Expenses attached to a Request - GET](#get-expected-expense-attached-request-resource)
-	* [Get the content an existing expected Expense - GET](#get-existing-expense-expense-resource)
-	* [Update the content of an existing expected Expense - PUT](#update-content-existing-expected-expense-resource)
+  * [Create a new expected expense - POST](#create-new-expected-expense-resource)
+  * [Get expected Expenses attached to a Request - GET](#get-expected-expense-attached-request-resource)
+  * [Get the content an existing expected Expense - GET](#get-existing-expense-expense-resource)
+  * [Update the content of an existing expected Expense - PUT](#update-content-existing-expected-expense-resource)
   * [Delete an expected Expense from the Request](#delete-expected-expense-request-resource)
 * [Travel Agency resource](#travel-agency-resource)
-	* [Get the description of a travel agency office - GET](#get-travel-agency-description-resource)
+  * [Get the description of a travel agency office - GET](#get-travel-agency-description-resource)
 
-### <a name="request-resource">Request resources</a>
+## <a name="request-resource">Request resources</a>
 
 Manage documents used for pre-spend authorizations within Concur Request
 
-#### <a name="request-resource-create"></a>Create a new Request
-#### POST /v4/requests
+### <a name="request-resource-create"></a>Create a new Request
 
-```
-curl -X POST 'https://us.api.concursolutions.com/travelrequest/v4/requests' --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}' -d
+#### Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
 
-Request Body:
 ```json
 {
   "businessPurpose": "Trip to Lyon for company training",
   "comment": "Company training requires to go to Lyon",
   "custom1": {
     "value": "Training part of IT Service"
-},
-"custom2": {
+  },
+  "custom2": {
     "value": "8422A66A9B0142458020D9BCD4351D38"
-},
+  },
   "custom3": {
     "value": "5A0F9AF6B92E34468698040C915688BF"
-},
+  },
   "custom4": {
     "value": "3F54AE68BA66EF49A5984E5197202A4D"
-}, 
+  },
   "endDate": "2018-07-03",
   "endTime": "22:00",
   "startDate": "2018-07-01",
@@ -66,22 +68,25 @@ Request Body:
     "countryCode": "FR",
     "countrySubDivisionCode": "FR-69",
     "name": "Lyon, FRANCE"
-},
+  },
   "policy": {
     "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
-},
+  },
   "travelAgency": {
     "id": "2EC038D7C3CBBE4ABA0914425064D34F"
-}
+  }
 }
 ```
 
-Response Code: **201**
+#### Response
 
-Responde Body:
+```shell
+201 Created
+```
+
 ```json
 {
-  "href": "https://rqa3-raas.concurasp.com/v4/requests/CED5E9CD8FC1424488F9331ACF956E73",
+  "href": "https://us.api.concursolutions.com/v4/requests/CED5E9CD8FC1424488F9331ACF956E73",
   "id": "CED5E9CD8FC1424488F9331ACF956E73",
   "approvalStatus": {
     "code": "NOT_SUBMITTED",
@@ -99,17 +104,17 @@ Responde Body:
   "custom2": {
     "code": "CEN3",
     "listItemId": "8422A66A9B0142458020D9BCD4351D38",
-    "href": "https://rqa3.api.concurasp.com/list/v1/items/8422A66A9B0142458020D9BCD4351D38"
+    "href": "https://us.api.concursolutions.com/list/v1/items/8422A66A9B0142458020D9BCD4351D38"
   },
   "custom3": {
     "code": "CEN3PRO1",
     "listItemId": "5A0F9AF6B92E34468698040C915688BF",
-    "href": "https://rqa3.api.concurasp.com/list/v1/items/5A0F9AF6B92E34468698040C915688BF"
+    "href": "https://us.api.concursolutions.com/list/v1/items/5A0F9AF6B92E34468698040C915688BF"
   },
   "custom4": {
     "code": "TRAINING",
     "listItemId": "3F54AE68BA66EF49A5984E5197202A4D",
-    "href": "https://rqa3.api.concurasp.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
+    "href": "https://us.api.concursolutions.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
   },
   "endDate": "2018-07-03",
   "endTime": "22:00",
@@ -124,9 +129,9 @@ Responde Body:
   },
   "name": "Company Training - JULY 2018",
   "owner": {
-    "href": "https://rqa3.api.concurasp.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
     "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
-    "template": "https://rqa3.api.concurasp.com/profile/v1/users/{id}"
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
   },
   "pendingApproval": false,
   "policy": {
@@ -148,31 +153,127 @@ Responde Body:
     "currency": "USD"
   },
   "travelAgency": {
-    "href": "https://rqa3-raas.concurasp.com/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
+    "href": "https://us.api.concursolutions.com/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
     "id": "2EC038D7C3CBBE4ABA0914425064D34F",
-    "template": "https://rqa3-raas.concurasp.com/v4/travelagencies/{id}"
+    "template": "https://us.api.concursolutions.com/v4/travelagencies/{id}"
   },
   "operations": [
     {
       "rel": "submit",
-      "href": "https://rqa3-raas.concurasp.com/v4/requests/CED5E9CD8FC1424488F9331ACF956E73/submit{?companyId}"
+      "href": "https://us.api.concursolutions.com/v4/requests/CED5E9CD8FC1424488F9331ACF956E73/submit{?companyId}"
     }
   ]
 }
 ```
 
-#### <a name="request-resource-get"></a>Get the content of an existing Request
-#### GET /v4/requests/{requestUuid}
-```
-curl -X GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2 --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
+### <a name="request-resource-get-list"></a>Get the list of existing Requests
+
+#### Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests?view=ALL&limit=10&start=0
+Accept: application/json
+Authorization: Bearer {token}
 ```
 
-Response Code: **200**
+#### Response
 
-Response Body:
+```shell
+200 OK
+```
+
 ```json
 {
-  "href": "https://rqa3-raas.concurasp.com/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2",
+  "href": "https://us.api.concursolutions.com/v4/requests/2B19A2438CD6664A9C44E0F4D39E870A",
+  "id": "2B19A2438CD6664A9C44E0F4D39E870A",
+  "approvalStatus": {
+    "code": "SENTBACK",
+    "name": "Sent Back to Employee"
+  },
+  "approved": false,
+  "businessPurpose": "PMP Training in Nantes",
+  "canceledPostApproval": false,
+  "closed": false,
+  "comment": "Plane too early in the morning, if possible book Hotel and arrive the day before\n",
+  "creationDate": "2018-09-03T11:53:02.000Z",
+  "endDate": "2018-10-08",
+  "everSentBack": true,
+  "expenses": [],
+  "name": "PMP Training - OCTOBER",
+  "pendingApproval": false,
+  "requestId": "3AT7",
+  "startDate": "2018-10-08",
+  "startTime": "05:00",
+  "submitDate": "2018-09-03T11:55:00.000Z",
+  "totalApprovedAmount": {
+    "value": 213.06,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 213.06,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 213.06,
+    "currency": "USD"
+  }
+},
+{
+  "href": "https://us.api.concursolutions.com/v4/requests/4CCBAE73F3E14346AE93253480F5C409",
+  "id": "4CCBAE73F3E14346AE93253480F5C409",
+  "approvalStatus": {
+    "code": "SUBMITTED",
+    "name": "Submitted & Pending Approval"
+  },
+  "approved": false,
+  "businessPurpose": "Client meeting for project KIWI",
+  "canceledPostApproval": false,
+  "closed": false,
+  "comment": "Need to arrive the day before as meeting is in Company office early in the morning\n",
+  "creationDate": "2018-09-03T11:44:10.000Z",
+  "endDate": "2018-09-20",
+  "everSentBack": false,
+  "expenses": [],
+  "name": "Client meeting in Berlin",
+  "pendingApproval": true,
+  "requestId": "3AT6",
+  "startDate": "2018-09-18",
+  "startTime": "17:30",
+  "submitDate": "2018-09-03T11:49:32.000Z",
+  "totalApprovedAmount": {
+    "value": 478.56,
+    "currency": "USD"
+  },
+  "totalPostedAmount": {
+    "value": 478.56,
+    "currency": "USD"
+  },
+  "totalRemainingAmount": {
+    "value": 478.56,
+    "currency": "USD"
+  }
+}
+```
+
+### <a name="request-resource-get"></a>Get the content of an existing Request
+
+#### Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### Response
+
+```shell
+200 OK
+```
+
+```json
+{
+  "href": "https://us.api.concursolutions.com/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2",
   "id": "224AF3CDCC2A5244A37C72FA5770C6F2",
   "approvalStatus": {
     "code": "NOT_SUBMITTED",
@@ -189,35 +290,35 @@ Response Body:
   },
   "custom2": {
     "code": "CEN1",
-    "listItemId": "54F0CBD8833CB348BD45A6C7C621C951",
-    "href": "https://rqa3.api.concurasp.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
+    "value": "54F0CBD8833CB348BD45A6C7C621C951",
+    "href": "https://us.api.concursolutions.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
   },
   "custom3": {
     "code": "CEN1PRO2",
-    "listItemId": "441D6FC50766A044ACC07FF780F1BAD9",
-    "href": "https://rqa3.api.concurasp.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
+    "value": "441D6FC50766A044ACC07FF780F1BAD9",
+    "href": "https://us.api.concursolutions.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
   },
   "custom4": {
     "code": "CLIENTPROJECT",
-    "listItemId": "050BE16A7BF72948810AFDBC9069BD8E",
-    "href": "https://rqa3.api.concurasp.com/list/v1/items/050BE16A7BF72948810AFDBC9069BD8E"
+    "value": "050BE16A7BF72948810AFDBC9069BD8E",
+    "href": "https://us.api.concursolutions.com/list/v1/items/050BE16A7BF72948810AFDBC9069BD8E"
   },
   "endDate": "2018-07-17",
   "endTime": "19:30",
   "everSentBack": false,
   "expenses": [
     {
-      "href": "https://rqa3-raas.concurasp.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
+      "href": "https://us.api.concursolutions.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
       "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
-      "template": "https://rqa3-raas.concurasp.com/v4/expenses/{id}"
+      "template": "https://us.api.concursolutions.com/v4/expenses/{id}"
     },
     {
-      "href": "https://rqa3-raas.concurasp.com/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0",
+      "href": "https://us.api.concursolutions.comm/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0",
       "id": "D65BDBD5D980F6498D67A92B06A457B0",
-      "template": "https://rqa3-raas.concurasp.com/v4/expenses/{id}"
+      "template": "https://us.api.concursolutions.com/v4/expenses/{id}"
     },
     {
-      "href": "https://rqa3-raas.concurasp.com/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
+      "href": "https://us.api.concursolutions.com/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
       "id": "C286A46A2DDF984EA28E41CEA278667D",
       "template": "https://rqa3-raas.concurasp.com/v4/expenses/{id}"
     }
@@ -231,9 +332,9 @@ Response Body:
   },
   "name": "Client meeting in Berlin - JULY",
   "owner": {
-    "href": "https://rqa3.api.concurasp.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
     "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
-    "template": "https://rqa3.api.concurasp.com/profile/v1/users/{id}"
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
   },
   "pendingApproval": false,
   "policy": {
@@ -255,43 +356,48 @@ Response Body:
     "currency": "USD"
   },
   "travelAgency": {
-    "href": "https://rqa3-raas.concurasp.com/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
+    "href": "https://us.api.concursolutions.com/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
     "id": "2EC038D7C3CBBE4ABA0914425064D34F",
-    "template": "https://rqa3-raas.concurasp.com/v4/travelagencies/{id}"
+    "template": "https://us.api.concursolutions.com/v4/travelagencies/{id}"
   },
   "operations": [
     {
       "rel": "submit",
-      "href": "https://rqa3-raas.concurasp.com/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/submit{?companyId}"
+      "href": "https://us.api.concursolutions.com/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/submit{?companyId}"
     }
   ]
 }
 ```
 
-#### <a name="request-resource-update"></a> Update the content of an existing Request
-#### PUT /v4/requests/{requestUuid}
+### <a name="request-resource-update"></a> Update the content of an existing Request
 
-```
-curl -X PUT https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
+#### Request
+
+```shell
+PUT https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
 
-Request Body:
+#### Response
+
 ```json
 {
   "businessPurpose": "Trip to Lyon for company training - Modification of dates and Cost center + Custom Field",
   "comment": "Company training requires to go to Lyon - Dates and service changed",
   "custom1": {
     "value": "Training part of IT Service"
-},
-"custom2": {
+  },
+  "custom2": {
     "value": "54F0CBD8833CB348BD45A6C7C621C951"
-},
+  },
   "custom3": {
     "value": "441D6FC50766A044ACC07FF780F1BAD9"
-},
+  },
   "custom4": {
     "value": "3F54AE68BA66EF49A5984E5197202A4D"
-}, 
+  },
   "endDate": "2018-07-09",
   "endTime": "19:00",
   "id": "053A479B3C9DD847B02A203C657AE26B",
@@ -303,22 +409,25 @@ Request Body:
     "countryCode": "FR",
     "countrySubDivisionCode": "FR-69",
     "name": "Lyon, FRANCE"
-},
+  },
   "policy": {
     "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
-},
+  },
   "travelAgency": {
     "id": "2EC038D7C3CBBE4ABA0914425064D34F"
-}
+  }
 }
 ```
 
-Response Code : **200**
+#### Response
 
-Response Body:
+```shell
+200 OK
+```
+
 ```json
 {
-  "href": "https://rqa3-raas.concurasp.com/v4/requests/053A479B3C9DD847B02A203C657AE26B",
+  "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B",
   "id": "053A479B3C9DD847B02A203C657AE26B",
   "approvalStatus": {
     "code": "NOT_SUBMITTED",
@@ -336,17 +445,17 @@ Response Body:
   "custom2": {
     "code": "CEN1",
     "listItemId": "54F0CBD8833CB348BD45A6C7C621C951",
-    "href": "https://rqa3.api.concurasp.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
+    "href": "https://us.api.concursolutions.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
   },
   "custom3": {
     "code": "CEN1PRO2",
     "listItemId": "441D6FC50766A044ACC07FF780F1BAD9",
-    "href": "https://rqa3.api.concurasp.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
+    "href": "https://us.api.concursolutions.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
   },
   "custom4": {
     "code": "TRAINING",
     "listItemId": "3F54AE68BA66EF49A5984E5197202A4D",
-    "href": "https://rqa3.api.concurasp.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
+    "href": "https://us.api.concursolutions.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
   },
   "endDate": "2018-07-09",
   "endTime": "19:00",
@@ -361,9 +470,9 @@ Response Body:
   },
   "name": "Company Training - JULY 2018",
   "owner": {
-    "href": "https://rqa3.api.concurasp.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
     "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
-    "template": "https://rqa3.api.concurasp.com/profile/v1/users/{id}"
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
   },
   "pendingApproval": false,
   "policy": {
@@ -385,68 +494,89 @@ Response Body:
     "currency": "USD"
   },
   "travelAgency": {
-    "href": "https://rqa3-raas.concurasp.com/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
+    "href": "https://us.api.concursolutions.com/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
     "id": "2EC038D7C3CBBE4ABA0914425064D34F",
-    "template": "https://rqa3-raas.concurasp.com/v4/travelagencies/{id}"
+    "template": "https://us.api.concursolutions.com/v4/travelagencies/{id}"
   },
   "operations": [
     {
       "rel": "submit",
-      "href": "https://rqa3-raas.concurasp.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit{?companyId}"
+      "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit{?companyId}"
     }
   ]
 }
 ```
 
-#### <a name="request-resource-delete"></a>Delete an existing Request
-#### DELETE /v4/requests/{requestUuid}
 
-```
-curl -X DELETE https://us.api.concursolutions.com/travelrequest/v4/requests/0D4DC4589D33AC4B9AF2E8B548C7AD2C --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
+### <a name="request-resource-delete"></a>Delete an existing Request
+
+#### Request
+
+```shell
+DELETE https://us.api.concursolutions.com/travelrequest/v4/requests/0D4DC4589D33AC4B9AF2E8B548C7AD2C
+Accept: application/json
+Authorization: Bearer {token}
 ```
 
-Response Body:
+#### Response
+
+```shell
+200 OK
+```
+
 ```json
 true
 ```
 
-Response Code : **200**
+### <a name="request-resource-create-expense-linked"></a>Create an expense report linked to an approved Request
 
+#### Request
 
-#### <a name="request-resource-create-expense-linked"></a>Create an expense report linked to an approved Request
-#### POST /v4/requests/{requestUuid}/reports
-
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests/19148EE9411DF9459F6AEBBCA53BD646/reports
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/requests/19148EE9411DF9459F6AEBBCA53BD646/reports'
+
+#### Response
+
+```shell
+201 Created
 ```
 
-Response Body:
 ```json
 {
-  "href": "https://rqa3.api.concurasp.com/expensereports/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/reports/C5EDBE0E507C46FFB132",
+  "href": "https://us.api.concursolutions.com/expensereports/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/reports/C5EDBE0E507C46FFB132",
   "id": "C5EDBE0E507C46FFB132",
-  "template": "https://rqa3.api.concurasp.com/expensereports/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/reports/{id}"
+  "template": "https://us.api.concursolutions.com/expensereports/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/reports/{id}"
 }
 ```
 
-Response Code : **201**
-
-
-### <a name="workflow-resource">Workflow resources</a>
+## <a name="workflow-resource">Workflow resources</a>
 
 Manage workflow transitions for a Request document
 
-#### <a name="Move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
-#### POST /v4/requests/{requestUuid}/{action}
+### <a name="move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
 
-```
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit'
+#### Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
 
-Response Body:
+#### Response
+
+```shell
+200 OK
+```
+
 ```json
 {
-  "href": "https://rqa3-raas.concurasp.com/v4/requests/053A479B3C9DD847B02A203C657AE26B",
+  "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B",
   "id": "053A479B3C9DD847B02A203C657AE26B",
   "approvalStatus": {
     "code": "SUBMITTED",
@@ -463,26 +593,26 @@ Response Body:
   "custom2": {
     "code": "CEN1",
     "listItemId": "54F0CBD8833CB348BD45A6C7C621C951",
-    "href": "https://rqa3.api.concurasp.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
+    "href": "https://us.api.concursolutions.com/list/v1/items/54F0CBD8833CB348BD45A6C7C621C951"
   },
   "custom3": {
     "code": "CEN1PRO2",
     "listItemId": "441D6FC50766A044ACC07FF780F1BAD9",
-    "href": "https://rqa3.api.concurasp.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
+    "href": "https://us.api.concursolutions.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
   },
   "custom4": {
     "code": "TRAINING",
     "listItemId": "3F54AE68BA66EF49A5984E5197202A4D",
-    "href": "https://rqa3.api.concurasp.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
+    "href": "https://us.api.concursolutions.com/list/v1/items/3F54AE68BA66EF49A5984E5197202A4D"
   },
   "endDate": "2018-07-09",
   "endTime": "19:00",
   "everSentBack": false,
   "expenses": [
     {
-      "href": "https://rqa3-raas.concurasp.com/v4/expenses/47C8AD9E382B5143BB54DC3090577C60",
+      "href": "https://us.api.concursolutions.com/v4/expenses/47C8AD9E382B5143BB54DC3090577C60",
       "id": "47C8AD9E382B5143BB54DC3090577C60",
-      "template": "https://rqa3-raas.concurasp.com/v4/expenses/{id}"
+      "template": "https://us.api.concursolutions.com/v4/expenses/{id}"
     }
   ],
   "lastModified": "2018-05-25T09:38:02.000Z",
@@ -494,9 +624,9 @@ Response Body:
   },
   "name": "Company Training - JULY 2018",
   "owner": {
-    "href": "https://rqa3.api.concurasp.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
+    "href": "https://us.api.concursolutions.com/profile/v1/users/c0d9894b-98e2-48d5-86f9-1decde90dd15",
     "id": "c0d9894b-98e2-48d5-86f9-1decde90dd15",
-    "template": "https://rqa3.api.concurasp.com/profile/v1/users/{id}"
+    "template": "https://us.api.concursolutions.com/profile/v1/users/{id}"
   },
   "pendingApproval": true,
   "policy": {
@@ -519,67 +649,68 @@ Response Body:
     "currency": "USD"
   },
   "travelAgency": {
-    "href": "https://rqa3-raas.concurasp.com/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
+    "href": "https://us.api.concursolutions.com/v4/travelagencies/2EC038D7C3CBBE4ABA0914425064D34F",
     "id": "2EC038D7C3CBBE4ABA0914425064D34F",
-    "template": "https://rqa3-raas.concurasp.com/v4/travelagencies/{id}"
+    "template": "https://us.api.concursolutions.com/v4/travelagencies/{id}"
   },
   "operations": [
     {
       "rel": "recall",
-      "href": "https://rqa3-raas.concurasp.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/recall{?companyId}"
+      "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/recall{?companyId}"
     },
     {
       "rel": "cancel",
-      "href": "https://rqa3-raas.concurasp.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/cancel{?companyId}"
+      "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/cancel{?companyId}"
     }
   ]
 }
 ```
 
-Response code : **200**
-
-
-### <a name="expense-resource">Expense resources</a>
+## <a name="expense-resource">Expense resources</a>
 
 Manage expected Expense entries attached to a Request document
 
-#### <a name="create-new-expected-expense-resource"></a>Create a new expected expense
-#### POST /v4/requests/{requestUuid}/expenses
+### <a name="create-new-expected-expense-resource"></a>Create a new expected expense
 
+#### Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X POST https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
-```
-Expense Body:
+
 ```json
 {
   "allocations": [
-   {
-    "allocationAmount": {
-    "currency": "USD",
-    "value": 122.38
-    },
-    "approvedAmount": {
-    "currency": "USD",
-    "value": 122.38
-    },
-    "percentEdited": false,
-    "percentage": 0,
-    "postedAmount": {
-      "currency": "USD",
-      "value": 122.38
+    {
+      "allocationAmount": {
+        "currency": "USD",
+        "value": 122.38
       },
-    "systemAllocation": false
-      }
-],
+      "approvedAmount": {
+        "currency": "USD",
+        "value": 122.38
+      },
+      "percentEdited": false,
+      "percentage": 0,
+      "postedAmount": {
+        "currency": "USD",
+        "value": 122.38
+      },
+      "systemAllocation": false
+    }
+  ],
   "approvedAmount": {
     "currency": "USD",
     "value": 122.38
-},
+  },
   "businessPurpose": "additional punctual trip to South of France",
   "exchangeRate": {
-  "operation": "MULTIPLY",
-  "value": 1
-},
+    "operation": "MULTIPLY",
+    "value": 1
+  },
   "expenseType": {
     "id": "RAILF",
     "name": "Train"
@@ -641,10 +772,16 @@ Expense Body:
   }
 }
 ```
-Response Body:
+
+#### Response
+
+```shell
+201 Created
+```
+
 ```json
 {
-  "href": "https://rqa3-raas.concurasp.com/v4/expenses/0465224E14C23D4F8C2BC79A9D694BDD",
+  "href": "https://us.api.concursolutions.com/v4/expenses/0465224E14C23D4F8C2BC79A9D694BDD",
   "id": "0465224E14C23D4F8C2BC79A9D694BDD",
   "allocations": [
     {
@@ -678,7 +815,7 @@ Response Body:
   "expenseType": {
     "id": "TRAIN",
     "name": "Train",
-    "href": "https://rqa3.api.concurasp.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/TRAIN"
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/TRAIN"
   },
   "postedAmount": {
     "value": 122.38,
@@ -732,20 +869,26 @@ Response Body:
 }
 ```
 
-Response code : **201**
+### <a name="get-expected-expense-attached-request-resource"></a>Get expected Expenses attached to a Request
 
+#### Request
 
-#### <a name="get-expected-expense-attached-request-resource"></a>Get expected Expenses attached to a Request
-#### GET /v4/requests/{requestUuid}/expenses
-
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses'
+
+#### Response
+
+```shell
+200 OK
 ```
-Response Body:
+
 ```json
 [
   {
-    "href": "https://rqa3-raas.concurasp.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
+    "href": "https://us.api.concursolutions.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
     "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
     "allocations": [
       {
@@ -779,7 +922,7 @@ Response Body:
     "expenseType": {
       "id": "AIRFR",
       "name": "Airfare",
-      "href": "https://rqa3.api.concurasp.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
+      "href": "https://us.api.concursolutions.comm/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
     },
     "postedAmount": {
       "value": 324.56,
@@ -855,7 +998,7 @@ Response Body:
     }
   },
   {
-    "href": "https://rqa3-raas.concurasp.com/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0",
+    "href": "https://us.api.concursolutions.com/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0",
     "id": "D65BDBD5D980F6498D67A92B06A457B0",
     "allocations": [
       {
@@ -890,7 +1033,7 @@ Response Body:
     "expenseType": {
       "id": "TAXIX",
       "name": "Taxi",
-      "href": "https://rqa3.api.concurasp.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/TAXIX"
+      "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/TAXIX"
     },
     "postedAmount": {
       "value": 90,
@@ -907,7 +1050,7 @@ Response Body:
     "transactionDate": "2018-07-17T00:00:00.000Z"
   },
   {
-    "href": "https://rqa3-raas.concurasp.com/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
+    "href": "https://us.api.concursolutions.com/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
     "id": "C286A46A2DDF984EA28E41CEA278667D",
     "allocations": [
       {
@@ -942,7 +1085,7 @@ Response Body:
     "expenseType": {
       "id": "DINNR",
       "name": "Dinner",
-      "href": "https://rqa3.api.concurasp.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/DINNR"
+      "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/DINNR"
     },
     "postedAmount": {
       "value": 80,
@@ -961,21 +1104,25 @@ Response Body:
 ]
 ```
 
-Response code : **200**
+### <a name="get-existing-expense-expense-resource"></a>Get the content of an existing expected Expense
 
+#### Request
 
-#### <a name="get-existing-expense-expense-resource"></a>Get the content of an existing expected Expense
-#### GET /v4/expenses/{expenseUuid}
-
-##### Segment AIRFARE
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1'
+
+#### Response
+
+```shell
+200 OK
 ```
 
-Response Body:
 ```json
 {
-  "href": "https://rqa3-raas.concurasp.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
+  "href": "https://us.api.concursolutions.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
   "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
   "allocations": [
     {
@@ -1009,7 +1156,7 @@ Response Body:
   "expenseType": {
     "id": "AIRFR",
     "name": "Airfare",
-    "href": "https://rqa3.api.concurasp.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
   },
   "postedAmount": {
     "value": 324.56,
@@ -1086,18 +1233,21 @@ Response Body:
 }
 ```
 
-Response code : **200**
-
-
-##### Expense Type DINNER
-```
-curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/expenses/C286A46A2DDF984EA28E41CEA278667D'
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/expenses/C286A46A2DDF984EA28E41CEA278667D
+Accept: application/json
+Authorization: Bearer {token}
 ```
 
-Response Body:
+#### Response
+
+```shell
+200 OK
+```
+
 ```json
 {
-  "href": "https://rqa3-raas.concurasp.com/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
+  "href": "https://us.api.concursolutions.com/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
   "id": "C286A46A2DDF984EA28E41CEA278667D",
   "allocations": [
     {
@@ -1132,7 +1282,7 @@ Response Body:
   "expenseType": {
     "id": "DINNR",
     "name": "Dinner",
-    "href": "https://rqa3.api.concurasp.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/DINNR"
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/DINNR"
   },
   "postedAmount": {
     "value": 80,
@@ -1150,16 +1300,17 @@ Response Body:
 }
 ```
 
-Response code : **200**
+### <a name="update-content-existing-expected-expense-resource"></a>Update the content of an existing expected Expense
 
+#### Request
 
-#### <a name="update-content-existing-expected-expense-resource"></a>Update the content of an existing expected Expense
-#### PUT /v4/expenses/{expenseUuid}
-
+```shell
+PUT https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X PUT https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1 --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
-```
-Expense Body:
+
 ```json
 {
   "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
@@ -1195,120 +1346,7 @@ Expense Body:
   "expenseType": {
     "id": "AIRFR",
     "name": "Airfare",
-    "href": "https://rqa3.api.concurasp.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
-  },
-  "postedAmount": {
-    "value": 432.45,
-    "currency": "USD"
-  },
-  "remainingAmount": {
-    "value": 432.45,
-    "currency": "USD"
-  },
-  "transactionAmount": {
-    "value": 432.45,
-    "currency": "USD"
-  },
-  "transactionDate": "2018-07-16T00:00:00.000Z",
-  "tripData": {
-    "agencyBooked": true,
-    "selfBooked": false,
-    "tripType": "ROUND_TRIP",
-    "legs": [
-      {
-        "endLocation": {
-          "id": "4A33695120254EEC9261B24993DD413B",
-          "countryCode": "DE",
-          "countrySubDivisionCode": "DE-BE",
-          "city": "Berlin",
-          "iataCode": "BER",
-          "name": "Berlin(Alls)",
-          "lnKey": 86727
-        },
-        "id": "B0F356643B38BC419AFE60E050BB79A4",
-        "returnLeg": false,
-        "startDate": "2018-07-16",
-        "startLocation": {
-          "id": "A168CDBA58AE42868961BC00278A91B3",
-          "countryCode": "FR",
-          "countrySubDivisionCode": "FR-75",
-          "city": "Paris",
-          "iataCode": "CDG",
-          "name": "Charles De Gaulle Intl",
-          "lnKey": 83745
-        },
-        "startTime": "07:00"
-      },
-      {
-        "endLocation": {
-          "id": "A168CDBA58AE42868961BC00278A91B3",
-          "countryCode": "FR",
-          "countrySubDivisionCode": "FR-75",
-          "city": "Paris",
-          "iataCode": "CDG",
-          "name": "Charles De Gaulle Intl",
-          "lnKey": 83745
-        },
-        "id": "345475D42A53D948A6D60181759683E8",
-        "returnLeg": true,
-        "startDate": "2018-07-18",
-        "startLocation": {
-          "id": "4A33695120254EEC9261B24993DD413B",
-          "countryCode": "DE",
-          "countrySubDivisionCode": "DE-BE",
-          "city": "Berlin",
-          "iataCode": "BER",
-          "name": "Berlin(Alls)",
-          "lnKey": 86727
-        },
-        "startTime": "18:00"
-      }
-    ],
-    "segmentType": {
-      "category": "REQ_SEG_AIRFR",
-      "code": "AIRFR"
-    }
-  }
-}
-```
-Response Body:
-```json
-{
-  "href": "https://rqa3-raas.concurasp.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
-  "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
-  "allocations": [
-    {
-      "allocationAmount": {
-        "value": 432.45,
-        "currency": "USD"
-      },
-      "approvedAmount": {
-        "value": 432.45,
-        "currency": "USD"
-      },
-      "allocationId": "79249903DC18464AAAD61062EA383BD4",
-      "postedAmount": {
-        "value": 432.45,
-        "currency": "USD"
-      },
-      "expenseId": "B5FB8991E390474E875D6FD5BB1FDAF1",
-      "percentEdited": false,
-      "systemAllocation": true,
-      "percentage": 100
-    }
-  ],
-  "approvedAmount": {
-    "value": 432.45,
-    "currency": "USD"
-  },
-  "exchangeRate": {
-    "value": 1,
-    "operation": "MULTIPLY"
-  },
-  "expenseType": {
-    "id": "AIRFR",
-    "name": "Airfare",
-    "href": "https://rqa3.api.concurasp.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
   },
   "postedAmount": {
     "value": 432.45,
@@ -1385,38 +1423,165 @@ Response Body:
 }
 ```
 
-Response code : **200**
+#### Response
 
-
-#### <a name="delete-expected-expense-request-resource"></a>Delete an expected Expense from the Request
-#### DELETE /v4/expenses/{expenseUuid}
-
-```
-curl -X DELETE --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0'
+```shell
+200 OK
 ```
 
-Response Body:
+```json
+{
+  "href": "https://us.api.concursolutions.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
+  "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
+  "allocations": [
+    {
+      "allocationAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "approvedAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "allocationId": "79249903DC18464AAAD61062EA383BD4",
+      "postedAmount": {
+        "value": 432.45,
+        "currency": "USD"
+      },
+      "expenseId": "B5FB8991E390474E875D6FD5BB1FDAF1",
+      "percentEdited": false,
+      "systemAllocation": true,
+      "percentage": 100
+    }
+  ],
+  "approvedAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "exchangeRate": {
+    "value": 1,
+    "operation": "MULTIPLY"
+  },
+  "expenseType": {
+    "id": "AIRFR",
+    "name": "Airfare",
+    "href": "https://us.api.concursolutions.com/expenseconfig/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/expensetypes/AIRFR"
+  },
+  "postedAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "remainingAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "transactionAmount": {
+    "value": 432.45,
+    "currency": "USD"
+  },
+  "transactionDate": "2018-07-16T00:00:00.000Z",
+  "tripData": {
+    "agencyBooked": true,
+    "selfBooked": false,
+    "tripType": "ROUND_TRIP",
+    "legs": [
+      {
+        "endLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)",
+          "lnKey": 86727
+        },
+        "id": "B0F356643B38BC419AFE60E050BB79A4",
+        "returnLeg": false,
+        "startDate": "2018-07-16",
+        "startLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl",
+          "lnKey": 83745
+        },
+        "startTime": "07:00"
+      },
+      {
+        "endLocation": {
+          "id": "A168CDBA58AE42868961BC00278A91B3",
+          "countryCode": "FR",
+          "countrySubDivisionCode": "FR-75",
+          "city": "Paris",
+          "iataCode": "CDG",
+          "name": "Charles De Gaulle Intl",
+          "lnKey": 83745
+        },
+        "id": "345475D42A53D948A6D60181759683E8",
+        "returnLeg": true,
+        "startDate": "2018-07-18",
+        "startLocation": {
+          "id": "4A33695120254EEC9261B24993DD413B",
+          "countryCode": "DE",
+          "countrySubDivisionCode": "DE-BE",
+          "city": "Berlin",
+          "iataCode": "BER",
+          "name": "Berlin(Alls)",
+          "lnKey": 86727
+        },
+        "startTime": "18:00"
+      }
+    ],
+    "segmentType": {
+      "category": "REQ_SEG_AIRFR",
+      "code": "AIRFR"
+    }
+  }
+}
+```
+
+### <a name="delete-expected-expense-request-resource"></a>Delete an expected Expense from the Request
+
+#### Request
+
+```shell
+DELETE https://us.api.concursolutions.com/travelrequest/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+#### Response
+
+```shell
+200 OK
+```
+
 ```json
 true
 ```
 
-Response Code : **200**
-
-
-<a name="travel-agency-resource"></a>
-
-### Travel Agency resource
+## <a name="travel-agency-resource"></a>Travel Agency resource
 
 Manage the configuration for travel agencies integrated with Concur Request
 
-#### <a name="get-travel-agency-description-resource"></a>Get the description of a travel agency office
-#### GET /v4/travelagencies/{agencyUuid}
+### <a name="get-travel-agency-description-resource"></a>Get the description of a travel agency office
 
-```
-curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B'
+#### Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B
+Accept: application/json
+Authorization: Bearer {token}
 ```
 
-Response Body:
+#### Response
+
+```shell
+200 OK
+```
+
 ```json
 {
   "href": "https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B",
@@ -1425,5 +1590,3 @@ Response Body:
   "name": "myCompanyAgency"
 }
 ```
-
-Response Code : **200**
