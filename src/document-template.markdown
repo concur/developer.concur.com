@@ -3,7 +3,7 @@ title: Service Name
 layout: reference
 ---
 
-[Terms of Use](./Terms-of-Use.markdown)
+[Terms of Use](./Terms-of-Use.html)
 
 Description
 

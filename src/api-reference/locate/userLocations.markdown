@@ -7,6 +7,7 @@ layout: reference
 
 * [Overview](#overview)
 * [Prerequisites](#prerequisites)
+* [Service Details](#serviceDetails)
 * [Regional Availability](#regionalAvailability)
 * [Schema](#schema)
   * [Client](#client)
@@ -31,6 +32,22 @@ This API supports POST only.
 2. Obtain your [Source partner](#sourcePartner) information. This will be provided along with your application credentials.
 3. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
 This API supports [Client Credentials Grant](/api-reference/authentication/apidoc.html#client_credentials) only. Your sandbox will be configured to accept posts from your application.
+
+## Service Details
+ The service is a POST call adhering to the following steps:
+ 
+* Vendor onboarding has been completed prior to invoking the API. All the authentication and authorization credentials have been set up at this point.
+* Third party vendors invoke the User Location API using the client credentials (JWT)
+* Since the new service is registered with API gateway, the call is intercepted by the API Gateway and basic authentication and authorization for the given client credentials (JWT) is done
+* If the checks fail, then the appropriate error response is returned to the caller.
+* If the checks pass, then the request is forwarded to the load balancer which routes the request to the appropriate node for processing
+* The selected node processes the request which is in JSON format. Validations are performed the data conversion takes place. If any of the validations fail, then the appropriate error response is returned to the client (HTTP 400 Bad Request / HTTP 403 Unauthorized)
+* If the validations pass, then the request is processed, and the data is persisted to the backend (DB) in the following ways:
+    * Direct persistence
+    * Persistence via queues
+* If the persistence is successful, then an HTTP 200 OK is returned to the caller
+* If there are any issues with the persistence, then the appropriate codes are returned to the caller (HTTP 500 Application exception)
+* Note that the error messages are intentionally ambiguous to prevent exploitation
 
 ## Regional Availability
 
@@ -70,7 +87,7 @@ secondSubLevel|36|String|This is the sub level of the child corporation (firstsu
 
 ### Users
 
-This information will be used to match or create a new user. Either login ID or email address must be provided. If an existing user is not found for the login ID or email, one will be created.                            
+This information will be used to match or create a new user. Either login ID or email address must be provided. If an existing user is not found for the login ID or email, one will be created. The mobile field must unique for a particular user i.e it must not be shared between different users. If mobile number is not provided then the email will be used to create or update the user.                 
 
 Property Name|Values/Length|Type|Description
 ---|---|---|---
@@ -79,7 +96,7 @@ firstName|100|String|-
 lastName|100|String|-
 email|255|String|Either email or concurLoginId must be provided
 employeeId|19|String|-
-mobileCountryCode|3|String|-
+mobileCountryCode|3|String|ISO Alpha-2 code. As a reference the full set can be found at [Country Codes](http://www.mcc-mnc.com/) 
 mobile|10|String|-
 optedIn|'True' / 'False'|String|-
 concurLoginId|128|String|Either email or concurLoginId must be provided.
@@ -155,6 +172,15 @@ error codes.
 
 ## Example
 
+
+### Mobile and Mobile Country Code valid combinations
+Example with Country code for South Africa (Country Code:ZA)
+Country Code|Mobile Number
+---|---
+Empty|7160986233
+US|2125553423
+ZA|716098992
+
 ### Request
 
 ```shell
@@ -168,52 +194,199 @@ Authorization: Bearer {token}
 {
   "userLocations": [
     {
-      "client": {
-        "id": "CTG",
-        "firstSubLevel": "Test_SL1_Demo",
-        "secondSubLevel": "Test_SL2_Demo"
-      },
-      "users": [
-        {
-          "userId": 0,
-          "firstName": "Test",
-          "lastName": "User",
-          "email": "clientOneXML@tuser.com",
-          "employeeId": "Cli123",
-          "mobileCountryCode": "string",
-          "mobile": "442345623456",
-          "optedIn": true,
-          "concurLoginId": "",
-          "affiliation": "Student"
-        }
-      ],
       "locations": [
         {
-          "locationId": 0,
-          "locationAddress": "Off Fox Street, Landstown AZ 45456",
-          "locationName": "Youth Hostel",
-          "locationDescription": "Travel Stuff",
-          "locationLatitude": "57.2019",
-          "locationLongitude": "-3.19778",
-          "locationIataCode": "",
-          "startDate": "2017-11-02T12:07",
-          "endDate": "2017-11-02T12:07",
-          "timezoneId": "Europe/London",
-          "locationPhone": "string",
+          "locationId": 1,
+          "locationName": "Reunion",
+          "timezoneId": "",
+          "startDate": "2019-08-23T12:00:00",
           "visitorId": [
-            0
-          ]
+            1596
+          ],
+          "locationDescription": "",
+          "locationIataCode": "",
+          "locationLongitude": 55.536384,
+          "locationLatitude": -21.115141,
+          "locationPhone": "",
+          "locationAddress": "",
+          "endDate": "2019-08-25T11:59:00"
         }
       ],
       "sourcePartner": {
+        "description": "The Leader in Travel, Study Abroad and International Student Management Solutions.",
         "id": "TD",
-        "name": "Terra Dotta",
-        "description": "Universities stuff"
+        "name": "Terra Dotta"
       },
       "transaction": {
-        "transactionId": "Nui-API",
-        "createdDate": "2017-11-02T12:05",
+        "transactionId": "AWQ1WB7pQAn-v2Nzwu65_AWQ1WXPvQAn-v2Nzwu66",
+        "createdDate": "2019-08-03T14:46:24",
         "transactionType": "Add"
+      },
+      "users": [
+        {
+          "employeeId": "",
+          "lastName": "Yaima",
+          "concurLoginId": "",
+          "optedIn": true,
+          "userId": 1596,
+          "affiliation": "",
+          "firstName": "Arnold",
+          "mobileCountryCode": "",
+          "email": "yaima@aktiun.com",
+          "mobile": "+593984273029"
+        }
+      ],
+      "client": {
+        "secondSubLevel": "",
+        "firstSubLevel": "",
+        "id": "UL_CLI"
+      }
+    },
+    {
+      "locations": [
+        {
+          "locationId": 2,
+          "locationName": "Seville Spain",
+          "timezoneId": "",
+          "startDate": "2019-08-23T12:00:00",
+          "visitorId": [
+            1932
+          ],
+          "locationDescription": "",
+          "locationIataCode": "",
+          "locationLongitude": -5.9844589,
+          "locationLatitude": 37.3890924,
+          "locationPhone": "",
+          "locationAddress": "",
+          "endDate": "2019-08-31T11:59:00"
+        }
+      ],
+      "sourcePartner": {
+        "description": "The Leader in Travel, Study Abroad and International Student Management Solutions.",
+        "id": "TD",
+        "name": "Terra Dotta"
+      },
+      "transaction": {
+        "transactionId": "AWNBBsCkQAn-v2NzwrIl_AWNBC-ugQAn-v2NzwrIz",
+        "createdDate": "2019-08-03T14:46:24",
+        "transactionType": "Add"
+      },
+      "users": [
+        {
+          "employeeId": "",
+          "lastName": "Bending",
+          "concurLoginId": "",
+          "optedIn": true,
+          "userId": 1932,
+          "affiliation": "",
+          "firstName": "Bender1",
+          "mobileCountryCode": "US",
+          "email": "pedro@aktiun.com",
+          "mobile": "9196085936"
+        }
+      ],
+      "client": {
+        "secondSubLevel": "",
+        "firstSubLevel": "",
+        "id": "UL_CLI"
+      }
+    },
+    {
+      "locations": [
+        {
+          "locationId": 1,
+          "locationName": "Reunion",
+          "timezoneId": "",
+          "startDate": "2019-08-23T12:00:00",
+          "visitorId": [
+            1805
+          ],
+          "locationDescription": "",
+          "locationIataCode": "",
+          "locationLongitude": 55.536384,
+          "locationLatitude": -21.115141,
+          "locationPhone": "",
+          "locationAddress": "",
+          "endDate": "2019-08-25T11:59:00"
+        }
+      ],
+      "sourcePartner": {
+        "description": "The Leader in Travel, Study Abroad and International Student Management Solutions.",
+        "id": "TD",
+        "name": "Terra Dotta"
+      },
+      "transaction": {
+        "transactionId": "AWQ1gANVQAn-v2Nzwu8D_AWQ1gANcQAn-v2Nzwu8E",
+        "createdDate": "2019-08-03T14:46:24",
+        "transactionType": "Add"
+      },
+      "users": [
+        {
+          "employeeId": "",
+          "lastName": "Martinez",
+          "concurLoginId": "",
+          "optedIn": true,
+          "userId": 1805,
+          "affiliation": "",
+          "firstName": "Pedro",
+          "mobileCountryCode": "",
+          "email": "pedro@aktiun.com",
+          "mobile": "+593996016829"
+        }
+      ],
+      "client": {
+        "secondSubLevel": "",
+        "firstSubLevel": "",
+        "id": "UL_CLI"
+      }
+    },
+    {
+      "locations": [
+        {
+          "locationId": 3,
+          "locationName": "Poland",
+          "timezoneId": "",
+          "startDate": "2019-08-20T12:00:00",
+          "visitorId": [
+            1596
+          ],
+          "locationDescription": "",
+          "locationIataCode": "",
+          "locationLongitude": 19.145136,
+          "locationLatitude": 51.919438,
+          "locationPhone": "",
+          "locationAddress": "",
+          "endDate": "2019-08-22T11:59:00"
+        }
+      ],
+      "sourcePartner": {
+        "description": "The Leader in Travel, Study Abroad and International Student Management Solutions.",
+        "id": "TD",
+        "name": "Terra Dotta"
+      },
+      "transaction": {
+        "transactionId": "AWS4e-N1QAn-v2NzwxEu_AWS4e-0PQAn-v2NzwxEv",
+        "createdDate": "2019-08-03T14:46:24",
+        "transactionType": "Add"
+      },
+      "users": [
+        {
+          "employeeId": "",
+          "lastName": "Yaima",
+          "concurLoginId": "",
+          "optedIn": true,
+          "userId": 1596,
+          "affiliation": "",
+          "firstName": "Arnold",
+          "mobileCountryCode": "",
+          "email": "yaima@aktiun.com",
+          "mobile": "+593984273029"
+        }
+      ],
+      "client": {
+        "secondSubLevel": "",
+        "firstSubLevel": "",
+        "id": "UL_CLI"
       }
     }
   ]
@@ -231,6 +404,11 @@ content-type: application/json
 
 ```json
 {
-  "messageText": "OK"
-}
+    "processedTransactions": {
+        "Nui-API" : "Successfully Processed"
+    },
+    "unprocessedTransactions": {
+        "AWS4e-N1QaN-swer-456": "Transaction type not found"
+    }
+} 
 ```
