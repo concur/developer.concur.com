@@ -37,11 +37,14 @@ Code|Message|Response Body|Information|Wrong input example
 400|Bad Request|`reportTemplateNotFound` failed to retrieve report template|The multi leg support is not allowed for the entity|
 400|Bad Request|`unsupportedParam` the request has unsupported parameter(s)|Some parameter(s) of the request are not supported|
 400|Bad Request|`missingRequiredParam`the request is missing required parameter(s)|The request is missing some required parameter(s)|
+400|Bad Request|`companyNotFound`The company for this request has not been found|The company for this request has not been found|
 401|Unauthorized|`invalidUser` the request's user is invalid|invalid or non existent authorization HTTP header|
 403|Forbidden|`permissionDenied` permission denied|User approving his own request, or without approver/processor role|
 403|Forbidden|`requestStatusNotApproved` the request is not approved or canceled after approval||
 403|Forbidden|`userIsNotAllowed` User is not allowed to access this resource||
 403|Forbidden|`requestStartDateInTheFuture` report cannot be create from an approved request before request start||
+403|Forbidden|`publicApiNotAllowed` Entity is not allowed to access this resource||
+403|Forbidden|`publicApiNotAllowed` This resource is not public||
 404|Not Found|`notFound` resource not found|You tried to get a non-existing request|GET /v4/requests/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 408|Request Timeout|`timeOut` timeout has occurred||
 500|Internal Server Error|`timeOut` timeout has occburred||

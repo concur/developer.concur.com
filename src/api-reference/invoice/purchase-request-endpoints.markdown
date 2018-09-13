@@ -36,69 +36,67 @@ Create a Purchase Request based on provided header and line item details. If the
 - Example  Input <br>
   **Note:** This is just a sample set of fields. The fields and values needing to be passed for your entity will vary based on your edition of concur and your forms and fields setup, but should include most of these common fields.
 
-  Curl Data:
-  ```shell
-  curl -X POST \
-    https://us.api.concursolutions.com/purchaserequest/v1/purchaserequests \
-    -H 'Authorization: Bearer <ACTUAL JWT COMES HERE>' \
-    -H 'Cache-Control: no-cache' \
-    -H 'Content-Type: application/json' \
-    -H 'Postman-Token: 0909a0b2-8605-4f88-9322-dff258429fe3' \
-    -d '{
-      "description" : "New office supplies",
-      "userLoginId" : "john.deo@concur",
-      "policyExternalId" : "po-external-id",
-      "currencyCode" : "USD",
-      "notesToSupplier" : "Office space request phase 1",
-      "comments" : "office supplies request",
-      "custom1" : "ADVT",
+```shell
+POST https://us.api.concursolutions.com/purchaserequest/v1/purchaserequests
+Authorization: Bearer {token}
+Content-Type: application/json
+```
 
-      "lineItems" : [
-          {
-              "purchaseType" : "SERVICES",
-              "vendorCode" :"VEN1",
-              "vendorAddressCode" : "ADDR1",
-              "description" : "monitor",
-              "quantity" : "20",
-              "unitPrice" : "154.4",
-              "receiptType" : "QUANTITY_RECEIPT",
-              "neededByDate": "2018-06-28",
-              "uomCode" : "DA",
-              "shipping" : "13.5",
-              "tax" : "11",
-              "supplierPartId" : "DAQT1",
-              "url" :[
-                  "http://officesupplies.com/monitor"
-              ],
-              "notesToVendor" : "Phase 1 request monitor",
-              "comments" : "Phase 1 request for new employees for monitor",
-              "custom2" : "LGVT1"
-          },
-          {
-              "purchaseType" : "GOODS",
-              "vendorCode" :"VEN1",
-              "vendorAddressCode" : "ADDR1",
-              "description" : "office chair",
-              "quantity" : "20",
-              "unitPrice" : "346.2",
-              "receiptType" : "NONE",
-              "neededByDate": "2018-06-28",
-              "uomCode" : "DA",
-              "shipping" : "15",
-              "tax" : "17.5",
-              "supplierPartId" : "DAQT2",
-              "url" :[
-                  "http://officesupplies.com/officechair"
-              ],
-              "notesToVendor" : "Phase 1 request office chair",
-              "comments" : "Phase 1 request for new employees for office chair",
-              "custom3" : "DEPT",
-              "custom4" : "SALES"
-          }
-      ]
-  }'
-  ```
-    
+```json
+{
+"description" : "New office supplies",
+"userLoginId" : "john.deo@concur",
+"policyExternalId" : "po-external-id",
+"currencyCode" : "USD",
+"notesToSupplier" : "Office space request phase 1",
+"comments" : "office supplies request",
+"custom1" : "ADVT",
+"lineItems" : [
+{
+"purchaseType" : "SERVICES",
+"vendorCode" :"VEN1",
+"vendorAddressCode" : "ADDR1",
+"description" : "monitor",
+"quantity" : "20",
+"unitPrice" : "154.4",
+"receiptType" : "QUANTITY_RECEIPT",
+"neededByDate": "2018-06-28",
+"uomCode" : "DA",
+"shipping" : "13.5",
+"tax" : "11",
+"supplierPartId" : "DAQT1",
+"url" :[
+  "http://officesupplies.com/monitor"
+],
+"notesToVendor" : "Phase 1 request monitor",
+"comments" : "Phase 1 request for new employees for monitor",
+"custom2" : "LGVT1"
+},
+{
+  "purchaseType" : "GOODS",
+  "vendorCode" :"VEN1",
+  "vendorAddressCode" : "ADDR1",
+  "description" : "office chair",
+  "quantity" : "20",
+  "unitPrice" : "346.2",
+  "receiptType" : "NONE",
+  "neededByDate": "2018-06-28",
+  "uomCode" : "DA",
+  "shipping" : "15",
+  "tax" : "17.5",
+  "supplierPartId" : "DAQT2",
+  "url" :[
+    "http://officesupplies.com/officechair"
+  ],
+  "notesToVendor" : "Phase 1 request office chair",
+  "comments" : "Phase 1 request for new employees for office chair",
+  "custom3" : "DEPT",
+  "custom4" : "SALES"
+}
+]
+}
+```
+
 ### Response  
 
 [Response schema](#create_purchase_request_schema-response)  
@@ -155,7 +153,7 @@ None
 |`userLoginId`|`string`|-|**Required**: The employee that is requesting the items. This is employee's Id. Either UserId or UserEmail or UserLoginId is required to identify employee
 |`description`|`string`|-|A description of the purchase request
 |`policyExternalId`|`string`|-|The external identifier of the policy that should be associated with the purchase order. This will default to the default policy setup for the user group assigned to the requesting employee. This is the external Id from the policy configuration screen. Clients will need to get these ID’s from the Implementation team if they need to assign different policies than the default
-|`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order. The values used here will be used for all items on this request. IE: USD 
+|`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order. The values used here will be used for all items on this request. IE: USD
 |`notesToSupplier`|`string`|-|Notes you want to print on the transmitted PO PDF sent to your supplier
 |`comments`|`string`|-|Internal comments you want to record related to this record
 |`custom1 through custom24`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in Concur
@@ -182,7 +180,7 @@ None
 |`comments`|`string`|-|Internal comments you want to record related to this record
 |`custom1 through custom20`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in Concur
 
-## <a name="create_purchase_request_schema-response"></a>Create Purchase Request Response Schema 
+## <a name="create_purchase_request_schema-response"></a>Create Purchase Request Response Schema
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
