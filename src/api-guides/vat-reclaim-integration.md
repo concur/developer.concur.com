@@ -37,8 +37,6 @@ Use the following resources to get familiar with the Concur product and then sub
 
 ### <a name="obtain-expense-report-data-for-vat-reclaim"></a>Obtain Expense Report Data for VAT Reclaim
 
-[Expense Report v3 API](/api-reference/expense/expense-report/reports.html)
-
 Concur customers' Expense and Invoice sites are typically scheduled to close out their approval workflow on a nightly basis (some close out on a weekly basis or other intervals and some close on an on-demand interval).  When the expense or invoice period is closed out within the Concur system, the process results in a compiled list of the expense reports or invoices that have been final-approved since the last time the period was closed.  This process changes the status to "Extracted".  At this point, those expense reports or invoices can no longer be edited by the User, Approver, or Administrator.
   
 note: Some customers will use the Concur ACH electronic payment service or import a file that changes the status to "confirmed".  In these customers, the same payment status field is changed, so the Partner needs to run the search query twice, once for each payment status described below. i.e. it is possible that you could experience an issue when attempting to get expense reports with an "Extracted" status.  In the process of re-trying that request, the bank(s) involved in the ACH Service (or the client's own confirmation file) could at the same time update the status to "Payment Confirmed".  Therefore, the Partner should query for both Paid (aka as Extracted) and Payment Confirmed to ensure no reports were missed.  Concur is addressing this issue in our next generation of APIs.  At that time, there will be 2 distinct fields to capture the "extracted" status and the "payment confirmed" status i.e. the Extracted status will not be overwritten by the Payment Confirmed status and you will be able to make one call for the desired status at a point in time.
@@ -47,7 +45,7 @@ There are 3 steps the Partner's app will take to obtain expense report data:
 
 1. GET a list of Expense Reports.
 
-[GET Expense Reports v3 API](/api-reference/expense/expense-report/reports.html#get)
+[Expense Report v3 API](/api-reference/expense/expense-report/reports.html)
 
 The search parameters should focus on reports that can no longer be edited in the SAP-Concur User interface. Use the        following search parameters:
 
