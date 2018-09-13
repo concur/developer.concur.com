@@ -48,9 +48,12 @@ There are 3 steps the Partner's app will take to obtain expense report data:
 1. GET a list of Expense Reports.
 
 The search parameters should focus on reports that can no longer be edited in the SAP-Concur User interface. Use the        following search parameters:
-a. Payment Status parameter with a value of P_Paid
-b. PaidDateBefore
-c. PaidDateAfter
+
+parameter|sample value
+---|---
+paymentStatusCode|P_PAID
+paidDateBefore|2018-01-27
+paidDateAfter|2018-01-25
 
 The API request should be made for one day at a time.  This API Request will result in a list of reports that match those search parameters. note: there could be multiple pages returned in the results so ensure your app can get every page of results.
 
@@ -91,8 +94,10 @@ There are 3 steps the Partner's app will take to obtain Invoice data (slightly d
 
 The search parameters should focus on invoices that can no longer be edited in the SAP-Concur User interface. Use the        following search parameters:
 
-a. extractedDateBefore
-b. extractedDateAfter
+parameter|sample value
+---|---
+extractedDateBefore|2018-01-27
+extractedDateAfter|2018-01-25
 
 The API request should be made for one day at a time.  This API Request will result in a list of invoices that match those search parameters. note: there could be multiple pages returned in the results.
 
