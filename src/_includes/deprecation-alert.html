@@ -2,7 +2,7 @@
   <p>
     {% if include.unsupported_date and include.deprecation_date %}
     <strong>This API will be deprecated on {{ include.deprecation_date }} and unsupported on {{ include.unsupported_date }}.</strong>
-    {% elseif include.deprecation_date %}
+    {% elsif include.deprecation_date %}
     <strong>This API will be deprecated on {{ include.deprecation_date }}.</strong>
     {% else %}
     <strong>This API has been deprecated.</strong>
