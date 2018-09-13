@@ -1,13 +1,11 @@
 <div class="alert alert-danger">
-  <p>
-    {% if include.unsupported_date and include.deprecation_date %}
-    <strong>This API will be deprecated on {{ include.deprecation_date }} and unsupported on {{ include.unsupported_date }}.</strong>
-    {% elsif include.deprecation_date %}
-    <strong>This API will be deprecated on {{ include.deprecation_date }}.</strong>
-    {% else %}
-    <strong>This API has been deprecated.</strong>
-    {% endif %}
-  </p>
+  <p><strong>This API has been deprecated.</strong></p>
+  {% if include.deprecation_date %}
+  <p>Deprecation Date: {{ include.deprecation_date }}</p>
+  {% endif %}
+  {% if include.unsupported_date %}
+  <p>Unsupported Date: {{ include.unsupported_date }}</p>
+  {% endif %}
   <p>{{ include.content | markdownify }}</p>
-  <p>Learn more in <a href="/tools-support/reference/deprecation-policy.html">API Lifecycle & Deprecation Policy.</a></p>
+  <p>Learn more in the <a href="/tools-support/reference/deprecation-policy.html">API Lifecycle & Deprecation Policy.</a></p>
 </div>
