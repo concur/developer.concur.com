@@ -1,21 +1,14 @@
 ---
-title: Receipts 
+title: Receipts
 layout: reference
 redirect_from: /api-reference/expense/receipts/
 ---
 
-
-# Receipts
-
-{% capture deprecation_content %}
-* POST `/common/receipts`
-
-<br>
+{% include deprecation-alert.html deprecation_date="02/07/2017" unsupported_date="08/07/2017" %}
 
 Going forward, please use the [v4 Receipts](/api-reference/receipts/get-started.html) for any new development and apps.
-{% endcapture %}
 
-{% include deprecation-alert.html deprecation_date="02/07/2017" unsupported_date="08/07/2017" content=deprecation_content %}
+# Receipts
 
 The Receipts resource represents receipts that can be posted to Concur by a provider company on behalf of opted-in users. This resource currently supports three types of receipts:
 
@@ -59,14 +52,14 @@ Name | Type | Format | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`ID`	|	``string``	|	-	|	
-`URI`	|	``string``	|	-	|	
+`ID`	|	``string``	|	-	|
+`URI`	|	``string``	|	-	|
 
 
 ### Receipt
 
 Name | Type | Format | Description
------|------|--------|------------	
+-----|------|--------|------------
 `Amount`	|	`Decimal`	|	-	|	**Required** The net amount of the transaction. A positive number means a payment is due. A negative number means a refund is due. Zero means no payment or refund is due. Range: -922,337,203,685,477 to 922,337,203,685,477
 `CurrencyCode`	|	`string`	|	-	|	**Required** The 3-letter ISO 4217 currency code for the currency paid to the provider.
 `CustomFields`	|	`Array`	|	[Custom Field](#customfield)	|	The parent element for custom fields.
@@ -81,21 +74,21 @@ Name | Type | Format | Description
 `TransactionDateTime`	|	`DateTime`	|	-	|	**Required** The date and time when the transaction happened (in Local Time). Format: YYYY-MM-DDThh:mm
 `Type`	|	`string`	|	-	|	**Required** The type of receipt. Possible values: General, Ride, Hotel		
 
-### <a name="customfield"></a>Custom Field	
+### <a name="customfield"></a>Custom Field
 
 Name | Type | Format | Description
 -----|------|--------|------------							
 `Name`	|	`string`	|	-	|	**Required** The name of the custom field. Maximum length: 128 characters
 `Value`	|	`string`	|	-	|	**Required** The value of the custom field. Maximum length: 256 characters
 
-### General Detail	
+### General Detail
 
 Name | Type | Format | Description
 -----|------|--------|------------						
 `LineItems`	|	`Array`	|	[Line Item](#lineitem)	|	The parent element for the line items in the receipt. There is a LineItem child element for each line item.
 
 
-### <a name="lineitem"></a>Line Item	
+### <a name="lineitem"></a>Line Item
 
 Name | Type | Format | Description
 -----|------|--------|------------						
@@ -110,7 +103,7 @@ Name | Type | Format | Description
 `SequenceNumber`	|	`Int32`	|	-	|	**Required** The order in which the item appears in the sequence of line items.
 
 
-### Hotel Detail	
+### Hotel Detail
 
 Name | Type | Format | Description
 -----|------|--------|------------						
@@ -160,7 +153,7 @@ Name | Type | Format | Description
 
 
 
-### Payment Card	
+### Payment Card
 
 Name | Type | Format | Description
 -----|------|--------|------------				
@@ -170,8 +163,8 @@ Name | Type | Format | Description
 
 
 
-### Ride Detail	
-	
+### Ride Detail
+
 Name | Type | Format | Description
 -----|------|--------|------------					
 `DriverName`	|	`string`	|	-	|	The name of the driver. Maximum length: 255 characters

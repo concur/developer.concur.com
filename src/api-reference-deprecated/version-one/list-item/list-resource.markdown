@@ -1,7 +1,9 @@
 ---
-title: List Resource 
+title: List Resource
 layout: reference
 ---
+
+{% include deprecation-alert.html %}
 
 ## Description
 The configured lists in Concur. Can be single or multiple level lists.

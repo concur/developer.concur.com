@@ -3,7 +3,7 @@ title: Post new list items
 layout: reference
 ---
 
-
+{% include deprecation-alert.html %}
 
 This resource supports the following POST actions:
 

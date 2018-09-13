@@ -3,6 +3,8 @@ title: GET Expense Entry
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## <a id="listoflists" name="listoflists"></a>Get Expense Entry Details Request
 
 ## Version

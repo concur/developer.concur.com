@@ -1,7 +1,9 @@
 ---
-title: List Item Web Service 
+title: List Item Web Service
 layout: reference
 ---
+
+{% include deprecation-alert.html %}
 
 ## Description
 The Concur List Item web service provides an automated solution to clients who would like to add, update or delete list items. This web service solves several business problems:
@@ -80,4 +82,3 @@ To change a list item's level code, the original list item must be deleted (usin
 
 [3]: /api-reference-deprecated/version-one/list-item/list-resource.html
 [4]: /tools-support/reference/custom-list-items.html
-

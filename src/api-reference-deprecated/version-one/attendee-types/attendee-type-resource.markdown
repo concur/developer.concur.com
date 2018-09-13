@@ -1,8 +1,9 @@
 ---
-title: Attendee Type Resource 
+title: Attendee Type Resource
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 ## Description
 The Attendee Type resource represents the type of attendee as configured in Concur.

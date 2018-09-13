@@ -3,23 +3,24 @@ title: Get List of Reports v1.1
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 # Get List of Reports (v1.1)
 Retrieves a list of reports. This endpoint can be used to view reports for one user, or to view recent reports for the entire company. If you get reports for one user, you can view reports owned by the user specified in the OAuth access token. If you choose to get all the reports for the company, you must use the LastModified date query string to view reports for a 24 hour period. You can provide an optional View to target search results. If no view or date string is provided, the web service will return all Recent reports for the specified user. If the `LastModified` query string is provided, the results do not filter based on the specified user. This endpoint can support frequent requests, where the developer tracks the previous date/time that the endpoint was called, and uses that as the date/time for the next request.
 
 ## Request
 
-### HTTP Request Type: 
+### HTTP Request Type:
 GET  
 
-### URI: 
+### URI:
 `https://www.concursolutions.com/api/expense/expensereport/v1.1/ReportsList/{_View_}`
 
-### Request Media Type: 
+### Request Media Type:
 application/xml
 
 
-### URI Details: 
+### URI Details:
 This URI can be appended with the following optional report View values:
 
 | Value | Description |
@@ -63,15 +64,15 @@ NOTES:
 
 ## Response
 
-### Response Media Type: 
+### Response Media Type:
 application/xml  
 
-### Return Value: 
+### Return Value:
 This request will return a `ReportsList` parent element with an xmlns version attribute and a `ReportSummary` child element for each report. The `ReportSummary` elements will have the following child elements:
 
 | Value | Description |
 | ------ | ------------ |
-| `ApprovalURL` | The URL the user can use to log in to Concur to approve the report. This element appears when requesting the TOAPPROVE status, and does not appear when using the DateModified query. This URL works only when the company does not use Concur SSO with the Enforce option. 
+| `ApprovalURL` | The URL the user can use to log in to Concur to approve the report. This element appears when requesting the TOAPPROVE status, and does not appear when using the DateModified query. This URL works only when the company does not use Concur SSO with the Enforce option.
 | `ReportName` | The name of the report.
 | `ReportId` | The unique identifier for the report, which appears in the Concur Expense UI.
 | `ReportTotal` | The total amount of the report.
@@ -93,6 +94,6 @@ The approver is currently on the company network or is using VPN
 
 Otherwise, when the approver clicks the link, the Expense login page appears. The approver logs in and follows the normal steps for approving reports.
 
-  
+
 
 Last Modified: 2/13/2014 5:39 PM PST

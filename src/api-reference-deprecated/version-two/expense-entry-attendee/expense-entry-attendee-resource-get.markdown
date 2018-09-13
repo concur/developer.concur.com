@@ -3,6 +3,7 @@ title: GET Expense Entry Attendees
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 ## Description
 Retrieves the expense entry attendees for the specified expense entry. This function requires the v2.0 expense entry attendee resource.

@@ -1,8 +1,9 @@
 ---
-title: Quick Expense Resource 
+title: Quick Expense Resource
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 ## Description
 A basic expense with minimal fields. Can be added to expense reports from within Concur. Documentation for the v3.0 resource is [here][1].

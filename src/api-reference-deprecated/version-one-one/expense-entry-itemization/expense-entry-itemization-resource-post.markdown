@@ -3,8 +3,9 @@ title: POST Expense Entry Itemization
 layout: reference
 ---
 
+{% include deprecation-alert.html deprecation_date="05/19/2016" unsupported_date="11/19/2016" %}
+
 ## Description
-**DEPRECATED: 05/19/2016 UNSUPPORTED: 11/19/2016**  
 
 Creates or updates an itemization record for the specified expense entry.
 

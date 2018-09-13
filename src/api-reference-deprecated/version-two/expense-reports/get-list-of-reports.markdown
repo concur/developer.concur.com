@@ -3,6 +3,8 @@ title: GET List of Reports
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 # Expense Report Resource: GET List of Reports v2.0
 
 ## Versioning Summary

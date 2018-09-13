@@ -1,8 +1,9 @@
 ---
-title: Attendee Web Service 
+title: Attendee Web Service
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 ## Description
 
@@ -40,7 +41,7 @@ The web service will not return a 4xx HTTP response code for a batch operation e
 
 When there are errors with batch items, the first ten errors are returned in the `<errors>` element in the request response, which includes their error code, the item that caused the error, and the error message. Any additional error messages are truncated. This prevents a large volume of error data in the event of a formatting mistake.
 
-  
+
 **XML Response Error Codes**:
 
 |  Error Code |  Message |
@@ -74,7 +75,7 @@ When there are errors with batch items, the first ten errors are returned in the
 |  1304 |  Unexpected error processing batch request. |
 |  1305 |  Cannot update the attendee data for a non existing attendee. |
 
-  
+
 
 [3]: /api-reference-deprecated/version-two/attendees/attendee-resource.html
 [4]: /api-reference-deprecated/version-one/attendees/attendee-list-resource.html

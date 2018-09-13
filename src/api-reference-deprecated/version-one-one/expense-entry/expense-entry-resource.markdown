@@ -3,6 +3,8 @@ title: Expense Entry Resource
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
 An expense entry in an expense report.
 

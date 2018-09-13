@@ -1,7 +1,9 @@
 ---
-title: Image URL Resource 
+title: Image URL Resource
 layout: reference
 ---
+
+{% include deprecation-alert.html %}
 
 ## Description
 The Image URL resource represents the URL to the PDF for the receipt image. The URL is valid for 30 minutes after the request.
@@ -18,7 +20,7 @@ The Image URL resource represents the URL to the PDF for the receipt image. The 
 ## See also
 [Image][2]
 
-  
+
 
 
 [1]: /api-reference-deprecated/version-one/Image/receipt-image-URL-get.html
