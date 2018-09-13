@@ -47,6 +47,8 @@ There are 3 steps the Partner's app will take to obtain expense report data:
 
 1. GET a list of Expense Reports.
 
+[GET Expense Reports v3 API](/api-reference/expense/expense-report/reports.html#get)
+
 The search parameters should focus on reports that can no longer be edited in the SAP-Concur User interface. Use the        following search parameters:
 
 parameter|sample value
@@ -86,7 +88,7 @@ copy and paste the url into a browser session to render the image.  This is a te
 
 ### <a name="obtain-invoice-data-for-vat-reclaim"></a>Obtain Invoice Data for VAT Reclaim
 
-[Invoice aka Payment Request Digests v3 API](/api-reference/invoice/payment-request-digest.html)
+[Payment Request Digests v3 API](/api-reference/invoice/payment-request-digest.html)
 
 There are 3 steps the Partner's app will take to obtain Invoice data (slightly different than the steps for Expense):
 
