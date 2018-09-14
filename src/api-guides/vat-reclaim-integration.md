@@ -47,11 +47,11 @@ note: Some customers will use the Concur ACH electronic payment service or impor
 
    [Expense Report v3 API](/api-reference/expense/expense-report/reports.html)
 
-    *The search parameters should focus on reports that can no longer be edited in the SAP-Concur User interface. Use the         *following search parameters:
+    The search parameters should focus on reports that can no longer be edited in the SAP-Concur User interface. Use the         following search parameters:
 
-    *The API request should be made for one day at a time.  This API Request will result in a list of reports that match           *those search parameters. note: there could be multiple pages returned in the results so ensure your app can get every         *page of results.
+    The API request should be made for one day at a time.  This API Request will result in a list of reports that match           those search parameters. note: there could be multiple pages returned in the results so ensure your app can get every         page of results.
 
-    *Repeat the above steps but use P_PAYC for the Payment Status parameter.  This is required to ensure you have obtained         *all of the reports since the Payment Status field is updated in two different ways: 1st to reflect extracted, then 2nd       *to reflect any confirmations of payment.
+    Repeat the above steps but use P_PAYC for the Payment Status parameter.  This is required to ensure you have obtained         all of the reports since the Payment Status field is updated in two different ways: 1st to reflect extracted, then 2nd       to reflect any confirmations of payment.
 
  parameter|sample value
  ---|---
