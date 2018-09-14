@@ -43,70 +43,70 @@ note: Some customers will use the Concur ACH electronic payment service or impor
 
 **There are 3 steps the Partner's app will take to obtain expense report data:**
 
-####**Step 1. GET a list of Expense Reports.**
+**1. GET a list of Expense Reports.**
 
    [Expense Report v3 API](/api-reference/expense/expense-report/reports.html)
 
-      *The search parameters should focus on reports that can no longer be edited in the SAP-Concur User interface. Use the         *following search parameters:
+    *The search parameters should focus on reports that can no longer be edited in the SAP-Concur User interface. Use the         *following search parameters:
 
-      *parameter|sample value
-      *---|---
-      *paymentStatusCode|P_PAID
-      *paidDateBefore|2018-01-27
-      *paidDateAfter|2018-01-25
+    *parameter|sample value
+    *---|---
+    *paymentStatusCode|P_PAID
+    *paidDateBefore|2018-01-27
+    *paidDateAfter|2018-01-25
 
-      *The API request should be made for one day at a time.  This API Request will result in a list of reports that match           *those search parameters. note: there could be multiple pages returned in the results so ensure your app can get every         *page of results.
+    *The API request should be made for one day at a time.  This API Request will result in a list of reports that match           *those search parameters. note: there could be multiple pages returned in the results so ensure your app can get every         *page of results.
 
-      *Repeat the above steps but use P_PAYC for the Payment Status parameter.  This is required to ensure you have obtained         *all of the reports since the Payment Status field is updated in two different ways: 1st to reflect extracted, then 2nd       *to reflect any confirmations of payment.
+    *Repeat the above steps but use P_PAYC for the Payment Status parameter.  This is required to ensure you have obtained         *all of the reports since the Payment Status field is updated in two different ways: 1st to reflect extracted, then 2nd       *to reflect any confirmations of payment.
 
-####**Step 2. GET the Report Details for each unique Report ID that is returned in the API Request from #1**
+** 2. GET the Report Details for each unique Report ID that is returned in the API Request from #1**
 
    [GET Expense Report Details v2 API](/api-reference/expense/expense-report/expense-report-get.html)
 
-      *Insert one Report ID per API request. Make all of the requests until you obtain details for every report returned in         *your search results.
+    *Insert one Report ID per API request. Make all of the requests until you obtain details for every report returned in         *your search results.
 
-####**Step 3. GET the Images**
+**Step 3. GET the Images**
 
    [Receipt Image v3 API](/api/v3.0/expense/receiptimages)
 
-      *The GET Report Details API request will produce an Entry ID that will be used in this API request.  The result will           *produce a URL that the Partner can use in a separate browser session to render the image.  This url is short-lived (15       *minutes).  If the URL expires, then the Partner can re-try the same call to get another URI to render the image.
+    *The GET Report Details API request will produce an Entry ID that will be used in this API request.  The result will           *produce a URL that the Partner can use in a separate browser session to render the image.  This url is short-lived (15       *minutes).  If the URL expires, then the Partner can re-try the same call to get another URI to render the image.
 
-      *GET /api/v3.0/expense/receiptimages/{id}
-      *id = Required ReceiptImage ID (use the ID from v2 GET Report Details API called, EntryImageID)
-      *The above GET request produces this response: 
-      *<Image xmlns="http://www.concursolutions.com/api/image/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    *GET /api/v3.0/expense/receiptimages/{id}
+    *id = Required ReceiptImage ID (use the ID from v2 GET Report Details API called, EntryImageID)
+    *The above GET request produces this response: 
+    *<Image xmlns="http://www.concursolutions.com/api/image/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
 
-      *<Id>sample</Id>
+    *<Id>sample</Id>
 
 <Url>https://imagingupload.concursolutions.com/file/p00884704c6o/5A789811F139BC89D9C42DDE5FEE2A655BB7C2A375E9C481FA0BE92FFF690E298F119925A5C834385C8D62AE5FC4E65AC0F53E4C7273C14A4E71D4264F104882H142570AF84FBEEEC439486FE89E44D2F?id=51253775812C4750888F&e=p00884704c6o&t=AN</Url>
 
 </Image>
 
-      *copy and paste the url into a browser session to render the image.  This is a temp url.
+    *copy and paste the url into a browser session to render the image.  This is a temp url.
 
 ### <a name="obtain-invoice-data-for-vat-reclaim"></a>Obtain Invoice Data for VAT Reclaim
 
 **There are 3 steps the Partner's app will take to obtain Invoice data (slightly different than the steps for Expense):**
 
-####**1. GET a list of Payment Request Digests.**
+**1. GET a list of Payment Request Digests.**
 
    [Payment Request Digests v3 API](/api-reference/invoice/payment-request-digest.html)
 
-      *The search parameters should focus on invoices that can no longer be edited in the SAP-Concur User interface. Use the         *following search parameters:
+    *The search parameters should focus on invoices that can no longer be edited in the SAP-Concur User interface. Use the         *following search parameters:
 
-      *parameter|sample value
-      *---|---
-      *extractedDateBefore|2018-01-27
-      *extractedDateAfter|2018-01-25
+    *parameter|sample value
+    *---|---
+    *extractedDateBefore|2018-01-27
+    *extractedDateAfter|2018-01-25
 
-      *The API request should be made for one day at a time.  This API Request will result in a list of invoices that match         *those search parameters. note: there could be multiple pages returned in the results.
+    *The API request should be made for one day at a time.  This API Request will result in a list of invoices that match         *those search parameters. note: there could be multiple pages returned in the results.
 
-####**2. GET the Invoice (Payment Request) Details for each unique Payment Request ID that is returned in the API Request from #1**
+**2. GET the Invoice (Payment Request) Details for each unique Payment Request ID that is returned in the API Request from #1**
 
    [GET Payment Request {id} v3 API](/api-reference/invoice/payment-request.html#get)
 
-      *Insert one Payment Request ID per API request until you obtain details for every invoice returned in your search             *results.
+    *Insert one Payment Request ID per API request until you obtain details for every invoice returned in your search             *results.
 
-####**3. GET Images**
+**3. GET Images**
 
-      *same as above.  Use the ReceiptImage ID obtained from the response that provides the details of the Payment Request           *(Invoice)
+    *same as above.  Use the ReceiptImage ID obtained from the response that provides the details of the Payment Request           *(Invoice)
