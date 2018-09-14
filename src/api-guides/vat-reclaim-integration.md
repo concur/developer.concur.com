@@ -88,7 +88,7 @@ copy and paste the url into a browser session to render the image.  This is a te
 
 **There are 3 steps the Partner's app will take to obtain Invoice data (slightly different than the steps for Expense):**
 
-**1. GET a list of Payment Request Digests.**
+####**1. GET a list of Payment Request Digests.**
 
    [Payment Request Digests v3 API](/api-reference/invoice/payment-request-digest.html)
 
@@ -101,12 +101,12 @@ The search parameters should focus on invoices that can no longer be edited in t
 
 The API request should be made for one day at a time.  This API Request will result in a list of invoices that match         those search parameters. note: there could be multiple pages returned in the results.
 
-**2. GET the Invoice (Payment Request) Details for each unique Payment Request ID that is returned in the API Request from #1**
+####**2. GET the Invoice (Payment Request) Details for each unique Payment Request ID that is returned in the API Request from #1**
 
    [GET Payment Request {id} v3 API](/api-reference/invoice/payment-request.html#get)
 
 Insert one Payment Request ID per API request until you obtain details for every invoice returned in your search             results.
 
-**3. GET Images**
+####**3. GET Images**
 
 same as above.  Use the ReceiptImage ID obtained from the response that provides the details of the Payment Request         (Invoice)
