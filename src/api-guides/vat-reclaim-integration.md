@@ -88,7 +88,7 @@ copy and paste the url into a browser session to render the image.  This is a te
 
 **There are 3 steps the Partner's app will take to obtain Invoice data (slightly different than the steps for Expense):**
 
-  ####1. GET a list of Payment Request Digests.####
+    *####1. GET a list of Payment Request Digests.
 
   [Payment Request Digests v3 API](/api-reference/invoice/payment-request-digest.html)
 
