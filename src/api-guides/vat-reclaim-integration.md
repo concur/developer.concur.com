@@ -54,10 +54,10 @@ note: Some customers will use the Concur ACH electronic payment service or impor
     *Repeat the above steps but use P_PAYC for the Payment Status parameter.  This is required to ensure you have obtained         *all of the reports since the Payment Status field is updated in two different ways: 1st to reflect extracted, then 2nd       *to reflect any confirmations of payment.
 
  parameter|sample value
-    ---|---
-    paymentStatusCode|P_PAID
-    paidDateBefore|2018-01-27
-    paidDateAfter|2018-01-25
+ ---|---
+ paymentStatusCode|P_PAID
+ paidDateBefore|2018-01-27
+ paidDateAfter|2018-01-25
     
 **2. GET the Report Details for each unique Report ID that is returned in the API Request from #1**
 
