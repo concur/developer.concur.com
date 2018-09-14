@@ -43,7 +43,7 @@ note: Some customers will use the Concur ACH electronic payment service or impor
 
 **There are 3 steps the Partner's app will take to obtain expense report data:**
 
-**1. GET a list of Expense Reports.**
+    1. GET a list of Expense Reports.**
 
    [Expense Report v3 API](/api-reference/expense/expense-report/reports.html)
 
@@ -59,13 +59,15 @@ Repeat the above steps but use P_PAYC for the Payment Status parameter.  This is
  paidDateBefore|2018-01-27
  paidDateAfter|2018-01-25
     
-**2. GET the Report Details for each unique Report ID that is returned in the API Request from #1**
+    2. GET the Report Details
+    
+This step will be repeated for each unique for each unique Report ID that is returned in the API Request from #1
 
    [GET Expense Report Details v2 API](/api-reference/expense/expense-report/expense-report-get.html)
 
-   Insert one Report ID per API request. Make all of the requests until you obtain details for every report returned in         your search results.
+Insert one Report ID per API request. Make all of the requests until you obtain details for every report returned in         your search results.
 
-**3. GET the Images**
+    3. GET the Images
 
    [Receipt Image v3 API](/api/v3.0/expense/receiptimages)
 
@@ -92,7 +94,7 @@ copy and paste the url into a browser session to render the image.  This is a te
 
   [Payment Request Digests v3 API](/api-reference/invoice/payment-request-digest.html)
 
-    *The search parameters should focus on invoices that can no longer be edited in the SAP-Concur User interface. Use the following search parameters:
+The search parameters should focus on invoices that can no longer be edited in the SAP-Concur User interface. Use the following search parameters:
 
   parameter|sample value
   ---|---
