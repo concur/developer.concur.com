@@ -49,11 +49,11 @@ note: Some customers will use the Concur ACH electronic payment service or impor
 
     *The search parameters should focus on reports that can no longer be edited in the SAP-Concur User interface. Use the         *following search parameters:
 
-    *parameter|sample value
-    *---|---
-    *paymentStatusCode|P_PAID
-    *paidDateBefore|2018-01-27
-    *paidDateAfter|2018-01-25
+    parameter|sample value
+    ---|---
+    paymentStatusCode|P_PAID
+    paidDateBefore|2018-01-27
+    paidDateAfter|2018-01-25
 
     *The API request should be made for one day at a time.  This API Request will result in a list of reports that match           *those search parameters. note: there could be multiple pages returned in the results so ensure your app can get every         *page of results.
 
@@ -94,10 +94,10 @@ note: Some customers will use the Concur ACH electronic payment service or impor
 
     *The search parameters should focus on invoices that can no longer be edited in the SAP-Concur User interface. Use the         *following search parameters:
 
-    *parameter|sample value
-    *---|---
-    *extractedDateBefore|2018-01-27
-    *extractedDateAfter|2018-01-25
+    parameter|sample value
+    ---|---
+    extractedDateBefore|2018-01-27
+    extractedDateAfter|2018-01-25
 
     *The API request should be made for one day at a time.  This API Request will result in a list of invoices that match         *those search parameters. note: there could be multiple pages returned in the results.
 
