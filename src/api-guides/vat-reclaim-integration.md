@@ -101,12 +101,14 @@ The search parameters should focus on invoices that can no longer be edited in t
 
  The API request should be made for one day at a time.  This API Request will result in a list of invoices that match         those search parameters. note: there could be multiple pages returned in the results.
 
-    2. GET the Invoice (Payment Request) Details for each unique Payment Request ID that is returned in the API Request from #1
+    2. GET the Invoice (Payment Request) Details
+    
+This step will be repeated for each unique Payment Request ID that is returned in the API Request from #1
 
    [GET Payment Request {id} v3 API](/api-reference/invoice/payment-request.html#get)
 
 Insert one Payment Request ID per API request until you obtain details for every invoice returned in your search             results.
 
-    **3. GET Images**
+    3. GET Images
 
 same as above.  Use the ReceiptImage ID obtained from the response that provides the details of the Payment Request         (Invoice)
