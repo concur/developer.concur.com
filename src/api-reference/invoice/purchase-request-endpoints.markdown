@@ -158,7 +158,7 @@ None
 |`userLoginId`|`string`|-|**Required**: The employee that is requesting the items. This is employee's Id. Either UserId or UserEmail or UserLoginId is required to identify employee
 |`description`|`string`|-|A description of the purchase request
 |`policyExternalId`|`string`|-|The external identifier of the policy that should be associated with the purchase order. This will default to the default policy setup for the user group assigned to the requesting employee. This is the external Id from the policy configuration screen. Clients will need to get these ID’s from the Implementation team if they need to assign different policies than the default
-|`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order. The values used here will be used for all items on this request. IE: USD 
+|`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order. The values used here will be used for all items on this request. IE: USD
 |`notesToSupplier`|`string`|-|Notes you want to print on the transmitted PO PDF sent to your supplier
 |`comments`|`string`|-|Internal comments you want to record related to this record
 |`custom1 through custom24`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in Concur
@@ -185,7 +185,7 @@ None
 |`comments`|`string`|-|Internal comments you want to record related to this record
 |`custom1 through custom20`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in Concur
 
-## <a name="create_purchase_request_schema-response"></a>Create Purchase Request Response Schema 
+## <a name="create_purchase_request_schema-response"></a>Create Purchase Request Response Schema
 
 |Name | Type | Format | Description
 |-----|------|--------|------------

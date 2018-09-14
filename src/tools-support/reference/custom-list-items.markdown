@@ -3,14 +3,11 @@ title: Custom List Items
 layout: reference
 ---
 
-
-
-
 Custom list fields are included in many of the web services calls throughout Concur Connect, and they require some special consideration.
 
 ##  Value
 
-When posting a list item, the list item **code** should be sent as the value, not the list item **name**. The code is returned in the **levelxcode** element of the [Get List Items][1] function.
+When posting a list item, the list item **code** should be sent as the value, not the list item **name**. The code is returned in the **levelxcode** element of the [Get List Items](./api-reference/common/list-item/v3.list-item.html#get) function.
 
 ##  Posting Connected List Items
 
@@ -26,12 +23,4 @@ Example: If your connected list uses Custom5 for the first level, Custom10 for t
 
 ##  Common Issues
 
-Developers that post custom list item values can encounter errors when they post a list item that does not exist in the Concur database. This can happen when the list item import hasn't been completed or hasn't run recently. If the posted list item code does not match an existing list item, the post may result in bad data. Use the [List Item][2] web service to ensure that the list items you are posting are present in the Concur database.
-
- 
-
-
-
-
-[1]: /api-reference/common/list-item/index.html#get
-[2]: /api-reference/common/list-item/index.html
+Developers that post custom list item values can encounter errors when they post a list item that does not exist in the Concur database. This can happen when the list item import hasn't been completed or hasn't run recently. If the posted list item code does not match an existing list item, the post may result in bad data. Use the [List Item](./api-reference/common/list-item/v3.list-item.html) web service to ensure that the list items you are posting are present in the Concur database.

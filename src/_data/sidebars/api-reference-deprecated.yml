@@ -60,8 +60,6 @@
 - title: v1.0 - Travel Web Service
   url: ''
   children:
-      - title: Travel Request
-        url: /api-reference-deprecated/version-one/Travel/travel-request.html
       - title: Form of Payment Resource
         url: /api-reference-deprecated/version-one/Travel/form-payment-resource.html
       - title: Profile Resource

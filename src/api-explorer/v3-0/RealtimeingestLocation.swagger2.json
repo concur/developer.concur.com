@@ -1,0 +1,197 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This API provides an endpoint to ingest real time user location information from Rideshare Services",
+    "version": "1.0",
+    "title": "Real Time Location Ingestion Service",
+    "contact": {
+      "email": "DL_AE4E8B60807542848C5FE406400E04C2@sap.com"
+    }
+  },
+  "basePath": "/realtimeingest",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "description": "To access the API a valid JWT token must be passed in the Authorization header",
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "paths": {
+    "/location/:uuid": {
+      "post": {
+        "tags": [
+          "realtime-location"
+        ],
+        "summary": "Ingest real time location of users ",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "location object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PostObject"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "POST successful",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "401": {
+            "description": "Authentication Error",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          },
+          "406": {
+            "description": "Data Validation Error",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "requestId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "For accessing the API a valid JWT token must be passed"
+        },
+        "concur-correlationId": {
+          "type": "string"
+        },
+        "appVersion": {
+          "type": "string",
+          "description": "Application Version"
+        },
+        "message": {
+          "type": "string",
+          "description": "Suitable success message"
+        }
+      }
+    },
+    "ApiErrorResponse": {
+      "type": "object",
+      "properties": {
+        "requestId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "For accessing the API a valid JWT token must be passed"
+        },
+        "appVersion": {
+          "type": "string",
+          "description": "Application Version"
+        },
+        "message": {
+          "type": "string",
+          "description": "Suitable error message"
+        },
+        "errorDescription": {
+          "type": "string",
+          "description": "Error description"
+        }
+      }
+    },
+    "PostObject": {
+      "type": "object",
+      "required": [
+        "dropOffDateTime",
+        "dropOffLocation"
+      ],
+      "properties": {
+        "userID": {
+          "type": "string",
+          "description": "unique identifier for the user"
+        },
+        "dropOffDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date Time in RFC3339 format"
+        },
+        "dropOffLocation": {
+          "$ref": "#/definitions/LocationObject"
+        }
+      }
+    },
+    "LocationObject": {
+      "type": "object",
+      "description": "Schema representing a location",
+      "required": [
+        "latitude",
+        "longitude",
+        "address"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name for the location"
+        },
+        "latitude": {
+          "type": "number",
+          "format": "float",
+          "description": "Numeric latitude value between -90.00 and 90.00"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "float",
+          "description": "Numeric longitude value between -180.00 and 180.00"
+        },
+        "address": {
+          "$ref": "#/definitions/AddressObject"
+        }
+      }
+    },
+    "AddressObject": {
+      "type": "object",
+      "description": "Common address object",
+      "required": [
+        "streetAddress",
+        "addressLocality",
+        "addressRegion",
+        "addressCountry",
+        "postalCode"
+      ],
+      "properties": {
+        "streetAddress": {
+          "type": "string",
+          "description": "Street address of the location"
+        },
+        "addressLocality": {
+          "type": "string",
+          "description": "City component of the address"
+        },
+        "addressRegion": {
+          "type": "string",
+          "description": "1 to 3 character country subdivision code as defined in ISO 3166-2:2013"
+        },
+        "addressCountry": {
+          "type": "string",
+          "description": "2 or 3 character country code as defined in ISO 3166-1:2013"
+        },
+        "postalCode": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

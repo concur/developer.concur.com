@@ -3,10 +3,8 @@ title: Authentication
 layout: reference
 ---
 
-
-# Authentication
-
 ### Special Note (Please Read First)
+
 If you are an existing partner with an existing app, please read both the [Migration to Oauth2 Tokens](/api-reference/authentication/migrationguide.html) and [Getting Started](/api-reference/authentication/getting-started.html) documentation first. If you have any questions, please contact your Partner Enablement team representative before proceeding.
 
 * [Overview]()
@@ -27,9 +25,7 @@ If you are an existing partner with an existing app, please read both the [Migra
 
 **Note:** The old authentication documentation can be found [here](/api-reference-deprecated/old-auth/old-auth.html)
 
-
 ## <a name="access_token"></a>Access Tokens
-
 
 The Oauth2 service generates access tokens for authenticated users, applications or companies. The token returned in the Oauth2 response can be used to access protected resources on Concur's services.
 
@@ -49,7 +45,7 @@ Name | Type | Format | Description
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 Date: date-requested
 Content-Length: 3397
 Connection: Close
@@ -100,7 +96,7 @@ It is recommended that the client application use the refresh grant to request a
 
 **Refreshing the token**
 
-To request a new access token using a valid refresh token, use the Oauth2 /token endpoint. Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
+To request a new access token using a valid refresh token, use the Oauth2 /token endpoint. Use the `application/x-www-form-urlencoded` content type.
 
 ```
 POST /oauth2/v0/token
@@ -120,7 +116,7 @@ Name | Type | Format | Description
 
 ```http
 POST /oauth2/v0/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 437
@@ -137,7 +133,7 @@ client_id=your-client_id
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 Date: date-requested
 Content-Length: 3397
 Connection: Close
@@ -163,34 +159,18 @@ All refresh_tokens associated to a user for an application can be revoked by cal
 DELETE https://us.api.concursolutions.com/app-mgmt/v0/connections
 ```
 
-
 **Request**
 
-```http
-DELETE /app-mgmt/v0/connections HTTP/1.1
-Content-Type: application/json
-Authorization: Bearer <access_token>
-```
-
-**Sample cURL:**
-
-```http
-
-curl -X DELETE -H "Authorization: Bearer <accessToken>" "https://us.api.concursolutions.com/app-mgmt/v0/connections"
+```shell
+DELETE https://us.api.concursolutions.com/app-mgmt/v0/connections
+Authorization: Bearer {token}
 ```
 
 **Response**
 
-```http
+```shell
 HTTP/1.1 200 OK
-Content-Type: application/json
-Date: date-requested
-Content-Length: 9
-Connection: Close
-
-"deleted"
 ```
-
 
 ## <a name="manage_token"></a>Managing tokens
 
@@ -208,13 +188,13 @@ FOR APP CENTER AND SUPPLIER PARTNERS supporting all geolocations, storing the au
 
 When making API calls, the appropriate base URI should be used. There are three different scenarios:
 1. Obtaining a token for a user
-2. Refreshing a token 
-3. Calling other APIs 
+2. Refreshing a token
+3. Calling other APIs
 
 The Base URI for obtaining a token will leverage your application's geolocation.  The Base URI for refreshing tokens and all other API calls will leverage the token's geolocation.
 
-### <a name="base_uri_obtain_token"></a>Base URIs for Obtaining a Token 
-When your application is created, you will be provided with a client ID, secret and geolocation. When obtaining a token, your application should use the base URI for the geolocation in which your application exists. 
+### <a name="base_uri_obtain_token"></a>Base URIs for Obtaining a Token
+When your application is created, you will be provided with a client ID, secret and geolocation. When obtaining a token, your application should use the base URI for the geolocation in which your application exists.
 
 There are two endpoints for each geolocation - one is the default (used for server-side calls) and the other should be used for client-side calls.
 
@@ -235,16 +215,16 @@ EU Implementation |`https://emea-impl.api.concursolutions.com/oauth2/v0` | For c
 > **When obtaining the token, the token's geolocation will be included in the response. The token's geolocation should be stored along with the token. The Developer's app will then be able to make subsequent calls using the token and the correct end points based on the token's GEO location.**
 
 ### Base URIs for All Other Calls
-When refreshing a token or when calling any other APIs, the token's geolocation should be used as the base URI. 
+When refreshing a token or when calling any other APIs, the token's geolocation should be used as the base URI.
 
 **Note:** Client-side calls should use the www- variant of the base URI.
 
-For example: 
+For example:
 When obtaining a token, if the response was the below:
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 Date: date-requested
 Content-Length: 3397
 Connection: Close
@@ -345,10 +325,10 @@ Because of certificate issues with browser requests through Authorization Grant,
 
 ## <a name="password_grant"></a>Password grant
 
-
 The Password grant can be used when there is a trust relationship between the user and the application. There are two credential types allowed with Password Grant:
-1) "Password": with this credential type, the application either already has the user's credentials or can obtain the user's credentials by directly interacting with the user.
-2) "AuthToken": This credential type is used for connections from the App Center. For App Center partners and TripLink suppliers, please refer to the [certification documentation](/manage-apps/app-certification.html) for more information.
+
+1. "Password": with this credential type, the application either already has the user's credentials or can obtain the user's credentials by directly interacting with the user.
+1. "AuthToken": This credential type is used for connections from the App Center. For App Center partners and TripLink suppliers, please refer to the [certification documentation](/manage-apps/app-certification.html) for more information.
 
 **Post Body**
 
@@ -365,7 +345,7 @@ Name | Type | Format | Description
 
 ```http
 POST /oauth2/v0/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 175
@@ -382,7 +362,7 @@ client_id=your-client_id
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 Date: date-requested
 Content-Length: 3397
 Connection: Close
@@ -413,7 +393,7 @@ example bad login
 
 ## <a name="client_credentials"></a>Client Credentials grant
 
-Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
+Use the `application/x-www-form-urlencoded` content type.
 
 `POST /oauth2/v0/token`
 
@@ -429,7 +409,7 @@ Name | Type | Format | Description
 
 ```http
 POST /oauth2/v0/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 127
@@ -444,7 +424,7 @@ client_id=your-client_id
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 Date: date-requested
 Content-Length: 1626
 Connection: Close
@@ -474,7 +454,7 @@ The One-time Password grant type leverages email, phone (text messaging), instan
 
 **Request a one-time token to be sent to the user**
 
-Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
+Use the `application/x-www-form-urlencoded` content type.
 
 `POST /oauth2/v0/otp`
 
@@ -509,7 +489,7 @@ If the calling application chooses to send custom parameters, all of these exact
 
 ```http
 POST /oauth2/v0/otp HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Accept: application/json
 Host: us.api.concursolutions.com
 Connection: close
@@ -541,7 +521,7 @@ Date: date-requested
 
 **Request an access token**
 
-The One Time Password grant requires that all of the parameters, including client application defined parameters to be sent in the request body when requesting an access token. Use the `application/x-www-form-urlencoded` content type and character encoding `charset=utf-8` to specify the parameters listed below in the request body.
+The One Time Password grant requires that all of the parameters, including client application defined parameters to be sent in the request body when requesting an access token. Use the `application/x-www-form-urlencoded` content type.
 
 `POST oauth2/v0/token`
 
@@ -562,7 +542,7 @@ Name | Type | Format | Description
 
 ```http
 POST /oauth2/v0/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Content-Type: application/x-www-form-urlencoded
 Host: us.api.concursolutions.com
 Connection: close
 Content-Length: 437
@@ -625,7 +605,7 @@ Connection: keep-alive
 ```
 ##### /authorize
 
-If the authorization or authentication are unsuccessful, your application will receive an error code and description at the redirect_uri provided. 
+If the authorization or authentication are unsuccessful, your application will receive an error code and description at the redirect_uri provided.
 
 ```Your_Redirect_Uri?
  error_code=<>
@@ -714,14 +694,28 @@ Example of the `correlationid` in the response:
 < HTTP/1.1 200 OK
 < Server: cnqr-papeete
 < Date: Mon, 04 Dec 2017 22:07:05 GMT
-< Content-Type: application/json;charset=UTF-8
+< Content-Type: application/json
 < Content-Length: 2897
 < Connection: keep-alive
 < Concur-Correlationid: 2803b8f8-a42b-43c2-a739-b8768e4759b8
 ```
 
+## <a name="enterprise-business-applications"></a>Enterprise Business Applications
 
+Only the [Password Grant Type](#password_grant) is available for obtaining company-level tokens.
 
-
-
-
+1. To begin the authentication flow, a Customer's Concur Administrator clicks on the Connect button within the App Center listing and authorizes the partner's app.  This app listing is located within customer's Concur system's App Center tab.
+1. Concur's authorization service will redirect the Admin to the Partner’s Landing Page.  Partners should follow the [App Center UX Guidelines](https://developer.concur.com/manage-apps/go-market-docs/app-center-ux-guidelines-consumer.html) to create a web page that listens for an HTTP GET request from Concur.
+1. The redirect URI will contain an id, requestToken and userId parameters.  Example: `https://{partner_redirect_URI}?id=8568a4cd-8ffc-49d6-9417-be2d69aa075f&requestToken=5l85ae5a-426f-4d6f-8af4-08648c4b696b&userId=9bdded51-00b8-4f84-8bef-6d3afe727007`
+1. When the Partner application receives the redirect call, the Partner should strip the `id` and `requestToken` values from the URI and use those on a Post request to the Concur Authorization service to obtain the official Oauth2 Access Token and Refresh Token for the customer using the [password grant](https://developer.concur.com/api-reference/authentication/apidoc.html#password_grant). As explained in detail in this [presentation](https://prezi.com/p/lw0qqy51zcmd/), the Partner must have [Data Center Geo Awareness](https://developer.concur.com/api-reference/authentication/apidoc.html#base_uri) related to the token. We currently have 3 Data Centers and the API end points change based on these Data Centers so it is imperative the proper token management is followed.  Otherwise, your app will not make the correct call per Access token.
+1. An access token is valid for only one hour.  The access token should be cached in memory and discarded after use.
+1. After the Admin has successfully completed the login/enrollment process, the Partner should store the following elements with the customer’s profile metadata.
+  * `refresh_token`: (36 characters including dashes) Valid for six months from the day and time issued.
+  * `refresh_expires_in`: This is Epoch time format, convert to UTC.
+  * `geolocation`: To be used when making API calls on behalf of the customer.
+  * `id`: Aka `sub`, is the customer’s unique identifier (UUID).  It can be retrieved from the following sources:
+    * From the re-direct URI as the id element.
+    * By decoding the `id_token` returned with Access token, as the `sub` element. (See https://jwt.io)
+1. It is highly recommended that Partners log the following elements:
+  * `userId`: the user who clicked on the Connect button (returned in the re-direct URI)
+  * `correlationid`: Concur responds with a unique code which identifies the API call in the log files.  (returned in the response header).  More details can be found here.

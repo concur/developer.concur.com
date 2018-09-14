@@ -3,14 +3,24 @@ title: Fiscal Year
 layout: reference
 ---
 
+# Menu
+* [Getting Started](#overview)
+* [Budget Category](#overview)
+* [Budget Item](#overview)
 
-# Fiscal Year
+# Fiscal Year - Beta
+* [Overview](#overview)
 * [Retrieve all Fiscal Years](#getall)
 * [Retrieve a Fiscal Year](#get)
 * [Create/Update a Fiscal Year](#post)
 * [Remove a Fiscal Year](#delete)
 * [Schema](#schema)
 
+### Overview
+
+The new Budget Service API is in **Beta** . If you are interested in using the Budget Service API, then please contact your account manager for further details.
+The Fiscal Calendar is used both for Reporting and Budget. A Fiscal year can start and end at any date as long as the end date is after the start date and 
+does not span more than 2 years. Fiscal year cannot overlap. Fiscal Period cannot overlap and limited to 24 per fiscal year.
 
 ## Version
 4.0  
@@ -19,6 +29,12 @@ layout: reference
 ## <a name="getall"></a>Retrieve all Fiscal Years
 
     GET  /budget/v4/fiscalYear
+
+HTTPie:
+
+```shell
+http https://us.api.concursolutions.com/budget/v4/fiscalYear 'Authorization:Bearer {YOUR ACCESS TOKEN}'
+```
 
 ### Parameters
 
@@ -35,6 +51,12 @@ includeRemoved	|	`boolean`	|	`query`	|	 If this parameter is "true", the service
 ## <a name="get"></a>Retrieve a Fiscal Year
 
     GET  /budget/v4/fiscalYear/{id} 
+
+HTTPie:
+
+```shell
+http https://us.api.concursolutions.com/budget/v4/fiscalYear/{id} 'Authorization:Bearer {YOUR ACCESS TOKEN}'
+```
 
 ### Parameters
 
@@ -121,6 +143,15 @@ id	|	`string`	|	`path`	|	The fiscal year's key field (sync guid).
 
     POST  /budget/v4/fiscalYear
 
+HTTPie:
+
+```shell
+http POST https://us.api.concursolutions.com/budget/v4/fiscalYear \
+"Authorization:Bearer {YOUR ACCESS TOKEN}" \
+"Content-Type: application/json" \
+< {PATH TO YOUR FISCAL YEAR JSON}
+```
+
 *Note: unless there is a need to do so, the client should only specify monthly fiscal periods when creating/updating a 
 fiscal year.  The system will auto-generate the quarterly and yearly fiscal periods.*
 
@@ -166,10 +197,7 @@ Name | Type | Format | Description
         "startDate":"2017-03-01",
         "endDate":"2017-03-31"
       }
-    ],
-    "quarterlyFiscalPeriods":[],
-    "yearlyFiscalPeriods":[],
-    "customFiscalPeriods":[]
+    ]
   }
 ]
 ```
@@ -178,6 +206,12 @@ Name | Type | Format | Description
 ## <a name="delete"></a>Delete a Fiscal Year
 
     DELETE  /budget/v4/fiscalYear/{id}
+
+```shell
+http DELETE https://us.api.concursolutions.com/budget/v4/fiscalYear/{id} \
+"Authorization:Bearer {YOUR ACCESS TOKEN}" \
+"Content-Type: application/json" \
+```
 
 
 ### Parameters

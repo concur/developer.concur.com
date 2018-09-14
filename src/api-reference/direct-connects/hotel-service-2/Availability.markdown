@@ -80,6 +80,8 @@ Message to retrieved the availability of hotels
 
 ## Response
 
+The maximum allowed size of OTA_HotelAvailRS is 1 MB. Any response that exceeds this limit shall be dropped.
+
 **OTA_HotelAvailRS**
 
 | Element   | Required | Data Type | Description |
@@ -207,7 +209,7 @@ Supported GuranteeTypes:
 
 | Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
-| *Breakfast* | Y        | Boolean   | When true, indicates breakfast is included. |
+| *Breakfast* | Y        | Boolean   | When true, indicates breakfast is included, when false, indicates it is excluded. In both cases this information is showed to a customer in the rate description. |
 | *Dinner*    | Y        | Boolean   | When true, indicates dinner is included. |
 | *Lunch*     | Y        | Boolean   | When true, indicates lunch is included. |
 
