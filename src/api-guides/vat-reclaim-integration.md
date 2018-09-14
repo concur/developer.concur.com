@@ -43,7 +43,7 @@ note: Some customers will use the Concur ACH electronic payment service or impor
 
 **There are 3 steps the Partner's app will take to obtain expense report data:**
 
-    1. GET a list of Expense Reports.**
+    1. GET a list of Expense Reports.
 
    [Expense Report v3 API](/api-reference/expense/expense-report/reports.html)
 
