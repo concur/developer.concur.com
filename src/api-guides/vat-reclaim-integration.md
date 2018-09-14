@@ -43,7 +43,7 @@ note: Some customers will use the Concur ACH electronic payment service or impor
 
 **There are 3 steps the Partner's app will take to obtain expense report data:**
 
-####**1. GET a list of Expense Reports.**
+####**Step 1. GET a list of Expense Reports.**
 
    [Expense Report v3 API](/api-reference/expense/expense-report/reports.html)
 
@@ -59,13 +59,13 @@ note: Some customers will use the Concur ACH electronic payment service or impor
 
       *Repeat the above steps but use P_PAYC for the Payment Status parameter.  This is required to ensure you have obtained         *all of the reports since the Payment Status field is updated in two different ways: 1st to reflect extracted, then 2nd       *to reflect any confirmations of payment.
 
-####**2. GET the Report Details for each unique Report ID that is returned in the API Request from #1**
+####**Step 2. GET the Report Details for each unique Report ID that is returned in the API Request from #1**
 
    [GET Expense Report Details v2 API](/api-reference/expense/expense-report/expense-report-get.html)
 
       *Insert one Report ID per API request. Make all of the requests until you obtain details for every report returned in         *your search results.
 
-####**3. GET the Images**
+####**Step 3. GET the Images**
 
    [Receipt Image v3 API](/api/v3.0/expense/receiptimages)
 
