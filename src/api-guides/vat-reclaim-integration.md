@@ -90,16 +90,16 @@ copy and paste the url into a browser session to render the image.  This is a te
 
 ####**1. GET a list of Payment Request Digests.**
 
-   [Payment Request Digests v3 API](/api-reference/invoice/payment-request-digest.html)
+####   [Payment Request Digests v3 API](/api-reference/invoice/payment-request-digest.html)
 
-The search parameters should focus on invoices that can no longer be edited in the SAP-Concur User interface. Use the     following search parameters:
+####The search parameters should focus on invoices that can no longer be edited in the SAP-Concur User interface. Use the ####following search parameters:
 
   parameter|sample value
   ---|---
   extractedDateBefore|2018-01-27
   extractedDateAfter|2018-01-25
 
-The API request should be made for one day at a time.  This API Request will result in a list of invoices that match         those search parameters. note: there could be multiple pages returned in the results.
+####The API request should be made for one day at a time.  This API Request will result in a list of invoices that match         those search parameters. note: there could be multiple pages returned in the results.
 
 ####**2. GET the Invoice (Payment Request) Details for each unique Payment Request ID that is returned in the API Request from #1**
 
