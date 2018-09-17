@@ -38,15 +38,15 @@ Create a Purchase Request based on provided header and line item details. If the
 - Example  Input <br>
   **Note:** This is just a sample set of fields. The fields and values needing to be passed for your entity will vary based on your edition of concur and your forms and fields setup, but should include most of these common fields.
 
-  Curl Data:
+```shell
+POST /purchaserequest/v4/purchaserequests
+Authorization: Bearer {token}
+Content-Type: application/json
+```
+
+
   ```shell
-  curl -X POST \
-    https://us.api.concursolutions.com/purchaserequest/v4/purchaserequests \
-    -H 'Authorization: Bearer <ACTUAL JWT COMES HERE>' \
-    -H 'Cache-Control: no-cache' \
-    -H 'Content-Type: application/json' \
-    -H 'Postman-Token: 0909a0b2-8605-4f88-9322-dff258429fe3' \
-    -d '{
+  {
       "description" : "New office supplies",
       "userLoginId" : "john.deo@concur",
       "policyExternalId" : "po-external-id",
@@ -98,7 +98,7 @@ Create a Purchase Request based on provided header and line item details. If the
               "custom4" : "SALES"
           }
       ]
-  }'
+  }
   ```
     
 ### Response  
@@ -116,7 +116,11 @@ Create a Purchase Request based on provided header and line item details. If the
 
 ## <a name="get"></a>Get details of a purchase request
 
-    GET  /purchaserequest/v4/purchaserequests/{id}?mode=COMPACT
+ ```shell
+GET  /purchaserequest/v4/purchaserequests/{id}?mode=COMPACT
+Authorization: Bearer {token}
+Content-Type: application/json
+ ```
 
 Gets purchase request details. Currently only supported mode is COMPACT which returns basic info about the purchase request along with any exceptions if present.
 
