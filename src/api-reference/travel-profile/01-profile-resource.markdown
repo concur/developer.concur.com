@@ -129,7 +129,7 @@ The General parent element contains the following child elements.
 |  `PreferredName` |  `string` |  The user's preferred name. Format: nvarchar(60) | |  | |
 |  `JobTitle` |  `string` |  The user's job title. Format: nvarchar(255) | | | |
 |  `CostCenter` | `string` | The user’s cost center. Format: nvarchar(25) | | | Requires Company Details scope. |
-|  `CompanyEmployeeID` | `string` | The user’s employee ID. Format: nvarchar(48) | | | Requires Company Details Scope.  Must be unique in the company. |
+|  `CompanyEmployeeID` | `string` | The user’s employee ID. Format: nvarchar(48) | | | Requires Company Details scope.  Must be unique in the company. |
 |  `Division` | `string` | The user's division. Format: nvarchar(60) | || Requires Company Details scope.  Must already be setup in the company configuration. |
 |  `PreferredLanguage` |  `string` |  The user's preferred language locale. Example: United States English is en-US. Format: varchar(20) | |  | |
 |  `EReceiptOptIn` |  `boolean` |  Whether the user has opted in to receive e-receipts. Format: **true**\|**false** | |  |
