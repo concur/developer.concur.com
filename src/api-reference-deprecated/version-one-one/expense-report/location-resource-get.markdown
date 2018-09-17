@@ -3,6 +3,8 @@ title: Get a list of locations
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 # Get a list of locations
 
 ## Description

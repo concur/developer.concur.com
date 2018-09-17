@@ -3,6 +3,7 @@ title: Post a quick expense
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 ## Description
 

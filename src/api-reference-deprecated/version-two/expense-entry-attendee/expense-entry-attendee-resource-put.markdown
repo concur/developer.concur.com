@@ -3,6 +3,8 @@ title: PUT Expense Entry Attendees
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
 This allows the developer to specify which existing attendees are associated to the specified entry. It also gives the developer the option to provide the values for the Entry-Attendee association. The list of attendees in the request will replace any existing associated attendees, so the developer must include all attendees in the request. This function cannot be used to create new attendees.
 

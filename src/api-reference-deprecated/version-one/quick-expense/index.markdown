@@ -1,7 +1,9 @@
 ---
-title: Quick Expense Web Service 
+title: Quick Expense Web Service
 layout: reference
 ---
+
+{% include deprecation-alert.html %}
 
 ## Description
 The Quick Expense web service gives developers the ability to easily create basic expenses without requiring any client or user specific Expense configuration data. Expense applications, such as Concur Expense or Concur Connect partner applications, can consume quick expenses, providing developers a way to create expense capture applications that are product independent. The Quick Expense format is designed to be an open expense format, allowing any developer who wants to work with expense data the chance to do so.
@@ -45,4 +47,3 @@ The version 3.0 documentation includes the data model and tools to send test req
 
 
 [4]: /api-reference/expense/quick-expense/index.html
-

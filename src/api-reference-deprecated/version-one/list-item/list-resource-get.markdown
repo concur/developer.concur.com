@@ -3,6 +3,7 @@ title: Get a list of lists
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 This resource supports the following GET actions:
 

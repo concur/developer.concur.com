@@ -3,8 +3,7 @@ title: Get quick expenses
 layout: reference
 ---
 
-
-
+{% include deprecation-alert.html %}
 
 ##  Description
 Retrieves the list of quick expenses for the supplied user or for the entire company. In order to view the company-wide expense list, the OAuth Consumer must have the Web Services Admin (Professional) or Can Administer (Standard) user role.

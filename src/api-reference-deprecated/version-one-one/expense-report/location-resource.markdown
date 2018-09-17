@@ -1,11 +1,11 @@
 ---
-title: Location Resource 
+title: Location Resource
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 # Location Resource
-
 
 ## Description
 
@@ -26,6 +26,3 @@ The valid city location codes in Concur. These location codes are used in the Po
 
 
 [1]: /api-reference-deprecated/version-one-one/expense-report/location-resource-get.html
-
-
-

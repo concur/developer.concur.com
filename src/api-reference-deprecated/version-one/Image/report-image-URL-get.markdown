@@ -3,6 +3,8 @@ title: Get a report image URL
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
 Retrieves the receipt PDF file URL for the specified report ID.The URL is valid for 30 minutes after the request. If receipts have been uploaded to specific expense entries, they will all be bundled into one PDF at the report level.
 

@@ -1,7 +1,9 @@
 ---
-title: Image Resource 
+title: Image Resource
 layout: reference
 ---
+
+{% include deprecation-alert.html %}
 
 ## Description
 The Image resource represents a receipt image or an invoice image. The [ReceiptImages][1] version 3.0 API supersedes the Image resource.
@@ -17,7 +19,6 @@ The Image resource represents a receipt image or an invoice image. The [ReceiptI
 
 
 
-  
+
 
 [1]: /api-reference/image/index.html
-

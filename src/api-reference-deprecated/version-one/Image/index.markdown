@@ -1,7 +1,9 @@
 ---
-title: Imaging Web Service 
+title: Imaging Web Service
 layout: reference
 ---
+
+{% include deprecation-alert.html %}
 
 ## Description
 The Concur Imaging Web service allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.
@@ -70,4 +72,3 @@ Version 1.0 documentation includes the data model and example requests and respo
 [3]: /api-reference/image/index.html
 [4]: /api-reference-deprecated/version-one/Image/image-resource.html
 [5]: /api-reference-deprecated/version-one/Image/image-url-resource.html
-

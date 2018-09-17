@@ -19,10 +19,8 @@ The Concur API Lifecycle & Deprecation Policy is part of our [API terms and cond
 Active | Deprecated | Retired | Decommissioned
 -----|------|-------- | ------
 **API is live in production.** | **API is live in production.** | API is live in production. | API is NOT available in production after three (3) months of inactivity in Retired status.
-**Documentation*:** Available for review 2 weeks prior to launch; Posted day of launch. | **Documentation:** Deprecated status indicated and posted on day of deprecation. | **Documentation:** Retired status indicated and posted on day of retirement. | **Documentation:** n/a
+**Documentation [1]:** Available for review 2 weeks prior to launch; Posted day of launch. | **Documentation:** Deprecated status indicated and posted on day of deprecation. | **Documentation:** Retired status indicated and posted on day of retirement. | **Documentation:** n/a
 **Support:** Updated with bug fixes and new features are available. | **Support:** Updated with bug fixes for first six (6) months; No fixes after that period. | **Support:** No longer supported six (6) months after Deprecated. | **Support:** None.
 **Release Notes:** Notify 2 weeks prior to launch; Announce availability when in production. | **Release Notes:** Notify 90 days prior to deprecation; Announce when deprecated. | **Release Notes:** Notify 90 days prior to retirement; Announce when retired. | **Release Notes:** Notify 90 days prior to decommissioning.
 
-## *Exception: Changes required due to security issues may have a shorter notification and action window.  
-
-
+[1] Exception: Changes required due to security issues may have a shorter notification and action window.

@@ -3,6 +3,8 @@ title: Post an expense report header
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Post Expense Report Header
 
 ### Description

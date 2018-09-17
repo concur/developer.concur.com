@@ -3,6 +3,8 @@ title: POST Expense Entry Attendees
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
 Creates or updates one or more attendee records for the specified expense entry. Attendees are additional people that benefitted from this expense.
 

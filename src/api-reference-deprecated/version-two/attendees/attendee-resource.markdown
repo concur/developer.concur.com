@@ -1,7 +1,9 @@
 ---
-title: Attendee Resource 
+title: Attendee Resource
 layout: reference
 ---
+
+{% include deprecation-alert.html %}
 
 ## Description
 The attendees in the Concur company. This resource can be used to retrieve attendee information for any attendee in the Concur company, regardless of whether they are Private or Shared. In future releases, this resource will be enhanced to provide full attendee management functionality.
@@ -19,7 +21,7 @@ https://www.concursolutions.com/api/expense/v2.0/attendees
 [GET][2]
 
 ## See also
-* [Attendee List][3] 
+* [Attendee List][3]
 * [Attendee Type ][4]
 
 [2]: /api-reference-deprecated/version-two/attendees/attendee-resource-get.html

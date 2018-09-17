@@ -1,8 +1,9 @@
 ---
-title: Expense Group Configuration Resource 
+title: Expense Group Configuration Resource
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 ## Description
 The Expense Group Configuration contains the list of Expense Polices, Expense Types and Payment Types for the Expense Group the user specified in the OAuth access token is assigned to.
@@ -17,7 +18,6 @@ The Expense Group Configuration contains the list of Expense Polices, Expense Ty
 [GET][1]
 
 
-  
+
 
 [1]: /api-reference-deprecated/version-one-one/expense-group/expense-group-configuration-resource-get.html
-

@@ -1,7 +1,9 @@
 ---
-title: Expense Report Header Resource 
+title: Expense Report Header Resource
 layout: reference
 ---
+
+{% include deprecation-alert.html %}
 
 # Expense Report Header Resource
 
@@ -10,7 +12,7 @@ layout: reference
 
 The expense report header contains classification information for the expense report, and serves as the container for the expense entries.
 
-## Version 
+## Version
 1.1
 
 ## Resource URI

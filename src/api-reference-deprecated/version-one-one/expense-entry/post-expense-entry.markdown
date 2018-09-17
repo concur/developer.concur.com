@@ -3,6 +3,8 @@ title: POST Expense Entry
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Post Expense Entry Request
 
 ## Version

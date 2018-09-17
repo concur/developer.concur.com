@@ -3,6 +3,7 @@ title: Get attendees
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 ##  Description
 

@@ -3,6 +3,8 @@ title: Post image data
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Post Receipt Image
 
 ### Description

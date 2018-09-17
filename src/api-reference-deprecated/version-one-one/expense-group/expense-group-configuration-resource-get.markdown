@@ -3,6 +3,8 @@ title: Get expense group configuration details
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
 Retrieves the list of Expense Polices, Expense Types and Payment Types for the Expense Group the user specified in the OAuth access token is assigned to. Each Expense Policy contains a list of valid Expense Types. The Payment Types are associated with the user's Expense Group and apply to all the returned policies. Only the payment types that are valid for the [Post Expense Entry](/api-reference-deprecated/version-one-one/expense-entry/post-expense-entry.html) endpoint are returned.
 
