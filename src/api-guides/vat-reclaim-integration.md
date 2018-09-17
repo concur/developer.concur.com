@@ -39,7 +39,9 @@ Use the following resources to get familiar with the Concur product and then sub
 
 Concur customers' Expense and Invoice sites are typically scheduled to close out their approval workflow on a nightly basis (some close out on a weekly basis or other intervals and some close on an on-demand interval).  When the expense or invoice period is closed out within the Concur system, the process results in a compiled list of the expense reports or invoices that have been final-approved since the last time the period was closed.  This process changes the status to "Extracted".  At this point, those expense reports or invoices can no longer be edited by the User, Approver, or Administrator.
   
-note: Some customers will use the Concur ACH electronic payment service or import a file that changes the status to "confirmed".  In these customers, the same payment status field is changed, so the Partner needs to run the search query twice, once for each payment status described below. i.e. it is possible that you could experience an issue when attempting to get expense reports with an "Extracted" status.  In the process of re-trying that request, the bank(s) involved in the ACH Service (or the client's own confirmation file) could at the same time update the status to "Payment Confirmed".  Therefore, the Partner should query for both Paid (aka as Extracted) and Payment Confirmed to ensure no reports were missed.  Concur is addressing this issue in our next generation of APIs.  At that time, there will be 2 distinct fields to capture the "extracted" status and the "payment confirmed" status i.e. the Extracted status will not be overwritten by the Payment Confirmed status and you will be able to make one call for the desired status at a point in time.
+Some customers will use the Concur ACH electronic payment service or import a file that changes the status to "confirmed".  In these customers, the same payment status field is changed, so the Partner needs to run the search query twice, once for each payment status described below. i.e. it is possible that you could experience an issue when attempting to get expense reports with an "Extracted" status.  In the process of re-trying that request, the bank(s) involved in the ACH Service (or the client's own confirmation file) could at the same time update the status to "Payment Confirmed". Therefore, the Partner should query for both Paid (aka as Extracted) and Payment Confirmed to ensure no reports were missed.
+
+Concur is addressing this issue in our next generation of APIs.  At that time, there will be 2 distinct fields to capture the "extracted" status and the "payment confirmed" status i.e. the Extracted status will not be overwritten by the Payment Confirmed status and you will be able to make one call for the desired status at a point in time.  These search parameters should not be combined into one search. The searches should be sequential, one for each status.
 
 **There are 3 steps the Partner's app will take to obtain expense report data:**
 
@@ -50,6 +52,8 @@ note: Some customers will use the Concur ACH electronic payment service or impor
 The search parameters should focus on reports that can no longer be edited in the SAP-Concur User interface. Use the         following search parameters:
 
 The API request should be made for one day at a time. This API Request will result in a list of reports that match those search parameters. note: there could be multiple pages returned in the results so ensure your app can get every page of results.
+
+> Note: there could be multiple pages returned in the results. Ensure you know how to successfully make requests for each subsequent page until the last page has been reached.
 
 Repeat the above steps but use P_PAYC for the Payment Status parameter. This is required to ensure you have obtained all of the reports since the Payment Status field is updated in two different ways: 1st to reflect extracted, then 2nd to reflect any confirmations of payment.
 
@@ -75,16 +79,6 @@ The GET Report Details API request will produce an Entry ID that will be used in
 
 GET /api/v3.0/expense/receiptimages/{id}
 id = Required ReceiptImage ID (use the ID from v2 GET Report Details API called, EntryImageID)
-The above GET request produces this response: 
-<Image xmlns="http://www.concursolutions.com/api/image/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-
-<Id>sample</Id>
-
-<Url>https://imagingupload.concursolutions.com/file/p00884704c6o/5A789811F139BC89D9C42DDE5FEE2A655BB7C2A375E9C481FA0BE92FFF690E298F119925A5C834385C8D62AE5FC4E65AC0F53E4C7273C14A4E71D4264F104882H142570AF84FBEEEC439486FE89E44D2F?id=51253775812C4750888F&e=p00884704c6o&t=AN</Url>
-
-</Image>
-
-copy and paste the url into a browser session to render the image.  This is a temp url.
 
 ### <a name="obtain-invoice-data-for-vat-reclaim"></a>Obtain Invoice Data for VAT Reclaim
 
@@ -101,7 +95,9 @@ parameter|sample value
 extractedDateBefore|2018-01-27
 extractedDateAfter|2018-01-25
 
-The API request should be made for one day at a time.  This API Request will result in a list of invoices that match those search parameters. note: there could be multiple pages returned in the results.
+The API request should be made for one day at a time. This API Request will result in a list of invoices that match those search parameters.
+
+> Note: there could be multiple pages returned in the results.
 
 #### Step 2: GET the Invoice (Payment Request) Details
 
