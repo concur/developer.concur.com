@@ -3,6 +3,7 @@ title: Get attendee types
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 ## Description
 Retrieves the list of attendee types for the company.
