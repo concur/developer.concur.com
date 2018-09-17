@@ -17,4 +17,4 @@
       - title: Itinerary - Add a New Itinerary Manually
         url: /api-guides/travel/new-itinerary-manual.html
 - title: VAT Reclaim Integration
-  url: /api-guides/vat-reclaim-integration.html
+  url: /api-guides/vat-reclaim/vat-reclaim-guide.html
