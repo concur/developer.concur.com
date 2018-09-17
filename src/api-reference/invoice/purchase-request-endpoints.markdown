@@ -45,7 +45,7 @@ Content-Type: application/json
 ```
 
 
-  ```shell
+  ```json
   {
       "description" : "New office supplies",
       "userLoginId" : "john.deo@concur",
