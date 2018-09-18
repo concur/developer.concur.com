@@ -1,9 +1,7 @@
 ---
-title: Examples
+title: Travel Request v4 - Examples
 layout: reference
 ---
-
-# <a name="request-examples">Request APIs Resources Examples
 
 ** Pre-release Version 4.0**
 
@@ -19,7 +17,7 @@ Below we have sample request data and the corresponding request answers:
   * [Delete an existing Request - DELETE](#request-resource-delete)
   * [Create an expense report linked to an approved Request - POST](#request-resource-create-expense-linked)
 * [Workflow resource](#workflow-resource)
-  * [Move an existing Request in the approval workflow - POST](#Move-existing-request-in-approval-workflow)
+  * [Move an existing Request in the approval workflow - POST](#move-existing-request-in-approval-workflow)
 * [Expense resource](#expense-resource)
   * [Create a new expected expense - POST](#create-new-expected-expense-resource)
   * [Get expected Expenses attached to a Request - GET](#get-expected-expense-attached-request-resource)
@@ -29,34 +27,37 @@ Below we have sample request data and the corresponding request answers:
 * [Travel Agency resource](#travel-agency-resource)
   * [Get the description of a travel agency office - GET](#get-travel-agency-description-resource)
 
-### <a name="request-resource">Request resources</a>
+## <a name="request-resource">Request resources</a>
 
 Manage documents used for pre-spend authorizations within Concur Request
 
-#### <a name="request-resource-create"></a>Create a new Request
-#### POST /v4/requests
+### <a name="request-resource-create"></a>Create a new Request
 
-```
-curl -X POST 'https://us.api.concursolutions.com/travelrequest/v4/requests' --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}' -d
+#### Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
 
-Request Body:
 ```json
 {
   "businessPurpose": "Trip to Lyon for company training",
   "comment": "Company training requires to go to Lyon",
   "custom1": {
     "value": "Training part of IT Service"
-},
-"custom2": {
+  },
+  "custom2": {
     "value": "8422A66A9B0142458020D9BCD4351D38"
-},
+  },
   "custom3": {
     "value": "5A0F9AF6B92E34468698040C915688BF"
-},
+  },
   "custom4": {
     "value": "3F54AE68BA66EF49A5984E5197202A4D"
-},
+  },
   "endDate": "2018-07-03",
   "endTime": "22:00",
   "startDate": "2018-07-01",
@@ -67,19 +68,22 @@ Request Body:
     "countryCode": "FR",
     "countrySubDivisionCode": "FR-69",
     "name": "Lyon, FRANCE"
-},
+  },
   "policy": {
     "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
-},
+  },
   "travelAgency": {
     "id": "2EC038D7C3CBBE4ABA0914425064D34F"
-}
+  }
 }
 ```
 
-Response Code: **201**
+#### Response
 
-Responde Body:
+```shell
+201 Created
+```
+
 ```json
 {
   "href": "https://us.api.concursolutions.com/v4/requests/CED5E9CD8FC1424488F9331ACF956E73",
@@ -161,17 +165,23 @@ Responde Body:
   ]
 }
 ```
-[Back to top](#request-examples)
 
-#### <a name="request-resource-get-list"></a>Get the list of existing Requests
-#### GET /v4/requests
+### <a name="request-resource-get-list"></a>Get the list of existing Requests
+
+#### Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests?view=ALL&limit=10&start=0
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X GET https://us.api.concursolutions.com/travelrequest/v4/requests?view=ALL&limit=10&start=0 --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
+
+#### Response
+
+```shell
+200 OK
 ```
 
-Response Code: **200**
-
-Response Body:
 ```json
 {
   "href": "https://us.api.concursolutions.com/v4/requests/2B19A2438CD6664A9C44E0F4D39E870A",
@@ -244,17 +254,23 @@ Response Body:
   }
 }
 ```
-[Back to top](#request-examples)
 
-#### <a name="request-resource-get"></a>Get the content of an existing Request
-#### GET /v4/requests/{requestUuid}
+### <a name="request-resource-get"></a>Get the content of an existing Request
+
+#### Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2 --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
+
+#### Response
+
+```shell
+200 OK
 ```
 
-Response Code: **200**
-
-Response Body:
 ```json
 {
   "href": "https://us.api.concursolutions.com/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2",
@@ -279,12 +295,12 @@ Response Body:
   },
   "custom3": {
     "code": "CEN1PRO2",
-    "value": "441D6FC50766A044ACC07FF780F1BAD9"
+    "value": "441D6FC50766A044ACC07FF780F1BAD9",
     "href": "https://us.api.concursolutions.com/list/v1/items/441D6FC50766A044ACC07FF780F1BAD9"
   },
   "custom4": {
     "code": "CLIENTPROJECT",
-    "value": "050BE16A7BF72948810AFDBC9069BD8E"
+    "value": "050BE16A7BF72948810AFDBC9069BD8E",
     "href": "https://us.api.concursolutions.com/list/v1/items/050BE16A7BF72948810AFDBC9069BD8E"
   },
   "endDate": "2018-07-17",
@@ -346,38 +362,42 @@ Response Body:
   },
   "operations": [
     {
-    "rel": "submit",
-    "href": "https://us.api.concursolutions.com/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/submit{?companyId}"
+      "rel": "submit",
+      "href": "https://us.api.concursolutions.com/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/submit{?companyId}"
     }
   ]
 }
 ```
-[Back to top](#request-examples)
 
-#### <a name="request-resource-update"></a> Update the content of an existing Request
-#### PUT /v4/requests/{requestUuid}
+### <a name="request-resource-update"></a> Update the content of an existing Request
 
+#### Request
+
+```shell
+PUT https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X PUT https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
-```
 
-Request Body:
+#### Response
+
 ```json
 {
   "businessPurpose": "Trip to Lyon for company training - Modification of dates and Cost center + Custom Field",
   "comment": "Company training requires to go to Lyon - Dates and service changed",
   "custom1": {
     "value": "Training part of IT Service"
-},
-"custom2": {
+  },
+  "custom2": {
     "value": "54F0CBD8833CB348BD45A6C7C621C951"
-},
+  },
   "custom3": {
     "value": "441D6FC50766A044ACC07FF780F1BAD9"
-},
+  },
   "custom4": {
     "value": "3F54AE68BA66EF49A5984E5197202A4D"
-},
+  },
   "endDate": "2018-07-09",
   "endTime": "19:00",
   "id": "053A479B3C9DD847B02A203C657AE26B",
@@ -389,19 +409,22 @@ Request Body:
     "countryCode": "FR",
     "countrySubDivisionCode": "FR-69",
     "name": "Lyon, FRANCE"
-},
+  },
   "policy": {
     "id": "F4C8BD31CA9D4D6292795BE687EB9B2A"
-},
+  },
   "travelAgency": {
     "id": "2EC038D7C3CBBE4ABA0914425064D34F"
-}
+  }
 }
 ```
 
-Response Code : **200**
+#### Response
 
-Response Body:
+```shell
+200 OK
+```
+
 ```json
 {
   "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B",
@@ -483,31 +506,45 @@ Response Body:
   ]
 }
 ```
-[Back to top](#request-examples)
 
-#### <a name="request-resource-delete"></a>Delete an existing Request
-#### DELETE /v4/requests/{requestUuid}
 
+### <a name="request-resource-delete"></a>Delete an existing Request
+
+#### Request
+
+```shell
+DELETE https://us.api.concursolutions.com/travelrequest/v4/requests/0D4DC4589D33AC4B9AF2E8B548C7AD2C
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X DELETE https://us.api.concursolutions.com/travelrequest/v4/requests/0D4DC4589D33AC4B9AF2E8B548C7AD2C --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
+
+#### Response
+
+```shell
+200 OK
 ```
 
-Response Body:
 ```json
 true
 ```
-Response Code : **200**
 
-[Back to top](#request-examples)
+### <a name="request-resource-create-expense-linked"></a>Create an expense report linked to an approved Request
 
-#### <a name="request-resource-create-expense-linked"></a>Create an expense report linked to an approved Request
-#### POST /v4/requests/{requestUuid}/reports
+#### Request
 
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests/19148EE9411DF9459F6AEBBCA53BD646/reports
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/requests/19148EE9411DF9459F6AEBBCA53BD646/reports'
+
+#### Response
+
+```shell
+201 Created
 ```
 
-Response Body:
 ```json
 {
   "href": "https://us.api.concursolutions.com/expensereports/v4/users/c0d9894b-98e2-48d5-86f9-1decde90dd15/context/TRAVELER/reports/C5EDBE0E507C46FFB132",
@@ -516,22 +553,27 @@ Response Body:
 }
 ```
 
-Response Code : **201**
-
-[Back to top](#request-examples)
-
-### <a name="workflow-resource">Workflow resources</a>
+## <a name="workflow-resource">Workflow resources</a>
 
 Manage workflow transitions for a Request document
 
-#### <a name="Move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
-#### POST /v4/requests/{requestUuid}/{action}
+### <a name="move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
 
-```
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit'
+#### Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
 
-Response Body:
+#### Response
+
+```shell
+200 OK
+```
+
 ```json
 {
   "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B",
@@ -623,51 +665,52 @@ Response Body:
   ]
 }
 ```
-Response code : **200**
 
-[Back to top](#request-examples)
-
-### <a name="expense-resource">Expense resources</a>
+## <a name="expense-resource">Expense resources</a>
 
 Manage expected Expense entries attached to a Request document
 
-#### <a name="create-new-expected-expense-resource"></a>Create a new expected expense
-#### POST /v4/requests/{requestUuid}/expenses
+### <a name="create-new-expected-expense-resource"></a>Create a new expected expense
 
+#### Request
+
+```shell
+POST https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X POST https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
-```
-Expense Body:
+
 ```json
 {
   "allocations": [
-   {
-    "allocationAmount": {
-    "currency": "USD",
-    "value": 122.38
-    },
-    "approvedAmount": {
-    "currency": "USD",
-    "value": 122.38
-    },
-    "percentEdited": false,
-    "percentage": 0,
-    "postedAmount": {
-      "currency": "USD",
-      "value": 122.38
+    {
+      "allocationAmount": {
+        "currency": "USD",
+        "value": 122.38
       },
-    "systemAllocation": false
-      }
-],
+      "approvedAmount": {
+        "currency": "USD",
+        "value": 122.38
+      },
+      "percentEdited": false,
+      "percentage": 0,
+      "postedAmount": {
+        "currency": "USD",
+        "value": 122.38
+      },
+      "systemAllocation": false
+    }
+  ],
   "approvedAmount": {
     "currency": "USD",
     "value": 122.38
-},
+  },
   "businessPurpose": "additional punctual trip to South of France",
   "exchangeRate": {
-  "operation": "MULTIPLY",
-  "value": 1
-},
+    "operation": "MULTIPLY",
+    "value": 1
+  },
   "expenseType": {
     "id": "RAILF",
     "name": "Train"
@@ -729,7 +772,13 @@ Expense Body:
   }
 }
 ```
-Response Body:
+
+#### Response
+
+```shell
+201 Created
+```
+
 ```json
 {
   "href": "https://us.api.concursolutions.com/v4/expenses/0465224E14C23D4F8C2BC79A9D694BDD",
@@ -819,17 +868,23 @@ Response Body:
   }
 }
 ```
-Response code : **201**
 
-[Back to top](#request-examples)
+### <a name="get-expected-expense-attached-request-resource"></a>Get expected Expenses attached to a Request
 
-#### <a name="get-expected-expense-attached-request-resource"></a>Get expected Expenses attached to a Request
-#### GET /v4/requests/{requestUuid}/expenses
+#### Request
 
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses'
+
+#### Response
+
+```shell
+200 OK
 ```
-Response Body:
+
 ```json
 [
   {
@@ -1048,19 +1103,23 @@ Response Body:
   }
 ]
 ```
-Response code : **200**
 
-[Back to top](#request-examples)
+### <a name="get-existing-expense-expense-resource"></a>Get the content of an existing expected Expense
 
-#### <a name="get-existing-expense-expense-resource"></a>Get the content of an existing expected Expense
-#### GET /v4/expenses/{expenseUuid}
+#### Request
 
-##### Segment AIRFARE
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1'
+
+#### Response
+
+```shell
+200 OK
 ```
 
-Response Body:
 ```json
 {
   "href": "https://us.api.concursolutions.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
@@ -1173,14 +1232,19 @@ Response Body:
   }
 }
 ```
-Response code : **200**
 
-##### Expense Type DINNER
-```
-curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/expenses/C286A46A2DDF984EA28E41CEA278667D'
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/expenses/C286A46A2DDF984EA28E41CEA278667D
+Accept: application/json
+Authorization: Bearer {token}
 ```
 
-Response Body:
+#### Response
+
+```shell
+200 OK
+```
+
 ```json
 {
   "href": "https://us.api.concursolutions.com/v4/expenses/C286A46A2DDF984EA28E41CEA278667D",
@@ -1235,17 +1299,18 @@ Response Body:
   "transactionDate": "2018-07-17T00:00:00.000Z"
 }
 ```
-Response code : **200**
 
-[Back to top](#request-examples)
+### <a name="update-content-existing-expected-expense-resource"></a>Update the content of an existing expected Expense
 
-#### <a name="update-content-existing-expected-expense-resource"></a>Update the content of an existing expected Expense
-#### PUT /v4/expenses/{expenseUuid}
+#### Request
 
+```shell
+PUT https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X PUT https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1 --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer {token}'
-```
-Expense Body:
+
 ```json
 {
   "id": "B5FB8991E390474E875D6FD5BB1FDAF1",
@@ -1357,7 +1422,13 @@ Expense Body:
   }
 }
 ```
-Response Body:
+
+#### Response
+
+```shell
+200 OK
+```
+
 ```json
 {
   "href": "https://us.api.concursolutions.com/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1",
@@ -1470,39 +1541,47 @@ Response Body:
   }
 }
 ```
-Response code : **200**
 
-[Back to top](#request-examples)
+### <a name="delete-expected-expense-request-resource"></a>Delete an expected Expense from the Request
 
-#### <a name="delete-expected-expense-request-resource"></a>Delete an expected Expense from the Request
-#### DELETE /v4/expenses/{expenseUuid}
+#### Request
 
+```shell
+DELETE https://us.api.concursolutions.com/travelrequest/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0
+Accept: application/json
+Authorization: Bearer {token}
 ```
-curl -X DELETE --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0'
+
+#### Response
+
+```shell
+200 OK
 ```
 
-Response Body:
 ```json
 true
 ```
-Response Code : **200**
 
-[Back to top](#request-examples)
-
-<a name="travel-agency-resource"></a>
-
-### Travel Agency resource
+## <a name="travel-agency-resource"></a>Travel Agency resource
 
 Manage the configuration for travel agencies integrated with Concur Request
 
-#### <a name="get-travel-agency-description-resource"></a>Get the description of a travel agency office
-#### GET /v4/travelagencies/{agencyUuid}
+### <a name="get-travel-agency-description-resource"></a>Get the description of a travel agency office
 
-```
-curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {token}' 'https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B'
+#### Request
+
+```shell
+GET https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B
+Accept: application/json
+Authorization: Bearer {token}
 ```
 
-Response Body:
+#### Response
+
+```shell
+200 OK
+```
+
 ```json
 {
   "href": "https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B",
@@ -1511,6 +1590,3 @@ Response Body:
   "name": "myCompanyAgency"
 }
 ```
-Response Code : **200**
-
-[Back to top](#request-examples)

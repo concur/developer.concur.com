@@ -47,6 +47,18 @@ Name | Type | Format | Description
 `id`	|	`string`	|	`path`	|	**Required** ReceiptImage ID
 `user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
 
+### Example
+
+The above GET request produces this response:
+
+```xml
+<Image xmlns="http://www.concursolutions.com/api/image/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>sample</Id>
+  <Url>https://imagingupload.concursolutions.com/file/p00884704c6o/5A789811F139BC89D9C42DDE5FEE2A655BB7C2A375E9C481FA0BE92FFF690E298F119925A5C834385C8D62AE5FC4E65AC0F53E4C7273C14A4E71D4264F104882H142570AF84FBEEEC439486FE89E44D2F?id=51253775812C4750888F2e=p00884704c6o3t=AN</Url>
+</Image>
+```
+
+Copy and paste the url into a browser session to render the image.  This is a temp url.
 
 ## <a name="post"></a>Create a new receipt image
 
