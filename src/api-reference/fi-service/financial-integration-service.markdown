@@ -1,242 +1,100 @@
-<h1>Financial Integration Service</h1>
-<ul> 
-<li><a href="#FIS">Financial Integration API</a></li>
-	<ul>
-    <li><a href="#getTransactions">GET a List of Financial Transactions based on a search criteria</a></li>
-    <li><a href="#postAcknowledgements">POST Financial Transactions acknowledgements</a></li>
-    <li><a href="#postConfirmations">POST Financial Transactions confirmations</a></li>
-	</ul>
-<li><a href="#responseCodes">Response Codes</a></li>
-<li><a href="#examples">Financial Integration sample documents</a></li>
-	<ul>
-    <li><a href="#expense">Expense sample document</a></li>
-    <li><a href="#invoice">Invoice sample document</a></li>
-    <li><a href="#cashAdvance">Cash Advance sample document</a></li>
-	</ul>
+# Financial Integration Service
 
-</ul>
+* [Financial Integration API](#fis)
+  - [GET a List of Financial Transactions based on a search criteria](#gettransactions)
+  - [POST Financial Transactions acknowledgements](#postacknowledgements)
+  - [POST Financial Transactions confirmations](#postconfirmations)
+* [Response Codes](#responsecodes)
+* [Financial Integration sample documents](#examples)
+  - [Expense sample document](#expense)
+  - [Invoice sample document](#invoice)
+  - [Cash Advance sample document](#cashadvance)
 
-<h2>
-	<a name="FIS"></a>
-	Financial Integration API 
-</h2>
-<p> The Financial Integration API allows an external system to interact with financial documents generated from Concur, for financial posting into an ERP.</p>
-<p> This Web Service provides an automated solution to request available data objects such as approved expense reports, cash advance requests and invoices, to import to the client internal system, with an opportunity to send posting confirmation back into Concur before the object is locked down and cannot be altered in Concur.</p>
-<p> Below are some benefits for using the Financial Integration service:</p>
-<ul>
-	<li>Using a modern method, no more handling of flat files.</li>
-    <li>Close to real time experience VS SAP Concur over night processing.</li>
-    <li>1 to 1 Concur to ERP reconciliation VS the extract batch processing.</li>
-    <li>Opportunity to modify and retry before the object is locked in Concur.</li>
-    <li>Insures data sync between systems.</li>
-</ul>
+## Financial Integration API
 
-<h3> Version </h3>
-<p>1.0</p>
+The Financial Integration API allows an external system to interact with financial documents generated from Concur, for financial posting into an ERP.
 
-<h3> Authorization </h3>
-<p>The Financial Integration API works only with the new <a href="https://developer.concur.com/api-reference/authentication/apidoc.html"> Authentication API</a>.</p>
-<div class="highlighter-rouge">
-	<pre class="highlight">
-    	<code>HEADER:   "Authorization: Bearer {YOUR ACCESS TOKEN}" </code>
-	</pre>
-</div>
-<h2>
-	<a name="getTransactions"></a>
-	GET a list of Financial Transactions based on a search criteria
-</h2>
-<p>Making a GET request to the financial transactions API will return a list of available financial documents, ready to be processed.</p>
-<div class="highlighter-rouge">
-	<pre class="highlight">
-    	<code>GET   /financialintegration/fi/v1/companies/{companyId}/transactiontypes/{docType}/transactions </code>
-	</pre>
-</div>
-<h3> Parameters </h3>
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">companyId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">path</code></td>
-            <td><strong>Required </strong>Company Outtask Id in Concur</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">docType</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">path</code></td>
-            <td><strong>Required </strong> The financial document type to return. VALUES: expense; invoice; cashadvance. Only one type of transactions can be retrieved at a time</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">OuttaskCompanyId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">header</code></td>
-            <td><strong>Required </strong> Outtask Company Id in Concur</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">entityid</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">header</code></td>
-            <td>Concur unique code for the entity</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">offset</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">query</code></td>
-            <td>Starting page offset</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">limit</code></td>
-            <td><code class="highlighter-rouge">int32</code></td>
-            <td><code class="highlighter-rouge">query</code></td>
-            <td>Number of records to return per page (default 100)</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">docId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">query</code></td>
-            <td>The transaction unique identifier, it could be expense report ID, payment request ID or Cash Advance ID. If specified, a single document which matches docId is returned.</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">ignoreDocumentStatus</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">query</code></td>
-            <td>Ignores the financial documents status. FORMAT: yes or no. if yes, a document is returned regardless of status. If no, only documents that have not been acknowledged/confirmed are returned</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">systemId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">query</code></td>
-            <td>The external system ID that processed the document</td>
-    	</tr>
-    </tbody>
-</table>
+This Web Service provides an automated solution to request available data objects such as approved expense reports, cash advance requests and invoices, to import to the client internal system, with an opportunity to send posting confirmation back into Concur before the object is locked down and cannot be altered in Concur.
 
-<h3>Response schema </h3>
+Below are some benefits for using the Financial Integration service:
 
-<h4>Financial Documents</h4>
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">fIDocuments</code></td>
-            <td><code class="highlighter-rouge">Array</code></td>
-            <td><a href="#fiDocument"> Financial document</a></td>
-            <td>The result collection</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">nextPage</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>The URI of the next page of results</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">numberReturned</code></td>
-            <td><code class="highlighter-rouge">int32</code></td>
-            <td>-</td>
-            <td>Number of documents returned in current page</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">offset</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>Next page offset</td>
-    	</tr>
-    </tbody>
-</table>
+* Using a modern method, no more handling of flat files.
+* Close to real time experience VS SAP Concur over night processing.
+* 1 to 1 Concur to ERP reconciliation VS the extract batch processing.
+* Opportunity to modify and retry before the object is locked in Concur.
+* Insures data sync between systems.
 
-<h4><a name="fiDocument"></a>Financial Document</h4>
+### Version
 
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">id</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">-</code></td>
-            <td>The unique identifier for the document</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">docType</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>Transaction type. Expense, invoice or cashadvance</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">companyId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>Unique identifier for the company in Concur</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">entityId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>Unique Identifier for the entity in Concur</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">companyUuid</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">UUID</code></td>
-            <td>Unique UUID for the company in Concur</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">erpSystemId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>The external System ID that processed the document</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">document</code></td>
-            <td><code class="highlighter-rouge">Array</code></td>
-            <td>-</td>
-            <td>The JSON financial document. Review the <a href="#examples">FI sample documents</a> below</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">docStatus</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>The financial document status. VALUES: READY, ACKNOWLEDGED, POSTING_CONFIRMED_SUCCESS, POSTING_CONFIRMED_FAILURE.</td>
-    	</tr>
-    </tbody>
-</table>
-<p>
-<em>Example Request:</em>
-</p>
-<p>cURL:</p>
-<div class="language-shell highlighter-rouge">
-	<pre class="highlight">
-    	<code>curl -H "OuttaskCompanyId: {YOUR COMPANY ID}" -H "Authorization: Bearer {YOUR ACCESS TOKEN}" -X GET
-        https://us.api.concursolutions.com/financialintegration/fi/v1/companies/{CompanyID}/transactiontypes/expense/transactions?limit=15</code>
-	</pre>
-</div>
-<p>
-<em>Example Response:</em>
-</p>
-<div class="language-json highlighter-rouge">
-	<pre class="highlight">
-    	<code>
+1.0
+
+### Authorization
+
+The Financial Integration API works only with the new [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
+
+```
+HEADER:   "Authorization: Bearer {YOUR ACCESS TOKEN}"
+```
+
+## GET a list of Financial Transactions based on a search criteria
+
+Making a GET request to the financial transactions API will return a list of available financial documents, ready to be processed.
+
+```
+GET   /financialintegration/fi/v1/companies/{companyId}/transactiontypes/{docType}/transactions
+```
+
+### Parameters
+
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `companyId` | `string` | `path` | **Required** Company Outtask Id in Concur |
+| `docType` | `string` | `path` | **Required** The financial document type to return. VALUES: expense; invoice; cashadvance. Only one type of transactions can be retrieved at a time |
+| `OuttaskCompanyId` | `string` | `header` | **Required** Outtask Company Id in Concur |
+| `entityid` | `string` | `header` | Concur unique code for the entity |
+| `offset` | `string` | `query` | Starting page offset |
+| `limit` | `int32` | `query` | Number of records to return per page (default 100) |
+| `docId` | `string` | `query` | The transaction unique identifier, it could be expense report ID, payment request ID or Cash Advance ID. If specified, a single document which matches docId is returned. |
+| `ignoreDocumentStatus` | `string` | `query` | Ignores the financial documents status. FORMAT: yes or no. if yes, a document is returned regardless of status. If no, only documents that have not been acknowledged/confirmed are returned |
+| `systemId` | `string` | `query` | The external system ID that processed the document |
+
+### Response schema
+
+#### Financial Documents
+
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `fIDocuments` | `Array` | [Financial document](#fidocument) | The result collection |
+| `nextPage` | `string` | - | The URI of the next page of results |
+| `numberReturned` | `int32` | - | Number of documents returned in current page |
+| `offset` | `string` | - | Next page offset |
+
+#### Financial Document
+
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | `-` | The unique identifier for the document |
+| `docType` | `string` | - | Transaction type. Expense, invoice or cashadvance |
+| `companyId` | `string` | - | Unique identifier for the company in Concur |
+| `entityId` | `string` | - | Unique Identifier for the entity in Concur |
+| `companyUuid` | `string` | `UUID` | Unique UUID for the company in Concur |
+| `erpSystemId` | `string` | - | The external System ID that processed the document |
+| `document` | `Array` | - | The JSON financial document. Review the [FI sample documents](#examples) below |
+| `docStatus` | `string` | - | The financial document status. VALUES: READY, ACKNOWLEDGED, POSTING_CONFIRMED_SUCCESS, POSTING_CONFIRMED_FAILURE. |
+
+_Example Request:_
+
+cURL:
+
+```
+curl -H "OuttaskCompanyId: {YOUR COMPANY ID}" -H "Authorization: Bearer {YOUR ACCESS TOKEN}" -X GET
+        https://us.api.concursolutions.com/financialintegration/fi/v1/companies/{CompanyID}/transactiontypes/expense/transactions?limit=15
+```
+
+_Example Response:_
+
+```
+
 {
     "fIDocuments": [
         {
@@ -254,172 +112,64 @@
     "nextPage": "/fi/v1/companies/{YOUR_COMPANY_ID}/transactiontypes/expense/transactions?offset=231234&limit=100",
     "numberReturned": 1
 }
-        </code>
-	</pre>
-</div>
-<h2>
-	<a name="postAcknowledgements"></a>
-	POST a Financial transaction aknowledgement
-</h2>
-<p>This API allows an external system to acknowledge that it has successfully retrieved one or more financial transactions out of Concur and will begin processing those transactions. The transactions in the POST request are then taken out of the ready queue.</p>
-<div class="highlighter-rouge">
-	<pre class="highlight">
-    	<code>POST   /financialintegration/fi/v1/companies/{companyId}/transactiontypes/{docType}/transactions/acknowledgements </code>
-	</pre>
-</div>
-<h3> Parameters </h3>
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">companyId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">path</code></td>
-            <td><strong>Required </strong>Company Outtask Id in Concur</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">docType</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">path</code></td>
-            <td><strong>Required </strong> The financial document type to return. VALUES: expense; invoice; cashadvance. Only one type of transactions can be retrieved at a time</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">OuttaskCompanyId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">header</code></td>
-            <td><strong>Required </strong> Outtask Company Id in Concur</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">entityId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>Unique Identifier for the entity in Concur</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">acknowledgeRequest</code></td>
-            <td><code class="highlighter-rouge">Array</code></td>
-            <td><a href="#acknowledgeRequest">body </a></td>
-            <td><strong>Required </strong> The JSON request to be posted</td>
-    	</tr>
-    </tbody>
-</table>
 
-<h4><a name="acknowledgeRequest"></a>Post body</h4> 
+```
 
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">ids</code></td>
-            <td><code class="highlighter-rouge">Array</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>The unique identifiers list for the financial documents</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">systemId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>The external System ID that acknowledged the documents</td>
-            </tr>
-    </tbody>
-</table>
+## POST a Financial transaction aknowledgement
 
-<h3>Response schema </h3>
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">AcknowledgeResponse </code></td>
-            <td><code class="highlighter-rouge">array</code></td>
-            <td><a href="#acknowledgeResponse">Acknowledge Response item</a></td>
-            <td>The JSON response</td>
-    	</tr>
-    </tbody>
-</table>
+This API allows an external system to acknowledge that it has successfully retrieved one or more financial transactions out of Concur and will begin processing those transactions. The transactions in the POST request are then taken out of the ready queue.
 
-<h4><a name="acknowledgeResponse"></a>Acknowledge Response Item</h4>
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">acknowledgeResult</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>Acknowledge processing result. VALUES: SUCCESS or FAILURE</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">code</code></td>
-            <td><code class="highlighter-rouge">Int32</code></td>
-            <td>-</td>
-            <td>The Financial Service return code. This is a particular code based on the success and failure of individual records for Acknowledging documents</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">docId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>The financial document unique identifier</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">errorMessage</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>The error message, if any.</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">systemId </code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>The External system Id that acknowledged the documents</td>
-    	</tr>
-    </tbody>
-</table>
+```
+POST   /financialintegration/fi/v1/companies/{companyId}/transactiontypes/{docType}/transactions/acknowledgements
+```
 
-<p>
-<em>Example Request:</em>
-</p>
-<p>cURL:</p>
-<div class="language-shell highlighter-rouge">
-	<pre class="highlight">
-    	<code>curl -H "OuttaskCompanyId: {YOUR COMPANY ID}" -H "Authorization: Bearer {YOUR ACCESS TOKEN}" -H "Content-Type: application/json" 
+### Parameters
+
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `companyId` | `string` | `path` | **Required** Company Outtask Id in Concur |
+| `docType` | `string` | `path` | **Required** The financial document type to return. VALUES: expense; invoice; cashadvance. Only one type of transactions can be retrieved at a time |
+| `OuttaskCompanyId` | `string` | `header` | **Required** Outtask Company Id in Concur |
+| `entityId` | `string` | - | Unique Identifier for the entity in Concur |
+| `acknowledgeRequest` | `Array` | [body](#acknowledgerequest) | **Required** The JSON request to be posted |
+
+#### Post body
+
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `ids` | `Array` | `string` | The unique identifiers list for the financial documents |
+| `systemId` | `string` | - | The external System ID that acknowledged the documents |
+
+### Response schema
+
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `AcknowledgeResponse ` | `array` | [Acknowledge Response item](#acknowledgeresponse) | The JSON response |
+
+#### Acknowledge Response Item
+
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `acknowledgeResult` | `string` | - | Acknowledge processing result. VALUES: SUCCESS or FAILURE |
+| `code` | `Int32` | - | The Financial Service return code. This is a particular code based on the success and failure of individual records for Acknowledging documents |
+| `docId` | `string` | - | The financial document unique identifier |
+| `errorMessage` | `string` | - | The error message, if any. |
+| `systemId ` | `string` | - | The External system Id that acknowledged the documents |
+
+_Example Request:_
+
+cURL:
+
+```
+curl -H "OuttaskCompanyId: {YOUR COMPANY ID}" -H "Authorization: Bearer {YOUR ACCESS TOKEN}" -H "Content-Type: application/json"
         -d "{\"ids\": [\"5ab9224e02e840148e7cd7d9e8e72968\", \"2ac9224e02e840148e7cd7d9e8e12345\"]}"
-       -X POST  https://us.api.concursolutions.com/financialintegration/fi/v1/companies/{CompanyID}/transactiontypes/expense/transactions/acknowledgements</code>
-	</pre>
-</div>
-<p>
-<em>Example Response with Sucsess and Failure</em>
-</p>
+       -X POST  https://us.api.concursolutions.com/financialintegration/fi/v1/companies/{CompanyID}/transactiontypes/expense/transactions/acknowledgements
+```
 
-<div class="language-json highlighter-rouge">
-	<pre class="highlight">
- <code>[
+_Example Response with Sucsess and Failure_
+
+```
+[
     {
         "code": 0,
         "docId": "5ab9224e02e840148e7cd7d9e8e72968",
@@ -434,299 +184,88 @@
         "acknowledgeResult": "FAILURE",
         "errorMessage": "This document was previously acknowledged by SystemId: null."
     }
-]</code>
-	</pre>
-</div>
+]
+```
 
+## POST Financial transactions confirmations
 
-<h2>
-	<a name="postConfirmations"></a>
-	POST Financial transactions confirmations
-</h2>
-<p>This API allows financial posting results to be sent to Concur.</p>
-<div class="highlighter-rouge">
-	<pre class="highlight">
-    	<code>POST   /financialintegration/fi/v1/companies/{companyId}/transactiontypes/{docType}/transactions/postingconfirmations </code>
-	</pre>
-</div>
-<h3> Parameters </h3>
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">companyId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">path</code></td>
-            <td><strong>Required </strong>Company Outtask Id in Concur</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">docType</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">path</code></td>
-            <td><strong>Required </strong> The financial document type to return. VALUES: expense; invoice; cashadvance. Only one type of transactions can be retrieved at a time</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">OuttaskCompanyId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">header</code></td>
-            <td><strong>Required </strong> Outtask Company Id in Concur</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">entityid</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td><code class="highlighter-rouge">header</code></td>
-            <td><strong>Required </strong>Entity unique code in Concur</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">confirmationRequest</code></td>
-            <td></td>
-            <td><a href="#confirmationRequest">body </a></td>
-            <td><strong>Required </strong> The JSON request to be posted</td>
-    	</tr>
-    </tbody>
-</table>
+This API allows financial posting results to be sent to Concur.
 
-<h4><a name="confirmationRequest"></a>Post body</h4> 
+```
+POST   /financialintegration/fi/v1/companies/{companyId}/transactiontypes/{docType}/transactions/postingconfirmations
+```
 
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">systemId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td><strong>Required </strong> The external System ID that acknowledged the documents, it can be an empty String.</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">postingConfirmations</code></td>
-            <td><code class="highlighter-rouge">Array</code></td>
-            <td><a href="#postingRequest">Posting Confirmation request item</a></td>
-            <td>Posting confirmations JSON request</td>
-    	</tr>
-    </tbody>
-</table>
-<h4><a name="postingRequest"></a>Posting Confirmation Request item</h4>
+### Parameters
 
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">docId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>The financial document Id to confirm</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">overallPostingStatusCode</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>Posting status. VALUES: error or success</td>
-    	</tr>
-         <tr>
-        	<td><code class="highlighter-rouge">postingDocs</code></td>
-            <td><code class="highlighter-rouge">array</code></td>
-            <td><a href="#postingDocs">Posting Documents details</a></td>
-            <td>Posting documents details, if any.</td>
-    	</tr>
-         <tr>
-        	<td><code class="highlighter-rouge">systemMessages</code></td>
-            <td><code class="highlighter-rouge">array</code></td>
-            <td><a href="#systemMsg">System Messages</a></td>
-            <td>Messages to post into Concur, if any.</td>
-    	</tr>
-    </tbody>
-</table>
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `companyId` | `string` | `path` | **Required** Company Outtask Id in Concur |
+| `docType` | `string` | `path` | **Required** The financial document type to return. VALUES: expense; invoice; cashadvance. Only one type of transactions can be retrieved at a time |
+| `OuttaskCompanyId` | `string` | `header` | **Required** Outtask Company Id in Concur |
+| `entityid` | `string` | `header` | **Required** Entity unique code in Concur |
+| `confirmationRequest` |  | [body](#confirmationrequest) | **Required** The JSON request to be posted |
 
-<h4><a name="postingDocs"></a>Posting Documents details</h4>
+#### Post body
 
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">companyId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td><strong>Required </strong> External system organizational Unit ID</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">documentNumber</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>External system document identifier</td>
-    	</tr>
-         <tr>
-        	<td><code class="highlighter-rouge">fiscalYear</code></td>
-            <td><code class="highlighter-rouge">int32</code></td>
-            <td>-</td>
-            <td>External system fiscal year</td>
-    	</tr>
-         <tr>
-        	<td><code class="highlighter-rouge">paymentRelevantLineItems</code></td>
-            <td><code class="highlighter-rouge">array</code></td>
-            <td><a href="#paymentLI">Payment Relevant Line Items</a></td>
-            <td>Line items details, if any.</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">postingDate</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>YYYY-MM-DD</td>
-            <td>External system posting date</td>
-    	</tr>
-    </tbody>
-</table>
-<h4><a name="paymentLI"></a>Payment Relevant Line Items</h4>
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `systemId` | `string` | - | **Required** The external System ID that acknowledged the documents, it can be an empty String. |
+| `postingConfirmations` | `Array` | [Posting Confirmation request item](#postingrequest) | Posting confirmations JSON request |
 
-<h4><a name="systemMsg"></a>System Messages</h4>
+#### Posting Confirmation Request item
 
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">concurTransactionLineItemId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td></td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">messageId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>External System message identifier</td>
-    	</tr>
-         <tr>
-        	<td><code class="highlighter-rouge">messageLanguage</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>Message Language code, example EN, FR...</td>
-    	</tr>
-         <tr>
-        	<td><code class="highlighter-rouge">messageLongText</code></td>
-            <td><code class="highlighter-rouge">array</code></td>
-            <td>-</td>
-            <td>Message text, will be posted on the audit trail</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">messageShortText</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>Message text, will be posted on the audit trail</td>
-    	</tr>
-    </tbody>
-</table>
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `docId` | `string` | - | The financial document Id to confirm |
+| `overallPostingStatusCode` | `string` | - | Posting status. VALUES: error or success |
+| `postingDocs` | `array` | [Posting Documents details](#postingdocs) | Posting documents details, if any. |
+| `systemMessages` | `array` | [System Messages](#systemmsg) | Messages to post into Concur, if any. |
 
-<h3>Response schema </h3>
+#### Posting Documents details
 
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">PostingConfirmationResponse</code></td>
-            <td><code class="highlighter-rouge">array</code></td>
-            <td><a href="#postingResponse">Posting Confirmation Response Item</a></td>
-            <td>The JSON response body</td>
-    	</tr>
-    </tbody>
-</table>
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `companyId` | `string` | - | **Required** External system organizational Unit ID |
+| `documentNumber` | `string` | - | External system document identifier |
+| `fiscalYear` | `int32` | - | External system fiscal year |
+| `paymentRelevantLineItems` | `array` | [Payment Relevant Line Items](#paymentli) | Line items details, if any. |
+| `postingDate` | `string` | YYYY-MM-DD | External system posting date |
 
-<h4><a name="confirmationResponse"></a>Posting Confirmation Response Item</h4>
-<table>
-	<thead>
-    	<tr>
-        	<th>Name</th>
-            <th>Type</th>
-            <th>Format</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td><code class="highlighter-rouge">postingConfirmationResult</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>Posting confirmation result. VALUES: SUCCESS, SYSTEM_ERROR_OCCURRED, NOT_YET_ACKNOWLEDGED, DOCUMENT_NOT_FOUND, FAILURE, WAS_RECALLED</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">detailMessage  </code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>Posting confirmation message</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">code</code></td>
-            <td><code class="highlighter-rouge">Int32</code></td>
-            <td>-</td>
-            <td>The Financial Service return code</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">docId</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>The document Id</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">errorMessage</code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>The error message, if any.</td>
-    	</tr>
-        <tr>
-        	<td><code class="highlighter-rouge">systemId </code></td>
-            <td><code class="highlighter-rouge">string</code></td>
-            <td>-</td>
-            <td>The External system Id that acknowledged the document</td>
-    	</tr>
-    </tbody>
-</table>
+#### Payment Relevant Line Items
 
-<p>
-<em>Example Request:</em>
-</p>
-<p>cURL:</p>
-<div class="language-shell highlighter-rouge">
-	<pre class="highlight">
-    	<code>curl -H "OuttaskCompanyId: {YOUR COMPANY ID}" -H "entityid: {YOUR ENTITY ID}" -H "Authorization: Bearer {YOUR ACCESS TOKEN}" -H "Content-Type: application/json" -X POST
+#### System Messages
+
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `concurTransactionLineItemId` | `string` | - |  |
+| `messageId` | `string` | - | External System message identifier |
+| `messageLanguage` | `string` | - | Message Language code, example EN, FR... |
+| `messageLongText` | `array` | - | Message text, will be posted on the audit trail |
+| `messageShortText` | `string` | - | Message text, will be posted on the audit trail |
+
+### Response schema
+
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `PostingConfirmationResponse` | `array` | [Posting Confirmation Response Item](#postingresponse) | The JSON response body |
+
+#### Posting Confirmation Response Item
+
+| Name | Type | Format | Description |
+| --- | --- | --- | --- |
+| `postingConfirmationResult` | `string` | - | Posting confirmation result. VALUES: SUCCESS, SYSTEM_ERROR_OCCURRED, NOT_YET_ACKNOWLEDGED, DOCUMENT_NOT_FOUND, FAILURE, WAS_RECALLED |
+| `detailMessage  ` | `string` | - | Posting confirmation message |
+| `code` | `Int32` | - | The Financial Service return code |
+| `docId` | `string` | - | The document Id |
+| `errorMessage` | `string` | - | The error message, if any. |
+| `systemId ` | `string` | - | The External system Id that acknowledged the document |
+
+_Example Request:_
+
+cURL:
+
+```
+curl -H "OuttaskCompanyId: {YOUR COMPANY ID}" -H "entityid: {YOUR ENTITY ID}" -H "Authorization: Bearer {YOUR ACCESS TOKEN}" -H "Content-Type: application/json" -X POST
         https://us.api.concursolutions.com/financialintegration/fi/v1/companies/{CompanyID}/transactiontypes/expense/transactions/postingconfirmations
         POST body
         {
@@ -740,12 +279,12 @@
 									"systemMessages":
 												[
                                                     {
-                                                        "concurTransactionLineItemId":"",	
+                                                        "concurTransactionLineItemId":"",
                                                         "messageId":"010-CTE-POSTING",
                                                         "messageLanguage":"EN",
                                                         "messageLongText":"",
                                                         "messageShortText":"Expense Report {ReportKey} of system CONCUR could not be posted."
-                                                    },				
+                                                    },
                                                     {
                                                         "concurTransactionLineItemId":"",
                                                         "messageId":"003-CC",
@@ -778,16 +317,13 @@
                                   "systemMessages":[]
                               }
                           ]
-		}</code>
-	</pre>
-</div>
-<p>
-<em>Example Response with Sucsess and Failure</em>
-</p>
+		}
+```
 
-<div class="language-json highlighter-rouge">
-	<pre class="highlight">
- <code>[
+_Example Response with Sucsess and Failure_
+
+```
+[
           {
               "code": 0,
               "docId": "0c06ab044834454d91f83cbd7b6431d2",
@@ -804,162 +340,52 @@
               "errorMessage": "This document does not exist.",
               "detailMessage": ""
           }
-  ]</code>
-	</pre>
-</div>
+  ]
+```
 
-<h2>
-	<a name="responseCodes"></a>
-	Response Codes 
-</h2>
-<h3> Success Codes </h3>
+## Response Codes
 
-<table>
-	<thead>
-    	<tr>
-        	<th>Code</th>
-            <th>Message</th>
-            <th>Information</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>200</td>
-            <td>OK</td>
-            <td>Your request has been processed, please refer to the Financial Integration code table below for more details.</td>
-    	</tr>
-    </tbody>
-</table>
+### Success Codes
 
-<h3> Financial Integration Codes </h3>
+| Code | Message | Information |
+| --- | --- | --- |
+| 200 | OK | Your request has been processed, please refer to the Financial Integration code table below for more details. |
 
-<p>
+### Financial Integration Codes
+
 The Financial Integration Service will return particular codes based on the success and failure of individual records for Acknowledging and Posting Confirmation of documents.
-</p>
 
-<table>
-	<thead>
-    	<tr>
-        	<th>Code</th>
-            <th>Description</th>
-            <th>Category</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>0</td>
-            <td>Successfully processed</td>
-            <td>Any</td>
-           </tr> 
-           <tr>
-            <td>99</td>
-            <td>System Id in request does not match system id in FI database</td>
-            <td>Any</td>
-           </tr> 
-           <tr>
-            <td>101</td>
-            <td>This document was previously acknowledged</td>
-            <td>Acknowledge</td>
-           </tr>
-           <tr>
-            <td>102</td>
-            <td>This document has been recalled</td>
-            <td>Acknowledge</td>
-          </tr>
-          <tr>
-            <td>103</td>
-            <td>This document is not ready</td>
-            <td>Acknowledge</td>
-           </tr>
-           <tr>
-            <td>104</td>
-            <td>This document does not exist in FI database</td>
-            <td>Acknowledge</td>
-           </tr>
-           <tr>
-            <td>105</td>
-            <td>This document is not of type (expense, invoice, cashadvance, payroll)</td>
-            <td>Acknowledge</td>
-           </tr> 
-           <tr>
-            <td>111</td>
-            <td>This document has not been acknowledged</td>
-            <td>Posting</td>
-           </tr> 
-           <tr>
-            <td>112</td>
-            <td>This document has been recalled</td>
-            <td>Posting</td>
-           </tr> 
-           <tr>
-            <td>113</td>
-            <td>Confirmation has been posted for this document</td>
-            <td>Posting</td>
-           </tr> 
-           <tr>
-            <td>114</td>
-            <td>Document is not in a known state</td>
-            <td>Posting</td>
-           </tr> 
-           <tr>
-            <td>115</td>
-            <td>This document is not of type (expense, invoice, cashadvance, payroll)</td>
-            <td>Posting</td>
-           </tr> 
-           <tr>
-            <td>116</td>
-            <td>This document does not exist in FI</td>
-            <td>Posting</td>
-         </tr>  
-         <tr>
-            <td>198</td>
-            <td>Invalid request - this same request will not work if tried again.</td>
-            <td>Posting</td>
-          </tr>
-          <tr>
-            <td>199</td>
-            <td>Unknown error - please try again later</td>
-            <td>Any</td>
-    	</tr>
-    </tbody>
-</table>
+| Code | Description | Category |
+| --- | --- | --- |
+| 0 | Successfully processed | Any |
+| 99 | System Id in request does not match system id in FI database | Any |
+| 101 | This document was previously acknowledged | Acknowledge |
+| 102 | This document has been recalled | Acknowledge |
+| 103 | This document is not ready | Acknowledge |
+| 104 | This document does not exist in FI database | Acknowledge |
+| 105 | This document is not of type (expense, invoice, cashadvance, payroll) | Acknowledge |
+| 111 | This document has not been acknowledged | Posting |
+| 112 | This document has been recalled | Posting |
+| 113 | Confirmation has been posted for this document | Posting |
+| 114 | Document is not in a known state | Posting |
+| 115 | This document is not of type (expense, invoice, cashadvance, payroll) | Posting |
+| 116 | This document does not exist in FI | Posting |
+| 198 | Invalid request - this same request will not work if tried again. | Posting |
+| 199 | Unknown error - please try again later | Any |
 
-<h3> Failure Codes </h3>
+### Failure Codes
 
-<table>
-	<thead>
-    	<tr>
-        	<th>Code</th>
-            <th>Message</th>
-            <th>Information</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>400</td>
-            <td>Invalid Request</td>
-            <td></td>
-    	</tr>
-        <tr>
-        	<td>500</td>
-            <td>Internal Error</td>
-            <td></td>
-    	</tr>
-    </tbody>
-</table>
+| Code | Message | Information |
+| --- | --- | --- |
+| 400 | Invalid Request |  |
+| 500 | Internal Error |  |
 
-<h2>
-	<a name="examples"></a>
-	Financial Integration sample documents 
-</h2>
+## Financial Integration sample documents
 
-<h3>
-	<a name="expense"></a>
-	Expense Sample Document 
-</h3>
-<div class="language-json highlighter-rouge">
-	<pre class="highlight">
- <code>{
+### Expense Sample Document
+
+```
+{
    "employee": {
       "employeeFirstName": "FirstName",
       "employeeLastName": "LastName",
@@ -1308,18 +734,14 @@ The Financial Integration Service will return particular codes based on the succ
          "cashAdvanceTransactionType": 2
       }
    ]
-}</code>
-	</pre>
-</div>
-<h3>
-	<a name="invoice"></a>
-	Invoice Sample Document 
-</h3>
+}
+```
 
-<div class="language-json highlighter-rouge">
-	<pre class="highlight">
- <code>{  
-   "requestHeader":{  
+### Invoice Sample Document
+
+```
+{
+   "requestHeader":{
       "ledgerCode":"DEFAULT",
       "clearingAccountCode":null,
       "invoiceDate":"08/08/2018",
@@ -1411,7 +833,7 @@ The Financial Integration Service will return particular codes based on the succ
       "requestCustom23Code":null,
       "requestDescription":null
    },
-   "ownerEmployee":{  
+   "ownerEmployee":{
       "employeeCustom20Value":null,
       "employeeCustom21Value":"System",
       "employeeCustom10Code":"Default",
@@ -1471,7 +893,7 @@ The Financial Integration Service will return particular codes based on the succ
       "employeeLastName":"LastName",
       "employeeCustom12Code":null
    },
-   "vendor":{  
+   "vendor":{
       "vendorName":"Test Vendor",
       "vendorCode":"94F538F2C3224C6E871CFED9F0F8333A",
       "vendorShipFromAddressCode":null,
@@ -1479,11 +901,11 @@ The Financial Integration Service will return particular codes based on the succ
       "vendorContactFirstName":null,
       "vendorContactLastName":null
    },
-   "lineItem":[  
-      {  
-         "allocation":[  
-            {  
-               "journal":{  
+   "lineItem":[
+      {
+         "allocation":[
+            {
+               "journal":{
                   "accountCode":"MATER",
                   "amountShipping":0,
                   "amountNet":50.00,
@@ -1535,7 +957,7 @@ The Financial Integration Service will return particular codes based on the succ
                "allocationKey":158
             }
          ],
-         "receiptNumbers":[  
+         "receiptNumbers":[
 
          ],
          "expenseTypeName":"Material",
@@ -1592,18 +1014,13 @@ The Financial Integration Service will return particular codes based on the succ
       }
    ]
 }
- </code>
-	</pre>
-</div>
 
-<h3>
-	<a name="cashAdvance"></a>
-	Cash Advance Sample Document 
-</h3>
+```
 
-<div class="language-json highlighter-rouge">
-	<pre class="highlight">
- <code>{
+### Cash Advance Sample Document
+
+```
+{
    "employeeData": {
       "employeeFirstName": "FirstName",
       "employeeLastName": "LastName",
@@ -1703,7 +1120,5 @@ The Financial Integration Service will return particular codes based on the succ
          "paymentCode": "Cash"
       }
    ]
-}</code>
-	</pre>
-</div>
-
+}
+```
