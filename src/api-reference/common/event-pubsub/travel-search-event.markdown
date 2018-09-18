@@ -43,7 +43,10 @@ Name|Type|Format|Description
 ---|---|---|---
 `companyId`|`String`|GUID|Uniquely identifies the company of the traveler.
 `userId`|`String`|GUID|Uniquely identifies the user performing the search. *NOTE:* In the event travel is booked by an arranger, this is the traveler. In cases where the individual is booking on behalf of a guest, this is the user performing the search.
+`arrangerUserId`|`String`|GUID|Uniquely identifies the user arranging the trip.
 `searchLegs`|`String`|RoundTrip, MultiSeg, OneWay | Type of air search.
+`isGuestBooking`|`boolean`||identifies if the booking is guest or not. 
+`isFlexFaring`|`boolean`||identifies if search is for flex faring. 
 `segments`|`Array`||[Air Search Segment|(#schema-air-search-segment)
 `numberOfTravelers`|`Integer`||
 `classOfTrip`|`String`|F, C, W, Y| Selected class
@@ -53,8 +56,8 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`departures`|`String`|IATA Airport Code|List of departure airports selected by the traveler.
-`arrivals`|`String`|IATA Airport Code|List of destination airports selected by the traveler.
+`departures`|`Array`|IATA Airport Code|List of departure airports selected by the traveler.
+`arrivals`|`Array`|IATA Airport Code|List of destination airports selected by the traveler.
 `departureDate`|`String`|YYYY-MM-DD|Date traveler will depart from the origin, UTC. Either the departure date/time OR the arrival date/time will be populated.
 `departureTime`|`String`|HH:MM:SS|Departure time, UTC.  Either the departure date/time OR the arrival date/time will be populated.
 `departureTimeWindow`|`Integer`||Time window (+/-) from selected departure time, in hours.  Either the departure date/time OR the arrival date/time will be populated.
