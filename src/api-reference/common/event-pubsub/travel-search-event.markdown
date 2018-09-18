@@ -57,7 +57,7 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `departures`|`Array`|IATA Airport Code|List of departure airports selected by the traveler.
-`arrivals`|`Array`|IATA Airport Code|List of destination airports selected by the traveler.
+`arrivals`|`Array`|IATA Airport Code|List of arrival airports selected by the traveler.
 `departureDate`|`String`|YYYY-MM-DD|Date traveler will depart from the origin, UTC. Either the departure date/time OR the arrival date/time will be populated.
 `departureTime`|`String`|HH:MM:SS|Departure time, UTC.  Either the departure date/time OR the arrival date/time will be populated.
 `departureTimeWindow`|`Integer`||Time window (+/-) from selected departure time, in hours.  Either the departure date/time OR the arrival date/time will be populated.
@@ -70,7 +70,7 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `id`|`String`|GUID|Uniquely identifies the event.
-`correlationId`|String|GUID|Uniquely identifies the air search request.
+`correlationId`|String|GUID|Uniquely identifies the hotel search request.
 `topic`|String|concur.travel.search|
 `timeStamp`|String|date/time|Search event time, UTC.
 `facts`|`Object`||[Hotel Search Facts](#schema-hotel-search-facts)
