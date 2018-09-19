@@ -142,9 +142,9 @@ Authorization: Bearer {token}
 #### Response
 
 ```shell
-HTTP/1.1 200 OK
+200 OK
 Content-Type: application/json
-Date: date-requested
+Date: {date-requested}
 Content-Length: 491
 ```
 
@@ -225,9 +225,9 @@ Content-Type: application/json
 > This response shows both success and failure service code examples.
 
 ```shell
-HTTP/1.1 200 OK
+200 OK
 Content-Type: application/json
-Date: date-requested
+Date: {date-requested}
 Content-Length: 372
 ```
 
@@ -355,9 +355,9 @@ Content-Type: application/json
 > This response shows both success and failure service code examples.
 
 ```shell
-HTTP/1.1 200 OK
+200 OK
 Content-Type: application/json
-Date: date-requested
+Date: {date-requested}
 Content-Length: 405
 ```
 
