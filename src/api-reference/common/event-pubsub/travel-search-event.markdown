@@ -47,7 +47,7 @@ Name|Type|Format|Description
 `searchLegs`|`String`|RoundTrip, MultiSeg, OneWay | Type of air search.
 `isGuestBooking`|`boolean`||identifies if the booking is guest or not. 
 `isFlexFaring`|`boolean`||identifies if search is for flex faring. 
-`segments`|`Array`||[Air Search Segment|(#schema-air-search-segment)
+`segments`|`Array`||[Air Search Segment](#schema-air-search-segment)
 `numberOfTravelers`|`Integer`||
 `classOfTrip`|`String`|F, C, W, Y| Selected class
 `airCarriers`|`Array`|E.g. AA, VA, LH|If the user filters for individual carriers, this list will be populated with the airline carrier codes.
@@ -56,14 +56,21 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`departures`|`Array`|IATA Airport Code|List of departure airports selected by the traveler.
-`arrivals`|`Array`|IATA Airport Code|List of arrival airports selected by the traveler.
+`departures`|`Array`|[City](#schema-city)|List of departure airports selected by the traveler.
+`arrivals`|`Array`|[City](#schema-city)|List of arrival airports selected by the traveler.
 `departureDate`|`String`|YYYY-MM-DD|Date traveler will depart from the origin, UTC. Either the departure date/time OR the arrival date/time will be populated.
 `departureTime`|`String`|HH:MM:SS|Departure time, UTC.  Either the departure date/time OR the arrival date/time will be populated.
 `departureTimeWindow`|`Integer`||Time window (+/-) from selected departure time, in hours.  Either the departure date/time OR the arrival date/time will be populated.
 `arrivalDate`|`String`|YYYY-MM-DD|Date in which the traveler will arrive in the destination, UTC. Either the departure date/time OR the arrival date/time will be populated.
 `arrivalTime`|`String`|HH:MM:SS|Time in which the traveler will arrive in the destination, UTC.  Either the departure date/time OR the arrival date/time will be populated.
 `arrivalTimeWindow`|`Integer`||Time window (+/-) from selected to arrive in the destination, in hours.  Either the departure date/time OR the arrival date/time will be populated.
+
+### <a name="schema-city"></a>City
+
+Name|Type|Format|Description
+---|---|---|---
+`cityName`|`String`|YYYY-MM-DD|Name of the city .
+`cityIATACode`|`String`|YYYY-MM-DD|IATA code of the city.
 
 ### <a name="schema-hotel-request"></a>Hotel
 
@@ -88,3 +95,4 @@ Name|Type|Format|Description
 `distanceUnit`|`String`|Mile, Kilometer|Unit for radius distance.
 `checkInDate`|`String`|YYYY-MM-DD|Arrival date, UTC.
 `checkOutDate`|`String`|YYYY-MM-DD|Departure date, UTC.
+
