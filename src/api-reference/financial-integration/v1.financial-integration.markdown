@@ -30,6 +30,7 @@ layout: reference
   * [Cash Advance](#example-cashadvance)
 
 ## <a name="introduction"></a>Introduction
+The Financial Integration  API is in **Early Access** preview. If you are interested in using the Financial Integration API, then please contact your account manager for further details.
 
 The Financial Integration API allows an external system to interact with financial documents generated from Concur, for financial posting into an ERP.
 
