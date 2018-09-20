@@ -71,8 +71,8 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`cityName`|`String`|YYYY-MM-DD|Name of the city .
-`cityIATACode`|`String`|YYYY-MM-DD|IATA code of the city.
+`cityName`|`String`|Frankfurt|Name of the city .
+`cityIATACode`|`String`|FRA|IATA code of the city.
 
 ### <a name="schema-hotel-request"></a>Hotel
 
