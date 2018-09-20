@@ -33,7 +33,9 @@ Name|Type|Format|Description
 ---|---|---|---
 `id`|`String`|GUID|Uniquely identifies the event.
 `correlationId`|String|GUID|Uniquely identifies the air search request.
+`eventType`|String|travelSearchAir|identifies the search event type.|
 `topic`|String|concur.travel.search|
+`subTopic`|String| -airshop.v1.schedule <br> -airshop.v1.price|identify sub catagory for air search
 `timeStamp`|String|date/time|Search event time, UTC.
 `facts`|`Object`||[Air Search Facts](#schema-air-search-facts)
 
@@ -78,7 +80,9 @@ Name|Type|Format|Description
 ---|---|---|---
 `id`|`String`|GUID|Uniquely identifies the event.
 `correlationId`|String|GUID|Uniquely identifies the hotel search request.
+`eventType`|String|travelSearchHotel|identifies the search event type.|
 `topic`|String|concur.travel.search|
+`subTopic`|String|hotelshop.v1.price|identify sub catagory for hotel search
 `timeStamp`|String|date/time|Search event time, UTC.
 `facts`|`Object`||[Hotel Search Facts](#schema-hotel-search-facts)
 
