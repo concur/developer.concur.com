@@ -23,8 +23,8 @@ The new Budget Service API is in **Beta**. If you are interested in using the Bu
 
 
 This resource is used to retrieve and update budget categories which are collections of expense types used for budget
-matching.  Each budget item header may have one budget category.  If it does, only line items with expense types 
-contained in that budget category will be accumulated to the budget. 
+matching.  Each budget item header may have one Budget Category.  If it does, only line items with expense types 
+contained in that Budget Category will be accumulated to the budget. 
 
 
 ## Version
@@ -35,31 +35,28 @@ contained in that budget category will be accumulated to the budget.
 
     GET  /budget/v4/budgetCategory
 
-HTTPie:
-
-```shell
-http https://us.api.concursolutions.com/budget/v4/budgetCategory 'Authorization:Bearer {YOUR ACCESS TOKEN}'
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetCategory
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+Content-Type: application/json
 ```
 
-### Parameters
-
-    N/A
-    
-### Response
-
-[Budget Category Array](#budgetcategory)
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
+Response Data Type: Array of [Budget Category](#budgetcategory)
 
 
 ## <a name="get"></a>Retrieve a Budget Category
-
-    GET  /budget/v4/budgetCategory/{id} 
-    
-HTTPie:
-
-```shell
-http https://us.api.concursolutions.com/budget/v4/budgetCategory/{id}  'Authorization:Bearer {YOUR ACCESS TOKEN}'
-```
-
 
 ### Parameters
 
@@ -67,12 +64,28 @@ Name | Type | Format | Description
 -----|------|--------|------------			
 id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
 
-### Response
 
-[Budget Category](#budgetcategory)
+    GET  /budget/v4/budgetCategory/{id} 
+    
 
-### Example JSON Response
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetCategory/{id}
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+Content-Type: application/json
+```
 
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
 ```json
 {
   "name":"Marketing and Outreach",
@@ -101,22 +114,11 @@ id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
   ]
 } 
 ```
+Response Data Type: [Budget Category](#budgetcategory)
+
+
 
 ## <a name="post"></a>Create/Update a Budget Category
-
-    POST  /budget/v4/budgetCategory
-
-
-HTTPie:
-
-```shell
-http POST https://us.api.concursolutions.com/budget/v4/budgetCategory \
-"Authorization:Bearer {YOUR ACCESS TOKEN}" \
-"Content-Type: application/json" \
-< {PATH TO YOUR BUDGET CATAEGORY JSON}
-```
-
-
 
 ### Parameters
 
@@ -124,29 +126,81 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `budgetCategory`	|	-	|	`body`	|	**Required** A JSON representation of a Budget Category
 
-### Response
 
-[Budget Category](#budgetcategory)
+    POST  /budget/v4/budgetCategory
+
+
+#### Request
+```http
+POST https://us.api.concursolutions.com/budget/v4/budgetCategory
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+Content-Type: application/json
+```
+```json
+{
+  "name": "Advertising Category",
+  "description": "Advertising",
+  "expenseTypes": [
+    {
+      "featureTypeCode": "EXPENSE",
+      "expenseTypeCode": "ADVT"
+    },
+    {
+      "featureTypeCode": "PAYMENT_REQUEST",
+      "expenseTypeCode": "ADVT"
+    }
+  ],
+  "statusType": "OPEN"
+}
+```
+
+Request Data Type: [Budget Category](#budgetcategory)
+
+
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
+Response Data Type: [Budget Category](#budgetcategory)
 
 
 ## <a name="delete"></a>Delete a Budget Category
-
-    DELETE  /budget/v4/budgetCategory/{id}
-    
-HTTPie:
-
-```shell
-http DELETE https://us.api.concursolutions.com/budget/v4/budgetCategory/{id} \
-"Authorization:Bearer {YOUR ACCESS TOKEN}" \
-"Content-Type: application/json" \
-```
-
 
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------
 id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
+
+
+    DELETE  /budget/v4/budgetCategory/{id}
+    
+        
+#### Request
+```http
+DELETE https://us.api.concursolutions.com/budget/v4/budgetCategory/{id}
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+Content-Type: application/json
+```
+
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
 
 
 ## <a name="getExpTypes"></a>Retrieve all valid Expense Types
@@ -158,11 +212,9 @@ id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
     PAYMENT_REQUEST are returned and the caller should assume that identical expense types exist for REQUEST and 
     PURCHASE_REQUEST.* 
     
-### Parameters
-
 ### Response
 
-[Expense Type Array](#expensetype)
+Array of [Expense Type](#expensetype)
 
 ### Example JSON Response
 
@@ -212,4 +264,35 @@ Name | Type | Format | Description
 `expenseTypeCode`	|	`string`	|	-	|	**Required** The alphanumeric code that describes an expense type.  Ex: TRAVEL, AC_CATER Any string may be used, but only expense type codes returned by GET /budgetCategory/expenseType will behave properly in the Concur UI.  
 `name`	|	`string`	|	-	|	The name for this expense type if it maps to an expense type set up in Concur. **READ ONLY**
 `syncGuid`	|	`string`	|	-	|	The budget service's key for this object.  (If this field is not supplied, the service will use an existing expense type entry if one exists.
+
+### HTTP Response Codes
+HTTP Error Code | Description
+---|---
+`200`|`OK - Successful call, response is in body.`
+`400`|`Bad Request - The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. For example, a Budget Category must have a name. The response will have a list of validation errors in the body. See below for an example 400 response.`
+`401`|`Unauthorized - The user could not be authenticated.`
+`403`|`Forbidden - The user does not have the necessary permissions to perform the request`
+`404`|`Not Found - The resource could not be found or does not exist`
+`500`|`Server Error - Error message in response body`
+`503`|`Server Timeout - Error message in response body`
+
+
+### Example 400 Response with JSON
+
+**Response**
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+```
+```json
+{
+  "status" : false, 
+  "errorMessageList" : 
+  [
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_CATEGORY_NAME_REQUIRED", "errorMessage" : "Budget category name is required"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_CATEGORY_STATUS_TYPE_REQUIRED", "errorMessage" : "Budget Category status type is required"}
+  ]
+}
+```
 

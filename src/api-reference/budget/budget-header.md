@@ -20,23 +20,15 @@ layout: reference
 
 The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details. 
 
-This resource is used to retrieve and update information about a budget that spans a single fiscal year.  Each budget
-has multiple details that correspond to fiscal periods--months, quarters, or a single period for a yearly budget.
+This resource is used to retrieve and update information about a budget that spans a single fiscal year.  Each Budget
+has multiple details that correspond to Fiscal Periods--months, quarters, or a single period for a yearly budget.
 
 
 ## Version
 4.0  
 
 
-## <a name="getall"></a>Retrieve all Budget Item
-
-    GET  /budget/v4/budgetItemHeader 
-    
-HTTPie:
-
-```shell
-http https://us.api.concursolutions.com/budget/v4/budgetItemHeader 'Authorization:Bearer {YOUR ACCESS TOKEN}'
-```
+## <a name="getall"></a>Retrieve all Budget Items
 
 ### Parameters
 
@@ -44,12 +36,31 @@ Name | Type | Format | Description
 -----|------|--------|------------			
 adminView	|	`boolean`	|	`query`	|	If true, returns all budgets for this entity, if false, returns only the budgets owned by the current user.  Defaults to false.
 offset	|	`integer`	|	`query`	|	The start of the page offset.  Defaults to zero.
-
+    
+    GET  /budget/v4/budgetItemHeader 
+    
     *Note: due to response size and performance considerations, this endpoint does not return budgetItemDetails*
 
-### Response
 
-[Paged Budget Item Header List Schema](#budgetItemHeaderList)
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetItemHeader
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
+
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
+Response Data Type: [Paged Budget Item Header List Schema](#budgetItemHeaderList)
+
 
 ### JSON Example Response
 
@@ -137,24 +148,34 @@ offset	|	`integer`	|	`query`	|	The start of the page offset.  Defaults to zero.
 
 ## <a name="get"></a>Retrieve a Budget Item
 
-    GET  /budget/v4/budgetItemHeader/{id} 
-
-HTTPie:
-
-```shell
-http https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}  'Authorization:Bearer {YOUR ACCESS TOKEN}'
-```
-
-
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------			
 id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
 
-### Response
 
-[Budget Item Header Schema](#budgetItemHeader)
+    GET  /budget/v4/budgetItemHeader/{id} 
+
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
+
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
+Response Data: [Budget Item Header](#budgetItemHeader)
+
 
 ### JSON Example Response
 
@@ -207,7 +228,7 @@ id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
         "employeeUuid":"eb6082b0-3a9a-4e79-a350-e6e067f34969",
         "syncGuid":"7ce7dfe0-6168-4b93-bb35-386bf023acc6",
         "name":"Dan Lee",
-	"email":"dan.lee@xyz.com
+	"email":"dan.lee@xyz.com"
       }
     ],
     "budgetItemDetails":[
@@ -305,29 +326,41 @@ id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
 
 ## <a name="post"></a>Create/Update a Budget Item
 
-    POST  /budget/v4/budgetItemHeader
-
-HTTPie:
-
-```shell
-http POST https://us.api.concursolutions.com/budget/v4/budgetItemHeader \
-"Authorization:Bearer {YOUR ACCESS TOKEN}" \
-"Content-Type: application/json" \
-< {PATH TO YOUR BUDGET ITEM HEADER JSON}
-```
-
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `budgetItemheader`	|	-	|	`body`	|	**Required** A JSON representation of a Budget Item
 
-### Response
+    POST  /budget/v4/budgetItemHeader
+
+
+
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetItemHeader
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
+
+#### Response
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+```
+Response Data:
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `success`	|	`boolean`	|	-	|
 `budgetItemHeaderSyncGuid`  |   `guid`    | -   |   The key of the created/updated budget item header
+
+
 
 ### JSON Example Update POST Body
 
@@ -415,28 +448,26 @@ Name | Type | Format | Description
 
 ## <a name="delete"></a>Delete a Budget Item Header
 
-    DELETE  /budget/v4/budgetItemHeader/{id}
-
-```shell
-http DELETE https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id} \
-"Authorization:Bearer {YOUR ACCESS TOKEN}" \
-"Content-Type: application/json" \
-```
-
-
-
 ### Parameters
 
 Name | Type | Format | Description
 -----|------|--------|------------
 id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
 
+    DELETE  /budget/v4/budgetItemHeader/{id}
+
+#### Request
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}
+Authorization: Bearer: {YOUR ACCESS TOKEN}
+```
 ### Response
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `success`	|	`boolean`	|	-	|
 `budgetItemHeaderSyncGuid`  |   `guid`    | -   |   The key of the created/updated budget item header
+
 
 
 ## <a name="schema"></a>Schema
@@ -581,4 +612,35 @@ Name | Type | Format | Description
 `syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
 `spendDate` |   `date`  |   -   |   If the current date is after this fiscal period's start date, this field shows the current date.  **READ ONLY**
 
+### Errors
+HTTP Error Code | Description
+---|---
+`200`|`OK - Successful call, response is in body.`
+`400`|`Bad Request - The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. For example, a Budget Item needs to have a name longer than 1 character. The response will have a list of validation errors in the body. See below for an example 400 response.`
+`401`|`Unauthorized - The user could not be authenticated.`
+`403`|`Forbidden - The user does not have the necessary permissions to perform the request`
+`404`|`Not Found - The resource could not be found or does not exist`
+`500`|`Server Error - Error message in response body`
+`503`|`Server Timeout - Error message in response body`
+
+### Example 400 Response with JSON
+
+
+**Response**
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+```
+```json
+{
+  "status" : false, 
+  "errorMessageList" : 
+  [
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_ITEM_NAME_REQUIRED", "errorMessage" : "Budget item name is required"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_ITEM_NAME_ERROR", "errorMessage" : "Budget item name should be more than 1 characters"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_ITEM_OWNER_REQUIRED", "errorMessage" : "Budget item owner is required"}
+  ]
+}
+```
 
