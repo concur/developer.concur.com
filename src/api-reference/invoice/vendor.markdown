@@ -77,6 +77,7 @@ None.
 ## <a name="post"></a>Create vendors  
 
     POST  /api/v3.0/invoice/vendors
+    Note: If authenticating with a Company JWT, the API will create the requested Vendors.
 
 ### Parameters  
 
@@ -96,6 +97,7 @@ Name | Type | Format | Description
 ## <a name="put"></a>Update existing vendors  
 
     PUT  /api/v3.0/invoice/vendors
+    Note: If authenticating with a Company JWT, the API will update the requested Vendors.
 
 ### Parameters  
 
@@ -114,6 +116,7 @@ Name | Type | Format | Description
 ## <a name="delete"></a>Delete vendor  
 
     DELETE  /api/v3.0/invoice/vendors
+    Note: If authenticating with a Company JWT, the API will delete the requested Vendor.
 
 ### Parameters  
 
@@ -134,6 +137,7 @@ None.
 ## <a name="vendorBankPut"></a>Add/Update Vendor Banking
 
     PUT /api/v3.0/invoice/vendor/banks
+    Note: If authenticating with a Company JWT, the API will create / update the requested Vendor Banking info.
     
 ### Parameters
 
@@ -152,6 +156,7 @@ Name | Type | Format | Description
 ## <a name="vendorGroupPut"></a>Add Vendor Group
 
     PUT /api/v3.0/invoice/vendor/groups
+    Note: If authenticating with a Company JWT, the API will create the requested Vendor groups.
     
 ### Parameters
 
@@ -172,6 +177,8 @@ Name | Type | Format | Description
 ## <a name="vendorGroupDelete"></a>Delete Vendor Group
 
     DELETE /api/v3.0/invoice/vendor/groups
+    Note: If authenticating with a Company JWT, the API will delete the requested Vendor group.
+
 
 ### Parameters
 

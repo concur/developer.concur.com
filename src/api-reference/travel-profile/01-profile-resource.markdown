@@ -129,14 +129,14 @@ The General parent element contains the following child elements.
 |  `PreferredName` |  `string` |  The user's preferred name. Format: nvarchar(60) | |  | |
 |  `JobTitle` |  `string` |  The user's job title. Format: nvarchar(255) | | | |
 |  `CostCenter` | `string` | The user’s cost center. Format: nvarchar(25) | | | Requires Company Details scope. |
-|  `CompanyEmployeeID` | `string` | The user’s employee ID. Format: nvarchar(48) | | | Requires Company Details Scope.  Must be unique in the company. |
+|  `CompanyEmployeeID` | `string` | The user’s employee ID. Format: nvarchar(48) | | | Requires Company Details scope.  Must be unique in the company. |
 |  `Division` | `string` | The user's division. Format: nvarchar(60) | || Requires Company Details scope.  Must already be setup in the company configuration. |
 |  `PreferredLanguage` |  `string` |  The user's preferred language locale. Example: United States English is en-US. Format: varchar(20) | |  | |
 |  `EReceiptOptIn` |  `boolean` |  Whether the user has opted in to receive e-receipts. Format: **true**\|**false** | |  |
 |  `HasOpenBooking` |  `boolean` |  Whether the user has the TripLink User (formerly Open Booking User) permission. Format: **true**\|**false** | Cannot Update | | |
 |  `CountryCode` |  `string` |  The country code in from the[ ISO 3166-1 alpha-2 country code][8] specification. Format: char(2) | Cannot Update | | |
-|  `CompanyName` |  `string` |  The user's company name. Format: nvarchar(255) | Cannot Update | | |
-|  `CompanyID` | `string` | The user's company ID. Format: varchar(255) | Cannot Update | | |
+|  `CompanyName` |  `string` |  The user's company name. Format: nvarchar(255) | Cannot Update. | | |
+|  `CompanyID` | `string` | The user's company ID. Format: varchar(255) | Cannot Update. | | Requires Company Details scope. |
 |  `RuleClass` |  `string` |  The user's rule class. Format: nvarchar(60) | | | Must already be setup in the company. |
 |  `TravelConfigID` | `string` | The user's TravelConfig. Format: varchar(255) | | Required | |
 |  `MedicalAlerts` | `string` |  The user's medical alerts. Format: nvarchar(255) | | | Requires Medical Alerts Scope. |

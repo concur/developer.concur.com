@@ -17,7 +17,7 @@ layout: reference
 
 ## <a name="post"></a>Create a new purchase request  
 
-    POST  /purchaserequest/v1/purchaserequests
+    POST  /purchaserequest/v4/purchaserequests
 
 Create a Purchase Request based on provided header and line item details. If the request is valid it returns back a unique identifier to look at purchase request details and creates a purchase request in back ground.
 
@@ -27,7 +27,9 @@ Create a Purchase Request based on provided header and line item details. If the
 |-----|------|--------|------------
 |`Authorization`|`string`|`header`|**Required**: Bearer Token that identifies the caller. This is the company JWT
 |`Content-Type`|`string`|`header`|**Required**: application/json
+|`concur-correlationid`|`string`|`header`|A unique correlation id the caller of API can pass to track specific requests if needed
 |`purchaseRequest`|`string`|`body`|**Required**: The details of the purchase request
+
 
 ### Input  
 
@@ -36,15 +38,15 @@ Create a Purchase Request based on provided header and line item details. If the
 - Example  Input <br>
   **Note:** This is just a sample set of fields. The fields and values needing to be passed for your entity will vary based on your edition of concur and your forms and fields setup, but should include most of these common fields.
 
-  Curl Data:
-  ```shell
-  curl -X POST \
-    https://us.api.concursolutions.com/purchaserequest/v1/purchaserequests \
-    -H 'Authorization: Bearer <ACTUAL JWT COMES HERE>' \
-    -H 'Cache-Control: no-cache' \
-    -H 'Content-Type: application/json' \
-    -H 'Postman-Token: 0909a0b2-8605-4f88-9322-dff258429fe3' \
-    -d '{
+```shell
+POST /purchaserequest/v4/purchaserequests
+Authorization: Bearer {token}
+Content-Type: application/json
+```
+
+
+  ```json
+  {
       "description" : "New office supplies",
       "userLoginId" : "john.deo@concur",
       "policyExternalId" : "po-external-id",
@@ -96,7 +98,7 @@ Create a Purchase Request based on provided header and line item details. If the
               "custom4" : "SALES"
           }
       ]
-  }'
+  }
   ```
     
 ### Response  
@@ -108,13 +110,17 @@ Create a Purchase Request based on provided header and line item details. If the
  ```json
      {
         "id" : "b1e22581-ff4a-48e9-981b-2f5065579096",
-        "uri": "http://us.api.concursolutions.com/purchaserequest/v1/purchaserequests/b1e22581-ff4a-48e9-981b-2f5065579096?mode=COMPACT"
+        "uri": "http://us.api.concursolutions.com/purchaserequest/v4/purchaserequests/b1e22581-ff4a-48e9-981b-2f5065579096?mode=COMPACT"
      }
  ```
 
 ## <a name="get"></a>Get details of a purchase request
 
-    GET  /purchaserequest/v1/purchaserequests/{id}?mode=COMPACT
+ ```shell
+GET  /purchaserequest/v4/purchaserequests/{id}?mode=COMPACT
+Authorization: Bearer {token}
+Content-Type: application/json
+ ```
 
 Gets purchase request details. Currently only supported mode is COMPACT which returns basic info about the purchase request along with any exceptions if present.
 
@@ -124,6 +130,7 @@ Gets purchase request details. Currently only supported mode is COMPACT which re
 |-----|------|--------|------------
 |`Authorization`|`string`|`header`|**Required**: Bearer Token that identifies the caller. This is the company JWT
 |`Content-Type`|`string`|`header`|**Required**: application/json
+|`concur-correlationid`|`string`|`header`|A unique correlation id the caller of API can pass to track specific requests if needed
 |`mode`|`string`|`parameter`|**Required**: Specifies mode for get purchase request details. Currently supported mode COMPACT
 
 ### Input  
@@ -155,7 +162,7 @@ None
 |`userLoginId`|`string`|-|**Required**: The employee that is requesting the items. This is employee's Id. Either UserId or UserEmail or UserLoginId is required to identify employee
 |`description`|`string`|-|A description of the purchase request
 |`policyExternalId`|`string`|-|The external identifier of the policy that should be associated with the purchase order. This will default to the default policy setup for the user group assigned to the requesting employee. This is the external Id from the policy configuration screen. Clients will need to get these ID’s from the Implementation team if they need to assign different policies than the default
-|`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order. The values used here will be used for all items on this request. IE: USD 
+|`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order. The values used here will be used for all items on this request. IE: USD
 |`notesToSupplier`|`string`|-|Notes you want to print on the transmitted PO PDF sent to your supplier
 |`comments`|`string`|-|Internal comments you want to record related to this record
 |`custom1 through custom24`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in Concur
@@ -182,7 +189,7 @@ None
 |`comments`|`string`|-|Internal comments you want to record related to this record
 |`custom1 through custom20`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in Concur
 
-## <a name="create_purchase_request_schema-response"></a>Create Purchase Request Response Schema 
+## <a name="create_purchase_request_schema-response"></a>Create Purchase Request Response Schema
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
