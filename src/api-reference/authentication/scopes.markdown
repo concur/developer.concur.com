@@ -77,8 +77,8 @@ user.write|Read and Write user profile
 
 These are the list of scopes for the existing CONNECT APIs (v1.0 - v3.1)
 
-Scope|Description|APIs
----|---|---
+Scope|Description
+---|---
 user_read|Read user profile for old USER APIs
 ATTEND|Attendee List - Add, Update, or Inactivate Attendees
 CONFIG|Expense Configuration - Update Expense Feature Configuration
