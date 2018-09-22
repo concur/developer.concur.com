@@ -1,11 +1,8 @@
 ---
-title: Get Started
+title: Receipts v4 - Get Started
 layout: reference
+redirect_from: /api-reference/expense/receipts/
 ---
-
-# Receipts
-
-## Get Started
 
 - [Overview](#overview)
 - [Version](#version)
