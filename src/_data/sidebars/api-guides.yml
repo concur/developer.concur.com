@@ -7,7 +7,7 @@
   children:
       - title: Expense - Associating External Attendees to Expense Entries
         url: /api-guides/attendees/external-attendees-to-expense-entries.html
-- title: eReceipts Recipe
+- title: eReceipts Integration
   url: /api-guides/e-receipts.html
 - title: Travel
   url: ''
