@@ -1,0 +1,63 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/concur/developer.concur.com
+    docker:
+      - image: circleci/ruby:2.5.1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - devcenter-deps-{{ .Branch }}-{{ checksum "Gemfile" }}
+          - devcenter-deps-preview-      
+      - run: bundle install 
+      - save_cache:
+          key: devcenter-deps-{{ .Branch }}-{{ checksum "Gemfile" }}
+          paths:
+          - ~/.bundle      
+      - run: ./build/write_branch.sh
+      - run: ./build/write_commit.sh
+      - run: ./build/write_forms.sh
+      - run: bundle exec jekyll build
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - _site
+
+  deploy_preview:
+    docker:
+      - image: cgswong/aws:aws
+    steps:
+      - attach_workspace:
+          at: ./
+      - run: aws s3 sync ./_site s3://preview-developer-concur-com --delete --region us-west-2 --output text
+  deploy_livesite:
+    docker:
+      - image: cgswong/aws:aws
+    steps:
+      - attach_workspace:
+          at: ./
+      - run: aws s3 sync ./_site s3://livesite-developer-concur-com --delete --region us-west-2 --output text
+
+workflows:
+  version: 2
+  build_deploy:
+      jobs:
+        - build:
+            filters:
+              branches:
+                only: 
+                  - preview
+                  - livesite
+        - deploy_preview:
+            filters:
+              branches:
+                only: preview
+            requires:
+              - build
+        - deploy_livesite:
+            filters:
+              branches:
+                only: livesite
+            requires:
+              - build

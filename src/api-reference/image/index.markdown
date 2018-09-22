@@ -1,0 +1,129 @@
+---
+title: Receipt Image
+layout: reference
+---
+
+# Receipt Image
+* [Retrieve a list of all receipt images](#get)
+* [Retrieve a receipt image by ID](#getID)
+* [Create a new receipt image](#post)
+* [Append a receipt image](#put)
+* [Delete a receipt image](#delete)
+* [Schema](#schema)
+
+### Version
+3.0
+
+1.0 documentation is available [here][4]  
+
+1.0 Image URL documentation is available [here][5]
+
+
+
+## <a name="get"></a>Retrieve a list of all receipt images
+
+    GET  /api/v3.0/expense/receiptimages
+
+        
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------			
+`offset`	|	`string`	|	`query`	|	Starting page offset
+`limit`	|	`Int32`	|	`query`	|	Number of records to return (default 25)
+`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
+
+
+
+## <a name="getID"></a>Retrieve a receipt image by ID
+
+    GET  /api/v3.0/expense/receiptimages/{id}
+
+
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`id`	|	`string`	|	`path`	|	**Required** ReceiptImage ID
+`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
+
+### Example
+
+The above GET request produces this response:
+
+```xml
+<Image xmlns="http://www.concursolutions.com/api/image/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>sample</Id>
+  <Url>https://imagingupload.concursolutions.com/file/p00884704c6o/5A789811F139BC89D9C42DDE5FEE2A655BB7C2A375E9C481FA0BE92FFF690E298F119925A5C834385C8D62AE5FC4E65AC0F53E4C7273C14A4E71D4264F104882H142570AF84FBEEEC439486FE89E44D2F?id=51253775812C4750888F2e=p00884704c6o3t=AN</Url>
+</Image>
+```
+
+Copy and paste the url into a browser session to render the image.  This is a temp url.
+
+## <a name="post"></a>Create a new receipt image
+
+    POST  /api/v3.0/expense/receiptimages
+
+
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
+`image`	|	`file`	|	`body`	|	**Required** Image data file
+
+
+## <a name="put"></a>Append a receipt image
+
+    PUT  /api/v3.0/expense/receiptimages/{id}
+
+
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`id`	|	`string`	|	`path`	|	**Required** ID of the receipt image to update
+`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
+`image`	|	`file`	|	`body`	|	**Required** Image data file
+
+
+## <a name="delete"></a>Delete a receipt image
+
+    DELETE  /api/v3.0/expense/receiptimages/{id}
+
+
+### Parameters
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`id`	|	`string`	|	`path`	|	**Required** ID of the receipt image to delete
+`user`	|	`string`	|	`query`	|	The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.
+
+
+
+## <a name="schema"></a>Schema
+
+
+### Receipt Images
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`Items`	|	Array	|	[Receipt Image](#receiptimage)	|	The result collection.
+`NextPage`	|	string	|	-	|	The URI of the next page of results, if any.
+
+
+### <a name="receiptimage"></a>Receipt Image
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`ID`	|	string	|	-	|	The unique identifier of the resource.
+`URI`	|	string	|	-	|	The URI to the resource.
+
+
+
+
+
+
+[4]: /api-reference-deprecated/version-one/Image/index.html
+[5]: /api-reference-deprecated/version-one/Image/image-url-resource.html
+
