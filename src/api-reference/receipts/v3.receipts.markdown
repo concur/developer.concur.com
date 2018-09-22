@@ -5,7 +5,7 @@ layout: reference
 
 {% capture deprecation_content %}
 
-[Receipts v4](./get-started.html) replaces this version with new features and greatly expanded support for receipt types.
+[Receipts v4](./get-started.html) which replaces this API opens doors to global availability, enriched schemas, and better support for detailed tax content.
 
 {% endcapture %}
 
@@ -19,9 +19,9 @@ The Receipts resource represents receipts that can be posted to Concur by a prov
 * Hotel — A receipt for a hospitality service, such as a hotel stay
 * Ride — A receipt for a ride service
 
-**Notes:**  
+**Notes:**
 
-* Receipts currently can't be Posted to users whose data is hosted in Concur's EU datacenter.  Only users whose data is hosted in the US datacenter can receive e-receipts.  
+* Receipts currently can't be Posted to users whose data is hosted in Concur's EU datacenter. Only users whose data is hosted in the US datacenter can receive e-receipts.
 * The Receipt Service only accepts receipts that are up to 6 months old. Older receipts will not be accepted.
 * Unlike all the other Concur API endpoints, the e-receipt requires the Concur Platform team to configure your sandbox to enable access. You can request assistance via our Concur [forums](https://forum.developer.concur.com/c/sandbox)
 

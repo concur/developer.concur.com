@@ -1,7 +1,8 @@
 ---
 title: Receipts v4 - Get Started
 layout: reference
-redirect_from: /api-reference/expense/receipts/
+redirect_from:
+  - /api-reference/expense/receipts/
 ---
 
 - [Overview](#overview)
@@ -32,8 +33,7 @@ These two different resources are sent/fetched from the Receipts V4 API via diff
 
 ### Version
 
-- 4.0
-- [3.0](/api-reference-deprecated/version-three/receipts.html) [Deprecation Notice](/changelog/2016/11/07/receipts-version-three-deprecation.html).
+* 4.0
 
 #### Overview of Version 4.0
 
