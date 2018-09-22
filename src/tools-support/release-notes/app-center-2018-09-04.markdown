@@ -5,10 +5,35 @@ layout: reference
 
 ## Contents
 
+* [Apps for Me / User Connection Apps Now Available](#apps-for-me-connection-now-available)
+  * [Voll](#voll)
 * [Apps for Me / User Connection Apps Coming Soon](#apps-for-me-connection-coming-soon)
   * [Marcel](#marcel)
   * [Parken+](#parken+)
-  * [Voll](#voll)
+
+## <a name="apps-for-me-connection-now-available"></a>Apps for Me / User Connection Apps Now Available
+
+### <a name="voll"></a>Voll
+
+![Voll Logo](./app-center-2018-09-04-voll-logo.png)
+
+Voll allows you to have all your transportation apps in one single-access platform, making it easy to manage ground transportation. Voll’s integration with SAP Concur ensures accurate expense reporting by automatically submitting e-receipts with trip details to Concur Expense.
+
+Benefits of the Voll and SAP Concur integration for employees:
+
+* Request Uber, Cabify, 99, and other mobility suppliers in one screen comparison interface, allowing you to opt for the best option every trip.
+* Access the Voll interface on both mobile and desktop devices.
+* Receive electronic receipts in your Concur Expense account immediately after the ride is finished to make expense reporting simple.
+Benefits of the Voll and SAP Concur integration for businesses:
+* Voll does not direct users to native transportation apps, ensuring control, and safety for employees and their companies.
+* Set ground transportation policies for specific groups of employees, departments, or ongoing projects.
+* Keep track of employees' ground transportation usage by trip or through periodical automated reports.
+* Set budget limits for cost centers, departments, projects, and even specific users, as a financial amount or number of trips. This feature also provides different possible chronological settings for budget needs.
+* View real-time reports of employees’ commuting expenses and policy compliance through built-in Microsoft Power B.I. dashboards.
+
+Voll works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Voll integration, visit [http://govoll.com](http://govoll.com).
+
+
 
 ## <a name="apps-for-me-connection-coming-soon"></a>Apps for Me / User Connection Apps Coming Soon
 
@@ -53,23 +78,3 @@ By connecting your Concur account with Parken+, you can easily submit your expen
 
 Parken+ works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Parken+ integration, visit
 [http://www.parken.plus/](http://www.parken.plus/).
-
-### <a name="voll"></a>Voll
-
-![Voll Logo](./app-center-2018-09-04-voll-logo.png)
-
-Voll allows you to have all your transportation apps in one single-access platform, making it easy to manage ground transportation. Voll’s integration with SAP Concur ensures accurate expense reporting by automatically submitting e-receipts with trip details to Concur Expense.
-
-Benefits of the Voll and SAP Concur integration for employees:
-
-* Request Uber, Cabify, 99, and other mobility suppliers in one screen comparison interface, allowing you to opt for the best option every trip.
-* Access the Voll interface on both mobile and desktop devices.
-* Receive electronic receipts in your Concur Expense account immediately after the ride is finished to make expense reporting simple.
-Benefits of the Voll and SAP Concur integration for businesses:
-* Voll does not direct users to native transportation apps, ensuring control, and safety for employees and their companies.
-* Set ground transportation policies for specific groups of employees, departments, or ongoing projects.
-* Keep track of employees' ground transportation usage by trip or through periodical automated reports.
-* Set budget limits for cost centers, departments, projects, and even specific users, as a financial amount or number of trips. This feature also provides different possible chronological settings for budget needs.
-* View real-time reports of employees’ commuting expenses and policy compliance through built-in Microsoft Power B.I. dashboards.
-
-Voll works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Voll integration, visit [http://govoll.com](http://govoll.com).

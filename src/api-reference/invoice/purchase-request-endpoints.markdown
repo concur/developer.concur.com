@@ -17,7 +17,7 @@ layout: reference
 
 ## <a name="post"></a>Create a new purchase request  
 
-    POST  /purchaserequest/v1/purchaserequests
+    POST  /purchaserequest/v4/purchaserequests
 
 Create a Purchase Request based on provided header and line item details. If the request is valid it returns back a unique identifier to look at purchase request details and creates a purchase request in back ground.
 
@@ -27,7 +27,9 @@ Create a Purchase Request based on provided header and line item details. If the
 |-----|------|--------|------------
 |`Authorization`|`string`|`header`|**Required**: Bearer Token that identifies the caller. This is the company JWT
 |`Content-Type`|`string`|`header`|**Required**: application/json
+|`concur-correlationid`|`string`|`header`|A unique correlation id the caller of API can pass to track specific requests if needed
 |`purchaseRequest`|`string`|`body`|**Required**: The details of the purchase request
+
 
 ### Input  
 
@@ -37,66 +39,68 @@ Create a Purchase Request based on provided header and line item details. If the
   **Note:** This is just a sample set of fields. The fields and values needing to be passed for your entity will vary based on your edition of concur and your forms and fields setup, but should include most of these common fields.
 
 ```shell
-POST https://us.api.concursolutions.com/purchaserequest/v1/purchaserequests
+POST /purchaserequest/v4/purchaserequests
 Authorization: Bearer {token}
 Content-Type: application/json
 ```
 
-```json
-{
-"description" : "New office supplies",
-"userLoginId" : "john.deo@concur",
-"policyExternalId" : "po-external-id",
-"currencyCode" : "USD",
-"notesToSupplier" : "Office space request phase 1",
-"comments" : "office supplies request",
-"custom1" : "ADVT",
-"lineItems" : [
-{
-"purchaseType" : "SERVICES",
-"vendorCode" :"VEN1",
-"vendorAddressCode" : "ADDR1",
-"description" : "monitor",
-"quantity" : "20",
-"unitPrice" : "154.4",
-"receiptType" : "QUANTITY_RECEIPT",
-"neededByDate": "2018-06-28",
-"uomCode" : "DA",
-"shipping" : "13.5",
-"tax" : "11",
-"supplierPartId" : "DAQT1",
-"url" :[
-  "http://officesupplies.com/monitor"
-],
-"notesToVendor" : "Phase 1 request monitor",
-"comments" : "Phase 1 request for new employees for monitor",
-"custom2" : "LGVT1"
-},
-{
-  "purchaseType" : "GOODS",
-  "vendorCode" :"VEN1",
-  "vendorAddressCode" : "ADDR1",
-  "description" : "office chair",
-  "quantity" : "20",
-  "unitPrice" : "346.2",
-  "receiptType" : "NONE",
-  "neededByDate": "2018-06-28",
-  "uomCode" : "DA",
-  "shipping" : "15",
-  "tax" : "17.5",
-  "supplierPartId" : "DAQT2",
-  "url" :[
-    "http://officesupplies.com/officechair"
-  ],
-  "notesToVendor" : "Phase 1 request office chair",
-  "comments" : "Phase 1 request for new employees for office chair",
-  "custom3" : "DEPT",
-  "custom4" : "SALES"
-}
-]
-}
-```
 
+  ```json
+  {
+      "description" : "New office supplies",
+      "userLoginId" : "john.deo@concur",
+      "policyExternalId" : "po-external-id",
+      "currencyCode" : "USD",
+      "notesToSupplier" : "Office space request phase 1",
+      "comments" : "office supplies request",
+      "custom1" : "ADVT",
+
+      "lineItems" : [
+          {
+              "purchaseType" : "SERVICES",
+              "vendorCode" :"VEN1",
+              "vendorAddressCode" : "ADDR1",
+              "description" : "monitor",
+              "quantity" : "20",
+              "unitPrice" : "154.4",
+              "receiptType" : "QUANTITY_RECEIPT",
+              "neededByDate": "2018-06-28",
+              "uomCode" : "DA",
+              "shipping" : "13.5",
+              "tax" : "11",
+              "supplierPartId" : "DAQT1",
+              "url" :[
+                  "http://officesupplies.com/monitor"
+              ],
+              "notesToVendor" : "Phase 1 request monitor",
+              "comments" : "Phase 1 request for new employees for monitor",
+              "custom2" : "LGVT1"
+          },
+          {
+              "purchaseType" : "GOODS",
+              "vendorCode" :"VEN1",
+              "vendorAddressCode" : "ADDR1",
+              "description" : "office chair",
+              "quantity" : "20",
+              "unitPrice" : "346.2",
+              "receiptType" : "NONE",
+              "neededByDate": "2018-06-28",
+              "uomCode" : "DA",
+              "shipping" : "15",
+              "tax" : "17.5",
+              "supplierPartId" : "DAQT2",
+              "url" :[
+                  "http://officesupplies.com/officechair"
+              ],
+              "notesToVendor" : "Phase 1 request office chair",
+              "comments" : "Phase 1 request for new employees for office chair",
+              "custom3" : "DEPT",
+              "custom4" : "SALES"
+          }
+      ]
+  }
+  ```
+    
 ### Response  
 
 [Response schema](#create_purchase_request_schema-response)  
@@ -106,13 +110,17 @@ Content-Type: application/json
  ```json
      {
         "id" : "b1e22581-ff4a-48e9-981b-2f5065579096",
-        "uri": "http://us.api.concursolutions.com/purchaserequest/v1/purchaserequests/b1e22581-ff4a-48e9-981b-2f5065579096?mode=COMPACT"
+        "uri": "http://us.api.concursolutions.com/purchaserequest/v4/purchaserequests/b1e22581-ff4a-48e9-981b-2f5065579096?mode=COMPACT"
      }
  ```
 
 ## <a name="get"></a>Get details of a purchase request
 
-    GET  /purchaserequest/v1/purchaserequests/{id}?mode=COMPACT
+ ```shell
+GET  /purchaserequest/v4/purchaserequests/{id}?mode=COMPACT
+Authorization: Bearer {token}
+Content-Type: application/json
+ ```
 
 Gets purchase request details. Currently only supported mode is COMPACT which returns basic info about the purchase request along with any exceptions if present.
 
@@ -122,6 +130,7 @@ Gets purchase request details. Currently only supported mode is COMPACT which re
 |-----|------|--------|------------
 |`Authorization`|`string`|`header`|**Required**: Bearer Token that identifies the caller. This is the company JWT
 |`Content-Type`|`string`|`header`|**Required**: application/json
+|`concur-correlationid`|`string`|`header`|A unique correlation id the caller of API can pass to track specific requests if needed
 |`mode`|`string`|`parameter`|**Required**: Specifies mode for get purchase request details. Currently supported mode COMPACT
 
 ### Input  
