@@ -130,4 +130,4 @@
   url: ''
   children:
       - title: Receipts
-        url: /api-reference-deprecated/version-three/receipts.html
+        url: /api-reference/receipts/v3.receipts.html
