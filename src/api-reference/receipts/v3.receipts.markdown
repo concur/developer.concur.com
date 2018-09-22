@@ -11,7 +11,7 @@ layout: reference
 
 {% include deprecation-alert.html deprecation_date="02/07/2017" unsupported_date="08/07/2017" content=deprecation_content %}
 
-[Receipts v4](./get-started.html) replaces this version with new features and greatly expanded support for receipt types.
+---
 
 The Receipts resource represents receipts that can be posted to Concur by a provider company on behalf of opted-in users. This resource currently supports three types of receipts:
 
