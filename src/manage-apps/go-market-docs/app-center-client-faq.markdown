@@ -1,6 +1,9 @@
 ---
 title: SAP Concur App Center - Frequently Asked Questions (FAQ)
 layout: reference
+redirect_from:
+  - /manage-apps/go-market-docs/app-center-client-faq.pdf
+  - /manage-apps/go-market-docs/app_center_client_faq.pdf
 ---
 
 ![User looking at SAP Concur App Center](./app-center-client-faq-look-user-looking-at-app-center.png)
