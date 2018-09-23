@@ -23,7 +23,7 @@ If you are an existing partner with an existing app, please read both the [Migra
 * [Response Codes](#response_codes)
 * [Troubleshooting](#troubleshooting)
 
-**Note:** The old authentication documentation can be found [here](/api-reference-deprecated/old-auth/old-auth.html)
+**Note:** The Pre-2017 Authorization (Deprecated) documentation be found [here](/api-reference/authentication/authorization-pre-2017.html)
 
 ## <a name="access_token"></a>Access Tokens
 

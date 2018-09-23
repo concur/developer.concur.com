@@ -1,7 +1,7 @@
 - title: API Reference (Deprecated)
   url: /api-reference-deprecated/
-- title: Old Auth
-  url: /api-reference-deprecated/old-auth/old-auth.html
+- title: Pre-2017 Authorization
+  url: /api-reference/authentication/authorization-pre-2017.html
 - title: v1.0 - Attendees
   url: ''
   children:
