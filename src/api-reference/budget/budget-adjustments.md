@@ -11,23 +11,23 @@ layout: reference
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
 
-[Terms of Use](/Terms-of-Use.html)
-
 # Budget Adjustments
 
 **Preview** _This is a prerelease version of the service and is subject to change before final release._
 
 This resource is used to add budget adjustments. Each budget item detail may have one or more budget adjustments and adjustments can be made to manually add or subtract the budget, spent or pending balances.
 
-* [Create a list of budget adjustments](#post)
+* [POST a list of budget adjustments](#post)
 * [Schema](#schema)
   * [Budget Adjustment](#budgetAdjustment)
+  * [Error Response](#errorResponse)
+  * [Error Message](#errorMessage)
 
 ## Version
 
 4.0
 
-## <a name="post"></a>Create Budget Adjustments
+## <a name="post"></a>POST Budget Adjustments
 
 Create one or more budget adjustments.  
 * If the rolling adjustment feature is used, all adjustments for a given month, adjustment type, amount type, budget, and description will be combined into one adjustment.  See [Parameters](#parameters) below.

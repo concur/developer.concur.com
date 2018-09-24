@@ -11,8 +11,6 @@ layout: reference
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
 
-[Terms of Use](/Terms-of-Use.html)
-
 # Budget Item 
 
 **Preview** _This is a prerelease version of the service and is subject to change before final release._
@@ -25,6 +23,20 @@ This resource is used to retrieve and update information about a budget that spa
 * [POST a Budget Item](#post)
 * [DELETE a Budget Item](#delete)
 * [Schema](#schema)
+  * [Budget Item Header List](#budgetItemHeaderList)
+  * [Budget Item Header](#budgetItemHeader)
+  * [Budget Item Detail](#budgetItemDetail)
+  * [Budget Amounts](#budgetAmounts)
+  * [BudgetPerson](#budgetPerson)
+  * [Budget Category](#budgetCategory)
+  * [Expense Type](#expenseType)
+  * [Budget Tracking Value](#budgetTrackingValue)
+  * [Budget Item Balance](#budgetItemBalance)
+  * [Fiscal Year](#fiscalYear)
+  * [Fiscal Period](#fiscalPeriod)
+  * [Budget Item Response](#budgetItemResponse)
+  * [Error Response](#errorResponse)
+  * [Error Message](#errorMessage)
 
 ## Version
 4.0  
@@ -111,7 +123,7 @@ concur-correlationid: dd6cee88-b725-4c06-9ee9-0ca4ae4f16b2
         "isTest":false,
         "budgetItemStatusType":"OPEN",
         "description":"Marketing-US",
-        "syncGuid":"72eee673-3d81-49c2-966a-b63c7a9302e6",
+        "id":"72eee673-3d81-49c2-966a-b63c7a9302e6",
         "costObjects":[
           {"code":"6",
           "value":"2",
@@ -136,38 +148,38 @@ concur-correlationid: dd6cee88-b725-4c06-9ee9-0ca4ae4f16b2
           "name":"airfare",
           "description":null,
           "statusType":"OPEN",
-          "syncGuid":"27451c2d-9121-44bd-b4b0-f2119d2071c7"
+          "id":"27451c2d-9121-44bd-b4b0-f2119d2071c7"
         },
         "owner":{
-          "externalUserSyncGuid":"8002250890004822936",
+          "externalUserCUUID":"8002250890004822936",
           "employeeUuid":"210fe25f-e326-495c-847a-de333173f616",
-          "syncGuid":"f779261d-77ce-4123-b739-d842ef6f104d",
+          "id":"f779261d-77ce-4123-b739-d842ef6f104d",
           "name":"Jean Normandy",
     	  "email":"jean.normandy@xyz.com"
          },
         "budgetApprovers":[
 	      {
-            "externalUserSyncGuid":"8002250890004822936",
+            "externalUserCUUID":"8002250890004822936",
             "employeeUuid":"210fe25f-e326-495c-847a-de333173f616",
-            "syncGuid":"f779261d-77ce-4123-b739-d842ef6f104d",
+            "id":"f779261d-77ce-4123-b739-d842ef6f104d",
             "name":"Jean Normandy",
         	"email":"jean.normandy@xyz.com"
           }
         ],
         "budgetManagers":[
 	      {
-            "externalUserSyncGuid":"1563846384638464842",
+            "externalUserCUUID":"1563846384638464842",
             "employeeUuid":"13a13839-68d6-4ee8-90e9-58604278aa8f",
-            "syncGuid":"e2bae688-e000-464a-8728-e1362c94f172",
+            "id":"e2bae688-e000-464a-8728-e1362c94f172",
             "name":"Walter Gupta",
         	"email":"walter.gupta@xyz.com"
           }
         ],
         "budgetViewers":[
           {
-            "externalUserSyncGuid":"5005380230004873464",
+            "externalUserCUUID":"5005380230004873464",
             "employeeUuid":"eb6082b0-3a9a-4e79-a350-e6e067f34969",
-            "syncGuid":"7ce7dfe0-6168-4b93-bb35-386bf023acc6",
+            "id":"7ce7dfe0-6168-4b93-bb35-386bf023acc6",
             "name":"Dan Lee",
 	        "email":"dan.lee@xyz.com"
           }
@@ -177,7 +189,7 @@ concur-correlationid: dd6cee88-b725-4c06-9ee9-0ca4ae4f16b2
           "startDate":"2017-01-01",
           "endDate":"2017-12-31",
           "status":"OPEN",
-          "syncGuid":"a4f9d57f-14ac-4f03-b5aa-4256e5cff790",
+          "id":"a4f9d57f-14ac-4f03-b5aa-4256e5cff790",
           "lastModified":"2017-03-26 20:53:19",
           "currentYear":false
         }
@@ -272,7 +284,7 @@ concur-correlationid: 918cfb55-06a1-47da-8ef1-774a45427af9
     "isTest":false,
     "budgetItemStatusType":"OPEN",
     "description":"Marketing-US",
-    "syncGuid":"72eee673-3d81-49c2-966a-b63c7a9302e6",
+    "id":"72eee673-3d81-49c2-966a-b63c7a9302e6",
     "costObjects":[
       {"code":"6",
       "value":"2",
@@ -295,34 +307,34 @@ concur-correlationid: 918cfb55-06a1-47da-8ef1-774a45427af9
     "annualBudget":10000.00000000,
     "budgetCategory":null,
     "owner":{
-      "externalUserSyncGuid":"8002250890004822936",
+      "externalUserCUUID":"8002250890004822936",
       "employeeUuid":"210fe25f-e326-495c-847a-de333173f616",
-      "syncGuid":"f779261d-77ce-4123-b739-d842ef6f104d",
+      "id":"f779261d-77ce-4123-b739-d842ef6f104d",
       "name":"Jean Normandy"
      },
     "budgetApprovers":[
        {
-        "externalUserSyncGuid":"8002250890004822936",
+        "externalUserCUUID":"8002250890004822936",
         "employeeUuid":"210fe25f-e326-495c-847a-de333173f616",
-        "syncGuid":"f779261d-77ce-4123-b739-d842ef6f104d",
+        "id":"f779261d-77ce-4123-b739-d842ef6f104d",
         "name":"Jean Normandy",
         "email":"jean.normandy@xyz.com"
        }
     ],
     "budgetManagers":[
       {
-        "externalUserSyncGuid":"1563846384638464842",
+        "externalUserCUUID":"1563846384638464842",
         "employeeUuid":"13a13839-68d6-4ee8-90e9-58604278aa8f",
-        "syncGuid":"e2bae688-e000-464a-8728-e1362c94f172",
+        "id":"e2bae688-e000-464a-8728-e1362c94f172",
         "name":"Walter Gupta",
         "email":"walter.gupta@xyz.com"
       }
     ],
     "budgetViewers":[
       {
-        "externalUserSyncGuid":"5005380230004873464",
+        "externalUserCUUID":"5005380230004873464",
         "employeeUuid":"eb6082b0-3a9a-4e79-a350-e6e067f34969",
-        "syncGuid":"7ce7dfe0-6168-4b93-bb35-386bf023acc6",
+        "id":"7ce7dfe0-6168-4b93-bb35-386bf023acc6",
         "name":"Dan Lee",
 	"email":"dan.lee@xyz.com"
       }
@@ -331,7 +343,7 @@ concur-correlationid: 918cfb55-06a1-47da-8ef1-774a45427af9
       {
         "currencyCode":"USD",
         "amount":2500.00000000,
-        "syncGuid":"4c165d40-804f-4aaa-b900-a46538537f6a",
+        "id":"4c165d40-804f-4aaa-b900-a46538537f6a",
         "budgetItemDetailStatusType":"OPEN",
         "budgetAmounts":{
           "pendingAmount":6870.48165307,
@@ -345,12 +357,12 @@ concur-correlationid: 918cfb55-06a1-47da-8ef1-774a45427af9
         "fiscalPeriod":{
           "name":"2017 - Q1",
           "fiscalPeriodStatus":"OPEN",
-          "syncGuid":"b9659f8a-4e74-4531-9e23-1222ab1507f2",
+          "id":"b9659f8a-4e74-4531-9e23-1222ab1507f2",
           "periodType":"QUARTERLY",
           "startDate":"2017-01-01",
           "endDate":"2017-03-31",
           "spendDate":null,
-          "fiscalYearSyncGuid":"bcb41c95-2d53-4a1a-830f-7c6b01fa79da",
+          "fiscalYearId":"bcb41c95-2d53-4a1a-830f-7c6b01fa79da",
           "currentPeriod":false
         },
         "budgetItemBalances":[
@@ -359,28 +371,28 @@ concur-correlationid: 918cfb55-06a1-47da-8ef1-774a45427af9
             "featureTypeSubCode":"NONE",
             "workflowState":"SUBMITTED",
             "amount":6870.48165307,
-            "syncGuid":"11cb732e-cbc4-41cb-82be-162d632d5499"
+            "id":"11cb732e-cbc4-41cb-82be-162d632d5499"
           },
           {
             "featureTypeCode":"EXPENSE",
             "featureTypeSubCode":"NONE",
             "workflowState":"PAID",
             "amount":764.86966050,
-            "syncGuid":"0f09cc65-b879-4969-a8a1-9dd52c96486d"
+            "id":"0f09cc65-b879-4969-a8a1-9dd52c96486d"
           },
           {
             "featureTypeCode":"EXPENSE",
             "featureTypeSubCode":"ERECEIPTS",
             "workflowState":"UNSUBMITTED",
             "amount":102126.89000000,
-            "syncGuid":"27c49c8a-c24d-42eb-b089-84268350ae03"
+            "id":"27c49c8a-c24d-42eb-b089-84268350ae03"
           }
         ]
       },
       {
         "currencyCode":"EUR",
         "amount":2500.00000000,
-        "syncGuid":"0a2dc181-389e-4c85-bb57-e4f1a11ace4e",
+        "id":"0a2dc181-389e-4c85-bb57-e4f1a11ace4e",
         "budgetItemDetailStatusType":"OPEN",
         "budgetAmounts":{
           "pendingAmount":0,
@@ -394,12 +406,12 @@ concur-correlationid: 918cfb55-06a1-47da-8ef1-774a45427af9
         "fiscalPeriod":{
           "name":"2017 - Q2",
           "fiscalPeriodStatus":"OPEN",
-          "syncGuid":"590d4e22-40be-43cc-ac1b-01b0d0263e19",
+          "id":"590d4e22-40be-43cc-ac1b-01b0d0263e19",
           "periodType":"QUARTERLY",
           "startDate":"2017-04-01",
           "endDate":"2017-06-30",
           "spendDate":null,
-          "fiscalYearSyncGuid":"bcb41c95-2d53-4a1a-830f-7c6b01fa79da",
+          "fiscalYearId":"bcb41c95-2d53-4a1a-830f-7c6b01fa79da",
           "currentPeriod":true
         },
         "budgetItemBalances":[]
@@ -413,7 +425,7 @@ concur-correlationid: 918cfb55-06a1-47da-8ef1-774a45427af9
       "startDate":"2017-01-01",
       "endDate":"2017-12-31",
       "status":"OPEN",
-      "syncGuid":"a4f9d57f-14ac-4f03-b5aa-4256e5cff790",
+      "id":"a4f9d57f-14ac-4f03-b5aa-4256e5cff790",
       "lastModified":"2017-03-26 20:53:19",
       "currentYear":false
     }
@@ -484,7 +496,7 @@ Authorization: Bearer: {YOUR ACCESS TOKEN}
     "isTest":false,
     "budgetItemStatusType":"OPEN",
     "description":"Marketing-US",
-    "syncGuid":"72eee673-3d81-49c2-966a-b63c7a9302e6",
+    "id":"72eee673-3d81-49c2-966a-b63c7a9302e6",
     "costObjects":[
       {"code":"6",
       "value":"2",
@@ -494,30 +506,30 @@ Authorization: Bearer: {YOUR ACCESS TOKEN}
     "periodType":"QUARTERLY",
     "currencyCode":"EUR",
     "budgetCategory":{
-      "syncGuid":"27451c2d-9121-44bd-b4b0-f2119d2071c7"
+      "id":"27451c2d-9121-44bd-b4b0-f2119d2071c7"
     },
     "owner":{
-      "externalUserSyncGuid":"8002250890004822936",
+      "externalUserCUUID":"8002250890004822936",
       "employeeUuid":"210fe25f-e326-495c-847a-de333173f616",
       "email":"jean.normandy@xyz.com"
      },
     "budgetApprovers":[
       {
-        "externalUserSyncGuid":"5005380230004873464",
+        "externalUserCUUID":"5005380230004873464",
         "employeeUuid":"eb6082b0-3a9a-4e79-a350-e6e067f34969",
 	    "email":"dan.lee@xyz.com"
       }
     ],
     "budgetManagers":[
       {
-        "externalUserSyncGuid":"1563846384638464842",
+        "externalUserCUUID":"1563846384638464842",
         "employeeUuid":"13a13839-68d6-4ee8-90e9-58604278aa8f",
         "email":"walter.gupta@xyz.com"
       }
     ],
     "budgetViewers":[
       {
-        "externalUserSyncGuid":"5005380230004873464",
+        "externalUserCUUID":"5005380230004873464",
         "employeeUuid":"eb6082b0-3a9a-4e79-a350-e6e067f34969",
         "email":"dan.lee@xyz.com"
       }
@@ -526,42 +538,42 @@ Authorization: Bearer: {YOUR ACCESS TOKEN}
       {
         "currencyCode":"EUR",
         "amount":2500.00000000,
-        "syncGuid":"4c165d40-804f-4aaa-b900-a46538537f6a",
+        "id":"4c165d40-804f-4aaa-b900-a46538537f6a",
         "budgetItemDetailStatusType":"OPEN",
         "fiscalPeriod":{
-          "syncGuid":"b9659f8a-4e74-4531-9e23-1222ab1507f2"
+          "id":"b9659f8a-4e74-4531-9e23-1222ab1507f2"
         }
       },
       {
         "currencyCode":"EUR",
         "amount":2500.00000000,
-        "syncGuid":"0a2dc181-389e-4c85-bb57-e4f1a11ace4e",
+        "id":"0a2dc181-389e-4c85-bb57-e4f1a11ace4e",
         "budgetItemDetailStatusType":"OPEN",
         "fiscalPeriod":{
-          "syncGuid":"590d4e22-40be-43cc-ac1b-01b0d0263e19"
+          "id":"590d4e22-40be-43cc-ac1b-01b0d0263e19"
         }
       },
       {
         "currencyCode":"EUR",
         "amount":2500.00000000,
-        "syncGuid":"35d7dc8a-5ec8-4d5f-ba7c-d9304f7afee3",
+        "id":"35d7dc8a-5ec8-4d5f-ba7c-d9304f7afee3",
         "budgetItemDetailStatusType":"OPEN",
         "fiscalPeriod":{
-          "syncGuid":"09cd5be1-a21d-47f2-b6b5-8d9019709327"
+          "id":"09cd5be1-a21d-47f2-b6b5-8d9019709327"
         }
       },
       {
         "currencyCode":"EUR",
         "amount":2500.00000000,
-        "syncGuid":"4ec30f7c-e7fa-4832-9134-85bed9a85b9c",
+        "id":"4ec30f7c-e7fa-4832-9134-85bed9a85b9c",
         "budgetItemDetailStatusType":"OPEN",
         "fiscalPeriod":{
-          "syncGuid":"c3beec03-a096-4a33-b7af-b49127742702"
+          "id":"c3beec03-a096-4a33-b7af-b49127742702"
         }
       }
     ],
     "fiscalYear":{
-      "syncGuid":"a4f9d57f-14ac-4f03-b5aa-4256e5cff790"
+      "id":"a4f9d57f-14ac-4f03-b5aa-4256e5cff790"
     }
   }
 ```
@@ -585,7 +597,7 @@ concur-correlationid: 809a0898-e523-4114-950d-bd22705a3b25
 ```json
   {
     "success": true,
-    "budgetItemHeaderSyncGuid": "72eee673-3d81-49c2-966a-b63c7a9302e6"
+    "budgetItemHeaderId": "72eee673-3d81-49c2-966a-b63c7a9302e6"
   }
 ```
 
@@ -690,7 +702,7 @@ concur-correlationid: 86a0d9fe-9e98-43c3-89d8-a2917dd844cb
 ```json
   {
     "success": true,
-    "budgetItemHeaderSyncGuid": "72eee673-3d81-49c2-966a-b63c7a9302e6"
+    "budgetItemHeaderId": "72eee673-3d81-49c2-966a-b63c7a9302e6"
   }
 
 ```
@@ -730,12 +742,12 @@ Name | Type | Format | Description
 `isTest`	|	`boolean`	|	-	|	The test flag for the budget item.  If true, this budget will only match spending submitted by test users.
 `name`	|	`string`	|	-	|	**Required** The admin-facing name for this budget.
 `owned`	|	`string`	|	-	|	A flag indicating if the current user is the owner of this budget.  **READ ONLY**
-`owner`	|	[`BudgetPerson`](#abcde)	|	-	|	**Required** The user who is ultimately responsible for this budget.  He/she may approve spending for the budget.
+`owner`	|	`BudgetPerson`	|	-	|	**Required** The user who is ultimately responsible for this budget.  He/she may approve spending for the budget.
 `periodType`	|	`string`	|	-	|	The type of period within the fiscal year that this budget's details use. **READ ONLY**
-`syncGuid`	|	`string`	|	-	|	The key for this object.
+`id`	|	`string`	|	-	|	The key for this object.
 
 
-### BudgetItemDetail
+### <a name="budgetItemDetail"></a>BudgetItemDetail
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -745,10 +757,10 @@ Name | Type | Format | Description
 `budgetItemDetailStatusType`	|	`string`	|	-	|	The status of this budget item. Valid values are 'OPEN', 'CLOSED', and 'REMOVED' (Closed means no spending may be attached to this budget.)
 `currencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.
 `fiscalPeriod`	|	`FiscalPeriod`	|	-	|	**Required** The fiscal period for this budget amount.  Only the sync_guid is technically required for creating/updating a budget.
-`syncGuid`	|	`string`	|	-	|	The key for this object.
+`id`	|	`string`	|	-	|	The key for this object.
 
 
-### BudgetAmounts
+### <a name="budgetAmounts"></a>BudgetAmounts
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -760,39 +772,39 @@ Name | Type | Format | Description
 `unexpensedAmount`  |   `decimal`   |    -  |   The amount of unexpensed items like travel bookings, quick expenses, or e-receipts **READ ONLY**
 `unexpensedSettings`    |   `string`    |   -   |   An indicator for whether this company has an special setting for unexpensed items.  Example values: SHOW_UNSUBMITTED_EXPENSES_AS_PENDING, SHOW_UNSUBMITTED_EXPENSES_BALANCE, and DO_NOT_SHOW_UNSUBMITTED_EXPENSES **READ ONLY**
 
-### BudgetPerson
+### <a name="budgetPerson"></a>BudgetPerson
 
-Provide externalUserSyncGuid or email of the user for looking up the person.
+Provide externalUserCUUID or email of the user for looking up the person.
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`externalUserSyncGuid`	|	`string`	|	-	|	The unique identifier for this user. This must match the CUUID from Concur's profile service.
+`externalUserCUUID`	|	`string`	|	-	|	The unique identifier for this user. This must match the CUUID from Concur's profile service.
 `name`	|	`string`	|	-	|	The user's name.  Provided for convenience.  **READ ONLY**
-`syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
+`id`	|	`string`	|	-	|	The budget service's key for this object.
 `email`	|	`string`	|	-	|	The email address of the person to lookup.
 
 
-### BudgetCategory
+### <a name="budgetCategory"></a>BudgetCategory
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `description`	|	`string`	|	-	|	Not used.
 `name`	|	`string`	|	-	|	 The admin-facing name for this category.
 `statusType`	|	`string`	|	-	|	The status of this budget category. Valid values are 'OPEN' and 'REMOVED'
-`syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
+`id`	|	`string`	|	-	|	The budget service's key for this object.
 
 
-### ExpenseType
+### <a name="expenseType"></a>ExpenseType
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `featureTypeCode`	|	`string`	|	-	|	**Required** The type of feature that this expense type applies to, Purchase Request, Payment Request (Invoice), Expense or Travel Authorization (Possible values: 'REQUEST', 'TRAVEL', 'EXPENSE', 'PAYMENT_REQUEST', 'PURCHASE_REQUEST')
 `expenseTypeCode`	|	`string`	|	-	|	**Required** The alphanumeric code that describes an expense type.  Ex: TRAVEL, AC_CATER Any string may be used, but only expense type codes returned by GET /budgetCategory/expenseType will behave properly in the Concur UI.  
 `name`	|	`string`	|	-	|	The name for this expense type if it maps to an expense type set up in Concur. **READ ONLY**
-`syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
+`id`	|	`string`	|	-	|	The budget service's key for this object.
 
 
-### CostObjectValue
+### <a name="budgetTrackingValue"></a>CostObjectValue
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -801,17 +813,17 @@ Name | Type | Format | Description
 `listKey`	|	`string`	|	-	|	When setting up the budget, specify the listKey that maps to the value of this list in the concur list service.
 
 
-### BudgetItemBalance
+### <a name="budgetItemBalance"></a>BudgetItemBalance
 
 Name | Type | Format | Description
 -----|------|--------|------------
 `amount`	|	`decimal`	|	-	|	The balance amount. **READ ONLY**
 `featureTypeCode`	|	`string`	|	-	|	The product type for this balance. Valid values are 'REQUEST', 'TRAVEL', 'EXPENSE', 'PAYMENT_REQUEST'  **READ ONLY** 
 `workflowState`	|	`string`	|	-	|	Valid values are 'UNSUBMITTED', 'UNSUBMITTED_HELD', 'SUBMITTED', 'APPROVED', 'PROCESSED', 'PAID' **READ ONLY**
-`syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
+`id`	|	`string`	|	-	|	The budget service's key for this object.
 
 
-### FiscalYear
+### <a name="fiscalYear"></a>FiscalYear
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -820,10 +832,10 @@ Name | Type | Format | Description
 `endDate`	|	`date`	|	-	|	**Required** The end date for this fiscal year. The distance between start date and end date may not be more than two years.  Format: YYYY-MM-DD
 `name`	|	`datetime`	|	-	|	**Required** The name of this fiscal year. Must be unique for this entity.
 `status`	|	`string`	|	-	|	**Required** The status of this fiscal year. Valid values are 'OPEN', 'CLOSED' and 'REMOVED'
-`syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
+`id`	|	`string`	|	-	|	The budget service's key for this object.
 `lastModified`  |   `datetime`  |   -   |   The UTC date and time when this object was last changed.  **READ ONLY**
 
-### FiscalPeriod
+### <a name="fiscalPeriod"></a>FiscalPeriod
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -833,8 +845,8 @@ Name | Type | Format | Description
 `name`	|	`string`	|	-	|	**Required** The name of this fiscal period. Must be unique for this entity.
 `fiscalPeriodStatus`	|	`string`	|	-	|	**Required** The status of this fiscal period. Valid values are 'OPEN', 'CLOSED' and 'REMOVED'
 `periodType`  | `string`    |   -   |   **Required** The type of fiscal period.  Valid values are 'MONTHLY', 'QUARTERLY', 'YEARLY', 'CUSTOM'
-`fiscalYearSyncGuid`	|	`string`	|	-	|	The key of the parent fiscal year for this fiscal period.
-`syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
+`fiscalYearId`	|	`string`	|	-	|	The key of the parent fiscal year for this fiscal period.
+`id`	|	`string`	|	-	|	The budget service's key for this object.
 `spendDate` |   `date`  |   -   |   If the current date is after this fiscal period's start date, this field shows the current date.  **READ ONLY**
 
 ### <a name="budgetItemResponse"></a>BudgetItemResponse
@@ -842,7 +854,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `success`	|	`boolean`	|	-	|
-`budgetItemHeaderSyncGuid`  |   `guid`    | -   |   The key of the created/updated/removed budget item header
+`budgetItemHeaderId`  |   `guid`    | -   |   The key of the created/updated/removed budget item header
 
 ### <a name="errorResponse"></a>Error Response
 
