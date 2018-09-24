@@ -3,8 +3,7 @@ title: Hotel Direct Connect
 layout: reference
 ---
 
-## Disclaimer
-This version is a draft only. Hotel Service 2.0 API is not final and is a subject to change.
+{% include deprecation-alert.html %}
 
 ## Description
 The Hotel Services v2 Direct Connect from Concur Connect provides a method for Travel users to access hotel inventory.
@@ -36,12 +35,12 @@ The configuration process has the following steps:
 3.	Concur provides range of IP addresses of sandbox endpoint for the Hotel Suppliers whitelist.
 4.	The Hotel Supplier creates testing endpoint on their system that Concur uses to access their inventory. The Hotel Supplier provides the URIs and credentials for their test system to Concur.
 5.	Concur creates a sandbox account for the Hotel Supplier.
-6.	The Hotel Supplier creates the application on their system that will accept the requests from Concur and return the appropriate responses. During development Concur provides support by clarifying  API usage and scenarios, and by testing interim milestones. 
+6.	The Hotel Supplier creates the application on their system that will accept the requests from Concur and return the appropriate responses. During development Concur provides support by clarifying  API usage and scenarios, and by testing interim milestones.
 7.	Concur and the Hotel Supplier validate the application: Concur sets up the vendor in the certification systems and runs a series of tests to validate the interaction between the two systems.
 8.	Once certification passes, the Hotel supplier sends Concur the production URIs and credentials.
 9.	Concur updates the production servers with the supplier’s production data.
 10.	Upon successful completion, the supplier will be live in Concur for any customer to enable.
-11.	The Travel client opts in to the Hotel callout (within the Travel Configuration) to allow their users to view and book the available inventory. Travel client sets ID which will identify them at Hotel suppliers for features like corporate rates. 
+11.	The Travel client opts in to the Hotel callout (within the Travel Configuration) to allow their users to view and book the available inventory. Travel client sets ID which will identify them at Hotel suppliers for features like corporate rates.
 
 ## Non-Functional Requirements
 
@@ -51,7 +50,7 @@ The Hotel supplier needs to provide emergency technical contact email that will 
 ### Testing environment
 To allow Concur to perform testing, the Hotel Supplier needs to provide testing URL or specify properties for testing in production URL. Concur needs to be able to perform test bookings with testing credit cards.
 
-### Security 
+### Security
 #### PCI DSS compliance
 As sensitive data and payment card details are transferred via API, the Hotel Suppliers need to comply with PCI DSS standard. Concur is compliant with PCI DSS standard and undergoes regular security audits.
 
@@ -79,7 +78,7 @@ If Hotel Supplier is using IP whitelisting policy, Concur will use following add
 
 * `193.165.112.0/28` -	QA
 * `206.173.37.128/25` -	QA
-* `206.173.37.150` -	QA 
+* `206.173.37.150` -	QA
 * `206.175.21.0/24` -	QA
 * `206.175.21.196` -	QA
 * `207.41.34.0/24` -	QA
@@ -90,10 +89,10 @@ If Hotel Supplier is using IP whitelisting policy, Concur will use following add
 
 #### Authentication
 
-As authentication, Concur sends userID and password in each message SOAP header: 
+As authentication, Concur sends userID and password in each message SOAP header:
 
 ```xml
-<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"> 
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
     <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
         <authentication xmlns="http://www.concur.com/webservice/auth">
             <userid>testLogin123</userid>
@@ -127,19 +126,19 @@ Login and password are provided by the Hotel supplier for Concur as API consumer
 ```
 
 ### URLs and headers
-Concur will receive a single URL from the Hotel Supplier. All requests will go to that URL. 
+Concur will receive a single URL from the Hotel Supplier. All requests will go to that URL.
 Content Type is application/xml.
 To define, what operation needs to be performed, HTTP headers are used, as example:
 `SOAPAction:availability.`
 
 CDATA and HTML code inside of XML nodes and attributes are not allowed. These data will be escaped.
-The hotel suppliers should not use XML special characters - predefined entities: &, <, >, ", ' inside of ID elements like RatePlanID. 
+The hotel suppliers should not use XML special characters - predefined entities: &, <, >, ", ' inside of ID elements like RatePlanID.
 
 Concur is using date as xs:date XML type "2017-05-01".
 
 
 ### Response Times
-Concur needs to receive all responses within 55 seconds, otherwise it causes timeout. To prevent no show fees, duplicate bookings and other similar issues, Concur recommends to perform Auto-Cancel by the Hotel Supplier if ReadRQ message is not sent by Concur 5 minutes after HotelResRS message was sent to Concur. 
+Concur needs to receive all responses within 55 seconds, otherwise it causes timeout. To prevent no show fees, duplicate bookings and other similar issues, Concur recommends to perform Auto-Cancel by the Hotel Supplier if ReadRQ message is not sent by Concur 5 minutes after HotelResRS message was sent to Concur.
 
 ## Supported operations
 Hotel Service API 2.0 supports following operations:
@@ -155,7 +154,7 @@ Hotel Service API 2.0 supports following operations:
 
 #### Hotel search and reservation
 1.	Search. Sent after user clicks on button Search.
-2.  Availability. Sent after Search message if configured, or after user clicks on Get Rates button.	
+2.  Availability. Sent after Search message if configured, or after user clicks on Get Rates button.
 3.  Descriptive Info. Sent after user click on hotel details button or hotel thumbnail picture.
 4.	Reservation. Sent after user click on Reserve button.
 5.	Read Itinerary. Sent automatically after Reservation message.
@@ -189,7 +188,7 @@ Concur [supported languages](/tools-support/reference/hotel-direct-connect-codes
 Concur supports Country Codes in two-letter ISO 3166-1 alpha-2 format.
 
 
-### OTA operations 
+### OTA operations
 
 ### **Hotel Search**
 
@@ -206,7 +205,7 @@ OTA_HotelSearchRQ
 |  RequestorID |	N | String1to32	| The corporate identifier|
 |  Position |	Y	| ComplexType |  The Position element contains three attributes, Latitude, Longitude, used to indicate the geographic location(s) requested by the search, expressed in notation specified by ISO standard 6709.|
 |  Radius |	Y	| ComplexType | Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location.|
-|UnitOfMeasureCode| Y | Integer| The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code. 1 for miles, 2 for kilometers.  | 
+|UnitOfMeasureCode| Y | Integer| The unit of measure in a code format. Refer to OpenTravel Code List Unit of Measure Code. 1 for miles, 2 for kilometers.  |
 |  HotelRef |	N	| String1to32 | Indicates the detail of hotel reference information.|
 |  StayDateRange |	Y | ComplexType	| Range of dates, or fixed set of dates for Availability Request.Format: YYYY-MM-DD|
 
@@ -341,7 +340,7 @@ OTA_HotelSearchRS
     request to the Hotel Supplier. Top-side filter is performing filtering of
     already displayed results.
 
-    ![media](./hotel2/HotelSearch2.png) 
+    ![media](./hotel2/HotelSearch2.png)
 
     Specific hotel is displayed. 
 
@@ -349,7 +348,7 @@ OTA_HotelSearchRS
 
     ```xml
     <Criterion>
-        <Position Latitude="52.520007" Longitude="13.404954"></Position> 
+        <Position Latitude="52.520007" Longitude="13.404954"></Position>
         <HotelRef HotelName="novotel"></HotelRef>
         <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="2"></Radius>
         <StayDateRange Start="2017-04-19" End="2017-04-20"></StayDateRange>
@@ -358,7 +357,7 @@ OTA_HotelSearchRS
 
     Hotel Supplier only returns hotels with name matching search criteria defined by user.
 
-   
+
 4.  User's company has some hotels set up as Preferred at the Hotel Supplier.
     User’s company has setup in Travel Config a search radius of 30 km.
 
@@ -381,9 +380,9 @@ OTA_HotelSearchRS
     ```
 
     Other 80 hotels are hotels with no preference from **5km** radius.
-    
+
 5.  If there are no hotels matching search criteria, error 424 "No hotels found which match this input" should be returned by the Hotel         Supplier. Please see Errors section for details.
-  
+
 ### Hotel Descriptive Info
 
 Displays a textual description of a given hotel.
@@ -428,7 +427,7 @@ OTA_HotelDescriptiveInfoRS
     </Body>
 </Envelope>
 ```
- 
+
 #### Example response
 
 ```xml
@@ -473,7 +472,7 @@ OTA_HotelDescriptiveInfoRS
     On any hotel, user clicks "Hotel Details" button. A pop-up with textual hotel description is shown.
 
     ![media](./hotel2/OTA_DescriptiveInfo1.png)
-   
+
 2.  User clicks on hotel photo thumbnail. Gallery of hotel photos is displayed.
 
     ![media](./hotel2/OTA_DescriptiveInfo2.png)
@@ -531,7 +530,7 @@ OTA_HotelAvailRS
     Version="1">
     <POS>
         <Source ISOCountry="US" ISOCurrency="USD">
-            <RequestorID Type="18" ID="7777777" /> 
+            <RequestorID Type="18" ID="7777777" />
         </Source>
     </POS>
     <AvailRequestSegments>
@@ -539,8 +538,8 @@ OTA_HotelAvailRS
             <HotelSearchCriteria>
                 <Criterion>
                     <HotelRef  HotelCode="HTL1111" />
-                </Criterion>	
-                <Criterion>	
+                </Criterion>
+                <Criterion>
                     <HotelRef  HotelCode="HTL2222" />
                 </Criterion>
             </HotelSearchCriteria>
@@ -628,7 +627,7 @@ OTA_HotelAvailRS
                                 <Text>CORPORATE RATE*Free Wi-Fi</Text>
                             </RateDescription>
                             <TPA_Extensions>
-                                <RequireSeriesCode>true</RequireSeriesCode> 
+                                <RequireSeriesCode>true</RequireSeriesCode>
                             </TPA_Extensions>
                         </Rate>
                     </Rates>
@@ -644,13 +643,13 @@ OTA_HotelAvailRS
                                 <Text>CORPORATE RATE*Free Wi-Fi</Text>
                             </RateDescription>
                             <TPA_Extensions>
-                                <RequireSeriesCode>true</RequireSeriesCode> 
+                                <RequireSeriesCode>true</RequireSeriesCode>
                             </TPA_Extensions>
                         </Rate>
                     </Rates>
                 </RoomRate>
             </RoomRates>
-            <TimeSpan Start="2012-08-15" End="2010-08-17" />	
+            <TimeSpan Start="2012-08-15" End="2010-08-17" />
             <BasicPropertyInfo HotelCode="HTL1111" />
         </RoomStay>
         <RoomStay>
@@ -695,7 +694,7 @@ OTA_HotelAvailRS
             <TimeSpan Start="2012-08-15" End="2010-08-17" />
             <BasicPropertyInfo HotelCode="HTL2222" />
         </RoomStay>
-    </RoomStays>	
+    </RoomStays>
 </OTA_HotelAvailRS>
 ```
 
@@ -863,7 +862,7 @@ Example response:
     with rate details (average, summary and total) and cancellation policy.
 
     ![media](./hotel2/HotelAvail1.png)   
- 
+
 ### Hotel Reservation
 
 Allows user to book a room.
@@ -928,7 +927,7 @@ OTA_HotelResRS
                                         <CardHolderName>FIRSTNAME LASTNAME</CardHolderName>
                                         <CardNumber>
                                             <PlainText>123456784111></PlainText>
-                                        </CardNumber> 
+                                        </CardNumber>
                                     </PaymentCard>
                                 </GuaranteeAccepted>
                             </GuaranteesAccepted>
@@ -1085,7 +1084,7 @@ OTA_HotelResRS
 NotifyEmails will be sent in such reservation requests. The Hotel Supplier should send reservation confirmation to specified emails.
 
 5. Travel administrator configures and maps Custom fields in Share custom fields page in Company administration. Configures user custom fields, like Cost center, are sent to the Hotel Supplier.
- 
+
 ### Read
 
 Returns detailed information about a hotel reservation.
@@ -1141,7 +1140,7 @@ OTA_CancelRQ
 |----------|------------|--------------------------|-|
 |  RequestorID |	N	| StringLength1to32 | The corporate identifier|
 |  UniqueID |	Y	| StringLength1to32 |  A reference to identify the booking.|
-|	Type  | Y | Integer |  A reference to the type of object defined by the UniqueID element.  | 
+|	Type  | Y | Integer |  A reference to the type of object defined by the UniqueID element.  |
 
 OTA_CancelRS
 
@@ -1150,7 +1149,7 @@ OTA_CancelRS
 |  UniqueID |	Y	| StringLength1to32 |  A reference to identify the booking  reference.|
 |  UniqueID |	Y	| StringLength1to32 |  A reference to identify the cancellation reference.|
 |  Status |	Y | ComplexType |  If cancellation is successful or not.|
-|	Type  | Y | Integer |  A reference to the type of object defined by the UniqueID element.  | 
+|	Type  | Y | Integer |  A reference to the type of object defined by the UniqueID element.  |
 
 #### Example request
 
@@ -1180,7 +1179,7 @@ OTA_CancelRS
     sent by Concur.
 
     - **UniqueID** with **Type="14"** identifies the reservation to cancel.
-   
+
     **Cancel response** should have two **UniqueIDs.** One is the reservation ID (same one as in request), one Cancellation Confirmation number for further dispute usage
     between user and hotel/reservation system:
 
@@ -1188,10 +1187,10 @@ OTA_CancelRS
     <UniqueID ID="88618333" Type="14"/>
     <UniqueID ID="27607" Type="15"/>
     ```
-	
+
 2.  Company has workflow setup to perform automatic cancellation. Exactly same
     Cancel RQ is sent by Concur, as in case of cancellation by user.
-  
+
 3.  When reservation has been already canceled and Concur tries to cancel it, the Hotel Supplier should reply
 
     ```xml
@@ -1214,7 +1213,7 @@ OTA_CancelRS
 Errors and Warnings
 -------------------
 The Hotel Supplier can use HTTP error codes for system-level errors, like HTTP 500 Internal Server Error in case of an unexpected condition was encountered and no more specific message is suitable;
-HTTP 403 in case of wrong password in SOAP header. 
+HTTP 403 in case of wrong password in SOAP header.
 
 For application errors, the Hotel Supplier should use OTA Error codes (link) to send information about Error
 and Warring in corresponding nodes of each message:
@@ -1253,7 +1252,7 @@ Error codes recommended for specific errors
 | 438 |	Requested rate not available | List of comma separated RatePlanID's should be provided in ShortText. Example: "111,222"  |
 | 748 | Invalid corporate ID | Requestor ID should be provided in ShortText. |
 
-In case of request structure not parsed by the Hotel Supplier, the Protocol violation Error should be returned, with details 
+In case of request structure not parsed by the Hotel Supplier, the Protocol violation Error should be returned, with details
 
 ```xml
 <Errors>
@@ -1268,5 +1267,3 @@ Other files
 * [Concur version of the OTA schema](./hotel2/HotelService2-brief.xsd)
 * [Stylesheet for the schema. Download in the same folder as .xsd file and open in web browser.](./hotel2/xs3p_better_doc.xsl)
 * [OTA codelist](./hotel2/OpenTravel_CodeList_2015_07_15.xlsm)
-
-

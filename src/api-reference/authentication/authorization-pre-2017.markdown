@@ -1,12 +1,18 @@
 ---
-title: Authentication
+title: Pre-2017 Authorization (Deprecated)
 layout: reference
+redirect_from:
+  - /api-reference-deprecated/old-auth/old-auth.html
 ---
 
 # Authentication
 
 {% capture deprecation_content %}
-If you are a new partner or an existing one creating a new app, please refer to the [new authentication version documentation](/api-reference/authentication/getting-started.html). Please contact your Partner Enablement representative before starting any new development to ensure a smooth and successful certification process.
+
+If you are a new partner or an existing one creating a new app, please refer to the [new authentication version documentation](/api-reference/authentication/getting-started.html).
+
+Please contact your Partner Enablement representative before starting any new development to ensure a smooth and successful certification process.
+
 {% endcapture %}
 
 {% include deprecation-alert.html deprecation_date="02/04/2017" content=deprecation_content %}
