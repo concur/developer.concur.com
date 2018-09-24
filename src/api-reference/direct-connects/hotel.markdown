@@ -3,7 +3,10 @@ title: Hotel Direct Connect
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
+
 The Hotel Services Direct Connect from Concur Connect provides a method for Travel users to access hotel inventory.
 
 Once the hotel supplier has developed and certified their interface with Concur, their inventory will begin appearing in hotel searches by opted-in Travel users.
