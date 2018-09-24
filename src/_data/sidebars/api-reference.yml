@@ -232,3 +232,5 @@
         url: /api-reference/travel/trip-approval/trip-approval-resource.html
 - title: User
   url: /api-reference/user/
+- title: Deprecated
+  url: /api-reference/deprecated.html
