@@ -1,122 +1,159 @@
 ---
-title: Budget Tracking Field
+title: Budget Tracking
 layout: reference
 ---
 
-PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subject to change. An Early Adopter program is available. To become an early adopter, contact your SAP Concur Representative and have them contact Team Adaptation.
+# Menu
+* [Getting Started](./getting-started.html)
+* [Fiscal Year](/api-reference/budget/fiscal-year.html)
+* [Budget Category](/api-reference/budget/budget-category.html)
+* [Budget Item](/api-reference/budget/budget-header.html)
+* [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
+* [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
 
-# Budget Tracking Field
+# Budget Tracking Fields
 
-- [Retrieve all Budget Tracking Field](#getall)
-- [Retrieve a Budget Tracking Field](#get)
-- [Create/Update a Budget Tracking Field](#post)
-- [Remove a Budget Tracking Field](#delete)
-- [Schema](#schema)
+**Preview** _This is a prerelease version of the service and is subject to change before final release._
+
+This resource is used to retrieve information about budget's tracking fields for an entity. Every entity may have a specific set of budget tracking fields and every budget may enable any or all of the budget tracking fields. If there are tracking fields associated, the  budgets get matched to the Product only when the tracking field conditions are met. 
+
+* [GET all budget tracking fields for an entity](#getall)
+* [Schema](#schema)
+  * [Budget Tracking Field](#budgetTracking)
 
 ## Version
 
-4.0
+4.0  
 
-## <a name="getall"></a>Retrieve all Budget Tracking Fields
+## <a name="getall"></a>GET all Budget Tracking Fields
 
-    GET  /budget/v4/budgetTrackingField
+Retrieve budget tracking fields for use in budget configuration.  The budget sequence number from this response may be used as the "code" field in the budget item header tracking fields.
 
-### Parameters
+### Scopes
 
-    N/A
+Name | Description
+---|---
+`budgetitem.write`|Create/update/delete access to budget data
+`budgetitem.read`|Read access to budget data
 
-### Response
+### Request
 
-[Budget Tracking Field Array](#budgetTrackingField)
+#### Headers
 
-## <a name="get"></a>Retrieve a Budget Tracking Field
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 
-    GET  /budget/v4/budgetTrackingField/{id}
+#### Parameters
 
-### Parameters
+N/A
 
-| Name | Type     | Format | Description                                        |
-| ---- | -------- | ------ | -------------------------------------------------- |
-| id   | `string` | `path` | The budget tracking field's key field (sync guid). |
+##### URI Template
 
-### Response
-
-[Budget Tracking Field](#budgetTrackingField)
-
-### Example JSON Response
-
-```json
-{
-  "syncGuid": "2c3dc4dc-130e-4524-91d7-a20dd4bc62e4",
-  "dataType": "VARCHAR",
-  "listSyncGuid": null,
-  "lastModifiedDate": "2018-03-22 00:54:09",
-  "status": "OPEN",
-  "budgetSequenceNumber": 1,
-  "budgetTrackingFieldDefinitions": [
-    {
-      "syncGuid": "9aea2524-a04e-44dd-a85b-cfdd5ae4cbeb",
-      "defaultItemKey": null,
-      "displayName": "Budget Tracking Code",
-      "ctrlType": "EDIT",
-      "defaultValue": "TextField",
-      "lastModifiedDate": "2017-03-22 00:54:09",
-      "connectedListSequenceNumber": 1,
-      "status": "OPEN",
-      "hierarchyCode": "1"
-    }
-  ]
-}
+```shell
+GET /budget/v4/budgetTrackingField
 ```
 
-## <a name="post"></a>Create/Update a Budget Tracking Field
-
-    POST  /budget/v4/budgetTrackingField
-
-### Parameters
-
-| Name                  | Type    | Format | Description                                                              |
-| --------------------- | ------- | ------ | ------------------------------------------------------------------------ |
-| `budgetTrackingField` | `array` | `body` | **Required** An array of JSON representations of a budget tracking field |
-
 ### Response
 
-[Budget Tracking Field Array](#budgetTrackingField)
+#### Status Codes
 
-## <a name="delete"></a>Delete a Budget Tracking Field
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) Successful call, response is in body.
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. The response will have a list of validation errors in the body. See below for an example 400 response.
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) The user does not have the necessary permissions to perform the request.
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) The resource could not be found or does not exist
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) Error message in response body
+* [504 Gateway Timeout](https://tools.ietf.org/html/rfc7231#section-6.6.5) Error message in response body
 
-    DELETE  /budget/v4/budgetTrackingField/{id}
+#### Headers
 
-### Parameters
+* `concur-correlationid` (Optional) is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
 
-| Name | Type     | Format | Description                                        |
-| ---- | -------- | ------ | -------------------------------------------------- |
-| id   | `string` | `path` | The budget tracking field's key field (sync guid). |
+
+#### Payload
+
+Array of [Budget Tracking Field](#budgetTracking)
+
+### Example
+
+#### Request
+
+```shell
+GET https://us.api.concursolutions.com/budget/v4/budgetTrackingField
+Authorization: Bearer {YOUR ACCESS TOKEN}
+Content-Type: application/json
+Accept: application/json
+```
+
+#### Response
+
+```shell
+HTTP/1.1 200 OK
+Cache-Control: no-store
+Connection: keep-alive
+Content-Length: 1371
+Content-Type: application/json;charset=utf-8
+Date: Fri, 21 Sep 2018 15:24:27 GMT
+Expires: Thu, 20 Sep 2018 15:24:27 GMT
+Pragma: no-cache
+Vary: Origin
+concur-correlationid: 86a0d9fe-9e98-43c3-89d8-a2917dd844cb
+```
+
+```json
+[
+   {
+        "budgetTrackingFieldName": "Cost Center",
+        "fieldType": "LIST",
+        "listSyncGuid": "8652CDF9C12B4051B8D180E20840CE9B",
+        "fieldId": "86309e0c-913c-47a5-9bcf-24a05342c718",
+        "budgetSequenceNumber": 2
+    },
+    {
+        "budgetTrackingFieldName": "Company",
+        "fieldType": "VARCHAR",
+        "listSyncGuid": null,
+        "fieldId": "d8f911a1-f298-4c65-b06b-710d482c9c46",
+        "budgetSequenceNumber": 1
+    },
+    {
+        "budgetTrackingFieldName": "Department",
+        "fieldType": "LIST",
+        "listSyncGuid": "8652CDF9C12B4051B8D180E2084Q412",
+        "fieldId": "c4f721cb-8fc9-48cf-993e-5ea0edefcdbd",
+        "budgetSequenceNumber": 3
+    },
+    {
+        "budgetTrackingFieldName": "Vendor",
+        "fieldType": "VARCHAR",
+        "listSyncGuid": null,
+        "fieldId": "bcc7ba39-a3a0-4267-84f4-1d5b439cce65",
+        "budgetSequenceNumber": 5
+    },
+    {
+        "budgetTrackingFieldName": "Region",
+        "fieldType": "MLIST",
+        "listSyncGuid": "8652CDF9C12B4051B8D180E20840CE9B",
+        "fieldId": "a2502b74-e3ce-4b30-a3a4-b6ceb68cf677",
+        "budgetSequenceNumber": 6
+    },
+    {
+        "budgetTrackingFieldName": "Country",
+        "fieldType": "VARCHAR",
+        "listSyncGuid": null,
+        "fieldId": "4ac122ad-8c0b-4076-bd41-49b09d576d5b",
+        "budgetSequenceNumber": 4
+    }
+]
+```
 
 ## <a name="schema"></a>Schema
 
-### <a name="budgetTrackingField"></a>BudgetTrackingField
+### <a name="budgetTracking"></a>Budget Tracking Field
 
-| Name                             | Type                                    | Format | Description                                                                                                                                                                                                                                             |
-| -------------------------------- | --------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `budgetSequenceNumber`           | `string`                                | -      | The sequence/order in which budget tracking field definition appears in the budget UI.                                                                                                                                                                  |
-| `dataType`                       | `string`                                | -      | **Required** The data type of this field or field collection. This value, along with the budget tracking field definition(s) below determines how the budget tracking field will be used by admininstrators. Valid values are LIST, MLIST, and VARCHAR. |
-| `budgetTrackingFieldDefinitions` | `Array[BudgetTrackingFieldDefinitions]` | -      | **Required** The list of field defintion(s) that make up this field. Should be a single entry for VARCHAR or LIST and can be one or more entries for MLIST.                                                                                             |
-| `lastModifiedDate`               | `datetime`                              | -      | The last time the budget tracking was updated. Date is in GMT **READ ONLY**                                                                                                                                                                             |
-| `status`                         | `string`                                | -      | **Required** The status of this budget tracking field. Valid options are OPEN and REMOVED.                                                                                                                                                              |
-| `syncGuid`                       | `string`                                | -      | The budget service's key for this object.                                                                                                                                                                                                               |
-| `listSyncGuid`                   | `string`                                | -      | If the dataType of this item is LIST or MLIST, this is the id of the list definition from Concur's list service.                                                                                                                                        |
-
-### BudgetTrackingFieldDefinition
-
-| Name                          | Type       | Format | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ----------------------------- | ---------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `connectedListSequenceNumber` | `string`   | -      | If the parent budget tracking field is an MLIST, this field specifies the order in which the individual field definitions should appear on the UI and the order in which they should pull their connected lists from the Concur list service.                                                                                                                                                                                                                          |
-| `ctrlType`                    | `string`   | -      | The UI control type of this budget tracking field definiton. This defines how the field value will be entered by administrators. This control type does not have to match the control type of the fields to which this tracking field is mapped. (For instance, one could allow budget administrators to enter free-form text by choosing EDIT even if the mapped field on the expense report form is a pre-defined list. Valid values are PICK_LIST, LIST_EDIT, EDIT. |
-| `defaultItemKey`              | `string`   | -      | The list item key value of the budget tracking field definition if this field is a list.                                                                                                                                                                                                                                                                                                                                                                               |
-| `defaultValue`                | `string`   | -      | The default value of this field.                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `displayName`                 | `string`   | -      | **Required** The user-facing name                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `hierarchyCode`               | `string`   | -      | The key value that we'll use to pass in this field value in budget items and spending items. If this is not supplied, it defaults to the next available integer.                                                                                                                                                                                                                                                                                                       |
-| `lastModifiedDate`            | `datetime` | -      | The last time this budget tracking definition was updated. Date is in GMT **READ ONLY**                                                                                                                                                                                                                                                                                                                                                                                |
-| `status`                      | `string`   | -      | **Required** The status of this budget tracking field. Valid options are OPEN and REMOVED.                                                                                                                                                                                                                                                                                                                                                                             |
-| `syncGuid`                    | `string`   | -      | The budget service's key for this object.                                                                                                                                                                                                                                                                                                                                                                                                                              |
+Name | Type | Format | Description
+-----|------|--------|------------
+`budgetTrackingFieldName`	|	`string`	|	-	|	The budget field tracking name 
+`fieldType`	|	`string`	|	-	|	The data type of this field or field collection. Valid values are LIST, MLIST, and VARCHAR.
+`listSyncGuid`	|	`string`	|	-	|	If the dataType of this item is LIST or MLIST, this is the id of the list definition from Concur's list service.
+`fieldId`	|	`string`	|	-	|	The budget service's key for this object
+`budgetSequenceNumber`	|	`integer`	|	-	|	The sequence or the order in which the budget tracking field appears in the budget UI.
