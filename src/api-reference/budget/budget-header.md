@@ -227,7 +227,7 @@ Name | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------			
-id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
+id	|	`string`	|	`path`	|	The budget item header's key field.
 
 
 ##### URI Template
@@ -260,7 +260,7 @@ GET  /budget/v4/budgetItemHeader/{id}
 #### Request
 
 ```http
-GET https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}
+GET https://us.api.concursolutions.com/budget/v4/budgetItemHeader/72eee673-3d81-49c2-966a-b63c7a9302e6
 Authorization: Bearer: {YOUR ACCESS TOKEN}
 ```
 
@@ -649,7 +649,7 @@ Name | Description
 
 Name | Type | Format | Description
 -----|------|--------|------------
-id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
+id	|	`string`	|	`path`	|	The budget item header's key field.
 
 ##### URI Template
 
@@ -680,7 +680,7 @@ DELETE  /budget/v4/budgetItemHeader/{id}
 
 #### Request
 ```http
-DELETE https://us.api.concursolutions.com/budget/v4/budgetItemHeader/{id}
+DELETE https://us.api.concursolutions.com/budget/v4/budgetItemHeader/72eee673-3d81-49c2-966a-b63c7a9302e6
 Authorization: Bearer: {YOUR ACCESS TOKEN}
 ```
 
@@ -738,7 +738,7 @@ Name | Type | Format | Description
 `costObjects`	|	`Array[CostObjectValue]`	|	-	|	The cost object list for matching spending items.
 `currencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona. This is the currencycode of the budget amount. Spending Items are converted using yesterday's closing value. 
 `description`	|	`string`	|	-	|	**Required** The user-friendly name for this budget. This description is displayed to end users on desktop and mobile.
-`fiscalYear`	|	`FiscalYear`	|	-	|	**Required** The fiscal year for this budget.  Only the sync_guid is technically required for creating/updating a budget.
+`fiscalYear`	|	`FiscalYear`	|	-	|	**Required** The fiscal year for this budget.  Only the id is required for creating/updating a budget.
 `isTest`	|	`boolean`	|	-	|	The test flag for the budget item.  If true, this budget will only match spending submitted by test users.
 `name`	|	`string`	|	-	|	**Required** The admin-facing name for this budget.
 `owned`	|	`string`	|	-	|	A flag indicating if the current user is the owner of this budget.  **READ ONLY**
@@ -756,7 +756,7 @@ Name | Type | Format | Description
 `budgetItemBalances`	|	`Array[BudgetItemBalance]`	|	-	|	Shows the break-out of budget spending by product and workflow state.  **READ ONLY**
 `budgetItemDetailStatusType`	|	`string`	|	-	|	The status of this budget item. Valid values are 'OPEN', 'CLOSED', and 'REMOVED' (Closed means no spending may be attached to this budget.)
 `currencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.
-`fiscalPeriod`	|	`FiscalPeriod`	|	-	|	**Required** The fiscal period for this budget amount.  Only the sync_guid is technically required for creating/updating a budget.
+`fiscalPeriod`	|	`FiscalPeriod`	|	-	|	**Required** The fiscal period for this budget amount.  Only the id is required for creating/updating a budget.
 `id`	|	`string`	|	-	|	The key for this object.
 
 
