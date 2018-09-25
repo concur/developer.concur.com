@@ -26,7 +26,7 @@ This resource is used to retrieve and update budget categories which are collect
   * [Expense Type](#expenseType)
   * [Error Response](#errorResponse)
   * [Error Message](#errorMessage)
-* [ResponseHeaders](#responseHeaders)
+* [Response Headers](#responseHeaders)
 
 ## Version
 
