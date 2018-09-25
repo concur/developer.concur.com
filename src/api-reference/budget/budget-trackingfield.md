@@ -31,7 +31,7 @@ Retrieve budget tracking fields for use in budget configuration.  The budget seq
 
 ### Scopes
 
-Name | Description
+Name|Description
 ---|---
 `budgetitem.write`|Create/update/delete access to budget data
 `budgetitem.read`|Read access to budget data
@@ -149,13 +149,13 @@ concur-correlationid: 86a0d9fe-9e98-43c3-89d8-a2917dd844cb
 
 ### <a name="budgetTracking"></a>Budget Tracking Field
 
-Name | Type | Format | Description
------|------|--------|------------
-`budgetTrackingFieldName`	|	`string`	|	-	|	The budget field tracking name 
-`fieldType`	|	`string`	|	-	|	The data type of this field or field collection. Valid values are LIST, MLIST, and VARCHAR.
-`listSyncGuid`	|	`string`	|	-	|	If the dataType of this item is LIST or MLIST, this is the id of the list definition from Concur's list service.
-`fieldId`	|	`string`	|	-	|	The budget service's key for this object
-`budgetSequenceNumber`	|	`integer`	|	-	|	The sequence or the order in which the budget tracking field appears in the budget UI.
+Name|Type|Format|Description
+---|---|---|---
+`budgetTrackingFieldName`|`string`| - |The budget field tracking name 
+`fieldType`|`string`| - |The data type of this field or field collection. Valid values are LIST, MLIST, and VARCHAR.
+`listSyncGuid`|`string`| - |If the dataType of this item is LIST or MLIST, this is the id of the list definition from Concur's list service.
+`fieldId`|`string`| - |The budget service's key for this object
+`budgetSequenceNumber`|`integer`| - |The sequence or the order in which the budget tracking field appears in the budget UI.
 
 ## <a name="responseHeaders"></a>Response Headers
 
