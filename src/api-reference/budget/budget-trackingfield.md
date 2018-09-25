@@ -3,15 +3,14 @@ title: Budget Tracking
 layout: reference
 ---
 
-# Menu
+## Menu
+
 * [Getting Started](./getting-started.html)
 * [Fiscal Year](/api-reference/budget/fiscal-year.html)
 * [Budget Category](/api-reference/budget/budget-category.html)
 * [Budget Item](/api-reference/budget/budget-header.html)
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
-
-# Budget Tracking Fields
 
 **Preview** _This is a prerelease version of the service and is subject to change before final release._
 
@@ -20,6 +19,7 @@ This resource is used to retrieve information about budget's tracking fields for
 * [GET all budget tracking fields for an entity](#getall)
 * [Schema](#schema)
   * [Budget Tracking Field](#budgetTracking)
+* [Response Headers](#responseHeaders)
 
 ## Version
 
@@ -66,8 +66,7 @@ GET /budget/v4/budgetTrackingField
 
 #### Headers
 
-* `concur-correlationid` (Optional) is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
-
+[Response Headers](#responseHeaders)
 
 #### Payload
 
@@ -79,7 +78,7 @@ Array of [Budget Tracking Field](#budgetTracking)
 
 ```shell
 GET https://us.api.concursolutions.com/budget/v4/budgetTrackingField
-Authorization: Bearer {YOUR ACCESS TOKEN}
+Authorization: Bearer {token}
 Content-Type: application/json
 Accept: application/json
 ```
@@ -157,3 +156,17 @@ Name | Type | Format | Description
 `listSyncGuid`	|	`string`	|	-	|	If the dataType of this item is LIST or MLIST, this is the id of the list definition from Concur's list service.
 `fieldId`	|	`string`	|	-	|	The budget service's key for this object
 `budgetSequenceNumber`	|	`integer`	|	-	|	The sequence or the order in which the budget tracking field appears in the budget UI.
+
+## <a name="responseHeaders"></a>Response Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Allow](https://tools.ietf.org/html/rfc7231#section-7.4.1)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7234 Expires](https://tools.ietf.org/html/rfc7234#section-5.3)
+* [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
+* [RFC 7234 Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)
+* [RFC 7231 Server](https://tools.ietf.org/html/rfc7231#section-7.4.2)
+* [RFC 7231 Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)
