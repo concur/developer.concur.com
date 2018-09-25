@@ -23,7 +23,7 @@ If you are an existing partner with an existing app, please read both the [Migra
 * [Response Codes](#response_codes)
 * [Troubleshooting](#troubleshooting)
 
-**Note:** The old authentication documentation can be found [here](/api-reference-deprecated/old-auth/old-auth.html)
+**Note:** The Pre-2017 Authorization (Deprecated) documentation be found [here](/api-reference/authentication/authorization-pre-2017.html)
 
 ## <a name="access_token"></a>Access Tokens
 
@@ -705,7 +705,7 @@ Example of the `correlationid` in the response:
 Only the [Password Grant Type](#password_grant) is available for obtaining company-level tokens.
 
 1. To begin the authentication flow, a Customer's Concur Administrator clicks on the Connect button within the App Center listing and authorizes the partner's app.  This app listing is located within customer's Concur system's App Center tab.
-1. Concur's authorization service will redirect the Admin to the Partner’s Landing Page.  Partners should follow the [App Center UX Guidelines](https://developer.concur.com/manage-apps/go-market-docs/app-center-ux-guidelines-consumer.html) to create a web page that listens for an HTTP GET request from Concur.
+1. Concur's authorization service will redirect the Admin to the Partner’s Landing Page.  Partners should follow the [App Center UX Guidelines](https://developer.concur.com/manage-apps/go-market-docs/app-center-ux-guidelines-enterprise.html) to create a web page that listens for an HTTP GET request from Concur.
 1. The redirect URI will contain an id, requestToken and userId parameters.  Example: `https://{partner_redirect_URI}?id=8568a4cd-8ffc-49d6-9417-be2d69aa075f&requestToken=5l85ae5a-426f-4d6f-8af4-08648c4b696b&userId=9bdded51-00b8-4f84-8bef-6d3afe727007`
 1. When the Partner application receives the redirect call, the Partner should strip the `id` and `requestToken` values from the URI and use those on a Post request to the Concur Authorization service to obtain the official Oauth2 Access Token and Refresh Token for the customer using the [password grant](https://developer.concur.com/api-reference/authentication/apidoc.html#password_grant). As explained in detail in this [presentation](https://prezi.com/p/lw0qqy51zcmd/), the Partner must have [Data Center Geo Awareness](https://developer.concur.com/api-reference/authentication/apidoc.html#base_uri) related to the token. We currently have 3 Data Centers and the API end points change based on these Data Centers so it is imperative the proper token management is followed.  Otherwise, your app will not make the correct call per Access token.
 1. An access token is valid for only one hour.  The access token should be cached in memory and discarded after use.

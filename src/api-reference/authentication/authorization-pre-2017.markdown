@@ -1,16 +1,21 @@
 ---
-title: Authentication
+title: Pre-2017 Authorization (Deprecated)
 layout: reference
+redirect_from:
+  - /api-reference-deprecated/old-auth/old-auth.html
 ---
 
 # Authentication
 
 {% capture deprecation_content %}
-If you are a new partner or an existing one creating a new app, please refer to the [new authentication version documentation](/api-reference/authentication/getting-started.html). Please contact your Partner Enablement representative before starting any new development to ensure a smooth and successful certification process. In addition, if you are an existing partner with an existing app, you may want to start planning to migrate to the new authentication once notification of deprecation is posted [here](/changelog).
+
+If you are a new partner or an existing one creating a new app, please refer to the [new authentication version documentation](/api-reference/authentication/getting-started.html).
+
+Please contact your Partner Enablement representative before starting any new development to ensure a smooth and successful certification process.
+
 {% endcapture %}
 
 {% include deprecation-alert.html deprecation_date="02/04/2017" content=deprecation_content %}
-
 
 * [Access tokens](#access-tokens)
 	* [Verb and URIs](#verbs-and-uris)
@@ -18,9 +23,7 @@ If you are a new partner or an existing one creating a new app, please refer to 
 	* [Getting an access token](#getting-access-token)
 	* [Refreshing an access token](#refreshing-access-token)
 	* [Revoking a single access token for a given user](#revoke-single-access-token)
-	* [Revoking all access tokens for a user](#revoke-all-access-tokens)  
-
-
+	* [Revoking all access tokens for a user](#revoke-all-access-tokens)
 * [Choosing an authorization flow](#choosing-authorization-flow)
 	* [Native flow](#native)
 	* [Web flow](#web)
