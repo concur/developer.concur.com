@@ -3,6 +3,7 @@ title: Post a new reservation
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 ## Description
 

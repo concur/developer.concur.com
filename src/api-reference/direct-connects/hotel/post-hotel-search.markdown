@@ -3,6 +3,7 @@ title: Post a hotel search
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 ## Description
 
