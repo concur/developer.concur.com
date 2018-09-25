@@ -3,15 +3,14 @@ title: Budget Category
 layout: reference
 ---
 
-# Menu
+## Menu
+
 * [Getting Started](./getting-started.html)
 * [Fiscal Year](/api-reference/budget/fiscal-year.html)
 * [Budget Category](/api-reference/budget/budget-category.html)
 * [Budget Item](/api-reference/budget/budget-header.html)
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
-
-# Budget Category
 
 **Preview** _This is a prerelease version of the service and is subject to change before final release._
 
@@ -27,6 +26,7 @@ This resource is used to retrieve and update budget categories which are collect
   * [Expense Type](#expenseType)
   * [Error Response](#errorResponse)
   * [Error Message](#errorMessage)
+* [ResponseHeaders](#responseHeaders)
 
 ## Version
 
@@ -38,7 +38,7 @@ Retrieve a list of all budget categories
 
 ### Scopes
 
-Name | Description
+Name|Description
 ---|---
 `budgetitem.write`|Create/update/delete access to budget data
 `budgetitem.read`|Read access to budget data
@@ -72,7 +72,7 @@ GET /budget/v4/budgetCategory
 
 #### Headers
 
-* `concur-correlationid` (Optional) is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+[Response Headers](#responseHeaders)
 
 #### Payload
 
@@ -81,13 +81,15 @@ Array of [Budget Category](#budgetCategory)
 ### Example
 
 #### Request
+
 ```http
 GET https://us.api.concursolutions.com/budget/v4/budgetCategory
-Authorization: Bearer: {YOUR ACCESS TOKEN}
+Authorization: Bearer {token}
 Content-Type: application/json
 ```
 
 #### Response
+
 ```http
 HTTP/1.1 200 OK
 Cache-Control: max-age=604800
@@ -157,7 +159,7 @@ Retreive the details of a single budget category.
 
 ### Scopes
 
-Name | Description
+Name|Description
 ---|---
 `budgetitem.write`|Create/update/delete access to budget data
 `budgetitem.read`|Read access to budget data
@@ -171,9 +173,9 @@ Name | Description
 
 #### Parameters
 
-Name | Type | Format | Description
------|------|--------|------------			
-id	|	`string`	|	`path`	|	The budget category's key field.
+Name|Type|Format|Description
+---|---|---|---
+id|`string`|`uuid`|The budget category's key field.
 
 ##### URI Template
 
@@ -194,7 +196,7 @@ GET  /budget/v4/budgetCategory/{id}
 
 #### Headers
 
-* `concur-correlationid` (Optional) is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+[Response Headers](#responseHeaders)
 
 #### Payload
 
@@ -203,13 +205,15 @@ GET  /budget/v4/budgetCategory/{id}
 ### Example
 
 #### Request
+
 ```http
 GET https://us.api.concursolutions.com/budget/v4/budgetCategory/36047f6c-6cf6-443d-a952-39efb012acdb
-Authorization: Bearer: {YOUR ACCESS TOKEN}
+Authorization: Bearer {token}
 Content-Type: application/json
 ```
 
 #### Response
+
 ```http
 HTTP/1.1 200 OK
 Cache-Control: max-age=604800
@@ -254,13 +258,14 @@ concur-correlationid: f7b1a193-46cc-4784-9c6f-d8e1e47ecaa1
 ## <a name="post"></a>POST a Budget Category
 
 Save a new budget category or update an existing budget category.  
+
 * When adding expense types to a budget category, only the feature type code and expense type code are needed.
 * Since Expense Report expense types are shared with Request and Payment Request (Invoice) expense types are shared with Purchase Request, only EXPENSE and PAYMENT_REQUEST expense types must be supplied.  The types will be copied to REQUEST and PURCHASE REQUEST automatically.
 * If an expense type is supplied but the feature is not enabled, it will have no effect.  For example, an Invoice-Maintenance expense type can be added to a Budget Category if Invoice is not enabled for Budget--it will not change how spending is assigned to budgets.
 
 ### Scopes
 
-Name | Description
+Name|Description
 ---|---
 `budgetitem.write`|Create/update/delete access to budget data
 
@@ -298,7 +303,7 @@ POST  /budget/v4/budgetCategory
 
 #### Headers
 
-* `concur-correlationid` (Optional) is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+[Response Headers](#responseHeaders)
 
 #### Payload
 
@@ -307,9 +312,10 @@ POST  /budget/v4/budgetCategory
 ### Example
 
 #### Request
+
 ```http
 POST https://us.api.concursolutions.com/budget/v4/budgetCategory
-Authorization: Bearer: {YOUR ACCESS TOKEN}
+Authorization: Bearer {token}
 Content-Type: application/json
 ```
 
@@ -384,7 +390,6 @@ Pragma: no-cache
 concur-correlationid: 44adb686-a624-4ee5-b618-e4ea31a95bec 
 ```
 
-
 ```json
 {
   "status" : false, 
@@ -402,7 +407,7 @@ Delete a budget category. Budget categories that are in use by budget items may 
 
 ### Scopes
 
-Name | Description
+Name|Description
 ---|---
 `budgetitem.write`|Create/update/delete access to budget data
 
@@ -415,9 +420,9 @@ Name | Description
 
 #### <a name="parameters"></a>Parameters
 
-Name | Type | Format | Description
------|------|--------|------------
-id	|	`string`	|	`path`	|	The budget category's key field.
+Name|Type|Format|Description
+---|---|---|---
+id|`string`|`uuid`|The budget category's key field.
 
 ##### URI Template
 
@@ -438,18 +443,20 @@ DELETE  /budget/v4/budgetCategory/{id}
 
 #### Headers
 
-* `concur-correlationid` (Optional) is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+[Response Headers](#responseHeaders)
 
 ### Example
 
 #### Request
+
 ```http
 DELETE https://us.api.concursolutions.com/budget/v4/budgetCategory/a5e00b3f-b941-4522-8b0e-07412fb2cc7c
-Authorization: Bearer: {YOUR ACCESS TOKEN}
+Authorization: Bearer {token}
 Content-Type: application/json
 ```
 
 #### Response
+
 ```http
 HTTP/1.1 200 OK
 Cache-Control: max-age=604800
@@ -465,11 +472,12 @@ concur-correlationid: 39216840-2808-4c49-8874-e9862d96fdb6
 ## <a name="getExpTypes"></a>GET all valid Expense Types
 
 Retrieve a list of all possible expense types that may be used in a budget category.
+
 * The list for REQUEST expense types is identical to the list for EXPENSE expense types and similarly  PURCHASE_REQUEST is identical to PAYMENT_REQUEST.  Due to response size and performance concerns, only EXPENSE and PAYMENT_REQUEST are returned and the caller should assume that identical expense types exist for REQUEST and PURCHASE_REQUEST.
 
 ### Scopes
 
-Name | Description
+Name|Description
 ---|---
 `budgetitem.write`|Create/update/delete access to budget data
 `budgetitem.read`|Read access to budget data
@@ -503,7 +511,7 @@ GET  /budget/v4/budgetCategory/expenseTypes
 
 #### Headers
 
-* `concur-correlationid` (Optional) is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+[Response Headers](#responseHeaders)
 
 #### Payload
 
@@ -515,11 +523,12 @@ Array of [Expense Type](#expensetype)
 
 ```http
 GET https://us.api.concursolutions.com/budget/v4/budgetCategory/expenseTypes
-Authorization: Bearer: {YOUR ACCESS TOKEN}
+Authorization: Bearer {token}
 Accept: application/json
 ```
 
 #### Response
+
 ```http
 HTTP/1.1 200 OK
 Cache-Control: max-age=604800
@@ -559,8 +568,8 @@ concur-correlationid: 7afa7091-bc4e-4408-8248-a67f9e24a023
 
 ### <a name="budgetcategory"></a>BudgetCategory
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `description`	|	`string`	|	-	|	The friendly name for this category.
 `expenseTypes`	|	`Array[ExpenseType]`	|	-	|	**Required** The list of expense types that this budget category matches. 
 `name`	|	`string`	|	-	|	**Required** The admin-facing name for this category.
@@ -570,8 +579,8 @@ Name | Type | Format | Description
 
 ### <a name="expensetype"></a>ExpenseType
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `featureTypeCode`	|	`string`	|	-	|	**Required** The type of feature that this expense type applies to, Purchase Request, Payment Request (Invoice), Expense or Travel Authorization (Possible values: 'REQUEST', 'TRAVEL', 'EXPENSE', 'PAYMENT_REQUEST', 'PURCHASE_REQUEST')
 `expenseTypeCode`	|	`string`	|	-	|	**Required** The alphanumeric code that describes an expense type.  Ex: TRAVEL, AC_CATER Any string may be used, but only expense type codes returned by GET /budgetCategory/expenseType will behave properly in the Concur UI.  
 `name`	|	`string`	|	-	|	The name for this expense type if it maps to an expense type set up in Concur. **READ ONLY**
@@ -579,16 +588,29 @@ Name | Type | Format | Description
 
 ### <a name="errorResponse"></a>Error Response
 
-Name | Type | Format | Description
+Name|Type|Format|Description
 ---|---|---|---
 `status`|`boolean`|-|False if there was an error
 `errorMessageList`|`Array[ErrorMessage]`|-|List of all errors detected
 
 ### <a name="errorMessage"></a>Error Message
 
-Name | Type | Format | Description
+Name|Type|Format|Description
 ---|---|---|---
 `errorType`|`String`|-|WARNING or ERROR
 `errorCode`|`String`|-|Text code for this error
 `errorMessage`|`String`|-|Plain language error message
 
+## <a name="responseHeaders"></a>Response Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Allow](https://tools.ietf.org/html/rfc7231#section-7.4.1)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7234 Expires](https://tools.ietf.org/html/rfc7234#section-5.3)
+* [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
+* [RFC 7234 Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)
+* [RFC 7231 Server](https://tools.ietf.org/html/rfc7231#section-7.4.2)
+* [RFC 7231 Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)

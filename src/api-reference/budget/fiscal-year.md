@@ -3,15 +3,14 @@ title: Fiscal Year
 layout: reference
 ---
 
-# Menu
+## Menu
+
 * [Getting Started](./getting-started.html)
 * [Fiscal Year](/api-reference/budget/fiscal-year.html)
 * [Budget Category](/api-reference/budget/budget-category.html)
 * [Budget Item](/api-reference/budget/budget-header.html)
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
-
-# Fiscal Year
 
 **Preview** _This is a prerelease version of the service and is subject to change before final release._
 
@@ -34,6 +33,7 @@ The Fiscal Calendar is used both for Reporting and Budget. A Fiscal Year can sta
 ## <a name="getall"></a>GET all Fiscal Years
 
 Retrieve a list of all fiscal years
+
 * Use the lastModifiedAfter parameter if you wish to only retrieve fiscal years that were changed after a certain date.
 * Use the includeRemoved parameter if you wish to retrieve all fiscal years, including those that have been deleted.  _Important: delete data that is beyond the configured retention period can not be returned._
 
@@ -64,10 +64,10 @@ GET  /budget/v4/fiscalYear
 ```
 ### Parameters
 
-Name | Type | Format | Description
------|------|--------|------------			
-lastModifiedAfter	|	`datetime`	|	`query`	|	Use this field if you only want Fiscal Years that were changed after the supplied date.  The supplied date will be interpreted in the UTC time zone.  If lastModifiedAfter is not supplied, the service will return all Fiscal Years, regardless of modified date.  Format: YYYY-MM-DDTHH:MM:SS (Example: 2016-03-29T16:12:20) 
-includeRemoved	|	`boolean`	|	`query`	|	 If this parameter is "true", the service will return all Fiscal Years, including those that were previously removed.  If not supplied, this field defaults to "false". 
+Name|Type|Format|Description
+---|---|---|---
+lastModifiedAfter|`datetime`|`query`|Use this field if you only want Fiscal Years that were changed after the supplied date.  The supplied date will be interpreted in the UTC time zone.  If lastModifiedAfter is not supplied, the service will return all Fiscal Years, regardless of modified date.  Format: YYYY-MM-DDTHH:MM:SS (Example: 2016-03-29T16:12:20) 
+includeRemoved|`boolean`|`query`|If this parameter is "true", the service will return all Fiscal Years, including those that were previously removed.  If not supplied, this field defaults to "false". 
 
 ### Response
 
@@ -81,7 +81,7 @@ includeRemoved	|	`boolean`	|	`query`	|	 If this parameter is "true", the service
 
 #### Headers
 
-* `concur-correlationid` (Optional) is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+[Response Headers](#responseHeaders)
 
 #### Payload
 
@@ -90,13 +90,15 @@ Array of [Fiscal Year](#fiscalYear)
 ### Example
 
 #### Request
+
 ```http
 GET https://us.api.concursolutions.com/budget/v4/fiscalYear?lastModifiedAfter=2017-02-27T12:30:00
-Authorization: Bearer: {YOUR ACCESS TOKEN}
+Authorization: Bearer {token}
 Content-Type: application/json
 ```
 
 #### Response
+
 ```http
 HTTP/1.1 200 OK
 Cache-Control: max-age=604800
@@ -185,7 +187,7 @@ Retrieve a single fiscal year by id.
 
 ### Scopes
 
-Name | Description
+Name|Description
 ---|---
 `budgetitem.write`|Create/update/delete access to budget data
 `budgetitem.read`|Read access to budget data
@@ -201,9 +203,9 @@ Name | Description
 
 #### Parameters
 
-Name | Type | Format | Description
------|------|--------|------------			
-id	|	`string`	|	`path`	|	The Fiscal Year's key field.
+Name|Type|Format|Description
+---|---|---|---
+id|`string`|`uuid`|The Fiscal Year's key field.
 
 ##### URI Template
 
@@ -224,7 +226,7 @@ GET  /budget/v4/fiscalYear/{id}
 
 #### Headers
 
-* `concur-correlationid` (Optional) is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+[Response Headers](#responseHeaders)
 
 #### Payload
 
@@ -233,12 +235,14 @@ GET  /budget/v4/fiscalYear/{id}
 ### Example
 
 #### Request
+
 ```http
 GET https://us.api.concursolutions.com/budget/v4/fiscalYear/5e58b9b1-fed6-4d36-a5a1-a1ed325931d4
-Authorization: Bearer: {YOUR ACCESS TOKEN}
+Authorization: Bearer {token}
 ```
 
 #### Response
+
 ```http
 HTTP/1.1 200 OK
 Cache-Control: max-age=604800
@@ -322,12 +326,13 @@ concur-correlationid: 39216840-2808-4c49-8874-e9862d96fdb6
 ## <a name="post"></a>POST Fiscal Year(s)
 
 Create or update a list of one or more fiscal years.
+
 * Fiscal years may be created for the future or the past
 * Unless there is a need to do so, the client should only specify monthly Fiscal Periods when creating/updating a Fiscal Year.  The system will auto-generate the quarterly and yearly Fiscal Periods.
 
 ### Scopes
 
-Name | Description
+Name|Description
 ---|---
 `budgetitem.write`|Create/update/delete access to budget data
 `fiscalyear.write`|Create/update/delete access to fiscal data
@@ -366,7 +371,7 @@ Array of [Fiscal Year](#fiscalYear)
 
 #### Headers
 
-* `concur-correlationid` (Optional) is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+[Response Headers](#responseHeaders)
 
 #### Payload
 
@@ -375,9 +380,10 @@ Array of [Fiscal Year](#fiscalYear) or [Error Response](#errorResponse)
 ### Example
 
 #### Request
+
 ```http
 POST https://us.api.concursolutions.com/budget/v4/fiscalYear
-Authorization: Bearer: {YOUR ACCESS TOKEN}
+Authorization: Bearer {token}
 ```
 
 ```json
@@ -536,7 +542,7 @@ Delete a fiscal year.  Fiscal years that are in use may not be deleted.
 
 ### Scopes
 
-Name | Description
+Name|Description
 ---|---
 `budgetitem.write`|Create/update/delete access to budget data
 `fiscalyear.write`|Create/update/delete access to fiscal data
@@ -550,9 +556,9 @@ Name | Description
 
 #### Parameters
 
-Name | Type | Format | Description
------|------|--------|------------
-id	|	`string`	|	`path`	|	The Fiscal Years's key field.
+Name|Type|Format|Description
+---|---|---|---
+id|`string`|`uuid`|The Fiscal Years's key field.
 
 ##### URI Template
 
@@ -572,17 +578,19 @@ DELETE  /budget/v4/fiscalYear/{id}
 
 #### Headers
 
-* `concur-correlationid` (Optional) is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+[Response Headers](#responseHeaders)
 
 ### Example
 
 #### Request
+
 ```http
 DELETE https://us.api.concursolutions.com/budget/v4/fiscalYear/a11cfc7c-967f-415f-9b30-23f8ce2dbf69
-Authorization: Bearer: {YOUR ACCESS TOKEN}
+Authorization: Bearer {token}
 ```
 
 #### Response
+
 ```http
 HTTP/1.1 200 OK
 Cache-Control: max-age=604800
@@ -599,8 +607,8 @@ concur-correlationid: eb7cf20a-3481-45a5-808c-98b8ef7fe805
 
 ### <a name="fiscalYear"></a>FiscalYear
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `currentYear`	|	`boolean`	|	-	|	Is this the current Fiscal Year based on the current time?  **READ ONLY**
 `startDate`	|	`date`	|	-	|	**Required** The start date for this Fiscal Year. The distance between start date and end date may not be more than two years. Format: YYYY-MM-DD 
 `endDate`	|	`date`	|	-	|	**Required** The end date for this Fiscal Year. The distance between start date and end date may not be more than two years.  Format: YYYY-MM-DD
@@ -617,8 +625,8 @@ Name | Type | Format | Description
 
 ### <a name="fiscalPeriod"></a>FiscalPeriod
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `currentPeriod`	|	`boolean`	|	-	|	Is this the current Fiscal Period based on the current time?  **READ ONLY**
 `startDate`	|	`date`	|	-	|	**Required** The start date for this Fiscal Period. Must be within the parent Fiscal Year. Format: YYYY-MM-DD
 `endDate`	|	`date`	|	-	|	**Required** The end date for this Fiscal Year. Must be within the parent Fiscal Year. Format: YYYY-MM-DD
@@ -631,15 +639,29 @@ Name | Type | Format | Description
 
 ### <a name="errorResponse"></a>Error Response
 
-Name | Type | Format | Description
+Name|Type|Format|Description
 ---|---|---|---
 `status`|`boolean`|-|False if there was an error
 `errorMessageList`|`Array[ErrorMessage]`|-|List of all errors detected
 
 ### <a name="errorMessage"></a>Error Message
 
-Name | Type | Format | Description
+Name|Type|Format|Description
 ---|---|---|---
 `errorType`|`String`|-|WARNING or ERROR
 `errorCode`|`String`|-|Text code for this error
 `errorMessage`|`String`|-|Plain language error message
+
+## <a name="responseHeaders"></a>Response Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Allow](https://tools.ietf.org/html/rfc7231#section-7.4.1)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7234 Expires](https://tools.ietf.org/html/rfc7234#section-5.3)
+* [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
+* [RFC 7234 Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)
+* [RFC 7231 Server](https://tools.ietf.org/html/rfc7231#section-7.4.2)
+* [RFC 7231 Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)

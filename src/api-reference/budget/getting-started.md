@@ -3,8 +3,6 @@ title: Getting Started
 layout: reference
 ---
 
-# Budget
-
 # Menu
 * [Getting Started](./getting-started.html)
 * [Fiscal Year](/api-reference/budget/fiscal-year.html)
