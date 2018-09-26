@@ -35,4 +35,4 @@ Attendee / Attendee Type|Delete Attendee Type v3.0
 
 This update removes outdated or unused APIs and API functions.
 
-Additional information is available on the Concur Developer Portal: [https://developer.concur.com](https://developer.concur.com/).
+Additional information is available on the SAP Concur Developer Center: [https://developer.concur.com](https://developer.concur.com/).
