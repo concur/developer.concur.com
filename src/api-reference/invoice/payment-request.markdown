@@ -123,6 +123,7 @@ Name | Type | Format | Description
 `Description`	|	`string`	|	-	|	Brief overview of the good or service ordered.
 `ExpenseTypeCode`	|	`string`	|	-	|	A code which indicates the Expense Type for the Line Item.
 `ItemCode`	|	`string`	|	-	|	Represents the item code (the unique code a vendor assigns to a good or code a vendor assigns to a good or service to identify it).
+`MatchedPurchaseOrderReceipts`	|	`Array[MatchedPurchaseOrderReceipt]`	|	-	|	The details of the Matched Purchase Order Receipts Identity Fields (if any).
 `PurchaseOrderNumber`	|	`string`	|	-	|	Purchase Order that is associated to the Line Item .
 `Quantity`	|	`string`	|	-	|	Total number of goods or services ordered.
 `ShipFromPostalCode`	|	`string`	|	-	|	The postal code the good or service was shipped from.
@@ -145,6 +146,12 @@ Name | Type | Format | Description
 `Custom10`	|	`string`	|	-	|	A value that can be applied to a custom field 10 that is part of the allocation form.
 `Custom11` through `Custom20`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
 `Percentage`	|	`string`	|	-	|	**Required** The percentage of the Request Line Item that the individual allocation record. All Allocations associated to a given Line Item should add up to 100.
+
+### MatchedPurchaseOrderReceipt
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`GoodsReceiptNumber`	|	`string`	|	-	|	The identifier of the purchase order goods receipt number to which the Invoice line item is matched.
 
 ### VendorRemitToIdentifier
 
