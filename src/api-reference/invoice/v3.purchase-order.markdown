@@ -22,7 +22,7 @@ layout: reference
 POST /api/v3.0/invoice/purchaseorders
 ```
 
-Create or update a Purchase Order. Batch processing is not available using the Purchase Order API. Please use CES for batch updates.
+Create or update a Purchase Order. Batch processing is not available using the Purchase Order API. Please use Import Jobs for batch updates.
 
 ### <a name="8"></a>Parameters  
 
@@ -235,15 +235,12 @@ Name|Type|Format|Description
 `Tax`|`string`|-|Any tax that is associated with the line item.
 `UnitOfMeasureCode`|`string`|-|The unit of measure code of the line item.
 `UnitPrice`|`string`|-|**Required** The price of each item of the line item.
-
 `VatAmount`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
 `VatRate`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
 
 #### <a name="allocation"></a>Allocation  
 
 Name|Type|Format|Description
----|---|---|---The purchase request number.
-
 `Amount`|`string`|-|**Required** The total amount of the allocation.
 `Custom1 through Custom20`|`string`|-|A value that can be applied to a custom field 1 that is part of the allocation form.
 `GrossAmount`|`string`|-|The allocation gross amount.
