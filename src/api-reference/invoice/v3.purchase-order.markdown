@@ -241,6 +241,7 @@ Name|Type|Format|Description
 #### <a name="allocation"></a>Allocation  
 
 Name|Type|Format|Description
+---|---|---|---
 `Amount`|`string`|-|**Required** The total amount of the allocation.
 `Custom1 through Custom20`|`string`|-|A value that can be applied to a custom field 1 that is part of the allocation form.
 `GrossAmount`|`string`|-|The allocation gross amount.
