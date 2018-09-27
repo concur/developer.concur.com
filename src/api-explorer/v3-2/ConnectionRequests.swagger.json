@@ -1,0 +1,260 @@
+{
+    "swagger": "2.0",
+    "host": "us.api.concursolutions.com",
+    "basePath": "/api/v3.2",
+    "schemes": [
+        "https"
+    ],
+    "produces": [
+        "application/json",
+        "application/xml"
+    ],
+    "consumes": [
+        "application/json",
+        "application/xml"
+    ],
+    "info": {
+        "title": "Connection Requests",
+        "description": "",
+        "version": "3.2"
+    },
+    "tags": [
+        {
+            "name": "Resources",
+            "description": ""
+        }
+    ],
+    "paths": {
+        "/common/connectionrequests": {
+            "get": {
+                "tags": [
+                    "Resources"
+                ],
+                "summary": "Get all connection requests",
+                "description": "Gets all connection requests that match the TripLink supplier ID.",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached. The default is the beginning of the page.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The number of records to return. The default is 5 and the maximum is 10.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "The status code representing the state of the connection request. The possible values are Pending, Processing, Connected, Failed, and Retry.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/ConnectionRequestCollection"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Resources"
+                ],
+                "summary": "Create a connection request",
+                "description": "Creates a connection request on behalf of the specified user.",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "query",
+                        "description": "The login ID of the user for whom to create the connection request. The user must have the Web Services Admin role to use this parameter.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/CreateResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/common/connectionrequests/{id}": {
+            "get": {
+                "tags": [
+                    "Resources"
+                ],
+                "summary": "Get a connection request by ID",
+                "description": "Gets a connection request by ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The connection request ID.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/ConnectionRequestGet"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Resources"
+                ],
+                "summary": "Update a connection request by ID",
+                "description": "Updates the specified connection request. Only the fields provided in the supplied object are updated. Missing fields will not be altered.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The connection request ID.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "content",
+                        "in": "body",
+                        "description": "The connection request object to update.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ConnectionRequestPut"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/Void"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ConnectionRequestCollection": {
+            "properties": {
+                "Items": {
+                    "$ref": "#/definitions/ConnectionRequestGet"
+                },
+                "NextPage": {
+                    "type": "string",
+                    "description": "If provided, the URI for the next GET call."
+                }
+            }
+        },
+        "ConnectionRequestGet": {
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "description": " first name of the user for whom the connection request is for."
+                },
+                "ID": {
+                    "type": "string",
+                    "description": "The unique identifier for the connection request."
+                },
+                "lastModified": {
+                    "type": "string",
+                    "description": "The UTC date representing when this connection rerquest was last modified.  Format: YYY-MM-DDTHH:MM:SS"
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "The last name of the user for whom the connection request is for."
+                },
+                "loyaltyNumber": {
+                    "type": "string",
+                    "description": "The user's loyalty number."
+                },
+                "middleName": {
+                    "type": "string",
+                    "description": "The middle name of the user for whom the connection request is for."
+                },
+                "requestToken": {
+                    "type": "string",
+                    "description": "OAuth2 request token with a limited lifetime (15 minutes) that may be exchanged for an access token."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+                },
+                "URI": {
+                    "type": "string",
+                    "description": "URI for the GET call that will return this connection request."
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "The unique identifier for the user."
+                },
+                "emailAddresses": {
+                    "$ref": "#/definitions/UserEmailAddresses"
+                }
+            }
+        },
+        "ConnectionRequestPut": {
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection."
+                }
+            }
+        },
+        "CreateResponse": {
+            "properties": {
+                "ID": {
+                    "type": "string",
+                    "description": "The unique identifier for the connection request created by this call."
+                },
+                "URI": {
+                    "type": "string",
+                    "description": "URI for the GET call that will return the newly created connection request."
+                }
+            }
+        },
+        "UserEmailAddresses": {
+            "properties": {
+                "email1": {
+                    "type": "string",
+                    "description": "Email address for the user."
+                },
+                "email2": {
+                    "type": "string",
+                    "description": "Email address for the user."
+                },
+                "email3": {
+                    "type": "string",
+                    "description": "Email address for the user."
+                },
+                "email4": {
+                    "type": "string",
+                    "description": "Email address for the user."
+                },
+                "email5": {
+                    "type": "string",
+                    "description": "Email address for the user."
+                }
+            }
+        },
+        "Void": {
+            "properties": {}
+        }
+    }
+}

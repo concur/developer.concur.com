@@ -1,0 +1,371 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "PaymentRequestDigest",
+  "apis": [
+    {
+      "path": "/invoice/paymentrequestdigests/{id}",
+      "description": "Get the payment request digest based on ID. ",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id",
+          "responseClass": "PaymentRequestDigest",
+          "summary": "Get the payment request digest based on ID. ",
+          "notes": "Returns the payment request digest based on ID. ",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The payment request ID",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/paymentrequestdigests",
+      "description": "Get all payment requests digests based on the search criteria.",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_offset_limit_approvalStatus_paymentStatus_vendorInvoiceNumber_createDateBefore_createDateAfter_userDefinedDateBefore_userDefinedDateAfter_submitDateBefore_submitDateAfter_paidDateBefore_paidDateAfter",
+          "responseClass": "PaymentRequestDigestCollection",
+          "summary": "Get all payment requests digests based on the search criteria.",
+          "notes": "Returns all payment requests digests based on the search criteria.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "The start of the page offset.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The number of records to return (default 1000).",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "1000",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "approvalStatus",
+              "description": "A code representing a Payment Request Approval Status. Use GET /invoice/localizeddata to get the available approval status codes.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "paymentStatus",
+              "description": "A code representing a Payment Request Payment Status. Use GET /invoice/localizeddata to get the available payment status codes",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "vendorInvoiceNumber",
+              "description": "Vendor invoice number tied to invoice.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "createDateBefore",
+              "description": "The payment request create date is before this date.Format: YYYY-MM-DD.",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "createDateAfter",
+              "description": "The payment request create date is after this date.Format: YYYY-MM-DD.",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "userDefinedDateBefore",
+              "description": "The payment request user defined date is before this date.Format: YYYY-MM-DD.",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "userDefinedDateAfter",
+              "description": "The payment request user defined date is after this date.Format: YYYY-MM-DD.",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "submitDateBefore",
+              "description": "The payment request submit date is before this date.Format: YYYY-MM-DD.",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "submitDateAfter",
+              "description": "The payment request submit date is after this date.Format: YYYY-MM-DD.",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "paidDateBefore",
+              "description": "The payment request paid date is before this date.Format: YYYY-MM-DD.",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "paidDateAfter",
+              "description": "The payment request paid date is after this date.Format: YYYY-MM-DD.",
+              "dataType": "DateTime?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/paymentrequestdigests",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/invoice/paymentrequestdigests",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "PaymentRequestDigest": {
+      "id": "PaymentRequestDigest",
+      "displayName": "PaymentRequestDigest",
+      "properties": {
+        "ApprovalStatusCode": {
+          "description": "A code indicating the request's approval status.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CreateDate": {
+          "description": "The date the request was created.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The 3-letter ISO 4217 currency code for the request currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceNumber": {
+          "description": "The invoice number of the Payment Request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsDeleted": {
+          "description": "A true/false value which indicates whether the request has been deleted. (Deleted requests are retained in the system for historical purposes.).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OwnerLoginID": {
+          "description": "The login ID of the Payment Request owner.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OwnerName": {
+          "description": "The name of the Payment Request owner.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaidDate": {
+          "description": "The date when all journal entries in the request were integrated with or extracted to the financial system.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentRequestId": {
+          "description": "The unique identifier of the Payment Request summarized in this digest.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "PaymentRequestUri": {
+          "description": "The URI of the Payment Request summarized in this digest.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "PaymentStatusCode": {
+          "description": "A code indicating the request's payment status.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "PurchaseOrderNumber": {
+          "description": "The purchase order number for the purchase order associated with the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Total": {
+          "description": "The total amount of the request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UserDefinedDate": {
+          "description": "The invoice date as assigned by the user.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorName": {
+          "description": "The name of the vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "PaymentRequestDigestCollection": {
+      "id": "PaymentRequestDigestCollection",
+      "displayName": "PaymentRequestDigests",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "PaymentRequestDigest",
+            "displayName": "PaymentRequestDigest"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentRequestDigest": {
+          "description": null,
+          "type": "Array",
+          "items": {
+            "$ref": "PaymentRequestDigest",
+            "displayName": "PaymentRequestDigest"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalCount": {
+          "description": null,
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    }
+  }
+}

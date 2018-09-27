@@ -1,22 +1,44 @@
 # Site settings
-title: Concur Developer Portal
+title: SAP Concur Developer Center
 email: devx@concur.com
 description: Concur docs provides comprehensive information on working with the Concur platform
 baseurl: "" # the subpath of your site, /developer.concur.com
 canonical_site: https://developer.concur.com
 twitter_username: concurapi
 github_username:  concur
-repository_url: "https://github.com/concur/developer.concur.com/blob/preview/"
-exclude:
-  - build
-  - shippable.yml
-  - awscli-bundle.zip
-  - awscli-bundle
-  - README.md
-  - LICENSE
-  - Gemfile
-  - Gemfile.lock
+repository_url: "https://github.com/concur/developer.concur.com/blob/preview/src/"
 
 # Build settings
 kramdown:
   input: GFM
+
+sass:
+  style: compressed
+source: src
+
+# sitemap plugin configuration
+# this config defines 2 properties - change_frequency and priority - that can be included in an
+# individual page's front matter to alter that page's settings in the sitemap.xml
+url: https://developer.concur.com
+sitemap:
+  change_frequency_name: "change_frequency"
+  priority_name: "priority"
+
+pagination:
+  per_page: 5
+  permalink: '/page:num/'
+
+jekyll-archives:
+  enabled: all
+  layout: 'archive'
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/tag/:name/'
+    category: '/category/:name/'
+
+plugins:
+  - octopress-paginate
+  - jekyll-redirect-from
+  - jekyll-bootstrap-sass

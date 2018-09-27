@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This schema can validate both formats: With and Without metadata 
+     see also https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/index.html#getlist for details
+-->
+<xs:schema 
+        xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
+        attributeFormDefault="unqualified" 
+        elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+        <xs:import namespace="http://www.concursolutions.com/api/travel/trip/2010/06" />
+ 
+        <xs:element name="abstractRoot" abstract="true"  />
+        <xs:element name="ConnectResponse" type="ConnectResponseWithMetaDataType" substitutionGroup="abstractRoot" />
+        <xs:element name="ItineraryInfoList" type="ItineraryInfoListType" substitutionGroup="abstractRoot" />
+ 
+        <xs:complexType name="ItineraryInfoListType">
+                <xs:sequence>
+                        <xs:element xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" ref="ItineraryInfoList"  minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+        </xs:complexType>
+ 
+        <xs:complexType name="ConnectResponseWithMetaDataType">
+                <xs:sequence>
+                                        <xs:sequence>
+                                                <xs:element name="Metadata" minOccurs="1" maxOccurs="1">
+                                                        <xs:complexType>
+                                                                <xs:sequence>
+                                                                        <xs:element name="Paging" minOccurs="1" maxOccurs="1" >
+                                                                                <xs:complexType>
+                                                                                        <xs:all>
+                                                                                                <xs:element name="TotalItems" type="xs:integer"  minOccurs="1" maxOccurs="1" />
+                                                                                                <xs:element name="TotalPages" type="xs:integer"   minOccurs="1" maxOccurs="1"/>
+                                                                                                <xs:element name="CurrentPage" type="xs:integer"  minOccurs="1" maxOccurs="1"/>
+                                                                                                <xs:element name="ItemsPerPage" type="xs:integer"  minOccurs="1" maxOccurs="1"/>
+                                                                                                <xs:element name="PreviousPageURL"  type="xs:anyURI"  maxOccurs="1" minOccurs="0"/>
+                                                                                                <xs:element name="NextPageURL"  type="xs:anyURI"  maxOccurs="1" minOccurs="0"/>
+                                                                                        </xs:all>
+                                                                                </xs:complexType>
+                                                                        </xs:element>
+                                                                </xs:sequence>
+                                                        </xs:complexType>
+                                                </xs:element>
+                                                <xs:element name="Data" minOccurs="1" maxOccurs="1">
+                                                        <xs:complexType>
+                                                                <xs:sequence>
+                                                                        <xs:element xmlns="http://www.concursolutions.com/api/travel/trip/2010/06" ref="ItineraryInfoList"  minOccurs="1" maxOccurs="1"/>
+                                                                </xs:sequence>
+                                                        </xs:complexType>
+                                                </xs:element>
+                                        </xs:sequence>
+                </xs:sequence>
+        </xs:complexType>
+</xs:schema>

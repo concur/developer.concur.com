@@ -1,0 +1,2051 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "Entries",
+  "apis": [
+    {
+      "path": "/expense/entries",
+      "description": "Get all expense entries",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_reportID_paymentTypeID_batchID_isBillable_attendeeTypeCode_hasAttendees_hasVAT_expenseTypeCode_attendeeID_offset_limit_user",
+          "responseClass": "EntryCollection",
+          "summary": "Get all expense entries",
+          "notes": "Gets all expense entries owned by the user.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "reportID",
+              "description": "The report ID of the entries to be retrieved. Use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/ReportDigests/Get_offset_limit_user_approvalStatusCode_paymentStatusCode_currencyCode_paymentType_reimbursementMethod_approverLoginID_expenseTypeCode_attendeeTypeCode_countryCode_batchID_vendorName_hasVAT_hasImages_hasAttendees_hasBillableExpenses_isTestUser_expenseGroupConfigID_costObject_entryTransactionDateBefore_entryTransactionDateAfter_createDateBefore_createDateAfter_userDefinedDateBefore_userDefinedDateAfter_submitDateBefore_submitDateAfter_processingPaymentDateBefore_processingPaymentDateAfter_paidDateBefore_paidDateAfter_modifiedDateBefore_modifiedDateAfter_get_0\">GET /expense/reportdigests</a> function to find the report ID. Format: An alpha-numeric GUID string.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "paymentTypeID",
+              "description": "The ID of the payment type of the entries to be retrieved. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> function to learn the payment type ID for the desired payment type.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "batchID",
+              "description": "The batch ID for the entries to be retrieved. The batch ID identifies the batch that contains the report payee associated with the entries. Use the GET Payment Batch function to learn the Payment Type ID for the desired Payment Type.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "isBillable",
+              "description": "Determines whether the operation retrieves entries that are billable. Format: true or false",
+              "dataType": "Boolean?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "attendeeTypeCode",
+              "description": "The ID of the attendee type for the entries to be retrieved.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "hasAttendees",
+              "description": "Determines whether the operation retrieves entries that have attendees. Format: true or false",
+              "dataType": "Boolean?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "hasVAT",
+              "description": "Determines whether the operation retrieves entries that have VAT details. Format: true or false",
+              "dataType": "Boolean?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "expenseTypeCode",
+              "description": "The code for the expense type for the entries to be retrieved.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "attendeeID",
+              "description": "The attendee associated with the entries to be retrieved.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The number of records to return. Default value: 25",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "25",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/entries/{id}",
+      "description": "Get a single expense entry by ID",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id_user",
+          "responseClass": "EntryGet",
+          "summary": "Get a single expense entry by ID",
+          "notes": "Gets an expense entry by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The expense entry ID.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/entries",
+      "description": "Create a new expense entry",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_content_user",
+          "responseClass": "CreateResponse",
+          "summary": "Create a new expense entry",
+          "notes": "Creates a new expense entry.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The expense entry object to create.",
+              "dataType": "EntryPost",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/entries/{id}",
+      "description": "Update an expense entry by ID",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_id_content_user",
+          "responseClass": "Void",
+          "summary": "Update an expense entry by ID",
+          "notes": "Updates the specified expense entry. Only the fields provided in the supplied object are updated. Missing fields will not be altered.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The expense entry ID.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The partial or complete expense entry object to update.",
+              "dataType": "EntryPut",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/entries/{id}",
+      "description": "Delete an expense entry by ID",
+      "operations": [
+        {
+          "httpMethod": "DELETE",
+          "nickname": "Delete_id_user",
+          "responseClass": "Void",
+          "summary": "Delete an expense entry by ID",
+          "notes": "Deletes the specified expense entry.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The ID of the expense entry to delete.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user who owns the entries. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/expense/entries",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/expense/entries",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "CreateResponse": {
+      "id": "CreateResponse",
+      "displayName": "Response",
+      "properties": {
+        "ID": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "CustomField": {
+      "id": "CustomField",
+      "displayName": null,
+      "properties": {
+        "Code": {
+          "description": "For list fields, this is the list item code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ListItemID": {
+          "description": "For list fields, this is the list item ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Type": {
+          "description": "The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Decimal": {
+      "id": "Decimal",
+      "displayName": null,
+      "properties": {}
+    },
+    "EntryCollection": {
+      "id": "EntryCollection",
+      "displayName": "Entries",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "EntryGet",
+            "displayName": "Entry"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "EntryGet": {
+      "id": "EntryGet",
+      "displayName": "Entry",
+      "properties": {
+        "AllocationType": {
+          "description": "The type of allocations for the expense. Possible values: P - partial allocation, F - full allocation, N - no allocation. Use the <a target=\"_blank\" href=\"https://www.concursolutions.com/api/docs/index.html#!/Allocations/Get_limit_offset_reportID_entryID_itemizationID_user_get_0\">GET /expense/allocations</a> function to get information about this entry's allocations.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ApprovedAmount": {
+          "description": "The approved amount of the expense entry, in the report currency.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CompanyCardTransactionID": {
+          "description": "The unique identifier for a company card transaction that is associated with this expense. Concur Expense uses the Credit Card Import job to import company card transactions. Use the GET CommpanyCardTransactions function to get information about these card transactions. This element is null when there is no company card transaction associated with this expense.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom25": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom26": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom27": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom28": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom29": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom30": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom31": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom32": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom33": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom34": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom35": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom36": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom37": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom38": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom39": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom40": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "The description of the expense. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ElectronicReceiptID": {
+          "description": "The unique identifier for an eReceipt that is associated with this expense. Use the GET eReceipts function to get information about this eReceipt. This element is null when there is no eReceipt associated with this expense.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EmployeeBankAccountID": {
+          "description": "The unique identifier of an employee bank account that is associated with this expense. Typically, this element is used when Expense Pay reimburses the employee for this expense. Use the GET BankAccounts function to get information about this bank account.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExchangeRate": {
+          "description": "The currency conversion rate that converts the transaction amount that is in the transaction currency into the posted amount that is in the report currency. This element is typically not provided. If this element is empty for transactions in a currency different than the user's reimbursement currency, Expense will use the company's configured exchange rates to determine the posted amount for the transaction. If the system is not able to determine the exchange rate, a value of 1.0 will be used.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExpenseTypeCode": {
+          "description": "The code for the expense type. Use <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> to learn the expense type code for expense types that are active for this report's policy.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ExpenseTypeName": {
+          "description": "The name of the expense type, localized to the user's language.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "FormID": {
+          "description": "The ID of the form used by this expense entry.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HasAppliedCashAdvance": {
+          "description": "Whether the entry has a cash advance applied to it. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HasAttendees": {
+          "description": "Indicates whether the expense has attendees. Use the <a target=\"_blank\"https://www.concursolutions.com/api/docs/index.html#!/EntryAttendeeAssociations/Get_entryID_offset_limit_user_get_0\">GET /expense/entryattendeeassociations</a> function to get information about this entry's attendees. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HasComments": {
+          "description": "Whether the expense has comments. Use the GET ExpenseEntryComments function to get information about this entry's comments. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HasExceptions": {
+          "description": "Whether the expense has exceptions. Use the GET ExpenseEntryExceptions function to get information about this entry's exceptions. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HasImage": {
+          "description": "Indicates whether there is an entry image attached to the entry. Use the GET Entry Images function to get this entry image. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HasItemizations": {
+          "description": "Indicates whether the expense has itemizations. Use the <a target=\"_blank\"https://www.concursolutions.com/api/docs/index.html#!/Itemizations/Get_reportID_entryID_expenseTypeCode_offset_limit_user_get_0\">GET /expense/itemizations</a> function to get information about this entry's itemizations. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "HasVAT": {
+          "description": "Indicates whether the entry has VAT data. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsBillable": {
+          "description": "Indicates whether the expense is billable. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsImageRequired": {
+          "description": "Indicates whether an entry image is required for the entry. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsPaidByExpensePay": {
+          "description": "Whether the entry is paid using the Expense Pay service. This element has a value if the report has reached the Processing Payment workflow step, because this is when Concur Expense determines whether it will be paid by Expense Pay. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsPersonal": {
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsPersonalCardCharge": {
+          "description": "Indicates whether the expense entry was imported from a personal card feed. Concur Expense uses the Yodlee API to import these card transactions. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Journey": {
+          "description": "Journey data. This element is used when the entry is a mileage expense. For expense types with an expense code that is either Company Car or Personal Car, the Journey child element is required. This element should not be used for expense types with an expense code that is neither Company Car nor Personal Car.",
+          "type": "Journey",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastModified": {
+          "description": "The UTC date when the entry was last modified.",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LocationCountry": {
+          "description": "The country where the expense was incurred. Format: 2-letter ISO 3166-1 country code",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LocationID": {
+          "description": "The unique identifier for the location where the expense was incurred. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Locations/Get_offset_limit_name_city_countrySubdivision_country_administrativeRegion_get_0\">GET /common/locations</a> function to get information for this location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LocationName": {
+          "description": "The location where the expense was incurred, usually the city name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LocationSubdivision": {
+          "description": "The state, province, or other country subdivision where the expense was incurred. Format: ISO 3166-2:2007 country subdivision",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit1": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit2": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit3": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit4": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit5": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit6": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "CustomField",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentTypeID": {
+          "description": "The ID of the payment type for the entry. Use <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> to learn the payment type ID for payment types that are active for this report's expense group. For mileage expenses, use the Cash payment type. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes always use the Cash payment type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentTypeName": {
+          "description": "The name of the payment type, localized to the user's language.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PostedAmount": {
+          "description": "The amount of the expense entry, in the report currency.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ReceiptReceived": {
+          "description": "Indicates whether this entry has been reviewed by a processor. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ReportID": {
+          "description": "The report ID of the report where the entry will be added.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ReportOwnerID": {
+          "description": "The login ID of the report owner. Use the GET User Information function to learn details about this user.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "SpendCategoryCode": {
+          "description": "The ID of the spending category that is specified for this expense entry.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "SpendCategoryName": {
+          "description": "The name of the spending category that is specified for this expense entry, localized to the user's language.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "TaxReceiptType": {
+          "description": "The receipt type for this entry. Possible values: T - tax receipt, R - regular receipt, N - no receipt",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionAmount": {
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionCurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the expense entry transaction amount. This is the currency in which the vendor was paid. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because for these two expense codes the currency is always the Report Currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionDate": {
+          "description": "The date when the good or service associated with this expense entry was provided. Format: YYYY-MM-DD",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "TripID": {
+          "description": "The unique identifier of a trip in the Itinerary Service that includes a travel booking associated with this expense. Use GET ItineraryDetails to get information about this trip and the travel booking. This element is null when there is no trip associated with the expense.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorDescription": {
+          "description": "The name of the vendor for the expense entry. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorListItemID": {
+          "description": "The unique identifier for a vendor list item. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Lists/Get_limit_offset_get_0\">GET /common/lists</a> function to get information about this list item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorListItemName": {
+          "description": "The name of an item from a vendor list.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "EntryPost": {
+      "id": "EntryPost",
+      "displayName": "Entry",
+      "properties": {
+        "Comment": {
+          "description": "A comment that describes the expense entry. Maximum length: 500 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom25": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom26": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom27": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom28": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom29": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom30": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom31": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom32": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom33": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom34": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom35": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom36": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom37": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom38": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom39": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom40": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "The description of the expense. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExchangeRate": {
+          "description": "The currency conversion rate that converts the transaction amount that is in the transaction currency into the posted amount that is in the report currency. This element is typically not provided. If this element is empty for transactions in a currency different than the user's reimbursement currency, Expense will use the company's configured exchange rates to determine the posted amount for the transaction. If the system is not able to determine the exchange rate, a value of 1.0 will be used.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExpenseTypeCode": {
+          "description": "The code for the expense type. Use <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> to learn the expense type code for expense types that are active for this report's policy.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "IsBillable": {
+          "description": "Indicates whether the expense is billable. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsPersonal": {
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Journey": {
+          "description": "Journey data. This element is used when the entry is a mileage expense. For expense types with an expense code that is either Company Car or Personal Car, the Journey child element is required. This element should not be used for expense types with an expense code that is neither Company Car nor Personal Car.",
+          "type": "Journey",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LocationID": {
+          "description": "The unique identifier for the location where the expense was incurred. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Locations/Get_offset_limit_name_city_countrySubdivision_country_administrativeRegion_get_0\">GET /common/locations</a> function to get information for this location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit1": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit2": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit3": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit4": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit5": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit6": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentTypeID": {
+          "description": "The ID of the payment type for the entry. Use <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> to learn the payment type ID for payment types that are active for this report's expense group. For mileage expenses, use the Cash payment type. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes always use the Cash payment type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ReportID": {
+          "description": "The report ID of the report where the entry will be added.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "TaxReceiptType": {
+          "description": "The receipt type for this entry. Possible values: T - tax receipt, R - regular receipt, N - no receipt",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionAmount": {
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionCurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the expense entry transaction amount. This is the currency in which the vendor was paid. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because for these two expense codes the currency is always the Report Currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionDate": {
+          "description": "The date when the good or service associated with this expense entry was provided. Format: YYYY-MM-DD",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "VendorDescription": {
+          "description": "The name of the vendor for the expense entry. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorListItemID": {
+          "description": "The unique identifier for a vendor list item. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Lists/Get_limit_offset_get_0\">GET /common/lists</a> function to get information about this list item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "EntryPut": {
+      "id": "EntryPut",
+      "displayName": "Entry",
+      "properties": {
+        "Comment": {
+          "description": "A comment that describes the expense entry. Maximum length: 500 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom25": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom26": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom27": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom28": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom29": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom30": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom31": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom32": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom33": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom34": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom35": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom36": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom37": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom38": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom39": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom40": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "The details from the Custom fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "The description of the expense. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExchangeRate": {
+          "description": "The currency conversion rate that converts the transaction amount that is in the transaction currency into the posted amount that is in the report currency. This element is typically not provided. If this element is empty for transactions in a currency different than the user's reimbursement currency, Expense will use the company's configured exchange rates to determine the posted amount for the transaction. If the system is not able to determine the exchange rate, a value of 1.0 will be used.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExpenseTypeCode": {
+          "description": "The code for the expense type. Use <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> to learn the expense type code for expense types that are active for this report's policy.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "IsBillable": {
+          "description": "Indicates whether the expense is billable. Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsPersonal": {
+          "description": "Indicates whether the expense is personal (that is, non-reimbursable). Format: true or false",
+          "type": "Boolean?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Journey": {
+          "description": "Journey data. This element is used when the entry is a mileage expense. For expense types with an expense code that is either Company Car or Personal Car, the Journey child element is required. This element should not be used for expense types with an expense code that is neither Company Car nor Personal Car.",
+          "type": "Journey",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LocationID": {
+          "description": "The unique identifier for the location where the expense was incurred. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Locations/Get_offset_limit_name_city_countrySubdivision_country_administrativeRegion_get_0\">GET /common/locations</a> function to get information for this location.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit1": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit2": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit3": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit4": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit5": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrgUnit6": {
+          "description": "The details from the Org Unit fields. These fields may not have data, depending on the configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentTypeID": {
+          "description": "The ID of the payment type for the entry. Use <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations/Get_user_offset_limit_get_0\">GET /expense/expensegroupconfigurations</a> to learn the payment type ID for payment types that are active for this report's expense group. For mileage expenses, use the Cash payment type. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes always use the Cash payment type.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ReportID": {
+          "description": "The report ID of the report where the entry will be added.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "TaxReceiptType": {
+          "description": "The receipt type for this entry. Possible values: T - tax receipt, R - regular receipt, N - no receipt",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionAmount": {
+          "description": "The amount of the expense entry, in the transaction currency paid to the vendor.\tFor expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because these two expense codes use a distance instead of a transaction amount.",
+          "type": "Decimal?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionCurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the expense entry transaction amount. This is the currency in which the vendor was paid. For expense types with an expense code that uses a transaction amount instead of a distance, this element is required. This element should not be used for expense types with an expense code for Company Car or Personal Car, because for these two expense codes the currency is always the Report Currency.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TransactionDate": {
+          "description": "The date when the good or service associated with this expense entry was provided. Format: YYYY-MM-DD",
+          "type": "DateTime?",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "VendorDescription": {
+          "description": "The name of the vendor for the expense entry. Maximum length: 64 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorListItemID": {
+          "description": "The unique identifier for a vendor list item. Use the <a target=\"_blank\" https://www.concursolutions.com/api/docs/index.html#!/Lists/Get_limit_offset_get_0\">GET /common/lists</a> function to get information about this list item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Journey": {
+      "id": "Journey",
+      "displayName": null,
+      "properties": {
+        "BusinessDistance": {
+          "description": "The portion of the journey for business use, in the report owner's unit of measure for distances. This element is required in order to post a personal car mileage expense entry, or to post a company car mileage expense when there is no PersonalDistance value. Format: positive integer. When using the Odometer elements, the sum of PersonalDistance and BusinessDistance must equal the difference between OdometerEnd and OdometerStart.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "EndLocation": {
+          "description": "Indicates where the journey ended. This is also known as the \"To Location\". Maximum length: 100 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "NumberOfPassengers": {
+          "description": "The number of people in the vehicle during the journey. Positive Integer. Used with Variable-Rate, Personal or Company Car.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OdometerEnd": {
+          "description": "The odometer reading at the end of the journey. Format: positive integer that must be greater than the OdometerStart value. This element is used with Variable-Rate and Company Car configuration types.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OdometerStart": {
+          "description": "The odometer reading at the start of the journey. Format: positive integer. This element is used with Variable-Rate and Company Car configuration types.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PersonalDistance": {
+          "description": "The portion of the journey for personal use. This element is required in order to post a company car mileage expense when there is no BusinessDistance value. Format: positive integer. When using the Odometer elements, the sum of PersonalDistance and BusinessDistance must equal the difference between OdometerEnd and OdometerStart. Used with Company Car configuration types.",
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StartLocation": {
+          "description": "Indicates where the journey started. This is also known as the \"From Location\". Maximum length: 100 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "UnitOfMeasure": {
+          "description": "The unit of measure for distance and odometer values. Possible values: M - miles, K - kilometers",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "VehicleID": {
+          "description": "The unique identifier for the vehicle used for this journey. This element is used only with Company Car configuration types. Use the GET Vehicles function to learn the Vehicle ID.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Nullable`1": {
+      "id": "Nullable`1",
+      "displayName": null,
+      "properties": {
+        "HasValue": {
+          "description": null,
+          "type": "bool",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Value": {
+          "description": null,
+          "type": "Decimal",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

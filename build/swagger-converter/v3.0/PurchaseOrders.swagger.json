@@ -1,0 +1,1368 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "PurchaseOrders",
+  "apis": [
+    {
+      "path": "/invoice/purchaseorders",
+      "description": "Create a new purchase order",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_purchaseOrder",
+          "responseClass": "PurchaseOrderResult",
+          "summary": "Create a new purchase order",
+          "notes": "Creates a purchase order and returns the status of the creation request.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "purchaseOrder",
+              "description": "The details of the purchase order.",
+              "dataType": "PurchaseOrder",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/purchaseorders",
+      "description": "Update an existing purchase order.",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_purchaseOrder",
+          "responseClass": "PurchaseOrderResult",
+          "summary": "Update an existing purchase order.",
+          "notes": "Updates an existing purchase order and returns the status of the update request.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "purchaseOrder",
+              "description": "The details of the purchase order.",
+              "dataType": "PurchaseOrder",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/purchaseorders/{id}",
+      "description": "Get an existing purchase order.",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id",
+          "responseClass": "PurchaseOrder",
+          "summary": "Get an existing purchase order.",
+          "notes": "Gets an existing purchase order.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The identifier for the purchase order.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/purchaseorders",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/invoice/purchaseorders",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "Allocation": {
+      "id": "Allocation",
+      "displayName": null,
+      "properties": {
+        "Amount": {
+          "description": "The total amount of the allocation.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Custom1": {
+          "description": "A value that can be applied to a custom field 1 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "A value that can be applied to a custom field 10 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "A value that can be applied to a custom field 11 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "A value that can be applied to a custom field 12 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "A value that can be applied to a custom field 13 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "A value that can be applied to a custom field 14 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "A value that can be applied to a custom field 15 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "A value that can be applied to a custom field 16 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "A value that can be applied to a custom field 17 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "A value that can be applied to a custom field 18 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "A value that can be applied to a custom field 19 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "A value that can be applied to a custom field 2 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "A value that can be applied to a custom field 20 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "A value that can be applied to a custom field 3 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "A value that can be applied to a custom field 4 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "A value that can be applied to a custom field 5 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "A value that can be applied to a custom field 6 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "A value that can be applied to a custom field 7 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "A value that can be applied to a custom field 8 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "A value that can be applied to a custom field 9 that is part of the allocation form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "GrossAmount": {
+          "description": "The allocation gross amount.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Percentage": {
+          "description": "The allocation percentage.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "BillToAddress": {
+      "id": "BillToAddress",
+      "displayName": null,
+      "properties": {
+        "Address1": {
+          "description": "Address line 1 of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Address2": {
+          "description": "Address line 2 of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Address3": {
+          "description": "Address line 3 of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "City": {
+          "description": "The city of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CountryCode": {
+          "description": "The code of the country for the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ExternalID": {
+          "description": "A unique value supplied by the customer to identify a particular shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Name": {
+          "description": "An optional name that can be given to the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PostalCode": {
+          "description": "The postal code of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "State": {
+          "description": "The state or province of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "StateProvince": {
+          "description": "The state or province of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "LineItem": {
+      "id": "LineItem",
+      "displayName": null,
+      "properties": {
+        "AccountCode": {
+          "description": "The account code of the line item. A value must be supplied for either ExpenseType or AccountCode, but not both. This field is required if an ExpenseType value is not supplied.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Allocation": {
+          "description": "A list of the allocations that are associated with the line item. Allocation elements can be repeated within the same line items to represent multiple allocations.",
+          "type": "Array",
+          "items": {
+            "$ref": "Allocation",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "AmountWithoutVat": {
+          "description": "undefined:ConnectSwaggerDocs-PO_LI_AMOUNT_WO_VAT",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CreateDate": {
+          "description": "The date the line item was created. Format: YYYY-MM-DD",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "A value that can be applied to a custom field 1 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "A value that can be applied to a custom field 10 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "A value that can be applied to a custom field 11 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "A value that can be applied to a custom field 12 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "A value that can be applied to a custom field 13 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "A value that can be applied to a custom field 14 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "A value that can be applied to a custom field 15 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "A value that can be applied to a custom field 16 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "A value that can be applied to a custom field 17 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "A value that can be applied to a custom field 18 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "A value that can be applied to a custom field 19 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "A value that can be applied to a custom field 2 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "A value that can be applied to a custom field 20 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "A value that can be applied to a custom field 3 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "A value that can be applied to a custom field 4 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "A value that can be applied to a custom field 5 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "A value that can be applied to a custom field 6 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "A value that can be applied to a custom field 7 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "A value that can be applied to a custom field 8 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "A value that can be applied to a custom field 9 that is part of the purchase order line item form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "A description of the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExpenseType": {
+          "description": "The expense type of the line item.  A value must be supplied for either ExpenseType or AccountCode, but not both. This field is required if an AccountCode value is not supplied.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ExternalID": {
+          "description": "A customer-supplied value that uniquely identifies the line item within the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsReceiptRequired": {
+          "description": "Indicates whether the line item requires a receipt. Format: true or false",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineNumber": {
+          "description": "The line item number within the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "PurchaseOrderReceipt": {
+          "description": "A list of the receipts that are associated with the line item.",
+          "type": "Array",
+          "items": {
+            "$ref": "PurchaseOrderReceipt",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderReceiptType": {
+          "description": "Purchase order ReceiptType of the line item. Can be NONE or WQTY (Receipt type Quantity). ",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Quantity": {
+          "description": "The quantity associated with the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestedBy": {
+          "description": "The person who requests the goods in the line item of the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestedDeliveryDate": {
+          "description": "The date the line item of the purchase order instructed the vendor to deliver the goods. Format: YYYY-MM-DD",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "SupplierPartID": {
+          "description": "Any number that might help to identify the line item. This could be a value such as the vendor's part number or even the manufacturer number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Tax": {
+          "description": "Any tax that is associated with the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UnitPrice": {
+          "description": "The price of each item of the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmount": {
+          "description": "undefined:ConnectSwaggerDocs-PO_LI_VAT_AMOUNT",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRate": {
+          "description": "undefined:ConnectSwaggerDocs-PO_LI_VAT_RATE",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PurchaseOrder": {
+      "id": "PurchaseOrder",
+      "displayName": null,
+      "properties": {
+        "AmountWithoutVat": {
+          "description": "undefined:ConnectSwaggerDocs-PO_VAT_AMOUNT_WO_VAT",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "BillToAddress": {
+          "description": "The customer's billing address, which is where the vendor should send the bill.",
+          "type": "BillToAddress",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CurrencyCode": {
+          "description": "The 3-letter ISO 4217 <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\"> currency code</a> of the currency that is associated with the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom1": {
+          "description": "A value that can be applied to a custom field 1 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "A value that can be applied to a custom field 10 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom11": {
+          "description": "A value that can be applied to a custom field 11 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom12": {
+          "description": "A value that can be applied to a custom field 12 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom13": {
+          "description": "A value that can be applied to a custom field 13 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom14": {
+          "description": "A value that can be applied to a custom field 14 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom15": {
+          "description": "A value that can be applied to a custom field 15 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom16": {
+          "description": "A value that can be applied to a custom field 16 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom17": {
+          "description": "A value that can be applied to a custom field 17 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom18": {
+          "description": "A value that can be applied to a custom field 18 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom19": {
+          "description": "A value that can be applied to a custom field 19 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "A value that can be applied to a custom field 2 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom20": {
+          "description": "A value that can be applied to a custom field 20 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom21": {
+          "description": "A value that can be applied to a custom field 21 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom22": {
+          "description": "A value that can be applied to a custom field 22 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom23": {
+          "description": "A value that can be applied to a custom field 23 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom24": {
+          "description": "A value that can be applied to a custom field 24 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "A value that can be applied to a custom field 3 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "A value that can be applied to a custom field 4 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "A value that can be applied to a custom field 5 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "A value that can be applied to a custom field 6 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "A value that can be applied to a custom field 7 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "A value that can be applied to a custom field 8 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "A value that can be applied to a custom field 9 that is part of the purchase order header form.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Description": {
+          "description": "A description of the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DiscountPercentage": {
+          "description": "The discount from the vendor, if the discount terms are met.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DiscountTerms": {
+          "description": "The net discount terms that the vendor offers, when discounts apply.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LedgerCode": {
+          "description": "A code which indicates which company journal the Purchase Order is assigned to. Use GET /purchase order/localizeddata to translate the code into text.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItem": {
+          "description": "The line items in a purchase order.",
+          "type": "Array",
+          "items": {
+            "$ref": "LineItem",
+            "displayName": null
+          },
+          "allowableValues": null,
+          "required": true
+        },
+        "Name": {
+          "description": "A name for the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "NeededByDate": {
+          "description": "The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "OrderDate": {
+          "description": "The date when goods were ordered. Format: YYYY-MM-DD",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PaymentTerms": {
+          "description": "The net payment terms that have been set up with a vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PolicyExternalID": {
+          "description": "The external identifier of the policy that should be associated with the purchase order. The external ID is a property of the policy in its configuration.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PoVendorTaxId": {
+          "description": "undefined:ConnectSwaggerDocs-PO_VENDOR_TAX_ID",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ProvincialTaxId": {
+          "description": "undefined:ConnectSwaggerDocs-PO_PROVINCIAL_TAX_ID",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderNumber": {
+          "description": "The purchase order number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ReceiptType": {
+          "description": "undefined:ConnectSwaggerDocs-RECEIPT_TYPE",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestedBy": {
+          "description": "The person that requests the goods associated to the purchase order.\r\n            \tIf the setting \"Assign invoice to Purchase Request Owner\" is turned on, our system will read this value\r\n            \tto identify a valid invoice owner.\r\n            \tThis value will be matched against the following Employee fields in the order given:\r\n                1. Employee Login ID\r\n                2. Employee ID\r\n                3. Employee Email Address\r\n                4. Employee Name (\"first_name last_name\" or \"last_name, first_name\")",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestedDeliveryDate": {
+          "description": "The date the purchase order instructed the vendor to deliver the goods. Format YYYY-MM-DD",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Shipping": {
+          "description": "The total shipping cost for the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShippingDescription": {
+          "description": "A description of how the goods in the purchase order will ship. For example, via FedEx.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShippingMethodKey": {
+          "description": "A code that represents the shipping method used by the vendor. Maximum length: 10 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShippingTermsKey": {
+          "description": "A code that represents the shipping terms that the vendor offers. Maximum length: 10 characters",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShipToAddress": {
+          "description": "The customer's shipping address, which is where the vendor should ship the goods.",
+          "type": "ShipToAddress",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Status": {
+          "description": "The current status of the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Tax": {
+          "description": "The total tax for the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountOne": {
+          "description": "undefined:ConnectSwaggerDocs-PO_VAT_AMOUNT1",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatAmountTwo": {
+          "description": "undefined:ConnectSwaggerDocs-PO_VAT_AMOUNT2",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateOne": {
+          "description": "undefined:ConnectSwaggerDocs-PO_VAT_RATE1",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VatRateTwo": {
+          "description": "undefined:ConnectSwaggerDocs-PO_VAT_RATE2",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorAccountNumber": {
+          "description": "The vendor account number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorAddressCode": {
+          "description": "The code that identifies the vendor's remit address for the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorCode": {
+          "description": "The code that identifies the vendor for the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "PurchaseOrderReceipt": {
+      "id": "PurchaseOrderReceipt",
+      "displayName": null,
+      "properties": {
+        "Custom1": {
+          "description": "Custom 1 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom10": {
+          "description": "Custom 10 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom2": {
+          "description": "Custom 2 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom3": {
+          "description": "Custom 3 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom4": {
+          "description": "Custom 4 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom5": {
+          "description": "Custom 5 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom6": {
+          "description": "Custom 6 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom7": {
+          "description": "Custom 7 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom8": {
+          "description": "Custom 8 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Custom9": {
+          "description": "Custom 9 value for purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Deleted": {
+          "description": "Delete status of purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "DeliverySlipNumber": {
+          "description": "Delivery slip number for a purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "GoodsReceiptNumber": {
+          "description": "Goods receipt number for a purchase order line item receipt. This field is Required for V2 Version",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "IsReceived": {
+          "description": "Indicates whether the line item was received. Optional for V2 Version.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "LineItemExternalID": {
+          "description": "A customer-supplied value that uniquely identifies the line item within the purchase order.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "PurchaseOrderNumber": {
+          "description": "The purchase order number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ReceivedDate": {
+          "description": "The date the line item was received. Format: YYYY-MM-DD",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ReceivedQuantity": {
+          "description": "The number of items that were received.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UnitOfMeasureCode": {
+          "description": "Unit of measure code for a purchase order line item receipt.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Version": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": {
+            "valueType": "LIST",
+            "values": [
+              "V1",
+              "V2"
+            ],
+            "min": null,
+            "max": null
+          },
+          "required": false
+        }
+      }
+    },
+    "PurchaseOrderResult": {
+      "id": "PurchaseOrderResult",
+      "displayName": "Error",
+      "properties": {
+        "ErrorCode": {
+          "description": "A code that indicates why the purchase order was not processed successfully.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ErrorMessage": {
+          "description": "A description of the error.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "FieldCode": {
+          "description": "A code that indicates which field caused an issue. This code typically appears only when a field is being validated against a field of a form type. Format: LEVEL|CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItemExternalID": {
+          "description": "The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Message": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderNumber": {
+          "description": "The purchase order number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Status": {
+          "description": "The result of processing the purchase order. Format: SUCCESS or FAILURE",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ShipToAddress": {
+      "id": "ShipToAddress",
+      "displayName": null,
+      "properties": {
+        "Address1": {
+          "description": "Address line 1 of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Address2": {
+          "description": "Address line 2 of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Address3": {
+          "description": "Address line 3 of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "City": {
+          "description": "The city of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CountryCode": {
+          "description": "The code of the country for the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ExternalID": {
+          "description": "A unique value supplied by the customer to identify a particular shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Name": {
+          "description": "An optional name that can be given to the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PostalCode": {
+          "description": "The postal code of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "State": {
+          "description": "The state or province of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "StateProvince": {
+          "description": "The state or province of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    }
+  }
+}

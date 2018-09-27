@@ -1,0 +1,91 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Localized Data",
+    "description": "Invoice includes various status codes, and error messages. This API provides a method to list the localized strings of various codes.",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/invoice/localizeddata": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get localized string of various codes in Invoice. ",
+        "description": "Returns the  localized string of various codes in Invoice. ",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Valid types are -    approvalStatus, paymentStatus, expenseType, ledgerCode, dataSourceCode, payMethod, receiptConfirmation, unitOfMeasure.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "langCode",
+            "in": "query",
+            "description": "Optional. The language code requested. lang codes examples - de, en, es, fr, fr_CA, hu, it, ja, pl, pt_BR",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LocalizationDataCollection"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "LocalizationData": {
+      "properties": {
+        "Code": {
+          "type": "string",
+          "description": "Internal status code."
+        },
+        "LangCode": {
+          "type": "string",
+          "description": "The language code for the results"
+        },
+        "LocalizedValue": {
+          "type": "string",
+          "description": "The localized value based on langcode and type."
+        }
+      }
+    },
+    "LocalizationDataCollection": {
+      "properties": {
+        "LocalizationData": {
+          "$ref": "#/definitions/LocalizationData"
+        },
+        "TotalCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    }
+  }
+}

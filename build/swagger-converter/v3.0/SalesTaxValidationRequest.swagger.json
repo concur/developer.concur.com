@@ -1,0 +1,743 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "SalesTaxValidationRequest",
+  "apis": [
+    {
+      "path": "/invoice/salestaxvalidationrequest",
+      "description": "Get invoices for calculating tax",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_offset_limit_modifiedafter",
+          "responseClass": "InvoiceGetCollection",
+          "summary": "Get invoices for calculating tax",
+          "notes": "Gets invoices for the purpose of calculating sales tax.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The number of invoices to retrieve. Maximum value: 1000",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "1000",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "modifiedafter",
+              "description": "A parameter that can be used to limit the results to invoices modified after the specified date.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/salestaxvalidationrequest",
+      "description": "Update invoices with the calcuated tax amount and tax rate",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_invoice",
+          "responseClass": "InvoiceStatus",
+          "summary": "Update invoices with the calcuated tax amount and tax rate",
+          "notes": "Updates invoices with the calculated tax amount and tax rate.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "invoice",
+              "description": "The tax information for the invoice that is to be updated.",
+              "dataType": "Invoice",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/invoice/salestaxvalidationrequest",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/invoice/salestaxvalidationrequest",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "BillToAddress": {
+      "id": "BillToAddress",
+      "displayName": null,
+      "properties": {
+        "Address1": {
+          "description": "Address line 1 of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Address2": {
+          "description": "Address line 2 of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Address3": {
+          "description": "Address line 3 of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "City": {
+          "description": "The city of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CountryCode": {
+          "description": "The code of the country for the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ExternalID": {
+          "description": "A unique value supplied by the customer to identify a particular shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Name": {
+          "description": "An optional name that can be given to the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PostalCode": {
+          "description": "The postal code of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "State": {
+          "description": "The state or province of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "StateProvince": {
+          "description": "The state or province of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "Invoice": {
+      "id": "Invoice",
+      "displayName": "Invoice",
+      "properties": {
+        "CalculatedTaxAmount": {
+          "description": "The calculated tax amount for the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CalculatedTaxRate": {
+          "description": "The calculated tax rate for the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Comments": {
+          "description": "Comments for the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItem": {
+          "description": "The line items associated with the invoice.",
+          "type": "Array",
+          "items": {
+            "$ref": "InvoiceLineItemPut",
+            "displayName": "LineItem"
+          },
+          "allowableValues": null,
+          "required": true
+        },
+        "Status": {
+          "description": "The status of the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StatusCode": {
+          "description": "The status code that indicates the outcome of tax validation. Valid values are: ERROR, CMPLT",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "TaxReferenceID": {
+          "description": "The tax reference ID of the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "InvoiceGet": {
+      "id": "InvoiceGet",
+      "displayName": "Invoice",
+      "properties": {
+        "BillToAddress": {
+          "description": null,
+          "type": "BillToAddress",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CalculatedTaxAmount": {
+          "description": "The calculated tax amount for the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CalculatedTaxRate": {
+          "description": "The calculated tax rate for the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CountryCode": {
+          "description": "The country code for the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the invoice currency. For example, USD or CAD.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceAmount": {
+          "description": "The invoice amount (the cost of the purchased items).",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "InvoiceDate": {
+          "description": "The invoice date.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItem": {
+          "description": "The line items associated with the invoice.",
+          "type": "Array",
+          "items": {
+            "$ref": "InvoiceLineItem",
+            "displayName": "LineItem"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "PurchaseOrderNumber": {
+          "description": "The purchase order number for the purchase order associated with the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestID": {
+          "description": "The Request ID of the Payment Request",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ShippingAmount": {
+          "description": "The shipping amount for the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ShipToAddress": {
+          "description": null,
+          "type": "ShipToAddress",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Status": {
+          "description": "The status of the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "StatusCode": {
+          "description": "The status code that indicates the outcome of tax validation. Valid values are: ERROR, CMPLT",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Tax": {
+          "description": "The tax as shown on the invoice. This is the tax applied by the vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxReferenceID": {
+          "description": "The tax reference ID of the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Title": {
+          "description": "The title of the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Total": {
+          "description": "The total amount of the request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "VendorInvoiceNumber": {
+          "description": "The vendor invoice number that is associated with the invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "InvoiceGetCollection": {
+      "id": "InvoiceGetCollection",
+      "displayName": "Invoices",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "InvoiceGet",
+            "displayName": "Invoice"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TotalCount": {
+          "description": null,
+          "type": "Int32?",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "InvoiceLineItem": {
+      "id": "InvoiceLineItem",
+      "displayName": "LineItem",
+      "properties": {
+        "CalculatedTaxAmount": {
+          "description": "The calculated tax amount for the individual line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CalculatedTaxRate": {
+          "description": "The calculated tax rate for the individual line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CommodityCode": {
+          "description": "The commodity code that is tied to the expense type associated with the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CountryCode": {
+          "description": "The country code for the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CurrencyCode": {
+          "description": "The currency code for the individual line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItemKey": {
+          "description": "A value that uniquely identifies the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Quantity": {
+          "description": "The quantity for the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Total": {
+          "description": "The total amount for the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "UnitPrice": {
+          "description": "The unit price for the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Vendor": {
+          "description": "Details about the vendor for each line item.",
+          "type": "InvoiceVendor",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "InvoiceLineItemPut": {
+      "id": "InvoiceLineItemPut",
+      "displayName": "LineItem",
+      "properties": {
+        "CalculatedTaxAmount": {
+          "description": "The calculated tax amount for the individual line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "CalculatedTaxRate": {
+          "description": "The calculated tax rate for the individual line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LineItemKey": {
+          "description": "A value that uniquely identifies the line item.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "InvoiceStatus": {
+      "id": "InvoiceStatus",
+      "displayName": "InvoiceStatus",
+      "properties": {
+        "Code": {
+          "description": "Code of request result",
+          "type": "int",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Comments": {
+          "description": "Comments that are returned for the update request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Message": {
+          "description": "Message of request result",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RecordNumber": {
+          "description": "Record Number for create/update request.",
+          "type": "int",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Status": {
+          "description": "The status of the update. Possible values: SUCCESS, FAILURE",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "TaxReferenceID": {
+          "description": "The tax reference ID of the updated invoice.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Type": {
+          "description": "Type request result",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "InvoiceVendor": {
+      "id": "InvoiceVendor",
+      "displayName": "Vendor",
+      "properties": {
+        "Address1": {
+          "description": "The Vendor Address 1.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Address2": {
+          "description": "The Vendor Address 2.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Address3": {
+          "description": "The Vendor Address 3.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "City": {
+          "description": "The Vendor City.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CountryCode": {
+          "description": "The Vendor Country Code.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "PostalCode": {
+          "description": "The Vendor Postal Code / Zip.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "State": {
+          "description": "The Vendor State.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "VendorAddressName": {
+          "description": "Name for Vendor Address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "VendorName": {
+          "description": "The name of the vendor.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    },
+    "ShipToAddress": {
+      "id": "ShipToAddress",
+      "displayName": null,
+      "properties": {
+        "Address1": {
+          "description": "Address line 1 of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Address2": {
+          "description": "Address line 2 of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Address3": {
+          "description": "Address line 3 of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "City": {
+          "description": "The city of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "CountryCode": {
+          "description": "The code of the country for the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "ExternalID": {
+          "description": "A unique value supplied by the customer to identify a particular shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "Name": {
+          "description": "An optional name that can be given to the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "PostalCode": {
+          "description": "The postal code of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "State": {
+          "description": "The state or province of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        },
+        "StateProvince": {
+          "description": "The state or province of the shipping or billing address.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": true
+        }
+      }
+    }
+  }
+}

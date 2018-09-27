@@ -1,0 +1,46 @@
+{% assign url = page.url | remove: "/" %}
+
+{% if url.size > 0 %}
+  <nav class="breadcrumbs hidden-print">
+    <div class="container">
+      <h1 class="pull-left">{{ page.title }}</h1>
+
+      <ol class="pull-right breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+        {% comment %} List home page for all bread crumbs {% endcomment %}
+        {% assign position = 1 %}
+
+        <li class="active" property="itemListElement" typeof="ListItem">
+          <a property="item" typeof="WebPage" href="{{ "/" | prepend: site.baseurl }}">
+            <span property="name">Home</span>
+          </a>
+          <meta property="position" content="{{ position }}" />
+        </li>
+
+        {% comment %} Iteration breadcrumb item {% endcomment %}
+        {% for crumb in breadcrumbs %}
+
+          {% comment %} Skip if root {% endcomment %}
+          {% if crumb.url == "/" %}
+            {% continue %}
+          {% endif %}
+
+          {% comment %} SEO data {% endcomment %}
+          {% assign position = position | plus: 1 %}
+
+          {% comment %} List crumbs leading up to the page title {% endcomment %}
+          {% if crumb.url != page.url %}
+            <li class="active" property="itemListElement" typeof="ListItem">
+              <a property="item" typeof="WebPage" href="{{ crumb.url | prepend: site.baseurl }}">
+                <span property="name">{{ crumb.title }}</span>
+              </a>
+              <meta property="position" content="{{ position }}" />
+            </li>
+          {% endif %}
+
+        {% endfor %}
+
+      </ol>
+    </div>
+  </nav>
+{% endif %}

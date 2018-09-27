@@ -1,0 +1,17 @@
+{
+  "name": "swagger-converter",
+  "version": "1.0.0",
+  "description": "Converts Concur custom Swagger format into valid Swagger 2.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Howard Dierking",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@concur/concur-utils": "^1.0.25",
+    "commander": "^2.9.0",
+    "underscore": "^1.8.3",
+    "underscore.string": "^3.3.4"
+  }
+}

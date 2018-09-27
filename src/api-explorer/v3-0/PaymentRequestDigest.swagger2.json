@@ -1,0 +1,266 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Payment Request Digest",
+    "description": "A payment request digest is a collection of payment requests to invoice vendors. This API provides methods to view all payment requests corresponding to search parameters, or view a payment request digest by ID.",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/invoice/paymentrequestdigests/{id}": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get the payment request digest based on ID. ",
+        "description": "Returns the payment request digest based on ID. ",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The payment request ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PaymentRequestDigest"
+            }
+          }
+        }
+      }
+    },
+    "/invoice/paymentrequestdigests": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get all payment requests digests based on the search criteria.",
+        "description": "Returns all payment requests digests based on the search criteria.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The start of the page offset.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The number of records to return (default 1000).",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "approvalStatus",
+            "in": "query",
+            "description": "A code representing a Payment Request Approval Status. Use GET /invoice/localizeddata to get the available approval status codes.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "paymentStatus",
+            "in": "query",
+            "description": "A code representing a Payment Request Payment Status. Use GET /invoice/localizeddata to get the available payment status codes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "vendorInvoiceNumber",
+            "in": "query",
+            "description": "Vendor invoice number tied to invoice.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "createDateBefore",
+            "in": "query",
+            "description": "The payment request create date is before this date.Format: YYYY-MM-DD.",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "createDateAfter",
+            "in": "query",
+            "description": "The payment request create date is after this date.Format: YYYY-MM-DD.",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "userDefinedDateBefore",
+            "in": "query",
+            "description": "The payment request user defined date is before this date.Format: YYYY-MM-DD.",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "userDefinedDateAfter",
+            "in": "query",
+            "description": "The payment request user defined date is after this date.Format: YYYY-MM-DD.",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "submitDateBefore",
+            "in": "query",
+            "description": "The payment request submit date is before this date.Format: YYYY-MM-DD.",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "submitDateAfter",
+            "in": "query",
+            "description": "The payment request submit date is after this date.Format: YYYY-MM-DD.",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "paidDateBefore",
+            "in": "query",
+            "description": "The payment request paid date is before this date.Format: YYYY-MM-DD.",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "paidDateAfter",
+            "in": "query",
+            "description": "The payment request paid date is after this date.Format: YYYY-MM-DD.",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PaymentRequestDigestCollection"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PaymentRequestDigest": {
+      "properties": {
+        "ApprovalStatusCode": {
+          "type": "string",
+          "description": "A code indicating the request's approval status."
+        },
+        "CreateDate": {
+          "type": "string",
+          "description": "The date the request was created."
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The 3-letter ISO 4217 currency code for the request currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona."
+        },
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier of the resource."
+        },
+        "InvoiceNumber": {
+          "type": "string",
+          "description": "The invoice number of the Payment Request."
+        },
+        "IsDeleted": {
+          "type": "string",
+          "description": "A true/false value which indicates whether the request has been deleted. (Deleted requests are retained in the system for historical purposes.)."
+        },
+        "OwnerLoginID": {
+          "type": "string",
+          "description": "The login ID of the Payment Request owner."
+        },
+        "OwnerName": {
+          "type": "string",
+          "description": "The name of the Payment Request owner."
+        },
+        "PaidDate": {
+          "type": "string",
+          "description": "The date when all journal entries in the request were integrated with or extracted to the financial system."
+        },
+        "PaymentRequestId": {
+          "type": "string",
+          "description": "The unique identifier of the Payment Request summarized in this digest."
+        },
+        "PaymentRequestUri": {
+          "type": "string",
+          "description": "The URI of the Payment Request summarized in this digest."
+        },
+        "PaymentStatusCode": {
+          "type": "string",
+          "description": "A code indicating the request's payment status."
+        },
+        "PurchaseOrderNumber": {
+          "type": "string",
+          "description": "The purchase order number for the purchase order associated with the invoice."
+        },
+        "Total": {
+          "type": "string",
+          "description": "The total amount of the request."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI to the resource."
+        },
+        "UserDefinedDate": {
+          "type": "string",
+          "description": "The invoice date as assigned by the user."
+        },
+        "VendorName": {
+          "type": "string",
+          "description": "The name of the vendor."
+        }
+      }
+    },
+    "PaymentRequestDigestCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/PaymentRequestDigest"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        },
+        "PaymentRequestDigest": {
+          "$ref": "#/definitions/PaymentRequestDigest"
+        },
+        "TotalCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    }
+  }
+}

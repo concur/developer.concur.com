@@ -1,0 +1,141 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Opportunities",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/insights/opportunities": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Gets a collection of opportunities for a specified trip or for all trips that fall within a date range",
+        "description": "Gets a collection of opportunities for a specified trip or for all trips that fall within a date range. Specify values for fromUtc and toUtc to get opportunities for a range of trips. Specify only tripId to get opportunities for a single trip. Specify OpportunityType to filter results by the specified opportunity types.",
+        "parameters": [
+          {
+            "name": "tripId",
+            "in": "query",
+            "description": "The trip id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "opportunityType",
+            "in": "query",
+            "description": "Comma seperated list of opportunities (Hotel, Car, Air, Rail, Taxi and Service) to get. Do not specify any values to get all opportunities",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fromUtc",
+            "in": "query",
+            "description": "The From date in UTC for the date range",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "toUtc",
+            "in": "query",
+            "description": "The To date in UTC for the date range",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Opportunities"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Opportunities": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/Opportunity"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    },
+    "Opportunity": {
+      "properties": {
+        "EndCityCode": {
+          "type": "string",
+          "description": "The city code of the destination city where the opportunity is offered"
+        },
+        "EndDateLocal": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The local end date of the location where the opportunity is offered"
+        },
+        "EndPostalCode": {
+          "type": "string",
+          "description": "The postal code of the destination location where the opportunity is offered"
+        },
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier of the resource."
+        },
+        "IsActive": {
+          "type": "boolean",
+          "description": "Indicates that the opportunity is currently active"
+        },
+        "StartCityCode": {
+          "type": "string",
+          "description": "The city code of the originating city where the opportunity is offered"
+        },
+        "StartDateLocal": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The local start date of the location where the opportunity is offered"
+        },
+        "StartPostalCode": {
+          "type": "string",
+          "description": "The postal code of the originating location where the opportunity is offered"
+        },
+        "TripId": {
+          "type": "string",
+          "description": "The trip id of the associated itinerary"
+        },
+        "Type": {
+          "type": "string",
+          "description": "The type of opportunity"
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI to the resource."
+        }
+      }
+    }
+  }
+}

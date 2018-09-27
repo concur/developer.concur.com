@@ -1,0 +1,345 @@
+{
+  "apiVersion": "3.0",
+  "swaggerVersion": "2.0",
+  "basePath": "https://msprqa3.concurtech.net/api/v3.0",
+  "resourcePath": "ConnectionRequests",
+  "apis": [
+    {
+      "path": "/common/connectionrequests",
+      "description": "Get all connection requests",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_offset_limit_status",
+          "responseClass": "ConnectionRequestCollection",
+          "summary": "Get all connection requests",
+          "notes": "Gets all connection requests that match the TripLink supplier ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "The starting point of the next set of results, after the limit specified in the limit field has been reached. The default is the beginning of the page.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The number of records to return. The default is 5 and the maximum is 10.",
+              "dataType": "Int32?",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "5",
+              "allowableValues": null
+            },
+            {
+              "paramType": "query",
+              "name": "status",
+              "description": "The status code representing the state of the connection request. The possible values are Pending, Processing, Connected, Failed, and Retry.",
+              "dataType": "string",
+              "required": false,
+              "allowMultiple": false,
+              "defaultValue": "PENDING",
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/connectionrequests/{id}",
+      "description": "Get a connection request by ID",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "Get_id",
+          "responseClass": "ConnectionRequestGet",
+          "summary": "Get a connection request by ID",
+          "notes": "Gets a connection request by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The connection request ID.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/connectionrequests",
+      "description": "Create a connection request",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "Post_user",
+          "responseClass": "CreateResponse",
+          "summary": "Create a connection request",
+          "notes": "Creates a connection request on behalf of the specified user.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "user",
+              "description": "The login ID of the user for whom to create the connection request. The user must have the Web Services Admin role to use this parameter.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/connectionrequests/{id}",
+      "description": "Update a connection request by ID",
+      "operations": [
+        {
+          "httpMethod": "PUT",
+          "nickname": "Put_id_content",
+          "responseClass": "Void",
+          "summary": "Update a connection request by ID",
+          "notes": "Updates the specified connection request. Only the fields provided in the supplied object are updated. Missing fields will not be altered.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The connection request ID.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            },
+            {
+              "paramType": "body",
+              "name": "content",
+              "description": "The connection request object to update.",
+              "dataType": "ConnectionRequestPut",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/connectionrequests/{id}",
+      "description": "Delete a connection request",
+      "operations": [
+        {
+          "httpMethod": "DELETE",
+          "nickname": "Delete_id",
+          "responseClass": "Void",
+          "summary": "Delete a connection request",
+          "notes": "Deletes a connection request by ID.",
+          "produces": [
+            "application/json",
+            "application/xml"
+          ],
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "The connection request ID.",
+              "dataType": "string",
+              "required": true,
+              "allowMultiple": false,
+              "defaultValue": null,
+              "allowableValues": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/common/connectionrequests",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    },
+    {
+      "path": "/common/connectionrequests",
+      "description": "undefined:ConnectSwaggerDocs-No Documentation Found.",
+      "operations": []
+    }
+  ],
+  "models": {
+    "ConnectionRequestCollection": {
+      "id": "ConnectionRequestCollection",
+      "displayName": "ConnectionRequests",
+      "properties": {
+        "Items": {
+          "description": "The result collection.",
+          "type": "Array",
+          "items": {
+            "$ref": "ConnectionRequestGet",
+            "displayName": "ConnectionRequest"
+          },
+          "allowableValues": null,
+          "required": false
+        },
+        "NextPage": {
+          "description": "The URI of the next page of results, if any.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ConnectionRequestGet": {
+      "id": "ConnectionRequestGet",
+      "displayName": "ConnectionRequest",
+      "properties": {
+        "FirstName": {
+          "description": "The user's first name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "ID": {
+          "description": "The unique identifier of the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastModified": {
+          "description": "The date and time when the connection request was last modified. Format: UTC",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LastName": {
+          "description": "The user's last name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "LoyaltyNumber": {
+          "description": "The user's travel loyalty number.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "MiddleName": {
+          "description": "The user's middle name.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "RequestToken": {
+          "description": "The request token.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "Status": {
+          "description": "The status code representing the state of the connection request.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": "The URI to the resource.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "ConnectionRequestPut": {
+      "id": "ConnectionRequestPut",
+      "displayName": "ConnectionRequest",
+      "properties": {
+        "Status": {
+          "description": "The status code representing the state of the connection request. The possible values are: <br /><br /> CRSUC - The supplier indicated that the connection was made successfully. <br /> CREU1 - The loyalty number was not found. <br /> CREU2 - The loyalty number doesn't match the name. <br /> CREU3 - Your loyalty account requires attention. <br /> CRPA1 - The request token has expired. <br /> CRPA2 - A network error occurred. <br /> CRRET - Retry connection.",
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "CreateResponse": {
+      "id": "CreateResponse",
+      "displayName": "Response",
+      "properties": {
+        "ID": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        },
+        "URI": {
+          "description": null,
+          "type": "string",
+          "items": null,
+          "allowableValues": null,
+          "required": false
+        }
+      }
+    },
+    "Void": {
+      "id": "Void",
+      "displayName": null,
+      "properties": {}
+    }
+  }
+}

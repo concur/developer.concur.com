@@ -1,0 +1,92 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Latest Bookings",
+    "description": "",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/insights/latestbookings/": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get the latest hotel and air booking for a particular user.",
+        "description": "Get the latest hotel and air booking for a particular user.",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "description": "Optional. The login ID of the user. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LatestBooking"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Airline": {
+      "properties": {
+        "BookingClass": {
+          "type": "string",
+          "description": "The booking class of the latest booked airline segment."
+        },
+        "Code": {
+          "type": "string",
+          "description": "The airline code of the latest booked airline segment."
+        }
+      }
+    },
+    "Hotel": {
+      "properties": {
+        "Location": {
+          "type": "string",
+          "description": "The <a target=\"_blank\" href=\" http://www.iata.org/publications/Pages/code-search.aspx\">IATA airport code</a> of the location of the latest booked hotel segment."
+        },
+        "StarRating": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The star rating of the latest booked hotel segment. Possible values are from 0 - 5. Values 1 - 5 are mapped to the <a target=\"_blank\" href=\"http://www.northstartravelmedia.com/\">Northstar</a> standard. If the value is 0, the star rating could not be found."
+        }
+      }
+    },
+    "LatestBooking": {
+      "properties": {
+        "Airlines": {
+          "$ref": "#/definitions/Airline"
+        },
+        "Hotel": {
+          "$ref": "#/definitions/Hotel"
+        }
+      }
+    }
+  }
+}

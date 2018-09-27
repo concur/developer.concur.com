@@ -1,0 +1,1212 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v3.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "info": {
+    "title": "Requests",
+    "description": "Requests allow travelers to submit travel plans, expected expenses, and expected cash advance needs prior to spending funds. This API provides methods to view, create, update, submit, or recall requests owned by",
+    "version": "3.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/travelrequest/requests/{id}": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get a Request by ID",
+        "description": "Returns a Request by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Request ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user. Optional. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Request"
+            }
+          }
+        }
+      }
+    },
+    "/travelrequest/requests": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get all Requests",
+        "description": "Returns all Requests owned by the user.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Starting page offset",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of records to return (default 100)",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The login ID of the user who owns this Request. The user must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "The Status search term specifies which travel request or approval status to return. If no Status value is sent, the default Status of Active will be used.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modifiedAfter",
+            "in": "query",
+            "description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified after the specified date and time. This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "modifiedBefore",
+            "in": "query",
+            "description": "This returns travel requests in which the associated dependents (header, entries, segments, allocations, attendees, comments ) were modified before the specified date and time.This search term can be used along with other search terms to narrow the results. The date and time (if desired) should be in UTC. The format is: YYYY-MM-DDThh:mm:ss.",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "withSegmentTypes",
+            "in": "query",
+            "description": "Pass true to populate the SegmentType field in the result.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RequestCollection"
+            }
+          }
+        }
+      }
+    },
+    "/travelrequest/requests/{id}/submit": {
+      "post": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Submit a Request by ID",
+        "description": "Submit a Request by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Request ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Void"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Allocation": {
+      "properties": {
+        "Custom1": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom10": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom11": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom12": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom13": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom14": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom15": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom16": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom17": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom18": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom19": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom2": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom20": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom3": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom4": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom5": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom6": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom7": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom8": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom9": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Percentage": {
+          "type": "string",
+          "description": "The percentage of the expense that is included in this allocation."
+        }
+      }
+    },
+    "CashAdvance": {
+      "properties": {
+        "AmountRequested": {
+          "type": "string",
+          "description": "The amount requested in the cash advance, in the currency specified in the CurrencyCode element."
+        },
+        "ApprovalStatusName": {
+          "type": "string",
+          "description": "The approval status of the cash advance."
+        },
+        "Comments": {
+          "$ref": "#/definitions/Comment"
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the cash advance currency."
+        },
+        "CurrencyName": {
+          "type": "string",
+          "description": "The name of the currency for the cash advance."
+        },
+        "EmployeeCurrencyCode": {
+          "type": "string",
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code for the employee's currency, also known as the home currency."
+        },
+        "EmployeeCurrencyName": {
+          "type": "string",
+          "description": "The name of the employee's currency, also known as the home currency."
+        },
+        "ExchangeRate": {
+          "type": "string",
+          "description": "The exchange rate that applies to the cash advance."
+        },
+        "IssueDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The issue date for the cash advance."
+        },
+        "RequestDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date of cash advance request, obtained from the detailed cash advance record."
+        },
+        "StartingBalance": {
+          "type": "string",
+          "description": "The initial balance for the cash advance."
+        }
+      }
+    },
+    "Comment": {
+      "properties": {
+        "AuthorFirstName": {
+          "type": "string",
+          "description": "The first name of the person who made the comment."
+        },
+        "AuthorLastName": {
+          "type": "string",
+          "description": "The last name of the person who made the comment."
+        },
+        "CommentDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time, in GMT, when the user made the comment."
+        },
+        "IsLatest": {
+          "type": "boolean",
+          "description": "Indicates that the comment is the last one."
+        },
+        "Value": {
+          "type": "string",
+          "description": "The text of the Request header comment."
+        }
+      }
+    },
+    "CustomField": {
+      "properties": {
+        "Code": {
+          "type": "string",
+          "description": "For list fields, this is the list item code."
+        },
+        "ListItemID": {
+          "type": "string",
+          "description": "For list fields, this is the list item ID."
+        },
+        "Type": {
+          "type": "string",
+          "description": "The custom field type. Possible values: Amount, Boolean, ConnectedList, Date, Integer, List, Number, Text"
+        },
+        "Value": {
+          "type": "string",
+          "description": "The value in the Org Unit or Custom field. For list fields, this is the name of the list item.  Maximum length: 48 characters"
+        }
+      }
+    },
+    "Link": {
+      "properties": {
+        "Action": {
+          "type": "string",
+          "description": "The action that the user is allowed to perform on the resource."
+        },
+        "Method": {
+          "type": "string",
+          "description": "The method of the request. Possible values: GET, POST, PUT and DELETE."
+        },
+        "Url": {
+          "type": "string",
+          "description": "The URL of the resource that the user can access."
+        }
+      }
+    },
+    "ListField": {
+      "properties": {
+        "Code": {
+          "type": "string",
+          "description": "The code of the list item."
+        },
+        "ListItemID": {
+          "type": "string",
+          "description": "The list item ID."
+        },
+        "Value": {
+          "type": "string",
+          "description": "The name of the list item."
+        }
+      }
+    },
+    "Nullable`1": {
+      "properties": {
+        "HasValue": {
+          "type": "boolean",
+          "description": "Indicates that the comment is the last one."
+        },
+        "Value": {
+          "type": "string",
+          "description": "The name of the list item."
+        }
+      }
+    },
+    "Request": {
+      "properties": {
+        "AgencyOfficeName": {
+          "type": "string",
+          "description": "The travel agency office name."
+        },
+        "AllocationFormID": {
+          "type": "string",
+          "description": "The unique identifier of the Segment Form resource (See. the \"Forms\" resource for more information)."
+        },
+        "ApprovalLimitDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date by which the Request must be approved. This element appears only when integrated with Concur Travel."
+        },
+        "ApprovalStatusCode": {
+          "type": "string",
+          "description": "The code for the approval status the Request."
+        },
+        "ApprovalStatusName": {
+          "type": "string",
+          "description": "The approval status of the Request."
+        },
+        "AuthorizedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date the Request was authorized. Format: YYYY-MM-DDThh:mm:ss."
+        },
+        "CashAdvances": {
+          "$ref": "#/definitions/CashAdvance"
+        },
+        "Comments": {
+          "$ref": "#/definitions/Comment"
+        },
+        "CreationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date of the Request was created."
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency. The Request currency is defined as the Request creator's default reimbursement currency."
+        },
+        "CurrencyName": {
+          "type": "string",
+          "description": "The currency name for the Request currency. The Request currency is defined as the Request creator's default reimbursement currency."
+        },
+        "Custom1": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom10": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom11": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom12": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom13": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom14": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom15": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom16": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom17": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom18": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom19": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom2": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom20": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom3": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom4": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom5": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom6": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom7": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom8": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom9": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "EmployeeName": {
+          "type": "string",
+          "description": "The first, middle (or middle initial), and last name of the employee who created the Request."
+        },
+        "EndDate": {
+          "type": "string",
+          "description": "The end date of the Request."
+        },
+        "EndTime": {
+          "type": "string",
+          "description": "The end time for the Request."
+        },
+        "Entries": {
+          "$ref": "#/definitions/RequestEntry"
+        },
+        "EverSentBack": {
+          "type": "string",
+          "description": "Indicates whether the Request has ever been sent back to the employee. Format: Y/N"
+        },
+        "Exceptions": {
+          "$ref": "#/definitions/TRException"
+        },
+        "ExtensionOf": {
+          "type": "string",
+          "description": "The ID of the initial Request that this Request is an extension of or adendum to."
+        },
+        "HasException": {
+          "type": "string",
+          "description": "Indicates whether the Request has exceptions. Format: Y/N"
+        },
+        "HeaderFormID": {
+          "type": "string",
+          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information)."
+        },
+        "LastModifiedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date the Request was last modified. Format: YYYY-MM-DDThh:mm:ss"
+        },
+        "LoginID": {
+          "type": "string",
+          "description": "The Concur login ID of the Request owner."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the Request."
+        },
+        "PolicyID": {
+          "type": "string",
+          "description": "The unique identifier of the policy that applies to this Request. Maximum length 64 characters."
+        },
+        "PolicyName": {
+          "type": "string",
+          "description": "The name of the policy that applies to this Request."
+        },
+        "Purpose": {
+          "type": "string",
+          "description": "The purpose of the Request."
+        },
+        "RequestID": {
+          "type": "string",
+          "description": "The unique key for the Request."
+        },
+        "StartDate": {
+          "type": "string",
+          "description": "The start date of the Request."
+        },
+        "StartTime": {
+          "type": "string",
+          "description": "The start time for the Request."
+        },
+        "SubmitDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date the Request was submitted. Format: YYYY-MM-DDThh:mm:ss."
+        },
+        "TotalApprovedAmount": {
+          "type": "string",
+          "description": "The total amount of approved expenses in the Request."
+        },
+        "TotalPostedAmount": {
+          "type": "string",
+          "description": "The total amount of the Request."
+        },
+        "TotalRemainingAmount": {
+          "type": "string",
+          "description": "The total amount of expenses remaining in the Request."
+        },
+        "UserPermissions": {
+          "$ref": "#/definitions/UserPermissions"
+        }
+      }
+    },
+    "RequestCollection": {
+      "properties": {
+        "Items": {
+          "$ref": "#/definitions/TravelRequestHeader"
+        },
+        "NextPage": {
+          "type": "string",
+          "description": "The URI of the next page of results, if any."
+        }
+      }
+    },
+    "RequestEntry": {
+      "properties": {
+        "Allocations": {
+          "$ref": "#/definitions/Allocation"
+        },
+        "ApprovedAmount": {
+          "type": "string",
+          "description": "The approved amount of the Request entry in the Request currency."
+        },
+        "Comments": {
+          "$ref": "#/definitions/Comment"
+        },
+        "Custom1": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom10": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom11": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom12": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom13": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom14": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom15": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom16": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom17": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom18": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom19": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom2": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom20": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom21": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom22": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom23": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom24": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom25": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom26": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom27": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom28": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom29": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom3": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom30": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom31": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom32": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom33": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom34": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom35": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom36": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom37": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom38": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom39": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom4": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom40": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom5": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom6": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom7": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom8": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom9": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "EntryDescription": {
+          "type": "string",
+          "description": "The description of the Request entry."
+        },
+        "EntryFormID": {
+          "type": "string",
+          "description": "The unique identifier of the Entry Form resource (See. the \"Forms\" resource for more information)."
+        },
+        "Exceptions": {
+          "$ref": "#/definitions/TRException"
+        },
+        "ExchangeRate": {
+          "type": "string",
+          "description": "The exchange rate that applies to the entry."
+        },
+        "ExpenseTypeName": {
+          "type": "string",
+          "description": "The expense type name."
+        },
+        "ForeignAmount": {
+          "type": "string",
+          "description": "The foreign amount of the Request entry."
+        },
+        "ForeignCurrencyCode": {
+          "type": "string",
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the Request entry."
+        },
+        "ForeignCurrencyName": {
+          "type": "string",
+          "description": "The name of the currency for the foreign amount."
+        },
+        "LastModifiedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date the entry was last modified. Format: YYYY-MM-DDThh:mm:ss"
+        },
+        "OrgUnit1": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit2": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit3": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit4": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit5": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "OrgUnit6": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "PostedAmount": {
+          "type": "string",
+          "description": "The posted amount of the Request entry in the Request currency."
+        },
+        "RemainingAmount": {
+          "type": "string",
+          "description": "The remaining amount of the Request entry in the Request currency."
+        },
+        "Segments": {
+          "$ref": "#/definitions/Segment"
+        },
+        "TransactionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date of the Request entry."
+        },
+        "TripType": {
+          "type": "triptype",
+          "description": " Trip type of the air or rail segment. Possible values are: ONE_WAY, ROUND_TRIP and MULTI_STOP."
+        }
+      }
+    },
+    "Segment": {
+      "properties": {
+        "ApprovedAmount": {
+          "type": "string",
+          "description": "The approved amount of the segment in the Request currency."
+        },
+        "ArrivalDate": {
+          "type": "string",
+          "description": "The arrival date of the segment."
+        },
+        "ArrivalTime": {
+          "type": "string",
+          "description": "The arrival time of the segment."
+        },
+        "Class": {
+          "$ref": "#/definitions/ListField"
+        },
+        "ClassOfServiceCode": {
+          "type": "string",
+          "description": "The Class of Service Code from Concur Travel. Appears only when the Request is integrated with Concur Travel."
+        },
+        "Comments": {
+          "$ref": "#/definitions/Comment"
+        },
+        "Custom1": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom10": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom11": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom12": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom13": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom14": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom15": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom16": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom17": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom18": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom19": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom2": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom20": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom21": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom22": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom23": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom24": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom25": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom26": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom27": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom28": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom29": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom3": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom30": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom31": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom32": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom33": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom34": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom35": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom36": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom37": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom38": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom39": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom4": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom40": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom5": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom6": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom7": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom8": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "Custom9": {
+          "$ref": "#/definitions/CustomField"
+        },
+        "DepartureDate": {
+          "type": "string",
+          "description": "The departure date of the segment."
+        },
+        "DepartureTime": {
+          "type": "string",
+          "description": "The departure time of the segment."
+        },
+        "Exceptions": {
+          "$ref": "#/definitions/TRException"
+        },
+        "ExchangeRate": {
+          "type": "string",
+          "description": "The exchange rate that applies to the segment."
+        },
+        "FlightNumber": {
+          "type": "string",
+          "description": "The flight number for air segments. Appears only when Request is integrated with Concur Travel."
+        },
+        "ForeignAmount": {
+          "type": "string",
+          "description": "The foreign currency amount of the segment."
+        },
+        "ForeignCurrencyCode": {
+          "type": "string",
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the foreign currency amount of the segment."
+        },
+        "ForeignCurrencyName": {
+          "type": "string",
+          "description": "The name of the currency for the foreign amount of the segment."
+        },
+        "FormTypeCode": {
+          "type": "string",
+          "description": "The code for form type of the segment type."
+        },
+        "FromLocationAirportName": {
+          "type": "string",
+          "description": "The code for form type of the segment type."
+        },
+        "FromLocationCode": {
+          "type": "string",
+          "description": "The code for form type of the segment type."
+        },
+        "FromLocationCountryCode": {
+          "type": "string",
+          "description": "The code for form type of the segment type."
+        },
+        "FromLocationDetail": {
+          "type": "string",
+          "description": "The code for the starting location."
+        },
+        "FromLocationIataCode": {
+          "type": "string",
+          "description": "The code for the starting location."
+        },
+        "FromLocationID": {
+          "type": "string",
+          "description": "The unique identifier of the departure location. (See. the \"Locations\" resource for more information)."
+        },
+        "FromLocationIsAirport": {
+          "type": "boolean",
+          "description": "Indicates that the comment is the last one."
+        },
+        "FromLocationName": {
+          "type": "string",
+          "description": "The name of the starting location."
+        },
+        "FromLocationSubCountryCode": {
+          "type": "string",
+          "description": "The name of the starting location."
+        },
+        "FromLocationVendor": {
+          "type": "string",
+          "description": "The name of the starting location."
+        },
+        "IsAgencyBooked": {
+          "type": "string",
+          "description": "Indicates whether the air segment was agency booked. Format: Y/N."
+        },
+        "IsSelfBooked": {
+          "type": "string",
+          "description": "Indicates whether the air segment was self booked. Format: Y/N."
+        },
+        "LastModifiedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date the segment was last modified. Format: YYYY-MM-DDThh:mm:ss"
+        },
+        "OutboundSegmentID": {
+          "type": "string",
+          "description": "undefined:ConnectSwaggerDocs-REQ_SEGMENT_OUTBOUND_ID"
+        },
+        "PostedAmount": {
+          "type": "string",
+          "description": "The posted amount of the segment in the Request currency."
+        },
+        "RecordLocator": {
+          "type": "string",
+          "description": "Appears only when the Request is integrated with Concur Travel."
+        },
+        "RemainingAmount": {
+          "type": "string",
+          "description": "The remaining amount of the segment in the Request currency."
+        },
+        "SegmentFormID": {
+          "type": "string",
+          "description": "The unique identifier of the Segment Form resource (See. the \"Forms\" resource for more information)."
+        },
+        "SegmentLocator": {
+          "type": "string",
+          "description": "The unique identifier for the Concur Travel segment associated with this segment. Appears only when the Request is integrated with Concur Travel."
+        },
+        "SegmentType": {
+          "type": "string",
+          "description": "The type of itinerary segment. Format: air, car, hotel, rail, dining, event, ground, taxi, parking, other and so on"
+        },
+        "SegmentTypeCode": {
+          "type": "string",
+          "description": "The code for the type of itinerary segment."
+        },
+        "ToLocationAirportName": {
+          "type": "string",
+          "description": "The code for the type of itinerary segment."
+        },
+        "ToLocationCode": {
+          "type": "string",
+          "description": "The code for the type of itinerary segment."
+        },
+        "ToLocationCountryCode": {
+          "type": "string",
+          "description": "The code for the type of itinerary segment."
+        },
+        "ToLocationDetail": {
+          "type": "string",
+          "description": "The code for the ending location."
+        },
+        "ToLocationIataCode": {
+          "type": "string",
+          "description": "The code for the ending location."
+        },
+        "ToLocationID": {
+          "type": "string",
+          "description": "The unique identifier of the arrival location. (See. the \"Locations\" resource for more information)."
+        },
+        "ToLocationIsAirport": {
+          "type": "boolean",
+          "description": "Indicates that the comment is the last one."
+        },
+        "ToLocationName": {
+          "type": "string",
+          "description": "The name of the ending location."
+        },
+        "ToLocationSubCountryCode": {
+          "type": "string",
+          "description": "The name of the ending location."
+        },
+        "ToLocationVendor": {
+          "type": "string",
+          "description": "The name of the ending location."
+        },
+        "TripLocator": {
+          "type": "string",
+          "description": "The unique identifier for the Concur Travel trip associated with this segment. Appears only when the Request is integrated with Concur Travel."
+        },
+        "VendorName": {
+          "type": "string",
+          "description": "The name of the vendor of the segment."
+        }
+      }
+    },
+    "TravelRequestHeader": {
+      "properties": {
+        "ApprovalStatusCode": {
+          "type": "string",
+          "description": "The code for the approval status the Request."
+        },
+        "ApprovalStatusName": {
+          "type": "string",
+          "description": "The Request's approval status, in the user's language."
+        },
+        "ApproverLoginID": {
+          "type": "string",
+          "description": "The login ID of the approver for the user's Request."
+        },
+        "CreationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date of the Request."
+        },
+        "CurrencyCode": {
+          "type": "string",
+          "description": "The <a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_4217\">3-letter ISO 4217 currency code</a> for the Request currency."
+        },
+        "EmployeeName": {
+          "type": "string",
+          "description": "The name of the Request owner."
+        },
+        "EndDate": {
+          "type": "string",
+          "description": "The end date of the Request."
+        },
+        "HeaderFormID": {
+          "type": "string",
+          "description": "The unique identifier of the Header Form resource (See. the \"Forms\" resource for more information)."
+        },
+        "ID": {
+          "type": "string",
+          "description": "The unique identifier of the resource."
+        },
+        "LastComment": {
+          "type": "string",
+          "description": "The text of the most recent comment on the Request."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The name of the Request."
+        },
+        "Purpose": {
+          "type": "string",
+          "description": "The purpose of the Request."
+        },
+        "RequestDetailsUrl": {
+          "type": "string",
+          "description": "The URI to use when posting Request header details to this Request."
+        },
+        "RequestID": {
+          "type": "string",
+          "description": "The unique identifier for the Request, as it appears in the Concur UI."
+        },
+        "SegmentTypes": {
+          "type": "string",
+          "description": "A comma separated list of the segment type names that are present in this Request."
+        },
+        "StartDate": {
+          "type": "string",
+          "description": "The start date of the Request."
+        },
+        "TotalApprovedAmount": {
+          "type": "string",
+          "description": "The total amount of the Request."
+        },
+        "TotalPostedAmount": {
+          "type": "string",
+          "description": "The posted amount of the Request entry in the Request currency."
+        },
+        "URI": {
+          "type": "string",
+          "description": "The URI to the resource."
+        },
+        "UserLoginID": {
+          "type": "string",
+          "description": "The login ID of the user this Request belongs to."
+        }
+      }
+    },
+    "TRException": {
+      "properties": {
+        "Code": {
+          "type": "string",
+          "description": "The system exception code defined for the exception. Example: BADCODE"
+        },
+        "Level": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The numeric level associated with the exception. Example: 99"
+        },
+        "Message": {
+          "type": "string",
+          "description": "The user-facing message defined for the exception."
+        }
+      }
+    },
+    "UserPermissions": {
+      "properties": {
+        "Links": {
+          "$ref": "#/definitions/Link"
+        }
+      }
+    },
+    "Void": {
+      "properties": {}
+    }
+  }
+}

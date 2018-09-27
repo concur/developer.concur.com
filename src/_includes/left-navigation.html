@@ -1,0 +1,73 @@
+{% comment %}
+
+Select the sidebar YAML according to the URI information.
+
+See:
+
+  https://jekyllrb.com/tutorials/navigation/
+  https://shopify.github.io/liquid/filters/remove_first/
+  https://shopify.github.io/liquid/filters/split/
+  https://shopify.github.io/liquid/filters/first/
+
+Examples:
+
+  https://developer.concur.com/api-reference/receipts/get-started.html
+                               api-reference.yml
+  https://developer.concur.com/api-reference-deprecated/version-one/attendees/attendee-list-resource.html
+                               api-reference-deprecated.yml
+
+{% endcomment %}
+
+{% assign sidebar = page.url | remove_first: '/' | split: '/' | first %}
+
+{% comment %}
+Set the YAML as the source.
+{% endcomment %}
+
+{% assign items = site.data.sidebars[sidebar] %}
+
+<ul class="list-group sidebar-nav-v1 hidden-print" id="sidebar-nav">
+
+{% comment %}
+Loop through the items in the YAML and build the navigation bar.
+{% endcomment %}
+
+{% for item in items %}
+
+  {% if item.children == nil or item.children == empty %}
+    <li class="list-group-item {% if item.url == page.url %}active{% endif %}">
+      <a href="{{ item.url }}">{{ item.title }}</a>
+    </li>
+
+  {% else %}
+
+    {% comment %}
+    Determine if the current page is a child of the item. If so, show the item as active and uncollapse the item's children
+    {% endcomment %}
+
+    {% assign active_children = item.children | where: "url", page.url %}
+
+    {% if active_children.size > 0 %}
+      {% assign active_item = true %}
+    {% else %}
+      {% assign active_item = false %}
+    {% endif %}
+
+    <li class="list-group-item list-toggle {% if active_item %}active{% endif %}">
+      <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-{{ item.title | slugify }}">
+        {{ item.title }}
+      </a>
+      <ul id="collapse-{{ item.title | slugify }}" class="collapse {% if active_item %}in{% endif %}">
+        {% for child in item.children %}
+          <li {% if child.url == page.url %} class="active" {% endif %}>
+            <a href="{{ child.url }}">{{ child.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </li>
+
+  {% endif %}
+
+{% endfor %}
+
+</ul>
