@@ -790,7 +790,7 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `description`|`string`|-|Not used.
-`name`|`string`|-| The admin-facing name for this category.
+`name`|`string`|-|The admin-facing name for this category.
 `statusType`|`string`|-|The status of this budget category. Valid values are 'OPEN' and 'REMOVED'
 `id`|`string`|-|The budget service's key for this object.
 
