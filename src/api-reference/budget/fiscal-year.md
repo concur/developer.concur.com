@@ -35,7 +35,7 @@ The Fiscal Calendar is used both for Reporting and Budget. A Fiscal Year can sta
 Retrieve a list of all fiscal years
 
 * Use the lastModifiedAfter parameter if you wish to only retrieve fiscal years that were changed after a certain date.
-* Use the includeRemoved parameter if you wish to retrieve all fiscal years, including those that have been deleted.  _Important: delete data that is beyond the configured retention period can not be returned._
+* Use the includeRemoved parameter if you wish to retrieve all fiscal years, including those that have been deleted.  _Important: deleted data that is beyond the configured retention period can not be returned._
 
 ### Scopes
 
@@ -620,7 +620,6 @@ Name|Type|Format|Description
 `quarterlyFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of quarterly Fiscal Periods in this Fiscal Year.  If this parameter is not specified, quaterly Fiscal Periods are automatically generated based on the monthly Fiscal Periods supplied.  
 `yearlyFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of yearly Fiscal Periods in this Fiscal Year.  If this parameter is not specified, one period is created that fills the Fiscal Year.
 `customFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of custom Fiscal Periods in this Fiscal Year.  Custom Fiscal Periods are API-only and will not display on user budget dashboards.  
-`fiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of all Fiscal Periods in this Fiscal Year.  **READ ONLY**
 `openAndClosedFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of all Fiscal Periods in this Fiscal Year, sorted by status.  **READ ONLY**
 
 ### <a name="fiscalPeriod"></a>FiscalPeriod
