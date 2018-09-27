@@ -14,7 +14,7 @@ layout: reference
 
 **Preview** _This is a prerelease version of the service and is subject to change before final release._
 
-This resource is used to retrieve information about budget's tracking fields for an entity. Every entity may have a specific set of budget tracking fields and every budget may enable any or all of the budget tracking fields. If there are tracking fields associated, the  budgets get matched to the Product only when the tracking field conditions are met. 
+This resource is used to retrieve information about budget's tracking fields for an entity. Every entity may have a specific set of budget tracking fields and every budget may enable any or all of the budget tracking fields. If there are tracking fields associated, the budgets get matched to the Product only when the tracking field conditions are met. 
 
 * [GET all budget tracking fields for an entity](#getall)
 * [Schema](#schema)
@@ -23,11 +23,11 @@ This resource is used to retrieve information about budget's tracking fields for
 
 ## Version
 
-4.0  
+4.0
 
 ## <a name="getall"></a>GET all Budget Tracking Fields
 
-Retrieve budget tracking fields for use in budget configuration.  The budget sequence number from this response may be used as the "code" field in the budget item header tracking fields.
+Retrieve budget tracking fields for use in budget configuration. The budget sequence number from this response may be used as the "code" field in the budget item header tracking fields.
 
 ### Scopes
 
@@ -151,11 +151,11 @@ concur-correlationid: 86a0d9fe-9e98-43c3-89d8-a2917dd844cb
 
 Name|Type|Format|Description
 ---|---|---|---
-`budgetTrackingFieldName`|`string`| - |The budget field tracking name 
-`fieldType`|`string`| - |The data type of this field or field collection. Valid values are LIST, MLIST, and VARCHAR.
-`listSyncGuid`|`string`| - |If the dataType of this item is LIST or MLIST, this is the id of the list definition from Concur's list service.
-`fieldId`|`string`| - |The budget service's key for this object
-`budgetSequenceNumber`|`integer`| - |The sequence or the order in which the budget tracking field appears in the budget UI.
+`budgetTrackingFieldName`|`string`|-|The budget field tracking name 
+`fieldType`|`string`|-|The data type of this field or field collection. Valid values are LIST, MLIST, and VARCHAR.
+`listSyncGuid`|`string`|-|If the dataType of this item is LIST or MLIST, this is the id of the list definition from Concur's list service.
+`fieldId`|`string`|-|The budget service's key for this object
+`budgetSequenceNumber`|`integer`|-|The sequence or the order in which the budget tracking field appears in the budget UI.
 
 ## <a name="responseHeaders"></a>Response Headers
 
