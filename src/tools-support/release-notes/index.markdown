@@ -83,4 +83,3 @@ layout: reference
 * [July 2013](./app-center-dev-platform-2013-07-01.pdf)
 * [June 2013](./app-center-dev-platform-2013-06-01.pdf)
 * [May 2013](./app-center-dev-platform-2013-05-01.pdf)
-* [April 2013](./app-center-dev-platform-2013-04-01.pdf)
