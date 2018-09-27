@@ -211,9 +211,9 @@ Name | Type | Format | Description
 
 ```xml
 <UserBatch xmlns="http://www.concursolutions.com/api/user/2011/02">
-    <UserProfile>
-        <loginid>loginID</loginid>
-        <password>password</password>
-    </UserProfile>
+    <User>
+        <LoginID>loginID</LoginID>
+        <Password>password</Password>
+    </User>
 </UserBatch>
 ```

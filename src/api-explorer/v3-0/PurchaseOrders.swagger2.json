@@ -108,7 +108,7 @@
   },
   "definitions": {
     "Allocation": {
-      "required":["Amount", "GrossAmount", "Percentage"],
+      "required":["Amount"],
       "properties": {
         "Amount": {
           "type": "string",
@@ -394,6 +394,10 @@
           "type": "string",
           "description": "Any tax that is associated with the line item."
         },
+        "UnitOfMeasureCode": {
+          "type": "string",
+          "description": "The unit of measure code of the line item."
+        },
         "UnitPrice": {
           "type": "string",
           "description": "The price of each item of the line item."
@@ -534,6 +538,14 @@
           "type": "string",
           "description": "The unique identifier of the resource."
         },
+        "IsTest": {
+          "type": "boolean",
+          "description": "If the purchase order is a test."
+        },
+        "IsChangeOrder": {
+          "type": "boolean",
+          "description": "If the purchase order has a change order or not."
+        },
         "LedgerCode": {
           "type": "string",
           "description": "A code which indicates which company journal the Purchase Order is assigned to. Use GET /purchase order/localizeddata to translate the code into text."
@@ -575,6 +587,10 @@
         "PurchaseOrderNumber": {
           "type": "string",
           "description": "The purchase order number."
+        },
+        "PurchaseRequestNumber": {
+          "type": "string",
+          "description": "The related purchase request number that generated the purchase order."
         },
         "ReceiptType": {
           "type": "string",

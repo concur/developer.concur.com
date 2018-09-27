@@ -3,8 +3,6 @@ title: Service Name
 layout: reference
 ---
 
-[Terms of Use](./Terms-of-Use.html)
-
 Description
 
 * [Section](#section)
@@ -63,7 +61,7 @@ Name|Type|Format|Description
 
 ##### URI Template
 
-```
+```shell
 https://example.com/api/{variable}
 ```
 
@@ -171,19 +169,20 @@ https://example.com/api/{variable}
 
 #### Request
 
-```
+```shell
 {HTTP Method} {URI}
 {Header}: {Value}
 ```
 
 #### Response
 
-```
-Headers
+```shell
+{HTTP Status Code}
+{Header}: {Value}
 ```
 
-```
-Payload
+```json
+{}
 ```
 
 ## <a name="schema"></a>Schema
@@ -240,7 +239,7 @@ Name|Type|Format|Description
 
 ##### URI Template
 
-```
+```shell
 https://example.com/api?store={storeIdentifier}&date={requestDate}
 ```
 
@@ -269,11 +268,18 @@ https://example.com/api?store={storeIdentifier}&date={requestDate}
 #### Request
 
 * Showing developers exactly what they can expect in request and response values when using is perhaps the simplest way to complete this portion of the documentation.
-* Use triple backticks to create fenced code blocks.
+* Use triple backticks to create fenced code blocks and a language identifier for syntax highlighting.
+* See [Creating and highlighting code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/)
 
-```
-GET https://example.com/stores/123
+```shell
+POST https://example.com/stores/123
 Accept: application/json
+```
+
+```json
+{
+  "key": "value"
+}
 ```
 
 #### Response
@@ -282,7 +288,7 @@ Accept: application/json
 * Add the language identifier to any code blocks for syntax highlighting
 * See the GitHub topic [Creating and highlighting code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/) for more information.
 
-```
+```shell
 HTTP/1.1 200 OK
 Cache-Control: max-age=604800
 Content-Type: application/json
