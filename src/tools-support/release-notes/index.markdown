@@ -55,6 +55,7 @@ layout: reference
 
 # Developer Platform Release Notes
 
+* [September 2018](./api/2018-09-30.html)
 * [March 2017](./dev-platform-2017-03-01.html)
 * [November 2016](./dev-platform-2016-11-01.html)
 * [April 2016](./dev-platform-2016-04-01.html)
