@@ -210,12 +210,14 @@ Schema for ground transportation receipts. This includes essentially all forms o
 |__*startDateTime*__|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
 |endDateTime|string|date-time|A subset of ISO 8601 date-times. The first restriction is that the dateTime requires a date, a time (at least the hour portion), and a UTC offset. The second restriction is that the dateTime does not allow a time to be formatted in UTC time (2015-11-02T14:30Z - notice the Z) without an offset; this is because it would be impossible for us to know the original offset so we could not generate a receipt with the correct local time.|
 |travelDuration|string|^(-)?P(?:(-?[0-9,.]*)Y)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)W)?(?:(-?[0-9,.]*)D)?(?:T(?:(-?[0-9,.]*)H)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)S)?)?$|Duration of a time interval as defined in ISO 8601|
-|mapUrl|string|^https://(www|maps).(googleapis|google).[a-z]+/maps/|Link to an image of the traveled route.|
+|mapUrl|string|[Google Maps URI Pattern](#google-maps-uri-pattern)|Link to an image of the traveled route.|
 |__*pickupLocation*__|object|[Location](#location)|Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.|
 |dropoffLocation|object|[Location](#location)|Schema representing a location, including geographical information and a postal address. Used in multiple receipt types.|
 |distance|object|[distance](#distance)|Object representing a distance.|
 |driverNumber|string|N/A|Unique identifier assigned by the ride company to a driver.|
 |lineItems|array|[lineItems](#line-item)|Descriptive breakdown of the fare charged. For example: base fare, distance travelled, discount and other add-ons.|
+
+<a name="google-maps-uri-pattern"></a>Google Maps URI Pattern: `^https://(www|maps).(googleapis|google).[a-z]+/maps/`
 
 #### Hotel Receipt
 Schema for hotel receipts.
