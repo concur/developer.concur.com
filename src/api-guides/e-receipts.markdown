@@ -19,14 +19,14 @@ At SAP Concur, e-receipts are digital representations of receipts with both a re
 
 ### User Connections / Authentication
 
-The below Authentication Methods are available to obtain an access token. Password Grant or Authorization Grant or One-Time Password Grant is required for Certification:
+;The below Authentication Methods are available to obtain an access token. Password Grant or Authorization Grant or One-Time Password Grant is required for Certification:
 
 - [Password Grant](/api-reference/authentication/apidoc.html#password_grant) &ndash; Connect from the SAP Concur App Center.
 - [Authorization Grant](/api-reference/authentication/apidoc.html#auth_grant) &ndash; Connect from the Partner App.
 - [One-Time Password Grant](/api-reference/authentication/apidoc.html#otp_grant) &ndash; Connect from the Partner App using email.
 
 
-#### App Center Flow - Connecting from SAP Concur Web / Mobile App Center
+#### App Center Flow &ndash; Connecting from SAP Concur Web / Mobile App Center
 
 1. To begin the authentication flow, a request (temporary) token is obtained via the SAP Concur AppCenter interface.
 2. A logged-in SAP Concur user clicks on the Connect button on the App listing in the App Center and authorizes your app to post data.   App Listing Example below:
@@ -46,7 +46,7 @@ Example:   https://{partner_redirect_URI}?id=8568a4cd-8ffc-49d6-9417-be2d69aa075
    - Sub: (36 characters including dashes) user **id** value provided on the redirect URI.  The user **id** will be used to post receipts to the user&#39;s SAP Concur account.
 
 
-#### Web Flow &ndash Connecting from the Partner Web / Mobile App
+#### Web Flow &ndash; Connecting from the Partner Web / Mobile App
 1. Partner App-User clicks on **Link to Concur** button within the Partner&#39;s website/mobile App.  Partner Web/Mobile Connection Example below:
 
     ![webflow_auth](/assets/img/api-guides/e-receipts/webflow_auth.png)
@@ -116,7 +116,7 @@ Getting Started with Receipts v4 documentation can be found [here](/api-referenc
 - SAP Concur generates a standard receipt for Partners who do not tender a receipt image.
 - SAP Concur will display your App Logo on standard generated receipts (size 100x100 px).
 
-#### Post an E-Receipt after payment has been made
+#### Post an E-Receipt After Payment Has Been Made
 
 1. Obtain a fresh access token for the user using [refresh grant](/api-reference/authentication/apidoc.html#refresh_token).
 2. You will need the user **Id** previously stored in the user&#39;s profile to post receipts on his/her behalf.
@@ -135,7 +135,7 @@ Getting Started with Receipts v4 documentation can be found [here](/api-referenc
    - **refresh\_expires\_in** _(Replace)_
 4. If the user does not log in for six months his/her refresh token will expire and the user&#39;s Partner account and SAP Concur account will be de-linked.
 
-#### Migrating Tokens (Applies to existing Partners/existing Apps Only)
+#### Migrating Tokens (Applies to Existing Partners/Existing Apps Only)
 
 Existing applications that use the deprecated /net2/oauth2 framework need to move to support the new OAuth2 Bearer Tokens.
 
@@ -145,7 +145,7 @@ Applications will need to [migrate](/api-reference/authentication/migrationguide
 2. Once you have obtained the Application Token, exchange Old for New Refresh Tokens by calling the [ExchangeRefreshToken](/api-reference/authentication/migrationguide.html#exchangetoken) endpoint.
 3. Use the new refreshtoken to obtain a new accesstoken using the [refresh grant](/api-reference/authentication/apidoc.html#refresh_token).
 4. Decode the **id\_token** to obtain the **sub** value and store this value as the user **id** (see [https://jwt.io](https://jwt.io)).
-5. An access token is valid only for one hour.  The access token should be cached in memory and discarded after use.
+5. An access token is valid only for one hour. The access token should be cached in memory and discarded after use.
 6. Store the following with the user&#39;s profile in your database.
    - refresh\_token: (36 characters including dashes) valid for six months from the day and time issued.
    - refresh\_expires\_in: This is Epoch time format, convert to UTC.
@@ -159,7 +159,7 @@ To [revoke](/api-reference/authentication/apidoc.html#revoke_token) a user&#39;s
 
 ### <a name="being_geo_aware"></a> Being Geo Aware
 
-#### SAP Concur has multiple datacenters:
+#### SAP Concur Has Multiple Datacenters
 
 US = `https://us.api.concursolutions.com`
 
@@ -167,6 +167,6 @@ EMEA = `https://emea.api.concursolutions.com`
 
 China = `https://cn.api.concurcdc.cn`
 
-You will need to be aware of the geolocation where the user exists in and make the call to the APIs correctly.  If there is a case where you will not / do not know the user&#39;s geolocation, then you should make the API call using the default US Base URI `https://us.api.concursolutions.com` and expect a geolocation error which will return the correct geoLocation for the user.  Sample of Error below:
+You will need to be aware of the geolocation where the user exists in and make the call to the APIs correctly. If there is a case where you will not/do not know the user&#39;s geolocation, then you should make the API call using the default US Base URI `https://us.api.concursolutions.com` and expect a geolocation error which will return the correct geoLocation for the user. Sample of Error below:
 
   ![error2](/assets/img/api-guides/e-receipts/error2.jpg)
