@@ -153,13 +153,13 @@ Name|Type|Format|Description
 ---|---|---|---
 `budgetTrackingFieldName`|`string`|-|The budget field tracking name 
 `fieldType`|`string`|-|The data type of this field or field collection. Valid values are LIST, MLIST, and VARCHAR.
-`listSyncGuid`|`string`|-|If the dataType of this item is LIST or MLIST, this is the id of the list definition from Concur's list service.
+`listSyncGuid`|`string`|-|If the dataType of this item is LIST or MLIST, this is the id of the list definition from SAP Concur's list service.
 `fieldId`|`string`|-|The budget service's key for this object
 `budgetSequenceNumber`|`integer`|-|The sequence or the order in which the budget tracking field appears in the budget UI.
 
 ## <a name="responseHeaders"></a>Response Headers
 
-* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
 * [RFC 7231 Allow](https://tools.ietf.org/html/rfc7231#section-7.4.1)
 * [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
 * [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
