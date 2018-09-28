@@ -180,7 +180,7 @@ Name|Type|Format|Description
 `amount`| `decimal`|-|**Required** The budget currency amount to be adjusted. The amount may be a positive or negative value but it cannot be zero.
 `adjustmentType`|`string`|-|**Required** The adjustment’s reference type. Valid values are BUDGET_BALANCE, FUND_TRANSFER, EXPENSE, PAYMENT_REQUEST, PURCHASE_REQUEST, REQUEST
 `amountType`|`string`|-|**Required** The type of the budget’s balance to adjust. Affects which values in the budget are updated. Valid values are BUDGET_AMOUNT, SPENT_AMOUNT, PENDING_AMOUNT
-`description`|`string`|-|A friendly user-friendly description of the adjustment
+`description`|`string`|-|A user-friendly description of the adjustment
 `transactionDate`|`date`|YYYY-MM-DD |**Required if amount type is either SPENT_AMOUNT or PENDING_AMOUNT** Must be within the fiscal period.
 
 ### <a name="errorResponse"></a>Error Response
@@ -200,7 +200,7 @@ Name|Type|Format|Description
 
 ## <a name="responseHeaders"></a>Response Headers
 
-* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
 * [RFC 7231 Allow](https://tools.ietf.org/html/rfc7231#section-7.4.1)
 * [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
 * [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)

@@ -44,7 +44,7 @@ This resource is used to retrieve and update information about a budget that spa
 
 ## <a name="getall"></a>GET all Budget Items
 
-Retrieve all budget items in groups of up to 50 items.  Due to response size and performance considerations, this endpoint does not return budgetItemDetails.  Use the [get request below](#get) to retrieve all fo the details for a single budget. 
+Retrieve all budget items in groups of up to 50 items.  Due to response size and performance considerations, this endpoint does not return budgetItemDetails.  Use the [get request below](#get) to retrieve all of the details for a single budget. 
 
 ### Scopes
 
@@ -737,13 +737,13 @@ Name|Type|Format|Description
 `budgetItemStatusType`|`string`|-|The status of this budget item. Valid values are 'OPEN', 'CLOSED', and 'REMOVED' (Closed means no spending may be attached to this budget.)
 `budgetViewers`|`Array[BudgetPerson]`|-|The users who can view this budget
 `costObjects`|`Array[CostObjectValue]`|-|The cost object list for matching spending items.
-`currencyCode`|`string`|-|The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona. This is the currencycode of the budget amount. Spending Items are converted using yesterday's closing value. 
+`currencyCode`|`string`|-|The 3-letter ISO 4217 currency code for the budget currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona. This is the currency code of the budget amount. Spending Items are converted using yesterday's closing value. 
 `description`|`string`|-|**Required** The user-friendly name for this budget. This description is displayed to end users on desktop and mobile.
-`fiscalYear`|`FiscalYear`|-|**Required** The fiscal year for this budget.  Only the id is required for creating/updating a budget.
+`fiscalYear`|`FiscalYear`|-|**Required** The fiscal year for this budget.  Only the id of the fiscal year, which can be retrieved from the [Fiscal Year service](#/api-reference/budget/fiscal-year.html), is required for creating/updating a budget.
 `isTest`|`boolean`|-|The test flag for the budget item.  If true, this budget will only match spending submitted by test users.
 `name`|`string`|-|**Required** The admin-facing name for this budget.
 `owned`|`string`|-|A flag indicating if the current user is the owner of this budget.  **READ ONLY**
-`owner`|`BudgetPerson`|-|**Required** The user who is ultimately responsible for this budget.  He/she may approve spending for the budget.
+`owner`|`BudgetPerson`|-|**Required** The user who is ultimately responsible for this budget.
 `periodType`|`string`|-|The type of period within the fiscal year that this budget's details use. **READ ONLY**
 `id`|`string`|-|The key for this object.
 
@@ -756,8 +756,8 @@ Name|Type|Format|Description
 `budgetAmounts`|`BudgetAmounts`|-|The accumulated budget numbers for this budget.  **READ ONLY**
 `budgetItemBalances`|`Array[BudgetItemBalance]`|-|Shows the break-out of budget spending by product and workflow state.  **READ ONLY**
 `budgetItemDetailStatusType`|`string`|-|The status of this budget item. Valid values are 'OPEN', 'CLOSED', and 'REMOVED' (Closed means no spending may be attached to this budget.)
-`currencyCode`|`string`|-|The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.
-`fiscalPeriod`|`FiscalPeriod`|-|**Required** The fiscal period for this budget amount.  Only the id is required for creating/updating a budget.
+`currencyCode`|`string`|-|The 3-letter ISO 4217 currency code for the budget currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona.
+`fiscalPeriod`|`FiscalPeriod`|-|**Required** The fiscal period for this budget amount.  Only the id of the fiscal period, which can be retrieved from the [Fiscal Year service](#/api-reference/budget/fiscal-year.html), is required for creating/updating a budget.
 `id`|`string`|-|The key for this object.
 
 
@@ -765,13 +765,13 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`availableAmount`|`decimal`|-|The available amount accumulated against this budget. Uses budget entity setting to determine which amounts are included to calculate available amount. **READ ONLY**
-`consumedPercent`|`decimal`|-|The percentage of the budget that is considered used. Uses budget entity setting to determine which amounts to include. **READ ONLY**
+`availableAmount`|`decimal`|-|The available amount accumulated against this budget. Uses budget setting to determine which amounts are included to calculate available amount. **READ ONLY**
+`consumedPercent`|`decimal`|-|The percentage of the budget that is considered used. Uses budget setting to determine which amounts to include. **READ ONLY**
 `pendingAmount`|`decimal`|-|The pending amount accumulated against this budget. **READ ONLY**
 `spendAmount`|`decimal`|-|The spent amount accumulated against this budget. **READ ONLY**
 `threshold`|`string`|-|The indicator of whether this budget is under the alert limit (UNDER), equal to or over the alert limit, but under the control limit (ALERT), or equal to or over the control limit (OVER).  **READ ONLY**
 `unexpensedAmount`|`decimal`|-|The amount of unexpensed items like travel bookings, quick expenses, or e-receipts **READ ONLY**
-`unexpensedSettings`|`string`|-|An indicator for whether this company has an special setting for unexpensed items.  Example values: SHOW_UNSUBMITTED_EXPENSES_AS_PENDING, SHOW_UNSUBMITTED_EXPENSES_BALANCE, and DO_NOT_SHOW_UNSUBMITTED_EXPENSES **READ ONLY**
+`unexpensedSettings`|`string`|-|The company's budget setting for unexpensed items. Applies to all budgets for the company. Possible values are: SHOW_UNSUBMITTED_EXPENSES_AS_PENDING, SHOW_UNSUBMITTED_EXPENSES_BALANCE, and DO_NOT_SHOW_UNSUBMITTED_EXPENSES **READ ONLY**
 
 ### <a name="budgetPerson"></a>BudgetPerson
 
@@ -779,7 +779,7 @@ Provide externalUserCUUID or email of the user for looking up the person.
 
 Name|Type|Format|Description
 ---|---|---|---
-`externalUserCUUID`|`string`|-|The unique identifier for this user. This must match the CUUID from Concur's profile service.
+`externalUserCUUID`|`string`|-|The unique identifier for this user. This must match the CUUID from SAP Concur's profile service.
 `name`|`string`|-|The user's name.  Provided for convenience.  **READ ONLY**
 `id`|`string`|-|The budget service's key for this object.
 `email`|`string`|-|The email address of the person to lookup.
@@ -799,19 +799,20 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`featureTypeCode`|`string`|-|**Required** The type of feature that this expense type applies to, Purchase Request, Payment Request (Invoice), Expense or Travel Authorization (Possible values: 'REQUEST', 'TRAVEL', 'EXPENSE', 'PAYMENT_REQUEST', 'PURCHASE_REQUEST')
-`expenseTypeCode`|`string`|-|**Required** The alphanumeric code that describes an expense type.  Ex: TRAVEL, AC_CATER Any string may be used, but only expense type codes returned by GET /budgetCategory/expenseType will behave properly in the Concur UI.  
-`name`|`string`|-|The name for this expense type if it maps to an expense type set up in Concur. **READ ONLY**
+`featureTypeCode`|`string`|-|**Required** The product that this expense type applies to- Purchase Request, Payment Request (Invoice), Expense, Travel, or Request (Possible values: 'PURCHASE_REQUEST', 'PAYMENT_REQUEST', 'EXPENSE', 'TRAVEL', 'REQUEST')
+`expenseTypeCode`|`string`|-|**Required** The alphanumeric code that describes an expense type. (Ex: TRAVEL, AC_CATER) Valid expense type codes are returned by the GET /budgetCategory/expenseType method described in the [Budget Category service](/api-reference/budget/budget-category.html).  
+`name`|`string`|-|The name for this expense type if it maps to an expense type set up in your Concur product(s). **READ ONLY**
 `id`|`string`|-|The budget service's key for this object.
 
 
-### <a name="budgetTrackingValue"></a>CostObjectValue
+### <a name="budgetTrackingValue"></a>BudgetTrackingValue
 
 Name|Type|Format|Description
 ---|---|---|---
 `code`|`string`|-|**Required** The code for the cost object field.
-`value`|`string`|-|The value for the cost object field. Blank or null mean that we 
-`listKey`|`string`|-|When setting up the budget, specify the listKey that maps to the value of this list in the concur list service.
+`value`|`string`|-|The value for the cost object field.  The value of this field will be ignored unless the operator field is EQUAL, NOTEQUAL, INLIST, or NOTINLIST.  The value of this field can be one or more comma-separated values if the INLIST or NOTINLIST operator is chosen.   
+`listKey`|`string`|-|When setting up the budget, specify the listKey that maps to the value of this list in the SAP Concur list service.
+`operator`|`string`|-|The comparison to use when matching values for this tracking field.  Valid values are EQUAL, INLIST, ISBLANK, NOTEQUAL, NOTINLIST, ISNOTBLANK, ISTRUE, ISFALSE, ISNOTTRUE, and ISNOTFALSE
 
 
 ### <a name="budgetItemBalance"></a>BudgetItemBalance
@@ -828,7 +829,7 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`currentYear`|`boolean`|-|Is this the current fiscal year based on the current time?  **READ ONLY**
+`currentYear`|`boolean`|-|True if this the current fiscal year based on the current time, False otherwise. **READ ONLY**
 `startDate`|`date`|-|**Required** The start date for this fiscal year. The distance between start date and end date may not be more than two years. Format: YYYY-MM-DD 
 `endDate`|`date`|-|**Required** The end date for this fiscal year. The distance between start date and end date may not be more than two years.  Format: YYYY-MM-DD
 `name`|`datetime`|-|**Required** The name of this fiscal year. Must be unique for this entity.
@@ -840,7 +841,7 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`currentPeriod`|`boolean`|-|Is this the current fiscal period based on the current time?  **READ ONLY**
+`currentPeriod`|`boolean`|-|True if this the current fiscal period based on the current time, False otherwise. **READ ONLY**
 `startDate`|`date`|-|**Required** The start date for this fiscal period. Must be within the parent fiscal year. Format: YYYY-MM-DD
 `endDate`|`date`|-|**Required** The end date for this fiscal year. Must be within the parent fiscal year. Format: YYYY-MM-DD
 `name`|`string`|-|**Required** The name of this fiscal period. Must be unique for this entity.
@@ -874,7 +875,7 @@ Name|Type|Format|Description
 
 ## <a name="responseHeaders"></a>Response Headers
 
-* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
 * [RFC 7231 Allow](https://tools.ietf.org/html/rfc7231#section-7.4.1)
 * [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
 * [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
