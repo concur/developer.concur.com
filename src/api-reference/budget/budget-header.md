@@ -11,9 +11,9 @@ layout: reference
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
 
-# Budget Item 
+# Budget Item
 
-**Preview** _This is a prerelease version of the service and is subject to change before final release._
+{% include prerelease.html %}
 
 This resource is used to retrieve and update information about a budget that spans a single fiscal year.  Each Budget has multiple details that correspond to Fiscal Periods--months, quarters, or a single period for a yearly budget.
 
@@ -43,7 +43,7 @@ This resource is used to retrieve and update information about a budget that spa
 
 ## <a name="getall"></a>GET all Budget Items
 
-Retrieve all budget items in groups of up to 50 items.  Due to response size and performance considerations, this endpoint does not return budgetItemDetails.  Use the [get request below](#get) to retrieve all fo the details for a single budget. 
+Retrieve all budget items in groups of up to 50 items.  Due to response size and performance considerations, this endpoint does not return budgetItemDetails.  Use the [get request below](#get) to retrieve all fo the details for a single budget.
 
 ### Scopes
 
@@ -65,7 +65,7 @@ Name | Type | Format | Description
 -----|------|--------|------------			
 adminView	|	`boolean`	|	`query`	|	If true, returns all budgets for this entity, if false, returns only the budgets owned by the current user.  Defaults to false.
 offset	|	`integer`	|	`query`	|	The start of the page offset.  Defaults to zero.
-    
+
 ##### URI Template
 
 ```shell
@@ -111,7 +111,7 @@ Etag: "359670651"
 Expires: Wed, 13 Jul 2020 17:33:03 GMT
 Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
 Content-Length: 1270
-concur-correlationid: dd6cee88-b725-4c06-9ee9-0ca4ae4f16b2 
+concur-correlationid: dd6cee88-b725-4c06-9ee9-0ca4ae4f16b2
 ```
 
 ```json
@@ -233,7 +233,7 @@ id	|	`string`	|	`path`	|	The budget item header's key field (sync guid).
 ##### URI Template
 
 ```shell
-GET  /budget/v4/budgetItemHeader/{id} 
+GET  /budget/v4/budgetItemHeader/{id}
 ```
 ### Response
 
@@ -591,7 +591,7 @@ Etag: "359670651"
 Expires: Wed, 13 Jul 2020 17:33:03 GMT
 Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
 Content-Length: 97
-concur-correlationid: 809a0898-e523-4114-950d-bd22705a3b25 
+concur-correlationid: 809a0898-e523-4114-950d-bd22705a3b25
 ```
 
 ```json
@@ -618,8 +618,8 @@ concur-correlationid: cea62849-02e5-4a7f-a576-68280c84bd02
 
 ```json
 {
-  "status" : false, 
-  "errorMessageList" : 
+  "status" : false,
+  "errorMessageList" :
   [
     {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_ITEM_NAME_REQUIRED", "errorMessage" : "Budget item name is required"},
     {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_ITEM_NAME_ERROR", "errorMessage" : "Budget item name should be more than 1 characters"},
@@ -716,7 +716,7 @@ Name | Type | Format | Description
 `totalRows`	|	`integer`	|	-	|	The total number of rows available
 `offset`	|	`integer`	|	-	|	The starting row for this page of results (zero-based)
 `limit`	|	`integer`	|	-	|	The number of results returned per page.  (maximum 50)
-`budgetItemHeaders`	|	`Array[BudgetItemHeader]`	|	-	|	List of budget items 
+`budgetItemHeaders`	|	`Array[BudgetItemHeader]`	|	-	|	List of budget items
 `href`	|	`string`	|	-	|	The href for this request
 `previous`	|	`integer`	|	-	|	The href for the previous page of results (null if this is the first page of results)
 `next`	|	`integer`	|	-	|	The href for the next page of results (null if no results remaining)
@@ -727,7 +727,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `active`	|	`boolean`	|	-	|	Indicates if this budget should be displayed on user screens **READ ONLY**
-`annualBudget`	|	`decimal`	|	-	|	The total budget amount and accumulated balances for this budget header. **READ ONLY** 
+`annualBudget`	|	`decimal`	|	-	|	The total budget amount and accumulated balances for this budget header. **READ ONLY**
 `budgetAmounts`	|	`Array[BudgetAmounts]`	|	-	|	The accumulated budget amounts for this budget.  **READ ONLY**
 `budgetManagers`	|	`Array[BudgetPerson]`	|	-	|	Manager Hierarchy only.
 `budgetApprovers`	|	`Array[BudgetPerson]`	|	-	|	The workflow approvers for this budget.
@@ -736,7 +736,7 @@ Name | Type | Format | Description
 `budgetItemStatusType`	|	`string`	|	-	|	The status of this budget item. Valid values are 'OPEN', 'CLOSED', and 'REMOVED' (Closed means no spending may be attached to this budget.)
 `budgetViewers`	|	`Array[BudgetPerson]`	|	-	|	The users who can view this budget
 `costObjects`	|	`Array[CostObjectValue]`	|	-	|	The cost object list for matching spending items.
-`currencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona. This is the currencycode of the budget amount. Spending Items are converted using yesterday's closing value. 
+`currencyCode`	|	`string`	|	-	|	The 3-letter ISO 4217 currency code for the expense report currency. Examples: USD - US dollars; BRL - Brazilian real; CAD - Canadian dollar; CHF - Swiss franc; EUR - Euro; GBO - Pound sterling; HKD - Hong Kong dollar; INR - Indian rupee; MXN - Mexican peso; NOK - Norwegian krone; SEK - Swedish krona. This is the currencycode of the budget amount. Spending Items are converted using yesterday's closing value.
 `description`	|	`string`	|	-	|	**Required** The user-friendly name for this budget. This description is displayed to end users on desktop and mobile.
 `fiscalYear`	|	`FiscalYear`	|	-	|	**Required** The fiscal year for this budget.  Only the sync_guid is technically required for creating/updating a budget.
 `isTest`	|	`boolean`	|	-	|	The test flag for the budget item.  If true, this budget will only match spending submitted by test users.
@@ -809,7 +809,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `code`	|	`string`	|	-	|	**Required** The code for the cost object field.
-`value`	|	`string`	|	-	|	The value for the cost object field. Blank or null mean that we 
+`value`	|	`string`	|	-	|	The value for the cost object field. Blank or null mean that we
 `listKey`	|	`string`	|	-	|	When setting up the budget, specify the listKey that maps to the value of this list in the concur list service.
 
 
@@ -818,7 +818,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `amount`	|	`decimal`	|	-	|	The balance amount. **READ ONLY**
-`featureTypeCode`	|	`string`	|	-	|	The product type for this balance. Valid values are 'REQUEST', 'TRAVEL', 'EXPENSE', 'PAYMENT_REQUEST'  **READ ONLY** 
+`featureTypeCode`	|	`string`	|	-	|	The product type for this balance. Valid values are 'REQUEST', 'TRAVEL', 'EXPENSE', 'PAYMENT_REQUEST'  **READ ONLY**
 `workflowState`	|	`string`	|	-	|	Valid values are 'UNSUBMITTED', 'UNSUBMITTED_HELD', 'SUBMITTED', 'APPROVED', 'PROCESSED', 'PAID' **READ ONLY**
 `id`	|	`string`	|	-	|	The budget service's key for this object.
 
@@ -828,7 +828,7 @@ Name | Type | Format | Description
 Name | Type | Format | Description
 -----|------|--------|------------
 `currentYear`	|	`boolean`	|	-	|	Is this the current fiscal year based on the current time?  **READ ONLY**
-`startDate`	|	`date`	|	-	|	**Required** The start date for this fiscal year. The distance between start date and end date may not be more than two years. Format: YYYY-MM-DD 
+`startDate`	|	`date`	|	-	|	**Required** The start date for this fiscal year. The distance between start date and end date may not be more than two years. Format: YYYY-MM-DD
 `endDate`	|	`date`	|	-	|	**Required** The end date for this fiscal year. The distance between start date and end date may not be more than two years.  Format: YYYY-MM-DD
 `name`	|	`datetime`	|	-	|	**Required** The name of this fiscal year. Must be unique for this entity.
 `status`	|	`string`	|	-	|	**Required** The status of this fiscal year. Valid values are 'OPEN', 'CLOSED' and 'REMOVED'
@@ -870,4 +870,3 @@ Name | Type | Format | Description
 `errorType`|`String`|-|WARNING or ERROR
 `errorCode`|`String`|-|Text code for this error
 `errorMessage`|`String`|-|Plain language error message
-

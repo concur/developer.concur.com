@@ -24,7 +24,7 @@ layout: reference
 
 ### <a name="overview"></a>Overview
 
-**Preview** _This is a prerelease version of the service and is subject to change before final release._
+{% include prerelease.html %}
 
 The Budget service exposes budget and fiscal year data.  Partners may use the service endpoints to read and alter fiscal year, budget, budget adjustment, and budget matching configuration.
 Summary and detailed balance amounts are also available to read, but may not be altered via the API.
@@ -87,5 +87,5 @@ The GET api endpoints for Fiscal Year require fiscalcalendar.read, fiscalcalenda
 POST and DELETE endpoints require fiscalcalendar.write or budgetitem.write scope.
 
 Budget Item Header, Budget Item Category, and Budget Tracking Field GET end points require budgetitem.read or budgetitem.write scope.
- 
-Budget Item Header, Budget Item Category, and Budget Adjustements POST and DELETE end points require budgetitem.write. 
+
+Budget Item Header, Budget Item Category, and Budget Adjustements POST and DELETE end points require budgetitem.write.

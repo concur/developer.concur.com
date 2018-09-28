@@ -12,9 +12,9 @@ layout: reference
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
 
-**Preview** _This is a prerelease version of the service and is subject to change before final release._
+{% include prerelease.html %}
 
-This resource is used to retrieve and update budget categories which are collections of expense types used for budget matching.  Each budget item header may have one Budget Category.  If it does, only line items with expense types contained in that Budget Category will be accumulated to the budget. 
+This resource is used to retrieve and update budget categories which are collections of expense types used for budget matching.  Each budget item header may have one Budget Category.  If it does, only line items with expense types contained in that Budget Category will be accumulated to the budget.
 
 * [GET all Budget Categories](#getall)
 * [GET a Budget Category](#get)
@@ -180,7 +180,7 @@ id|`string`|`uuid`|The budget category's key field.
 ##### URI Template
 
 ```shell
-GET  /budget/v4/budgetCategory/{id} 
+GET  /budget/v4/budgetCategory/{id}
 ```
 
 ### Response
@@ -252,7 +252,7 @@ concur-correlationid: f7b1a193-46cc-4784-9c6f-d8e1e47ecaa1
       "name":null
     }
   ]
-} 
+}
 ```
 
 ## <a name="post"></a>POST a Budget Category
@@ -387,13 +387,13 @@ Content-Type: application/json;charset=utf-8
 Date: Fri, 21 Sep 2018 15:27:05 GMT
 Expires: Thu, 20 Sep 2018 15:27:05 GMT
 Pragma: no-cache
-concur-correlationid: 44adb686-a624-4ee5-b618-e4ea31a95bec 
+concur-correlationid: 44adb686-a624-4ee5-b618-e4ea31a95bec
 ```
 
 ```json
 {
-  "status" : false, 
-  "errorMessageList" : 
+  "status" : false,
+  "errorMessageList" :
   [
     {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_CATEGORY_NAME_REQUIRED", "errorMessage" : "Budget category name is required"},
     {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_CATEGORY_NAME_UNIQUE_ERROR", "errorMessage" : "Budget category must have a unique name"}
@@ -492,7 +492,7 @@ Name|Description
 #### Parameters
 
 N/A
-    
+
 ##### URI Template
 
 ```shell
@@ -538,7 +538,7 @@ Etag: "359670651"
 Expires: Wed, 13 Jul 2020 17:33:03 GMT
 Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
 Content-Length: 367
-concur-correlationid: 7afa7091-bc4e-4408-8248-a67f9e24a023 
+concur-correlationid: 7afa7091-bc4e-4408-8248-a67f9e24a023
 ```
 
 ```json
@@ -571,7 +571,7 @@ concur-correlationid: 7afa7091-bc4e-4408-8248-a67f9e24a023
 Name|Type|Format|Description
 ---|---|---|---
 `description`	|	`string`	|	-	|	The friendly name for this category.
-`expenseTypes`	|	`Array[ExpenseType]`	|	-	|	**Required** The list of expense types that this budget category matches. 
+`expenseTypes`	|	`Array[ExpenseType]`	|	-	|	**Required** The list of expense types that this budget category matches.
 `name`	|	`string`	|	-	|	**Required** The admin-facing name for this category.
 `statusType`	|	`string`	|	-	|	The status of this budget category. Valid values are 'OPEN' and 'REMOVED'
 `id`	|	`string`	|	-	|	The budget service's key for this object.

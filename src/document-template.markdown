@@ -3,6 +3,8 @@ title: Service Name
 layout: reference
 ---
 
+{% include prerelease.html %}
+
 Description
 
 * [Section](#section)
@@ -197,7 +199,7 @@ Name|Type|Format|Description
 
 # Service v10
 
-**Preview** _This is a prerelease version of the service and is subject to change before final release._
+{% include prerelease.html %}
 
 Include an introduction here as well as include an indented + bulleted table of contents which helps the reader navigate the various sections.
 

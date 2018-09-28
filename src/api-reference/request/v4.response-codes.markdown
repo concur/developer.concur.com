@@ -3,7 +3,7 @@ title: Travel Request v4 - HTTP Status Codes
 layout: reference
 ---
 
-** Pre-release Version 4.0**
+{% include prerelease.html %}
 
 If a new or existing project please use version [3.0](./v3.request.html) of this API.
 

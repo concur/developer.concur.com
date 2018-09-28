@@ -3,7 +3,7 @@ title: Budget Tracking Field
 layout: reference
 ---
 
-PRE-RELEASE: SAP Concur’s Budget API is currently in PRE-RELEASE and is subject to change. An Early Adopter program is available. To become an early adopter, contact your SAP Concur Representative and have them contact Team Adaptation.
+{% include prerelease.html %}
 
 # Budget Tracking Field
 
