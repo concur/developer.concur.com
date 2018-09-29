@@ -3,13 +3,12 @@ title: Getting Started with Profile
 layout: reference
 ---
 
-Warning: Concur's Profile API is currently in **BETA** and is subject to change.
-
+{% include prerelease.html %}
 
 [**Getting Started with Profile**](gettingStarted.html)  -  [Company API](company.html)  -  [User API](user.html)
 
 # Getting Started with Profile
-The Concur's Profile API, currently in early beta, consists a set of APIs to manage users, companies and apps within Concur. Profile API is the API for profile information for all Concur's profile data, including Enterprise applications such as Expense, Invoice, Request, and Travel, as well as Retail applications such as Hipmunk and TripIt. 
+The Concur's Profile API consists of a set of APIs to manage users, companies and apps within Concur. Profile API is the API for profile information for all Concur's profile data, including Enterprise applications such as Expense, Invoice, Request, and Travel, as well as Retail applications such as Hipmunk and TripIt.
 
 * [Security](#security)
 * [Profile Endpoints](#endpoint)
@@ -48,7 +47,4 @@ Profile APIs are aware of the US and EMEA data centers. If an API call is made a
 
 ## <a name="caveats"></a>Caveats
 
-Profile APIs are under early beta and are subject to change. Changes in Profile do not follow the typical notification or deprecation processes. If you want to be included in the Profile related notifications, please email [profile@concur.com](mailto:profile@concur.com).
-
-
-
+Changes in Profile do not follow the typical notification or deprecation processes. If you want to be included in the Profile related notifications, please email [profile@concur.com](mailto:profile@concur.com).

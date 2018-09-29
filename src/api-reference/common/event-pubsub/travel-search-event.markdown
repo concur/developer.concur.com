@@ -3,7 +3,7 @@ title: Travel Search Event
 layout: reference
 ---
 
-**Preview** _This is a prerelease version of the service and is subject to change before final release._
+{% include prerelease.html %}
 
 Subscribers to this event will receive search criteria for travel searches performed within Concur's online booking tool.
 
@@ -47,8 +47,8 @@ Name|Type|Format|Description
 `userId`|`String`|GUID|Uniquely identifies the user performing the search. *NOTE:* In the event travel is booked by an arranger, this is the traveler. In cases where the individual is booking on behalf of a guest, this is the user performing the search.
 `arrangerUserId`|`String`|GUID|Uniquely identifies the user arranging the trip.
 `searchLegs`|`String`|RoundTrip, MultiSeg, OneWay | Type of air search.
-`isGuestBooking`|`boolean`|-|Identifies if the booking is guest or not. 
-`isFlexFaring`|`boolean`|-|Identifies if search is for flex faring. 
+`isGuestBooking`|`boolean`|-|Identifies if the booking is guest or not.
+`isFlexFaring`|`boolean`|-|Identifies if search is for flex faring.
 `segments`|`Array`|[Air Search Segment](#schema-air-search-segment)|List of segment for search.
 `numberOfTravelers`|`Integer`|-|Number of travlers.
 `classOfTrip`|`String`|F, C, W, Y| Selected class.
@@ -99,4 +99,3 @@ Name|Type|Format|Description
 `distanceUnit`|`String`|Mile, Kilometer|Unit for radius distance.
 `checkInDate`|`String`|YYYY-MM-DD|Check in date, UTC.
 `checkOutDate`|`String`|YYYY-MM-DD|Check out date, UTC.
-

@@ -12,7 +12,7 @@ layout: reference
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
 
-**Preview** _This is a prerelease version of the service and is subject to change before final release._
+{% include prerelease.html %}
 
 The Fiscal Calendar is used both for Reporting and Budget. A Fiscal Year can start and end at any date as long as the end date is after the start date and does not span more than 2 years. Fiscal Years cannot overlap. Fiscal Periods cannot overlap and are limited to 24 per fiscal year.
 
@@ -25,7 +25,7 @@ The Fiscal Calendar is used both for Reporting and Budget. A Fiscal Year can sta
   * [Fiscal Period](#fiscalPeriod)
   * [Error Response](#errorResponse)
   * [Error Message](#errorMessage)
-  
+
 ## Version
 
 4.0  
@@ -66,8 +66,8 @@ GET  /budget/v4/fiscalYear
 
 Name|Type|Format|Description
 ---|---|---|---
-lastModifiedAfter|`datetime`|`query`|Use this field if you only want Fiscal Years that were changed after the supplied date.  The supplied date will be interpreted in the UTC time zone.  If lastModifiedAfter is not supplied, the service will return all Fiscal Years, regardless of modified date.  Format: YYYY-MM-DDTHH:MM:SS (Example: 2016-03-29T16:12:20) 
-includeRemoved|`boolean`|`query`|If this parameter is "true", the service will return all Fiscal Years, including those that were previously removed.  If not supplied, this field defaults to "false". 
+lastModifiedAfter|`datetime`|`query`|Use this field if you only want Fiscal Years that were changed after the supplied date.  The supplied date will be interpreted in the UTC time zone.  If lastModifiedAfter is not supplied, the service will return all Fiscal Years, regardless of modified date.  Format: YYYY-MM-DDTHH:MM:SS (Example: 2016-03-29T16:12:20)
+includeRemoved|`boolean`|`query`|If this parameter is "true", the service will return all Fiscal Years, including those that were previously removed.  If not supplied, this field defaults to "false".
 
 ### Response
 
@@ -210,7 +210,7 @@ id|`string`|`uuid`|The Fiscal Year's key field.
 ##### URI Template
 
 ```shell
-GET  /budget/v4/fiscalYear/{id} 
+GET  /budget/v4/fiscalYear/{id}
 ```
 
 ### Response
@@ -522,13 +522,13 @@ Content-Type: application/json;charset=utf-8
 Date: Fri, 21 Sep 2018 15:27:05 GMT
 Expires: Thu, 20 Sep 2018 15:27:05 GMT
 Pragma: no-cache
-concur-correlationid: cb061832-82eb-418e-a968-de6b4ce370ae 
+concur-correlationid: cb061832-82eb-418e-a968-de6b4ce370ae
 ```
 
 ```json
 {
-  "status" : false, 
-  "errorMessageList" : 
+  "status" : false,
+  "errorMessageList" :
   [
     {"errorType" : "ERROR", "errorCode" : "BUDGET.FISCAL_YEAR_SDATE_ERROR", "errorMessage" : "Fiscal year should have a start date"},
     {"errorType" : "ERROR", "errorCode" : "BUDGET.FISCAL_YEARS_HAVE_GAP", "errorMessage" : "Fiscal years should not have gaps between them"}
@@ -610,13 +610,13 @@ concur-correlationid: eb7cf20a-3481-45a5-808c-98b8ef7fe805
 Name|Type|Format|Description
 ---|---|---|---
 `currentYear`	|	`boolean`	|	-	|	Is this the current Fiscal Year based on the current time?  **READ ONLY**
-`startDate`	|	`date`	|	-	|	**Required** The start date for this Fiscal Year. The distance between start date and end date may not be more than two years. Format: YYYY-MM-DD 
+`startDate`	|	`date`	|	-	|	**Required** The start date for this Fiscal Year. The distance between start date and end date may not be more than two years. Format: YYYY-MM-DD
 `endDate`	|	`date`	|	-	|	**Required** The end date for this Fiscal Year. The distance between start date and end date may not be more than two years.  Format: YYYY-MM-DD
 `name`	|	`datetime`	|	-	|	**Required** The name of this Fiscal Year. Must be unique for this entity.
 `status`	|	`string`	|	-	|	**Required** The status of this Fiscal Year. Valid values are 'OPEN', 'CLOSED' and 'REMOVED'
 `id`	|	`string`	|	-	|	The budget service's key for this object.
 `lastModified`  |   `datetime`  |   -   |   The UTC date and time when this object was last changed.  **READ ONLY**
-`monthlyFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 **Required** The list of monthly Fiscal Periods in this Fiscal Year. Fiscal periods must complete fill the parent Fiscal Year with no overlaps. 
+`monthlyFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 **Required** The list of monthly Fiscal Periods in this Fiscal Year. Fiscal periods must complete fill the parent Fiscal Year with no overlaps.
 `quarterlyFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of quarterly Fiscal Periods in this Fiscal Year.  If this parameter is not specified, quaterly Fiscal Periods are automatically generated based on the monthly Fiscal Periods supplied.  
 `yearlyFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of yearly Fiscal Periods in this Fiscal Year.  If this parameter is not specified, one period is created that fills the Fiscal Year.
 `customFiscalPeriods`	|	`Array[FiscalPeriod]`	|	-	|	 The list of custom Fiscal Periods in this Fiscal Year.  Custom Fiscal Periods are API-only and will not display on user budget dashboards.  

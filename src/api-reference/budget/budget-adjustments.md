@@ -13,7 +13,7 @@ layout: reference
 
 # Budget Adjustments
 
-**Preview** _This is a prerelease version of the service and is subject to change before final release._
+{% include prerelease.html %}
 
 This resource is used to add budget adjustments. Each budget item detail may have one or more budget adjustments and adjustments can be made to manually add or subtract the budget, spent or pending balances.
 
