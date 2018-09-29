@@ -3,6 +3,8 @@ title: Fiscal Year
 layout: reference
 ---
 
+{% include prerelease.html %}
+
 ## Menu
 
 * [Getting Started](./getting-started.html)
@@ -11,8 +13,6 @@ layout: reference
 * [Budget Item](/api-reference/budget/budget-header.html)
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
-
-{% include prerelease.html %}
 
 The Fiscal Calendar is used both for Reporting and Budget. A Fiscal Year can start and end at any date as long as the end date is after the start date and does not span more than 2 years. Fiscal Years cannot overlap. Fiscal Periods cannot overlap and are limited to 24 per fiscal year.
 

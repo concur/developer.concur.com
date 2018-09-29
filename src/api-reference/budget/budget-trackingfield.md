@@ -12,8 +12,6 @@ layout: reference
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
 
-**Preview** _This is a prerelease version of the service and is subject to change before final release._
-
 This resource is used to retrieve information about budget's tracking fields for an entity. Every entity may have a specific set of budget tracking fields and every budget may enable any or all of the budget tracking fields. If there are tracking fields associated, the budgets get matched to the Product only when the tracking field conditions are met.
 
 * [GET all budget tracking fields for an entity](#getall)
