@@ -3,7 +3,10 @@ title: Budget Header
 layout: reference
 ---
 
-# Menu
+{% include prerelease.html %}
+
+## Menu
+
 * [Getting Started](./getting-started.html)
 * [Fiscal Year](/api-reference/budget/fiscal-year.html)
 * [Budget Category](/api-reference/budget/budget-category.html)
@@ -12,8 +15,6 @@ layout: reference
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
 
 # Budget Item
-
-{% include prerelease.html %}
 
 This resource is used to retrieve and update information about a budget that spans a single fiscal year.  Each Budget has multiple details that correspond to Fiscal Periods--months, quarters, or a single period for a yearly budget.
 
@@ -39,6 +40,7 @@ This resource is used to retrieve and update information about a budget that spa
   * [Error Message](#errorMessage)
 
 ## Version
+
 4.0  
 
 ## <a name="getall"></a>GET all Budget Items
@@ -203,7 +205,6 @@ concur-correlationid: dd6cee88-b725-4c06-9ee9-0ca4ae4f16b2
   "previous":null
 }
 ```
-
 
 ## <a name="get"></a>GET a Budget Item
 

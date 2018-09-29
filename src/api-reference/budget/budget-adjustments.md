@@ -3,17 +3,16 @@ title: Budget Adjustments
 layout: reference
 ---
 
-# Menu
+{% include prerelease.html %}
+
+## Menu
+
 * [Getting Started](./getting-started.html)
 * [Fiscal Year](/api-reference/budget/fiscal-year.html)
 * [Budget Category](/api-reference/budget/budget-category.html)
 * [Budget Item](/api-reference/budget/budget-header.html)
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
-
-# Budget Adjustments
-
-{% include prerelease.html %}
 
 This resource is used to add budget adjustments. Each budget item detail may have one or more budget adjustments and adjustments can be made to manually add or subtract the budget, spent or pending balances.
 

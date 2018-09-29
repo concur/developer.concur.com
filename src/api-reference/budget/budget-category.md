@@ -3,6 +3,8 @@ title: Budget Category
 layout: reference
 ---
 
+{% include prerelease.html %}
+
 ## Menu
 
 * [Getting Started](./getting-started.html)
@@ -11,8 +13,6 @@ layout: reference
 * [Budget Item](/api-reference/budget/budget-header.html)
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
-
-{% include prerelease.html %}
 
 This resource is used to retrieve and update budget categories which are collections of expense types used for budget matching.  Each budget item header may have one Budget Category.  If it does, only line items with expense types contained in that Budget Category will be accumulated to the budget.
 
