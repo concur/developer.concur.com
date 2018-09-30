@@ -3,6 +3,8 @@ title: Post an availability search
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
 The following request is sent when the Travel user selects a hotel and searches for availability for a date range. The response includes the list of available rooms for the supplied date range.
 
