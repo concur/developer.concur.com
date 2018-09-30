@@ -104,7 +104,7 @@ Sign In or Sign Up| This is used when the customer may not have an account or re
 
 #### <a name="landing-page-verification"></a>Verification
 
-If your application activation requires pre-requisites (e.g. a contract or other manual set up is required), you may introduce an additional verification step. Once all pre-requisites are complete and prior to the user activating the application, you will supply the administrator with a verification code. Once the user connects from the SAP Concur App Center, your landing page will prompt the user for a verification code; the user must provide a verification code to proceed. In the remainder of this guide, this will be referred to as a “Verification” app. This page should clearly articulate the next steps and should provide the user the option to:
+This is the recommended option for Enterprise applications that already have a signed Agreement in place between the Partner and the customer. Once the contract has been signed by the customer, you will provide the customer with a verification code to enter on your landing page. In the remainder of this guide, this will be referred to as a “Verification” app. This page should clearly articulate the next steps and should provide the user the option to:
 
 * Enter the verification code OR
 * Contact Us
@@ -115,7 +115,9 @@ IMPORTANT: Any administrator can connect to your application from the SAP Concur
 
 #### <a name="landing-page-sign-in-or-up"></a>Sign In or Sign Up
 
-You should use this flow if you have an online account registration form.
+Use this option if you support online account registration or free trials.
+
+> Note: If you support Free Trials, your Landing Page is required to indicate how long the Trial will last and what the Partner will do with the data collected if the customer declines to move forward as a customer with the Partner. This text is in addition to the other requirements such as checkboxes for the user to select for your Privacy Policy and Terms and Conditions.
 
 ##### <a name="sign-in-or-up-options"></a>Options
 
@@ -177,6 +179,7 @@ This section provides a summarized checklist of the required and recommended com
   * Must clearly indicate this is an integration with Concur (required)
   * Must include links to your terms and conditions and privacy policy (required)
   * Verification apps, should provide a link to the inquiry form (strongly recommended)
+  * The Partner application should not exchange the Request token for the Access token until the User has completed all of the actions on your Landing Page.
 
 ### <a name="guideline-checklist-account-creation"></a>Account Creation
 
