@@ -11,7 +11,9 @@ layout: reference
 * [Integration](#integration)
   * [Quick Connect](#quick-connect)
   * [Company Profile](#profile)
-  * [Overview, Scopes, & Obtaining Invoices pending payment](#Overview-Scopes-Obtaining-and-Invoices-pending-payment)
+  * [Topics to complete prior to obtaining invoices] (#Topics-to-complete-prior-to-obtaining-invoices)
+  * [Overview, Scopes, and Obtaining Invoices pending payment](#Overview-Scopes-and-Obtaining-Invoices-pending-payment)
+  * [Updating a payment with status](#Updating-a-payment-with-status)
 
 The Payment Provider App Category streamlines the Invoice Payment process for SAP-Concur customers. The Payment Provider Partner's certified app will obtain Invoice data from our customers' Concur site by using the "Quick Connect" process and executing their app using Concur's Invoice APIs. To be certified, the Partner must support both Editions of SAP-Concur Invoice: Standard Edition and Professional Edition.
 
@@ -34,11 +36,13 @@ Use the following resources to get familiar with the Concur product and then sub
 
 [Profile Company API v1](/api-reference/profile-beta/company.html#get)
 
-### <a name="obtain-expense-report-data-for-vat-reclaim"></a>Obtain Expense Report Data for VAT Reclaim
+### <a name="Topics-to-complete-prior-to-obtaining-invoices"></a>Topics to complete prior to obtaining invoices
 
-[Overview, Scopes, an Obtaining Invoices pending payment] (./https://developer.concur.com/api-reference/invoice/v1.invoice-pay.html#overview)
+**These topics should be completed prior to obtaining Invoices pending payment:**
 
-In order to pay a customer's invoices, the Vendor (aka Supplier) record inside of the SAP-Concur Invoice product must have the value of PAYPVD populated in the "Payment Method Type" field.  This can be populated in 3 ways, one of which is via API.  The Partner and customer need to agree who will be responsible for updating the Vendors initially and on an on-going basis. Here are the methods the Vendor record can be updated:
+#### Topic 1: Update the field called, "Payment Method Type" within the SAP-Concur Invoice Vendor record
+
+In order to pay a customer's invoices, the SAP-Concur Invoice Vendor record must have the value of **PAYPVD** populated within the "Payment Method Type" field.  This can be populated in 3 ways, one of which is via API.  The Partner and customer need to agree who will be responsible for updating the Vendors initially and on an on-going basis. Here are the methods the Vendor (aka Supplier) record can be updated:
 
 Option|Technique|Owner responsible for update
 ---|---|---
@@ -46,6 +50,53 @@ Option|Technique|Owner responsible for update
 Option 1| File import-On-Demand Import via an Excel template within the SAP-Concur Invoice product|Customer completes
 Option 2| File import-Scheduled Import via a csv file| Customer completes
 Option 3| App integration|Customer and Partner need to coordinate since Vendor master data most likely resides in their ERP
+
+#### Topic 2: Customer ensures the Vendor Contact Email addresses exist within the SAP-Concur Invoice Vendor record for the Vendors that the Partner will pay
+
+Confirm that the customer adminsitrator has created a Concur Audit Rule to require the Vendor (Supplier) email address has been populated for those Vendor invoices that will be paid via this integration. The Customer can take the following steps to create the Audit Rule:
+
+####Audit Rule step 1:
+Navigate to the Administration menu, then Invoice, then Audit Rules.
+Click New
+
+Name: Vendor Supplier Contact Email
+Event: Payment Request Submit
+Editable By: <configuration dependent>
+Applies To: <configuration dependent>
+Active: Yes
+Click Next
+
+####Audit Rule step 2: Create Condition
+
+Data Object: Vendor Remittance Address
+Field: Contact Email
+Operator: Is Blank
+Operator: And
+Data Object: Request
+Field: Pay Method Type
+Operator: Equal
+Value: Payment Provider
+
+Click Next
+
+####Audit Rule step 3:
+The Exception Level can be adjusted if desired.  99 is a hard stop rule.
+
+Click New
+
+Exception Code: EMAIL
+Exception Level: 99
+Message: The Vendor Email Address is required for all invoices that are from Vendors that will be paid by the Partner.
+Editable By: <configuration dependent>
+
+### <a name="Overview-Scopes-and-Obtaining-Invoices-pending-payment"></a>Overview Scopes and Obtaining Invoices pending payment
+
+[Overview, Scopes, an Obtaining Invoices pending payment] (./invoice/v1.invoice-pay.html#overview)
+
+### <a name="Updating-a-payment-with-status"></a>Updating a payment with status
+
+[Updating a payment with status](./invoice/v1.invoice-pay.html#updating-payment)
+
 
 
 
