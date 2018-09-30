@@ -1,0 +1,51 @@
+---
+title: Payment Provider Integration
+layout: reference
+---
+
+## Payment Provider Integration
+
+> Note: The scopes related to this documentation are currently limited to Early Access developers at this time.  Once the Early Access phase has been completed, all developers that are interested in pursuing this integration will be given the scope in their Development app.
+
+* [Learn](#learn)
+* [Integration](#integration)
+  * [Quick Connect](#quick-connect)
+  * [Company Profile](#profile)
+  * [Overview, Scopes, & Obtaining Invoices pending payment](#Overview-Scopes-Obtaining-and-Invoices-pending-payment)
+
+The Payment Provider App Category streamlines the Invoice Payment process for SAP-Concur customers. The Payment Provider Partner's certified app will obtain Invoice data from our customers' Concur site by using the "Quick Connect" process and executing their app using Concur's Invoice APIs. To be certified, the Partner must support both Editions of SAP-Concur Invoice: Standard Edition and Professional Edition.
+
+## <a name="learn"></a>Learn
+
+Use the following resources to get familiar with the Concur product and then submit expense reports or invoices in your own sandbox. This will better position you to conduct end-to-end testing and be able to correlate a User's experience to what you obtain via the APIs.
+
+* **Training Toolkit** at [http://www.concurtraining.com/](http://www.concurtraining.com/) - These resources help you learn the Concur product basics, administration and reporting.
+* **Shared Technical Services Videos** at [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts) - The videos found here will help you understand the unique types of transactions that can occur in the Expense product and their resulting impacts on the financial picture in the extract file.
+
+## <a name="integration"></a>Integration
+
+### <a name="quick-connect"></a>Quick Connect
+
+[Quick Connect Scope for Enterprise Apps](./quick-connect-scope-for-enterprise-apps.html)
+
+**Quick Connect** describes the process customers use to connect their Concur site with an App Center Partner's Enterprise application. See the separate Quick Connect scope document for details to guide you through the development of this required piece to your certified application.
+
+### <a name="profile"></a>Company Profile
+
+[Profile Company API v1](/api-reference/profile-beta/company.html#get)
+
+### <a name="obtain-expense-report-data-for-vat-reclaim"></a>Obtain Expense Report Data for VAT Reclaim
+
+[Overview, Scopes, an Obtaining Invoices pending payment] (./https://developer.concur.com/api-reference/invoice/v1.invoice-pay.html#overview)
+
+In order to pay a customer's invoices, the Vendor (aka Supplier) record inside of the SAP-Concur Invoice product must have the value of PAYPVD populated in the "Payment Method Type" field.  This can be populated in 3 ways, one of which is via API.  The Partner and customer need to agree who will be responsible for updating the Vendors initially and on an on-going basis. Here are the methods the Vendor record can be updated:
+
+Option|Technique|Owner responsible for update
+---|---|---
+
+Option 1| File import-On-Demand Import via an Excel template within the SAP-Concur Invoice product|Customer completes
+Option 2| File import-Scheduled Import via a csv file| Customer completes
+Option 3| App integration|Customer and Partner need to coordinate since Vendor master data most likely resides in their ERP
+
+
+
