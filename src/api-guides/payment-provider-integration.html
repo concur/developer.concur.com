@@ -12,7 +12,9 @@ layout: reference
   * [Quick Connect](#quick-connect)
   * [Company Profile](#profile)
   * [Topics to complete prior to obtaining invoices] (#Topics-to-complete-prior-to-obtaining-invoices)
+  * [Update Vendor Payment Method field] (#Update-Vendor-Payment-Method-field)
   * [Overview, Scopes, and Obtaining Invoices pending payment](#Overview-Scopes-and-Obtaining-Invoices-pending-payment)
+  * [Discounts on invoices](#Discounts)
   * [Updating a payment with status](#Updating-a-payment-with-status)
 
 The Payment Provider App Category streamlines the Invoice Payment process for SAP-Concur customers. The Payment Provider Partner's certified app will obtain Invoice data from our customers' Concur site by using the "Quick Connect" process and executing their app using Concur's Invoice APIs. To be certified, the Partner must support both Editions of SAP-Concur Invoice: Standard Edition and Professional Edition.
@@ -50,6 +52,10 @@ Option|Technique|Owner responsible for update
 Option 1| File import-On-Demand Import via an Excel template within the SAP-Concur Invoice product|Customer completes
 Option 2| File import-Scheduled Import via a csv file| Customer completes
 Option 3| App integration|Customer and Partner need to coordinate since Vendor master data most likely resides in their ERP
+
+### <a name="Update-Vendor-Payment-Method-field"></a>Update Vendor Payment Method field
+
+[Vendor Update API v3](/api-reference/invoice/v3.vendor.html#put)
 
 #### Topic 2: Customer ensures the Vendor Contact Email addresses exist within the SAP-Concur Invoice Vendor record for the Vendors that the Partner will pay
 
@@ -92,6 +98,14 @@ Editable By: this depends on the customer configuration
 ### <a name="Overview-Scopes-and-Obtaining-Invoices-pending-payment"></a>Overview Scopes and Obtaining Invoices pending payment
 
 [Overview, Scopes, an Obtaining Invoices pending payment] (./invoice/v1.invoice-pay.html#overview)
+
+### <a name="Discounts"></a>Discounts on invoices
+
+[Payment Request ID](/api-reference/invoice/payment-request.html#get) and (/api-explorer/v3-0/PaymentRequest.html)
+
+If the customer wants invoices paid early in order to take advantage of the Vendor's discount terms, the customer and partner will need to work together. The customer will need to configure search queries within the administrative tool called, "Invoice Processor". The search parameters will based on invoice due date and Payment Method Type field.  The search query parameters need to include enough days to allow the customer and partner to meet the invoice terms. Once the customer administrator final-approves those invoices, the Partner will be able to obtain the invoices that are pending payment. In order to obtain the discount terms, the Partner will have to use the GET Payment Request API using the invoice ID from the GET Payments response.
+
+> note: the customer and partner need to discuss how the customer manages the discounts within the SAP-Concur Invoice product. The customer may elect to adjust the invoice amount field and then add credited line items within the invoice to reflect the discount.  In this case, the partner will **not** need to compute the discount and will just use the value in the Invoice Amount field.
 
 ### <a name="Updating-a-payment-with-status"></a>Updating a payment with status
 
