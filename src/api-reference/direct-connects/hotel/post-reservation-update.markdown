@@ -3,6 +3,8 @@ title: Post a reservation update
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
+
 ## Description
 
 **NOTE**: This function is not supported in the current version. Support may be returned in a future release.
