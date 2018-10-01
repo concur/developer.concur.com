@@ -10,7 +10,7 @@ Handling data with care and delivering a positive experience for our customers i
 #### **Get Started on Your API Review**
 
 1. Start with an overview of the whole process: [API documentation]({{ site.baseurl }}/api-reference/).
-[Sandbox access:](/manage-apps/register.html) &ndash; During the Business Development phase, you were provided access to a Professional Edition Sandbox. You will continue to use this sandbox during your development and certification. Once a Certification Project Manager is assigned to your team, you will be provided access to another Standard Edition sandbox that will be used to validate token management across different data centers and, if necessary, differences between Professional Edition and Standard Edition.
+[Sandbox access:](/manage-apps/register.html) - During the Business Development phase, you were provided access to a Professional Edition Sandbox. You will continue to use this sandbox during your development and certification. Once a Certification Project Manager is assigned to your team, you will be provided access to another Standard Edition sandbox that will be used to validate token management across different data centers and, if necessary, differences between Professional Edition and Standard Edition.
 2. As you develop your app, your Certification Project Manager will record the exact APIs (including the version and verbs) that you will use for your application. See the requirements to pass certification in these Overview docs (including Support requirements expected of the Partner):
 
 Enterprise apps: <https://prezi.com/p/lw0qqy51zcmd/> (this does not pertain to a Triplink app integration)
