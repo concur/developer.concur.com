@@ -3,7 +3,7 @@ title: Budget Tracking
 layout: reference
 ---
 
-## Menu
+{% include prerelease.html %}
 
 * [Getting Started](./getting-started.html)
 * [Fiscal Year](/api-reference/budget/fiscal-year.html)
@@ -12,9 +12,7 @@ layout: reference
 * [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
 * [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
 
-**Preview** _This is a prerelease version of the service and is subject to change before final release._
-
-This resource is used to retrieve information about budget's tracking fields for an entity. Every entity may have a specific set of budget tracking fields and every budget may enable any or all of the budget tracking fields. If there are tracking fields associated, the budgets get matched to the Product only when the tracking field conditions are met. 
+This resource is used to retrieve information about budget's tracking fields for an entity. Every entity may have a specific set of budget tracking fields and every budget may enable any or all of the budget tracking fields. If there are tracking fields associated, the budgets get matched to the Product only when the tracking field conditions are met.
 
 * [GET all budget tracking fields for an entity](#getall)
 * [Schema](#schema)
@@ -151,7 +149,7 @@ concur-correlationid: 86a0d9fe-9e98-43c3-89d8-a2917dd844cb
 
 Name|Type|Format|Description
 ---|---|---|---
-`budgetTrackingFieldName`|`string`|-|The budget field tracking name 
+`budgetTrackingFieldName`|`string`|-|The budget field tracking name
 `fieldType`|`string`|-|The data type of this field or field collection. Valid values are LIST, MLIST, and VARCHAR.
 `listSyncGuid`|`string`|-|If the dataType of this item is LIST or MLIST, this is the id of the list definition from SAP Concur's list service.
 `fieldId`|`string`|-|The budget service's key for this object
