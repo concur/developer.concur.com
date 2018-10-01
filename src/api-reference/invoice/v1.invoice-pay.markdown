@@ -3,7 +3,7 @@ title: Invoice Pay v1
 layout: reference
 ---
 
-**Pre-release**
+{% include prerelease.html %}
 
 * [Overview](#overview)
 * [Scopes](#scopes)
