@@ -4,9 +4,11 @@ layout: reference
 redirect_from: /docs-and-resources/support/
 ---
 
-<a class="btn dark-blue" href="https://open.concur.com" target="_blank">
-  <i class="fa fa-plug" aria-hidden="true"></i> Service Status (North America and EMEA)
-</a>
+## Maintenance scheduled October 7, 2018
+
+The SAP Concur EMEA Data Center will be undergoing maintenance from 20:00 CEST on Saturday, October 6, through 06:00 CEST on Sunday, October 7, 2018. During this time, there will be no access to the data center services.
+
+[Service Status (North America and EMEA)](https://open.concur.com)
 
 ## Support Portals
 
