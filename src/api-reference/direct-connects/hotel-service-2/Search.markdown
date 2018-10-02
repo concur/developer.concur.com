@@ -1,5 +1,5 @@
 ---
-title: Search 
+title: Search
 layout: reference
 ---
 
@@ -7,13 +7,42 @@ layout: reference
 
 Message to perform the initial search for hotels.
 
-| SOAPAction | OTA name    | Message structure | 
+| SOAPAction | OTA name    | Message structure |
 |------------|-------------|-------------------|
 | search     | HotelSearch | OTA_HotelSearchRQ |
 
 ---
 
 ## Request
+
+```xml
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Header xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <authentication xmlns="http://www.concur.com/webservice/auth">
+    <userid>user</userid>
+    <password>password</password>
+   </authentication>
+  </Header>
+  <Body xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+   <OTA_HotelSearchRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="test_request_id" Version="4" PrimaryLangID="de" AltLangID="de" MaxResponses="100">
+    <POS>
+      <Source ISOCurrency="USD"></Source>
+      <RequestorID Type="1" ID="47777"></RequestorID>
+    </POS>
+    <Criteria>
+     <Criterion>
+      <Position Latitude="52.520007" Longitude="13.404954"></Position>
+      <RefPoint></RefPoint>
+      <HotelRef HotelName="sunshine"></HotelRef>
+      <Radius Distance="5" DistanceMax="30" UnitOfMeasureCode="1"></Radius>
+      <StayDateRange Start="2018-09-26" End="2018-09-27"></StayDateRange>
+     </Criterion>
+    </Criteria>
+   </OTA_HotelSearchRQ>
+  </Body>
+ </Envelope>
+```
+
 
 **OTA_HotelSearchRQ**
 
@@ -38,8 +67,9 @@ The criterion is used to define the search criteria.  Currently we support only 
 |---------------|----------|-----------|-------------|
 | Position      | Y        | Complex   | Used to specify the geographic coordinates of a location, expressed in notation specified by ISO standard 6709. **Required for Search request only, but optional for Availability request!** |
 | HotelRef      | N        | Complex   | Indicates the detail of hotel reference information. |
+| *RefPoint?*     | N        | StringLength0to64   | The Reference Point element allows for a search by proximity to a designated reference point by name. |
 | Radius        | N        | Complex   | Used to specify the extent of a search area. The extent is relative to an element (position, address, hotel reference, etc.) present in this ItemSearchCriterionType that specifies a location. |
-| StayDateRange | Y        | Complex   | Range of dates using ISO 8601, or fixed set of dates for Availability Request. |
+| StayDateRange | Y        | Complex   | Range of dates using ISO 8601. |
 
 
 **Position**
@@ -60,7 +90,7 @@ The criterion is used to define the search criteria.  Currently we support only 
 
 **Radius**
 
-The radius element is used along with the Hotel Preference to categorize the search results. 
+The radius element is used along with the Hotel Preference to categorize the search results.
 
 | Element             | Required | Data Type                | Description |
 |---------------------|----------|--------------------------|-------------|
@@ -84,11 +114,46 @@ The radius element is used along with the Hotel Preference to categorize the sea
 
 The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds this limit shall be dropped.
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"/>
+  <soap:Body>
+    <OTA_HotelSearchRS xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:ns2="http://www.concur.com/webservice/auth" AltLangID="EN" PrimaryLangID="EN" Version="4">
+      <Success/>
+      <Properties>
+      <Property ChainCode="AB" ChainName="1111" HotelCode="22222" HotelName="Sunshine Hotel">
+          <Position Latitude="52.4567" Longitude="13.5635"/>
+          <Address>
+            <AddressLine>An der Wuhlheide</AddressLine>
+            <CityName>Berlin</CityName>
+            <PostalCode>10115</PostalCode>
+            <CountryName Code="DE">Federal Republic of Germany</CountryName>
+          </Address>
+          <ContactNumbers>
+            <ContactNumber CountryAccessCode="49" PhoneNumber="56940033" PhoneTechType="1"/>
+          </ContactNumbers>
+          <Award Rating="4"/>
+          <HotelAmenity Code="68"/>
+          <Policy CheckInTime="14:00:00" CheckOutTime="12:00:00"/>
+          <TPA_Extensions>
+            <HotelPreference>not_preferred</HotelPreference>
+            <TPA_HotelPreviewImageURI>
+              <URL>url_to_the_picture.jpg</URL>
+            </TPA_HotelPreviewImageURI>
+          </TPA_Extensions>
+        </Property>
+      </Properties>
+    </OTA_HotelSearchRS>
+  </soap:Body>
+</soap:Envelope>
+```
+
 **OTA_HotelSearchRS**
 
 | Element    | Required  | Data Type    | Description |
 |------------|-----------|--------------|-------------|
-| Properties | Y         | Complex      | Detailed property level information. |
+| Properties | Y         | Complex      | A collection of individual property information. |
 
 **Properties**
 
@@ -102,7 +167,7 @@ The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds
 |  Element       | Required | Data Type         | Description |
 |----------------|----------|-------------------|-------------|
 | ChainCode      | N        | StringLength1to32 | 2 letter GDS chain code. The code that identifies a hotel chain or management group. Used for Chain filter in UI, and for Travel Rules based on GDS codes |
-| ChainName      | N        | StringLength1to32 | Detailed property level information. |
+| ChainName      | N        | StringLength1to32 | The name of the hotel chain (e.g., Hilton, Marriott, Hyatt, Starwood). |
 | HotelCode      | Y        | StringLength1to32 | The code that uniquely identifies a single hotel property. Used in other OTA messages. |
 | HotelName      | Y        | StringLength1to32 | A text field used to communicate the proper name of the hotel. |
 | Position       | Y        | Complex           | Refer to Position in the Request. |
@@ -111,17 +176,16 @@ The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds
 | Award          | N        | Complex           | An element that identifies the hotel ratings. |
 | HotelAmenity   | N        | Complex           | List of Hotel Amenities. |
 | Policy         | N        | Complex           | **Not used to be removed** |
-| Amenities      | N        | Complex           | **Not used to be removed** |
-| TPA_Extensions | N        | Complex           | See TPA Extensions below |
+| TPA_Extensions | N        | Complex           | Concur-specific extension of OTA spec. This adds support for extra property fields. |
 
 
 **Address**
 
 |  Element    | Required | Data Type |  Description |
 |-------------|----------|-----------|--------------|
-| AddressLine | N        | Complex   | Free form text field. Normally the screen name and number. This element may occur up to 5 times. |
-| CityName    | N        | Complex   | Free form text field. Name of the city. |
-| PostalCode  | N        | Complex   | Free form text field. The Postal Code. |
+| AddressLine | N        | StringLength1to255   | Free form text field. Normally the screen name and number. This element may occur up to 5 times. |
+| CityName    | N        | StringLength1to64   | Free form text field. Name of the city. |
+| PostalCode  | N        | StringLength1to16   | Free form text field. The Postal Code. |
 | StateProv   | N        | Complex   | Free form text field. Name of the state |
 | CountryName | N        | Complex   | Country name (e.g., Ireland) |
 
@@ -153,7 +217,7 @@ The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds
 |-------------------|----------|-------------------|-------------|
 | CountryAccessCode | N        | StringLength1to32 | The Country code. |
 | PhoneNumber       | Y        | StringLength1to32 | The phone number. |
-| PhoneTechType     | N        | String            | Concur currently only supports a PhoneTechType set to "1" (phone) or "3" (fax). You can omit this field only in case you are providing one contact number. Anyway, we suggest to fill the type in all cases, it may become mandatory in the future. |
+| PhoneTechType     | N        | String            | Concur currently only supported a PhoneTechType set to "1" (phone) or "3" (fax). You can omit this field only in case you are providing one contact number. Anyway, we suggest to fill the type in all cases, it may become mandatory in the future. |
 
 
 **Award**
@@ -163,7 +227,7 @@ The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds
 | *Rating* | Y        | Int       | Hotel rating should be integer number from 0 to 5, representation it's star rating. |
 
 
-**HotelAmenity - to be removed**
+**HotelAmenity**
 
 | Element | Required | Data Type    | Description |
 |---------|----------|--------------|-------------|
@@ -178,13 +242,18 @@ The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds
 | *CheckOutTime* | Y        | StringLength1to32	| **to be decided** |
 
 
+**OTA_CodeType**
+
+Used for codes in the OpenTravel Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
+
+
 ### TPA Extensions
 
 **TPA_Extensions**
 
 | Element                  | Required | Data Type         | Description |
 |--------------------------|----------|-------------------|-------------|
-| HotelPreference          | Y        | StringLength1to32 | A reference to identify the booking |
+| HotelPreference          | Y        | StringLength1to32 | A reference to identify the booking. Prederence levels supports by Concur are "not_preferred", "less_preferred", "preferred", "most_preferred". Please note, that Concur allows customers to override property preference in the system settings.  |
 | TPA_HotelPreviewImageURI | Y        | Complex           | A reference to identify the booking |
 
 
@@ -192,5 +261,4 @@ The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds
 
 | Element | Required | Data Type         | Description |
 |---------|----------|-------------------|-------------|
-| URL     | Y        | StringLength1to32 | Concur supports on one image URL in the Search Response.  For the ability to display more images refer to Descriptive Info.  The image will be used as a thumb-nail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
-
+| URL     | Y        | StringLength1to32 | Concur supports on one image URL in the Search Response.  For the ability to display more images refer to Descriptive Info message.  The image will be used as a thumb-nail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
