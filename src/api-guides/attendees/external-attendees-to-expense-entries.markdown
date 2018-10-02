@@ -4,11 +4,11 @@ layout: reference
 ---
 
 
-## About this recipe
+## About this Integration Guide
 
-This recipe prescribes how to associate external attendees to expense entries in Concur Expense. It assumes you are familiar with Concur Expense and the system of record for the external attendees.  It also assumes that you have registered your application, and that you know how to make API calls to the Concur Platform.
+This guide prescribes how to associate external attendees to expense entries in Concur Expense. It assumes you are familiar with Concur Expense and the system of record for the external attendees.  It also assumes that you have registered your application, and that you know how to make API calls to the Concur Platform.
 
-## APIs used in this recipe
+## APIs used in this Guide
 
 `Base URL: https://www.concursolutions.com/api/v3.0`
 

@@ -37,7 +37,7 @@ Updates the loyalty program information for the OAuth consumer. Loyalty contains
 
 **Travel Suppliers**
 
-If the request is sent from a travel supplier with an [OAuth token](/api-reference-deprecated/old-auth/old-auth.html#access-tokens) for the user, they can set a new loyalty program number. Travel suppliers can only update their own loyalty program information.
+If the request is sent from a travel supplier with an [Pre-2017 Authorization (Deprecated) token](/api-reference/authentication/authorization-pre-2017.html#access-tokens) for the user, they can set a new loyalty program number. Travel suppliers can only update their own loyalty program information.
 
 **Travel Management Companies**
 

@@ -4,8 +4,7 @@ layout: reference
 ---
 Concur's new Oauth2 framework is a very simple way to implement a Unified Token Authentication mechanism within your application. Here is a four step guide to helping you get up to speed and making calls to Concur's API.  
 
-**Note:** The old authentication documentation can be found [here](/api-reference-deprecated/old-auth/old-auth.html)
-
+**Note:** The Pre-2017 Authorization (Deprecated) documentation can be found [here](/api-reference/authentication/authorization-pre-2017.html)
 
 ## 1. Obtain your Application clientID and clientSecret
 Before you can obtain an `accessToken`, you need to register an application with Concur. You can do this by contacting your Partner Enablement Manager or Partner Account Manager. Once you have registered an application, you will receive a `clientId`, `clientSecret` and `geolocation`. The `clientId` is a unique UUID4 identifier for your application, and the `clientSecret` is your application's password. You will be using this credential to obtain tokens either for the application itself, or on behalf of a user. The `geolocation` is your default base URI for initiating all new connections.

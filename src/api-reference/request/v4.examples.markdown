@@ -3,7 +3,7 @@ title: Travel Request v4 - Examples
 layout: reference
 ---
 
-** Pre-release Version 4.0**
+{% include prerelease.html %}
 
 If a new or existing project please use version [3.0](./v3.request.html) of this API.
 
@@ -33,7 +33,7 @@ Manage documents used for pre-spend authorizations within Concur Request
 
 ### <a name="request-resource-create"></a>Create a new Request
 
-#### Request
+#### HTTP Request
 
 ```shell
 POST https://us.api.concursolutions.com/travelrequest/v4/requests
@@ -78,7 +78,7 @@ Authorization: Bearer {token}
 }
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 201 Created
@@ -168,7 +168,7 @@ Authorization: Bearer {token}
 
 ### <a name="request-resource-get-list"></a>Get the list of existing Requests
 
-#### Request
+#### HTTP Request
 
 ```shell
 GET https://us.api.concursolutions.com/travelrequest/v4/requests?view=ALL&limit=10&start=0
@@ -176,7 +176,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 200 OK
@@ -257,7 +257,7 @@ Authorization: Bearer {token}
 
 ### <a name="request-resource-get"></a>Get the content of an existing Request
 
-#### Request
+#### HTTP Request
 
 ```shell
 GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2
@@ -265,7 +265,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 200 OK
@@ -371,7 +371,7 @@ Authorization: Bearer {token}
 
 ### <a name="request-resource-update"></a> Update the content of an existing Request
 
-#### Request
+#### HTTP Request
 
 ```shell
 PUT https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E
@@ -380,7 +380,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### Response
+#### HTTP Response
 
 ```json
 {
@@ -419,7 +419,7 @@ Authorization: Bearer {token}
 }
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 200 OK
@@ -507,10 +507,9 @@ Authorization: Bearer {token}
 }
 ```
 
-
 ### <a name="request-resource-delete"></a>Delete an existing Request
 
-#### Request
+#### HTTP Request
 
 ```shell
 DELETE https://us.api.concursolutions.com/travelrequest/v4/requests/0D4DC4589D33AC4B9AF2E8B548C7AD2C
@@ -518,7 +517,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 200 OK
@@ -530,7 +529,7 @@ true
 
 ### <a name="request-resource-create-expense-linked"></a>Create an expense report linked to an approved Request
 
-#### Request
+#### HTTP Request
 
 ```shell
 POST https://us.api.concursolutions.com/travelrequest/v4/requests/19148EE9411DF9459F6AEBBCA53BD646/reports
@@ -539,7 +538,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 201 Created
@@ -559,7 +558,7 @@ Manage workflow transitions for a Request document
 
 ### <a name="move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
 
-#### Request
+#### HTTP Request
 
 ```shell
 POST https://us.api.concursolutions.com/travelrequest/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit
@@ -568,7 +567,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 200 OK
@@ -672,7 +671,7 @@ Manage expected Expense entries attached to a Request document
 
 ### <a name="create-new-expected-expense-resource"></a>Create a new expected expense
 
-#### Request
+#### HTTP Request
 
 ```shell
 POST https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses
@@ -773,7 +772,7 @@ Authorization: Bearer {token}
 }
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 201 Created
@@ -871,7 +870,7 @@ Authorization: Bearer {token}
 
 ### <a name="get-expected-expense-attached-request-resource"></a>Get expected Expenses attached to a Request
 
-#### Request
+#### HTTP Request
 
 ```shell
 GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses
@@ -879,7 +878,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 200 OK
@@ -1106,7 +1105,7 @@ Authorization: Bearer {token}
 
 ### <a name="get-existing-expense-expense-resource"></a>Get the content of an existing expected Expense
 
-#### Request
+#### HTTP Request
 
 ```shell
 GET https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1
@@ -1114,7 +1113,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 200 OK
@@ -1233,13 +1232,15 @@ Authorization: Bearer {token}
 }
 ```
 
+#### HTTP Request
+
 ```shell
 GET https://us.api.concursolutions.com/travelrequest/v4/expenses/C286A46A2DDF984EA28E41CEA278667D
 Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 200 OK
@@ -1302,7 +1303,7 @@ Authorization: Bearer {token}
 
 ### <a name="update-content-existing-expected-expense-resource"></a>Update the content of an existing expected Expense
 
-#### Request
+#### HTTP Request
 
 ```shell
 PUT https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1
@@ -1423,7 +1424,7 @@ Authorization: Bearer {token}
 }
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 200 OK
@@ -1544,7 +1545,7 @@ Authorization: Bearer {token}
 
 ### <a name="delete-expected-expense-request-resource"></a>Delete an expected Expense from the Request
 
-#### Request
+#### HTTP Request
 
 ```shell
 DELETE https://us.api.concursolutions.com/travelrequest/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0
@@ -1552,7 +1553,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 200 OK
@@ -1568,7 +1569,7 @@ Manage the configuration for travel agencies integrated with Concur Request
 
 ### <a name="get-travel-agency-description-resource"></a>Get the description of a travel agency office
 
-#### Request
+#### HTTP Request
 
 ```shell
 GET https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B
@@ -1576,7 +1577,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### Response
+#### HTTP Response
 
 ```shell
 200 OK

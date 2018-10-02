@@ -3,17 +3,19 @@ title: Purchase Request
 layout: reference
 ---
 
+{% include prerelease.html %}
+
 # Purchase Request
+
 * [Create a new purchase request](#post)
 * [Get details of purchase request](#get)
 * [Schema](#create_purchase_request_schema)
 * [Response schema](#create_purchase_request_schema-response)
 * [Error codes](#error-codes)
 
-
 ## Version
-4.0<br>
-**PRE-RELEASE:** The API is in Pre-Release and that only authorized early adopters should be using the API. Please contact <a href="mailto:charles.muellner@sap.com">charles.muellner@sap.com</a> for more information.
+
+4.0
 
 ## <a name="post"></a>Create a new purchase request  
 
@@ -100,7 +102,7 @@ Content-Type: application/json
       ]
   }
   ```
-    
+
 ### Response  
 
 [Response schema](#create_purchase_request_schema-response)  
