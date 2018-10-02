@@ -113,11 +113,11 @@ User applications in the “in-product” App Center are also filtered by the us
 
 ## <a name="download"></a>I’m an Administrator. What if I don’t want my users to download an app from the SAP Concur App Center?
 
-Users cannot download apps directly from the SAP Concur App Center, it’s simply a means to open a secure gateway to share relevant data between their Concur account and their account with the partner. If you have concerns about your users being able to connect with any of the user apps, you’re able to disable them following the instructions here. <!-- ToDo Broken Link -->
+Users cannot download apps directly from the SAP Concur App Center, it’s simply a means to open a secure gateway to share relevant data between their Concur account and their account with the partner. If you have concerns about your users being able to connect with any of the user apps, you’re able to disable them following the [App Center Administrator User Guide](https://www.concurtraining.com/customers/tech_pubs/Docs/ConcurPremier/UG_Shr/Shr_UG_AppCenterAdmin.pdf).
 
 ## <a name="control"></a>I’m an Administrator. I’m not sure I want my users to see certain apps because I’m concerned that will encourage them to book out of policy – will it?
 
-Travel booking controls, content and search results are still defined by you. Travelers will only see TripLink supplier listings if you have enabled the TripLink service. Admins may also disable certain user applications so that users are not able to connect their accounts via the instructions here.  <!-- ToDo Broken Link -->
+Travel booking controls, content and search results are still defined by you. Travelers will only see TripLink supplier listings if you have enabled the TripLink service. Admins may also disable certain user applications so that users are not able to connect their accounts via the [App Center Administrator User Guide](https://www.concurtraining.com/customers/tech_pubs/Docs/ConcurPremier/UG_Shr/Shr_UG_AppCenterAdmin.pdf).
 
 ## <a name="connect"></a>Can any user connect to an enterprise application?
 
