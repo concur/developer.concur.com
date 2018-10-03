@@ -556,17 +556,17 @@ The maximum allowed size of OTA_HotelResRS is 150 KB. Any response that exceeds 
 | RatePlans | Y        | Complex   |  A collection of Rate Plans associated with a particular Room Stay. |
 
 **RatePlan**
-Element   | Required | Data Type | Description |
+| Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
 | CancelPenalties | N        | Complex   |  Collection of cancellation penalties. |
 | *CancelPolicyIndicator* | N | Boolean | When true, indicates a cancel policy exits. When false, no cancel policy exists. Typically this indicator is used when details are not being sent. |
 
 **CancelPenalty**
-Element   | Required | Data Type | Description |
+| Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
 | PenaltyDescription | N        | Complex   |  Text description of the Penalty in a given language. Max 9 elements. |
 
 **PenaltyDescription**
-Element   | Required | Data Type | Description |
+| Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
 | Text | N        | FormattedTextTextType   |  Formatted text content. |

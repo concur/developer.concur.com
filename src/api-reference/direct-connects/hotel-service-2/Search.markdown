@@ -253,12 +253,12 @@ Used for codes in the OpenTravel Code tables. Possible values of this pattern ar
 
 | Element                  | Required | Data Type         | Description |
 |--------------------------|----------|-------------------|-------------|
-| HotelPreference          | Y        | StringLength1to32 | A reference to identify the booking. Prederence levels supports by Concur are "not_preferred", "less_preferred", "preferred", "most_preferred". Please note, that Concur allows customers to override property preference in the system settings.  |
-| TPA_HotelPreviewImageURI | Y        | Complex           | A reference to identify the booking |
+| HotelPreference          | Y        | StringLength1to32 | Hotel preference level set by Travel Administrator.. Prederence levels supports by Concur are "not_preferred", "less_preferred", "preferred", "most_preferred". Please note, that Concur allows customers to override property preference in the system settings.  |
+| TPA_HotelPreviewImageURI | Y        | Complex           | Details for an image of a given category. |
 
 
 **TPA_HotelPreviewImageURI**
 
 | Element | Required | Data Type         | Description |
 |---------|----------|-------------------|-------------|
-| URL     | Y        | StringLength1to32 | Concur supports on one image URL in the Search Response.  For the ability to display more images refer to Descriptive Info message.  The image will be used as a thumb-nail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
+| URL     | Y        | StringLength1to32 | URL of the multimedia item for a specific format. Concur supports on one image URL in the Search Response. For the ability to display more images refer to Descriptive Info message.  The image will be used as a thumb-nail and should be limited to 70x70 pixels to prevent image artifacts by scaling. |
