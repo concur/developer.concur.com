@@ -1,6 +1,8 @@
 ---
 title: Attendee Type v1
 layout: reference
+redirect_from:
+  - /api-reference-deprecated/old-auth/old-auth.html
 ---
 
 {% include deprecation-alert.html %}
