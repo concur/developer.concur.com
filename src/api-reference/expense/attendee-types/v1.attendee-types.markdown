@@ -1,8 +1,9 @@
 ---
-title: Attendee Type v1
+title: Attendee Types v1
 layout: reference
 redirect_from:
-  - /api-reference-deprecated/old-auth/old-auth.html
+  - /api-reference-deprecated/version-one/attendee-types/attendee-type-resource-get.html
+  - /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html
 ---
 
 {% include deprecation-alert.html %}

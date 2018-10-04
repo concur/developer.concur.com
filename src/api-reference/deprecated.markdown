@@ -9,9 +9,7 @@ The following application programming interfaces (APIs) have been deprecated acc
 * Attendees v1
   * [Attendee List Resource](/api-reference-deprecated/version-one/attendees/attendee-list-resource.html)
   * [Attendee List Resource Post](/api-reference-deprecated/version-one/attendees/attendee-list-resource-post.html)
-* Attendee Types v1
-  * [Attendee Type Resource](/api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html)
-  * [Get attendee types](/api-reference-deprecated/version-one/attendee-types/attendee-type-resource-get.html)
+* [Attendee Types v1](/api-reference/expense/attendee-types/v1.attendee-types.html)
 * Imaging Web Service v1
   * [Imaging Web Service](/api-reference-deprecated/version-one/Image/)
   * [Image Resource](/api-reference-deprecated/version-one/Image/image-resource.html)
