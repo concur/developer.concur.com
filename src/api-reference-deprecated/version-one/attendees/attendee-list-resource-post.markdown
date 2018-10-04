@@ -56,7 +56,7 @@ NOTE: The element names are case-sensitive.
 | Element | Required/Optional | Description |
 |-----------|-----------|--------------------|
 |external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
-| type | required  | The attendee type code. Refer to the [Attendee Type][1] resource documentation. Maximum 8 characters. |
+| type | required  | The attendee type code. Refer to the [Attendee Types v1](/api-reference/expense/attendee-types/v1.attendee-types.html) documentation. Maximum 8 characters. |
 | last-name | required  | The last name of the attendee. Maximum 132 characters. |
 | first-name | optional  | The first name of the attendee. Maximum 50 characters. |
 | company | optional  | The name of the attendee’s company. Maximum 150 characters. |
@@ -190,7 +190,7 @@ NOTE: The element names are case-sensitive.
 | Element | Required/Optional | Description |
 |-----------|-----------|--------------------|
 |external-id  | required  | This is the unique identifier for the attendee from the external (to Concur) system. Maximum 48 characters. |
-| type | required  | The attendee type code. Refer to the [Attendee Type][1] resource documentation. Maximum 8 characters. |
+| type | required  | The attendee type code. Refer to the [Attendee Types v1](/api-reference/expense/attendee-types/v1.attendee-types.html) resource documentation. Maximum 8 characters. |
 | last-name | required  | The last name of the attendee. Maximum 132 characters. |
 | first-name | optional  | The first name of the attendee. Maximum 50 characters. |
 | company | optional  | The name of the attendee’s company. Maximum 150 characters. |
@@ -370,7 +370,6 @@ Content-Type: application/xml
 </attendee-batch-result>
 ```
 
-[1]: /api-reference/expense/attendee-types/attendee-type-resource.html
 [2]: http://en.wikipedia.org/wiki/ISO_4217
 [3]: /api-reference/expense/expense-report/expense-form.html
 [4]: /api-reference/expense/expense-report/expense-form-field.html

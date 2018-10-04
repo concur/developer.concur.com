@@ -1,5 +1,5 @@
 ---
-title: Attendee Type
+title: Attendee Type v3
 layout: reference
 ---
 

@@ -12,8 +12,6 @@
 - title: v1.0 - Attendee Types
   url: ''
   children:
-      - title: Attendee Type Resource
-        url: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html
       - title: Get attendee types
         url: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource-get.html
 - title: v1.0 - Imaging Web Service
