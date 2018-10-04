@@ -3,8 +3,7 @@ title: User
 layout: reference
 ---
 
-Warning: Concur's Profile API is currentlly in **BETA** and is subject to change.
-
+{% include prerelease.html %}
 
 [Getting Started with Profile](gettingStarted.html)  -  [Company API](company.html)  -  [**User API**](user.html)
 
@@ -38,7 +37,7 @@ Curl example:
 
 The above calls will retrieve general user profile information. User resource also supports a `schema` parameter to limit or expand the data returned. To limit the amount of data returned, you can use `?schema=compact`. To also retrieve expense related data, you can use `?schema=expense`. You can also provide comma delimited schema list for the parameter, such as `?schema=compact,expense`.
 
-### User details 
+### User details
 
 Here is a sample user response, without compact, but with expense schema.
 
