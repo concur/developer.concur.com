@@ -3,6 +3,10 @@ title: Request Support - Partners
 layout: reference
 ---
 
+## Maintenance scheduled October 7, 2018
+
+The SAP Concur EMEA Data Center will be undergoing maintenance from 20:00 CEST on Saturday, October 6, through 06:00 CEST on Sunday, October 7, 2018. During this time, there will be no access to the data center services.
+
 [Login and open a partner support case](https://sapconcur.my.salesforce.com/secur/login_portal.jsp?orgId=00D600000007Dq3&portalId=06060000000PrEi)
 
 **App Center Partners should never instruct a customer to log a ticket directly into Concur Customer Support**
