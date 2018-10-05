@@ -253,7 +253,7 @@ Used for codes in the OpenTravel Code tables. Possible values of this pattern ar
 
 | Element                  | Required | Data Type         | Description |
 |--------------------------|----------|-------------------|-------------|
-| HotelPreference          | Y        | StringLength1to32 | Hotel preference level set by Travel Administrator.. Prederence levels supports by Concur are "not_preferred", "less_preferred", "preferred", "most_preferred". Please note, that Concur allows customers to override property preference in the system settings.  |
+| HotelPreference          | Y        | StringLength1to32 | Preference levels supports by Concur are "not_preferred", "less_preferred", "preferred", "most_preferred". Please note, that Concur allows customers to override property preference in the system settings.  |
 | TPA_HotelPreviewImageURI | Y        | Complex           | Details for an image of a given category. |
 
 
