@@ -29,7 +29,7 @@ The below Authentication Methods are available to obtain an access token. Passwo
 
 3. The SAP Concur authorization service will redirect the user to your landing page. Please follow the [App Center Design Guidelines](/manage-apps/go-market-docs/app-center-ux-guidelines-consumer.html) to create a web page that listens for an HTTP GET request from SAP Concur.
 4. The redirect URI will contain an `id` and `requestToken` parameters.
-```Example:   https://{partner-redirect-URI}?id=8568a4cd-8ffc-49d6-9417-be2d69aa075f&requestToken=5l85ae5a-426f-4d6f-8af4-08648c4b696b```
+`Example:   https://{partner-redirect-URI}?id=8568a4cd-8ffc-49d6-9417-be2d69aa075f&requestToken=5l85ae5a-426f-4d6f-8af4-08648c4b696b`
 5. When your application receives the redirect call strip the `id` and `requestToken` values from the URI and use those on a Post request to the SAP Concur Authorization service to obtain the official OAuth2 `accessToken` and `refreshToken` for the user using the [password grant](/api-reference/authentication/apidoc.html#password-grant) while [being geo aware](#being-geo-aware).
 6. Decode the `id_token` to obtain the `sub` value and store this value as the user `id` (see [https://jwt.io](https://jwt.io)).
 7. An access token is valid only for one hour. The access token should be cached in memory and discarded after use.
@@ -46,7 +46,7 @@ The below Authentication Methods are available to obtain an access token. Passwo
     ![Example of what an App Center partner might display on their own site to allow their users to connect their user account at the partner with their account at Concur, using the web flow.](/assets/img/api-guides/e-receipts/webflow-auth.png)
 
 2. Your Application will make a call to the SAP Concur Authorization service.  
-```Example: GET /oauth2/v0/authorize?client\_id={your-app-clientId}&redirect\_uri={partner_redirect_URI}&response\_type=code```
+`Example: GET /oauth2/v0/authorize?client\_id={your-app-clientId}&redirect\_uri={partner_redirect_URI}&response\_type=code`
 3. The SAP Concur Authorization service will prompt the user with two options: "Username/Password" or "Send a link to my email."
 
     ![Concur authentication prompt for the user, after they have chosen to connect their account at the partner site with their Concur account. They have two options, Send a link to my email, or enter their username to authenticate.](/assets/img/api-guides/e-receipts/signin.png)
@@ -54,12 +54,12 @@ The below Authentication Methods are available to obtain an access token. Passwo
 4. Handling the username/password option:
    * When users choose the username/password option, the authorization service will prompt the user to enter their concur credentials.
    * After successfully logging in, the user's page will be redirected to the partner's redirect URI with a query parameter containing a one-time use code and user's geolocation which will be used to obtain an official OAuth2 `accessToken` and `refreshToken`.
-```Example: https://{partner\_redirect\_URI}?{geolocation}&code=code-964c24ea-9200-45e7-a5ae-15e9cef0d445```
+`Example: https://{partner\_redirect\_URI}?{geolocation}&code=code-964c24ea-9200-45e7-a5ae-15e9cef0d445`
 5. Handling the email option:
    * The email option is designed for users who do not want to use passwords or those that do not have passwords such as single sign-on (SSO) users.
    * Email is sent IF provides his/her **primary** SAP Concur email address (email1).
    * After user clicks on the "Sign in with Concur" link within the email, he/she will be redirected to the partner's redirect URI with a query parameter containing a one-time use code and user's geolocation which will be used to obtain an official OAuth2 `accessToken` and `refreshToken`.
-```Example: https://{partner\_redirect\_URI}?{geolocation}&code=code-964c24ea-9200-45e7-a5ae-15e9cef0d445```
+`Example: https://{partner\_redirect\_URI}?{geolocation}&code=code-964c24ea-9200-45e7-a5ae-15e9cef0d445`
 
     ![Example email that is sent if the user chooses Send a link to my email.](/assets/img/api-guides/e-receipts/otp-email2.png)
 
@@ -85,7 +85,7 @@ The below Authentication Methods are available to obtain an access token. Passwo
     ![Concur authentication prompt for the user, after they have chosen to connect their account at the partner site with their Concur account, using the one time password flow.](/assets/img/api-guides/e-receipts/otp-email.png)
 
 4. After user clicks on the "Sign in with Concur" link within the email, they will be redirected to the partner's redirect URI with a query parameter containing a one-time token `otl` that will be used to obtain an official OAuth2 `accessToken` and `refreshToken`.  
-```Example: https://{partner\_redirect\_URI}&otl=7add4621f00b47e1aa2d8a61739c97e6```
+`Example: https://{partner\_redirect\_URI}&otl=7add4621f00b47e1aa2d8a61739c97e6`
 5. When your application receives the redirect call with the one-time token, strip the token value from the redirect URI and use that token on a Post request to the SAP Concur Authorization service to obtain an official OAuth2 `accessToken` and `refreshToken` using the [OTP grant](/api-reference/authentication/apidoc.html#otp-grant) while [being geo aware](#being-geo-aware).
 6. Decode the `id_token` to obtain the`sub` value and store this value as the user`id` (see [https://jwt.io](https://jwt.io)).
 7. An access token is valid only for one hour. The access token should be cached in memory and discarded after use.
