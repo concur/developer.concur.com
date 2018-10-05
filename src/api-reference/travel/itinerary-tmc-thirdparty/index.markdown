@@ -238,7 +238,8 @@ Name |  Description
 `Comments` |  Optional comments. Maximum length: 512 characters.
 `DateBookedLocal` |  The date the trip was booked, in the local time of the booking location. Format: YYYY-MM-DDThh:mm:ss
 `DateCreatedUtc` |  The date that this trip was created, in UTC. Format: YYYY-MM-DDThh:mm:ss
-`DateModifiedUtc` |  The date that this trip was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss`Description` |  The trip description. Maximum length: 512 characters.
+`DateModifiedUtc` |  The date that this trip was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss
+`Description` |  The trip description. Maximum length: 512 characters.
 `EndDateLocal` |  The end date of the trip in the ending location's timezone. Format: YYYY-MM-DDThh:mm:ss
 `EndDateUtc` |  The end date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss
 `IsPersonal` |  Whether the trip is a Business or Leisure trip. Format: true/false.
