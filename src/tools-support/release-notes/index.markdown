@@ -3,10 +3,6 @@ title: Release Notes
 layout: reference
 ---
 
-## Maintenance scheduled October 7, 2018
-
-The SAP Concur EMEA Data Center will be undergoing maintenance from 20:00 CEST on Saturday, October 6, through 06:00 CEST on Sunday, October 7, 2018. During this time, there will be no access to the data center services.
-
 # Client Release Notes
 
 * [Professional Edition](http://www.concurtraining.com/customers/tech_pubs/_RN_CCC.htm)
