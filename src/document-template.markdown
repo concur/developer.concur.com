@@ -195,15 +195,15 @@ Name|Type|Format|Description
 ---|---|---|---
 `name`|`type`|format|**Required** Description.
 
--------------
+# Real world example
 
-# Service v10
+> Make sure the Jekyll front matter is included in lieu of the # H1 above.
 
 {% include prerelease.html %}
 
 Include an introduction here as well as include an indented + bulleted table of contents which helps the reader navigate the various sections.
 
-Include a [relative link](./schema/template.schema.json).
+Including a [relative link](./schema/template.schema.json).
 
 * [Sample for posting a payload](#post-a-payload)
 * [Sample Schema](#schema-example)
