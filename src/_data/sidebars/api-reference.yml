@@ -122,8 +122,8 @@
   children:
       - title: Allocations
         url: /api-reference/expense/allocations/expense-allocations.html
-      - title: Attendee Type
-        url: /api-reference/expense/attendee-types/attendee-type-resource.html
+      - title: Attendee Types v3
+        url: /api-reference/expense/attendee-types/v3.attendee-types.html
       - title: Attendees
         url: /api-reference/expense/attendees/
       - title: Digital Tax Invoices
