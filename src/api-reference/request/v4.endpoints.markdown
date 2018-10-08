@@ -3,7 +3,7 @@ title: Travel Request v4 - Endpoints
 layout: reference
 ---
 
-{% include prerelease.html %}
+** Pre-release Version 4.0**
 
 If a new or existing project please use version [3.0](./v3.request.html) of this API.
 
@@ -25,33 +25,34 @@ If a new or existing project please use version [3.0](./v3.request.html) of this
 * [Travel Agency Resources](#travel-agency-resource)
   * [Get the description of a travel agency office](#get-travel-agency-description-resource)
 * [Schema](#schema)
-  * [Request](#schema-request)
-  * [ApprovalStatus](#schema-approvalstatus)
-  * [Customfield](#schema-customfield)
-  * [Location](#schema-location)
-  * [Amount](#schema-amount)
-  * [ResourceLink](#schema-resourcelink)
-  * [RequestLink](#schema-requestlink)
-  * [Link](#schema-link)
-  * [Expense](#schema-expense)
-  * [Allocation](#schema-allocation)
-  * [Exchange Rate](#schema-exchangerate)
-  * [Expense Type](#schema-expensetype)
-  * [Travel Allowance](#schema-travelallowance)
-  * [Trip Data](#schema-tripdata)
-  * [Vendor](#schema-vendor)
-  * [Segment Leg](#schema-segmentleg)
-  * [Segment Type](#schema-segmenttype)
+  * [Request](#request)
+  * [ApprovalStatus](#approvalstatus)
+  * [Customfield](#customfield)
+  * [List of Requests](#listofrequests)
+  * [Location](#location)
+  * [Amount](#amount)
+  * [ResourceLink](#resourcelink)
+  * [RequestLink](#requestlink)
+  * [Link](#link)
+  * [Expense](#expense)
+  * [Allocation](#allocation)
+  * [Exchange Rate](#exchangerate)
+  * [Expense Type](#expensetype)
+  * [Travel Allowance](#travelallowance)
+  * [Trip Data](#tripdata)
+  * [Vendor](#vendor)
+  * [Segment Leg](#segmentleg)
+  * [Segment Type](#segmenttype)
 
 ## HTTP Status Codes and Headers
 
-To learn more about request headers and response HTTP status codes and headers for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
+To learn more about request headers and response HTTP status codes and headers for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html) and [Travel Request v4 - Headers](./v4.headers.html).
 
 # <a name="request-resource"></a>Request Resources
 
 ## <a name="request-resource-create"></a>Create a new Request
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
@@ -67,13 +68,13 @@ POST /v4/requests
 
 #### Payload
 
-[Request](#schema-request)
+[Request](#request)
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
-[Request](#schema-request) - The created Request
+[Request](#request) - The created Request
 
 ### Example
 
@@ -81,14 +82,16 @@ POST /v4/requests
 
 ## <a name="request-resource-getlist"></a>Get the list of existing Requests
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
 Name|Parameter Type|Data Type|Description
 ---|---|---|---
-view|path|string|Name of the perimeter defining the requests to get.<br> Possible values : `ALL`, `ACTIVE`, `UNSUBMITTED`, `PENDING`, `VALIDATED`, `APPROVED`, `CANCELED`, `CLOSED`, `SUBMITTED`, `TOAPPROVE`, `PENDINGEBOOKING`.<br> If no view value is sent, the default view `ALL` will be used
+view|path|string|Name of the perimeter defining the requests to get.<br> Possible values : `ALL`, `ACTIVE`, `UNSUBMITTED`, `PENDING`, `VALIDATED`, `APPROVED`, `CANCELED`, `CLOSED`, `SUBMITTED`, `TOAPPROVE`, `PENDINGEBOOKING`. When connecting with a User Token, additional values are possible: `PENDINGPROPOSAL`, `PROPOSALAPPROVED`, `PROPOSALCANCELED`. <br> If no view value is sent, the default view `ALL` will be used
 userId|path|string|The unique identifier of the Request owner to use when searching for Requests
+start|path|Integer|Pagination: index of the first record (default 0)
+limit|path|Integer|Number of records to return per page (default 10) - maximum limit is 100, if higher value or digit value is set, a 400 error code will be displayed
 modifiedBefore|path|DateTime|This returns Requests in which the associated dependents (Header, Expected Expenses, Segments, Allocations, Attendees, Comments) were modified before the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
 modifiedAfter|path|DateTime|This returns Requests in which the associated dependents (Header, Expected Expenses, Segments, Allocations, Attendees, Comments) were modified after the specified date and time.<br> This search term can be used along with other search terms to narrow the results.<br> The date and time (if desired) should be in UTC.<br> Both ISO format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z') and yyyy-MM-dd format are accepted, when time is missing it is defaulted to midnight.
 
@@ -102,11 +105,11 @@ GET /v4/requests
 
 None
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
-[Request](#schema-request) - The list of Request(s) meeting the values set in the parameters
+[List of Request](#listofrequests)
 
 ### Example
 
@@ -114,7 +117,7 @@ None
 
 ## <a name="request-resource-get"></a>Get the content of an existing Request
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
@@ -132,11 +135,11 @@ GET /v4/requests/{requestUuid}
 
 None
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
-[Request](#schema-request) - The Request having {requestUuid} as unique identifier
+[Request](#request) - The Request having {requestUuid} as unique identifier
 
 ### Example
 
@@ -144,7 +147,7 @@ None
 
 ## <a name="request-resource-update"></a>Update the content of an existing Request
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
@@ -163,13 +166,13 @@ PUT /v4/requests/{requestUuid}
 
 #### Payload
 
-[Request](#schema-request)
+[Request](#request)
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
-[Request](#schema-request) - The Request having {requestUuid} as unique identifier after update
+[Request](#request) - The Request having {requestUuid} as unique identifier after update
 
 ### Example
 
@@ -177,7 +180,7 @@ PUT /v4/requests/{requestUuid}
 
 ## <a name="request-resource-delete"></a>Delete an existing Request
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
@@ -196,7 +199,7 @@ DELETE /v4/requests/{requestUuid}
 
 None
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
@@ -208,7 +211,7 @@ None
 
 ## <a name="request-resource-create-expense-linked"></a>Create an Expense Report linked to an approved Request
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
@@ -223,9 +226,9 @@ POST /v4/requests/{requestUuid}/reports
 ```
 #### Payload
 
-???
+None
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
@@ -241,7 +244,7 @@ Manage workflow transitions for a Request document.
 
 ## <a name="Move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
@@ -273,13 +276,13 @@ POST /v4/requests/{requestUuid}/{action}
 
 #### Payload
 
-???
+None
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
-[Request](#schema-request) - The Request having {requestUuid} as unique identifier
+[Request](#request) - The Request having {requestUuid} as unique identifier
 
 ### Example
 
@@ -291,7 +294,7 @@ Manage expected expense entries attached to a Request document.
 
 ## <a name="create-new-expected-expense-resource"></a>Create a new expected expense
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
@@ -310,7 +313,7 @@ POST /v4/requests/{requestUuid}/expenses
 
 [Expense](#expense)
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
@@ -322,7 +325,7 @@ None
 
 ## <a name="get-expected-expense-attached-request-resource"></a>Get expected Expenses attached to a Request
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
@@ -341,7 +344,7 @@ GET /v4/requests/{requestUuid}/expenses
 
 None
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
@@ -355,7 +358,7 @@ operations - [RFC 5988](https://tools.ietf.org/html/rfc5988) Pagination links to
 
 ## <a name="get-existing-expense-expense-resource"></a>Get an existing expected Expense
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
@@ -373,7 +376,7 @@ GET /v4/expenses/{expenseUuid}
 
 None
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
@@ -385,7 +388,7 @@ None
 
 ## <a name="update-content-existing-expected-expense-resource"></a>Update the content of an existing expected Expense
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
@@ -404,7 +407,7 @@ PUT /v4/expenses/{expenseUuid}
 
 [Expense](#expense)
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
@@ -416,7 +419,7 @@ PUT /v4/expenses/{expenseUuid}
 
 ## <a name="delete-expected-expense-request-resource"></a>Delete an expected Expense from the Request
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
@@ -435,7 +438,7 @@ DELETE /v4/expenses/{expenseUuid}
 
 None
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
@@ -451,7 +454,7 @@ Manage the configuration for travel agencies integrated with Concur Request.
 
 ## <a name="get-travel-agency-description-resource"></a>Get the description of a travel agency office
 
-### HTTP Request
+### HTTP request
 
 #### Parameters
 
@@ -469,7 +472,7 @@ GET /v4/travelagencies/{agencyUuid}
 
 None
 
-### HTTP Response
+### HTTP response
 
 #### Payload
 
@@ -486,7 +489,7 @@ proposalType|string|-|The travel agency proposal type. Possible value: `CWT`, `C
 
 ## <a name="schema"></a>Schema
 
-### <a name="schema-request"></a>Request
+### <a name="request"></a>Request
 
 Name|Type|Format|Description
 -------------|-------|--------|------
@@ -523,14 +526,14 @@ totalRemainingAmount|object|[Amount](#amount)|The total amount not included in a
 travelAgency|object|[ResourceLink](#resourcelink)|The travel agency office that is managing the trip associated to this Request
 operations|array|[Link](#link)|Links to operations available for the Request, depends on the current approval status
 
-### <a name="schema-approvalstatus"></a>Approval Status
+### <a name="approvalstatus"></a>Approval Status
 
 Name|Type|Format|Description
 ---|---|---|---
 code|string|-|The code for the approval status the Request. <br>Possible values: `NOT_SUBMITTED`, `SUBMITTED`, `APPROVED`, `CANCELED` or `SENTBACK`
 name|string|-|The approval status of the Request in the current user's language
 
-### <a name="schema-customfield"></a>CustomField
+### <a name="customfield"></a>CustomField
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -539,7 +542,14 @@ value|string|-|The value of the non-list item. For list fields, this is the uniq
 listItemId|string|-|The unique id of the item in case of a list field
 href|string|-|The link to get this list item on the list service. Empty for non-list items
 
-### <a name="schema-location"></a>Location
+### <a name="listofrequests"></a>List of Requests
+
+Name|Type|Format|Description
+---|---|---|---
+data|array|[Request](#request)|List of Requests in the page requested
+operations|array|[Link](#link)|Links to next, prev, first and last pages
+
+### <a name="location"></a>Location
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -549,14 +559,14 @@ city|string|-|The city name of the location
 iataCode|string|-|The IATA code of the location
 name|string|-|The name of the location
 
-### <a name="schema-amount"></a>Amount
+### <a name="amount"></a>Amount
 
 Name|Type|Format|Description
 ---|---|---|---
 value|number|-|**Required** The amount in the defined currency
 currency|string|[ISO 4217:2015](#https://www.iso.org/standard/64758.html)|**Required** The 3-letter ISO 4217 code for the currency in which the amount is expressed
 
-### <a name="schema-resourcelink"></a>ResourceLink
+### <a name="resourcelink"></a>ResourceLink
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -564,20 +574,20 @@ href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the res
 id|string|[RFC 4122](https://tools.ietf.org/html/rfc4122)|Unique identifier of the related object
 template|string|-|Hyperlink template to the resource
 
-### <a name="schema-requestlink"></a>RequestLink
+### <a name="requestlink"></a>RequestLink
 
 Name|Type|Format|Description
 ---|---|---|---
 requestId|string|4 to 6 alphanumeric characters|The public key of the Request (unique per customer)
 
-### <a name="schema-link"></a>Link
+### <a name="link"></a>Link
 
 Name|Type|Format|Description
 ---|---|---|---
 rel|string|[RFC 5988](https://tools.ietf.org/html/rfc5988)|Relation type as defined by the server. There are registered relation types listed in RFC 5988 6.2.2. Initial Registry Contents including pagination relation types of next, prev, first and last
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource
 
-### <a name="schema-expense"></a>Expense
+### <a name="expense"></a>Expense
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -603,7 +613,7 @@ travelAllowance|object|[Travel Allowance](#travelallowance)|The Travel allowance
 tripData|object|[Trip Data](#tripdata)|The description of the trip
 vendor|object|[Vendor](#vendor)|The vendor of the Expense entry
 
-### <a name="schema-allocation"></a>Allocation
+### <a name="allocation"></a>Allocation
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -617,14 +627,14 @@ percentage|number|-|The percentage of the total Expense that this allocation rep
 postedAmount|object|[Amount](#amount)|The amount of the allocation calculated with the percentage value multiplied by the posted amount on the Expense. This amount is given in the user's currency and rounded to 8 decimals after decimal point.
 systemAllocation|boolean|-|Whether the allocation is a system allocation, usually hidden from the user. If displayed to the user, should be read-only
 
-### <a name="schema-exchangerate"></a>Exchange Rate
+### <a name="exchangerate"></a>Exchange Rate
 
 Name|Type|Format|Description
 ---|---|---|---
 operation|string|-|Exchange rate operation. Possible values are: `MULTIPLY` or `DIVIDE`
 value|number|-|Exchange rate value
 
-### <a name="schema-expensetype"></a>Expense Type
+### <a name="expensetype"></a>Expense Type
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -632,13 +642,13 @@ id|string|-|**Required** Unique identifier of the Expense type
 name|string|-|Name of the Expense type
 href|string|[RFC 3986](https://tools.ietf.org/html/rfc3986)|Hyperlink to the resource for the Expense type definition
 
-### <a name="schema-travelallowance"></a>Travel Allowance
+### <a name="travelallowance"></a>Travel Allowance
 
 Name|Type|Format|Description
 ---|---|---|---
 dailyTravelAllowanceId|string|-|The fixed daily travel allowance id associated with the Expense
 
-### <a name="schema-tripdata"></a>Trip Data
+### <a name="tripdata"></a>Trip Data
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -648,14 +658,14 @@ tripType|string|-|Indicates the type of this trip. Should be one of `ONE_WAY`, `
 segmentType|object|[Segment Type](#segmenttype)|**Required** The type of the segment
 selfBooked|boolean|-|True if this travel has been reserved by Concur Travel, or if Concur Travel has retrieved the trip information in the GDS
 
-### <a name="schema-vendor"></a>Vendor
+### <a name="vendor"></a>Vendor
 
 Name|Type|Format|Description
 ---|---|---|---
 id|string|-|The vendor identifier of the entry
 name|string|-|The vendor description of the entry
 
-### <a name="schema-segmentleg"></a>Segment Leg
+### <a name="segmentleg"></a>Segment Leg
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -675,7 +685,7 @@ startTime|time|[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html
 segmentLocator|string|-|This is the identifier for ConcurTravel segments (if applicable)
 vendorName|string|-|Contains the vendor description of the segment leg.
 
-### <a name="schema-segmenttype"></a>Segment Type
+### <a name="segmenttype"></a>Segment Type
 
 Name|Type|Format|Description
 ---|---|---|---

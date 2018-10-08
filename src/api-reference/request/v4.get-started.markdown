@@ -3,7 +3,7 @@ title: Travel Request v4 - Get Started
 layout: reference
 ---
 
-{% include prerelease.html %}
+** Pre-release Version 4.0**
 
 If a new or existing project please use version [3.0](./v3.request.html) of this API.
 
@@ -40,10 +40,9 @@ These resources are used to manage documents used for pre-spend authorizations w
 ## <a name="version"></a>Version
 
 * 4.0
-  * [Travel Request v4 - Endpoints](./v4.endpoints.html)
-  * [Travel Request v4 - Examples](./v4.examples.html)
-  * [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-  * [Travel Request v4 - Headers](./headers.html)
+  * [Request v4 - Endpoints](./v4.endpoints.html)
+  * [Request v4 - Examples](./v4.examples.html)
+  * [Request v4 - HTTP Status Codes](./v4.response-codes.html)
 * [3.0](./v3.request.html)
 * [1.0](./v1.request.html)
 

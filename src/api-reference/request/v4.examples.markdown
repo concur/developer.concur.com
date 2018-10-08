@@ -33,7 +33,7 @@ Manage documents used for pre-spend authorizations within Concur Request
 
 ### <a name="request-resource-create"></a>Create a new Request
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 POST https://us.api.concursolutions.com/travelrequest/v4/requests
@@ -78,7 +78,7 @@ Authorization: Bearer {token}
 }
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 201 Created
@@ -168,15 +168,15 @@ Authorization: Bearer {token}
 
 ### <a name="request-resource-get-list"></a>Get the list of existing Requests
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
-GET https://us.api.concursolutions.com/travelrequest/v4/requests?view=ALL&limit=10&start=0
+GET https://us.api.concursolutions.com/travelrequest/v4/requests?view=ALL&limit=3&start=0
 Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 200 OK
@@ -184,80 +184,98 @@ Authorization: Bearer {token}
 
 ```json
 {
-  "href": "https://us.api.concursolutions.com/v4/requests/2B19A2438CD6664A9C44E0F4D39E870A",
-  "id": "2B19A2438CD6664A9C44E0F4D39E870A",
-  "approvalStatus": {
-    "code": "SENTBACK",
-    "name": "Sent Back to Employee"
-  },
-  "approved": false,
-  "businessPurpose": "PMP Training in Nantes",
-  "canceledPostApproval": false,
-  "closed": false,
-  "comment": "Plane too early in the morning, if possible book Hotel and arrive the day before\n",
-  "creationDate": "2018-09-03T11:53:02.000Z",
-  "endDate": "2018-10-08",
-  "everSentBack": true,
-  "expenses": [],
-  "name": "PMP Training - OCTOBER",
-  "pendingApproval": false,
-  "requestId": "3AT7",
-  "startDate": "2018-10-08",
-  "startTime": "05:00",
-  "submitDate": "2018-09-03T11:55:00.000Z",
-  "totalApprovedAmount": {
-    "value": 213.06,
-    "currency": "USD"
-  },
-  "totalPostedAmount": {
-    "value": 213.06,
-    "currency": "USD"
-  },
-  "totalRemainingAmount": {
-    "value": 213.06,
-    "currency": "USD"
-  }
-},
-{
-  "href": "https://us.api.concursolutions.com/v4/requests/4CCBAE73F3E14346AE93253480F5C409",
-  "id": "4CCBAE73F3E14346AE93253480F5C409",
-  "approvalStatus": {
-    "code": "SUBMITTED",
-    "name": "Submitted & Pending Approval"
-  },
-  "approved": false,
-  "businessPurpose": "Client meeting for project KIWI",
-  "canceledPostApproval": false,
-  "closed": false,
-  "comment": "Need to arrive the day before as meeting is in Company office early in the morning\n",
-  "creationDate": "2018-09-03T11:44:10.000Z",
-  "endDate": "2018-09-20",
-  "everSentBack": false,
-  "expenses": [],
-  "name": "Client meeting in Berlin",
-  "pendingApproval": true,
-  "requestId": "3AT6",
-  "startDate": "2018-09-18",
-  "startTime": "17:30",
-  "submitDate": "2018-09-03T11:49:32.000Z",
-  "totalApprovedAmount": {
-    "value": 478.56,
-    "currency": "USD"
-  },
-  "totalPostedAmount": {
-    "value": 478.56,
-    "currency": "USD"
-  },
-  "totalRemainingAmount": {
-    "value": 478.56,
-    "currency": "USD"
-  }
+  "data": [
+    {
+      "href": "https://us.api.concursolutions.com/v4/requests/2B19A2438CD6664A9C44E0F4D39E870A",
+      "id": "2B19A2438CD6664A9C44E0F4D39E870A",
+      "approvalStatus": {
+        "code": "SENTBACK",
+        "name": "Sent Back to Employee"
+      },
+      "approved": false,
+      "businessPurpose": "PMP Training in Nantes",
+      "canceledPostApproval": false,
+      "closed": false,
+      "comment": "Plane too early in the morning, if possible book Hotel and arrive the day before\n",
+      "creationDate": "2018-09-03T11:53:02.000Z",
+      "endDate": "2018-10-08",
+      "everSentBack": true,
+      "expenses": [],
+      "name": "PMP Training - OCTOBER",
+      "pendingApproval": false,
+      "requestId": "3AT7",
+      "startDate": "2018-10-08",
+      "startTime": "05:00",
+      "submitDate": "2018-09-03T11:55:00.000Z",
+      "totalApprovedAmount": {
+        "value": 213.06,
+        "currency": "USD"
+      },
+      "totalPostedAmount": {
+        "value": 213.06,
+        "currency": "USD"
+      },
+      "totalRemainingAmount": {
+        "value": 213.06,
+        "currency": "USD"
+      }
+    },
+    {
+      "href": "https://us.api.concursolutions.com/v4/requests/4CCBAE73F3E14346AE93253480F5C409",
+      "id": "4CCBAE73F3E14346AE93253480F5C409",
+      "approvalStatus": {
+        "code": "SUBMITTED",
+        "name": "Submitted & Pending Approval"
+      },
+      "approved": false,
+      "businessPurpose": "Client meeting for project KIWI",
+      "canceledPostApproval": false,
+      "closed": false,
+      "comment": "Need to arrive the day before as meeting is in Company office early in the morning\n",
+      "creationDate": "2018-09-03T11:44:10.000Z",
+      "endDate": "2018-09-20",
+      "everSentBack": false,
+      "expenses": [],
+      "name": "Client meeting in Berlin",
+      "pendingApproval": true,
+      "requestId": "3AT6",
+      "startDate": "2018-09-18",
+      "startTime": "17:30",
+      "submitDate": "2018-09-03T11:49:32.000Z",
+      "totalApprovedAmount": {
+        "value": 478.56,
+        "currency": "USD"
+      },
+      "totalPostedAmount": {
+        "value": 478.56,
+        "currency": "USD"
+      },
+      "totalRemainingAmount": {
+        "value": 478.56,
+        "currency": "USD"
+      }
+    }
+  ],
+  "operations": [
+    {
+      "rel": "next",
+      "href": "https://us.api.concursolutions.com/v4/requests?view=ALL&limit=3&start=3"
+    },
+    {
+      "rel": "first",
+      "href": "https://us.api.concursolutions.com/v4/requests?view=ALL&limit=3&start=0"
+    },
+    {
+      "rel": "last",
+      "href": "https://us.api.concursolutions.com/v4/requests?view=ALL&limit=3&start=135"
+    }
+  ]
 }
 ```
 
 ### <a name="request-resource-get"></a>Get the content of an existing Request
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2
@@ -265,7 +283,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 200 OK
@@ -371,7 +389,7 @@ Authorization: Bearer {token}
 
 ### <a name="request-resource-update"></a> Update the content of an existing Request
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 PUT https://us.api.concursolutions.com/travelrequest/v4/requests/E82B0B803671004B9A5D952F34FBD01E
@@ -379,8 +397,6 @@ Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {token}
 ```
-
-#### HTTP Response
 
 ```json
 {
@@ -419,7 +435,7 @@ Authorization: Bearer {token}
 }
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 200 OK
@@ -509,7 +525,7 @@ Authorization: Bearer {token}
 
 ### <a name="request-resource-delete"></a>Delete an existing Request
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 DELETE https://us.api.concursolutions.com/travelrequest/v4/requests/0D4DC4589D33AC4B9AF2E8B548C7AD2C
@@ -517,7 +533,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 200 OK
@@ -529,7 +545,7 @@ true
 
 ### <a name="request-resource-create-expense-linked"></a>Create an expense report linked to an approved Request
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 POST https://us.api.concursolutions.com/travelrequest/v4/requests/19148EE9411DF9459F6AEBBCA53BD646/reports
@@ -538,7 +554,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 201 Created
@@ -558,7 +574,7 @@ Manage workflow transitions for a Request document
 
 ### <a name="move-existing-request-in-approval-workflow"></a>Move an existing Request in the approval workflow
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 POST https://us.api.concursolutions.com/travelrequest/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit
@@ -567,7 +583,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 200 OK
@@ -671,7 +687,7 @@ Manage expected Expense entries attached to a Request document
 
 ### <a name="create-new-expected-expense-resource"></a>Create a new expected expense
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 POST https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses
@@ -772,7 +788,7 @@ Authorization: Bearer {token}
 }
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 201 Created
@@ -870,7 +886,7 @@ Authorization: Bearer {token}
 
 ### <a name="get-expected-expense-attached-request-resource"></a>Get expected Expenses attached to a Request
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 GET https://us.api.concursolutions.com/travelrequest/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/expenses
@@ -878,7 +894,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 200 OK
@@ -1105,7 +1121,7 @@ Authorization: Bearer {token}
 
 ### <a name="get-existing-expense-expense-resource"></a>Get the content of an existing expected Expense
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 GET https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1
@@ -1113,7 +1129,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 200 OK
@@ -1232,7 +1248,7 @@ Authorization: Bearer {token}
 }
 ```
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 GET https://us.api.concursolutions.com/travelrequest/v4/expenses/C286A46A2DDF984EA28E41CEA278667D
@@ -1240,7 +1256,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 200 OK
@@ -1303,7 +1319,7 @@ Authorization: Bearer {token}
 
 ### <a name="update-content-existing-expected-expense-resource"></a>Update the content of an existing expected Expense
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 PUT https://us.api.concursolutions.com/travelrequest/v4/expenses/B5FB8991E390474E875D6FD5BB1FDAF1
@@ -1424,7 +1440,7 @@ Authorization: Bearer {token}
 }
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 200 OK
@@ -1545,7 +1561,7 @@ Authorization: Bearer {token}
 
 ### <a name="delete-expected-expense-request-resource"></a>Delete an expected Expense from the Request
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 DELETE https://us.api.concursolutions.com/travelrequest/v4/expenses/D65BDBD5D980F6498D67A92B06A457B0
@@ -1553,7 +1569,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 200 OK
@@ -1569,7 +1585,7 @@ Manage the configuration for travel agencies integrated with Concur Request
 
 ### <a name="get-travel-agency-description-resource"></a>Get the description of a travel agency office
 
-#### HTTP Request
+#### HTTP request
 
 ```shell
 GET https://us.api.concursolutions.com/travelrequest/v4/travelagencies/86B720AF168F1C4CA52E37AC710E897B
@@ -1577,7 +1593,7 @@ Accept: application/json
 Authorization: Bearer {token}
 ```
 
-#### HTTP Response
+#### HTTP response
 
 ```shell
 200 OK
