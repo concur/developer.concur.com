@@ -1,11 +1,11 @@
---
+---
 title: Integration Guides
 layout: reference
 ---
 
 # SAP Concur App Development Guides
 
-These guides are intended to help you gain a better understanding of our APIs in specific use cases and workflows. Please read the Getting Started section below first.  
+These guides are intended to help you gain a better understanding of our APIs in specific use cases and workflows. Please read the Getting Started section below first.
 
 We will create more Guides once additional APIs are made available.
 
