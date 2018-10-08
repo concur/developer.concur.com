@@ -15,6 +15,8 @@ A new field, MapUrl, has been added to the Ground Transportation Receipt schema 
 
 If the ground transportation provider sends the MapUrl to SAP Concur, the user will see a map image of the trip in the e-receipt window in Concur Expense. 
 
+![Sample e-receipt with map of trip in lower right corner.](/src/tools-support/release-notes/api/map-example.png)
+
 ### Business Purpose / Client Benefit
 
 The new MapUrl field provides additional information about the ground transportation trip.
