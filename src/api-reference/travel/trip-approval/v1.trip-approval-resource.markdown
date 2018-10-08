@@ -5,7 +5,7 @@ redirect_from:
   - /api-reference/travel/trip-approval/trip-approval-resource.html
 ---
 
-{% include retired-alert.html deprecation_date="2018/10/08" unsupported_date="2018/10/08" retired-date="2018/10/08" %}
+{% include retired-alert.html retired-date="2018/10/08" %}
 
 ## Description
 
