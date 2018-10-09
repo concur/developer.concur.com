@@ -8,6 +8,8 @@ The following application programming interfaces (APIs) have been deprecated acc
 * [Trip Approval v1](/api-reference/travel/trip-approval/v1.trip-approval-resource.html)
 * [Pre-2017 Authorization](/api-reference/authentication/authorization-pre-2017.html)
 * [Attendees v1](/api-reference/expense/attendees/v1.attendees.html)
+* [Attendees v1.1](/api-reference/expense/attendees/v1dot1.attendees.html)
+* [Attendees v2](/api-reference/expense/attendees/v2.attendees.html)
 * [Attendee Types v1](/api-reference/expense/attendee-types/v1.attendee-types.html)
 * Imaging Web Service v1
   * [Imaging Web Service](/api-reference-deprecated/version-one/Image/)
@@ -32,7 +34,6 @@ The following application programming interfaces (APIs) have been deprecated acc
   * [Form of Payment Resource](/api-reference-deprecated/version-one/Travel/form-payment-resource.html)
   * [Profile Resource](/api-reference-deprecated/version-one/Travel/profile-resource.html)
 * Expense Entry v1.1
-  * [POST Expense Entry Attendees](/api-reference-deprecated/version-one-one/expense-entry-attendee/expense-entry-attendee-resource-post.html)
   * [POST Expense Entry Itemization](/api-reference-deprecated/version-one-one/expense-entry-itemization/expense-entry-itemization-resource-post.html)
   * [Expense Entry Itemization](/api-reference-deprecated/version-one-one/expense-entry-itemization/expense-entry-itemization-resource.html)
   * [Expense Entry Resource](/api-reference-deprecated/version-one-one/expense-entry/expense-entry-resource.html)
@@ -48,9 +49,7 @@ The following application programming interfaces (APIs) have been deprecated acc
   * [Report Full Details](/api-reference-deprecated/version-one-one/expense-report/get-report-full-details.html)
   * [Location Resource](/api-reference-deprecated/version-one-one/expense-report/location-resource.html)
   * [Get a list of locations](/api-reference-deprecated/version-one-one/expense-report/location-resource-get.html)
-* [Attendees v2](/api-reference/expense/attendees/v2.attendees.html)
 * Expense Entry Attendee v2
-  * [Expense Entry Attendee Resource](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource.html)
   * [GET Expense Entry Attendees](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-get.html)
   * [PUT Expense Entry Attendees](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-put.html)
 * Expense Report v2

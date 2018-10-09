@@ -1,27 +1,25 @@
 ---
-title: Attendees
+title: Attendees v3
 layout: reference
 redirect_from:
   - /api-reference/expense/attendees/index.html
 ---
 
-
-# Attendees
 * [Retrieve all attendees owned by the specified user](#get)
 * [Retrieve a single attendee by ID](#getID)
 * [Create a new attendee](#post)
 * [Update existing attendees](#put)
 * [Schema](#schema)
 
-### Version
-3.0
+## Related
 
-2.0 documentation is available [here](/api-reference/expense/attendees/v2.attendees.html)
+* [Attendees v2](./v2.attendees.html)
+* [Attendees v1.1](./v1dot1.attendees.html)
+* [Attendees v1](./v1.attendees.html)
 
 ## <a name="get"></a>Retrieve all attendees owned by the specified user
 
     GET  /api/v3.0/expense/attendees
-
 
 ### Parameters
 
@@ -94,11 +92,9 @@ https://www.concursolutions.com/api/v3.0/expense/attendees?limit=15
 }
 ```
 
-
 ## <a name="getID"></a>Retrieve a single attendee by ID
 
     GET  /api/v3.0/expense/attendees/{id}
-
 
 ### Parameters
 
@@ -106,7 +102,6 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `id`|`string`|`path`|**Required** The attendee object to create.
 `user`|``string``|`query`| The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter
-
 
 ### Request URL
 
@@ -165,11 +160,9 @@ https://www.concursolutions.com/api/v3.0/expense/attendees/gWj3IHRYiHZGd0HJy%24p
 }
 ```
 
-
 ## <a name="post"></a>Create a new attendee
 
     POST  /api/v3.0/expense/attendees
-
 
 ### Parameters
 
@@ -178,11 +171,12 @@ Name | Type | Format | Description
 `content`|`body`|-|**Required** The attendee object to create
 `user`|``string``|`query`| The login ID of the user that has added the attendee to an expense. The user who is performing this API request must have the Web Services Admin (Professional) or Can Administer (Standard) user role to use this parameter
 
-
 ### Input
+
 [Attendee Schema](#schema)
 
 ### Response
+
 [Attendee Schema](#schema)
 
 ### Request URL
@@ -200,11 +194,9 @@ https://www.concursolutions.com/api/v3.0/expense/attendees
 }
 ```
 
-
 ## <a name="put"></a>Update existing attendees
 
     PUT  /api/v3.0/expense/attendees/{id}
-
 
 ### Parameters
 
@@ -238,8 +230,6 @@ Name | Type | Format | Description
 
 ### Response
 [Attendee Schema](#schema)
-
-
 
 ## <a name="schema"></a>Schema
 

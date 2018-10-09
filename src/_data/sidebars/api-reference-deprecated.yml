@@ -58,7 +58,7 @@
   url: ''
   children:
       - title: POST Expense Entry Attendees
-        url: /api-reference-deprecated/version-one-one/expense-entry-attendee/expense-entry-attendee-resource-post.html
+        url: /api-reference/expense/attendees/v1dot1.attendees.html
       - title: POST Expense Entry Itemization
         url: /api-reference-deprecated/version-one-one/expense-entry-itemization/expense-entry-itemization-resource-post.html
       - title: Expense Entry Itemization

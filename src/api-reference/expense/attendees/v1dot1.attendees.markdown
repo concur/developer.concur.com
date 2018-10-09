@@ -5,6 +5,8 @@ redirect_from:
   - /api-reference-deprecated/version-one-one/expense-entry-attendee/expense-entry-attendee-resource-post.html
 ---
 
+{% include deprecation-alert.html %}
+
 Creates or updates one or more attendee records for the specified expense entry. Attendees are additional people that benefitted from this expense.
 
 ## Version
@@ -27,7 +29,7 @@ Attendees that are privately owned or part of shared lists that allow manual add
 
 * application/xml
 
-## Post attendees
+## Post attendees to an expense report entry
 
 ### Request
 
