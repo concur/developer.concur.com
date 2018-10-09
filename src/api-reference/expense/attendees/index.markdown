@@ -1,6 +1,8 @@
 ---
 title: Attendees
 layout: reference
+redirect_from:
+  - /api-reference/expense/attendees/index.html
 ---
 
 
@@ -14,7 +16,7 @@ layout: reference
 ### Version
 3.0
 
-2.0 documentation is available [here](/api-reference-deprecated/version-two/attendees/index.html)
+2.0 documentation is available [here](/api-reference/expense/attendees/v2.attendees.html)
 
 ## <a name="get"></a>Retrieve all attendees owned by the specified user
 

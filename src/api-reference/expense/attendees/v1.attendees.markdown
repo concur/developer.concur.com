@@ -1,7 +1,22 @@
 ---
-title: Attendee List Resource Post
+title: Attendees v1
 layout: reference
+redirect_from:
+  - /api-reference-deprecated/version-one/attendees/attendee-list-resource-post.html
+  - /api-reference-deprecated/version-one/attendees/attendee-list-resource.html
 ---
+
+{% include deprecation-alert.html %}
+
+The Shared attendees in the Concur company. Attendees added using this web service are added to the Shared Attendee List (owned by the System and available to all users). This resource can't be used to create attendees on a Private List.
+
+## Version
+
+1.0
+
+## URI
+
+`https://www.concursolutions.com/api/expense/attendees/v1.0/`
 
 This resource supports the following POST actions:
 
@@ -109,24 +124,24 @@ Content-Type: application/xml
 
 ```xml
 <attendee-batch xmlns="http://www.concursolutions.com/api/expense/attendee/2010/05">
-    <attendee>
-        <external-id>444543344</external-id>
-        <type>BUSGUEST</type>
-        <last-name>Miller</last-name>
-        <first-name>Chris</first-name>
-        <company>Len Dev</company>
-        <currency-code>USD</currency-code>
-        <custom1>345DERF</custom1>
-    </attendee>
-    <attendee>
-        <external-id>444543345</external-id>
-        <type>BUSGUEST</type>
-        <last-name>Davis</last-name>
-        <first-name>Pat</first-name>
-        <company>Len Dev</company>
-        <currency-code>USD</currency-code>
-        <custom1>345DERK</custom1>
-    </attendee>
+  <attendee>
+    <external-id>444543344</external-id>
+    <type>BUSGUEST</type>
+    <last-name>Miller</last-name>
+    <first-name>Chris</first-name>
+    <company>Len Dev</company>
+    <currency-code>USD</currency-code>
+    <custom1>345DERF</custom1>
+  </attendee>
+  <attendee>
+    <external-id>444543345</external-id>
+    <type>BUSGUEST</type>
+    <last-name>Davis</last-name>
+    <first-name>Pat</first-name>
+    <company>Len Dev</company>
+    <currency-code>USD</currency-code>
+    <custom1>345DERK</custom1>
+  </attendee>
 </attendee-batch>
 ```
 
@@ -139,15 +154,15 @@ Content-Type: application/xml
 
 ```xml
 <attendee-batch-result xmlns="http://www.concursolutions.com/api/expense/attendee/2010/05" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-    <records-succeeded>1</records-succeeded>
-    <records-failed>1</records-failed>
-    <errors>
-        <error>
-            <code>1202</code>
-            <external-id>444543345</external-id>
-            <message>Missing attendee type</message>
-        </error>
-    </errors>
+  <records-succeeded>1</records-succeeded>
+  <records-failed>1</records-failed>
+  <errors>
+    <error>
+      <code>1202</code>
+      <external-id>444543345</external-id>
+      <message>Missing attendee type</message>
+    </error>
+  </errors>
 </attendee-batch-result>
 ```
 
@@ -249,15 +264,15 @@ Content-Type: application/xml
 
 ```xml
 <attendee-batch xmlns="http://www.concursolutions.com/api/expense/attendee/2010/05">
-    <attendee>
-        <external-id>444543344</external-id>
-        <type>BUSGUEST</type>
-        <last-name>Miller</last-name>
-        <first-name>Chris</first-name>
-        <company>Len Dev</company>
-        <custom1>345DERL</custom1>
-        <currency-code>USD</currency-code>
-    </attendee>
+  <attendee>
+    <external-id>444543344</external-id>
+    <type>BUSGUEST</type>
+    <last-name>Miller</last-name>
+    <first-name>Chris</first-name>
+    <company>Len Dev</company>
+    <custom1>345DERL</custom1>
+    <currency-code>USD</currency-code>
+  </attendee>
 </attendee-batch>
 ```
 
@@ -270,8 +285,8 @@ Content-Type: application/xml
 
 ```xml
 <attendee-batch-result xmlns="http://www.concursolutions.com/api/expense/attendee/2010/05" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-    <records-succeeded>1</records-succeeded>
-    <records-failed>0</records-failed>
+  <records-succeeded>1</records-succeeded>
+  <records-failed>0</records-failed>
 </attendee-batch-result>
 ```
 
@@ -366,10 +381,10 @@ Content-Type: application/xml
 
 ```xml
 <attendee-batch xmlns="http://www.concursolutions.com/api/expense/attendee/2010/05">
-    <attendee>
-        <external-id>444543344</external-id>
-        <inactive>true</inactive>
-    </attendee>
+  <attendee>
+    <external-id>444543344</external-id>
+    <inactive>true</inactive>
+  </attendee>
 </attendee-batch>
 ```
 
@@ -382,8 +397,8 @@ Content-Type: application/xml
 
 ```xml
 <attendee-batch-result xmlns="http://www.concursolutions.com/api/expense/attendee/2010/05" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-    <records-succeeded>1</records-succeeded>
-    <records-failed>0</records-failed>
+  <records-succeeded>1</records-succeeded>
+  <records-failed>0</records-failed>
 </attendee-batch-result>
 ```
 

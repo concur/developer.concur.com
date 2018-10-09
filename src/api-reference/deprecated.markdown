@@ -7,9 +7,7 @@ The following application programming interfaces (APIs) have been deprecated acc
 
 * [Trip Approval v1](/api-reference/travel/trip-approval/v1.trip-approval-resource.html)
 * [Pre-2017 Authorization](/api-reference/authentication/authorization-pre-2017.html)
-* Attendees v1
-  * [Attendee List Resource](/api-reference-deprecated/version-one/attendees/attendee-list-resource.html)
-  * [Attendee List Resource Post](/api-reference-deprecated/version-one/attendees/attendee-list-resource-post.html)
+* [Attendees v1](/api-reference/expense/attendees/v1.attendees.html)
 * [Attendee Types v1](/api-reference/expense/attendee-types/v1.attendee-types.html)
 * Imaging Web Service v1
   * [Imaging Web Service](/api-reference-deprecated/version-one/Image/)
@@ -50,10 +48,7 @@ The following application programming interfaces (APIs) have been deprecated acc
   * [Report Full Details](/api-reference-deprecated/version-one-one/expense-report/get-report-full-details.html)
   * [Location Resource](/api-reference-deprecated/version-one-one/expense-report/location-resource.html)
   * [Get a list of locations](/api-reference-deprecated/version-one-one/expense-report/location-resource-get.html)
-* Attendee Web Service v2
-  * [Attendee Web Service](/api-reference-deprecated/version-two/attendees/)
-  * [Attendee Resource](/api-reference-deprecated/version-two/attendees/attendee-resource.html)
-  * [Get attendees](/api-reference-deprecated/version-two/attendees/attendee-resource-get.html)
+* [Attendees v2](/api-reference/expense/attendees/v2.attendees.html)
 * Expense Entry Attendee v2
   * [Expense Entry Attendee Resource](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource.html)
   * [GET Expense Entry Attendees](/api-reference-deprecated/version-two/expense-entry-attendee/expense-entry-attendee-resource-get.html)
