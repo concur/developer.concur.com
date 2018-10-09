@@ -44,9 +44,9 @@ If a new or existing project please use version [3.0](./v3.request.html) of this
   * [Segment Leg](#segmentleg)
   * [Segment Type](#segmenttype)
 
-## HTTP Status Codes and Headers
+## HTTP Status Codes
 
-To learn more about request headers and response HTTP status codes and headers for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html) and [Travel Request v4 - Headers](./v4.headers.html).
+To learn more about request response HTTP status codes for this API see [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html).
 
 # <a name="request-resource"></a>Request Resources
 
