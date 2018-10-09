@@ -28,10 +28,6 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 * [Attendees v1](/api-reference/expense/attendees/v1.attendees.html)
 * [Attendee Types v1](/api-reference/expense/attendee-types/v1.attendee-types.html)
 
-## Version
-
-2.0
-
 ## URI
 
 ```
