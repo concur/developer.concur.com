@@ -7,6 +7,8 @@ layout: reference
 
 SAP Concur is pleased to welcome you as a partner. We encourage all Concur App Center partners to create comprehensive marketing plans that incorporate PR, social media, digital marketing, events and sales training to help make the partnership a success. This toolkit provides guidelines and templates for referencing the SAP Concur brand and collaborating on marketing efforts.
 
+**The PDF version of this toolkit is [available here](https://developer.concur.com/manage-apps/go-market-docs/app-center-partner-marketing-toolkit.pdf).**
+
 ## Partner Resources
 
 Visit our [partner resources page](./go-to-market.html) to help you prepare for your App Center launch. Please view our Go to Market presentation to learn about next steps as a partner in the [Enterprise Application (Apps for My Business)](http://www.brainshark.com/concur/vu?pi=zHvzkOnZEzLUKoz0) or [User Connection (Apps for Me)](http://www.brainshark.com/concur/vu?pi=zHozvBBeazLUKoz0) category.
@@ -283,7 +285,7 @@ Email content to: [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMar
 
 * App Center Alliances: [concur_AppCenterAlliance@sap.com](mailto:concur_AppCenterAlliance@sap.com)
 * App Center Marketing: [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMarketing@sap.com)
-* App Center Channel Sales: [aaron.guerra@sap.com (SMN)](mailto:aaron.guerra@sap.com) and [arian.white@sap.com (ENT)](mailto:arian.white@sap.com)
+* App Center Channel Sales: [aaron.guerra@sap.com (SMN)](mailto:aaron.guerra@sap.com) and TBH - ENT
 * SAP Concur Event Sponsorships: [concursponsorships@sap.com](mailto:concursponsorships@sap.com)
 * Client Activation: [partner_client_activation@concur.com](mailto:partner_client_activation@concur.com)
 * Partner Technical Support: [Log a support ticket](/tools-support/requesting-partner-support.html)
