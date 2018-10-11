@@ -11,7 +11,7 @@ Description of API, including business purpose and most common use case.
 
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
-* [Scopes](#scope-usage)
+* [Scope Usage](#scope-usage)
 * [Dependencies](#dependencies)
 * [Access Token Usage](#access-token-usage)
 * [Create a resource](#create-resource)
