@@ -1,0 +1,86 @@
+---
+title: Attendee Types v1
+layout: reference
+redirect_from:
+  - /api-reference-deprecated/version-one/attendee-types/attendee-type-resource-get.html
+  - /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html
+---
+
+{% include deprecation-alert.html %}
+
+## Description
+
+The Attendee Type resource represents the type of attendee as configured in Concur. Retrieves the list of attendee types for the company.
+
+## Version
+
+1.0
+
+## URI
+
+```
+https://www.concursolutions.com/api/expense/attendee/v1.0/type
+```
+
+## Get list of attendee types
+
+### Request
+
+#### Parameters
+
+None.
+
+#### Headers
+
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5): `application/xml`
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+  * The authorization header must have an OAuth token for a valid Concur user.
+  * The OAuth consumer must have one of the following user roles in Concur: Company Administrator or Web Services Administrator for Professional, or Can Administer for Standard. These roles allow the user to manage data for the entire company.
+
+### Response
+
+* [HTTP Status Codes](/tools-support/reference/http-codes.html)
+* [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
+
+#### Payload
+
+This response will return an **attendee-types** parent element containing an **attendee-type** child element for each attendee type.
+
+Element|Description
+---|---
+type|The attendee type code.
+name|The attendee type name.
+
+### Example
+
+#### Request
+
+```shell
+GET https://www.concursolutions.com/api/expense/attendee/v1.0/type
+Authorization: OAuth {access token}
+```
+
+#### Response
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+```
+
+```xml
+<attendee-types xmlns="http://www.concursolutions.com/api/expense/attendee/2010/05" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <attendee-type>
+    <type>BUSGUEST</type>
+    <name>Business Guest</name>
+  </attendee-type>
+  <attendee-type>
+    <type>EMPLOYEE</type>
+    <name>Employee</name>
+  </attendee-type>
+</attendee-types>
+```
+
+## Related
+
+* [Attendee v2](/api-reference-deprecated/version-two/attendees/attendee-resource.html)
+* [Attendee List v1](/api-reference-deprecated/version-one/attendees/attendee-list-resource.html)

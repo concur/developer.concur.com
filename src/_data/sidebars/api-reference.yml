@@ -122,8 +122,8 @@
   children:
       - title: Allocations
         url: /api-reference/expense/allocations/expense-allocations.html
-      - title: Attendee Type
-        url: /api-reference/expense/attendee-types/attendee-type-resource.html
+      - title: Attendee Types v3
+        url: /api-reference/expense/attendee-types/v3.attendee-types.html
       - title: Attendees
         url: /api-reference/expense/attendees/
       - title: Digital Tax Invoices
@@ -228,8 +228,6 @@
         url: /api-reference/travel/itinerary/trip/trip-resource.html
       - title: Travel Services
         url: /api-reference/travel/travel.html
-      - title: Trip Approval
-        url: /api-reference/travel/trip-approval/trip-approval-resource.html
 - title: User
   url: /api-reference/user/
 - title: Deprecated
