@@ -1,0 +1,180 @@
+---
+title: Purchase Order Receipt v3
+layout: reference
+---
+
+* [Create a new purchase order receipt](#post)
+* [Update purchase order line item with receipt information](#put-receipts)
+* [Get existing purchase order receipt](#get)
+* [Delete existing purchase order receipt](#delete)
+* [Schema](#schema-receipt)
+* [Response schema](#schema-response)
+* [Receipt schema](#schema-receipt)
+* [Error codes](#error-codes)
+
+## Version
+
+3.0  
+
+## <a name="post"></a>Create a new purchase order receipt 
+
+```
+POST /api/v3.0/invoice/purchaseordersreceipts
+```
+
+Creates purchase order receipts and associate if to purchase order line item and returns status of updation.
+
+### <a name="8"></a>Parameters  
+
+Name|Type|Format|Description
+---|---|---|---
+`purchaseOrderReceipt`|-|`body`|The details of the purchase order receipt.
+
+### Input  
+
+[Schema](#schema-receipt)
+
+```json
+{
+  "Deleted": false,
+  "DeliverySlipNumber": "DSN1",
+  "GoodsReceiptNumber": "RCPT1",
+  "ID": "1000001",
+  "LineItemExternalID": "LN000001",
+  "PurchaseOrderNumber": "PO12345",
+  "ReceivedDate": "2018-09-15 00:00:00.0",
+  "ReceivedQuantity": "14.5",
+  "UnitOfMeasureCode": "DA",
+  "URI": "string",
+  "Version": "2.0"
+}
+```
+
+### Response  
+
+[Response schema](#schema-response)
+
+## <a name="put-receipts"></a>Update purchase order line item with receipt information  
+
+```
+PUT /api/v3.0/invoice/purchaseorderreceipts
+```
+### Parameters  
+
+Name|Type|Format|Description
+---|---|---|---
+`purchaseOrderReceipt`|-|`body`|Purchase order receipt information.
+
+### Input  
+
+[Receipt schema](#schema-receipt)
+
+### Response  
+
+[Response schema](#schema-response)
+
+
+## <a name="get"></a>Get existing purchase order receipt 
+
+```
+GET /api/v3.0/invoice/purchaseorderreceipts?purchaseOrderNumber=PO1&lineItemExternalID=L1&goodsReceiptNumber=GRN1
+```
+
+### Parameters  
+
+Name|Type|Format|Description
+---|---|---|---
+`purchaseOrderNumber`|`string`|{purchaseOrderNumber}|The purchase order number.
+`lineItemExternalID`|`string`|{lineItemExternalID}|A customer-supplied value that uniquely identifies the line item within the purchase order.
+`goodsReceiptNumber`|`string`|{goodsReceiptNumber}|Goods receipt number for a purchase order line item receipt.
+
+
+### Input  
+
+None.
+
+### Response
+
+[Schema](#get-schema-receipt)
+
+## <a name="delete"></a>Delete existing purchase order receipt
+
+```
+DELETE /api/v3.0/invoice/purchaseorderreceipts?purchaseOrderNumber=PO1&lineItemExternalID=L1&goodsReceiptNumber=GRN1
+```
+
+### Parameters  
+
+Name|Type|Format|Description
+---|---|---|---
+`purchaseOrderNumber`|`string`|{purchaseOrderNumber}|The purchase order number.
+`lineItemExternalID`|`string`|{lineItemExternalID}|A customer-supplied value that uniquely identifies the line item within the purchase order.
+`goodsReceiptNumber`|`string`|{goodsReceiptNumber}|Goods receipt number for a purchase order line item receipt.
+
+
+### Input  
+
+None.
+
+### Response
+
+[Response schema](#schema-response)
+
+## <a name="schema-response"></a>Response schema  
+
+Name|Type|Format|Description
+---|---|---|---
+`ErrorCode`|`string`|-|A code that indicates why the purchase order was not processed successfully.
+`ErrorMessage`|`string`|-|A description of the error.
+`FieldCode`|`string`|-|A code that indicates which field caused an issue. This code typically appears only when a field is being validated against a field of a form type. Format: LEVEL CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation.
+`LineItemExternalID`|`string`|-|The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error.
+`Message`|`string`|-|
+`PurchaseOrderNumber`|`string`|-|The purchase order number.
+`Status`|`string`|-|The result of processing the purchase order. Format: SUCCESS or FAILURE
+
+## <a name="get-schema-receipt"></a>Get Purchase Order Receipt schema  
+
+Name|Type|Format|Description
+---|---|---|---
+`purchaseOrderReceipt`|`array`|[`PurchaseOrderReceipt`](#schema-receipt)|Purchase Order Receipt.
+`NextPage`|`string`|-|The URI of the next page of results, if any.
+`TotalCount`|`int`|-|Total number of receipts.
+`Info`|`string`|-|Any additional information messages. Currently a maximum of 2000 PO receipts will be returned.
+
+
+## <a name="schema-receipt"></a>Receipt schema  
+
+Name|Type|Format|Description
+---|---|---|---
+`Deleted`|`boolean`|-|Delete status of purchase order line item receipt.
+`DeliverySlipNumber`|`string`|-|Delivery slip number for a purchase order line item receipt.
+`GoodsReceiptNumber`|`string`|-|Goods receipt number for a purchase order line item receipt.
+`ID`|`string`|-|The unique identifier of the resource.
+`LineItemExternalID	`|`string`|-|**Required** A customer-supplied value that uniquely identifies the line item within the purchase order.
+`PurchaseOrderNumber`|`string`|-|**Required** The purchase order number.
+`ReceivedDate`|`string`|-|The date the line item was received. Format: YYYY-MM-DD
+`ReceivedQuantity`|`string`|-|The number of items that were received.
+`UnitOfMeasureCode`|`string`|-|Unit of measure code for a purchase order line item receipt.
+`URI`|`string`|-|The URI to the resource.
+`Version`|`string`|-|The version of purchase order line item receipt.
+
+
+## <a name="error-codes"></a>Error codes  
+
+The web service will not return a 4xx HTTP response code for a batch operation even when every item in the batch failed to be created, updated or deleted. The client must inspect the response to look for warnings or errors with individual batch items.
+
+Code|Description
+---|---
+1000|The PO number is missing or invalid.
+1001|The External ID is missing or invalid.
+1002|The Is Received is invalid. It must be either empty, Y/N, or y/n.
+1003|The Received Quantity is invalid. It must be either empty or numeric.
+1004|The Received Date is invalid. It must be either empty or date formatted YYYY-MM-DD.
+1005|The Unit Of Measure code is invalid. It must be either empty or Valid with less than 10 chars in length.
+1006|The Received Quantity is invalid, for Receipt Type WQTY on Purchase Order, Quantity is required. Sorry.
+1007|The field is not part of the form
+1008|The value exceeds the maximum length allowed for the field.
+1009|The value is the wrong data type for the field.
+10010|The required field is missing.
+1011|The invalid value expression.
+9999|An unexpected error occurred.
