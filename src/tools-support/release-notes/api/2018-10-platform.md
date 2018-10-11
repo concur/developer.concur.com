@@ -1,4 +1,3 @@
-
 ---
 title: SAP Concur Developer Center - API Release Notes, October 2018
 layout: reference
