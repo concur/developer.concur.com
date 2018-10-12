@@ -3,6 +3,9 @@ title: Purchase Order Receipt v3
 layout: reference
 ---
 
+# Purchase Order Receipt
+Purchase order receipts are records that indicate purchase order lines were completed and received. This API provides methods to create a new purchase order receipt, and retrieve, update, or delete an existing purchase order receipt.
+
 * [Create a new purchase order receipt](#post)
 * [Update purchase order line item with receipt information](#put-receipts)
 * [Get existing purchase order receipt](#get)
@@ -22,7 +25,7 @@ layout: reference
 POST /api/v3.0/invoice/purchaseordersreceipts
 ```
 
-Creates purchase order receipts and associate if to purchase order line item and returns status of updation.
+Creates purchase order receipt, associates it to purchase order line item, and returns update status.
 
 ### <a name="8"></a>Parameters  
 
@@ -124,13 +127,13 @@ None.
 
 Name|Type|Format|Description
 ---|---|---|---
-`ErrorCode`|`string`|-|A code that indicates why the purchase order was not processed successfully.
+`ErrorCode`|`string`|-|A code that indicates why the purchase order receipt was not processed successfully.
 `ErrorMessage`|`string`|-|A description of the error.
-`FieldCode`|`string`|-|A code that indicates which field caused an issue. This code typically appears only when a field is being validated against a field of a form type. Format: LEVEL CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation.
-`LineItemExternalID`|`string`|-|The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error.
-`Message`|`string`|-|
+`FieldCode`|`string`|-|A code that indicates which field caused an issue. This code typically appears only when a field is being validated against a field of a form type.
+`LineItemExternalID`|`string`|-|The external ID of a line item that caused an error.
+`Message`|`string`|-|Message of request result.
 `PurchaseOrderNumber`|`string`|-|The purchase order number.
-`Status`|`string`|-|The result of processing the purchase order. Format: SUCCESS or FAILURE
+`Status`|`string`|-|The result of processing the purchase order receipt. Format: SUCCESS or FAILURE
 
 ## <a name="get-schema-receipt"></a>Get Purchase Order Receipt schema  
 
@@ -156,12 +159,12 @@ Name|Type|Format|Description
 `ReceivedQuantity`|`string`|-|The number of items that were received.
 `UnitOfMeasureCode`|`string`|-|Unit of measure code for a purchase order line item receipt.
 `URI`|`string`|-|The URI to the resource.
-`Version`|`string`|-|The version of purchase order line item receipt.
+`Version`|`string`|-|The version of purchase order line item receipt. Use Version 2.0 here unless doing receipt confirmation only.
 
 
 ## <a name="error-codes"></a>Error codes  
 
-The web service will not return a 4xx HTTP response code for a batch operation even when every item in the batch failed to be created, updated or deleted. The client must inspect the response to look for warnings or errors with individual batch items.
+The Purchase Order Receipt API’s error responses
 
 Code|Description
 ---|---
@@ -175,6 +178,6 @@ Code|Description
 1007|The field is not part of the form
 1008|The value exceeds the maximum length allowed for the field.
 1009|The value is the wrong data type for the field.
-10010|The required field is missing.
 1011|The invalid value expression.
 9999|An unexpected error occurred.
+10010|The required field is missing.

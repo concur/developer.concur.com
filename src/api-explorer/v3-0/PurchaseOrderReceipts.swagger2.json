@@ -30,8 +30,8 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Updates purchase order receipts which is already in the system.",
-        "description": "Updates purchase order receipts and associate if to purchase order line item and returns status of updation.",
+        "summary": "Updates purchase order receipts that are already in the system.",
+        "description": "Updates purchase order receipts that are already in the system and returns status of the update.",
         "parameters": [
           {
             "name": "purchaseOrderReceipt",
@@ -47,7 +47,7 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/PurchaseOrderResult"
+              "$ref": "#/definitions/PurchaseOrderReceiptResult"
             }
           }
         }
@@ -73,7 +73,7 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/PurchaseOrderResult"
+              "$ref": "#/definitions/PurchaseOrderReceiptResult"
             }
           }
         }
@@ -210,7 +210,7 @@
         },
         "GoodsReceiptNumber": {
           "type": "string",
-          "description": "Goods receipt number for a purchase order line item receipt. This field is Required for V2 Version"
+          "description": "Goods receipt number for a purchase order line item receipt. This field is Required for V2 Version when using concur receiving."
         },
         "ID": {
           "type": "string",
@@ -242,15 +242,15 @@
         },
         "Version": {
           "type": "string",
-          "description": "The version of purchase order line item receipt."
+          "description": "The version of purchase order line item receipt. Use Version 2.0 here unless doing receipt confirmation only."
         }
       }
     },
-    "PurchaseOrderResult": {
+    "PurchaseOrderReceiptResult": {
       "properties": {
         "ErrorCode": {
           "type": "string",
-          "description": "A code that indicates why the purchase order was not processed successfully."
+          "description": "A code that indicates why the purchase order receipt was not processed successfully."
         },
         "ErrorMessage": {
           "type": "string",
@@ -258,15 +258,15 @@
         },
         "FieldCode": {
           "type": "string",
-          "description": "A code that indicates which field caused an issue. This code typically appears only when a field is being validated against a field of a form type. Format: LEVEL|CODE. The possible levels are: Header, ShipTo, BillTo, LineItem, Allocation. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information."
+          "description": "A code that indicates which field caused an issue."
         },
         "LineItemExternalID": {
           "type": "string",
-          "description": "The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information."
+          "description": "The external ID of a line item that caused an error."
         },
         "Message": {
           "type": "string",
-          "description": "The external ID of a line item that caused an error. If the error is related to an allocation, this field indicates the external ID of the line item that the allocation is associated with, and also indicates the allocation that caused of the error. See <a target=\"_blank\" href=\"https://developer.concur.com/node/394/#responses\"> Purchase Order Responses and Errors</a> for more information."
+          "description": "Message of request result."
         },
         "PurchaseOrderNumber": {
           "type": "string",
@@ -274,7 +274,7 @@
         },
         "Status": {
           "type": "string",
-          "description": "The result of processing the purchase order. Format: SUCCESS or FAILURE"
+          "description": "The result of processing the purchase order receipt. Format: SUCCESS or FAILURE"
         }
       }
     },
