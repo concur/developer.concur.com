@@ -34,7 +34,7 @@ This update removes an unused API.
 
 ## <a name="pr-update"></a>Payment Request API Updated
 
-A new field, **Matched Purchase Order Receipts**, has been added to the GET method of the [Invoice v3 Payment Request](api-reference/invoice/payment-request.html) API.
+A new field, **Matched Purchase Order Receipts**, has been added to the GET method of the [Invoice v3 Payment Request](/api-reference/invoice/payment-request.html) API.
 
 ### Business Purpose / Client Benefit
 
@@ -42,7 +42,7 @@ The new Matched Purchase Order Receipts field returns an array of the PO goods r
 
 ## <a name="po-receipts"></a>Purchase Order Receipts API Updated
 
-Two new query parameters have been added to the GET and DELETE methods of the [Invoice v3 Purchase Order Receipts](api-explorer/v3-0/PurchaseOrderReceipts.html) API, **Purchase Order Number** and **Line Item External ID**. These new parameters enable clients to better target the goods receipt records they want to retrieve or delete from the system. With the addition of these new parameters, the following query parameters are now available through the GET and DELETE methods:
+Two new query parameters have been added to the GET and DELETE methods of the [Invoice v3 Purchase Order Receipts](/api-explorer/v3-0/PurchaseOrderReceipts.html) API, **Purchase Order Number** and **Line Item External ID**. These new parameters enable clients to better target the goods receipt records they want to retrieve or delete from the system. With the addition of these new parameters, the following query parameters are now available through the GET and DELETE methods:
 
 * **Goods Receipts Number**: This pre-existing parameter can be used alone or in combination with one or both of the other parameters.
 * **Purchase Order Number**: This new parameter can be used alone or in combination with one or both of the other parameters. 
@@ -52,4 +52,4 @@ Two new query parameters have been added to the GET and DELETE methods of the [I
 
 ### Business Purpose / Client Benefit
 
-These new API parameters provide more flexible and precise handling of goods receipt records through the [Invoice v3 Purchase Order Receipts](api-explorer/v3-0/PurchaseOrderReceipts.html) API.
+These new API parameters provide more flexible and precise handling of goods receipt records through the [Invoice v3 Purchase Order Receipts](/api-explorer/v3-0/PurchaseOrderReceipts.html) API.
