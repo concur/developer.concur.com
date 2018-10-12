@@ -3,213 +3,614 @@ title: Budget Category
 layout: reference
 ---
 
-# Menu
-* [Getting Started](#overview)
-* [Fiscal Year](#overview)
-* [Budget Item](#overview)
+{% include prerelease.html %}
 
-# Budget Category - Beta
-* [Overview](#overview)
-* [Retrieve all Budget Categories](#getall)
-* [Retrieve a Budget Category](#get)
-* [Create/Update a Budget Category](#post)
-* [Remove a Budget Category](#delete)
-* [Retrieve all valid Expense Types](#getExpTypes)
+## Menu
+
+* [Getting Started](./getting-started.html)
+* [Fiscal Year](/api-reference/budget/fiscal-year.html)
+* [Budget Category](/api-reference/budget/budget-category.html)
+* [Budget Item](/api-reference/budget/budget-header.html)
+* [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
+* [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
+
+This resource is used to retrieve and update budget categories which are collections of expense types used for budget matching.  Each budget item header may have one Budget Category.  If it does, only line items with expense types contained in that Budget Category will be accumulated to the budget.
+
+* [GET all Budget Categories](#getall)
+* [GET a Budget Category](#get)
+* [POST a Budget Category](#post)
+* [DELETE a Budget Category](#delete)
+* [GET all valid Expense Types](#getExpTypes)
 * [Schema](#schema)
-
-## Overview
-
-The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details. 
-
-
-This resource is used to retrieve and update budget categories which are collections of expense types used for budget
-matching.  Each budget item header may have one budget category.  If it does, only line items with expense types 
-contained in that budget category will be accumulated to the budget. 
-
+  * [Budget Category](#budgetCategory)
+  * [Expense Type](#expenseType)
+  * [Error Response](#errorResponse)
+  * [Error Message](#errorMessage)
+* [Response Headers](#responseHeaders)
 
 ## Version
-4.0  
 
+4.0
 
-## <a name="getall"></a>Retrieve all Budget Categories
+## <a name="getall"></a>GET all Budget Categories
 
-    GET  /budget/v4/budgetCategory
+Retrieve a list of all budget categories
 
-HTTPie:
+### Scopes
 
-```shell
-http https://us.api.concursolutions.com/budget/v4/budgetCategory 'Authorization:Bearer {YOUR ACCESS TOKEN}'
+Name|Description
+---|---
+`budgetitem.write`|Create/update/delete access to budget data
+`budgetitem.read`|Read access to budget data
+
+### Request
+
+#### Headers
+
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+
+#### Parameters
+
+N/A
+
+##### URI Template
+
+```http
+GET /budget/v4/budgetCategory
 ```
-
-### Parameters
-
-    N/A
-    
-### Response
-
-[Budget Category Array](#budgetcategory)
-
-
-## <a name="get"></a>Retrieve a Budget Category
-
-    GET  /budget/v4/budgetCategory/{id} 
-    
-HTTPie:
-
-```shell
-http https://us.api.concursolutions.com/budget/v4/budgetCategory/{id}  'Authorization:Bearer {YOUR ACCESS TOKEN}'
-```
-
-
-### Parameters
-
-Name | Type | Format | Description
------|------|--------|------------			
-id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
 
 ### Response
 
-[Budget Category](#budgetcategory)
+#### Status Codes
 
-### Example JSON Response
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) Successful call, response is in body.
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) The request was determined to be invalid by the server.
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) The user does not have the necessary permissions to perform the request.
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) Error message in response body
+* [504 Gateway Timeout](https://tools.ietf.org/html/rfc7231#section-6.6.5) Error message in response body
+
+#### Headers
+
+[Response Headers](#responseHeaders)
+
+#### Payload
+
+Array of [Budget Category](#budgetCategory)
+
+### Example
+
+#### Request
+
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetCategory
+Authorization: Bearer {token}
+Content-Type: application/json
+```
+
+#### Response
+
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1292
+concur-correlationid: 9d59b6f0-e5bd-47bf-bcad-4c3de9f5c45c
+```
+
+```json
+[
+    {
+      "name":"Marketing and Outreach",
+      "description":null,
+      "statusType":"OPEN",
+      "id":"36047f6c-6cf6-443d-a952-39efb012acdb",
+      "expenseTypes":[
+        {
+          "featureTypeCode":"PURCHASE_REQUEST",
+          "expenseTypeCode":"MKTG",
+          "id":"f35827a8-7981-4a5b-bfc3-da7ebb4665ff",
+          "name":null
+        },
+        {
+          "featureTypeCode":"EXPENSE",
+          "expenseTypeCode":"SEMNR",
+          "id":"30f16783-e50e-4ab4-b6fb-f66cc75956f2",
+          "name":null
+        },
+        {
+          "featureTypeCode":"PURCHASE_REQUEST",
+          "expenseTypeCode":"ADVT",
+          "id":"64a04928-37b0-49c8-99e8-c346e6d47825",
+          "name":null
+        }
+      ]
+    },
+    {
+      "name":"Airfare",
+      "description":null,
+      "statusType":"OPEN",
+      "id":"459fe79a-9b1e-4ea0-8416-19de0ff14eef",
+      "expenseTypes":[
+        {
+          "featureTypeCode":"EXPENSE",
+          "expenseTypeCode":"AIRFR",
+          "id":"53300041-3fb9-4a93-8cdf-327fcbe74a0c",
+          "name":null
+        },
+        {
+          "featureTypeCode":"REQUEST",
+          "expenseTypeCode":"AIRFR",
+          "id":"29278c5a-624a-4dd6-a2c1-02dd233d3fbf",
+          "name":null
+        }
+      ]
+    }     
+]
+```
+
+## <a name="get"></a>GET a Budget Category
+
+Retreive the details of a single budget category.
+
+### Scopes
+
+Name|Description
+---|---
+`budgetitem.write`|Create/update/delete access to budget data
+`budgetitem.read`|Read access to budget data
+
+### Request
+
+#### Headers
+
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+
+#### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+id|`string`|`uuid`|The budget category's key field.
+
+##### URI Template
+
+```shell
+GET  /budget/v4/budgetCategory/{id}
+```
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) Successful call, response is in body.
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) The request was determined to be invalid by the server.
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) The user does not have the necessary permissions to perform the request.
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) The resource could not be found or does not exist
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) Error message in response body
+* [504 Gateway Timeout](https://tools.ietf.org/html/rfc7231#section-6.6.5) Error message in response body
+
+#### Headers
+
+[Response Headers](#responseHeaders)
+
+#### Payload
+
+[Budget Category](#budgetCategory)
+
+### Example
+
+#### Request
+
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetCategory/36047f6c-6cf6-443d-a952-39efb012acdb
+Authorization: Bearer {token}
+Content-Type: application/json
+```
+
+#### Response
+
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 642
+concur-correlationid: f7b1a193-46cc-4784-9c6f-d8e1e47ecaa1
+```
 
 ```json
 {
   "name":"Marketing and Outreach",
   "description":null,
   "statusType":"OPEN",
-  "syncGuid":"36047f6c-6cf6-443d-a952-39efb012acdb",
+  "id":"36047f6c-6cf6-443d-a952-39efb012acdb",
   "expenseTypes":[
     {
       "featureTypeCode":"PURCHASE_REQUEST",
       "expenseTypeCode":"MKTG",
-      "syncGuid":"f35827a8-7981-4a5b-bfc3-da7ebb4665ff",
+      "id":"f35827a8-7981-4a5b-bfc3-da7ebb4665ff",
       "name":null
     },
     {
       "featureTypeCode":"EXPENSE",
       "expenseTypeCode":"SEMNR",
-      "syncGuid":"30f16783-e50e-4ab4-b6fb-f66cc75956f2",
+      "id":"30f16783-e50e-4ab4-b6fb-f66cc75956f2",
       "name":null
     },
     {
       "featureTypeCode":"PURCHASE_REQUEST",
       "expenseTypeCode":"ADVT",
-      "syncGuid":"64a04928-37b0-49c8-99e8-c346e6d47825",
+      "id":"64a04928-37b0-49c8-99e8-c346e6d47825",
       "name":null
     }
   ]
-} 
+}
 ```
 
-## <a name="post"></a>Create/Update a Budget Category
+## <a name="post"></a>POST a Budget Category
 
-    POST  /budget/v4/budgetCategory
+Save a new budget category or update an existing budget category.  
 
+* When adding expense types to a budget category, only the feature type code and expense type code are needed.
+* Since Expense Report expense types are shared with Request and Payment Request (Invoice) expense types are shared with Purchase Request, only EXPENSE and PAYMENT_REQUEST expense types must be supplied.  The types will be copied to REQUEST and PURCHASE REQUEST automatically.
+* If an expense type is supplied but the feature is not enabled, it will have no effect.  For example, an Invoice-Maintenance expense type can be added to a Budget Category if Invoice is not enabled for Budget--it will not change how spending is assigned to budgets.
 
-HTTPie:
+### Scopes
 
-```shell
-http POST https://us.api.concursolutions.com/budget/v4/budgetCategory \
-"Authorization:Bearer {YOUR ACCESS TOKEN}" \
-"Content-Type: application/json" \
-< {PATH TO YOUR BUDGET CATAEGORY JSON}
+Name|Description
+---|---
+`budgetitem.write`|Create/update/delete access to budget data
+
+### Request
+
+#### Headers
+
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+
+#### Parameters
+
+N/A
+
+##### URI Template
+
+```http
+POST  /budget/v4/budgetCategory
 ```
 
+#### Payload
 
-
-### Parameters
-
-Name | Type | Format | Description
------|------|--------|------------
-`budgetCategory`	|	-	|	`body`	|	**Required** A JSON representation of a Budget Category
+[Budget Category](#budgetCategory)
 
 ### Response
 
-[Budget Category](#budgetcategory)
+#### Status Codes
 
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) Successful call, response is in body.
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) The request was determined to be invalid by the server. Possibly a validation failed on the data that was sent in the payload. The response will have a list of validation errors in the body. See below for an example 400 response.
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) The user does not have the necessary permissions to perform the request.
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) The resource could not be found or does not exist
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) Error message in response body
+* [504 Gateway Timeout](https://tools.ietf.org/html/rfc7231#section-6.6.5) Error message in response body
 
-## <a name="delete"></a>Delete a Budget Category
+#### Headers
 
-    DELETE  /budget/v4/budgetCategory/{id}
-    
-HTTPie:
+[Response Headers](#responseHeaders)
 
-```shell
-http DELETE https://us.api.concursolutions.com/budget/v4/budgetCategory/{id} \
-"Authorization:Bearer {YOUR ACCESS TOKEN}" \
-"Content-Type: application/json" \
+#### Payload
+
+[Budget Category](#budgetCategory) or [Error Response](#errorResponse)
+
+### Example
+
+#### Request
+
+```http
+POST https://us.api.concursolutions.com/budget/v4/budgetCategory
+Authorization: Bearer {token}
+Content-Type: application/json
 ```
 
+```json
+{
+  "name": "Advertising Category",
+  "description": "Advertising",
+  "expenseTypes": [
+    {
+      "featureTypeCode": "EXPENSE",
+      "expenseTypeCode": "ADVT"
+    },
+    {
+      "featureTypeCode": "PAYMENT_REQUEST",
+      "expenseTypeCode": "ADVT"
+    }
+  ],
+  "statusType": "OPEN"
+}
+```
 
-### Parameters
+#### Response
 
-Name | Type | Format | Description
------|------|--------|------------
-id	|	`string`	|	`path`	|	The budget category's key field (sync guid).
+##### Success Response
 
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 1270
+concur-correlationid: 5c00e59f-d00c-4019-8d3d-47130d8e37b4
+```
 
-## <a name="getExpTypes"></a>Retrieve all valid Expense Types
+```json
+{
+  "name": "Advertising Category",
+  "description": "Advertising",
+  "id": "d9fd5191-7016-4f50-a6c8-4770bddc01d8",
+  "statusType": "OPEN",
+  "expenseTypes": [
+    {
+      "id": "e1dd44da-25b4-4180-8d89-00f3a8d8cf4e",
+      "featureTypeCode": "EXPENSE",
+      "expenseTypeCode": "ADVT",
+      "name": null
+    },
+    {
+      "id": "67253ac1-77e0-4d61-a478-0d194611b320",
+      "featureTypeCode": "PAYMENT_REQUEST",
+      "expenseTypeCode": "ADVT",
+      "name": null
+    }
+  ]
+}
+```
 
-    GET  /budget/v4/budgetCategory/expenseTypes
+##### Failure Response
 
-    *Note: The list for REQUEST expense types is identical to the list for EXPENSE expense types and similarly 
-    PURCHASE_REQUEST is identical to PAYMENT_REQUEST.  Due to response size and performance concerns, only EXPENSE and
-    PAYMENT_REQUEST are returned and the caller should assume that identical expense types exist for REQUEST and 
-    PURCHASE_REQUEST.* 
-    
-### Parameters
+```shell
+HTTP/1.1 400 Bad Request
+Cache-Control: no-store
+Connection: close
+Content-Length: 338
+Content-Type: application/json;charset=utf-8
+Date: Fri, 21 Sep 2018 15:27:05 GMT
+Expires: Thu, 20 Sep 2018 15:27:05 GMT
+Pragma: no-cache
+concur-correlationid: 44adb686-a624-4ee5-b618-e4ea31a95bec
+```
+
+```json
+{
+  "status" : false,
+  "errorMessageList" :
+  [
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_CATEGORY_NAME_REQUIRED", "errorMessage" : "Budget category name is required"},
+    {"errorType" : "ERROR", "errorCode" : "BUDGET.BUDGET_CATEGORY_NAME_UNIQUE_ERROR", "errorMessage" : "Budget category must have a unique name"}
+  ]
+}
+```
+
+## <a name="delete"></a>DELETE a Budget Category
+
+Delete a budget category. Budget categories that are in use by budget items may not be deleted.
+
+### Scopes
+
+Name|Description
+---|---
+`budgetitem.write`|Create/update/delete access to budget data
+
+### Request
+
+#### Headers
+
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+
+#### <a name="parameters"></a>Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+id|`string`|`uuid`|The budget category's key field.
+
+##### URI Template
+
+```http
+DELETE  /budget/v4/budgetCategory/{id}
+```    
 
 ### Response
 
-[Expense Type Array](#expensetype)
+#### Status Codes
 
-### Example JSON Response
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) Successful call, response is in body.
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) The request was determined to be invalid by the server.
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) The user does not have the necessary permissions to perform the request.
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) The resource could not be found or does not exist
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) Error message in response body
+* [504 Gateway Timeout](https://tools.ietf.org/html/rfc7231#section-6.6.5) Error message in response body
+
+#### Headers
+
+[Response Headers](#responseHeaders)
+
+### Example
+
+#### Request
+
+```http
+DELETE https://us.api.concursolutions.com/budget/v4/budgetCategory/a5e00b3f-b941-4522-8b0e-07412fb2cc7c
+Authorization: Bearer {token}
+Content-Type: application/json
+```
+
+#### Response
+
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 0
+concur-correlationid: 39216840-2808-4c49-8874-e9862d96fdb6
+```
+
+## <a name="getExpTypes"></a>GET all valid Expense Types
+
+Retrieve a list of all possible expense types that may be used in a budget category.
+
+* The list for REQUEST expense types is identical to the list for EXPENSE expense types and similarly  PURCHASE_REQUEST is identical to PAYMENT_REQUEST.  Due to response size and performance concerns, only EXPENSE and PAYMENT_REQUEST are returned and the caller should assume that identical expense types exist for REQUEST and PURCHASE_REQUEST.
+
+### Scopes
+
+Name|Description
+---|---
+`budgetitem.write`|Create/update/delete access to budget data
+`budgetitem.read`|Read access to budget data
+
+### Request
+
+#### Headers
+
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+
+#### Parameters
+
+N/A
+
+##### URI Template
+
+```shell
+GET  /budget/v4/budgetCategory/expenseTypes
+```
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) Successful call, response is in body.
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) The request was determined to be invalid by the server.
+* [403 Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) The user does not have the necessary permissions to perform the request.
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) Error message in response body
+* [504 Gateway Timeout](https://tools.ietf.org/html/rfc7231#section-6.6.5) Error message in response body
+
+#### Headers
+
+[Response Headers](#responseHeaders)
+
+#### Payload
+
+Array of [Expense Type](#expensetype)
+
+### Example
+
+#### Request
+
+```http
+GET https://us.api.concursolutions.com/budget/v4/budgetCategory/expenseTypes
+Authorization: Bearer {token}
+Accept: application/json
+```
+
+#### Response
+
+```http
+HTTP/1.1 200 OK
+Cache-Control: max-age=604800
+Content-Type: application/json
+Date: Wed, 06 Jul 2020 17:33:03 GMT
+Etag: "359670651"
+Expires: Wed, 13 Jul 2020 17:33:03 GMT
+Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
+Content-Length: 367
+concur-correlationid: 7afa7091-bc4e-4408-8248-a67f9e24a023
+```
 
 ```json
 [
   {
     "featureTypeCode":"EXPENSE",
     "expenseTypeCode":"AIRFR",
-    "syncGuid":null,
+    "id":null,
     "name":"Airfare"
   },
   {
     "featureTypeCode":"EXPENSE",
     "expenseTypeCode":"AIRTX",
-    "syncGuid":null,
+    "id":null,
     "name":"Airfare Ticket Tax"
   },
   {
     "featureTypeCode":"PAYMENT_REQUEST",
     "expenseTypeCode":"CATER",
-    "syncGuid":null,
+    "id":null,
     "name":"Catering"
   }
 ]
 ```
 
-
 ## <a name="schema"></a>Schema
-
 
 ### <a name="budgetcategory"></a>BudgetCategory
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `description`	|	`string`	|	-	|	The friendly name for this category.
-`expenseTypes`	|	`Array[ExpenseType]`	|	-	|	**Required** The list of expense types that this budget category matches. 
+`expenseTypes`	|	`Array[ExpenseType]`	|	-	|	**Required** The list of expense types that this budget category matches.
 `name`	|	`string`	|	-	|	**Required** The admin-facing name for this category.
 `statusType`	|	`string`	|	-	|	The status of this budget category. Valid values are 'OPEN' and 'REMOVED'
-`syncGuid`	|	`string`	|	-	|	The budget service's key for this object.
+`id`	|	`string`	|	-	|	The budget service's key for this object.
 
 
 ### <a name="expensetype"></a>ExpenseType
 
-Name | Type | Format | Description
------|------|--------|------------
+Name|Type|Format|Description
+---|---|---|---
 `featureTypeCode`	|	`string`	|	-	|	**Required** The type of feature that this expense type applies to, Purchase Request, Payment Request (Invoice), Expense or Travel Authorization (Possible values: 'REQUEST', 'TRAVEL', 'EXPENSE', 'PAYMENT_REQUEST', 'PURCHASE_REQUEST')
 `expenseTypeCode`	|	`string`	|	-	|	**Required** The alphanumeric code that describes an expense type.  Ex: TRAVEL, AC_CATER Any string may be used, but only expense type codes returned by GET /budgetCategory/expenseType will behave properly in the Concur UI.  
 `name`	|	`string`	|	-	|	The name for this expense type if it maps to an expense type set up in Concur. **READ ONLY**
-`syncGuid`	|	`string`	|	-	|	The budget service's key for this object.  (If this field is not supplied, the service will use an existing expense type entry if one exists.
+`id`	|	`string`	|	-	|	The budget service's key for this object.  (If this field is not supplied, the service will use an existing expense type entry if one exists.
 
+### <a name="errorResponse"></a>Error Response
+
+Name|Type|Format|Description
+---|---|---|---
+`status`|`boolean`|-|False if there was an error
+`errorMessageList`|`Array[ErrorMessage]`|-|List of all errors detected
+
+### <a name="errorMessage"></a>Error Message
+
+Name|Type|Format|Description
+---|---|---|---
+`errorType`|`String`|-|WARNING or ERROR
+`errorCode`|`String`|-|Text code for this error
+`errorMessage`|`String`|-|Plain language error message
+
+## <a name="responseHeaders"></a>Response Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Allow](https://tools.ietf.org/html/rfc7231#section-7.4.1)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7234 Expires](https://tools.ietf.org/html/rfc7234#section-5.3)
+* [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
+* [RFC 7234 Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)
+* [RFC 7231 Server](https://tools.ietf.org/html/rfc7231#section-7.4.2)
+* [RFC 7231 Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)

@@ -5,26 +5,26 @@ layout: reference
 
 # Endpoints
 
-- [Definitions of Resources](#definitions-of-resources)
-- [General](#general)
-  - [GET Service Index](#endpoint-service-index)
-  - [GET Receipt Status by Receipt ID](#endpoint-get-receipt-status)
-- [eReceipts](#ereceipts)
-  - [GET Schemas](#endpoint-schemas)
-  - [POST Receipts](#endpoint-post-a-receipt)
-  - [GET Receipts by User ID](#endpoint-get-receipts-by-userid)
-  - [GET Receipts by Receipt ID](#endpoint-get-a-receipt-by-id)
-  - [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image)
-- [Image-Only Receipts](#image-only-receipts)
-  - [POST Image-Only Receipts](#endpoint-post-an-image-only-receipt)
-  - [GET Image-Only Receipts by User ID](#endpoint-get-image-only-receipts-by-userid)
-  - [GET Image-Only Receipt by Receipt ID](#endpoint-get-an-image-only-receipt-by-id)
-  - [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image-image-only)
+* [Definitions of Resources](#definitions-of-resources)
+* [General](#general)
+  * [GET Service Index](#endpoint-service-index)
+  * [GET Receipt Status by Receipt ID](#endpoint-get-receipt-status)
+* [E-Receipts](#e-receipts)
+  * [GET Schemas](#endpoint-schemas)
+  * [POST Receipts](#endpoint-post-a-receipt)
+  * [GET Receipts by User ID](#endpoint-get-receipts-by-userid)
+  * [GET Receipts by Receipt ID](#endpoint-get-a-receipt-by-id)
+  * [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image)
+* [Image-Only Receipts](#image-only-receipts)
+  * [POST Image-Only Receipts](#endpoint-post-an-image-only-receipt)
+  * [GET Image-Only Receipts by User ID](#endpoint-get-image-only-receipts-by-userid)
+  * [GET Image-Only Receipt by Receipt ID](#endpoint-get-an-image-only-receipt-by-id)
+  * [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image-image-only)
 
 ### Definitions of Resources
 
-- *__eReceipt__* - A schema-enforced resource with data and, optionally, an image. If an image is not provided, one will be generated from the data resource.
-- *__Image-Only Receipt__* - A standalone image without data.
+* *__E-Receipt__* - A schema-enforced resource with data and, optionally, an image. If an image is not provided, one will be generated from the data resource.
+* *__Image-Only Receipt__* - A standalone image without data.
 
 ### General
 
@@ -88,7 +88,7 @@ _Example Response:_
 
 [Back to Top](#endpoints)
 
-### eReceipts
+### E-Receipts
 
 |Endpoint|Response Format|Request Summary|
 |---|---|---|
@@ -325,6 +325,11 @@ Creating a receipt requires JSON data about the transaction and, optionally, an 
 
 Successful POST requests will receive a response of 201 Created. The `Location` header of the response contains a URL for your receipt. Once the receipt has been processed, it can be retrieved at this URL. The `Link` header of the response contains a processing-status URL for your receipt. More information can be found [here](#endpoint-get-receipt-status).
 
+Helpful Notes:
+- Include link as a header and make its value: “<http://schema.concursolutions.com/{receipt type}.schema.json>;rel=describedBy” 
+- Copy a sample receipt of that receipt type from the documentation (https://developer.concur.com/api-reference/receipts/sample-receipts.html) and post it into the body of this POST call → you can then edit this body to your specification
+
+
 If you are not providing an image with your receipt data, the body of the request should be your receipt JSON.
 
 Receipt images may be posted along with data. In this case, Concur will use the provided image instead of generating a new one. To post data and an image, use multipart form data. The `Content-Type:multipart/form-data` header must be set. The image should be included under the key `image`, and the receipt JSON should be included under the key `receipt`. Image files are limited to a maximum size of 5MB. Accepted file formats for image files are: image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, and application/pdf.
@@ -526,7 +531,9 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 
 Successful POST requests will receive a response of 202 Accepted. The Location header of the response contains a URL for your receipt image. Once the receipt has been processed, it can be retrieved at this URL. The Link header of the response contains a processing-status URL for your receipt image.
 
-To post a receipt image, use multipart form data. The Content-Type:multipart/form-data header must be set. The image should be included under the key image.
+Helfpul Notes:
+- The header must include content-type with multipart/form-data as its value 
+- In the body, add "image" as a key and select "file" from the dropdown since you will be linking an image file. Then, choose your saved image file as the value.
 
 _Example Requests:_
 
@@ -559,7 +566,7 @@ Connection: keep-alive
 |---|---|---|
 |userId|required|The UUID of the user whose receipt images will be returned.|
 
-Returns the JSON metadata of receipt images for the user ID specified in the URL. Results should be paginated in the same manner as the eReceipt endpoint.
+Returns the JSON metadata of receipt images for the user ID specified in the URL. Results should be paginated in the same manner as the e-receipt endpoint.
 
 _Example Requests:_
 

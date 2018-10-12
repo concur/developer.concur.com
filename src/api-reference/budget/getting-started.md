@@ -3,14 +3,16 @@ title: Getting Started
 layout: reference
 ---
 
-# Budget - Beta
+{% include prerelease.html %}
 
-# Menu
-* [Getting Started](#overview)
-* [Fiscal Year](#overview)
-* [Budget Category](#overview)
-* [Budget Item](#overview)
+## Menu
 
+* [Getting Started](./getting-started.html)
+* [Fiscal Year](/api-reference/budget/fiscal-year.html)
+* [Budget Category](/api-reference/budget/budget-category.html)
+* [Budget Item](/api-reference/budget/budget-header.html)
+* [Budget Tracking Field](/api-reference/budget/budget-tracking.html)
+* [Budget Adjustments](/api-reference/budget/budget-adjustments.html)
 
 ## Getting Started
 
@@ -22,21 +24,20 @@ layout: reference
   - [Acquire an Access Token](#retrieve-a-user-access-token)
   - [Roles & Scopes](#roles-and-scopes)
 
-### Overview
+### <a name="overview"></a>Overview
 
-The new Budget Service API is in **Beta**. If you are interested in using the Budget Service API, then please contact your account manager for further details. 
-
-The Budget service exposes budget and fiscal year data.  Partners may use the service endpoints to read and alter fiscal year, budget, and budget matching configuration.
+The Budget service exposes budget and fiscal year data.  Partners may use the service endpoints to read and alter fiscal year, budget, budget adjustment, and budget matching configuration.
 Summary and detailed balance amounts are also available to read, but may not be altered via the API.
 
 The sequence to configure budgets is to first setup the fiscal year and then the budget categories (if applicable) before creating budget items.
-Budget items may use budget tracking fields as filters. The budget tracking field can only be configured in the application. Also budget owner,
-manager and budget viewer permissions have to be assigned to users prior to configuring budgets.
+Budget items may use budget tracking fields as filters. The budget tracking field can only be configured in the application UI. Also budget owner,
+approver and budget viewer permissions have to be assigned to users prior to configuring budgets.
 
-### Version
+### <a name="version"></a>Version
+
 4.0  
 
-### Regional Availability
+### <a name="regional-availability"></a>Regional Availability
 
 ```
 https://us.api.concursolutions.com/budget/v4/
@@ -46,16 +47,20 @@ https://us.api.concursolutions.com/budget/v4/
 https://emea.api.concursolutions.com/budget/v4/
 ```
 
-### Explore the API
+```
+https://cn.api.concurcdc.cn/budget/v4/
+```
 
-#### Prerequisites
+### <a name="explore-the-api"></a>Explore the API
+
+#### <a name="prerequisites"></a>Prerequisites
 
 1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
 2. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
 
-Once you have registered your application, read about the [Budget Category](/api-reference/budget/budget-category.html), [Fiscal Year](/api-reference/budget/fiscal-year.html), [Budget Tracking Field](/api-reference/budget/cost-object.html), and [Budget Item Header](/api-reference/budget/budget-header.html) endpoints.
+Once you have registered your application, read about the [Budget Category](/api-reference/budget/budget-category.html), [Fiscal Year](/api-reference/budget/fiscal-year.html), [Budget Tracking Field](/api-reference/budget/budget-trackingfield.html), [Budget Adjustment](/api-reference/budget/budget-adjustments.html) and [Budget Item Header](/api-reference/budget/budget-header.html) endpoints.
 
-#### Retrieve a User Access Token:
+#### <a name="retrieve-a-user-access-token"></a>Retrieve a User Access Token:
 
 Before making requests to the Budget API, you must [obtain an access token from the Authentication API](https://developer.concur.com/api-reference/authentication/getting-started.html).
 
@@ -63,20 +68,24 @@ The response will include an `access_token` field, which contains your access to
 
 Examples:
 
-HTTPie:
-
-```shell
-http -f POST https://us.api.concursolutions.com/oauth2/v0/token client_secret={YOUR SECRET} client_id={YOUR CLIENT ID} grant_type=password username={YOUR USERNAME} password=P{YOUR PASSWORD}
+#### Request
+```http
+POST https://us.api.concursolutions.com/oauth2/v0/token
+client_secret:{YOUR SECRET}
+client_id:{YOUR CLIENT ID}
+grant_type:password
+username:{YOUR USERNAME}
+password:{YOUR PASSWORD}
 ```
 
-#### Roles and Scopes:
+#### <a name="roles-and-scopes"></a>Roles and Scopes:
 
-The user needs to have the Budget Administrator role in order to access the api. 
+The user needs to have the Budget Administrator role in order to access the api.  Company-level access which does not require a user role is also available.  See the [Company Level Authentication Documentation](#https://developer.concur.com/api-reference/authentication/company-auth.html) for more information.
 
-The GET api endpoints for fiscal year require fiscalcalendar.read or budgetitem.read scope.
+The GET api endpoints for Fiscal Year require fiscalcalendar.read, fiscalcalendar.write, budgetitem.read, or budgetitem.write scope.
 
 POST and DELETE endpoints require fiscalcalendar.write or budgetitem.write scope.
 
-Budget Item Header, Budget Item Category GET end points require budgetitem.read.
- 
-Budget Item Header, Budget Item Category POST and DELETE end points require budgetitem.write. 
+Budget Item Header, Budget Item Category, and Budget Tracking Field GET end points require budgetitem.read or budgetitem.write scope.
+
+Budget Item Header, Budget Item Category, and Budget Adjustements POST and DELETE end points require budgetitem.write.

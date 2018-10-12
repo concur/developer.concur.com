@@ -1,5 +1,5 @@
 ---
-title: Attendee Resource 
+title: Attendee Resource
 layout: reference
 ---
 
@@ -19,9 +19,8 @@ https://www.concursolutions.com/api/expense/v2.0/attendees
 [GET][2]
 
 ## See also
-* [Attendee List][3] 
-* [Attendee Type ][4]
+* [Attendee List][3]
+* [Attendee Type ](/api-reference/expense/attendee-types/v1.attendee-types.html)
 
 [2]: /api-reference-deprecated/version-two/attendees/attendee-resource-get.html
 [3]: /api-reference-deprecated/version-one/attendees/attendee-list-resource.html
-[4]: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html

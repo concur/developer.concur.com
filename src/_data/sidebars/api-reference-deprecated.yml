@@ -1,7 +1,7 @@
 - title: API Reference (Deprecated)
   url: /api-reference-deprecated/
-- title: Old Auth
-  url: /api-reference-deprecated/old-auth/old-auth.html
+- title: Pre-2017 Authorization
+  url: /api-reference/authentication/authorization-pre-2017.html
 - title: v1.0 - Attendees
   url: ''
   children:
@@ -10,12 +10,7 @@
       - title: Attendee List Resource Post
         url: /api-reference-deprecated/version-one/attendees/attendee-list-resource-post.html
 - title: v1.0 - Attendee Types
-  url: ''
-  children:
-      - title: Attendee Type Resource
-        url: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html
-      - title: Get attendee types
-        url: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource-get.html
+  url: /api-reference/expense/attendee-types/v1.attendee-types.html
 - title: v1.0 - Imaging Web Service
   url: ''
   children:
@@ -127,7 +122,4 @@
       - title: GET List of Reports
         url: /api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html
 - title: v3.0 - Receipts
-  url: ''
-  children:
-      - title: Receipts
-        url: /api-reference-deprecated/version-three/receipts.html
+  url: /api-reference/receipts/v3.receipts.html
