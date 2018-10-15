@@ -174,8 +174,8 @@ concur-correlationid: 561ce34c-6542-4bae-82a2-aa6ccd8c6b22
 Name|Type|Format|Description
 ---|---|---|---
 `budgetItemName`|`string`|-|**Required** The name of the budget of the adjustment.
-`fiscalYearName`|`string`|-|**Required** The name of the budget’s fiscal year
-`fiscalPeriodName`|`string`|-|**Required** The name of the budget’s fiscal period
+`fiscalYearName`|`string`|-|**Required** The name of the budget’s fiscal year.  The default name for a fiscal year is the numeric, four-digit year, e.g. 2019.
+`fiscalPeriodName`|`string`|-|**Required** The name of the budget’s fiscal period  The default name for a fiscal period is: Monthly: &lt;fiscal year name&gt; - &lt;three-letter month abbreviation&gt; (e.g. 2019 - Jun), Quarterly: &lt;fiscal year name&gt; - Q&lt;number of quarter&gt; (e.g. 2019 - Q2), Yearly: &lt;fiscal year name&gt; (e.g. 2019)
 `ownerEmailId`|`string`|-|**Required** The user who is responsible for the budget, as configured.
 `amount`| `decimal`|-|**Required** The budget currency amount to be adjusted. The amount may be a positive or negative value but it cannot be zero.
 `adjustmentType`|`string`|-|**Required** The adjustment’s reference type. Valid values are BUDGET_BALANCE, FUND_TRANSFER, EXPENSE, PAYMENT_REQUEST, PURCHASE_REQUEST, REQUEST
