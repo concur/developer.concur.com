@@ -6,6 +6,7 @@ layout: reference
 {% include prerelease.html %}
 
 The Purchase Request API gives clients the ability to leverage external data to create Concur Invoice purchase requests for pre-authorization. Clients and Partners can build a direct connection where data can be fed to the purchase request API which will create new purchase requests in Concur. These API-created purchase requests are automatically submitted into the Concur Invoice pre-authorization workflow. Once approved, it will result in a Concur Invoice purchase order that can be transmitted to your Vendor from Concur Invoice. 
+
 In addition a Get Status endpoint is provided that can be used to get basic information and check the status of the created purchase request. 
 
 > **Limitations**: This API does not support users in the China data center.
