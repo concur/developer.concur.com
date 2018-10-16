@@ -135,7 +135,6 @@ The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds
           </ContactNumbers>
           <Award Rating="4"/>
           <HotelAmenity Code="68"/>
-          <Policy CheckInTime="14:00:00" CheckOutTime="12:00:00"/>
           <TPA_Extensions>
             <HotelPreference>not_preferred</HotelPreference>
             <TPA_HotelPreviewImageURI>
@@ -175,7 +174,6 @@ The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds
 | ContactNumbers | N        | Complex           | Contact numbers |
 | Award          | N        | Complex           | An element that identifies the hotel ratings. |
 | HotelAmenity   | N        | Complex           | List of Hotel Amenities. |
-| Policy         | N        | Complex           | **Not used to be removed** |
 | TPA_Extensions | N        | Complex           | Concur-specific extension of OTA spec. This adds support for extra property fields. |
 
 
@@ -231,20 +229,7 @@ The maximum allowed size of OTA_HotelSearchRS is 1 MB. Any response that exceeds
 
 | Element | Required | Data Type    | Description |
 |---------|----------|--------------|-------------|
-| *Code*  | Y        | OTA_CodeType	| Refer to OpenTravel Code List Hotel Amenity Code (HAC) |
-
-
-**Policy - to be removed**
-
-| Element        | Required | Data Type         | Description |
-|----------------|----------|-------------------|-------------|
-| *CheckInTime*  | Y        | StringLength1to32	| **to be decided** |
-| *CheckOutTime* | Y        | StringLength1to32	| **to be decided** |
-
-
-**OTA_CodeType**
-
-Used for codes in the OpenTravel Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
+| *Code*  | Y        | string	| Refer to OpenTravel Code List Hotel Amenity Code (HAC) |
 
 
 ### TPA Extensions

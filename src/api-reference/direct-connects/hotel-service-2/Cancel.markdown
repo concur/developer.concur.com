@@ -46,12 +46,8 @@ Message used to indicate to the hotel supplier that a given reservation should b
 
 | Element  | Required | Data Type | Description |
 |----------|----------|-----------|-------------|
-| *Type*   | Y        | OTA_CodeType    | UniqueID with Type=”14” identifies the reservation to cancel. |
-| *ID*     | Y        | StringLength1to32       | >A unique identifying value assigned by the creating system. |
-
-
-**OTA_CodeType**
-Used for codes in the OpenTravel Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
+| *Type*   | Y        | string    | UniqueID with Type=”14” identifies the reservation to cancel. |
+| *ID*     | Y        | StringLength1to32       | A unique identifying value assigned by the creating system. |
 
 ---
 
