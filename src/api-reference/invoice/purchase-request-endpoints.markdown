@@ -34,7 +34,7 @@ Name|Description|Endpoint
 
 ## <a name="dependencies"></a>Dependencies
 
-No other SAP Concur APIs are required to use this API. 
+None
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
