@@ -67,7 +67,7 @@ This request contains an **Attendees** parent element with an **Attendee** eleme
 
 | Element Name | Required (must contain value)? | Description |
 | ------------ | ------------------------------ | ----------- |
-| AttendeeType | Y | The attendee type code that Concur uses to identify attendees. 8 alpha characters. Clients can add their own custom attendee type codes. The standard attendee type codes are: BUSGUEST, for business guests and SPOUSE, for the employee's spouse. Use the [Get Attendee Type List](/api-reference-deprecated/version-one/attendee-types/attendee-type-resource-get.html) function of the Attendee List web service to get the full list of available types. Maximum 8 characters. |
+| AttendeeType | Y | The attendee type code that Concur uses to identify attendees. 8 alpha characters. Clients can add their own custom attendee type codes. The standard attendee type codes are: BUSGUEST, for business guests and SPOUSE, for the employee's spouse. Use the [Attendee Type v1](/api-reference/expense/attendee-types/v1.attendee-types.html) function of the Attendee List web service to get the full list of available types. Maximum 8 characters. |
 | Amount | N | The amount of the expense that is associated with this attendee. If the attendee amounts do not add up to the full expense entry amount, the user will have to correct the entry in the Concur UI before submitting the report. |
 | LastName | Y | The attendee's last name. Maximum 132 characters. |
 | FirstName | Depends on configuration | The attendee's first name. Maximum 50 characters. |

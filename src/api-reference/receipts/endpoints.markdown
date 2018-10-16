@@ -5,26 +5,26 @@ layout: reference
 
 # Endpoints
 
-- [Definitions of Resources](#definitions-of-resources)
-- [General](#general)
-  - [GET Service Index](#endpoint-service-index)
-  - [GET Receipt Status by Receipt ID](#endpoint-get-receipt-status)
-- [eReceipts](#ereceipts)
-  - [GET Schemas](#endpoint-schemas)
-  - [POST Receipts](#endpoint-post-a-receipt)
-  - [GET Receipts by User ID](#endpoint-get-receipts-by-userid)
-  - [GET Receipts by Receipt ID](#endpoint-get-a-receipt-by-id)
-  - [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image)
-- [Image-Only Receipts](#image-only-receipts)
-  - [POST Image-Only Receipts](#endpoint-post-an-image-only-receipt)
-  - [GET Image-Only Receipts by User ID](#endpoint-get-image-only-receipts-by-userid)
-  - [GET Image-Only Receipt by Receipt ID](#endpoint-get-an-image-only-receipt-by-id)
-  - [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image-image-only)
+* [Definitions of Resources](#definitions-of-resources)
+* [General](#general)
+  * [GET Service Index](#endpoint-service-index)
+  * [GET Receipt Status by Receipt ID](#endpoint-get-receipt-status)
+* [E-Receipts](#e-receipts)
+  * [GET Schemas](#endpoint-schemas)
+  * [POST Receipts](#endpoint-post-a-receipt)
+  * [GET Receipts by User ID](#endpoint-get-receipts-by-userid)
+  * [GET Receipts by Receipt ID](#endpoint-get-a-receipt-by-id)
+  * [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image)
+* [Image-Only Receipts](#image-only-receipts)
+  * [POST Image-Only Receipts](#endpoint-post-an-image-only-receipt)
+  * [GET Image-Only Receipts by User ID](#endpoint-get-image-only-receipts-by-userid)
+  * [GET Image-Only Receipt by Receipt ID](#endpoint-get-an-image-only-receipt-by-id)
+  * [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image-image-only)
 
 ### Definitions of Resources
 
-- *__eReceipt__* - A schema-enforced resource with data and, optionally, an image. If an image is not provided, one will be generated from the data resource.
-- *__Image-Only Receipt__* - A standalone image without data.
+* *__E-Receipt__* - A schema-enforced resource with data and, optionally, an image. If an image is not provided, one will be generated from the data resource.
+* *__Image-Only Receipt__* - A standalone image without data.
 
 ### General
 
@@ -88,7 +88,7 @@ _Example Response:_
 
 [Back to Top](#endpoints)
 
-### eReceipts
+### E-Receipts
 
 |Endpoint|Response Format|Request Summary|
 |---|---|---|
@@ -566,7 +566,7 @@ Connection: keep-alive
 |---|---|---|
 |userId|required|The UUID of the user whose receipt images will be returned.|
 
-Returns the JSON metadata of receipt images for the user ID specified in the URL. Results should be paginated in the same manner as the eReceipt endpoint.
+Returns the JSON metadata of receipt images for the user ID specified in the URL. Results should be paginated in the same manner as the e-receipt endpoint.
 
 _Example Requests:_
 
