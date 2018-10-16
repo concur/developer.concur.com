@@ -39,7 +39,7 @@ None
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
-This API will work with both Company or User JWT, however Company JWT is recommended for integrations using this API if the end goal is for the integration to create purchase requests for multiple requestors. When using user JWT to create purchase requests through the API it will result in the purchase request being assigned to the user that generated the user JWT and it will not honor the user set in the payload. User JWT could be used for testing to check if your payloads are good if needed. For an integration as mentioned above company JWT is the best choice.   
+This API will work with both Company or User JWTaccess tokens, however a Company JWTaccess token is recommended for integrations using this API if the end goal is for the integration to create purchase requests for multiple requestors. When using ua User JWTaccess token to create purchase requests through the API it will result in the purchase request being assigned to the user that generated the uUser JWTaccess token and it will not honor the user set in the payload. A User JWTaccess token could be used for testing to check if your payloads are good if needed. For an integration as mentioned above company JWT is the best choice.   
 
 ## <a name="post"></a>Create a new purchase request  
 
@@ -281,3 +281,6 @@ HTTP Code: 400
 |missingUnitPrice|Unit price is required.
 |invalidUnitPrice|Unit price is invalid.
 |invalidDateFormat|Expected a date in the format yyyy-mm-dd. Example: 2018-03-23
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTg5NTA4MTkzNl19
+-->
