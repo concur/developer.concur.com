@@ -1,29 +1,90 @@
 ---
-title: Service Name
+title: Service Name v1
 layout: reference
 ---
 
 {% include prerelease.html %}
 
-Description
+Description of API, including business purpose and most common use case.
 
-* [Section](#section)
+> **Limitations**: This section is optional. Which limitations the user may encounter, can include feature gaps from previous versions, limitations on access tokens, or support limitations for certain scenarios. If API only works in certain data centers, mention that here.
+
+* [Process Flow](#process-flow)
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
+* [Create a resource](#create-resource)
+* [Obtain a representation](#obtain-representation)
 * [Schema](#schema)
-  * [Stuff](#schema-stuff)
+  * [Schema One](#schema-one)
+  * [Schema Two](#schema-two)
+  * [Error](#schema-error)
+* [Definitions](#definitions)
 
-## <a name="section"></a>Section
+## <a name="process-flow"></a>Process Flow
 
-Description
+A process diagram that explains the API structure and the usage flow from the user perspective, for the most common use case. Required by SAP. We have resources to make this diagram align with corporate styles, so we need only the basic details without any specific styling.
+
+>insert sample diagram here
+
+## <a name="products-editions"></a>Products and Editions
+
+Delete any unsupported products or editions.
+
+* Concur Expense Professional Edition
+* Concur Expense Standard Edition
+* Concur Travel Professional Edition
+* Concur Travel Standard Edition
+* Concur Invoice Professional Edition
+* Concur Invoice Standard Edition
+* Concur Request Professional Edition
+* Concur Request Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Which scopes are required to interact with this API. This includes scopes for other APIs that are required (Company Profile, etc). Contact Scopes PM to add any new scopes to the repo.
+
+Name|Description|Endpoint
+---|---|---
+`scope`|Description|endpoint that requires this scope
+
+## <a name="dependencies"></a>Dependencies
+
+Any other APIs that are required by the core process flow as documented in the diagram (Company Profile, User, List Item, other common APIs). Should include why they are required. Can include previous versions of this API if necessary.
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+List any company vs. user token differences for this specific API.
+
+## <a name="create-resource"></a>Create a resource
+
+Description for the endpoint here.
 
 ### Scopes
 
-Name|Description
----|---
-`scope`|Description
+`customer.write` - Refer to [Scope Usage](#scope-usage) for full details.
 
 ### Request
 
+#### URI
+
+##### Template
+
+```shell
+https://{datacenterURI}/api/{storeIdentifier}?purchaseDate={purchaseDate}
+```
+
+##### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`storeIdentifier`|`string`|-|**Required** Note required when applicable.
+`purchaseDate`|`string`|-|This parameter isn't required.
+
 #### Headers
+
+Delete unused headers
 
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 * [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
@@ -55,25 +116,15 @@ Name|Description
 * [RFC 7231 Referer](https://tools.ietf.org/html/rfc7231#section-5.5.2)
 * [RFC 7231 User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3)
 
-#### Parameters
-
-Name|Type|Format|Description
----|---|---|---
-`variable`|`type`|-|**Required** Description
-
-##### URI Template
-
-```shell
-https://example.com/api/{variable}
-```
-
 #### Payload
 
-[Stuff](#schema-stuff)
+* [Schema One](#schema-one)
 
 ### Response
 
 #### Status Codes
+
+Delete unused codes
 
 * [100 Continue](https://tools.ietf.org/html/rfc7231#section-6.2.1)
 * [101 Switching Protocols](https://tools.ietf.org/html/rfc7231#section-6.2.2)
@@ -137,6 +188,8 @@ https://example.com/api/{variable}
 
 #### Headers
 
+Delete unused headers
+
 * `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 * [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
@@ -165,105 +218,8 @@ https://example.com/api/{variable}
 
 #### Payload
 
-[Stuff](#schema-stuff)
-
-### Example
-
-#### Request
-
-```shell
-{HTTP Method} {URI}
-{Header}: {Value}
-```
-
-#### Response
-
-```shell
-{HTTP Status Code}
-{Header}: {Value}
-```
-
-```json
-{}
-```
-
-## <a name="schema"></a>Schema
-
-### <a name="schema-stuff"></a>Stuff
-
-Name|Type|Format|Description
----|---|---|---
-`name`|`type`|format|**Required** Description.
-
-# Real world example
-
-> Make sure the Jekyll front matter is included in lieu of the # H1 above.
-
-{% include prerelease.html %}
-
-Include an introduction here as well as include an indented + bulleted table of contents which helps the reader navigate the various sections.
-
-Including a [relative link](./schema/template.schema.json).
-
-* [Sample for posting a payload](#post-a-payload)
-* [Sample Schema](#schema-example)
-	* [Sample Common](#schema-common)
-  * [Another](#schema-another)
-
-## <a name="post-a-payload"></a>Sample for posting a payload
-
-Posting a payload is among the most common tasks for client code. Use this opening paragraph to explain at a high level what business activity is achieved when doing this task. Use a bulleted list to make it easier for the reader to follow. When the service receives a request:
-
-* It will do this first.
-* Then it will do this second.
-* Finally it will do this thing here.
-
-### Scopes
-
-Name|Description
----|---
-`customer`|Grants read + write access to all customer oriented resources.
-
-### Request
-
-#### Headers
-
-* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
-
-#### Parameters
-
-These are documentation examples and not API design guidelines -- you won't normally have request parameters for POST verb usage.
-
-Name|Type|Format|Description
----|---|---|---
-`storeIdentifier`|`string`|-|**Required** Note required when applicable.
-`requestDate`|`string`|[`dateTime`](#dateTime)|This parameter isn't required. Link to format using anchor tags when applicable.
-
-##### URI Template
-
-```shell
-https://example.com/api?store={storeIdentifier}&date={requestDate}
-```
-
-#### Payload
-
-[Common](#schema-common)
-
-### Response
-
-#### Status Codes
-
-* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
-* [201 Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)
-* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
-
-#### Headers
-
-* [RFC 7231 Location](https://tools.ietf.org/html/rfc7231#section-7.1.2)
-
-#### Payload
-
-[Another](#schema-another)
+* [Schema One](#schema-one)
+* [Error](#schema-error)
 
 ### Example
 
@@ -280,7 +236,8 @@ Accept: application/json
 
 ```json
 {
-  "key": "value"
+  "orderId": "value",
+  "orderMemo": "value"
 }
 ```
 
@@ -303,24 +260,52 @@ Content-Length: 1270
 
 ```json
 {
-  "zeta": {
-    "alpha": {
-      "bravo": "charlie"
+  "orderId": "value",
+  "orderMemo": "value",
+  "transactionTimestamp": "Wed, 01 Jan 2020 12:00:00 GMT",
+  "arrayOfThings": [
+    {
+      "orderDetailsId": "value",
+      "aKeyForEnum": 1
     }
-  }
+  ]
 }
 ```
-## <a name="schema-example"></a>Schema
 
-### <a name="schema-common"></a>Common
+## <a name="obtain-representation"></a>Obtain a representation
+
+Copy, paste and modify the template found in the [Create a resource](#create-resource) section.
+
+## <a name="schema"></a>Schema
+
+### <a name="schema-one"></a>Schema One
 
 Name|Type|Format|Description
 ---|---|---|---
-<a name="dateTime"></a>`dateTime`|`string`|-|DateTime of where the transaction happened in format specified in ISO 8601. While the standard regards time zone designators as optional, we highly recommend to use UTC + Offset. For example, 2016-04-22T12:20+0700 (12:20 PM in Pacific Time).
+`orderId`|`string`|-|**Required** A description including required status.
+`orderMemo`|`string`|-|A description. This key is not required.
+`transactionTimestamp`|`string`|[dateTime](#definition-dateTime)|A key linking to a definition for the format.
+`arrayOfThings`|`array`|[Schema Two](#schema-two)|A key linking to another schema for the format.
 
-### <a name="schema-another"></a>Another
+### <a name="schema-two"></a>Schema Two
 
 Name|Type|Format|Description
 ---|---|---|---
-`theRequestPayload`|`type`|JSON|**Required** The payload.
-`theOtherRequestPayload`|`type`|JSON|It is possible to have multiple payloads when a multi-part post.
+`orderDetailsId`|`string`|-|A description for the key.
+`aKeyForEnum`|`number`|`enum`|The value must be one of these: `1`, `2` or `3`.
+
+### <a name="schema-error"></a>Error
+
+Name|Type|Format|Description
+---|---|---|---
+`errorCode`|`string`|-|**Required** Machine readable code associated with the error which is static and never localized. Examples: `dateTimeMissing`, `OutOfMem` and `invalidUser`. These could also be UUID4 (`a1d7bb3bb19348b0858687acc9e303ec`), number (`123456`) or a URI (`https://example.com/errors/invaliduser`) which ideally provides additional information when dereferenced. Whatever form is chosen it's worth noting contextual strings are helpful to developers reading the code.
+`errorMessage`|`string`|-|**Required** Message associated with the error.
+`dataPath`|`string`|-|Relative data path.
+`schemaPath`|`string`|-|Relative schema path.
+`errors`|`array`|[`error`](#schema-error)|An array of errors. Note: this points to this schema as errors can nest.
+
+## <a name="definitions"></a>Definitions
+
+Name|Type|Format|Description
+---|---|---|---
+<a name="definition-dateTime"></a>`dateTime`|`string`|-|DateTime of where the transaction happened in format specified in ISO 8601, using UTC + Offset. For example, 2016-04-22T12:20+0700 (12:20 PM in Pacific Time).
