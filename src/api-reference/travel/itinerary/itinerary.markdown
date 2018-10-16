@@ -32,7 +32,7 @@ The terms itinerary and trip are synonyms. Trip is the name used for the SAP Con
 
 ## Who Can Use this Web Service?
 
-TripLink suppliers, travel management companies (TMCs), and SAP Concur partners can use the Itinerary API. The level of access to the data in the Concur Travel system on who is accessing it and the SAP Concur products that have been purchased.
+TripLink suppliers, travel management companies (TMCs), and SAP Concur partners can use the Itinerary API. The level of access to the data in the Concur Travel system depends on who is accessing it and the SAP Concur products that have been purchased.
 
 ### Travel Management Companies (TMCs)
 
@@ -58,7 +58,7 @@ TripLink suppliers, travel management companies (TMCs), and SAP Concur partners 
 * Request trip information for SAP Concur users.
 * Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][4] if you have questions about the configuration settings.
 
-If you are a TMC or a SAP Concur partner developer who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Concur Connect Platform Team. SAP Concur products are highly configurable, and not all clients will have access to all features.
+If you are a TMC or a SAP Concur partner developer who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Partner Enablement Team. SAP Concur products are highly configurable, and not all clients will have access to all features.
 
 Some itinerary data may have come from Sabre. SAP Concur encourages you to speak to Sabre about becoming a Sabre Authorized Developer.
 
@@ -79,7 +79,7 @@ The travel supplier can request or send travel bookings by using an OAuth token 
 
 ## Configuration
 
-* If you are a TMC, third-party developer, or a TripLink supplier who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Concur Connect Platform Team.
+* If you are a TMC, third-party developer, or a TripLink supplier who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Partner Enablement Team.
 * SAP Concur products are highly configurable, and not all SAP Concur clients will have access to all features.
 * Partner developers must determine which configurations are required for their solution prior to the review process. Use the <a href="http://forum.developer.concur.com/" target="_blank">Developer Forum</a> if you have questions about the configuration settings.
 
