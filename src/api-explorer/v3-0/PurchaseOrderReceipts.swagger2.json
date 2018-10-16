@@ -210,7 +210,7 @@
         },
         "GoodsReceiptNumber": {
           "type": "string",
-          "description": "Goods receipt number for a purchase order line item receipt. This field is Required for V2 Version when using concur receiving."
+          "description": "Goods receipt number for a purchase order line item receipt. This field is Required for V2 Version when using Concur Receiving."
         },
         "ID": {
           "type": "string",
