@@ -1,153 +1,48 @@
 ---
-title: Purchase Request
+title: Get Started
 layout: reference
 ---
 
 # Purchase Request
-* [Create a new purchase request](#post)
-* [Schema](#schema)
-* [Response schema](#schema-response)
-* [Error codes](#error-codes)
 
+## Get Started
 
-## Version
-4.0  
+- [Overview](#overview)
+- [Version](#version)
+- [Regional Availability](#regional-availability)
+- [Explore the API](#explore-the-api)
+  - [Prerequisites](#prerequisites)
+  - [Acquire an Access Token](#retrieve-a-user-access-token)
 
+### Overview
 
-## <a name="post"></a>Create a new purchase request  
+The Purchase Request API resources allow you to create and automatically submit purchase requests for preauthorization, and retrieve the purchase request number and status using the get resource.
+### Version
 
-    POST  /purchaserequest/v1/purchaserequest  
+4.0
 
-Create a Purchase Request.
+### Regional Availability
 
-### <a name="8"></a>Parameters  
+```
+https://us.api.concursolutions.com/purchaserequest/v4/
+```
 
-|Name | Type | Format | Description
-|-----|------|--------|------------
-|`X_AUTH_TOKEN`|`string`|`header`|Bearer Token that identifies the caller. This is the company JWT
-|`Content-Type`|`string`|`header`|application/json
-|`purchaseRequest`|`string`|`body`|The details of the purchase request
+```
+https://emea.api.concursolutions.com/purchaserequest/v4/
+```
 
-### Input  
+### Explore the API
 
-[Schema](#schema)
+#### Prerequisites
 
-- Example
-    ```json
-"purchaseRequest" : {
-                        "userEmail" : "john.deo@concur",
-                        "description" : "New office supplies",
-                        "policyExternalId" : "po-external-id",
-                        "currencyCode" : "USD",
-                        "custom1" : "ADVT",
-                        "notesToSupplier" : "Office space request phase 1",
-                  
-                        "lineItems" : [
-                            {
-                                "purchaseType" : "SRVC",
-                                "vendorCode" :"VEN1",
-                                "vendorAddressCode" : "ADDR1"
-                                "description" : "monitor",
-                                "quantity" : "20",
-                                "unitPrice" : "154.4",
-                                "receiptType" : "WQTY",
-                                "neededByDate": "2018-06-28",
-                                "uomCode" : "DA",
-                                "shipping" : "13.5",
-                                "tax" : "11",
-                                "supplierPartID" : "DAQT1"
-                                "custom2" : "LGVT1",
-                                "url" :[
-                                    "http://officesupplies.com/monitor", 
-                                ],
-                                "comments" : "Phase 1 request for new employees for monitor",
-                                "comments" : "Request for new office supplies - monitor",
-                            },
-                            {
-                                "purchaseType" : "SRVC",
-                                "vendorCode" :"VEN1",
-                                "vendorAddressCode" : "ADDR1"
-                                "description" : "office chair",
-                                "quantity" : "20",
-                                "unitPrice" : "346.2",
-                                "receiptType" : "WQTY",
-                                "neededByDate": "2018-06-28",
-                                "uomCode" : "DA",
-                                "shipping" : "15",
-                                "tax" : "17.5",
-                                "supplierPartID" : "DAQT2"
-                                "custom2" : "LGVT2",
-                                "url" :[
-                                    "http://officesupplies.com/officechair", 
-                                ],
-                                "comments" : "Phase 1 request for new employees for office chair",
-                                "comments" : "Request for new office supplies - chair",
-                            }
-                        ]
-                    }
-    ```
+1. [Create a sandbox](https://developer.concur.com/manage-apps/register.html) if you don't already have one.
+2. Read the [Getting Started](https://developer.concur.com/api-reference/authentication/getting-started.html) section of [Authentication API](https://developer.concur.com/api-reference/authentication/apidoc.html).
 
-### Response  
+Once you have registered your application, read about the [Purchase Request API endpoints](/api-reference/invoice/purchase-request-endpoints.html).
 
-[Response schema](#schema-response)  
+#### Retrieve a User Access Token:
 
-## <a name="schema"></a>Schema  
+Before making requests to the Purchase Request API, you must [obtain an access token from the Authentication API](https://developer.concur.com/api-reference/authentication/getting-started.html).
 
-|Name | Type | Format | Description
-|-----|------|--------|------------
-|`userID`|`string`|-|**Required**: The employee that is requesting the items. This is UUID of the employee. Either UserID or UserEmail or UserLoginID is required to identify employee
-|`userEmail`|`string`|-|**Required**: The employee that is requesting the items. This is employee's email. Either UserID or UserEmail or UserLoginID is required to identify employee
-|`userLoginID`|`string`|-|**Required**: The employee that is requesting the items. This is employee's login ID. Either UserID or UserEmail or UserLoginID is required to identify employee
-|`description`|`string`|-|A description of the purchase request
-|`policyExternalId`|`string`|-|**Required**: The external identifier of the policy that should be associated with the purchase order. The external ID is a property of the policy configuration screen. Clients will need to get these ID's from the Implementation team. 
-|`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order. The values used here will be used for all items on this request. IE: USD 
-|`Custom1 through Custom24`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in Concur.
-|`notesToSupplier`|`String `|-|Notes you want to print on the transmitted PO PDF sent to your supplier
-|`lineItems`|`array`|[`LineItem`](#lineItem)|Requested items or services related to this Purchase Request
+The response will include an `access_token` field, which contains your access token. For subsequent calls, you will need to include this access token in the `Authorization` header of your calls. An `id_token` will be also included in the response. In order to retrieve the unique ID for your user, you will have to decode this `id_token` at [jwt.io](https://jwt.io/). You will need this ID in order to post Purchase Requests.
 
-#### <a name="lineItem"></a>LineItem  
-
-|Name | Type | Format | Description
-|-----|------|--------|------------
-|`purchaseType`|`string`|-|**Required**: Can be two values "GOOD" or "SRVC" depending on whether the item is for goods or services. Displayed as just "Type" in the UI. 
-|`vendorCode`|`string`|-|**Required**: The code that identifies the Vendor. This value can be found in the vendor information form of Vendor Manager. This is used along with Vendor Address Code to determine the specific Vendor record. 
-|`vendorAddressCode`|``|-|**Required**: The code that identifies the vendor's address. This value can be found in the vendor information form of Vendor Manager and is labeled Address Accounting Code. This is used along with Vendor Code to determine the specific Vendor record. 
-|`description`|`string`|-|**Required**: A description of the line item.
-|`quantity`|`decimal`|-|**Required**: The quantity associated with the line item.
-|`unitPrice`|`decimal`|-|**Required**: The unit price of the line item.
-|`receiptType`|`string`|-|Accepted values are WQTY or NONE. The items will default to None. WQTY Indicates you need to receive quantity against this item. If you are using Concur Receiving and need to enter Goods Receipts against the resulting PO lines use WQTY. 
-|`neededByDate`|`Date`|-|The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD
-|`uoMCode`|`string`|-|UOM code for the purchase request item. Accepted values are the UOM Codes setup in the Unit of Measure configuration .
-|`shipping`|`decimal`|-|The total shipping cost for the Item.
-|`tax`|`decimal`|-|Tax amount that is associated with the line item.
-|`supplierPartID`|`string`|-|An ID value that helps to identify the line item. This could be a value such as the vendor’s part number or even the manufacturer number.
-|`Custom1 through Custom20`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in Concur.
-|`url`|``|-|A URL related to the item. You can have multiple URL's per item. 
-|`comments`|`string`|-|Internal comments you want to record related to this record. 
-|`notesToVendor`|`string`|-|Notes related to the Item that can display on the transmitted PO PDF to the vendor.
-
-## <a name="schema-response"></a>Response Schema 
-
-|Name | Type | Format | Description
-|-----|------|--------|------------
-|`errors`|`array`|[`Error`](#error)|An array of errors indicating which fields have failed validation
-|`ID`|`string`|`-`|The unique purchase request reference Id if the request has passed all validations. This reference Id will be needed to look up status of purchase request creation.
-
-
-## <a name="error"></a>Error
-
-|Name | Type | Format | Description
-|-----|------|--------|------------
-|`errorCode`|`string`|`-`|A code that indicates a specific error code indicating why a particular field had failed validation
-|`errorMessage`|`string`|`-`|A description of the error.  
-
-
-## <a name="error-codes"></a>Error Codes  
-
-The REST API's error responses
-
-|Code | Description
-|-----|--------------
-|1000|The PO number is missing or invalid.
-|2000|There was no vendor found for the supplied Vendor Code and Vendor Address Code.
-|3000|The Currency Code is missing or invalid.

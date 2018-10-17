@@ -1,5 +1,5 @@
 ---
-title: Attendee Web Service 
+title: Attendee Web Service
 layout: reference
 ---
 
@@ -15,7 +15,7 @@ The Attendee List resource manages attendees in batches, and can be used to add,
 
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum](http://forum.developer.concur.com/){:target="_blank"} if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum](http://forum.developer.concur.com/) if you have questions about the configuration settings.
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
@@ -26,7 +26,7 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 
 [Attendee List][4]
 
-[Attendee Type][5]
+[Attendee Type](/api-reference/expense/attendee-types/v1.attendee-types.html)
 
 
 ## Responses and Errors
@@ -40,7 +40,7 @@ The web service will not return a 4xx HTTP response code for a batch operation e
 
 When there are errors with batch items, the first ten errors are returned in the `<errors>` element in the request response, which includes their error code, the item that caused the error, and the error message. Any additional error messages are truncated. This prevents a large volume of error data in the event of a formatting mistake.
 
-  
+
 **XML Response Error Codes**:
 
 |  Error Code |  Message |
@@ -74,9 +74,8 @@ When there are errors with batch items, the first ten errors are returned in the
 |  1304 |  Unexpected error processing batch request. |
 |  1305 |  Cannot update the attendee data for a non existing attendee. |
 
-  
+
 
 [3]: /api-reference-deprecated/version-two/attendees/attendee-resource.html
 [4]: /api-reference-deprecated/version-one/attendees/attendee-list-resource.html
-[5]: /api-reference-deprecated/version-one/attendee-types/attendee-type-resource.html
 [6]: /tools-support/reference/http-codes.html

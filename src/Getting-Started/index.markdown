@@ -3,14 +3,12 @@ title: Getting Started
 layout: reference
 ---
 
-
 ## What is Concur?
 
 Concur is a travel and expense software solution that lets 25M business travelers book their travel, capture expense, submit expense reports, and more.  Concur processes over 55 million transactions every year, representing $50 billion spend on T&E.  
 
 <center>
 <img src="{{ site.baseurl }}/Getting-Started/assets/getting-started1.png" /></center>
-
 
 ## What can I do with Concur APIs?
 
@@ -137,7 +135,7 @@ This section provides a quick start guide for generating an access token. If you
 
     <img src="{{ site.baseurl }}/getting-started/assets/getting-started6.png" width="600px" />
 
-    **Note: The steps demonstrated above follow the OAuth Native Flow.  If you prefer something similar to a Facebook login experience, you can check out the OAuth Web Flow [here](/api-reference-deprecated/old-auth/old-auth.html#web)**
+    > Note: The steps demonstrated above follow the OAuth Native Flow.  If you prefer something similar to a Facebook login experience, you can check out the Pre-2017 Authorization (Deprecated) Web Flow [here](/api-reference/authentication/authorization-pre-2017.html#web).**
 
 
 <a name="dummy">**POST/GET dummy data to/from Concur - the API or app**</a>

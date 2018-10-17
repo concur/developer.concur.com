@@ -36,6 +36,8 @@ Message used to indicate to the hotel supplier that a given reservation should b
 
 ## Response
 
+The maximum allowed size of OTA_CancelRS is 150 KB. Any response that exceeds this limit shall be dropped.
+
 **OTA_CancelRS**
 
 | Element  | Required | Data Type | Description |

@@ -3,7 +3,6 @@ title: Company
 layout: reference
 ---
 
-Warning: Concur's Profile API is currentlly in **BETA** and is subject to change.
 
 
 [Getting Started with Profile](gettingStarted.html)  -  [**Company API**](company.html)  -  [User API](user.html)
@@ -36,7 +35,7 @@ Curl example:
 
     curl -k -v -H "Authorization: Bearer $access-token" "https://$host/profile/v1/me"
 
-### Company details 
+### Company details
 
 Here is a sample company response.
 
@@ -104,3 +103,12 @@ Here is a sample company response.
 |500| Internal Error||
 |503| Service Unavailable||
 ||||
+
+## <a name="erp-integration"></a>Enterprise Resource Planning Integration
+
+This API provides the partner with 2 key pieces of information:
+
+* Company `UUID` - Partner will record this value per customer connection and use it when submitting Support cases.
+* `MarketingName` data element - Partner will record this value per customer. This will indicate the edition type a customer is using:
+  * `CTE` or `Enterprise` means the customer is using Professional Edition.
+  * `Standard` means the customer is using Standard Edition.
