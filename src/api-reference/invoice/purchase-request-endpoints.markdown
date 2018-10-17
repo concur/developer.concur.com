@@ -39,7 +39,7 @@ None
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
-This API will work with both Company or User access tokens, however a Company access token is recommended for integrations using this API if the end goal is for the integration to create purchase requests for multiple requestors. When using a User access token to create purchase requests through the API it will result in the purchase request being assigned to the user that generated the User access token and it will not honor the user set in the payload. A User access token could be used for testing to check if your payloads are good if needed. For an integration as mentioned above a Company access token is the best choice.   
+This API will work with both Company or User access tokens, however a Company `access token` is recommended for integrations using this API if the end goal is for the integration to create purchase requests for multiple requestors. When using a User `access token` to create purchase requests through the API it will result in the purchase request being assigned to the user that generated the User `access token` and it will not honor the user set in the payload. A User `access token` could be used for testing to check if your payloads are good if needed. For an integration as mentioned above a Company `access token` is the best choice.   
 
 ## <a name="post"></a>Create a new purchase request  
 
@@ -281,6 +281,3 @@ HTTP Code: 400
 |missingUnitPrice|Unit price is required.
 |invalidUnitPrice|Unit price is invalid.
 |invalidDateFormat|Expected a date in the format yyyy-mm-dd. Example: 2018-03-23
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3NzI2NDEyOF19
--->
