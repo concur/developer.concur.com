@@ -68,7 +68,8 @@ These are the list of scopes for the new world v4+ APIs.
 | travelrequest.write | Read and write Travel Requests |
 | user.read | Read user profile |
 | user.write | Read and Write user profile |
-
+| purchaserequest.write | Write only access to Purchase Requests |
+| purchaserequest.read | Read only access Purchase Requests |
 
 
 ## <a name="connectscopes"></a>Old CONNECT API Scopes
