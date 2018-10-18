@@ -1,21 +1,45 @@
 ---
-title: Purchase Request
+title: Purchase Request v4
 layout: reference
 ---
 
 {% include prerelease.html %}
 
-# Purchase Request
+The Purchase Request API gives clients the ability to leverage external data to create Concur Invoice purchase requests for pre-authorization. Clients and Partners can build a direct connection where data can be fed to the purchase request API which will create new purchase requests in Concur. These API-created purchase requests are automatically submitted into the Concur Invoice pre-authorization workflow. Once approved, it will result in a Concur Invoice purchase order that can be transmitted to your Vendor from Concur Invoice. 
 
+In addition a Get Status endpoint is provided that can be used to get basic information and check the status of the created purchase request. 
+
+> **Limitations**: This API does not support users in the China data center.
+
+* [Products and Editions](#products-editions)
+* [Scope Usage](#scope-usage)
+* [Dependencies](#dependencies)
+* [Access Token Usage](#access-token-usage)
 * [Create a new purchase request](#post)
 * [Get details of purchase request](#get)
 * [Schema](#create_purchase_request_schema)
 * [Response schema](#create_purchase_request_schema-response)
 * [Error codes](#error-codes)
 
-## Version
+## <a name="products-editions"></a>Products and Editions
 
-4.0
+* Concur Invoice Professional Edition
+* Concur Invoice Standard Edition
+
+## <a name="scope-usage"></a>Scope Usage
+
+Name|Description|Endpoint
+---|---|---
+`PurchaseRequest.Read`|Read only access to purchase request data|Get details of a purchase request
+`PurchaseRequest.Write`|Read and Write access to purchase request data|Create a new purchase request
+
+## <a name="dependencies"></a>Dependencies
+
+None
+
+## <a name="access-token-usage"></a>Access Token Usage
+
+This API will work with both Company or User access tokens, however a Company `access token` is recommended for integrations using this API if the end goal is for the integration to create purchase requests for multiple requestors. When using a User `access token` to create purchase requests through the API it will result in the purchase request being assigned to the user that generated the User `access token` and it will not honor the user set in the payload. A User `access token` could be used for testing to check if your payloads are good if needed. For an integration as mentioned above a Company `access token` is the best choice.   
 
 ## <a name="post"></a>Create a new purchase request  
 
