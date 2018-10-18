@@ -337,7 +337,7 @@ Generic line item. These objects are included in arrays in most receipt types.
 |reference|string|N/A|The item SKU, identifier or some other attribute the merchant uses to reference the item.|
 |__*description*__|string|^(?!\s*$).+|Non-empty string. Length must be at least 1 character.|
 |additionalDescription|string|N/A||
-|semanticsCode|string|^(?!\s*$).+|The [Concur semantics code](https://developer.concur.com/api-reference/travel/itinerary/itinerary.html#semantics_codes) for the line item.|
+|semanticsCode|string|^(?!\s*$).+|The [Concur semantics code](https://developer.concur.com/api-reference/travel/itinerary/itinerary.html#semantics-codes) for the line item.|
 |unitCost|string|^[-]?\d*\.?\d+$|Amount per unit.|
 |quantity|integer|N/A||
 |__*total*__|string|^[-]?\d*\.?\d+$|String representing an amount of money. Should not include a currency code or symbol, as this information is included in the currencyCode field of the receipt.|
