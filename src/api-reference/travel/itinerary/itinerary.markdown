@@ -1026,8 +1026,6 @@ NOTE: This booking type is used by the Concur Travel Request product to store th
 
 | Element  | Data Type | TripLink | Description |
 |--------------------|--------------|----------|--------------------------------------|
-
-
 | CancellationNumber | string |  | The cancellation number from the vendor. This field should be set when you cancel a segment. |
 | ConfirmationNumber | sring |  | The confirmation number from the vendor.  |
 | CreditCardType | String |  | The type of credit card (for example, Visa/Mastercard/etc.). |
