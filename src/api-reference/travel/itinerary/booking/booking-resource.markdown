@@ -248,7 +248,7 @@ Cancels an existing booking. By default, the OAuth consumer should be the owner 
 
 Example:
 
-`https://api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}`
+`https://{baseUri}/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}`
 
 ## Request
 
