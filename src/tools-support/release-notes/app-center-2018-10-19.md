@@ -14,7 +14,7 @@ layout: reference
 
 ### <a name="marcel"></a>Marcel
 
-![Marcel Logo](./app-center-2018-08-18-marcel-logo.png)
+![Marcel Logo](./app-center-2018-10-19-marcel-logo.png)
 
 Marcel is a chauffeured car service for your trips through Paris & the Ile-de-France. Marcel is a high-quality alternative to existing services for sustainable and responsible mobility.
 
@@ -42,7 +42,7 @@ Marcel works with Expense for Concur Standard and Expense for Concur Professiona
 
 ### <a name="parken+"></a>Parken+
 
-![Parken+ Logo](./app-center-2018-08-18-parken-logo.png)
+![Parken+ Logo](./app-center-2018-10-19-parken-logo.png)
 
 With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying parking spots across major cities nationwide.
 
