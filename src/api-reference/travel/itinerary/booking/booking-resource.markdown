@@ -246,6 +246,9 @@ Cancels an existing booking. By default, the OAuth consumer should be the owner 
 
 * Booking records can only be updated by the booking source that created them. Concur verifies the source information before processing the request.
 
+Example:
+
+`https://{baseUri}/api/travel/booking/v1.1/cancel?bookingSource={Supplier}&confirmationNumber={confnum}`
 
 ## Request
 
