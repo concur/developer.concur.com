@@ -178,6 +178,8 @@
         url: /api-reference/invoice/payment-request.html
       - title: Purchase Orders v3
         url: /api-reference/invoice/v3.purchase-order.html
+      - title: Purchase Orders Receipt v3
+        url: /api-reference/invoice/v3.purchase-order-receipt.html
       - title: Sales Tax Validation
         url: /api-reference/invoice/sales-tax-validation.html
       - title: Vendor v3
