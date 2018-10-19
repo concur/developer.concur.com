@@ -168,7 +168,7 @@ Sample roundtrip air search
       "arrivalTimeWindow": null
      }
     ],
-  "numberOfTravelers": 0,
+  "numberOfTravelers": 1,
   "classOfTrip": null,
   "airCarriers": null
   }
