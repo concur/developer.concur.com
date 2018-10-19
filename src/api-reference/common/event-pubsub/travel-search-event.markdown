@@ -60,11 +60,11 @@ Name|Type|Format|Description
 ---|---|---|---
 `departures`|`Array`|[City](#schema-city)|List of departure airports selected by the traveler.
 `arrivals`|`Array`|[City](#schema-city)|List of arrival airports selected by the traveler.
-`departureDate`|`String`|YYYY-MM-DD|Date traveler will depart from the origin, UTC. Either the departure date/time OR the arrival date/time will be populated.
-`departureTime`|`String`|HH:MM:SS|Departure time, UTC.  Either the departure date/time OR the arrival date/time will be populated.
+`departureDate`|`String`|YYYY-MM-DD|Date traveler will depart from the origin, local time. Either the departure date/time OR the arrival date/time will be populated.
+`departureTime`|`String`|HH:MM AM/PM|Departure time, local time.  Either the departure date/time OR the arrival date/time will be populated.
 `departureTimeWindow`|`Integer`|-|Time window (+/-) from selected departure time, in hours.  Either the departure date/time OR the arrival date/time will be populated.
-`arrivalDate`|`String`|YYYY-MM-DD|Date in which the traveler will arrive in the destination, UTC. Either the departure date/time OR the arrival date/time will be populated.
-`arrivalTime`|`String`|HH:MM:SS|Time in which the traveler will arrive in the destination, UTC.  Either the departure date/time OR the arrival date/time will be populated.
+`arrivalDate`|`String`|YYYY-MM-DD|Date in which the traveler will arrive in the destination, local time. Either the departure date/time OR the arrival date/time will be populated.
+`arrivalTime`|`String`|HH:MM AM/PM|Time in which the traveler will arrive in the destination, local time.  Either the departure date/time OR the arrival date/time will be populated.
 `arrivalTimeWindow`|`Integer`|-|Time window (+/-) from selected to arrive in the destination, in hours.  Either the departure date/time OR the arrival date/time will be populated.
 
 ### <a name="schema-city"></a>City
@@ -97,5 +97,5 @@ Name|Type|Format|Description
 `refPointName`|`String`|-|Reference point location name.
 `radiusDistance`|`Integer`|-|Distance from the reference point as selected by the user.
 `distanceUnit`|`String`|Mile, Kilometer|Unit for radius distance.
-`checkInDate`|`String`|YYYY-MM-DD|Check in date, UTC.
-`checkOutDate`|`String`|YYYY-MM-DD|Check out date, UTC.
+`checkInDate`|`String`|YYYY-MM-DD|Check in date, local time.
+`checkOutDate`|`String`|YYYY-MM-DD|Check out date, local time.
