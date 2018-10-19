@@ -12,6 +12,7 @@ Subscribers to this event will receive search criteria for travel searches perfo
 * [Schema](#schema)
 	* [Air](#schema-air-request)
   * [Hotel](#schema-hotel-request)
+* [Sample Events](#sample-events)
 
 ## <a name="subscribing"></a>Subscribing
 
@@ -114,3 +115,63 @@ Name|Type|Format|Description
 `distanceUnit`|`String`|Mile, Kilometer|Unit for radius distance.
 `checkInDate`|`String`|YYYY-MM-DD|Check in date, local time.
 `checkOutDate`|`String`|YYYY-MM-DD|Check out date, local time.
+
+## <a name="sample-events"></a>Sample Events
+
+### <a name="sample-air-event"></a>Air
+
+Sample roundtrip air search
+
+```
+{
+  "id": "00e4aeb3-d181-4881-89b1-0d0b5418968f",
+  "correlationId": "51AB4E74-1287-4B20-87FB-98A93CE4CEEB",
+  "eventType": "travelSearchAir",
+  "topic": "concur.travel.search",
+  "timeStamp": "2018-10-15T14:19:06.752Z",
+  "data": null,
+  "subtopic": null,
+  "facts": {
+    "companyId": "",
+    "userId": "",
+    "arrangerUserId": "",
+    "searchLegs": "RoundTrip",
+    "isGuestBooking": false,
+    "isFlexFaring": false,
+    "segments": [
+    {
+     "departures": [
+          "LHR"
+       ],
+     "arrivals": [
+          "FRA"
+      ],
+     "departureDate": "1/15/2019",
+     "departureTime": "9:00 AM",
+     "departureTimeWindow": 3,
+     "arrivalDate": null,
+     "arrivalTime": null,
+     "arrivalTimeWindow": null
+      },
+     {
+      "departures": [
+          "FRA"
+      ],
+      "arrivals": [
+         "LHR"
+       ],
+      "departureDate": "1/16/2019",
+      "departureTime": "3:00 PM",
+      "departureTimeWindow": 3,
+      "arrivalDate": null,
+      "arrivalTime": null,
+      "arrivalTimeWindow": null
+     }
+    ],
+  "numberOfTravelers": 0,
+  "classOfTrip": null,
+  "airCarriers": null
+  }
+}
+
+```
