@@ -248,7 +248,7 @@ Authorization: Bearer {token}
           "locationId": 2,
           "locationName": "Seville Spain",
           "timezoneId": "",
-          "startDtDate": "2019-08-23T12:00:00",
+          "startDate": "2019-08-23T12:00:00",
           "visitorId": [
             1932
           ],
