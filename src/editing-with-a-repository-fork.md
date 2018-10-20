@@ -1,30 +1,38 @@
-
-## Create and clone a fork
-
-> Note: You go through these steps exactly once to get everything setup.
-
 ---
-This set of steps:
+title: Editing with a repository fork using the git command line
+layout: reference
+---
 
+For more information refer to [Working with forks](https://help.github.com/articles/working-with-forks/) in the GitHub documentation.
+
+* [Create and clone a fork repository to your computer (One time setup)](#create-and-clone)
+* [Edit files in the `local` repository](#edit-files)
+* [Push edits from your `local` to your `remote` fork repository](#push-edits-local-to-remote)
+* [Open a pull request for the base repository](#open-pull-request)
+
+## <a name="create-and-clone"></a>Create and clone a fork repository to your computer (One time setup)
+
+>>
+Note: You go through these steps exactly once to get everything setup. This set of steps:
 * Creates a fork of the branch within GitHub.
   * This fork is a repository under your user name or organization.
   * This repository in GitHub is referred to as a `remote` repository,
 * Clones the the remote repository (your fork) to your computer.
   * This clone is referred to as a `local` repository.
----
+
 1. Go to [https://github.com/concur/developer.concur.com](https://github.com/concur/developer.concur.com).
 1. Click the **Fork** button in the upper right hand corner of the page.
-1. Select the user or organization where you wish to fork.
+1. Select the user or organization for the fork.
   * A new fork is created.
 1. In the new fork, click the **Clone or download** button.
   * Choose the method you wish to use, HTTPS or SSH.
-  * Copy the path.
+  * Copy the URI path for the method.
 1. Open a command line interface.
 1. Navigate to the path where you want to store source code. If you need a guide on how to do this via the command prompt:
   * [MacOS](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html)
   * [Windows](https://www.digitalcitizen.life/command-prompt-how-use-basic-commands)`
   * Typically: `cd {path}` on both.
-1. Issue: `git clone {path}`
+1. Issue: `git clone {uri}` where `uri` is the path copied earlier.
   * Example: `git clone https://github.com/retrosight/developer.concur.com.git`
   * See a typical example of the output of cloning below.
 
@@ -39,30 +47,30 @@ Receiving objects: 100% (31798/31798), 185.39 MiB | 5.52 MiB/s, done.
 Resolving deltas: 100% (20992/20992), done.
 ```
 
-## Edit files in the `local` repository
+## <a name="edit-files"></a>Edit files in the `local` repository
 
-> Note: Since we are working in a fork you can start editing straightaways without creating a branch.
+> Note: Since you are working in a fork you can start editing straightaways without creating a branch.
 
 1. Launch the editor of your choice.
 1. Select **File > Open** in and select the folder containing your source.
 1. Edit and save files as desired.
 
-## Push edits from `local` to `remote` repository.
+## <a name="push-edits-local-to-remote"></a>Push edits from your `local` to your `remote` fork repository
 
-> This cycle is repeated as many times as you wish to push changes in the `local` repository to the `remote` repository in GitHub.
+> This cycle is repeated as many times as you wish to push changes in your `local` fork repository to your `remote` fork repository in GitHub.
 
 In the command line after navigating to the `local` repository folder:
 
 1. Issue: `git add .`
-  * This tells git to add any changes you've made.
+  * This tells git to add any and all changes you've made.
 1. Issue: `git commit`
   * This opens a text editing tool so you can add notes about the commit.
-  * On Mac it is VIM.
-  * Press the **lowercase i** key to change to Insert mode.
-  * Type out the notes in the first line.
-  * Press the **ESC** key to exit out of Insert mode.
-  * Type the following: `:wq`
-  * Press the **Enter** key.
+  * On Mac it is VIM:
+    * Press the **lowercase i** key to change to 'Insert' mode.
+    * Type out your notes in the first line.
+    *  Press the **ESC** key to exit out of 'Insert' mode.
+    * Type the following: `:wq`
+    * Press the **Enter** key.
 1. Issue: `git push origin preview`
   * Read it this way: `git push` (my changes to the) `origin` (which is the repository matching this current one and the) `preview` (branch in the remote repository).
   * See a typical example of the output of this cycle below.
@@ -73,4 +81,25 @@ In the command line after navigating to the `local` repository folder:
 [preview 97db50cb] Adding the steps to work with forks.
  1 file changed, 37 insertions(+)
  create mode 100644 src/editing-with-a-repository-fork.md
+ ➜  developer.concur.com git:(preview) git push origin preview
+Counting objects: 8, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 2.31 KiB | 2.31 MiB/s, done.
+Total 8 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), completed with 2 local objects.
+To github.com:retrosight/developer.concur.com.git
+   cf7afef0..33c025d7  preview -> preview
 ```
+
+## <a name="open-pull-request"></a>Open a pull request for the base repository
+
+> These steps request the maintainer of the base repository accept your proposed changes and begin the review process for same.
+
+1. In the browser navigate to the home page for your fork repository.
+1. Click the **New pull request** button.
+1. Take note of the fork and branch and the arrow is pointing in the desired direction, from your fork (`head`) to the parent (`base`).
+```
+[base fork: concur/developer.concur.com v ] [base: preview v ] <- [head fork: retrosight/developer.concur.com v ] [compare: preview v ]
+```
+1. Click the **Create pull request** button.
