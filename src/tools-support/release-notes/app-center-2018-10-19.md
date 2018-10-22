@@ -29,7 +29,7 @@ Business key advantages
 * Monthly figures reporting via a dedicated Enterprise interface, adaptable to the specific needs of the employees
 
 Marcel key features
-* Book a ride in advance or for immediatel needs: enjoy 10% discount when you book 24h before
+* Book a ride in advance or for immediate needs: enjoy 10% discount when you book 24h before
 * Book one or several rides for someone else
 * Requests made easy and faster with the “saved places”
 * Recommend the use of our application with reward credit
