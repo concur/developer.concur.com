@@ -88,7 +88,7 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `cityName`|`String`|-|Name of the city. Example: Frankfurt
-`cityIATACode`|`String`|-|IATA code of the city. Example: FRA
+`cityIATACode`|`String`|-|IATA code of the city. Example: FRA. NOTE: If the user searches for a group of airports (e.g. Los Angeles area airports), this code will not be IATA standard. In this case, the city name should be used.
 
 ### <a name="schema-hotel-request"></a>Hotel
 
