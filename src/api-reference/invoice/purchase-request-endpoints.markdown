@@ -16,7 +16,6 @@ layout: reference
 
 ## Version
 4.0<br>
-**PRE-RELEASE:** The API is in Pre-Release and that only authorized early adopters should be using the API. Please contact <a href="mailto:charles.muellner@sap.com">charles.muellner@sap.com</a> for more information.
 
 ## <a name="post"></a>Create a new purchase request  
 
@@ -65,7 +64,6 @@ Content-Type: application/json
       "custom1" : "ADVT",
       "shipToAddressCode" : "SHIP15139",
       "billToAddressCode" : "MNSLP129",
-      
       "lineItems" : [
           {
               "purchaseType" : "SERVICES",

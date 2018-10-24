@@ -6,9 +6,9 @@ layout: reference
 # Purchase Request
 
 ### Overview
+{% include prerelease.html %}
 
-The Purchase Request API service allows clients and partners to create and automatically submit purchase requests in the preauthorization workflow using the post resource. With the GET resource you can retrieve the purchase request number, resulting purchase order number, workflow status, and any exception triggered for the records created. This is valuable for clients who want to leverage external data and build a connection to directly create SAP concur purchase requests for their employees and automate the manual entry and submission of this data.
-
+The Purchase Request API gives clients the ability to leverage external data to create purchase requests for pre-authorization of Invoices. Clients and Partners can build a direct connection where data can be fed to the purchase request API which will create new purchase requests in Concur. These API-created purchase requests are automatically submitted into the pre-authorization workflow. Once approved, it will result in a purchase order that can be transmitted to your Vendor from Concur.
 
 #### Limitations: 
 This API is not available in the China DataCenter. 
@@ -56,7 +56,7 @@ To create purchase requests with this API, you need to supply a Vendor Code and 
 If your purchase request form in SAP Concur has required custom fields that are tied to lists you will need to pass in the Item Code value for these list items or configure them to copy down from another source such as employee. You can access List Management from the Invoice administration area to see your list items along with the Item codes if needed. If you need to synchronize or get this data from SAP Concur using webservices, you could utilize the [List Item API](/api-reference/common/list-item/v3.list-item.html).
 
 ### Access Token Usage
-The Purchase request API support both company or user Access tokens however most integrations using this API will want to use Company Level Access Tokens to connect to this API.  
+This API will work with both Company or User access tokens, however a Company `access token` is recommended for integrations using this API if the end goal is for the integration to create purchase requests for multiple requestors. When using a User `access token` to create purchase requests through the API it will result in the purchase request being assigned to the user that generated the User `access token` and it will not honor the user set in the payload. A User `access token` could be used for testing to check if your payloads are good if needed. For an integration as mentioned above a Company `access token` is the best choice.
 
 Once you have registered your application, read about the [Purchase Request API endpoints](/api-reference/invoice/purchase-request-endpoints.html).
 
