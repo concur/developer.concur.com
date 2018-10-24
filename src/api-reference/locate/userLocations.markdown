@@ -3,6 +3,8 @@ title: User Locations
 layout: reference
 ---
 
+{% include prerelease.html %}
+
 # User Locations
 
 * [Overview](#overview)
@@ -77,7 +79,7 @@ Transaction|Object|JSON|**Required** Whether this transaction adds or cancels it
 
 ### Client
 
-This indicates which entity within the organization the traveler belonÂgs to. This will vary by client. You will be provided with a list of the applicable agencies for each customer.
+This indicates which entity within the organization the traveler belongs to. This will vary by client. You will be provided with a list of the applicable agencies for each customer.
 
 Property Name|Values/Length|Type|Description
 ---|---|---|---

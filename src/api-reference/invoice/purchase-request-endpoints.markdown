@@ -1,9 +1,10 @@
 ---
-title: Purchase Request
+title: Purchase Request v4
 layout: reference
 ---
 
 # Purchase Request
+
 * [Create a new purchase request](#post)
 * [Get details of purchase request](#get)
 * [Schema](#create_purchase_request_schema)
@@ -12,7 +13,6 @@ layout: reference
   * [Get Purchase Request Response Schema](#get_purchase_request_response_schema)
   * [Error](#error)
 * [Error codes](#error-codes)
-
 
 ## Version
 4.0<br>

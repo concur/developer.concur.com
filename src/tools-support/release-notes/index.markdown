@@ -10,6 +10,7 @@ layout: reference
 
 # App Center Release Notes
 
+* [October 2018](./app-center-2018-10-19.html)
 * [September 2018](./app-center-2018-09-04.html)
 * [August 2018](./app-center-2018-08-18.html)
 * [July 2018](./app-center-2018-07-10.html)
