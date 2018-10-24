@@ -38,7 +38,6 @@ Name | Type | Format | Description
 https://www.concursolutions.com/api/v3.0/expense/attendeetypes?limit=10
 ```
 
-
 ### JSON example of a successful response
 
 ```json

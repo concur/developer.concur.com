@@ -192,7 +192,7 @@ Content-Type: application/xml
 </Attendees>  
 ```
 
-## Responses and Errors
+## <a name="responses-and-errors"></a>Responses and Errors
 
 Refer to the [HTTP Codes](/tools-support/reference/http-codes.html) page for details of the common responses and errors.
 

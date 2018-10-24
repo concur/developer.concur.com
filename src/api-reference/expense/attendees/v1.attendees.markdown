@@ -170,24 +170,7 @@ application/xml
 
 #### Response body
 
-This request will return an **attendee-batch-result** parent element.
-
-
-##### attendee-batch-result elements
-
-Element|Description
----|---
-records-succeeded|The number of records processed that were successfully updated.
-records-failed|The number of records processed that were not successfully updated.
-errors|This will contain an **error** parent element for each record failure.
-
-##### error elements
-
-Element|Description
----|---
-code|The code associated with the error.
-external-id|The external ID of the record that failed.
-message|The error message.
+[attendee-batch-result](#schema-attendee-batch-result)
 
 ## Examples
 
@@ -284,7 +267,7 @@ application/xml
 
 #### HTTP errors
 
-[Attendee List Errors][5]
+[Attendee List Errors][./v2.attendees.html#responses-and-errors]
 
 #### Response body
 
@@ -363,9 +346,9 @@ Element|Description
 ---|---
 records-succeeded|The number of records processed successfully.
 records-failed|The number of records processed which failed.
-errors|An **error** parent element for each record failure.
+[errors](#schema-error)|An **error** parent element for each record failure.
 
-### <a name="schema-error"></a>error elements
+### <a name="schema-error"></a>error
 
 Element|Description
 ---|---
@@ -375,4 +358,3 @@ message|The error message.
 
 [3]: /api-reference/expense/expense-report/expense-form.html
 [4]: /api-reference/expense/expense-report/expense-form-field.html
-[5]: /api-reference-deprecated/version-two/attendees/#responses-and-errors
