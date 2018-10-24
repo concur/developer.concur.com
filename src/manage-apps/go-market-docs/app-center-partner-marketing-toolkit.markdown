@@ -5,7 +5,7 @@ layout: reference
 
 ## Welcome!
 
-SAP Concur is pleased to welcome you as a partner. We encourage all Concur App Center partners to create comprehensive marketing plans that incorporate PR, social media, digital marketing, events and sales training to help make the partnership a success. This toolkit provides guidelines and templates for referencing the SAP Concur brand and collaborating on marketing efforts.
+SAP Concur is pleased to welcome you as a partner. We encourage all SAP Concur App Center partners to create comprehensive marketing plans that incorporate PR, social media, digital marketing, events and sales training to help make the partnership a success. This toolkit provides guidelines and templates for referencing the SAP Concur brand and collaborating on marketing efforts.
 
 ## Partner Resources
 
@@ -19,20 +19,18 @@ Join us for our monthly office hours.
 
 Learn best practices for marketing your app and interact directly with the App Center Marketing Team.
 
-Date: Office hours take place the first Tuesday of each month.
+ - **Date:** Office hours take place the first Tuesday of each month.
+ - **Time:** 8:30-9:00 AM PST
+ - **Toll-free:** +1-866-668-0721, PIN: 360-851-6019
+ - **WebEx Link:** [https://concur.webex.com/concur/j.php?MTID=md483b0c3f9b64a03b1e4676b40ef69c5](https://concur.webex.com/concur/j.php?MTID=md483b0c3f9b64a03b1e4676b40ef69c5)
 
-Time: 8:30-9:00 AM PST
-
-Toll-free: +1-866-668-0721, PIN: 360-851-6019
-
-WebEx Link: [https://concur.webex.com/concur/j.php?MTID=md483b0c3f9b64a03b1e4676b40ef69c5](https://concur.webex.com/concur/j.php?MTID=md483b0c3f9b64a03b1e4676b40ef69c5)
 
 Or email us at [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMarketing@sap.com).
 
 ## Logo and Brand Guidelines
 
 * Always use your company’s logo and proprietary design when creating your own communication and marketing materials.
-* Partners are not permitted to use the SAP corporate logo or the SAP Concur logo. You may only use the App Center Partner logo and the phrase “We are an SAP Concur partner” (see below).
+* Partners are not permitted to use the SAP corporate logo.
 * You may only use the provided Font Treatments or refer to the partnership in text.
 
 ![Logo and Brand Guidelines Image](./app-center-partner-marketing-toolkit-logo.png)
@@ -76,8 +74,8 @@ After signing the partner agreement, you can use the “SAP Concur Partner” fo
 ### Download links
 
 * Download the ”SAP Concur Partner” font treatment [here](https://partnerportal.concur.com/ResourceFiles/9792e786-76bc-4fc8-9c01-c9f614818267.pdf).
-* Download the ”SAP Concur Partner App Center” font treatment [here](https://partnerportal.concur.com/ResourceFiles/89923fd9-ffc6-4912-877d-6185ee5fe3b2.zip).
-* Queen’s English “App Centre” spelling available [here](https://partnerportal.concur.com/ResourceFiles/4b304699-930f-4831-a733-a000fd97f34f.zip).
+* Download the ”SAP Concur Partner App Center” font treatment [here](https://partnerportal.concur.com/ResourceFiles/4b304699-930f-4831-a733-a000fd97f34f.zip). 
+> Queen’s English “App Centre” spelling available [here](https://partnerportal.concur.com/ResourceFiles/89923fd9-ffc6-4912-877d-6185ee5fe3b2.zip).
 
 Please read the full font treatment guidelines provided in the downloaded folders or available [here](https://partnerportal.concur.com/ResourceFiles/a9829671-fc33-49fc-9533-d76eea817e65.zip).
 
@@ -112,6 +110,26 @@ Against dark backgrounds, use the font treatment in SAP Gold and white.
 ![SAP Dark Gray Image](./app-center-partner-marketing-toolkit-color-sap-dark-gray.png)
 
 ![SAP Gold Image](./app-center-partner-marketing-toolkit-color-sap-gold.png)
+
+
+## SAP Concur Logos
+
+App  Center  partners  may, with approval, use  the  SAP  Concur  logo  in collateral and web pages to represent the partnership and integrations.
+
+**Using the logo:**
+ - Only original SAP Concur logo or c-dot icon artwork may be used The 
+   content must be clear that you are a partner of SAP Concur Logo
+   placement must adhere to brand guidelines for clear space and sizing
+ - Email [concur_AppCenterMarketing@SAP.com](mailto:concur_AppCenterMarketing@SAP.com) for logo files and to submit collateral and pages using the logo prior to approval
+
+**Clear space and size requirements:**
+ - The clear space surrounding the logo  should  measure 1.5x the height
+   of the “S” in “SAP.”
+ - In print, the SAP Concur logo can be reproduced down to 0.92" (23.4
+   mm) wide. For digital applications, the logo can be reduced to 92
+   pixels wide.
+ - Always maintain the logo’s aspect ratio when scaling.
+
 
 ## Partner Landing Pages
 
@@ -157,13 +175,14 @@ Launched in 2013, the SAP Concur App Center aims to make it easy for travelers t
 
 [Insert Boilerplate for Partner Company]
 
-///
+ ///
 
 SAP Concur and other SAP products and services mentioned herein as well as their respective logos are trademarks or registered trademarks of SAP SE (or an SAP affiliate company) in Germany and other countries. See http://www.sap.com/corporate-en/legal/copyright/index.epx for additional trademark information and notices. All other product and service names mentioned are the trademarks of their respective companies.
 
 For more information, press only:
 
 <Insert partner contact information, such as PR contact name, phone, e-mail, time zone>
+
 
 ### Social Media Overview
 
@@ -283,7 +302,7 @@ Email content to: [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMar
 
 * App Center Alliances: [concur_AppCenterAlliance@sap.com](mailto:concur_AppCenterAlliance@sap.com)
 * App Center Marketing: [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMarketing@sap.com)
-* App Center Channel Sales: [aaron.guerra@sap.com (SMN)](mailto:aaron.guerra@sap.com) and [arian.white@sap.com (ENT)](mailto:arian.white@sap.com)
+* App Center Channel Sales: [aaron.guerra@sap.com (SMN)](mailto:aaron.guerra@sap.com)
 * SAP Concur Event Sponsorships: [concursponsorships@sap.com](mailto:concursponsorships@sap.com)
 * Client Activation: [partner_client_activation@concur.com](mailto:partner_client_activation@concur.com)
 * Partner Technical Support: [Log a support ticket](/tools-support/requesting-partner-support.html)
