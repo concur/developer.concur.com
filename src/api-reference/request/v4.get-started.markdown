@@ -43,7 +43,6 @@ These resources are used to manage documents used for pre-spend authorizations w
   * [Travel Request v4 - Endpoints](./v4.endpoints.html)
   * [Travel Request v4 - Examples](./v4.examples.html)
   * [Travel Request v4 - HTTP Status Codes](./v4.response-codes.html)
-  * [Travel Request v4 - Headers](./headers.html)
 * [3.0](./v3.request.html)
 * [1.0](./v1.request.html)
 
@@ -138,7 +137,7 @@ const req = https.request(options, (res) => {
   });
 });
 
-req.write(receipt);
+req.write(request);
 req.end();
 
 req.on('error', (e) => {

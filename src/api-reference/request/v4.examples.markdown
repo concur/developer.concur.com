@@ -160,7 +160,7 @@ Authorization: Bearer {token}
   "operations": [
     {
       "rel": "submit",
-      "href": "https://us.api.concursolutions.com/v4/requests/CED5E9CD8FC1424488F9331ACF956E73/submit{?companyId}"
+      "href": "https://us.api.concursolutions.com/v4/requests/CED5E9CD8FC1424488F9331ACF956E73/submit"
     }
   ]
 }
@@ -184,74 +184,90 @@ Authorization: Bearer {token}
 
 ```json
 {
-  "href": "https://us.api.concursolutions.com/v4/requests/2B19A2438CD6664A9C44E0F4D39E870A",
-  "id": "2B19A2438CD6664A9C44E0F4D39E870A",
-  "approvalStatus": {
-    "code": "SENTBACK",
-    "name": "Sent Back to Employee"
-  },
-  "approved": false,
-  "businessPurpose": "PMP Training in Nantes",
-  "canceledPostApproval": false,
-  "closed": false,
-  "comment": "Plane too early in the morning, if possible book Hotel and arrive the day before\n",
-  "creationDate": "2018-09-03T11:53:02.000Z",
-  "endDate": "2018-10-08",
-  "everSentBack": true,
-  "expenses": [],
-  "name": "PMP Training - OCTOBER",
-  "pendingApproval": false,
-  "requestId": "3AT7",
-  "startDate": "2018-10-08",
-  "startTime": "05:00",
-  "submitDate": "2018-09-03T11:55:00.000Z",
-  "totalApprovedAmount": {
-    "value": 213.06,
-    "currency": "USD"
-  },
-  "totalPostedAmount": {
-    "value": 213.06,
-    "currency": "USD"
-  },
-  "totalRemainingAmount": {
-    "value": 213.06,
-    "currency": "USD"
-  }
-},
-{
-  "href": "https://us.api.concursolutions.com/v4/requests/4CCBAE73F3E14346AE93253480F5C409",
-  "id": "4CCBAE73F3E14346AE93253480F5C409",
-  "approvalStatus": {
-    "code": "SUBMITTED",
-    "name": "Submitted & Pending Approval"
-  },
-  "approved": false,
-  "businessPurpose": "Client meeting for project KIWI",
-  "canceledPostApproval": false,
-  "closed": false,
-  "comment": "Need to arrive the day before as meeting is in Company office early in the morning\n",
-  "creationDate": "2018-09-03T11:44:10.000Z",
-  "endDate": "2018-09-20",
-  "everSentBack": false,
-  "expenses": [],
-  "name": "Client meeting in Berlin",
-  "pendingApproval": true,
-  "requestId": "3AT6",
-  "startDate": "2018-09-18",
-  "startTime": "17:30",
-  "submitDate": "2018-09-03T11:49:32.000Z",
-  "totalApprovedAmount": {
-    "value": 478.56,
-    "currency": "USD"
-  },
-  "totalPostedAmount": {
-    "value": 478.56,
-    "currency": "USD"
-  },
-  "totalRemainingAmount": {
-    "value": 478.56,
-    "currency": "USD"
-  }
+	"data": [{
+			"href": "https://us.api.concursolutions.com/v4/requests/2B19A2438CD6664A9C44E0F4D39E870A",
+			"id": "2B19A2438CD6664A9C44E0F4D39E870A",
+			"approvalStatus": {
+				"code": "SENTBACK",
+				"name": "Sent Back to Employee"
+			},
+			"approved": false,
+			"businessPurpose": "PMP Training in Nantes",
+			"canceledPostApproval": false,
+			"closed": false,
+			"comment": "Plane too early in the morning, if possible book Hotel and arrive the day before\n",
+			"creationDate": "2018-09-03T11:53:02.000Z",
+			"endDate": "2018-10-08",
+			"everSentBack": true,
+			"expenses": [],
+			"name": "PMP Training - OCTOBER",
+			"pendingApproval": false,
+			"requestId": "3AT7",
+			"startDate": "2018-10-08",
+			"startTime": "05:00",
+			"submitDate": "2018-09-03T11:55:00.000Z",
+			"totalApprovedAmount": {
+				"value": 213.06,
+				"currency": "USD"
+			},
+			"totalPostedAmount": {
+				"value": 213.06,
+				"currency": "USD"
+			},
+			"totalRemainingAmount": {
+				"value": 213.06,
+				"currency": "USD"
+			}
+		},
+		{
+			"href": "https://us.api.concursolutions.com/v4/requests/4CCBAE73F3E14346AE93253480F5C409",
+			"id": "4CCBAE73F3E14346AE93253480F5C409",
+			"approvalStatus": {
+				"code": "SUBMITTED",
+				"name": "Submitted & Pending Approval"
+			},
+			"approved": false,
+			"businessPurpose": "Client meeting for project KIWI",
+			"canceledPostApproval": false,
+			"closed": false,
+			"comment": "Need to arrive the day before as meeting is in Company office early in the morning\n",
+			"creationDate": "2018-09-03T11:44:10.000Z",
+			"endDate": "2018-09-20",
+			"everSentBack": false,
+			"expenses": [],
+			"name": "Client meeting in Berlin",
+			"pendingApproval": true,
+			"requestId": "3AT6",
+			"startDate": "2018-09-18",
+			"startTime": "17:30",
+			"submitDate": "2018-09-03T11:49:32.000Z",
+			"totalApprovedAmount": {
+				"value": 478.56,
+				"currency": "USD"
+			},
+			"totalPostedAmount": {
+				"value": 478.56,
+				"currency": "USD"
+			},
+			"totalRemainingAmount": {
+				"value": 478.56,
+				"currency": "USD"
+			}
+		}
+	],
+	"operations": [{
+			"rel": "next",
+			"href": "https://us.api.concursolutions.com/v4/requests?view=ALL&limit=3&start=3"
+		},
+		{
+			"rel": "first",
+			"href": "https://us.api.concursolutions.com/v4/requests?view=ALL&limit=3&start=0"
+		},
+		{
+			"rel": "last",
+			"href": "https://us.api.concursolutions.com/v4/requests?view=ALL&limit=3&start=135"
+		}
+	]
 }
 ```
 
@@ -363,7 +379,7 @@ Authorization: Bearer {token}
   "operations": [
     {
       "rel": "submit",
-      "href": "https://us.api.concursolutions.com/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/submit{?companyId}"
+      "href": "https://us.api.concursolutions.com/v4/requests/224AF3CDCC2A5244A37C72FA5770C6F2/submit"
     }
   ]
 }
@@ -501,7 +517,7 @@ Authorization: Bearer {token}
   "operations": [
     {
       "rel": "submit",
-      "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit{?companyId}"
+      "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/submit"
     }
   ]
 }
@@ -655,11 +671,11 @@ Authorization: Bearer {token}
   "operations": [
     {
       "rel": "recall",
-      "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/recall{?companyId}"
+      "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/recall"
     },
     {
       "rel": "cancel",
-      "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/cancel{?companyId}"
+      "href": "https://us.api.concursolutions.com/v4/requests/053A479B3C9DD847B02A203C657AE26B/cancel"
     }
   ]
 }
