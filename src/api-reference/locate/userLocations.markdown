@@ -215,9 +215,9 @@ Authorization: Bearer {token}
         }
       ],
       "sourcePartner": {
-        "description": "The Leader in Travel, Study Abroad and International Student Management Solutions.",
-        "id": "TD",
-        "name": "Terra Dotta"
+        "description": "Source Partner Description",
+        "id": "SP_ID",
+        "name": "Source Partner Name"
       },
       "transaction": {
         "transactionId": "AWQ1WB7pQAn-v2Nzwu65_AWQ1WXPvQAn-v2Nzwu66",
@@ -264,9 +264,9 @@ Authorization: Bearer {token}
         }
       ],
       "sourcePartner": {
-        "description": "The Leader in Travel, Study Abroad and International Student Management Solutions.",
-        "id": "TD",
-        "name": "Terra Dotta"
+        "description": "Source Partner Description",
+        "id": "SP_ID",
+        "name": "Source Partner Name"
       },
       "transaction": {
         "transactionId": "AWNBBsCkQAn-v2NzwrIl_AWNBC-ugQAn-v2NzwrIz",
@@ -313,9 +313,9 @@ Authorization: Bearer {token}
         }
       ],
       "sourcePartner": {
-        "description": "The Leader in Travel, Study Abroad and International Student Management Solutions.",
-        "id": "TD",
-        "name": "Terra Dotta"
+        "description": "Source Partner Description",
+        "id": "SP_ID",
+        "name": "Source Partner Name"
       },
       "transaction": {
         "transactionId": "AWQ1gANVQAn-v2Nzwu8D_AWQ1gANcQAn-v2Nzwu8E",
@@ -362,9 +362,9 @@ Authorization: Bearer {token}
         }
       ],
       "sourcePartner": {
-        "description": "The Leader in Travel, Study Abroad and International Student Management Solutions.",
-        "id": "TD",
-        "name": "Terra Dotta"
+        "description": "Source Partner Description",
+        "id": "SP_ID",
+        "name": "Source Partner Name"
       },
       "transaction": {
         "transactionId": "AWS4e-N1QAn-v2NzwxEu_AWS4e-0PQAn-v2NzwxEv",
