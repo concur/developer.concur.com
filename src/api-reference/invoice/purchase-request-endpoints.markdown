@@ -1,15 +1,14 @@
 ---
-title: Purchase Request v4
+title: Purchase Request
 layout: reference
 ---
 
-# Purchase Request
 
 * [Create a new purchase request](#post)
 * [Get details of purchase request](#get)
 * [Schema](#create_purchase_request_schema)
   * [Create Purchase Request Schema](#create_purchase_request_schema)
-  * [Create Purchase Response Schema](#create_purchase_request-response-schema)
+  * [Create Purchase Request Response Schema](#create_purchase_request-response-schema)
   * [Get Purchase Request Response Schema](#get_purchase_request_response_schema)
   * [Error](#error)
 * [Error codes](#error-codes)
@@ -21,7 +20,7 @@ layout: reference
 
     POST  /purchaserequest/v4/purchaserequests
 
-Create a Purchase Request based on provided header and line item details. If the request is valid it returns back a unique identifier to look at purchase request details and creates a purchase request in back ground.
+Create a Purchase Request based on provided header and line item details. If the request is valid it returns back a unique identifier to look at purchase request details and creates a purchase request.
 
 ### <a name="8"></a>Scopes 
 
@@ -33,17 +32,16 @@ Create a Purchase Request based on provided header and line item details. If the
 
 |Name | Type | Format | Description
 |-----|------|--------|------------
-|`Authorization`|`string`|`header`|**Required**: Bearer Token that identifies the caller. This is the company JWT
+|`Authorization`|`string`|`header`|**Required**: Bearer Token that identifies the caller. This is the company or user access token
 |`Content-Type`|`string`|`header`|**Required**: application/json
 |`concur-correlationid`|`string`|`header`|A unique correlation id the caller of API can pass to track specific requests if needed
-|`purchaseRequest`|`string`|`body`|**Required**: The details of the purchase request
 
 
-### Input  
+### Payload  
 
 [Create Purchase Request Schema](#create_purchase_request_schema)
 
-- Example  Input <br>
+#### Example  Payload <br>
   **Note:** This is just a sample set of fields. The fields and values needing to be passed for your entity will vary based on your edition of concur and your forms and fields setup, but should include most of these common fields.
 
 ```shell
@@ -117,7 +115,7 @@ Content-Type: application/json
 [Create Purchase Request Response Schema](#create_purchase_request-response-schema)  
 
 
-- Example - Output
+#### Example - Output
  ```json
      {
         "id" : "b1e22581-ff4a-48e9-981b-2f5065579096",
@@ -151,7 +149,7 @@ Gets purchase request details. Currently only supported mode is COMPACT which re
 |`concur-correlationid`|`string`|`header`|A unique correlation id the caller of API can pass to track specific requests if needed
 |`mode`|`string`|`parameter`|**Required**: Specifies mode for get purchase request details. Currently supported mode COMPACT
 
-### Input  
+### Payload  
 
 None
 
