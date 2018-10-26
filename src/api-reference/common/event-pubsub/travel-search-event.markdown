@@ -16,7 +16,7 @@ Subscribers to this event will receive search criteria for travel searches perfo
 
 ## <a name="subscribing"></a>Subscribing
 
-For partners, please work with your technical enablement contact to subscribe to this event.
+For partners, please work with your technical enablement contact to subscribe to this topic 'concur.travel.search'.
 
 You must provide an HTTPS server endpoint that will accept the event payload described below.
 
@@ -50,7 +50,7 @@ Name|Type|Format|Description
 `id`|`String`|GUID|Uniquely identifies the event.
 `correlationId`|String|GUID|Uniquely identifies the air search request.
 `eventType`|String|-|Identifies the search event type. for air search it is travelSearchAir
-`topic`|String|concur.travel.search|Topic for subscription for air hotel and car search this will be : concur.travel.search
+`topic`|String|-|Topic for subscription for air hotel and car search this will be : concur.travel.search
 `subTopic`|String| -|identify sub catagory for air search it can be :  <br>-airshop.v1.schedule <br>-airshop.v1.price
 `timeStamp`|String|date/time|Search event time, UTC.
 `facts`|`Object`|[Air Search Facts](#schema-air-search-facts)| Facts for air search.
