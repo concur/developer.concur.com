@@ -6,12 +6,10 @@ layout: reference
 # Purchase Request
 
 ### Overview
-<p><strong>Important</strong>: This API is only available for direct integrations with an existing SAP Concur client. If you are a Partner looking to build an App Center App using this API, please reach out to your SAP Concur Representative.</p>
-
 The Purchase Request API gives clients the ability to leverage external data to create purchase requests for pre-authorization of Invoices. Clients and Partners can build a direct connection where data can be fed to the purchase request API which will create new purchase requests in Concur. These API-created purchase requests are automatically submitted into the pre-authorization workflow. Once approved, it will result in a purchase order that can be transmitted to your Vendor from Concur.
 
 #### Limitations: 
-This API is not available in the China Data center. 
+This API is not available in the China Data center. This API is only available for direct integrations with an existing SAP Concur client. If you are a Partner looking to build an App Center App using this API, please reach out to your SAP Concur Representative.
 
 - [Regional Availability](#regional-availability)
 - [Products and Editions](#products-and-editions)
