@@ -22,11 +22,6 @@ layout: reference
 
 Create a Purchase Request based on provided header and line item details. If the request is valid it returns back a unique identifier to look at purchase request details and creates a purchase request.
 
-### <a name="8"></a>Scopes 
-
-|Name | Description
-|-----|------------
-|purchaserequest.write|Create a new purchase request
 
 ### <a name="8"></a>Parameters  
 
@@ -42,7 +37,7 @@ Create a Purchase Request based on provided header and line item details. If the
 [Create Purchase Request Schema](#create_purchase_request_schema)
 
 #### Example  Payload <br>
-  **Note:** This is just a sample set of fields. The fields and values needing to be passed for your entity will vary based on your edition of concur and your forms and fields setup, but should include most of these common fields.
+  **Note:** This is just a sample set of fields. The fields and values needing to be passed for your entity will vary based on your edition of SAP concur and your forms and fields setup, but should include most of these common fields.
 
 ```shell
 POST /purchaserequest/v4/purchaserequests
@@ -133,12 +128,6 @@ Content-Type: application/json
 
 Gets purchase request details. Currently only supported mode is COMPACT which returns basic info about the purchase request along with any exceptions if present.
 
-### <a name="8"></a>Scopes 
-
-|Name | Description
-|-----|------------
-|purchaserequest.read|Retrieves a purchase request
-
 
 ### <a name="8"></a>Parameters  
 
@@ -195,7 +184,7 @@ None
 |`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order. The values used here will be used for all items on this request. IE: USD
 |`notesToSupplier`|`string`|-|Notes you want to print on the transmitted PO PDF sent to your supplier
 |`comments`|`string`|-|Internal comments you want to record related to this record
-|`custom1 through custom24`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in Concur
+|`custom1 through custom24`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in SAP Concur
 |`shipToAddressCode`|`string`|-|The shipping address of the Purchase Request. The accepted value is the address code from ShipTo record, or if not supplied this will use the requesting user's default shipping address
 |`billToAddressCode`|`string`|-|The billing address of the Purchase Request to be used for Invoicing. The accepted value is the address code from BillTo record, or if not supplied this will use the policy's default BillTo address
 |`lineItems`|`array`|[`LineItem`](#lineItem)|**Required**: Requested items or services related to this Purchase Request
@@ -211,7 +200,7 @@ None
 |`quantity`|`decimal`|-|**Required**: The quantity associated with the line item
 |`unitPrice`|`decimal`|-|**Required**: The unit price of the line item
 |`expenseType`|`string`|-|The PET code of the Expense Type that will be assigned to line item. If not supplied it will default to Expense Type setup on the Vendor Profile used for the Item. Clients will need to get these PET codes from the Implementation team
-|`receiptType`|`string`|-|Accepted values are QUANTITY_RECEIPT or NONE. If a value is not provided the items it will default to NONE for SERVICES, or QUANTITY_RECEIPT for GOODS items based on purchase type.  If you are using Concur Receiving and need to enter Goods Receipts against the resulting PO lines use QUANTITY_RECEIPT
+|`receiptType`|`string`|-|Accepted values are QUANTITY_RECEIPT or NONE. If a value is not provided the items it will default to NONE for SERVICES, or QUANTITY_RECEIPT for GOODS items based on purchase type.  If you are using SAP Concur Receiving and need to enter Goods Receipts against the resulting PO lines use QUANTITY_RECEIPT
 |`neededByDate`|`date`|-|The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD
 |`uoMCode`|`string`|-|Unit of Measure (UOM) code for the purchase request item. Accepted values are the UOM Codes setup in the Unit of Measure configuration. If no value is provided it will default a UOM based on the defaults for goods and services
 |`shipping`|`decimal`|-|The total shipping cost for the Item
@@ -220,7 +209,7 @@ None
 |`url`|`array`|-|A valid URL related to the item. You can have multiple URL's per item
 |`notesToVendor`|`string`|-|Notes related to the Item that can display on the transmitted PO PDF to the vendor
 |`comments`|`string`|-|Internal comments you want to record related to this record
-|`custom1 through custom20`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in Concur
+|`custom1 through custom20`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in SAP Concur
 
 ## <a name="create_purchase_request-response-schema"></a>Create Purchase Request Response Schema
 
@@ -235,7 +224,7 @@ None
 |Name | Type | Format | Description
 |-----|------|--------|------------
 |`purchaseRequestId`|`string`|-|The unique purchase request reference Id obtained during create purchase request API call
-|`purchaseRequestNumber`|`string`|-|The unique purchase request identifier which can be used to uniquely identify a purchase request resource in Concur application
+|`purchaseRequestNumber`|`string`|-|The unique purchase request identifier which can be used to uniquely identify a purchase request resource in SAP Concur application
 |`purchaseRequestQueueStatus`|`string`|-|Status indicating status of creation of purchase request - **PENDING_CREATION** or **CREATED** or **CREATE_FAILED**
 |`purchaseRequestWorkflowStatus`|`string`|-|Status indicating status of purchase request - **Approved** or **Pending Approval** or **Pending Cost Object Approval** or **Sent Back To Employee** or **Not Submitted** or **Submitted** or **Pending Processor Review** or **Vendor Approval** or **Approval Time Expired**
 |`purchaseOrders`|`array`|[`PurchaseOrders`](#purchaseOrders)|The purchase order details if the Purchase Request has been approved and a Purchase Order has been generated, else this will not be returned
