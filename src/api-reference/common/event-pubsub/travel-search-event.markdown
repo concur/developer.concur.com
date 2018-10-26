@@ -31,7 +31,7 @@ If the subscriber action on the event is non-idempotent or expensive guard again
 
 ### <a name="event-subscription-service-behavior"></a>Event Subscription Service (ESS) Behavior
 The Event Subscription service has the following characteristics from the subscriber perspective.
-* Requests will come from [us | emea | cn].api.concursolutions.com
+* Requests will come from us.api.concursolutions.com, emea.api.concursolutions.com or cn.api.concursolutions.com
 * Requests will be re-tried when subscriber responds with HTTP Response Code(s): 5xx, 401, 403 and 429
 * Requests will not be re-tried when subscriber responds with HTTP Response Code(s):
   * 2xx – Indicates successful receipt of the event
