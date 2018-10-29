@@ -50,38 +50,23 @@ Retrieves the attendees matching the specified search criteria. Developers can s
 
 Parameter|Required/Optional|Description
 ---|---|---
-attendeeID|optional|The unique identifier for the attendee in Concur. This information is returned in the **AttendeeID** element of the response of the [Get Report Details](/api-reference/expense/expense-report/expense-report-get.html) function.
-
-Example: `https://www.concursolutions.com/api/expense/v2.0/attendees/{attendeeID}`
-
-#### Query parameters
-
-Parameter|Required/Optional|Description
----|---|---
-externalid|optional|The unique identifier for the attendee outside of Concur. This information is returned in the **ExternalID** element of the response of the [Get Report Details](/api-reference/expense/expense-report/expense-report-get.html) function. Up to 10 external IDs can be supplied in a comma separated list.
+attendeeID|optional|Path: The unique identifier for the attendee in Concur. This information is returned in the **AttendeeID** element of the response of the [Get Report Details](/api-reference/expense/expense-report/expense-report-get.html) function.
+externalid|optional|Query: The unique identifier for the attendee outside of Concur. This information is returned in the **ExternalID** element of the response of the [Get Report Details](/api-reference/expense/expense-report/expense-report-get.html) function. Up to 10 external IDs can be supplied in a comma separated list.
 
 Examples:
 
 ```
+https://www.concursolutions.com/api/expense/v2.0/attendees/{attendeeID}
 https://www.concursolutions.com/apiexpense/v2.0/attendees?externalid={externalID}
 https://www.concursolutions.com/apiexpense/v2.0/attendees?externalid={externalID1},{externalID2},{externalID3}
 ```
 
 ### Headers
 
-#### Authorization header
-
-Authorization header with OAuth 2.0 access token for a Concur user. Required.
-
-To manage data for an entire company, the Concur account associated with the access token must have one of these roles:
-
-* Web Services Administrator for Professional
-* Can Administer for Standard.
-
-#### Content-Type header
-
-* application/json     
-* application/xml
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Authorization header with OAuth 2.0 access token for a Concur user. Required. To manage data for an entire company, the Concur account associated with the access token must have one of these roles:
+  * Web Services Administrator for Professional
+  * Can Administer for Standard.
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5): `application/xml` or `application/json`
 
 ## Get Attendee Details Response
 
