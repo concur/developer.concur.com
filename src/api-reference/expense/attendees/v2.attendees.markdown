@@ -40,13 +40,13 @@ https://www.concursolutions.com/api/expense/v2.0/attendees
 * [Attendees v1](/api-reference/expense/attendees/v1.attendees.html)
 * [Attendee Types v1](/api-reference/expense/attendee-types/v1.attendee-types.html)
 
-##  Get attendees
+## Get attendees
 
 Retrieves the attendees matching the specified search criteria. Developers can specify one or more External IDs or the Attendee ID to search the Expense database.
 
 ### Request
 
-####  Parameters
+#### Parameters
 
 Parameter|Required/Optional|Description
 ---|---|---
@@ -80,14 +80,14 @@ To manage data for an entire company, the Concur account associated with the acc
 
 #### Content-Type header
 
-* application/json       
+* application/json     
 * application/xml
 
-##  Get Attendee Details Response
+## Get Attendee Details Response
 
 ### Content Types
 
-* application/json       
+* application/json     
 * application/xml
 
 ### Content Body
@@ -127,21 +127,21 @@ Code|Custom list fields will include the list item code in this element.
 
 ## Examples
 
-###  XML Example Request with Attendee ID
+### XML Example Request with Attendee ID
 
 ```shell
 GET https://www.concursolutions.com/api/expense/v2.0/attendees/nFaAj0ncBsvkgnPMY5QWfBbbWyv$sQh2oW
 Authorization: OAuth {token}
 ```
 
-###  XML Example Request with External ID
+### XML Example Request with External ID
 
 ```shell
 GET https://www.concursolutions.com/api/expense/v2.0/attendees?externalid=234567
 Authorization: OAuth {token}
 ```
 
-####  XML Example of Successful Response
+#### XML Example of Successful Response
 
 ```shell
 HTTP/1.1 200 OK
@@ -189,7 +189,7 @@ Content-Type: application/xml
     <AttendeeOwnerID>pd123456</AttendeeOwnerID>
     <CurrencyCode>USD</CurrencyCode>
   </Attendee>
-</Attendees>  
+</Attendees>
 ```
 
 ## <a name="responses-and-errors"></a>Responses and Errors

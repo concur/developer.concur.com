@@ -82,17 +82,24 @@ See [HTTP Status Codes](/tools-support/reference/http-codes.html)
 
 This request will return an **attendee-batch-result** parent element with the following child elements:
 
-* **records-succeeded** - The number of attendee records that were successfully added/updated.
-* **records-failed** - The number of attendee records that failed.
-* **AttendeeInfoList** - This parent element contains an **AttendeeStatus** element for each successful attendee record. The **AttendeeStatus** element contains the following child elements:
-  * **Index** - The record number of the attendee record.
-  * **Status** - The status of the request.
-  * **Attendee-Details-Url** - The URL to access the details for this attendee.
-* **errors** - This parent element contains an **error** element for each failed attendee record. The **error** parent element contains the following child elements:
-  * **Index** - The record number of the attendee record.
-  * **message** - The error message.
+Element Name|Description
+---|---
+records-succeeded|The number of attendee records that were successfully added/updated.
+records-failed|The number of attendee records that failed.
+AttendeeInfoList|This parent element contains an **AttendeeStatus** element for each successful attendee record. The **AttendeeStatus** element contains the following child elements:
+Index|The record number of the attendee record.
+Status|The status of the request.
+Attendee-Details-Url|The URL to access the details for this attendee.
+errors|This parent element contains an **error** element for each failed attendee record. The **errors** parent element contains one or more error child elements.
 
-### Example
+#### Error
+
+Element Name|Description
+---|---
+Index|The record number of the attendee record.
+message|The error message.
+
+### Examples
 
 #### Request
 
@@ -129,7 +136,7 @@ Authorization: OAuth {token}
 </Attendees>
 ```
 
-**Create an Attendee Owned by the System**
+#### Request: Create an Attendee Owned by the System
 
 This allows you to create attendees for Attendee Types that are configured as Shared Lists (centrally managed).
 
@@ -181,7 +188,7 @@ Content-Type: application/xml
 </attendee-batch-result>
 ```
 
-**If an error is present.**
+#### Response: Error present
 
 ```shell
 HTTP/1.1 200 OK
