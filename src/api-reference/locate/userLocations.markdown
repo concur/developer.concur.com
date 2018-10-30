@@ -3,6 +3,8 @@ title: User Locations
 layout: reference
 ---
 
+{% include prerelease.html %}
+
 # User Locations
 
 * [Overview](#overview)
