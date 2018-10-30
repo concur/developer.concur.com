@@ -12,30 +12,10 @@ SAP Concur is pleased to welcome you as a partner. We encourage all SAP Concur A
 * [Logo and Brand Guidelines](#logo-and-brand-guidelines)
 * [Communicating Your Partnership](#communicating-your-partnership)
 * [Font Treatment](#font-treatment)
-  * [Using the font treatment](#using-the-font-treatment)
-  * [Download links](#font-treatment-download-links)
-  * [Minimum Size](#font-treatment-minimum-size)
-  * [Using trademark symbols](#font-treatment-using-trademark-symbols)
-  * [Clear Space](#font-treatment-clear-space)
-  * [Color Specification](#font-treatment-color-specification)
 * [SAP Concur Logos](#sap-concur-logos)
-  * [Using the logo](#sap-concur-logos-using)
-  * [Clear space and size requirements](#sap-concur-logos-clear-space-and-size)
-  * [Available logos](#sap-concur-logos-available)
-    * [Full logo](#sap-concur-logos-available-full)
-    * [C-dot only](#sap-concur-logos-available-c-dot)
 * [Partner Landing Pages](#partner-landing-pages)
 * [Public Relations and Social Media Guidelines](#public-relations-and-social-media-guidelines)
-  * [Press Release](#press-release)
-    * [Press Release Template](#press-release-template)
-  * [Social Media Overview](#social-media-overview)
-    * [Blog posts](#social-media-overview-blog-posts)
-    * [Twitter](#social-media-overview-twitter)
-    * [Facebook](#social-media-facebook)
 * [Search](#search)
-  * [Search Engine Optimization (SEO)](#search-seo)
-  * [Category Pages](#search-seo-category-pages)
-  * [Paid Search](#search-paid)
 * [Content Best Practices](#content-best-practices)
 * [Working with SAP Concur Approval Process](#working-with-approval-process)
 * [SAP Concur Contacts](#contacts)
@@ -62,40 +42,68 @@ Or email us at [concur_AppCenterMarketing@sap.com](mailto:concur_AppCenterMarket
 ## <a name="logo-and-brand-guidelines"></a>Logo and Brand Guidelines
 
 * Always use your company’s logo and proprietary design when creating your own communication and marketing materials.
-* Partners are not permitted to use the SAP corporate logo.
 * You may only use the provided Font Treatments or refer to the partnership in text.
 
-![Logo and Brand Guidelines Image](./app-center-partner-marketing-toolkit-logo.png)
+Acceptable|Branding|Notes
+:---:|---|---
+:white_check_mark:|We are an SAP Concur partner.|-
+:white_check_mark:|![SAP Concur Partner App Center Logo](./app-center-partner-marketing-toolkit-logo-brand-sap-concur-partner.png)|-
+:white_check_mark:|![SAP Concur Partner App Center Logo](./app-center-partner-marketing-toolkit-logo-brand-sap-concur-partner-app-center.png)|-
+:white_check_mark:|![](./app-center-partner-marketing-toolkit-logo-brand-sap-concur-logo.png)|Partners may use the SAP Concur logo; however, you must follow logo guidelines and submit content for review.
+:x:|![Do Not Use SAP Logo](./app-center-partner-marketing-toolkit-logo-brand-sap-logo.png)|Partners are **not** permitted to use the SAP corporate logo.
+:x:|![Do Not Use Concur Logo](./app-center-partner-marketing-toolkit-logo-brand-concur-logo.png)|Do **not** use the outdated “Concur” logo when creating materials.
 
 ## <a name="communicating-your-partnership"></a>Communicating Your Partnership
 
 * To refer to your partner status, use the term “SAP Concur partner.”
 * Use lowercase for “partner” in body text. You can use uppercase in headlines and titles.
 
-![Communicating Your Partnership Image](./app-center-partner-marketing-toolkit-communicating-partnership.png)
+Acceptable|Branding
+:---:|---|---
+:white_check_mark:|We are an SAP Concur Partner.
+:x:|~~We are a Concur Partner~~
 
 Prefer normal language to refer to your specific engagement.
 
-![Normal Language Image](./app-center-partner-marketing-toolkit-normal-language.png)
+Acceptable|Branding
+:---:|---|---
+:white_check_mark:|We are an SAP Concur partner. Our company provides SAP Concur solutions that help our customers manage their travel and expenses.
+:white_check_mark:|As an SAP Concur partner, we offer TMC services ...
+:white_check_mark:|As an SAP Concur partner, we focus on enabling customer success.
 
 SAP Concur Naming Conventions for use on landing pages, brochures, listing pages, and other collateral:
 
 * You can refer collectively to SAP Concur solutions, portfolio, or offerings, as appropriate.
 * If trademarks are required, the registered trademark at first mention for SAP and Concur when referring to the solutions or portfolio as a whole or more than one individual solution.
 
-![SAP Concur Solutions Image](./app-center-partner-marketing-toolkit-sap-concur-solutions.png)
+Acceptable|Branding
+:---:|---|---
+:white_check_mark:|SAP® Concur® solutions
 
 Note that individual SAP Concur solutions have not yet adopted the SAP Concur brand. Do not include "SAP" in these offerings.
 
-![Concur Expense Image](./app-center-partner-marketing-toolkit-concur-expense.png)
+Acceptable|Branding
+:---:|---|---
+:white_check_mark:|Concur Expense
+:x:|~~SAP Concur Expense~~
 
 Program Name:
 
-![SAP Concur App Center Image](./app-center-partner-marketing-toolkit-sap-concur-app-center.png)
+Acceptable|Branding
+:---:|---|---
+:white_check_mark:|SAP Concur App Center
+:x:|~~Concur App Center~~
 
 ## <a name="font-treatment"></a>Font Treatment
 
 After signing the partner agreement, you can use the “SAP Concur Partner” font treatment to communicate your engagement with SAP and related offerings in collateral, presents, landing pages, and at events.
+
+* [Using the font treatment](#using-the-font-treatment)
+* [Download links](#font-treatment-download-links)
+* [Minimum Size](#font-treatment-minimum-size)
+* [Using trademark symbols](#font-treatment-using-trademark-symbols)
+* [Clear Space](#font-treatment-clear-space)
+* [Color Specification](#font-treatment-color-specification)
 
 ### <a name="using-the-font-treatment"></a>Using the font treatment
 
@@ -107,20 +115,17 @@ After signing the partner agreement, you can use the “SAP Concur Partner” fo
 
 * Download the ”SAP Concur Partner” font treatment [here](https://partnerportal.concur.com/ResourceFiles/9792e786-76bc-4fc8-9c01-c9f614818267.pdf).
 * Download the ”SAP Concur Partner App Center” font treatment [here](https://partnerportal.concur.com/ResourceFiles/4b304699-930f-4831-a733-a000fd97f34f.zip).
-
-> Queen’s English “App Centre” spelling available [here](https://partnerportal.concur.com/ResourceFiles/89923fd9-ffc6-4912-877d-6185ee5fe3b2.zip).
+* Queen’s English “App Centre” spelling available [here](https://partnerportal.concur.com/ResourceFiles/89923fd9-ffc6-4912-877d-6185ee5fe3b2.zip).
 
 Please read the full font treatment guidelines provided in the downloaded folders or available [here](https://partnerportal.concur.com/ResourceFiles/a9829671-fc33-49fc-9533-d76eea817e65.zip).
-
-Examples
-
-![SAP Concur App Center Logo Image](./app-center-partner-marketing-toolkit-sap-concur-partner-app-center-logo.png)
 
 ### <a name="font-treatment-minimum-size"></a>Minimum Size
 
 To ensure legibility, the font treatment should not be printed smaller than 1.929” or 49 mm in width. Always maintain the aspect ratio of the font treatment when scaling.
 
-![Minimum Size Image](./app-center-partner-marketing-toolkit-minimum-size.png)
+Acceptable|Branding
+:---:|---
+:white_check_mark:|![Minimum Size Image Print](./app-center-partner-marketing-toolkit-minimum-size.png)
 
 ### <a name="font-treatment-using-trademark-symbols"></a>Using trademark symbols
 
@@ -130,7 +135,9 @@ Include the registered trademark symbol “®” on the terms “SAP” and “C
 
 Do not position any text, graphic element, or other visual marks inside the defined clear space.
 
-![Clear Space](./app-center-partner-marketing-toolkit-clear-space.png)
+Acceptable|Branding
+:---:|---
+:white_check_mark:|![Clear Space](./app-center-partner-marketing-toolkit-clear-space.png)
 
 ### <a name="font-treatment-color-specification"></a>Color Specification
 
@@ -140,13 +147,20 @@ SAP Gold and SAP Dark Gray are the preferred colors for presentation of the font
 
 Against dark backgrounds, use the font treatment in SAP Gold and white.
 
-![SAP Dark Gray Image](./app-center-partner-marketing-toolkit-color-sap-dark-gray.png)
-
-![SAP Gold Image](./app-center-partner-marketing-toolkit-color-sap-gold.png)
+Acceptable|Branding
+:---:|---
+:white_check_mark:|![SAP Dark Gray Image](./app-center-partner-marketing-toolkit-color-sap-dark-gray.png)
+:white_check_mark:|![SAP Gold Image](./app-center-partner-marketing-toolkit-color-sap-gold.png)
 
 ## <a name="sap-concur-logos"></a>SAP Concur Logos
 
 App Center partners may, with approval, use  the  SAP  Concur  logo  in collateral and web pages to represent the partnership and integrations.
+
+* [Using the logo](#sap-concur-logos-using)
+* [Clear space and size requirements](#sap-concur-logos-clear-space-and-size)
+* [Available logos](#sap-concur-logos-available)
+  * [Full logo](#sap-concur-logos-available-full)
+  * [C-dot only](#sap-concur-logos-available-c-dot)
 
 ### <a name="sap-concur-logos-using"></a>Using the logo
 
@@ -159,11 +173,15 @@ Always maintain the logo’s aspect ratio when scaling.
 
 The clear space surrounding the logo should measure 1.5x the height of the “S” in “SAP”.
 
-![Clear space image](./app-center-partner-marketing-toolkit-sap-concur-logo-clear-space.png)
+Acceptable|Branding
+:---:|---
+:white_check_mark:|![Clear space image](./app-center-partner-marketing-toolkit-sap-concur-logo-clear-space.png)
 
 In print, the SAP Concur logo can be reproduced down to 0.92" (23.4mm) wide. For digital applications, the logo can be reduced to 92 pixels wide.
 
-![Logo width image](./app-center-partner-marketing-toolkit-sap-concur-logo-width.png)
+Acceptable|Branding
+:---:|---
+:white_check_mark:|![Logo width image](./app-center-partner-marketing-toolkit-sap-concur-logo-width.png)
 
 ### <a name="sap-concur-logos-available"></a>Available logos
 
@@ -171,11 +189,15 @@ For logo files, please email [concur_AppCenterMarketing@SAP.com](mailto:concur_A
 
 #### <a name="sap-concur-logos-available-full"></a>Full logo
 
-![Full logo image](./app-center-partner-marketing-toolkit-sap-concur-logo-full.png)
+Acceptable|Branding
+:---:|---
+:white_check_mark:|![Full logo image](./app-center-partner-marketing-toolkit-sap-concur-logo-full.png)
 
 #### <a name="sap-concur-logos-available-c-dot"></a>C-dot only
 
-![c-dot only image](./app-center-partner-marketing-toolkit-sap-concur-logo-c-dot.png)
+Acceptable|Branding
+:---:|---
+:white_check_mark:|![c-dot only image](./app-center-partner-marketing-toolkit-sap-concur-logo-c-dot.png)
 
 ## <a name="partner-landing-pages"></a>Partner Landing Pages
 
@@ -184,6 +206,13 @@ SAP Concur App Center partners are encouraged to create a web landing page that 
 Work with App Center Marketing to include the “SAP Concur Partner” Font Treatment on your website and to approve your landing page content.
 
 ## <a name="public-relations-and-social-media-guidelines"></a>Public Relations and Social Media Guidelines
+
+* [Press Release](#press-release)
+  * [Press Release Template](#press-release-template)
+* [Social Media Overview](#social-media-overview)
+  * [Blog posts](#social-media-overview-blog-posts)
+  * [Twitter](#social-media-overview-twitter)
+  * [Facebook](#social-media-facebook)
 
 ### <a name="press-release"></a>Press Release
 
@@ -254,6 +283,10 @@ SAP Concur will happily follow your company and would appreciate the same from y
 You are welcome to promote all related integration with SAP Concur via your corporate Facebook pages. SAP Concur is pleased to “like” your company page and would appreciate the same from you. In addition to the visibility this provides to both our companies, adding “@” in front of the company name will allow the announcement to show up on our timelines.
 
 ## <a name="search"></a>Search
+
+* [Search Engine Optimization (SEO)](#search-seo)
+* [Category Pages](#search-seo-category-pages)
+* [Paid Search](#search-paid)
 
 ### <a name="search-seo"></a>Search Engine Optimization (SEO)
 
