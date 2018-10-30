@@ -32,8 +32,8 @@ This API supports POST only.
 
 1. [Obtain a client ID, secret and sandbox environment](/manage-apps/partner-applications.html) if you don't already have one.
 2. Obtain your [Source partner](#sourcePartner) information. This will be provided along with your application credentials.
-3. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
-This API supports [Client Credentials Grant](/api-reference/authentication/apidoc.html#client_credentials) only. Your sandbox will be configured to accept posts from your application.
+3. This API supports all Valid JWTs whether they be company level, password grants or client_credentials grant. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html) for details. Your sandbox will be configured to accept posts from your application.
+
 
 ## Service Details
  The service is a POST call adhering to the following steps:
