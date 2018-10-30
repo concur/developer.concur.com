@@ -18,6 +18,21 @@ layout: reference
 
 The client may have elected to include additional functionality that could result in complex journal entries. For example, your client may allow cash advances or utilize a company-paid corporate card program where personal amounts result in an employee owing the employer. These configuration choices require more care when pulling the extract file from Concur. Click this link and locate the **“SAE Detailed Discussions”** section at the bottom of the page to review this important information: [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts). Then, consult with the client to determine if their configuration will result in any of the Sample Cases described in the document’s videos.
 
+## Capabilities
+
+The Extract Web Service allows for the development of a customized process that can be used to request and extract available data objects such as “Approved” Expense Reports, Invoices and Payment Requests.
+
+Through a series of Web Service calls a Application Connector can GET the Extract Definition List, use that list to perform a POST the Extract Job of their choosing. While the job runs they would periodically GET the Extract Job Status and once “Complete” the Connector can then perform a GET to get the Extract Job File data.
+
+The series of calls that your connector will make will remain the same for each implementation of the Extract Web Service. Please refer to the Executive section of this form for a process flow diagram of these steps.
+
+Resource URI
+
+https://{InstanceURL}/api/expense/extract/v1.0
+https://{InstanceURL}/api/expense/extract/v1.0/{DefinitionID}/job
+https://{InstanceURL}/api/expense/extract/v1.0/{DefinitionID}/job/status
+https://{InstanceURL}/api/expense/extract/v1.0/{DefinitionID}/job/{JobID}/file
+
 ## Version
 
 1.0
