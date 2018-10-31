@@ -28,10 +28,12 @@ The series of calls that your connector will make will remain the same for each 
 
 Resource URI
 
+```
 https://{InstanceURL}/api/expense/extract/v1.0
 https://{InstanceURL}/api/expense/extract/v1.0/{DefinitionID}/job
 https://{InstanceURL}/api/expense/extract/v1.0/{DefinitionID}/job/status
 https://{InstanceURL}/api/expense/extract/v1.0/{DefinitionID}/job/{JobID}/file
+```
 
 ## Version
 
