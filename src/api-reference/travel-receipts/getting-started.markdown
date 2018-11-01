@@ -3,6 +3,8 @@ title: Getting Started
 layout: reference
 ---
 
+{% include prerelease.html %}
+
 # Getting Started
 
 The Travel Receipts service exposes receipt requests to inform E-Receipt partners which E-Receipts to send to SAP Concur and for which user. A partner can call the API and receive paged responses of receipt requests (a maximum of 25 receipt requests per page). When the `next` field is empty/null, the partner has reached the last page of receipt requests.
