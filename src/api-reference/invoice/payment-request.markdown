@@ -1,6 +1,8 @@
 ---
 title: Payment Request
 layout: reference
+redirect_from:
+  - /api-reference/invoice/payment-request.html
 ---
 
 

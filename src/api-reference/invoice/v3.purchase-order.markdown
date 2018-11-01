@@ -1,6 +1,8 @@
 ---
 title: Purchase Order v3
 layout: reference
+redirect_from:
+  - /api-reference/invoice/purchase-order.html
 ---
 
 * [Create a new purchase order](#post)

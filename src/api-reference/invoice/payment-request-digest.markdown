@@ -1,6 +1,8 @@
 ---
 title: Retrieve Payment Request Digests
 layout: reference
+redirect_from:
+  - /api-reference/invoice/payment-request-digest.html
 ---
 
 
@@ -17,7 +19,7 @@ layout: reference
 
     GET  /api/v3.0/invoice/paymentrequestdigests
 
-        
+
 ### Parameters
 
 Name | Type | Format | Description
@@ -63,8 +65,8 @@ Name | Type | Format | Description
 -----|------|--------|------------
 `Items`	|	`Array`	|	[Payment Request Digest](#paymentrequestdigest)	|	The result collection.
 `NextPage`	|	`string`	|	-	|	The URI of the next page of results, if any.
-`PaymentRequestDigest`	|	`Array`	|	[Payment Request Digest](#paymentrequestdigest)	|	
-`TotalCount`	|	`Int32`	|	-	|	
+`PaymentRequestDigest`	|	`Array`	|	[Payment Request Digest](#paymentrequestdigest)	|
+`TotalCount`	|	`Int32`	|	-	|
 
 
 ### <a name="paymentrequestdigest"></a>Payment Request Digest
@@ -90,8 +92,3 @@ Name | Type | Format | Description
 `PaymentMethod`	|	`string`	|	-	|	Payment Method type tied to an Invoice.
 `LastModifiedDate`	|	`string`	|	-	|	The date the request was last modified.
 `ExtractedDate`	|	`string`	|	-	|	The date the request was extracted.
-
-
-
-
-
