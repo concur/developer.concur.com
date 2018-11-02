@@ -40,6 +40,13 @@ Message to retrieved the availability of hotels
        </Criterion>
       </HotelSearchCriteria>
       <StayDateRange Start="2018-10-26" End="2018-10-27"></StayDateRange>
+      <RoomStayCandidates>
+       <RoomStayCandidate>
+        <GuestCounts>
+         <GuestCount AgeQualifyingCode="10" Count="1"></GuestCount>
+        </GuestCounts>
+       </RoomStayCandidate>
+      </RoomStayCandidates>
      </AvailRequestSegment>
     </AvailRequestSegments>
    </OTA_HotelAvailRQ>
@@ -87,6 +94,34 @@ Message to retrieved the availability of hotels
 | *Start* | Y        | DateOrTimeOrDateTimeType | The starting value of the time span. |
 | *End*   | Y        | DateOrTimeOrDateTimeType | The ending value of the time span. |
 
+**RoomStayCandidates**
+
+| Element           | Required | Data Type | Description |
+|-------------------|----------|-----------|-------------|
+| RoomStayCandidate | Y        | Complex   | Element used to identify available room products. |
+
+
+**RoomStayCandidate**
+
+| Element     | Required | Data Type | Description |
+|-------------|----------|-----------|-------------|
+| *Quantity*  | Y        | Int	     | something **to be removed** |
+| GuestCounts | Y        | Complex   | A collection of Guest Counts associated with Room Stay. **to be removed**|
+
+
+**GuestCounts**
+
+| Element    | Required | Data Type | Description |
+|------------|----------|-----------|-------------|
+| GuestCount | Y        | Complex   | A recurring element that identifies the number of guests and ages of the guests. |
+
+
+**GuestCount**
+
+| Element             | Required | Data Type | Description |
+|---------------------|----------|-----------|-------------|
+| *Count*             | Y        | Int	     | Concur only supports one Guest. |
+| *AgeQualifyingCode* | Y        | Int       | AgeQualifyingCode="10" |
 ---
 
 
@@ -123,7 +158,7 @@ The maximum allowed size of OTA_HotelAvailRS is 5 MB. Any response that exceeds 
                   </PenaltyDescription>
                 </CancelPenalty>
               </CancelPenalties>
-              <MealsIncluded Breakfast="true" Dinner="false" Lunch="false"/>
+              <MealsIncluded Breakfast="true"/>
               <RatePlanDescription>
                 <Text>Test rate plan description.</Text>
               </RatePlanDescription>
@@ -233,8 +268,6 @@ For a description of the relationship between the RoomID and RatePlanID refer to
 
 | Element         | Required | Data Type | Description |
 |-----------------|----------|-----------|-------------|
-| *NonRefundable* | Y        | Boolean   | Indicates that any pre-payment for the reservation is non refundable, therefore a 100% penalty on the pre-payment is applied, irrespective of deadline. **to be decided**|
-| *HoldTime*      | N        | Time      | The room will held up until this time without a guarantee. **to be decided**|
 | *GuaranteeType* | Y        | String    | The guarantee information to hold a reservation. |
 | Deadline        | Y        | Complex   | Guarantee deadline, absolute or relative. |
 
@@ -244,7 +277,7 @@ Supported GuranteeTypes:
 |-------------------|-------------|  
 | Deposit           | In Concur this value is seen as RequiredDeposit. |
 | DepositRequired   | In Concur this value is seen as RequiredDeposit .|
-| CCDCVoucher       | In Concur this value is seen as RequiredGuarantee. |
+| CC/DC/Voucher       | In Concur this value is seen as RequiredGuarantee. |
 | PrePay            | In Concur this value is seen as RequiredPrepay. |
 | None              | In Concur this value is seen as Never. No guarantee is required if user books a room with this type. |
 | GuaranteeRequired | RequiredGuarantee. If the Guarantee type cannot be mapped to any accepted type, it will be set to RequiredGuarantee, hence this value is the default. |
@@ -283,9 +316,6 @@ Supported GuranteeTypes:
 | Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
 | *Breakfast* | Y        | Boolean   | When true, indicates breakfast is included, when false, indicates it is excluded. In both cases this information is showed to a customer in the rate description. |
-| *Dinner*    | Y        | Boolean   | When true, indicates dinner is included. |
-| *Lunch*     | Y        | Boolean   | When true, indicates lunch is included. |
-
 
 **RoomRates**
 

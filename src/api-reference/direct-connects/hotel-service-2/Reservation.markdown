@@ -397,7 +397,7 @@ The maximum allowed size of OTA_HotelResRS is 150 KB. Any response that exceeds 
               <RoomRates>
                 <RoomRate>
                   <Rates>
-                    <Rate RoomPricingType="Per stay">
+                    <Rate>
                       <PaymentPolicies>
                         <GuaranteePayment>
                         <AcceptedPayments>
@@ -502,21 +502,10 @@ The maximum allowed size of OTA_HotelResRS is 150 KB. Any response that exceeds 
 
 | Value           | Description |
 |-------------------|----------|
-| Pending | -        |
 | Cancelled | - |
-| Modified | - |
 | Committed | -|
-| Ignored | - |
-| OnHold | -|
 | Unsuccessful | - |
-| PendingCancellation | The item that is pending cancellation. |
-| PendingPurchase | Purchase of the item is pending. |
-| Requested | The item has been requested. |
 | Reserved | The item is reserved. |
-| Unchanged | The item is not changed due to the most recent action. |
-| RequestDenied | - |
-| Ticketed | - |
-
 
 **HotelReservations**
 
