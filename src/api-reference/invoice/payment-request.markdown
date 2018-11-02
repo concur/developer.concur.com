@@ -84,7 +84,7 @@ Name | Type | Format | Description
 `IsEmergencyCheckRun`	|	`string`	|	-	|	Is an emergency check run required (Y/N).
 `IsInvoiceConfirmed`	|	`string`	|	-	|	Indicates if the Payment Request Invoice is confirmed or in a different status (true/false).
 `LedgerCode`	|	`string`	|	-	|	A code which indicates which company journal the Payment Request is assigned to. Use GET /invoice/localizeddata to obtain valid codes. This value is required if none of the following are provided: EmployeeLoginId; EmployeeId; EmployeeEmail; PurchaseOrderNumber; ExternalPolicyId.
-`LineItems`	|	`Array[LineItem]`	|	-	|	The details of the Core Payment Request Line Item Identity Fields.
+`LineItems`	|	`array`	|	[`LineItem`](#line-item)	|	The details of the Core Payment Request Line Item Identity Fields.
 `Name`	|	`string`	|	-	|	**Required** The Payment Request Name.
 `NotesToVendor`	|	`string`	|	-	|	Information from the customer to the vendor for special requests or handling for the ordered good or service.
 `OB10BuyerId`	|	`string`	|	-	|	A unique buyer account on the OB10 network.
@@ -108,21 +108,22 @@ Name | Type | Format | Description
 `VatAmountTwo`	|	`string`	|	-	|	The amount of VAT included in the invoice total (second of two VAT amount fields available).
 `VatRateOne`	|	`string`	|	-	|	The VAT rate applied to the net invoice total (should relate to the first VAT amount field).
 `VatRateTwo`	|	`string`	|	-	|	The VAT rate applied to the net invoice total (should relate to the second VAT amount field).
-`VendorRemitToIdentifier`	|	`VendorIdentifier`	|	-	|	**Required** Used to identify the vendor location for payment remittance. At a minimum, the VendorCode or the combination of (VendorName, Address1 and PostalCode) are required. Use of as many fields as possible is encouraged to ensure a single vendor can be identified. If more than one vendor matches the information provided, the Payment Request creation attempt will fail.
+`VendorRemitToIdentifier`	|	`object`	|	[`VendorRemitToIdentifier`](#vendor-remit-to-identifier)	|	**Required** Used to identify the vendor location for payment remittance. At a minimum, the VendorCode or the combination of (VendorName, Address1 and PostalCode) are required. Use of as many fields as possible is encouraged to ensure a single vendor can be identified. If more than one vendor matches the information provided, the Payment Request creation attempt will fail.
 `VendorShipFromAddressCode`	|	`string`	|	-	|	The code which identifies the location from which the vendor shipped items listed in the invoice.
 `VendorTaxId`	|	`string`	|	-	|	The Vendor Tax ID.
 
 
-### LineItem
+### <a name="line-item"></a>LineItem
 
 Name | Type | Format | Description
 -----|------|--------|------------
-`Allocations`	|	`Array[Allocation]`	|	-	|	The details of the Payment Request Allocation Core Identity Fields.
+`Allocations`	|	`array`	|	[`Allocation`](#allocation)	|	The details of the Payment Request Allocation Core Identity Fields.
 `AmountWithoutVat`	|	`string`	|	-	|	The net amount of the line item (excluding VAT).
 `Custom1` through `Custom20`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
 `Description`	|	`string`	|	-	|	Brief overview of the good or service ordered.
 `ExpenseTypeCode`	|	`string`	|	-	|	A code which indicates the Expense Type for the Line Item.
 `ItemCode`	|	`string`	|	-	|	Represents the item code (the unique code a vendor assigns to a good or code a vendor assigns to a good or service to identify it).
+`MatchedPurchaseOrderReceipts`	|	`array`	|	[`MatchedPurchaseOrderReceipt`](#matched-purchase-order-receipt)	|	The details of the Matched Purchase Order Receipts Identity Fields (if any).
 `PurchaseOrderNumber`	|	`string`	|	-	|	Purchase Order that is associated to the Line Item .
 `Quantity`	|	`string`	|	-	|	Total number of goods or services ordered.
 `ShipFromPostalCode`	|	`string`	|	-	|	The postal code the good or service was shipped from.
@@ -135,7 +136,7 @@ Name | Type | Format | Description
 `VatAmount`	|	`string`	|	-	|	The amount of VAT included in the line item total.
 `VatRate`	|	`string`	|	-	|	The VAT rate applied to the net line item total.
 
-### Allocation
+### <a name="allocation"></a>Allocation
 
 Name | Type | Format | Description
 -----|------|--------|------------
@@ -146,7 +147,13 @@ Name | Type | Format | Description
 `Custom11` through `Custom20`	|	`string`	|	-	|	The details from the Custom fields. These may not have data, depending on configuration.
 `Percentage`	|	`string`	|	-	|	**Required** The percentage of the Request Line Item that the individual allocation record. All Allocations associated to a given Line Item should add up to 100.
 
-### VendorRemitToIdentifier
+### <a name="matched-purchase-order-receipt"></a>MatchedPurchaseOrderReceipt
+
+Name | Type | Format | Description
+-----|------|--------|------------
+`GoodsReceiptNumber`	|	`string`	|	-	|	The identifier of the purchase order goods receipt number to which the Invoice line item is matched.
+
+### <a name="vendor-remit-to-identifier"></a>VendorRemitToIdentifier
 
 Name | Type | Format | Description
 -----|------|--------|------------

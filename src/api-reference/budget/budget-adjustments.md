@@ -21,6 +21,7 @@ This resource is used to add budget adjustments. Each budget item detail may hav
   * [Budget Adjustment](#budgetAdjustment)
   * [Error Response](#errorResponse)
   * [Error Message](#errorMessage)
+* [Response Headers](#responseHeaders)
 
 ## Version
 
@@ -29,6 +30,7 @@ This resource is used to add budget adjustments. Each budget item detail may hav
 ## <a name="post"></a>POST Budget Adjustments
 
 Create one or more budget adjustments.  
+
 * If the rolling adjustment feature is used, all adjustments for a given month, adjustment type, amount type, budget, and description will be combined into one adjustment.  See [Parameters](#parameters) below.
 * The combination of budget item name, fiscal year name, fiscal period name, and owner email determine which budget the adjustment affects.  See [Schema](#schema) below
 * The amount type determines how the adjustment affects the budget.  The budget amount adjustment reduces or increases the top-line budget amount while spent and pending amounts affect the budget balances.
@@ -36,7 +38,7 @@ Create one or more budget adjustments.
 
 ### Scopes
 
-Name | Description
+Name|Description
 ---|---
 `budgetitem.write`|Create/update/delete access to budget data
 
@@ -49,7 +51,7 @@ Name | Description
 
 #### <a name="parameters"></a>Parameters
 
-Name | Type | Format | Description
+Name|Type|Format|Description
 ---|---|---|---
 `useMonthlyRollingUpdate`|`boolean`|`query`|**Required** If true, all adjustments for a given month, adjustment type, amount type & description will be rolled up to one adjustment. This is useful for an automated process that makes daily or weekly updates and doesn't want to clutter end-user dashboards.
 
@@ -76,7 +78,7 @@ POST /budget/v4/adjustments
 
 #### Headers
 
-* `concur-correlationid` (Optional) is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+[Response Headers](#responseHeaders)
 
 #### Payload
 
@@ -88,7 +90,7 @@ Either "Success" or an [Error Response](#errorResponse)
 
 ```shell
 POST https://us.api.concursolutions.com/budget/v4/adjustments?useMonthlyRollingUpdate=false
-Authorization: Bearer {YOUR ACCESS TOKEN}
+Authorization: Bearer {token}
 Content-Type: application/json
 Accept: application/json
 ```
@@ -169,29 +171,43 @@ concur-correlationid: 561ce34c-6542-4bae-82a2-aa6ccd8c6b22
 
 ### <a name="budgetAdjustment"></a>Budget Adjustment
 
-Name | Type | Format | Description
+Name|Type|Format|Description
 ---|---|---|---
 `budgetItemName`|`string`|-|**Required** The name of the budget of the adjustment.
-`fiscalYearName`|`string`|-|**Required** The name of the budget’s fiscal year
-`fiscalPeriodName`|`string`|-|**Required** The name of the budget’s fiscal period
+`fiscalYearName`|`string`|-|**Required** The name of the budget’s fiscal year.  The default name for a fiscal year is the numeric, four-digit year, e.g. 2019.
+`fiscalPeriodName`|`string`|-|**Required** The name of the budget’s fiscal period  The default name for a fiscal period is: Monthly: &lt;fiscal year name&gt; - &lt;three-letter month abbreviation&gt; (e.g. 2019 - Jun), Quarterly: &lt;fiscal year name&gt; - Q&lt;number of quarter&gt; (e.g. 2019 - Q2), Yearly: &lt;fiscal year name&gt; (e.g. 2019)
 `ownerEmailId`|`string`|-|**Required** The user who is responsible for the budget, as configured.
 `amount`| `decimal`|-|**Required** The budget currency amount to be adjusted. The amount may be a positive or negative value but it cannot be zero.
 `adjustmentType`|`string`|-|**Required** The adjustment’s reference type. Valid values are BUDGET_BALANCE, FUND_TRANSFER, EXPENSE, PAYMENT_REQUEST, PURCHASE_REQUEST, REQUEST
 `amountType`|`string`|-|**Required** The type of the budget’s balance to adjust. Affects which values in the budget are updated. Valid values are BUDGET_AMOUNT, SPENT_AMOUNT, PENDING_AMOUNT
-`description`|`string`|-|A friendly user-friendly description of the adjustment
+`description`|`string`|-|A user-friendly description of the adjustment
 `transactionDate`|`date`|YYYY-MM-DD |**Required if amount type is either SPENT_AMOUNT or PENDING_AMOUNT** Must be within the fiscal period.
 
 ### <a name="errorResponse"></a>Error Response
 
-Name | Type | Format | Description
+Name|Type|Format|Description
 ---|---|---|---
 `status`|`boolean`|-|False if there was an error
 `errorMessageList`|`Array[ErrorMessages]`|-|List of all errors detected
 
 ### <a name="errorMessage"></a>Error Message
 
-Name | Type | Format | Description
+Name|Type|Format|Description
 ---|---|---|---
 `errorType`|`String`|-|WARNING or ERROR
 `errorCode`|`String`|-|Text code for this error
 `errorMessage`|`String`|-|Plain language error message
+
+## <a name="responseHeaders"></a>Response Headers
+
+* `concur-correlationid` is a SAP Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Allow](https://tools.ietf.org/html/rfc7231#section-7.4.1)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7234 Expires](https://tools.ietf.org/html/rfc7234#section-5.3)
+* [RFC 7232 ETag](https://tools.ietf.org/html/rfc7232#section-2.3)
+* [RFC 7234 Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)
+* [RFC 7231 Server](https://tools.ietf.org/html/rfc7231#section-7.4.2)
+* [RFC 7231 Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)
