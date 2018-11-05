@@ -1,5 +1,5 @@
 ---
-title: Purchase Order v3
+title: Purchase Orders v3
 layout: reference
 redirect_from:
   - /api-reference/invoice/purchase-order.html
@@ -16,9 +16,9 @@ redirect_from:
 
 ## Version
 
-3.0  
+3.0
 
-## <a name="post"></a>Create a new purchase order  
+## <a name="post"></a>Create a new purchase order
 
 ```
 POST /api/v3.0/invoice/purchaseorders
@@ -26,15 +26,11 @@ POST /api/v3.0/invoice/purchaseorders
 
 Create or update a Purchase Order. Batch processing is not available using the Purchase Order API. Please use Import Jobs for batch updates.
 
-### <a name="8"></a>Parameters  
+### Payload
 
-Name|Type|Format|Description
----|---|---|---
-`purchaseOrder`|-|`body`|The details of the purchase order.
+* [purchaseOrder](#schema-purchaseOrder)
 
-### Input  
-
-[Schema](#schema)
+### Example
 
 ```json
 {
@@ -51,7 +47,6 @@ Name|Type|Format|Description
   },
   "CurrencyCode": "USD",
   "OrderDate":"2011-08-12T20:17:46.384Z",
-
   "ID": "API101",
   "IsTest": "false",
   "IsChangeOrder": "false",
@@ -94,70 +89,61 @@ Name|Type|Format|Description
 }
 ```
 
-### Response  
+### Response
 
-[Response schema](#schema-response)
+* [Response schema](#schema-response)
 
-## <a name="put-receipts"></a>Update purchase order line item with receipt information  
+## <a name="put-receipts"></a>Update purchase order line item with receipt information
 
 ```
 PUT /api/v3.0/invoice/purchaseorderreceipts
 ```
-### Parameters  
 
-Name|Type|Format|Description
----|---|---|---
-`purchaseOrderReceipt`|-|`body`|Purchase order receipt information.
+### Payload
 
-### Input  
+* [Receipt schema](#schema-receipt)
 
-[Receipt schema](#schema-receipt)
+### Response
 
-### Response  
+* [Response schema](#schema-response)
 
-[Response schema](#schema-response)
-
-## <a name="put"></a>Update an existing purchase order  
+## <a name="put"></a>Update an existing purchase order
 
 ```
 PUT /api/v3.0/invoice/purchaseorders
 ```
 
-### Parameters  
+### Payload
 
-Name|Type|Format|Description
----|---|---|---
-`purchaseOrder`|-|`body`|The details of the purchase order.
+* [purchaseOrder](#schema-purchaseOrder)
 
-### Input  
+### Response
 
-[Schema](#schema)
+* [Response schema](#schema-response)
 
-### Response  
-
-[Response schema](#schema-response)
-
-## <a name="get"></a>Get an existing purchase order  
+## <a name="get"></a>Get an existing purchase order
 
 ```
 GET /api/v3.0/invoice/purchaseorders/{id}
 ```
 
-### Parameters  
+### Parameters
 
 Name|Type|Format|Description
 ---|---|---|---
 `id`|`string`|{id}|The identifier for the purchase order.
 
-### Input  
+### Input
 
-None.
+None
 
 ### Response
 
-[Schema](#schema)
+* [purchaseOrder](#schema-purchaseOrder)
 
-## <a name="schema"></a>Schema  
+## <a name="schema"></a>Schema
+
+### <a name="schema-purchaseOrder"></a>purchaseOrder
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -201,7 +187,7 @@ Name|Type|Format|Description
 `VendorAddressCode`|`string`|-|**Required** The code that identifies the vendor's remit address for the purchase order.
 `VendorCode`|`string`|-|**Required** The code that identifies the vendor for the purchase order.
 
-#### <a name="bill-to-address"></a>BillToAddress  
+#### <a name="bill-to-address"></a>BillToAddress
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -215,7 +201,7 @@ Name|Type|Format|Description
 `PostalCode`|`string`|-|**Required** The postal code of the shipping or billing address.
 `StateProvince`|`string`|-|**Required** The state or province of the shipping or billing address.
 
-#### <a name="lineItem"></a>LineItem  
+#### <a name="lineItem"></a>LineItem
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -240,16 +226,16 @@ Name|Type|Format|Description
 `VatAmount`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
 `VatRate`|`string`|-|This field has not been implemented by Purchase Request yet. Any data in this field will be ignored.
 
-#### <a name="allocation"></a>Allocation  
+#### <a name="allocation"></a>Allocation
 
 Name|Type|Format|Description
 ---|---|---|---
 `Amount`|`string`|-|**Required** The total amount of the allocation.
 `Custom1 through Custom20`|`string`|-|A value that can be applied to a custom field 1 that is part of the allocation form.
-`GrossAmount`|`string`|-|The allocation gross amount.
-`Percentage`|`string`|-|The allocation percentage.
+`GrossAmount`|`string`|-|**Required** The allocation gross amount.
+`Percentage`|`string`|-|**Required** The allocation percentage.
 
-#### <a name="ship-to-address"></a>ShipToAddress  
+#### <a name="ship-to-address"></a>ShipToAddress
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -263,7 +249,7 @@ Name|Type|Format|Description
 `PostalCode`|`string`|-|**Required** The postal code of the shipping or billing address.
 `StateProvince`|`string`|-|**Required** The state or province of the shipping or billing address.
 
-## <a name="schema-response"></a>Response schema  
+## <a name="schema-response"></a>Response schema
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -275,7 +261,7 @@ Name|Type|Format|Description
 `PurchaseOrderNumber`|`string`|-|The purchase order number.
 `Status`|`string`|-|The result of processing the purchase order. Format: SUCCESS or FAILURE
 
-## <a name="schema-receipt"></a>Receipt schema  
+## <a name="schema-receipt"></a>Receipt schema
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -285,7 +271,7 @@ Name|Type|Format|Description
 `ReceivedDate`|`string`|-|The date the line item was received. Format: YYYY-MM-DD
 `ReceivedQuantity`|`string`|-|The number of items that were received.
 
-## <a name="error-codes"></a>Error codes  
+## <a name="error-codes"></a>Error codes
 
 The web service will not return a 4xx HTTP response code for a batch operation even when every item in the batch failed to be created, updated or deleted. The client must inspect the response to look for warnings or errors with individual batch items.
 
