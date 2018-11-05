@@ -263,6 +263,29 @@ Message to reserve a hotel.
 | GivenName  | N        | StringLength1to64 | Given name, first name or names. |
 | Surname    | Y        | StringLength1to64 | Family name, last name. May also be used for full name if the sending system does not have the ability to separate a full name into its parts, e.g. the surname element may be used to pass the full name. |
 
+Supported NamePrefixes:
+
+NamePrefix     |
+|-------------------|
+| Mr|
+|Mrs|
+| Ms |
+|Miss|
+|Dr|
+|Rev|
+|Sir|
+|Lord|
+|Lady|
+|Dr Mr|
+|Dr Mrs|
+|Dr Ms|
+|Prof Mr|
+|Prof Mrs|
+|Prof Ms|
+|Prof Dr Mr|
+|Prof Dr Mrs|
+|Prof Dr Ms|
+
 **Telephone**
 
 | Element     | Required | Data Type         | Description |

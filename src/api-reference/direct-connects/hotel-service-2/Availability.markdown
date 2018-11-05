@@ -282,6 +282,13 @@ Supported GuranteeTypes:
 | None              | In Concur this value is seen as Never. No guarantee is required if user books a room with this type. |
 | GuaranteeRequired | RequiredGuarantee. If the Guarantee type cannot be mapped to any accepted type, it will be set to RequiredGuarantee, hence this value is the default. |
 
+Supported GuaranteeRequired:
+
+GuaranteeRequired     | Description |
+|-------------------|-------------|  
+| always           | Guarantee is required all the time independently on deposit account setting. |
+|never| Guarantee is never required. |
+| default | Guarantee is required if no deposit account is set up. |
 
 **Deadline**
 
