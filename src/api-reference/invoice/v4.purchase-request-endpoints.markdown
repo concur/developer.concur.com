@@ -21,7 +21,7 @@ redirect_from:
 
 4.0
 
-## <a name="post"></a>Create a new purchase request
+## <a name="post"></a>Create a New Purchase Request
 
 Create a Purchase Request based on provided header and line item details. If the request is valid it creates a purchase request and returns back a unique identifier to get the purchase request details.
 
@@ -151,7 +151,7 @@ ToDo: Show response headers
 }
 ```
 
-## <a name="get"></a>Get details of a purchase request
+## <a name="get"></a>Get Details of a Purchase Request
 
 Gets purchase request details. The supported mode is COMPACT, which returns basic info about the purchase request along with any exceptions.
 
