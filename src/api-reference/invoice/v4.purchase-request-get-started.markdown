@@ -18,7 +18,7 @@ This API is not available in the China Data center. This API is only available f
 - [Access Token  Usage](#access-token-usage)
     - [Retrieve a Company Access Token](#retrieve-a-company-access-token)
     - [Retrieve a User Access Token](#retrieve-a-user-access-token)
-- [Purchase Request API endpoints](/api-reference/invoice/purchase-request-endpoints.html)
+- [Purchase Request API endpoints](./v4.purchase-request-endpoints.html)
 
 
 ### Regional Availability
@@ -55,7 +55,7 @@ If your purchase request form in SAP Concur has required custom fields that are 
 
 This API will work with both Company or User access tokens, however a Company `access token` is recommended for integrations using this API if the end goal is for the integration to create purchase requests for multiple requestors. When using a User `access token` to create purchase requests through the API it will result in the purchase request being assigned to the user that generated the User `access token` and it will not honor the user set in the payload. A User `access token` could be used for testing to check if your payloads are good if needed. For an integration as mentioned above a Company `access token` is the best choice.
 
-Once you have registered your application, read about the [Purchase Request API endpoints](/api-reference/invoice/purchase-request-endpoints.html).
+Once you have registered your application, read about the [Purchase Request API endpoints](./v4.purchase-request-endpoints.html).
 
 ### Retrieve a Company Access Token
 
