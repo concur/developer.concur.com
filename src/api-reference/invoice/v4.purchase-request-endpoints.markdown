@@ -1,0 +1,342 @@
+---
+title: Purchase Request v4 - Endpoints
+layout: reference
+redirect_from:
+  - /api-reference/invoice/purchase-request-endpoints.html
+---
+
+* [Create a new purchase request](#post)
+* [Get details of purchase request](#get)
+* [Schema](#schema)
+  * [Create Purchase Request Schema](#schema-create-purchase-request)
+    * [LineItem](#schema-lineItem)
+  * [Create Purchase Request Response Schema](#schema-create-purchase-request-response)
+  * [Get Purchase Request Response Schema](#schema-get-purchase-request-response)
+    * [PurchaseOrders](#schema-purchaseOrders)
+    * [PurchaseRequestExceptions](#schema-purchaseRequestExceptions)
+  * [Error](#schema-error)
+* [Error Codes when the HTTP Status Code is 4xx](#error-codes)
+
+## Version
+
+4.0
+
+## <a name="post"></a>Create a new purchase request
+
+Create a Purchase Request based on provided header and line item details. If the request is valid it returns back a unique identifier to look at purchase request details and creates a purchase request.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+POST /purchaserequest/v4/purchaserequests
+```
+
+##### Parameters
+
+None
+
+#### Headers
+
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5) - Bearer Token that identifies the caller. This is the company or user access token
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - `application/json`
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+* [Create Purchase Request Schema](#schema-create-purchase-request)
+
+### Response
+
+#### Status Codes
+
+ToDo: Pull from documentation template.
+
+#### Headers
+
+ToDo: Pull from documentation template.
+
+#### Payload
+
+* [Create Purchase Request Response Schema](#schema-create-purchase-request-response)
+
+### Example
+
+#### Request
+
+This is just a sample set of fields. The fields and values needing to be passed for your entity will vary based on your edition of SAP concur and your forms and fields setup, but should include most of these common fields.
+
+```shell
+POST /purchaserequest/v4/purchaserequests
+Authorization: Bearer {token}
+Content-Type: application/json
+```
+
+```json
+{
+  "description" : "New office supplies",
+  "userLoginId" : "john.deo@concur",
+  "policyExternalId" : "po-external-id",
+  "currencyCode" : "USD",
+  "notesToSupplier" : "Office space request phase 1",
+  "comments" : "office supplies request",
+  "custom1" : "ADVT",
+  "shipToAddressCode" : "SHIP15139",
+  "billToAddressCode" : "MNSLP129",
+  "lineItems" : [
+    {
+      "purchaseType" : "SERVICES",
+      "vendorCode" :"VEN1",
+      "vendorAddressCode" : "ADDR1",
+      "description" : "monitor",
+      "quantity" : "20",
+      "unitPrice" : "154.4",
+      "expenseType" : "1250",
+      "receiptType" : "NONE",
+      "neededByDate": "2018-06-28",
+      "uomCode" : "DA",
+      "shipping" : "13.5",
+      "tax" : "11",
+      "supplierPartId" : "DAQT1",
+      "url" :[
+        "http://officesupplies.com/monitor"
+      ],
+      "notesToVendor" : "Phase 1 request monitor",
+      "comments" : "Phase 1 request for new employees for monitor",
+      "custom2" : "LGVT1"
+    },
+    {
+      "purchaseType" : "GOODS",
+      "vendorCode" :"VEN1",
+      "vendorAddressCode" : "ADDR1",
+      "description" : "office chair",
+      "quantity" : "20",
+      "unitPrice" : "346.2",
+      "expenseType" : "1251",
+      "receiptType" : "QUANTITY_RECEIPT",
+      "neededByDate": "2018-06-28",
+      "uomCode" : "DA",
+      "shipping" : "15",
+      "tax" : "17.5",
+      "supplierPartId" : "DAQT2",
+      "url" :[
+        "http://officesupplies.com/officechair"
+      ],
+      "notesToVendor" : "Phase 1 request office chair",
+      "comments" : "Phase 1 request for new employees for office chair",
+      "custom3" : "DEPT",
+      "custom4" : "SALES"
+    }
+  ]
+}
+```
+
+#### Response
+
+```shell
+ToDo: Show response headers
+```
+
+```json
+{
+  "id" : "b1e22581-ff4a-48e9-981b-2f5065579096",
+  "uri": "http://us.api.concursolutions.com/purchaserequest/v4/purchaserequests/b1e22581-ff4a-48e9-981b-2f5065579096?mode=COMPACT"
+}
+```
+
+## <a name="get"></a>Get details of a purchase request
+
+Gets purchase request details. Currently only supported mode is COMPACT which returns basic info about the purchase request along with any exceptions if present.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+GET /purchaserequest/v4/purchaserequests/{id}?mode=COMPACT
+```
+
+##### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`mode`|`string`|-|**Required**: Specifies mode for get purchase request details. Currently supported mode COMPACT
+
+#### Headers
+
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5) - Bearer Token that identifies the caller. This is the company or user access token
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - `application/json`
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+
+#### Payload
+
+None
+
+### Response
+
+#### Status Codes
+
+ToDo: Pull from documentation template.
+
+#### Headers
+
+ToDo: Pull from documentation template.
+
+#### Payload
+
+* [Get Purchase Request Response Schema](#schema-get-purchase-request-response)
+
+### Example
+
+#### Request
+
+```shell
+GET /purchaserequest/v4/purchaserequests/{id}?mode=COMPACT
+Authorization: Bearer {token}
+Content-Type: application/json
+```
+
+#### Response
+
+```shell
+ToDo: Show response headers
+```
+
+```json
+{
+  "purchaseRequestId" : "de9c0894-b807-6943-8e3f-49a707da3456",
+  "purchaseRequestNumber" : "100000",
+  "purchaseRequestQueueStatus" : "CREATED",
+  "purchaseRequestWorkflowStatus" : "Approved",
+  "purchaseRequestExceptions": [
+    {
+      "message": "Line Item Quantity does not match",
+      "eventCode": "PURCH_DETAIL_ITEM_SAVE",
+      "exceptionCode": "0070071",
+      "isCleared": false,
+      "prExceptionId": "fe636831-43a1-9540-bf86-32e2c19400af"
+    }
+  ],
+  "purchaseOrders": [
+    {
+      "purchaseOrderNumber": "PO10001"
+    }
+  ]        
+}
+```
+
+## <a name="schema"></a>Schema
+
+### <a name="schema-create-purchase-request"></a>Create Purchase Request Schema
+
+Name|Type|Format|Description
+---|---|---|---
+`userId`|`string`|-|**Required**: The employee that is requesting the items. This is UUID of the employee. Either UserId or UserEmail or UserLoginId is required to identify employee
+`userEmail`|`string`|-|**Required**: The employee that is requesting the items. This is employee's email. Either UserId or UserEmail or UserLoginId is required to identify employee
+`userLoginId`|`string`|-|**Required**: The employee that is requesting the items. This is employee's Id. Either UserId or UserEmail or UserLoginId is required to identify employee
+`description`|`string`|-|A description of the purchase request
+`policyExternalId`|`string`|-|The external identifier of the policy that should be associated with the purchase order. This will use the default policy setup for the user group assigned to the requesting employee. This is the external Id from the policy configuration screen. Clients will need to get these ID’s from the Implementation team if they need to assign different policies than the default
+`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order. The values used here will be used for all items on this request. IE: USD
+`notesToSupplier`|`string`|-|Notes you want to print on the transmitted PO PDF sent to your supplier
+`comments`|`string`|-|Internal comments you want to record related to this record
+`custom1 through custom24`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in SAP Concur
+`shipToAddressCode`|`string`|-|The shipping address of the Purchase Request. The accepted value is the address code from ShipTo record, or if not supplied this will use the requesting user's default shipping address
+`billToAddressCode`|`string`|-|The billing address of the Purchase Request to be used for Invoicing. The accepted value is the address code from BillTo record, or if not supplied this will use the policy's default BillTo address
+`lineItems`|`array`|[`LineItem`](#schema-lineItem)|**Required**: Requested items or services related to this Purchase Request
+
+#### <a name="schema-lineItem"></a>LineItem
+
+Name|Type|Format|Description
+---|---|---|---
+`purchaseType`|`string`|-|**Required**: Can be two values "GOODS" or "SERVICES" depending on whether the item is for goods or services. Displayed as just "Type" in the UI
+`vendorCode`|`string`|-|**Required**: The code that identifies the Vendor. This value can be found in the vendor information form of Vendor Manager. This is used along with Vendor Address Code to determine the specific Vendor record
+`vendorAddressCode`|`string`|-|**Required**: The code that identifies the vendor's address. This value can be found in the vendor information form of Vendor Manager and is labeled Address Accounting Code. This is used along with Vendor Code to determine the specific Vendor record
+`description`|`string`|-|**Required**: A description of the line item
+`quantity`|`decimal`|-|**Required**: The quantity associated with the line item
+`unitPrice`|`decimal`|-|**Required**: The unit price of the line item
+`expenseType`|`string`|-|The PET code of the Expense Type that will be assigned to line item. If not supplied it will default to Expense Type setup on the Vendor Profile used for the Item. Clients will need to get these PET codes from the Implementation team
+`receiptType`|`string`|-|Accepted values are QUANTITY_RECEIPT or NONE. If a value is not provided the items it will default to NONE for SERVICES, or QUANTITY_RECEIPT for GOODS items based on purchase type. If you are using SAP Concur Receiving and need to enter Goods Receipts against the resulting PO lines use QUANTITY_RECEIPT
+`neededByDate`|`date`|-|The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD
+`uoMCode`|`string`|-|Unit of Measure (UOM) code for the purchase request item. Accepted values are the UOM Codes setup in the Unit of Measure configuration. If no value is provided it will default a UOM based on the defaults for goods and services
+`shipping`|`decimal`|-|The total shipping cost for the Item
+`tax`|`decimal`|-|Tax amount that is associated with the line item
+`supplierPartId`|`string`|-|An Id value that helps to identify the line item. This could be a value such as the vendor’s part number or even the manufacturer number
+`url`|`array`|-|A valid URL related to the item. You can have multiple URL's per item
+`notesToVendor`|`string`|-|Notes related to the Item that can display on the transmitted PO PDF to the vendor
+`comments`|`string`|-|Internal comments you want to record related to this record
+`custom1 through custom20`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the Item Code setup for the list in SAP Concur
+
+### <a name="schema-create-purchase-request-response"></a>Create Purchase Request Response Schema
+
+Name|Type|Format|Description
+---|---|---|---
+`errors`|`array`|[`Error`](#schema-error)|An array of errors indicating which fields have failed validation
+`id`|`string`|-|The unique purchase request reference Id if the request has passed all validations. This reference Id will be needed to look up details of purchase request creation
+`uri`|`string`|-|The URI to look up details of newly created purchase request
+
+### <a name="schema-get-purchase-request-response"></a>Get Purchase Request Response Schema
+
+Name|Type|Format|Description
+---|---|---|---
+`purchaseRequestId`|`string`|-|The unique purchase request reference Id obtained during create purchase request API call
+`purchaseRequestNumber`|`string`|-|The unique purchase request identifier which can be used to uniquely identify a purchase request resource in SAP Concur application
+`purchaseRequestQueueStatus`|`string`|-|Status indicating status of creation of purchase request - **PENDING_CREATION** or **CREATED** or **CREATE_FAILED**
+`purchaseRequestWorkflowStatus`|`string`|-|Status indicating status of purchase request - **Approved** or **Pending Approval** or **Pending Cost Object Approval** or **Sent Back To Employee** or **Not Submitted** or **Submitted** or **Pending Processor Review** or **Vendor Approval** or **Approval Time Expired**
+`purchaseOrders`|`array`|[`PurchaseOrders`](#schema-purchaseOrders)|The purchase order details if the Purchase Request has been approved and a Purchase Order has been generated, else this will not be returned
+`purchaseRequestExceptions`|`array`|[`PurchaseRequestExceptions`](#schema-purchaseRequestExceptions)|Any exceptions and its details if present on the purchase request, else this will not be returned
+
+#### <a name="schema-purchaseOrders"></a>PurchaseOrders
+
+Name|Type|Format|Description
+---|---|---|---
+`purchaseOrderNumber`|`string`|-|The purchase order number
+
+#### <a name="schema-purchaseRequestExceptions"></a>PurchaseRequestExceptions
+
+Name|Type|Format|Description
+---|---|---|---
+`eventCode`|`string`|-|Event code of the exception example: PURCH_DETAIL_SUBMIT
+`exceptionCode`|`string`|-|The unique exception code
+`isCleared`|`boolean`|-|If exception has been cleared or not
+`prExceptionId`|`string`|-|The unique exception id of the purchase request
+`message`|`string`|-|The actual message of the exception with details
+
+### <a name="schema-error"></a>Error
+
+Name|Type|Format|Description
+---|---|---|---
+`errorCode`|`string`|-|A code that indicates a specific error code indicating why a particular field had failed validation
+`errorMessage`|`string`|-|A description of the error
+`dataPath`|`string`|-|The path to the request data which has the error message
+
+## <a name="error-codes"></a>Error Codes when the HTTP Status Code is 4xx
+
+ErrorCode|Error Message
+---|---
+missingRequestBody|Missing request body.
+invalidRequestBody|Passed request body is invalid.
+missingUserInfo|Either userID or userEmail or userLoginId is required.
+invalidUserInfo|Either userID or userEmail or userLoginId is invalid or does not have access to this resource.
+provideOneUserInformation|Provide either one of these user information: userId, userEmail, userLoginId.
+missingCurrencyCode|Currency Code is missing.
+invalidCurrencyCode|Currency Code is invalid.
+invalidPolicyInformation|Cannot find a PO policy with given external ID.
+missingPolicyInformation|The external identifier of the policy that should be associated with the purchase order. The external ID is a property of the policy configuration screen. Clients will need to get these ID's from the Implementation team.
+listCodeNotfound|Cannot find the List code in the system for the given value.
+missingLineItems|Line Items are missing.
+invalidPurchaseType|Purchase Type is invalid.
+missingPurchaseType|Purchase Type is required.
+missingVendorAddressCode|Vendor address code is required.
+missingVendorCode|Vendor code is required.
+invalidVendor|Vendor / Address code combination is invalid.
+missingDescription|Line item description is required.
+missingQuantity|Line item quantity is required.
+invalidQuantity|Line item quantity is invalid.
+missingUnitPrice|Unit price is required.
+invalidUnitPrice|Unit price is invalid.
+invalidDateFormat|Expected a date in the format yyyy-mm-dd. Example: 2018-03-23
