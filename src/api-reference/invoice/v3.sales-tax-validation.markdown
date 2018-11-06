@@ -1,6 +1,8 @@
 ---
-title: Sales Tax Validation
+title: Sales Tax Validation v3
 layout: reference
+redirect_from:
+  - /api-reference/invoice/sales-tax-validation.html
 ---
 
 # Sales Tax Validation
@@ -10,8 +12,8 @@ layout: reference
 * [Status schema](#schema-status)
 
 ## Version
-3.0  
 
+3.0  
 
 ## <a name="get"></a>Get invoices for calculating tax
 
@@ -157,4 +159,3 @@ None.
 |`Status`|`string`|-|The status of the update. Possible values: SUCCESS, FAILURE
 |`TaxReferenceID`|`string`|-|The tax reference ID of the updated invoice.
 |`Type`|`string`|-|Type request result
-
