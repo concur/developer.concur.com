@@ -59,50 +59,59 @@ Option 3|App integration|Customer and Partner need to coordinate since Vendor ma
 Confirm that the customer adminsitrator has created a Concur Audit Rule to require the Vendor (Supplier) email address has been populated for those Vendor invoices that will be paid via this integration. The Customer can take the following steps to create the Audit Rule:
 
 #### Audit Rule step 1:
-Navigate to the Administration menu, then Invoice, then Audit Rules.
-Click New
 
-Name: Vendor Supplier Contact Email
-Event: Payment Request Submit
-Editable By: this depends on the customer configuration
-Applies To: this depends on the customer configuration
-Active: Yes
-Click Next
+1. Navigate to the Administration menu, then Invoice, then Audit Rules.
+1. Click New
+1. Enter the information as appropriate (see below)
+1. Click Next
+
+```
+Name:         Vendor Supplier Contact Email
+Event:        Payment Request Submit
+Editable By:  This depends on the customer configuration
+Applies To:   This depends on the customer configuration
+Active:       Yes
+```
 
 #### Audit Rule step 2: Create Condition
 
-Data Object: Vendor Remittance Address
-Field: Contact Email
-Operator: Is Blank
-Operator: And
-Data Object: Request
-Field: Pay Method Type
-Operator: Equal
-Value: Payment Provider
+```
+Data Object:  Vendor Remittance Address
+Field:        Contact Email
+Operator:     Is Blank
+Operator:     And
+Data Object:  Request
+Field:        Pay Method Type
+Operator:     Equal
+Value:        Payment Provider
+```
 
 Click Next
 
 #### Audit Rule step 3:
-The Exception Level can be adjusted if desired.  99 is a hard stop rule.
+
+> The Exception Level can be adjusted if desired.  99 is a hard stop rule.
 
 Click New
 
-Exception Code: EMAIL
-Exception Level: 99
-Message: The Vendor Email Address is required for all invoices that are from Vendors that will be paid by the Partner.
-Editable By: this depends on the customer configuration
+```
+Exception Code:   EMAIL
+Exception Level:  99
+Message:          The Vendor Email Address is required for all invoices that are from Vendors that will be paid by the Partner.
+Editable By:      This depends on the customer configuration
+```
 
 ### <a name="Overview-Scopes-and-Obtaining-Invoices-pending-payment"></a>Overview Scopes and Obtaining Invoices pending payment
 
-[Overview, Scopes, an Obtaining Invoices pending payment] (./invoice/v1.invoice-pay.html#overview)
+[Overview, Scopes, an Obtaining Invoices pending payment](/api-reference/invoice/v1.invoice-pay.html)
 
 ### <a name="Discounts"></a>Discounts on invoices
 
-[Payment Request ID](/api-reference/invoice/payment-request.html#get) and (/api-explorer/v3-0/PaymentRequest.html)
+[Payment Request Reference](/api-reference/invoice/v3.payment-request.html#get) and [Payment Request Explorer](/api-explorer/v3-0/PaymentRequest.html)
 
 If the customer wants invoices paid early in order to take advantage of the Vendor's discount terms, the customer and partner will need to work together. The customer will need to configure search queries within the administrative tool called, "Invoice Processor". The search parameters will based on invoice due date and Payment Method Type field.  The search query parameters need to include enough days to allow the customer and partner to meet the invoice terms. Once the customer administrator final-approves those invoices, the Partner will be able to obtain the invoices that are pending payment. In order to obtain the discount terms, the Partner will have to use the GET Payment Request API using the invoice ID from the GET Payments response.
 
-> note: the customer and partner need to discuss how the customer manages the discounts within the SAP-Concur Invoice product. The customer may elect to adjust the invoice amount field and then add credited line items within the invoice to reflect the discount.  In this case, the partner will **not** need to compute the discount and will just use the value in the Invoice Amount field.
+> Note: the customer and partner need to discuss how the customer manages the discounts within the SAP-Concur Invoice product. The customer may elect to adjust the invoice amount field and then add credited line items within the invoice to reflect the discount.  In this case, the partner will **not** need to compute the discount and will just use the value in the Invoice Amount field.
 
 ### <a name="Updating-a-payment-with-status"></a>Updating a payment with status
 
