@@ -72,6 +72,8 @@ travelallowance.itineraryresult.read|Read only access to Itinerary Result data
 travelrequest.write|Read and write Travel Requests
 user.read|Read user profile
 user.write|Read and Write user profile
+purchaserequest.write | Write only access to Purchase Requests
+purchaserequest.read | Read only access Purchase Requests
 
 ## <a name="connectscopes"></a>List of Connect API scopes
 

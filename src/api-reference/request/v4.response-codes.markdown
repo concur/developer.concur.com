@@ -27,18 +27,21 @@ HTTP Status Code|Response Body|Description|Wrong input example
 -|`multiLegNotAllowed` cannot save a multi leg, multi-leg is not enabled for this entity|The multi leg support is not allowed for the entity|
 -|`reportTemplateNotFound` failed to retrieve report template|The multi leg support is not allowed for the entity|
 -|`unsupportedParam` the request has unsupported parameter(s)|Some parameter(s) of the request are not supported|
--|`missingRequiredParam`the request is missing required parameter(s)|The request is missing some required parameter(s)|
--|`companyNotFound`The company for this request has not been found|The company for this request has not been found|
+-|`missingRequiredParam` the request is missing required parameter(s)|The request is missing some required parameter(s)|
+-|`companyNotFound` the company for this request has not been found|The company for this request has not been found|
+-|`-` Limit must be less than or equal to 100|limit must be less than or equal to 100|
+-|`-` Limit must be greater than or equal to 1|limit must be greater than or equal to 1|
+-|`-` Limit must contains only digits|Limit must contains only digits|
 401 Unauthorized|`invalidUser` the request's user is invalid|invalid or non existent authorization HTTP header|
 403 Forbidden|`permissionDenied` permission denied|User approving his own request, or without approver/processor role|
 -|`requestStatusNotApproved` the request is not approved or canceled after approval||
--|`userIsNotAllowed` User is not allowed to access this resource||
+-|`userIsNotAllowed` user is not allowed to access this resource||
 -|`requestStartDateInTheFuture` report cannot be create from an approved request before request start||
--|`publicApiNotAllowed` Entity is not allowed to access this resource||
--|`publicApiNotAllowed` This resource is not public||
+-|`publicApiNotAllowed` entity is not allowed to access this resource||
+-|`publicApiNotAllowed` this resource is not public||
 404 Not Found|`notFound` resource not found|You tried to get a non-existing request|GET /v4/requests/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 408 Request Timeout|`timeOut` timeout has occurred||
-500 Internal Server Error|`timeOut` timeout has occburred||
+500 Internal Server Error|`timeOut` timeout has occurred||
 -|`createReportError` error while creating an expense report||
 -|`internalServerError` internal server error||
 -|`associateReportError` error while associating a report to a request||
