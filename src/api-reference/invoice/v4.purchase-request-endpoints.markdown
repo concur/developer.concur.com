@@ -9,11 +9,11 @@ redirect_from:
 * [Get details of purchase request](#get)
 * [Schema](#schema)
   * [Create Purchase Request Schema](#schema-create-purchase-request)
-    * [LineItem](#schema-lineItem)
+    * [LineItem](#schema-line-item)
   * [Create Purchase Request Response Schema](#schema-create-purchase-request-response)
   * [Get Purchase Request Response Schema](#schema-get-purchase-request-response)
-    * [PurchaseOrders](#schema-purchaseOrders)
-    * [PurchaseRequestExceptions](#schema-purchaseRequestExceptions)
+    * [PurchaseOrders](#schema-purchase-orders)
+    * [PurchaseRequestExceptions](#schema-purchase-request-exceptions)
   * [Error](#schema-error)
 * [Error Codes when the HTTP Status Code is 4xx](#error-codes)
 
@@ -257,7 +257,7 @@ Name|Type|Format|Description
 `billToAddressCode`|`string`|-|The billing address of the Purchase Request to be used for Invoicing. The accepted value is the address code from BillTo record. If not supplied the API will use the policy's default BillTo address.
 `lineItems`|`array`|[`LineItem`](#schema-lineItem)|**Required**: Requested items or services related to this Purchase Request.
 
-#### <a name="schema-lineItem"></a>LineItem
+#### <a name="schema-line-item"></a>LineItem
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -298,13 +298,13 @@ Name|Type|Format|Description
 `purchaseOrders`|`array`|[`PurchaseOrders`](#schema-purchaseOrders)|If the purchase request has been approved and a purchase order generated, this array contains the purchase order details. If empty, this element will not be returned. 
 `purchaseRequestExceptions`|`array`|[`PurchaseRequestExceptions`](#schema-purchaseRequestExceptions)|An array of exceptions, if present on the purchase request. If empty, this element will not be returned.
 
-#### <a name="schema-purchaseOrders"></a>PurchaseOrders
+#### <a name="schema-purchase-orders"></a>PurchaseOrders
 
 Name|Type|Format|Description
 ---|---|---|---
 `purchaseOrderNumber`|`string`|-|The purchase order number.
 
-#### <a name="schema-purchaseRequestExceptions"></a>PurchaseRequestExceptions
+#### <a name="schema-purchase-request-exceptions"></a>PurchaseRequestExceptions
 
 Name|Type|Format|Description
 ---|---|---|---
