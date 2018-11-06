@@ -5,8 +5,8 @@ redirect_from:
   - /api-reference/invoice/purchase-request-endpoints.html
 ---
 
-* [Create a new purchase request](#post)
-* [Get details of purchase request](#get)
+* [Create a New Purchase Request](#post)
+* [Get Purchase Request Details](#get)
 * [Schema](#schema)
   * [Create Purchase Request Schema](#schema-create-purchase-request)
     * [LineItem](#schema-line-item)
@@ -15,7 +15,7 @@ redirect_from:
     * [PurchaseOrders](#schema-purchase-orders)
     * [PurchaseRequestExceptions](#schema-purchase-request-exceptions)
   * [Error](#schema-error)
-* [Error Codes when the HTTP Status Code is 4xx](#error-codes)
+* [Error Codes When the HTTP Status Code is 4xx](#error-codes)
 
 ## Version
 
@@ -151,7 +151,7 @@ ToDo: Show response headers
 }
 ```
 
-## <a name="get"></a>Get Details of a Purchase Request
+## <a name="get"></a>Get Purchase Request Details
 
 Gets purchase request details. The supported mode is COMPACT, which returns basic info about the purchase request along with any exceptions.
 
@@ -322,7 +322,7 @@ Name|Type|Format|Description
 `errorMessage`|`string`|-|A description of the error.
 `dataPath`|`string`|-|The path to the request data which has the error message.
 
-## <a name="error-codes"></a>Error Codes when the HTTP Status Code is 4xx
+## <a name="error-codes"></a>Error Codes When the HTTP Status Code is 4xx
 
 ErrorCode|Error Message
 ---|---
