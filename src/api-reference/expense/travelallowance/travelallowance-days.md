@@ -9,6 +9,7 @@ This Travel Allowance API fetches all the fixed allowance days in an expense rep
 > **Limitations**:
 This API is available only for Finland customers.
 
+* [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Access Token Usage](#access-token-usage)
@@ -16,6 +17,11 @@ This API is available only for Finland customers.
 * [Schema](#schema)
   * [Error](#schema-error)
 * [Definitions](#definitions)
+
+## <a name="process-flow"></a>Process Flow
+
+![Image of Process_Flow](https://raw.githubusercontent.com/UdayKumarNettem/Image/master/Process_Flow.png)
+
 
 ## <a name="products-editions"></a>Products and Editions
 
