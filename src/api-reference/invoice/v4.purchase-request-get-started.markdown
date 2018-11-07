@@ -5,7 +5,7 @@ redirect_from:
   - /api-reference/invoice/purchase-request.html
 ---
 
-The Purchase Request API gives SAP Concur clients the ability to leverage external data to create purchase requests for pre-authorization of purchase orders. Clients can build a direct connection to the Purchase Request API, which will create new purchase requests and automatically submit them into the pre-authorization workflow. Once approved, the purchase request results in a purchase order that can be transmitted to a Vendor from SAP Concur.
+The Purchase Request API gives SAP Concur clients the ability to leverage external data to create purchase requests for pre-authorization of purchase orders. Clients can build a direct connection to the Purchase Request API which will create new purchase requests and automatically submit them into the pre-authorization workflow. Once approved, the purchase request results in a purchase order that can be transmitted to a vendor from SAP Concur.
 
 #### Use Case
 
@@ -53,7 +53,7 @@ SAP Concur clients must purchase Concur Invoice, Concur Purchasing, and Concur W
 
 To create purchase requests, you need to supply a Vendor Code and Vendor Address Code. You can access **Vendor Manager** in Concur Invoice to see these values. If you need to get this data from SAP Concur using web services, you can use the [Vendor v3](/api-reference/invoice/v3.vendor.html) API.
 
-If your purchase request form in SAP Concur has required custom fields that are tied to lists, you will need to pass in the list item `Level1Code` value for these list items, or configure them to copy down from another source such as employee. You can access  **List Management** in Concur Invoice to see your list items and list item codes. If you need to get this data from SAP Concur using web services, you can use the [List Item v3](/api-reference/common/list-item/v3.list-item.html) API.
+If your purchase request form in SAP Concur has required custom fields that are tied to lists, you will need to supply the Item Code for the list items, or configure them to copy down from another source such as Employee. You can access  **List Management** in SAP Concur to see your list items and list item codes. If you need to get this data from SAP Concur using web services, you can use the [List Item v3](/api-reference/common/list-item/v3.list-item.html) API to retrieve the `Level1Code` value for the list items. 
 
 ### Access Token Usage
 
@@ -61,10 +61,10 @@ This API will work with both Company or User access tokens, however a Company ac
 
 #### Retrieve a Company Access Token
 
-Clients connecting to this API to build a custom integration will receive client credentials and information on how to generate your company `accesstoken` or company `refreshtoken` from the Concur Technical Enablement resource assigned to assist you with Authentication.  
+Clients connecting to this API to build a custom integration will receive client credentials and information on how to generate your Company access token or Company refresh token from your Concur Technical Enablement resource.
 
 #### Retrieve a User Access Token
 
-This API also supports User access tokens, however any purchase requests created using a User access token will only create/assign these requests to the user that generated the User access token. Before making requests to the Purchase Request API, you must [obtain an access token from the Authentication](/api-reference/authentication/getting-started.html) API.
+This API supports User access tokens, however any purchase requests created using a User access token will only create/assign these requests to the user that generated the User access token. Before making requests to the Purchase Request API, you must [obtain an access token from the Authentication](/api-reference/authentication/getting-started.html) API.
 
 The response will include an `access_token` field, which contains your access token. For subsequent calls, you will need to include this access token in the `Authorization` header of your calls. An `id_token` will be also included in the response. In order to retrieve the unique ID for your user, you will have to decode this `id_token` at [jwt.io](https://jwt.io/). You will need this ID in order to post Purchase Requests.
