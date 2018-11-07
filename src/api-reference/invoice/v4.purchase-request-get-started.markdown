@@ -5,7 +5,7 @@ redirect_from:
   - /api-reference/invoice/purchase-request.html
 ---
 
-The Purchase Request API gives SAP Concur clients the ability to leverage external data to create purchase requests for pre-authorization of purchase orders. Clients can build a direct connection where data can be fed to the Purchase Request API, which will create new purchase requests in Concur Invoice. These purchase requests are automatically submitted into the pre-authorization workflow. Once approved, the purchase request results in a purchase order that can be transmitted to a Vendor from SAP Concur.
+The Purchase Request API gives SAP Concur clients the ability to leverage external data to create purchase requests for pre-authorization of purchase orders. Clients can build a direct connection to the Purchase Request API, which will create new purchase requests and automatically submit them into the pre-authorization workflow. Once approved, the purchase request results in a purchase order that can be transmitted to a Vendor from SAP Concur.
 
 SAP Concur clients must purchase Concur Invoice, Concur Purchasing, and Concur Web Services in order to use this API. 
 
