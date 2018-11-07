@@ -1,0 +1,136 @@
+---
+title: Image v1
+layout: reference
+redirect_from:
+  - /api-reference-deprecated/version-one/Image/image-resource-entry-image-URL-get.html
+  - /api-reference-deprecated/version-one/Image/image-resource-post.html
+  - /api-reference-deprecated/version-one/Image/image-resource.html
+  - /api-reference-deprecated/version-one/Image/image-url-resource.html
+  - /api-reference-deprecated/version-one/Image/index.html
+  - /api-reference-deprecated/version-one/Image/payment-request-image-URL-get.html
+  - /api-reference-deprecated/version-one/Image/receipt-image-URL-get.html
+  - /api-reference-deprecated/version-one/Image/report-image-URL-get.html
+---
+
+{% capture deprecation_content %}
+
+[Image v3](./v3.image.html) replaces this API.
+
+{% endcapture %}
+
+{% include deprecation-alert.html content=deprecation_content %}
+
+The Concur Imaging Web service allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.
+
+The Imaging web service supports the following image formats:
+
+* `application/pdf` which have not been encrypted or password protected.
+* `image/jpg`
+* `image/jpeg`
+* `image/png`
+
+The maximum file size allowed is 10 MB.
+
+## <a name="post-receipt-image"></a>Post a receipt image
+
+Uploads a receipt image and associates it with the OAuth consumer. The user can view the image in the receipt management section of Concur. To post images, pass in the image binary data as a byte array.
+
+### Request
+
+#### URI
+
+##### Template
+
+```shell
+https://www.concursolutions.com/api/image/v1.0/receipt
+```
+
+##### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`receipt`|`string`|-|**Required** Keyword specifying this is a receipt image.
+
+#### Headers
+
+Delete unused headers
+
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
+* [RFC 7231 Content-Language](https://tools.ietf.org/html/rfc7231#section-3.1.3.2)
+* [RFC 7231 Content-Location](https://tools.ietf.org/html/rfc7231#section-3.1.4.2)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7233 Content-Range](https://tools.ietf.org/html/rfc7233#section-4.2)
+* [RFC 7230 Trailer](https://tools.ietf.org/html/rfc7230#section-4.4)
+* [RFC 7230 Transfer-Encoding](https://tools.ietf.org/html/rfc7230#section-3.3.1)
+* [RFC 7234 Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2)
+* [RFC 7231 Expect](https://tools.ietf.org/html/rfc7231#section-5.1.1)
+* [RFC 7230 Host](https://tools.ietf.org/html/rfc7230#section-5.4)
+* [RFC 7231 Max-Forwards](https://tools.ietf.org/html/rfc7231#section-5.1.2)
+* [RFC 7234 Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)
+* [RFC 7233 Range](https://tools.ietf.org/html/rfc7233#section-3.1)
+* [RFC 7230 TE](https://tools.ietf.org/html/rfc7230#section-4.3)
+* [RFC 7232 If-Match](https://tools.ietf.org/html/rfc7232#section-3.1)
+* [RFC 7232 If-None-Match](https://tools.ietf.org/html/rfc7232#section-3.2)
+* [RFC 7232 If-Modified-Since](https://tools.ietf.org/html/rfc7232#section-3.3)
+* [RFC 7232 If-Unmodified-Since](https://tools.ietf.org/html/rfc7232#section-3.4)
+* [RFC 7232 If-Range](https://tools.ietf.org/html/rfc7232#section-3.5)
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
+* [RFC 7231 Accept-Charset](https://tools.ietf.org/html/rfc7231#section-5.3.3)
+* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
+* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* [RFC 7235 Proxy-Authorization](https://tools.ietf.org/html/rfc7235#section-4.4)
+* [RFC 7231 From](https://tools.ietf.org/html/rfc7231#section-5.5.1)
+* [RFC 7231 Referer](https://tools.ietf.org/html/rfc7231#section-5.5.2)
+* [RFC 7231 User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3)
+
+#### Payload
+
+* [Schema One](#schema-one)
+
+
+
+
+
+
+
+
+
+
+
+
+
+## <a name="get-image-url"></a>Get an image URL
+
+
+
+
+
+
+
+## C# Code Example
+
+```csharp
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+request.Method = "POST";
+request.ContentType = "application/pdf";
+request.Headers.Add("Authorization", signature);
+.
+.
+.
+using (FileStream fs = new FileStream(pathToImageFile, FileMode.Open, FileAccess.Read))
+{
+	using (BinaryReader br = new BinaryReader(fs))
+	{
+		byte[] image = br.ReadBytes((int)fs.Length);
+		request.ContentLength = image.Length;
+
+		Stream ds = request.GetRequestStream();
+		ds.Write(image, 0, image.Length);
+		ds.Close();
+	}
+}
+
+HttpWebResponse webresponse = request.GetResponse();
+```
