@@ -1,5 +1,5 @@
 ---
-title: Ground Transportation Direct Connect 
+title: Ground Transportation Direct Connect
 layout: reference
 ---
 
@@ -20,7 +20,7 @@ This callout differs from the inbound Concur web services in the following ways:
 
 ## Configuration
 
-### Works With These Concur Products 
+### Works With These Concur Products
 * **Travel** for Concur Professional/Premium
 * **Travel** for Concur Standard
 
@@ -30,7 +30,7 @@ This direct connect is only available to Travel Suppliers with Ground Transporta
 
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the <a href="http://forum.developer.concur.com/" target="_blank">developer forums</a> if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the review process.
 
 ### Configuration process
 
@@ -93,7 +93,7 @@ TUR ZM AK1  SEA 15DEC-/FALCON DES-TEL 8666932526/RATE-50.00 HOURLY-2 HR MIN/CON
 **Amadeus:**  
 2 MIS 1A HK1 LGA 13SEP-LMO CAPITAL LIMOUSINE/TEL-800 225 1656/RATE-USD24.00 FLAT/CONF-132625/PICKUP-55 WALL STREET NEW YORK NY 10005 AT 0530/DROPOFF- LGA AIRPORT AT 0600/RID-132625760
 
-  
+
 
 [4]: /api-reference/direct-connects/ground-transportation/cancel-reservation.html
 [5]: /api-reference/direct-connects/ground-transportation/post-reservation-detail-search.html

@@ -56,7 +56,7 @@ TripLink suppliers, travel management companies (TMCs), and SAP Concur partners 
 ### Third-Party Developers
 
 * Request trip information for SAP Concur users.
-* Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][4] if you have questions about the configuration settings.
+* Partner developers must determine which configurations are required for their solution prior to the review process.
 
 If you are a TMC or a SAP Concur partner developer who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Partner Enablement Team. SAP Concur products are highly configurable, and not all clients will have access to all features.
 
@@ -81,7 +81,7 @@ The travel supplier can request or send travel bookings by using an OAuth token 
 
 * If you are a TMC, third-party developer, or a TripLink supplier who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Partner Enablement Team.
 * SAP Concur products are highly configurable, and not all SAP Concur clients will have access to all features.
-* Partner developers must determine which configurations are required for their solution prior to the review process. Use the <a href="http://forum.developer.concur.com/" target="_blank">Developer Forum</a> if you have questions about the configuration settings.
+* Partner developers must determine which configurations are required for their solution prior to the review process.
 
 ## FAQs
 
@@ -1821,7 +1821,6 @@ SAP Concur converts local date/time to UTC.  In order to do that we need to be a
 [1]: https://en.wikipedia.org/wiki/ISO_4217
 [2]: https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A
 [3]: https://www.concur.com/en-us/connect-platform/suppliers
-[4]: https://forum.developer.concur.com/
 [5]: https://developer.concur.com/api-reference/travel/itinerary/itinerary.html#car_vendor_codes
 [6]: https://developer.concur.com/api-reference/travel/itinerary-tmc-thirdparty/#objects
 [9]: Itinerarywebserviceoverview.png
