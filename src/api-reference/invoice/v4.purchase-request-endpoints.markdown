@@ -79,7 +79,7 @@ None
 
 #### Request
 
-This is a sample set of fields. The fields and values  your entity requires will vary based on your edition of Concur Invoice, and your forms and fields configuration. This example includes commonly used fields.
+This is a sample set of fields. The fields and values your entity requires will vary based on your edition of Concur Invoice, and your forms and fields configuration. This example includes commonly used fields.
 
 ```shell
 POST /purchaserequest/v4/purchaserequests
