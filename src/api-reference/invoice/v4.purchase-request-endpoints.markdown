@@ -297,7 +297,7 @@ Name|Type|Format|Description
 `shipping`|`decimal`|-|The total shipping cost for the item.
 `tax`|`decimal`|-|Tax amount that is associated with the line item.
 `supplierPartId`|`string`|-|An Id value that helps to identify the line item. This could be a value such as the vendor’s part number or the manufacturer number.
-`url`|`array`|-|A URL related to the item. You can have multiple URLs per item.
+`url`|`array`|-|A URL related to the item. You can have multiple URLs per item, enclosed in quotes and comma separated.
 `notesToVendor`|`string`|-|Notes related to the item that display on the transmitted purchase order PDF to the vendor.
 `comments`|`string`|-|Internal comments related to this record.
 `custom1 through custom20`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the List Item Code configured for the list in SAP Concur.
