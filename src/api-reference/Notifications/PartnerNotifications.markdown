@@ -20,7 +20,7 @@ The purpose of this API is to provide SAP Concur's partners the ability to messa
 
 ## <a name="process-flow"></a>Process Flow
 
-![ey](src/api-reference/Notifications/ey.png)
+![ey](./ey.png)
 
 ## <a name="products-editions"></a>Products and Editions
 
