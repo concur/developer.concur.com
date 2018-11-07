@@ -22,7 +22,7 @@ This API is not available in the China Data center. This API is only available f
 - [Access Token  Usage](#access-token-usage)
     - [Retrieve a Company Access Token](#retrieve-a-company-access-token)
     - [Retrieve a User Access Token](#retrieve-a-user-access-token)
-- [Purchase Request API endpoints](./v4.purchase-request-endpoints.html)
+- [Purchase Request API Endpoints](./v4.purchase-request-endpoints.html)
 
 
 ### Regional Availability
