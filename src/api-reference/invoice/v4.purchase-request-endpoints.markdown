@@ -45,8 +45,8 @@ None
 
 #### Headers
 
-* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5) - Bearer Token that identifies the caller. This is the company or user access token
-* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - `application/json`
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
 * `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
 
 #### Payload
@@ -57,11 +57,19 @@ None
 
 #### Status Codes
 
-ToDo: Pull from documentation template.
+* [202 Accepted](https://tools.ietf.org/html/rfc7231#section-6.3.3)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [401 Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+* [503 Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)
 
 #### Headers
 
-ToDo: Pull from documentation template.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7231 Server](https://tools.ietf.org/html/rfc7231#section-7.4.2)
 
 #### Payload
 
@@ -141,7 +149,11 @@ Content-Type: application/json
 #### Response
 
 ```shell
-ToDo: Show response headers
+HTTP/1.1 202 Accepted
+Content-Type: application/json
+Date: date-requested
+Content-Length: 1000
+concur-correlationid: 1234abcd-12ab-34cd-56ef-123456abcdef
 ```
 
 ```json
@@ -177,8 +189,8 @@ Name|Type|Format|Description
 
 #### Headers
 
-* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5) - Bearer Token that identifies the caller. This is the company or user access token
-* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - `application/json`
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company or User access token.
 * `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
 
 #### Payload
@@ -189,11 +201,18 @@ None
 
 #### Status Codes
 
-ToDo: Pull from documentation template.
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [404 Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+* [503 Service Unavailable](https://tools.ietf.org/html/rfc7231#section-6.6.4)
 
 #### Headers
 
-ToDo: Pull from documentation template.
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
+* [RFC 7231 Date](https://tools.ietf.org/html/rfc7231#section-7.1.1.2)
+* [RFC 7231 Server](https://tools.ietf.org/html/rfc7231#section-7.4.2)
 
 #### Payload
 
@@ -212,7 +231,11 @@ Content-Type: application/json
 #### Response
 
 ```shell
-ToDo: Show response headers
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: date-requested
+Content-Length: 1000
+concur-correlationid: 1234abcd-12ab-34cd-56ef-123456abcdef
 ```
 
 ```json
@@ -248,13 +271,13 @@ Name|Type|Format|Description
 `userEmail`|`string`|-|**Required**: The employee that is requesting the items. This is the employee's email. Either `UserId` or `UserEmail` or `UserLoginId` is required to identify the employee.
 `userLoginId`|`string`|-|**Required**: The employee that is requesting the items. This is the employee's Login Id. Either `UserId` or `UserEmail` or `UserLoginId` is required to identify the employee.
 `description`|`string`|-|A description of the purchase request.
-`policyExternalId`|`string`|-|The external identifier of the policy that should be associated with the purchase order. If not supplied, the API will use the default policy set up for the user group assigned to the requesting employee. This is the **external Id** from the Invoice Policy configuration. Clients will need to get these Ids from their SAP Concur contact if they need to assign policies other than the group default.
-`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase order. This code will be used for all items on this request. Example: USD
-`notesToSupplier`|`string`|-|Notes to print on the transmitted purchase order PDF sent to your supplier.
-`comments`|`string`|-|Internal comments you want to record related to this record.
-`custom1 through custom24`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the List Item Code configured for the list in SAP Concur.
+`policyExternalId`|`string`|-|The external identifier of the policy that should be associated with the purchase request. If not supplied, the API will use the default policy set up for the user group assigned to the requesting employee. This is the **External Id** from the Invoice Policy configuration. Clients will need to get these Ids from their SAP Concur contact if they need to assign policies other than the group default.
+`currencyCode`|`string`|-|**Required**: The 3-letter ISO 4217 currency code of the currency that is associated with the purchase request. This code will be used for all items on this request. Example: USD
+`notesToSupplier`|`string`|-|Notes to print on the transmitted purchase order PDF sent to the supplier.
+`comments`|`string`|-|Internal comments related to this record.
+`custom1 through custom24`|`string`|-|Each custom field used should have its own row in the message. If the field is tied to a connected list, the accepted value is the list Item Code configured for the list in SAP Concur.
 `shipToAddressCode`|`string`|-|The shipping address of the Purchase Request. The accepted value is the address code from ShipTo record. If not supplied, the API will use the requesting user's default shipping address.
-`billToAddressCode`|`string`|-|The billing address of the Purchase Request to be used for Invoicing. The accepted value is the address code from BillTo record. If not supplied the API will use the policy's default BillTo address.
+`billToAddressCode`|`string`|-|The billing address of the Purchase Request to be used for invoicing. The accepted value is the address code from the BillTo record. If not supplied the API will use the policy's default BillTo address.
 `lineItems`|`array`|[`LineItem`](#schema-lineItem)|**Required**: Requested items or services related to this Purchase Request.
 
 #### <a name="schema-line-item"></a>LineItem
@@ -262,14 +285,14 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `purchaseType`|`string`|-|**Required**: The type of item, either goods or services. Displayed as **Type** in Concur Invoice. Supported values: GOODS, SERVICES. 
-`vendorCode`|`string`|-|**Required**: The code that identifies the Vendor. This value can be found in the vendor information form of Vendor Manager. This is used along with `Vendor Address Code` to determine the specific Vendor record.
+`vendorCode`|`string`|-|**Required**: The code that identifies the vendor. This value can be found in the vendor information form of Vendor Manager. This is used along with `Vendor Address Code` to determine the specific Vendor record.
 `vendorAddressCode`|`string`|-|**Required**: The code that identifies the vendor's address. This value can be found in the vendor information form of Vendor Manager and is labeled **Address Accounting Code**. This is used along with `Vendor Code` to determine the specific Vendor record.
 `description`|`string`|-|**Required**: A description of the line item.
 `quantity`|`decimal`|-|**Required**: The quantity associated with the line item.
 `unitPrice`|`decimal`|-|**Required**: The unit price of the line item.
-`expenseType`|`string`|-|The PET code of the Expense Type that will be assigned to the line item. If not supplied it will default to the Expense Type set up on the Vendor Profile used for the Item. Clients will need to get these PET codes from their SAP Concur contact.
-`receiptType`|`string`|-| The type of receipt. If not supplied, the API will use the `purchaseType` to set this field to NONE for SERVICES, or QUANTITY_RECEIPT for GOODS items. If you are using SAP Concur Receiving and need to enter Goods Receipts against the resulting PO lines use QUANTITY_RECEIPT. Supported values: QUANTITY_RECEIPT, NONE.
-`neededByDate`|`date`|-|The date by which the purchase order must be fulfilled. Format: YYYY-MM-DD.
+`expenseType`|`string`|-|The PET code of the Expense Type that will be assigned to the line item. If not supplied it will default to the Expense Type set up on the Vendor Profile used for the item. Clients will need to get these PET codes from their SAP Concur contact.
+`receiptType`|`string`|-| The type of receipt. If not supplied, the API will use the `purchaseType` to set this field to NONE for SERVICES, or QUANTITY_RECEIPT for GOODS. If you are using SAP Concur Receiving and need to enter Goods Receipts against the resulting PO lines use QUANTITY_RECEIPT. Supported values: QUANTITY_RECEIPT, NONE.
+`neededByDate`|`date`|YYYY-MM-DD|The date by which the purchase order must be fulfilled. Example: 2018-03-23
 `uoMCode`|`string`|-|Unit of Measure (UOM) code for the purchase request item. Accepted values are the UOM Codes set up in the Unit of Measure configuration in Concur Invoice. If not supplied, the API will default a UOM based on the defaults for goods and services.
 `shipping`|`decimal`|-|The total shipping cost for the item.
 `tax`|`decimal`|-|Tax amount that is associated with the line item.
@@ -312,13 +335,13 @@ Name|Type|Format|Description
 `exceptionCode`|`string`|-|The unique exception code.
 `isCleared`|`boolean`|-|Whether the exception has been cleared.
 `prExceptionId`|`string`|-|The unique exception id of the purchase request.
-`message`|`string`|-|The actual message of the exception with details.
+`message`|`string`|-|The message of the exception with details.
 
 ### <a name="schema-error"></a>Error
 
 Name|Type|Format|Description
 ---|---|---|---
-`errorCode`|`string`|-|An error code indicating why a field had failed validation.
+`errorCode`|`string`|-|An error code indicating why a field failed validation.
 `errorMessage`|`string`|-|A description of the error.
 `dataPath`|`string`|-|The path to the request data which has the error message.
 
@@ -334,8 +357,6 @@ provideOneUserInformation|Either `userID` or `userEmail` or `userLoginId` is req
 missingCurrencyCode|`currencyCode` is missing.
 invalidCurrencyCode|`currencyCode` is invalid.
 invalidPolicyInformation|Cannot find a purchase order policy with the supplied `policyExternalId`.
-missingPolicyInformation|The external identifier of the policy that should be associated with the purchase order. The external ID is a property of the policy configuration screen. Clients will need to get these ID's from the Implementation team.
-listCodeNotfound|Cannot find the supplied List code.
 missingLineItems|`lineItems` are missing.
 invalidPurchaseType|`purchaseType` is invalid.
 missingPurchaseType|`purchaseType` is required.
@@ -347,4 +368,4 @@ missingQuantity|Line item `quantity` is required.
 invalidQuantity|Line item `quantity` is invalid.
 missingUnitPrice|`unitPrice` is required.
 invalidUnitPrice|`unitPrice` is invalid.
-invalidDateFormat|Expected a date in the format YYYY-MM-DD. Example: 2018-03-23
+invalidDateFormat|Expected a date in the format YYYY-MM-DD.
