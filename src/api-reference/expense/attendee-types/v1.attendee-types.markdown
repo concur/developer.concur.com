@@ -40,7 +40,7 @@ None.
 ### Response
 
 * [HTTP Status Codes](/tools-support/reference/http-codes.html)
-* [Attendee List Errors](/api-reference-deprecated/version-two/attendees/index.html)
+* [Attendees v2](/api-reference/expense/attendees/v2.attendees.html)
 
 #### Payload
 
@@ -82,5 +82,5 @@ Content-Type: application/xml
 
 ## Related
 
-* [Attendee v2](/api-reference-deprecated/version-two/attendees/attendee-resource.html)
-* [Attendee List v1](/api-reference-deprecated/version-one/attendees/attendee-list-resource.html)
+* [Attendees v2](/api-reference/expense/attendees/v2.attendees.html)
+* [Attendees v1](/api-reference/expense/attendees/v1.attendees.html)
