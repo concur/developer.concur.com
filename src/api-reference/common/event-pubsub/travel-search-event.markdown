@@ -107,7 +107,7 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `companyId`|`String`|GUID|Uniquely identifies the company of the traveler.
-`userId`|`String`|GUID|Uniquely identifies the user performing the search. <br> *NOTES:* </br>In cases where the individual is booking on behalf of a guest, this is the user performing the search (e.g. the arranger).  Unlike Air, Hotel will not return arranger information.
+`userId`|`String`|GUID|Uniquely identifies the user performing the search. <br> *NOTES:* </br>In cases where the individual is booking on behalf of a guest, a traveler without a Concur Travel profile, this is the user performing the search (e.g. the arranger).  In cases where the individual is booking on behalf of a traveler that does have a Concur profile (e.g. an arranger), this will be the arranger's ID and not the traveler.
 `refPointLatitude`|`Number`|Double | Search location, latitude.
 `refPointLongitude`|`Number`|Double | Search location, longitude.
 `refPointName`|`String`|-|Reference point location name.
