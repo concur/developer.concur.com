@@ -1,5 +1,5 @@
 ---
-title: List Item Web Service 
+title: List Item Web Service
 layout: reference
 ---
 
@@ -19,7 +19,7 @@ The Concur List Item web service provides an automated solution to clients who w
 ## Product Restrictions
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum](http://forum.developer.concur.com/){:target="_blank"} if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the review process.
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
@@ -80,4 +80,3 @@ To change a list item's level code, the original list item must be deleted (usin
 
 [3]: /api-reference-deprecated/version-one/list-item/list-resource.html
 [4]: /tools-support/reference/custom-list-items.html
-

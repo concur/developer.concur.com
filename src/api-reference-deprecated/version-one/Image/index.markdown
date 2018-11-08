@@ -1,5 +1,5 @@
 ---
-title: Imaging Web Service 
+title: Imaging Web Service
 layout: reference
 ---
 
@@ -9,7 +9,7 @@ The Concur Imaging Web service allows clients to manage the receipt images attac
 ## Product Restrictions
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum](http://forum.developer.concur.com/){:target="_blank"} if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the review process.
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
@@ -70,4 +70,3 @@ Version 1.0 documentation includes the data model and example requests and respo
 [3]: /api-reference/image/index.html
 [4]: /api-reference-deprecated/version-one/Image/image-resource.html
 [5]: /api-reference-deprecated/version-one/Image/image-url-resource.html
-

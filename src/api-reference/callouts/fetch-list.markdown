@@ -1,5 +1,5 @@
 ---
-title: Fetch List Callout 
+title: Fetch List Callout
 layout: reference
 ---
 
@@ -19,7 +19,7 @@ This callout differs from the inbound Concur web services in the following ways:
 ## Product Restrictions
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum][2] if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the review process.
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
@@ -63,11 +63,5 @@ Expense must have a list field configured to use an external source before this 
 
 Refer to the [HTTP Codes][4] page for details of the common responses and errors.
 
-  
-
-
-
-
-[2]: http://forum.developer.concur.com/
 [3]: /api-reference/callouts/post-list-search-request.html
 [4]: /tools-support/reference/http-codes.html

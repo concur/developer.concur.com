@@ -243,6 +243,3 @@ Content-Type: application/xml
     </Bookings>
 </Itinerary>
 ```
-
-#### Make us better at making your experience easier.
-Share a Concur API process issue we can do better. Provide us with an explanation, screen shots and your recommendation [here](http://forum.developer.concur.com/).
