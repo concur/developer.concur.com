@@ -2,13 +2,8 @@
   url: /api-reference-deprecated/
 - title: Pre-2017 Authorization
   url: /api-reference/authentication/authorization-pre-2017.html
-- title: v1.0 - Attendees
-  url: ''
-  children:
-      - title: Attendee List Resource
-        url: /api-reference-deprecated/version-one/attendees/attendee-list-resource.html
-      - title: Attendee List Resource Post
-        url: /api-reference-deprecated/version-one/attendees/attendee-list-resource-post.html
+- title: Attendees v1
+  url: /api-reference/expense/attendees/v1.attendees.html
 - title: v1.0 - Attendee Types
   url: /api-reference/expense/attendee-types/v1.attendee-types.html
 - title: v1.0 - Imaging Web Service
@@ -63,7 +58,7 @@
   url: ''
   children:
       - title: POST Expense Entry Attendees
-        url: /api-reference-deprecated/version-one-one/expense-entry-attendee/expense-entry-attendee-resource-post.html
+        url: /api-reference/expense/attendees/v1dot1.attendees.html
       - title: POST Expense Entry Itemization
         url: /api-reference-deprecated/version-one-one/expense-entry-itemization/expense-entry-itemization-resource-post.html
       - title: Expense Entry Itemization
@@ -96,15 +91,8 @@
         url: /api-reference-deprecated/version-one-one/expense-report/location-resource.html
       - title: Get a list of locations
         url: /api-reference-deprecated/version-one-one/expense-report/location-resource-get.html
-- title: v2.0 - Attendee Web Service
-  url: ''
-  children:
-      - title: Attendee Web Service
-        url: /api-reference-deprecated/version-two/attendees/
-      - title: Attendee Resource
-        url: /api-reference-deprecated/version-two/attendees/attendee-resource.html
-      - title: Get attendees
-        url: /api-reference-deprecated/version-two/attendees/attendee-resource-get.html
+- title: Attendees v2
+  url: /api-reference/expense/attendees/v2.attendees.html
 - title: v2.0 - Expense Entry Attendee
   url: ''
   children:
