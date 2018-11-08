@@ -32,7 +32,7 @@ The following application programming interfaces (APIs) have been deprecated acc
 * Expense Report v2
   * [Expense Report Resource](/api-reference-deprecated/version-two/expense-reports/expense-report-resource.html)
   * [GET List of Reports](/api-reference-deprecated/version-two/expense-reports/get-list-of-reports.html)
-* [Imaging v1](/api-reference/image/v1.image.markdown)
+* [Imaging v1](/api-reference/image/v1.image.html)
 * List Item Web Service v1
   * [List Item Web Service](/api-reference-deprecated/version-one/list-item/)
   * [List Resource](/api-reference-deprecated/version-one/list-item/list-resource.html)
