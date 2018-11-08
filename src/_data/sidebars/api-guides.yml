@@ -9,6 +9,11 @@
         url: /api-guides/attendees/external-attendees-to-expense-entries.html
 - title: eReceipts Integration
   url: /api-guides/e-receipts.html
+- title: Invoice
+  url: ''
+  children:
+      - title: Payment Provider Integration - paying customers' invoices
+        url: /api-guides/invoice/payment-provider-integration.html
 - title: Travel
   url: ''
   children:

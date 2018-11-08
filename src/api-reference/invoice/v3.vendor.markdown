@@ -1,6 +1,7 @@
 ---
 title: Vendor v3
 layout: reference
+  - /api-reference/invoice/vendor.html
 ---
 
 * [Retrieve an existing vendor](#get)
