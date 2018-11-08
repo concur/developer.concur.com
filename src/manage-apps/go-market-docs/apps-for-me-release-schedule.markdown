@@ -33,4 +33,4 @@ August 18th, 2018|July 28th, 2018
 September 15th, 2018|August 25th, 2018
 October 13th, 2018|September 22nd, 2018
 November 10th, 2018|October 20th, 2018
-December 8th, 2017|November 17th, 2018
+December 8th, 2018|November 17th, 2018
