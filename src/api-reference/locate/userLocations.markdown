@@ -98,7 +98,7 @@ firstName|100|String| **Required** The first name of the user.
 lastName|100|String|**Required** The last name of the user.
 email|255|String|**Either email or concurLoginId must be provided**
 employeeId|19|String|Optional field to indicate the employee id of the user
-mobileCountryCode|3|String|ISO Alpha-2 code. As a reference the full set can be found at [Country Codes](http://www.mcc-mnc.com/) 
+mobileCountryCode|3|String|ISO Alpha-2 code. As a reference the full set can be found at [Country Codes](http://www.mcc-mnc.com/). This field is required in the structure but can be empty
 mobile|10|String|The contact number of the user
 optedIn|'True' / 'False'|String|Indicates if the user has chosen to receive messages via SMS or Text
 concurLoginId|128|String|**Either email or concurLoginId must be provided**
