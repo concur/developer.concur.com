@@ -107,7 +107,7 @@ Name|Type|Format|Description
 Name|Type|Format|Description
 ---|---|---|---
 `companyId`|`String`|GUID|Uniquely identifies the company of the traveler.
-`userId`|`String`|GUID|Uniquely identifies the user performing the search. <br>*NOTES:* In cases where the individual is booking on behalf of a guest, this is the user performing the search (e.g. the arranger).</br><br>Unlike Air, Hotel will not return arranger information.</br>
+`userId`|`String`|GUID|Uniquely identifies the user performing the search. <br> *NOTES:* </br>In cases where the individual is booking on behalf of a guest, this is the user performing the search (e.g. the arranger).  Unlike Air, Hotel will not return arranger information.
 `refPointLatitude`|`Number`|Double | Search location, latitude.
 `refPointLongitude`|`Number`|Double | Search location, longitude.
 `refPointName`|`String`|-|Reference point location name.
