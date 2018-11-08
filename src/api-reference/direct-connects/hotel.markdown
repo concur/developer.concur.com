@@ -26,7 +26,7 @@ This direct connect is only available to Travel Suppliers with Hotel inventory. 
 
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the application review process. Use the <a href="https://forum.developer.concur.com/" target="_blank">developer forum</a> if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the application review process.
 
 ## Hotel Process Overview
 The configuration process has the following steps:
