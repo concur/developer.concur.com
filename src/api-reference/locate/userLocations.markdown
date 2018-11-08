@@ -129,7 +129,7 @@ This information will be provided to you along with your client ID and secret.
 
 Property Name|Values/Length|Type|Description
 ---|---|---|---
-Id|2|String|**Required**
+Id|2|String|**Required** This will provide to clients similar to the Client ID
 name|100|String|The name of the source provider e.g Source Provider1
 description|100|String|A short description of the source provider
 
