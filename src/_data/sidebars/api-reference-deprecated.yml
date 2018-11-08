@@ -7,24 +7,7 @@
 - title: v1.0 - Attendee Types
   url: /api-reference/expense/attendee-types/v1.attendee-types.html
 - title: v1.0 - Imaging Web Service
-  url: ''
-  children:
-      - title: Imaging Web Service
-        url: /api-reference-deprecated/version-one/Image/
-      - title: Image Resource
-        url: /api-reference-deprecated/version-one/Image/image-resource.html
-      - title: Get an entry image URL
-        url: /api-reference-deprecated/version-one/Image/image-resource-entry-image-URL-get.html
-      - title: Post image data
-        url: /api-reference-deprecated/version-one/Image/image-resource-post.html
-      - title: Image URL Resource
-        url: /api-reference-deprecated/version-one/Image/image-url-resource.html
-      - title: Get a payment request image URL
-        url: /api-reference-deprecated/version-one/Image/payment-request-image-URL-get.html
-      - title: Get a receipt image URL
-        url: /api-reference-deprecated/version-one/Image/receipt-image-URL-get.html
-      - title: Get a report image URL
-        url: /api-reference-deprecated/version-one/Image/report-image-URL-get.html
+  url: '/api-reference/image/v1.image.html'
 - title: v1.0 - List Item Web Service
   url: ''
   children:

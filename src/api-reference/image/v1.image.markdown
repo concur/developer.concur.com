@@ -20,6 +20,9 @@ redirect_from:
 
 {% include deprecation-alert.html content=deprecation_content %}
 
+* [Post an image](#post-image)
+* [Get an image URL](#get-image-url)
+
 The Concur Imaging Web service allows clients to manage the receipt images attached to expense reports and the images attached to invoices. Clients can retrieve existing images by reportID, image ID, or invoiceID, and upload new images to a user, expense entry, report, or invoice.
 
 The Imaging web service supports the following image formats:
@@ -30,6 +33,14 @@ The Imaging web service supports the following image formats:
 * `image/png`
 
 The maximum file size allowed is 10 MB.
+
+## Product Restrictions
+
+Concur products are highly configurable, and not all clients will have access to all features.
+
+Partner developers must determine which configurations are required for their solution prior to the review process.
+
+Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
 ## <a name="post-image"></a>Post an image
 
@@ -53,7 +64,7 @@ https://www.concursolutions.com/api/image/v1.0/report/{reportId}
 Name|Type|Format|Description
 ---|---|---|---
 `receipt`|`string`|-|Uploads a receipt image and associates it with the OAuth consumer. The user can view the image in the receipt management section of Concur.
-`expenseentry/{entryID}`|`string`|Uploads a receipt image and associates it with the expense entry that matches the supplied entry ID. Once an image is attached to the entry, you cannot append additional images.
+`expenseentry/{entryID}`|`string`|-|Uploads a receipt image and associates it with the expense entry that matches the supplied entry ID. Once an image is attached to the entry, you cannot append additional images.
 `invoice/{requestID}`|`string`|-|Uploads an invoice image and associates it with the invoice that matches the supplied request ID. Each invoice is uniquely identified by the request ID value. Once an image is attached to the invoice, you cannot append additional images. The Concur Invoice product is required to use this endpoint. Currently you must use the Invoice user interface to get the Request ID value.
 `report/{reportID}`|`string`|-|Uploads a receipt image and associates it with the report that matches the supplied report ID. If a report image already exists for the report, the new image will be appended to the existing image.
 
@@ -123,12 +134,88 @@ Content-Type: application/xml
 </Image>
 ```
 
+## <a name="get-image-url"></a>Get an image URL
 
+Retrieves a URL to the following images:
 
+* Receipt
+* Expense entry
+* Invoice
+* Expense Report (PDF)
+  * If receipts have been uploaded to specific expense entries, they will all be bundled into one PDF at the report level.
 
+The URL is valid for 30 minutes after the request.
 
+### Request
 
+#### URI
 
+##### Template
+
+```shell
+https://www.concursolutions.com/api/image/v1.0/receipt/{imageId}
+https://www.concursolutions.com/api/image/v1.0/expenseentry/{entryId}
+https://www.concursolutions.com/api/image/v1.0/invoice/{requestId}
+https://www.concursolutions.com/api/image/v1.0/report/{imageId}
+```
+
+##### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`receipt/{imageId}`|`string`|-|The {keyword}/{identifier} for the desired receipt.
+`expenseentry/{entryID}`|`string`|-|The {keyword}/{identifier} for the desired expense entry. The entryId is returned in the `RpeKey` within `ExpenseEntry` portion of the response from the [Get Report Details v1.1](/api-reference-deprecated/version-one-one/expense-report/get-report-full-details.html) API.
+`invoice/{requestID}`|`string`|-|The {keyword}/{identifier} for the desired payment request. The Concur Invoice product is required to use this endpoint. Currently you must use the Invoice user interface to get the Request ID value.
+`report/{imageId}`|`string`|-|The {keyword}/{identifier} for the desired report.
+
+#### Headers
+
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) containing an OAuth token for a valid Concur user. The OAuth consumer must be the owner of the report to which the image is attached.
+* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2): `application/xml`
+
+#### Payload
+
+None
+
+### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+
+#### Headers
+
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5): `application/xml`
+
+#### Payload
+
+* [Image](#schema-image)
+
+### Example
+
+#### Request
+
+> This example demonstrates one of the endpoints available.
+
+```shell
+GET /api/image/v1.0/expenseentry/A2C40CEE415B43B2A0BE
+Authorization: OAuth {token}
+Accept: application/xml
+```
+
+#### Response
+
+```shell
+200 OK
+Content-Type: application/xml
+```
+
+```xml
+<Image xmlns="http://www.concursolutions.com/api/image/2011/02" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>A2C40CEE415B43B2A0BE</Id>
+  <Url>https://api.example.com/getImage?cid=able999999&amp;val=F9B35244G86</Url>
+</Image>
+```
 
 ## <a name="schema"></a>Schema
 
@@ -139,33 +226,18 @@ The Image schema provides metadata about an image within the system.
 Name|Type|Format|Description
 ---|---|---|---
 `Id`|`string`|-|The unique identifier of the image.
-`Url`|`string`|-|The URL for the image. This element is empty when uploading images.
-
-
-
-
-
-
-
-
-## <a name="get-image-url"></a>Get an image URL
-
-
-
-
-
-
+`Url`|`string`|-|The URL for the image. Note that special characters will be XML-encoded. You will need to unencode any special characters before using the link. This element is empty when uploading images.
 
 ## C# Code Example
+
+The following example in C# illustrates how to read the source image file as an array of bytes and pass that data into the request.
 
 ```csharp
 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 request.Method = "POST";
 request.ContentType = "application/pdf";
 request.Headers.Add("Authorization", signature);
-.
-.
-.
+
 using (FileStream fs = new FileStream(pathToImageFile, FileMode.Open, FileAccess.Read))
 {
 	using (BinaryReader br = new BinaryReader(fs))
