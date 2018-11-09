@@ -157,14 +157,14 @@ Content-Length: 1270
   "content": [
     {
       "ExpenseTypeCode": "MEALS",
-      "FullAllowanceDay": "N",
+      "FullAllowanceDay": "True",
       "AllowanceDate": "2018-09-244T12:00:00",
       "ExpenseTransactionDate": "2018-09-244T12:00:00",
       "ExpenseTransactionAmount": 29
     },
     {
       "ExpenseTypeCode": "MEALS",
-      "FullAllowanceDay": "N",
+      "FullAllowanceDay": "False",
       "AllowanceDate": "2018-09-247T12:00:00",
       "ExpenseTransactionDate": "2018-09-247T12:00:00",
       "ExpenseTransactionAmount": 29
