@@ -3,11 +3,9 @@ title: TravelAllowance Days
 layout: reference
 ---
 
-### Overview
 This Travel Allowance API fetches all the fixed allowance days in an expense report. Clients using this API can determine whether an allowance is a full day or partial day allowance.
 
-> **Limitations**:
-This API is available only for Finland customers.
+> **Limitations**: This API is available only for Finland customers.
 
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
@@ -20,7 +18,7 @@ This API is available only for Finland customers.
 
 ## <a name="process-flow"></a>Process Flow
 
-![Image of Process_Flow](https://raw.githubusercontent.com/UdayKumarNettem/Image/master/Process_Flow.png)
+![Image of Process_Flow](Process_Flow.png)
 
 
 ## <a name="products-editions"></a>Products and Editions
@@ -30,9 +28,9 @@ This API is available only for Finland customers.
 
 ## <a name="scope-usage"></a>Scope Usage
 
-|Name | Description | Endpoint
-|-----|-------------|-----------
-|travelallowance.allowancedays.read|View the allowance days in an expense report|GET
+Name|Description|Endpoint
+---|---|---|
+travelallowance.allowancedays.read|View the allowance days in an expense report|GET
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
@@ -123,10 +121,8 @@ Name|Type|Format|Description
 ```shell
 GET https://katre-report-service-banaras.us-west-2.nonprod.cnqr.deliveryapi/api/v4/
 travelallowance/allowancedays/companyUUID/{companyUUID}/contexts/{Context}/{ContextId}
-
 Accept: application/json
 ```
-
 ```json
 {
   "companyUUID": "d5528866-51b1-40a1-bab2-76296a106dcd",
@@ -136,10 +132,6 @@ Accept: application/json
 ```
 
 #### Response
-
-* Ensure the headers are kept separate as a code block from the payload for ease of reading.
-* Add the language identifier to any code blocks for syntax highlighting
-* See the GitHub topic [Creating and highlighting code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/) for more information.
 
 ```shell
 HTTP/1.1 200 OK
