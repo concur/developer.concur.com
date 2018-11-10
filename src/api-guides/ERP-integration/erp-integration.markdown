@@ -20,7 +20,6 @@ Thank you for your interest in an App Center Partnership to develop an ERP integ
 
 Use the following resources to get familiar with the Concur product and then submit expense reports or invoices in your own sandbox. This will better position you to conduct end-to-end testing and be able to correlate a User's experience to what you obtain via the APIs.
 
-* **Training Toolkit** at [http://www.concurtraining.com/](http://www.concurtraining.com/) - These resources help you learn the Concur product basics, administration and reporting.
 * **Shared Technical Services Videos** at [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts) - The videos found here will help you understand the unique types of transactions that can occur in the Expense product and their resulting impacts on the financial picture in the extract file.
 
 ## <a name="phases"></a>Phased Development Approaches
@@ -91,3 +90,5 @@ Invoice Only: **Optional** for the basic integration and **Required** for the ad
 [Purchase Order v3 API Receipt Schema](/api-reference/invoice/v3.purchase-order.html#schema-receipt)
 
 Invoice Only: **Optional** for the basic integration and **Required** for the advanced integration.
+
+* **Training Toolkit** at [http://www.concurtraining.com/](http://www.concurtraining.com/) - These resources help you learn the Concur product basics, administration and reporting.
