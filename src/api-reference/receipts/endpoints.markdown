@@ -5,26 +5,26 @@ layout: reference
 
 # Endpoints
 
-- [Definitions of Resources](#definitions-of-resources)
-- [General](#general)
-  - [GET Service Index](#endpoint-service-index)
-  - [GET Receipt Status by Receipt ID](#endpoint-get-receipt-status)
-- [eReceipts](#ereceipts)
-  - [GET Schemas](#endpoint-schemas)
-  - [POST Receipts](#endpoint-post-a-receipt)
-  - [GET Receipts by User ID](#endpoint-get-receipts-by-userid)
-  - [GET Receipts by Receipt ID](#endpoint-get-a-receipt-by-id)
-  - [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image)
-- [Image-Only Receipts](#image-only-receipts)
-  - [POST Image-Only Receipts](#endpoint-post-an-image-only-receipt)
-  - [GET Image-Only Receipts by User ID](#endpoint-get-image-only-receipts-by-userid)
-  - [GET Image-Only Receipt by Receipt ID](#endpoint-get-an-image-only-receipt-by-id)
-  - [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image-image-only)
+* [Definitions of Resources](#definitions-of-resources)
+* [General](#general)
+  * [GET Service Index](#endpoint-service-index)
+  * [GET Receipt Status by Receipt ID](#endpoint-get-receipt-status)
+* [E-Receipts](#e-receipts)
+  * [GET Schemas](#endpoint-schemas)
+  * [POST Receipts](#endpoint-post-a-receipt)
+  * [GET Receipts by User ID](#endpoint-get-receipts-by-userid)
+  * [GET Receipts by Receipt ID](#endpoint-get-a-receipt-by-id)
+  * [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image)
+* [Image-Only Receipts](#image-only-receipts)
+  * [POST Image-Only Receipts](#endpoint-post-an-image-only-receipt)
+  * [GET Image-Only Receipts by User ID](#endpoint-get-image-only-receipts-by-userid)
+  * [GET Image-Only Receipt by Receipt ID](#endpoint-get-an-image-only-receipt-by-id)
+  * [GET Receipt Image by Receipt ID](#endpoint-get-receipt-image-image-only)
 
 ### Definitions of Resources
 
-- *__eReceipt__* - A schema-enforced resource with data and, optionally, an image. If an image is not provided, one will be generated from the data resource.
-- *__Image-Only Receipt__* - A standalone image without data.
+* *__E-Receipt__* - A schema-enforced resource with data and, optionally, an image. If an image is not provided, one will be generated from the data resource.
+* *__Image-Only Receipt__* - A standalone image without data.
 
 ### General
 
@@ -88,7 +88,7 @@ _Example Response:_
 
 [Back to Top](#endpoints)
 
-### eReceipts
+### E-Receipts
 
 |Endpoint|Response Format|Request Summary|
 |---|---|---|
@@ -108,7 +108,7 @@ _Example Response:_
 
 The response to a GET request to `/schemas` will have a list of JSON validation schemas for available receipt types. An array of `supportingSchemas` is also returned, but these do not represent actual receipt types.
 
-If a schema ID is provided, then only the schema with that ID will be returned, instead of the entire schema index. The ID's of schemas are not GUUIDs, but are instead just the names of the schema with the extension `.schema.json`. For example, `car-rental-receipt.schema.json` or `air-receipt.schema.json`.
+If a schema ID is provided, then only the schema with that ID will be returned, instead of the entire schema index. The ID's of schemas are not UUIDs, but are instead just the names of the schema with the extension `.schema.json`. For example, `car-rental-receipt.schema.json` or `air-receipt.schema.json`.
 
 One of the receipt schemas must be included in the [link header](http://json-schema.org/latest/json-schema-core.html#anchor35) of receipt POST requests with the relationship of `describedBy`. This looks like `link: <http://schema.concursolutions.com/{RECEIPT TYPE}.schema.json>;rel=describedBy`.
 
@@ -242,7 +242,7 @@ _Example Response:_
 
 |Parameter|Requirement|Value|
 |---|---|---|
-|receiptId|required|The UUID of the receipt associated with the image.|
+|receiptId|required|The id of the receipt associated with the image.|
 
 This endpoint may be used to see the current processing status of a receipt.
 
@@ -317,7 +317,7 @@ _Example Response:_
 
 |Parameter|Requirement|Value|
 |---|---|---|
-|userId|required|The UUID of the user to whom the receipt belongs.|
+|userId|required|The id of the user to whom the receipt belongs.|
 |receipt|required|The JSON receipt to be posted.|
 |image|optional|Image of the receipt. If an image isn't provided, one will be generated automatically from the JSON.|
 
@@ -385,7 +385,7 @@ Connection: keep-alive
 
 |Parameter|Requirement|Value|
 |---|---|---|
-|receiptId|required|The UUID of the receipt to be returned.|
+|receiptId|required|The id of the receipt to be returned.|
 
 Returns the JSON receipt associated with the ID in the URL.
 
@@ -428,7 +428,7 @@ _Example Response_
 
 |Parameter|Requirement|Value|
 |---|---|---|
-|userId|required|The UUID of the user whose receipts will be returned.|
+|userId|required|The id of the user whose receipts will be returned.|
 
 Returns all receipts for a given user ID.
 
@@ -488,7 +488,7 @@ _Example Response:_
 
 |Parameter|Requirement|Value|
 |---|---|---|
-|receiptId|required|The UUID of the receipt associated with the image.|
+|receiptId|required|The id of the receipt associated with the image.|
 
 If an image or PDF document was generated by or POSTed to Receipts v4, this endpoint can return the image in the same format that it was originally received by the API. Images for receipts created with v3 of the API are _not_ accessible via this endpoint.
 
@@ -522,7 +522,7 @@ http https://us.api.concursolutions.com/receipts/v4/{RECEIPT ID}/image "Authoriz
 
 |Parameter|Requirement|Value|
 |---|---|---|
-|userId|required|The UUID of the user to whom the receipt image belongs.|
+|userId|required|The id of the user to whom the receipt image belongs.|
 |image|required|Image of the receipt.|
 
 - Image constraints
@@ -564,9 +564,9 @@ Connection: keep-alive
 
 |Parameter|Requirement|Value|
 |---|---|---|
-|userId|required|The UUID of the user whose receipt images will be returned.|
+|userId|required|The id of the user whose receipt images will be returned.|
 
-Returns the JSON metadata of receipt images for the user ID specified in the URL. Results should be paginated in the same manner as the eReceipt endpoint.
+Returns the JSON metadata of receipt images for the user ID specified in the URL. Results should be paginated in the same manner as the e-receipt endpoint.
 
 _Example Requests:_
 
@@ -611,7 +611,7 @@ Connection: keep-alive
 
 |Parameter|Requirement|Value|
 |---|---|---|
-|receiptId|required|The UUID of the receipt image to be returned.|
+|receiptId|required|The id of the receipt image to be returned.|
 
 Returns the JSON metadata associated with the ID in the URL.
 
@@ -653,7 +653,7 @@ Connection: keep-alive
 
 |Parameter|Requirement|Value|
 |---|---|---|
-|receiptId|required|The UUID of the receipt image to be returned.|
+|receiptId|required|The id of the receipt image to be returned.|
 
 Returns the image in the same format that it was originally received by the API (image/png, image/jpg, image/jpeg, image/tiff, image/tif, image/gif, or application/pdf).
 

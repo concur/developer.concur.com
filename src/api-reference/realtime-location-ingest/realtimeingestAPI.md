@@ -3,6 +3,8 @@ title: Realtime Ingest Location
 layout: reference
 ---
 
+{% include prerelease.html %}
+
 # Realtime Ingest Location
 
 * [Overview](#overview)

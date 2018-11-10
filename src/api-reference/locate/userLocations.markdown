@@ -3,6 +3,8 @@ title: User Locations
 layout: reference
 ---
 
+{% include prerelease.html %}
+
 # User Locations
 
 * [Overview](#overview)
@@ -30,8 +32,8 @@ This API supports POST only.
 
 1. [Obtain a client ID, secret and sandbox environment](/manage-apps/partner-applications.html) if you don't already have one.
 2. Obtain your [Source partner](#sourcePartner) information. This will be provided along with your application credentials.
-3. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html).
-This API supports [Client Credentials Grant](/api-reference/authentication/apidoc.html#client_credentials) only. Your sandbox will be configured to accept posts from your application.
+3. This API supports all Valid JWTs whether they be company level, password grants or client_credentials grant. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html) for details. Your sandbox will be configured to accept posts from your application.
+
 
 ## Service Details
  The service is a POST call adhering to the following steps:
@@ -77,7 +79,7 @@ Transaction|Object|JSON|**Required** Whether this transaction adds or cancels it
 
 ### Client
 
-This indicates which entity within the organization the traveler belonÂgs to. This will vary by client. You will be provided with a list of the applicable agencies for each customer.
+This indicates which entity within the organization the traveler belongs to. This will vary by client. You will be provided with a list of the applicable agencies for each customer.
 
 Property Name|Values/Length|Type|Description
 ---|---|---|---
@@ -213,9 +215,9 @@ Authorization: Bearer {token}
         }
       ],
       "sourcePartner": {
-        "description": "The Leader in Travel, Study Abroad and International Student Management Solutions.",
-        "id": "TD",
-        "name": "Terra Dotta"
+        "description": "Source Partner Description",
+        "id": "SP_ID",
+        "name": "Source Partner Name"
       },
       "transaction": {
         "transactionId": "AWQ1WB7pQAn-v2Nzwu65_AWQ1WXPvQAn-v2Nzwu66",
@@ -262,9 +264,9 @@ Authorization: Bearer {token}
         }
       ],
       "sourcePartner": {
-        "description": "The Leader in Travel, Study Abroad and International Student Management Solutions.",
-        "id": "TD",
-        "name": "Terra Dotta"
+        "description": "Source Partner Description",
+        "id": "SP_ID",
+        "name": "Source Partner Name"
       },
       "transaction": {
         "transactionId": "AWNBBsCkQAn-v2NzwrIl_AWNBC-ugQAn-v2NzwrIz",
@@ -311,9 +313,9 @@ Authorization: Bearer {token}
         }
       ],
       "sourcePartner": {
-        "description": "The Leader in Travel, Study Abroad and International Student Management Solutions.",
-        "id": "TD",
-        "name": "Terra Dotta"
+        "description": "Source Partner Description",
+        "id": "SP_ID",
+        "name": "Source Partner Name"
       },
       "transaction": {
         "transactionId": "AWQ1gANVQAn-v2Nzwu8D_AWQ1gANcQAn-v2Nzwu8E",
@@ -360,9 +362,9 @@ Authorization: Bearer {token}
         }
       ],
       "sourcePartner": {
-        "description": "The Leader in Travel, Study Abroad and International Student Management Solutions.",
-        "id": "TD",
-        "name": "Terra Dotta"
+        "description": "Source Partner Description",
+        "id": "SP_ID",
+        "name": "Source Partner Name"
       },
       "transaction": {
         "transactionId": "AWS4e-N1QAn-v2NzwxEu_AWS4e-0PQAn-v2NzwxEv",

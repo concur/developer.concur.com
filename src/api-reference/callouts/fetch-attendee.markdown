@@ -24,7 +24,7 @@ This callout differs from the standard Concur web services in the following ways
 ### Product Restrictions    
 
 * Concur products are highly configurable, and not all clients will have access to all features.
-* Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum](http://forum.developer.concur.com/) if you have questions about the configuration settings.
+* Partner developers must determine which configurations are required for their solution prior to the review process.
 * Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
 ## Concur Connect Callout Details
@@ -70,10 +70,10 @@ Refer to the **Installation Process** for more information.
 The installation process includes installing the application connector, and registering it with Concur.
 
 
-First, the client or third-party developer will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. 
+First, the client or third-party developer will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses.
 
 
-During installation, the client or developer will select and configure an externally available endpoint on the host server for Concur to send the attendee search request to. 
+During installation, the client or developer will select and configure an externally available endpoint on the host server for Concur to send the attendee search request to.
 
 The client then registers the application connector with Concur:  
 
