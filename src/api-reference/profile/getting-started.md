@@ -33,7 +33,11 @@ To obtain or refresh an access token, please refer to [OAuth2 - Getting Started]
 
 The base URL for the Profile API is:
 
-**https://host/profile/v1/**. Following production hosts are available:
+```
+https://host/profile/v1/
+```
+
+The following production hosts are available:
 
 Data Center|Environments|Host|Description
 ---|---|---|---
