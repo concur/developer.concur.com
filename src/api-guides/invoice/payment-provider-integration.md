@@ -27,7 +27,7 @@ The Payment Provider App Category streamlines the Invoice Payment process for SA
 
 ### <a name="profile"></a>Company Profile
 
-[Profile Company API v1](/api-reference/profile/company.html#get)
+[Profile Company API v1](/api-reference/profile/v1.company.html#get)
 
 ### <a name="Topics-to-complete-prior-to-obtaining-invoices"></a>Topics to complete prior to obtaining invoices
 

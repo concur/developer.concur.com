@@ -43,7 +43,7 @@ Financial posting via Extract|Send Purchase Order data to Concur (Advanced)
 
 ### <a name="profile"></a>Company Profile
 
-[Profile Company API v1 ERP Integration](/api-reference/profile/company.html#erp-integration)
+[Profile Company API v1 ERP Integration](/api-reference/profile/v1.company.html#erp-integration)
 
 ### <a name="integration-extract"></a>Financial posting via Extract
 
