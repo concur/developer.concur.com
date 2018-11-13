@@ -34,7 +34,7 @@ Use the following resources to get familiar with the Concur product and then sub
 
 ### <a name="profile"></a>Company Profile
 
-[Profile Company API v1](/api-reference/profile-beta/company.html#get)
+[Profile Company API v1](/api-reference/profile/company.html#get)
 
 ### <a name="Topics-to-complete-prior-to-obtaining-invoices"></a>Topics to complete prior to obtaining invoices
 
