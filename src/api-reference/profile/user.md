@@ -21,7 +21,7 @@ The Concur's **user** API is used to help provision and manage user accounts and
 
 ## <a name="scim"></a>Schema Definition
 
-The User schema itself is defined in the [SCIM schema definition schema](http://i2.kym-cdn.com/photos/images/original/000/384/176/d2f.jpg), in particular:
+The User schema is inspired by the work from [System for Cross-domain Identity Management (SCIM)](https://tools.ietf.org/wg/scim/), in particular:
 
 * [RFC 7643 System for Cross-domain Identity Management: Core Schema](https://tools.ietf.org/html/rfc7643)
 * [RFC 7644 System for Cross-domain Identity Management: Protocol](https://tools.ietf.org/html/rfc7644) (Optional)
