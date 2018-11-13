@@ -33,7 +33,7 @@ Use the following resources to get familiar with the Concur product and then sub
 
 ### <a name="profile"></a>Company Profile
 
-[Profile Company API v1](/api-reference/profile-beta/company.html#get)
+[Profile Company API v1](/api-reference/profile/company.html#get)
 
 ### <a name="obtain-expense-report-data-for-vat-reclaim"></a>Obtain Expense Report Data for VAT Reclaim
 
