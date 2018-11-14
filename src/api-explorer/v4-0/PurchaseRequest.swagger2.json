@@ -1,0 +1,549 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v4.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "info": {
+    "title": "Purchase Request",
+    "description": "The Purchase Request API allows clients and partners to create and automatically submit purchase requests in the preauthorization workflow using the POST resource. With the GET resource you can retrieve the purchase request number, resulting purchase order number, workflow status, and any exception triggered for the records created.",
+    "version": "4.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/purchaserequest/v4/purchaserequests/": {
+      "post": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Create a new purchase request",
+        "description": "Create a Purchase Request based on provided header and line item details. If the request is valid it creates a purchase request and returns back a unique identifier to get the purchase request details.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "Content Type.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token that identifies the caller. This is the Company or User access token.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Concur specific custom header used for technical support in the form of a RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "purchaseRequest",
+            "in": "body",
+            "description": "The details of the purchase request.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/purchaseRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/purchaseRequestResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/errors"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/purchaserequest/v4/purchaserequests/{id}?mode=COMPACT": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Gets details of an existing purchase request",
+        "description": "Gets purchase request details. The supported mode is COMPACT, which returns basic info about the purchase request along with any exceptions.",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "Content Type.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token that identifies the caller. This is the Company or User access token.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Concur specific custom header used for technical support in the form of a RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The identifier for the purchase request.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "mode",
+            "in": "parameter",
+            "description": "Specifies mode for Get Purchase Request Details. Supported value: COMPACT.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/getPurchaseRequestCompact"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "purchaseRequest": {
+      "required":["userId","userEmail","userLoginId","currencyCode","lineItems"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "A description of the purchase request."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The employee that is requesting the items. This is the UUID of the employee. Either UserId or UserEmail or UserLoginId is required to identify the employee."
+        },
+        "userEmail": {
+          "type": "string",
+          "description": "The employee that is requesting the items. This is the employee’s email. Either UserId or UserEmail or UserLoginId is required to identify the employee."
+        },
+        "userLoginId": {
+          "type": "string",
+          "description": "The employee that is requesting the items. This is the employee’s Login Id. Either UserId or UserEmail or UserLoginId is required to identify the employee."
+        },
+        "policyExternalId": {
+          "type": "string",
+          "description": "The external identifier of the policy that should be associated with the purchase request. If not supplied, the API will use the default policy set up for the user group assigned to the requesting employee. This is the External Id from the Invoice Policy configuration. Clients will need to get these Ids from their SAP Concur contact if they need to assign policies other than the group default."
+        },
+        "currencyCode": {
+          "type": "string",
+          "description": "The 3-letter ISO 4217 currency code of the currency that is associated with the purchase request. This code will be used for all items on this request. Example: USD."
+        },
+        "notesToSupplier": {
+          "type": "string",
+          "description": "Notes to print on the transmitted purchase order PDF sent to the supplier."
+        },
+        "comments": {
+          "type": "string",
+          "description": "Internal comments related to this record."
+        },
+        "custom1": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 1 that is part of the purchase request header form."
+        },
+        "custom2": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 2 that is part of the purchase request header form."
+        },
+        "custom3": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 3 that is part of the purchase request header form."
+        },
+        "custom4": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 4 that is part of the purchase request header form."
+        },
+        "custom5": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 5 that is part of the purchase request header form."
+        },
+        "custom6": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 6 that is part of the purchase request header form."
+        },
+        "custom7": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 7 that is part of the purchase request header form."
+        },
+        "custom8": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 8 that is part of the purchase request header form."
+        },
+        "custom9": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 9 that is part of the purchase request header form."
+        },
+        "custom10": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 10 that is part of the purchase request header form."
+        },
+        "custom11": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 11 that is part of the purchase request header form."
+        },
+        "custom12": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 12 that is part of the purchase request header form."
+        },
+        "custom13": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 13 that is part of the purchase request header form."
+        },
+        "custom14": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 14 that is part of the purchase request header form."
+        },
+        "custom15": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 15 that is part of the purchase request header form."
+        },
+        "custom16": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 16 that is part of the purchase request header form."
+        },
+        "custom17": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 17 that is part of the purchase request header form."
+        },
+        "custom18": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 18 that is part of the purchase request header form."
+        },
+        "custom19": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 19 that is part of the purchase request header form."
+        },
+        "custom20": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 20 that is part of the purchase request header form."
+        },
+        "custom21": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 21 that is part of the purchase request header form."
+        },
+        "custom22": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 22 that is part of the purchase request header form."
+        },
+        "custom23": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 23 that is part of the purchase request header form."
+        },
+        "custom24": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 24 that is part of the purchase request header form."
+        },
+        "shipToAddressCode": {
+          "type": "string",
+          "description": "The shipping address of the Purchase Request. The accepted value is the address code from ShipTo record. If not supplied, the API will use the requesting user’s default shipping address."
+        },
+        "billToAddressCode": {
+          "type": "string",
+          "description": "The billing address of the Purchase Request to be used for invoicing. The accepted value is the address code from the BillTo record. If not supplied the API will use the policy’s default BillTo address."
+        },
+        "lineItems": {
+          "$ref": "#/definitions/lineItem",
+          "description": "Requested items or services related to this Purchase Request."
+        }
+      }
+    },
+    "lineItem": {
+      "required":["purchaseType","vendorCode","vendorAddressCode","description","quantity","unitPrice"],
+      "properties": {
+        "purchaseType": {
+          "type": "string",
+          "description": "The type of item, either goods or services. Displayed as Type in Concur Invoice. Supported values: GOODS, SERVICES."
+        },
+        "vendorCode": {
+          "type": "string",
+          "description": "The code that identifies the vendor. This value can be found in the vendor information form of Vendor Manager. This is used along with Vendor Address Code to determine the specific Vendor record."
+        },
+        "vendorAddressCode": {
+          "type": "string",
+          "description": "The code that identifies the vendor’s address. This value can be found in the vendor information form of Vendor Manager and is labeled Address Accounting Code. This is used along with Vendor Code to determine the specific Vendor record."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the line item."
+        },
+        "quantity": {
+          "type": "string",
+          "description": "The quantity associated with the line item."
+        },
+        "unitPrice": {
+          "type": "string",
+          "description": "The unit price of the line item."
+        },
+        "expenseType": {
+          "type": "string",
+          "description": "The PET code of the Expense Type that will be assigned to the line item. If not supplied it will default to the Expense Type set up on the Vendor Profile used for the item. Clients will need to get these PET codes from their SAP Concur contact."
+        },
+        "receiptType": {
+          "type": "string",
+          "description": "The type of receipt. If not supplied, the API will use the purchaseType to set this field to NONE for SERVICES, or QUANTITY_RECEIPT for GOODS. If you are using SAP Concur Receiving and need to enter Goods Receipts against the resulting PO lines use QUANTITY_RECEIPT. Supported values: QUANTITY_RECEIPT, NONE."
+        },
+        "neededByDate": {
+          "type": "date",
+          "description": "The date by which the purchase order must be fulfilled in format YYYY-MM-DD. Example: 2018-03-23."
+        },
+        "uoMCode": {
+          "type": "string",
+          "description": "Unit of Measure (UOM) code for the purchase request item. Accepted values are the UOM Codes set up in the Unit of Measure configuration in Concur Invoice. If not supplied, the API will default a UOM based on the defaults for goods and services."
+        },
+        "shipping": {
+          "type": "string",
+          "description": "The total shipping cost for the item."
+        },
+        "tax": {
+          "type": "string",
+          "description": "Tax amount that is associated with the line item."
+        },
+        "supplierPartId": {
+          "type": "string",
+          "description": "An Id value that helps to identify the line item. This could be a value such as the vendor’s part number or the manufacturer number."
+        },
+        "url": {
+          "type": "string",
+          "description": "A URL related to the item. You can have multiple URLs per item, enclosed in quotes and comma separated."
+        },
+        "notesToVendor": {
+          "type": "string",
+          "description": "Notes related to the item that display on the transmitted purchase order PDF to the vendor."
+        },
+        "comments": {
+          "type": "string",
+          "description": "Internal comments related to this record."
+        },
+        "custom1": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 1 that is part of the purchase request line item form."
+        },
+        "custom2": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 2 that is part of the purchase request line item form."
+        },
+        "custom3": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 3 that is part of the purchase request line item form."
+        },
+        "custom4": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 4 that is part of the purchase request line item form."
+        },
+        "custom5": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 5 that is part of the purchase request line item form."
+        },
+        "custom6": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 6 that is part of the purchase request line item form."
+        },
+        "custom7": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 7 that is part of the purchase request line item form."
+        },
+        "custom8": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 8 that is part of the purchase request line item form."
+        },
+        "custom9": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 9 that is part of the purchase request line item form."
+        },
+        "custom10": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 10 that is part of the purchase request line item form."
+        },
+        "custom11": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 11 that is part of the purchase request line item form."
+        },
+        "custom12": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 12 that is part of the purchase request line item form."
+        },
+        "custom13": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 13 that is part of the purchase request line item form."
+        },
+        "custom14": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 14 that is part of the purchase request line item form."
+        },
+        "custom15": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 15 that is part of the purchase request line item form."
+        },
+        "custom16": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 16 that is part of the purchase request line item form."
+        },
+        "custom17": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 17 that is part of the purchase request line item form."
+        },
+        "custom18": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 18 that is part of the purchase request line item form."
+        },
+        "custom19": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 19 that is part of the purchase request line item form."
+        },
+        "custom20": {
+          "type": "string",
+          "description": "A value that can be applied to a custom field 20 that is part of the purchase request line item form."
+        }
+      }
+    },
+    "purchaseRequestResponse": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique purchase request reference ID if the request has passed all validations. This reference ID will be needed to look up details of the purchase request."
+        },
+        "uri": {
+          "type": "string",
+          "description": "The URI to look up details of the newly created purchase request."
+        }
+      }
+    },
+    "errors": {
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/error",
+          "description": "An array of errors indicating which fields have failed validation."
+        }
+      }
+    },
+    "error": {
+      "properties": {
+        "errorCode": {
+          "type": "string",
+          "description": "An error code indicating why a field failed validation."
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "A description of the error."
+        },
+        "dataPath": {
+          "type": "string",
+          "description": "The path to the request data which has the error message."
+        }
+      }
+    },
+    "getPurchaseRequestCompact": {
+      "properties": {
+        "purchaseRequestId": {
+          "type": "string",
+          "description": "The unique purchase request reference Id. Returned by the Create Purchase Request API call."
+        },
+        "purchaseRequestNumber": {
+          "type": "string",
+          "description": "The unique purchase request identifier which can be used to uniquely identify a purchase request in SAP Concur products."
+        },
+        "purchaseRequestQueueStatus": {
+          "type": "string",
+          "description": "The creation status of the purchase request. Possible values are: PENDING_CREATION, CREATED, CREATE_FAILED."
+        },
+        "purchaseRequestWorkflowStatus": {
+          "type": "string",
+          "description": "The workflow status of the purchase request. Possible values are: Approved, Pending Approval, Pending Cost Object Approval, Sent Back To Employee, Not Submitted, Submitted, Pending Processor Review, Vendor Approval, Approval Time Expired."
+        },
+        "purchaseOrders": {
+          "$ref": "#/definitions/purchaseOrder",
+          "description": "If the purchase request has been approved and a purchase order generated, this array contains the purchase order details. If empty, this element will not be returned."
+        },
+        "purchaseRequestExceptions": {
+          "$ref": "#/definitions/purchaseRequestException",
+          "description": "An array of exceptions, if present on the purchase request. If empty, this element will not be returned."
+        }
+      }
+    },
+    "purchaseOrder": {
+      "properties": {
+        "purchaseOrderNumber": {
+          "type": "string",
+          "description": "The purchase order number."
+        }
+      }
+    },
+    "purchaseRequestException": {
+      "properties": {
+        "eventCode": {
+          "type": "string",
+          "description": "The event code of the exception. Example: PURCH_DETAIL_SUBMIT."
+        },
+        "exceptionCode": {
+          "type": "string",
+          "description": "The unique exception code."
+        },
+        "isCleared": {
+          "type": "string",
+          "description": "Whether the exception has been cleared."
+        },
+        "prExceptionId": {
+          "type": "string",
+          "description": "The unique exception id of the purchase request."
+        },
+        "message": {
+          "type": "string",
+          "description": "The message of the exception with details."
+        }
+      }
+    }
+  }
+}
