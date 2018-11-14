@@ -1,6 +1,7 @@
 ---
 title: Vendor v3
 layout: reference
+redirect_from:
   - /api-reference/invoice/vendor.html
 ---
 
@@ -19,8 +20,11 @@ layout: reference
 
 ## <a name="get"></a>Retrieve an existing vendor
 
-    GET  /api/v3.0/invoice/vendors
-    Note: If authenticating with a Company JWT the API will return all vendors associated with a specific entity.
+> Note: If authenticating with a Company JWT the API will return all vendors associated with a specific entity.
+
+```
+GET /api/v3.0/invoice/vendors
+```
 
 ### Parameters  
 

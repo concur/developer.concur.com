@@ -5,7 +5,6 @@ layout: reference
 
 > Note: The scopes related to this documentation are currently limited to Early Access developers at this time.  Once the Early Access phase has been completed, all developers that are interested in pursuing this integration will be given the scope in their Development app.
 
-* [Learn](#learn)
 * [Integration](#integration)
 * [Quick Connect](#quick-connect)
 * [Company Profile](#profile)
@@ -14,15 +13,9 @@ layout: reference
 * [Overview, Scopes, and Obtaining Invoices pending payment](#Overview-Scopes-and-Obtaining-Invoices-pending-payment)
 * [Discounts on invoices](#Discounts)
 * [Updating a payment with status](#Updating-a-payment-with-status)
+* [Learn](#learn)
 
 The Payment Provider App Category streamlines the Invoice Payment process for SAP-Concur customers. The Payment Provider Partner's certified app will obtain Invoice data from our customers' Concur site by using the "Quick Connect" process and executing their app using Concur's Invoice APIs. To be certified, the Partner must support both Editions of SAP-Concur Invoice: Standard Edition and Professional Edition.
-
-## <a name="learn"></a>Learn
-
-Use the following resources to get familiar with the Concur product and then submit expense reports or invoices in your own sandbox. This will better position you to conduct end-to-end testing and be able to correlate a User's experience to what you obtain via the APIs.
-
-* **Training Toolkit** at [http://www.concurtraining.com/](http://www.concurtraining.com/) - These resources help you learn the Concur product basics, administration and reporting.
-* **Shared Technical Services Videos** at [http://www.concurtraining.com/prdeployment/sts](http://www.concurtraining.com/prdeployment/sts) - The videos found here will help you understand the unique types of transactions that can occur in the Expense product and their resulting impacts on the financial picture in the extract file.
 
 ## <a name="integration"></a>Integration
 
@@ -34,7 +27,7 @@ Use the following resources to get familiar with the Concur product and then sub
 
 ### <a name="profile"></a>Company Profile
 
-[Profile Company API v1](/api-reference/profile-beta/company.html#get)
+[Profile Company API v1](/api-reference/profile/v1.company.html#get)
 
 ### <a name="Topics-to-complete-prior-to-obtaining-invoices"></a>Topics to complete prior to obtaining invoices
 
@@ -115,4 +108,10 @@ If the customer wants invoices paid early in order to take advantage of the Vend
 
 ### <a name="Updating-a-payment-with-status"></a>Updating a payment with status
 
-[Updating a payment with status](./invoice/v1.invoice-pay.html#updating-payment)
+[Updating a payment with status](/api-reference/invoice/v1.invoice-pay.html#schema-payment-update)
+
+## <a name="learn"></a>Learn
+
+Use the following resources to get familiar with the Concur product and then submit expense reports or invoices in your own sandbox. This will better position you to conduct end-to-end testing and be able to correlate a User's experience to what you obtain via the APIs.
+
+* **Training Toolkit** at [http://www.concurtraining.com/](http://www.concurtraining.com/) - These resources help you learn the Concur product basics, administration and reporting.

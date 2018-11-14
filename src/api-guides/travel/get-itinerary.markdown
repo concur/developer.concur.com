@@ -229,9 +229,3 @@ https://www.concursolutions.com/api/company/v1.0/unsubscribe?type=itinerary
 ```
 
 Refer to the sample [Post Company Notification Subscription for Itinerary Changes Response](/api-reference/travel-profile/04-notification-company-resource.html#a1) for guidance.
-
-
-
-#### Make us better at making your experience easier.
-
-Share a Concur API process issue we can do better. Provide us with an explanation, screen shots and your recommendation [here](http://forum.developer.concur.com/).

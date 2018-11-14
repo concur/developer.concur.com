@@ -8,6 +8,25 @@ layout: reference
 * [Professional Edition](http://www.concurtraining.com/customers/tech_pubs/_RN_CCC.htm)
 * [Standard Edition](http://www.concurtraining.com/customers/tech_pubs/_RN_CCC_CPS.htm)
 
+# Developer Platform Release Notes
+
+* [November 2018](./api/2018-11-01.html)
+* [October 2018](./api/2018-10-01.html)
+* [September 2018](./api/2018-09-30.html)
+* [March 2017](./dev-platform-2017-03-01.html)
+* [November 2016](./dev-platform-2016-11-01.html)
+* [April 2016](./dev-platform-2016-04-01.html)
+* [March 2016 - 2](./dev-platform-2016-03-02.html)
+* [March 2016 - 1](./dev-platform-2016-03-01.html)
+* [February 2016](./dev-platform-2016-02-01.html)
+* [August 2015](./dev-platform-2015-08-01.html)
+* [July 2015](./dev-platform-2015-07-01.html)
+* [May 2015](./dev-platform-2015-05-01.pdf)
+* [February 2015](dev-platform-2015-02-01.pdf)
+* [October 2014](dev-platform-2014-10-01.pdf)
+* [June 2014](./dev-platform-2014-06-01.pdf)
+* [May 2014](./dev-platform-2014-05-01.pdf)
+
 # App Center Release Notes
 
 * [October 2018](./app-center-2018-10-19.html)
@@ -53,24 +72,6 @@ layout: reference
 * [July 2014](./app-center-2014-07-01.pdf)
 * [June 2014](./app-center-2014-06-01.pdf)
 * [May 2014](./app-center-2014-05-01.pdf)
-
-# Developer Platform Release Notes
-
-* [October 2018](./api/2018-10-platform.html)
-* [September 2018](./api/2018-09-30.html)
-* [March 2017](./dev-platform-2017-03-01.html)
-* [November 2016](./dev-platform-2016-11-01.html)
-* [April 2016](./dev-platform-2016-04-01.html)
-* [March 2016 - 2](./dev-platform-2016-03-02.html)
-* [March 2016 - 1](./dev-platform-2016-03-01.html)
-* [February 2016](./dev-platform-2016-02-01.html)
-* [August 2015](./dev-platform-2015-08-01.html)
-* [July 2015](./dev-platform-2015-07-01.html)
-* [May 2015](./dev-platform-2015-05-01.pdf)
-* [February 2015](dev-platform-2015-02-01.pdf)
-* [October 2014](dev-platform-2014-10-01.pdf)
-* [June 2014](./dev-platform-2014-06-01.pdf)
-* [May 2014](./dev-platform-2014-05-01.pdf)
 
 # Combined App Center and Developer Platform Release Notes
 
