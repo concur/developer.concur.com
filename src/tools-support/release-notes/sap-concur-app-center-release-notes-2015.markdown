@@ -1,0 +1,378 @@
+---
+title: SAP Concur App Center Release Notes - Client - 2015
+layout: reference
+---
+
+* [December](#december)
+* [October](#october)
+* [September](#september)
+* [July](#july)
+* [May](#may)
+* [April](#april)
+* [February](#february)
+
+## <a name="december"></a>December 2015
+
+### Apps for Me Coming Soon
+
+#### GroundLink
+
+![GroundLink](./sap-concur-app-center-release-notes-2015-groundlink.jpg)
+
+GroundLink delivers best-in-class car service with a fleet of over 45,000 vehicles available in major cities worldwide. GroundLink’s 24/7 service and ON TIME EVERY TIME® Guarantee ensures a smooth and seamless ride for business travelers needing point-to-point or airport transfers.
+
+Concur travelers can now easily connect GroundLink to Concur to have e-receipts automatically delivered to the receipt store.
+
+Getting started is easy.
+
+On an iOS or Android Smartphone:
+1. Download the GroundLink App and set up an account.
+2. Book a ride with confidence.
+3. Send the trip to Concur in the Payment Section. An e-receipt will be automatically sent to the linked Concur account.
+
+On the web:
+
+1. Log in to a GroundLink account.
+2. Book a ride with confidence.
+3. Send the trip to Concur on the Confirmation Page and an e-receipt will be automatically sent to the linked Concur account.
+
+GroundLink works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about GroundLink, go to the GroundLink website at https://www.groundlink.com/.
+
+## <a name="october"></a>October 2015
+
+### Apps for Me Now Available
+
+#### delivery.com
+
+![delivery.com](./sap-concur-app-center-release-notes-2015-delivery.jpg)
+
+delivery.com lets you order takeout like a local and easily manage your expenses by automatically sending ereceipts to Concur. Available in the U.S., English only.
+
+Order online from thousands of local restaurants and stores and have auto-generated e-receipts sent straight to Concur. Whether you’re looking for great food, trip essentials, or even a highly-rated dry cleaner, delivery.com helps you find the best neighborhood hot spots for easy delivery or pickup.
+
+delivery.com works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about delivery.com, visit https://www.delivery.com.
+
+#### GigSky
+
+![GigSky](./sap-concur-app-center-release-notes-2015-gigsky.jpg)
+
+GigSky allows you to stay connected with mobile data to use your favorite voice, messaging, and travel apps everywhere you go. Link GigSky to your Concur account for easy expensing. Available globally, English only.
+
+GigSky world mobile data service makes it easy to stay connected away from home to the apps you want to use when traveling. Flexible data plans allow you to purchase the right amount of mobile data to stay connected, when you need to, where you need to, and how long you want to. Linking GigSky to your Concur account allows data purchase e-receipts to seamlessly be available in your Concur account.
+
+GigSky works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about GigSky, visit https://www.gigsky.com.
+
+#### Lyft
+
+![Lyft](./sap-concur-app-center-release-notes-2015-lyft.jpg)
+
+Take Lyft for a welcoming, affordable, and memorable ride. Request a ride in the Lyft app, and get picked up by a reliable community driver in minutes. By connecting your Concur account with Lyft an e-receipt will be automatically sent to your Concur account to add to your expense report. Available in the U.S., English only.
+
+Using Lyft is easy. Request a ride with just one tap, get matched with a friendly, background-checked driver. Get picked up and track your driver’s ETA in the app. You’ll see their photo so you know who you’re riding with and get there fast. When the ride ends, just pay with your phone. With a linked Concur account the e-receipt will be available in the receipt store for effortless expense reporting.
+
+Lyft works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about Lyft, visit https://www.lyft.com.
+
+#### Velocity
+
+![Velocity](./sap-concur-app-center-release-notes-2015-velocity.jpg)
+
+Velocity allows you to pay your bill instantly and discreetly from your phone without the awkward wait at top restaurants. Then process your e-receipts simply and automatically through Concur. Available in the U.S. and UK, English only.
+
+Enjoy a smoother experience every time you dine on business. Securely store multiple cards within Velocity and pay the bill privately — when you want, on demand — so you can leave when you’re ready. Just link your Concur account and tap to expense your bill, and your e-receipt will appear automatically in your receipt store to be added to your next expense report.
+
+Velocity works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about Velocity visit https://www.velocityapp.com.
+
+## <a name="september"></a>September 2015
+
+### Apps for Me Now Available
+
+#### delivery.com
+
+![delivery.com](./sap-concur-app-center-release-notes-2015-delivery.jpg)
+
+delivery.com lets you order takeout like a local and easily manage your expenses by automatically sending ereceipts to Concur. Available in the U.S., English only.
+
+Order online from thousands of local restaurants and stores and have auto-generated e-receipts sent straight to Concur. Whether you’re looking for great food, trip essentials, or even a highly-rated dry cleaner, delivery.com helps you find the best neighborhood hot spots for easy delivery or pickup.
+
+delivery.com works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about delivery.com, visit https://www.delivery.com.
+
+#### GigSky
+
+![GigSky](./sap-concur-app-center-release-notes-2015-gigsky.jpg)
+
+GigSky allows you to stay connected with mobile data to use your favorite voice, messaging, and travel apps everywhere you go. Link GigSky to your Concur account for easy expensing. Available globally, English only.
+
+GigSky world mobile data service makes it easy to stay connected away from home to the apps you want to use when traveling. Flexible data plans allow you to purchase the right amount of mobile data to stay connected, when you need to, where you need to, and how long you want to. Linking GigSky to your Concur account allows data purchase e-receipts to seamlessly be available in your Concur account.
+
+GigSky works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about GigSky, visit https://www.gigsky.com.
+
+#### Velocity
+
+![Velocity](./sap-concur-app-center-release-notes-2015-velocity.jpg)
+
+Velocity allows you to pay your bill instantly and discreetly from your phone without the awkward wait at top restaurants. Then process your e-receipts simply and automatically through Concur. Available in the U.S. and UK, English only.
+
+Enjoy a smoother experience every time you dine on business. Securely store multiple cards within Velocity and pay the bill privately — when you want, on demand — so you can leave when you’re ready. Just link your Concur account and tap to expense your bill, and your e-receipt will appear automatically in your receipt store to be added to your next expense report.
+
+Velocity works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about Velocity visit https://www.velocityapp.com.
+
+### Apps for Me Coming Soon
+
+#### Lyft
+
+![Lyft](./sap-concur-app-center-release-notes-2015-lyft.jpg)
+
+Take Lyft for a welcoming, affordable, and memorable ride. Request a ride in the Lyft app, and get picked up by a reliable community driver in minutes. By connecting your Concur account with Lyft an e-receipt will be automatically sent to your Concur account to add to your expense report. Available in the U.S., English only.
+
+Using Lyft is easy. Request a ride with just one tap, get matched with a friendly, background-checked driver. Get picked up and track your driver’s ETA in the app. You’ll see their photo so you know who you’re riding with and get there fast. When the ride ends, just pay with your phone. With a linked Concur account the e-receipt will be available in the receipt store for effortless expense reporting.
+
+Lyft works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about Lyft, visit https://www.lyft.com.
+
+## <a name="july"></a>July 2015
+
+### Apps for Me Now Available
+
+#### ezCater
+
+![ezCater](./sap-concur-app-center-release-notes-2015-ezcater.jpg)
+
+ezCater is the only free nationwide service for ordering corporate catering. With ezCater you get: 24/7 online ordering, detailed catering menus, concierge service, ezRewards, group billing, recurring orders and more. Link your Concu account to ezCater to add e-receipts to your Concur account automatically. E-receipts include detailed information about each ezCater order.
+
+ezCater works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about ezCater, go to the ezCater website at https://www.ezcater.com.
+
+### Apps for Me Coming Soon
+
+#### mytaxi
+
+![mytaxi](./sap-concur-app-center-release-notes-2015-mytaxi.jpg)
+
+mytaxi is the location-independent taxi app for booking now and in advance. mytaxi is available primarily in Germany with other prominent European cities on the way.
+
+The transparent app gives you certainty of the integrity of the taxi service. mytaxi provides you with the driver’s name, a photo, cell phone number, the vehicle type and it’s number. You will also be provided an estimated fare for your planned journey. The real time location of your taxi and it’s time of arrival are displayed live in the mobile app. Your mode of payment is securely stored in the app, allowing you to pay your fare within seconds. By connecting your Concur account with mytaxi an e-receipt will be automatically sent to your Concur account to add to your expense report.
+
+mytaxi works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about mytaxi, go to the mytaxi website at https://www.mytaxi.com.
+
+## <a name="may"></a>May 2015
+
+### Apps for Me Available Now
+
+#### StopJetLag
+
+![StopJetLag](./sap-concur-app-center-release-notes-2015-stopjetlag.jpg)
+
+Stop Jet Lag offers an easy-to-follow, individualized plan for your specific itinerary. The plan is based on a natural approach to safely and effectively resetting your body clock by correctly timing your intake of food, drink, sleep, bright light and optional melatonin supplements. There's no guesswork. And mobile alerts make it even easier. Receive a comprehensive jet lag strategy with a customized Stop Jet Lag Plan based on coordinating the major jet lag influences with your Concur flight itinerary. Imagine arriving fresh at your destination, regardless of the time zone. Now you can with Stop Jet Lag.
+
+StopJetLag works with Travel for Concur Standard and Travel for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about StopJetLag, go to the StopJetLag website at http://www.stopjetlag.com
+
+#### TAXIS G7
+
+![TAXIS G7](./sap-concur-app-center-release-notes-2015-taxisg7.jpg)
+
+With TAXIS G7, taxi's number 1 in France. With 7,700 affiliated taxis in its network, TAXIS G7 offers a wide range of urban mobility options for today’s traveler:
+
+* Airport & station transfer services
+* 1,800 hybrid taxis for eco-friendly travel
+* Large capacity vehicles for up to 7 passengers and their luggage
+* Specialized vehicles for passengers with reduced mobility
+
+TAXIS G7’s innovative approach ensures maximum availability and minimum wait times for travelers needing car service in France. With the Concur integration, TAXIS G7 also allows business travelers to easily expense their taxi rides.
+
+TAXIS G7 works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about TAXIS G7, go to the TAXIS G7’s website at http://www.taxisg7.com.
+
+## <a name="april"></a>April 2015
+
+### Apps for Me Available Now
+
+#### Automatic Is Available Now
+
+![Automatic](./sap-concur-app-center-release-notes-2015-automatic.jpg)
+
+Maintaining a logbook is a hassle, and missing trips can cost a company big time. With Automatic, the user’s car can keep track of trips. Users can connect their Concur account to Automatic to access full trip history information and add all the details of a trip to expense reports with a single click. Each expense includes important data like mileage, route map, start/end address, and even a visual receipt.
+
+Automatic works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about Automatic, go to the Automatic website at https://www.automatic.com.
+
+#### Duty Free Express Is Available Now
+
+![Duty Free Express](./sap-concur-app-center-release-notes-2015-duty-free-express.jpg)
+
+Duty Free Express, an online pre-order service by Duty Free Americas, is an innovative way to speed purchases at participating duty free stores. Duty Free Express allows users to shop for duty free products online up to seven days before arriving at the airport for a scheduled international trip. After the user logs into Duty Free Express with a Concur account, Duty Free Express can use the Concur itinerary to have the purchase waiting at the gate. No longer do business travelers have to choose between relaxing in the lounge and shopping for their favorite luxury products duty free!
+
+Duty Free Express works with Travel for Concur Standard and Travel for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about Duty Free Express, go to the Duty Free Express website at https://www.dutyfreeexpress.com.
+
+#### ingogo Is Available Now
+
+![ingogo](./sap-concur-app-center-release-notes-2015-ingogo.jpg)
+
+With ingogo, users can book a taxi from a mobile device, send their taxi receipts, and seamlessly upload receipts to their Concur expense accounts. Here are some of the ingogo features:
+
+* Pay with a mobile device and have receipts sent automatically to a Concur account.
+* The current pickup address is located automatically and response time is guaranteed.
+* Real-time updates of the driver's location.
+* Direct voice contact with the driver.
+* Active in Sydney, Melbourne, and Brisbane.
+
+ingogo works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about ingogo, go to the ingogo website at http://www.ingogo.mobi.
+
+#### localeikki Is Available Now
+
+![localeikki](./sap-concur-app-center-release-notes-2015-localeikki.jpg)
+
+localeikki is there for everyone who’s ever suffered in the tiny hotel gym or wandered aimlessly around city blocks trying to get some activity in. Users can find advice on where to be active, based on recommendations that include descriptions, photos, directions, and ratings, all from a community of active individuals. Once a user connects their Concur account to localeikki, they receive an email with suggestions about how to use the localeikki app to be active in any destination!
+
+localeikki works with Travel for Concur Standard and Travel for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about localeikki, go to the localeikki website at http://www.localeikki.com.
+
+#### MiFlight Is Available Now
+
+![MiFlight](./sap-concur-app-center-release-notes-2015-miflight.jpg)
+
+MiFlight is a mobile app that gives travelers the waiting times for airport security lines at airports around the world. This app was inspired by our love of traveling the world. We all need our travel experiences to be more efficient and less stressful. Our solution: Knowing the time in line saves time.
+
+MiFlight works with Travel for Concur Standard and Travel for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about MiFlight, go to the MiFlight website at http://gomiflight.com.
+
+#### PivotPayables Is Available Now
+
+![PivotPayables](./sap-concur-app-center-release-notes-2015-pivotpayables.jpg)
+
+PivotLynx sits between Concur Expense and Microsoft Dynamics CRM, enabling the two applications to share and accurately correlate data between them—streamlining the overall expense and payables processes and adding T&E spend to CRM reporting.
+
+Sales teams or other traveling employees won’t have a learning curve—they simply continue to use Concur Expense as they do today. With PivotLynx, however, they can easily search for attendees within their contacts, HCPs, or other CRM entities, and assign their expenses all from one place, eliminating the need to enter data more than once.
+
+PivotLynx works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about PivotLynx, go to the Pivot Payables website at http://pivotpayables.com.
+
+#### Starbucks Is Available Now
+
+![Starbucks](./sap-concur-app-center-release-notes-2015-starbucks.jpg)
+
+With the Starbucks app, users can earn rewards by using their Starbucks Card for business-related spending. Users can just register a Starbucks Card and link that card to their Concur account, and the Starbucks app automatically sends each transaction to Concur as an e-receipt. By joining My Starbucks Rewards™, users get stars when they pay with their phone or when they register a Starbucks Card. Stars earn free drinks, food, and more.
+
+Starbucks works with Expense for Concur Standard and Expense for Concur Professional. It is available now in the Concur App Center at www.Concur.com/AppCenter under Apps for Me. For more information, go to the Starbucks website at http://www.starbucks.com/coffeehouse/mobile-apps.
+
+#### Table8 Is Available Now
+
+![Table8](./sap-concur-app-center-release-notes-2015-table8.jpg)
+
+Dine at the hottest restaurants without planning ahead. Table8 has teamed up with the best restaurants in San Francisco, Miami, Los Angeles and other major cities to offer peak seating times on short notice. No planning? No problem. Reservations may be purchased up to the day of the reservation. The user simply connects Table8 to Concur Expense, and for every reservation, we’ll automatically send an e-receipt to the user's account.
+
+Table8 works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about Table8, go to the Table8 website at https://www.table8.com.
+
+#### WingUp Is Available Now
+
+![WingUp](./sap-concur-app-center-release-notes-2015-wingup.jpg)
+
+WingUp is the app for location-based professional networking. Users can quickly discover business contacts nearby and see who's in town. WingUp integration with Concur seamlessly syncs future business trip itineraries, enabling users to plan ahead to see who will be at the same conference or trade show. Now travelers don’t ever need to miss an opportunity to reconnect!
+
+WingUp works with Travel for Concur Standard and Travel for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about WingUp, go to the WingUp website at http://www.wingup.com.
+
+### Apps for Me Coming Soon
+
+#### GigSky Is Coming Soon
+
+![GigSky](./sap-concur-app-center-release-notes-2015-gigsky-1.jpg)
+
+GigSky specializes in international data coverage. With the GigSky SIM or Mobile Hotspot, users can get a fast, reliable data connection for a tablet, smartphone, or computer in 40+ countries around the world.
+
+Users choose a data plan based on how much data is needed and how long they will be in the country. Then they can use a tablet or smartphone just like they would at home: email, tweet, download a presentation, or share a photo. An integrated data invoice goes straight to Concur Expense Management.
+
+GigSky works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about GigSky, go to the GigSky website at https://gigsky.com.
+
+#### Tipszee Is Coming Soon
+
+![Tipszee](./sap-concur-app-center-release-notes-2015-tipszee.jpg)
+
+Tipszee is a mobile app that allows users to tip service providers, such as hotel staff, taxi drivers, waiters, and caddies. When users link their Concur account with Tipszee, e-receipts appear automatically in the user's receipt store and are added to the next expense report. Users can avoid the headache of carrying extra cash and expensing cash tips. SOX compliant.
+
+Tipszee works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter.
+
+## <a name="february"></a>February 2015
+
+### Apps for Me
+
+#### Starbucks Is Available Now
+
+![Starbucks](./sap-concur-app-center-release-notes-2015-starbucks.jpg)
+
+With the Starbucks app, users can earn rewards by using their Starbucks Card for business-related spending. Users can just register a Starbucks Card and link that card to their Concur account, and the Starbucks app automatically sends each transaction to Concur as an e-receipt. By joining My Starbucks Rewards™, users get stars when they pay with their phone or when they register a Starbucks Card. Stars earn free drinks, food, and more.
+
+Starbucks works with Expense for Concur Standard and Expense for Concur Professional. It is available now in the Concur App Center at www.Concur.com/AppCenter under Apps for Me. For more information, go to the Starbucks website at http://www.starbucks.com/coffeehouse/mobile-apps.
+
+#### Automatic Is Coming Soon
+
+![Automatic](./sap-concur-app-center-release-notes-2015-automatic.jpg)
+
+Maintaining a logbook is a hassle, and missing trips can cost a company big time. With Automatic, the user’s car can keep track of trips. Users can connect their Concur account to Automatic to access full trip history information and add all the details of a trip to expense reports with a single click. Each expense includes important data like mileage, route map, start/end address, and even a visual receipt.
+
+Automatic works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about Automatic, go to the Automatic website at https://www.automatic.com.
+
+#### Duty Free Express Is Coming Soon
+
+![Duty Free Express](./sap-concur-app-center-release-notes-2015-duty-free-express.jpg)
+
+Duty Free Express, an online pre-order service by Duty Free Americas, is an innovative way to speed purchases at participating duty free stores. Duty Free Express allows users to shop for duty free products online up to seven days before arriving at the airport for a scheduled international trip. After the user logs into Duty Free Express with a Concur account, Duty Free Express can use the Concur itinerary to have the purchase waiting at the gate. No longer do business travelers have to choose between relaxing in the lounge and shopping for their favorite luxury products duty free!
+
+Duty Free Express works with Travel for Concur Standard and Travel for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about Duty Free Express, go to the Duty Free Express website at https://www.dutyfreeexpress.com.
+
+#### GigSky Is Coming Soon
+
+![GigSky](./sap-concur-app-center-release-notes-2015-gigsky-1.jpg)
+
+GigSky specializes in international data coverage. With the GigSky SIM or Mobile Hotspot, users can get a fast, reliable data connection for a tablet, smartphone, or computer in 40+ countries around the world.
+
+Users choose a data plan based on how much data is needed and how long they will be in the country. Then they can use a tablet or smartphone just like they would at home: email, tweet, download a presentation, or share a photo. An integrated data invoice goes straight to Concur Expense Management.
+
+GigSky works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about GigSky, go to the GigSky website at https://gigsky.com.
+
+#### ingogo Is Coming Soon
+
+![ingogo](./sap-concur-app-center-release-notes-2015-ingogo.jpg)
+
+With ingogo, users can book a taxi from a mobile device, send their taxi receipts, and seamlessly upload receipts to their Concur expense accounts. Here are some of the ingogo features:
+
+* Pay with a mobile device and have receipts sent automatically to a Concur account.
+* The current pickup address is located automatically and response time is guaranteed.
+* Real-time updates of the driver's location.
+* Direct voice contact with the driver.
+* Active in Sydney, Melbourne, and Brisbane.
+
+ingogo works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about ingogo, go to the ingogo website at http://www.ingogo.mobi.
+
+#### localeikki Is Coming Soon
+
+![localeikki](./sap-concur-app-center-release-notes-2015-localeikki.jpg)
+
+localeikki is there for everyone who’s ever suffered in the tiny hotel gym or wandered aimlessly around city blocks trying to get some activity in. Users can find advice on where to be active, based on recommendations that include descriptions, photos, directions, and ratings, all from a community of active individuals. Once a user connects their Concur account to localeikki, they receive an email with suggestions about how to use the localeikki app to be active in any destination!
+
+localeikki works with Travel for Concur Standard and Travel for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about localeikki, go to the localeikki website at http://www.localeikki.com.
+
+#### MiFlight Is Coming Soon
+
+![MiFlight](./sap-concur-app-center-release-notes-2015-miflight.jpg)
+
+MiFlight is a mobile app that gives travelers the waiting times for airport security lines at airports around the world. This app was inspired by our love of traveling the world. We all need our travel experiences to be more efficient and less stressful. Our solution: Knowing the time in line saves time.
+
+MiFlight works with Travel for Concur Standard and Travel for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about MiFlight, go to the MiFlight website at http://gomiflight.com.
+
+#### PivotPayables Is Coming Soon
+
+![PivotPayables](./sap-concur-app-center-release-notes-2015-pivotpayables.jpg)
+
+PivotLynx sits between Concur Expense and Microsoft Dynamics CRM, enabling the two applications to share and accurately correlate data between them—streamlining the overall expense and payables processes and adding T&E spend to CRM reporting.
+
+Sales teams or other traveling employees won’t have a learning curve—they simply continue to use Concur Expense as they do today. With PivotLynx, however, they can easily search for attendees within their contacts, HCPs, or other CRM entities, and assign their expenses all from one place, eliminating the need to enter data more than once.
+
+PivotLynx works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about PivotLynx, go to the Pivot Payables website at http://pivotpayables.com.
+
+#### Tipszee Is Coming Soon
+
+![Tipszee](./sap-concur-app-center-release-notes-2015-tipszee.jpg)
+
+Tipszee is a mobile app that allows users to tip service providers, such as hotel staff, taxi drivers, waiters, and caddies. When users link their Concur account with Tipszee, e-receipts appear automatically in the user's receipt store and are added to the next expense report. Users can avoid the headache of carrying extra cash and expensing cash tips. SOX compliant.
+
+Tipszee works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter.
+
+#### WingUp Is Coming Soon
+
+![WingUp](./sap-concur-app-center-release-notes-2015-wingup.jpg)
+
+WingUp is the app for location-based professional networking. Users can quickly discover business contacts nearby and see who's in town. WingUp integration with Concur seamlessly syncs future business trip itineraries, enabling users to plan ahead to see who will be at the same conference or trade show. Now travelers don’t ever need to miss an opportunity to reconnect!
+
+WingUp works with Travel for Concur Standard and Travel for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about WingUp, go to the WingUp website at http://www.wingup.com.

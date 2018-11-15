@@ -33,8 +33,6 @@ Benefits of the Voll and SAP Concur integration for businesses:
 
 Voll works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the SAP Concur App Center under User Connections (formerly Apps for Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). For more information about the Voll integration, visit [http://govoll.com](http://govoll.com).
 
-
-
 ## <a name="apps-for-me-connection-coming-soon"></a>Apps for Me / User Connection Apps Coming Soon
 
 ### <a name="marcel"></a>Marcel

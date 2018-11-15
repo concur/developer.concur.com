@@ -1,0 +1,417 @@
+---
+title: SAP Concur App Center Release Notes - Client - 2017
+layout: reference
+---
+
+* [December](#december)
+* [October](#october)
+* [September](#september)
+* [August](#august)
+* [July](#july)
+* [May](#may)
+* [February](#february)
+* [January](#january)
+
+## <a name="december"></a>December 2017
+
+### Apps for Me Now Available
+
+#### GoCatch
+
+GoCatch is a GST compliant travel expense solution that is cardless and paperless. GoCatch enables you to manage your Taxi and Rideshare travel costs effortlessly through your mobile phone or desktop, with seamless Concur integration.
+
+GoCatch is the 100% Australian option to book and pay for Taxi and Rideshare, with no surge pricing and lower fares. For concur users there are no extra management fees charged on trips. Book ahead with Advance Booking – have a car waiting for you when you need it most, day or night, from 1 hour to 12 months in advance. Easily earn Qantas Frequent Flyer Points on every trip you take with GoCatch, and conveniently pay by connecting and applying any of your preferred payment methods.
+
+Access Economy (Rideshare) vehicles, Taxis, Maxis and Premium luxury vehicles. Get coverage from Australia's largest fleet of Taxis with over 55,000 drivers nationwide.
+
+At the end of your journey, your GoCatch trip receipt automatically links with Concur, filling in the details of your trips for a seamless experience. These GST compliant tax invoices ensure you receive your GST credits adjusted for non-taxable supplies such as state levies. No more paper receipts or lost emails or having to calculate the credit yourself.
+
+Linking your GoCatch and Concur account is simple:
+
+* Login to the GoCatch Portal
+* Turn Concur on and follow the instructions to link your account
+* Request a GoCatch and your tax invoice will automatically be transferred to Concur at the end of your journey
+
+Download the GoCatch app and connect to Concur today.
+
+GoCatch works with Expense for Concur Standard and Expense for Concur Professional. It is available now in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about GoCatch, visit their website at http://www.gocatch.com/.
+
+### Apps for Me Coming Soon
+
+#### <a name="qwykr"></a>Qwykr
+
+Qwykr is a complete ground travel solution for the business traveler. Qwykr features regulated, professional drivers for safely and securely transporting their employees. The Qwykr app handles the complete process from arranging the ground travel to connecting the traveler with their driver, processing the payment and making the insertion directly into the traveler’s expense report with complete IRS required documentation.
+
+For the Concur user, Qwykr automatically enters the receipt to the rider’s expense report with all of the proper IRS required documentation included. This assures complete compliance with IRS reporting regulations.
+
+Qwykr works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about Qwykr, visit their website at http://qwykr.com/.
+
+## <a name="october"></a>October 2017
+
+### Apps for Me Now Available
+
+#### Yualo (Youtel)
+
+![Yualo](./sap-concur-app-center-release-notes-2017-yualo.jpg)
+
+Yualo Travel makes business travel easier with global access to Wifi and automated expensing through Concur.
+
+Convenience: There´s no need to enter credentials or pay a hotspot fee in order to connect. Yualo Travel makes it easy by connecting you automatically – and sending your e-receipts to Concur for easy expensing.
+
+Costs: No more data roaming charges or fees for going over data limits. Yualo Travel has one weekly or monthly flat fee.
+
+Unlimited: Yualo Travel provides unlimited time and data on your iOS or Android devices.
+
+Global Wi-Fi footprint: Yualo Travel uses the world’s largest Wi-Fi network. Stay connected in airports, hotels, train stations, aircraft, venues and many other places worldwide.
+
+Simply connect Yualo Travel to your Concur account and receive e-receipts for your Yualo WiFi fees for easy expensing.
+
+Yualo works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about Yualo, visit their website at https://www.yualo.com/.
+
+### Apps for Me Coming Soon
+
+#### Qwykr
+
+Qwykr is a complete ground travel solution for the business traveler. Qwykr features regulated, professional drivers for safely and securely transport-ing their employees. The Qwykr app handles the complete process from arranging the ground travel to connecting the traveler with their driver, processing the payment and making the insertion directly into the traveler’s expense report with complete IRS required documentation.
+
+For the Concur user, Qwykr automatically enters the receipt to the rider’s expense report with all of the proper IRS required documentation included. This assures complete compliance with IRS reporting regulations.
+
+Qwykr works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about Qwykr, visit their website at http://qwykr.com/.
+
+### Notes
+
+#### App Center Activation in October
+
+Clients who previously did not have the App Center tab in Concur have received it in the October 2017 release. Impacted clients received communications from their travel management company and/or Concur providing advance notice of this change. The App Center allows Concur clients to extend the value of their Concur solution by providing greater insights into spend and simplifying travel and expense. If you are a customer who received the App Center in the October release, visit https://go.concur.com/App-Center-Enablement-Resources.html for more details.
+
+## <a name="september"></a>September 2017
+
+### Apps for Me Now Available
+
+#### SkyParkSecure
+
+![SkyParkSecure](./sap-concur-app-center-release-notes-2017-skyparksecure.jpg)
+
+Find our SkyParkSecure App in your Concur account and click the "Connect" button. You'll then be re-directed to our site allowing you to sign in or create your business account with us which will be automatically be linked to your Concur account. Once connect you will automatically receive your invoice into your receipt store for your next airport parking booking through SkyParkSecure. The booking will be automatically added to your next expense report.
+
+Benefits of using the SkyParkSecure app include:
+
+* Compare live prices of over 300 airport parking services
+* Compare live reviews of each airport parking service-Store all invoices in one central location
+* Easy export of booking information for company invoice receipting.
+
+Price check promise - On a daily basis we compare the prices on offer from over 300 airport car parks to find our customers the best available deals and we back up that statement with our price check promise. In the unlikely event that you do find the same Airport Parking product for less within 24 hours of making a booking with us, tell us and we will match the price or refund the difference. We will also give you a 10% discount on your next booking (subject to the following terms and conditions).
+
+SkyParkSecure works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about SkyParkSecure, visit their website at https://business.skyparksecure.com.
+
+#### The Parking Spot
+
+![The Parking Spot](./sap-concur-app-center-release-notes-2017-the-parking-spot.jpg)
+
+The Parking Spot is the nation’s largest near-airport parking company, with 38 convenient locations at 21 major U.S. airports – making travel simple and seamless. Our friendly, courteous team members, outstanding value, unmatched customer service commitment and industry-leading Spot Club loyalty program ensure that The Parking Spot is the best part of our guests’ travel experience.
+
+With our Concur expense integration, all you have to do is connect your Spot Club account to Concur, and The Parking Spot will automatically send your parking receipts to Concur. No need to hang on to paper receipts – simply use your Spot Club account at check-out.
+
+Other benefits of The Parking Spot:
+
+* An industry leading mobile app to track shuttles, make reservations, record your parking spot, and manage your Spot Club account
+* Trunk-to-terminal service: our shuttle picks you up at your car, and takes you to the terminal
+* Complimentary luggage assistance
+* Complimentary bottled water at exit
+
+Other benefits of the Spot Club:
+
+* Earn free parking (earn 1 free day in as few as 7 paid days)
+* Waived reservation fees
+* Ticketless entry and exit, so there’s no need to store a paper parking ticket during your trip
+
+Connect The Parking Spot to your Concur account today to experience seamless business travel.
+
+The Parking Spot works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about The Parking Spot, visit their website at https://www.theparkingspot.com/.
+
+### Apps for Me Coming Soon
+
+#### Qwykr
+
+Qwykr is a complete ground travel solution for the business traveler. Qwykr features regulated, professional drivers for safely and securely transport-ing their employees. The Qwykr app handles the complete process from arranging the ground travel to connecting the traveler with their driver, processing the payment and making the insertion directly into the traveler’s expense report with complete IRS required documentation.
+
+For the Concur user, Qwykr automatically enters the receipt to the rider’s expense report with all of the proper IRS required documentation included. This assures complete compliance with IRS reporting regulations.
+
+Qwykr works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about Qwykr, visit their website at http://qwykr.com/.
+
+### Notes
+
+#### App Center Activation in October
+
+Clients who do not have the App Center tab in Concur will receive it in the October 2017 release. Impacted clients will receive communications from their travel management company and/or Concur providing advance notice of this change. The App Center allows Concur clients to extend the value of their Concur solution by providing greater insights into spend and simplifying travel and expense. If you are a customer who will be receiving the App Center, visit https://go.concur.com/App-Center-Enablement-Resources.html for more details.
+
+## <a name="august"></a>August 2017
+
+### Apps for Me Now Available
+
+#### Allocab
+
+![Allocab](./sap-concur-app-center-release-notes-2017-allocab.jpg)
+
+Order your private chauffeur and taxi in just 1 click!
+
+Allocab is the #1 private chauffeur network in France, with 8,000 drivers at your service in more than 100 metropolitan areas; 5,137 cities; 110 stations; and 50 airports.
+
+Our drivers are rated 4.8 / 5 by customers. We offer a wide selection of vehicles ranging from sedans to vans and motorbike taxis – all with comfort and convenience in mind.
+
+Reserve your personal chauffeur in seconds from the mobile app or Allocab.com. With Allocab Pro, a free premium service, you can save up to 50% on your taxi budget for business trips, and connect your account to Concur for easy expensing.
+
+To get started, simply:
+
+1. Create your free Allocab Pro account at https://www.allocab.com/webapp/#/auth/subscribe/passenger?status=CORPORATE
+2. Connect it to your Concur account.
+3. Your Allocab e-receipts will appear automatically in Concur, so you can manage travel expenses easily.
+
+Simple, fast, and intuitive: download the Allocab mobile app and order your customized driver for all your business meetings and business trips. Available on iPhone and Android.
+
+Allocab works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about Allocab, visit their website at https://www.allocab.com/.
+
+#### SkyParkSecure
+
+![SkyParkSecure](./sap-concur-app-center-release-notes-2017-skyparksecure.jpg)
+
+Skyparksecure offer airport parking services across 28 UK airports and over 300 car parks. Skyparksecure's easy to use booking tool saves traveller profiles ensuring fast and efficient bookings for travellers, travel managers and PAs.
+
+Find our Skyparksecure App in your Concur account and click the "Connect Button". You'll then be re-directed to our site allowing you to sign in or create your business account with us which will be automatically linked to your Concur account.
+
+So next time you need to book airport parking for your business trip you will automatically receive your invoice into your receipt store. The booking will be automatically added to your next expense report.
+
+SkyParkSecure works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about SkyParkSecure, visit their website at https://business.skyparksecure.com.
+
+#### The Parking Spot
+
+![The Parking Spot](./sap-concur-app-center-release-notes-2017-the-parking-spot.jpg)
+
+The Parking Spot is the nation’s largest near-airport parking company, with 38 convenient locations at 21 major U.S. airports – making travel simple and seamless. Our friendly, courteous team members, outstanding value, unmatched customer service commitment and industry-leading Spot Club loyalty program ensure that The Parking Spot is the best part of our guests’ travel experience.
+
+With our Concur expense integration, all you have to do is connect your Spot Club account to Concur, and The Parking Spot will automatically send your parking receipts to Concur. No need to hang on to paper receipts – simply use your Spot Club account at check-out.
+
+Other benefits of The Parking Spot:
+
+* An industry leading mobile app to track shuttles, make reservations, record your parking spot, and manage your Spot Club account
+* Trunk-to-terminal service: our shuttle picks you up at your car, and takes you to the terminal
+* Complimentary luggage assistance
+* Complimentary bottled water at exit
+
+Other benefits of the Spot Club:
+
+* Earn free parking (earn 1 free day in as few as 7 paid days)
+* Waived reservation fees
+* Ticketless entry and exit, so there’s no need to store a paper parking ticket during your trip
+
+Connect The Parking Spot to your Concur account today to experience seamless business travel.
+
+The Parking Spot works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about The Parking Spot, visit their website at https://www.theparkingspot.com/.
+
+#### Qwykr
+
+Qwykr is a complete ground travel solution for the business traveler. Qwykr features regulated, professional drivers for safely and securely transport-ing their employees. The Qwykr app handles the complete process from arranging the ground travel to connecting the traveler with their driver, processing the payment and making the insertion directly into the traveler’s expense report with complete IRS required documentation.
+
+For the Concur user, Qwykr automatically enters the receipt to the rider’s expense report with all of the proper IRS required documentation included. This assures complete compliance with IRS reporting regulations.
+
+Qwykr works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about Qwykr, visit their website at http://qwykr.com/.
+
+## <a name="july"></a>July 2017
+
+### Apps for Me Now Available
+
+#### TwoGo
+
+![TwoGo](./sap-concur-app-center-release-notes-2017-two-go.jpg)
+
+Travelers share rides in their Concur itineraries, seamlessly with TwoGo.
+
+TwoGo is a mobile, cloud-based carpooling service, optimized to integrate smoothly into daily work routines and to match shared rides efficiently.
+
+Matching is proactive and fully automated, meaning the least possible effort for you. No searching of lists. TwoGo automatically proposes potential matches for identifiable segments of your itineraries.
+
+Linking your Concur account to TwoGo provides you with valuable options to ease travel, network with colleagues and share costs at the same time:
+
+* Specify extensive matching criteria: You can tell TwoGo to be match on strict criteria including ride as driver/ passenger/ either, departure and arrival times, individually customized route, length of detour (minutes), proportion of the route to share, avoiding specific individuals, matching with a closed circle of colleagues, or (for women) restricting by gender.
+* Use social media or email to actively invite friends and colleagues to share rides.
+* Be part of a secure and trusted community: TwoGo checks the identity of its corporate users, which helps build up trust. Naturally, personal information is protected through highly secure measures and procedures in place.
+* Manage the rides the way that is most convenient for you across the various integrated platforms: Use the electronic calendar, the web application at www.twogo.com, or native mobile clients (iPhone and Android).
+* Set flexible ride options, including shuttles, rental and temp cars.
+* Use various ride patterns, including roundtrips, recurring rides, and multiple ride intents for different days.
+* Delegate communication: TwoGo seamlessly manages the entire communication chain, including defining the right meeting points for participants at the right time. No other communication among participants is necessary.
+
+Get the most out of enterprise ride sharing. Connect TwoGo and your Concur Travel account.
+
+TwoGo by SAP works with Travel for Concur Standard and Travel for Concur Professional. It is now available in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about TwoGo, visit their website at https://www.twogo.com/.
+
+#### Allocab
+
+![Allocab](./sap-concur-app-center-release-notes-2017-allocab.jpg)
+
+Order your private chauffeur and taxi in just 1 click!
+
+Allocab is the #1 private chauffeur network in France, with 8,000 drivers at your service in more than 100 metropolitan areas; 5,137 cities; 110 stations; and 50 airports.
+
+Our drivers are rated 4.8 / 5 by customers. We offer a wide selection of vehicles ranging from sedans to vans and motorbike taxis – all with comfort and convenience in mind.
+
+Reserve your personal chauffeur in seconds from the mobile app or Allocab.com. With Allocab Pro, a free premium service, you can save up to 50% on your taxi budget for business trips, and connect your account to Concur for easy expensing.
+
+To get started, simply:
+
+1. Create your free Allocab Pro account at https://www.allocab.com/webapp/#/auth/subscribe/passenger?status=CORPORATE
+2. Connect it to your Concur account.
+3. Your Allocab e-receipts will appear automatically in Concur, so you can manage travel expenses easily.
+
+Simple, fast, and intuitive: download the Allocab mobile app and order your customized driver for all your business meetings and business trips. Available on iPhone and Android.
+
+Allocab works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about Allocab, visit their website at https://www.allocab.com/.
+
+### Apps for Me Coming Soon
+
+#### Qwykr
+
+Qwykr is a complete ground travel solution for the business traveler. Qwykr features regulated, professional drivers for safely and securely transport-ing their employees. The Qwykr app handles the complete process from arranging the ground travel to connecting the traveler with their driver, processing the payment and making the insertion directly into the traveler’s expense report with complete IRS required documentation.
+
+For the Concur user, Qwykr automatically enters the receipt to the rider’s expense report with all of the proper IRS required documentation included. This assures complete compliance with IRS reporting regulations.
+
+Qwykr works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about Qwykr, visit their website at http://qwykr.com/.
+
+## <a name="may"></a>May 2017
+
+### Apps for Me Coming Soon
+
+#### TwoGo
+
+![TwoGo](./sap-concur-app-center-release-notes-2017-two-go.jpg)
+
+Travelers share rides in their Concur itineraries, seamlessly with TwoGo.
+
+TwoGo is a mobile, cloud-based carpooling service, optimized to integrate smoothly into daily work routines and to match shared rides efficiently.
+
+Matching is proactive and fully automated, meaning the least possible effort for you. No searching of lists. TwoGo automatically proposes potential matches for identifiable segments of your itineraries.
+
+Linking your Concur account to TwoGo provides you with valuable options to ease travel, network with colleagues and share costs at the same time:
+
+* Specify extensive matching criteria: You can tell TwoGo to be match on strict criteria including ride as driver/ passenger/ either, departure and arrival times, individually customized route, length of detour (minutes), proportion of the route to share, avoiding specific individuals, matching with a closed circle of colleagues, or (for women) restricting by gender.
+* Use social media or email to actively invite friends and colleagues to share rides.
+* Be part of a secure and trusted community: TwoGo checks the identity of its corporate users, which helps build up trust. Naturally, personal information is protected through highly secure measures and procedures in place.
+* Manage the rides the way that is most convenient for you across the various integrated platforms: Use the electronic calendar, the web application at www.twogo.com, or native mobile clients (iPhone and Android).
+* Set flexible ride options, including shuttles, rental and temp cars.
+* Use various ride patterns, including roundtrips, recurring rides, and multiple ride intents for different days.
+* Delegate communication: TwoGo seamlessly manages the entire communication chain, including defining the right meeting points for participants at the right time. No other communication among participants is necessary.
+
+Get the most out of enterprise ride sharing. Connect TwoGo and your Concur Travel account.
+
+TwoGo by SAP works with Travel for Concur Standard and Travel for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about TwoGo, visit their website at https://www.twogo.com/.
+
+#### Qwykr
+
+Qwykr is a complete ground travel solution for the business traveler. Qwykr features regulated, professional drivers for safely and securely transport-ing their employees. The Qwykr app handles the complete process from arranging the ground travel to connecting the traveler with their driver, processing the payment and making the insertion directly into the traveler’s expense report with complete IRS required documentation.
+
+For the Concur user, Qwykr automatically enters the receipt to the rider’s expense report with all of the proper IRS required documentation included. This assures complete compliance with IRS reporting regulations.
+
+Qwykr works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under User Connections (formerly Apps for Me) at www.Concur.com/AppCenter. For more information about Qwykr, visit their website at http://qwykr.com/.
+
+### Important App Update
+
+#### Concur & Starbucks Integration Deactivated
+
+Unfortunately, technical issues with the Starbucks e-receipt integration for Concur have caused a poor user experience and some receipts have failed to post. Therefore, the integration has been deactivated indefinitely.
+
+Starbucks card and app usage outside of the integration with Concur are not impacted, and there is no action required on your part.
+
+If you have experienced issues, please use the History function in your Starbucks mobile app or Starbucks account online to manually create a transaction if it hasn't been posted.
+
+We apologize for any inconvenience this may cause. We will continue provide fully supported third-party apps via the Concur App Center that make it easier to plan the perfect trip, manage company spend, and make expensing effortless.
+
+## <a name="february"></a>February 2017
+
+### Apps for Me Now Available
+
+#### SpotHero
+
+![Spot Hero](./sap-concur-app-center-release-notes-2017-spot-hero.jpg)
+
+SpotHero makes work travel easier. With parking options at airports, hotels, work sites and office buildings across the country, you can now find and reserve parking through the SpotHero app and avoid the hassle of complicated receipt and expense management each month.
+
+Enjoy a paperless transaction as you pay through the app and forward receipts directly to Concur. Add a business memo so you always remember the purpose of your park!
+
+SpotHero is the nation’s leading parking reservation service, as measured by cars parked, parking facilities, and app downloads. SpotHero has been covered by the Today Show and NBC, and is part of HubSpot’s roundup of the “28 Apps Every Sales Rep Needs on Their Phone.” Parking over 4M cars to date, SpotHero empowers thousands of commuters with easy and convenient business travel across the U.S.
+
+To get started:
+
+* Create a business profile under settings in the free SpotHero app
+* Choose Concur as your expense provider and verify your account
+* Enter your desired destination to find and reserve nearby parking
+* Book a spot through SpotHero and receipts will be sent automatically to Concur
+
+SpotHero works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about SpotHero, visit their website at https://spothero.com/.
+
+## <a name="january"></a>January 2017
+
+### Apps for Me Now Available
+
+#### Cater Nation
+
+![Cater Nation](./sap-concur-app-center-release-notes-2017-cater-nation.jpg)
+
+Cater Nation gives you one-stop shopping for your business drop-off catering needs. Our customers include Fortune 500 companies, professional and financial service firms, medical and other sales professionals. And while having one site to go for ordering is convenient, with Cater Nation you also get the absolute best customer care experience in the online food ordering industry, according to third-party review aggregator, Trustpilot.
+
+Why Cater Nation? Consider the following:
+
+* Order catering online from a wide variety of brands and cuisines at same-as-direct prices, no upcharges allowed. Order at a time that fits YOUR schedule, not somebody else’s.
+* One point of contact for all aspects of order fulfillment – contact us via email, text, phone or chat.
+* Generous rewards program, with opportunities to receive 2-8% in spending rebates in the form of gift cards (Amazon, American Express or Target) or credits toward future orders.
+* We get your orders confirmed (sometimes twice!) with our fulfillment partners and notify you that your order is on schedule.
+* Restaurant and Caterer reviews available to assist you in the shopping process, we also post the timeliness percentage of our partners over the past 12 months.
+* Order issue? Let us represent your interests to get you the desired resolution.
+* Receipts emailed to you and sent automatically to Concur after order fulfillment is completed.
+* Speaking of receipts, no more signing receipts on-site and pressure to add gratuities, you can pre-select a driver gratuity when ordering online!
+* Store multiple addresses, secure credit card information, redeem and access your reward point history, and see all your past and future orders in “My Account”.
+* We are NOT a food delivery service. We would rather your orders be delivered by the managers and owners of our fulfillment partners.
+
+Cater Nation works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about Cater Nation, visit their website at https://www.caternation.com/.
+
+#### RLHC – Red Lion Hotels Corporation
+
+![Red Lion Hotels Corporation](./sap-concur-app-center-release-notes-2017-red-lion-hotels-corporation.jpg)
+
+Say Hello to Rewards! The Red Lion Hotels Corporation guest loyalty program features more than hotel perks – members can take the hassle out of expensing hotel stays by connecting their membership to their Concur Expense account. Simply:
+
+* Download the Hello Rewards app on your iOS or Android device.
+* Connect your RLHC Hello Rewards Membership to you Concur Expense account.
+* Book your next stay with an RLHC property.
+* After check-out, your hotel bill will be automatically uploaded and itemized in your Concur Expense account.
+
+As a Hello Rewards member, guests also receive plenty of personal touches and extra perks when staying at an RLHC hotel:
+
+* A free night every 7 stays
+* Hello Rewards Rate, our best rate guarantee
+* Express check-in and check-out
+* Late check-out (when available)
+* Room upgrades (when available)
+* Exclusive Hello Rewards member-only offers
+* Become a Hello Rewards member today for a welcoming hotel experience and easy, automated expensing.
+
+RLHC works with Expense for Concur Standard and Expense for Concur Professional. It is now available in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about Red Lion Hotels, visit their website at https://www.redlion.com/.
+
+### Apps for Me Coming Soon
+
+#### SpotHero
+
+![Spot Hero](./sap-concur-app-center-release-notes-2017-spot-hero.jpg)
+
+SpotHero makes work travel easier. With parking options at airports, hotels, work sites and office buildings across the country, you can now find and reserve parking through the SpotHero app and avoid the hassle of complicated receipt and expense management each month.
+
+Enjoy a paperless transaction as you pay through the app and forward receipts directly to Concur. Add a business memo so you always remember the purpose of your park!
+
+SpotHero is the nation’s leading parking reservation service, as measured by cars parked, parking facilities, and app downloads. SpotHero has been covered by the Today Show and NBC, and is part of HubSpot’s roundup of the “28 Apps Every Sales Rep Needs on Their Phone.” Parking over 4M cars to date, SpotHero empowers thousands of commuters with easy and convenient business travel across the U.S.
+
+To get started:
+
+* Create a business profile under settings in the free SpotHero app
+* Choose Concur as your expense provider and verify your account
+* Enter your desired destination to find and reserve nearby parking
+* Book a spot through SpotHero and receipts will be sent automatically to Concur
+
+SpotHero works with Expense for Concur Standard and Expense for Concur Professional. It will be available soon in the Concur App Center under Apps for Me at www.Concur.com/AppCenter. For more information about Red Lion Hotels, visit their website at https://spothero.com/.

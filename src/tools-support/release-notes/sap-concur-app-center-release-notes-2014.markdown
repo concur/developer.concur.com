@@ -1,0 +1,349 @@
+---
+title: SAP Concur App Center Release Notes - Client - 2014
+layout: reference
+---
+
+* [December](#december)
+* [November](#november)
+* [October](#october)
+* [September](#september)
+* [August](#august)
+* [July](#july)
+* [June](#june)
+* [May](#may)
+
+## <a name="december"></a>December 2014
+
+### Apps for Me
+
+#### Starbucks Is Coming Soon
+
+![Starbucks](./sap-concur-app-center-release-notes-2014-starbucks.jpg)
+
+With the Starbucks app users get their Starbucks rewards and their favorite way to pay either for business or pleasure. Users can link a Starbucks card from their wallet or their Starbucks mobile app to create their Starbucks Travel and Expense Card for use when they are travelling or holding meetings at a Starbucks store. The Starbucks app automatically sends each transaction to Concur as a Smart Receipt.
+
+Starbucks will be available soon from the Concur App Center at www.Concur.com/AppCenter as a consumer app under Apps for Me. For more information, go to the Starbucks website at http://www.starbucks.com/coffeehouse/mobile-apps.
+
+#### TripLog Is Available Now
+
+![TripLog](./sap-concur-app-center-release-notes-2014-triplog.jpg)
+
+An innovative, feature-rich mileage tracking app for Android and iOS devices, TripLog lets you automatically track your mileage and sync your data in real time. To initiate the app’s GPS mileage tracker, all you have to do is connect to your Bluetooth device and drive at a speed above the 5 mph threshold. TripLog does the rest and syncs the data between your mobile device and the Web instantaneously—even while you’re offline.
+
+And now with Concur integration, you can also track trip mileage, tolls, fuel, parking, and other expenses and upload them directly to your Concur Expense account, making expense reporting seamless and automatic. Once the connection between TripLog and Concur is enabled, you can:
+
+* Access trips via TripLog and import receipt images directly to your Concur expense report.
+* Automatically capture trips as Personal Car Mileage, and capture tolls, parking, and other expenses as QuickExpenses, along with accompanying receipt images.
+* Record your actual driving route and view it on Google Maps.
+* Include units of measure, date format, and currencies for USA, Canada, UK, Australia, South Africa, and other 20 countries.
+
+TripLog works with Expense for Concur Standard and Expense for Concur Professional. It is available now in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+## <a name="november"></a>November 2014
+
+### Apps for Me
+
+#### Curb Is Available Now
+
+![Curb](./sap-concur-app-center-release-notes-2014-curb.jpg)
+
+Curb delivers mobile innovation and a new ride experience to consumers, drivers, and forward-looking ground transportation companies. With Curb, users can seamlessly connect to a nation-wide network of over 35,000 taxis and 6,500 for-hire vehicles across 60 cities. Users can use their smartphones to book, track, and pay for their rides, and leave the expense reporting to Concur. When users link their Curb and Concur accounts, their ride receipts are automatically added to their Concur expense report.
+
+Curb works with Expense for Concur Professional and Expense for Concur Standard. Curb is available now in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+## <a name="october"></a>October 2014
+
+### Apps for Me
+
+#### BizPack Is Available Now
+
+![BizPack](./sap-concur-app-center-release-notes-2014-bizpack.jpg)
+
+BizPack makes packing for a business trip easy. Users can organize their tasks and items before their business trips. BizPack includes a master list and various list templates that are available through the packing list catalog on the DotNetIdeas Cloud Server. Users can customize those out-of-box lists or create their own for different types of trips.
+
+The Location and Luggage View of a packing list present items by their locations and luggage respectively. The Mass Change feature enables users to edit quantity and assign location and luggage for multiple items at once. Users can also enter notes and weight for each item. In large lists, the search box will helps users locate items quickly.
+
+Users can synchronize and share a Concur packing list among multiple mobile iOS and Android devices through the DotNetIdeas cloud server. Users can upload and edit Concur packing lists online, back up their lists, and easitly populate their lists on any device.
+
+BizPack works with Travel for Concur Standard. It is available now in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+#### LoungeBuddy Is Available Now
+
+![LoungeBuddy](./sap-concur-app-center-release-notes-2014-loungebuddy.jpg)
+
+LoungeBuddy makes it easy for users to discover, review, and access airport lounges during their trips around the world. After users connect their Concur account with LoungeBuddy, they can easily discover nearby airport lounges that could be available free of charge or for a one-time fee. Users can easily find out about amenities, read reviews, and view photos of nearby airport lounges.
+
+LoungeBuddy works with Travel for Concur Professional and Travel for Concur Standard. It is available now in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+#### LugLess Is Available Now
+
+![LugLess](./sap-concur-app-center-release-notes-2014-lugless.jpg)
+
+LugLess is a luggage concierge service for business and leisure travelers. It frees users from having to haul their luggage to the airport and wait in crowded baggage claim areas to pick their luggage. Users also avoid the hassle of lost or delayed luggage. When users connect their Concur account with Lugless, their signup process is easy and fast — it takes less than five minutes.
+
+LugLess works with Travel for Concur Professional and Travel for Concur Standard. It is available now in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+#### TripSync Is Available Now
+
+![TripSync](././sap-concur-app-center-release-notes-2014-tripsync.jpg)
+
+TripSync automatically synchronizes coworkers itineraries. After users install the TripSync browser extension and connect their Concur account with TripSync, they can access their colleagues’ upcoming travel itineraries from their search results with one click. They can easily see who is on what flight and where everybody is staying.
+
+TripSync works with Travel for Concur Professional and Travel for Concur Standard. It is available now in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+#### Wingz Is Available Now
+
+![Wingz](./sap-concur-app-center-release-notes-2014-wingz.jpg)
+
+With WingZ, users can book airport transportation in advance so that they can focus on their business trip. When users connect their Concur accounts with Wingz, they can schedule door-to-door airport rides that are provided by hand-picked local drivers for a flat rate, including tips. WingZ uses hand-picked, local drivers who are trained and background checked. Users simply select their pick-up, drop-off locations and time, then preview the itinerary and the flat rate before booking. Wingz selects and connects the user to their driver and provides the driver’s profile and vehicle information.
+
+Wingz works with Travel for Concur Professional and Travel for Concur Standard. It is available now in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+## <a name="september"></a>September 2014
+
+### Apps for Me
+
+#### TVFoodMaps Is Available Now
+
+![TVFoodMaps](./sap-concur-app-center-release-notes-2014-tv-food-maps.jpg)
+
+TVFoodMaps enhances the business trip experience by providing the largest listing of restaurants featured on Food and Travel shows such as Diners, Drive Ins & Dives, Man v. Food, and over 30 other TV shows. When users connect their Concur accounts with TVFoodMaps, they get automatic listings and notifications when their itineraries bring them near a restaurant featured on TV. Users can also find restaurants with GPS; search restaurants by location; view restaurant websites, menus, and videos; see restaurants added recently; and create their “Try and Been” restaurant lists.
+
+TVFoodMaps works with Travel for Concur Professional and Travel for Concur Standard. It is available now in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+#### Wingz Is Coming Soon
+
+![Wingz](./sap-concur-app-center-release-notes-2014-wingz.jpg)
+
+With WingZ, users can book airport transportation in advance so that they can focus on their business trip. When users connect their Concur accounts with Wingz, they can schedule door-to-door airport rides that are provided by hand-picked local drivers for a flat rate, including tips. WingZ uses hand-picked, local drivers who are trained and background checked. Users simply select their pick-up, drop-off locations and time, then preview the itinerary and the flat rate before booking. Wingz selects and connects the user to their driver and provides the driver’s profile and vehicle information.
+
+Wingz works with Travel for Concur Professional and Travel for Concur Standard. It will be available soon in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+#### BizPack Is Coming Soon
+
+![BizPack](./sap-concur-app-center-release-notes-2014-bizpack.jpg)
+
+BizPack makes packing for a business trip easy. Users can organize their tasks and items before their business trips. BizPack includes a master list and various list templates that are available through the packing list catalog on the DotNetIdeas Cloud Server. Users can customize those out-of-box lists or create their own for different types of trips.
+
+The Location and Luggage View of a packing list present items by their locations and luggage respectively. The Mass Change feature enables users to edit quantity and assign location and luggage for multiple items at once. Users can also enter notes and weight for each item. In large lists, the search box will helps users locate items quickly.
+
+Users can synchronize and share a Concur packing list among multiple mobile iOS and Android devices through the DotNetIdeas cloud server. Users can upload and edit Concur packing lists online, back up their lists, and easitly populate their lists on any device.
+
+BizPack works with Travel for Concur Standard. It will be available soon in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+## <a name="august"></a>August 2014
+
+### Apps for Me
+
+#### Nezasa Is Available Now
+
+![Nezasa](./sap-concur-app-center-release-notes-2014-nezasa.jpg)
+
+Nezasa provides the services and comforts of a traditional travel agency combined with the simplicity and price levels of an online portal. With Nezasa, users can customize their business trips for an authentic local experience in the country they are visiting without the hassle of planning and booking in numerous places. Users can include their favorite activities, hotels, and transfers and book the entire itinerary all in one place. Nezasa’s local tour operator takes care of the rest and can assist users at any time before and during their trip. After users connect their Concur account with Nezasa, they receive an email with options for their personal journey.
+
+Nezasa works with Travel for Concur Professional and Travel for Concur Standard. It is available now in the Concur App Center under in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+#### Shopnfly Is Available Now
+
+![Shopnfly](./sap-concur-app-center-release-notes-2014-shopnfly.jpg)
+
+Shopnfly makes duty-free shopping fast and easy. With Shopnfly users can search duty-free products, locate the best deals, order them online, and have their products waiting for them at the airport of their choice.
+
+Shopnfly works with Travel for Concur Professional and Travel for Concur Standard. It is available now in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+#### Travefy Is Available Now
+
+![Travefy](./sap-concur-app-center-release-notes-2014-travefy.jpg)
+
+Travefy makes group-travel planning easy. With Travefy travel groups can collaborate on trip details, build rich itineraries, and collect shared expenses. When users connect their Concur account and itineraries booked in Concur, they automatically flow into Travefy.
+
+Travefy serves over 8 million activities, restaurants, accommodations, flights and deals across the globe to discuss, book, and build a rich shared itinerary. Travefy’s expense management tool allows groups to track all shared expenses, settle the bill, and collect payments through Travefy, so organizers never get stuck with the bill again!
+
+Travefy is free to consumers at Travefy.com and is fully optimized to work on any mobile, tablet or device.
+
+Travefy works with Travel for Concur Standard. It is available now in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+#### Tripsy Is Coming Soon
+
+![Tripsy](./sap-concur-app-center-release-notes-2014-tripsy.jpg)
+
+Tripsy makes planning business travel with colleagues easier. After users install the Tripsy browser extension and connect their Concur account with Tripsy, they can access their colleagues’ upcoming travel itineraries. With Tripsy, users no longer have to hunt down their colleagues itineraries. With one click from the Concur site, users can search for flights or hotels and they can easily see who is on what flight and where everybody is staying.
+
+Tripsy works with Travel for Concur Professional and Travel for Concur Standard. It is coming soon in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+#### Uber Is Available Now
+
+![Uber](./sap-concur-app-center-release-notes-2014-uber.jpg)
+
+Uber makes it easy to get a ride that fits the occasion. Users can choose the low cost uberX for everyday needs, or a premium option for a night out. It's quick, convenient, and cashless. Users just need to tap a button on their phones or mobile devices and get picked up wherever they are around the globe. Uber also makes the expensing process effortless. When users connect their Concur account with Uber, an e-receipt automatically appears in their next expense report and they don’t have to worry about paper taxi receipts again.
+
+Uber works with Expense for Concur Professional and Expense for Concur Standard. It is available now in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+## <a name="july"></a>July 2014
+
+### Apps for My Business
+
+#### Starwood TripLink Is Coming Soon
+
+![Starwood](./sap-concur-app-center-release-notes-2014-starwood.jpg)
+
+With the Starwood TripLink app, users can make reservations on Starwood sites and get their negotiated corporate discount for Starwood properties while booking on the Starwood website. After connecting their Concur account with their Starwood Preferred Guest (SPG) account, all users’ Starwood booking data flows back into Concur, improving duty of care and policy compliance at a corporate level.
+
+Starwood works with Travel for Concur Professional and Travel for Concur Standard. It will be available soon for TripLink customers in the Concur App Center under Apps for Me https://www.concur.com/en-us/app-center.
+
+#### Travisa Is Coming Soon
+
+![Travisa](./sap-concur-app-center-release-notes-2014-travisa.jpg)
+
+By integrating Travisa and Concur company-level accounts, your employees will be able to have their Travisa receipts automatically sent to their Concur accounts for easy and accurate expense reporting.
+
+Once your company is set up, your employees will be able to connect to Travisa to start receiving E-receipts. Once they do so, Travisa will automatically send any receipt for an order they've placed to their Concur account.
+
+You must have the Web Services Administrator role in order to provide company-level access to Travisa e-receipts. If you’re unsure whether you have this role, please contact your Concur representative.
+
+Travisa will be available soon in the Concur App Center under Apps for My Business at https://www.concur.com/en-us/app-center.
+
+#### Addison Lee Is Coming Soon
+
+![Addison Lee](./sap-concur-app-center-release-notes-2014-addison-lee.jpg)
+
+Addison Lee is the UK’s largest chauffeur and premium minicab service and will soon be available globally. In the UK, it provides an average response of less than 10 minutes. A licensed, branded high quality fleet of 3,800 air-conditioned 7-seater MPVs, 400 hybrid saloons and 400 Mercedes saloons is why over 10 million Londoners use Addison Lee every year.
+
+With Concur Addison Lee makes ground transport effortless and connected. Airport transfer and taxi bookings can be made inside Concur Travel.
+
+All bookings are safe and easily tracked. Users receive an SMS message to let them know their car is on its way, and another one when the car has arrived. Users can find their vehicles with GPS. For airport transfers, a driver meets users at the airport or a location of their choice.
+
+All journeys are simply priced from point to point with no meters and no surprises (taxes and tolls are included and users do not need to provide a gratuity). Behind the scenes, Addison Lee places all e-receipts in the users’ Concur expenses, making the whole process paperless, transparent, and connected.
+
+Addison Lee will be available soon in the Concur App Center under Apps for My Business at https://www.concur.com/en-us/app-center.
+
+### Apps for Me
+
+#### EmailXpenC Is Now Available
+
+![EmailXpenC](./sap-concur-app-center-release-notes-2014-emailxpenc.jpg)
+
+With EmailXpenC by GlobeXpenC, users on the go with limited Internet access can create and manage expense reports in Concur using email or Excel.
+
+Users simply complete expense reports by typing expense information directly into an e-mail or submitting an Excel workbook to Concur along with attached receipts. EmailXpenC captures and itemizes expense details in the users’ Concur expense reports. It also collects receipt information directly from the e-mail messages, enabling a seamless reimbursement process.
+
+EmailXpenC is available in the Concur App Center under Apps for Me at https://www.concur.com/en-us/app-center.
+
+## <a name="june"></a>June 2014
+
+#### Lido Is Available Now
+
+![Lido](./sap-concur-app-center-release-notes-2014-lido.jpg)
+
+Lido sources from over 9000 hotels, serviced apartments, motels, caravan parks and B & Bs, specializing in hard-to-find non-GDS properties in Australia and New Zealand. Lido is Australia and New Zealand’s market-leading corporate and government accommodation aggregator and provider of managed accommodation programs with integrated payment solutions.
+
+Lido works with:
+
+* Travel for Concur Professional
+* Travel for Concur Standard
+* Expense for Concur Professional
+* Expense for Concur Standard
+
+Lido is available now in the Concur App Center under Apps for My Business at https://www.concur.com/en-us/app-center/listing/nAhO5TRnl$smToSi6HaA1zGjpP/The-Lido-Group. To make Lido available to travelers, activate Lido in your Concur Travel Configuration and save.
+
+#### Quipsound Is Available Now
+
+![Quipsound](./sap-concur-app-center-release-notes-2014-quipsound.jpg)
+
+Quipsound will seamlessly integrate the VAT recovery process with Concur to maximise the elimination of paper. Tax Offices in Europe are moving towards the elimination of hard copy invoices, and Quipsound’s over three decades of experience of making refund claims will assist you in this transformation.
+
+Quipsound works with:
+
+* Travel for Concur Professional
+* Travel for Concur Standard
+* Expense for Concur Professional
+* Expense for Concur Standard
+
+Quipsound is available now in the Concur App Center under Apps for My Business at https://www.concur.com/en-us/app-center/listing/nDxb4RQVNt2pJP7pFitcPDR9b/Quipsound.
+
+#### The Hotel Network Is Available Now
+
+![The Hotel Network](./sap-concur-app-center-release-notes-2014-the-hotel-network.jpg)
+
+The Hotel Network has developed an innovative accommodation management service delivery model to meet the unique needs of organisations with workforces that travel globally especially in rural and remote areas around Australia.
+
+The Hotel Network works with:
+
+* Travel for Concur Professional
+* Travel for Concur Standard
+* Expense for Concur Professional
+* Expense for Concur Standard
+
+The Hotel Network is available now in the Concur App Center under Apps for My Business at https://www.concur.com/en-us/app-center/listing/nDxfyVc8FIMA0$pLtfzhnGfOBQ/The-Hotel-Network.
+
+## <a name="may"></a>May 2014
+
+#### Concur for Box Is Available Now
+
+![Concur for Box](./sap-concur-app-center-release-notes-2014-box.jpg)
+
+With the Concur for Box app, users can take photos of all their receipts and send them directly to their Concur account in just seconds. Their receipts will be ready for them to attach to their expenses the next time they sign in to Concur.
+
+Concur for Box is available now from the Concur App Center as a consumer app under Apps for Me at: https://www.concur.com/en-us/app-center/listing/nDhEISuflhmPBacGEh0LZktBh/Concur-for-Box.
+
+#### Intercontinental Hotels Group (IHG) Is Available Now
+
+![Intercontinental Hotels Group (IHG)](./sap-concur-app-center-release-notes-2014-ihg.jpg)
+
+Travelers with TripLink can connect their IHG® Rewards Club account to Concur to sync IHG bookings to Concur, obtain company negotiated discounts when booking at IHG websites, and eliminate tedious hotel bill itemization (requires Concur Expense).
+
+Intercontinental Hotels Group is available now for TripLink travelers in the Concur App Center under Apps for Me.
+
+For more information about IHG Connect, refer to the TripLink release notes.
+
+#### MileIQ Is Available Now
+
+![MileIQ](./sap-concur-app-center-release-notes-2014-mileiq.jpg)
+
+MileIQ takes the hassle out of tracking deductible and reimbursable miles. Salespeople, consultants, account managers, service professionals, auditors, business owners, and thousands of other people who drive for work have embraced MileIQ for the following reasons:
+
+* Effortless logging. MileIQ runs in the background on a mobile device and logs every drive automatically--no buttons to press, nothing to start or stop or turn on or off. Users can classify each drive in a single swipe or sort them in bulk any time.
+* Seamless reporting. MileIQ saves all drives to the cloud so users can sync their mileage expenses to Concur (parking and tolls included) whenever they need to create an expense report. This sync creates individual line-item expenses for each mileage, toll, and parking amount and adds them to the Concur expense report the user selects.
+* Faster reimbursement. MileIQ makes it easy to submit complete, accurate mileage information, speeding approval cycles by reducing the chance of expense reports being kicked back.
+* Found money. The miles add up quickly--and they’re worth a lot. As one MileIQ user put it, “Seeing all the money I’ve been leaving on the table has been a wakeup call.”
+
+MileIQ is available now from the Concur App Center at www.Concur.com/AppCenter as a consumer app under Apps for Me. For more information, go to the MileIQ website at http://www.mileiq.com.
+
+#### SeatID Is Available Now
+
+![SeatID](./sap-concur-app-center-release-notes-2014-seatid.jpg)
+
+With SeatID users can find out which of their colleagues, friends and business associates are on which flight, if they have stayed at a specific hotel in the past or if will be at the destination city while the user is there.
+
+By connecting SeatID with their Concur accounts, users receive a post-booking email and periodic email updates from SeatID to let them know which of their colleagues, friends, friends of friends or people with common interests will share parts of their itinerary with them. It’s ideal for business purposes and networking and it is an elegant way to take the opportunity to meet new interesting people.
+
+SeatID is an opt-in system. Users will only be visible to other users after they have specifically opted-in via their social network profile (such as Facebook and LinkedIn) and they can modify visibility settings to determine just who will see them.
+
+SeatID is available now from the Concur App Center at www.Concur.com/AppCenter as a consumer app under Apps for Me. For more information, go to the SeatID website at http://www.seatid.com/seatid-for-concur.
+
+#### TravelShark Is Available Now
+
+![TravelShark](./sap-concur-app-center-release-notes-2014-travelshark.jpg)
+
+It can be painful to find new places to eat while traveling. Reviews are increasingly important to consumers, but they are cumbersome to read and often untrustworthy. TravelShark provides travelers with recommendations for restaurants based on personal preferences and user reviews. It leverages data science and machine learning technologies to create Essences, which display the most frequently used and most unique phrases about a place based on user-generated content across the web. As users
+interact with TravelShark mobile and web products, TravelShark learns what users like. It then delivers increasingly refined recommendations based on users’ preferences and behavior — whether the user is at home or traveling abroad. When users connect Travelshark with their Concur account, their personalized preferences are integrated in their travel profile.
+
+TravelShark is available now from the Concur App Center at www.Concur.com/AppCenter as a consumer app under Apps for Me. For more information, go to the TravelShark website at http://www.travelshark.com.
+
+#### TripCierge Is Available Now
+
+![TripCierge](./sap-concur-app-center-release-notes-2014-tripcierge.jpg)
+
+TripCierge is a virtual concierge service to help users make the most of their business trips. Users can discover and book activities, get restaurant recommendations, and find events. They can also receive personalized, timely, and relevant offers for activities, events, tours, tickets, and ground transportation before and during their trips.
+
+TripCierge is available now from the Concur App Center at www.Concur.com/AppCenter as a consumer app under Apps for Me. For more information, go to the TripCierge website at http://www.tripcierge.com.
+
+#### TripLingo Is Is Available Now
+
+![TripLingo](./sap-concur-app-center-release-notes-2014-triplingo.jpg)
+
+With TripLingo users can break language and culture barriers when traveling abroad. TripLingo includes an interactive phrasebook, voice translator, and other tools to assist users with international travel. Users can learn essential phrases, translate their voice or connect with a live translator, or get a crash course on the local culture.
+
+TripLingo’s Concur integration makes it easy for users to ensure they have access to TripLingo ahead of foreign trips. When they use Concur Connect, we’ll send them an email with helpful tips before international travel, along with a download link. Concur Connect users also get a 50% discount on premium features.
+
+TripLingo is available now from the Concur App Center at www.Concur.com/AppCenter as a consumer app under Apps for Me. For more information, go to the TripLingo website at http://www.trover.com/about.
