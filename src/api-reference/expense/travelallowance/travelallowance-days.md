@@ -1,9 +1,9 @@
 ---
-title: TravelAllowance Days
+title: Travel Allowance Days
 layout: reference
 ---
 
-This Travel Allowance API fetches all the fixed allowance days in an expense report. Clients using this API can determine whether an allowance is a full day or partial day allowance.
+This Travel Allowance API fetches all the fixed allowance days in the specified expense report. Clients using this API can determine whether an allowance is a full day or partial day allowance.
 
 > **Limitations**: This API is available only for Finland customers.
 
@@ -36,7 +36,7 @@ travelallowance.allowancedays.read|View the allowance days in an expense report|
 
 This API will work with Company access token only. A valid Company `access token` is needed to use this API.
 
-## Retrieve a Company Access Token
+### Retrieve a Company Access Token
 
 Using Company-level access token is required for creating an integration with this API. This method will allow your integration to get fixed allowance day details of an expense report.  
 
@@ -65,9 +65,9 @@ https://{datacenterURI}/api/v4/travelallowance/allowancedays/companyUUID/{compan
 
 Name|Type|Format|Description
 ---|---|---|---
-`companyUUID`|`uuid`|-|**Required** Note required when applicable.
-`Context`|`string`|-|This parameter is required. For expense reports Context is `EXPENSE_REPORT`
-`ContextId`|`string`|-|This parameter is required. For expense reports reportId of the report needs to be passed as contextId
+`companyUUID`|`uuid`|-|**Required** The company's unique identifier.
+`Context`|`string`|-|**Required** For Expense Reports Context is `EXPENSE_REPORT`
+`ContextId`|`string`|-|**Required** For Expense Reports reportId of the report needs to be passed as contextId
 
 #### Headers
 
@@ -114,12 +114,12 @@ Name|Type|Format|Description
 * [Schema One](#schema-one)
 * [Error](#schema-error)
 
-### <a name="details-of-travelallowance-days"></a>Get Details of TravelAllowance Days
+## <a name="details-of-travelallowance-days"></a>Get Details of TravelAllowance Days
 
 #### Request
 
 ```shell
-GET https://katre-report-service-banaras.us-west-2.nonprod.cnqr.deliveryapi/api/v4/
+GET https://us.api.concursolutions.com/api/v4/
 travelallowance/allowancedays/companyUUID/{companyUUID}/contexts/{Context}/{ContextId}
 Accept: application/json
 ```
@@ -172,7 +172,7 @@ Content-Length: 1270
 Name|Type|Format|Description
 ---|---|---|---
 `ExpenseTypeCode`|`string`|-|Expense Code. eg: MEALS for TravelAllowance.
-`FullAllowanceDay`|`string`|-|Y/N. 'Y' means full allowance day and 'N' means partial allowance day.
+`FullAllowanceDay`|`string`|-|True/False. 'True' means full allowance day and 'False' means partial allowance day.
 `AllowanceDate`|`dateTime`|[dateTime](#definition-dateTime)|TravelAllowance Date.
 `ExpenseTransactionDate`|`dateTime`|[dateTime](#definition-dateTime)|Expense transaction date.
 `ExpenseTransactionAmount`|`numeric`|-|Expense transaction amount.
