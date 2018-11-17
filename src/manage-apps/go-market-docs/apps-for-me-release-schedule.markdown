@@ -18,7 +18,8 @@ The content for release notes will be derived from the App Center Partner Listin
 
 This table includes deadlines for submitting your Application Certification and App Center Listing forms to meet your desired App Center launch in conjunction with our monthly SAP Concur releases.
 
-Please send any questions to concur_AppCenterMarketing@sap.com.
+Please send any questions to Concur_AppCenterMarketing@sap.com.
+
 
 Release Date|App Certification & App Center Listing Form Submission Deadline
 ---|---
