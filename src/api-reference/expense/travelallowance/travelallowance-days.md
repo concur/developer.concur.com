@@ -5,7 +5,7 @@ layout: reference
 
 This Travel Allowance API fetches all the fixed allowance days in the specified expense report. Clients using this API can determine whether an allowance is a full day or partial day allowance.
 
-> **Limitations**: This API is available only for Finland customers.
+> **Limitations**: This API is available only for Finland customers. This API is not available in the China Data center.
 
 * [Process Flow](#process-flow)
 * [Products and Editions](#products-editions)
@@ -81,7 +81,7 @@ Name|Type|Format|Description
 
 #### Payload
 
-* [Schema One](#schema-one)
+* None
 
 ### Response
 
