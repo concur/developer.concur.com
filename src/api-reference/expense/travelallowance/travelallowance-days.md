@@ -31,6 +31,7 @@ This Travel Allowance API fetches all the fixed allowance days in the specified 
 Name|Description|Endpoint
 ---|---|---|
 travelallowance.allowancedays.read|View the allowance days in an expense report|GET
+expense.report.read|Retrieve the report ID from the Expense Report API to supply to the Travel Allowance API|GET
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
@@ -175,7 +176,7 @@ Name|Type|Format|Description
 `FullAllowanceDay`|`string`|-|True/False. 'True' means full allowance day and 'False' means partial allowance day.
 `AllowanceDate`|`dateTime`|[dateTime](#definition-dateTime)|TravelAllowance Date.
 `ExpenseTransactionDate`|`dateTime`|[dateTime](#definition-dateTime)|Expense transaction date.
-`ExpenseTransactionAmount`|`numeric`|-|Expense transaction amount.
+`ExpenseTransactionAmount`|`numeric`|-|Expense transaction amount, in the expense entry currency.
 
 ### <a name="schema-error"></a>Error
 
