@@ -12,25 +12,27 @@ As part of our commitment to provide our clients with information on upcoming ap
 All new user connection app listings must meet the two following requirements:
 
 1. Must schedule inclusion in our App Center release notes for a minimum two-week period prior to going live in the App Center. Scheduled via Marketing Contact.
-1. Must schedule live date in conjunction with our monthly Concur releases. Scheduled via Marketing Contact.
+1. Must schedule live date in conjunction with our monthly SAP Concur releases. Scheduled via Marketing Contact.
 
 The content for release notes will be derived from the App Center Partner Listing Form. Your app will be included in our release notes first as an app “Coming Soon” for the minimum two week period; your app will then be updated in our release notes to “Now Available” on the applicable release date.
 
-This table includes deadlines for submitting your Application Certification and App Center Listing forms to meet your desired App Center launch in conjunction with our monthly Concur releases.
+This table includes deadlines for submitting your Application Certification and App Center Listing forms to meet your desired App Center launch in conjunction with our monthly SAP Concur releases.
 
-Please send any questions to AppCenterMarketing@concur.com.
+Please send any questions to Concur_AppCenterMarketing@sap.com.
+
 
 Release Date|App Certification & App Center Listing Form Submission Deadline
 ---|---
-January 13th, 2018|December 23rd 2017
-February 10th, 2018|January 20th, 2018
-March 17th, 2018|February 24th, 2018
-April 14th, 2018|March 24th, 2018
-May 12th, 2018|April 21st, 2018
-June 9th, 2018|May 19th, 2018
-July 14th, 2018|June 23rd, 2018
-August 18th, 2018|July 28th, 2018
-September 15th, 2018|August 25th, 2018
-October 13th, 2018|September 22nd, 2018
-November 10th, 2018|October 20th, 2018
 December 8th, 2018|November 17th, 2018
+January 12th, 2019|December 15th, 2018
+February 9th, 2019|January 12th, 2019
+March 16th, 2019|February 16th, 2019
+April 13th, 2019|March 16th, 2019
+May 11th, 2019|April 13th, 2019
+June 8th, 2019|May 11th, 2019
+July 13th, 2019|June 15th, 2019
+August 10th, 2019|July 13th, 2019
+September 14th, 2019|August 17th, 2019
+October 12th, 2019|September 14th, 2019
+November 9th, 2019|October 12th, 2019
+December 7th, 2019|November 9th, 2019
