@@ -1,5 +1,5 @@
 ---
-title: Purchase Orders
+title: Purchase Request
 layout: reference
 reference-type: swagger
 ---
