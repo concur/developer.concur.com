@@ -27,27 +27,38 @@ In order to obtain itinerary data when making Itinerary API calls, the value of 
 * [Update a trip](#postut)
 * [Cancel a trip](#delete)
 
-## <a name="getts"></a>Get trip summaries
+## <a name="getts"></a>Get Trip Summaries
 
-The Get Itinerary Summaries endpoint is used for retrieving trip summaries for the traveler whose account is associated with the OAuth access token used to make the API call. This endpoint can also be used to get trip summaries for a different user or the whole company. This is usually done when a Travel Management Company needs to get trip summaries on behalf of a user or company.
+The Get Itinerary Summaries endpoint is used for retrieving trip summaries for the traveler whose account is associated with the OAuth access token used to make the API call. This endpoint can also be used to get trip summaries for a different user or the whole company. This is usually done when a Travel Management Company (TMC) needs to get trip summaries on behalf of a user or company.
+
+## Best Practices
+
+*	When extracting past data: 
+    * Extract a month of trip summaries to gauge volume. If hundreds are returned, then adjust extraction to weekly. 
+    * Do not extract more than a year of data at any given time regardless of the volume. For longer look backs, extract 6 month segments maximum at a time. 
+    * Do not multi-thread requests to retrieve multiple pages of data.  Concurrent requests will impact your application’s performance.
+*	Itineraries change frequently. Changes do not necessarily indicate that the traveler modified their trip. If your application works with upcoming or in progress trips, be aware that you must evaluate the individual segments to determine whether it is a material change for your application.
+*	This API will only return itineraries that have been sent to Concur Travel; this includes travel booked within Concur Travel, TripIt, on TripLink supplier sites and most bookings from your travel agency. Some customers may have multiple booking options which may mean not all employee trips are available via this API. A good rule of thumb: if the traveler sees the itinerary in their “trips” list, then you can retrieve it from this API. 
 
 ## Request
 
   GET /travel/trip/v1.1/{query_parameters}
 
-### Query parameters
+### Query Parameters
+
 All query parameters are optional.
-To identify a specific user by login ID or XMLSyncID, you can specify the following request parameters:
+
+To identify a specific user by login ID or `XMLSyncID`, you can specify the following request parameters:
 
 |Parameter Name|Parameter Type|Data Type|Description|
 |:---------|:---------|:-------|:-----------------------------------------|
-|startDate	|date	|dateTime	|The URL-encoded start date (in Coordinated Universal Time, aka UTC) for the trip. Format: YYYY-MM-DD. If no query parameters are provided, the start date is set to today's date - 30 days. The request will only return trips that are ongoing during the provided dates, either starting on the date, or starting before the date and ongoing during the provided date.|
+|startDate	|date	|dateTime	|The URL-encoded start date (in Coordinated Universal Time, or UTC) for the trip. Format: YYYY-MM-DD. If no query parameters are provided, the start date is set to today's date - 30 days. The request will only return trips that are ongoing during the provided dates, either starting on the date, or starting before the date and ongoing during the provided date.|
 |endDate	|date	|dateTime|The URL-encoded UTC end date for the trip. Format: YYYY-MM-DD. If no query parameters are provided, the end date is set to today's date + 12 months. The request will only return trips that are ongoing during the provided dates, either ending on the date, or starting before the date and ongoing during the provided date.|
-|createdAfterDate	|date	|dateTime	|The URL-encoded UTC date for when the trip was created. The query string will return trips created on or after this date. Used with the createdBeforeDate for finding trips created during a date range. Format: YYYY-MM-DD.|
-|createdBeforeDate|date	|dateTime	|The URL-encoded UTC date for when the trip was created. The query string will return trips created on or before this date. Used with the createdAfterDate for finding trips created during a date range. Format: YYYY-MM-DD.|
-|lastModifiedDate|date|dateTime	|The last modified UTC date of the trips and any their associated bookings. This query string will return only the trips where the trip or any of its associated bookings have a last modified date that is greater or equal to the supplied time. The provided date/time can be anytime between now and the first date of trip creation in the database. The format is either the date or the date and time combined.
+|createdAfterDate	|date	|dateTime	|The URL-encoded UTC date for when the trip was created. The query string will return trips created on or after this date. Used with the `createdBeforeDate` for finding trips created during a date range. Format: YYYY-MM-DD.|
+|createdBeforeDate|date	|dateTime	|The URL-encoded UTC date for when the trip was created. The query string will return trips created on or before this date. Used with the `createdAfterDate` for finding trips created during a date range. Format: YYYY-MM-DD.|
+|lastModifiedDate|date|dateTime	|The last modified UTC date of the trips and their associated bookings. This query string will return only the trips where the trip or any of its associated bookings have a last modified date that is greater or equal to the supplied time. The provided date/time can be anytime between now and the first date of trip creation in the database. The format is either the date or the date and time combined.
 |bookingType|type	|string	|The trip includes at least one booking of this type. Format: Air, Car, Dining, Hotel, Parking, Rail, or Ride
-|userid_type=login|userid|string|The loginID is the user's Concur login ID. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
+|userid_type=login|userid|string|The `loginID` is the user's SAP Concur login ID. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
 |userid_value|userid|string	|The userid_value of ALL can be sent to get trip summaries for all users at the company. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
 |includeMetadata|true/false|string|The includeMetadata query parameter combined with the ItemsPerPage and Page query parameters cause the response to be divided into pages. The response is wrapped in a ConcurResponse parent element, with both the response details and the paging metadata included. If the ItemsPerPage query parameter is not sent, the response will default to 200 if the Page query parameter is sent, or 1000 if the Page query parameter is not set. If the Page query parameter is not sent, the response will default to page 1.|
 |ItemsPerPage|number|integer|The includeMetadata query parameter combined with the ItemsPerPage and Page query parameters will cause the response to be divided into pages. The response will be wrapped in a ConcurResponse parent element, with both the response details and the paging metadata included. If the ItemsPerPage query parameter is not sent, the response will default to 200 if the Page query parameter is sent, or 1000 if the Page query parameter is not set. If the Page query parameter is not sent, the response will default to page 1.|
