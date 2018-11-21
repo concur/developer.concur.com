@@ -91,7 +91,7 @@ The access token used to make the API call is associated with the SAP Concur acc
 #### Authorization Header (Required)
 
 `Authorization: OAuth {access_token}`  
-Where access_token is the OAuth 2.0 access token of the user whose itinerary information you want to retrieve. If you want to access company-wide itinerary information, the SAP Concur user account associated with the OAuth 2.0 access token must have one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
+Where `access_token` is the OAuth 2.0 access token of the user whose itinerary information you want to retrieve. If you want to access company-wide itinerary information, the SAP Concur user account associated with the OAuth 2.0 access token must have one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
 #### Accept header (optional)
 
@@ -1284,7 +1284,7 @@ This endpoint can be used to create trips for a user that is not the OAuth consu
 
 ## <a name="delete"></a>Cancel a Trip
 
-This endpoint can be used to cancel all segments in a trip. To cancel a trip on behalf of a user, the OAuth access token used to make the API call should be associated with the Concur account of that user. The TripLink supplier or TMC must be registered with Concur and have a Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
+This endpoint can be used to cancel all segments in a trip. To cancel a trip on behalf of a user, the OAuth access token used to make the API call should be associated with the SAP Concur account of that user. The TripLink supplier or TMC must be registered with SAP Concur and have an SAP Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
 ## Request
     POST /travel/trip/v1.1/cancel?tripid=trip_ID[&userid_type=login&userid_value=login_ID]
@@ -1293,34 +1293,36 @@ This endpoint can be used to cancel all segments in a trip. To cancel a trip on 
 
 | Parameter Name | Data Type |Description
 | --------- | --------- | -------
-| cancel | required | string | The URI path modifier for canceling a trip. The format for the request is `/travel/trip/v1.1/cancel?tripid=trip_ID[&userid_type=login&userid_value=login_ID]`
+| cancel | required | string | The URI path modifier for canceling a trip. The format for the request is `/travel/trip/v1.1/cancel?tripid=trip_ID[&userid_type=login&userid_value=login_ID]`.
 
 ### Request Parameters
 
 | Parameter Name | Data Type |Description
 | --------- | --------- | -------
-| tripid (optional) | string | The identifier for the trip to be updated. For example, if the value of tripid is `I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`, then the request is `POST /travel/trip/v1.1?tripid=I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`
-| userid_type (optional) |string | The type of user identification to use. Possible value is: `login_id`
-| userid_value (optional) | string | The user's login ID. This parameter must be provided in conjunction with the userid_type parameter. The `userid_type` and userid_value parameters can only be used if the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the userid_type and userid_value query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`
+| tripid (optional) | string | The identifier for the trip to be updated. For example, if the value of `tripid` is `I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`, then the request is `POST /travel/trip/v1.1?tripid=I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`.
+| userid_type (optional) |string | The type of user identification to use. Possible value is: `login_id`.
+| userid_value (optional) | string | The user's login ID. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value` parameters can only be used if the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
 
 ## Headers
 
-### Authorization Header (required)
+### Authorization Header (Required)
 
 `Authorization: OAuth {access_token}`  
 
-Where access_token is the OAuth 2.0 access token of the user whose trip you want to create or update. If you want to access company-wide itinerary information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
+Where `access_token` is the OAuth 2.0 access token of the user whose trip you want to create or update. If you want to access company-wide itinerary information, the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
 ### Request Content Body
+
 None.
 
 ### Response
-The request returns the full trip details for the cancelled trip. If the request is successful, the response trip will not contain any segments because they have been cancelled. The response includes the following additional elements inside the Itinerary parent element:
+
+The request returns the full trip details for the cancelled trip. If the request is successful, the response trip will not contain any segments because they have been cancelled. The response includes the following additional elements inside the `Itinerary` parent element:
 
 | Parameter Name | Data Type |Description
 | --------- | --------- | -------
 | id | string | The URI including the trip ID.
-| ItinLocator | string | The Itinerary Locator value (trip ID without the URL). The ItinLocator value is used when updating an existing trip.
+| ItinLocator | string | The itinerary locator value (trip ID without the URL). The `ItinLocator` value is used when updating an existing trip.
 |DateModifiedUtc | dateTime | The UTC formatted date that this booking was last modified.
 | BookedVia | string | The GDS the itinerary was booked in.
 | DateBookedLocal | dateTime | The date, in the traveler’s local time, that the booking was made.
@@ -1328,7 +1330,7 @@ The request returns the full trip details for the cancelled trip. If the request
 
 ## Examples
 
-### Example: Cancel a trip with a specific trip ID
+### Example: Cancel a Trip with a Specific Trip ID
 
 #### Request
 
