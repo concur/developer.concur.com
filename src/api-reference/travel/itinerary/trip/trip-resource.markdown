@@ -38,7 +38,7 @@ The Get Itinerary Summaries endpoint is used for retrieving trip summaries for t
     * Do not extract more than a year of data at any given time regardless of the volume. For longer look backs, extract 6 month segments maximum at a time. 
     * Do not multi-thread requests to retrieve multiple pages of data.  Concurrent requests will impact your application’s performance.
 *	Itineraries change frequently. Changes do not necessarily indicate that the traveler modified their trip. If your application works with upcoming or in progress trips, be aware that you must evaluate the individual segments to determine whether it is a material change for your application.
-*	This API will only return itineraries that have been sent to Concur Travel; this includes travel booked within Concur Travel, TripIt, on TripLink supplier sites and most bookings from your travel agency. Some customers may have multiple booking options which may mean not all employee trips are available via this API. A good rule of thumb: if the traveler sees the itinerary in their “trips” list, then you can retrieve it from this API. 
+*	This API will only return itineraries that have been sent to Concur Travel; this includes travel booked within Concur Travel, TripIt, on TripLink supplier sites, and most bookings from your travel agency. Some customers may have multiple booking options which may mean not all employee trips are available via this API. A good rule of thumb: if the traveler sees the itinerary in their “trips” list, then you can retrieve it from this API. 
 
 ## Request
 
@@ -59,77 +59,77 @@ To identify a specific user by login ID or `XMLSyncID`, you can specify the foll
 |lastModifiedDate|date|dateTime	|The last modified UTC date of the trips and their associated bookings. This query string will return only the trips where the trip or any of its associated bookings have a last modified date that is greater or equal to the supplied time. The provided date/time can be anytime between now and the first date of trip creation in the database. The format is either the date or the date and time combined.
 |bookingType|type	|string	|The trip includes at least one booking of this type. Format: Air, Car, Dining, Hotel, Parking, Rail, or Ride
 |userid_type=login|userid|string|The `loginID` is the user's SAP Concur login ID. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
-|userid_value|userid|string	|The userid_value of ALL can be sent to get trip summaries for all users at the company. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
-|includeMetadata|true/false|string|The includeMetadata query parameter combined with the ItemsPerPage and Page query parameters cause the response to be divided into pages. The response is wrapped in a ConcurResponse parent element, with both the response details and the paging metadata included. If the ItemsPerPage query parameter is not sent, the response will default to 200 if the Page query parameter is sent, or 1000 if the Page query parameter is not set. If the Page query parameter is not sent, the response will default to page 1.|
-|ItemsPerPage|number|integer|The includeMetadata query parameter combined with the ItemsPerPage and Page query parameters will cause the response to be divided into pages. The response will be wrapped in a ConcurResponse parent element, with both the response details and the paging metadata included. If the ItemsPerPage query parameter is not sent, the response will default to 200 if the Page query parameter is sent, or 1000 if the Page query parameter is not set. If the Page query parameter is not sent, the response will default to page 1.|
-|includeVirtualTrip|flag|integer	|Virtual trips are segments booked offline through the Travel Request product. Set the includeVirtualTrip query parameter to 1 to include those trips in the list.|
-|includeCanceledTrips	|true/false|string|The includeCanceledTrips query parameter will cause the request to also return trips with a status of Canceled. When this query parameter is set to true, the response will include the TripStatus element.|
-|includeGuestBookings |true/false|string|The includeGuestBookings query parameter will casuse the request to show guest bookings if set to true.It is set to false by default.|
+|userid_value|userid|string	|The `userid_value` of ALL can be sent to get trip summaries for all users at the company. This parameter can only be used if the OAuth consumer has one of the user roles listed above.
+|includeMetadata|true/false|string|The `includeMetadata` query parameter combined with the `ItemsPerPage` and `Page` query parameters cause the response to be divided into pages. The response is wrapped in a `ConcurResponse` parent element, with both the response details and the paging metadata included. If the `ItemsPerPage` query parameter is not sent, the response will default to 200 if the `Page` query parameter is sent, or 1000 if the `Page` query parameter is not set. If the `Page` query parameter is not sent, the response will default to page 1.|
+|ItemsPerPage|number|integer|The `includeMetadata` query parameter combined with the `ItemsPerPage` and `Page` query parameters will cause the response to be divided into pages. The response will be wrapped in a `ConcurResponse` parent element, with both the response details and the paging metadata included. If the `ItemsPerPage` query parameter is not sent, the response will default to 200 if the `Page` query parameter is sent, or 1000 if the `Page` query parameter is not set. If the `Page` query parameter is not sent, the response will default to page 1.|
+|includeVirtualTrip|flag|integer	|Virtual trips are segments booked offline through the Travel Request product. Set the `includeVirtualTrip` query parameter to 1 to include those trips in the list.|
+|includeCanceledTrips	|true/false|string|The `includeCanceledTrips` query parameter will cause the request to also return trips with a status of Canceled. When this query parameter is set to true, the response will include the `TripStatus` element.|
+|includeGuestBookings |true/false|string|The `includeGuestBookings` query parameter will cause the request to show guest bookings if set to true. It is set to false by default.|
 
 Here are some examples of how to format GET requests using a combination of these query parameters:
 
 * To get trip summaries for the entire company:
 
-https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}&userid_type=login&userid_value=ALL
+```https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}&userid_type=login&userid_value=ALL```
 
 The access token used to make the API call must be associated with an account that has the Admin user role.
 
 * To get trip summaries for the account associated with the app making the call:
 
-https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}
+```https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}```
 
 The access token used to make the API call is associated with the account for the app making the call.
 
 * To get trip summaries for a user with the specified login credentials:
 
-https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}&userid_type=login_id&userid_value={_loginID_}
+```https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}&userid_type=login_id&userid_value={_loginID_}```
 
-The access token used to make the API call is associated with the Concur account with the specified login credentials.
-
+The access token used to make the API call is associated with the SAP Concur account with the specified login credentials.
 
 ### Headers
 
-#### Authorization header (required)
+#### Authorization Header (Required)
 
 `Authorization: OAuth {access_token}`  
-Where access_token is the OAuth 2.0 access token of the user whose itinerary information you want to retrieve. If you want to access company-wide itinerary information, the Concur user account associated with the OAuth 2.0 access token must have one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
+Where access_token is the OAuth 2.0 access token of the user whose itinerary information you want to retrieve. If you want to access company-wide itinerary information, the SAP Concur user account associated with the OAuth 2.0 access token must have one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
 #### Accept header (optional)
-application/xml
 
+application/xml
 
 ## Response
 The response returns an `ItineraryInfoList` parent element with with an `ItineraryInfo` child element for each trip summary for the specified traveler. If the `includeMetadata` and `ItemsPerPage` query parameters are included in the request, the response will include a `ConnectResponse` parent element which contains a `MetaData` element with paging information and a `Data` element with an `ItineraryInfoList` child element. The response for this operation can be divided into pages for easier processing.
 
-### Data elements
+### Data Elements
 
 | Element Name | Data Type | Description
 | --------- | ---------| ---------
-| ItineraryInfoList	| element | Parent element with an ItineraryInfo child element for each trip summary for the specified traveler.
+| ItineraryInfoList	| element | Parent element with an `ItineraryInfo` child element for each trip summary for the specified traveler.
 
-### ItineraryInfoList elements
+### ItineraryInfoList Elements
 
 | Element Name | Data Type | Description
 | --------- | ---------| ---------
 | ItineraryInfo	| element  | Parent element with the information about an itinerary for the specified user.
 
-### ItineraryInfo elements
+### ItineraryInfo Elements
 
 | Element Name | Data Type | Description
 | --------- | ---------| ---------
 | TripId |  string  |  Encrypted trip identifier value.
 | TripName |  |string  |  Name of the trip.
-| TripStatus  |  string  |  The status of the trip. This element only appears if the includeCanceledTrips query parameter is used in the request.
+| TripStatus  |  string  |  The status of the trip. This element only appears if the `includeCanceledTrips` query parameter is used in the request.
 | StartDateLocal  |  dateTime  |  The start date of the trip in the starting location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
 | EndDateLocal  |  dateTime  |  The end date of the trip in the ending location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
 | DateModifiedUtc  |  dateTime  |  The UTC date that this trip was last modified. Format: YYYY-MM-DDThh:mm:ss.
-| UserLoginId  |  string  | The user's login to Concur. This element appears in the response of the GET /api/travel/trip/v1.1 operation when the OAuth 2.0 is access token is associated with a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
-| id  |  string  |  Trip ID URI with encrypted ID
+| UserLoginId  |  string  | The user's login to SAP Concur. This element appears in the response of the GET /api/travel/trip/v1.1 operation when the OAuth 2.0 is access token is associated with an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
+| id  |  string  |  Trip ID URI with encrypted ID.
 
-### Metadata element
-The parent element of the paging information (Paging elements).
+### Metadata Element
 
-### Paging elements
+The parent element of the paging information.
+
+### Paging Elements
 
 | Element Name | Data Type | Description
 | --------- | ---------| ---------
@@ -140,11 +140,9 @@ The parent element of the paging information (Paging elements).
 | PreviousPageURL  |  string  |  The URI to the previous page of results. This element will be empty when there are no previous pages.
 | NextPageURL  |  string  |  The URI to the next set of results. This element will be empty when there are no next pages.
 
-
-
 ## Examples
 
-### Example 1: Get trip summaries by start and end date
+### Example 1: Get Trip Summaries by Start and End Date
 
 #### Request
 
@@ -185,7 +183,8 @@ Content-Type: application/xml
 </ItineraryInfoList>
 ```
 
-### Example 2: Get trip summary by booking type and start date Request
+### Example 2: Get Trip Summary by Booking Type and Start Date Request
+
 This request returns trip summaries for trips that started by the specified date for the specified booking type.
 
 #### Request
@@ -219,7 +218,8 @@ Content-Type: application/xml
 </ItineraryInfoList>
 ```
 
-### Example 3: Get trip summary by created date
+### Example 3: Get Trip Summary by Created Date
+
 This requests returns trip summaries created after the specified date.
 
 #### Request
@@ -252,10 +252,11 @@ Content-Type: application/xml
 </ItineraryInfoList>
 ```
 
-### Example 4: Get trip summary with paging
+### Example 4: Get Trip Summary with Paging
+
+This request is used for dividing the response into pages for easier processing.
 
 #### Request
-This request is used for dividing the response into pages for easier processing.
 
 ```http
 GET /api/travel/trip/v1.1/?createdAfterDate=2012%2F02%2F01&includeMetadata=true&ItemsPerPage=2&Page=1 HTTP/1.1
@@ -264,7 +265,8 @@ Authorization: OAuth {access token}
 ```
 
 #### Response
-The response returns a ConnectResponse parent element which contains a MetaData element with paging information and a Data element with an ItineraryInfoList child element.
+
+The response returns a `ConnectResponse`` parent element which contains a MetaData` element with paging information and a `Data` element with an `ItineraryInfoList` child element.
 
 ```http
 HTTP/1.1 200 OK
@@ -311,7 +313,7 @@ Content-Type: application/xml
 </ConnectResponse>
 ```
 
-## <a name="gettd"></a>Get trip details
+## <a name="gettd"></a>Get Trip Details
 
 The Get Itinerary Details endpoint is used for getting details for the specified trip. The elements included in the response vary as follows:
 
