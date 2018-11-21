@@ -317,47 +317,47 @@ Content-Type: application/xml
 
 The Get Itinerary Details endpoint is used for getting details for the specified trip. The elements included in the response vary as follows:
 
-* Some elements, such as AirlineTickets or RailPayments, appear only for bookings of the appropriate type. For example AirlineTickets appears in the response only for air bookings and RailPayments, for rail bookings.
+* Some elements, such as `AirlineTickets` or `RailPayments`, appear only for bookings of the appropriate type. For example `AirlineTickets` appears in the response only for air bookings and `RailPayments`, for rail bookings.
 * Amount values, such as Rate or Tax, appear only if the requestor is the source of the booking. All other suppliers will not receive the amount elements associated with the bookings.
-* Some elements, such as SabreDKNumber, appear only if the booking was created by the relevant GDS.
+* Some elements, such as `SabreDKNumber`, appear only if the booking was created by the relevant GDS.
 * Some elements are vendor-specific and appear only in responses for the associated vendor.  
 
 This topic describes the full set of possible elements that can be returned. No itinerary can contain all of the possible elements, so the response will always be a subset of all the possible returned values.    
 
-By default, when calling this API, the Concur account associated with the OAuth access token used to make the API call should be the owner of the trip. This endpoint can also be used to get details for trips that the OAuth consumer does not own. This is most often done when a Travel Management Company needs to get trip details on behalf of a user. The TMC must be registered with Concur and have a Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
+By default, when calling this API, the SAP Concur account associated with the OAuth access token used to make the API call should be the owner of the trip. This endpoint can also be used to get details for trips that the OAuth consumer does not own. This is most often done when a TMC needs to get trip details on behalf of a user. The TMC must be registered with SAP Concur and have an SAP Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
 ## Request
 
-  GET /travel/trip/v1.1/trip_ID?[systemFormat=system_format|&userid_type=login|&user_id=login_ID]
+```GET /travel/trip/v1.1/trip_ID?[systemFormat=system_format|&userid_type=login|&user_id=login_ID]```
 
 ## Path Parameters
 
 | Parameter Name | Data Type |Description
 | --------- | --------- | -------
-| trip_ID (required) | string  |  The identifier for the desired trip. This identifier is returned as the value of the id element when getting trip summaries. For example, if the returned value of the id element is I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL, then the URI for the request is `/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwi`
+| trip_ID (required) | string  |  The identifier for the desired trip. This identifier is returned as the value of the ID element when getting trip summaries. For example, if the returned value of the ID element is I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL, then the URI for the request is `/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwi`.
 
 
 ## Query Parameters
 
 | Parameter Name |Data Type |Description
 | --------- | --------- | -------
-| systemFormat (optional) | string  |  Format of the response for a different system. The supported value is Tripit. The format for the request URI using this query parameter is `/travel/trip/v1.1/trip_ID?systemFormat=Tripit`
-| userid_type (optional)  |  string  |  The type of user identification to use. Possible value is: login
-| userid_value (optional)  | string  |  The user's login ID. This parameter must be provided in conjunction with the userid_type parameter. The userid_type and userid_value parameters can only be used if the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the userid_type and userid_value query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`
+| systemFormat (optional) | string  |  Format of the response for a different system. The supported value is Tripit. The format for the request URI using this query parameter is `/travel/trip/v1.1/trip_ID?systemFormat=Tripit`.
+| userid_type (optional)  |  string  |  The type of user identification to use. Possible value is: login.
+| userid_value (optional)  | string  |  The user's login ID. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value parameters` can only be used if the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
 
 ### Headers
 
-#### Authorization Header (required)
+#### Authorization Header (Required)
 
 `Authorization: OAuth {access_token}`  
-Where `access_token` is the OAuth 2.0 access token of the user whose itinerary information you want to retrieve. If you want to access company-wide itinerary information, the user account associated with the OAuth 2.0 access token must have a Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
+Where `access_token` is the OAuth 2.0 access token of the user whose itinerary information you want to retrieve. If you want to access company-wide itinerary information, the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
-#### Accept Header (optional)
+#### Accept Header (Optional)
 
 application/xml
 
 ## Response
-The response returns subset of the elements described in the following tables depending on the parameters used in the request and the status and details for the itinerary. The response can be formatted for TripIt, using the systemformat query string.
+The response returns subset of the elements described in the following tables depending on the parameters used in the request and the status and details for the itinerary. The response can be formatted for TripIt, using the `systemformat` query string.
 
 ### Parent Elements
 
@@ -366,44 +366,43 @@ The response returns subset of the elements described in the following tables de
 | id	|string	|Trip ID URI with encrypted ID.
 |ItinLocator | string	|The itinerary locator. This element is now deprecated and only supported for backward compatibility.
 |ClientLocator	|string	|The XSD does not have a description for this element. Please provide one.
-|ItinSourceName	|string	|The itinerary source. Format: TravelSupplier
+|ItinSourceName	|string	|The itinerary source. Format: TravelSupplier.
 |TripName	|string	|Name of the trip. Maximum length 255 characters.
 |Comments	|string	|Comments for this itinerary. Maximum length 512 characters.
-|StartDateLocal	|dateTime	|The start date of the trip in the starting location’s timezone. Format: YYYY-MM-DDThh:mm:ss
-|EndDateLocal	|dateTime	|The end date of the trip in the ending location’s timezone. Format: YYYY-MM-DDThh:mm:ss
-|DateCreatedUtc	|dateTime	|The date that this trip was created, in UTC. Format: YYYY-MM-DDThh:mm:ss
-|DateModifiedUtc	|dateTime	|The UTC date that this trip was last modified. Format: YYYY-MM-DDThh:mm:ss
+|StartDateLocal	|dateTime	|The start date of the trip in the starting location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
+|EndDateLocal	|dateTime	|The end date of the trip in the ending location’s timezone. Format: YYYY-MM-DDThh:mm:ss.
+|DateCreatedUtc	|dateTime	|The date that this trip was created, in UTC. Format: YYYY-MM-DDThh:mm:ss.
+|DateModifiedUtc	|dateTime	|The UTC date that this trip was last modified. Format: YYYY-MM-DDThh:mm:ss.
 |BookedVia	|string	|The booking method for the trip.
 |BookedByFirstName	|string	|The first name of the person who booked the trip.
 |BookedByLastName	|string	|The last name of the person who booked the trip.
-|DateBookedLocal	|dateTime	|The date the trip was booked, in the local time of the booking location. Format: YYYY-MM-DDThh:mm:ss
+|DateBookedLocal	|dateTime	|The date the trip was booked, in the local time of the booking location. Format: YYYY-MM-DDThh:mm:ss.
 |CancelComments	|string	|The comments provided if the itinerary is cancelled. Maximum length: 256 characters.
 |Description	|string	|The trip description. Maximum length: 512 characters.
-|EndDateUtc	|dateTime	|The end date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss
+|EndDateUtc	|dateTime	|The end date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss.
 |IsPersonal	|boolean	|Whether the trip is a Business or Leisure trip. Format: true/false.
 |ProjectName	|string	|The associated project name for the trip. Maximum length: 255 characters.
-|StartDateUtc	|dateTime	|The start date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss
-|RuleViolations	|array	|The list of rule violations associated with the itinerary. This parent element contains a RuleViolation child element for each associated rule violation.
-|Status	|string	|The status of the itinerary. One of the following: 0- Confirmed; 1- Ticketed by agent; 2- Canceled
-|Bookings	|array	|A parent element that contains a Booking child element for each booking associated with this itinerary.
+|StartDateUtc	|dateTime	|The start date of the trip, in UTC. Format: YYYY-MM-DDThh:mm:ss.
+|RuleViolations	|array	|The list of rule violations associated with the itinerary. This parent element contains a `RuleViolation` child element for each associated rule violation.
+|Status	|string	|The status of the itinerary. One of the following: 0- Confirmed; 1- Ticketed by agent; 2- Canceled.
+|Bookings	|array	|A parent element that contains a `Booking` child element for each booking associated with this itinerary.
 
 ### Booking Element
-The Booking element contains the following elements:
 
 | Element Name | Data Type |Description
 | --------- | --------- | -------
-|Segments	|array	|List of Segments in this booking. The child elements included in this element vary depending on wheter a TMC, third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs and third-party developers**, the Segments element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements. **For TripLink suppliers**, the Segments element contains one or more Air, Car, Hotel, or Ride parent element.
-|Passengers	|array	|Contains a Passenger child element for each included passenger. For the descriptions of these elements, see Passengers Elements
-|RecordLocator	|string	|The unique identifier for a booking. This is often six alphanumeric characters but can have other formats depending on the booking source.
+|Segments	|array	|List of segments in this booking. The child elements included in this element vary depending on whether a TMC, third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs and third-party developers**, the `Segments` element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements. **For TripLink suppliers**, the `Segments` element contains one or more Air, Car, Hotel, or Ride parent element.
+|Passengers	|array	|Contains a `Passenger` child element for each included passenger. For the descriptions of these elements, see Passengers Elements.
+|RecordLocator	|string	|The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source.
 |BookingSource	|string	|The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place.
-|DateModifiedUtc	|dateTime	|The date the booking was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss
-|DateBookedLocal	|dateTime	|The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss
-|ItinSourceName	|string	|The itinerary source. Format: TravelSupplier
+|DateModifiedUtc	|dateTime	|The date the booking was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss.
+|DateBookedLocal	|dateTime	|The date the booking was created, in the booking location's local time. Format: YYYY-MM-DDThh:mm:ss.
+|ItinSourceName	|string	|The itinerary source. Format: TravelSupplier.
 |PassengerCount	|integer	|The number of passengers included in the booking.
 
 ## Examples
 
-### Example 1: Get trip details for a trip ID
+### Example 1: Get Trip Details for a Trip ID
 
 #### Request
 
@@ -550,7 +549,7 @@ Content-Type: application/xml
 </Itinerary>
 ```
 
-### Example 2: Get trip details in TripIt format
+### Example 2: Get Trip Details in TripIt Format
 
 #### Request
 
@@ -652,10 +651,9 @@ Authorization: OAuth {access token}
 </Response>  
 ```
 
+## <a name="postnt"></a>Create a New Trip
 
-
-## <a name="postnt"></a>Create a new trip
-This endpoint is used for creating a new trip. To create a new trip, the specified dates in the content body can only span the trip to be created and cannot span an existing trip. To create or update a trip on behalf of a user, the OAuth access token used to make the API call should be associated with the Concur account of that user. The TripLink supplier or TMC must be registered with Concur and have a Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
+This endpoint is used for creating a new trip. To create a new trip, the specified dates in the content body can only span the trip to be created and cannot span an existing trip. To create or update a trip on behalf of a user, the OAuth access token used to make the API call should be associated with the SAP Concur account of that user. The TripLink supplier or TMC must be registered with SAP Concur and have an SAP Concur account that has one of the following user roles: Web Services Administrator for Professional, or Can Administer for Standard.
 
 ## Request
 
