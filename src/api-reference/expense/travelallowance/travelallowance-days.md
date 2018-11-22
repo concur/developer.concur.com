@@ -73,12 +73,8 @@ Name|Type|Format|Description
 #### Headers
 
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
-* [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
-* [RFC 7231 Accept](https://tools.ietf.org/html/rfc7231#section-5.3.2)
-* [RFC 7231 Accept-Charset](https://tools.ietf.org/html/rfc7231#section-5.3.3)
-* [RFC 7231 Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)
-* [RFC 7231 Accept-Language](https://tools.ietf.org/html/rfc7231#section-5.3.5)
 * [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2)
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
 
 #### Payload
 
@@ -107,7 +103,6 @@ Name|Type|Format|Description
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 * [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
 * [RFC 7231 Content-Language](https://tools.ietf.org/html/rfc7231#section-3.1.3.2)
-* [RFC 7231 Content-Location](https://tools.ietf.org/html/rfc7231#section-3.1.4.2)
 * [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
 
 #### Payload
@@ -122,7 +117,8 @@ Name|Type|Format|Description
 ```shell
 GET https://us.api.concursolutions.com/api/v4/
 travelallowance/allowancedays/companyUUID/{companyUUID}/contexts/{Context}/{ContextId}
-Accept: application/json
+Authorization: Bearer {token}
+Content-Type: application/json
 ```
 ```json
 {
@@ -136,12 +132,8 @@ Accept: application/json
 
 ```shell
 HTTP/1.1 200 OK
-Cache-Control: max-age=604800
 Content-Type: application/json
 Date: Wed, 06 Jul 2020 17:33:03 GMT
-Etag: "359670651"
-Expires: Wed, 13 Jul 2020 17:33:03 GMT
-Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
 Content-Length: 1270
 ```
 
