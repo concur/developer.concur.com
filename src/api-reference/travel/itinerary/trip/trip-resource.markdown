@@ -266,7 +266,7 @@ Authorization: OAuth {access token}
 
 #### Response
 
-The response returns a `ConnectResponse`` parent element which contains a MetaData` element with paging information and a `Data` element with an `ItineraryInfoList` child element.
+The response returns a `ConnectResponse` parent element which contains a MetaData` element with paging information and a `Data` element with an `ItineraryInfoList` child element.
 
 ```http
 HTTP/1.1 200 OK
@@ -334,16 +334,16 @@ By default, when calling this API, the SAP Concur account associated with the OA
 
 | Parameter Name | Data Type |Description
 | --------- | --------- | -------
-| trip_ID (required) | string  |  The identifier for the desired trip. This identifier is returned as the value of the ID element when getting trip summaries. For example, if the returned value of the ID element is I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL, then the URI for the request is `/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwi`.
+| trip_ID  | string  |  **Required**: The identifier for the desired trip. This identifier is returned as the value of the ID element when getting trip summaries. For example, if the returned value of the ID element is I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL, then the URI for the request is `/travel/trip/v1.1/I2uwiJJw8r7Owl3IWlSie9WIelxhAhwi`.
 
 
 ## Query Parameters
 
 | Parameter Name |Data Type |Description
 | --------- | --------- | -------
-| systemFormat (optional) | string  |  Format of the response for a different system. The supported value is Tripit. The format for the request URI using this query parameter is `/travel/trip/v1.1/trip_ID?systemFormat=Tripit`.
-| userid_type (optional)  |  string  |  The type of user identification to use. Possible value is: login.
-| userid_value (optional)  | string  |  The user's login ID. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value parameters` can only be used if the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
+| systemFormat  | string  |  **Optional**: Format of the response for a different system. The supported value is Tripit. The format for the request URI using this query parameter is `/travel/trip/v1.1/trip_ID?systemFormat=Tripit`.
+| userid_type   |  string  |  **Optional**: The type of user identification to use. Possible value is: login.
+| userid_value   | string  |  **Optional**: The user's login ID. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value parameters` can only be used if the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
 
 ### Headers
 
@@ -392,7 +392,7 @@ The response returns subset of the elements described in the following tables de
 | Element Name | Data Type |Description
 | --------- | --------- | -------
 |Segments	|array	|List of segments in this booking. The child elements included in this element vary depending on whether a TMC, third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs and third-party developers**, the `Segments` element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements. **For TripLink suppliers**, the `Segments` element contains one or more Air, Car, Hotel, or Ride parent element.
-|Passengers	|array	|Contains a `Passenger` child element for each included passenger. For the descriptions of these elements, see Passengers Elements.
+|Passengers	|array	|Contains a `Passenger` child element for each included passenger. For more information on the `Passengers` element, see [Create a New Trip](#postnt).
 |RecordLocator	|string	|The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source.
 |BookingSource	|string	|The name of the booking source for this booking. A booking source is a textual name the system uses to track where a booking took place.
 |DateModifiedUtc	|dateTime	|The date the booking was last modified, in UTC. Format: YYYY-MM-DDThh:mm:ss.
@@ -663,8 +663,8 @@ This endpoint is used for creating a new trip. To create a new trip, the specifi
 
 | Parameter Name |Data Type |Description
 | --------- | --------- | -------
-| userid_type (optional) | string	| The type of user identification to use. Possible value is: `login_id`.
-| userid_value (optional) | string	| The value for the user identification type. Currently the only available type is `login_id` so the value is the login credentials. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value` parameters can only be used if the user account associated with the OAuth 2.0 access token is associated with an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
+| userid_type  | string	| **Optional**: The type of user identification to use. Possible value is: `login_id`.
+| userid_value  | string	| **Optional**: The value for the user identification type. Currently the only available type is `login_id` so the value is the login credentials. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value` parameters can only be used if the user account associated with the OAuth 2.0 access token is associated with an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
 
 ## Headers
 
@@ -678,7 +678,7 @@ Where `access_token` is the OAuth 2.0 access token of the user whose trip you wa
 
 | Element Name | Required or Optional | TripLink | Data Type | Description
 | --------- | --------- | ------- | -------- | ---------
-| Itinerary | required | Y | ItineraryType	| The root element for a trip. For this endpoint, it contains the following elements: `ClientLocator`, `ItinSourceName`, `TripName`, `Comments`, `StartDateLocal`, `EndDateLocal`, `BookedByFirstName``, BookedByLastName`, `Bookings`.
+| Itinerary | required | Y | ItineraryType	| The root element for a trip. For this endpoint, it contains the following elements: `ClientLocator`, `ItinSourceName`, `TripName`, `Comments`, `StartDateLocal`, `EndDateLocal`, `BookedByFirstName`, `BookedByLastName`, `Bookings`.
 | TripName | required | Y | string | Name of the trip. Maximum length: 255 characters.
 | TripStatus | required	| Y | unsignedByte | The status of the trip. One of the following: 0 - Confirmed; 1 - Ticketed; 2 - Canceled; 6 - Proposal; 7 - Booked Proposal. This element only appears if the `includeCanceledTrips` query parameter is used in the request.
 | RecordLocator | required | Y | string	| The unique identifier for a booking. This is often six alphanumeric characters, but can have other formats depending on the booking source.
@@ -689,7 +689,7 @@ Where `access_token` is the OAuth 2.0 access token of the user whose trip you wa
 | BookedByLastName | optional | Y | string	| The last name of the person who booked the trip.
 | Bookings | optional | Y | array	| A parent element that contains a `Booking` child element for each booking associated with this itinerary.
 | Booking | optional | Y | array	| A child element of the `Bookings` element which in turn contains the following child elements: `Segments`, `Passenger`s, `RecordLocator`, `BookingSource`, `DateModifiedUtc`, `DateBookedLocal`, `ItinSourceName`, and `PassengerCount`.
-| Segments | optional	 | Y | array	| List of segments in this booking. The child elements included in this element vary depending on whether a TMC, third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs and third-party developers**, the `Segment`s element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements. For TripLink suppliers, the `Segments` element contains one or more Air, Car, Hotel, or Ride parent element.
+| Segments | optional	 | Y | array	| List of segments in this booking. The child elements included in this element vary depending on whether a TMC, third-party developer, or TripLink supplier is requesting the itinerary details: **For TMCs and third-party developers**, the `Segments` element contains one or more Air, Car, Hotel, Dining, Ride, Rail, Parking, or Travel parent elements. For TripLink suppliers, the `Segments` element contains one or more Air, Car, Hotel, or Ride parent element.
 | Comments | optional	 | Y | string	| Comments for the itinerary. Maximum length: 512 characters.
 | ItinSourceName | optional | N | string	| The itinerary source. Format: TravelSupplier.
 | BookingOwner	| optional	 | Y | string	| Indicates the tool that supplied the booking to Concur Travel.
@@ -993,7 +993,7 @@ Content-Type: application/xml
 
 ### Example 2: TripLink Supplier Creates a Trip
 
-This example shows how a TripLink supplier create a trip.
+This example shows how a TripLink supplier creates a trip.
 
 #### Request
 
@@ -1276,7 +1276,7 @@ Content-Type: application/xml
 #### Response
 The response is the same as in Example 1.
 
-## <a name="postut"></a>[Update a Trip](/api-reference/travel/itinerary-tmc-thirdparty/index.html#postdetails)
+## <a name="postut"></a>Update a Trip
 
 Creates a new trip or updates an existing trip. A new trip will be created if the trip dates span no existing trip and the request doesn’t include a `tripId`. If a `tripId` is included in the URI it will update the specified trip. The full trip information is included in the update request, which replaces the existing trip.  
 
@@ -1299,9 +1299,9 @@ This endpoint can be used to cancel all segments in a trip. To cancel a trip on 
 
 | Parameter Name | Data Type |Description
 | --------- | --------- | -------
-| tripid (optional) | string | The identifier for the trip to be updated. For example, if the value of `tripid` is `I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`, then the request is `POST /travel/trip/v1.1?tripid=I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`.
-| userid_type (optional) |string | The type of user identification to use. Possible value is: `login_id`.
-| userid_value (optional) | string | The user's login ID. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value` parameters can only be used if the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
+| tripid  | string | **Optional**: The identifier for the trip to be updated. For example, if the value of `tripid` is `I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`, then the request is `POST /travel/trip/v1.1?tripid=I2uwiJJw8r7Owl3IWlSie9WIelxhAhwiL`.
+| userid_type  |string | **Optional**: The type of user identification to use. Possible value is: `login_id`.
+| userid_value  | string | **Optional**: The user's login ID. This parameter must be provided in conjunction with the `userid_type` parameter. The `userid_type` and `userid_value` parameters can only be used if the user account associated with the OAuth 2.0 access token must have an SAP Concur account with one of these roles: Web Services Administrator for Professional or Can Administer for Standard. The format for the request URI using the `userid_type` and `userid_value` query parameters is `/travel/trip/v1.1/trip_ID?userid_type=login&userid_value=login_ID`.
 
 ## Headers
 
