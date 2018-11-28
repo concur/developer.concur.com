@@ -10,7 +10,7 @@ layout: reference
 * [Who Can Use This Web Service?](#itin-use)
 * [Configuration](#itin-config)
 * [FAQs](#itin-faq)
-* [Best Practices](itin-best-practices)
+* [Best Practices](#itin-best-practices)
 * [Reference](#reference-topics)
 
 ## <a name=#itinerary-overview></a>Overview
@@ -51,7 +51,7 @@ TripLink suppliers, travel management companies (TMCs), and SAP Concur partners 
 * Get a list of current trips for a user from SAP Concur.
 * Get the full details of user trips from SAP Concur.
 * Can view the full set of fields for their customers' itineraries because TMCs have an existing relationship with their customers.
-* Can send proposed itineraries when the Agency Proposal feature of Travel Request is active.
+* Can send proposed itineraries when the Agency Proposal feature of Concur Request is active.
 * Can cancel bookings on behalf of a user.
 
 ### TripLink Travel Suppliers
