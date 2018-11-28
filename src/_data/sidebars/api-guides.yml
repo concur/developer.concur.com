@@ -1,3 +1,4 @@
+
 - title: Integration Guides
   url: /api-guides/
 - title: ERP Integration
@@ -14,6 +15,8 @@
   children:
       - title: Payment Provider Integration - paying customers' invoices
         url: /api-guides/invoice/payment-provider-integration.html
+- title: Testing App Center Partner Applications Before Production
+  url: /api-guides/invoice/preproduction-testing.html
 - title: Travel
   url: ''
   children:
