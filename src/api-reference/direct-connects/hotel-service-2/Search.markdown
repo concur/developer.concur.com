@@ -5,7 +5,7 @@ layout: reference
 
 # Search
 
-Message TEST to perform the initial search for hotels.
+Message to perform the initial search for hotels.
 
 | SOAPAction | OTA name    | Message structure |
 |------------|-------------|-------------------|
