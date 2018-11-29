@@ -11,7 +11,7 @@ In most cases, customers can test App Center partner applications using the Test
 
 >**Important**: The Test User functionality only applies to Professional Edition customers. Standard Edition customers need to deploy the app in their production site.
 
-This functionality completely separates the data between test and production, while allowing the customer to be confident their testing is being done within a production infrastructure (that is, the performance of the app is being tested in the normal environment where it will be used). In addition, the Test User functionality uses the same production configuration settings, which avoids issues related to inconsistent settings manually configured in a separate site. The test user data does not impact production analytics or extracts. Your SAP Concur contact can provide you with a copy of the *Test User Setup Guide*, which explains this feature in detail. If you’ve already used the Test User functionality only a subset of the steps below may be required.
+This functionality completely separates the data between test and production, while allowing the customer to be confident their testing is being done within a production infrastructure (that is, the performance of the app is being tested in the normal environment where it will be used). In addition, the Test User functionality uses the same production configuration settings, which avoids issues related to inconsistent settings manually configured in a separate site. The test user data does not impact production analytics or extracts. Your SAP Concur contact can provide you with a copy of the *Shared: Test User Setup Guide*, which explains this feature in detail. If you’ve already used the Test User functionality only a subset of the steps below may be required.
 
 At the customer’s request SAP Concur will configure the following:
 
@@ -21,7 +21,7 @@ At the customer’s request SAP Concur will configure the following:
 
 ![Expense and Invoice settings showing the Test User text box is checked.](./IsATestUser.png)
  
-> **Important**: The checkbox field, "Is a Test User" in the employee profile must be checked for each test profile used in the testing. That checkbox is permanent. Once a user profile is set up as a test user, that profile will always be in test mode. The converse is also true – a production profile will never have this checkmark checked. This ensures that test and production data is kept separate.
+> **Important**: The checkbox field, "Is a Test User" in the employee profile must be checked for each test profile used in the testing before clicking **Save**. Once selected, that checkbox is permanent and there is no way to change the profile. When a user profile is set up as a test user, that profile will always be in test mode. The converse is also true – a production profile will never have this checkbox checked. This ensures that test and production data is kept separate.
 
 >	**Tip**: Include "Test" in the login ID to emphasize the correct use of each profile. For example, Jane.Doe.Test@<company domain>.com.
 
