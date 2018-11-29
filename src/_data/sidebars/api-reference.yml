@@ -224,16 +224,17 @@
 - title: Travel
   url: ''
   children:
-      - title: Itinerary Web Service (TMC/Third-Party)
-        url: /api-reference/travel/itinerary-tmc-thirdparty/
-      - title: Booking
-        url: /api-reference/travel/itinerary/booking/booking-resource.html
-      - title: Itinerary Service
-        url: /api-reference/travel/itinerary/itinerary.html
-      - title: Trips
-        url: /api-reference/travel/itinerary/trip/trip-resource.html
       - title: Travel Services
         url: /api-reference/travel/travel.html
+      - title: Itinerary API – Overview & Getting Started 
+        url: /api-reference/travel/itinerary/itinerary.html
+      - title: Itinerary API Usage 
+        url: /api-reference/travel/itinerary-tmc-thirdparty/        
+      - title: Trip Endpoint
+        url: /api-reference/travel/itinerary/trip/trip-resource.html
+      - title: Booking Endpoint
+        url: /api-reference/travel/itinerary/booking/booking-resource.html
+
 - title: User
   url: /api-reference/user/
 - title: Deprecated
