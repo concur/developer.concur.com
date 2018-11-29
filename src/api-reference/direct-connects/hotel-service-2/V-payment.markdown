@@ -8,9 +8,10 @@ Since the payment solution is typically handled on suppliers’ side, the suppli
 
 The payment agreement is typically made with the hotel supplier. There are multiple potential options which could be:
 
-•	AirPlus Company Account or Amex BTA payment
-•	Virtual card payment e.g. Amex vPay or AirPlus AIDA
-•	Central Billing or billback agreements
+- AirPlus Company Account or Amex BTA payment
+- Virtual card payment e.g. Amex vPay or AirPlus AIDA
+- Central Billing or billback agreements
+
 All mentioned payment methods are normally set up on hotel supplier side to ensure the payment method will be part of the reservation to the hotel and to guarantee acceptance at the hotel. Furthermore, the hotel supplier takes care of invoicing. 
 
 
