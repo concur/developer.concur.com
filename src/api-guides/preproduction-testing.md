@@ -19,7 +19,7 @@ At the customer’s request SAP Concur will configure the following:
 2. Create a Test User Group and apply it to the Test Policy.
 3. Add necessary Test User records and assign them to the Test Group. (*client-configured*)
 
-![Expense and Invoice settings showing the Test User text box is checked.](./IsATestUser.png)
+![Expense and Invoice settings showing the Test User text box is checked.](./isatestuser.png)
  
 > **Important**: The checkbox field, "Is a Test User" in the employee profile must be checked for each test profile used in the testing before clicking **Save**. Once selected, that checkbox is permanent and there is no way to change the profile. When a user profile is set up as a test user, that profile will always be in test mode. The converse is also true – a production profile will never have this checkbox checked. This ensures that test and production data is kept separate.
 
