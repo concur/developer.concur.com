@@ -80,11 +80,13 @@ Message to retrieved the availability of hotels
 |-----------|----------|-----------|-------------|
 | Criterion | Y        | Complex   | Refer to Criterion in Search.  Note that for Availability the Criterion will only have the HotelRef element. Other elements will not be sent. HotelSearchCriteria can contain multiple Criterion elements.  Each will have a unique HotelCode per Availability request.|
 
+
 **Criterion**
-| Element   | Required | Data Type | Description |
-|-----------|----------|-----------|-------------|
-| *HotelCode* | N  | StringLength1to16        | The code that uniquely identifies a single hotel property. The hotel code is decided between vendors.Not used for property search for now (matters in response and availability request).|   
-| *ChainCode*  | N  | StringLength1to8  | The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the HotelCode attribute.Not used for property search for now (matters in response and availability request). |
+
+| Element | Required | Data Type                | Description |
+|---------|----------|-------------------       |-------------|
+| *HotelCode* | N        | StringLength1to16 | The code that uniquely identifies a single hotel property. The hotel code is decided by vendors. |
+| *ChainCode*   | N        | StringLength1to8 | The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the HotelCode attribute. |
 
 
 **StayDateRange**
