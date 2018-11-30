@@ -221,6 +221,7 @@ Message to reserve a hotel.
 | PlainText | Y        | StringLength1to32 | The card number.  Only one element of this type is sent.|
 
 **SeriesCode**
+
 | Element   | Required | Data Type         | Description |
 |-----------|----------|-------------------|-------------|
 | PlainText | Y        | StringLength1to32 | CVV number.  Only one element of this type is sent.|
@@ -284,9 +285,9 @@ Message to reserve a hotel.
 Supported NamePrefixes:
 
 NamePrefix     |
-|-------------------|
-| Mr|
-|Mrs|
+|--------------|
+| Mr |
+|Mrs |
 | Ms |
 |Miss|
 |Dr|
@@ -560,7 +561,7 @@ The maximum allowed size of OTA_HotelResRS is 150 KB. Any response that exceeds 
 | Element   | Required | Data Type         | Description |
 |-----------|----------|-------------------|-------------|
 | UniqueID  | Y        | Complex           | A reference to identify the booking max occurrence 2|
-| RoomStays | Y        | Complex | Refer to RoomStays in Availability |
+| RoomStays | Y        | Complex | A collection of details on the Room Stay including Time Span of this Room Stay, and financial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties. |
 
 
 **UniqueID**
@@ -580,23 +581,34 @@ The maximum allowed size of OTA_HotelResRS is 150 KB. Any response that exceeds 
 | 40    | Confirmation number for future use (not used now) |
 | 1000  | Cancellation/modification code. This one will be rendered on itinerary page and can be used to change the reservation outside of Concur system. Concur-specific OTA extension. |
 
+**RoomStays**
+
+| Element       | Required | Data Type | Description |
+|---------------|----------|-----------|-------------|
+| RoomStay | Y | Complex| Details on the Room Stay including Time Span of this Room Stay, pointers to Res Guests, Comments and Special Requests pertaining to this particular Room Stay and finally finacial information related to the Room Stay, including Guarantee, Deposit and Payment and Cancellation Penalties.|
+
+
+**RoomStay**
 
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
 | RatePlans | Y        | Complex   |  A collection of Rate Plans associated with a particular Room Stay. |
 
 **RatePlan**
+
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
 | CancelPenalties | N        | Complex   |  Collection of cancellation penalties. |
 | *CancelPolicyIndicator* | N | Boolean | When true, indicates a cancel policy exits. When false, no cancel policy exists. Typically this indicator is used when details are not being sent. |
 
 **CancelPenalty**
+
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
 | PenaltyDescription | N        | Complex   |  Text description of the Penalty in a given language. Max 9 elements. |
 
 **PenaltyDescription**
+
 | Element   | Required | Data Type | Description |
 |-----------|----------|-----------|-------------|
 | Text | N        | FormattedTextTextType   |  Formatted text content. |
