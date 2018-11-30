@@ -102,6 +102,9 @@ Message to reserve a hotel.
          </Profile>
         </ProfileInfo>
        </Profiles>
+       <GuestCounts>
+        <GuestCount Count="1"></GuestCount>
+       </GuestCounts>
       </ResGuest>
      </ResGuests>
      <ResGlobalInfo>
@@ -141,6 +144,7 @@ Message to reserve a hotel.
 | Element       | Required | Data Type | Description |
 |---------------|----------|-----------|-------------|
 | RoomStays     | Y        | Complex   | A reference to identify the booking. |
+| ResGuests     | Y        | Complex   | List of Guests.  Concur only supports one guest. |
 | ResGlobalInfo | N        | Complex   | Contains various information that affects the Reservation as a whole, typically list of reward programs (see Memberships) or itinerary remarks (see Comments). |
 
 
@@ -152,6 +156,20 @@ Message to reserve a hotel.
 | Timespan          | Y        | Complex   | Refer to Time-span in Availability |
 | BasicPropertyInfo | Y        | Complex   | See Availability |
 | Comments          | N        | Complex   | Comments from the user which are passed on to the hotel. |
+
+
+**GuestCounts**
+
+| Element       | Required | Data Type | Description |
+|---------------|----------|-----------|-------------|
+| GuestCount | Y | Complex| A recurring element that identifies the number of guests|
+
+
+**GuestCount**
+
+| Element       | Required | Data Type | Description |
+|---------------|----------|-----------|-------------|
+| *Count* | Y | Int | The number of guests. Currently hard-coded to '1'. |
 
 
 **RatePlan**
