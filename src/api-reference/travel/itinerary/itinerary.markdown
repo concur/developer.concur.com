@@ -6,7 +6,7 @@ layout: reference
 * [Overview](#itinerary-overview)
 * [Version](#itinver)
 * [Resources](#itinres)
-* [Concepts](itin-concepts)
+* [Concepts](#itin-concepts)
 * [Who Can Use This Web Service?](#itin-use)
 * [Configuration](#itin-config)
 * [FAQs](#itin-faq)
