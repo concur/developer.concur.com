@@ -15,7 +15,7 @@
       - title: Payment Provider Integration - paying customers' invoices
         url: /api-guides/invoice/payment-provider-integration.html
 - title: Testing App Center Partner Applications Before Production
-  url: /api-guides/invoice/preproduction-testing.html
+  url: /api-guides/preproduction-testing.html
 - title: Travel
   url: ''
   children:
