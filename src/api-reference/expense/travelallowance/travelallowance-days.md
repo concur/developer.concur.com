@@ -31,7 +31,7 @@ This Travel Allowance API fetches all the fixed allowance days in the specified 
 Name|Description|Endpoint
 ---|---|---|
 travelallowance.allowancedays.read|View the allowance days in an expense report|GET
-expense.report.read|Retrieve the report ID from the Expense Report API to supply to the Travel Allowance API|GET
+EXPRPT|Retrieve the report ID from the Expense Report API to supply to the Travel Allowance API|GET
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
@@ -115,17 +115,11 @@ Name|Type|Format|Description
 #### Request
 
 ```shell
-GET https://us.api.concursolutions.com/api/v4/
-travelallowance/allowancedays/companyUUID/{companyUUID}/contexts/{Context}/{ContextId}
+GET https://us.api.concursolutions.com/api/v4/travelallowance/allowancedays/companyUUID/
+d5528866-51b1-40a1-bab2-76296a106dcd/contexts/EXPENSE_REPORT/B769E8B106C04F30AE27
+
 Authorization: Bearer {token}
 Content-Type: application/json
-```
-```json
-{
-  "companyUUID": "d5528866-51b1-40a1-bab2-76296a106dcd",
-  "Context": "EXPENSE_REPORT",
-  "ContextId": "B769E8B106C04F30AE27"
-}
 ```
 
 #### Response
