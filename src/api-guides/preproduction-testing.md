@@ -1,4 +1,3 @@
----
 title: Testing App Center Partner Applications Before Production
 layout: reference
 ---
@@ -23,11 +22,11 @@ At the customer’s request SAP Concur will configure the following:
  
 > **Important**: The checkbox field, "Is a Test User" in the employee profile must be checked for each test profile used in the testing before clicking **Save**. Once selected, that checkbox is permanent and there is no way to change the profile. When a user profile is set up as a test user, that profile will always be in test mode. The converse is also true – a production profile will never have this checkbox checked. This ensures that test and production data is kept separate.
 
->	**Tip**: Include "Test" in the login ID to emphasize the correct use of each profile. For example, Jane.Doe.Test@<company domain>.com.
+> **Tip**: Include "Test" in the login ID to emphasize the correct use of each profile. For example, Jane.Doe.Test@<company domain>.com.
 
 4. Adjust any other configuration within the Test User Policy and the Test User Group that is relevant to the app deployment. For example, Attendee Types can be set up for Test User Group access only.
-1. If desired, request a test user extract file be created.
-1. Deploy the App Center partner application, limited to the test users and complete the desired tests. The user profiles marked as "Is a Test User" must be used. (*client or SAP Concur*)
+5. If desired, request a test user extract file be created.
+6. Deploy the App Center partner application, limited to the test users and complete the desired tests. The user profiles marked as "Is a Test User" must be used. (*client or SAP Concur*)
 
 ## Pre-Production Alternative 
 
