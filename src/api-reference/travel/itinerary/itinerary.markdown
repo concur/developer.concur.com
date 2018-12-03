@@ -3,22 +3,31 @@ title: Itinerary Service
 layout: reference
 ---
 
-## Overview
+* [Overview](#itinerary-overview)
+* [Version](#itinver)
+* [Resources](#itinres)
+* [Concepts](#itin-concepts)
+* [Who Can Use This Web Service?](#itin-use)
+* [Configuration](#itin-config)
+* [FAQs](#itin-faq)
+* [Best Practices](#itin-best-practices)
+* [Reference](#reference-topics)
 
-The Itinerary API can be used to programmatically access travel data such as trips and bookings in Concur Travel. Concur Travel  uses this data to match and consolidate bookings it receives from disparate sources and put these into consolidated travelers’ itineraries, providing travelers a convenient way to view their trips in a single itinerary view. Travelers can view their itineraries through mobile applications or other services.
+## <a name="itinerary-overview"></a>Overview
 
+The Itinerary API can be used to programmatically access travel data such as trips and bookings in Concur Travel. Concur Travel uses this data to match and consolidate bookings it receives from disparate sources and put these into consolidated travelers’ itineraries, providing travelers a convenient way to view their trips in a single itinerary view. Travelers can view their itineraries through mobile applications or other services.
 
-## Version
+## <a name="itinver"></a>Version
 
 Version 1.0
 
-## Resources
+## <a name="itinres"></a>Resources
 
 [Trip](/api-reference/travel/itinerary/trip/trip-resource.html)
 
 [Booking](/api-reference/travel/itinerary/booking/booking-resource.html)
 
-## Concepts
+## <a name="itin-concepts"></a>Concepts
 
 ### Itineraries and Trips
 
@@ -30,11 +39,11 @@ The terms itinerary and trip are synonyms. Trip is the name used for the SAP Con
 * A _booking record_ is the container for all segments booked from a source with the same unique identifier (_record locator_ or _confirmation number_). A single booking can have multiple segments.
 * A _segment_ includes details about the travel booking.
 
-## Who Can Use this Web Service?
+## <a name="itin-use"></a>Who Can Use This Web Service?
 
 TripLink suppliers, travel management companies (TMCs), and SAP Concur partners can use the Itinerary API. The level of access to the data in the Concur Travel system depends on who is accessing it and the SAP Concur products that have been purchased.
 
-### Travel Management Companies (TMCs)
+### Travel Management Companies
 
 * Can view and post bookings for any travel type.
 * Send new reservations that users create on the supplier's site to SAP Concur.
@@ -42,7 +51,7 @@ TripLink suppliers, travel management companies (TMCs), and SAP Concur partners 
 * Get a list of current trips for a user from SAP Concur.
 * Get the full details of user trips from SAP Concur.
 * Can view the full set of fields for their customers' itineraries because TMCs have an existing relationship with their customers.
-* Can send proposed itineraries when the Agency Proposal feature of Travel Request is active.
+* Can send proposed itineraries when the Agency Proposal feature of Concur Request is active.
 * Can cancel bookings on behalf of a user.
 
 ### TripLink Travel Suppliers
@@ -77,13 +86,13 @@ TMCs can request or send travel bookings in two ways:
 
 The travel supplier can request or send travel bookings by using an OAuth token for the user the travel booking belongs to, generated with the user's involvement.
 
-## Configuration
+## <a name="itin-config"></a>Configuration
 
 * If you are a TMC, third-party developer, or a TripLink supplier who would like to start using this web service, please visit: [http://www.concur.com/en-us/connect-platform/suppliers][3] or contact the SAP Partner Enablement Team.
 * SAP Concur products are highly configurable, and not all SAP Concur clients will have access to all features.
 * Partner developers must determine which configurations are required for their solution prior to the review process.
 
-## FAQs
+## <a name="itin-faq"></a>FAQs
 
 #### When Do I Send Trips Versus Bookings?
 
@@ -103,11 +112,11 @@ The Itinerary API returns the full booking details to the supplier who will prov
 
 #### How Can We Save Additional Charges for Hotel and Car Segments? What Types of Charges Are Supported?
 
-The Charges element under Car and Hotel segments allow you to save additional charges using Semantics Codes. Refer to the Semantics and Vendor Codes document for more information.
+The `Charges` element under Car and Hotel segments allow you to save additional charges using Semantics Codes. Refer to the Semantics and Vendor Codes sections under [Reference](#reference-topics) for more information.
 
 #### What Vendor Codes Can I Use When Sending Hotel and Car Segments?
 
-Refer to the Semantics and Vendor Codes document for the full list.
+Refer to the Semantics and Vendor Codes sections for the full list.
 
 #### Can I View a Trip Posted Through the Itinerary API in the SAP Concur UI?
 
@@ -117,7 +126,7 @@ Yes. The user who owns the trip will see the trip on their home page. If the tri
 
 Trips can be expensed after the trip is over under the following conditions:
 
-* The trip has a Car, Hotel or Ride segment.
+* The trip has a Car, Hotel, or Ride segment.
 * The trip has an Air segment with a ticket and the ticket has at least one valid ticket coupon, meaning the coupon is in one of the following statuses:
 * OPEN
 * USED
@@ -128,8 +137,7 @@ Air segments can be expensed as soon as they have a ticket with a valid coupon, 
 
 #### Why is My New Booking Not Showing in the UI?
 
-The request returned successfully with HTTP status - 200 OK.
-Posted bookings are automatically merged with any existing trip with overlapping dates. Most likely, a trip exists with the same dates and the booking has been added to it.
+The request returned successfully with HTTP status - 200 OK. Posted bookings are automatically merged with any existing trip with overlapping dates. Most likely, a trip exists with the same dates and the booking has been added to it.
 
 #### Will Posted Bookings Be Overwritten by Emailed or TripIt Trips?
 
@@ -143,6 +151,15 @@ Yes.
 
 No.
 
+## <a name="itin-best-practices"></a>Best Practices
+
+*	When extracting past data:
+    * Extract a month of trip summaries to gauge volume. If hundreds are returned, then adjust extraction to weekly.
+    * Do not extract more than a year of data at any given time regardless of the volume. For longer look backs, extract 6 month segments maximum at a time.
+    * Do not multi-thread requests to retrieve multiple pages of data.  Concurrent requests will impact your application’s performance.
+*	Itineraries change frequently. Changes do not necessarily indicate that the traveler modified their trip. If your application works with upcoming or in progress trips, be aware that you must evaluate the individual segments to determine whether it is a material change for your application.
+*	This API will only return itineraries that have been sent to Concur Travel; this includes travel booked within Concur Travel, TripIt, on TripLink supplier sites, and most bookings from your travel agency. Some customers may have multiple booking options which may mean not all employee trips are available via this API. A good rule of thumb: if the traveler sees the itinerary in their “trips” list, then you can retrieve it from this API.
+
 ## <a name="reference-topics" id="reference-topics">Reference</a>
 
 The Itinerary Reference documentation includes the following reference information that can be used in conjunction with the Trip Resource API and Booking Resource API documentation. It includes the following reference topics:
@@ -155,9 +172,9 @@ The Itinerary Reference documentation includes the following reference informati
 * [Time Zone Formats](#time-zones)
 
 ###  <a name="itinerary-data-model" id="itinerary-data-model">Itinerary Data Model</a>
-[Return to Reference topics](#reference-topics)
 
 The Itinerary data model defines data elements  that are returned or sent when getting, creating, updating, or deleting trips and bookings with the /api/travel/trip/v1.1 and /api/travel/booking/v1.1 resources respectively.
+
 Trips include all bookings in an itinerary whereas a booking includes only a specific segment of an itinerary. It includes the following elements:
 
 * [Root Elements](#root-elements)
