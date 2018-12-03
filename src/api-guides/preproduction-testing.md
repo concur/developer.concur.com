@@ -3,7 +3,7 @@ title: Testing App Center Partner Applications Before Production
 layout: reference
 ---
 
-Many App Center par-tner applications do not need to be validated in a test environment because they are obtaining data directly from the customer's site and processing it on the partner's side. In other words, the presence of the partner's application has no impact on the normal use of the SAP Concur site as a result of obtaining data. However, some Enterprise Applications send data to the customer's SAP Concur site, which the customer may want to test before deploying. 
+Many App Center partner applications do not need to be validated in a test environment because they are obtaining data directly from the customer's site and processing it on the partner's side. In other words, the presence of the partner's application has no impact on the normal use of the SAP Concur site as a result of obtaining data. However, some Enterprise Applications send data to the customer's SAP Concur site, which the customer may want to test before deploying. 
 
 ## Test User Functionality
 
@@ -15,19 +15,17 @@ This functionality completely separates the data between test and production, wh
 
 At the customer’s request SAP Concur will configure the following:
 
-1. Copy the Expense, Invoice, or Request Policy that is to be used in conjunction with the App Center partner integration. The name of the new Policy must include "Test User" in the Policy name along with any other descriptive terms the customer provides.
-2. Create a Test User Group and apply it to the Test Policy.
-3. Add necessary Test User records and assign them to the Test Group. (*client-configured*)
-
-![Expense and Invoice settings showing the Test User text box is checked.](./isatestuser.png)
- 
+* Copy the Expense, Invoice, or Request Policy that is to be used in conjunction with the App Center partner integration. The name of the new Policy must include "Test User" in the Policy name along with any other descriptive terms the customer provides.
+* Create a Test User Group and apply it to the Test Policy.
+* Add necessary Test User records and assign them to the Test Group. (*client-configured*)
+![Expense and Invoice settings showing the Test User text box is checked.](./isatestuser.png) 
 > **Important**: The checkbox field, "Is a Test User" in the employee profile must be checked for each test profile used in the testing before clicking **Save**. Once selected, that checkbox is permanent and there is no way to change the profile. When a user profile is set up as a test user, that profile will always be in test mode. The converse is also true – a production profile will never have this checkbox checked. This ensures that test and production data is kept separate.
 
 > **Tip**: Include "Test" in the login ID to emphasize the correct use of each profile. For example, Jane.Doe.Test@<company domain>.com.
 
-4. Adjust any other configuration within the Test User Policy and the Test User Group that is relevant to the app deployment. For example, Attendee Types can be set up for Test User Group access only.
-5. If desired, request a test user extract file be created.
-6. Deploy the App Center partner application, limited to the test users and complete the desired tests. The user profiles marked as "Is a Test User" must be used. (*client or SAP Concur*)
+* Adjust any other configuration within the Test User Policy and the Test User Group that is relevant to the app deployment. For example, Attendee Types can be set up for Test User Group access only.
+* If desired, request a test user extract file be created.
+* Deploy the App Center partner application, limited to the test users and complete the desired tests. The user profiles marked as "Is a Test User" must be used. (*client or SAP Concur*)
 
 ## Pre-Production Alternative 
 
