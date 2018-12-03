@@ -5,20 +5,32 @@ layout: reference
 
 {% include prerelease.html %}
 
-Subscribers to this event will receive search criteria for travel searches performed within Concur's online booking tool.
-
+* [Overview](#overview)
 * [Subscribing](#subscribing)
 * [Endpoint Requirements](#endpoint-requirements)
 
-## <a name="subscribing"></a>Subscribing
+# <a name="overview"></a>Overview
 
-To subscribe to an event, you must work with your relevant SAP Concur technical contact; for partners, please work with your technical enablement contact. For customers, your web services consultant will subscribe on your behalf to the relevent topic(s).
+The Event PubSub service allows clients and partners to choose to be notified through web services when certain actions take place in connected SAP Concur companies. When the event occurs, SAP Concur generates a notification and sends a request to the configured endpoint with event information. 
+
+This callout differs from the standard Concur web services in the following ways:
+
+* It uses an outbound callout where SAP Concur calls a public facing URL provided by the application connector, which is a web server hosted by the third-party developer or client. 
+
+* The application connector can also use the related web services to retrieve or send SAP Concur data. For example, an event may be generated when a request for travel is submitted. The application connector may then leverage data from the event, such as the request ID, to retrieve the relevant travel request record from the published Request APIs.
+
+
+# <a name="subscribing"></a>Subscribing
+
+In order to begin receiving events, you must first subscribe to the relevant topic(s) for your application connector.
+
+To subscribe to an event, you must work with your relevant SAP Concur technical contact; for partners, please work with your technical enablement contact. For customers, your web services consultant will subscribe on your behalf to the relevant topic(s).
 
 You must provide an HTTPS server endpoint that will accept the event payload described below.
 
 Your HTTPS server endpoint must accessible from the public web with a non-self-signed certificate.  The certificate should be signed by a known Certificate Authority and should be reachable through DNS.
 
-### <a name="endpoint-requirements"></a>Endpoint Requirements
+# <a name="endpoint-requirements"></a>Endpoint Requirements
 
 The Event Subscription Service provides guaranteed at least once event delivery.  This is accomplished through retrying posting of the event payload to the subscribers' endpoint until the response indicates successful receipt.  The expected acknowledgment max for a request to the subscribers' endpoint is 30 seconds.  The service will attempt posting to the endpoint and then back-off and retry until the subscriber endpoint responds with delivered or not accepted.  SAP Concur suggests the subscriber endpoint implement the following behavior characteristics:
 * Ensure endpoint responds as quickly as possible (< 3 seconds)
