@@ -5,41 +5,18 @@ layout: reference
 
 {% include prerelease.html %}
 
-Subscribers to this event will receive search criteria for travel searches performed within Concur's online booking tool.
 
-
-* [Subscribing](#subscribing)
+* [Overview](#overview)
 * [Schema](#schema)
 	* [Air](#schema-air-request)
   * [Hotel](#schema-hotel-request)
 * [Sample Events](#sample-events)
 
-## <a name="subscribing"></a>Subscribing
+## <a name="overview"></a>Overview
 
-For partners, please work with your technical enablement contact to subscribe to this topic 'concur.travel.search'.
+The topic 'concur.travel.search' provides travel search information.  Subscribers to this event will receive search criteria for travel searches performed within Concur's online booking tool.
 
-You must provide an HTTPS server endpoint that will accept the event payload described below.
-
-Your HTTPS server endpoint must accessible from the public web with a non-self-signed certificate.  The certificate should be signed by a known Certificate Authority and should be reachable through DNS.
-
-### <a name="endpoint-behavior"></a>Endpoint Behavior
-The Event Subscription Service provides guaranteed at least once event delivery.  This is accomplished through retrying posting of the event payload to the subscribers' endpoint until the response indicates successful receipt.  The expected acknowledgment max for a request to the subscribers' endpoint is 30 seconds.  The service will attempt posting to the endpoint and then back-off and retry until the subscriber endpoint responds with delivered or not accepted.  Concur suggests the subscriber endpoint implement the following behavior characteristics.
-Ensure endpoint responds as quickly as possible (< 3 seconds)
-Subscriber must maintain reasonable uptime to support the requirements of the integration scenario
-If the subscriber must have durability of delivered events these must be persisted on the subscriber side
-If the subscriber action on the event is non-idempotent or expensive guard against a duplicate event by checking the event Id has not already been processed.
-
-### <a name="event-subscription-service-behavior"></a>Event Subscription Service (ESS) Behavior
-The Event Subscription service has the following characteristics from the subscriber perspective.
-* Requests will come from us.api.concursolutions.com, emea.api.concursolutions.com or cn.api.concursolutions.com
-* Requests will be re-tried when subscriber responds with HTTP Response Code(s): 5xx, 401, 403 and 429
-* Requests will not be re-tried when subscriber responds with HTTP Response Code(s):
-  * 2xx – Indicates successful receipt of the event
-  * 4xx – Indicates posted event is unexpected or incorrectly formatted
-* Request will be retried until delivery OR event retention period expiry
-* Event retention period is 72 hours from the time of event being published
-* Events are not archived, but of the event delivery attempts/responses are logged and retained a (period of time)
-
+This event is relevant for applications that are interacting with travelers before they book their trip; such as applications that context to the traveler regarding company policy, preferences or general compliance requirements for booking travel.
 
 ## <a name="schema"></a>Schema
 
