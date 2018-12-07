@@ -162,14 +162,14 @@ Message to reserve a hotel.
 
 | Element       | Required | Data Type | Description |
 |---------------|----------|-----------|-------------|
-| GuestCount | Y | Complex| A recurring element that identifies the number of guests|
+| GuestCounts | Y | Complex| **Please note: this field is currently being discussed with our partners as the plan to remove GuestCounts from OTA_HotelAvailRQ**. A recurring element that identifies the number of guests|
 
 
 **GuestCount**
 
 | Element       | Required | Data Type | Description |
 |---------------|----------|-----------|-------------|
-| *Count* | Y | Int | The number of guests. Currently hard-coded to '1'. |
+| *Count* | Y | Int | **Please note: this element is planned to be removed**. A recurring element that identifies the number of guests and ages of the guests.The number of guests. Currently hard-coded to '1'. |
 
 
 **RatePlan**
@@ -185,7 +185,7 @@ Message to reserve a hotel.
 | Element            | Required | Data Type         | Description |
 |--------------------|----------|-------------------|-------------|
 | *GuaranteeType*    | Y        | StringLength1to32 | Refer to GuaranteeType in Availability |
-| GuaranteesAccepted | Y        | Complex           | **to be decided** |
+| GuaranteesAccepted | Y        | Complex           | Guarantee and payment information |
 
 
 **GuaranteesAccepted**
