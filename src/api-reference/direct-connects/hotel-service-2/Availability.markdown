@@ -107,23 +107,22 @@ Message to retrieved the availability of hotels
 
 | Element     | Required | Data Type | Description |
 |-------------|----------|-----------|-------------|
-| *Quantity*  | Y        | Int	     | something **to be removed** |
-| GuestCounts | Y        | Complex   | A collection of Guest Counts associated with Room Stay. **to be removed**|
+| GuestCounts | Y        | Complex   | **Please note: this field is currently being discussed with our partners as the plan to remove GuestCounts from OTA_HotelAvailRQ**. A collection of Guest Counts associated with Room Stay. |
 
 
 **GuestCounts**
 
 | Element    | Required | Data Type | Description |
 |------------|----------|-----------|-------------|
-| GuestCount | Y        | Complex   | A recurring element that identifies the number of guests and ages of the guests. |
+| GuestCount | Y        | Complex   | **Please note: this element is planned to be removed** A recurring element that identifies the number of guests and ages of the guests. |
 
 
 **GuestCount**
 
 | Element             | Required | Data Type | Description |
 |---------------------|----------|-----------|-------------|
-| *Count*             | Y        | Int	     | Concur only supports one Guest. |
-| *AgeQualifyingCode* | Y        | Int       | AgeQualifyingCode="10" |
+| *Count*             | Y        | Int	     | Concur only supports one Guest thus the value is currently hard-coded to '1'. |
+| *AgeQualifyingCode* | Y        | Int       | The value is currently hard-coded to '10': AgeQualifyingCode="10" |
 ---
 
 
