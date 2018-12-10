@@ -21,7 +21,7 @@ layout: reference
 
 #### WWStay
 
-![WWStay](./sap-concur-app-center-release-notes-2016-wwstay.jpg)
+![WWStay](./2016-wwstay.jpg)
 
 Connect with WWStay to make your reservation receipts available in your Concur account when you book your accommodation from WWStay. We find you the best serviced apartments, aparthotels and hotel brands for project teams, assignees, expats, VIPs, etc.
 
@@ -35,7 +35,7 @@ WWStay works with Expense for Concur Standard and Expense for Concur Professiona
 
 #### Ola Cabs
 
-![Ola Cabs](./sap-concur-app-center-release-notes-2016-ola-cabs.jpg)
+![Ola Cabs](./2016-ola-cabs.jpg)
 
 Building mobility for a billion people, Ola delivers safe, reliable city transportation via its mobile technology platform ensuring convenient, transparent and quick service. With the Ola mobile app for both Android and iOS devices, users across 102 cities in India can book from over 450,000 vehicles including cabs, auto-rickshaws, and taxis.
 
@@ -51,7 +51,7 @@ And now you can connect your Concur Expense account with your Ola Corporate acco
 
 #### Cater Nation
 
-![Cater Nation](./sap-concur-app-center-release-notes-2016-cater-nation.jpg)
+![Cater Nation](./2016-cater-nation.jpg)
 
 Cater Nation gives you one-stop shopping for your business drop-off catering needs. Our customers include Fortune 500 companies, professional and financial service firms, medical and other sales professionals. And while having one site to go for ordering is nice, with Cater Nation you get the absolute best customer care experience in the online food ordering industry, according to third-party review aggregator, Trustpilot.
 
@@ -63,7 +63,7 @@ Cater Nation works with Expense for Concur Standard and Expense for Concur Profe
 
 #### Ola Cabs
 
-![Ola Cabs](./sap-concur-app-center-release-notes-2016-ola-cabs.jpg)
+![Ola Cabs](./2016-ola-cabs.jpg)
 
 Ola is committed to its mission of building mobility for a billion people. Ola integrates city transportation for customers and driver partners onto a mobile technology platform ensuring convenient, transparent and quick service fulfilment. Using the Ola mobile app, users across 102 cities in India can book from over 450,000 vehicles including cabs, auto-rickshaws and taxis. Ola has also introduced a range of shared mobility services on its platform like Ola Shuttle and Ola Share for commute and ridesharing respectively. With Ola, commuters also have the option of renting a cab for extended periods of time at affordable rates.
 
@@ -75,7 +75,7 @@ Ola Cab works with Expense for Concur Standard and Expense for Concur Profession
 
 #### WWStay
 
-![WWStay](./sap-concur-app-center-release-notes-2016-wwstay.jpg)
+![WWStay](./2016-wwstay.jpg)
 
 Connect with WWStay to make your reservation receipts available in your Concur account when you book your accommodation from WWStay. We find you the best serviced apartments, aparthotels and hotel brands for project teams, assignees, expats, VIPs, etc.
 
@@ -93,7 +93,7 @@ WWStay works with Expense for Concur Standard and Expense for Concur Professiona
 
 #### BostonCoach / Dav El
 
-![BostonCoach Dav El](./sap-concur-app-center-release-notes-2016-bostoncoach-dav-el.jpg)
+![BostonCoach Dav El](./2016-bostoncoach-dav-el.jpg)
 
 Dav El│BostonCoac h is the largest chauffeured transportation company in the world and maintains its highest quality and safety standards through innovation, dedication to the customer and personal, professional service.
 
@@ -107,7 +107,7 @@ BostonCoach | Dav El works with Expense for Concur Standard and Expense for Conc
 
 #### SnapCar
 
-![SnapCar](./sap-concur-app-center-release-notes-2016-snapcar.jpg)
+![SnapCar](./2016-snapcar.jpg)
 
 SnapCar is a high-end black car interface made for business travelers.
 
@@ -121,7 +121,7 @@ SnapCar works with Expense for Concur Standard and Expense for Concur Profession
 
 #### Ola Cabs
 
-![Ola Cabs](./sap-concur-app-center-release-notes-2016-ola-cabs.jpg)
+![Ola Cabs](./2016-ola-cabs.jpg)
 
 Ola is committed to its mission of building mobility for a billion people. Ola integrates city transportation for customers and driver partners onto a mobile technology platform ensuring convenient, transparent and quick service fulfilment. Using the Ola mobile app, users across 102 cities in India can book from over 450,000 vehicles including cabs, auto-rickshaws and taxis. Ola has also introduced a range of shared mobility services on its platform like Ola Shuttle and Ola Share for commute and ridesharing respectively. With Ola, commuters also have the option of renting a cab for extended periods of time at affordable rates.
 
@@ -155,7 +155,7 @@ Account details and usage with these applications outside of the integration wit
 
 #### Canon
 
-![Canon](./sap-concur-app-center-release-notes-2016-canon.jpg)
+![Canon](./2016-canon.jpg)
 
 No more storing paper receipts and attaching them to your printed report. Now Canon + Concur offer an integrated solution utilizing any Canon MAXIFY series inkjet Multi-Functional printer.
 
@@ -173,7 +173,7 @@ Canon works with Expense for Concur Standard and Expense for Concur Professional
 
 #### SnapCar
 
-![SnapCar](./sap-concur-app-center-release-notes-2016-snapcar.jpg)
+![SnapCar](./2016-snapcar.jpg)
 
 SnapCar is a high-end black car interface made for business travelers.
 
@@ -199,7 +199,7 @@ For more information on the App Center, read the App Center EMEA Data Center FAQ
 
 ### DiDi
 
-![Didi](./sap-concur-app-center-release-notes-2016-didi.jpg)
+![Didi](./2016-didi.jpg)
 
 With more than 14 million drivers in more than 400 cities in China, DiDi offers a convenient, safe and comfortable way to get to your destination on time. And now with the Concur integration, you can easily expense your ride, too.
 
@@ -215,7 +215,7 @@ DiDi works with Expense for Concur Standard and Expense for Concur Professional.
 
 #### Canon
 
-![Canon](./sap-concur-app-center-release-notes-2016-canon.jpg)
+![Canon](./2016-canon.jpg)
 
 No more storing paper receipts and attaching them to your printed report. Now Canon + Concur offer an integrated solution utilizing any Canon MAXIFY series inkjet Multi-Functional printer.
 
@@ -231,7 +231,7 @@ Canon works with Expense for Concur Standard and Expense for Concur Professional
 
 #### Carla
 
-![Carla](./sap-concur-app-center-release-notes-2016-carla.jpg)
+![Carla](./2016-carla.jpg)
 
 By using the power of Mojio’s Car Monitoring System and connecting to Concur Expense, Carla enables travelers to expense vehicle mileage without paper receipts or manual processes. Getting started is easy:
 
@@ -247,7 +247,7 @@ Carla works with Expense for Concur Standard and Expense for Concur Professional
 
 #### Gett
 
-![Gett](./sap-concur-app-center-release-notes-2016-gett.jpg)
+![Gett](./2016-gett.jpg)
 
 Gett is a reliable, cost-effective way to travel via corporate black car or taxi. And now with the Concur integration, it’s paperless too. Drivers operate in 57 cities worldwide and are vetted, licensed and fully insured. Plus, a guarantee that you’ll always pay a flat rate regardless of rain, traffic or demand.
 
@@ -266,7 +266,7 @@ Gett works with Expense for Concur Standard and Expense for Concur Professional.
 
 #### Canon
 
-![Canon](./sap-concur-app-center-release-notes-2016-canon.jpg)
+![Canon](./2016-canon.jpg)
 
 Canon’s MAXIFY series inkjet Multi-Functional printers offer “Scan Receipt for Concur” as one of the applications available via the MAXIFY CLOUD LINK.
 
@@ -278,7 +278,7 @@ Canon works with Expense for Concur Standard and Expense for Concur Professional
 
 #### Carla
 
-![Carla](./sap-concur-app-center-release-notes-2016-carla.jpg)
+![Carla](./2016-carla.jpg)
 
 By using the power of Mojio’s Car Monitoring System and connecting to Concur Expense, Carla enables travelers to expense vehicle mileage without paper receipts or manual processes. Getting started is easy:
 
@@ -290,7 +290,7 @@ Carla works with Expense for Concur Standard and Expense for Concur Professional
 
 #### Didi
 
-![Didi](./sap-concur-app-center-release-notes-2016-didi.jpg)
+![Didi](./2016-didi.jpg)
 
 In under 4 years, DiDi grew from a taxi-hailing app into a multi-product platform offering mobile taxis, cars, chauffeured rides, bus, and test drive services to 300 million users with 14 million drivers in more than 400 cities in China. There are over 11 million Didi rides per day. DiDi occupies more than 87% of private car-hailing market share and 99% taxi-hailing market share in China, putting it above all other Chinese ride-hailing services.
 
@@ -306,7 +306,7 @@ DiDi works with Expense for Concur Standard and Expense for Concur Professional.
 
 #### Xeis Studio CFDI Capture
 
-![Xeis Studio CFDI Capture](./sap-concur-app-center-release-notes-2016-xeis-studio-cfdi-capture.jpg)
+![Xeis Studio CFDI Capture](./2016-xeis-studio-cfdi-capture.jpg)
 
 Doing business in Mexico? Streamline your accounting process by instantly entering expenses into your Concur Expense account. Xeis Studio’s automated solution captures key data from your electronic receipt (CFDI) and imports it into your Concur account – enabling you to compile an expense report from your smartphone or other mobile device.
 
@@ -324,7 +324,7 @@ CFDI Capture works with Expense for Concur Standard and Expense for Concur Profe
 
 #### Carla
 
-![Carla](./sap-concur-app-center-release-notes-2016-carla.jpg)
+![Carla](./2016-carla.jpg)
 
 By using the power of Mojio’s Car Monitoring System and connecting to Concur Expense, Carla enables travelers to expense vehicle mileage without paper receipts or manual processes. Getting started is easy:
 
@@ -336,7 +336,7 @@ Carla works with Expense for Concur Standard and Expense for Concur Professional
 
 #### Gett
 
-![Gett](./sap-concur-app-center-release-notes-2016-gett.jpg)
+![Gett](./2016-gett.jpg)
 
 Gett is a reliable, cost-effective way to travel via corporate black car or taxi. And now with the Concur integration, it’s paperless too. Drivers operate in 57 cities worldwide and are vetted, licensed and fully insured. Plus, a guarantee that you’ll always pay a flat rate regardless of rain, traffic or demand.
 
@@ -357,7 +357,7 @@ Gett works with Expense for Concur Standard and Expense for Concur Professional.
 
 #### Grab
 
-![Grab](./sap-concur-app-center-release-notes-2016-grab.jpg)
+![Grab](./2016-grab.jpg)
 
 Grab is Southeast Asia’s leading ride-hailing platform. Grab solves critical transportation challenges and makes transportation freedom a reality for 620 million people in Southeast Asia. The integration with Concur now provides e-receipts for rides to be sent to Concur automatically for accurate, timely and effortless expensing.
 
@@ -375,7 +375,7 @@ Grab works with Expense for Concur Standard and Expense for Concur Professional.
 
 #### WallyPark
 
-![WallyPark](./sap-concur-app-center-release-notes-2016-wallypark.jpg)
+![WallyPark](./2016-wallypark.jpg)
 
 Before your next business trip, connect your Concur account to WallyPark Airport Parking. Reserve your parking spot and send e-receipts directly to your expense report.
 
@@ -391,7 +391,7 @@ WallyPark works with Expense for Concur Standard and Expense for Concur Professi
 
 #### Carla
 
-![Carla](./sap-concur-app-center-release-notes-2016-carla.jpg)
+![Carla](./2016-carla.jpg)
 
 By using the power of Mojio’s Car Monitoring System and connecting to Concur Expense, Carla enables travelers to expense vehicle mileage without paper receipts or manual processes. Getting started is easy:
 
@@ -407,7 +407,7 @@ Carla works with Expense for Concur Standard and Expense for Concur Professional
 
 #### Brunel
 
-![Brunel](./sap-concur-app-center-release-notes-2016-brunel.jpg)
+![Brunel](./2016-brunel.jpg)
 
 brunel is London’s alternative private hire company. With over 35 years’ experience, we feature the latest technology and vehicles ranging from economy to first class – so you can rest assured we’ll get you to your destination safely, comfortably and on time.
 
@@ -425,7 +425,7 @@ brunel works with Expense for Concur Standard and Expense for Concur Professiona
 
 #### Business Table
 
-![Business Table](./sap-concur-app-center-release-notes-2016-business-table.jpg)
+![Business Table](./2016-business-table.jpg)
 
 Business Table is an exclusive and innovative solution allowing you to book a table anywhere in France in few clicks, in a restaurant among our 15,000 establishments, or to ask about catering services with our 1,200 brands: tray meals, lunch boxes, cocktails, buffets, breakfasts…
 
@@ -439,7 +439,7 @@ BusinessTable works with Expense for Concur Standard and Expense for Concur Prof
 
 #### Carla
 
-![Carla](./sap-concur-app-center-release-notes-2016-carla.jpg)
+![Carla](./2016-carla.jpg)
 
 Carla detects your vehicle’s ignition and follows you on your journey. Come back later and check your trips. Swipe to add the ones you like to an Expense Report that Carla builds for you, then export your trip info directly to your Concur account. Have a personal trip? Simply swipe it away and forget about it!
 
@@ -453,7 +453,7 @@ Carla works with Expense for Concur Standard and Expense for Concur Professional
 
 #### DUFL
 
-![DUFL](./sap-concur-app-center-release-notes-2016-dufl.jpg)
+![DUFL](./2016-dufl.jpg)
 
 Imagine having a personal valet to simplify your business travel by shipping, cleaning and storing your business attire. DUFL does that, and automates the expensing too!
 
@@ -475,7 +475,7 @@ DUFL works with Expense for Concur Standard and Expense for Concur Professional.
 
 #### German Transfer
 
-![German Transfer](./sap-concur-app-center-release-notes-2016-german-transfer.jpg)
+![German Transfer](./2016-german-transfer.jpg)
 
 Whether you are travelling for business or leisure, simply book your fixed-priced transfer online or via our web-app!
 
@@ -504,7 +504,7 @@ German Transfer works with Expense for Concur Standard and Expense for Concur Pr
 
 #### GroundLink
 
-![GroundLink](./sap-concur-app-center-release-notes-2016-groundlink.jpg)
+![GroundLink](./2016-groundlink.jpg)
 
 GroundLink delivers best-in-class car service with a fleet of over 45,000 vehicles available in major cities worldwide. GroundLink’s 24/7 service and ON TIME EVERY TIME® Guarantee ensures a smooth and seamless ride for business travelers needing point-to-point or airport transfers.
 
@@ -526,7 +526,7 @@ GroundLink works with Expense for Concur Standard and Expense for Concur Profess
 
 #### ParkWhiz
 
-![ParkWhiz](./sap-concur-app-center-release-notes-2016-parkwiz.jpg)
+![ParkWhiz](./2016-parkwiz.jpg)
 
 The ParkWhiz app lets you to shop for and book a parking spot just like a hotel room – guaranteeing your spot will be waiting for you when you arrive. With parking at 1000’s of locations across the country and with downtown, airport and special event parking, chances are you can find the perfect spot. ParkWhiz not only shows you pricing but you can often find spots at a deep discount. And with Concur, you have the option to add your parking expenses directly to your expense report with one tap. Download the app the app today and give it a try. You’ll find it’s the easiest way to get where you want to be.
 
@@ -542,7 +542,7 @@ ParkWhiz works with Expense for Concur Standard and Expense for Concur Professio
 
 #### Flyte Tyme World Transportation
 
-![Flyte Tyme World Transportation](./sap-concur-app-center-release-notes-2016-flytetime.jpg)
+![Flyte Tyme World Transportation](./2016-flytetime.jpg)
 
 Flyte Tyme World Transportation is one of the world’s largest global ground transportation providers, offering service in more than 450 cities. We can provide a solution whether you need a ride to the airport for an individual traveler, shuttle service for your employees, or end-to- end destination management for an event. Flyte Tyme is the right choice for a first class ground transportation experience.
 
@@ -554,7 +554,7 @@ Flyte Tyme World Transportation works with Expense for Concur Standard and Expen
 
 #### Carla
 
-![Carla](./sap-concur-app-center-release-notes-2016-carla.jpg)
+![Carla](./2016-carla.jpg)
 
 Carla detects your vehicle’s ignition and follows you on your journey. Come back later and check your trips. Swipe to add the ones you like to an Expense Report that Carla builds for you, then export your trip info directly to your Concur account. Have a personal trip? Simply swipe it away and forget about it!
 

@@ -52,7 +52,7 @@ Qwykr works with Expense for Concur Standard and Expense for Concur Professional
 
 #### Yualo (Youtel)
 
-![Yualo](./sap-concur-app-center-release-notes-2017-yualo.jpg)
+![Yualo](./2017-yualo.jpg)
 
 Yualo Travel makes business travel easier with global access to Wifi and automated expensing through Concur.
 
@@ -90,7 +90,7 @@ Clients who previously did not have the App Center tab in Concur have received i
 
 #### SkyParkSecure
 
-![SkyParkSecure](./sap-concur-app-center-release-notes-2017-skyparksecure.jpg)
+![SkyParkSecure](./2017-skyparksecure.jpg)
 
 Find our SkyParkSecure App in your Concur account and click the "Connect" button. You'll then be re-directed to our site allowing you to sign in or create your business account with us which will be automatically be linked to your Concur account. Once connect you will automatically receive your invoice into your receipt store for your next airport parking booking through SkyParkSecure. The booking will be automatically added to your next expense report.
 
@@ -106,7 +106,7 @@ SkyParkSecure works with Expense for Concur Standard and Expense for Concur Prof
 
 #### The Parking Spot
 
-![The Parking Spot](./sap-concur-app-center-release-notes-2017-the-parking-spot.jpg)
+![The Parking Spot](./2017-the-parking-spot.jpg)
 
 The Parking Spot is the nation’s largest near-airport parking company, with 38 convenient locations at 21 major U.S. airports – making travel simple and seamless. Our friendly, courteous team members, outstanding value, unmatched customer service commitment and industry-leading Spot Club loyalty program ensure that The Parking Spot is the best part of our guests’ travel experience.
 
@@ -151,7 +151,7 @@ Clients who do not have the App Center tab in Concur will receive it in the Octo
 
 #### Allocab
 
-![Allocab](./sap-concur-app-center-release-notes-2017-allocab.jpg)
+![Allocab](./2017-allocab.jpg)
 
 Order your private chauffeur and taxi in just 1 click!
 
@@ -173,7 +173,7 @@ Allocab works with Expense for Concur Standard and Expense for Concur Profession
 
 #### SkyParkSecure
 
-![SkyParkSecure](./sap-concur-app-center-release-notes-2017-skyparksecure.jpg)
+![SkyParkSecure](./2017-skyparksecure.jpg)
 
 Skyparksecure offer airport parking services across 28 UK airports and over 300 car parks. Skyparksecure's easy to use booking tool saves traveller profiles ensuring fast and efficient bookings for travellers, travel managers and PAs.
 
@@ -185,7 +185,7 @@ SkyParkSecure works with Expense for Concur Standard and Expense for Concur Prof
 
 #### The Parking Spot
 
-![The Parking Spot](./sap-concur-app-center-release-notes-2017-the-parking-spot.jpg)
+![The Parking Spot](./2017-the-parking-spot.jpg)
 
 The Parking Spot is the nation’s largest near-airport parking company, with 38 convenient locations at 21 major U.S. airports – making travel simple and seamless. Our friendly, courteous team members, outstanding value, unmatched customer service commitment and industry-leading Spot Club loyalty program ensure that The Parking Spot is the best part of our guests’ travel experience.
 
@@ -222,7 +222,7 @@ Qwykr works with Expense for Concur Standard and Expense for Concur Professional
 
 #### TwoGo
 
-![TwoGo](./sap-concur-app-center-release-notes-2017-two-go.jpg)
+![TwoGo](./2017-two-go.jpg)
 
 Travelers share rides in their Concur itineraries, seamlessly with TwoGo.
 
@@ -246,7 +246,7 @@ TwoGo by SAP works with Travel for Concur Standard and Travel for Concur Profess
 
 #### Allocab
 
-![Allocab](./sap-concur-app-center-release-notes-2017-allocab.jpg)
+![Allocab](./2017-allocab.jpg)
 
 Order your private chauffeur and taxi in just 1 click!
 
@@ -282,7 +282,7 @@ Qwykr works with Expense for Concur Standard and Expense for Concur Professional
 
 #### TwoGo
 
-![TwoGo](./sap-concur-app-center-release-notes-2017-two-go.jpg)
+![TwoGo](./2017-two-go.jpg)
 
 Travelers share rides in their Concur itineraries, seamlessly with TwoGo.
 
@@ -330,7 +330,7 @@ We apologize for any inconvenience this may cause. We will continue provide full
 
 #### SpotHero
 
-![Spot Hero](./sap-concur-app-center-release-notes-2017-spot-hero.jpg)
+![Spot Hero](./2017-spot-hero.jpg)
 
 SpotHero makes work travel easier. With parking options at airports, hotels, work sites and office buildings across the country, you can now find and reserve parking through the SpotHero app and avoid the hassle of complicated receipt and expense management each month.
 
@@ -353,7 +353,7 @@ SpotHero works with Expense for Concur Standard and Expense for Concur Professio
 
 #### Cater Nation
 
-![Cater Nation](./sap-concur-app-center-release-notes-2017-cater-nation.jpg)
+![Cater Nation](./2017-cater-nation.jpg)
 
 Cater Nation gives you one-stop shopping for your business drop-off catering needs. Our customers include Fortune 500 companies, professional and financial service firms, medical and other sales professionals. And while having one site to go for ordering is convenient, with Cater Nation you also get the absolute best customer care experience in the online food ordering industry, according to third-party review aggregator, Trustpilot.
 
@@ -374,7 +374,7 @@ Cater Nation works with Expense for Concur Standard and Expense for Concur Profe
 
 #### RLHC – Red Lion Hotels Corporation
 
-![Red Lion Hotels Corporation](./sap-concur-app-center-release-notes-2017-red-lion-hotels-corporation.jpg)
+![Red Lion Hotels Corporation](./2017-red-lion-hotels-corporation.jpg)
 
 Say Hello to Rewards! The Red Lion Hotels Corporation guest loyalty program features more than hotel perks – members can take the hassle out of expensing hotel stays by connecting their membership to their Concur Expense account. Simply:
 
@@ -399,7 +399,7 @@ RLHC works with Expense for Concur Standard and Expense for Concur Professional.
 
 #### SpotHero
 
-![Spot Hero](./sap-concur-app-center-release-notes-2017-spot-hero.jpg)
+![Spot Hero](./2017-spot-hero.jpg)
 
 SpotHero makes work travel easier. With parking options at airports, hotels, work sites and office buildings across the country, you can now find and reserve parking through the SpotHero app and avoid the hassle of complicated receipt and expense management each month.
 
