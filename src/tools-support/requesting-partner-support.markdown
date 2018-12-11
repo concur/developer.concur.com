@@ -12,27 +12,27 @@ layout: reference
 
 Partner cases must include the following:
 
-1. App Name
-  1. Partners may have more than one certified app.
-1. Customer Name
-  1. This is the name that Concur will recognize.
-  1. For Partner apps certified after September 2017, tickets must include:
-    1. The Entity Code -- available via the Company Info API.
-    1. The `concur-correlationId` from the API response.
-1. Reproduction steps:
-  1. Provide contextual information related to the issue so support engineers have an understanding of what the integration is attempting to accomplish.
-1. If applicable:
-  1. Employee Name
-  1. Expense Report Name, Travel Request Name, Payment Request Name, etc.
-  1. Transactional data such as expense type, date, amount, etc.
-1. API related information:
-  1. Refresh Token
-    1. Never supply this via email.
-  1. API Request Information
-    1. URI
-    1. Include Method - `GET`, `POST`, `PUT`, `POST`
-    1. `POST` payload.
-  1. API Response Information
-    1. All HTTP Headers
-    1. Response payload.
-  1. Additional log information relevant to the issue.
+* App Name
+  * Partners may have more than one certified app.
+* Customer Name
+  * This is the name that Concur will recognize.
+  * For Partner apps certified after September 2017, tickets must include:
+    * The Entity Code -- available via the Company Info API.
+    * The `concur-correlationId` from the API response.
+* Reproduction steps:
+  * Provide contextual information related to the issue so support engineers have an understanding of what the integration is attempting to accomplish.
+* If applicable:
+  * Employee Name
+  * Expense Report Name, Travel Request Name, Payment Request Name, etc.
+  * Transactional data such as expense type, date, amount, etc.
+* API related information:
+  * Refresh Token
+    * Never supply this via email.
+  * API Request Information
+    * URI
+    * Include Method - `GET`, `POST`, `PUT`, `POST`
+    * `POST` payload.
+  * API Response Information
+    * All HTTP Headers
+    * Response payload.
+  * Additional log information relevant to the issue.
