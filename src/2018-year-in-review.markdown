@@ -51,9 +51,9 @@ Since inception of the current website in 2015 we've seen less investment by tea
 
 Year|People|Total Commits|Total Additions|Total Deletions|Average Commits|Average Additions|Average Deletions
 ---|---|---|---|---|---|---|---
-2018|27 <span style="color:green">135%<span>|649 <span style="color:green">122%<span>|217,455 <span style="color:green">378%<span>|242,119 <span style="color:green">712%<span>|24 <span style="color:green">89%<span>|8,054 <span style="color:green">280%<span>|8,967 <span style="color:green">528%<span>
-2017|20 <span style="color:green">105%<span>|531 <span style="color:red">80%<span>|57,510 <span style="color:red">71%<span>|33,969 <span style="color:red">65%<span>|27 <span style="color:red">77%<span>|2,876 <span style="color:red">68%<span>|1,698 <span style="color:red">61%<span>
-2016 [1]|19 <span style="color:green">105%<span>|661 <span style="color:red">37%<span>|80,802 <span style="color:red">12%<span>|52,511 <span style="color:red">5%<span>|35 <span style="color:red">35%<span>|4,253 <span style="color:red">12%<span>|2,764 <span style="color:red">5%<span>
+2018|27 <span style="color:green">135%<span>|649 <span style="color:green">122%<span>|217,455 <span style="color:green">378%<span>|242,119 <span style="color:green">712%<span>|24|8,054 <span style="color:green">280%<span>|8,967 <span style="color:green">528%<span>
+2017|20 <span style="color:green">105%<span>|531 <span style="color:red">80%<span>|57,510 <span style="color:red">71%<span>|33,969 <span style="color:red">65%<span>|27|2,876 <span style="color:red">68%<span>|1,698 <span style="color:red">61%<span>
+2016 [1]|19 <span style="color:green">105%<span>|661 <span style="color:red">37%<span>|80,802 <span style="color:red">12%<span>|52,511 <span style="color:red">5%<span>|35|4,253 <span style="color:red">12%<span>|2,764 <span style="color:red">5%<span>
 2015|18|1792|659,855|966,368|100|36,659|53,687
 
 > [1] 2015 was the year we actually created the site, moving from Drupal, with a lot of bulk move of content. It is expected the numbers would drop rather dramatically from 2015 to 2016.
@@ -106,9 +106,11 @@ A special word of thanks to **Sarra** and **RoAnn** who were both instrumental i
 
 ### Condense documentation for ease of use
 
+Also due to unfortunate choices in the past we ‘over documented’ some APIs leading to a lot more confusion than was necessary. We set out to condense these back down so the developer could visit one page to understand a complete end-to-end API rather than having to navigate multiple pages and piece things together.
+
 Our content management system is a GitHub repository and as such it is wired for continuous improvement. This plus the sheer magnitude of some of the improvements makes it a challenge to completely visualize a before and after of many improvements.
 
-Let me give you one example of about thirty we have done this year -- Image v1.
+Let me give you one example of about thirty we have done this year for this condensation pivot – Image v1.
 
 **Before**
 
@@ -156,5 +158,10 @@ One path to the documentation files for the sum total of the API which are now c
 /api-reference/request/v4.get-started.markdown
 /api-reference/request/v4.response-codes.markdown
 ```
+#### Lots of other small improvements add up
+
+There were many, many additional small changes which add up to a lot of improvement site-wide – including grammar, spelling, formatting and phrasing.
+
+Thank you all for your continued investment, care and love of our developer community.
 
 We look forward to many more improvements in 2019...!
