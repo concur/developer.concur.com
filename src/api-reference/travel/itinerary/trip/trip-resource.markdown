@@ -33,12 +33,12 @@ The Get Itinerary Summaries endpoint is used for retrieving trip summaries for t
 
 ## Best Practices
 
-*	When extracting past data: 
-    * Extract a month of trip summaries to gauge volume. If hundreds are returned, then adjust extraction to weekly. 
-    * Do not extract more than a year of data at any given time regardless of the volume. For longer look backs, extract 6 month segments maximum at a time. 
+*	When extracting past data:
+    * Extract a month of trip summaries to gauge volume. If hundreds are returned, then adjust extraction to weekly.
+    * Do not extract more than a year of data at any given time regardless of the volume. For longer look backs, extract 6 month segments maximum at a time.
     * Do not multi-thread requests to retrieve multiple pages of data.  Concurrent requests will impact your application’s performance.
 *	Itineraries change frequently. Changes do not necessarily indicate that the traveler modified their trip. If your application works with upcoming or in progress trips, be aware that you must evaluate the individual segments to determine whether it is a material change for your application.
-*	This API will only return itineraries that have been sent to Concur Travel; this includes travel booked within Concur Travel, TripIt, on TripLink supplier sites, and most bookings from your travel agency. Some customers may have multiple booking options which may mean not all employee trips are available via this API. A good rule of thumb: if the traveler sees the itinerary in their “trips” list, then you can retrieve it from this API. 
+*	This API will only return itineraries that have been sent to Concur Travel; this includes travel booked within Concur Travel, TripIt, on TripLink supplier sites, and most bookings from your travel agency. Some customers may have multiple booking options which may mean not all employee trips are available via this API. A good rule of thumb: if the traveler sees the itinerary in their “trips” list, then you can retrieve it from this API.
 
 ## Request
 
@@ -70,19 +70,23 @@ Here are some examples of how to format GET requests using a combination of thes
 
 * To get trip summaries for the entire company:
 
-```https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}&userid_type=login&userid_value=ALL```
-
+```
+https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}&userid_type=login&userid_value=ALL
+```
 The access token used to make the API call must be associated with an account that has the Admin user role.
 
 * To get trip summaries for the account associated with the app making the call:
 
-```https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}```
-
+```
+https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}
+```
 The access token used to make the API call is associated with the account for the app making the call.
 
 * To get trip summaries for a user with the specified login credentials:
 
-```https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}&userid_type=login_id&userid_value={_loginID_}```
+```
+https://www.concursolutions.com/api/travel/trip/v1.1/?startDate={_startdate_}&endDate={_enddate_}_&_createdAfterDate={_date_}&createdBeforeDate={_date_}&lastModifiedDate={_date_}&bookingType={_type_}&userid_type=login_id&userid_value={_loginID_}
+```
 
 The access token used to make the API call is associated with the SAP Concur account with the specified login credentials.
 
@@ -90,7 +94,7 @@ The access token used to make the API call is associated with the SAP Concur acc
 
 #### Authorization Header (Required)
 
-`Authorization: OAuth {access_token}`  
+`Authorization: OAuth {access_token}`
 Where `access_token` is the OAuth 2.0 access token of the user whose itinerary information you want to retrieve. If you want to access company-wide itinerary information, the SAP Concur user account associated with the OAuth 2.0 access token must have one of these roles: Web Services Administrator for Professional or Can Administer for Standard.
 
 #### Accept header (optional)
@@ -266,7 +270,7 @@ Authorization: OAuth {access token}
 
 #### Response
 
-The response returns a `ConnectResponse` parent element which contains a MetaData` element with paging information and a `Data` element with an `ItineraryInfoList` child element.
+The response returns a `ConnectResponse` parent element which contains a `MetaData` element with paging information and a `Data` element with an `ItineraryInfoList` child element.
 
 ```http
 HTTP/1.1 200 OK
@@ -365,7 +369,7 @@ The response returns subset of the elements described in the following tables de
 | --------- | --------- | -------
 | id	|string	|Trip ID URI with encrypted ID.
 |ItinLocator | string	|The itinerary locator. This element is now deprecated and only supported for backward compatibility.
-|ClientLocator	|string	|The XSD does not have a description for this element. Please provide one.
+|ClientLocator	|string	|Represents the unique identifier of the trip in an external (non-Concur) system. Maximum length 32 characters.
 |ItinSourceName	|string	|The itinerary source. Format: TravelSupplier.
 |TripName	|string	|Name of the trip. Maximum length 255 characters.
 |Comments	|string	|Comments for this itinerary. Maximum length 512 characters.
