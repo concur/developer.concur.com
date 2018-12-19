@@ -2051,6 +2051,7 @@ The booking elements contain many child elements. For ease of use, these element
 
 
 ####  Core Elements - Optional
+
 |  Element |  Description |
 |----------|--------------|
 |  CancellationNumber |  The cancellation number from the vendor. This field should be set when you cancel a segment. |
