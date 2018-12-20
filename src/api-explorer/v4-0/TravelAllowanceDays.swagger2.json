@@ -1,0 +1,183 @@
+{
+  "swagger": "2.0",
+  "host": "www.concursolutions.com",
+  "basePath": "/api/v4.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "info": {
+    "title": "Travel Allowance Days",
+    "description": "The Travel Allowance API fetches all the fixed allowance days in the specified expense report. Clients using this API can determine whether an allowance is a full day or partial day allowance.",
+    "version": "4.0"
+  },
+  "tags": [
+    {
+      "name": "Resources",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/api/v4/travelallowance/allowancedays/companyUUID/{companyUUID}/contexts/{Context}/{ContextId}": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get Details of Travel Allowance Days",
+        "description": "Returns allowance days details along with any exceptions.",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token that identifies the caller. This is the Company access token.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "concur-correlationid",
+            "in": "header",
+            "description": "Concur specific custom header used for technical support in the form of a RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "companyUUID",
+            "in": "path",
+            "description": "The company's unique identifier.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Context",
+            "in": "path",
+            "description": "For expense reports, the value is EXPENSE_REPORT",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ContextId",
+            "in": "path",
+            "description": "For expense reports, this is the reportId of the report.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResourcesOfReportFullAllowanceDayModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "exception": {
+          "type": "string",
+          "description": "Type of exception."
+        },
+        "message": {
+          "type": "string",
+          "description": "A description of the error."
+        },
+        "path": {
+          "type": "string",
+          "description": "The path to the request data which has the error message."
+        },
+        "timestamp": {
+          "type": "integer",
+          "description": "Time at which error occurs."
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "A URL related to the current resource."
+        },
+        "rel": {
+          "type": "string",
+          "description": "The link relation type describes how the current context is related to the target resource."
+        }
+      }
+    },
+    "ReportFullAllowanceDayModel": {
+      "type": "object",
+      "properties": {
+        "allowanceDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Travel Allowance Date."
+        },
+        "currencyCode": {
+          "type": "string",
+          "description": "The 3-letter ISO 4217 currency code for the expense report currency. The expense report currency is defined as the report creator's default reimbursement currency."
+        },
+        "expenseTransactionAmount": {
+          "type": "number",
+          "description": "Expense transaction amount, in the expense entry currency."
+        },
+        "expenseTransactionDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Expense transaction date."
+        },
+        "expenseTypeCode": {
+          "type": "string",
+          "description": "Expense Code. For example, MEALS for Travel Allowance."
+        },
+        "fullAllowanceDay": {
+          "type": "string",
+          "description": "True/False. 'True' means full allowance day and 'False' means partial allowance day."
+        }
+      }
+    },
+    "ResourcesOfReportFullAllowanceDayModel": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReportFullAllowanceDayModel"
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        }
+      }
+    }
+  }
+}
