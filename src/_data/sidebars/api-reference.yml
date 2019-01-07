@@ -124,8 +124,8 @@
         url: /api-reference/expense/allocations/expense-allocations.html
       - title: Attendee Types v3
         url: /api-reference/expense/attendee-types/v3.attendee-types.html
-      - title: Attendees
-        url: /api-reference/expense/attendees/
+      - title: Attendees v3
+        url: /api-reference/expense/attendees/v3.attendees.html
       - title: Digital Tax Invoices
         url: /api-reference/expense/digital-tax-invoices/digital-tax-invoice.html
       - title: Company Card Transactions
@@ -159,7 +159,7 @@
       - title: Payment Batches v1.1
         url: /api-reference/expense/payment-batch/v1.payment-batches.html
       - title: Quick Expense
-        url: /api-reference/expense/quick-expense/
+        url: /api-reference/expense/quick-expense/index.html
 - title: Receipt Image
   url: /api-reference/image/
 - title: Insights
@@ -226,16 +226,15 @@
   children:
       - title: Travel Services
         url: /api-reference/travel/travel.html
-      - title: Itinerary API – Overview & Getting Started 
+      - title: Itinerary API – Overview & Getting Started
         url: /api-reference/travel/itinerary/itinerary.html
-      - title: Itinerary API Usage 
-        url: /api-reference/travel/itinerary-tmc-thirdparty/        
+      - title: Itinerary API Usage
+        url: /api-reference/travel/itinerary-tmc-thirdparty/index.html
       - title: Trip Endpoint
         url: /api-reference/travel/itinerary/trip/trip-resource.html
       - title: Booking Endpoint
         url: /api-reference/travel/itinerary/booking/booking-resource.html
-
 - title: User
-  url: /api-reference/user/
+  url: /api-reference/user/index.html
 - title: Deprecated
   url: /api-reference/deprecated.html
