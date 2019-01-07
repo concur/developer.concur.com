@@ -8,6 +8,7 @@ layout: reference
 * [Resources](#itinres)
 * [Concepts](#itin-concepts)
 * [Who Can Use This Web Service?](#itin-use)
+* [Authentication and Authorization](#itin-auth)
 * [Configuration](#itin-config)
 * [FAQs](#itin-faq)
 * [Best Practices](#itin-best-practices)
@@ -71,7 +72,7 @@ If you are a TMC or a SAP Concur partner developer who would like to start using
 
 Some itinerary data may have come from Sabre. SAP Concur encourages you to speak to Sabre about becoming a Sabre Authorized Developer.
 
-## Authentication and Authorization
+## <a name="itin-auth"></a>Authentication and Authorization
 
 The Itinerary API uses OAuth 2.0 for authenticating users and authorizing access to travel data.
 
