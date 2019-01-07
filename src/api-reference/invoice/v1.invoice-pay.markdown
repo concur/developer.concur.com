@@ -21,8 +21,8 @@ layout: reference
   * [Payment Update](#schema-payment-update)
   * [Errors](#schema-errors)
 * [Definitions](#definitions)
- * [Payment Update Status](#schema-payment-update-status)
- * [Payment Method](#schema-payment-method)
+  * [Payment Update Status](#schema-payment-update-status)
+  * [Payment Method](#schema-payment-method)
 
 ## <a name="overview"></a>Overview
 
@@ -333,8 +333,8 @@ Name|Type|Format|Description
 `paymentInitiationDate`|`string`|YYYY-MM-DD|The date the payment was initiated.
 `paymentSettlementDate`|`string`|YYYY-MM-DD|The date the payment will be in the payees account.
 `thirdPartyPaymentIdentifier`|`string`|-|Check number if the payment was done via check or trace number for ACH payments. Maximum 255 characters.
-`paymentMethod`|`string`|[Payment Provider Method](#schema-payment-provider-method)|**Required if the status is PAID, CHECK_PROCESSED, or CARD_PROCESSED** Payment method used by the payment provider.
-`paidAmount`|`object`|[Amount](#schema-amount)|**Required if the status is PAID, CHECK_PROCESSED, or CARD_PROCESSED** Amount paid by the payment provider.
+`paymentMethod`|`string`|[Payment Provider Method](#schema-payment-provider-method)|**Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED** Payment method used by the payment provider.
+`paidAmount`|`object`|[Amount](#schema-amount)|**Required if the status is PAID, CHECK_PROCESSED, or CARD_SETTLED** Amount paid by the payment provider.
 
 ### <a name="schema-errors"></a>Errors
 
