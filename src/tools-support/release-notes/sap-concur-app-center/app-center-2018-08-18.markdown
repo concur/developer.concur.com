@@ -15,7 +15,7 @@ layout: reference
 
 ### <a name="slack-beta"></a>Concur Travel on Slack – Beta
 
-![SAP Concur Labs](./app-center-2018-08-18-sap-concur-labs-logo.png)
+![SAP Concur Labs](./2018-sap-concur-labs-logo.png)
 
 Concur Travel makes it effortless to book and share flights with your team within Slack.
 
@@ -39,7 +39,7 @@ Concur Travel on Slack works with Travel for Concur Standard and Travel for Conc
 
 ### <a name="marcel"></a>Marcel
 
-![Marcel Logo](./app-center-2018-08-18-marcel-logo.png)
+![Marcel Logo](./2018-marcel-logo.png)
 
 Marcel is a chauffeured car service for your trips through Paris & the Ile-de-France. Marcel is a high-quality alternative to existing services for sustainable and responsible mobility.
 
@@ -65,7 +65,7 @@ Marcel works with Expense for Concur Standard and Expense for Concur Professiona
 
 ### <a name="parken+"></a>Parken+
 
-![Parken+ Logo](./app-center-2018-08-18-parken-logo.png)
+![Parken+ Logo](./2018-parken-logo.png)
 
 With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying parking spots across major cities nationwide.
 

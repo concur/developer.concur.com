@@ -15,7 +15,7 @@ layout: reference
 
 ### <a name="voll"></a>Voll
 
-![Voll Logo](./app-center-2018-09-04-voll-logo.png)
+![Voll Logo](./2018-voll-logo.png)
 
 Voll allows you to have all your transportation apps in one single-access platform, making it easy to manage ground transportation. Voll’s integration with SAP Concur ensures accurate expense reporting by automatically submitting e-receipts with trip details to Concur Expense.
 
@@ -37,7 +37,7 @@ Voll works with Expense for Concur Standard and Expense for Concur Professional.
 
 ### <a name="marcel"></a>Marcel
 
-![Marcel Logo](./app-center-2018-08-18-marcel-logo.png)
+![Marcel Logo](./2018-marcel-logo.png)
 
 Marcel is a chauffeured car service for your trips through Paris & the Ile-de-France. Marcel is a high-quality alternative to existing services for sustainable and responsible mobility.
 
@@ -63,7 +63,7 @@ Marcel works with Expense for Concur Standard and Expense for Concur Professiona
 
 ### <a name="parken+"></a>Parken+
 
-![Parken+ Logo](./app-center-2018-08-18-parken-logo.png)
+![Parken+ Logo](./2018-parken-logo.png)
 
 With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying parking spots across major cities nationwide.
 

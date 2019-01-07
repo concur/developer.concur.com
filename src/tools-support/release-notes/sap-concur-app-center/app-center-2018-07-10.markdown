@@ -16,7 +16,7 @@ layout: reference
 
 ### <a name="green-tomato-cars"></a>Green Tomato Cars
 
-![Green Tomato Logo](./app-center-2018-07-10-green-tomato-logo.png)
+![Green Tomato Logo](./2018-green-tomato-logo.png)
 
 Green Tomato Cars launched in 2006 as London’s first ethical and eco-friendly passenger car company and now offer ground transport solutions nationwide. Environmental responsibility was at the heart of the business when it was established and that ethos remains central to the company today. Our mission statement – ‘’Ethical transport to meet the needs of our customers that does not cost the earth” - strongly connects the company with its roots.
 
@@ -42,7 +42,7 @@ Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). F
 
 ### <a name="marcel"></a>Marcel
 
-![Marcel Logo](./app-center-2018-06-01-marcel-logo.png)
+![Marcel Logo](./2018-marcel-logo.png)
 
 Marcel is a chauffeured car service for your trips through Paris & the Ile-de-France. Marcel is a high-quality alternative to existing services for sustainable and responsible mobility.
 
@@ -68,7 +68,7 @@ Marcel works with Expense for Concur Standard and Expense for Concur Professiona
 
 ### <a name="parken+"></a>Parken+
 
-![Parken+ Logo](./app-center-2018-06-01-parken-logo.png)
+![Parken+ Logo](./2018-parken-logo.png)
 
 With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying parking spots across major cities nationwide.
 

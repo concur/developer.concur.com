@@ -41,7 +41,7 @@ Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). F
 
 ### <a name="taiwan-taxi"></a>Taiwan Taxi
 
-![Taiwan Taxis Logo](./app-center-2018-06-01-taiwan-taxis-logo.png)
+![Taiwan Taxis Logo](./2018-taiwan-taxis-logo.png)
 
 Taiwan Taxi leverages cutting edge technology to satisfy customers’ transportation requirements and to keep employees safe. There is no need for employees to pay in cash and e-receipts are sent to Concur Expense automatically for effortless expensing.
 
@@ -75,7 +75,7 @@ Me) at [https://www.concur.com/app-center](https://www.concur.com/app-center). F
 
 ### <a name="marcel"></a>Marcel
 
-![Marcel Logo](./app-center-2018-06-01-marcel-logo.png)
+![Marcel Logo](./2018-marcel-logo.png)
 
 Marcel is a chauffeured car service for your trips through Paris & the Ile-de-France. Marcel is a high-quality alternative to existing services for sustainable and responsible mobility.
 
@@ -101,7 +101,7 @@ Marcel works with Expense for Concur Standard and Expense for Concur Professiona
 
 ### <a name="parken+"></a>Parken+
 
-![Parken+ Logo](./app-center-2018-06-01-parken-logo.png)
+![Parken+ Logo](./2018-parken-logo.png)
 
 With more than 9,500 parking garages available in our parking inventory, Parken+ is the gold standard for finding, booking, and paying parking spots across major cities nationwide.
 
