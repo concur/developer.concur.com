@@ -1,6 +1,8 @@
 ---
 title: SAP Concur App Center Release Notes - Client - 2018
 layout: reference
+redirect_from:
+  - /api-reference/expense/receipts/
 ---
 
 * [December](#december)
