@@ -30,7 +30,7 @@ Name | Type | Format | Description
 -----|------| ------ | -----------
 `offset`|`string` |  | **Optional** The offset to begin returning the list of users
 `limit`|`string` |  | **Optional** The number of user records to return in that call. Max: 1000
-`<name_of_filter>`|`string` |  | **Optional** Filters results based on the desired field. Possible filters are : `isactive` `loginid` `lastname` `employeeid` `primaryemail` `countrycode`.
+`<name_of_filter>`|`string` |  | **Optional** Filters results based on the desired field. Possible filters are : `isactive` `loginid` `lastname` `employeeid` `primaryemail` `countrycode` and `uuid`.
 
 * Note: All query parameters must be lower-case and are CASE-SENSITIVE. If you pass an invalid query parameter, you will receive a 400 Bad Request, invalid query params.
 
