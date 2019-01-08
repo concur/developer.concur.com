@@ -3,6 +3,7 @@ title: Post a reservation cancellation
 layout: reference
 ---
 
+{% include deprecation-alert.html %}
 
 ## Description
 
