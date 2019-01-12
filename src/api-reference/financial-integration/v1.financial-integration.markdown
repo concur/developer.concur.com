@@ -7,7 +7,7 @@ layout: reference
 
 The Financial Integration API allows an external system to interact with financial documents generated from SAP Concur, for financial posting into an ERP.
 
-This Web Service provides an automated solution to request available data objects such as approved expense reports, cash advances, and invoices to import to the client internal system, with an opportunity to send posting confirmation back into SAP Concur before the object is locked down and cannot be altered in SAP Concur.
+This API provides an automated solution to request available data objects such as approved expense reports, cash advances, and invoices to import to the client internal system, with an opportunity to send posting confirmation back into SAP Concur before the object is locked down and cannot be altered in SAP Concur.
 
 Below are some benefits for using the Financial Integration service:
 
@@ -53,7 +53,7 @@ Below are some benefits for using the Financial Integration service:
 
 Name|Description|Endpoint
 ---|---|---
-N/A|Read financial transactions and write financial transaction status|GET, POST
+FISVC|Read financial transactions and write financial transaction acknowledgements and confirmations.|GET, POST
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
@@ -64,7 +64,8 @@ This API supports only company-level access tokens.
 The request returns a list of financial documents that are ready to be processed. The request can include parameters to limit the results.
 
 ### Scopes
-N/A
+
+`FISVC` - Refer to [Scope Usage](#scope-usage) for full details.
 
 ### Request
 
@@ -150,9 +151,13 @@ Content-Length: 491
 }
 ```
 
-## <a name="post-acknowledgements"></a>Post a Financial Transaction Acknowledgement
+## <a name="post-acknowledgements"></a>Post Financial Transaction Acknowledgements
 
 This API allows an external system to acknowledge that it has successfully retrieved one or more financial transactions from SAP Concur and will begin processing those transactions. The transactions in the POST request are then taken out of the ready queue.
+
+### Scopes
+
+`FISVC` - Refer to [Scope Usage](#scope-usage) for full details.
 
 ### Request
 
@@ -160,8 +165,8 @@ This API allows an external system to acknowledge that it has successfully retri
 
 ##### Template
 
-```
-/financialintegration/fi/v4/companies/transactiontypes/{docType}/transactions/acknowledgements
+```shell
+https://{datacenterURI}/financialintegration/fi/v4/companies/transactiontypes/{docType}/transactions/acknowledgements
 ```
 ##### Parameters
 
@@ -214,7 +219,7 @@ Content-Type: application/json
 
 #### Response
 
-> This response shows both success and failure <a hred="#service-codes">service code</a> examples.
+> This response shows both success and failure <a href="#service-codes">service code</a> examples.
 
 ```shell
 200 OK
@@ -242,18 +247,25 @@ Content-Length: 372
 ]
 ```
 
-## <a name="postconfirmations"></a>POST Financial transactions confirmations
+## <a name="postconfirmations"></a>Post Financial Transactions Confirmations
 
 This API allows financial posting results to be sent to Concur.
 
+### Scopes
+
+`FISVC` - Refer to [Scope Usage](#scope-usage) for full details.
+
 ### Request
 
-#### Headers
+#### URI
 
-* `OuttaskCompanyId` is a Concur specific custom header for the Outtask Company Id in Concur
-* `entityid` is a Concur specific custom header for the entity code
+##### Template
 
-#### Parameters
+```shell
+https://{datacenterURI}/financialintegration/fi/v4/companies/transactiontypes/{docType}/transactions/postingconfirmations
+```
+
+##### Parameters
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -261,17 +273,29 @@ Name|Type|Format|Description
 `docType`|`string`|`path`|**Required** The financial document type to return. VALUES: expense; invoice; cashadvance. Only one type of transactions can be retrieved at a time
 `confirmationRequest`||[body](#confirmationrequest)|**Required** The JSON request to be posted
 
-##### URI Template
 
-```
-/financialintegration/fi/v1/companies/{companyId}/transactiontypes/{docType}/transactions/postingconfirmations
-```
+#### Headers
+
+* [RFC 7235 Authorization](https://tools.ietf.org/html/rfc7235#section-4.2) - Bearer Token that identifies the caller. This is the Company access token.
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 
 #### Payload
 
 [Confirmation Request](schema-confirmationrequest)
 
 ### Response
+
+#### Status Codes
+
+* [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)
+* [400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)
+* [500 Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)
+
+#### Headers
+
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
+* [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
 
 #### Payload
 
@@ -282,9 +306,7 @@ Name|Type|Format|Description
 #### Request
 
 ```shell
-POST https://us.api.concursolutions.com/financialintegration/fi/v1/companies/{CompanyID}/transactiontypes/expense/transactions/postingconfirmations
-OuttaskCompanyId: {YOUR COMPANY ID}
-entityid: {YOUR ENTITY ID}
+POST https://us.api.concursolutions.com/financialintegration/fi/v4/companies/transactiontypes/expense/transactions/postingconfirmations
 Authorization: Bearer {token}
 Content-Type: application/json
 ```
@@ -344,7 +366,7 @@ Content-Type: application/json
 
 #### Response
 
-> This response shows both success and failure service code examples.
+> This response shows both success and failure <a href="#service-codes">service code</a> examples.
 
 ```shell
 200 OK
@@ -375,7 +397,7 @@ Content-Length: 405
 ```
 ### <a name="service-codes"></a>Service Codes
 
-The Financial Integration Service will return particular codes based on the success and failure of individual records for Acknowledging and Posting Confirmation of documents.
+The Financial Integration Service will return service codes based on the success and failure of individual records for Acknowledging and Posting Confirmation of documents.
 
 Code|Description|Category
 ---|---|---
@@ -384,16 +406,16 @@ Code|Description|Category
 101|This document was previously acknowledged|Acknowledge
 102|This document has been recalled|Acknowledge
 103|This document is not ready|Acknowledge
-104|This document does not exist in FI database|Acknowledge
-105|This document is not of type (expense, invoice, cashadvance, payroll)|Acknowledge
+104|This document does not exist in the FI database|Acknowledge
+105|This document is not of type (expense, invoice, cashadvance)|Acknowledge
 111|This document has not been acknowledged|Posting
 112|This document has been recalled|Posting
 113|Confirmation has been posted for this document|Posting
 114|Document is not in a known state|Posting
-115|This document is not of type (expense, invoice, cashadvance, payroll)|Posting
-116|This document does not exist in FI|Posting
+115|This document is not of type (expense, invoice, cashadvance)|Posting
+116|This document does not exist in the FI database|Posting
 198|Invalid request - this same request will not work if tried again.|Posting
-199|Unknown error * please try again later|Any
+199|Unknown error, please try again later|Any
 
 ## <a name="schema"></a>Schema
 
@@ -401,30 +423,30 @@ Code|Description|Category
 
 Name|Type|Format|Description
 ---|---|---|---
-`fIDocuments`|`Array`|[Financial document](#schema-fidocument)|The result collection
-`nextPage`|`string`|-|The URI of the next page of results
-`numberReturned`|`int32`|-|Number of documents returned in current page
-`offset`|`string`|-|Next page offset
+`fIDocuments`|`Array`|[Financial document](#schema-fidocument)|The result collection.
+`nextPage`|`string`|-|The URI of the next page of results.
+`numberReturned`|`int32`|-|Number of documents returned in current page.
+`offset`|`string`|-|Next page offset.
 
 ### <a name="schema-fidocument"></a>Financial Document
 
 Name|Type|Format|Description
 ---|---|---|---
-`id`|`string`|`-`|The unique identifier for the document
-`docType`|`string`|-|Transaction type. Expense, invoice or cashadvance
-`companyId`|`string`|-|Unique identifier for the company in Concur
-`entityId`|`string`|-|Unique Identifier for the entity in Concur
-`companyUuid`|`string`|`UUID`|Unique UUID for the company in Concur
-`erpSystemId`|`string`|-|The external System ID that processed the document
+`id`|`string`|`-`|The unique identifier for the document.
+`docType`|`string`|-|Transaction type. Supported values are: `expense`, `invoice`, or `cashadvance`.
+`companyId`|`string`|-|Unique identifier for the company in Concur.
+`entityId`|`string`|-|Unique Identifier for the entity in Concur.
+`companyUuid`|`string`|`UUID`|Unique UUID for the company in Concur.
+`erpSystemId`|`string`|-|The external System ID that processed the document.
 `document`|`Array`|-|The JSON financial document. Review the [FI sample documents](#examples) below
-`docStatus`|`string`|-|The financial document status. VALUES: READY, ACKNOWLEDGED, POSTING_CONFIRMED_SUCCESS, POSTING_CONFIRMED_FAILURE
+`docStatus`|`string`|-|The financial document status. Supported values are: `READY`, `ACKNOWLEDGED`, `POSTING_CONFIRMED_SUCCESS`, `POSTING_CONFIRMED_FAILURE`
 
 #### <a name="schema-acknowledgerequest"></a>Acknowledge Request
 
 Name|Type|Format|Description
 ---|---|---|---
-`ids`|`Array`|`string`|The unique identifiers list for the financial documents
-`systemId`|`string`|-|The external System ID that acknowledged the documents
+`ids`|`Array`|`string`|The unique identifiers list for the financial documents.
+`systemId`|`string`|-|The external System ID that acknowledged the documents.
 
 ### <a name="schema-acknowledgeresponse"></a>Acknowledge Response
 
@@ -436,27 +458,27 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`acknowledgeResult`|`string`|-|Acknowledge processing result. VALUES: SUCCESS or FAILURE
-`code`|`Int32`|-|The Financial Service return code. This is a particular code based on the success and failure of individual records for Acknowledging documents
-`docId`|`string`|-|The financial document unique identifier
-`errorMessage`|`string`|-|The error message, if any
-`systemId`|`string`|-|The External system Id that acknowledged the documents
+`acknowledgeResult`|`string`|-|Acknowledge processing result. Supported values are: `SUCCESS` or `FAILURE`
+`code`|`Int32`|<a href="#service-code">Service Codes</a>|The Financial Integration Service Code. This is a particular code based on the success and failure of individual records for Acknowledging documents.
+`docId`|`string`|-|The financial document unique identifier.
+`errorMessage`|`string`|-|The error message, if any.
+`systemId`|`string`|-|The External system Id that acknowledged the documents.
 
 ### <a name="schema-confirmationrequest"></a>Confirmation Request
 
 Name|Type|Format|Description
 ---|---|---|---
-`systemId`|`string`|-|**Required** The external System ID that acknowledged the documents, it can be an empty String
-`postingConfirmations`|`Array`|[Posting Confirmation request item](#postingrequest)|Posting confirmations JSON request
+`systemId`|`string`|-|**Required** The external System ID that acknowledged the documents, it can be an empty String.
+`postingConfirmations`|`Array`|[Posting Confirmation request item](#postingrequest)|Posting confirmations JSON request.
 
 #### <a name="schema-postingrequest"></a>Posting Confirmation Request item
 
 Name|Type|Format|Description
 ---|---|---|---
-`docId`|`string`|-|The financial document Id to confirm
+`docId`|`string`|-|The financial document Id to confirm.
 `overallPostingStatusCode`|`string`|-|Posting status. VALUES: error or success
-`postingDocs`|`array`|[Posting Documents details](#postingdocs)|Posting documents details, if any
-`systemMessages`|`array`|[System Messages](#systemmsg)|Messages to post into Concur, if any
+`postingDocs`|`array`|[Posting Documents details](#schema-postingdocs)|Posting documents details, if any
+`systemMessages`|`array`|[System Messages](#schema-systemmsg)|Messages to post into Concur, if any
 
 #### <a name="schema-postingdocs"></a>Posting Documents details
 
@@ -465,7 +487,7 @@ Name|Type|Format|Description
 `companyId`|`string`|-|**Required** External system organizational Unit ID
 `documentNumber`|`string`|-|External system document identifier
 `fiscalYear`|`int32`|-|External system fiscal year
-`paymentRelevantLineItems`|`array`|[Payment Relevant Line Items](#paymentli)|Line items details, if any
+`paymentRelevantLineItems`|`array`|[Payment Relevant Line Items](#schema-paymentli)|Line items details, if any
 `postingDate`|`string`|YYYY-MM-DD|External system posting date
 
 #### <a name="schema-paymentli"></a>Payment Relevant Line Items
@@ -474,11 +496,11 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`concurTransactionLineItemId`|`string`|-||
-`messageId`|`string`|-|External System message identifier
-`messageLanguage`|`string`|-|Message Language code, example EN, FR...
-`messageLongText`|`array`|-|Message text, will be posted on the audit trail in Concur
-`messageShortText`|`string`|-|Message text, will be posted on the audit trail in Concur
+`concurTransactionLineItemId`|`string`|-|
+`messageId`|`string`|-|External System message identifier.
+`messageLanguage`|`string`|-|Message Language code, example EN, FR.
+`messageLongText`|`array`|-|Message text, will be posted on the audit trail in SAP Concur.
+`messageShortText`|`string`|-|Message text, will be posted on the audit trail in SAP Concur.
 
 ### <a name="schema-postingconfirmationresponse"></a>Posting Confirmation Response
 
