@@ -20,7 +20,7 @@ layout: reference
   * [Cash Advance Is Lower Than the Payout Amount](#ecailt)
   * [Cash Advance Is Higher Than the Payout Amount](#ecaiht)
 * [Credit Card Items](#ecci)
-  * [Employee Paid Credit Card](#eepcc)
+  * [Payment via Credit Card Vendor Account (Split Payment)](#epvccva)
   * [Credit Transaction via Credit Card Vendor Account (Split Payment)](#ectvcc)
   * [Simple IBCP Corporate Card Charge With Itemization](#esiccc)
   * [IBCP With Personal Expense: No Out-of-Pocket](#eiwpe)
@@ -91,7 +91,7 @@ The **Tax Code** can also be set to appear in the **Account Code** field on the 
 
 ## <a name="#eca"></a>Cash Advances
 
-### <a name="#<a name="#eca"></a>"></a>Paid Cash
+###  <a name="#epc"></a>Paid Cash
 
 *Issuance Extract (For reference only. Issuance is not included in the Expense Report FI Document)*
 
@@ -155,7 +155,7 @@ SAP Concur recognizes 3 different types of credit cards:
 
 * CBCP - Company Bill - Company Payment: Paid by company
 
-### <a name="#eepcc"></a>Employee Paid Credit Card
+### <a name="#epvccva"></a>Payment via Credit Card Vendor Account (Split Payment)
 
 The Payer in this instance is the company; the Payee is the corporate card vendor. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. Because this is an IBCP transaction and the payment will be made to the card vendor on behalf of the employee the employee will not receive reimbursement.
 

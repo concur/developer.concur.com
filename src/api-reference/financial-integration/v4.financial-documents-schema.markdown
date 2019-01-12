@@ -23,9 +23,9 @@ layout: reference
   * [Cash Advance - cashAdvanceData](#sccaadv)
   * [Cash Advance - journalData](#sccajour)
 
-## <a name="#scexpense"></a>Expense
+## <a name="scexpense"></a>Expense
 
-### <a name="#scexpemploy"></a>Expense - Employee
+### <a name="scexpemploy"></a>Expense - Employee
 
 | **Name**                                            | **Type**    | **Format** | **Description**                                                                                                                                            |
 |-----------------------------------------------------|-------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -38,7 +38,7 @@ layout: reference
 | `employeeOrgUnit1Code` through `employeeOrgUnit6Code`  | CustomField | -         | The details from the custom fields. These fields may not have data, depending on the configuration.                                                        |
 | `employeeOrgUnit1Value` through `employeeOrgUnit6Value` | CustomField | -         | The details from the custom fields. These fields may not have data, depending on the configuration.                                                        |
 
-### <a name="#scexprep"></a>Expense - Report
+### <a name="scexprep"></a>Expense - Report
 
 | **Name**                                       | **Type**    | **Format** | **Description**                                                                                                                                                                                         |
 |------------------------------------------------|-------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -65,7 +65,7 @@ layout: reference
 | `totalApprovedAmount`                            |             |            | Total approved amount of the report. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.              |
 | `versionId`                                      |             |            | The version of the FI Document, which is the same as the version of the API endpoint.                                                                                                                   |
 
-### <a name="#scexpent"></a>Expense - expenseEntry
+### <a name="scexpent"></a>Expense - expenseEntry
 
 | **Name**                                      | **Type**    | **Format** | **Description**                                                                                                                                                                                                                                                                                                                                                            |
 |-----------------------------------------------|-------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -110,7 +110,7 @@ layout: reference
 | `offsetPayType`                                 |             |            |                                                                                                                                                                                                                                                                                                                                                                            |
 | `reportEntryPatKey`                             |             |            | Report Entry Payment Code Code. Maximum length 4 characters.                                                                                                                                                                                                                                                                                                               |
 
-### <a name="#scexpall"></a>Expense - Allocation
+### <a name="scexpall"></a>Expense - Allocation
 
 | **Name**                                               | **Type**    | **Format** | **Description**                                                                                     |
 |--------------------------------------------------------|-------------|------------|-----------------------------------------------------------------------------------------------------|
@@ -119,7 +119,7 @@ layout: reference
 | `allocationId`                                           |             |            | System-generated unique key for this allocation record. Maximum length 13 characters.               |
 | `allocationPercentage`                                   |             |            | Percent of the report entry assigned to this allocation record. Maximum length 11 characters.       |
 
-### <a name="#scexpjour"></a>Expense - Journal
+### <a name="scexpjour"></a>Expense - Journal
 
 | **Name**                       | **Type** | **Format** | **Description**                                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------------|----------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -135,7 +135,7 @@ layout: reference
 | `journalPayer`                   |          |            | Payment code name for the payer. Maximum length 80 characters.                                                                                                                                                                                                                                                                                                             |
 | `taxGuid`                        |          |            |                                                                                                                                                                                                                                                                                                                                                                            |
 
-### <a name="#scexpca"></a>Expense - cashAdvanceApplication
+### <a name="scexpca"></a>Expense - cashAdvanceApplication
 
 | **Name**                       | **Type** | **Format** | **Description**                                                                                                                                                                            |
 |--------------------------------|----------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -144,9 +144,9 @@ layout: reference
 | `cashAdvanceId`                  |          |            | Unique system ID assigned to the cash advance. Maximum length 13 characters.                                                                                                               |
 | `cashAdvanceTransactionType`     |          |            | Type of transaction: 1 = Issue or return to administrator, 2 = Application, including cash advance return expense within a report, or 3 = System cash advance, from balance carry forward. |
 
-## <a name="#scinvoice"></a>Invoice
+## <a name="scinvoice"></a>Invoice
 
-### <a name="#scinvreq"></a>Invoice - requestHeader
+### <a name="scinvreq"></a>Invoice - requestHeader
 
 | **Name**                                          | **Type**    | **Format** | **Description**                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------------------------------------|-------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -186,7 +186,7 @@ layout: reference
 | `vendorInvoiceNumber`                               | String      | -         | The invoice number assigned by the vendor. Maximum length 50 characters.                                                                                                                                                                                                                                                                                                               |
 | `versionId`                                         | String      | -         | The version of the FI Document, which is the same as the version of the API endpoint."                                                                                                                                                                                                                                                                                                 |
 
-### <a name="#scinvown"></a>Invoice - ownerEmployee
+### <a name="scinvown"></a>Invoice - ownerEmployee
 
 | **Name**                                            | **Type**    | **Format** | **Description**                                                                                                                                            |
 |-----------------------------------------------------|-------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -198,7 +198,7 @@ layout: reference
 | `employeeMI`                                          | String      | -         | Middle initial of employee. Maximum length 1 character.                                                                                                    |
 | `employeeOrgUnit1Value` through `employeeOrgUnit6Value` | CustomField | -         | The details from the custom fields. These fields may not have data, depending on the configuration.                                                        |
 
-### <a name="#scinvven"></a>Invoice - Vendor
+### <a name="scinvven"></a>Invoice - Vendor
 
 | **Name**                  | **Type** | **Format**                | **Description**                                                             |
 |---------------------------|----------|---------------------------|-----------------------------------------------------------------------------|
@@ -209,7 +209,7 @@ layout: reference
 | `vendorRemitToAddressCode`  | String   | Less than or equal to 64. | The financial system's code for this address.                               |
 | `vendorShipFromAddressCode` |          |                           |                                                                             |
 
-### <a name="#scinclin"></a>Invoice - lineItem
+### <a name="scinclin"></a>Invoice - lineItem
 
 | **Name**                                               | **Type**    | **Format** | **Description**                                                                                                                                                                              |
 |--------------------------------------------------------|-------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -224,7 +224,7 @@ layout: reference
 | `amountShipping`                                         | Numeric     | -         | The value for the Shipping Amount header field. Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field |
 | `tax`                                                  |             |            |                                                                                                                                                                                              |
 
-### <a name="#scinvrec"></a>Invoice - receiptNumbers
+### <a name="scinvrec"></a>Invoice - receiptNumbers
 
 | **Name**                                           | **Type**    | **Format** | **Description**                                                                                                                                                                                                                                   |
 |----------------------------------------------------|-------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -242,9 +242,9 @@ layout: reference
 | `lineItemUnitPrice`                                  |             |            |                                                                                                                                                                                                                                                   |
 | `poLineNumber`                                       | Numeric     | -         | The PO line item number associated to the payment request. Maximum length 10 characters.                                                                                                                                                          |
 
-## <a name="#sccashadv"></a>Cash Advance
+## <a name="sccashadv"></a>Cash Advance
 
-### <a name="#sccaemp"></a>Cash Advance - employeeData
+### <a name="sccaemp"></a>Cash Advance - employeeData
 
 | **Name**                                            | **Type**    | **Format** | **Description**                                                                                                                                            |
 |-----------------------------------------------------|-------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -257,7 +257,7 @@ layout: reference
 | `employeeOrgUnit1Code` through `employeeOrgUnit6Code`   | CustomField | -         | The details from the custom fields. These fields may not have data, depending on the configuration.                                                        |
 | `employeeOrgUnit1Value` through `employeeOrgUnit6Value` | CustomField | -         | The details from the custom fields. These fields may not have data, depending on the configuration.                                                        |
 
-### <a name="#sccaadv"></a>Cash Advance - cashAdvanceData
+### <a name="sccaadv"></a>Cash Advance - cashAdvanceData
 
 | **Name**                      | **Type** | **Format** | **Description**                                                                                                                                                                                                                                                                                                                                                            |
 |-------------------------------|----------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -289,7 +289,7 @@ layout: reference
 | `travelEndDate`                 |          |            |                                                                                                                                                                                                                                                                                                                                                                            |
 | `travelStartDate`               |          |            |                                                                                                                                                                                                                                                                                                                                                                            |
 
-### <a name="#sccajour"></a>Cash Advance - journalData
+### <a name="sccajour"></a>Cash Advance - journalData
 
 | **Name**      | **Type** | **Format** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |---------------|----------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
