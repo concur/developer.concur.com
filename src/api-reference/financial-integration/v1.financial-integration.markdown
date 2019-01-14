@@ -17,10 +17,12 @@ Below are some benefits for using the Financial Integration service:
 * Opportunity to modify and retry before the object is locked in SAP Concur.
 * Ensures data sync between systems.
 
+
+* [Financial Integration Service Use Cases](/api-reference/financial-integration/v4.financial-integration-service-use-cases.html)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
 * [Access Token Usage](#access-token-usage)
-* [Get a List of Financial Transactions](#get-transactions)
+* [Get Financial Transactions](#get-transactions)
 * [Post Financial Transactions Acknowledgements](#post-acknowledgements)
 * [Post Financial Transactions Confirmations](#post-confirmations)
 * [Service Codes](#service-codes)
@@ -35,12 +37,17 @@ Below are some benefits for using the Financial Integration service:
   * [Posting Documents Details](#schema-postingdocs)
   * [Payment Relevant Line Items](#schema-paymentli)
   * [System Messages](#schema-systemmsg)
-  * [Posting Confirmation](#schema-postingconfirmationresponse)
+  * [Posting Confirmation Response](#schema-postingconfirmationresponse)
   * [Posting Confirmation Response Item](#schema-postingresponseitem)
-* [Example Payloads](#example)
-  * [Expense](#example-expense)
-  * [Invoice](#example-invoice)
-  * [Cash Advance](#example-cashadvance)
+* Financial Documents
+  * [Financial Document Schemas](/api-reference/financial-integration/v4.financial-documents-schema.html)
+    * [Expense](/api-reference/financial-integration/v4.financial-documents-schema.html#scexpense)
+    * [Invoice](/api-reference/financial-integration/v4.financial-documents-schema.html#scinvoice)
+    * [Cash Advance](/api-reference/financial-integration/v4.financial-documents-schema.html#sccashadv)
+  * [Example Payloads](#example)
+    * [Expense](#example-expense)
+    * [Invoice](#example-invoice)
+    * [Cash Advance](#example-cashadvance)
 
 ## <a name="products-editions"></a>Products and Editions
 
@@ -247,7 +254,7 @@ Content-Length: 372
 ]
 ```
 
-## <a name="postconfirmations"></a>Post Financial Transactions Confirmations
+## <a name="post-confirmations"></a>Post Financial Transactions Confirmations
 
 This API allows financial posting results to be sent to Concur.
 
@@ -441,7 +448,7 @@ Name|Type|Format|Description
 `document`|`Array`|-|The JSON financial document. Review the [FI sample documents](#examples) below
 `docStatus`|`string`|-|The financial document status. Supported values are: `READY`, `ACKNOWLEDGED`, `POSTING_CONFIRMED_SUCCESS`, `POSTING_CONFIRMED_FAILURE`
 
-#### <a name="schema-acknowledgerequest"></a>Acknowledge Request
+### <a name="schema-acknowledgerequest"></a>Acknowledge Request
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -471,7 +478,7 @@ Name|Type|Format|Description
 `systemId`|`string`|-|**Required** The external System ID that acknowledged the documents, it can be an empty String.
 `postingConfirmations`|`Array`|[Posting Confirmation request item](#postingrequest)|Posting confirmations JSON request.
 
-#### <a name="schema-postingrequest"></a>Posting Confirmation Request item
+### <a name="schema-postingrequest"></a>Posting Confirmation Request Item
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -480,7 +487,7 @@ Name|Type|Format|Description
 `postingDocs`|`array`|[Posting Documents details](#schema-postingdocs)|Posting documents details, if any
 `systemMessages`|`array`|[System Messages](#schema-systemmsg)|Messages to post into Concur, if any
 
-#### <a name="schema-postingdocs"></a>Posting Documents details
+### <a name="schema-postingdocs"></a>Posting Documents Details
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -490,9 +497,9 @@ Name|Type|Format|Description
 `paymentRelevantLineItems`|`array`|[Payment Relevant Line Items](#schema-paymentli)|Line items details, if any
 `postingDate`|`string`|YYYY-MM-DD|External system posting date
 
-#### <a name="schema-paymentli"></a>Payment Relevant Line Items
+### <a name="schema-paymentli"></a>Payment Relevant Line Items
 
-#### <a name="schema-systemmsg"></a>System Messages
+### <a name="schema-systemmsg"></a>System Messages
 
 Name|Type|Format|Description
 ---|---|---|---
@@ -512,7 +519,7 @@ Name|Type|Format|Description
 
 Name|Type|Format|Description
 ---|---|---|---
-`postingConfirmationResult`|`string`|-|Posting confirmation result. VALUES: SUCCESS, SYSTEM_ERROR_OCCURRED, NOT_YET_ACKNOWLEDGED, DOCUMENT_NOT_FOUND, FAILURE, WAS_RECALLED
+`postingConfirmationResult`|`string`|-|Posting confirmation result. Supported values are: SUCCESS, SYSTEM_ERROR_OCCURRED, NOT_YET_ACKNOWLEDGED, DOCUMENT_NOT_FOUND, FAILURE, WAS_RECALLED
 `detailMessage`|`string`|-|Posting confirmation message
 `code`|`Int32`|-|The Financial Service return code
 `docId`|`string`|-|The document Id
