@@ -1,5 +1,5 @@
 ---
-title: Event Notification Callout 
+title: Event Notification Callout
 layout: reference
 ---
 
@@ -36,7 +36,7 @@ This is one use case for the Event Notification callout, however it can be used 
 ## Product Restrictions
 Concur products are highly configurable, and not all clients will have access to all features.
 
-Partner developers must determine which configurations are required for their solution prior to the review process. Use the [Developer Forum](http://forum.developer.concur.com/){:target="_blank"} if you have questions about the configuration settings.
+Partner developers must determine which configurations are required for their solution prior to the review process.
 
 Existing clients can work with Concur Advantage Technical Services to create custom applications that work with their configuration.
 
@@ -45,7 +45,7 @@ Existing clients can work with Concur Advantage Technical Services to create cus
 The configuration process has the following steps:
 
 1. Third-party developer, client or Concur downloads, installs, configures, and customizes the application connector. The application connector may make requests to the inbound web services.  
- 
+
 2. The developer or the Concur clients registers the application connector.  
   Refer to **Installation \> Process **for the detailed steps.
 
@@ -77,23 +77,23 @@ Refer to the **Callouts and Application Connectors** page for more information.
 ### Installation Process
 The installation process includes installing the application connector, and registering it with Concur.
 
-1. The third-party developer or client will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses. 
+1. The third-party developer or client will create and install the application connector on their web site or a third party hosting site. The connector should be programmed to accept the requests from Concur and provide the documented responses.
 2. The client registers the application connector with Concur:
    1. Log in to Concur as an administrative user.
    2. Select **Administration** \> **Web Services**.
    3. Click **Manage Application Connectors**.
    4. Click **New**.
    5. Fill out the fields:     
-   
-   
+
+
     |  Field       |  Description |
     |--------------|--------------|
-    |  Name        |  Enter the name that should appear in the list of connectors.| 
+    |  Name        |  Enter the name that should appear in the list of connectors.|
     |  Description |  Enter the description of the function of the connector, such as what back-end system it might connect to. |
     |  Host Name   |  Enter the hostname for the connector. Example: https://{servername} |
     |  User Name   |  Enter the user name required to authenticate with the host. This must be the same as the user name specified in the configuration file for the application connector, using HTTP Basic Auth. |
     |  Password    |  Enter the password required to authenticate with the host. This must be the same as the password specified in the configuration file for the application connector, using HTTP Basic Auth. |
-  
+
     6. In the **Services** section, select **Send Notification**.
     7. Click **Configure**. The **Configure Service** window appears.    
     8. Enter the endpoint that Concur will connect to on your server. Example: /concur/v1.0/notify
@@ -102,16 +102,15 @@ The installation process includes installing the application connector, and regi
     11. Click **OK**.
     12. Click **Test Connection**. Concur will attempt to access the configured endpoint with the provided user credentials.
     13. Click **Save**. The application connector is now registered with Concur and enabled.
-    
+
 ### Responses and Errors
 Refer to the [HTTP Codes][16] page for details of the common responses and errors.
 
  
 
-  
+
 [2]:  /api-reference/expense/expense-report/reports.html
 [3]:  /api-reference/expense/expense-report/post-report-exceptions.html
-[5]:  http://forum.developer.concur.com/
 [7]:  https://developer.concur.com/api-documentation/core-concepts
 [9]:  /api-reference/callouts/delete-notification.html
 [10]: /api-reference/callouts/get-notifications-status.html
@@ -120,4 +119,3 @@ Refer to the [HTTP Codes][16] page for details of the common responses and error
 [13]: /callouts/event-notification#responses
 [14]: https://github.com/concurtech
 [16]: /tools-support/reference/http-codes.html
-

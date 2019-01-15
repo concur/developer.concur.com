@@ -68,7 +68,7 @@ _Select_ **Sign in with Concur** _from the site login menu_
 
 
  ![login screen sample](sign_in_with_concur_images/login_screen_sample.png)
- 
+
 
 _Pick Authentication Option_
 
@@ -76,7 +76,7 @@ Single-sign on users can utilize the "Send a link to my email" option.
 
 
  ![sign in](sign_in_with_concur_images/authorization_grant_sign_in.png)
- 
+
 
 _If the user selects "One-time Link":_
 
@@ -84,13 +84,13 @@ _Enter Email address_
 
 
  ![sign in email option](sign_in_with_concur_images/authorization_grant_sign_in_email.png)
- 
+
 
 _Confirmation page_
 
 
  ![email confirmation](sign_in_with_concur_images/authorization_grant_email_confirmation.png)
- 
+
 
 _Email example_
 
@@ -137,10 +137,10 @@ The first script adds the Concur style library to your page and the second appli
 
 
 
-Clicking this button renders the Sign in with Concur screen which presents two options to the user for signing in: 
-1) using Concur credentials 
-OR 
-2) using a link sent via email. 
+Clicking this button renders the Sign in with Concur screen which presents two options to the user for signing in:
+1) using Concur credentials
+OR
+2) using a link sent via email.
 
 Option 2 is designed for users who do not want to use passwords or those that do not have passwords such as Single Sign On (SSO) users.
 
@@ -209,7 +209,7 @@ https://us.api.concursolutions.com/profile/v1/me
 ```
 
 
-The response from the Profile service will be a compact version of the User profile. The schema can be found [here](/api-reference/profile-beta/user.json).
+The response from the Profile service will be a compact version of the User profile. The schema can be found [here](/api-reference/profile/user.json).
 
 **5. Create user's account and log user into partner application immediately for a seamless user experience.**
 
@@ -303,7 +303,7 @@ Depending on the products the customer has enabled, integrations and features av
   - Non-Triplink Access:
     - Travel Profile
     - E-receipt
-- Expense Only Access:* 
+- Expense Only Access:*
   - E-receipt
 
 \* Special Note: For TripLink Suppliers that support the [Travel Receipts API](/api-reference/travel-receipts/getting-started.html), this API does not support Expense only users. It is recommended that e-receipts be posted for these or all users via the [Receipts API](/api-reference/receipts/get-started.html).

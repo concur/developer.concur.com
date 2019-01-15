@@ -1,5 +1,5 @@
 ---
-title: Payment Batches v1.1
+title: Payment Batches
 layout: reference
 ---
 
@@ -7,18 +7,18 @@ layout: reference
 # Payment Batches
 The Payment Batch File web service provides an automated solution to clients who would like to manage their payment batches and collect their batch files.
 
-
 * [Retrieve the list of payment batches](#getpaymentbatches)
-* [Close a payment batch](#closepaymentbatch)
+* [Close a payment batch asynchronously](#closepaymentbatch)
+* [Close a payment batch synchronously](#closepaymentbatchsync)
 * [Retrieve a payment batch file](#getbatchfile)
 * [Error Messages](#errormessages)
 
-### Version
+## Product and Edition
 
-* 1.1 for GET methods  
-* 1.2 for POST method
+Concur Expense Standard Edition
+> **NOTE**: For Concur Expense Professional Edition, use [Extracts v1 API](https://developer.concur.com/api-reference/common/extracts/v1.extracts.html)
 
-## <a name="getpaymentbatches"></a>Retrieve the list of payment batches
+## <a name="getpaymentbatches"></a>Retrieve the List of Payment Batches
 
 Retrieves the list of payment batches with an optional requested status.
 
@@ -43,15 +43,18 @@ Name|Type|Format|Description
 `Currency`|`string`|-|The [3-letter ISO 4217 currency code](http://en.wikipedia.org/wiki/ISO_4217) for the batch.
 `Count`|`string`|-|The number of payment demands in the batch.
 `Type`|`string`|-|The payee of the batch. Either Employee or Card Program.
-`PaymentMethod`|`string`|-|The reimbursement method for the batch. Either Expense Pay by Concur, Company Check (via Accounts Payable), ADP (via EPIP file), or Other Reimbursement Methods.
+`PaymentMethod`|`string`|-|The reimbursement method for the batch. Either Expense Pay by SAP Concur, Company Check (via Accounts Payable), ADP (via EPIP file), or Other Reimbursement Methods.
 `Batch-URL`|`string`|-|The URL to use as a basis for other actions, such as closing the batch.
 
-## <a name="closepaymentbatch"></a>Close a payment batch
+## <a name="closepaymentbatch"></a>Close a Payment Batch Asynchronously
+### Version 1.2
 
-This request closes the specified batch, preventing any new expenses from entering it. After the batch closes, Concur creates the batch file containing the expense transaction information. If a batch ID for an already closed batch is sent, Concur regenerates the batch file for the specified batch.
+This asynchronous request schedules closing of the specified batch, preventing any new expenses from entering it. After the batch closes, you can use Close Payment Batch v1.1 to get the `File-Url` to download the file containing the expense transaction information. 
+
+> **Note**: You can check batch status using the Retrieve the List of Payment Batches method.
 
 ```
-POST /expense/paymentbatch/v1.2/batch/{BatchID}/closed
+POST /expense/paymentbatch/v1.2/batch/{BatchID}/close
 ```
 
 ### Parameters
@@ -59,7 +62,34 @@ POST /expense/paymentbatch/v1.2/batch/{BatchID}/closed
 Name|Type|Format|Description
 ---|---|---|---
 `BatchID`|`string`|-|**Required.** The unique identifier for the batch.
-`close`|`string`|-|**Required.** The close keyword
+`close`|`string`|-|**Required.** The close keyword.
+
+### Response
+
+Name|Type|Format|Description
+---|---|---|---
+`Status`|`string`|-|The status of the request to close the batch.
+`JobQueueKey`|`string`|-|The unique identifier for the batch job.
+
+## <a name="closepaymentbatchsync"></a>Close a Payment Batch Synchronously
+### Version 1.1
+
+This request synchronously closes the batch preventing any new expenses from entering it. After the batch closes, SAP Concur creates the batch file containing the expense transaction information. If a batch ID for an already closed batch is sent, SAP Concur regenerates the batch file for the specified batch. 
+
+This synchronous call has a time limit that can be superseded by the time it takes to close the batch. It is recommended that you use Close a Payment Batch Asynchronously (v1.2) to close batches, then use this request after the batch is closed to obtain the `File-Url` needed to download the file with the expense transaction information.
+
+> **Note**: You can check batch status using the Retrieve the List of Payment Batches method.
+
+```
+POST /expense/paymentbatch/v1.1/batch/{BatchID}/close
+```
+
+### Parameters
+
+Name|Type|Format|Description
+---|---|---|---
+`BatchID`|`string`|-|**Required.** The unique identifier for the batch.
+`close`|`string`|-|**Required.** The close keyword.
 
 ### Response
 
@@ -68,21 +98,20 @@ Name|Type|Format|Description
 `BatchStatus`|`string`|-|The current status of the specified batch.
 `File-Url`|`string`|-|A URL for retrieving the extract file or files produced when the batch closes, with encrypted ID.
 `Status`|`string`|-|The status of the request to close the batch.
-`JobQueueKey`|`string`|-|The unique identifier for the batch job.
 
-## <a name="getbatchfile"></a>Retrieve a payment batch file
+## <a name="getbatchfile"></a>Retrieve a Payment Batch File
 
 Requests the expense transaction data for the specified payment batch.
 
 ```
-GET /expense/paymentbatch/v1.1/batch/_{BatchID}_/file
+GET /expense/paymentbatch/v1.1/batch/{JobRunKey}/file
 ```
 
 ### Parameters
 
 Name|Type|Format|Description
 ---|---|---|---
-`BatchID`|`string`|-|**Required.** URI Source: The URI is returned in the Batch-URL element of the Get List of Payment Batches function. Do not use the BatchID value from the Get List of Payment Batches function in the URI, as it contains the unencrypted batch ID.
+`JobRunKey`|`string`|-|**Required.**  The `File-Url` element returned by the Close Batches 1.1 API response contains the encrypted JobRunKey. In practice, you can use the `File-Url` whole value to download the file.
 
 ### Response
 
@@ -90,17 +119,13 @@ This request will return the expense transaction data in text/csv format if ther
 
 ## <a name="errormessages"></a>Error Messages
 
-### Error Messages
-
 Error Number|Description
 ---|---
 `500`|The batch you attempted to close does not contain any reports. If you recently approved reports for payment, wait 30 minutes and try again.
 
 ## <a name="erp-integration"></a>Enterprise Resource Planning Integration
 
-For the purposes of ERP integration this API is available to Standard Edition. For Professional Edition use [Extracts v1 API ERP Integration](/api-reference/common/extracts/v1.extracts.html#erp-integration).
-
-Before you begin, you need to close the Payment Manager batch using the appropriate API’s in order for you to retrieve the files using the API below. Ask your client not to close the batch manually through the User Interface.
+Before you begin, you need to close the Payment Manager batch in order for you to retrieve the files using this API. Ask your client not to close the batch manually through the user interface.
 
 1. Obtain a list of your client’s batches by using [Get list of batches](#getpaymentbatches)
 1. Close the desired batch by using [Close a payment batch](#closepaymentbatch)

@@ -88,8 +88,6 @@
         url: /api-reference/direct-connects/hotel/post-reservation-query.html
       - title: Post a reservation update
         url: /api-reference/direct-connects/hotel/post-reservation-update.html
-      - title: Hotel Direct Connect 2.0
-        url: /api-reference/direct-connects/hotel-service.html
 - title: "Direct Connect: Hotel Service 2"
   url: ''
   children:
@@ -124,8 +122,8 @@
         url: /api-reference/expense/allocations/expense-allocations.html
       - title: Attendee Types v3
         url: /api-reference/expense/attendee-types/v3.attendee-types.html
-      - title: Attendees
-        url: /api-reference/expense/attendees/
+      - title: Attendees v3
+        url: /api-reference/expense/attendees/v3.attendees.html
       - title: Digital Tax Invoices
         url: /api-reference/expense/digital-tax-invoices/digital-tax-invoice.html
       - title: Company Card Transactions
@@ -159,7 +157,7 @@
       - title: Payment Batches v1.1
         url: /api-reference/expense/payment-batch/v1.payment-batches.html
       - title: Quick Expense
-        url: /api-reference/expense/quick-expense/
+        url: /api-reference/expense/quick-expense/index.html
 - title: Receipt Image
   url: /api-reference/image/
 - title: Insights
@@ -178,6 +176,10 @@
         url: /api-reference/invoice/v3.payment-request.html
       - title: Purchase Orders v3
         url: /api-reference/invoice/v3.purchase-order.html
+      - title: Purchase Request v4 - Get Started
+        url: /api-reference/invoice/v4.purchase-request-get-started.html
+      - title: Purchase Request v4 - Endpoints
+        url: /api-reference/invoice/v4.purchase-request-endpoints.html
       - title: Purchase Orders Receipt v3
         url: /api-reference/invoice/v3.purchase-order-receipt.html
       - title: Sales Tax Validation v3
@@ -220,17 +222,17 @@
 - title: Travel
   url: ''
   children:
-      - title: Itinerary Web Service (TMC/Third-Party)
-        url: /api-reference/travel/itinerary-tmc-thirdparty/
-      - title: Booking
-        url: /api-reference/travel/itinerary/booking/booking-resource.html
-      - title: Itinerary Service
-        url: /api-reference/travel/itinerary/itinerary.html
-      - title: Trips
-        url: /api-reference/travel/itinerary/trip/trip-resource.html
       - title: Travel Services
         url: /api-reference/travel/travel.html
+      - title: Itinerary API – Overview & Getting Started
+        url: /api-reference/travel/itinerary/itinerary.html
+      - title: Itinerary API Usage
+        url: /api-reference/travel/itinerary-tmc-thirdparty/index.html
+      - title: Trip Endpoint
+        url: /api-reference/travel/itinerary/trip/trip-resource.html
+      - title: Booking Endpoint
+        url: /api-reference/travel/itinerary/booking/booking-resource.html
 - title: User
-  url: /api-reference/user/
+  url: /api-reference/user/index.html
 - title: Deprecated
   url: /api-reference/deprecated.html
