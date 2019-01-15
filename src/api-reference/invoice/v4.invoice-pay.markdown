@@ -300,6 +300,7 @@ Name | Type | Format | Description
 `addressLine2`|`string`|-|Vendor Address line 2. Maximum 255 characters.
 `addressLine3`|`string`|-|Vendor Address line 3. Maximum 255 characters.
 `city`|`string`|-|Vendor Address City. Maximum 255 characters.
+`state`|`string`|-|Vendor Address State. Maximum 10 characters.
 `countryCode`|`string`|-|Vendor Address Country Code. Maximum 2 characters.
 `countryName`|`string`|-|Vendor Address Country Name. Maximum 64 characters.
 `postalCode`|`string`|-|Vendor Address Postal Code. Maximum 20 characters.
