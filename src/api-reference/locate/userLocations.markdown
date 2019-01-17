@@ -32,7 +32,7 @@ This API supports POST only.
 
 1. [Obtain a client ID, secret and sandbox environment](/manage-apps/partner-applications.html) if you don't already have one.
 2. Obtain your [Source partner](#sourcePartner) information. This will be provided along with your application credentials.
-3. This API supports all Valid JWTs specifically client_credentials grant. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html) for details. Your sandbox will be configured to accept posts from your application.
+3. This API supports all valid authorization tokens, specifically those with the client_credentials grant. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html) for details. Your sandbox will be configured to accept posts from your application.
 
 
 ## Service Details
@@ -184,10 +184,10 @@ Empty|7160986233
 JP|800122334
 81|800122334
 
-* When mobileCountryCode is non-blank it will validate the mobile number against that country’s market. It will accept the country letters (in this case JP) or the country code (in this case 81)
-* When mobileCountryCode is blank, it will default to the client country (client id defined in the client section of the JSON)
-* Mobile is validated against the mobileCountryCode or default country (as mentioned in point 1 above) if this field is blank. When a mobile number is provided there are no issues as long as it follows the appropriate format and is a valid mobile in the country where it is registered. For e.g If the mobileCountryCode provided in the JSON is 81 (JP - Japan) then the subsequent mobile number must be valid in JP. 
-* If the mobileCountryCode is not provided in the JSON and the client country is US then the mobile number provided must be valid in US because of the default behaviour mentioned above.
+* When `mobileCountryCode` is non-blank it will validate the mobile number against that country’s market. It will accept the country letters (in this case JP) or the country code (in this case 81)
+* When `mobileCountryCode` is blank, it will default to the client country (client id defined in the client section of the JSON)
+* Mobile is validated against the `mobileCountryCode` or default country (as mentioned in point 1 above) if this field is blank. When a mobile number is provided there are no issues as long as it follows the appropriate format and is a valid mobile in the country where it is registered. For e.g If the `mobileCountryCode` provided in the JSON is 81 (JP - Japan) then the subsequent mobile number must be valid in JP. 
+* If the `mobileCountryCode` is not provided in the JSON and the client country is US then the mobile number provided must be valid in US because of the default behaviour mentioned above.
 
 ### Request
 ###### Cancel request with location field
