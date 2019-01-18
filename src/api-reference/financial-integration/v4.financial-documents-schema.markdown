@@ -49,7 +49,7 @@ Name|Type|Format|Description
 `isTest`|Alphanumeric|-|Signifies if this report belongs to a test user in system.
 `ledgerCode`|Alphanumeric|-|External accounting system ID. Maximum length 20 characters.
 `payrollPayIndicator`|Alphanumeric|-|  This field indicates whether the expense group the report user belongs to is configured to reimburse employees using Payroll.
-`payrollPaymentClearingAccountCode`|Alphanumeric|-|  SAP customers who reimburse their employees via Payroll need to capture a payroll clearing account code as part of the accounting entry during the financial posting process.
+`payrollPaymentClearingAccountCode`|Alphanumeric|-|SAP customers who reimburse their employees via Payroll need to capture a payroll clearing account code as part of the accounting entry during the financial posting process.
 `reportCreationDate`|-|-|Date the report was created. Format: yyyy-mm-dd.
 `reportCustom1Code` through `reportCustom20Code`|CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. The seventh segment (if necessary) in the fully qualified GL string should use Custom1, except the natural account field; the natural account data is stored in column 167 of the SAE. Maximum length 48 characters.
 `reportCustom1Value` through `reportCustom20Value`| CustomField|-|The details from the custom fields. These fields may not have data, depending on the configuration. If configured as a list, this field contains the name of the list item. Maximum length 64 characters.
@@ -182,7 +182,7 @@ Name|Type|Format|Description
 `revisionNumber`|-|-|Invoice revision number. Default value is 1.
 `submitDate`|Date|-|Date/time the employee submitted the invoice for approval. Format: yyyy-mm-dd.
 `vendorInvoiceNumber`|String|-|The invoice number assigned by the vendor. Maximum length 50 characters.
-`versionId`|String|-|The version of the FI Document, which is the same as the version of the API endpoint."
+`versionId`|String|-|The version of the FI Document, which is the same as the version of the API endpoint.
 
 ### <a name="scinvown"></a>Invoice - ownerEmployee
 
