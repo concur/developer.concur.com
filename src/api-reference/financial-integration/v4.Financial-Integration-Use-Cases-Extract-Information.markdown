@@ -14,7 +14,7 @@ layout: reference
   * [Travel Allowances: Company Specific Rate Greater Than Government Rate](#etacsrg)
 * [VAT Handling](#evh)
   * [Expense Posting With Single Tax Item](#eepwst)
-* [Cash Advances](#eca)  * [Paid Cash](#epc)
+* [Cash Advances](#eca)
   * [Paid Cash](#epc)
   * [Credit Card](#ecc)
   * [Cash Advance Is Lower Than the Payout Amount](#ecailt)
