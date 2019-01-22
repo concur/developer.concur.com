@@ -315,11 +315,11 @@ Name|Type|Format|Description
 `exchangeRate`|Numeric|-|Rate used to convert from the report entry (spend) currency to the report (reimbursement) currency. Maximum length 23 characters.
 `expensePayIndicator`|Alphanumeric|-|Indicates whether Expense Pay reimbursed this journal entry. Either: 1 = Expense Pay or blank = **not** Expense Pay.
 `issuedDate`|Date|-|Date of issue. Format: yyy-mm-dd.
-`isTest`|-|-|-
+`isTest`|-|-|Signifies if this report belongs to a test user in system.
 `locationName`|Alphanumeric|-|The report entry location name (for example, city name.
 `name`|Alphanumeric|-|Cash advance request name. Maximum length 40 characters.
 `paymentMethod`|Alphanumeric|-|The method used, either Expense Pay or Other, used for disbursement of the cash advance. Either: 0 = Non-Expense Pay method used for disbursement or 1 = Expense Pay method used for disbursement.
-`purpose`|Alphanumeric|-|-
+`purpose`|Alphanumeric|-|Describes the purpose of cash advance issued.
 `requestAmount`|Money|-|For issue journal record, the total amount of the cash advance in the cash advance transaction currency. Format: Maximum 23 digits to the left of the decimal; maximum 8 digits to the right of the decimal; with a maximum of 23 digits for the entire field.
 `requestDate`|Date|-|Date of cash advance request from the detailed cash advance record. Format: yyyy-mm-dd.
 `requestedDisbursementDate`|Date|-|Cash advance disbursement date. Format: yyyy-mm-dd.

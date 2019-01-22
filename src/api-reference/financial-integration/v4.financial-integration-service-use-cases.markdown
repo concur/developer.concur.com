@@ -81,7 +81,7 @@ Account|Debit|Credit
 Expense|USD 10|-
 Employee Vendor|-|USD 10
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#esopce)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#esopce)
 
 #### JSON Example
 
@@ -168,7 +168,7 @@ Account|Debit|Credit
 Expense|-|USD 50
 Employee Vendor|USD 50|-
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#esopcc)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#esopcc)
 
 #### JSON Example
 
@@ -224,7 +224,7 @@ Account|Debit|Credit
 Expense|USD 21.70|-
 Employee Vendor|-|USD 21.70
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#espcme)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#espcme)
 
 #### JSON Example
 
@@ -259,7 +259,7 @@ Employee Vendor|-|USD 21.70
 
 A German traveler receives meal per diems that are higher the legal rates. In this case he gets EUR 50 instead of EUR 24 for a full day.
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#etacsrg)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#etacsrg)
 
 #### Posting Example
 
@@ -320,7 +320,7 @@ Expense|EUR 10|-
 VAT|EUR 1.90|-
 Employee Vendor|-|EUR 11.90
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#eepwst)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eepwst)
 
 ## <a name="undv"></a>Non-Deductible VAT
 
@@ -538,16 +538,12 @@ For a hotel receipt of EUR 214 (including 7% - EUR 14 VAT) the costs per night s
 
 **Expense Accounts**
 
-> Review table
-
 Debit|Credit
 ---|---
 ER EUR 100|-
 ER EUR 100|-
 
 **VAT Account**
-
-> Review table
 
 Debit|Credit
 ---|---
@@ -615,7 +611,7 @@ Account|Debit|Credit
 Cash Advance Clearing Account|USD 100|-
 Employee Vendor|-|USD 100
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#epc)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#epc)
 
 ### <a name="ucreditc"></a>Credit Card
 
@@ -646,7 +642,7 @@ Account|Debit|Credit
 Cash Advance Clearing Account|USD 300|-
 Credit Card Clearing Account|-|USD 300
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#ecc)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#ecc)
 
 ## <a name="uapp"></a>Application
 
@@ -690,7 +686,7 @@ Expense Account|USD 10|-
 Cash Advance Clearing Account|-|USD 300
 Employee Vendor|-|USD 15
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#ecailt)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#ecailt)
 
 #### JSON Example
 
@@ -899,7 +895,7 @@ Expense Account|USD 10|-
 Cash Advance Clearing Account|-|USD 400
 Employee Vendor|USD 85|-
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#ecaiht)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#ecaiht)
 
 #### JSON Example
 
@@ -1019,7 +1015,7 @@ Account|Debit|Credit
 Expense|USD 10|-
 Credit Card Vendor|-|USD 10
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#epvccva)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#epvccva)
 
 #### JSON Example
 
@@ -1076,7 +1072,7 @@ Account|Debit|Credit
 Expense|-|USD 349
 Credit Card Vendor|USD 349|-
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#ectvcc)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#ectvcc)
 
 #### JSON Example
 
@@ -1137,7 +1133,7 @@ Expense|USD 125|-
 Expense|USD 20|-
 Credit Card Vendor|-|USD 270
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#esiccc)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#esiccc)
 
 #### JSON Example
 
@@ -1211,7 +1207,7 @@ than listed in this example.**
 
 Personal expenses paid by an IBCP credit card will not be included in the JSON.
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#eiwpe)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eiwpe)
 
 ### <a name="uiwpegt"></a>IBCP (With Offsets) With Personal Expense: Out-of-Pocket Greater Than Personal Expense
 
@@ -1255,7 +1251,7 @@ Expense|USD 21|-
 Credit Card Vendor|-|USD 284
 Employee Vendor|-|USD 21
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#eiwoegt)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eiwoegt)
 
 ### <a name="uwpelt"></a>IBCP (With Offsets) With Personal Expense: Out-of-Pocket Less Than Personal Expense
 
@@ -1291,7 +1287,7 @@ Expense|USD 14|-
 Expense|USD 21|-
 Credit Card Vendor|-|USD 275
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#eiwolt)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eiwolt)
 
 ## <a name="ucpcc"></a>Company Paid Credit Card
 
@@ -1396,7 +1392,7 @@ Expense*EUR 100*|-
 |VAT|EUR 7|-
 |CC Vendor Account|-|EUR 107
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#ecvea)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#ecvea)
 
 #### JSON Example
 
@@ -1453,7 +1449,7 @@ Account|Debit|Credit
 Employee Vendor|USD 53|-
 Credit Card Clearing|-|USD 53
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#eccccep)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eccccep)
 
 ### <a name="ucccwoffset"></a>CBCP Corporate Card Charge with Itemization and Personal Expense (Net Due Employee With Offsets)
 
@@ -1495,7 +1491,7 @@ Expense|USD 35|-
 Employee Vendor|-|USD 21
 Credit Card Clearing|-|USD 284
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#eccccwi)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eccccwi)
 
 ### <a name="ucccnoff"></a>CBCP Corporate Card Charge With Itemization and Personal Expense (Net Due Employee Without Offsets)
 
@@ -1539,7 +1535,7 @@ Employee Vendor|-|USD 35
 Employee Vendor|USD 14|-
 Credit Card Clearing|-|USD 284
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#eccccip)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eccccip)
 
 ### <a name="ucccepe"></a>CBCP Corporate Card Charge for Entirely Personal Expense (Net Due Company Without Offsets)
 
@@ -1568,7 +1564,7 @@ Account|Debit|Credit
 Employee Vendor|USD 53|-
 Credit Card Clearing Account|-|USD 53
 
-[Standard Accounting Extract Details](./v4.financial-integration-use-cases-extract-information.html#eccccep)
+[Standard Accounting Extract Details](./v4.Financial-Integration-Use-Cases-Extract-Information.html#eccccep)
 
 ## <a name="udocsp"></a>Document Splits
 
