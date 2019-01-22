@@ -80,7 +80,7 @@ For the expense line: The Payer in this instance is the company; the Payee is th
 Tax data: The appearance of the tax data in the extract is governed by the
 Extract options to either include tax information in the same detail line as the entry on which tax is calculated, or to include it as a separate journal line. In this example Tax is set to appear as a journal line. The Payer is the notional Tax Authority with the Payee as the company (as the reclaimed tax will eventually be paid by the tax authority to the company).
 
-TThe **Journal Amount** on the Tax detail line can be set to either list the amount eligible to reclaim on either the Posted or Adjusted (`reclaim_posted_amount` or `reclaim_adjusted_amount`) . If ‘Adjusted’ the tax reclaim will be calculated on the Approved amount (the approved amount may be lower than the claimed (posted) amount). The Tax source identifies the source of the Tax calculation.
+The **Journal Amount** on the Tax detail line can be set to either list the amount eligible to reclaim on either the Posted or Adjusted (`reclaim_posted_amount` or `reclaim_adjusted_amount`) . If ‘Adjusted’ the tax reclaim will be calculated on the Approved amount (the approved amount may be lower than the claimed (posted) amount). The Tax source identifies the source of the Tax calculation.
 
 The **Tax Code** can also be set to appear in the **Account Code** field on the Tax detail line (instead of the account code), this is shown in this example. The difference between the ‘reclaim’ fields (`reclaim_tax_amount`, `reclaim_posted_amount`, `reclaim_adjusted_amount`) and other tax amount fields (`tax_amount`, `tax_posted_amount`, etc.) is that ‘Reclaim’ indicates that these figures are subject to the Reclaim percentage specified in the Tax configuration. For example: if a reclaim rate is set at 50% the `tax_posted_amount` and the `reclaim_posted_amount` would be GBP 100 and GBP 50 for a calculated **Tax Amount** of GBP 100.
 
@@ -155,7 +155,7 @@ SAP Concur recognizes 3 different types of credit cards:
 
 ### <a name="epvccva"></a>Payment via Credit Card Vendor Account (Split Payment)
 
-The Payer in this instance is the company; the Payee is the corporate card vendor. Since it is not an itemized expense theEntry Transaction Typeis REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. Because this is an IBCP transaction and the payment will be made to the card vendor on behalf of the employee the employee will not receive reimbursement.
+The Payer in this instance is the company; the Payee is the corporate card vendor. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. Because this is an IBCP transaction and the payment will be made to the card vendor on behalf of the employee the employee will not receive reimbursement.
 
 [61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
 ---|---|---|---|---|---|---|---|---|---|---|---|---
@@ -171,7 +171,7 @@ The Payer in this instance is the corporate card vendor; the Payee is the compan
 
 ### <a name="esiccc"></a>Simple IBCP Corporate Card Charge With Itemization
 
-The Payer in this instance is the company; the Payee is the corporate card vendor. Since it is an itemized expense theEntry Transaction Typeis ‘CHD’. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. Because this is an IBCP transaction and the payment will be made to the card vendor on behalf of the employee the employee will not receive reimbursement.
+The Payer in this instance is the company; the Payee is the corporate card vendor. Since it is an itemized expense the **Entry Transaction Type** is ‘CHD’. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. Because this is an IBCP transaction and the payment will be made to the card vendor on behalf of the employee the employee will not receive reimbursement.
 
 [61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
 ---|---|---|---|---|---|---|---|---|---|---|---|---
@@ -181,7 +181,7 @@ The Payer in this instance is the company; the Payee is the corporate card vendo
 
 ### <a name="eiwpe"></a>IBCP With Personal Expense: No Out-of-Pocket
 
-The Payer in this instance is the company; the Payee is the corporate card vendor. Since it is an itemized expense theEntry Transaction Typeis ‘CHD’. Because the payment type is IBCP the personal (non-reimbursable) in-room movie expense is purged from the extract. The remaining expenses are legitimate business expenses, thus the ‘**Is Personal**’ flag is set to ‘N’. Because this is an IBCP transaction and the payment will be made to the card vendor on behalf of the employee the employee will not receive reimbursement.
+The Payer in this instance is the company; the Payee is the corporate card vendor. Since it is an itemized expense the **Entry Transaction Type** is ‘CHD’. Because the payment type is IBCP the personal (non-reimbursable) in-room movie expense is purged from the extract. The remaining expenses are legitimate business expenses, thus the ‘**Is Personal**’ flag is set to ‘N’. Because this is an IBCP transaction and the payment will be made to the card vendor on behalf of the employee the employee will not receive reimbursement.
 
 [61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
 ---|---|---|---|---|---|---|---|---|---|---|---|---
@@ -214,7 +214,7 @@ The Payer for both transactions is the company. The Payee is the corporate card 
 
 ### <a name="ecvea"></a>Clearing via Expense Account
 
-The Payer in this instance is the company; the Payee is Company Paid. It is not an itemized expense thus theEntry Transaction Typeis REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. Because this transaction has already been paid by the Company the employee will not receive reimbursement.
+The Payer in this instance is the company; the Payee is Company Paid. It is not an itemized expense thus the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. Because this transaction has already been paid by the Company the employee will not receive reimbursement.
 
 [61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
 ---|---|---|---|---|---|---|---|---|---|---|---|---
