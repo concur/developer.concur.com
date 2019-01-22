@@ -36,7 +36,7 @@ Note:The extract file excerpts in this document are a reference point for those 
 
 ### <a name="esopce"></a>Simple Out-of-Pocket Cash Expense
 
-The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense theEntry Transaction Typeis REG. Because it is a legitimate business expense the ‘Is Personal’ flag is set to ‘N’. The employee will be reimbursed for this transaction.
+The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the **‘Is Personal’** flag is set to ‘N’. The employee will be reimbursed for this transaction.
 
 [61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type|
 ---|---|---|---|---|---|---|---|---|---|---|---|---
@@ -44,7 +44,7 @@ The Payer in this instance is the company; the Payee is the employee. Since it i
 
 ### <a name="esopcc"></a>Simple Out-of-Pocket Cash Credit
 
-The Payer in this instance is the employee; the Payee is the company. Since it is not an itemized expense theEntry Transaction Typeis REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The company will be reimbursed for this transaction.
+The Payer in this instance is the employee; the Payee is the company. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The company will be reimbursed for this transaction.
 
 [61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type|
 ---|---|---|---|---|---|---|---|---|---|---|---|---
@@ -52,7 +52,7 @@ The Payer in this instance is the employee; the Payee is the company. Since it i
 
 ### <a name="espcme"></a>Simple Personal Car Mileage Expense
 
-The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense theEntry Transaction Typeis REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The employee will be reimbursed for this transaction.
+The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The employee will be reimbursed for this transaction.
 
 [61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type|
 ---|---|---|---|---|---|---|---|---|---|---|---|---
@@ -60,7 +60,7 @@ The Payer in this instance is the company; the Payee is the employee. Since it i
 
 ### <a name="etacsrg"></a>Travel Allowances: Company Specific Rate Greater Than Government Rate
 
-The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense theEntry Transaction Typeis REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The employee will be reimbursed for this transaction.
+The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The employee will be reimbursed for this transaction.
 
 The report entry item will be split into two Journal entry items: first item: amount up to the legal limit, second item: amount above the legal limit.
 
@@ -75,14 +75,14 @@ The report entry item will be split into two Journal entry items: first item: am
 
 #### Extract Details
 
-For the expense line: The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense theEntry Transaction Typeis REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The employee will be reimbursed for this transaction. TheTax Codewill also appear on this detail line along with the Tax Authority details (label and name).
+For the expense line: The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The employee will be reimbursed for this transaction. The **Tax Code** will also appear on this detail line along with the Tax Authority details (label and name).
 
 Tax data: The appearance of the tax data in the extract is governed by the
 Extract options to either include tax information in the same detail line as the entry on which tax is calculated, or to include it as a separate journal line. In this example Tax is set to appear as a journal line. The Payer is the notional Tax Authority with the Payee as the company (as the reclaimed tax will eventually be paid by the tax authority to the company).
 
-TheJournal Amounton the Tax detail line can be set to either list the amount eligible to reclaim on either the Posted or Adjusted (`reclaim_posted_amount` or `reclaim_adjusted_amount`) . If ‘Adjusted’ the tax reclaim will be calculated on the Approved amount (the approved amount may be lower than the claimed (posted) amount). The Tax source identifies the source of the Tax calculation.
+TThe **Journal Amount** on the Tax detail line can be set to either list the amount eligible to reclaim on either the Posted or Adjusted (`reclaim_posted_amount` or `reclaim_adjusted_amount`) . If ‘Adjusted’ the tax reclaim will be calculated on the Approved amount (the approved amount may be lower than the claimed (posted) amount). The Tax source identifies the source of the Tax calculation.
 
-TheTax Codecan also be set to appear in theAccount Codefield on the Tax detail line (instead of the account code), this is shown in this example. The difference between the ‘reclaim’ fields (`reclaim_tax_amount`, `reclaim_posted_amount`, `reclaim_adjusted_amount`) and other tax amount fields (`tax_amount`, `tax_posted_amount`, etc.) is that ‘Reclaim’ indicates that these figures are subject to the Reclaim percentage specified in the Tax configuration. For example: if a reclaim rate is set at 50% the `tax_posted_amount` and the `reclaim_posted_amount` would be GBP 100 and GBP 50 for a calculatedTax Amountof GBP 100.
+The **Tax Code** can also be set to appear in the **Account Code** field on the Tax detail line (instead of the account code), this is shown in this example. The difference between the ‘reclaim’ fields (`reclaim_tax_amount`, `reclaim_posted_amount`, `reclaim_adjusted_amount`) and other tax amount fields (`tax_amount`, `tax_posted_amount`, etc.) is that ‘Reclaim’ indicates that these figures are subject to the Reclaim percentage specified in the Tax configuration. For example: if a reclaim rate is set at 50% the `tax_posted_amount` and the `reclaim_posted_amount` would be GBP 100 and GBP 50 for a calculated **Tax Amount** of GBP 100.
 
 |[61] entry_id|[64] Entry Transaction Date|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[226] Tax Authority Label|[227] Tax Amount|[228] Tax Posted Amount|[229] Tax Source|[230] Reclaim Tax Amount|[231] Reclaim Posted Amount|[232] Tax Code|[233] Reclaim Domestic|
 ---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
@@ -95,7 +95,7 @@ TheTax Codecan also be set to appear in theAccount Codefield on the Tax detail l
 
 *Issuance Extract (For reference only. Issuance is not included in the Expense Report FI Document)*
 
-There will be one issuance record for each cash advance issued. The issuance record can be identified by theCash Advance Transaction Typewhich will always be a ‘1’. The Payer is the Company and the Payee is the Employee. TheJournal Amountis a DR transaction in the reimbursement currency. TheCash Advance Amountis the amount of the cash advance in the currency of issuance. TheAccount Codeis the employee cash advance account code, which is an element of the employee profile.
+There will be one issuance record for each cash advance issued. The issuance record can be identified by the **Cash Advance Transaction Type** which will always be a ‘1’. The Payer is the Company and the Payee is the Employee. The **Journal Amount** is a DR transaction in the reimbursement currency. The **Cash Advance Amount** is the amount of the cash advance in the currency of issuance. The **Account Code** is the employee cash advance account code, which is an element of the employee profile.
 
 [61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type|
 ---|---|---|---|---|---|---|---|---|---|---|---|---
@@ -105,7 +105,7 @@ There will be one issuance record for each cash advance issued. The issuance rec
 
 This case will likely manifest itself in two separate extracts (especially if extracts are run daily): the first extract will contain the cash advance issuance and the second extract will contain the application of that cash advance on an expense report. The first extract will contain the data on the ATM withdrawal transaction and will appear in the first scheduled extract after the credit card cash advance transaction has been downloaded from the card vendor. The second extract will contain the transactions to which the cash advance was applied. These transactions will be part of an expense report and will be extracted at the time the expense report is approved for payment.
 
-There will be one issuance record for each ATM cash withdrawal. The issuance record can be identified by theCash Advance Transaction Typewhich will always be a ‘1’. The Payer is the Company and the Payee is the Employee. TheJournal Amountis a DR transaction in the reimbursement currency. TheCash Advance Amountis the amount of the cash advance in the currency of issuance. TheAccount Codeis the clearing account code which was configured for the CBCP corporate card payment type.
+There will be one issuance record for each ATM cash withdrawal. The issuance record can be identified by the **Cash Advance Transaction Type** which will always be a ‘1’. The Payer is the Company and the Payee is the Employee. The **Journal Amount** is a DR transaction in the reimbursement currency. The **Cash Advance Amount** is the amount of the cash advance in the currency of issuance. The **Account Code** is the clearing account code which was configured for the CBCP corporate card payment type.
 
 [61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type|
 ---|---|---|---|---|---|---|---|---|---|---|---|---
@@ -118,7 +118,7 @@ The application phase of this case will generate five records in the standard ex
 The two additional records are unique to an expense report containing a Cash Advance. The system will attempt to recover the cash advance amount from the employee by creating credit records against the cash transactions until the total of the cash advance is recovered. In this example, the first cash advance record (`entry_id` 1243) credits the entire USD 245 of its companion record (`entry_id` 1240). That still leaves USD 55 of the cash advance unrecovered. So another credit record (`entry_id` 1244) in the amount of USD 55 will be created against the next companion cash expense record (`entry_id` 1241). At this point
 the USD 300 cash advance has been recovered. The credit journal amounts have the effect of offsetting the total amount due the employee by the amount of the cash advance.
 
-These offset records will have the following characteristics: the Payer is the employee; the Payee is the company. TheDebit/Creditindicator will always be ‘CR’. TheCash Advance Amountfield will always contain the total of the cash advances applied to the expense report. TheCash Advance Transaction Typewill be a ‘2’. The employee will receive the net of the total cash expenses less the cash advance amount; in this example, USD 22.
+These offset records will have the following characteristics: the Payer is the employee; the Payee is the company. The **Debit/Credit** indicator will always be ‘CR’. The **Cash Advance Amount** field will always contain the total of the cash advances applied to the expense report. The **Cash Advance Transaction Type** will be a ‘2’. The employee will receive the net of the total cash expenses less the cash advance amount; in this example, USD 22.
 
 [61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
 ---|---|---|---|---|---|---|---|---|---|---|---|---
@@ -131,9 +131,9 @@ These offset records will have the following characteristics: the Payer is the e
 
 The application phase of this case will generate seven records in the standard extract file. Three of the records will cover the three cash out-of-pocket transactions. These three transactions are handled in the same way all cash, out-of-pocket transactions are handled (Simple Out-of-Pocket Cash Expense).
 
-The four additional records are unique to an expense report containing a Cash Advance. The system will attempt to recover the cash advance amount from the employee by creating credit records against the cash transactions until the total of the cash advance is recovered. In this example, since the total of all expenses does not equal or exceed the cash advance amount, all three expense records have a corresponding offset credit. That still leaves the user USD 78 short. TheCash Advance Returnrecord in the amount of a USD 78 credit nets the cash advance amount to zero.
+The four additional records are unique to an expense report containing a Cash Advance. The system will attempt to recover the cash advance amount from the employee by creating credit records against the cash transactions until the total of the cash advance is recovered. In this example, since the total of all expenses does not equal or exceed the cash advance amount, all three expense records have a corresponding offset credit. That still leaves the user USD 78 short. The **Cash Advance Return** record in the amount of a USD 78 credit nets the cash advance amount to zero.
 
-These offset records will have the following characteristics: the Payer is the employee; the Payee is the company. TheDebit/Creditindicator will always be ‘CR’. TheCash Advance Amountfield will always contain the total of the cash advances applied to the expense report. TheCash Advance Transaction Typewill be a ‘2’. The employee will receive the net of the total cash expenses less the cash advance amount and in the case of a net due to company the employee will be required to submit aCash Advance Returnto retire the balance owed; in this example, USD 78.
+These offset records will have the following characteristics: the Payer is the employee; the Payee is the company. The **Debit/Credit** indicator will always be ‘CR’. The **Cash Advance Amount** field will always contain the total of the cash advances applied to the expense report. The **Cash Advance Transaction Type** will be a ‘2’. The employee will receive the net of the total cash expenses less the cash advance amount and in the case of a net due to company the employee will be required to submit a **Cash Advance Return** to retire the balance owed; in this example, USD 78.
 
 [61] entry_id|[64] Entry Transaction Date|[70] Vendor Name|[63] Expense Type|[68] Is Personal|[62] Entry Transaction Type|[163] Payer Payment Type|[165] Payee Payment Type|[169] Journal Amount|[168] Debit Credit|[167] Account Code|[177] Cash Advance Amount|[185] Cash Advance Transaction Type
 ---|---|---|---|---|---|---|---|---|---|---|---|---
