@@ -5,7 +5,7 @@ layout: reference
 
 {% include prerelease.html %}
 
-The extract file excerpts in this document are a reference point for those developers who have used those files for prior financial integrations. This excerpt is intended to help those developers transition from an extract file to the Financial Integration Service. This allows you to identify what you have been using from the Extract File and to locate the same data in the new JSON response. If you have not used the extract file previously, the Extract file excerpts can be skipped.
+**Note**: The extract file excerpts in this document are a reference point for those developers who have used those files for prior financial integrations. This excerpt is intended to help those developers transition from an extract file to the Financial Integration Service. This allows you to identify what you have been using from the Extract File and to locate the same data in the new JSON response. If you have not used the extract file previously, the Extract file excerpts can be skipped.
 
 * [Simple Expense Posting Without Tax](#esepwt)
   * [Simple Out-of-Pocket Cash Expense](#esopce)
