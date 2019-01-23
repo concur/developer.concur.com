@@ -41,10 +41,6 @@ Name|Description|Endpoint
 `invoice.providerpayment.write`|Read access to pending payments, and write access to payment status|GET,POST
 `company.read`|Required to get the SAP Concur company identifier|GET
 
-## <a name="dependencies"></a>Dependencies
-
-The Concur Invoice client must have purchased and configured Invoice Pay to use this API.
-
 ## <a name="access-token-usage"></a>Access Token Usage
 
 This API supports only Company access tokens.
