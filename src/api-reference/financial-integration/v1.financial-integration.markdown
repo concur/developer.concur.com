@@ -17,6 +17,8 @@ Below are some benefits for using the Financial Integration service:
 * Opportunity to modify and retry before the object is locked in SAP Concur.
 * Ensures data sync between systems.
 
+## Contents
+
 * [Financial Integration Service Use Cases](/api-reference/financial-integration/v4.financial-integration-service-use-cases.html)
 * [Products and Editions](#products-editions)
 * [Scope Usage](#scope-usage)
