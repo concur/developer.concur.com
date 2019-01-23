@@ -32,7 +32,7 @@ This API supports POST only.
 
 1. [Obtain a client ID, secret and sandbox environment](/manage-apps/partner-applications.html) if you don't already have one.
 2. Obtain your [Source partner](#sourcePartner) information. This will be provided along with your application credentials.
-3. This API supports all Valid JWTs whether they be company level, password grants or client_credentials grant. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html) for details. Your sandbox will be configured to accept posts from your application.
+3. This API supports all valid authorization tokens, specifically those with the client_credentials grant. Read the [Getting Started](/api-reference/authentication/getting-started.html) section of [Authentication API](/api-reference/authentication/apidoc.html) for details. Your sandbox will be configured to accept posts from your application.
 
 
 ## Service Details
@@ -177,14 +177,20 @@ error codes.
 
 ### Mobile and Mobile Country Code valid combinations
 Example with Country code for South Africa (Country Code:ZA)
+
 Country Code|Mobile Number
 ---|---
 Empty|7160986233
-US|2125553423
-ZA|716098992
+JP|800122334
+81|800122334
+
+* When `mobileCountryCode` is non-blank it will validate the mobile number against that country’s market. It will accept the country letters (in this case JP) or the country code (in this case 81)
+* When `mobileCountryCode` is blank, it will default to the client country (client id defined in the client section of the JSON)
+* Mobile is validated against the `mobileCountryCode` or default country (as mentioned in point 1 above) if this field is blank. When a mobile number is provided there are no issues as long as it follows the appropriate format and is a valid mobile in the country where it is registered. For e.g If the `mobileCountryCode` provided in the JSON is 81 (JP - Japan) then the subsequent mobile number must be valid in JP. 
+* If the `mobileCountryCode` is not provided in the JSON and the client country is US then the mobile number provided must be valid in US because of the default behaviour mentioned above.
 
 ### Request
-
+###### Cancel request with location field
 ```shell
 POST https://{baseURI}/locate/api/v1/user/locations
 Content-Type: application/json
@@ -260,7 +266,270 @@ content-type: application/json
 ```json
 {
     "processedTransactions": {
-        "Nui-API" : "Successfully Processed"
+        "AAAAAA" : "Successfully Processed"
+    },
+    "unprocessedTransactions": {
+        "AWS4e-N1QaN-swer-456": "Transaction type not found"
+    }
+} 
+```
+
+### Request
+###### Cancel request without location field
+```shell
+POST https://{baseURI}/locate/api/v1/user/locations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "userLocations": [
+    {
+      "client": {
+        "id": "UL_CLI",
+        "firstSubLevel": "",
+        "secondSubLevel": ""
+      },
+      "users": [
+        {
+          "userId": 22,
+          "firstName": "Test",
+          "lastName": "TEST3",
+          "email": "test.test3@abcd.com",
+          "employeeId": "abc333",
+          "mobileCountryCode": "",
+          "mobile": "+(27)7160981138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        }
+      ],
+      "sourcePartner": {
+        "id": "SP",
+        "name": "Source Partner",
+        "description": "Source Partner"
+      },
+      "transaction": {
+        "transactionId": "AAAAAA",
+        "createdDate": "2018-08-06T12:05",
+        "transactionType": "Cancel"
+      }
+    }
+  ]
+}
+```
+
+### Response
+
+```shell
+200 OK
+date: Mon, 15 May 2018 14:28:07 GMT
+content-length: 20
+content-type: application/json
+```
+
+```json
+{
+    "processedTransactions": {
+        "AAAAAA" : "Successfully Processed"
+    },
+    "unprocessedTransactions": {
+        "AWS4e-N1QaN-swer-456": "Transaction type not found"
+    }
+} 
+```
+
+### Request
+###### Add request
+
+```shell
+POST https://{baseURI}/locate/api/v1/user/locations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "userLocations": [
+    {
+      "client": {
+        "id": "UL_CLI",
+        "firstSubLevel": "",
+        "secondSubLevel": ""
+      },
+      "users": [
+        {
+          "userId": 22,
+          "firstName": "Test",
+          "lastName": "TEST3",
+          "email": "test.test3@abcd.com",
+          "employeeId": "abc333",
+          "mobileCountryCode": "27",
+          "mobile": "7160981138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        },
+        {
+          "userId": 23,
+          "firstName": "Test",
+          "lastName": "TEST4",
+          "email": "test.test4@abcd.com",
+          "employeeId": "abc334",
+          "mobileCountryCode": "US",
+          "mobile": "2125551138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        }
+      ],
+      "locations": [
+        {
+          "locationId": 0,
+          "locationAddress": "",
+          "locationName": "SomeLocation",
+          "locationDescription": "",
+          "locationLatitude": "",
+          "locationLongitude": "",
+          "locationIataCode": "LHR",
+          "startDate": "2018-09-01T12:07",
+          "endDate": "2018-09-02T12:07",
+          "timezoneId": "Europe/London",
+          "locationPhone": "",
+          "visitorId": [
+            22,23
+          ]
+        }
+      ],
+      "sourcePartner": {
+        "id": "SP",
+        "name": "Source Partner",
+        "description": "Source Partner"
+      },
+      "transaction": {
+        "transactionId": "ASDFGH",
+        "createdDate": "2018-08-06T12:05",
+        "transactionType": "Add"
+      }
+    }
+  ]
+}
+```
+
+### Response
+
+```shell
+200 OK
+date: Mon, 15 May 2018 14:28:07 GMT
+content-length: 20
+content-type: application/json
+```
+
+```json
+{
+    "processedTransactions": {
+        "ASDFGH" : "Successfully Processed"
+    },
+    "unprocessedTransactions": {
+        "AWS4e-N1QaN-swer-456": "Transaction type not found"
+    }
+} 
+```
+
+### Request
+###### Add request - mobile phone variation
+
+```shell
+POST https://{baseURI}/locate/api/v1/user/locations
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {token}
+```
+
+```json
+{
+  "userLocations": [
+    {
+      "client": {
+        "id": "UL_CLI",
+        "firstSubLevel": "",
+        "secondSubLevel": ""
+      },
+      "users": [
+        {
+          "userId": 22,
+          "firstName": "Test",
+          "lastName": "TEST3",
+          "email": "test.test3@abcd.com",
+          "employeeId": "abc333",
+          "mobileCountryCode": "",
+          "mobile": "+(27)7160981138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        },
+        {
+          "userId": 23,
+          "firstName": "Test",
+          "lastName": "TEST4",
+          "email": "test.test4@abcd.com",
+          "employeeId": "abc334",
+          "mobileCountryCode": "US",
+          "mobile": "2125551138",
+          "optedIn": true,
+          "concurLoginId": "",
+          "affiliation": "Student"
+        }
+      ],
+      "locations": [
+        {
+          "locationId": 0,
+          "locationAddress": "",
+          "locationName": "SomeLocation",
+          "locationDescription": "",
+          "locationLatitude": "",
+          "locationLongitude": "",
+          "locationIataCode": "LHR",
+          "startDate": "2018-09-01T12:07",
+          "endDate": "2018-09-02T12:07",
+          "timezoneId": "Europe/London",
+          "locationPhone": "",
+          "visitorId": [
+            22,23
+          ]
+        }
+      ],
+      "sourcePartner": {
+        "id": "SP",
+        "name": "Source Partner",
+        "description": "Source Partner"
+      },
+      "transaction": {
+        "transactionId": "ASDFGH",
+        "createdDate": "2018-08-06T12:05",
+        "transactionType": "Add"
+      }
+    }
+  ]
+}
+```
+
+### Response
+
+```shell
+200 OK
+date: Mon, 15 May 2018 14:28:07 GMT
+content-length: 20
+content-type: application/json
+```
+
+```json
+{
+    "processedTransactions": {
+        "ASDFGH" : "Successfully Processed"
     },
     "unprocessedTransactions": {
         "AWS4e-N1QaN-swer-456": "Transaction type not found"
