@@ -7,15 +7,15 @@ SAP Concur's new Oauth2 framework is a very simple way to implement a Unified To
 
 **Note:** The Pre-2017 Authorization (Deprecated) documentation can be found [here](/api-reference/authentication/authorization-pre-2017.html)
 
-* [Obtain Your Application clientID and clientSecret](#obtain_clientID)
-* [Obtaining an Access Token](#obtain_accessToken)
-* [Calling an API with the Access Token](#calling_API)
-* [Access Token Expiry and Obtaining a Fresh One](#access_token_expiry)
+* [Obtain Your Application clientID and clientSecret](#obtain-clientID)
+* [Obtaining an Access Token](#obtain-accessToken)
+* [Calling an API with the Access Token](#calling-API)
+* [Access Token Expiry and Obtaining a Fresh One](#access-token-expiry)
 
-## <a name="obtain_clientID"></a>1. Obtain Your Application clientID and clientSecret
+## <a name="obtain-clientID"></a>1. Obtain Your Application clientID and clientSecret
 Before you can obtain an `accessToken`, you need to register an application with SAP Concur. You can do this by contacting your Partner Enablement Manager or Partner Account Manager. Once you have registered an application, you will receive a `clientId`, `clientSecret` and `geolocation`. The `clientId` is a unique UUID4 identifier for your application, and the `clientSecret` is your application's password. You will be using this credential to obtain tokens either for the application itself, or on behalf of a user. The `geolocation` is your default base URI for initiating all new connections.
 
-## <a name="obtain_accessToken"></a>2. Obtaining an Access Token
+## <a name="obtain-accessToken"></a>2. Obtaining an Access Token
 In order for an application to call a SAP Concur API, you need to obtain an `accessToken` on behalf of either a User, Company or Application. There are multiple ways of obtaining an `accessToken` through the various grants ([Password](/api-reference/authentication/apidoc.html#password_grant), [Authorization](/api-reference/authentication/apidoc.html#auth_grant), [Client Credentials](/api-reference/authentication/apidoc.html#client_credentials), [One-time Password](/api-reference/authentication/apidoc.html#otp_grant)) .
 
 
@@ -42,7 +42,7 @@ Full docs: <https://developer.concur.com/api-reference/authentication/apidoc.htm
 
 Store the token and geolocation.
 
-## <a name="calling_API">3. Calling an API with the Access Token
+## <a name="calling-API">3. Calling an API with the Access Token
 Once you have the `accessToken`, you need to supply this in an Authorization header in the form of `Authorization: Bearer <accessToken>` when making a HTTPS call. The `accessToken` is a large string that looks something like this:
 
 ```
@@ -193,7 +193,7 @@ and the response will look like:
 
 Full docs: <https://developer.concur.com/api-reference/user/>
 
-### <a name="access_token_expiry"></a>4. Access Token Expiry and Obtaining a Fresh One
+### <a name="access-token-expiry"></a>4. Access Token Expiry and Obtaining a Fresh One
 Access Tokens have a default __One hour__ lifetime. In order to obtain a fresh `accessToken` you need to call the auth endpoint using the Refresh Grant. This will return a brand new `accessToken` and a `refreshToken`. Refresh Tokens have a default __6 month__ lifetime. Clients will typically store the `refreshToken` together with the other user metadata like login information and unique identifiers.
 
 Utilizing the `geolocation` for the token, here's an example of a cURL call to obtain a new `accessToken`
