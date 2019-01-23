@@ -14,7 +14,8 @@ layout: reference
   * [Travel Allowances: Company Specific Rate Greater Than Government Rate](#etacsrg)
 * [VAT Handling](#evh)
   * [Expense Posting With Single Tax Item](#eepwst)
-* [Cash Advances](#eca)  * [Paid Cash](#epc)
+* [Cash Advances](#eca)
+  * [Paid Cash](#epc)
   * [Credit Card](#ecc)
   * [Cash Advance Is Lower Than the Payout Amount](#ecailt)
   * [Cash Advance Is Higher Than the Payout Amount](#ecaiht)
@@ -73,6 +74,7 @@ The report entry item will be split into two Journal entry items: first item: am
 ### <a name="eepwst"></a>Expense Posting With Single Tax Item
 
 #### Extract Details
+
 For the expense line: The Payer in this instance is the company; the Payee is the employee. Since it is not an itemized expense the **Entry Transaction Type** is REG. Because it is a legitimate business expense the ‘**Is Personal**’ flag is set to ‘N’. The employee will be reimbursed for this transaction. The **Tax Code** will also appear on this detail line along with the Tax Authority details (label and name).
 
 Tax data: The appearance of the tax data in the extract is governed by the
