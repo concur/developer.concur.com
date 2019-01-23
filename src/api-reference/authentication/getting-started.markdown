@@ -3,8 +3,6 @@ title: OAuth2 - Getting Started
 layout: reference
 ---
 
-### Getting Started
-
 SAP Concur's new Oauth2 framework is a very simple way to implement a Unified Token Authentication mechanism within your application. Here is a four step guide to helping you get up to speed and making calls to SAP Concur's API.  
 
 **Note:** The Pre-2017 Authorization (Deprecated) documentation can be found [here](/api-reference/authentication/authorization-pre-2017.html)
@@ -96,11 +94,11 @@ and the response will look like:
     "lastModified": "2016-08-22T14:32:00.000",
     "resourceType": "EnterpriseUser"
   },
-  "displayName": "Taso",
+  "displayName": "Brown",
   "name": {
-    "formatted": "Lyristis, Taso ",
-    "familyName": "Lyristis",
-    "givenName": "Taso",
+    "formatted": "Brown, Terry ",
+    "familyName": "Brown",
+    "givenName": "Terry",
     "middleName": "",
     "honorificPrefix": "",
     "honorificSuffix": ""
@@ -124,7 +122,7 @@ and the response will look like:
     }
   ],
   "com:concur:Employee:1.0": {
-    "employeeId": "taso@taso-sandbox.com",
+    "employeeId": "brown@brown-sandbox.com",
     "jobTitle": "",
     "managerId": null,
     "orgUnitId": null
@@ -184,7 +182,7 @@ and the response will look like:
   "gender": null,
   "emails": [
     {
-      "value": "taso@taso-sandbox.com",
+      "value": "brown@brown-sandbox.com",
       "type": "Business",
       "notifications": true
     }
