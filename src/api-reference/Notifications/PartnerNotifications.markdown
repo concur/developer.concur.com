@@ -1,10 +1,10 @@
-title|layout|
----|---|
-Notification Platform - Partner Notifications API |reference|
-
+---
+title: Notification Platform - Partner Notifications API
+layout: reference
+---
 {% include prerelease.html %}
 
-The purpose of this API is to provide SAP Concur's partners the ability to message users, through the web product.
+The purpose of this API is to provide SAP Concur's partners the ability to message users, through the web and mobile product.
 
 >**Sample use case:** A business traveller starts a travel booking. That user is notified that a visa is required for their trip.
 
@@ -15,8 +15,8 @@ The purpose of this API is to provide SAP Concur's partners the ability to messa
 * [Access Token Usage](#access-token-usage)
 * [Send a message](#send-message)
 * [Schema](#schema)
-  * [Request Payload](#request-schema)
-  * [Error](#schema-error)
+* [Request](#notification)
+* [Error](#schema-error)
 
 ## <a name="process-flow"></a>Process Flow
 
@@ -31,7 +31,7 @@ The purpose of this API is to provide SAP Concur's partners the ability to messa
 
 Name|Description|Endpoint
 ---|---|---
-`notifications.messages.writeonly`|Write messages to the notifications platform|https://us.api.concursolutions.com/notifications/v1/messages/me/session
+`notifications.messages.writeonly`|Write messages to the notifications platform|https://us.api.concursolutions.com/notifications/v1/messages/:user_id/session
 
 ## <a name="dependencies"></a>Dependencies
 
@@ -39,7 +39,7 @@ User Profile Service - Get user information by JWT
 
 ## <a name="access-token-usage"></a>Access Token Usage
 
-A user's JWT token is required for this endpoint.
+A User or Company JWT token is required for this endpoint.
 
 ## <a name="send-message"></a>Send a message
 
@@ -56,7 +56,7 @@ The endpoint provides a way for SAP Concur partners to message users and notify 
 ##### Template
 
 ```shell
-https://us.api.concursolutions.com/notifications/v1/messages/me/session
+https://us.api.concursolutions.com/notifications/v1/messages/:user_id/session
 ```
 
 ##### Parameters
@@ -98,7 +98,7 @@ https://us.api.concursolutions.com/notifications/v1/messages/me/session
 
 #### Headers
 
-* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122)
+* `concur-correlationid` is a Concur specific custom header used for technical support in the form of a [RFC 4122 A Universally Unique IDentifier (UUID) URN Namespace](https://tools.ietf.org/html/rfc4122).
 * [RFC 7231 Content-Type](https://tools.ietf.org/html/rfc7231#section-3.1.1.5)
 * [RFC 7231 Content-Encoding](https://tools.ietf.org/html/rfc7231#section-3.1.2.2)
 * [RFC 7230 Content-Length](https://tools.ietf.org/html/rfc7230#section-3.3.2)
@@ -111,21 +111,26 @@ https://us.api.concursolutions.com/notifications/v1/messages/me/session
 
 ### Example
 
+In this example, the value for the header `concur-correlationid` is the `sessionId`.
+
 #### Request
 
 ```shell
-POST https://us.api.concursolutions.com/notifications/v1/messages/me/session
+POST https://us.api.concursolutions.com/notifications/v1/messages/0E6BD8D8-A020-43C6-BBEC-B67A7021FF1C
+/session
 Accept: application/json
 Authorization: Bearer {JWT}
+content-type: application/json
+concur-correlationid: D5B80C53-A4D2-4949-8462-D41655F246E2
 ```
 
 ```json
 {
-    "sessionId": "D5B80C53-A4D2-4949-8462-D41655F246E2",
-    "message": "template-name",
-    "context": {
-      "url": "https://www.example.com/foo"
-    }
+   "sessionId": "D5B80C53-A4D2-4949-8462-D41655F246E2",
+   "message": "template-name",
+   "context": {
+     "url": "https://www.example.com/foo"
+   }
 }
 ```
 
@@ -133,13 +138,20 @@ Authorization: Bearer {JWT}
 
 ```shell
 HTTP/1.1 200 OK
-Cache-Control: max-age=604800
-Content-Type: application/json
-Date: Wed, 06 Jul 2020 17:33:03 GMT
-Etag: "359670651"
-Expires: Wed, 13 Jul 2020 17:33:03 GMT
-Last-Modified: Fri, 09 Aug 2020 23:54:35 GMT
-Content-Length: 1270
+access-control-allow-credentials: true
+access-control-allow-headers: accept,access-control-allow-origin,authorization,cache-control,content-type,dnt,if-match,if-modified-since,keep-alive,origin,user-agent,x-mx-reqtoken,x-requested-with,concur-correlationid,concur-debug,x-csrf-token,appid,userid,x-token
+access-control-allow-methods: GET, POST, PUT, DELETE, PATCH, OPTIONS
+Access-Control-Allow-Origin: *
+access-control-expose-headers: content-length,concur-correlationid,concur-debug,etag
+Cache-Control: no-cache, no-store, must-revalidate
+concur-correlationid: 848618e7-5747-4970-bda7-fc7baf251f88
+Connection: keep-alive
+Content-Length: 794
+Content-Type: application/json; charset=utf-8
+Date: Thu, 24 Jan 2019 01:31:47 GMT
+ETag: W/"31a-jN1nuHJQV/Csk6EGPrZumg"
+sap-server: 33
+Server: cnqr-Discovery-One
 ```
 
 ```json
@@ -148,7 +160,7 @@ OK
 
 ## <a name="schema"></a>Schema
 
-### <a name="request-schema"></a>Request Payload
+### <a name="notification"></a>Request
 
 Name|Type|Description
 ---|---|---
